@@ -3,6 +3,6 @@ auto: true
 server: true
 server_port: 8080
 source: .
-destination: ../../public
+destination: ../../public/static
 markdown: rdiscount
 pygments: true
