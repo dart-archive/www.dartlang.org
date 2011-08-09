@@ -88,6 +88,36 @@ a:hover { color: #036; }
 
 body {
   font-family: 'Droid Sans', sans-serif;
+  font-size: 1.2em;
+}
+
+nav{
+  clear: both;
+  width: 150px;
+  float: left;
+  display: inline;
+  margin: 0;
+  margin-right: 10px;
+}
+
+nav ul ul {
+  margin-left: 1em;
+}
+
+nav li {
+  margin-bottom: 1em;
+}
+
+nav ul ul {
+  margin-top: 1em;
+}
+
+div#main {
+  width: 900px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  display: inline;
 }
 
 div#container {
@@ -102,10 +132,12 @@ h1 {
 h2 {
   font-size: 2em;
   font-style: italic;
+  margin-bottom: 0.5em;
 }
 
 footer {
   clear: both;
+  font-size: 0.8em;
 }
 
 section#start-here {
@@ -127,7 +159,9 @@ section {
   clear: both;
 }
 
-
+p {
+  margin-bottom: 1em;
+}
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .hidden { display: none; visibility: hidden; }
