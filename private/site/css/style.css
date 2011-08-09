@@ -86,9 +86,24 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Droid Sans', sans-serif;
-  font-size: 1.2em;
+  background-color: #2F4F4F;
+  height: 100%;
+}
+
+div#container {
+  height: 100%;
+  width: 900px;
+  margin: auto;
+  background-color: white;
+  padding: 1em;
+  border-left: 1em solid gray;
+  border-right: 1em solid gray;
 }
 
 nav{
@@ -96,7 +111,7 @@ nav{
   width: 150px;
   float: left;
   display: inline;
-  margin: 0;
+  margin-top: 1em;
   margin-right: 10px;
 }
 
@@ -113,20 +128,17 @@ nav ul ul {
 }
 
 div#main {
-  width: 900px;
+  width: 700px;
   float: left;
   margin: 0;
   padding: 0;
   display: inline;
 }
 
-div#container {
-  margin: 1em;
-}
-
 h1 {
   font-size: 5em;
   font-family: 'Bangers', cursive;
+  letter-spacing: 4px;
 }
 
 h2 {
@@ -138,6 +150,7 @@ h2 {
 footer {
   clear: both;
   font-size: 0.8em;
+  text-align: center;
 }
 
 section#start-here {
