@@ -27,7 +27,8 @@ layout: nil
 <body>
 	<div id="container">
 		<header>
-      <img src="/imgs/spot.png" width="100" style="float:left; margin-right: 1em;">
+		  <div id="plus1"><div class="g-plusone" data-size="standard" data-count="true"></div></div>
+      <img src="/imgs/spot.png" width="100" style="float:left; margin-right: 60px;">
       <h1>Spot</h1>
       <h2>Structured web programming</h2>
 		</header>
@@ -87,5 +88,13 @@ layout: nil
 	<script src="js/dd_belatedpng.js"></script>
 	<script> DD_belatedPNG.fix('img, .png_bg');</script>
 	<![endif]-->
+	
+	<script>
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
 </body>
 </html>

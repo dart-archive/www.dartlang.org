@@ -106,13 +106,16 @@ div#container {
   border-right: 1em solid gray;
 }
 
+header div#plus1 {
+  float: right;
+}
+
 nav{
   clear: both;
-  width: 150px;
+  width: 160px;
   float: left;
   display: inline;
   margin-top: 1em;
-  margin-right: 10px;
 }
 
 nav ul ul {
