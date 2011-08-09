@@ -92,18 +92,34 @@ html {
 
 body {
   font-family: 'Droid Sans', sans-serif;
-  background-color: #2F4F4F;
+  background-color: #081640;
   height: 100%;
 }
 
 div#container {
   height: 100%;
-  width: 900px;
+  width: 1000px;
   margin: auto;
   background-color: white;
+}
+
+header {
+  background-color: #223F59;
+  color: white;
   padding: 1em;
-  border-left: 1em solid gray;
-  border-right: 1em solid gray;
+  
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left 180,
+      color-stop(0.05, rgb(46,46,46)),
+      color-stop(0.64, rgb(34,63,89))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(46,46,46) 27%,
+      rgb(34,63,89) 64%
+  );
 }
 
 header div#plus1 {
@@ -115,7 +131,7 @@ nav{
   width: 160px;
   float: left;
   display: inline;
-  margin-top: 1em;
+  margin: 1.5em;
 }
 
 nav ul ul {
@@ -133,15 +149,16 @@ nav ul ul {
 div#main {
   width: 700px;
   float: left;
-  margin: 0;
+  margin: 1.5em;
   padding: 0;
   display: inline;
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 9em;
   font-family: 'Bangers', cursive;
   letter-spacing: 4px;
+  text-shadow: black 0px 0px 10px;
 }
 
 h2 {
@@ -163,12 +180,24 @@ section#start-here {
 section#start-here a {
   display: block;
   padding: 1.2em;
-  background-color: green;
   color: white;
   border-radius: 10px;
   font-size: 1.5em;
   float: left;
   margin: 1.5em;
+  
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.27, rgb(110,179,36)),
+      color-stop(0.64, rgb(143,215,65))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(110,179,36) 27%,
+      rgb(143,215,65) 64%
+  );
 }
 
 section {
