@@ -1,0 +1,8 @@
+safe: false
+auto: true
+server: true
+server_port: 8080
+source: .
+destination: ../../public
+markdown: rdiscount
+pygments: true
