@@ -3,8 +3,171 @@ layout: default
 title: Getting Started with Spot
 ---
 
-<h1>Getting Started</h1>
+  <style type="text/css">
+    .comment {color:red;}
+  </style>
+
+<h1> Getting Started </h1>
+
+<p>
+Follow this tutorial on a Linux or Mac OS system
+to write and run your first Spot program.
+</p>
+
+<aside>
+<b>Only have Windows?</b>
+Perform <a href="#download">Step 1</a>,
+and then follow its link to your next destination.
+<span class="comment">
+{PENDING: check. make that link real}
+</span>
+</aside>
+
+<ul>
+  <li> <a href="#download">Step 1: Download and install the Spot bundle</a> </li>
+  <li> <a href="#code">Step 2: Create a Spot program</a> </li>
+  <li> <a href="#run">Step 3: Run Spot, run!</a> </li>
+</ul>
 
 <section>
-  Fo shizzle.
+<h2 id="download"> Step 1: Download and install the Spot bundle </h2>
+
+<ol>
+  <li>
+    Download the Spot bundle:
+
+    <p class="comment">
+    {PENDING: big download button goes here; same code as homepage buttons?}
+    </p>
+  </li>
+
+  <li>
+    Unzip the bundle by double-clicking it in a file viewer
+    or by executing a command in a shell window:
+
+<pre>
+mv spot.zip ~/bin
+unzip spot.zip
+</pre>
+  </li>
+
+  <li>
+    Note the location of the <code>dash_bin</code> executable file.
+    For convenience, add its directory to your path
+    or create a shortcut to <code>dash_bin</code>.
+    <span class="comment">
+    {PENDING: check name, location}
+    </span>
+    For example:
+
+<pre>
+{PENDING: START HERE}
+</pre>
+  </li>
+</ol>
+
+<p>
+The Spot bundle contains tools such as:
+</p>
+
+<ul>
+  <li> A <em>compiler</em> that translates Spot to JavaScript </li>
+  <li> An Eclipse-based <em>integrated development environment</em>
+    (<em>IDE</em>) </li>
+  <li> A <em>virtual machine</em> (<em>VM</em>),
+       which you can use to run Spot code
+       without first translating it to JavaScript </li>
+</ul>
+
+<aside>
+<b>Note:</b>
+This tutorial uses only the virtual machine from the bundle,
+to keep things simple.
+Unfortunately, the Spot VM only works on Linux and Mac OS, for now.
+<span class="comment">
+{PENDING: point to more info}
+</span>
+</aside>
+
+<p>
+If you're following this tutorial on Windows,
+skip to the
+<a href="">Hello, DOM</a> tutorial now.
+</section>
+
+
+<section>
+<h2 id="code"> Step 2: Create a Spot program </h2>
+
+<p>
+Create a file named <code>hello.spot</code>
+that contains the following code:
+</p>
+
+<pre>
+class HelloWorld {
+  static void main(arguments) {
+    Logger.println("Hello, World");
+  }
+}
+</pre>
+
+<p>
+This program illustrates a few things about Spot
+that are different from JavaScript:
+</p>
+
+<dl>
+  <dt>
+    Spot is <b>object oriented</b>.
+  </dt>
+  <dd>
+    As a rule, Spot source code has <em>methods</em> in <em>classes</em>,
+    instead of functions.
+    In <code>hello.spot</code>,
+    the <code>HelloWorld</code> class
+    has one method, named <code>main()</code>.
+
+    <aside>
+    <b>Note:</b>
+    If you aren't familiar with object-oriented concepts
+    such as classes, methods, and instances,
+    <span class="comment">{PENDING: help them find a good reference}</span>.
+    </aside>
+
+  </dd>
+  <dt>
+    Spot lets you use <b>types</b>&mdash;but you don't have to.
+  </dt>
+  <dd>
+    In <code>hello.spot</code>,
+    the <code>main()</code> method has the type <code>void</code>,
+    indicating that the method doesn't return a value.
+    However, the <code>arguments</code> parameter has no type
+    (although it could).
+  </dd>
+  <dt>
+    Spot source filenames end in <b><code>.spot</code></b>.
+  </dt>
+  <dd>
+    This tutorial features a Spot source file,
+    but you can also embed Spot code in HTML files.
+    An example of embedding Spot code is in
+    <span class="comment">{PENDING: some example;
+    point to an explanation if/when we have one}</span>.
+  </dd>
+</dl>
+</section>
+
+
+<section>
+<h2 id="run"> Step 3: Run Spot, run! </h2>
+
+<p>
+Now that you have a program, run it in the Spot VM:
+</p>
+
+<ol>
+  <li>  ... </li>
+</ol>
 </section>
