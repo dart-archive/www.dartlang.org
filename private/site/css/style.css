@@ -124,6 +124,15 @@ header {
   position: relative;
 }
 
+#fyeo {
+  background-color: red;
+  color: white;
+  font-style: bold;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+}
+
 header h1, header h2 {
   text-align: center;
 }
