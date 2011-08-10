@@ -108,22 +108,35 @@ header {
   color: white;
   padding: 1em;
   
-  background-image: -webkit-gradient(
+  background-image: url(/imgs/spot.png);
+  
+  background-image: url(/imgs/spot.png), -webkit-gradient(
       linear,
       left bottom,
       left 180,
       color-stop(0.05, rgb(46,46,46)),
       color-stop(0.64, rgb(34,63,89))
   );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(46,46,46) 27%,
-      rgb(34,63,89) 64%
-  );
+  
+
+  background-position: left top;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+header h1, header h2 {
+  text-align: center;
+}
+
+header h2 {
+  position: relative;
+  left: 80px;
 }
 
 header div#plus1 {
-  float: right;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 nav{
