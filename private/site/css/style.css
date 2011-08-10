@@ -139,6 +139,13 @@ header div#plus1 {
   right: 20px;
 }
 
+header h1 {
+  font-size: 9em;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 4px;
+  text-shadow: black 0px 0px 10px;
+}
+
 nav{
   clear: both;
   width: 160px;
@@ -167,17 +174,16 @@ div#main {
   display: inline;
 }
 
-h1 {
-  font-size: 9em;
-  font-family: 'Bangers', cursive;
-  letter-spacing: 4px;
-  text-shadow: black 0px 0px 10px;
-}
-
 h2 {
   font-size: 2em;
   font-style: italic;
   margin-bottom: 0.5em;
+}
+
+article h1 {
+    font-size: 5em;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 4px;
 }
 
 footer {
