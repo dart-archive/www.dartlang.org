@@ -1,6 +1,3 @@
----
-layout: nil
----
 <!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
@@ -11,7 +8,7 @@ layout: nil
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>Spot : Structured web programming</title>
+	<title>{{ page.title }} : Spot : Structured web programming</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
@@ -34,7 +31,7 @@ layout: nil
 		
 		<nav>
 		  <ul>
-		    <li><a href="/docs/getting-started.html">Getting Started</a></li>
+		    <li>Getting Started</li>
 		    <li>Technical Overview</li>
 		    <li>Language and Libraries
 		      <ul>
@@ -48,35 +45,11 @@ layout: nil
 
 		<div id="main" role="main">
 
-      <section>
-        <h2>Intro</h2>
-        <p>
-          Spot is a language, libraries, and VM for structured web programming.
-        </p>
-        <ul>
-          <li>Batteries Included: language, core libraries, VM, IDE, and App Framework</li>
-          <li>Greatest Hits: class oriented, closures, array and hash literals, and more</li>
-          <li>New Tricks: optional typing, optional named arguments, named constructors, and more</li>
-          <li>Same code for the client and the server</li>
-        </ul>
-      </section>
-      
-      <section id="start-here">
-        <a href="/docs/getting-started.html">Getting Started</a>
-        <a href="/docs/technical-overview.html">Technical Overview</a>
-      </section>
-      
-      <section>
-        <h2>Example</h2>
-<pre><code>{% highlight java linenos %}
-  class HelloWorld {
-    static void main() {
-      Logger.println("Hello, world");
-    }
-  }{% endhighlight %}</code></pre>
-      </section>
+      <article>
+        {{ content }}
+      </article>
 
-		</div>
+    </div>
 
 		<footer>
       Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
