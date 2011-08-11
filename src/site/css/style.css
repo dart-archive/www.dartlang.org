@@ -306,6 +306,14 @@ p {
   margin-bottom: 1em;
 }
 
+pre.commandline {
+  color: black;
+  background-color: #DCDCDC;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .hidden { display: none; visibility: hidden; }
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
