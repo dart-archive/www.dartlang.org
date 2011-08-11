@@ -201,6 +201,7 @@ article h1 {
 
 article h2 {
   margin-bottom: 10px;
+  font-size: 1.5em;
 }
 
 article section {
@@ -208,6 +209,10 @@ article section {
 }
 
 article p {
+  margin-bottom: 10px;
+}
+
+article ol {
   margin-bottom: 10px;
 }
 
@@ -231,6 +236,7 @@ footer {
   clear: both;
   font-size: 0.8em;
   text-align: center;
+  padding: 20px;
 }
 
 section#start-here {
@@ -290,6 +296,10 @@ a.download-button {
   -moz-box-shadow: 5px 5px 5px #888;
   -webkit-box-shadow: 5px 5px 5px #888;
   box-shadow: 5px 5px 5px #888;
+  
+  display: block;
+  width: 100px;
+  text-align: center;
 }
 
 p {
