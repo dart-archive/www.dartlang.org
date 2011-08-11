@@ -32,6 +32,8 @@ DEVELOPMENT
 
 DEPLOYMENT
 
+* run 'make build'
+  * this builds the site and places everything into 'public'
 * Use App Engine Launcher to deploy the site.
 * You will probably need to grab a unique password from your Google Account settings.
   * Save this into the App Engine Launcher during the first deployment.
