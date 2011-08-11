@@ -1,7 +1,7 @@
 all: o2 build prod
 
 build:
-	rm -rf ./build && cd ./build/site && jekyll --pygments src--no-server --no-auto && cd ../.. && cp ./src/appengine/* build/
+	rm -rf ./build && mkdir -p ./build/site && cd ./src/site && jekyll --no-server --no-auto && cd ../.. && cp ./src/appengine/* build/
 
 prod: build
 	cd ./build && appcfg.py update .
