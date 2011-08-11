@@ -268,6 +268,30 @@ section {
   clear: both;
 }
 
+a.download-button {
+  padding: .5em;
+  border-radius: 10px;
+  font-size: 1.5em;
+  margin: 1.5em;
+  
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.27, rgb(110,179,36)),
+      color-stop(0.64, rgb(143,215,65))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(110,179,36) 27%,
+      rgb(143,215,65) 64%
+  );
+  
+  -moz-box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow: 5px 5px 5px #888;
+  box-shadow: 5px 5px 5px #888;
+}
+
 p {
   margin-bottom: 1em;
 }
