@@ -102,7 +102,7 @@ body {
 }
 
 div#container {
-  height: 100%;
+  min-height: 100%;
   width: 1000px;
   margin: auto;
   background-color: white;
