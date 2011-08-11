@@ -211,6 +211,15 @@ article p {
   margin-bottom: 10px;
 }
 
+article dt {
+  font-size: 1.25em;
+  margin-bottom: 5px;
+}
+
+article dd {
+  margin-bottom: 10px;
+}
+
 aside.note {
   background-color: #FFFACD;
   border-radius: 5px;
