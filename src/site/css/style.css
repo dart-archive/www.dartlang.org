@@ -188,16 +188,34 @@ div#main {
   display: inline;
 }
 
-h2 {
+header h2 {
   font-size: 2em;
   font-style: italic;
   margin-bottom: 0.5em;
 }
 
 article h1 {
-    font-size: 5em;
-    font-family: 'Bangers', cursive;
-    letter-spacing: 4px;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+article h2 {
+  margin-bottom: 10px;
+}
+
+article section {
+  margin-bottom: 10px;
+}
+
+article p {
+  margin-bottom: 10px;
+}
+
+aside.note {
+  background-color: #FFFACD;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 footer {
