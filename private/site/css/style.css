@@ -86,6 +86,11 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
+.comment {
+  color:red;
+  /* display:none; */
+}
+
 html {
   height: 100%;
 }

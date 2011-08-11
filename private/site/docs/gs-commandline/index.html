@@ -1,23 +1,21 @@
 ---
 layout: default
-title: "Getting Started: Hello, World"
+title: "Getting Started: Hello, Command Line"
 ---
 
-<h1> Getting Started:<br>
-   Hello, World </h1>
+<h1> Getting Started:<br> Hello, Command Line </h1>
 
 <p>
-Follow this tutorial on
-to write and run your first Spot program,
-using Spot's integrated development environment (IDE).
+Follow this tutorial on a Linux or Mac OS system
+to write and run a Spot program
+using command-line tools.
 </p>
 
 <aside>
-<b>Love command-line programming?</b>
-If you use Linux or Mac OS X,
-you can execute your Spot program
-in a terminal window by following the directions in
-<a href="/docs/gs-commandline">Getting Started: Hello, Command Line</a>.
+<b>Only have Windows?</b>
+Sorry, there's no command-line interface yet.
+You can use the IDE instead, as described in
+<a href="index.html">Getting Started: Hello, World</a>.
 </aside>
 
 <section>
@@ -53,12 +51,11 @@ unzip spot.zip
   </li>
 
   <li>
-    Note the location of the IDE.
-    Its name is <span class="comment">{PENDING: get tool name;
-    maybe we'll actually install it?}</span>.
+    Note the location of the <code>spot_bin</code>
+    <span class="comment">{PENDING: check tool name}</span>
+    executable file.
     For convenience, create a shortcut to it
     or add its directory to your path.
-    <span class="comment">{PENDING: check}</span>
   </li>
 </ol>
 
@@ -68,21 +65,34 @@ The Spot bundle contains tools such as:
 
 <ul>
   <li> A <em>compiler</em> that translates Spot to JavaScript </li>
+  <li> An Eclipse-based <em>integrated development environment</em>
+    (<em>IDE</em>) </li>
   <li> A <em>virtual machine</em> (<em>VM</em>),
        which you can use to run Spot code
        without first translating it to JavaScript </li>
-  <li> An Eclipse-based <em>integrated development environment</em>
-    (<em>IDE</em>) </li>
 </ul>
+
+<aside>
+<b>Note:</b>
+This tutorial uses only the virtual machine from the bundle,
+to keep things simple.
+Unfortunately, the Spot VM only works on Linux and Mac OS, for now.
+<span class="comment">
+{PENDING: point to more info}
+</span>
+</aside>
+
+<p>
+If you're following this tutorial on Windows,
+skip to the
+<a href="">Hello, DOM</a> tutorial now.
+</section>
 
 
 <section>
 <h2 id="code"> Step 2: Create a Spot program </h2>
 
 <p>
-<span class="comment">
-{PENDING: Create a project, ignoring the default HW?}
-</span>
 Create a file named <code>hello.spot</code>
 that contains the following code:
 </p>
@@ -147,7 +157,7 @@ that are different from JavaScript:
 <h2 id="run"> Step 3: Run Spot, run! </h2>
 
 <p>
-Now that you have a program, run it.
+Now that you have a program, run it in the Spot VM:
 </p>
 
 <ol>
