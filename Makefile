@@ -1,13 +1,13 @@
 all: o2 build prod
 
 build:
-	rm -rf ./public && cd ./private/site && jekyll --pygments --no-server --no-auto && cd ../.. && cp ./private/appengine/* public/
+	rm -rf ./build && mkdir -p ./build/site && cd ./src/site && jekyll --no-server --no-auto && cd ../.. && cp ./src/appengine/* build/
 
 prod: build
-	cd ./public && appcfg.py update .
+	cd ./build && appcfg.py update .
 
 server:
-	@open http://localhost:8080/ && cd ./private/site && jekyll && cd ../..
+	@open http://localhost:8080/ && cd ./src/site && jekyll && cd ../..
 
 optimize:
 	@find . -iname *.png | xargs -L 1 optipng -o7
