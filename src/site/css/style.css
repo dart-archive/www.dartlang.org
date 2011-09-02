@@ -86,9 +86,22 @@ a:hover { color: #036; }
     \\ ========================================== //
 */
 
-.comment {
+.comment, authornote {
   color:red;
   /* display:none; */
+}
+
+b { font-weight: bold; }
+
+article dl dd {
+  margin-left: 1em;
+}
+
+article dl dt {
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0em;
 }
 
 html {
