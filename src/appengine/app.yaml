@@ -3,7 +3,7 @@ version: dev
 runtime: python
 api_version: 1
 
-default_expiration: "1d"
+#default_expiration: "1d"
 
 handlers:
     
