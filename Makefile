@@ -1,4 +1,7 @@
 all: o2 build prod
+  
+clean:
+	rm -rf ./build
 
 build:
 	rm -rf ./build && mkdir -p ./build/site && cd ./src/site && jekyll --no-server --no-auto && cd ../.. && cp ./src/appengine/* build/
