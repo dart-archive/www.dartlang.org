@@ -7,32 +7,32 @@ title: "Getting Started: Hello, World"
 
 <p>
 Follow this tutorial on
-to write and run your first Spot program,
-using Spot's integrated development environment (IDE).
+to write and run your first Dart program,
+using Dart's integrated development environment (IDE).
 </p>
 
 <aside class="note">
 <b>Love command-line programming?</b>
 If you use Linux or Mac OS X,
 you can try
-<a href="/docs/gs-commandline">Getting Started: Hello, Command Line</a>.
+<a href="/docs/getting-started-command-line">Getting Started: Hello, Command Line</a>.
 </aside>
 
 <section>
 <h2> Contents </h2>
 <ul>
-  <li> <a href="#download">Step 1: Download and install the Spot bundle</a> </li>
-  <li> <a href="#code">Step 2: Create a Spot program</a> </li>
-  <li> <a href="#run">Step 3: Run Spot, run!</a> </li>
+  <li> <a href="#download">Step 1: Download and install the Dart bundle</a> </li>
+  <li> <a href="#code">Step 2: Create a Dart program</a> </li>
+  <li> <a href="#run">Step 3: Run it</a> </li>
 </ul>
 </section>
 
 <section id="download">
-<h2> Step 1: Download and install the Spot bundle </h2>
+<h2> Step 1: Download and install the Dart bundle </h2>
 
 <ol>
   <li>
-    Download the Spot bundle: <a class="download-button" href="">Download</a>
+    Download the Dart bundle: <a class="download-button" href="">Download</a>
   </li>
 
   <li>
@@ -40,8 +40,8 @@ you can try
     or by executing a command in a shell window:
 
 <pre class="commandline">
-$ mv spot.zip ~/bin
-$ unzip spot.zip
+$ mv dart.zip ~/bin
+$ unzip dart.zip
 </pre>
 
   </li>
@@ -57,13 +57,13 @@ $ unzip spot.zip
 </ol>
 
 <p>
-The Spot bundle contains tools such as:
+The Dart bundle contains tools such as:
 </p>
 
 <ul>
-  <li> A <em>compiler</em> that translates Spot to JavaScript </li>
+  <li> A <em>compiler</em> that translates Dart to JavaScript </li>
   <li> A <em>virtual machine</em> (<em>VM</em>),
-       which you can use to run Spot code
+       which you can use to run Dart code
        without first translating it to JavaScript </li>
   <li> An Eclipse-based <em>integrated development environment</em>
     (<em>IDE</em>) </li>
@@ -71,13 +71,13 @@ The Spot bundle contains tools such as:
 
 
 <section id="code">
-<h2> Step 2: Create a Spot program </h2>
+<h2> Step 2: Create a Dart program </h2>
 
 <p>
 <span class="comment">
 {PENDING: Create a project, ignoring the default HW?}
 </span>
-Create a file named <code>hello.spot</code>
+Create a file named <code>hello.dart</code>
 that contains the following code:
 </p>
 
@@ -90,18 +90,18 @@ class HelloWorld {
 ]]></script>
 
 <p>
-This program illustrates a few things about Spot
+This program illustrates a few things about Dart
 that are different from JavaScript:
 </p>
 
 <dl>
   <dt>
-    Spot is <b>object oriented</b>.
+    Dart is <b>object oriented</b>.
   </dt>
   <dd>
-    As a rule, Spot source code has <em>methods</em> in <em>classes</em>,
+    As a rule, Dart source code has <em>methods</em> in <em>classes</em>,
     instead of functions.
-    In <code>hello.spot</code>,
+    In <code>hello.dart</code>,
     the <code>HelloWorld</code> class
     has one method, named <code>main()</code>.
 
@@ -114,22 +114,22 @@ that are different from JavaScript:
 
   </dd>
   <dt>
-    Spot lets you use <b>types</b>&mdash;but you don't have to.
+    Dart lets you use <b>types</b>&mdash;but you don't have to.
   </dt>
   <dd>
-    In <code>hello.spot</code>,
+    In <code>hello.dart</code>,
     the <code>main()</code> method has the type <code>void</code>,
     indicating that the method doesn't return a value.
     However, the <code>arguments</code> parameter has no type
     (although it could).
   </dd>
   <dt>
-    Spot source filenames end in <b><code>.spot</code></b>.
+    Dart source filenames end in <b><code>.dart</code></b>.
   </dt>
   <dd>
-    This tutorial features a Spot source file,
-    but you can also embed Spot code in HTML files.
-    An example of embedding Spot code is in
+    This tutorial features a Dart source file,
+    but you can also embed Dart code in HTML files.
+    An example of embedding Dart code is in
     <span class="comment">{PENDING: some example;
     point to an explanation if/when we have one}</span>.
   </dd>
@@ -138,7 +138,7 @@ that are different from JavaScript:
 
 
 <section id="run">
-<h2> Step 3: Run Spot, run! </h2>
+<h2> Step 3: Run it </h2>
 
 <p>
 Now that you have a program, run it.
