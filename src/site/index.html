@@ -14,16 +14,21 @@ layout: default
       and then revise your code to be more maintainable.
     </dd>
     <dt> Wherever you need structured code </dt>
-    <dd> You can use the same Dart code on both the client and the server.
+    <dd> You can use the same Dart code both in modern web browsers* and on servers.
+      <br>
+      <em>* Modern web browsers include Google Chrome, Safari 5+, Firefox 4+, and IE 9+.</em>
+      <span class="comment">{PENDING: get list from Dan.}</span>
     </dd>
     <dt> Familiar yet new </dt>
-    <dd> Dart's language features include old favorites
-      such as classes, array and hash literals, and closures.
-      More unusual features include
-      optional typing, optional named arguments, and named constructors.
+    <dd> Dart code is straightforward,
+      using time-tested features such as classes and closures.
+      Dart's new features&mdash;such as
+      optional typing, optional named arguments,
+      and named constructors&mdash;reflect
+      lessons learned from real-world web and server programming.
     </dd>
     <dt> Tools included </dt>
-    <dd> The Dart bundle includes the Dart Editor,
+    <dd> The Dart SDK includes the Dart Editor,
        a VM, core libraries, and more.
     </dd>
   </dl>
@@ -31,13 +36,26 @@ layout: default
 
 <section id="start-here">
   <a href="/docs/getting-started/index.html">Get started</a>
-  <a href="/docs/technical-overview/index.html">Read the overview</a>
+  <a href="/docs/technical-overview/index.html">Read an overview</a>
+  <a href="/docs/tour/index.html">Take a tour</a>
 </section>
 
 <section id="play">
-  <h2>Play with Dart</h2>
+  <h2>An example of Dart code</h2>
+
+<p class="comment">
+{PENDING: Maybe this shouldn't be runnable, and we should just point people to a new Getting Started page that features DartBoard.
+ Experiments like: converting something from untyped to typed.}
+</p>
+
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
-//PENDING: This should be a SeeSpotRun thingy so they can actually play.
+//PENDING: Show something that's a mix of Java and JavaScript.
+//Make it shortish and familiar, yet intriguingly different.
+//E.g.: real class/types + event listener. "class" should be there.
+//optional typing, event listener.
+//Use the DOM if we can. (Can we?) But not if it looks much worse than jquery.
+//Dan (et al) to think about this.
+//Show all "unusual features" mentioned in the "Familiar yet new" item above.
 class Hello {
   static void main() {
     Logger.println("World!");
