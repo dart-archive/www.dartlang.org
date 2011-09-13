@@ -7,16 +7,158 @@ title: "Getting Started: Hello, DartBoard"
 
 <p>
 Follow this tutorial
-to write and run a program
-using DartBoard,
-the in-page Dart editor.
+to write and run small Dart programs
+inside this browser window,
+using a tool called DartBoard.
 </p>
+
+<section>
+<h2 id="1"> Sample #1: Hello, World! </h2>
+
+<p>
+If you run the following program—go ahead, you know you want to—you'll
+see the expected output (Hello, World!) at the bottom of the DartBoard.
+</p>
+
+<pre style="border: black 1px solid;">
+main() {
+  Logger.println('Hello, World!');
+}
+</pre>
+
+<p>
+What's important about this sample:
+</p>
+
+<ul>
+  <li>
+    It has a <code>main()</code> method with no surrounding class.
+    <br />
+    This is a DartBoard convention;
+    it lets DartBoard know where to start executing your code.
+  </li>
+  <li>
+    It prints output using <code>Logger</code>.
+    <br />
+    Again, this is a DartBoard convention.
+    <span class="comment">
+    {PENDING: What would you do in a server app?
+    If the same, say something like
+    "This is a DartBoard convention that's also used
+    in server-side code."}
+    </span>
+    In a web app, you'd use the DOM instead.
+  </li>
+</ul>
+
+<p>
+You can edit the sample if you wish.
+Go ahead. We'll wait.
+</p>
+
+</section>
 
 
 <section>
-<h2> Contents </h2>
+<h2 id="2"> Sample #2: Hello, Class! </h2>
+
+<p>
+Let's add a class to the sample.
+Classes are important in Dart.
+They're how you create objects,
+and along with interfaces
+they define all the object types in Dart programs.
+<span class="comment">
+{PENDING: point to a primer on object-oriented programming?}
+</span>
+</p>
+
+<pre style="border: black 1px solid;">
+class Greeter {
+  Greeter() {}
+
+  printGreeting(greeting) {
+    Logger.println(greeting);
+  }
+}
+
+main() {
+  var greeter = new Greeter();
+  greeter.printGreeting('Hello, Class!');
+}
+</pre>
+
+<p>
+What's important about the preceding code:
+</p>
+
 <ul>
-  <li> ... </li>
+  <li> Uses <code>class</code> to create a class named <code>Greeter</code>
+    that inherits from the root class, <code>Object</code>.
+  <li> Defines a constructor, <code>Greeter()</code>
+    <br>
+    <span class="comment">{PENDING: why did it require this?}</span> </li>
+  <li> Uses <code>var</code> before <code>greeter</code>
+    <br>
+    <span class="comment">{PENDING: why did it require this?}</span> </li>
+  <li> Uses no types for variables and parameters
+    <br>
+    Types are optional in Dart.
+    We left them out because we're just playing right now,
+    but here's what the program might look like with types
+    (the new types are <b>bold</b>):
+    <span class="comment">
+    {Note that there's no "public" keyword in Dart? That messed me up... Also, // comments don't seem to work; at least in DartBoard.}
+    </span>
+    
+<pre>
+class Greeter {
+  Greeter() {}
+
+  <b>void</b> printGreeting(<b>String</b> greeting) {
+    Logger.println(greeting);
+  }
+}
+
+<b>void</b> main() {
+  <b>Greeter</b> greeter = new Greeter();
+  greeter.printGreeting('Hello, Types!');
+}
+</pre>
+    </li>
 </ul>
 </section>
 
+
+<section>
+<h2 id="3"> Sample #3: Hello, Class! </h2>
+
+<p class="comment">
+{PENDING... go on. What else do we want to show in DartBoard?
+Implementing an interface? Using a core library? Isolates?}
+</p>
+
+<pre style="border: black 1px solid;">
+class App implements Runnable {
+  App() {}
+
+  void run(ReceivePort port) {
+    Logger.println('Hey, this is App.run.');
+  }
+}
+
+void main() {
+  Isolate.start(new App(), function(SendPort port) {
+    Logger.println('Hey, this is main.');
+  });
+}
+</pre>
+</section>
+
+
+<section>
+<b>Next:</b>
+Go to <a href="/docs/getting-started-editor">Getting Started: Hello, Dart Editor</a>,
+which will walk you through downloading the Dart bundle
+and using the Dart Editor to create an app.
+</section>
