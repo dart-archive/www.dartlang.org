@@ -3,8 +3,170 @@ layout: default
 title: "Technical Overview"
 ---
 
-<h1> Technical Overview </h1>
+<section>
+<h1>
+Dart Programming Language<br />
+Technical Overview
+</h1>
 
-<p class="authornote">
-{PENDING: for now, see <a href="https://docs.google.com/a/google.com/document/d/1ElR4wdlyLbDXMuxM9N4qlzOf8kzrs2T0iAowUT0GFmY/edit?hl=en_US">the draft</a>}
+<p class="comment">
+{PENDING: This is a placeholder.
+We'll finish the content and then format this page nicely.}
 </p>
+
+  Dart is a new class-based programming language for creating structured web applications. Developed with the goals of simplicity, efficiency, scalability, and platform independence for the web, the Dart language combines powerful new language features with familiar constructs from existing languages into a clear, readable syntax.<br />
+  Key features of the Dart language include:
+  <ul>
+    <li>Classes<br />
+      Classes and interfaces provide a well understood mechanism for encapsulating and reusing related methods and data. Because the methods and data carry information about intent, less documentation is required to explain what is happening in the code. </li>
+    <li>Optional types<br />
+      Dart programmers can optionally add static types to their code. Depending on programmer preference and stage of application development, the code can migrate from a simple, untyped experimental prototype to a complex, modular application with strong typing. </li>
+    <li>Libraries<br />
+      With the Dart programming language, developers can create libraries that are guaranteed not to change during runtime. Independently developed pieces of code can reliably share the same libraries.S</li>
+    <li>Tooling<br />
+      Dart includes a rich set of tools and libraries built on top of the language, including a compiler, virtual machine (VM), and integrated development environment (IDE). These tools enable productive and dynamic development, including edit-and-continue debugging and beyond—up to a style where you program an application outline, run it, and fill in the blanks as you run. </li>
+  </ul>
+  <br />
+  <h3 dir="ltr">Why another programming language?</h3>
+  The Dart language presents a comprehensive solution to current problems facing web developers:
+  <ul>
+    <li>Small scripts often evolve into large web applications with no apparent structure—they&rsquo;re hard to debug, difficult to maintain, and can&rsquo;t be split up so that different teams can work on them independently. It&rsquo;s difficult to be productive when a web application gets large.</li>
+    <li>Scripting languages are popular because their lightweight nature makes it easy to write code quickly. Generally, the contracts with other parts of an application are conveyed in comments rather than in the language structure itself. As a result, it&rsquo;s difficult for someone other than the author to read and maintain a particular piece of code.</li>
+    <li>With existing languages, the developer is forced to make a choice between static and dynamic languages. Traditional static languages require heavyweight toolchains and a coding style that can feel inflexible and overly constrained.</li>
+    <li>Developers have not been able to create homogeneous systems that encompass both client and server. Different languages and formats entail context switches that are cumbersome and add complexity to the coding process.</li>
+  </ul>
+  <br />
+  <h3 dir="ltr">Design Goals</h3>
+  The Dart language is presented here in its early stages. The following design goals will guide the continued evolution and refinement of this open source project:
+  <ul>
+    <li>Maintain a balance between dynamism and structure. </li>
+    <li>Target the full range of devices on the web -- from phones, tablets, netbooks, and the desktop on the client side to powerful network servers.</li>
+    <li>Create a scalable platform for web programming with integrated tools that support complex development efforts.</li>
+    <li>Craft a language that feels familiar and natural to programmers and is thus easy to learn.</li>
+  </ul>
+  <br />
+  <h3 dir="ltr">Lars&rsquo; alternative &ldquo;Design Goals&rdquo;</h3>
+  The Dart programming language is presented here in its early stages. The following design goals will guide the continued evolution and refinement of this open source project:
+  <ul>
+    <li>Create a structured yet flexible programming language for web programming.</li>
+    <li>Ensure Dart feels familiar and natural to programmers and is thus easy to learn.</li>
+    <li>Only provide language constructs that allow high performance and fast application startup.</li>
+    <li>Provide tools for cross browser compatibility .</li>
+  </ul>
+  <br />
+  <br />
+  Dan&rsquo;s rev on Lars&rsquo; design goals:
+  <ul>
+    <li>Create a structured yet flexible programming language for web programming.</li>
+    <li>Make Dart feel familiar and natural to programmers and thus easy to learn.</li>
+    <li>Make Dart high-performance and appropriate for the full range of devices on the web - including phones, tablets, laptops, and servers.</li>
+    <li>Ensure that all Dart language constructs allow high performance and fast application startup. </li>
+    <li>Provide tools which make Dart run fast across all major modern browsers. </li>
+  </ul>
+  <br />
+  <br />
+  <h3 dir="ltr">Show me some code</h3>
+  Here are several code snippets to give you a feel for what Dart code looks like. For more detailed information, see the Dart website and Language Specification.<br />
+  <h4 dir="ltr">Classes and interfaces</h4>
+  Dart&rsquo;s interfaces and classes provide you with a set of reusable and extensible building blocks. An interface defines a basic set of methods and constants, sometimes by inheriting from other interfaces. A class can implement multiple interfaces, and it inherits implementations from a single superclass.<br />
+  The following example defines an interface, along with a class and subclass that implement it:<br />
+  <br />
+  interface Shape {<br />
+   num perimeter();<br />
+  }<br />
+  <br />
+  class Rectangle implements Shape {           <br />
+   final num height, width; <br />
+   Rectangle(num this.height, num this.width); // compact constructor syntax<br />
+   num perimeter() =&gt; 2*height + 2*width;      // short function syntax<br />
+  }<br />
+  <br />
+  class Square extends Rectangle {<br />
+   Square(num size) : super(size, size);<br />
+  } <br />
+  <h4 dir="ltr">Optional types</h4>
+  Dart provides, at the programmer&rsquo;s option, a mixture of static and dynamic checking. At an experimental stage, the programmer can write untyped code for simple prototyping. As the application becomes larger and more stable, types can be added to aid debugging and impose structure where desired.<br />
+  For example, here is a sample of untyped code in Dart that creates a new Point class that has parameters x and y and two methods:  scale() and distance().<br />
+  class Point {<br />
+   var x, y;<br />
+   Point(this.x, this.y);<br />
+   scale(factor) =&gt; new Point(x*factor, y*factor);<br />
+   distance() =&gt; Math.sqrt(x*x + y*y);<br />
+  }<br />
+  <br />
+  main() {<br />
+   var a = new Point(2,3).scale(10);<br />
+   Logger.println(a.distance());<br />
+  }<br />
+  Here is what this code looks like with types added that ensure that x, y, and factor are of type num , that a Point contains two values of type num:<br />
+  class Point {<br />
+   num x, y;<br />
+   Point(num this.x, num this.y);<br />
+   Point scale(num factor) =&gt; new Point(x*factor, y*factor);<br />
+   num distance() =&gt; Math.sqrt(x*x + y*y);<br />
+  }<br />
+  <br />
+  void main() {<br />
+   Point a = new Point(2,3).scale(10);<br />
+   Logger.println(a.distance());<br />
+  }<br />
+  <h3 dir="ltr">How can I use Dart?</h3>
+  You can use the Dart Editor to run Dart code in several ways:
+  <ul>
+    <li>To translate Dart code to JavaScript that can run in any modern browser:<br />
+      Chrome, FireFox 4+, Internet Explorer 9+, Safari 5+<br />
+    </li>
+    <li>To execute Dart code directly by the VM on the server side</li>
+  </ul>
+  <br />
+  <h5 dir="ltr">New mimetype</h5>
+  A Dart program can be embedded directly on an HTML page, or you can use a #import or #source statement to pull in external files. Use the new mimetype &ldquo;application/dart,&rdquo; as shown here:<br />
+  <br />
+  &lt;html&gt;<br />
+   &lt;body&gt;<br />
+     &lt;script type=&quot;application/dart&quot;&gt;<br />
+       void main() {<br />
+         HTMLElement element = document.getElementById('message');<br />
+         element.innerHTML = 'Hello from Dart';<br />
+        }<br />
+     &lt;/script&gt;<br />
+     &lt;div id=&quot;message&quot;&gt;&lt;/div&gt;<br />
+   &lt;/body&gt;<br />
+  &lt;/html&gt;<br />
+  <br />
+  Tools <br />
+  The Dart language is accompanied by a set of tools to aid rapid prototyping, coding, and debugging for the entire development cycle. Initial offerings include:
+  <ul>
+    <li>Dart Editor</li>
+    <li>Dartc compiler</li>
+    <li>Dart VM</li>
+  </ul>
+  <br />
+  As the following figure shows, the same code can run on both the client and the server. On the client side, the Dart code (translated to JavaScript) runs inside the browser and can communicate with the HTML5 DOM. On the server side, the Dart code runs directly on the command line, for fast iteration and for cloud-based tasks.<br />
+  <h3 dir="ltr">Dart IDE</h3>
+  Taking advantage of Dart&rsquo;s structured nature, the Dart IDE supports method name completion and refactoring. The following screen shot shows the IDE&rsquo;s windows for …<br />
+  <br />
+  <br />
+  // add screen shot of the IDE, possibly w/ description of key elements<br />
+  <br />
+  <h3 dir="ltr">Libraries</h3>
+  Dart currently provides the following libraries to support web and web server development:
+  <ul>
+    <li>Core Library:  contains interfaces to support common data structures and operations.</li>
+    <li>DOM Library:  contains interfaces to the HTML5 DOM, loosely based on the proposed HTML5 standard as specified by the W3C/WHATWG. These interfaces will evolve in parallel with the HTML5 standards.</li>
+  </ul>
+  <br />
+  Here is an overview of the interface hierarchy for the current Core Library (this will be redrawn, modified, and completed closer to release time):<br />
+  <br />
+  <br />
+  <h3 dir="ltr">How to participate</h3>
+  This project is open source and will evolve with feedback from the community. We have released the language specification at an early stage to gather responses from the developers who will be using this new language and infrastructure for web programming. Here are some additional links for learning more about Dart and providing your feedback:
+  <ul>
+    <li>Dart website, with additional information, tutorials, sample code, and the latest draft of the Dart Language Specification </li>
+    <li>Dart discussion group </li>
+  </ul>
+  <br />
+  <br />
+  <br />
+</div>
+</section>

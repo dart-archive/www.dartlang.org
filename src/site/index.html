@@ -32,8 +32,7 @@ layout: default
        a VM, core libraries, and more.
     </dd>
   </dl>
-<aside>* Modern web browsers include Google Chrome, Safari 5+, Firefox 4+, and IE 9+.</i>
-      <span class="comment">{PENDING: get list from Dan.}</span>
+<aside>* Modern web browsers include Chrome, Safari 5+, Firefox 4+, and Internet Explorer 9+.
 </aside>
 
 </section>
@@ -44,22 +43,17 @@ layout: default
   <a href="/docs/tour/index.html">Take a tour</a>
 </section>
 
-<section id="play">
+<section id="code">
   <h2>An example of Dart code</h2>
 
-<p class="comment">
-{PENDING: Maybe this shouldn't be runnable, and we should just point people to a new Getting Started page that features DartBoard.
- Experiments like: converting something from untyped to typed.}
-</p>
-
 <script type="syntaxhighlighter" class="brush: java"><![CDATA[
-//PENDING: Show something that's a mix of Java and JavaScript.
-//Make it shortish and familiar, yet intriguingly different.
-//E.g.: real class/types + event listener. "class" should be there.
-//optional typing, event listener.
-//Use the DOM if we can. (Can we?) But not if it looks much worse than jquery.
+//PENDING: Make this snippet shortish and familiar, yet intriguingly different.
+//Use a mix of Java and JavaScript conventions.
+//E.g.: real class/types + event listener. (definitely use "class")
+//Show all new features mentioned in the "Familiar yet new" item above,
+//(for now, just optional types).
+//Use the DOM if possible AND it doesn't look bad compared to jquery.
 //Dan (et al) to think about this.
-//Show all "unusual features" mentioned in the "Familiar yet new" item above.
 class Hello {
   static void main() {
     Logger.println("World!");
@@ -67,3 +61,34 @@ class Hello {
 }
 ]]></script>
 </section>
+
+<section class="comment">
+<h2> TO DO </h2>
+
+<ol>
+  <li> Decide on site URLs.
+    <ul>
+      <li> Use dir/index.html or just dir/ or just dir (if possible)? </li>
+      <li> Having a separate subdirectory for every page makes URLs long. </li>
+    </ul>
+  <li> Check links.
+    BEWARE: Some URLs will work on localhost but not when hosted.
+    E.g., try <a href="http://localhost:8080/docs/getting-started-editor">http://localhost:8080/docs/getting-started-editor</a>
+    (which goes to <a href="http://localhost:8080/docs/getting-started-editor/">.../getting-started-editor<b>/</b></a>)
+    vs. <a href="http://spotlang-org.googleplex.com/docs/getting-started-editor">http://spotlang-org.googleplex.com/docs/getting-started-editor</a> (which results in a 404). </li>
+  <li> Fix CSS formatting. In particular:
+    <ul>
+      <li> <a href="/download/index.html">tables</a>
+        need more space around cells </li>
+      <li> <a href="/docs/getting-started/index.html#1">lists</a>
+        (ul, ol) need space beneath them </li>
+      <li> <a href="/docs/spec/index.html">blockquotes</a>
+        should be indented and have space beneath them </li>
+      <li> <b>&lt;b></b>, <strong>&lt;strong></strong>,
+        <i>&lt;i></i>, and <em>&lt;em></em> should do something
+	(the first two might be OK now—though perhaps not everywhere—but
+	the second two aren't)</li>
+    </ul>
+  </li>
+  <li> ... </li>
+</ol>

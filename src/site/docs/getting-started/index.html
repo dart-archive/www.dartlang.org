@@ -3,8 +3,44 @@ layout: default
 title: "Getting Started: Hello, DartBoard"
 ---
 
+    <style type="text/css"> 
+      .codes {
+        display: block;
+        width: 600px;
+        height: 300px;
+        display: inline-block;
+        border: 1px solid #aaa;
+        white-space: pre;
+        font-family: monospace;
+        font-size: 11pt;
+      }
+      #col {
+        width: 600px;
+        margin: 0 auto;
+      }
+      #todo {
+        font-size: 80%;
+        background: #000;
+        position: fixed;
+        top: 0;
+        right: 0;
+        color: #fff;
+        padding: 10px;
+        -webkit-box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
+      }
+      #todo h1 {
+        margin: 0;
+        font-size: 100%;
+        padding: 0;
+        border-bottom: 1px solid #fff;
+      }
+      #todo ul {
+      }
+    </style> 
+
 <h1> Getting Started: Hello, DartBoard </h1>
 
+<section>
 <p>
 Follow this tutorial
 to write and run small Dart programs
@@ -13,18 +49,32 @@ using a tool called DartBoard.
 </p>
 
 <section>
+<h4>Contents</h4>
+<ul>
+  <li> <a href="#1">Sample #1: Hello, World!</a> </li>
+  <li> <a href="#2">Sample #2: Hello, Class!</a> </li>
+  <li> <a href="#3">Sample #3: Hello, Something Else!</a> </li>
+  <li> <a href="#next">What next?</a> </li>
+</ul>
+</section>
+</section>
+
+<section>
 <h2 id="1"> Sample #1: Hello, World! </h2>
 
 <p>
 If you run the following program—go ahead, you know you want to—you'll
 see the expected output (Hello, World!) at the bottom of the DartBoard.
+<span class="comment">{PENDING: Running here doesn't work yet.
+You can try this code out in
+<a href="http://www.corp.google.com/~knorton/ssr.html">http://www/~knorton/ssr.html</a>.}
+</span>
 </p>
 
-<pre style="border: black 1px solid;">
-main() {
+<!-- pre style="border: black 1px solid;" -->
+<code class="codes" style="border: black 1px solid;">main() {
   Logger.println('Hello, World!');
-}
-</pre>
+} </code>
 
 <p>
 What's important about this sample:
@@ -41,19 +91,18 @@ What's important about this sample:
     It prints output using <code>Logger</code>.
     <br />
     Again, this is a DartBoard convention.
+    Server-side test code can also use <code>Logger</code>,
+    but in a web app you'd use the DOM instead.
     <span class="comment">
-    {PENDING: What would you do in a server app?
-    If the same, say something like
-    "This is a DartBoard convention that's also used
-    in server-side code."}
+    {PENDING: check}
     </span>
-    In a web app, you'd use the DOM instead.
   </li>
 </ul>
 
 <p>
 You can edit the sample if you wish.
 Go ahead. We'll wait.
+<span class="comment">{PENDING: editing isn't working yet.}</span>
 </p>
 
 </section>
@@ -73,7 +122,8 @@ they define all the object types in Dart programs.
 </span>
 </p>
 
-<pre style="border: black 1px solid;">
+<!-- pre style="border: black 1px solid;" -->
+<code class="codes" style="border: black 1px solid;">main() {
 class Greeter {
   Greeter() {}
 
@@ -86,22 +136,22 @@ main() {
   var greeter = new Greeter();
   greeter.printGreeting('Hello, Class!');
 }
-</pre>
+</code>
 
 <p>
 What's important about the preceding code:
 </p>
 
 <ul>
-  <li> Uses <code>class</code> to create a class named <code>Greeter</code>
+  <li> It uses <code>class</code> to create a class named <code>Greeter</code>
     that inherits from the root class, <code>Object</code>.
   <li> Defines a constructor, <code>Greeter()</code>
     <br>
     <span class="comment">{PENDING: why did it require this?}</span> </li>
-  <li> Uses <code>var</code> before <code>greeter</code>
+  <li> It uses <code>var</code> before <code>greeter</code>
     <br>
     <span class="comment">{PENDING: why did it require this?}</span> </li>
-  <li> Uses no types for variables and parameters
+  <li> It uses no types for variables and parameters
     <br>
     Types are optional in Dart.
     We left them out because we're just playing right now,
@@ -131,7 +181,7 @@ class Greeter {
 
 
 <section>
-<h2 id="3"> Sample #3: Hello, Class! </h2>
+<h2 id="3"> Sample #3: Hello, Something Else! </h2>
 
 <p class="comment">
 {PENDING... go on. What else do we want to show in DartBoard?
@@ -157,8 +207,15 @@ void main() {
 
 
 <section>
-<b>Next:</b>
-Go to <a href="/docs/getting-started-editor">Getting Started: Hello, Dart Editor</a>,
+<h2 id="next">What next?</h2>
+
+<p>
+Go to <a href="/docs/getting-started-editor/index.html">Getting Started: Hello, Editor</a>,
 which will walk you through downloading the Dart bundle
 and using the Dart Editor to create an app.
+</p>
 </section>
+
+<script type="text/javascript"
+  src="http://seespotrun.googleplex.com/seespotrun.app.js">
+</script>
