@@ -22,8 +22,101 @@ and
 {% endcomment %}
 </aside>
 
-<p class="comment">
-{PENDING: content goes here.
-See the <a href="index-OLD.html">old draft</a> for an idea
-of what'll go here.}
+<aside class="important">
+<strong>Important:</strong>
+You must currently use Oracle's JDK 7
+when executing DartEditor.
+We hope to fix this soon.
+</aside>
+
+<section>
+<h4> Contents </h4>
+<ul>
+  <li> <a href="#download">Step 1: Download and install the software</a> </li>
+  <li> <a href="#launch">Step 2: Launch the editor</a> </li>
+  <li> <a href="#code">Step 3: Create an app project</a> </li>
+  <li> <a href="#run">Step 4: Run the web app</a> </li>
+  <li> <a href="#features">Step 5: Try some DartEditor features</a> </li>
+</ul>
+</section>
+
+<section id="download">
+<h2> Step 1: Download and install the software </h2>
+
+<p>
+In this step, you'll install the Dart Editor
+and version 7 of the JDK.
 </p>
+
+<p class="comment">
+{PENDING: If the JDK is still a sticking point on 10/10,
+flesh out these instructions
+and perhaps tell them how to test whether they already have
+the right version of the JDK.}
+</p>
+
+<ol>
+  <li> Download the Dart Editor that matches
+    your system architecture:
+    <ul>
+      <li> <a href="#">32-bit Dart Editor</a> </li>
+      <li> <a href="#">64-bit Dart Editor</a> </li>
+    </ul>
+
+    <p class="comment">
+    {PENDING: those links don't work; for now, use
+    <a href="http://www.corp.google.com/~messick/no_crawl/dart/">
+    http://www.corp.google.com/~messick/no_crawl/dart/</a>
+    </p>
+  </li>
+
+  <li> Unarchive the file. For example:
+    <pre> $ <b>tar xvf DartBuild-linux.gtk.x86_64.zip</b> </pre>
+  </li>
+
+  <li> Download JDK 7 for your system architecture from this page:
+
+    <blockquote>
+    <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html"
+       target="_blank">Java SE Development Kit 7 Downloads</a>
+    </blockquote>
+  </li>
+
+  <li> <p>Install the JDK somewhere, such as <code>/home/me/jdk1.7.0</code>.</p> </li>
+
+  <li> Put this JDK in your path,
+    so that it'll be the first Java environment found
+    when you execute <code>DartEditor</code>.
+    For example:
+
+    <pre><b>PATH=/home/me/jdk1.7.0/bin:$PATH</b></pre>
+  </li>
+</ol>
+</section>
+
+{% comment %}
+<pre>
+  506  echo $PATH
+  507  source ~/.bash_profile 
+  508  ./DartEditor 
+  509  cd ..
+  510  mv dart dart-32
+  511  ls
+  512  cp ~/tmp/DartBuild-linux.gtk.x86_64.zip .
+  513  unzip DartBuild-linux.gtk.x86_64.zip 
+  514  cd
+  515  ls
+  516  mv sunjdk/ sunjdk-32
+  517  mkdir sunjdk
+  518  cd sunjdk
+  519  mv ~/tmp/jdk-7-linux-x64.tar.gz .
+  520  tar xvf jdk-7-linux-x64.tar.gz 
+</pre>
+{% endcomment %}
+
+<p class="comment">
+{PENDING: More content goes here.
+See the <a href="index-OLD.html">old draft</a> for an idea
+of what else will go here.}
+</p>
+
