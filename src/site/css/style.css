@@ -316,6 +316,7 @@ a.download-button {
 }
 
 p {
+  margin-top: 1em;
   margin-bottom: 1em;
 }
 
@@ -325,6 +326,17 @@ pre.commandline {
   padding: 10px;
   border-radius: 5px;
   margin: 10px;
+}
+
+/* TODO: fix me! */
+table {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* TODO: fix me! */
+th, td {
+  padding: 0 1em 0.5em 0;
 }
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
