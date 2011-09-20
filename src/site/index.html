@@ -38,8 +38,8 @@ layout: default
 </section>
 
 <section id="start-here">
-  <a href="/docs/technical-overview/index.html">Read an overview</a>
-  <a href="/docs/getting-started/index.html">Write code!</a>
+  <a href="/docs/technical-overview/">Read an overview</a>
+  <a href="/docs/getting-started/">Write code!</a>
 </section>
 
 <section id="code">
@@ -66,22 +66,18 @@ class Hello {
 
 <ol>
   <li> Decide on site URLs.
-    <ul>
-      <li> Use dir/index.html or just dir/ or just dir (if possible)? </li>
-      <li> Having a separate subdirectory for every page makes URLs long. </li>
-    </ul>
   <li> Check links.
     BEWARE: Some URLs will work on localhost but not when hosted.
-    E.g., try <a href="http://localhost:8080/docs/getting-started-editor">http://localhost:8080/docs/getting-started-editor</a>
-    (which goes to <a href="http://localhost:8080/docs/getting-started-editor/">.../getting-started-editor<b>/</b></a>)
-    vs. <a href="http://spotlang-org.googleplex.com/docs/getting-started-editor">http://spotlang-org.googleplex.com/docs/getting-started-editor</a> (which results in a 404). </li>
+    E.g., try <a href="http://localhost:8080/docs/getting-started/editor">http://localhost:8080/docs/getting-started/editor</a>
+    (which goes to <a href="http://localhost:8080/docs/getting-started/editor/">.../getting-started/editor<b>/</b></a>)
+    vs. <a href="http://spotlang-org.googleplex.com/docs/getting-started/editor">http://spotlang-org.googleplex.com/docs/getting-started/editor</a> (which results in a 404). </li>
   <li> Fix CSS formatting. In particular:
     <ul>
-      <li> <a href="/download/index.html">tables</a>
+      <li> <a href="/download/">tables</a>
         need more space around cells </li>
-      <li> <a href="/docs/getting-started/index.html#1">lists</a>
+      <li> <a href="/docs/getting-started/#1">lists</a>
         (ul, ol) need space beneath them </li>
-      <li> <a href="/docs/spec/index.html">blockquotes</a>
+      <li> <a href="/docs/spec/">blockquotes</a>
         should be indented and have space beneath them </li>
       <li> <b>&lt;b></b>, <strong>&lt;strong></strong>,
         <i>&lt;i></i>, and <em>&lt;em></em> should do something
