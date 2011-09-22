@@ -63,7 +63,9 @@ using a tool called DartBoard.
 <h2 id="1"> Sample #1: Hello, World! </h2>
 
 <p>
-If you run the following program—go ahead, you know you want to—you'll
+If you click the [PLAY] button
+to run the following program—go
+ahead, you know you want to—you'll
 see the expected output (Hello, World!) at the bottom of the DartBoard.
 <span class="comment">{PENDING: Running here doesn't work yet.
 You can try this code out in
@@ -80,31 +82,39 @@ You can try this code out in
 What's important about this sample:
 </p>
 
-<ul>
-  <li>
-    It has a <code>main()</code> method with no surrounding class.
-    <br />
-    This is a DartBoard convention;
-    it lets DartBoard know where to start executing your code.
-  </li>
-  <li>
-    It prints output using <code>Logger</code>.
-    <br />
+<dl>
+  <dt> Top-level <code>main()</code> method </dt>
+  <dd>
+    Having a <code>main()</code> method with no surrounding class
+    is a DartBoard convention.
+    It lets DartBoard know where to start executing your code.
+    In a web app, you'd use
+    <span class="comment">{PENDING: something }</span>
+    instead.
+  </dd>
+
+  <dt> Output with <code>Logger.println</code> </dt>
+  <dd>
     Again, this is a DartBoard convention.
-    Server-side test code can also use <code>Logger</code>,
-    but in a web app you'd use the DOM instead.
+    <!-- Server-side test code can also use <code>Logger</code>, but -->
+    In a web app you'd use the DOM or
+    something like <code>console.log()</code> instead.
     <span class="comment">
-    {PENDING: check}
+    {QUESTION: correct?
+    Will we publish docs for Logger anywhere?}
     </span>
-  </li>
-</ul>
+  </dd>
+</dl>
 
 <p>
-You can edit the sample if you wish.
+You can edit the sample if you like.
 Go ahead. We'll wait.
 <span class="comment">{PENDING: editing isn't working yet.}</span>
 </p>
 
+<p class="comment">
+{PENDING: Somewhere say that // comments don't work? (at least in DartBoard).}
+</p>
 </section>
 
 
@@ -112,19 +122,20 @@ Go ahead. We'll wait.
 <h2 id="2"> Sample #2: Hello, Class! </h2>
 
 <p>
-Let's add a class to the sample.
+The next sample adds a class to the previous code.
 Classes are important in Dart.
 They're how you create objects,
 and along with interfaces
 they define all the object types in Dart programs.
 <span class="comment">
-{PENDING: point to a primer on object-oriented programming?}
+{PENDING: correct?
+should we point to a primer on object-oriented programming?
+if so, which one?}
 </span>
 </p>
 
 <!-- pre style="border: black 1px solid;" -->
-<code class="codes" style="border: black 1px solid;">main() {
-class Greeter {
+<code class="codes" style="border: black 1px solid;">class Greeter {
   Greeter() {}
 
   printGreeting(greeting) {
@@ -135,31 +146,58 @@ class Greeter {
 main() {
   var greeter = new Greeter();
   greeter.printGreeting('Hello, Class!');
-}
-</code>
+} </code>
 
 <p>
 What's important about the preceding code:
 </p>
 
-<ul>
-  <li> It uses <code>class</code> to create a class named <code>Greeter</code>
-    that inherits from the root class, <code>Object</code>.
-  <li> Defines a constructor, <code>Greeter()</code>
-    <br>
-    <span class="comment">{PENDING: why did it require this?}</span> </li>
-  <li> It uses <code>var</code> before <code>greeter</code>
-    <br>
-    <span class="comment">{PENDING: why did it require this?}</span> </li>
-  <li> It uses no types for variables and parameters
-    <br>
-    Types are optional in Dart.
-    We left them out because we're just playing right now,
+<dl>
+  <dt> <code>class</code> statement </dt>
+  <dd>
+    This sample defines a class, named <code>Greeter</code>,
+    that has the default superclass: <code>Object</code>.
+    In Dart, all classes descend from <code>Object</code>,
+    either directly or indirectly.
+    Use the <code>extends</code> keyword
+    if you want to specify a non-<code>Object</code> superclass.
+  </dd>
+
+  <dt> Constructor for the class </dt>
+  <dd>
+    <span class="comment">
+    {PENDING: the spec says there should be a default constructor,
+    but SSR doesn't work if you delete the constructor.
+    }
+    </span>
+    You can create instances of a class
+    by invoking <code>new</code> followed by
+    a constructor for the class&mdash;in
+    this case, <code>new Greeter()</code>.
+    The <code>Greeter</code> class has a single, no-argument constructor.
+    The constructor's empty body means that the constructor 
+    <!-- change to something like
+    "There's no definition for Greeter(), so a default version is provided that" -->
+    just calls <code>super()</code>.
+    Because the superclass of <code>Greeter</code> is <code>Object</code>,
+    the code <code>new Greeter()</code> invokes the
+    <a href="/docs/ref/Object.html#Object"><code>Object()</code> constructor</a>.
+  </dd>
+
+  <dt> Variable declared with <code>var</code> </dt>
+  <dd>
+    You must use either the <code>var</code> keyword
+    or a type name
+    whenever you create a variable.
+  </dd>
+
+  <dt> No specified types for variables and parameters </dt>
+  <dd>
+    Specifying types is optional in Dart.
+    We left types out of this sample
+    because we're just playing right now,
     but here's what the program might look like with types
     (the new types are <b>bold</b>):
-    <span class="comment">
-    {Note that there's no "public" keyword in Dart? That messed me up... Also, // comments don't seem to work; at least in DartBoard.}
-    </span>
     
 <pre>
 class Greeter {
@@ -175,8 +213,19 @@ class Greeter {
   greeter.printGreeting('Hello, Types!');
 }
 </pre>
-    </li>
-</ul>
+    <p class="note">
+      <strong>Note:</strong>
+      You might have expected to see a <code>public</code> keyword
+      in the preceding code,
+      but there's no such thing in Dart.
+      Every type <span class="comment">{PENDING: ??}</span>
+      in Dart is public unless its name
+      starts with an underscore ("_").
+      For example, <code>Greeter</code> is public,
+      but <code>_Greeter</code> is private.
+    </p>
+  </dd>
+</dl>
 </section>
 
 
@@ -210,8 +259,9 @@ void main() {
 <h2 id="next">What next?</h2>
 
 <p>
-Go to <a href="/docs/getting-started/editor/">Getting Started: Hello, Editor</a>,
-which will walk you through downloading the Dart bundle
+Go to
+<a href="/docs/getting-started/editor/">Getting Started: Hello, Editor</a>,
+which walks you through downloading the Dart bundle
 and using the Dart Editor to create an app.
 </p>
 </section>
