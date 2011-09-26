@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Getting Started (Linux): Hello, Editor"
+title: "Getting Started (Linux): Hello, Dart Editor"
 ---
 
-<h1> Getting Started (Linux): Hello, Editor </h1>
+<h1> Getting Started (Linux): Hello, Dart Editor </h1>
 
 <p>
 Follow this tutorial
@@ -16,7 +16,7 @@ using the Dart Editor.
 These instructions are also available for
 <a href="index-win.html">Windows</a>
 and
-<a href="index-macos.html">Mac OS</a>.
+<a href="index-macos.html">Mac</a>.
 {% comment %}
 <a href="index-linux.html">Linux</a>.
 {% endcomment %}
@@ -48,13 +48,6 @@ In this step, you'll install the Dart Editor
 and version 7 of the JDK.
 </p>
 
-<p class="comment">
-{PENDING: If the JDK is still a sticking point on 10/10,
-flesh out these instructions
-and perhaps tell them how to test whether they already have
-the right version of the JDK.}
-</p>
-
 <ol>
   <li> Download the Dart Editor that matches
     your system architecture:
@@ -62,6 +55,14 @@ the right version of the JDK.}
       <li> <a href="#">32-bit Dart Editor</a> </li>
       <li> <a href="#">64-bit Dart Editor</a> </li>
     </ul>
+
+    <p>
+    If you don't know whether you have 32-bit or 64-bit Linux,
+    use the command <code>uname -a</code>.
+    If <code>64</code> is in the output,
+    you have 64-bit Linux;
+    otherwise, you have 32-bit Linux.
+    </p>
 
     <p class="comment">
     {PENDING: those links don't work; for now, use
@@ -90,6 +91,11 @@ the right version of the JDK.}
     For example:
 
     <pre><b>PATH=/home/me/jdk1.7.0/bin:$PATH</b></pre>
+
+<p class="comment">
+{PENDING: Should I warn that this might have side effects
+with other uses of Java?}
+</p>
   </li>
 </ol>
 </section>

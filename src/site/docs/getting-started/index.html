@@ -77,7 +77,8 @@ You can try this code out in
 
 <!-- pre style="border: black 1px solid;" -->
 <code class="codes" style="border: black 1px solid;">main() {
-  Logger.println('Hello, World!');
+  var name = 'World';
+  print('Hello, ${name}!');
 } </code>
 
 <p>
@@ -90,26 +91,47 @@ What's important about this sample's Dart code:
     Having a <code>main()</code> method with no surrounding class
     is a Dart Board convention.
     It lets Dart Board know where to start executing your code.
-    In a web app, you'd use
-    <span class="comment">{PENDING: something }</span>
-    instead.
-    (Don't worry, you'll learn about
-    <span class="comment">{PENDING: something }</span>
+    In a web app, you'd use <em>directives</em> instead&mdash;little
+    statements at the top of your <code>.dart</code> file.
+    (Don't worry, you'll learn about directives
     in the next page.)
   </dd>
 
-  <dt> Output with <code>Logger.println</code> </dt>
+  <dt> Variable declared with <code>var</code> </dt>
   <dd>
-    Again, this is a Dart Board convention.
-    <!-- Server-side test code can also use <code>Logger</code>, but -->
+    You must use either the <code>var</code> keyword
+    or a type name
+    whenever you create a variable.
+  </dd>
+
+  <dt> Output with <code>print()</code> </dt>
+  <dd>
+    The <code>print()</code> method is
+    <span class="comment">
+    {PENDING: another Dart Board convention?}
+    </span>.
     In a web app you'd use the DOM or
     something like <code>console.log()</code> instead.
     <span class="comment">
-    {QUESTION: correct?
-    Will we publish docs for Logger anywhere?}
+    {QUESTION: correct?}
     </span>
   </dd>
-</dl>
+
+  <dt> String interpolation with <code>${<em>expression</em>}</code> </dt>
+  <dd>
+    Dart lets you embed expressions within string literals.
+    If the expression is just a variable,
+    as it is in this sample,
+    then you can omit the curly braces (<code>{}</code>).
+    Another alternative for building strings
+    is the plus operator (<code>+</code>).
+    For example, the following three statements are equivalent
+    <span class="comment"> {PENDING: are they truly equivalent,
+    or do they just result in the same string?} </span>:
+
+    <pre>print('Hello, ${name}!');
+print('Hello, $name!');
+print('Hello, ', + name + '!');</pre> </dl>
 
 <p>
 You can edit the sample if you like.
@@ -117,9 +139,6 @@ Go ahead. We'll wait.
 <span class="comment">{PENDING: editing isn't working yet.}</span>
 </p>
 
-<p class="comment">
-{PENDING: Somewhere say that // comments don't work? (at least in Dart Board).}
-</p>
 </section>
 
 
@@ -141,16 +160,18 @@ if so, which one?}
 
 <!-- pre style="border: black 1px solid;" -->
 <code class="codes" style="border: black 1px solid;">class Greeter {
+  var prefix = "Hello,";
+
   Greeter() {}
 
-  printGreeting(greeting) {
-    Logger.println(greeting);
+  greet(name) {
+    print('$prefix $name');
   }
 }
 
 main() {
   var greeter = new Greeter();
-  greeter.printGreeting('Hello, Class!');
+  greeter.greet('Class!');
 } </code>
 
 <p>
@@ -168,6 +189,26 @@ What's important about the preceding code:
     if you want to specify a non-<code>Object</code> superclass.
   </dd>
 
+  <dt> Instance variable for the class </dt>
+  <dd>
+    Each <code>Greeter</code> object
+    has a variable named <code>prefix</code>
+    that's initialized to "Hello,".
+    Just as for regular variables,
+    creating instance variables requires
+    using a <code>var</code> or type.
+    If you don't like the default value of prefix,
+    you can set it to something else,
+    using code like this:
+
+<pre>greeter.prefix = "Howdy,";</pre>
+
+    <span class="comment">
+    {PENDING: say more setting and getting ivars?
+    or at least point to where they're discussed}
+    </span>
+  </dd>
+
   <dt> Constructor for the class </dt>
   <dd>
     <span class="comment">
@@ -179,45 +220,37 @@ What's important about the preceding code:
     by invoking <code>new</code> followed by
     a constructor for the class&mdash;in
     this case, <code>new Greeter()</code>.
-    The <code>Greeter</code> class has a single, no-argument constructor.
-    The constructor's empty body means that the constructor 
+    The <code>Greeter</code> class has a single, no-argument constructor that
     <!-- change to something like
     "There's no definition for Greeter(), so a default version is provided that" -->
-    just calls <code>super()</code>.
-    Because the superclass of <code>Greeter</code> is <code>Object</code>,
-    the code <code>new Greeter()</code> invokes the
+    (implicitly) calls the superclass's no-argument constructor.
+    The superclass of <code>Greeter</code> is <code>Object</code>,
+    so the code <code>new Greeter()</code> invokes the
     <a href="/docs/ref/Object.html#Object"><code>Object()</code> constructor</a>.
-  </dd>
-
-  <dt> Variable declared with <code>var</code> </dt>
-  <dd>
-    You must use either the <code>var</code> keyword
-    or a type name
-    whenever you create a variable.
   </dd>
 
   <dt> No specified types for variables and parameters </dt>
   <dd>
     Specifying types is optional in Dart.
-    We left types out of this sample
-    because we're just playing right now,
-    but here's what the program might look like with types
-    (the new types are <b>bold</b>):
+    Types can help you write and maintain your code,
+    but they don't change how Dart programs behave.
+    Here's what the preceding sample looks like with types:
     
-<pre>
-class Greeter {
+<pre style="border: black 1px solid;">class Greeter {
+  <b>String</b> prefix = "Hello,";
+
   Greeter() {}
 
-  <b>void</b> printGreeting(<b>String</b> greeting) {
-    Logger.println(greeting);
+  <b>void</b> greet(<b>String</b> name) {
+    print('$prefix $name');
   }
 }
 
 <b>void</b> main() {
   <b>Greeter</b> greeter = new Greeter();
-  greeter.printGreeting('Hello, Types!');
-}
-</pre>
+  greeter.greet('Types!');
+} </pre>
+
     <p class="note">
       <strong>Note:</strong>
       You might have expected to see a <code>public</code> keyword
@@ -239,7 +272,8 @@ class Greeter {
 
 <p class="comment">
 {PENDING... go on. What else do we want to show in Dart Board?
-Implementing an interface? Using a core library?}
+Implementing an interface? Using a core library?
+We should show comments (and doc comments?) somewhere.}
 </p>
 
 <pre style="border: black 1px solid;">
