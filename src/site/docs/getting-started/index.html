@@ -3,40 +3,7 @@ layout: default
 title: "Getting Started: Hello, Dart Board"
 ---
 
-    <style type="text/css"> 
-      .codes {
-        display: block;
-        width: 600px;
-        height: 300px;
-        display: inline-block;
-        border: 1px solid #aaa;
-        white-space: pre;
-        font-family: monospace;
-        font-size: 11pt;
-      }
-      #col {
-        width: 600px;
-        margin: 0 auto;
-      }
-      #todo {
-        font-size: 80%;
-        background: #000;
-        position: fixed;
-        top: 0;
-        right: 0;
-        color: #fff;
-        padding: 10px;
-        -webkit-box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.3);
-      }
-      #todo h1 {
-        margin: 0;
-        font-size: 100%;
-        padding: 0;
-        border-bottom: 1px solid #fff;
-      }
-      #todo ul {
-      }
-    </style> 
+<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 
 <h1> Getting Started: Hello, Dart Board </h1>
 
@@ -69,14 +36,10 @@ If you click Dart Board's [PLAY] button&mdash;go
 ahead, you know you want to&mdash;you'll
 see the expected output (Hello, World!)
 appear at the bottom.
-<span class="comment">{PENDING: Running here doesn't work yet.
-You can try this code out in
-<a href="http://www.corp.google.com/~knorton/ssr.html">http://www/~knorton/ssr.html</a>.}
-</span>
 </p>
 
 <!-- pre style="border: black 1px solid;" -->
-<code class="codes" style="border: black 1px solid;">main() {
+<code class="codes">main() {
   var name = 'World';
   print('Hello, ${name}!');
 } </code>
@@ -136,7 +99,6 @@ print('Hello, ', + name + '!');</pre> </dl>
 <p>
 You can edit the sample if you like.
 Go ahead. We'll wait.
-<span class="comment">{PENDING: editing isn't working yet.}</span>
 </p>
 
 </section>
@@ -158,14 +120,15 @@ if so, which one?}
 </span>
 </p>
 
+
 <!-- pre style="border: black 1px solid;" -->
-<code class="codes" style="border: black 1px solid;">class Greeter {
-  var prefix = "Hello,";
+<code class="codes">class Greeter {
+  var prefix = "Hello, ";
 
   Greeter() {}
 
   greet(name) {
-    print('$prefix $name');
+    print('$prefix$name');
   }
 }
 
@@ -189,19 +152,23 @@ What's important about the preceding code:
     if you want to specify a non-<code>Object</code> superclass.
   </dd>
 
-  <dt> Instance variable for the class </dt>
+  <dt> Instance variable </dt>
   <dd>
     Each <code>Greeter</code> object
     has a variable named <code>prefix</code>
-    that's initialized to "Hello,".
+    that's initialized to "Hello, ".
+    (As in JavaScript,
+    Dart string literals can be delimited by either single or double quotes.)
     Just as for regular variables,
     creating instance variables requires
-    using a <code>var</code> or type.
-    If you don't like the default value of prefix,
-    you can set it to something else,
-    using code like this:
+    using <code>var</code> or a type.
 
-<pre>greeter.prefix = "Howdy,";</pre>
+    <p>
+    If you don't like the default value of <code>prefix</code>,
+    you can set it to something else:
+    </p>
+
+<pre>greeter.prefix = "Howdy, ";</pre>
 
     <span class="comment">
     {PENDING: say more setting and getting ivars?
@@ -209,7 +176,7 @@ What's important about the preceding code:
     </span>
   </dd>
 
-  <dt> Constructor for the class </dt>
+  <dt> Constructor </dt>
   <dd>
     <span class="comment">
     {PENDING: the spec says there should be a default constructor,
@@ -229,29 +196,67 @@ What's important about the preceding code:
     <a href="/docs/ref/Object.html#Object"><code>Object()</code> constructor</a>.
   </dd>
 
-  <dt> No specified types for variables and parameters </dt>
+  <dt> Instance method </dt>
+  <dd>
+    The <code>greet()</code> method
+    defines a function that's tied to a <code>Greeter</code> object.
+    For a one-line method such as <code>greet()</code>,
+    you can use a special shorthand
+    that features the <code>=></code> operator:
+
+    <pre>// Equivalent of greet definition above:
+greet(name) => print('$prefix$name');</pre>
+    <aside class="note">
+    <b>Note:</b>
+    You currently get a warning about returning a value
+    from a void function.
+    Ignore it;
+    the syntax is valid,
+    and we expect the warning to disappear.
+    </aside>
+</p>
+  <dd>
+
+
+  <dt> No specified types </dt>
   <dd>
     Specifying types is optional in Dart.
     Types can help you write and maintain your code,
     but they don't change how Dart programs behave.
-    Here's what the preceding sample looks like with types:
+    Here's what the preceding sample looks like with types
+    (as well as the other changes suggested above):
     
-<pre style="border: black 1px solid;">class Greeter {
-  <b>String</b> prefix = "Hello,";
+<!--
+class Greeter {
+  String prefix = "Hello, ";
 
   Greeter() {}
 
-  <b>void</b> greet(<b>String</b> name) {
-    print('$prefix $name');
-  }
+  void greet(name) => print('$prefix$name');
+}
+
+void main() {
+  Greeter greeter = new Greeter();
+  greeter.prefix = "Howdy, ";
+  greeter.greet('types and other cool stuff.');
+} 
+-->
+
+<code class="codes">class Greeter {
+  <b>String</b> prefix = "Hello, ";
+
+  Greeter() {}
+
+  <b>void</b> greet(<b>String</b> name) => print('$prefix$name');
 }
 
 <b>void</b> main() {
   <b>Greeter</b> greeter = new Greeter();
-  greeter.greet('Types!');
-} </pre>
+  greeter.prefix = "Howdy, ";
+  greeter.greet('types and other cool stuff.');
+} </code>
 
-    <p class="note">
+    <aside class="note">
       <strong>Note:</strong>
       You might have expected to see a <code>public</code> keyword
       in the preceding code,
@@ -260,8 +265,8 @@ What's important about the preceding code:
       in Dart is public unless its name
       starts with an underscore ("_").
       For example, <code>Greeter</code> is public,
-      but <code>_Greeter</code> is private.
-    </p>
+      but <code>_Greeter</code> (by convention) would be private.
+    </aside>
   </dd>
 </dl>
 </section>
@@ -272,7 +277,7 @@ What's important about the preceding code:
 
 <p class="comment">
 {PENDING... go on. What else do we want to show in Dart Board?
-Implementing an interface? Using a core library?
+Implementing an interface? Using a core library? Should use <code>num</code>.
 We should show comments (and doc comments?) somewhere.}
 </p>
 
@@ -306,5 +311,5 @@ and using the Dart Editor to create an app.
 </section>
 
 <script type="text/javascript"
-  src="http://seespotrun.googleplex.com/seespotrun.app.js">
+  src="http://try-dart-lang.appspot.com/dartboard.dart.app.js">
 </script>

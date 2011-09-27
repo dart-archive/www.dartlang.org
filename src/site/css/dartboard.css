@@ -1,0 +1,15 @@
+.codes {
+        display: block;
+        width: 600px;
+        height: 300px;
+        display: inline-block;
+        border: 1px solid #aaa;
+        white-space: pre;
+        font-family: monospace;
+        font-size: 11pt;
+}
+#col {
+        width: 600px;
+        height: 400px;
+        margin: 0 auto;
+}
