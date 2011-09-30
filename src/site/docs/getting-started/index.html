@@ -1,38 +1,53 @@
 ---
 layout: default
-title: "Getting Started: Hello, Dart Board"
+title: "Getting Started: Hello, Dartboard"
 ---
+<link href="/css/style.css" type="text/css" rel="stylesheet"/>
+<link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="/js/prettify.js"></script>
+
+<body onLoad="prettyPrint()">
 
 <link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 
-<h1> Getting Started: Hello, Dart Board </h1>
+<h1> Getting Started: Hello, Dartboard </h1>
 
 <section>
 <p>
 Follow this tutorial
-to write and run small Dart programs
+to modify and run small Dart programs
 inside this browser window,
-using a tool called Dart Board.
+using a tool called Dartboard.
 </p>
 
 <section>
 <h4>Contents</h4>
 <ul>
-  <li> <a href="#1">Sample #1: Hello, World!</a> </li>
-  <li> <a href="#2">Sample #2: Hello, Class!</a> </li>
-  <li> <a href="#3">Sample #3: Hello, Interface!</a> </li>
+  <li> <a href="#1">Hello, World!</a> </li>
+  <li> <a href="#2">Hello, Class!</a> </li>
+  <li> <a href="#3">Hello, Interface!</a>
+    <span class="comment">(DELETE?)</a> </li>
+  <li> <a href="#maybe">More Dart features</a>
+    <span class="comment">(DELETE?)</a> </li>
   <li> <a href="#next">What next?</a> </li>
 </ul>
 </section>
 </section>
 
+<p class="comment">
+{PENDING: Change from
+try-dart-lang.appspot.com to the final address,
+when it's ready: try.dartlang.org.}
+</p>
+
 <section>
-<h2 id="1"> Sample #1: Hello, World! </h2>
+<h2 id="1"> Hello, World! </h2>
 
 <p>
 Below this paragraph, you can see some Dart code
-inside of an app called Dart Board.
-If you click Dart Board's [PLAY] button&mdash;go
+inside of an app called Dartboard.
+If you click Dartboard's Play button
+<span class="comment">{PENDING: img goes here}</span>&mdash;go
 ahead, you know you want to&mdash;you'll
 see the expected output (Hello, World!)
 appear at the bottom.
@@ -44,91 +59,180 @@ appear at the bottom.
   print('Hello, ${name}!');
 } </code>
 
+
+<div class="explanation"> <!-- BEGIN SCROLLING AREA -->
+
+<section>
+<h3> About the code </h3>
+
 <p>
-What's important about this sample's Dart code:
+This example illustrates some basic Dart features and conventions:
 </p>
 
 <dl>
-  <dt> Top-level <code>main()</code> method </dt>
+  <dt> Top-level <code>main()</code> function </dt>
   <dd>
-    Having a <code>main()</code> method with no surrounding class
-    is a Dart Board convention.
-    It lets Dart Board know where to start executing your code.
-    In a web app, you'd use <em>directives</em> instead&mdash;little
-    statements at the top of your <code>.dart</code> file.
-    (Don't worry, you'll learn about directives
-    in the next page.)
+    Having a <code>main()</code> function with no surrounding class
+    lets Dart know where to start executing your code.
   </dd>
 
   <dt> Variable declared with <code>var</code> </dt>
   <dd>
-    You must use either the <code>var</code> keyword
+    Whenever you create a variable in a Dart program,
+    you must use
+    the <code>var</code> keyword,
+    the <code>final</code> keyword,
     or a type name
-    whenever you create a variable.
+    to declare that variable.
   </dd>
 
   <dt> Output with <code>print()</code> </dt>
   <dd>
-    The <code>print()</code> method is
-    <span class="comment">
-    {PENDING: another Dart Board convention?}
-    </span>.
-    In a web app you'd use the DOM or
-    something like <code>console.log()</code> instead.
-    <span class="comment">
-    {QUESTION: correct?}
-    </span>
+    Dart's <code>print()</code> function
+    sends text to a console.
+  </dd>
+
+  <dt> String literals </dt>
+  <dd>
+    You can use either single or double quotes to mark strings:
+    <code>'World'</code> and <code>"World"</code> are equally valid.
   </dd>
 
   <dt> String interpolation with <code>${<em>expression</em>}</code> </dt>
   <dd>
     Dart lets you embed expressions within string literals.
     If the expression is just a variable,
-    as it is in this sample,
+    as it is in this example,
     then you can omit the curly braces (<code>{}</code>).
     Another alternative for building strings
     is the plus operator (<code>+</code>).
-    For example, the following three statements are equivalent
-    <span class="comment"> {PENDING: are they truly equivalent,
-    or do they just result in the same string?} </span>:
+    For example, the following three statements are equivalent:
 
     <pre>print('Hello, ${name}!');
 print('Hello, $name!');
-print('Hello, ', + name + '!');</pre> </dl>
-
-<p>
-You can edit the sample if you like.
-Go ahead. We'll wait.
-</p>
+print('Hello,' + name + '!');</pre></dd> </dl>
 
 </section>
 
 
 <section>
-<h2 id="2"> Sample #2: Hello, Class! </h2>
+<h3> Try this </h3>
+
+<dl>
+  <dt> Edit the code and click the Run button
+    to compile and run the new code. </dt>
+  <dd>
+    Some changes to try:
+    <ul>
+      <li> Change <code>'World'</code> to some other string&mdash;maybe
+        <code>'Mondo'</code> or <code>"you"</code>.
+      </li>
+      <li>
+        Change <code>${name}</code> to <code>$name</code>.
+      </li>
+      <li>
+        Embed an arithmetic expression in the output string.
+        For example:
+        <pre>var age = 21;
+print("Happy birthday, $name, you're ${++age} today.");
+</pre>
+      </li>
+    </ul>
+  </dd>
+  
+  <dt> Save a link to your Dart code. Send it to friends! 
+  <span class="comment">
+  {PENDING: Is this something we want to emphasize?
+  If not, delete it.}
+  </span>
+  </dt>
+  <dd>
+    When you click the Run button,
+    a link appears at the top of Dartboard.
+    Click it to bring up a new tab or window
+    that has your new code&mdash;saved for posterity&mdash;in Dartboard.
+    You can share it with your friends and colleagues
+    using Twitter, Google+, or any other mechanism you like.
+    <span class="comment">
+    {PENDING: recommend hashtags?
+    show a picture of a G+ entry or tweet with a hashtag and
+    display something funny/cool if they go to that URL?}
+    </span>
+  </dd>
+</ul>
+
+</section>
+
+<section>
+<h3> Tips for using Dartboard </h3>
+<ul>
+  <li>
+    Dartboard indicates warnings with yellow flags
+    and errors with red flags. 
+    Mouse over the flag to see a description of the problem.
+    <span class="comment">{PENDING: screenshot?}</span>
+  </li>
+  <li>
+    When you edit the code originally displayed by Dartboard,
+    a Reload button
+    <span class="comment">{PENDING: show it}</span>
+    appears at the top of the Dartboard.
+    Click it to go back to the original code.
+  </li>
+  <li>
+    The usual keyboard shortcuts should work in Dartboard.
+    For example, in Google Chrome on a Mac ,
+    Command-Z undoes your last change,
+    and Shift-Command-Z re-applies it.
+  </li>
+</ul>
+</section>
+</div> <!-- END SCROLLING AREA -->
+</section>
+
+<p class="comment">
+{PERHAPS: make each section its own tab?
+"About the code", "Try this", "Tips", ...
+The downside (besides it taking time :)
+is that you wouldn't be able to view the content of 2 tabs at once.}
+</p>
+
+
+<section>
+<h2 id="2"> Hello, Class! </h2>
 
 <p>
-The next sample adds a class to the previous code.
-Classes are important in Dart.
-They're how you create objects,
-and along with interfaces
-they define all the object types in Dart programs.
+The next example adds a class to the previous code.
+If you already know a class-based language,
+the syntax for creating and using classes probably looks familiar.
+If not,
+you might want to do a web search for
+<a href="http://www.google.com/search?q=object-oriented+concepts"
+  target="_blank">object-oriented concepts</a>,
+and read up before continuing.
 <span class="comment">
-{PENDING: correct?
-should we point to a primer on object-oriented programming?
-if so, which one?}
+{PENDING: What's a better search?
+Or is there something we can link to directly?}
 </span>
+</p>
+
+<p>
+Classes are important in Dart.
+They're how you create objects.
+All the object types in Dart programs
+are either classes or interfaces.
+(You'll learn about Dart interfaces a little later.)
 </p>
 
 
 <!-- pre style="border: black 1px solid;" -->
 <code class="codes">class Greeter {
-  var prefix = "Hello, ";
+  var prefix = 'Hello,';
 
   Greeter() {}
 
   greet(name) {
-    print('$prefix$name');
+    print('$prefix $name');
   }
 }
 
@@ -137,14 +241,19 @@ main() {
   greeter.greet('Class!');
 } </code>
 
+
+<div class="explanation">
+
+<section>
+<h3> About the code </h3>
 <p>
-What's important about the preceding code:
+The preceding code shows some basic features of Dart classes:
 </p>
 
 <dl>
   <dt> <code>class</code> statement </dt>
   <dd>
-    This sample defines a class, named <code>Greeter</code>,
+    This example defines a class, named <code>Greeter</code>,
     that has the default superclass: <code>Object</code>.
     In Dart, all classes descend from <code>Object</code>,
     either directly or indirectly.
@@ -154,34 +263,29 @@ What's important about the preceding code:
 
   <dt> Instance variable </dt>
   <dd>
-    Each <code>Greeter</code> object
-    has a variable named <code>prefix</code>
-    that's initialized to "Hello, ".
-    (As in JavaScript,
-    Dart string literals can be delimited by either single or double quotes.)
     Just as for regular variables,
     creating instance variables requires
     using <code>var</code> or a type.
+    Each <code>Greeter</code> object
+    has its own copy of a variable named <code>prefix</code>
+    that's initialized to <code>'Hello,'</code>.
 
     <p>
-    If you don't like the default value of <code>prefix</code>,
-    you can set it to something else:
-    </p>
-
-<pre>greeter.prefix = "Howdy, ";</pre>
-
+    You can set instance variables directly
+    (for example, <code>greeter.prefix = 'Hi,'</code>),
+    or through constructors,
+    or through setter methods.
     <span class="comment">
-    {PENDING: say more setting and getting ivars?
-    or at least point to where they're discussed}
-    </span>
+    {PENDING: point to where constructors and setters are discussed further.
+    Mention getters?}</span>
+    </p>
   </dd>
 
   <dt> Constructor </dt>
   <dd>
     <span class="comment">
-    {PENDING: the spec says there should be a default constructor,
-    but SSR doesn't work if you delete the constructor.
-    }
+    { PENDING: the spec says there should be a default constructor,
+    but Dartboard doesn't work if you delete the constructor. }
     </span>
     You can create instances of a class
     by invoking <code>new</code> followed by
@@ -193,68 +297,99 @@ What's important about the preceding code:
     (implicitly) calls the superclass's no-argument constructor.
     The superclass of <code>Greeter</code> is <code>Object</code>,
     so the code <code>new Greeter()</code> invokes the
-    <a href="/docs/ref/Object.html#Object"><code>Object()</code> constructor</a>.
+    <a href="/docs/ref/Object.html#Object" target="_blank"><code>Object()</code> constructor</a>.
+    
+    <p>
+    If you need more than one constructor for a class,
+    then you can specify <em>named constructors</em>&mdash;for
+    example, <code>Greeter.withPrefix()</code>.
+    For example:
+    </p>
+    
+<pre><em>//In the Greeter class:</em>
+Greeter.withPrefix(this.prefix);
+
+<em>//In code that creates Greeter objects:</em>
+var greeter = new Greeter.withPrefix('Howdy,');</pre>
+
+    <p>
+    In that code,
+    <code>this.prefix</code> is a shortcut
+    that assigns the parameter's value
+    to the instance variable <code>prefix</code>.
+    </p>
+    
   </dd>
 
   <dt> Instance method </dt>
   <dd>
     The <code>greet()</code> method
     defines a function that's tied to a <code>Greeter</code> object.
-    For a one-line method such as <code>greet()</code>,
-    you can use a special shorthand
-    that features the <code>=></code> operator:
-
-    <pre>// Equivalent of greet definition above:
-greet(name) => print('$prefix$name');</pre>
-    <aside class="note">
-    <b>Note:</b>
-    You currently get a warning about returning a value
-    from a void function.
-    Ignore it;
-    the syntax is valid,
-    and we expect the warning to disappear.
-    </aside>
-</p>
-  <dd>
-
+  </dd>
 
   <dt> No specified types </dt>
   <dd>
     Specifying types is optional in Dart.
     Types can help you write and maintain your code,
     but they don't change how Dart programs behave.
-    Here's what the preceding sample looks like with types
-    (as well as the other changes suggested above):
-    
-<!--
+  </dd>
+</dl>
+</section>
+
+
+<section>
+<h3> Try this </h3>
+
+<dl>
+  <dt> Set the value of the prefix instance variable. </dt>
+  <dd> For example, add this after line 12:
+      <pre>greeter.prefix = 'Hola,';</pre>
+
+  <dt> Convert the <code>greet()</code> method definition
+    to use the <code>=></code> operator. </dt>
+  <dd>
+    For a one-line method such as <code>greet()</code>,
+    you can use a special shorthand
+    that features the <code>=></code> operator:
+
+<pre>greet(name) => print('$prefix $name');</pre>
+
+    <p>
+    The <code>=></code> operator makes the method return the value
+    of the expression to the right of the operator.
+    </p>
+  </dd>
+  
+  <dt> Add a named constructor to Greeter, and call it. </dt>
+  <dd> You might want to do this a bit at a time.
+    For example:
+    <ol>
+      <li> Add this to the Greeter class:
+<pre><em>//In the Greeter class:</em>
+Greeter.withPrefix(this.prefix = '');
+
+<em>//In code that creates Greeter objects:</em>
+var greeter = new Greeter.withPrefix('Howdy,');</pre>
+
+  <dt> Add one or more types to the example. </dt>
+  <dd>
+    Here's what the example might look like if you add some types,
+    as well as a couple of other changes suggested in this section:
+
+<pre class="prettyprint lang-dart">
 class Greeter {
-  String prefix = "Hello, ";
+  <b>String</b> prefix = 'Hello,';
 
   Greeter() {}
 
-  void greet(name) => print('$prefix$name');
-}
-
-void main() {
-  Greeter greeter = new Greeter();
-  greeter.prefix = "Howdy, ";
-  greeter.greet('types and other cool stuff.');
-} 
--->
-
-<code class="codes">class Greeter {
-  <b>String</b> prefix = "Hello, ";
-
-  Greeter() {}
-
-  <b>void</b> greet(<b>String</b> name) => print('$prefix$name');
+  greet(<b>String</b> name) => print('$prefix $name');
 }
 
 <b>void</b> main() {
   <b>Greeter</b> greeter = new Greeter();
-  greeter.prefix = "Howdy, ";
+  greeter.prefix = 'Howdy,';
   greeter.greet('types and other cool stuff.');
-} </code>
+} </pre>
 
     <aside class="note">
       <strong>Note:</strong>
@@ -270,32 +405,145 @@ void main() {
   </dd>
 </dl>
 </section>
+</div>
 
 
 <section>
-<h2 id="3"> Sample #3: Hello, Interface! </h2>
+<h2 id="3"> Hello, Interface!  (DELETE?)</h2>
 
 <p class="comment">
-{PENDING... go on. What else do we want to show in Dart Board?
-Implementing an interface? Using a core library? Should use <code>num</code>.
-We should show comments (and doc comments?) somewhere.}
+{PENDING... Do we really want to feature interfaces like this?
+Or perhaps this should go in the Dart Editor part?
+Other things this section shows: num vs. int and double, more comment types.}
 </p>
 
-<pre style="border: black 1px solid;">
-class App implements Runnable {
-  App() {}
+<p>
+<em>Interfaces</em>&mdash;types that define
+which methods a class provides&mdash;are
+important in Dart.
+In fact, most of the Dart libraries are defined in terms of interfaces,
+although in practice you don't need to worry about this.
+Many library interfaces have a <em>factory class</em>&mdash;
+a class that creates objects that implement the interface.
+You don't need to know what the factory class is;
+you just use the interface's constructor,
+which defers to the factory class's implementation of the constructor.
+</p>
 
-  void run(ReceivePort port) {
-    Logger.println('Hey, this is App.run.');
-  }
+<p>
+For example, if your code says <code>new DateTime.now()</code>,
+the factory class for the <code>DateTime</code> interface
+creates an object representing the current time
+that implements all the methods in the <code>DateTime</code> interface.
+You can find documentation on
+<a href="/docs/ref/DateTime.html" target="_blank"><code>DateTime</code></a>
+and other APIs in the
+<a href="/docs/ref/" target="_blank">Dart Library Reference</a>.
+</p>
+
+<p>
+An example that might surprise you is the relationship between
+<code>num</code>,
+<code>int</code>, and
+<code>double</code>.
+You might expect
+<code>int</code> and <code>double</code> to be primitive types,
+but they aren't.
+Instead, they're interfaces that extend <code>num</code>.
+Having the <code>num</code> type makes it easy
+to deal with integer and floating-point numbers
+without having to explicitly convert from one to the other.
+</p>
+
+<p class="comment">
+{PENDING: I wasn't able to just include 'Sample3.dart'.
+The warning:
+<br>
+<code>Include file ''Sample3.dart'' contains invalid characters or sequences</code>
+}</p>
+<!-- <code class="codes">{% include 'Sample3.dart' %}</code> -->
+
+<code class="codes">class Greeter implements Comparable {
+  String prefix = 'Hello,';
+  Greeter() {}
+  Greeter.withPrefix(this.prefix);
+  greet(String name) => print('$prefix $name');
+
+  /* Implement the Comparable interface. */
+  /** Compares the prefixes of two Greeters. */
+  int compareTo(Greeter other) => prefix.compareTo(other.prefix);
 }
 
 void main() {
-  Isolate.start(new App(), function(SendPort port) {
-    Logger.println('Hey, this is main.');
-  });
+  Greeter greeter = new Greeter();
+  Greeter greeter2 = new Greeter.withPrefix('Hi,');
+
+  num result = greeter2.compareTo(greeter);
+  if (result == 0) {
+    greeter2.greet('you are the same.');
+  } else {
+    greeter2.greet('you are different.');
+  }
 }
-</pre>
+</code>
+
+<div class="explanation"> <!-- BEGIN SCROLLING AREA -->
+
+<section>
+<h3> About the code </h3>
+
+</section>
+
+<section>
+<h3> Try this </h3>
+</section>
+
+</div>
+</section>
+
+
+<section>
+<h2 id="maybe"> More Dart features </h2>
+
+<p class="comment">
+{PENDING... We might also want to show other cool/unusual features
+that are easy to show in a few lines of code:}
+</p>
+
+<ul>
+  <li> <a href="#for_in">Loops with for...in</a> </li>
+  <li> <a href="#getter">Getters and setters</a> </li>
+  <li> default arguments </li>
+  <li> full-window Dartboard </li>
+  <li> <em>... what else? ...</em> </li>
+</ul>
+
+<h3 id="for_in"> Loops with for...in </h3>
+  <pre>for (final item in [1, 2, 3]) print(item);</pre>
+  OR
+  <pre>for (final link in someNode.query('a')) print(link.target);</pre></li>
+
+<h3 id="getter"> Getters and setters </h3>
+
+<code class="codes">class Greeter {
+  String _prefix = "Hello, ";
+  String get prefix() => _prefix;     //getter for prefix
+  void set prefix(String value) {     //setter for prefix
+    if (value == null) value = "";
+    if (value.length > 20) throw 'Prefix too long!';
+    _prefix = value;
+  }
+  Greeter() {}
+  greet(name) => print('$prefix $name');
+}
+
+main() {
+  var greeter = new Greeter();
+  greeter.prefix = 'Howdy,';          //set prefix
+  greeter.greet('setter!');
+}
+</code>
+
 </section>
 
 

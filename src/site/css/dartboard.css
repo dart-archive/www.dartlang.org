@@ -1,15 +1,21 @@
 .codes {
         display: block;
-        width: 600px;
-        height: 300px;
+        width: 100%;
+        min-height: 150px;
+        /* width: 600px;
+        height: 300px; */
         display: inline-block;
         border: 1px solid #aaa;
         white-space: pre;
         font-family: monospace;
         font-size: 11pt;
+        padding-bottom: 34px; /* hack to avoid scrollbars */
 }
-#col {
-        width: 600px;
-        height: 400px;
-        margin: 0 auto;
+
+div.explanation {
+  border: solid 1px #aaa;
+  padding: 0 1em;
+  margin: 1em 0;
+  height: 400px;
+  overflow: auto;
 }
