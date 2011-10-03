@@ -1,0 +1,75 @@
+<p>
+<em>Interfaces</em>&mdash;types that define
+which methods a class provides&mdash;are
+important in Dart.
+In fact, most of the Dart libraries are defined in terms of interfaces,
+although you don't usually need to worry about this
+because many library interfaces have a <em>factory class</em>&mdash;
+a class that creates objects that implement the interface.
+You don't need to know anything about the factory class.
+You just use the interface's constructor,
+which defers to the factory class's implementation of the constructor.
+</p>
+
+<p>
+For example, if your code says <code>new DateTime.now()</code>,
+the factory class for the <code>DateTime</code> interface
+creates an object representing the current time
+that implements all the methods in the <code>DateTime</code> interface.
+You can find documentation on
+<a href="/docs/ref/DateTime.html" target="_blank"><code>DateTime</code></a>
+and other APIs in the
+<a href="/docs/ref/" target="_blank">Dart Library Reference</a>.
+</p>
+
+<p>
+An example that might surprise you is the relationship between
+<code>num</code>,
+<code>int</code>, and
+<code>double</code>.
+You might expect
+<code>int</code> and <code>double</code> to be primitive types,
+but they aren't.
+Instead, they're interfaces that extend <code>num</code>.
+Having the <code>num</code> type makes it easy
+to deal with integer and floating-point numbers
+without having to explicitly convert from one to the other.
+</p>
+
+<code class="codes">class Greeter implements Comparable {
+  String prefix = 'Hello,';
+  Greeter() {}
+  Greeter.withPrefix(this.prefix);
+  greet(String name) => print('$prefix $name');
+
+  /* Implement the Comparable interface. */
+  /** Compares the prefixes of two Greeters. */
+  int compareTo(Greeter other) => prefix.compareTo(other.prefix);
+}
+
+void main() {
+  Greeter greeter = new Greeter();
+  Greeter greeter2 = new Greeter.withPrefix('Hi,');
+
+  num result = greeter2.compareTo(greeter);
+  if (result == 0) {
+    greeter2.greet('you are the same.');
+  } else {
+    greeter2.greet('you are different.');
+  }
+}
+</code>
+
+<div class="explanation"> <!-- BEGIN SCROLLING AREA -->
+
+<section>
+<h3> About the code </h3>
+
+</section>
+
+<section>
+<h3> Try this </h3>
+</section>
+
+</div>
+</section>
