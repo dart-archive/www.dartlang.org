@@ -45,20 +45,19 @@ layout: default
   <h2>An example of Dart code</h2>
 
 <pre class="prettyprint lang-dart">
-/*
- * PENDING: Make this snippet shortish and familiar, yet intriguingly different.
- * Use a mix of Java and JavaScript conventions.
- * E.g.: real class/types + event listener. (definitely use "class")
- *
- * Show all new features mentioned in the "Familiar yet new" item above,
- * (for now, just optional types).
- *
- * Dan (et al) to think about this.
- */
+class Point  {
+  var x, y;
+  Point(this.x, this.y);
+  scale(factor) => new Point(x*factor, y*factor);
+  distance() => Math.sqrt(x*x + y*y);
+}
+
+
 main() {
-  var name = 'World';
-  print('Hello, ${name}!');
-}</pre>
+  var a = new Point(2,3).scale(4);
+  print("distance from (0,0): ${a.distance()}");
+}
+</pre>
 </section>
 
 <section class="comment">
