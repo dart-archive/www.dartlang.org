@@ -111,7 +111,8 @@ html {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #081640;
+  background-image: url(/imgs/button-textured.png);
+  background-repeat: repeat;
   height: 100%;
 }
 
