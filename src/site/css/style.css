@@ -129,6 +129,7 @@ div#container {
   width: 1000px;
   margin: auto;
   background-color: white;
+  box-shadow: 0 0 50px #888;
 }
 
 header {
