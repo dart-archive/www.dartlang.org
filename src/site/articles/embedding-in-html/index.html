@@ -1,0 +1,225 @@
+---
+layout: default
+title: "Embedding Dart in HTML"
+---
+
+<style type="text/css">
+.beware {color:red; font-weight:bold;}
+</style>
+
+<h1> Embedding Dart in HTML </h1>
+
+<p>
+Dart is a new structured programming language for the browser.
+Like JavaScript, Dart programs can be directly embedded on HTML pages
+served to the browser.
+</p>
+
+<p>
+This document describes syntax and semantics
+for how Dart is embedded in a web page.
+An HTML page with Dart can be translated to
+a semantically equivalent page embedding JavaScript.
+</p>
+
+
+<h2> Dart MIME type </h2>
+
+<p>
+HTML <code>script</code> tags provide a
+<code>type</code> attribute to define the language of the script.
+We propose to add a new type for Dart
+</p>
+
+<table>
+  <tr>
+    <th>MIME Type</th><th>Description</th>
+  </tr>
+  <tr>
+    <td><code>application/dart</code></td>
+    <td>A Dart script.</td>
+  </tr>
+</table>
+
+<p>
+Like other script tags,
+the script contents can be
+inlined as the body of the <code>script</code> tag
+or specified by reference via a URL using
+the <code>script</code> tag&rsquo;s <code>src</code> attribute.
+</p>
+
+<p>
+The Dart script can have optional
+<code>#source</code> and <code>#import</code> directives.
+It must have a visible top-level function called <code>main()</code>,
+either declared directly in the script or in a sourced/imported file.
+The browser will invoke <code>main()</code>
+when the page is loaded.
+</p>
+
+<h2>Fundamental differences from JavaScript</h2>
+
+<p>
+Embedding Dart code is different from embedding JavaScript
+in a few ways.
+</p>
+
+<h3>Isolated script tags</h3>
+
+<p>
+Every HTML page can have multiple Dart script tags,
+but each Dart script tag in a page runs in isolation.
+This fundamentally differs from the way
+that JavaScript is embedded in HTML&mdash;in
+JavaScript, declarations across multiple script tags are
+combined together in the same namespace.
+In Dart, code in one script tag cannot directly access code defined in another.
+If a script wishes to load code from a different URL,
+it must do so via <code>#import</code>.
+Each script tag must define its own <code>main()</code> entry point
+in order to run.
+</p>
+
+<h3>Delayed execution</h3>
+
+<p>
+Unlike in JavaScript,
+top-level Dart constructs (such as interfaces, classes, and functions)
+are declarative.
+Each Dart application (defined via a script tag)
+provides an explicit <code>main()</code> entry point
+that is invoked by the browser when it is ready to run.
+</p>
+
+<p>
+By default, each Dart script tag&rsquo;s <code>main()</code>
+is invoked on the DOMContentLoaded event.
+Ordering across script tags is not guaranteed.
+This has a few consequences:
+</p>
+
+<ol>
+  <li> All script tags with the 'application/dart' MIME type in the page
+    can be loaded asynchronously/concurrently.
+    (That is, HTML5 async and defer tags are hints
+    that do not affect semantics.)
+  </li>
+  <li> Dart code executes only after the page is parsed.
+    Dart programmers can assume that the DOM is fully loaded.
+  </li>
+</ol>
+
+<aside class="note">
+<b>Note:</b>
+We are considering allowing Dart code to run as soon as a script is loaded
+(for example, like JavaScript with HTML5 async attributes).
+This would allow running a script before the DOM is fully loaded,
+but we would still preserve the asynchronous semantics we support today.
+</aside>
+
+<h3> No inline event listeners </h3>
+
+<p>
+We disallow inline event listeners of the form:
+</p>
+<pre>&lt;div onclick="foo()"&gt;Click this text.&lt;/div&gt; </pre>
+
+<p>
+With JavaScript, programmers can embed inline event listener code
+directly onto HTML nodes.
+However, this is typically discouraged in modern JavaScript applications.
+HTML pages generally render more quickly
+if listeners are added programmatically afterwards.
+Modern security guidelines also discourage inline code.
+As such, we propose to not allow inline Dart listeners.
+</p>
+
+<h2>Examples</h2>
+
+<p>
+Here is a simple Hello World in HTML using Dart.
+This script defines its own isolate/library.
+The <code>main()</code> method is implicitly the entry point.  
+</p>
+<pre>
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;script type='application/dart'&gt;
+      void main() {
+        HTMLElement element = document.getElementById(&#39;message&#39;);
+        element.innerHTML = &#39;Hello from Dart&#39;;
+      }
+    &lt;/script&gt;
+  &lt;div id='message'&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<aside class="note">
+<b>Note:</b>
+The <code>main()</code> method is executed after the page is parsed,
+on the DOMContentLoaded event,
+so the div element is guaranteed to exist.
+</aside>
+
+<p>
+In contrast, the following is an error:
+</p>
+<pre>
+&lt;html>
+  &lt;body>
+    &lt;script type='application/dart'>
+      void hello(String text) {
+        HTMLElement element = document.getElementById('message');
+        element.innerHTML = text;
+      } <span class="beware">// This tag triggers a warning as no main() is defined.</span>
+    &lt;/script>
+    &lt;script type="application/dart">
+      void main() {
+        <b>hello</b>('Hello from Dart'); <span class="beware">// hello() will not resolve.</span>
+      }
+    &lt;/script>
+    &lt;div id="message">&lt;/div>
+  &lt;/body>
+&lt;/html></pre>
+<aside class="note">
+<b>Note:</b>
+(1) Each Dart script in the page runs in its own isolate,
+and (2) exactly one <code>main()</code> should exist per script.
+</aside>
+
+<p>
+Instead, when programmers wish to incorporate external code,
+they need to use an <code>#import</code> directive.
+For example, suppose the file <code>Hello.dart</code>
+defines the <code>hello()</code> method shown above.
+Then the following executes as expected:
+</p>
+
+<pre>
+&lt;html>
+  &lt;body>
+    &lt;script type='application/dart'>
+      <b>#source(Hello.dart)</b>
+      void main() {
+        hello('Hello from Dart');
+      }
+    &lt;/script>
+    &lt;div id="message">&lt;/div>
+  &lt;/body>
+&lt;/html>
+</pre>
+
+<h2> Compiling HTML pages </h2>
+
+<p>
+The Dart distribution
+<span class="comment">{PENDING: distribution -> source?}</span>
+includes a script
+that translates an HTML page with 'application/dart' MIME types
+into an HTML page with JavaScript code.
+You can find more details in the Dart project wiki page
+<a href="https://code.google.com/p/dart/wiki/HTMLConverter">HTMLConverter</a>.
+</p>
+</body>
+</html>
