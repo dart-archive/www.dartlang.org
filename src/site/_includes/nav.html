@@ -1,22 +1,22 @@
 <nav>
   <ul>
-    <li><a href="/">Home</a></li>
+    {% nav_link %}Home{% endnav_link %}
     <li>Getting Started</li>
       <ul>
         {% nav_link /docs/technical-overview/index.html %}Technical Overview{% endnav_link %}
-        <li><a href="/docs/getting-started/">Code with Dartboard</a></li>
+        {% nav_link /docs/getting-started/index.html %}Code with Dartboard{% endnav_link %}
       </ul>
-    <li><a href="/samples/">Samples &amp; Walkthroughs</a></li>
+    {% nav_link /samples/index.html %}Samples &amp; Walkthroughs{% endnav_link %}
     <li>Language &amp; Library Docs
       <ul>
-        <li><a href="/docs/spec/">Language Spec</a></li>
-        <li><a href="/docs/api/">Library Reference</a></li>
+        {% nav_link /docs/spec/index.html %}Language Spec{% endnav_link %}
+        {% nav_link /docs/api/index.html %}Library Reference{% endnav_link %}
       </ul>
     </li>
-    <li><a href="/support/">Community &amp; Support</a>
+    {% nav_link /support/index.html %}Community &amp; Support{% endnav_link %}
       <ul>
-        <li><a href="/articles/">Articles</a></li>
-        <li><a href="/faq/">FAQ</a></li>
+        {% nav_link /articles/index.html %}Articles{% endnav_link %}
+        {% nav_link /faq/index.html %}FAQ{% endnav_link %}
       </ul>
     </li>
   </ul>
