@@ -127,9 +127,9 @@ header {
   color: white;
   padding: 1em;
   
-  background-image: url(/imgs/spot.png);
+  background-image: url(/imgs/header-background.jpg);
   
-  background-image: url(/imgs/spot.png), -webkit-gradient(
+  background-image: url(/imgs/header-background.jpg), -webkit-gradient(
       linear,
       left bottom,
       left 180,
