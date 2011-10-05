@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Dart : Libraries : corelib : String</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+
+<body>
+
+<header></header>
+
+<h1 id="title">interface <a name='String::String'>String</a></h1>
+
+<section id="inheritance">
+
+<section class="supertype">
+<h2>Supertype:</h2>
+<ul><li><a href='Object.html#Object::Object'>Object</a></li></ul>
+</section>
+
+<section class="interfaces">
+<h2>Implemented interfaces:</h2>
+<ul>
+<li><a href='Comparable.html#Comparable::Comparable'>Comparable</a></li>
+<li><a href='Hashable.html#Hashable::Hashable'>Hashable</a></li>
+<li><a href='Pattern.html#Pattern::Pattern'>Pattern</a></li>
+</ul>
+</section>
+
+</section>
+
+<section id="summary">
+
+ The String class represents character strings. Strings are
+ immutable. A string is represented by a list of 32-bit Unicode
+ scalar character codes accessible through the <code><a href='String.html#String::charCodeAt'>charCodeAt</a></code> or the
+ <code><a href='String.html#String::charCodes'>charCodes</a></code> method.
+</section>
+
+<section id="fields">
+<h2>Fields</h2>
+<dl>
+<dt>
+<span class="field-type"><code><code><a href='int.html#int::int'>int</a></code></code></span>
+<span class="field-name"><code><a name='String::length'>length
+</a></code></span>
+</dt>
+<dd>
+
+ The length of the string.
+</dd>
+</dl>
+</section>
+
+<section id="constructors">
+<h2>Constructors</h2>
+<dl>
+<dt>
+<code><a href='String.html#String::String'>String</a>.<a name='String::fromCharCodes'>fromCharCodes</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='String::fromCharCodes::charCodes'>charCodes</a>)</code>
+</dt>
+<dd>
+
+ Allocates a new String for the specified <code><a href='String.html#String::fromCharCodes::charCodes'>charCodes</a></code>.
+</dd>
+</dl>
+</section>
+
+<section id="methods">
+<h2>Methods</h2>
+<dl>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::43'>+</a>(<code><a href='Object.html#Object::Object'>Object</a></code> <a name='String::43::other'>other</a>)</code></dt>
+<dd>
+
+ Converts <code><a href='String.html#String::43::other'>other</a></code> to a string and creates a new string by
+ concatenating this string with the converted <code><a href='String.html#String::43::other'>other</a></code>.
+</dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='String::6161'>==</a>(<code><a href='String.html#String::String'>String</a></code> <a name='String::6161::other'>other</a>)</code></dt>
+<dd>
+
+ Returns whether the two strings are equal. This method compares
+ each individual scalar character codes of the strings.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::9193'>[]</a>(<code><a href='int.html#int::int'>int</a></code> <a name='String::9193::index'>index</a>)</code></dt>
+<dd>
+
+ Gets the character (as <code><a href='String.html#String::String'>String</a></code>) at the given <code><a href='String.html#String::9193::index'>index</a></code>.
+</dd>
+<dt>
+<code><code><a href='int.html#int::int'>int</a></code> <a name='String::charCodeAt'>charCodeAt</a>(<code><a href='int.html#int::int'>int</a></code> <a name='String::charCodeAt::index'>index</a>)</code></dt>
+<dd>
+
+ Gets the scalar character code at the given <code><a href='String.html#String::charCodeAt::index'>index</a></code>.
+</dd>
+<dt>
+<code><code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='String::charCodes'>charCodes</a>()</code></dt>
+<dd>
+
+ Returns a list of the scalar character codes of this string.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::concat'>concat</a>(<code><a href='String.html#String::String'>String</a></code> <a name='String::concat::other'>other</a>)</code></dt>
+<dd>
+
+ Creates a new string by concatenating this string with <code><a href='String.html#String::concat::other'>other</a></code>.
+</dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='String::contains'>contains</a>(<code><a href='Pattern.html#Pattern::Pattern'>Pattern</a></code> <a name='String::contains::other'>other</a>, <code><a href='int.html#int::int'>int</a></code> <a name='String::contains::startIndex'>startIndex</a>)</code></dt>
+<dd>
+
+ Returns whether this string contains <code><a href='String.html#String::contains::other'>other</a></code> starting
+ at <code><a href='String.html#String::contains::startIndex'>startIndex</a></code> (inclusive).
+</dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='String::endsWith'>endsWith</a>(<code><a href='String.html#String::String'>String</a></code> <a name='String::endsWith::other'>other</a>)</code></dt>
+<dd>
+
+ Returns whether this string ends with <code><a href='String.html#String::endsWith::other'>other</a></code>.
+</dd>
+<dt>
+<code><code><a href='int.html#int::int'>int</a></code> <a name='String::indexOf'>indexOf</a>(<code><a href='String.html#String::String'>String</a></code> <a name='String::indexOf::other'>other</a>, <code><a href='int.html#int::int'>int</a></code> <a name='String::indexOf::startIndex'>startIndex</a>)</code></dt>
+<dd>
+
+ Returns the first location of <code><a href='String.html#String::indexOf::other'>other</a></code> in this string starting at
+ <code><a href='String.html#String::indexOf::startIndex'>startIndex</a></code> (inclusive).
+ Returns -1 if <code><a href='String.html#String::indexOf::other'>other</a></code> could not be found.
+</dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='String::isEmpty'>isEmpty</a>()</code></dt>
+<dd>
+
+ Returns whether this string is empty.
+</dd>
+<dt>
+<code><code><a href='int.html#int::int'>int</a></code> <a name='String::lastIndexOf'>lastIndexOf</a>(<code><a href='String.html#String::String'>String</a></code> <a name='String::lastIndexOf::other'>other</a>, <code><a href='int.html#int::int'>int</a></code> <a name='String::lastIndexOf::fromIndex'>fromIndex</a>)</code></dt>
+<dd>
+
+ Returns the last location of <code><a href='String.html#String::lastIndexOf::other'>other</a></code> in this string, searching
+ backward starting at <code><a href='String.html#String::lastIndexOf::fromIndex'>fromIndex</a></code> (inclusive).
+ Returns -1 if <code><a href='String.html#String::lastIndexOf::other'>other</a></code> could not be found.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::replaceAll'>replaceAll</a>(<code><a href='Pattern.html#Pattern::Pattern'>Pattern</a></code> <a name='String::replaceAll::from'>from</a>, <code><a href='String.html#String::String'>String</a></code> <a name='String::replaceAll::to'>to</a>)</code></dt>
+<dd>
+
+ Returns a new string where all occurences of <code><a href='String.html#String::replaceAll::from'>from</a></code> in this string
+ are replaced with <code><a href='String.html#String::replaceAll::to'>to</a></code>.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::replaceFirst'>replaceFirst</a>(<code><a href='Pattern.html#Pattern::Pattern'>Pattern</a></code> <a name='String::replaceFirst::from'>from</a>, <code><a href='String.html#String::String'>String</a></code> <a name='String::replaceFirst::to'>to</a>)</code></dt>
+<dd>
+
+ Returns a new string where the first occurence of <code><a href='String.html#String::replaceFirst::from'>from</a></code> in this string
+ is replaced with <code><a href='String.html#String::replaceFirst::to'>to</a></code>.
+</dd>
+<dt>
+<code><code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='String::split'>split</a>(<code><a href='Pattern.html#Pattern::Pattern'>Pattern</a></code> <a name='String::split::pattern'>pattern</a>)</code></dt>
+<dd>
+
+ Splits the string around matches of <code><a href='String.html#String::split::pattern'>pattern</a></code>. Returns
+ a list of substrings.
+</dd>
+<dt>
+<code><code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='String::splitChars'>splitChars</a>()</code></dt>
+<dd>
+
+ Returns a list of the characters of this string.
+</dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='String::startsWith'>startsWith</a>(<code><a href='String.html#String::String'>String</a></code> <a name='String::startsWith::other'>other</a>)</code></dt>
+<dd>
+
+ Returns whether this string starts with <code><a href='String.html#String::startsWith::other'>other</a></code>.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::substring'>substring</a>(<code><a href='int.html#int::int'>int</a></code> <a name='String::substring::startIndex'>startIndex</a>, <code><a href='int.html#int::int'>int</a></code> <a name='String::substring::endIndex'>endIndex</a>)</code></dt>
+<dd>
+
+ Returns a substring of this string in the given range.
+ <code><a href='String.html#String::substring::startIndex'>startIndex</a></code> is inclusive and <code><a href='String.html#String::substring::endIndex'>endIndex</a></code> is exclusive.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::substringToEnd'>substringToEnd</a>(<code><a href='int.html#int::int'>int</a></code> <a name='String::substringToEnd::startIndex'>startIndex</a>)</code></dt>
+<dd>
+
+ TODO(terry): Remove when VM supports default value for a function arg.
+              Change substring function's endIndex argument to have a
+              default value of this.length
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::toLowerCase'>toLowerCase</a>()</code></dt>
+<dd>
+
+ If this string is not already all lower case, returns a new string
+ where all characters  are made lower case. Returns <code>this</code>
+
+ otherwise.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::toUpperCase'>toUpperCase</a>()</code></dt>
+<dd>
+
+ If this string is not already all uper case, returns a new string
+ where all characters are made upper case. Returns <code>this</code>
+
+ otherwise.
+</dd>
+<dt>
+<code><code><a href='String.html#String::String'>String</a></code> <a name='String::trim'>trim</a>()</code></dt>
+<dd>
+
+ Returns a new string where leading and trailing whitespaces of
+ this string have been removed, or returns this string if it does
+ not have leading and trailing whitespaces.
+</dd>
+</dl>
+</section>
+
+<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
+
+</body></html>

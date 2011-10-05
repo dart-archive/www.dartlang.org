@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Dart : Libraries : corelib : Queue</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+
+<body>
+
+<header></header>
+
+<h1 id="title">interface <a name='Queue::Queue'>Queue&lt;E&gt;</a></h1>
+
+<section id="inheritance">
+
+<section class="supertype">
+<h2>Supertype:</h2>
+<ul><li><a href='Object.html#Object::Object'>Object</a></li></ul>
+</section>
+
+<section class="interfaces">
+<h2>Implemented interfaces:</h2>
+<ul>
+<li><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></li>
+</ul>
+</section>
+
+</section>
+
+<section id="summary">
+
+ A <code><a href='Queue.html#Queue::Queue'>Queue&lt;E&gt;</a></code> is a collection that can be manipulated at both ends. One
+ can iterate over the elements of a queue through <code><a href='Collection.html#Collection::forEach'>forEach</a></code> or with
+ an <code><a href='Iterator.html#Iterator::Iterator'>Iterator&lt;E&gt;</a></code>.
+</section>
+
+<section id="fields">
+</section>
+
+<section id="constructors">
+<h2>Constructors</h2>
+<dl>
+<dt>
+<code><a href='Queue.html#Queue::Queue'>Queue&lt;E&gt;</a>()</code>
+</dt>
+<dd>
+
+ Creates a queue.
+</dd>
+<dt>
+<code><a href='Queue.html#Queue::Queue'>Queue&lt;E&gt;</a>.<a name='Queue::from'>from</a>(<code><a href='Iterable.html#Iterable::Iterable'>Iterable&lt;E&gt;</a></code> <a name='Queue::from::other'>other</a>)</code>
+</dt>
+<dd>
+
+ Creates a queue with the elements of <code><a href='Queue.html#Queue::from::other'>other</a></code>. The order in
+ the queue will be the order provided by the iterator of <code><a href='Queue.html#Queue::from::other'>other</a></code>.
+</dd>
+</dl>
+</section>
+
+<section id="methods">
+<h2>Methods</h2>
+<dl>
+<dt>
+<code>void <a name='Queue::add'>add</a>(<code><a href='Queue.html#Queue::Queue'>E</a></code> <a name='Queue::add::value'>value</a>)</code></dt>
+<dd>
+
+ Adds <code><a href='Queue.html#Queue::add::value'>value</a></code> at the end of the queue.
+</dd>
+<dt>
+<code>void <a name='Queue::addAll'>addAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Queue::addAll::collection'>collection</a>)</code></dt>
+<dd>
+
+ Adds all elements of <code><a href='Queue.html#Queue::addAll::collection'>collection</a></code> at the end of the queue. The
+ length of the queue is extended by the length of <code><a href='Queue.html#Queue::addAll::collection'>collection</a></code>.
+</dd>
+<dt>
+<code>void <a name='Queue::addFirst'>addFirst</a>(<code><a href='Queue.html#Queue::Queue'>E</a></code> <a name='Queue::addFirst::value'>value</a>)</code></dt>
+<dd>
+
+ Adds <code><a href='Queue.html#Queue::addFirst::value'>value</a></code> at the beginning of the queue.
+</dd>
+<dt>
+<code>void <a name='Queue::addLast'>addLast</a>(<code><a href='Queue.html#Queue::Queue'>E</a></code> <a name='Queue::addLast::value'>value</a>)</code></dt>
+<dd>
+
+ Adds <code><a href='Queue.html#Queue::addLast::value'>value</a></code> at the end of the queue.
+</dd>
+<dt>
+<code>void <a name='Queue::clear'>clear</a>()</code></dt>
+<dd>
+
+ Removes all elements in the queue. The size of the queue becomes zero.
+</dd>
+<dt>
+<code><code><a href='Queue.html#Queue::Queue'>E</a></code> <a name='Queue::first'>first</a>()</code></dt>
+<dd>
+
+ Returns the first element of the queue. Throws an
+ <code><a href='EmptyQueueException.html#EmptyQueueException::EmptyQueueException'>EmptyQueueException</a></code> exception if this queue is empty.
+</dd>
+<dt>
+<code><code><a href='Queue.html#Queue::Queue'>E</a></code> <a name='Queue::last'>last</a>()</code></dt>
+<dd>
+
+ Returns the last element of the queue. Throws an
+ <code><a href='EmptyQueueException.html#EmptyQueueException::EmptyQueueException'>EmptyQueueException</a></code> exception if this queue is empty.
+</dd>
+<dt>
+<code><code><a href='Queue.html#Queue::Queue'>E</a></code> <a name='Queue::removeFirst'>removeFirst</a>()</code></dt>
+<dd>
+
+ Removes and returns the first element of this queue. Throws an
+ <code><a href='EmptyQueueException.html#EmptyQueueException::EmptyQueueException'>EmptyQueueException</a></code> exception if this queue is empty.
+</dd>
+<dt>
+<code><code><a href='Queue.html#Queue::Queue'>E</a></code> <a name='Queue::removeLast'>removeLast</a>()</code></dt>
+<dd>
+
+ Removes and returns the last element of the queue. Throws an
+ <code><a href='EmptyQueueException.html#EmptyQueueException::EmptyQueueException'>EmptyQueueException</a></code> exception if this queue is empty.
+</dd>
+</dl>
+</section>
+
+<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
+
+</body></html>
