@@ -200,7 +200,7 @@ For example:
 </p>
 
 <pre>
-new Array();
+new List();
 </pre>
 
 <p>
@@ -208,7 +208,7 @@ works just fine. Of course, you can write
 </p>
 
 <pre>
-new Array&lt;String>();
+new List&lt;String>();
 </pre>
 
 <p>
@@ -216,7 +216,7 @@ if you want.
 </p>
 
 <pre>
-new Array();
+new List();
 </pre>
 
 <p>
@@ -224,7 +224,7 @@ is just a shorthand for
 </p>
 
 <pre>
-new Array&lt;Dynamic>();
+new List&lt;Dynamic>();
 </pre>
 
 <p>
@@ -234,8 +234,8 @@ so that you can use them when you do dynamic type tests.
 </p>
 
 <pre>
-new Array&lt;String>() is Array&lt;Object>  // true: every string is an object 
-new Array&lt;Object>() is Array&lt;String>  // false: not all objects are strings
+new List&lt;String>() is List&lt;Object>  // true: every string is an object 
+new List&lt;Object>() is List&lt;String>  // false: not all objects are strings
 </pre>
 
 <p>
@@ -244,10 +244,10 @@ Here are some more interesting cases:
 </p>
 
 <pre>
-new Array&lt;String>() is Array&lt;int>     // false
-new Array&lt;String>() is Array          // true
-new Array&lt;String>() is Array&lt;Dynamic> // same as line above
-new Array() is Array&lt;Dynamic>         // true, these are exactly the same
+new List&lt;String>() is List&lt;int>     // false
+new List&lt;String>() is List          // true
+new List&lt;String>() is List&lt;Dynamic> // same as line above
+new List() is List&lt;Dynamic>         // true, these are exactly the same
 </pre>
 
 <p>
@@ -259,7 +259,7 @@ One last case worth studying:
 </p>
 
 <pre>
-new Array() is Array&lt;String>          // true as well!
+new List() is List&lt;String>          // true as well!
 </pre>
 
 <p>
