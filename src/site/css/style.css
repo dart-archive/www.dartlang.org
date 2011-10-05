@@ -115,6 +115,14 @@ body {
   height: 100%;
 }
 
+a {
+    color: #0084C4;
+}
+
+a:visited {
+    color: #0084C4;
+}
+
 div#container {
   min-height: 100%;
   width: 1000px;
