@@ -110,7 +110,7 @@ html {
 }
 
 body {
-  font-family: 'Droid Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: #081640;
   height: 100%;
 }
@@ -169,7 +169,6 @@ header div#plus1 {
 
 header h1 {
   font-size: 9em;
-  font-family: 'Bangers', cursive;
   letter-spacing: 4px;
   text-shadow: black 0px 0px 10px;
 }
