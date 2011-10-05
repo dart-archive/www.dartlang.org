@@ -9,7 +9,6 @@ module Jekyll
 
     def render(context)
       page_url = context.environments.first["page"]["url"]
-      puts "XXXX #{page_url}"
       "<li>" +
       ((@url != page_url) ? "<a href=\"#{@url}\">" : '') +
       super.join('') +
