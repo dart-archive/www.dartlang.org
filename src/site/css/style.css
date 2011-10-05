@@ -123,8 +123,6 @@ div#container {
 }
 
 header {
-  background-color: #223F59;
-  color: white;
   padding: 1em;
   
   background-image: url(/imgs/header-background.jpg);
@@ -137,10 +135,14 @@ header {
       color-stop(0.64, rgb(34,63,89))
   );
   
-
   background-position: left top;
   background-repeat: no-repeat;
   position: relative;
+}
+
+header img {
+    position: relative;
+    left: 190px;
 }
 
 #fyeo {
@@ -152,25 +154,10 @@ header {
   text-align: center;
 }
 
-header h1, header h2 {
-  text-align: center;
-}
-
-header h2 {
-  position: relative;
-  left: 80px;
-}
-
 header div#plus1 {
   position: absolute;
   top: 20px;
   right: 20px;
-}
-
-header h1 {
-  font-size: 9em;
-  letter-spacing: 4px;
-  text-shadow: black 0px 0px 10px;
 }
 
 nav{
