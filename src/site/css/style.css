@@ -261,6 +261,12 @@ footer {
   padding: 20px;
 }
 
+section#what-is-dart dl dt {
+    color: #0084C4;
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+
 section#start-here {
   height: 100%;
 }
