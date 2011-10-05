@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Dart : Libraries : corelib : Promise</title>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+
+<body>
+
+<header></header>
+
+<h1 id="title">interface <a name='Promise::Promise'>Promise&lt;T&gt;</a></h1>
+
+<section id="inheritance">
+
+<section class="supertype">
+<h2>Supertype:</h2>
+<ul><li><a href='Object.html#Object::Object'>Object</a></li></ul>
+</section>
+
+</section>
+
+<section id="summary">
+ A promise to value of type <code><a href='Promise.html#Promise::Promise'>T</a></code> that may be computed asynchronously. </section>
+
+<section id="fields">
+<h2>Fields</h2>
+<dl>
+<dt>
+<span class="field-type"><code>&lt;dynamic&gt;</code></span>
+<span class="field-name"><code><a name='Promise::error'>error
+</a></code></span>
+</dt>
+<dd>
+ Error that occurred while computing the value, if any; null otherwise. </dd>
+<dt>
+<span class="field-type"><code><code><a href='Promise.html#Promise::Promise'>T</a></code></code></span>
+<span class="field-name"><code><a name='Promise::value'>value
+</a></code></span>
+</dt>
+<dd>
+
+ The value once it is computed. It will be null when the promise is in
+ progress (<code>!isDone()</code>
+
+), when it was cancelled (<code>isCancelled()</code>
+
+), or
+ when the computed value is actually null.
+</dd>
+</dl>
+</section>
+
+<section id="constructors">
+<h2>Constructors</h2>
+<dl>
+<dt>
+<code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a>()</code>
+</dt>
+<dd>
+</dd>
+<dt>
+<code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a>.<a name='Promise::fromValue'>fromValue</a>(<code><a href='Promise.html#Promise::Promise'>T</a></code> <a name='Promise::fromValue::value'>value</a>)</code>
+</dt>
+<dd>
+ A promise that already has a computed value. </dd>
+</dl>
+</section>
+
+<section id="methods">
+<h2>Methods</h2>
+<dl>
+<dt>
+<code>void <a name='Promise::addCancelHandler'>addCancelHandler</a>(void <a name='Promise::addCancelHandler::cancelHandler'>cancelHandler</a>())</code></dt>
+<dd>
+ Register a handler to execute when <code><a href='Promise.html#Promise::cancel'>cancel</a></code> is called. </dd>
+<dt>
+<code>void <a name='Promise::addCompleteHandler'>addCompleteHandler</a>(void <a name='Promise::addCompleteHandler::completeHandler'>completeHandler</a>(<code><a href='Promise.html#Promise::Promise'>T</a></code>))</code></dt>
+<dd>
+ Register a normal continuation to execute when the value is available. </dd>
+<dt>
+<code>void <a name='Promise::addErrorHandler'>addErrorHandler</a>(void <a name='Promise::addErrorHandler::errorHandler'>errorHandler</a>(&lt;dynamic&gt;))</code></dt>
+<dd>
+ Register an error continuation to execute if an error is found. </dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Promise::cancel'>cancel</a>()</code></dt>
+<dd>
+ Cancel the asynchronous work of this promise, if possible. </dd>
+<dt>
+<code>void <a name='Promise::complete'>complete</a>(<code><a href='Promise.html#Promise::Promise'>T</a></code> <a name='Promise::complete::value'>value</a>)</code></dt>
+<dd>
+
+ Provide the computed value; throws an exception if a value has already been
+ provided or the promise previously completed with an error; ignored if the
+ promise was cancelled.
+</dd>
+<dt>
+<code>void <a name='Promise::fail'>fail</a>(&lt;dynamic&gt; <a name='Promise::fail::error'>error</a>)</code></dt>
+<dd>
+ Indicate that an error was found while computing this value. </dd>
+<dt>
+<code><code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a></code> <a name='Promise::flatten'>flatten</a>()</code></dt>
+<dd>
+
+ Converts this promise so that its result is a non-promise value. For
+ instance, if this promise is of type Promise&lt;Promise&lt;Promise&lt;T&gt;&gt;&gt;,
+ flatten returns a Promise&lt;T&gt;.
+</dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Promise::hasError'>hasError</a>()</code></dt>
+<dd>
+ Whether the work represented by this promise has finished in an error. </dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Promise::hasValue'>hasValue</a>()</code></dt>
+<dd>
+ Whether the work represented by this promise has computed a value. </dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Promise::isCancelled'>isCancelled</a>()</code></dt>
+<dd>
+ Whether the work represented by this promise has been cancelled. </dd>
+<dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Promise::isDone'>isDone</a>()</code></dt>
+<dd>
+ Whether the asynchronous work is done (normally or with errors). </dd>
+<dt>
+<code>void <a name='Promise::join'>join</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Promise::join::arr'>arr</a>, <code><a href='bool.html#bool::bool'>bool</a></code> <a name='Promise::join::joinDone'>joinDone</a>(<code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a></code>))</code></dt>
+<dd>
+
+ Mark this promise as complete when some or all values in <code><a href='Promise.html#Promise::join::arr'>arr</a></code> are
+ computed. Every time one of the promises is computed, it is passed to
+ <code><a href='Promise.html#Promise::join::joinDone'>joinDone</a></code>. When <code><a href='Promise.html#Promise::join::joinDone'>joinDone</a></code> returns true, this instance is marked as
+ complete with the last value that was computed.
+</dd>
+<dt>
+<code><code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a></code> <a name='Promise::then'>then</a>(&lt;dynamic&gt; <a name='Promise::then::callback'>callback</a>(<code><a href='Promise.html#Promise::Promise'>T</a></code>))</code></dt>
+<dd>
+
+ When this promise completes, execute <code><a href='Promise.html#Promise::then::callback'>callback</a></code>. The result of <code><a href='Promise.html#Promise::then::callback'>callback</a></code>
+ will be exposed through the returned promise. This promise, and the
+ resulting promise (r) are connected as follows:
+  - this.complete --&gt; r.complete (with the result of <code><a href='Promise.html#Promise::then::callback'>callback</a></code>)
+  - this.error    --&gt; r.error (the same error is propagated to r)
+  - this.cancel   --&gt; r.error (the cancellation is shown as an error to r)
+  - r.cancel      --&gt; this continues executing regardless
+</dd>
+<dt>
+<code>void <a name='Promise::waitFor'>waitFor</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Promise::waitFor::arr'>arr</a>, <code><a href='int.html#int::int'>int</a></code> <a name='Promise::waitFor::n'>n</a>)</code></dt>
+<dd>
+
+ Mark this promise as complete when <code><a href='Promise.html#Promise::waitFor::n'>n</a></code> promises in <code><a href='Promise.html#Promise::waitFor::arr'>arr</a></code> complete, then
+ cancel the rest of the promises in <code><a href='Promise.html#Promise::waitFor::arr'>arr</a></code> that didn't complete.
+</dd>
+</dl>
+</section>
+
+<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
+
+</body></html>

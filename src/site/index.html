@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+<link href="/css/style.css" type="text/css" rel="stylesheet"/>
+<link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="/js/prettify.js"></script>
+
+<body onLoad="prettyPrint()">
+
 <aside class="comment">
 {PENDING: somewhere on this page: newsfeed of announcements, with RSS link}
 </aside>
@@ -27,68 +33,52 @@ layout: default
       optional typing&mdash;make
       it easier for you to develop and maintain software.
     </dd>
-    <dt> Tools included </dt>
-    <dd> The Dart SDK includes the Dart Editor,
-       a VM, core libraries, and more.
-    </dd>
   </dl>
-<aside>* Modern web browsers include Chrome, Safari 5+, Firefox 4+, and Internet Explorer 9+.
-</aside>
-
 </section>
 
 <section id="start-here">
-  <a href="/docs/getting-started/index.html">Get started</a>
-  <a href="/docs/technical-overview/index.html">Read an overview</a>
-  <a href="/docs/tour/index.html">Take a tour</a>
+  <a href="/docs/technical-overview/">Read an overview</a>
+  <a href="/docs/getting-started/">Write code!</a>
 </section>
 
 <section id="code">
   <h2>An example of Dart code</h2>
 
-<script type="syntaxhighlighter" class="brush: java"><![CDATA[
-//PENDING: Make this snippet shortish and familiar, yet intriguingly different.
-//Use a mix of Java and JavaScript conventions.
-//E.g.: real class/types + event listener. (definitely use "class")
-//Show all new features mentioned in the "Familiar yet new" item above,
-//(for now, just optional types).
-//Use the DOM if possible AND it doesn't look bad compared to jquery.
-//Dan (et al) to think about this.
-class Hello {
-  static void main() {
-    Logger.println("World!");
-  }
+<pre class="prettyprint lang-dart">
+class Point  {
+  var x, y;
+  Point(this.x, this.y);
+  scale(factor) => new Point(x*factor, y*factor);
+  distance() => Math.sqrt(x*x + y*y);
 }
-]]></script>
+
+
+main() {
+  var a = new Point(2,3).scale(4);
+  print("distance from (0,0): ${a.distance()}");
+}
+</pre>
 </section>
 
 <section class="comment">
 <h2> TO DO </h2>
 
 <ol>
-  <li> Decide on site URLs.
-    <ul>
-      <li> Use dir/index.html or just dir/ or just dir (if possible)? </li>
-      <li> Having a separate subdirectory for every page makes URLs long. </li>
-    </ul>
+  <li> Change to the final look. (Doggy goes away. No more dark background.)
   <li> Check links.
     BEWARE: Some URLs will work on localhost but not when hosted.
-    E.g., try <a href="http://localhost:8080/docs/getting-started-editor">http://localhost:8080/docs/getting-started-editor</a>
-    (which goes to <a href="http://localhost:8080/docs/getting-started-editor/">.../getting-started-editor<b>/</b></a>)
-    vs. <a href="http://spotlang-org.googleplex.com/docs/getting-started-editor">http://spotlang-org.googleplex.com/docs/getting-started-editor</a> (which results in a 404). </li>
-  <li> Fix CSS formatting. In particular:
-    <ul>
-      <li> <a href="/download/index.html">tables</a>
-        need more space around cells </li>
-      <li> <a href="/docs/getting-started/index.html#1">lists</a>
-        (ul, ol) need space beneath them </li>
-      <li> <a href="/docs/spec/index.html">blockquotes</a>
-        should be indented and have space beneath them </li>
-      <li> <b>&lt;b></b>, <strong>&lt;strong></strong>,
-        <i>&lt;i></i>, and <em>&lt;em></em> should do something
-	(the first two might be OK now—though perhaps not everywhere—but
-	the second two aren't)</li>
-    </ul>
-  </li>
-  <li> ... </li>
+    E.g., try <a href="http://localhost:8080/docs/getting-started/editor">http://localhost:8080/docs/getting-started/editor</a>
+    (which goes to <a href="http://localhost:8080/docs/getting-started/editor/">.../getting-started/editor<b>/</b></a>)
+    vs. <a href="http://spotlang-org.googleplex.com/docs/getting-started/editor">http://spotlang-org.googleplex.com/docs/getting-started/editor</a> (which results in a 404). </li>
+  <li> Fix CSS formatting. </li>
 </ol>
+
+<p>
+Also see:
+<a href="http://goto.google.com/dartdocplan">go/dartdocplan</a>
+</p>
+</section>
+
+<aside><em>* Modern web browsers include Chrome, Safari 5+, Firefox 4+, and Internet Explorer 9+.</em>
+</aside>
+
