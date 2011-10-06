@@ -1,0 +1,45 @@
+---
+layout: default
+title: "Spirodraw Sample"
+---
+<link href="/css/style.css" type="text/css" rel="stylesheet"/>
+<link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="/js/prettify.js"></script>
+
+<body onLoad="prettyPrint()">
+<div id="containers">
+<p>The spirodraw sample is similar to sunflower and illustrates a few more language features.</p>
+
+Multiple source files
+requestAnimationFrame
+function defined outside class
+
+In addition, the ColorPicker illustrates the use of 
+
+typedef
+type inference
+initializer shortcut
+terse function syntax
+for ... in syntax
+string interpolation
+
+<h2>Multiple source files</h2>
+<p>First, let's take a look at the spirodraw declarations.</p>
+
+<pre class="prettyprint lang-dart linenums">
+#library('spirodraw');
+
+#import('dart:dom');
+#source("ColorPicker.dart");
+#resource("spirodraw.css");</pre>
+
+<p>A Dart script belongs to a libary declared with a name given by the #library directive.
+Dart scripts include other scripts using the #source directive and include other libraries
+with the #import directive. The #resource directive is currently not required, but ...
+The arguments to the import, source, and resource directives are URLs.</p>
+
+<p>The spirodraw sample defines a library named 'spirodraw', which includes Spirodraw.dart,
+ColorPicker.dart, and the built-in Dart DOM library.</p>
+
+</div>
+</body>
