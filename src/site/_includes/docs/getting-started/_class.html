@@ -22,8 +22,8 @@ are either classes or interfaces.
 </p>
 
 
-<!-- pre style="border: black 1px solid;" -->
-<code class="codes">class Greeter {
+<pre class="prettyprint lang-dart">
+class Greeter {
   var prefix = 'Hello,';
 
   Greeter() {}
@@ -36,7 +36,8 @@ are either classes or interfaces.
 main() {
   var greeter = new Greeter();
   greeter.greet("Class!");
-} </code>
+}
+</pre>
 
 
 <div class="explanation">
@@ -73,8 +74,9 @@ The preceding code shows some basic features of Dart classes:
     or through constructors,
     or through setter methods.
     <span class="comment">
-    {PENDING: point to where constructors and setters are discussed further.
-    Mention getters?}</span>
+    {PENDING: Really should discuss setters further, either here
+    or somewhere else that we point to.}
+    </span>
     </p>
   </dd>
 
@@ -103,11 +105,13 @@ The preceding code shows some basic features of Dart classes:
     For example:
     </p>
     
-<pre><em>//In the Greeter class:</em>
+<pre class="prettyprint lang-dart">
+<em>//In the Greeter class:</em>
 Greeter.withPrefix(this.prefix);
 
 <em>//In code that creates Greeter objects:</em>
-var greeter = new Greeter.withPrefix('Howdy,');</pre>
+var greeter = new Greeter.withPrefix('Howdy,');
+</pre>
 
     <p>
     In that code,
@@ -158,15 +162,14 @@ var greeter = new Greeter.withPrefix('Howdy,');</pre>
   </dd>
   
   <dt> Add a named constructor to Greeter, and call it. </dt>
-  <dd> You might want to do this a bit at a time.
-    For example:
-    <ol>
-      <li> Add this to the Greeter class:
-<pre><em>//In the Greeter class:</em>
+  <dd> For example:
+<pre class="prettyprint lang-dart">
+<em>//In the Greeter class:</em>
 Greeter.withPrefix(this.prefix = '');
 
 <em>//In code that creates Greeter objects:</em>
-var greeter = new Greeter.withPrefix('Howdy,');</pre>
+var greeter = new Greeter.withPrefix('Howdy,');
+</pre>
 
   <dt> Add one or more types to the example. </dt>
   <dd>
