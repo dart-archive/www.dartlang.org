@@ -7,10 +7,6 @@ layout: default
 
 <body onLoad="prettyPrint()">
 
-<aside class="comment">
-{PENDING: somewhere on this page: newsfeed of announcements, with RSS link}
-</aside>
-
 <section id="what-is-dart">
   <p>
     Dart is a new language for scalable, structured web programming.
@@ -64,13 +60,16 @@ main() {
 <h2> TO DO </h2>
 
 <ol>
-  <li> Change to the final look. (Doggy goes away. No more dark background.)
+  <li> Fix Home page nav?
+    (The "Home" link should become a not-link when you're already on the homepage) </li>
   <li> Check links.
-    BEWARE: Some URLs will work on localhost but not when hosted.
-    E.g., try <a href="http://localhost:8080/docs/getting-started/editor">http://localhost:8080/docs/getting-started/editor</a>
-    (which goes to <a href="http://localhost:8080/docs/getting-started/editor/">.../getting-started/editor<b>/</b></a>)
-    vs. <a href="http://spotlang-org.googleplex.com/docs/getting-started/editor">http://spotlang-org.googleplex.com/docs/getting-started/editor</a> (which results in a 404). </li>
-  <li> Fix CSS formatting. </li>
+    BEWARE: Links to directories that don't end with /
+    work on localhost but not when hosted. </li>
+  <li> Fix CSS formatting. Known problems:
+    <ul>
+      <li> Too much space before and after &lt;pre> blocks. </li>
+    </ul>
+  </li>
 </ol>
 
 <p>
