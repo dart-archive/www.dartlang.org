@@ -27,7 +27,7 @@ title: "''' + page_title + '''"
 ''')
   
       line = f.readline()
-      while (line != ''): 
+      while not ('</body>' in line ): 
         tempfile.write(line)
         line = f.readline()
 
