@@ -99,6 +99,7 @@ i, em { font-style: italic; }
 
 article dl dd {
   margin-left: 1em;
+  font-size: 15px;
 }
 
 article dl dt {
@@ -185,12 +186,12 @@ header div#plus1 {
 
 nav{
   clear: both;
-  width: 160px;
+  width: 170px;
   float: left;
   display: inline;
   margin: 1.5em;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   letter-spacing: 20;
 }
@@ -304,6 +305,7 @@ article h4 {
 article section {
   margin-bottom: 10px;
   font-weight: 400;
+  font-size: 15px;
 }
 
 article p {
