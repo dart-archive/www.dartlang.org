@@ -3,7 +3,7 @@
 which methods a class provides&mdash;are
 important in Dart.
 In fact, much of the Dart
-<a href="/docs/ref/" target="_blank">core library</a>
+<a href="/docs/api/" target="_blank">core library</a>
 is defined in terms of interfaces.
 </p>
 
@@ -42,7 +42,7 @@ Here's what's interesting about it:
   <dt> Interface implementation </dt>
   <dd>
     The <code>Greeter</code> class implements the core libary's
-    <a href="/docs/ref/Comparable.html" target="_blank"><code>Comparable</code></a>
+    <a href="/docs/api/Comparable.html" target="_blank"><code>Comparable</code></a>
     interface,
     making it easy to compare two <code>Greeter</code> objects.
     Implementing the interface consists of two steps:
@@ -90,9 +90,9 @@ instead of having to find a class that implements that interface.
 This is possible because
 many interfaces have a <em>factory class</em>&mdash;a
 class that creates objects that implement the interface.
-For example, if your code says <code>new DateTime.now()</code>,
+For example, if your code says <code>new Date.now()</code>,
 the factory class for the
-<a href="/docs/ref/DateTime.html" target="_blank"><code>DateTime</code></a>
+<a href="/docs/api/Date.html" target="_blank"><code>Date</code></a>
 interface creates an object
 that represents the current time.
 </p>
