@@ -1,4 +1,8 @@
-The spotlang.org site. Built with Jekyll (https://github.com/mojombo/jekyll) and hosted on App Engine.
+The dartlang.org site. Built with Jekyll (https://github.com/mojombo/jekyll)
+and hosted on App Engine.
+
+See https://code.google.com/a/google.com/p/spotlang-org/wiki/HowToBuild
+for more help on building and deploying the Dart documentation.
 
 ORIENTATION
 
