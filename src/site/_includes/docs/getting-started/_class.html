@@ -61,7 +61,7 @@ The preceding code shows some basic features of Dart classes:
   <dd>
     Just as for regular variables,
     creating instance variables requires
-    using <code>var</code> or a type.
+    using <code>var</code>, <code>final</code>, or a type.
     Each <code>Greeter</code> object
     has its own copy of a variable named <code>prefix</code>
     that's initialized to <code>'Hello,'</code>.
@@ -145,17 +145,16 @@ var greeter = new Greeter.withPrefix('Howdy,');
       <pre>greeter.prefix = 'Hola,';</pre>
 
   <dt> Convert the <code>greet()</code> method definition
-    to use the <code>=></code> operator. </dt>
+    to use <code>=></code>. </dt>
   <dd>
     For a one-line method such as <code>greet()</code>,
-    you can use a special shorthand
-    that features the <code>=></code> operator:
+    you can use a special shorthand:
 
 <pre>greet(name) => print('$prefix $name');</pre>
 
     <p>
-    The <code>=></code> operator makes the method return the value
-    of the expression to the right of the operator.
+    This special syntax makes the method return the value
+    of the expression to the right of <code>=></code>.
     </p>
   </dd>
   
@@ -194,8 +193,7 @@ class Greeter {
       You might have expected to see a <code>public</code> keyword
       in the preceding code,
       but there's no such thing in Dart.
-      Every type <span class="comment">{PENDING: ??}</span>
-      in Dart is public unless its name
+      Every type in Dart is public unless its name
       starts with an underscore ("_").
       For example, <code>Greeter</code> is public,
       but <code>_Greeter</code> (by convention) would be private.

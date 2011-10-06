@@ -58,11 +58,9 @@ Here's what's interesting about it:
     Although you might expect <code>int</code> and <code>double</code>
     to be primitive types,
     they're actually interfaces that
-    implement the <code>num</code> interface.
-    Because <code>int</code> and <code>double</code> variables
-    are also <code>num</code>s,
-    you can deal with integer and floating-point numbers
-    without having to explicitly convert from one to the other.
+    extend the <code>num</code> interface.
+    This means that <code>int</code> and <code>double</code> variables
+    are also <code>num</code>s.
 
 <aside class="note">
 <b>Important:</b>
@@ -70,7 +68,6 @@ Be sure to initialize numbers.
 Because they're objects,
 their initial value is <code>null</code>,
 not 0.
-<span class="comment">{PENDING: correct?}</span>
 </aside>
 
     <p>
