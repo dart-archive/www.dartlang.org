@@ -20,3 +20,10 @@
     </li>
   </ul>
 </nav>
+
+<script type="text/javascript"> 
+   var ref = document.referrer;
+   if (ref.match("//[^/]+/(index.html)?$")) {
+    document.querySelector("nav").className = "animate-in";
+   }
+</script>

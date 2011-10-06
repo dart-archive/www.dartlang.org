@@ -74,7 +74,10 @@ button {  width: auto; overflow: visible; }
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 body, select, input, textarea {  color: #444; }
-h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+h1, h2, h3, h4, h5, h6 { 
+  font-weight: bold; 
+  color: #0084C4;
+}
 a, a:active, a:visited { color: #607890; }
 a:hover { color: #036; }
 
@@ -99,7 +102,7 @@ article dl dd {
 }
 
 article dl dt {
-  font-weight: bold;
+  font-weight: 800;
   font-size: 1em;
   margin-top: 0.5em;
   margin-bottom: 0em;
@@ -130,7 +133,17 @@ div#container {
   margin: auto;
   background-color: white;
   box-shadow: 0 0 50px #888;
+  overflow: hidden;
 }
+
+span#tagline {
+  padding-left: 350px;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 140;
+  font-size: 11pt;
+}
+
 
 header {
   padding: 1em;
@@ -176,6 +189,31 @@ nav{
   float: left;
   display: inline;
   margin: 1.5em;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 20;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+@-webkit-keyframes menu-slide {
+  0% {
+    -webkit-transform: translate3d(0, 70px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0px, 0);
+  }
+}
+
+
+nav.animate-in {
+  -webkit-animation-name: menu-slide;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-duration: .4s;
 }
 
 nav ul ul {
@@ -189,6 +227,43 @@ nav li {
 nav ul ul {
   margin-top: 1em;
 }
+
+div#small-shadow, div#feedback {
+  -moz-box-shadow: 0 -5px 10px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 -5px 10px rgba(0, 0, 0, .1);
+  box-shadow:  0  -5px 10px rgba(0, 0, 0, .1); 
+  background-image: url(/imgs/home-subheader-background.png);
+  height: 5px;
+}
+
+div#feedback {
+  height: 50px;
+}
+
+div#feedback, div#shadow, div#small-shadow {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16pt;
+  letter-spacing: 20;
+  line-height: 16pt;
+  left: -300px;
+  padding-left: 200px;
+  right: 300px;
+  padding-right: 300px;
+  width: 100%;
+  white-space: nowrap;
+
+}
+
+div#shadow {
+  height:25px;
+  padding-bottom: 10px;
+  -moz-box-shadow: inset 0 -10px 10px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: inset 0 -10px 10px rgba(0, 0, 0, .1);
+  box-shadow: inset 0 -10px 10px rgba(0, 0, 0, .1);
+}
+
+
 
 div#main {
   width: 700px;
@@ -228,6 +303,7 @@ article h4 {
 
 article section {
   margin-bottom: 10px;
+  font-weight: 400;
 }
 
 article p {
@@ -241,10 +317,12 @@ article ol {
 article dt {
   font-size: 1.25em;
   margin-bottom: 5px;
+  font-weight: 800;
 }
 
 article dd {
   margin-bottom: 10px;
+  font-weight: 300;
 }
 
 aside.note {
@@ -275,17 +353,23 @@ section#start-here a {
   display: block;
   padding: 1.2em;
   color: black;
-  font-weight: bold;
+  font-weight: 800;
   border-radius: 5px;
   font-size: 1.5em;
   float: left;
   margin: 1.5em;
   
+  text-decoration: none;
   background-image: url(/imgs/button-textured.png);
   
   -moz-box-shadow: 0 0 5px #888;
   -webkit-box-shadow: 0 0 5px #888;
   box-shadow: 0 0 5px #888;
+}
+
+div#feedback p {
+  padding-top: 15px;
+  margin-bottom: 0;
 }
 
 section {
