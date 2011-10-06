@@ -369,6 +369,19 @@ section#start-here a {
   box-shadow: 0 0 5px #888;
 }
 
+section#classes-overview a {
+  text-decoration: none;
+}
+
+section#classes-overview ul {
+  list-style-type: none;
+  line-height: 1.5em;
+}
+
+section#classes-overview h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
 div#feedback p {
   padding-top: 15px;
   margin-bottom: 0;
