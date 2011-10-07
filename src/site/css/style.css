@@ -237,7 +237,6 @@ div#samples p {
 
 div#samples h2 {
   margin-bottom: -10px;
-  text-transform: uppercase;
 }
 
 header h2 {
@@ -310,7 +309,6 @@ footer {
 section#what-is-dart dl dt {
     color: #1155CC;
     font-size: 1.6em;
-    text-transform: uppercase;
 }
 
 section#start-here {
