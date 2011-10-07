@@ -66,8 +66,6 @@ input:valid, textarea:valid   {  }
 input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
-::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 a:link { -webkit-tap-highlight-color: #FF5E99; }
 
 button {  width: auto; overflow: visible; }
@@ -106,6 +104,7 @@ i, em { font-style: italic; }
 article dl dd {
   margin-left: 1em;
   font-size: 15px;
+  font-weight: 400;
 }
 
 article dl dt {
@@ -198,8 +197,7 @@ nav{
   display: inline;
   margin: 1.5em;
   font-weight: 300;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 15px;
   letter-spacing: 20;
 }
 
@@ -212,11 +210,11 @@ nav ul ul {
 }
 
 nav li {
-  margin-bottom: 1em;
+  margin-bottom: .75em;
 }
 
 nav ul ul {
-  margin-top: 1em;
+  margin-top: .75em;
 }
 
 header {
@@ -305,7 +303,6 @@ article dt {
 
 article dd {
   margin-bottom: 10px;
-  font-weight: 300;
 }
 
 aside.note {
