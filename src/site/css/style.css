@@ -148,15 +148,6 @@ span#tagline {
 
 header {
   padding: 1em;
-  
-  background-image: url(/imgs/header-background.jpg);
-  
-  background-image: url(/imgs/header-background.jpg), -webkit-gradient(
-      linear,
-      left bottom,
-      left 180,
-      color-stop(0.05, rgb(46,46,46)),
-      color-stop(0.64, rgb(34,63,89))
   );
   
   background-position: left top;
@@ -233,7 +224,6 @@ div#small-shadow, div#feedback {
   -moz-box-shadow: 0 -5px 10px rgba(0, 0, 0, .1);
   -webkit-box-shadow: 0 -5px 10px rgba(0, 0, 0, .1);
   box-shadow:  0  -5px 10px rgba(0, 0, 0, .1); 
-  background-image: url(/imgs/home-subheader-background.png);
   height: 5px;
 }
 

@@ -3,36 +3,44 @@ layout: main
 ---
 <link href="/css/style.css" type="text/css" rel="stylesheet"/>
 <link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 <script type="text/javascript" src="/js/prettify.js"></script>
 
 <body onLoad="prettyPrint()">
 
 <section id="what-is-dart">
-
   <dl>
-    <dt> From quick prototypes to serious apps </dt>
-    <dd> Dart's optional types let you prototype quickly
-      and then revise your code to be more maintainable.
-    </dd>
-    <dt> Wherever you need structured code </dt>
-    <dd> You can use the same Dart code both in modern web browsers* and on servers.
-    </dd>
-    <dt> Familiar yet new </dt>
-    <dd> Dart code should look familiar if you know a language or two,
-      and you can use time-tested features such as classes and closures.
-      Dart's new features make
-      it easier for you to develop and maintain software.
-    </dd>
-  </dl>
+	 <dt> From quick prototypes to serious apps </dt>
+	    <dd> Dart's optional types let you prototype quickly
+	      and then revise your code to be more maintainable.
+	    </dd>
+	    <dt> Wherever you need structured code </dt>
+	    <dd> You can use the same Dart code both in modern web browsers* and on servers.
+	    </dd>
+	    <dt> Familiar yet new </dt>
+	    <dd> Dart code should look familiar if you know a language or two,
+	      and you can use time-tested features such as classes and closures.
+	      Dart's new features make
+	      it easier for you to develop and maintain software.
+	    </dd>
+	</dl>
 </section>
 
-<section id="start-here">
-  <a href="/docs/technical-overview/">Read an overview</a>
-  <a href="/docs/getting-started/">Write code!</a>
-</section>
 
-<section id="code">
-  <h2>An example of Dart code</h2>
+<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
+
+<br/>
+<h1> An example of Dart code </h1>
+
+<p>
+The Dart code below
+is inside the Dartboard app.
+If you click the Run button
+at Dartboard's upper left&mdash;go
+ahead, you know you want to&mdash;you'll
+see the expected output (Hello, World!)
+at the bottom.
+</p>
 
 <code class="codes">class Point  {
   var x, y;
@@ -46,33 +54,12 @@ main() {
   print("distance from (0,0): ${a.distance()}");
 }
 </code>
-</section>
 
-<section class="comment">
-<h2> TO DO </h2>
+<script type="text/javascript"
+  src="http://try-dart-lang.appspot.com/dartboard.dart.app.js">
+</script>
 
-<ol>
-  <li> Fix Home page nav?
-    (The "Home" link should become a not-link when you're already on the homepage) </li>
-  <li> Check links.
-    BEWARE: Links to directories that don't end with /
-    work on localhost but not when hosted. </li>
-  <li> Fix CSS formatting. Known problems:
-    <ul>
-      <li> Too much space before and after &lt;pre> blocks.
-        This problem is visible in several pages, including
-        <a href="/articles/optional-types/#generics">Optional Types</a> and
-        <a href="/docs/getting-started/interface.html">Interfaces</a>.
-      </li>
-    </ul>
-  </li>
-</ol>
-
-<p>
-Also see:
-<a href="http://goto.google.com/dartdocplan">go/dartdocplan</a>
-</p>
-</section>
+<br/>
 
 <aside><em>* Modern web browsers include Chrome, Safari 5+, Firefox 4+, and Internet Explorer 9+.</em>
 </aside>
