@@ -8,7 +8,7 @@ title: "Spirodraw Sample"
 
 <body onLoad="prettyPrint()">
 <div id="containers">
-<p>The spirodraw sample is similar to sunflower and illustrates a few more language features.</p>
+<p>The Spirodraw sample is similar to Sunflower and illustrates a few more language features.</p>
 
 Multiple source files
 requestAnimationFrame
@@ -24,7 +24,7 @@ for ... in syntax
 string interpolation
 
 <h2>Multiple source files</h2>
-<p>First, let's take a look at the spirodraw declarations.</p>
+<p>First, let's take a look at the Spirodraw declarations.</p>
 
 <pre class="prettyprint lang-dart linenums">
 #library('spirodraw');
@@ -35,11 +35,216 @@ string interpolation
 
 <p>A Dart script belongs to a libary declared with a name given by the #library directive.
 Dart scripts include other scripts using the #source directive and include other libraries
-with the #import directive. The #resource directive is currently not required, but ...
-The arguments to the import, source, and resource directives are URLs.</p>
+with the #import directive. The #resource directive is currently not used. In the future,
+it may be used to bundle non-code resources with libraries. The arguments #import, 
+#source, and #resource are URLs.</p>
 
-<p>The spirodraw sample defines a library named 'spirodraw', which includes Spirodraw.dart,
-ColorPicker.dart, and the built-in Dart DOM library.</p>
+<p>Spirodraw.dart defines a library named 'spirodraw', which includes Spirodraw.dart,
+ColorPicker.dart, and the built-in Dart DOM library. For more on libraries, see also the 
+Total sample.</p>
 
+<h2>RequestAnimationFrame</h2>
+<p>Spirodraw uses <a href="http://www.html5rocks.com/en/tutorials/canvas/performance/#toc-raf">requestAnimationFrame</a>
+to improve rendering.</p>
+
+<pre class="prettyprint lang-dart linenums">
+  void start() {
+    refresh();
+    rad = 0.0;
+    run = true;
+    window.webkitRequestAnimationFrame((int time) {animate(time);}, frontCanvas);
+  }
+  
+  void animate(int time) {
+    if (run && rad <= maxTurns * PI2) {
+      rad+=stepSize;
+      drawFrame(rad);
+      num nTurns = rad / PI2;
+      numTurns.innerText = nTurns.floor().toString() + "/" 
+        + maxTurns.toString();
+      window.webkitRequestAnimationFrame(animate, frontCanvas);
+    } else {
+      stop();
+    }
+  }</pre>
+
+<p>In the code excerpt above, line 5 invokes webkitRequestAnimationFrame with a closure containing
+the callback function, <em>animate</em>. The animate function in turn requests the next
+animation frame, passing itself as the callback using the shortcut syntax available when
+a function invokes itself.</p>
+
+<h2>Function defined outside class</h2>
+<p>In Dart, a function does not have to be associated with a class.</p>
+
+<pre class="prettyprint lang-dart linenums">
+...
+void main() {
+  new Spirodraw().go();
+}
+
+class Spirodraw {
+  ...
+  int calcTurns() {
+    // compute ratio of wheel radius to big R then find LCM
+    if ((dUnits==0) || (rUnits==0))
+      return 1;
+    int ru = rUnits.abs();
+    int wrUnits = RUnits + rUnits;
+    int g = gcf (wrUnits, ru);
+    return ru ~/ g;
+  }
+  ...
+}
+
+int gcf(int n, int d) {
+  if (n==d)
+    return n;
+  int max = Math.max(n, d);
+  for (int i = max ~/ 2; i > 1; i--)
+    if ((n % i == 0) && (d % i == 0))
+      return i;
+  return 1;
+}</pre>
+
+<p>In this example, note that the gcf function is defined outside the Spirodraw class and is
+invoked statically within the calcTurns() function. The main function is likewise defined 
+outside the Spirodraw class.</p>
+
+<h2>ColorPicker</h2>
+<p>Now let's look at ColorPicker.dart.</p>
+
+<pre class="prettyprint lang-dart linenums">
+// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+typedef void PickerListener(String selectedColor);
+
+class ColorPicker {
+
+  static final List hexValues = ["00", "33", "66", "99", "CC", "FF"];
+  static final int COLS = 18;
+  // Block height, width, padding
+  static final int BH = 10;
+  static final int BW = 10;
+  static final int BP = 1;
+  final List<PickerListener> _listeners;
+  HTMLCanvasElement canvasElement;
+  String _selectedColor = 'red';
+  final int height = 160;
+  final int width = 180;
+  CanvasRenderingContext2D ctx;
+  
+  ColorPicker(this.canvasElement) :
+    _listeners = []
+  {
+    ctx = canvasElement.getContext("2d");
+    drawPalette();
+    addHandlers();
+    showSelected();
+  }
+  
+  String get selectedColor() => _selectedColor;
+  
+  void onMouseMove(MouseEvent event) {
+    int x = event.offsetX;
+    int y = event.offsetY - 40;
+    if (( y &lt; 0) || (x &gt;= width)) {
+      return;
+    }
+    ctx.setFillStyle(getHexString(getColorIndex(x, y)));
+    ctx.fillRect(0, 0, width/2, 30);
+  }
+
+  void onMouseDown(MouseEvent event) {
+    Element elt = event.target;
+    event.cancelBubble = true;
+    int x = event.offsetX;
+    int y = event.offsetY - 40;
+    if ((y &lt; 0) || (x &gt;= width))
+      return;
+    setSelected(getColorIndex(x, y));
+    fireSelected();
+  }
+
+  /**
+   * Adds a [PickerListener] to receive updates.
+   */
+  void addListener(PickerListener listener) {
+    _listeners.add(listener);
+  }
+
+  void addHandlers() {
+    canvasElement.onmousemove = (e) { onMouseMove(e); };
+    canvasElement.onmousedown = (e) { onMouseDown(e); };
+  }
+
+   void drawPalette() {
+    int i=0;
+    for (int r=0; r &lt; 256; r+=51) {
+      for (int g=0; g &lt; 256; g+=51) {
+        for (int b=0; b &lt; 256; b+=51) {
+          String color = getHexString(i);
+          ctx.setFillStyle(color);
+          int x = BW * (i % COLS);
+          int y = BH * (i ~/ COLS) + 40;
+          ctx.fillRect(x + BP, y + BP, BW - 2 * BP, BH - 2 * BP);
+          i++;
+        }
+      }
+    }
+  }
+
+  void fireSelected() {
+    for (final listener in _listeners) {
+      listener(_selectedColor);
+    }
+  }
+
+  int getColorIndex(int x, int y) {
+    // Get color index 0-215 using row, col
+    int i = y ~/ BH * COLS + x ~/ BW;
+    return i;
+  }
+
+  void showSelected() {
+    ctx.setFillStyle(_selectedColor);
+    ctx.fillRect(width / 2, 0, width / 2, 30);
+    ctx.setFillStyle("white");
+    ctx.fillRect(0, 0, width / 2, 30);
+  }
+  
+  void setSelected(num i) {
+    _selectedColor = getHexString(i.floor());
+    showSelected();
+    fireSelected();
+  }
+ 
+  String getHexString(int i) {
+    int r = i ~/ 36;
+    int g = (i % 36) ~/ 6;
+    int b = i % 6;
+    return '#${hexValues[r]}${hexValues[g]}${hexValues[b]}';
+  }
+  
+}</pre>
+
+<h2>Function type aliases</h2>
+
+<p>In Dart, functions are objects just as strings and numbers. To declare the type of a variable
+or return type that references a function, you use a function type alias, or typedef.</p>
+
+<p>In the example above, the typedef statement in line 5 declares a function type 
+PickerListener that takes a String argument and returns void. Lines 57-59 add a function of 
+type PickerListener to a List, and lines 82-83 iterate over the List to invoke each function.</p>
+
+<p>Function type aliases offer a compact way to represent any type of callback.</p>
+
+<h2>Type inference</h2>
+<p>Dart is an optionally typed language and types can often be inferred. For example,
+line 9 initializes a List of strings, but the variable is declared only as List, not 
+List&lt;String&gt;, because the type can be inferred from the string literals.</p>
+
+<h2>Constructor initializers</h2>
 </div>
 </body>
