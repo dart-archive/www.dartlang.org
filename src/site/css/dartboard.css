@@ -1,15 +1,25 @@
 .codes {
-        display: block;
-        width: 100%;
-        min-height: 150px;
-        /* width: 600px;
-        height: 300px; */
-        display: inline-block;
-        border: 1px solid #aaa;
-        white-space: pre;
-        font-family: monospace;
-        font-size: 11pt;
-        padding-bottom: 34px; /* hack to avoid scrollbars */
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  /* width: 600px;
+  height: 300px; */
+  white-space: pre;
+  font-family: monospace;
+  font-size: 11pt;
+  padding-bottom: 34px; /* hack to avoid scrollbars */
+}
+.for-samples {
+  height: 300px;
+}
+
+#samples {
+  padding-bottom: 2px;
+}
+
+#samples-list {
+  outline: 0;
+  min-width: 200px;
 }
 
 div.explanation {

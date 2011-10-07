@@ -5,6 +5,7 @@ layout: main
 <link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 <script type="text/javascript" src="/js/prettify.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 
 <body onLoad="prettyPrint()">
 
@@ -26,11 +27,8 @@ layout: main
 	</dl>
 </section>
 
-
-<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
-
 <br/>
-<h1> An example of Dart code </h1>
+<h1>Examples of Dart code</h1>
 
 <p>
 The Dart code below
@@ -38,22 +36,22 @@ is inside the Dartboard app.
 If you click the Run button
 at Dartboard's upper left&mdash;go
 ahead, you know you want to&mdash;you'll
-see the expected output (Hello, World!)
+see the expected output (Hello Dart!)
 at the bottom.
 </p>
 
-<code class="codes">class Point  {
-  var x, y;
-  Point(this.x, this.y);
-  scale(factor) => new Point(x*factor, y*factor);
-  distance() => Math.sqrt(x*x + y*y);
-}
-
-main() {
-  var a = new Point(2,3).scale(4);
-  print("distance from (0,0): ${a.distance()}");
-}
-</code>
+{% comment %}
+TODO: Not keen on the styling here, please feel free to change.
+      To add more samples, see _includes/samples.html
+{% endcomment %}
+<div id="samples">
+  <select id="samples-list">
+    <option value="hello">Hello Dart</option>
+     <option value="isolates">Isolates</option>
+  </select>
+</div>
+<code id="samples-editor" class="codes for-samples">main() =&gt; print('Hello Dart!');</code>
+{% include samples.html %}
 
 <script type="text/javascript"
   src="http://try-dart-lang.appspot.com/dartboard.dart.app.js">
@@ -63,4 +61,3 @@ main() {
 
 <aside><em>* Modern web browsers include Chrome, Safari 5+, Firefox 4+, and Internet Explorer 9+.</em>
 </aside>
-

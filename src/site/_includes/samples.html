@@ -1,0 +1,49 @@
+{% comment %}
+So you want to add more samples:
+1 - Create a new pre element below containing the code you want to show.
+2 - Give it a unique id of the form "sample-name"
+3 - In the main page, add a new option to the select element and make sure value matches
+    the name from step #2.
+
+TODO: These samples are just place holders and should be replaced with something real.
+{% endcomment %} 
+  <div style="display:none">
+
+    <pre id="sample-hello">main() => print('Hello Dart!');</pre>
+
+    <pre id="sample-isolates">class Background extends Isolate {
+  Background() : super() {}
+
+  void main() {
+    print('Hey, this is Background.run.');
+    port.close();
+  }
+}
+
+void main() {
+  new Background().spawn();
+  print('Hey, this is main.');
+}</pre>
+
+  </div>
+
+  <script type="text/javascript">
+    function show(name) {
+      var editor = document.getElementById('samples-editor');
+      var code = document.getElementById('sample-' + name);
+      if (editor.setCode)
+        editor.setCode(code.textContent);
+      else if (editor.textContent)
+        editor.textContent = code.textContent;
+      else
+        editor.innerText = code.innerText;
+    }
+
+    window.addEventListener('load', function(e) {
+      var list = document.getElementById('samples-list');
+      document.getElementById('samples-list').addEventListener('change', function(e) {
+        show(list.value);
+      }, false);
+    }, false);
+  </script>
+
