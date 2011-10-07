@@ -191,7 +191,7 @@ nav{
   display: inline;
   margin: 1.5em;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
   letter-spacing: 20;
 }
@@ -272,6 +272,14 @@ div#main {
   margin: 1.5em;
   padding: 0;
   display: inline;
+}
+
+div#samples p {
+  text-indent: 1.5em;
+}
+
+div#samples h2 {
+  margin-bottom: -10px;
 }
 
 header h2 {
@@ -385,6 +393,7 @@ section#classes-overview h1, h2, h3, h4, h5, h6 {
 div#feedback p {
   padding-top: 15px;
   margin-bottom: 0;
+  padding-left: 25px;
 }
 
 section {
