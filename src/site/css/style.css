@@ -195,7 +195,7 @@ header div#plus1 {
   right: 20px;
 }
 
-nav{
+nav, section#classes-nav {
   clear: both;
   width: 170px;
   float: left;
