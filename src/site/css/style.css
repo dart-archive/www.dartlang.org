@@ -173,6 +173,11 @@ header {
 header img {
     position: relative;
     left: 190px;
+  display: inline;
+}
+
+header li {
+  display: inline;
 }
 
 #fyeo {
@@ -335,6 +340,10 @@ section#start-here a {
 
 section#classes-overview a {
   text-decoration: none;
+}
+
+section#classes-overview a:hover {
+  text-decoration: underline;
 }
 
 section#classes-overview ul {
