@@ -21,8 +21,8 @@ October 2011</em>
 
 <pre>
 class Point {
-  var x, y;
-  Point(x, y) {
+  num x, y;
+  Point(num x, num y) {
     this.x = x;
     this.y = y;
   }
@@ -33,7 +33,7 @@ class Point {
 
 <pre>
 class Point {
-  var x, y;
+  num x, y;
   Point(this.x, this.y);
 }
 </pre>
@@ -46,10 +46,10 @@ class Point {
 
 <pre>
 class Point {
-  var x, y;
+  num x, y;
   Point(this.x, this.y);
   Point.zero() : x = 0, y = 0;
-  Point.polar(theta, radius) {
+  Point.polar(num theta, num radius) {
     x = Math.cos(theta) * radius;
     y = Math.sin(theta) * radius;
   }
@@ -74,18 +74,18 @@ var c = new Point.polar(Math.PI, 4.0);
 
 <pre>
 class Symbol {
-  var name;
-  static var cache;
+  String name;
+  static Map&lt;String, Symbol&gt; cache;
 
-  factory Symbol(name) {
+  factory Symbol(String name) {
     if (cache == null) {
-      cache = new Map();
+      cache = {};
     }
 
     if (cache.contains(name)) {
       return cache[name];
     } else {
-      var symbol = new Symbol._internal(name);
+      final symbol = new Symbol._internal(name);
       cache[name] = symbol;
       return symbol;
     }
@@ -116,7 +116,7 @@ var b = new Symbol('something');
 
 <pre>
 void sayGreeting(String salutation, String name) {
-  var greeting = '$salutation $name';
+  final greeting = '$salutation $name';
   print(greeting);
 }
 </pre>
@@ -133,7 +133,7 @@ window.on.click.add((event) {
 
 <pre>
 var items = [1, 2, 3, 4, 5];
-var odd = items.filter((i) => i % 2 == 1);
+var odd = items.filter((i) =&gt; i % 2 == 1);
 print(odd); // [1, 3, 5]
 </pre>
 
@@ -145,13 +145,13 @@ print(odd); // [1, 3, 5]
 
 <pre>
 class Rectangle {
-  var width, height;
+  num width, height;
 
-  contains(x, y) {
-    return x >= 0 && x < width && y >= 0 && y < height;
+  bool contains(num x, num y) {
+    return (x &lt; width) && (y &lt; height);
   }
 
-  area() {
+  num area() {
     return width * height;
   }
 }
@@ -161,9 +161,9 @@ class Rectangle {
 
 <pre>
 class Rectangle {
-  var width, height;
-  contains(x, y) => x >= 0 && x < width && y >= 0 && y < height;
-  area() => width * height;
+  num width, height;
+  bool contains(num x, num y) =&gt; (x &lt; width) && (y &lt; height);
+  num area() =&gt; width * height;
 }
 </pre>
 
@@ -175,12 +175,12 @@ class Rectangle {
 
 <pre>
 class Rectangle {
-  var left, top, width, height;
+  num left, top, width, height;
 
-  get right() => left + width;
-  set right(value) => left = value - width;
-  get bottom() => top + height;
-  set bottom(value) => top = value - height;
+  num get right()           =&gt; left + width;
+      set right(num value)  =&gt; left = value - width;
+  num get bottom()          =&gt; top + height;
+      set bottom(num value) =&gt; top = value - height;
 
   Rectangle(this.left, this.top, this.width, this.height);
 }
@@ -204,25 +204,25 @@ rect.right = 12;
 
 <pre>
 class Rectangle {
-  var left, top;
-  var _width, _height;
+  num left, top;
+  num _width, _height;
 
-  get width() => _width;
-  set width(value) {
-    if (value < 0) throw 'Width cannot be negative.';
+  num get width() =&gt; _width;
+  set width(num value) {
+    if (value &lt; 0) throw 'Width cannot be negative.';
     _width = value;
   }
 
-  get height() => _height;
-  set height(value) {
-    if (value < 0) throw 'Height cannot be negative.';
+  num get height() =&gt; _height;
+  set height(num value) {
+    if (value &lt; 0) throw 'Height cannot be negative.';
     _height = value;
   }
 
-  get right() => left + width;
-  set right(value) => left = value - width;
-  get bottom() => top + height;
-  set bottom(value) => top = value - height;
+  num get right()           =&gt; left + width;
+      set right(num value)  =&gt; left = value - width;
+  num get bottom()          =&gt; top + height;
+      set bottom(num value) =&gt; top = value - height;
 
   Rectangle(this.left, this.top, this._width, this._height);
 }</pre>
@@ -234,12 +234,12 @@ class Rectangle {
 <p>Dart is a "pure" object-oriented language in that everything you can place in a variable is a real object (no mutant "primitives") and every object is an instance of some class. It's not a <em>dogmatic</em> OOP language though. You aren't required to place everything you define inside some class. Instead, you are free to define functions, variables, and even getters and setters at the top level if you want.</p>
 
 <pre>
-abs(value) => value < 0 ? -value : value;
+num abs(num value) =&gt; value &lt; 0 ? -value : value;
 
-var TWO_PI = Math.PI * 2.0;
+final TWO_PI = Math.PI * 2.0;
 
-get today() {
-  var date = new DateTime.now();
+int get today() {
+  final date = new DateTime.now();
   return date.day;
 }
 </pre>
@@ -300,7 +300,7 @@ print('The area of a circle with radius $r is ${Math.PI * r * r)}');
 
 <pre>
 class Vector {
-  var x, y;
+  num x, y;
   Vector(this.x, this.y);
   operator +(Vector other) =&gt; new Vector(x + other.x, y + other.y);
 }
