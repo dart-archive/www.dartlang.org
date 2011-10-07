@@ -223,19 +223,6 @@ header {
   box-shadow: inset 0  -5px 10px rgba(0, 0, 0, .1); 
 }
 
-div#feedback {
-  background-image: url(/imgs/home-subheader-background.png);
-  height: 45px;
-  font-style: italic;
-  font-weight: 700;
-  font-size: 16pt;
-  letter-spacing: 20;
-  line-height: 23pt;
-  padding-bottom: 35px;
-  width: 100%;
-  white-space: nowrap;
-}
-
 div#main {
   width: 700px;
   float: left;
@@ -289,6 +276,7 @@ article section {
 
 article p {
   margin-bottom: 10px;
+  font-weight: 400;
 }
 
 article ol {
@@ -318,9 +306,7 @@ footer {
   text-align: center;
   padding: 20px;
 }
-section#what-is-dart {
-  padding-top: 25px;
-}
+
 section#what-is-dart dl dt {
     color: #1155CC;
     font-size: 1.6em;
@@ -362,11 +348,6 @@ section#classes-overview h1, h2, h3, h4, h5, h6 {
   color: black;
 }
 
-div#feedback p {
-  margin-top: 0;
-  padding-top: 20px;
-  margin-bottom: 0;
-}
 
 section {
   clear: both;
