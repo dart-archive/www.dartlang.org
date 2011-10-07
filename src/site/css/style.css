@@ -154,17 +154,6 @@ span#tagline {
 header {
   height: 150px;
   padding: 1em 1em 0 1em;
-  
-  background-image: url(/imgs/header-background.jpg);
-  
-  background-image: url(/imgs/header-background.jpg), -webkit-gradient(
-      linear,
-      left bottom,
-      left 180,
-      color-stop(0.05, rgb(46,46,46)),
-      color-stop(0.64, rgb(34,63,89))
-  );
-  
   background-position: left top;
   background-repeat: no-repeat;
   position: relative;
@@ -220,11 +209,11 @@ nav ul ul {
 }
 
 nav li {
-  margin-bottom: .75em;
+  margin-bottom: .65em;
 }
 
 nav ul ul {
-  margin-top: .75em;
+  margin-top: .65em;
 }
 
 header {
@@ -320,13 +309,42 @@ footer {
   padding: 20px;
 }
 
+section#intro {
+  font-size: 13px;
+}
+
+section#intro dn {
+  color: #1155CC;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+section#intro dl dt {
+  color: #1155CC;
+  margin-top: 0px;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+section#intro dd {
+  margin-left: 0px;
+}
+
+section#intro h2 {
+  color: #1155CC;
+}
+
+section#intro aside {
+  font-size: .8em;
+}
+
 section#what-is-dart dl dt {
-    color: #1155CC;
-    font-size: 1.6em;
+  color: #1155CC;
+  font-size: 1.6em;
 }
 
 section#what-is-dart h2 {
-    color: #1155CC;
+  color: #1155CC;
 }
 
 p {
