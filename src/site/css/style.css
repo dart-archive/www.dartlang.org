@@ -230,7 +230,7 @@ div#feedback {
   font-weight: 700;
   font-size: 16pt;
   letter-spacing: 20;
-  line-height: 16pt;
+  line-height: 23pt;
   padding-bottom: 35px;
   width: 100%;
   white-space: nowrap;
@@ -363,8 +363,8 @@ section#classes-overview h1, h2, h3, h4, h5, h6 {
 }
 
 div#feedback p {
-  margin-top: 7px;
-  padding-top: 30px;
+  margin-top: 0;
+  padding-top: 20px;
   margin-bottom: 0;
 }
 
