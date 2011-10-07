@@ -76,10 +76,16 @@ button {  width: auto; overflow: visible; }
 body, select, input, textarea {  color: #444; }
 h1, h2, h3, h4, h5, h6 { 
   font-weight: bold; 
-  color: #0084C4;
+  color: #1155CC;
 }
-a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
+a, a:active, a:visited { 
+  color: #1155CC; 
+  text-decoration: none;
+}
+a:hover { 
+  color: #036; 
+  text-decoration: underline;
+}
 
 /*
     // ========================================== \\
@@ -121,11 +127,11 @@ body {
 }
 
 a {
-    color: #0084C4;
+    color: #1155CC; 
 }
 
 a:visited {
-    color: #0084C4;
+    color: #1155CC;
 }
 
 div#container {
@@ -201,23 +207,6 @@ nav a {
   text-decoration: none;
 }
 
-@-webkit-keyframes menu-slide {
-  0% {
-    -webkit-transform: translate3d(0, 70px, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0px, 0);
-  }
-}
-
-
-nav.animate-in {
-  -webkit-animation-name: menu-slide;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: ease-in-out;
-  -webkit-animation-duration: .4s;
-}
-
 nav ul ul {
   margin-left: 1em;
 }
@@ -230,7 +219,7 @@ nav ul ul {
   margin-top: 1em;
 }
 
-header, div#feedback {
+header {
   -moz-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .1);
   -webkit-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .1);
   box-shadow: inset 0  -5px 10px rgba(0, 0, 0, .1); 
@@ -244,10 +233,6 @@ div#feedback {
   font-size: 16pt;
   letter-spacing: 20;
   line-height: 16pt;
-  left: -300px;
-  padding-left: 200px;
-  right: 300px;
-  padding-right: 300px;
   padding-bottom: 35px;
   width: 100%;
   white-space: nowrap;
@@ -267,6 +252,7 @@ div#samples p {
 
 div#samples h2 {
   margin-bottom: -10px;
+  text-transform: uppercase;
 }
 
 header h2 {
@@ -336,10 +322,10 @@ footer {
   padding: 20px;
 }
 section#what-is-dart {
-  padding-top: 20px;
+  padding-top: 25px;
 }
 section#what-is-dart dl dt {
-    color: #0084C4;
+    color: #1155CC;
     font-size: 1.6em;
     text-transform: uppercase;
 }
@@ -381,9 +367,8 @@ section#classes-overview h1, h2, h3, h4, h5, h6 {
 
 div#feedback p {
   margin-top: 7px;
-  padding-top: 15px;
+  padding-top: 30px;
   margin-bottom: 0;
-  padding-left: 30px;
 }
 
 section {
