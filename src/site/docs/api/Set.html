@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: docsLayout
 title: "Dart : Libraries : corelib : Set" 
 ---
 
-<h1 id="title">interface <a name='Set::Set'>Set&lt;E&gt;</a></h1>
+<h1 id="title">interface Set&lt;E&gt;</a></h1>
 
 <section id="inheritance">
 
@@ -46,7 +46,7 @@ title: "Dart : Libraries : corelib : Set"
 <dd>
 </dd>
 <dt>
-<code><a href='Set.html#Set::Set'>Set&lt;E&gt;</a>.<a name='Set::from'>from</a>(<code><a href='Iterable.html#Iterable::Iterable'>Iterable&lt;E&gt;</a></code> <a name='Set::from::other'>other</a>)</code>
+<code><a href='Set.html#Set::Set'>Set&lt;E&gt;</a>.from</a>(<code><a href='Iterable.html#Iterable::Iterable'>Iterable&lt;E&gt;</a></code> <a name='Set::from::other'>other</a>)</code>
 </dt>
 <dd>
 
@@ -59,53 +59,53 @@ title: "Dart : Libraries : corelib : Set"
 <h2>Methods</h2>
 <dl>
 <dt>
-<code>void <a name='Set::add'>add</a>(<code><a href='Set.html#Set::Set'>E</a></code> <a name='Set::add::value'>value</a>)</code></dt>
+<code>void add</a>(<code><a href='Set.html#Set::Set'>E</a></code> <a name='Set::add::value'>value</a>)</code></dt>
 <dd>
 
  Adds <code><a href='Set.html#Set::add::value'>value</a></code> into the set. The method has no effect if
  <code><a href='Set.html#Set::add::value'>value</a></code> was already in the set.
 </dd>
 <dt>
-<code>void <a name='Set::addAll'>addAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::addAll::collection'>collection</a>)</code></dt>
+<code>void addAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::addAll::collection'>collection</a>)</code></dt>
 <dd>
 
  Adds all the elements of the given collection to the set.
 </dd>
 <dt>
-<code>void <a name='Set::clear'>clear</a>()</code></dt>
+<code>void clear</a>()</code></dt>
 <dd>
 
  Removes all elements in the set.
 </dd>
 <dt>
-<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Set::contains'>contains</a>(<code><a href='Set.html#Set::Set'>E</a></code> <a name='Set::contains::value'>value</a>)</code></dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> contains</a>(<code><a href='Set.html#Set::Set'>E</a></code> <a name='Set::contains::value'>value</a>)</code></dt>
 <dd>
 
  Returns true if <code><a href='Set.html#Set::contains::value'>value</a></code> is in the set.
 </dd>
 <dt>
-<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Set::containsAll'>containsAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::containsAll::collection'>collection</a>)</code></dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> containsAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::containsAll::collection'>collection</a>)</code></dt>
 <dd>
 
  Returns true if this collection contains all the elements of
  <code><a href='Set.html#Set::containsAll::collection'>collection</a></code>.
 </dd>
 <dt>
-<code><code><a href='Set.html#Set::Set'>Set&lt;E&gt;</a></code> <a name='Set::intersection'>intersection</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::intersection::other'>other</a>)</code></dt>
+<code><code><a href='Set.html#Set::Set'>Set&lt;E&gt;</a></code> intersection</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::intersection::other'>other</a>)</code></dt>
 <dd>
 
  Returns a new set which is the intersection between this set and
  the given collection.
 </dd>
 <dt>
-<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Set::isSubsetOf'>isSubsetOf</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::isSubsetOf::collection'>collection</a>)</code></dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> isSubsetOf</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::isSubsetOf::collection'>collection</a>)</code></dt>
 <dd>
 
  Returns true if <code><a href='Set.html#Set::isSubsetOf::collection'>collection</a></code> contains all the elements of this
  collection.
 </dd>
 <dt>
-<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Set::remove'>remove</a>(<code><a href='Set.html#Set::Set'>E</a></code> <a name='Set::remove::value'>value</a>)</code></dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> remove</a>(<code><a href='Set.html#Set::Set'>E</a></code> <a name='Set::remove::value'>value</a>)</code></dt>
 <dd>
 
  Removes <code><a href='Set.html#Set::remove::value'>value</a></code> from the set. Returns true if <code><a href='Set.html#Set::remove::value'>value</a></code> was
@@ -113,13 +113,11 @@ title: "Dart : Libraries : corelib : Set"
  if <code><a href='Set.html#Set::remove::value'>value</a></code> value was not in the set.
 </dd>
 <dt>
-<code>void <a name='Set::removeAll'>removeAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::removeAll::collection'>collection</a>)</code></dt>
+<code>void removeAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='Set::removeAll::collection'>collection</a>)</code></dt>
 <dd>
 
  Removes all the elements of the given collection from the set.
 </dd>
 </dl>
 </section>
-
-<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
 

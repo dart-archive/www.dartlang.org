@@ -180,7 +180,7 @@ and draft <a href="/docs/spec/index.html">Language Specification</a>.
 <p>
 Dart&rsquo;s interfaces and classes provide you with
 a set of reusable and extensible building blocks.
-An <em>interface</em> defines a basic set of methods and constants,
+An <em>interface</em> defines a basic set of methods,
 sometimes by inheriting from other interfaces.
 A <em>class</em> can implement multiple interfaces,
 but it only inherits from a single superclass.
@@ -280,7 +280,7 @@ You will be able to run Dart code in several ways:
   <li>
     <p>
     Translate Dart code to JavaScript that can run in any modern browser:<br />
-    Chrome, Firefox 4+, Internet Explorer 9+, Safari 5+
+    Chrome, Safari 5+, and Firefox 4+
     </p>
   </li>
   <li>
@@ -317,9 +317,9 @@ Here is the proposed new MIME type,
   &lt;body&gt;
     &lt;script type="application/dart"&gt;
       main() {
-        HTMLElement element = document.queryOne('#message');
+        Element element = document.getElementById('message');
         element.innerHTML = 'Hello from Dart';
-      }
+      }     
     &lt;/script&gt;
     &lt;div id="message"&gt;&lt;/div&gt;
   &lt;/body&gt;
@@ -399,12 +399,8 @@ Here is an overview of the interface hierarchy for the current Core Library
 </p>
 
 <img src="images/interface-hierarchy.png"
-     alt="interface hierarchy"
-     width="" height="">
-
-<p class="comment">
-{PENDING: fix figure to fit in page}
-</p>
+     alt="interface hierarchy diagram"
+     width="688" height="470">
 </section>
 
 
