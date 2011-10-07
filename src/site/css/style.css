@@ -316,6 +316,10 @@ section#what-is-dart dl dt {
     font-size: 1.6em;
 }
 
+section#what-is-dart h2 {
+    color: #1155CC;
+}
+
 section#start-here {
   height: 100%;
 }
@@ -351,7 +355,9 @@ section#classes-overview ul {
   line-height: 2em;
 }
 
-section#classes-overview h1, h2, h3, h4, h5, h6 {
+section#classes-overview h1, section#classes-overview h2, 
+section#classes-overview h3, section#classes-overview h4, 
+section#classes-overview h5, section#classes-overview h6 {
   color: black;
 }
 
