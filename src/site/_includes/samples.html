@@ -1,0 +1,71 @@
+{% comment %}
+So you want to add more samples:
+1 - Create a new pre element below containing the code you want to show.
+2 - Give it a unique id of the form "sample-name"
+3 - In the main page, add a new option to the select element and make sure value matches
+    the name from step #2.
+
+TODO: These samples are just place holders and should be replaced with something real.
+{% endcomment %} 
+  <div style="display:none">
+
+    {% comment %} hello dart {% endcomment %}
+    <pre id="sample-hello">main() => print('Hello Dart!');</pre>
+
+
+    {% comment %} fibonacci {% endcomment %}
+    <pre id="sample-fib">int fib(int n) => n <= 1 ? n : fib(n - 1) + fib(n - 2);
+
+main() => print('${fib(20)}');</pre>
+
+
+    {% comment %} fibonacci w/ memoization {% endcomment %}
+    <pre id="sample-fib-mem">int fib(int n, [Map known = const {}]) {
+  if (known.containsKey(n))
+    return known[n];
+  int f = n <= 1 ? n : fib(n - 1, known) + fib(n - 2, known);
+  known[n] = f;
+  return f;
+}
+
+main() => print('${fib(20)}');</pre>
+
+
+    {% comment %} fibonacci on isolates {% endcomment %}
+<pre id="sample-fib-isolate">class Fibber extends Isolate {
+  int fib(int n) => n <= 1 ? n : fib(n - 1) + fib(n - 2);
+
+  void main() {
+    port.receive((int n, SendPort replyTo) => replyTo.call(fib(n)));
+  }
+}
+
+void fib(int n, void callback(int)) {
+  new Fibber().spawn().then((SendPort port)
+    => port.call(n).receive((int answer, SendPort replyTo) => callback(answer)));
+}
+
+main() => fib(20, (int a) => print('${a}'));</pre>
+
+  </div>
+
+  <script type="text/javascript">
+    function show(name) {
+      var editor = document.getElementById('samples-editor');
+      var code = document.getElementById('sample-' + name);
+      if (editor.setCode)
+        editor.setCode(code.textContent);
+      else if (editor.textContent)
+        editor.textContent = code.textContent;
+      else
+        editor.innerText = code.innerText;
+    }
+
+    window.addEventListener('load', function(e) {
+      var list = document.getElementById('samples-list');
+      document.getElementById('samples-list').addEventListener('change', function(e) {
+        show(list.value);
+      }, false);
+    }, false);
+  </script>
+

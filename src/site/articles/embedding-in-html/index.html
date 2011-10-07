@@ -8,6 +8,8 @@ title: "Embedding Dart in HTML"
 </style>
 
 <h1> Embedding Dart in HTML </h1>
+<em>Written by Sigmund Cherem and Vijay Menon<br />
+October 2011</em>
 
 <p>
 Dart is a new structured programming language for the browser.
@@ -28,18 +30,8 @@ a semantically equivalent page embedding JavaScript.
 <p>
 HTML <code>script</code> tags provide a
 <code>type</code> attribute to define the language of the script.
-We propose to add a new type for Dart
+For Dart, this attribute has the value 'application/dart'.
 </p>
-
-<table>
-  <tr>
-    <th>MIME Type</th><th>Description</th>
-  </tr>
-  <tr>
-    <td><code>application/dart</code></td>
-    <td>A Dart script.</td>
-  </tr>
-</table>
 
 <p>
 Like other script tags,
@@ -213,9 +205,7 @@ Then the following executes as expected:
 <h2> Compiling HTML pages </h2>
 
 <p>
-The Dart distribution
-<span class="comment">{PENDING: distribution -> source?}</span>
-includes a script
+The Dart project includes a script
 that translates an HTML page with 'application/dart' MIME types
 into an HTML page with JavaScript code.
 You can find more details in the Dart project wiki page
