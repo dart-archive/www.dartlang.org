@@ -320,6 +320,10 @@ section#what-is-dart h2 {
     color: #1155CC;
 }
 
+p {
+    font-size: 15px;
+}
+
 section#start-here {
   height: 100%;
 }
