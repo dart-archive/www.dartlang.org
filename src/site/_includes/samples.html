@@ -32,7 +32,7 @@ main() => print('${fib(20)}');</pre>
 
 
     {% comment %} fibonacci on isolates {% endcomment %}
-<pre id="sample-fib-isolate">class Fibber extends Isolate {
+<pre id="sample-fib-isolate">class Fibolate extends Isolate {
   int fib(int n) => n <= 1 ? n : fib(n - 1) + fib(n - 2);
 
   void main() {
@@ -41,8 +41,8 @@ main() => print('${fib(20)}');</pre>
 }
 
 void fib(int n, void callback(int)) {
-  new Fibber().spawn().then((SendPort port)
-    => port.call(n).receive((int answer, SendPort replyTo) => callback(answer)));
+  new Fibolate().spawn().then((SendPort port) => port.call(n).receive(
+    (int answer, SendPort replyTo) => callback(answer)));
 }
 
 main() => fib(20, (int a) => print('${a}'));</pre>
