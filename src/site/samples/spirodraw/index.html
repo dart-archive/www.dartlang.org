@@ -10,20 +10,20 @@ title: "Spirodraw Sample"
 <div id="containers">
 <p>The Spirodraw sample is similar to Sunflower and illustrates a few more language features.</p>
 
-Multiple source files
-requestAnimationFrame
-function defined outside class
+<ul>
+<li><a href="#code_organization">Code organization</a></li>
+<li><a href="#requestAnimationFrame">RequestAnimationFrame</a></li>
+<li><a href="#top_level_functions">Top-level functions</a></li>
+<li><a href="#color_picker">ColorPicker sample</a></li>
+<li><a href="#typedef">Function type aliases</a></li>
+<li><a href="#type_inference">Type inference</a></li>
+<li><a href="#initializers">Constructor initializers</a></li>
+<li><a href="#terse_function_syntax">Terse function syntax</a></li>
+<li><a href="#for-in">For-in statement</a></li>
+<li><a href="#string_interpolation">String interpolation</a></li>
+</ul>
 
-In addition, the ColorPicker illustrates the use of 
-
-typedef
-type inference
-initializer shortcut
-terse function syntax
-for ... in syntax
-string interpolation
-
-<h2>Multiple source files</h2>
+<h2 id="code_organization">Code organization</h2>
 <p>First, let's take a look at the Spirodraw declarations.</p>
 
 <pre class="prettyprint lang-dart linenums">
@@ -43,7 +43,7 @@ it may be used to bundle non-code resources with libraries. The arguments #impor
 ColorPicker.dart, and the built-in Dart DOM library. For more on libraries, see also the 
 Total sample.</p>
 
-<h2>RequestAnimationFrame</h2>
+<h2 id="requestAnimationFrame">RequestAnimationFrame</h2>
 <p>Spirodraw uses <a href="http://www.html5rocks.com/en/tutorials/canvas/performance/#toc-raf">requestAnimationFrame</a>
 to improve rendering.</p>
 
@@ -73,7 +73,7 @@ the callback function, <em>animate</em>. The animate function in turn requests t
 animation frame, passing itself as the callback using the shortcut syntax available when
 a function invokes itself.</p>
 
-<h2>Function defined outside class</h2>
+<h2 id="top_level_functions">Top-level functions</h2>
 <p>In Dart, a function does not have to be associated with a class.</p>
 
 <pre class="prettyprint lang-dart linenums">
@@ -108,9 +108,9 @@ int gcf(int n, int d) {
 
 <p>In this example, note that the gcf function is defined outside the Spirodraw class and is
 invoked statically within the calcTurns() function. The main function is likewise defined 
-outside the Spirodraw class.</p>
+outside the Spirodraw class. In Dart, variables can also be top-level.</p>
 
-<h2>ColorPicker</h2>
+<h2 id="color_picker">ColorPicker sample</h2>
 <p>Now let's look at ColorPicker.dart.</p>
 
 <pre class="prettyprint lang-dart linenums">
@@ -229,7 +229,7 @@ class ColorPicker {
   
 }</pre>
 
-<h2>Function type aliases</h2>
+<h2 id="typedef">Function type aliases</h2>
 
 <p>In Dart, functions are objects just as strings and numbers. To declare the type of a variable
 or return type that references a function, you use a function type alias, or typedef.</p>
@@ -240,11 +240,35 @@ type PickerListener to a List, and lines 82-83 iterate over the List to invoke e
 
 <p>Function type aliases offer a compact way to represent any type of callback.</p>
 
-<h2>Type inference</h2>
+<h2 id="type_inference">Type inference</h2>
 <p>Dart is an optionally typed language and types can often be inferred. For example,
 line 9 initializes a List of strings, but the variable is declared only as List, not 
 List&lt;String&gt;, because the type can be inferred from the string literals.</p>
 
-<h2>Constructor initializers</h2>
+<h2 id="initializers">Constructor initializers</h2>
+<p>Often constructor arguments are used to initialize instance fields. To avoid repetitive 
+this.name = name initializers, Dart allows you to write this.name in the constructor instead 
+of the argument name. See the ColorPicker constructor in line 22 for an example. Also, Dart 
+lets you write an initializer list in the constructor as shown in line 23. Initializers are 
+executed before the instance is constructed.</p>
+
+<h2 id="terse_function_syntax">Terse function syntax</h2>
+<p>Functions that contain a single line in the body can be declared in a compact one-line 
+syntax using =&gt; as shown in line 31. Note also the definition of an explicit getter. When
+you define a getter or setter function this way, Dart will automatically invoke the getter
+or setter when you reference a variable having the same name as the getter/setter. By 
+convention, the actual variable name is prefixed with an underscore to distinguish it from
+the getter/setter name.</p>
+
+<h2 id="for-in">For-in statement</h2>
+<p>Lines 81-84 show a for-in loop, which iterates over any object that implements
+the Iterable interface.</p>
+
+<h2 id="string_interpolation">String interpolation</h2>
+<p>Our last bit of syntactic sugar in this example is string interpolation. As shown in line 
+111, you can evaluate variables in a string literal using $<em>identifier</em> or 
+${<em>identifier</em>}. This syntax offers a shortcut for string concatenation using the
++ operator.
+ </p>
 </div>
 </body>
