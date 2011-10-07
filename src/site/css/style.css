@@ -206,6 +206,11 @@ nav, section#classes-nav {
   letter-spacing: 20;
 }
 
+section#classes-nav {
+  width: 240px;
+  overflow: hidden;
+  font-size: 14px;
+}
 nav a {
   text-decoration: none;
 }
@@ -228,12 +233,16 @@ header {
   box-shadow: inset 0  -5px 10px rgba(0, 0, 0, .1); 
 }
 
-div#main {
+div#main, div#docs-main {
   width: 700px;
   float: left;
   margin: 1.5em;
   padding: 0;
   display: inline;
+}
+
+div#docs-main {
+  width: 600px;
 }
 
 div#samples p {
