@@ -317,9 +317,9 @@ Here is the proposed new MIME type,
   &lt;body&gt;
     &lt;script type="application/dart"&gt;
       main() {
-        HTMLElement element = document.queryOne('#message');
+        Element element = document.getElementById('message');
         element.innerHTML = 'Hello from Dart';
-      }
+      }     
     &lt;/script&gt;
     &lt;div id="message"&gt;&lt;/div&gt;
   &lt;/body&gt;
@@ -399,12 +399,8 @@ Here is an overview of the interface hierarchy for the current Core Library
 </p>
 
 <img src="images/interface-hierarchy.png"
-     alt="interface hierarchy"
-     width="" height="">
-
-<p class="comment">
-{PENDING: fix figure to fit in page}
-</p>
+     alt="interface hierarchy diagram"
+     width="688" height="470">
 </section>
 
 
