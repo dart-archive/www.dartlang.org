@@ -3,14 +3,9 @@
 If you already know a class-based language,
 the syntax for creating and using classes probably looks familiar.
 If not,
-you might want to do a web search for
-<a href="http://www.google.com/search?q=object-oriented+concepts"
-  target="_blank">object-oriented concepts</a>,
-and read up before continuing.
-<span class="comment">
-{PENDING: What's a better search?
-Or is there something we can link to directly?}
-</span>
+you might want to read up on
+<a target="_blank"
+href="http://www.google.com/url?sa=D&q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FClass_(computer_programming)">classes</a>.
 </p>
 
 <p>
@@ -126,7 +121,7 @@ Two of the most commonly used ones are
     
 <pre class="prettyprint lang-dart">
 <em>//In the Greeter class:</em>
-Greeter() {}
+Greeter();
 Greeter.withPrefix(this.prefix);
 
 <em>//In code that creates Greeter objects:</em>
@@ -177,7 +172,7 @@ main() {
 
 <dl>
   <dt> Set the value of the prefix instance variable. </dt>
-  <dd> For example, add this after line 12:
+  <dd> For example, add this after line 10:
       <pre>greeter.prefix = 'Hola,';</pre>
 
   <dt> Convert the <code>greet()</code> method definition
@@ -199,7 +194,7 @@ main() {
   
 <pre class="prettyprint lang-dart">
 <em>//In the Greeter class:</em>
-Greeter.withPrefix(this.prefix = '');
+Greeter.withPrefix(this.prefix);
 
 <em>//In code that creates Greeter objects:</em>
 var greeter = new Greeter.withPrefix('Howdy,');
@@ -231,7 +226,7 @@ class Greeter {
       Every type in Dart is public unless its name
       starts with an underscore ("_").
       For example, <code>Greeter</code> is public,
-      but <code>_Greeter</code> (by convention) would be private.
+      but <code>_Greeter</code> would be private.
     </aside>
   </dd>
 </dl>

@@ -8,6 +8,7 @@
   font-family: monospace;
   font-size: 11pt;
   padding-bottom: 34px; /* hack to avoid scrollbars */
+  border: 1px solid #ddd;
 }
 .for-samples {
   height: 300px;
@@ -29,3 +30,16 @@ div.explanation {
   height: 400px;
   overflow: auto;
 }
+.upgrade {
+  margin-top: -1px;
+  color: #fff;
+  background: rgb(35, 63, 89);
+  border: 1px solid #aaa;
+  font-size: 11pt;
+  padding: 4px;
+}
+
+.upgrade a {
+  color: #fff;
+}
+

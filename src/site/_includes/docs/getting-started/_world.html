@@ -1,15 +1,5 @@
 <section>
 
-<p>
-The Dart code below
-is inside the Dartboard app.
-If you click the Run button
-at Dartboard's upper left&mdash;go
-ahead, you know you want to&mdash;you'll
-see the expected output (Hello, World!)
-at the bottom.
-</p>
-
 <code class="codes">main() {
   var name = 'World';
   print('Hello, ${name}!');
@@ -76,6 +66,7 @@ print('Hello, ' + name + '!');</pre></dd> </dl>
 
 <dl>
   <dt> Edit the code and click the Run button
+    (the button at the upper left of Dartboard)
     to compile and run the new code. </dt>
   <dd>
     Some changes to try:
@@ -95,12 +86,10 @@ print("Happy birthday, $name, you're ${++age} today.");
       </li>
     </ul>
   </dd>
-  
+
+{% comment %}
+{PENDING: Saving this text because I rather like this feature...}
   <dt> Save a link to your Dart code. Send it to friends! 
-  <span class="comment">
-  {PENDING: Is this something we want to emphasize?
-  If not, delete it.}
-  </span>
   </dt>
   <dd>
     When you click the Run button,
@@ -115,6 +104,7 @@ print("Happy birthday, $name, you're ${++age} today.");
     display something funny/cool if they go to that URL?}
     </span>
   </dd>
+{% endcomment %}
 </dl>
 
 </section>
@@ -143,11 +133,11 @@ print("Happy birthday, $name, you're ${++age} today.");
 </div> <!-- END SCROLLING AREA -->
 </section>
 
-<p class="comment">
+{% comment %}
 {PERHAPS: make each section its own tab?
 "About the code", "Try this", "Tips", ...
 The downside (besides it taking time :)
 is that you wouldn't be able to view the content of 2 tabs at once.}
-</p>
+{% endcomment %}
 
 </section>

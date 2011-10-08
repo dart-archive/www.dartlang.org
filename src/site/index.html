@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: default
 ---
 <link href="/css/style.css" type="text/css" rel="stylesheet"/>
 <link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
@@ -9,57 +9,68 @@ layout: main
 
 <body onLoad="prettyPrint()">
 
-<section id="what-is-dart">
-  <dl>
-	 <dt> From quick prototypes to serious apps </dt>
-	    <dd> Dart's optional types let you prototype quickly
-	      and then revise your code to be more maintainable.
+<section id="intro">
+  	<dl>
+		<dt> From quick prototypes to serious apps </dt>
+	    <dd>
+		Dart's optional types let you prototype quickly
+		and then revise your code to be more maintainable.
 	    </dd>
-	    <dt> Wherever you need structured code </dt>
-	    <dd> You can use the same Dart code both in modern web browsers* and on servers.
+
+	    <dt>Wherever you need structured code</dt>
+	    <dd>
+		You can use the same Dart code in most modern web 
+		browsers (Chrome, Safari 5+, Firefox 4+) and on servers.
+		Look for more browser support shortly.
 	    </dd>
-	    <dt> Familiar yet new </dt>
-	    <dd> Dart code should look familiar if you know a language or two,
-	      and you can use time-tested features such as classes and closures.
-	      Dart's new features make
-	      it easier for you to develop and maintain software.
+	
+	    <dt>Familiar yet new </dt>
+	    <dd>
+		Dart code should look familiar if you know a language or two,
+		and you can use time-tested features such as classes and closures.
+		Dart's new features make it easier for you to develop and maintain 
+		software. Dart is still in the early stages of development,
+        so please take a look and <a href="/support/index.html">tell us what you think</a>.
+	    </dd>
+		
+		<hr/>
+	    <dn>Examples of Dart code</dn>
+	    <dd>
+		The Dart code below is inside an app called Dartboard. If you 
+		click the Run button at Dartboard's upper left&mdash;go ahead,
+		you know you want to&mdash;you'll see the expected output 
+		(Hello, Dart!) at the bottom.
 	    </dd>
 	</dl>
 </section>
 
-<br/>
-<h1>Examples of Dart code</h1>
-
-<p>
-The Dart code below
-is inside the Dartboard app.
-If you click the Run button
-at Dartboard's upper left&mdash;go
-ahead, you know you want to&mdash;you'll
-see the expected output (Hello Dart!)
-at the bottom.
-</p>
-
+<section>
 {% comment %}
 TODO: Not keen on the styling here, please feel free to change.
       To add more samples, see _includes/samples.html
 {% endcomment %}
 <div id="samples">
   <select id="samples-list">
-    <option value="hello">hello dart</option>
-    <option value="fib">fibonacci</option>
-    <option value="fib-mem">fibonacci w/ memoization</option>
-    <option value="fib-isolate">fibonacci w/ isolates</option>
+    <option value="hello">Hello, Dart</option>
+    <option value="fib">Fibonacci</option>
+    <option value="fib-mem">Fibonacci with memoization</option>
+    <option value="fib-isolate">Fibonacci with isolates</option>
   </select>
 </div>
-<code id="samples-editor" class="codes for-samples">main() =&gt; print('Hello Dart!');</code>
+<code id="samples-editor" class="codes for-samples">main() =&gt; print('Hello, Dart!');</code>
 {% include samples.html %}
 
 <script type="text/javascript"
   src="http://try-dart-lang.appspot.com/dartboard.dart.app.js">
 </script>
+</section>
 
-<br/>
+<section>
+<h2>What next?</h2>
 
-<aside><em>* Modern web browsers include Chrome, Safari 5+, Firefox 4+, and Internet Explorer 9+.</em>
-</aside>
+<p>
+Follow a <a href="/docs/getting-started/">tutorial</a>,
+or read the <a href="/docs/technical-overview/">technical overview</a>.
+</p>
+
+</section>
