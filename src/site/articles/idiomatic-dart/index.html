@@ -3,19 +3,20 @@ layout: default
 title: "Idiomatic Dart"
 ---
 
+<section>
 <h1>Idiomatic Dart</h1>
 <em>Written by Bob Nystrom<br />
 October 2011</em>
 
 <p>Dart was designed to look and feel familiar if you're coming from other languages, in particular Java and JavaScript. If you try hard enough, you can use Dart just like it was one of those languages. If you try <em>really</em> hard, you may even be able to turn it into Fortran, but you'll be missing out on what's unique and fun about Dart.</p>
 
-<p>This article will help teach you to write code that's uniquely suited for Dart. Since the language is still evolving, many of the idioms here are changing too. There's places in the language where we still aren't sure what the best practice is yet. (Maybe you can help us.) But here's some pointers that will hopefully kick your brain out of Java or JavaScript mode, and into Dart.</p>
+<p>This article will help teach you to write code that's uniquely suited for Dart. Since the language is still evolving, many of the idioms here are changing too. There are places in the language where we still aren't sure what the best practice is yet. (Maybe you can help us.) But here are some pointers that will hopefully kick your brain out of Java or JavaScript mode, and into Dart.</p>
 
 <h2>Constructors</h2>
 
 <p>We'll start this article the way every object starts its life: with constructors. Every object will be constructed at some point, and defining constructors is an important part of making a usable class. Dart has a couple of interesting ideas here.</p>
 
-<h3>Automatic Field Initialization</h3>
+<h3>Automatic field initialization</h3>
 
 <p>First up is getting rid of some tedium. Many constructors simply take their arguments and assign them to fields, like:</p>
 
@@ -40,7 +41,7 @@ class Point {
 
 <p>If an argument has <code>this.</code> before it in a constructor argument list, the field with that name will automatically be initialized with that argument's value. This example shows another little feature too: if a constructor body is completely empty, you can just use a semicolon (<code>;</code>) instead of <code>{}</code>.<p>
 
-<h3>Named Constructors</h3>
+<h3>Named constructors</h3>
 
 <p>Like most dynamically-typed languages, Dart doesn't support overloading. With methods, this isn't much of a limitation because you can always use a different name, but constructors aren't so lucky. To alleviate that, Dart lets you define <em>named constructors</em>:</p>
 
@@ -66,9 +67,9 @@ var c = new Point.polar(Math.PI, 4.0);
 
 <p>Note that we're still using <code>new</code> here when we invoke the named constructor. It isn't just a static method.</p>
 
-<h3>Factory Constructors</h3>
+<h3>Factory constructors</h3>
 
-<p>There are a couple of design patterns floating around related to "factories". They come into play when you need an instance of some class, but you need to be a little more flexible than just hard-coding a call to a constructor for some concrete type. Maybe you want to return a previously cached instance if you have one, or maybe you want to return an object of a different type.</p>
+<p>There are a couple of design patterns floating around related to <em>factories.</em> They come into play when you need an instance of some class, but you need to be a little more flexible than just hard-coding a call to a constructor for some concrete type. Maybe you want to return a previously cached instance if you have one, or maybe you want to return an object of a different type.</p>
 
 <p>Dart supports that without requiring you to change what it looks like when you create the object. Instead, you can define a <em>factory constructor</em>. When you <em>call</em> it, it looks like a regular constructor. But the implementation is free to do anything it wants. For example:</p>
 
@@ -141,7 +142,7 @@ print(odd); // [1, 3, 5]
 
 <p>In practice, we find ourselves preferring arrow functions whenever possible since they're terse but still easy to spot thanks to <code>=&gt;</code>. We use anonymous functions frequently for event handlers and callbacks. Named functions are used pretty rarely.</p>
 
-<p>Dart has one more trick up it's sleeve that is one of my favorite features of the language: you can also use <code>=&gt;</code> for defining members. Sure, you <em>could</em> do this:</p>
+<p>Dart has one more trick up its sleeve that is one of my favorite features of the language: you can also use <code>=&gt;</code> for defining members. Sure, you <em>could</em> do this:</p>
 
 <pre>
 class Rectangle {
@@ -169,7 +170,7 @@ class Rectangle {
 
 <p>We find arrow functions are great for defining simple getters and other one-liner methods that calculate or access some property of an object.</p>
 
-<h2>Fields, Getters and Setters</h2>
+<h2>Fields, getters, and setters</h2>
 
 <p>Speaking of properties, Dart uses your standard <code>object.someProperty</code> syntax for working with them. That's how most languages work when <code>someProperty</code> is an actual field on the class, but Dart also allows you to define methods that look like property access but execute whatever code you want. As in other languages, these are called <em>getters</em> and <em>setters</em>. Here's an example:</p>
 
@@ -196,7 +197,7 @@ rect.top = 6;
 rect.right = 12;
 </pre>
 
-<p>This blurring the line between fields and getters/setters is fundamental to the language. The clearest way to think of it is that fields <em>are</em> just getters and setters with magical implementations. This means that you can do fun stuff like override an inherited getter with a field and vice versa. If an interface defines a getter, you can implement it by simply having a field with the same name and type. If the field is mutable (not <code>final</code>) it can implement a setter than an interface requires.</p>
+<p>This blurring the line between fields and getters/setters is fundamental to the language. The clearest way to think of it is that fields <em>are</em> just getters and setters with magical implementations. This means that you can do fun stuff like override an inherited getter with a field and vice versa. If an interface defines a getter, you can implement it by simply having a field with the same name and type. If the field is mutable (not <code>final</code>) it can implement a setter that an interface requires.</p>
 
 <p>In practice, what this means is that you don't have to insulate your fields by defensively hiding them behind boilerplate getters and setters like you would in Java or C#. If you have some exposed property, feel free to make it a public field. If you don't want it to be modified, just make it <code>final</code>.</p>
 
@@ -229,7 +230,7 @@ class Rectangle {
 
 <p>And now we've modified the class to do some validation without having to touch any of the existing code that was already using it.</p>
 
-<h2>Top-level Definitions</h2>
+<h2>Top-level definitions</h2>
 
 <p>Dart is a "pure" object-oriented language in that everything you can place in a variable is a real object (no mutant "primitives") and every object is an instance of some class. It's not a <em>dogmatic</em> OOP language though. You aren't required to place everything you define inside some class. Instead, you are free to define functions, variables, and even getters and setters at the top level if you want.</p>
 
@@ -244,13 +245,13 @@ int get today() {
 }
 </pre>
 
-<p>Even in languages that don't require you to place everything inside a class or object, like JavaScript, it's still common to do so as a form of namespacing: top-level definitions with the same name could inadvertantly collide. To address that, Dart has a library system that allows you to import definitions from other libraries with a prefix applied to disambiguate it. That means you shouldn't <em>need</em> to defensively squirrel your definitions inside classes.</p>
+<p>Even in languages that don't require you to place everything inside a class or object, like JavaScript, it's still common to do so as a form of namespacing: top-level definitions with the same name could inadvertently collide. To address that, Dart has a library system that allows you to import definitions from other libraries with a prefix applied to disambiguate it. That means you shouldn't <em>need</em> to defensively squirrel your definitions inside classes.</p>
 
 <p>We're still exploring what this actually means for how we define libraries. Most of our code does place definitions inside classes, like Math. It's hard to tell if this is just an ingrained habit we have from other languages or a practice that's also good for Dart. This is an area we want feedback on.</p>
 
 <p>We do have some examples where we use top-level definitions. The first you'll run into is <code>main()</code> which is expected to be defined at the top level. If you work with the DOM, the familiar <code>document</code> and <code>window</code> "variables" are actually top-level getters in Dart.</p>
 
-<h2>Strings and Interpolation</h2>
+<h2>Strings and interpolation</h2>
 
 <p>Dart has a few kinds of string literals. You can use single or double quotes, and you can use triple-quoted multiline strings:</p>
 
@@ -329,3 +330,5 @@ var newPosition = position + velocity;
 <p>You can overload <code>==</code> for your own types if that makes sense for them. You don't have to overload <code>!=</code>: Dart will automatically infer that from your definition of <code>==</code>.</p>
 
 <p>The other operators, <code>===</code> and <code>!==</code> are for testing <em>identity</em>. <code>a === b</code> will only return <code>true</code> if <code>a</code> and <code>b</code> are the <em>exact same object in memory</em>. In practice, you will rarely need to use these. By default, calling <code>==</code> will fall back to <code>===</code> if no more meaningful equivalence operator is defined for the type, so the only time you'll need this is if you specifically want to side-step any user-defined <code>==</code> operator.</p>
+
+</section>
