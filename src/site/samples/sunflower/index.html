@@ -123,7 +123,7 @@ class Sunflower {
 <p>The drawFrame() method does all the calculations, and drawSeed() paints on the Canvas (actually, the CanvasRenderingContext2D). Dart generates DOM bindings automatically from the browser's IDL, which means you can use a good HTML5 reference like <a href="http://html5rocks.com">HTML5 ROCKS</a> or <a href="http://developer.mozilla.org">Mozilla Developer Network</a> to write Dart code that interacts with the DOM. You can easily convert from Javascript to Dart syntax using a few simple rules:</p>
 <ul>
 <li>Object method signatures like Canvas arc() and fill() are unchanged.</li>
-<li>Object properties are exposed via getters and setters. Instead of writing ctx.fillColor = "orange", you write ctx.setFillColor("orange");</li>
+<li>Object properties are generally exposed with the same names as in Javascript.</li>
 <li>Event handlers (all the onX methods) may be created simply by assigning a closure that takes an Event argument.</li>
 </ul>
 <p>By combining HTML layout with a dynamically typed language, Dart makes it quick and easy to create rich user interfaces.</p>
