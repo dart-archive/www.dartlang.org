@@ -143,23 +143,24 @@ div#container {
 }
 
 span#tagline {
-  padding-left: 350px;
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 140;
   font-size: 11pt;
+  position: absolute;
+  bottom: 30px;
+  right: 70px;
 }
 
 
 header {
-  height: 150px;
-  padding: 1em 1em 0 1em;
+  height: 170px;
 
   background-image: url(/imgs/header-background.jpg);
   background-image: url(/imgs/header-background.jpg), -webkit-gradient(
     linear,
     left bottom,
-    left, 
+    left,
     color-stop(0.05, rgb(46,46,46)),
     color-stop(0.64, rgb(34,63,89))
   );
@@ -170,8 +171,9 @@ header {
 }
 
 header img {
-    position: relative;
-    left: 190px;
+  position: absolute;
+  left: 165px;
+  top: 20px;
   display: inline;
 }
 
@@ -199,14 +201,14 @@ nav, section#classes-nav {
   width: 170px;
   float: left;
   display: inline;
-  margin: 1.5em;
+  margin: 20px;
   font-weight: 300;
   font-size: 15px;
   letter-spacing: 20;
 }
 
 section#classes-nav {
-  width: 240px;
+  width: 220px; /* 240 */
   overflow: hidden;
   font-size: 14px;
 }
@@ -235,13 +237,13 @@ header {
 div#main, div#docs-main {
   width: 700px;
   float: left;
-  margin: 1.5em;
+  margin: 20px;
   padding: 0;
   display: inline;
 }
 
 div#docs-main {
-  width: 600px;
+  width: 650px; /* 600px; */
 }
 
 div#samples p {
@@ -383,23 +385,33 @@ section#start-here a {
   box-shadow: 0 0 5px #888;
 }
 
-section#classes-overview a {
+section#classes-overview a,
+section#fields-overview a {
   text-decoration: none;
 }
 
-section#classes-overview a:hover {
+section#classes-overview a:hover,
+section#fields-overview a:hover {
   text-decoration: underline;
 }
 
-section#classes-overview ul {
+section#classes-overview ul,
+section#fields-overview ul {
   list-style-type: none;
-  line-height: 2em;
+  line-height: 1.5em;
+  font-size: 85%;
+  font-weight: normal;
+  margin-left: 1em;
 }
 
 section#classes-overview h1, section#classes-overview h2,
 section#classes-overview h3, section#classes-overview h4,
-section#classes-overview h5, section#classes-overview h6 {
+section#classes-overview h5, section#classes-overview h6,
+section#fields-overview h1, section#fields-overview h2,
+section#fields-overview h3, section#fields-overview h4,
+section#fields-overview h5, section#fields-overview h6 {
   color: black;
+  padding: 1em 0 0.5em 0;
 }
 
 
