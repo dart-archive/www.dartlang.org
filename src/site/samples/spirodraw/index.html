@@ -167,7 +167,7 @@ class ColorPicker {
     ctx.setFillStyle(getHexString(getColorIndex(x, y)));
     ctx.fillRect(0, 0, width/2, 30);
   }
-
+  
   void onMouseDown(MouseEvent event) {
     Element elt = event.target;
     event.cancelBubble = true;
@@ -178,20 +178,20 @@ class ColorPicker {
     selectedColor = getColorIndex(x, y);
     fireSelected();
   }
-
+ 
   /**
    * Adds a [PickerListener] to receive updates.
    */
   void addListener(PickerListener listener) {
     _listeners.add(listener);
   }
-
+ 
   void addHandlers() {
     canvasElement.onmousemove = (e) { onMouseMove(e); };
     canvasElement.onmousedown = (e) { onMouseDown(e); };
   }
-
-   void drawPalette() {
+ 
+  void drawPalette() {
     int i=0;
     for (int r=0; r &lt; 256; r+=51) {
       for (int g=0; g &lt; 256; g+=51) {
@@ -206,33 +206,33 @@ class ColorPicker {
       }
     }
   }
-
+ 
   void fireSelected() {
     for (final listener in _listeners) {
       listener(_selectedColor);
     }
   }
-
+ 
   int getColorIndex(int x, int y) {
     // Get color index 0-215 using row, col
     int i = y ~/ BH * COLS + x ~/ BW;
     return i;
   }
-
+ 
   void showSelected() {
     ctx.setFillStyle(_selectedColor);
     ctx.fillRect(width / 2, 0, width / 2, 30);
     ctx.setFillStyle("white");
     ctx.fillRect(0, 0, width / 2, 30);
   }
- 
+  
   String getHexString(int i) {
     int r = i ~/ 36;
     int g = (i % 36) ~/ 6;
     int b = i % 6;
     return '#${hexValues[r]}${hexValues[g]}${hexValues[b]}';
   }
-  
+   
 }</pre>
 
 <h2 id="typedef">Function type aliases</h2>
