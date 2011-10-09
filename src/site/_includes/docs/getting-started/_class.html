@@ -120,11 +120,11 @@ Two of the most commonly used ones are
     For example:
     
 <pre class="prettyprint lang-dart">
-<em>//In the Greeter class:</em>
+<em>// In the Greeter class:</em>
 Greeter();
 Greeter.withPrefix(this.prefix);
 
-<em>//In code that creates Greeter objects:</em>
+<em>// In code that creates Greeter objects:</em>
 var greeter = new Greeter.withPrefix('Howdy,');
 </pre>
 
@@ -144,11 +144,11 @@ var greeter = new Greeter.withPrefix('Howdy,');
     
 <pre class="prettyprint lang-dart">
 class Greeter {
-  String _prefix = 'Hello,';          //hidden instance variable
+  String _prefix = 'Hello,';          // Hidden instance variable.
 
-  String get prefix() => _prefix;     //getter for prefix
+  String get prefix() => _prefix;     // Getter for prefix.
 
-  void set prefix(String value) {     //setter for prefix
+  void set prefix(String value) {     // Setter for prefix.
     if (value == null) value = "";
     if (value.length > 20) throw 'Prefix too long!';
     _prefix = value;
@@ -159,7 +159,7 @@ class Greeter {
 
 main() {
   var greeter = new Greeter();
-  greeter.prefix = 'Howdy,';         //set prefix
+  greeter.prefix = 'Howdy,';         // Set prefix.
   greeter.greet('setter!');
 }
 </pre>
@@ -193,10 +193,10 @@ main() {
   <dd> For example:
   
 <pre class="prettyprint lang-dart">
-<em>//In the Greeter class:</em>
+<em>// In the Greeter class:</em>
 Greeter.withPrefix(this.prefix);
 
-<em>//In code that creates Greeter objects:</em>
+<em>// In code that creates Greeter objects:</em>
 var greeter = new Greeter.withPrefix('Howdy,');
 </pre>
 
