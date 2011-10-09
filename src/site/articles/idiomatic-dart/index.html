@@ -75,19 +75,19 @@ var c = new Point.polar(Math.PI, 4.0);
 
 <pre>
 class Symbol {
-  String name;
-  static Map&lt;String, Symbol&gt; cache;
+  final String name;
+  static Map&lt;String, Symbol&gt; _cache;
 
   factory Symbol(String name) {
-    if (cache == null) {
-      cache = {};
+    if (_cache == null) {
+      _cache = {};
     }
 
-    if (cache.contains(name)) {
-      return cache[name];
+    if (_cache.contains(name)) {
+      return _cache[name];
     } else {
       final symbol = new Symbol._internal(name);
-      cache[name] = symbol;
+      _cache[name] = symbol;
       return symbol;
     }
   }
