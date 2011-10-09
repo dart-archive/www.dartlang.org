@@ -69,7 +69,7 @@ var c = new Point.polar(Math.PI, 4.0);
 
 <h3>Factory constructors</h3>
 
-<p>There are a couple of design patterns floating around related to <em>factories.</em> They come into play when you need an instance of some class, but you need to be a little more flexible than just hard-coding a call to a constructor for some concrete type. Maybe you want to return a previously cached instance if you have one, or maybe you want to return an object of a different type.</p>
+<p>There are a couple of design patterns floating around related to <em>factories.</em> They come into play when you need an instance of some class, but you want to be a little more flexible than just hard-coding a call to a constructor for some concrete type. Maybe you want to return a previously cached instance if you have one, or maybe you want to return an object of a different type.</p>
 
 <p>Dart supports that without requiring you to change what it looks like when you create the object. Instead, you can define a <em>factory constructor</em>. When you <em>call</em> it, it looks like a regular constructor. But the implementation is free to do anything it wants. For example:</p>
 
@@ -83,7 +83,7 @@ class Symbol {
       _cache = {};
     }
 
-    if (_cache.contains(name)) {
+    if (_cache.containsKey(name)) {
       return _cache[name];
     } else {
       final symbol = new Symbol._internal(name);
@@ -111,7 +111,7 @@ var b = new Symbol('something');
 
 <h2>Functions</h2>
 
-<p>Like most modern languages, Dart features first-class functions with full closures and a lightweight syntax. Functions are objects just like any other, and you shouldn't hesitate to use them freely. In particular, we use functions extensively for event handlers.</p>
+<p>Like most modern languages, Dart features first-class functions with full closures and a lightweight syntax. Functions are objects just like any other, and you shouldn't hesitate to use them freely. In particular, on the Dart team we use functions extensively for event handlers.</p>
 
 <p>Dart has three notations for creating functions: one for named functions, one for anonymous functions with statement bodies and one for expression bodies. The named form looks like this:</p>
 
