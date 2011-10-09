@@ -154,7 +154,9 @@ class Greeter {
     _prefix = value;
   }
 
-  greet(name) => print('$prefix $name');
+  greet(name) {
+    print('$prefix $name');
+  }
 }
 
 main() {
@@ -163,6 +165,12 @@ main() {
   greeter.greet('setter!');
 }
 </pre>
+  </dd>
+  <dd>
+  Note the special <code>=></code> syntax for <code>prefix()</code>.
+  This shorthand notation makes the method return the value of the 
+  expression immediately following the <code>=></code> .
+
   </dd>
 </dl>
     
@@ -175,20 +183,6 @@ main() {
   <dd> For example, add this after line 10:
       <pre>greeter.prefix = 'Hola,';</pre>
 
-  <dt> Convert the <code>greet()</code> method definition
-    to use <code>=></code>. </dt>
-  <dd>
-    For a one-line method such as <code>greet()</code>,
-    you can use a special shorthand:
-
-<pre>greet(name) => print('$prefix $name');</pre>
-
-    <p>
-    This special syntax makes the method return the value
-    of the expression to the right of <code>=></code>.
-    </p>
-  </dd>
-  
   <dt> Add a named constructor to Greeter, and call it. </dt>
   <dd> For example:
   
@@ -209,7 +203,9 @@ var greeter = new Greeter.withPrefix('Howdy,');
 class Greeter {
   <b>String</b> prefix = 'Hello,';
 
-  greet(<b>String</b> name) => print('$prefix $name');
+  greet(<b>String</b> name) {
+    print('$prefix $name');
+  }
 }
 
 <b>void</b> main() {
