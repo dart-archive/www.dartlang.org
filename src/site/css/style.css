@@ -154,6 +154,16 @@ span#tagline {
 header {
   height: 150px;
   padding: 1em 1em 0 1em;
+
+  background-image: url(/imgs/header-background.jpg);
+  background-image: url(/imgs/header-background.jpg), -webkit-gradient(
+    linear,
+    left bottom,
+    left, 
+    color-stop(0.05, rgb(46,46,46)),
+    color-stop(0.64, rgb(34,63,89))
+  );
+
   background-position: left top;
   background-repeat: no-repeat;
   position: relative;
