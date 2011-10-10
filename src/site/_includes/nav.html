@@ -4,26 +4,20 @@
     <li>Getting Started</li>
       <ul>
         {% nav_link /docs/technical-overview/index.html %}Technical Overview{% endnav_link %}
-        {% nav_link /docs/getting-started/index.html %}Code with Dartboard{% endnav_link %}
+        <li> Tutorials </li>
+          <ul>
+            {% nav_link /docs/getting-started/index.html %}Hello, World{% endnav_link %}
+            {% nav_link /docs/getting-started/class.html %}Classes{% endnav_link %}
+            {% nav_link /docs/getting-started/interface.html %}Interfaces{% endnav_link %}
+          </ul>
       </ul>
-    {% nav_link /samples/index.html %}Samples &amp; Walkthroughs{% endnav_link %}
-    <li>Language &amp; Library Docs
+    <li>Language &amp; Libraries </li>
       <ul>
         {% nav_link /docs/spec/index.html %}Language Spec{% endnav_link %}
         {% nav_link /docs/api/index.html %}Library Reference{% endnav_link %}
       </ul>
-    </li>
-    {% nav_link /support/index.html %}Community &amp; Support{% endnav_link %}
-      <ul>
-        {% nav_link /articles/index.html %}Articles{% endnav_link %}
-      </ul>
-    </li>
+    {% nav_link /samples/index.html %}Code Samples{% endnav_link %}
+    {% nav_link /articles/index.html %}Articles{% endnav_link %}
+    {% nav_link /support/index.html %}Discuss{% endnav_link %}
   </ul>
 </nav>
-
-<script type="text/javascript"> 
-   var ref = document.referrer;
-   if (ref.match("//[^/]+/(index.html)?$")) {
-    document.querySelector("nav").className = "animate-in";
-   }
-</script>

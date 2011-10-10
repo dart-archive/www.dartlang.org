@@ -1,11 +1,18 @@
+<section>
 <p>
 <em>Interfaces</em>&mdash;types that define
 which methods a class provides&mdash;are
 important in Dart.
 In fact, much of the Dart
-<a href="/docs/ref/" target="_blank">core library</a>
+<a href="/docs/api/" target="_blank">Core Library</a>
 is defined in terms of interfaces.
+If you've never used a language
+that features interfaces or protocols,
+you might want to
+<a target="_blank"
+href="http://www.google.com/url?sa=D&q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FInterface_(object-oriented_programming)">read about them</a>.
 </p>
+<section>
 
 <code class="codes">class Greeter implements Comparable {
   String prefix = 'Hello,';
@@ -41,8 +48,8 @@ Here's what's interesting about it:
 <dl>
   <dt> Interface implementation </dt>
   <dd>
-    The <code>Greeter</code> class implements the core libary's
-    <a href="/docs/ref/Comparable.html" target="_blank"><code>Comparable</code></a>
+    The <code>Greeter</code> class implements the Core Library's
+    <a href="/docs/api/Comparable.html" target="_blank"><code>Comparable</code></a>
     interface,
     making it easy to compare two <code>Greeter</code> objects.
     Implementing the interface consists of two steps:
@@ -90,23 +97,24 @@ instead of having to find a class that implements that interface.
 This is possible because
 many interfaces have a <em>factory class</em>&mdash;a
 class that creates objects that implement the interface.
-For example, if your code says <code>new DateTime.now()</code>,
+For example, if your code says <code>new Date.now()</code>,
 the factory class for the
-<a href="/docs/ref/DateTime.html" target="_blank"><code>DateTime</code></a>
+<a href="/docs/api/Date.html" target="_blank"><code>Date</code></a>
 interface creates an object
 that represents the current time.
 </p>
 
 </section>
 
+{% comment %}
 <section>
 <h3> Try this </h3>
 
-<p class="comment">
-{PENDING: any ideas? if not, scrap the "Try this" section}
-</p>
+{PENDING: add stuff if we think of anything}
 
 </section>
+{% endcomment %}
+
 
 </div>
 </section>

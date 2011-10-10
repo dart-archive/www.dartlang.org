@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
+---
+layout: docsLayout
+title: "Dart : Libraries : corelib : Match" 
+---
 
-<head>
-<meta charset="utf-8">
-<title>Dart : Libraries : corelib : Match</title>
-<link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
-
-<body>
-
-<header></header>
-
-<h1 id="title">interface <a name='Match::Match'>Match</a></h1>
+<h1 id="title">interface Match</a></h1>
 
 <section id="inheritance">
 
@@ -26,14 +18,13 @@
 
  <code><a href='Match.html#Match::Match'>Match</a></code> contains methods to manipulate a regular expression match.
 
- Iterables of <code><a href='Match.html#Match::Match'>Match</a></code> objects are returned from multiple of the
- <code><a href='RegExp.html#RegExp::RegExp'>RegExp</a></code> matching methods.
+ Iterables of <code><a href='Match.html#Match::Match'>Match</a></code> objects are returned from <code><a href='RegExp.html#RegExp::RegExp'>RegExp</a></code> matching methods.
 
  The following example finds all matches of a <code><a href='RegExp.html#RegExp::RegExp'>RegExp</a></code> in a <code><a href='String.html#String::String'>String</a></code>
  and iterates through the returned iterable of <code><a href='Match.html#Match::Match'>Match</a></code> objects.
 
  <code><br>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;RegExp&nbsp;exp&nbsp;=&nbsp;const&nbsp;RegExp(@&quot;(\w+)&quot;,&nbsp;&quot;&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;str&nbsp;=&nbsp;&quot;Parse&nbsp;my&nbsp;string&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;Iterable&lt;Match&gt;&nbsp;matches&nbsp;=&nbsp;exp.allMatches(str,&nbsp;exp);<br>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Match&nbsp;m&nbsp;in&nbsp;matches)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;match&nbsp;=&nbsp;m.group(0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(match);<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;RegExp&nbsp;exp&nbsp;=&nbsp;const&nbsp;RegExp(@&quot;(\w+)&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;str&nbsp;=&nbsp;&quot;Parse&nbsp;my&nbsp;string&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;Iterable&lt;Match&gt;&nbsp;matches&nbsp;=&nbsp;exp.allMatches(str,&nbsp;exp);<br>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(Match&nbsp;m&nbsp;in&nbsp;matches)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;match&nbsp;=&nbsp;m.group(0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(match);<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;<br>
 </code>
 
 
@@ -52,14 +43,14 @@
 <dl>
 <dt>
 <span class="field-type"><code><code><a href='Pattern.html#Pattern::Pattern'>Pattern</a></code></code></span>
-<span class="field-name"><code><a name='Match::pattern'>pattern
+<span class="field-name"><code>pattern
 </a></code></span>
 </dt>
 <dd>
 </dd>
 <dt>
 <span class="field-type"><code><code><a href='String.html#String::String'>String</a></code></code></span>
-<span class="field-name"><code><a name='Match::str'>str
+<span class="field-name"><code>str
 </a></code></span>
 </dt>
 <dd>
@@ -74,38 +65,38 @@
 <h2>Methods</h2>
 <dl>
 <dt>
-<code><code><a href='String.html#String::String'>String</a></code> <a name='Match::9193'>[]</a>(<code><a href='int.html#int::int'>int</a></code> <a name='Match::9193::group'>group</a>)</code></dt>
+<code><code><a href='String.html#String::String'>String</a></code> []</a>(<code><a href='int.html#int::int'>int</a></code> <a name='Match::9193::group'>group</a>)</code></dt>
 <dd>
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='Match::end'>end</a>()</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> end</a>()</code></dt>
 <dd>
 
  Returns the index in the string after the last character of the
  match.
 </dd>
 <dt>
-<code><code><a href='String.html#String::String'>String</a></code> <a name='Match::group'>group</a>(<code><a href='int.html#int::int'>int</a></code> <a name='Match::group::group'>group</a>)</code></dt>
+<code><code><a href='String.html#String::String'>String</a></code> group</a>(<code><a href='int.html#int::int'>int</a></code> <a name='Match::group::group'>group</a>)</code></dt>
 <dd>
 
  Returns the string matched by the given <code><a href='Match.html#Match::group::group'>group</a></code>. If <code><a href='Match.html#Match::group::group'>group</a></code> is 0,
  returns the match of the regular expression.
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='Match::groupCount'>groupCount</a>()</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> groupCount</a>()</code></dt>
 <dd>
 
  Returns the number of groups in the regular expression.
 </dd>
 <dt>
-<code><code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='Match::groups'>groups</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='Match::groups::groups'>groups</a>)</code></dt>
+<code><code><a href='List.html#List::List'>List&lt;E&gt;</a></code> groups</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='Match::groups::groups'>groups</a>)</code></dt>
 <dd>
 
  Returns the strings matched by <code><a href='Match.html#Match::groups::groups'>groups</a></code>. The order in the
  returned string follows the order in <code><a href='Match.html#Match::groups::groups'>groups</a></code>.
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='Match::start'>start</a>()</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> start</a>()</code></dt>
 <dd>
 
  Returns the index in the string where the match starts.
@@ -113,6 +104,3 @@
 </dl>
 </section>
 
-<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
-
-</body></html>

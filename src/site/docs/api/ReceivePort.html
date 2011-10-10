@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
+---
+layout: docsLayout
+title: "Dart : Libraries : corelib : ReceivePort" 
+---
 
-<head>
-<meta charset="utf-8">
-<title>Dart : Libraries : corelib : ReceivePort</title>
-<link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
-
-<body>
-
-<header></header>
-
-<h1 id="title">interface <a name='ReceivePort::ReceivePort'>ReceivePort</a></h1>
+<h1 id="title">interface ReceivePort</a></h1>
 
 <section id="inheritance">
 
@@ -23,6 +15,16 @@
 </section>
 
 <section id="summary">
+
+ <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code>s, together with <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>s, are the only means of
+ communication between isolates. <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code>s have a <code>toSendPort</code>
+
+ method
+ which returns a <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>. Any message that is sent through this <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>
+ is delivered to the <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code> it has been created from. There, they are
+ dispatched to the callback that has been registered on the receive port.
+
+ A <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code> may have many <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>s.
 </section>
 
 <section id="fields">
@@ -35,11 +37,19 @@
 <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a>()</code>
 </dt>
 <dd>
+
+ Opens a long-lived port for receiving messages. The returned port
+ must be explicitly closed through [ReceivePort.close].
 </dd>
 <dt>
-<code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a>.<a name='ReceivePort::singleShot'>singleShot</a>()</code>
+<code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a>.singleShot</a>()</code>
 </dt>
 <dd>
+
+ Opens a single-shot reply port. Once a message has been received
+ on this port, it is automatically closed -- obviously without
+ throwing the message away before it can be processed. This
+ constructor is used indirectly through [SendPort.call].
 </dd>
 </dl>
 </section>
@@ -48,20 +58,29 @@
 <h2>Methods</h2>
 <dl>
 <dt>
-<code>void <a name='ReceivePort::close'>close</a>()</code></dt>
+<code>void close</a>()</code></dt>
 <dd>
+
+ Closes this receive port immediately. Pending messages will not
+ be processed and it is impossible to re-open the port. Reply
+ ports possibly created through [SendPort.call] are automatically
+ closed when the reply has been received. Multiple invocations of
+ <code><a href='ReceivePort.html#ReceivePort::close'>close</a></code> are allowed but ignored.
 </dd>
 <dt>
-<code>void <a name='ReceivePort::receive'>receive</a>(void <a name='ReceivePort::receive::callback'>callback</a>(&lt;dynamic&gt;, <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>))</code></dt>
+<code>void receive</a>(void <a name='ReceivePort::receive::callback'>callback</a>(&lt;dynamic&gt;, <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>))</code></dt>
 <dd>
+
+ Sets up a callback function for receiving pending or future
+ messages on this receive port.
 </dd>
 <dt>
-<code><code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code> <a name='ReceivePort::toSendPort'>toSendPort</a>()</code></dt>
+<code><code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code> toSendPort</a>()</code></dt>
 <dd>
+
+ Converts this receive port to a send port. It is legal to create several
+ <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>s from the same <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code>.
 </dd>
 </dl>
 </section>
 
-<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
-
-</body></html>

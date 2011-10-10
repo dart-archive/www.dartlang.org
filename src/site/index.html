@@ -1,80 +1,78 @@
 ---
-layout: main
+layout: default
 ---
 <link href="/css/style.css" type="text/css" rel="stylesheet"/>
 <link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 <script type="text/javascript" src="/js/prettify.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 
 <body onLoad="prettyPrint()">
 
-<section id="what-is-dart">
+<section id="intro">
+  	<dl>
+		<dt> From quick prototypes to serious apps </dt>
+	    <dd>
+		Dart's optional types let you prototype quickly
+		and then revise your code to be more maintainable.
+	    </dd>
 
-  <dl>
-    <dt> From quick prototypes to serious apps </dt>
-    <dd> Dart's optional types let you prototype quickly
-      and then revise your code to be more maintainable.
-    </dd>
-    <dt> Wherever you need structured code </dt>
-    <dd> You can use the same Dart code both in modern web browsers* and on servers.
-    </dd>
-    <dt> Familiar yet new </dt>
-    <dd> Dart code should look familiar if you know a language or two,
-      and you can use time-tested features such as classes and closures.
-      Dart's new features make
-      it easier for you to develop and maintain software.
-    </dd>
-  </dl>
+	    <dt>Wherever you need structured code</dt>
+	    <dd>
+		You can use the same Dart code in most modern web 
+		browsers (Chrome, Safari 5+, Firefox 4+) and on servers.
+		Look for more browser support shortly.
+	    </dd>
+	
+	    <dt>Familiar yet new </dt>
+	    <dd>
+		Dart code should look familiar if you know a language or two,
+		and you can use time-tested features such as classes and closures.
+		Dart's new features make it easier for you to develop and maintain 
+		software. Dart is still in the early stages of development,
+        so please take a look and <a href="/support/index.html">tell us what you think</a>.
+	    </dd>
+		
+		<hr/>
+	    <dn>Examples of Dart code</dn>
+	    <dd>
+		The Dart code below is inside an app called Dartboard. If you 
+		click the Run button at Dartboard's upper left&mdash;go ahead,
+		you know you want to&mdash;you'll see the expected output 
+		(Hello, Dart!) at the bottom.
+	    </dd>
+	</dl>
 </section>
 
-<section id="start-here">
-  <a href="/docs/technical-overview/">Read an overview</a>
-  <a href="/docs/getting-started/">Write code!</a>
+<section>
+{% comment %}
+TODO: Not keen on the styling here, please feel free to change.
+      To add more samples, see _includes/samples.html
+{% endcomment %}
+<div id="samples">
+  <select id="samples-list">
+    <option value="hello">Hello, Dart</option>
+    <option value="fib">Fibonacci</option>
+    <option value="point">Point</option>
+    <option value="isolates">Isolate communication</option>
+  </select>
+</div>
+<code id="samples-editor" class="codes for-samples">main() {
+  print('Hello, Dart!');
+}</code>
+{% include samples.html %}
+
+<script type="text/javascript"
+  src="http://try-dart-lang.appspot.com/dartboard.dart.app.js">
+</script>
 </section>
 
-<section id="code">
-  <h2>An example of Dart code</h2>
-
-<pre class="prettyprint lang-dart">
-class Point  {
-  var x, y;
-  Point(this.x, this.y);
-  scale(factor) => new Point(x*factor, y*factor);
-  distance() => Math.sqrt(x*x + y*y);
-}
-
-main() {
-  var a = new Point(2,3).scale(4);
-  print("distance from (0,0): ${a.distance()}");
-}
-</pre>
-</section>
-
-<section class="comment">
-<h2> TO DO </h2>
-
-<ol>
-  <li> Fix Home page nav?
-    (The "Home" link should become a not-link when you're already on the homepage) </li>
-  <li> Check links.
-    BEWARE: Links to directories that don't end with /
-    work on localhost but not when hosted. </li>
-  <li> Fix CSS formatting. Known problems:
-    <ul>
-      <li> Too much space before and after &lt;pre> blocks.
-        This problem is visible in several pages, including
-        <a href="/articles/optional-types/#generics">Optional Types</a> and
-        <a href="/docs/getting-started/interface.html">Interfaces</a>.
-      </li>
-    </ul>
-  </li>
-</ol>
+<section>
+<h2>What next?</h2>
 
 <p>
-Also see:
-<a href="http://goto.google.com/dartdocplan">go/dartdocplan</a>
+Follow a <a href="/docs/getting-started/">tutorial</a>,
+or read the <a href="/docs/technical-overview/">technical overview</a>.
 </p>
+
 </section>
-
-<aside><em>* Modern web browsers include Chrome, Safari 5+, Firefox 4+, and Internet Explorer 9+.</em>
-</aside>
-

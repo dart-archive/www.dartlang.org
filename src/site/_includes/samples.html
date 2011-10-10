@@ -1,0 +1,88 @@
+{% comment %}
+So you want to add more samples:
+1 - Create a new pre element below containing the code you want to show.
+2 - Give it a unique id of the form "sample-name"
+3 - In the main page, add a new option to the select element and make sure value matches
+    the name from step #2.
+
+TODO: These samples are just place holders and should be replaced with something real.
+{% endcomment %} 
+  <div style="display:none">
+
+    {% comment %} hello dart {% endcomment %}
+    <pre id="sample-hello">main() {
+  print('Hello, Dart!');
+}</pre>
+
+
+    {% comment %} fibonacci {% endcomment %}
+    <pre id="sample-fib">int fib(int n) {
+  if (n <= 1) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+main() {
+  print('fib(20) = ${fib(20)}');
+}</pre>
+
+
+    {% comment %} point{% endcomment %}
+    <pre id="sample-point">class Point {
+  Point(this.x, this.y);
+  distanceTo(Point other) {
+    var dx = x - other.x;
+    var dy = y - other.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+  var x, y;
+}
+
+main() {
+  Point p = new Point(2, 3);
+  Point q = new Point(3, 4);
+  print('distance from p to q = ${p.distanceTo(q)}');
+}
+</pre>
+
+
+    {% comment %}isolates{% endcomment %}
+<pre id="sample-isolates">class Printer extends Isolate {
+  main() {
+    port.receive((message, replyTo) {
+      if (message == null) port.close();
+      else print(message);
+    });
+  }
+}
+
+main() {
+  new Printer().spawn().then((port) {
+    for (var message in ['Hello', 'from', 'other', 'isolate']) {
+      port.send(message);  
+    }
+    port.send(null);
+  });
+} </pre>
+
+  </div>
+
+  <script type="text/javascript">
+    function show(name) {
+      var editor = document.getElementById('samples-editor');
+      var code = document.getElementById('sample-' + name);
+      if (editor.setCode)
+        editor.setCode(code.textContent);
+      else if (editor.textContent)
+        editor.textContent = code.textContent;
+      else
+        editor.innerText = code.innerText;
+    }
+
+    window.addEventListener('load', function(e) {
+      var list = document.getElementById('samples-list');
+      document.getElementById('samples-list').addEventListener('change', function(e) {
+        show(list.value);
+      }, false);
+    }, false);
+  </script>
+

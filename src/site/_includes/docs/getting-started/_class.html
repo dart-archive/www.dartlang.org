@@ -3,14 +3,9 @@
 If you already know a class-based language,
 the syntax for creating and using classes probably looks familiar.
 If not,
-you might want to do a web search for
-<a href="http://www.google.com/search?q=object-oriented+concepts"
-  target="_blank">object-oriented concepts</a>,
-and read up before continuing.
-<span class="comment">
-{PENDING: What's a better search?
-Or is there something we can link to directly?}
-</span>
+you might want to read up on
+<a target="_blank"
+href="http://www.google.com/url?sa=D&q=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FClass_(computer_programming)">classes</a>.
 </p>
 
 <p>
@@ -25,8 +20,6 @@ are either classes or interfaces.
 <code class="codes">class Greeter {
   var prefix = 'Hello,';
 
-  Greeter() {}
-
   greet(name) {
     print('$prefix $name');
   }
@@ -36,7 +29,6 @@ main() {
   var greeter = new Greeter();
   greeter.greet("Class!");
 } </code>
-
 
 <div class="explanation">
 
@@ -71,53 +63,23 @@ The preceding code shows some basic features of Dart classes:
     (for example, <code>greeter.prefix = 'Hi,'</code>),
     or through constructors,
     or through setter methods.
-    <span class="comment">
-    {PENDING: Really should discuss setters further, either here
-    or somewhere else that we point to.}
-    </span>
+    (Setter and getter methods are discussed
+    in the "More about classes" section, below.)
     </p>
   </dd>
 
   <dt> Constructor </dt>
   <dd>
-    <span class="comment">
-    { PENDING: the spec says there should be a default constructor,
-    but Dartboard doesn't work if you delete the constructor. }
-    </span>
     You can create instances of a class
     by invoking <code>new</code> followed by
     a constructor for the class&mdash;in
     this case, <code>new Greeter()</code>.
-    The <code>Greeter</code> class has a single, no-argument constructor that
-    <!-- change to something like
-    "There's no definition for Greeter(), so a default version is provided that" -->
-    (implicitly) calls the superclass's no-argument constructor.
+    Because this code doesn't define any <code>Greeter</code> constructors,
+    it gets a default version that
+    calls the superclass's no-argument constructor.
     The superclass of <code>Greeter</code> is <code>Object</code>,
     so the code <code>new Greeter()</code> invokes the
-    <a href="/docs/ref/Object.html#Object" target="_blank"><code>Object()</code> constructor</a>.
-    
-    <p>
-    If you need more than one constructor for a class,
-    then you can specify <em>named constructors</em>&mdash;for
-    example, <code>Greeter.withPrefix()</code>.
-    For example:
-    </p>
-    
-<pre class="prettyprint lang-dart">
-<em>//In the Greeter class:</em>
-Greeter.withPrefix(this.prefix);
-
-<em>//In code that creates Greeter objects:</em>
-var greeter = new Greeter.withPrefix('Howdy,');
-</pre>
-
-    <p>
-    In that code,
-    <code>this.prefix</code> is a shortcut
-    that assigns the parameter's value
-    to the instance variable <code>prefix</code>.
-    </p>
-    
+    <code>Object()</code> constructor.
   </dd>
 
   <dt> Instance method </dt>
@@ -137,55 +99,117 @@ var greeter = new Greeter.withPrefix('Howdy,');
 
 
 <section>
+<h3> More about classes </h3>
+
+<p>
+Classes in Dart have many additional features.
+Two of the most commonly used ones are
+<em>named constructors</em> and
+<em>setters and getters</em>.
+</p>
+
+<dl>
+  <dt> Named constructors </dt>
+  <dd>
+    If you need more than one constructor for a class,
+    then you can define <em>named constructors</em>&mdash;for
+    example, <code>Greeter.withPrefix()</code>.
+    When you define a constructor,
+    the default no-argument constructor won't be created for you;
+    you'll need to add it if you want it.
+    For example:
+    
+<pre class="prettyprint lang-dart">
+<em>// In the Greeter class:</em>
+Greeter();
+Greeter.withPrefix(this.prefix);
+
+<em>// In code that creates Greeter objects:</em>
+var greeter = new Greeter.withPrefix('Howdy,');
+</pre>
+
+    <p>
+    In that code,
+    <code>this.prefix</code> is a shortcut
+    that assigns the parameter's value
+    to the instance variable <code>prefix</code>.
+    </p>
+  </dd>
+
+  <dt> Setters and getters </dt>
+  <dd> Setters and getters are a way of providing access to data
+    without directly exposing instance variables.
+    Here's an example of providing a setter and getter for
+    the prefix data in the <code>Greeter</code> class:
+    
+<pre class="prettyprint lang-dart">
+class Greeter {
+  String _prefix = 'Hello,';          // Hidden instance variable.
+
+  String get prefix() => _prefix;     // Getter for prefix.
+
+  void set prefix(String value) {     // Setter for prefix.
+    if (value == null) value = "";
+    if (value.length > 20) throw 'Prefix too long!';
+    _prefix = value;
+  }
+
+  greet(name) {
+    print('$prefix $name');
+  }
+}
+
+main() {
+  var greeter = new Greeter();
+  greeter.prefix = 'Howdy,';         // Set prefix.
+  greeter.greet('setter!');
+}
+</pre>
+  </dd>
+  <dd>
+  Note the special <code>=></code> syntax for <code>prefix()</code>.
+  This shorthand notation makes the method return the value of the 
+  expression immediately following the <code>=></code> .
+
+  </dd>
+</dl>
+    
+
+<section>
 <h3> Try this </h3>
 
 <dl>
   <dt> Set the value of the prefix instance variable. </dt>
-  <dd> For example, add this after line 12:
+  <dd> For example, add this after line 10:
       <pre>greeter.prefix = 'Hola,';</pre>
 
-  <dt> Convert the <code>greet()</code> method definition
-    to use <code>=></code>. </dt>
-  <dd>
-    For a one-line method such as <code>greet()</code>,
-    you can use a special shorthand:
-
-<pre>greet(name) => print('$prefix $name');</pre>
-
-    <p>
-    This special syntax makes the method return the value
-    of the expression to the right of <code>=></code>.
-    </p>
-  </dd>
-  
   <dt> Add a named constructor to Greeter, and call it. </dt>
   <dd> For example:
+  
 <pre class="prettyprint lang-dart">
-<em>//In the Greeter class:</em>
-Greeter.withPrefix(this.prefix = '');
+<em>// In the Greeter class:</em>
+Greeter.withPrefix(this.prefix);
 
-<em>//In code that creates Greeter objects:</em>
+<em>// In code that creates Greeter objects:</em>
 var greeter = new Greeter.withPrefix('Howdy,');
 </pre>
 
   <dt> Add one or more types to the example. </dt>
   <dd>
-    Here's what the example might look like if you add some types,
-    as well as a couple of other changes suggested in this section:
+    Here's what the example might look like if you add some types:
 
 <pre class="prettyprint lang-dart">
 class Greeter {
   <b>String</b> prefix = 'Hello,';
 
-  Greeter() {}
-
-  greet(<b>String</b> name) => print('$prefix $name');
+  greet(<b>String</b> name) {
+    print('$prefix $name');
+  }
 }
 
 <b>void</b> main() {
   <b>Greeter</b> greeter = new Greeter();
-  greeter.prefix = 'Howdy,';
-  greeter.greet('types and other cool stuff.');
+  greeter.greet('types');
 } </pre>
 
     <aside class="note">
@@ -196,10 +220,11 @@ class Greeter {
       Every type in Dart is public unless its name
       starts with an underscore ("_").
       For example, <code>Greeter</code> is public,
-      but <code>_Greeter</code> (by convention) would be private.
+      but <code>_Greeter</code> would be private.
     </aside>
   </dd>
 </dl>
+
 </section>
 </div>
 

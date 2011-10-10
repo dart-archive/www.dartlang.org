@@ -8,7 +8,10 @@ title: "Embedding Dart in HTML"
 </style>
 
 <h1> Embedding Dart in HTML </h1>
+<em>Written by Sigmund Cherem and Vijay Menon<br />
+October 2011</em>
 
+<section>
 <p>
 Dart is a new structured programming language for the browser.
 Like JavaScript, Dart programs can be directly embedded on HTML pages
@@ -21,25 +24,21 @@ for how Dart is embedded in a web page.
 An HTML page with Dart can be translated to
 a semantically equivalent page embedding JavaScript.
 </p>
+</section>
+
+{% comment %}
+{PENDING: TOC should go here}
+{% endcomment %}
 
 
+<section>
 <h2> Dart MIME type </h2>
 
 <p>
 HTML <code>script</code> tags provide a
 <code>type</code> attribute to define the language of the script.
-We propose to add a new type for Dart
+For Dart, this attribute has the value 'application/dart'.
 </p>
-
-<table>
-  <tr>
-    <th>MIME Type</th><th>Description</th>
-  </tr>
-  <tr>
-    <td><code>application/dart</code></td>
-    <td>A Dart script.</td>
-  </tr>
-</table>
 
 <p>
 Like other script tags,
@@ -57,7 +56,10 @@ either declared directly in the script or in a sourced/imported file.
 The browser will invoke <code>main()</code>
 when the page is loaded.
 </p>
+</section>
 
+
+<section>
 <h2>Fundamental differences from JavaScript</h2>
 
 <p>
@@ -65,6 +67,8 @@ Embedding Dart code is different from embedding JavaScript
 in a few ways.
 </p>
 
+
+<section>
 <h3>Isolated script tags</h3>
 
 <p>
@@ -80,7 +84,10 @@ it must do so via <code>#import</code>.
 Each script tag must define its own <code>main()</code> entry point
 in order to run.
 </p>
+</section>
 
+
+<section>
 <h3>Delayed execution</h3>
 
 <p>
@@ -117,7 +124,10 @@ We are considering allowing Dart code to run as soon as a script is loaded
 This would allow running a script before the DOM is fully loaded,
 but we would still preserve the asynchronous semantics we support today.
 </aside>
+</section>
 
+
+<section>
 <h3> No inline event listeners </h3>
 
 <p>
@@ -134,7 +144,11 @@ if listeners are added programmatically afterwards.
 Modern security guidelines also discourage inline code.
 As such, we propose to not allow inline Dart listeners.
 </p>
+</section>
+</section>
 
+
+<section>
 <h2>Examples</h2>
 
 <p>
@@ -151,19 +165,18 @@ The <code>main()</code> method is implicitly the entry point.
         element.innerHTML = &#39;Hello from Dart&#39;;
       }
     &lt;/script&gt;
-  &lt;div id='message'&gt;&lt;/div&gt;
+    &lt;div id='message'&gt;&lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
 </pre>
-<aside class="note">
-<b>Note:</b>
-The <code>main()</code> method is executed after the page is parsed,
-on the DOMContentLoaded event,
-so the div element is guaranteed to exist.
-</aside>
 
 <p>
-In contrast, the following is an error:
+The div element above is guaranteed to exist
+by the time the Dart code starts running.
+</p>
+
+<p>
+In contrast to the previous example, the following is an error:
 </p>
 <pre>
 &lt;html>
@@ -209,13 +222,14 @@ Then the following executes as expected:
   &lt;/body>
 &lt;/html>
 </pre>
+</section>
 
+
+<section>
 <h2> Compiling HTML pages </h2>
 
 <p>
-The Dart distribution
-<span class="comment">{PENDING: distribution -> source?}</span>
-includes a script
+The Dart project includes a script
 that translates an HTML page with 'application/dart' MIME types
 into an HTML page with JavaScript code.
 You can find more details in the Dart project wiki page

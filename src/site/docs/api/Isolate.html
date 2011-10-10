@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
+---
+layout: docsLayout
+title: "Dart : Libraries : corelib : Isolate" 
+---
 
-<head>
-<meta charset="utf-8">
-<title>Dart : Libraries : corelib : Isolate</title>
-<link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
-
-<body>
-
-<header></header>
-
-<h1 id="title">class <a name='Isolate::Isolate'>Isolate</a></h1>
+<h1 id="title">class Isolate</a></h1>
 
 <section id="inheritance">
 
@@ -23,6 +15,24 @@
 </section>
 
 <section id="summary">
+
+ The <code><a href='Isolate.html#Isolate::Isolate'>Isolate</a></code> class serves two purposes: (1) as template for spawning a new
+ isolate, and (2) as entry-point for the newly spawned isolate.
+
+ New isolates are spawned by sub-classing <code><a href='Isolate.html#Isolate::Isolate'>Isolate</a></code> and then invoking
+ <code>spawn</code>
+
+ on the instance. This will spawn a new isolate, which creates a
+ new instance of the class, initializes the instance's <code><a href='Isolate.html#Isolate::port'>port</a></code> field
+ and invokes the instance method <code><a href='Isolate.html#Isolate::main'>main</a></code>.
+
+ The new instance is created by invoking the default constructor of the
+ class that served as template for spawning the new isolate. This means, that
+ sub-classes must have a default constructor (i.e. no-argument constructor).
+
+ Isolates may be &quot;heavy&quot; or &quot;light&quot;. Heavy isolates live in their own thread,
+ whereas &quot;light&quot; isolates live in the same thread as the isolate which spawned
+ them.
 </section>
 
 <section id="fields">
@@ -30,10 +40,17 @@
 <dl>
 <dt>
 <span class="field-type"><code><code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code></code></span>
-<span class="field-name"><code><a name='Isolate::port'>port
+<span class="field-name"><code>port
 </a></code></span>
 </dt>
 <dd>
+
+ When <code><a href='Isolate.html#Isolate::Isolate'>Isolate</a></code>s are used as entry-points, the <code><a href='Isolate.html#Isolate::port'>port</a></code> field contains a
+ <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code>. The isolate that initiated the spawn holds a corresponding
+ <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>.
+
+ Note that isolates should generally close their <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code>s when they
+ are done, including this port.
 </dd>
 </dl>
 </section>
@@ -45,16 +62,22 @@
 <code><a href='Isolate.html#Isolate::Isolate'>Isolate</a>()</code>
 </dt>
 <dd>
+
+ Redirects to [Isolate.light].
 </dd>
 <dt>
-<code><a href='Isolate.html#Isolate::Isolate'>Isolate</a>.<a name='Isolate::light'>light</a>()</code>
+<code><a href='Isolate.html#Isolate::Isolate'>Isolate</a>.light</a>()</code>
 </dt>
 <dd>
+
+ Creates a new isolate-template for a light isolate.
 </dd>
 <dt>
-<code><a href='Isolate.html#Isolate::Isolate'>Isolate</a>.<a name='Isolate::heavy'>heavy</a>()</code>
+<code><a href='Isolate.html#Isolate::Isolate'>Isolate</a>.heavy</a>()</code>
 </dt>
 <dd>
+
+ Creates a new isolate-template for a heavy isolate.
 </dd>
 </dl>
 </section>
@@ -63,28 +86,39 @@
 <h2>Methods</h2>
 <dl>
 <dt>
-<code>static <code><a href='Function.html#Function::Function'>Function</a></code> <a name='Isolate::bind'>bind</a>(<code><a href='Function.html#Function::Function'>Function</a></code> <a name='Isolate::bind::f'>f</a>)</code></dt>
+<code>static <code><a href='Function.html#Function::Function'>Function</a></code> bind</a>(<code><a href='Function.html#Function::Function'>Function</a></code> <a name='Isolate::bind::f'>f</a>)</code></dt>
 <dd>
 </dd>
 <dt>
-<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Isolate::isHeavy'>isHeavy</a>()</code></dt>
+<code>void main</a>()</code></dt>
 <dd>
+
+ When isolates are created, an instance of the template's class is
+ instantiated in the new isolate. After the <code><a href='Isolate.html#Isolate::port'>port</a></code> has been set up, this
+ <code><a href='Isolate.html#Isolate::main'>main</a></code> method is invoked on the instance.
 </dd>
 <dt>
-<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='Isolate::isLight'>isLight</a>()</code></dt>
+<code><code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a></code> spawn</a>()</code></dt>
 <dd>
-</dd>
-<dt>
-<code>void <a name='Isolate::main'>main</a>()</code></dt>
-<dd>
-</dd>
-<dt>
-<code><code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a></code> <a name='Isolate::spawn'>spawn</a>()</code></dt>
-<dd>
+
+ Spawns a new isolate, using this instance as template.
+
+ The new isolate lives in a new thread (for heavy templates)
+ or in the same thread as the current isolate (for light templates), if
+ possible.
+
+ During the initialization of the new isolate a <code><a href='ReceivePort.html#ReceivePort::ReceivePort'>ReceivePort</a></code> is created
+ inside the new isolate and stored in <code><a href='Isolate.html#Isolate::port'>port</a></code>. A corresponding
+ <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code> is sent to the isolate that invoked <code><a href='Isolate.html#Isolate::spawn'>spawn</a></code>. Since spawning an
+ isolate is an asynchronous operation this method returns a <code><a href='Promise.html#Promise::Promise'>Promise&lt;T&gt;</a></code> of
+ this <code><a href='SendPort.html#SendPort::SendPort'>SendPort</a></code>.
+
+ A common pattern to instantiate new isolates is to enqueue the instructions
+ in [Promise.then].
+ <code>myIsolate.spawn().then((SendPort&nbsp;port)&nbsp;{&nbsp;port.send('hi&nbsp;there');&nbsp;});</code>
+
+
 </dd>
 </dl>
 </section>
 
-<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
-
-</body></html>

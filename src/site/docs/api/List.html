@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
+---
+layout: docsLayout
+title: "Dart : Libraries : corelib : List" 
+---
 
-<head>
-<meta charset="utf-8">
-<title>Dart : Libraries : corelib : List</title>
-<link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
-
-<body>
-
-<header></header>
-
-<h1 id="title">interface <a name='List::List'>List&lt;E&gt;</a></h1>
+<h1 id="title">interface List&lt;E&gt;</a></h1>
 
 <section id="inheritance">
 
@@ -24,13 +16,6 @@
 <h2>Implemented interfaces:</h2>
 <ul>
 <li><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></li>
-</ul>
-</section>
-
-<section class="subtypes">
-<h2>Subtypes:</h2>
-<ul>
-<li><a href='Array.html#Array::Array'>Array&lt;E&gt;</a></li>
 </ul>
 </section>
 
@@ -47,7 +32,7 @@
 <dl>
 <dt>
 <span class="field-type"><code><code><a href='int.html#int::int'>int</a></code></code></span>
-<span class="field-name"><code><a name='List::length'>length
+<span class="field-name"><code>length
 </a></code></span>
 </dt>
 <dd>
@@ -55,8 +40,8 @@
  Changes the length of the list. If [newLength] is greater than
  the current <code><a href='List.html#List::length'>length</a></code>, entries are initialized to <code>null</code>
 
-. Throws a
- <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not extendable.
+. Throws
+ an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not extendable.
 </dd>
 </dl>
 </section>
@@ -65,14 +50,14 @@
 <h2>Constructors</h2>
 <dl>
 <dt>
-<code><a href='List.html#List::List'>List&lt;E&gt;</a>([<code><a href='int.html#int::int'>int</a></code> <a name='List::::length'>length</a>])</code>
+<code><a href='List.html#List::List'>List&lt;E&gt;</a>([<code><a href='int.html#int::int'>int</a></code> length</a>])</code>
 </dt>
 <dd>
 
  Creates a list of the given <code><a href='List.html#List::::length'>length</a></code>.
 </dd>
 <dt>
-<code><a href='List.html#List::List'>List&lt;E&gt;</a>.<a name='List::from'>from</a>(<code><a href='Iterable.html#Iterable::Iterable'>Iterable&lt;E&gt;</a></code> <a name='List::from::other'>other</a>)</code>
+<code><a href='List.html#List::List'>List&lt;E&gt;</a>.from</a>(<code><a href='Iterable.html#Iterable::Iterable'>Iterable&lt;E&gt;</a></code> <a name='List::from::other'>other</a>)</code>
 </dt>
 <dd>
 
@@ -80,7 +65,7 @@
  the list will be the order provided by the iterator of <code><a href='List.html#List::from::other'>other</a></code>.
 </dd>
 <dt>
-<code><a href='List.html#List::List'>List&lt;E&gt;</a>.<a name='List::fromList'>fromList</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='List::fromList::other'>other</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::fromList::startIndex'>startIndex</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::fromList::endIndex'>endIndex</a>)</code>
+<code><a href='List.html#List::List'>List&lt;E&gt;</a>.fromList</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='List::fromList::other'>other</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::fromList::startIndex'>startIndex</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::fromList::endIndex'>endIndex</a>)</code>
 </dt>
 <dd>
 
@@ -102,54 +87,54 @@
 <h2>Methods</h2>
 <dl>
 <dt>
-<code><code><a href='List.html#List::List'>E</a></code> <a name='List::9193'>[]</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::9193::index'>index</a>)</code></dt>
+<code><code><a href='List.html#List::List'>E</a></code> []</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::9193::index'>index</a>)</code></dt>
 <dd>
 
  Returns the element at the given <code><a href='List.html#List::9193::index'>index</a></code> in the list or throws
  an <code><a href='IndexOutOfRangeException.html#IndexOutOfRangeException::IndexOutOfRangeException'>IndexOutOfRangeException</a></code> if <code><a href='List.html#List::9193::index'>index</a></code> is out of bounds.
 </dd>
 <dt>
-<code>void <a name='List::919361'>[]=</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::919361::index'>index</a>, <code><a href='List.html#List::List'>E</a></code> <a name='List::919361::value'>value</a>)</code></dt>
+<code>void []=</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::919361::index'>index</a>, <code><a href='List.html#List::List'>E</a></code> <a name='List::919361::value'>value</a>)</code></dt>
 <dd>
 
  Sets the entry at the given <code><a href='List.html#List::919361::index'>index</a></code> in the list to <code><a href='List.html#List::919361::value'>value</a></code>.
  Throws an <code><a href='IndexOutOfRangeException.html#IndexOutOfRangeException::IndexOutOfRangeException'>IndexOutOfRangeException</a></code> if <code><a href='List.html#List::919361::index'>index</a></code> is out of bounds.
 </dd>
 <dt>
-<code>void <a name='List::add'>add</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::add::value'>value</a>)</code></dt>
+<code>void add</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::add::value'>value</a>)</code></dt>
 <dd>
 
  Adds <code><a href='List.html#List::add::value'>value</a></code> at the end of the list, extending the length by
- one. Throws a <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not
+ one. Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not
  extendable.
 </dd>
 <dt>
-<code>void <a name='List::addAll'>addAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='List::addAll::collection'>collection</a>)</code></dt>
+<code>void addAll</a>(<code><a href='Collection.html#Collection::Collection'>Collection&lt;E&gt;</a></code> <a name='List::addAll::collection'>collection</a>)</code></dt>
 <dd>
 
  Appends all elements of the <code><a href='List.html#List::addAll::collection'>collection</a></code> to the end of list.
  Extends the length of the list by the length of <code><a href='List.html#List::addAll::collection'>collection</a></code>.
- Throws a <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not
+ Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not
  extendable.
 </dd>
 <dt>
-<code>void <a name='List::addLast'>addLast</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::addLast::value'>value</a>)</code></dt>
+<code>void addLast</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::addLast::value'>value</a>)</code></dt>
 <dd>
 
  Adds <code><a href='List.html#List::addLast::value'>value</a></code> at the end of the list, extending the length by
- one. Throws a <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not
+ one. Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is not
  extendable.
 </dd>
 <dt>
-<code>void <a name='List::clear'>clear</a>()</code></dt>
+<code>void clear</a>()</code></dt>
 <dd>
 
  Removes all elements in the list. The length of the list
- becomes zero. Throws a <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if
+ becomes zero. Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if
  the list is not extendable.
 </dd>
 <dt>
-<code>void <a name='List::copyFrom'>copyFrom</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='List::copyFrom::src'>src</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::srcStart'>srcStart</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::dstStart'>dstStart</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::count'>count</a>)</code></dt>
+<code>void copyFrom</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='List::copyFrom::src'>src</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::srcStart'>srcStart</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::dstStart'>dstStart</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::count'>count</a>)</code></dt>
 <dd>
 
  Copies <code><a href='List.html#List::copyFrom::count'>count</a></code> elements from the <code><a href='List.html#List::copyFrom::src'>src</a></code> list starting at index
@@ -160,7 +145,20 @@
  its elements into a List&lt;String&gt;.
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='List::indexOf'>indexOf</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::indexOf::element'>element</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::indexOf::startIndex'>startIndex</a>)</code></dt>
+<code><code><a href='List.html#List::List'>List&lt;E&gt;</a></code> getRange</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::getRange::start'>start</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::getRange::length'>length</a>)</code></dt>
+<dd>
+
+ Returns a sub list copy of this list, from <code><a href='List.html#List::getRange::start'>start</a></code> to
+ <code>start&nbsp;+&nbsp;length</code>
+
+.
+ Throws an <code><a href='IndexOutOfRangeException.html#IndexOutOfRangeException::IndexOutOfRangeException'>IndexOutOfRangeException</a></code> if <code><a href='List.html#List::getRange::start'>start</a></code> or
+ <code>start&nbsp;+&nbsp;length</code>
+
+ are out of range.
+</dd>
+<dt>
+<code><code><a href='int.html#int::int'>int</a></code> indexOf</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::indexOf::element'>element</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::indexOf::startIndex'>startIndex</a>)</code></dt>
 <dd>
 
  Returns the first index of <code><a href='List.html#List::indexOf::element'>element</a></code> in this list. Searches this
@@ -168,14 +166,29 @@
  -1 if <code><a href='List.html#List::indexOf::element'>element</a></code> is not found.
 </dd>
 <dt>
-<code><code><a href='List.html#List::List'>E</a></code> <a name='List::last'>last</a>()</code></dt>
+<code>void insertRange</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::insertRange::start'>start</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::insertRange::length'>length</a>, [<code><a href='List.html#List::List'>E</a></code> <a name='List::insertRange::initialValue'>initialValue</a>])</code></dt>
+<dd>
+
+ Inserts a new range in the list, starting from <code><a href='List.html#List::insertRange::start'>start</a></code> to
+ <code>start&nbsp;+&nbsp;length</code>
+
+. The entries are filled with <code><a href='List.html#List::insertRange::initialValue'>initialValue</a></code>.
+ Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is
+ not extendable.
+ Throws an <code><a href='IndexOutOfRangeException.html#IndexOutOfRangeException::IndexOutOfRangeException'>IndexOutOfRangeException</a></code> if <code><a href='List.html#List::insertRange::start'>start</a></code> or
+ <code>start&nbsp;+&nbsp;length</code>
+
+ are out of range.
+</dd>
+<dt>
+<code><code><a href='List.html#List::List'>E</a></code> last</a>()</code></dt>
 <dd>
 
  Returns the last element of the list, or throws an out of bounds
  exception if the list is empty.
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='List::lastIndexOf'>lastIndexOf</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::lastIndexOf::element'>element</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::lastIndexOf::startIndex'>startIndex</a>)</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> lastIndexOf</a>(<code><a href='List.html#List::List'>E</a></code> <a name='List::lastIndexOf::element'>element</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::lastIndexOf::startIndex'>startIndex</a>)</code></dt>
 <dd>
 
  Returns the last index of <code><a href='List.html#List::lastIndexOf::element'>element</a></code> in this list. Searches this
@@ -183,7 +196,7 @@
  not found.
 </dd>
 <dt>
-<code><code><a href='List.html#List::List'>E</a></code> <a name='List::removeLast'>removeLast</a>()</code></dt>
+<code><code><a href='List.html#List::List'>E</a></code> removeLast</a>()</code></dt>
 <dd>
 
  Pops and returns the last element of the list.
@@ -191,7 +204,40 @@
  list cannot be changed.
 </dd>
 <dt>
-<code>void <a name='List::sort'>sort</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::sort::compare'>compare</a>(<code><a href='List.html#List::List'>E</a></code>, <code><a href='List.html#List::List'>E</a></code>))</code></dt>
+<code>void removeRange</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::removeRange::start'>start</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::removeRange::length'>length</a>)</code></dt>
+<dd>
+
+ Removes the range in the list starting from <code><a href='List.html#List::removeRange::start'>start</a></code> to
+ <code>start&nbsp;+&nbsp;length</code>
+
+.
+ Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is
+ not extendable.
+ Throws an <code><a href='IndexOutOfRangeException.html#IndexOutOfRangeException::IndexOutOfRangeException'>IndexOutOfRangeException</a></code> if <code><a href='List.html#List::removeRange::start'>start</a></code> or
+ <code>start&nbsp;+&nbsp;length</code>
+
+ are out of range.
+</dd>
+<dt>
+<code>void setRange</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::setRange::start'>start</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::setRange::length'>length</a>, <code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='List::setRange::from'>from</a>, [<code><a href='int.html#int::int'>int</a></code> <a name='List::setRange::startFrom'>startFrom</a>])</code></dt>
+<dd>
+
+ Copies <code><a href='List.html#List::setRange::length'>length</a></code> elements of the <code><a href='List.html#List::setRange::from'>from</a></code> array, starting
+ from <code><a href='List.html#List::setRange::startFrom'>startFrom</a></code>, into <code>this</code>
+
+, starting at <code><a href='List.html#List::setRange::start'>start</a></code>.
+ Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if the list is
+ not extendable.
+ Throws an <code><a href='IndexOutOfRangeException.html#IndexOutOfRangeException::IndexOutOfRangeException'>IndexOutOfRangeException</a></code> if <code><a href='List.html#List::setRange::start'>start</a></code> or
+ <code>start&nbsp;+&nbsp;length</code>
+
+ are out of range for <code>this</code>
+
+, or if
+ <code><a href='List.html#List::setRange::startFrom'>startFrom</a></code> is out of range for <code><a href='List.html#List::setRange::from'>from</a></code>.
+</dd>
+<dt>
+<code>void sort</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::sort::compare'>compare</a>(<code><a href='List.html#List::List'>E</a></code>, <code><a href='List.html#List::List'>E</a></code>))</code></dt>
 <dd>
 
  Sorts the list according to the order specified by the comparator.
@@ -208,6 +254,3 @@
 </dl>
 </section>
 
-<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
-
-</body></html>

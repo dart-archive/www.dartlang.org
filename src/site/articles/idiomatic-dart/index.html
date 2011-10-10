@@ -1,0 +1,334 @@
+---
+layout: default
+title: "Idiomatic Dart"
+---
+
+<section>
+<h1>Idiomatic Dart</h1>
+<em>Written by Bob Nystrom<br />
+October 2011</em>
+
+<p>Dart was designed to look and feel familiar if you're coming from other languages, in particular Java and JavaScript. If you try hard enough, you can use Dart just like it was one of those languages. If you try <em>really</em> hard, you may even be able to turn it into Fortran, but you'll be missing out on what's unique and fun about Dart.</p>
+
+<p>This article will help teach you to write code that's uniquely suited for Dart. Since the language is still evolving, many of the idioms here are changing too. There are places in the language where we still aren't sure what the best practice is yet. (Maybe you can help us.) But here are some pointers that will hopefully kick your brain out of Java or JavaScript mode, and into Dart.</p>
+
+<h2>Constructors</h2>
+
+<p>We'll start this article the way every object starts its life: with constructors. Every object will be constructed at some point, and defining constructors is an important part of making a usable class. Dart has a couple of interesting ideas here.</p>
+
+<h3>Automatic field initialization</h3>
+
+<p>First up is getting rid of some tedium. Many constructors simply take their arguments and assign them to fields, like:</p>
+
+<pre>
+class Point {
+  num x, y;
+  Point(num x, num y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+</pre>
+
+<p>So we've got to type <code>x</code> <em>four</em> times here just to initialize a field. Lame. We can do better:</p>
+
+<pre>
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+}
+</pre>
+
+<p>If an argument has <code>this.</code> before it in a constructor argument list, the field with that name will automatically be initialized with that argument's value. This example shows another little feature too: if a constructor body is completely empty, you can just use a semicolon (<code>;</code>) instead of <code>{}</code>.<p>
+
+<h3>Named constructors</h3>
+
+<p>Like most dynamically-typed languages, Dart doesn't support overloading. With methods, this isn't much of a limitation because you can always use a different name, but constructors aren't so lucky. To alleviate that, Dart lets you define <em>named constructors</em>:</p>
+
+<pre>
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  Point.zero() : x = 0, y = 0;
+  Point.polar(num theta, num radius) {
+    x = Math.cos(theta) * radius;
+    y = Math.sin(theta) * radius;
+  }
+}
+</pre>
+
+<p>Here our Point class has three constructors, a normal one and two named ones. You can use them like so:</p>
+
+<pre>
+var a = new Point(1, 2);
+var b = new Point.zero();
+var c = new Point.polar(Math.PI, 4.0);
+</pre>
+
+<p>Note that we're still using <code>new</code> here when we invoke the named constructor. It isn't just a static method.</p>
+
+<h3>Factory constructors</h3>
+
+<p>There are a couple of design patterns floating around related to <em>factories.</em> They come into play when you need an instance of some class, but you want to be a little more flexible than just hard-coding a call to a constructor for some concrete type. Maybe you want to return a previously cached instance if you have one, or maybe you want to return an object of a different type.</p>
+
+<p>Dart supports that without requiring you to change what it looks like when you create the object. Instead, you can define a <em>factory constructor</em>. When you <em>call</em> it, it looks like a regular constructor. But the implementation is free to do anything it wants. For example:</p>
+
+<pre>
+class Symbol {
+  final String name;
+  static Map&lt;String, Symbol&gt; _cache;
+
+  factory Symbol(String name) {
+    if (_cache == null) {
+      _cache = {};
+    }
+
+    if (_cache.containsKey(name)) {
+      return _cache[name];
+    } else {
+      final symbol = new Symbol._internal(name);
+      _cache[name] = symbol;
+      return symbol;
+    }
+  }
+
+  Symbol._internal(this.name);
+}
+</pre>
+
+<p>Here we have a class that defines symbols. A symbol is like a string but we guarantee that there will only be one symbol with a given name in existence at any point in time. This lets you safely compare two symbols for equality just by testing that they're the same object.</p>
+
+<p>The default (unnamed) constructor here is prefixed with <code>factory</code>. That tells Dart that this is a factory constructor. When it's invoked, it will <em>not</em> create a new object. (There is no <code>this</code> inside a factory constructor.) Instead, you are expected to create an instance and explicitly return it. Here, we look for a previously cached symbol with the given name and reuse it if we found it.</p>
+
+<p>What's cool is that the <em>caller</em> never sees this. They just do:</p>
+
+<pre>
+var a = new Symbol('something');
+var b = new Symbol('something');
+</pre>
+
+<p>The second call to <code>new</code> will return the previously cached one. This is nice because it means that if we don't need a factory constructor at first, but later realize we do, we won't have to change all of our existing code that's calling <code>new</code> to instead call some static method.</p>
+
+<h2>Functions</h2>
+
+<p>Like most modern languages, Dart features first-class functions with full closures and a lightweight syntax. Functions are objects just like any other, and you shouldn't hesitate to use them freely. In particular, on the Dart team we use functions extensively for event handlers.</p>
+
+<p>Dart has three notations for creating functions: one for named functions, one for anonymous functions with statement bodies and one for expression bodies. The named form looks like this:</p>
+
+<pre>
+void sayGreeting(String salutation, String name) {
+  final greeting = '$salutation $name';
+  print(greeting);
+}
+</pre>
+
+<p>This looks like a regular function definition in C or a method in Java or JavaScript. Unlike C and C++, these can be nested in the middle of another function. If you don't need to give a name to a function, there is an anonymous form too. It looks like the above but without a name or return type, like so:</p>
+
+<pre>
+window.on.click.add((event) {
+  print('You clicked the window.');
+})
+</pre>
+
+<p>Here we're passing a function to the <code>add()</code> method to register an event handler. Finally, if you need a really lightweight function that just evaluates and returns a single expression, there's <code>=&gt;</code>:</p>
+
+<pre>
+var items = [1, 2, 3, 4, 5];
+var odd = items.filter((i) =&gt; i % 2 == 1);
+print(odd); // [1, 3, 5]
+</pre>
+
+<p>A parenthesized argument list followed by <code>=&gt;</code> and a single expression creates a function that takes those arguments, and returns the result of the expression.</p>
+
+<p>In practice, we find ourselves preferring arrow functions whenever possible since they're terse but still easy to spot thanks to <code>=&gt;</code>. We use anonymous functions frequently for event handlers and callbacks. Named functions are used pretty rarely.</p>
+
+<p>Dart has one more trick up its sleeve that is one of my favorite features of the language: you can also use <code>=&gt;</code> for defining members. Sure, you <em>could</em> do this:</p>
+
+<pre>
+class Rectangle {
+  num width, height;
+
+  bool contains(num x, num y) {
+    return (x &lt; width) && (y &lt; height);
+  }
+
+  num area() {
+    return width * height;
+  }
+}
+</pre>
+
+<p>But why do that when you can just do:</p>
+
+<pre>
+class Rectangle {
+  num width, height;
+  bool contains(num x, num y) =&gt; (x &lt; width) && (y &lt; height);
+  num area() =&gt; width * height;
+}
+</pre>
+
+<p>We find arrow functions are great for defining simple getters and other one-liner methods that calculate or access some property of an object.</p>
+
+<h2>Fields, getters, and setters</h2>
+
+<p>Speaking of properties, Dart uses your standard <code>object.someProperty</code> syntax for working with them. That's how most languages work when <code>someProperty</code> is an actual field on the class, but Dart also allows you to define methods that look like property access but execute whatever code you want. As in other languages, these are called <em>getters</em> and <em>setters</em>. Here's an example:</p>
+
+<pre>
+class Rectangle {
+  num left, top, width, height;
+
+  num get right()           =&gt; left + width;
+      set right(num value)  =&gt; left = value - width;
+  num get bottom()          =&gt; top + height;
+      set bottom(num value) =&gt; top = value - height;
+
+  Rectangle(this.left, this.top, this.width, this.height);
+}
+</pre>
+
+<p>Here we have a Rectangle class with four actual fields, <code>left</code>, <code>top</code>, <code>width</code>, and <code>height</code>. It also has getters and setters to define two more logical properties: <code>right</code> and <code>bottom</code>. If you're using the class, there is no visible difference between a "real" field and getters and setters:</p>
+
+<pre>
+var rect = new Rectangle(3, 4, 20, 15);
+print(rect.left);
+print(rect.bottom);
+rect.top = 6;
+rect.right = 12;
+</pre>
+
+<p>This blurring the line between fields and getters/setters is fundamental to the language. The clearest way to think of it is that fields <em>are</em> just getters and setters with magical implementations. This means that you can do fun stuff like override an inherited getter with a field and vice versa. If an interface defines a getter, you can implement it by simply having a field with the same name and type. If the field is mutable (not <code>final</code>) it can implement a setter that an interface requires.</p>
+
+<p>In practice, what this means is that you don't have to insulate your fields by defensively hiding them behind boilerplate getters and setters like you would in Java or C#. If you have some exposed property, feel free to make it a public field. If you don't want it to be modified, just make it <code>final</code>.</p>
+
+<p>Later, if you need to do some validation or other work, you can always replace that field with a getter and setter. If we wanted our Rectangle class to make sure it always has a non-negative size, we could change it to:</p>
+
+<pre>
+class Rectangle {
+  num left, top;
+  num _width, _height;
+
+  num get width() =&gt; _width;
+  set width(num value) {
+    if (value &lt; 0) throw 'Width cannot be negative.';
+    _width = value;
+  }
+
+  num get height() =&gt; _height;
+  set height(num value) {
+    if (value &lt; 0) throw 'Height cannot be negative.';
+    _height = value;
+  }
+
+  num get right()           =&gt; left + width;
+      set right(num value)  =&gt; left = value - width;
+  num get bottom()          =&gt; top + height;
+      set bottom(num value) =&gt; top = value - height;
+
+  Rectangle(this.left, this.top, this._width, this._height);
+}</pre>
+
+<p>And now we've modified the class to do some validation without having to touch any of the existing code that was already using it.</p>
+
+<h2>Top-level definitions</h2>
+
+<p>Dart is a "pure" object-oriented language in that everything you can place in a variable is a real object (no mutant "primitives") and every object is an instance of some class. It's not a <em>dogmatic</em> OOP language though. You aren't required to place everything you define inside some class. Instead, you are free to define functions, variables, and even getters and setters at the top level if you want.</p>
+
+<pre>
+num abs(num value) =&gt; value &lt; 0 ? -value : value;
+
+final TWO_PI = Math.PI * 2.0;
+
+int get today() {
+  final date = new DateTime.now();
+  return date.day;
+}
+</pre>
+
+<p>Even in languages that don't require you to place everything inside a class or object, like JavaScript, it's still common to do so as a form of namespacing: top-level definitions with the same name could inadvertently collide. To address that, Dart has a library system that allows you to import definitions from other libraries with a prefix applied to disambiguate it. That means you shouldn't <em>need</em> to defensively squirrel your definitions inside classes.</p>
+
+<p>We're still exploring what this actually means for how we define libraries. Most of our code does place definitions inside classes, like Math. It's hard to tell if this is just an ingrained habit we have from other languages or a practice that's also good for Dart. This is an area we want feedback on.</p>
+
+<p>We do have some examples where we use top-level definitions. The first you'll run into is <code>main()</code> which is expected to be defined at the top level. If you work with the DOM, the familiar <code>document</code> and <code>window</code> "variables" are actually top-level getters in Dart.</p>
+
+<h2>Strings and interpolation</h2>
+
+<p>Dart has a few kinds of string literals. You can use single or double quotes, and you can use triple-quoted multiline strings:</p>
+
+<pre>
+'I am a "string"'
+"I'm one too"
+
+'''I'm
+on multiple lines
+'''
+
+"""
+As
+am
+I
+"""
+</pre>
+
+<p>To build bigger strings from these pieces, you <em>can</em> just concatenate them using <code>+</code>:
+
+<pre>
+var name = 'Fred';
+var salutation = 'Hi';
+var greeting = salutation + ', ' + name;
+</pre>
+
+<p>But it's cleaner and faster to use <em>string interpolation</em>:</p>
+
+<pre>
+var name = 'Fred';
+var salutation = 'Hi';
+var greeting = '$salutation, $name';
+</pre>
+
+<p>A dollar sign (<code>$</code>) in a string literal followed by a variable will expand to that variable's value. (If the variable isn't a string, it calls <code>toString()</code> on it.) You can also interpolate expressions by placing them inside curly braces:</p>
+
+<pre>
+var r = 2;
+print('The area of a circle with radius $r is ${Math.PI * r * r}');
+</pre>
+
+<h2>Operators</h2>
+
+<p>Dart shares the same operators and precedences that you're familiar with from C, Java, etc. They will do what you expect. Under the hood, though, they are a little special. In Dart, an expression using an operator like <code>1 + 2</code> is really just syntactic sugar for calling a method. The previous example looks more like <code>1.+(2)</code> to the language.</p>
+
+<p>This means that you can also overload (most) operators for your own types. For example, here's a <code>Vector</code> class:</p>
+
+<pre>
+class Vector {
+  num x, y;
+  Vector(this.x, this.y);
+  operator +(Vector other) =&gt; new Vector(x + other.x, y + other.y);
+}
+</pre>
+
+<p>With that, we can add vectors using familiar syntax:</pre>
+
+<pre>
+var position = new Vector(3, 4);
+var velocity = new Vector(1, 2);
+var newPosition = position + velocity;
+</pre>
+
+<p>That being said, please don't go crazy with this. We're giving you the keys to the car and trusting that you won't turn around and drive it through the living room.</p>
+
+<p>In practice, if the type you're defining often uses operators in the "real world" (on a blackboard?) then it might be a good candidate for overloaded operators: things like complex numbers, vectors, matrices, etc. Otherwise, probably not. Types with custom operators should generally be immutable too.</p>
+
+<p>Note that because operator calls are really just method calls, they have an inherent asymmetry. The method is always looked up on the left-hand argument. So when you do <code>a + b</code>, it's the type of <code>a</code> that gets to decide what that means.</p>
+
+<h2>Equality</h2>
+
+<p>One set of operators bears special attention. Dart has two pairs of equality operators: <code>==</code> and <code>!=</code>, and <code>===</code> and <code>!==</code>. These will look familiar a JavaScripter, but they work a little differently here.</p>
+
+<p><code>==</code> and <code>!=</code> are for testing equivalence. They are what you'll use 99% of the time. Unlike JavaScript, they don't do any implicit conversions, so they will behave like you'd expect. Don't be afraid to use them. Unlike <em>Java</em>, they work for any type that has an equivalence relation defined. No more <code>someString.equals("something")</code>.</p>
+
+<p>You can overload <code>==</code> for your own types if that makes sense for them. You don't have to overload <code>!=</code>: Dart will automatically infer that from your definition of <code>==</code>.</p>
+
+<p>The other operators, <code>===</code> and <code>!==</code> are for testing <em>identity</em>. <code>a === b</code> will only return <code>true</code> if <code>a</code> and <code>b</code> are the <em>exact same object in memory</em>. In practice, you will rarely need to use these. By default, calling <code>==</code> will fall back to <code>===</code> if no more meaningful equivalence operator is defined for the type, so the only time you'll need this is if you specifically want to side-step any user-defined <code>==</code> operator.</p>
+
+</section>

@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
+---
+layout: docsLayout
+title: "Dart : Libraries : corelib : RegExp" 
+---
 
-<head>
-<meta charset="utf-8">
-<title>Dart : Libraries : corelib : RegExp</title>
-<link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
-
-<body>
-
-<header></header>
-
-<h1 id="title">interface <a name='RegExp::RegExp'>RegExp</a></h1>
+<h1 id="title">interface RegExp</a></h1>
 
 <section id="inheritance">
 
@@ -44,7 +36,7 @@
  a string.
 
  <code><br>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;RegExp&nbsp;exp&nbsp;=&nbsp;const&nbsp;RegExp(@&quot;(\w+)&quot;,&nbsp;&quot;&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;str&nbsp;=&nbsp;&quot;Parse&nbsp;my&nbsp;string&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;Iterable&lt;Match&gt;&nbsp;matches&nbsp;=&nbsp;exp.allMatches(str,&nbsp;exp);<br>&nbsp;<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;RegExp&nbsp;exp&nbsp;=&nbsp;const&nbsp;RegExp(@&quot;(\w+)&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;str&nbsp;=&nbsp;&quot;Parse&nbsp;my&nbsp;string&quot;;<br>&nbsp;&nbsp;&nbsp;&nbsp;Iterable&lt;Match&gt;&nbsp;matches&nbsp;=&nbsp;exp.allMatches(str,&nbsp;exp);<br>&nbsp;<br>
 </code>
 
 
@@ -54,15 +46,22 @@
 <h2>Fields</h2>
 <dl>
 <dt>
-<span class="field-type"><code><code><a href='String.html#String::String'>String</a></code></code></span>
-<span class="field-name"><code><a name='RegExp::flags'>flags
+<span class="field-type"><code><code><a href='bool.html#bool::bool'>bool</a></code></code></span>
+<span class="field-name"><code>ignoreCase
+</a></code></span>
+</dt>
+<dd>
+</dd>
+<dt>
+<span class="field-type"><code><code><a href='bool.html#bool::bool'>bool</a></code></code></span>
+<span class="field-name"><code>multiLine
 </a></code></span>
 </dt>
 <dd>
 </dd>
 <dt>
 <span class="field-type"><code><code><a href='String.html#String::String'>String</a></code></code></span>
-<span class="field-name"><code><a name='RegExp::pattern'>pattern
+<span class="field-name"><code>pattern
 </a></code></span>
 </dt>
 <dd>
@@ -74,11 +73,12 @@
 <h2>Constructors</h2>
 <dl>
 <dt>
-<code><a href='RegExp.html#RegExp::RegExp'>RegExp</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::::pattern'>pattern</a>, <code><a href='String.html#String::String'>String</a></code> <a name='RegExp::::flags'>flags</a>)</code>
+<code><a href='RegExp.html#RegExp::RegExp'>RegExp</a>(<code><a href='String.html#String::String'>String</a></code> pattern</a>, [<code><a href='bool.html#bool::bool'>bool</a></code> <a name='RegExp::::multiLine'>multiLine</a>, <code><a href='bool.html#bool::bool'>bool</a></code> <a name='RegExp::::ignoreCase'>ignoreCase</a>])</code>
 </dt>
 <dd>
 
- Constructs a regular expression.
+ Constructs a regular expression. The default implementation of a
+ <code><a href='RegExp.html#RegExp::RegExp'>RegExp</a></code> sets <code><a href='RegExp.html#RegExp::::multiLine'>multiLine</a></code> and <code><a href='RegExp.html#RegExp::::ignoreCase'>ignoreCase</a></code> to false.
 </dd>
 </dl>
 </section>
@@ -87,14 +87,14 @@
 <h2>Methods</h2>
 <dl>
 <dt>
-<code><code><a href='Iterable.html#Iterable::Iterable'>Iterable&lt;E&gt;</a></code> <a name='RegExp::allMatches'>allMatches</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::allMatches::str'>str</a>)</code></dt>
+<code><code><a href='Iterable.html#Iterable::Iterable'>Iterable&lt;E&gt;</a></code> allMatches</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::allMatches::str'>str</a>)</code></dt>
 <dd>
 
  Returns an iterable on the  matches of the regular
  expression in <code><a href='RegExp.html#RegExp::allMatches::str'>str</a></code>.
 </dd>
 <dt>
-<code><code><a href='Match.html#Match::Match'>Match</a></code> <a name='RegExp::firstMatch'>firstMatch</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::firstMatch::str'>str</a>)</code></dt>
+<code><code><a href='Match.html#Match::Match'>Match</a></code> firstMatch</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::firstMatch::str'>str</a>)</code></dt>
 <dd>
 
  Searches for the first match of the regular expression
@@ -103,13 +103,13 @@
  if there is no match.
 </dd>
 <dt>
-<code><code><a href='bool.html#bool::bool'>bool</a></code> <a name='RegExp::hasMatch'>hasMatch</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::hasMatch::str'>str</a>)</code></dt>
+<code><code><a href='bool.html#bool::bool'>bool</a></code> hasMatch</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::hasMatch::str'>str</a>)</code></dt>
 <dd>
 
  Returns whether the regular expression has a match in the string <code><a href='RegExp.html#RegExp::hasMatch::str'>str</a></code>.
 </dd>
 <dt>
-<code><code><a href='String.html#String::String'>String</a></code> <a name='RegExp::stringMatch'>stringMatch</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::stringMatch::str'>str</a>)</code></dt>
+<code><code><a href='String.html#String::String'>String</a></code> stringMatch</a>(<code><a href='String.html#String::String'>String</a></code> <a name='RegExp::stringMatch::str'>str</a>)</code></dt>
 <dd>
 
  Searches for the first match of the regular expression
@@ -118,6 +118,3 @@
 </dl>
 </section>
 
-<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
-
-</body></html>

@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
+---
+layout: docsLayout
+title: "Dart : Libraries : corelib : StopWatch" 
+---
 
-<head>
-<meta charset="utf-8">
-<title>Dart : Libraries : corelib : StopWatch</title>
-<link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
-
-<body>
-
-<header></header>
-
-<h1 id="title">interface <a name='StopWatch::StopWatch'>StopWatch</a></h1>
+<h1 id="title">interface StopWatch</a></h1>
 
 <section id="inheritance">
 
@@ -47,7 +39,7 @@
 <h2>Methods</h2>
 <dl>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='StopWatch::elapsed'>elapsed</a>()</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> elapsed</a>()</code></dt>
 <dd>
 
  Returns the elapsed number of clock ticks since calling <code><a href='StopWatch.html#StopWatch::start'>start</a></code> while the
@@ -58,25 +50,25 @@
  The elapsed number of clock ticks increases by <code><a href='StopWatch.html#StopWatch::frequency'>frequency</a></code> every second.
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='StopWatch::elapsedInMs'>elapsedInMs</a>()</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> elapsedInMs</a>()</code></dt>
 <dd>
 
  Returns the <code><a href='StopWatch.html#StopWatch::elapsed'>elapsed</a></code> counter converted to milliseconds.
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='StopWatch::elapsedInUs'>elapsedInUs</a>()</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> elapsedInUs</a>()</code></dt>
 <dd>
 
  Returns the <code><a href='StopWatch.html#StopWatch::elapsed'>elapsed</a></code> counter converted to microseconds.
 </dd>
 <dt>
-<code><code><a href='int.html#int::int'>int</a></code> <a name='StopWatch::frequency'>frequency</a>()</code></dt>
+<code><code><a href='int.html#int::int'>int</a></code> frequency</a>()</code></dt>
 <dd>
 
  Returns the frequency of the elapsed counter in Hz.
 </dd>
 <dt>
-<code>void <a name='StopWatch::start'>start</a>()</code></dt>
+<code>void start</a>()</code></dt>
 <dd>
 
  Starts the <code><a href='StopWatch.html#StopWatch::StopWatch'>StopWatch</a></code>. The <code><a href='StopWatch.html#StopWatch::elapsed'>elapsed</a></code> count is increasing monotonically.
@@ -84,7 +76,7 @@
  If the <code><a href='StopWatch.html#StopWatch::StopWatch'>StopWatch</a></code> is currently running, then calling start does nothing.
 </dd>
 <dt>
-<code>void <a name='StopWatch::stop'>stop</a>()</code></dt>
+<code>void stop</a>()</code></dt>
 <dd>
 
  Stops the <code><a href='StopWatch.html#StopWatch::StopWatch'>StopWatch</a></code>. The <code><a href='StopWatch.html#StopWatch::elapsed'>elapsed</a></code> count stops increasing.
@@ -93,6 +85,3 @@
 </dl>
 </section>
 
-<footer>Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.</footer>
-
-</body></html>
