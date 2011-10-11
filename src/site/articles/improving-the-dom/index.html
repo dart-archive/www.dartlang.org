@@ -7,17 +7,67 @@ title: "Improving the DOM"
 <em>Written by Bob Nystrom<br />
 October 2011</em>
 
-<p>One of the great opportunities a new language gives you is a chance to also re-invent a cleaner set of APIs for users to work with. When it comes to coding in a browser, that API is the DOM. The DOM API that JavaScripters suffer is creaking under the weight of history and technological ballast like XML.</p>
+<p>One of the great opportunities a new language gives you is a chance to also define a cleaner set of APIs for users to work with. When it comes to coding in a browser, that API is the DOM. The DOM API that JavaScripters suffer is creaking under the weight of history and technological ballast like XML.</p>
 
-<p>We have the chance to blow away a lot of that history and were lucky enough to get Alex Russell and Erik Arvidsson to help us lay out what the DOM could have looked like if they knew then what we knew now. What we have still needs a lot of work and feedback from people like you, but it's already promising. Here's a glimpse.</p>
+<p>We have the chance to blow away a lot of that history and were lucky enough to get <a href="http://infrequently.org/">Alex Russell</a> and <a href="http://erik.eae.net/">Erik Arvidsson</a> to help us lay out what the DOM could have looked like if we had a time machine. What we have still needs a lot of work and feedback from people like you, but it's already promising. Here's a glimpse.</p>
 
 <h2>Simpler Names</h2>
 
 <p>The simplest changes were just cleaning up some painful names. <code>HTMLElement</code> is just <code>Element</code> and we've dropped <code>HTML</code> from most of the type names. Instead of <code>childNodes</code> and <code>children</code> we've got <code>nodes</code> and <code>elements</code>. <code>ownerDocument</code> is just <code>document</code>. We've tried to optimize names so that the things you use the most are the most terse.</p>
 
+<h2>Better Querying</h2>
+
+<p>One area where the DOM has a bunch of baggage is finding elements. Today's DOM has a pile of methods for finding stuff:</p>
+
+<pre>
+getElementsById()
+getElementsByTagName()
+getElementsByName()
+getElementsByClassName()
+querySelector()
+querySelectorAll()
+document.links
+document.images
+document.forms
+document.scripts
+formElement.elements
+selectElement.options
+</pre>
+
+<p>All of this piled up before <a href="http://jquery.com/">jQuery</a> appeared on a mountaintop to give us the revelation that <em>Thou Shalt Find Nodes By Using CSS Selectors</em>. With the One True Way in hand, we've stripped it down to just two (!) methods: <code>query()</code> and <code>queryAll()</code>.</p>
+
+<table width="100%">
+<tr>
+<td width="50%">
+<pre>
+// Old:
+elem.getElementById('foo');
+elem.getElementsByTagName('div');
+elem.getElementsByName('foo');
+elem.getElementsByClassName('foo');
+elem.querySelector('.foo .bar');
+elem.querySelectorAll('.foo .bar');
+</pre>
+</td>
+<td width="50%">
+<pre>
+// New:
+elem.query('#foo');
+elem.queryAll('div');
+elem.queryAll('[name="foo"]');
+elem.queryAll('.foo');
+elem.query('.foo .bar');
+elem.queryAll('.foo .bar');
+</pre>
+</td>
+</tr>
+</table>
+
+<p>The idea here is that if you want to use a library like jQuery, that's fine, but you shouldn't <em>have</em> to just to make the API palatable.</p>
+
 <h2>Use Real Collections</h2>
 
-<p>In JavaScript, the DOM collection types are different from the built-in Array type, which trips users up when methods they use on one aren't available on the other. For Dart, we've cleaned that up. The object returned by <code>elements</code> implements Dart's the core library's <code>List&ltElement&gt;</code> interface and works exactly like a built-in collection.</p>
+<p>In JavaScript, the DOM collection types are different from the built-in Array type, which trips users up when methods they use on one aren't available on the other. For Dart, we've cleaned that up. Methods like <code>elements</code>, <code>nodes</code>, and <code>query()</code> that return collections do so by returning objects that implement the Dart core library's built-in collection interfaces. They either <em>are</em> regular Dart lists, maps, and sets, or they are interchangeable with them.</p>
 
 <p>Building on top of Dart's collection types lets us get rid of a bunch of special-case methods too. Instead of a bunch of methods on <code>Element</code> for working with attributes, we just made <code>attributes</code> a map:</p>
 
@@ -59,8 +109,8 @@ elem.appendChild(child);
 <td width="50%">
 <pre>
 // New:
-!elem.nodes.isEmpty;
-elem.nodes.first;
+elem.nodes.isEmpty();
+elem.nodes[0];
 elem.nodes.add(child);
 </pre>
 </td>
@@ -69,7 +119,7 @@ elem.nodes.add(child);
 
 <h2>Use Constructors</h2>
 
-<p>In order to create new instance of DOM types, you're forced to go through factory methods on the document. We like constructors:</p>
+<p>In order to create new instances of DOM types, you're forced to go through factory methods on the document. We like constructors:</p>
 
 <table width="100%">
 <tr>
@@ -88,12 +138,74 @@ new Element.tag('div');
 </tr>
 </table>
 
-Or you can even do:
+<p>Or how about:</p>
 
 <pre>
-TableElement table = new Element.html('<table><tr><td>Hello</table>');
+TableElement table = new Element.html(
+    '&lt;table&gt;&lt;tr&gt;&lt;td&gt;Hello &lt;em&gt;Dart!&lt;/em&gt;&lt;/table&gt;');
 </pre>
+
+<p>We're still fleshing this out, but with Dart's named constructors, we should be able to make it pretty easy to conjure up DOM objects in a variety of ways.</p>
 
 <h2>Events</h2>
 
+<p>Finally, the biggest change, and I think the most useful one. We've cleaned up how event handlers are bound. The DOM has two ways of working with events. The old way is that you can bind a single handler by setting one of the <code>on___</code> properties on the element directly. (For mysterious reasons, these are named <code>allinlowercase</code> unlike the rest of the DOM.)</p>
 
+<p>The more modern way is by using <code>addEventListener()</code> and <code>removeEventListener()</code>. That safely allows multiple listeners for the same event, which is great, but it's painfully verbose. You also identify the event type by its string name, which is error-prone and doesn't play nice with the type system.</p>
+
+<p>We've simplified that. We killed all of the <code>on___</code> properties on Element and then created a new ElementEvents class. For each of the known event types, there is a property on that class: <code>click</code>, <code>mouseDown</code>, etc. Each of those properties is an event object that can add and remove listeners and dispatch events.</p>
+
+<p>We wired that back up to the DOM by giving Element a property called <code>on</code> that accesses it. Now all of the event-related functionality is tucked away in a single property. On the off chance that you <em>do</em> want to register a dynamically-named event, we also put a subscript operator on NodeEvents. That's a lot of text. Here's some code:</p>
+
+<table width="100%">
+<tr>
+<td width="50%">
+<pre>
+// Old:
+elem.addEventListener('click',
+    (event) => print('click!'), false);
+
+elem.removeEventListener(
+    'click', listener);
+</pre>
+</td>
+<td width="50%">
+<pre>
+// New:
+elem.on.click.add(
+    (event) => print('click!'));
+
+elem.on.click.remove(listener);
+</pre>
+</td>
+</tr>
+</table>
+
+<p>For the rare times where you do need to work with events generically, or dynamically generate their names, we also added a subscript operator to NodeEvents so you can do that too:</p>
+
+<table width="100%">
+<tr>
+<td width="50%">
+<pre>
+// Old:
+elem.addEventListener(
+    'some' + 'name',
+    (event) => print('dynamic!'),
+    false);
+</pre>
+</td>
+<td width="50%">
+<pre>
+// New:
+elem.on['some' + 'name'].add(
+    (event) => print('dynamic!'));
+</pre>
+</td>
+</tr>
+</table>
+
+<p>Some DOM classes support more events than just the stuff in Element. For those, there are subclasses of ElementEvents that add more properties. For example, Document's <code>on</code> returns a DocumentEvents class that adds <code>readyStateChange</code>, <code>selectionChange</code>, and <code>contentLoaded</code>.</p>
+
+<h2>Two Libraries</h2>
+
+<p>Since this is still a work-in-progress, this is all defined in a new <code>dart:html</code> library that's built on top of the core <code>dart:dom</code> library which closely follows the original IDL. If you want to see the source for it, go <a href="https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/client/html/">here</a>. To see a simple sample that uses it, look no farther than <a href="https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/client/samples/slider/SliderSample.dart">here</a>.</p>
