@@ -7,20 +7,24 @@ title: "Spirodraw Sample"
 <script type="text/javascript" src="/js/prettify.js"></script>
 
 <body onLoad="prettyPrint()">
+<section>
 <div id="containers">
-<p>The Spirodraw sample is similar to Sunflower and illustrates a few more language features.</p>
+<p>The Spirodraw sample is similar to
+<a href="/samples/sunflower/">Sunflower</a>
+and illustrates a few more language features.</p>
 
 <ul>
 <li><a href="#code_organization">Code organization</a></li>
 <li><a href="#requestAnimationFrame">RequestAnimationFrame</a></li>
+<li><a href="#string_interpolation">String interpolation</a></li>
 <li><a href="#top_level_functions">Top-level functions</a></li>
 <li><a href="#color_picker">ColorPicker sample</a></li>
 <li><a href="#typedef">Function type aliases</a></li>
-<li><a href="#type_inference">Type inference</a></li>
+<li><a href="#type_propagation">Type propagation</a></li>
 <li><a href="#initializers">Constructor initializers</a></li>
 <li><a href="#terse_function_syntax">Terse function syntax</a></li>
+<li><a href="#getters_setters">Getters and setters</a></li>
 <li><a href="#for-in">For-in statement</a></li>
-<li><a href="#string_interpolation">String interpolation</a></li>
 </ul>
 
 <h2 id="code_organization">Code organization</h2>
@@ -34,13 +38,14 @@ title: "Spirodraw Sample"
 #resource("spirodraw.css");</pre>
 
 <p>A Dart script belongs to a libary declared with a name given by the #library directive.
-Dart scripts include other scripts using the #source directive and include other libraries
+Dart scripts include other scripts using the #source directive.
+Included scripts may not contain any # directives. Dart scripts can also use other libraries
 with the #import directive. The #resource directive is currently not used. In the future,
-it may be used to bundle non-code resources with libraries. The arguments #import, 
+it may be used to bundle non-code resources with libraries. The arguments to #import, 
 #source, and #resource are URLs.</p>
 
-<p>Spirodraw.dart defines a library named 'spirodraw', which includes Spirodraw.dart,
-ColorPicker.dart, and the built-in Dart DOM library. For more on libraries, see also the 
+<p>Spirodraw.dart defines a library named 'spirodraw', which contains Spirodraw.dart and
+ColorPicker.dart, and imports the built-in Dart DOM library. For more on libraries, see also the 
 Total sample.</p>
 
 <h2 id="requestAnimationFrame">RequestAnimationFrame</h2>
@@ -52,7 +57,7 @@ to improve rendering.</p>
     refresh();
     rad = 0.0;
     run = true;
-    window.webkitRequestAnimationFrame((int time) {animate(time);}, frontCanvas);
+    window.webkitRequestAnimationFrame(animate, frontCanvas);
   }
   
   void animate(int time) {
@@ -60,8 +65,7 @@ to improve rendering.</p>
       rad+=stepSize;
       drawFrame(rad);
       num nTurns = rad / PI2;
-      numTurns.innerText = nTurns.floor().toString() + "/" 
-        + maxTurns.toString();
+      numTurns.innerText = '${nTurns.floor()}/$maxTurns';
       window.webkitRequestAnimationFrame(animate, frontCanvas);
     } else {
       stop();
@@ -70,8 +74,12 @@ to improve rendering.</p>
 
 <p>In the code excerpt above, line 5 invokes webkitRequestAnimationFrame with a closure containing
 the callback function, <em>animate</em>. The animate function in turn requests the next
-animation frame, passing itself as the callback using the shortcut syntax available when
-a function invokes itself.</p>
+animation frame, passing a reference to itself as the callback.</p>
+
+<h2 id="string_interpolation">String interpolation</h2>
+<p>As shown in line 13 above, you can evaluate variables in a string literal using 
+$<em>identifier</em> or ${<em>expression</em>}. This syntax offers a shortcut for string 
+concatenation using the + operator.
 
 <h2 id="top_level_functions">Top-level functions</h2>
 <p>In Dart, a function does not have to be associated with a class.</p>
@@ -107,8 +115,9 @@ int gcf(int n, int d) {
 }</pre>
 
 <p>In this example, note that the gcf function is defined outside the Spirodraw class and is
-invoked statically within the calcTurns() function. The main function is likewise defined 
-outside the Spirodraw class. In Dart, variables can also be top-level.</p>
+invoked within the calcTurns() function. The main function is likewise defined 
+outside the Spirodraw class. In Dart, variable declarations can also be top-level,
+but not statements or expressions.</p>
 
 <h2 id="color_picker">ColorPicker sample</h2>
 <p>Now let's look at ColorPicker.dart.</p>
@@ -122,17 +131,17 @@ typedef void PickerListener(String selectedColor);
 
 class ColorPicker {
 
-  static final List hexValues = ["00", "33", "66", "99", "CC", "FF"];
-  static final int COLS = 18;
+  static final hexValues = ['00', '33', '66', '99', 'CC', 'FF'];
+  static final COLS = 18;
   // Block height, width, padding
-  static final int BH = 10;
-  static final int BW = 10;
-  static final int BP = 1;
+  static final BH = 10;
+  static final BW = 10;
+  static final BP = 1;
   final List<PickerListener> _listeners;
   HTMLCanvasElement canvasElement;
   String _selectedColor = 'red';
-  final int height = 160;
-  final int width = 180;
+  final height = 160;
+  final width = 180;
   CanvasRenderingContext2D ctx;
   
   ColorPicker(this.canvasElement) :
@@ -146,6 +155,12 @@ class ColorPicker {
   
   String get selectedColor() => _selectedColor;
   
+  void set selectedColor(num i) {
+    _selectedColor = getHexString(i.floor());
+    showSelected();
+    fireSelected();
+  }
+  
   void onMouseMove(MouseEvent event) {
     int x = event.offsetX;
     int y = event.offsetY - 40;
@@ -155,7 +170,7 @@ class ColorPicker {
     ctx.setFillStyle(getHexString(getColorIndex(x, y)));
     ctx.fillRect(0, 0, width/2, 30);
   }
-
+  
   void onMouseDown(MouseEvent event) {
     Element elt = event.target;
     event.cancelBubble = true;
@@ -163,23 +178,23 @@ class ColorPicker {
     int y = event.offsetY - 40;
     if ((y &lt; 0) || (x &gt;= width))
       return;
-    setSelected(getColorIndex(x, y));
+    selectedColor = getColorIndex(x, y);
     fireSelected();
   }
-
+ 
   /**
    * Adds a [PickerListener] to receive updates.
    */
   void addListener(PickerListener listener) {
     _listeners.add(listener);
   }
-
+ 
   void addHandlers() {
     canvasElement.onmousemove = (e) { onMouseMove(e); };
     canvasElement.onmousedown = (e) { onMouseDown(e); };
   }
-
-   void drawPalette() {
+ 
+  void drawPalette() {
     int i=0;
     for (int r=0; r &lt; 256; r+=51) {
       for (int g=0; g &lt; 256; g+=51) {
@@ -194,19 +209,19 @@ class ColorPicker {
       }
     }
   }
-
+ 
   void fireSelected() {
     for (final listener in _listeners) {
       listener(_selectedColor);
     }
   }
-
+ 
   int getColorIndex(int x, int y) {
     // Get color index 0-215 using row, col
     int i = y ~/ BH * COLS + x ~/ BW;
     return i;
   }
-
+ 
   void showSelected() {
     ctx.setFillStyle(_selectedColor);
     ctx.fillRect(width / 2, 0, width / 2, 30);
@@ -214,61 +229,53 @@ class ColorPicker {
     ctx.fillRect(0, 0, width / 2, 30);
   }
   
-  void setSelected(num i) {
-    _selectedColor = getHexString(i.floor());
-    showSelected();
-    fireSelected();
-  }
- 
   String getHexString(int i) {
     int r = i ~/ 36;
     int g = (i % 36) ~/ 6;
     int b = i % 6;
     return '#${hexValues[r]}${hexValues[g]}${hexValues[b]}';
   }
-  
+   
 }</pre>
 
 <h2 id="typedef">Function type aliases</h2>
 
-<p>In Dart, functions are objects just as strings and numbers. To declare the type of a variable
-or return type that references a function, you use a function type alias, or typedef.</p>
+<p>In Dart, functions are objects just like strings and numbers. If you want to use a function as 
+a variable type or return type, you can use a function type alias, or typedef.</p>
 
 <p>In the example above, the typedef statement in line 5 declares a function type 
-PickerListener that takes a String argument and returns void. Lines 57-59 add a function of 
-type PickerListener to a List, and lines 82-83 iterate over the List to invoke each function.</p>
+PickerListener that takes a String argument and returns void. Lines 63-65 add a function of 
+type PickerListener to a List, and lines 89-90 iterate over the List to invoke each function.</p>
 
 <p>Function type aliases offer a compact way to represent any type of callback.</p>
 
-<h2 id="type_inference">Type inference</h2>
-<p>Dart is an optionally typed language and types can often be inferred. For example,
-line 9 initializes a List of strings, but the variable is declared only as List, not 
-List&lt;String&gt;, because the type can be inferred from the string literals.</p>
+<h2 id="type_propagation">Type propagation</h2>
+<p>Dart types are automatically propagated from constants and literals. For example,
+line 9 initializes a List of Strings, but the variable type List&lt;String&gt; is
+omitted because the type can be determined from the string literals.</p>
 
 <h2 id="initializers">Constructor initializers</h2>
 <p>Often constructor arguments are used to initialize instance fields. To avoid repetitive 
 this.name = name initializers, Dart allows you to write this.name in the constructor instead 
 of the argument name. See the ColorPicker constructor in line 22 for an example. Also, Dart 
 lets you write an initializer list in the constructor as shown in line 23. Initializers are 
-executed before the instance is constructed.</p>
+executed before the instance is constructed and are used to initialize final fields.</p>
 
 <h2 id="terse_function_syntax">Terse function syntax</h2>
-<p>Functions that contain a single line in the body can be declared in a compact one-line 
-syntax using =&gt; as shown in line 31. Note also the definition of an explicit getter. When
-you define a getter or setter function this way, Dart will automatically invoke the getter
-or setter when you reference a variable having the same name as the getter/setter. By 
-convention, the actual variable name is prefixed with an underscore to distinguish it from
-the getter/setter name.</p>
+<p>Functions that simply return an expression can be declared in a compact one-line 
+syntax using =&gt; as shown in line 31.</p>
+
+<h2 id="getters_setters">Getters and setters</h2>
+<p>Note the definition of an explicit getter and
+setter in lines 31-37. When you define a getter or setter function this way, Dart will 
+automatically invoke the getter or setter when you reference a variable having the same 
+name as the getter/setter. By convention, the actual variable name is prefixed with an 
+underscore, which makes it private to the library and distinguishes it from the 
+getter/setter name.</p>
 
 <h2 id="for-in">For-in statement</h2>
-<p>Lines 81-84 show a for-in loop, which iterates over any object that implements
-the Iterable interface.</p>
-
-<h2 id="string_interpolation">String interpolation</h2>
-<p>Our last bit of syntactic sugar in this example is string interpolation. As shown in line 
-111, you can evaluate variables in a string literal using $<em>identifier</em> or 
-${<em>identifier</em>}. This syntax offers a shortcut for string concatenation using the
-+ operator.
- </p>
+<p>Our last bit of syntactic sugar is shown in lines 89-90. The for-in loop iterates over 
+any object that implements the Iterable interface.</p>
 </div>
+</section>
 </body>
