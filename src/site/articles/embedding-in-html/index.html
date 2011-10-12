@@ -49,12 +49,17 @@ the <code>script</code> tag&rsquo;s <code>src</code> attribute.
 </p>
 
 <p>
-The Dart script can have optional
-<code>#source</code> and <code>#import</code> directives.
-It must have a visible top-level function called <code>main()</code>,
+The Dart script must have a visible top-level function called <code>main()</code>,
 either declared directly in the script or in a sourced/imported file.
 The browser will invoke <code>main()</code>
 when the page is loaded.
+</p>
+
+<p>
+The Dart script may have optional
+<code>#source</code> and <code>#import</code> directives. 
+Dart scripts include other scripts using the <code>#source</code> directive. 
+Dart scripts can use other libraries with the <code>#import</code> directive.
 </p>
 </section>
 
@@ -80,7 +85,7 @@ JavaScript, declarations across multiple script tags are
 combined together in the same namespace.
 In Dart, code in one script tag cannot directly access code defined in another.
 If a script wishes to load code from a different URL,
-it must do so via <code>#import</code>.
+it must do so via <code>#source</code> or <code>#import</code>.
 Each script tag must define its own <code>main()</code> entry point
 in order to run.
 </p>
@@ -202,8 +207,8 @@ and (2) exactly one <code>main()</code> should exist per script.
 </aside>
 
 <p>
-Instead, when programmers wish to incorporate external code,
-they need to use a <code>#source</code> or <code>#import</code> directive.
+To incorporate external code,
+use a <code>#source</code> or <code>#import</code> directive instead.
 For example, suppose the file <code>Hello.dart</code>
 defines the <code>hello()</code> method shown above.
 Then the following executes as expected:
