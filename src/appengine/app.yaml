@@ -1,6 +1,15 @@
 application: dart-lang
 version: yourname-bfce4b5c8892ea682db257c3540aa4ac
-#version: bfce4b5c8892ea682db257c3540aa4ac
+# NOTE: URL is yourname-bfce4b5c8892ea682db257c3540aa4ac.dart-lang.appspot.com
+#       To get your own staging server, change 'yourname' to... you guessed it.
+#       To deploy to dartlang.org (only from a clean master workspace)
+#       remove everything up to and including the '-'.
+#       For more information on making changes, see goto/dartsiteupdate.
+#
+# IMPORTANT: AFTER changing the version, DO THIS:
+#       make clean
+#       make build
+#
 runtime: python
 api_version: 1
 
