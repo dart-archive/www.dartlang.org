@@ -432,6 +432,10 @@ pre.commandline {
   margin: 10px;
 }
 
+article.author h2 {
+  font-size: 1.1em;
+}
+
 /* TODO: fix me! */
 blockquote {
   margin: 1em 2em;

@@ -1,0 +1,35 @@
+---
+title: Gilad Bracha
+layout: default
+rel:
+  me: https://plus.google.com/106019496651402300537
+---
+<h1>Gilad Bracha</h1>
+
+<article class="author">
+  <section class="author-follow">
+    <h2>Follow Gilad</h2>
+    <ul>
+      <li><a href="{{ page.rel.me }}">+Gilad Bracha</a></li>
+      <li><a href="http://twitter.com/gilad_bracha">@gilad_bracha</a></li>
+    </ul>
+  </section>
+
+  <section class="author-bio">
+    <h2>Bio</h2>
+    <p>
+      Gilad Bracha is the creator of the Newspeak programming language and a software engineer at Google. Previously, he was a VP at SAP Labs, a Distinguished Engineer at Cadence, and a Computational Theologist and Distinguished Engineer at Sun. He is co-author of the Java Language Specification, and a researcher in the area of object-oriented programming languages. Prior to joining Sun, he worked on Strongtalk, the Animorphic Smalltalk System. He received his  B.Sc in Mathematics and Computer Science from Ben Gurion University in Israel and a Ph.D. in Computer Science from the University of Utah.
+    </p>
+  </section>
+
+  <section class="author-articles">
+    <h2>On this site</h2>
+    <ul>
+      {% for article in site.pages %}
+        {% if article.rel and article.rel.author == 'gilad-bracha' %}
+          <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</article>

@@ -1,0 +1,35 @@
+---
+title: Bob Nystrom
+layout: default
+rel:
+  me: https://plus.google.com/100798142896685420545
+---
+<h1>Bob Nystrom</h1>
+
+<article class="author">
+  <section class="author-follow">
+    <h2>Follow Bob</h2>
+    <ul>
+      <li><a href="{{ page.rel.me }}">+Bob Nystrom</a></li>
+      <li><a href="http://twitter.com/munificentbob">@munificentbob</a></li>
+    </ul>
+  </section>
+
+  <section class="author-bio">
+    <h2>Bio</h2>
+    <p>
+      Bob Nystrom is an engineer on the Dart team at Google. Out of a perverse idea of "fun", he created the Magpie programming language. Before becoming a language nerd, he was a game programmer at EA, a user interface designer, and once worked on educational videos about how not to set your house on fire because apparently children can't figure that out on their own without a giant puppet explaining it in poorly rhyming verse.
+    </p>
+  </section>
+
+  <section class="author-articles">
+    <h2>On this site</h2>
+    <ul>
+      {% for article in site.pages %}
+        {% if article.rel and article.rel.author == 'bob-nystrom' %}
+          <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</article>

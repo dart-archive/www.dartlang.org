@@ -18,6 +18,8 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 	<link rel="stylesheet" href="/css/style.css?v=2">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	{% if page.rel.author %}<link rel="author" href="/authors/{{ page.rel.author }}.html">{% endif %}
+	{% if page.rel.me %}<link rel="me" href="{{ page.rel.me }}">{% endif %}
 	<script src="/js/modernizr.custom.02548.js"></script>
   
 	<script type="text/javascript">
@@ -39,5 +41,5 @@
 		<header>
 		  	<div id="plus1"><div class="g-plusone" data-size="standard" data-count="true"></div></div>
       	<a href="/"><img src="/imgs/dart-logo.png" width="268" height="116" alt="Dart"></a>
-			<span id="tagline">Structured web programming</span>
+			  <span id="tagline">Structured web programming</span>
 		</header>
