@@ -321,32 +321,26 @@ footer {
   padding: 20px;
 }
 
-section#intro {
+section.intro {
   font-size: 13px;
 }
 
-section#intro dn {
-  color: #1155CC;
-  font-size: 2em;
-  font-weight: bold;
-}
-
-section#intro dl dt {
+section.intro dl dt {
   color: #1155CC;
   margin-top: 0px;
   font-size: 2em;
   font-weight: bold;
 }
 
-section#intro dd {
+section.intro dd {
   margin-left: 0px;
 }
 
-section#intro h2 {
+section.intro h2 {
   color: #1155CC;
 }
 
-section#intro aside {
+section.intro aside {
   font-size: .8em;
 }
 
