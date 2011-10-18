@@ -1,15 +1,10 @@
 ---
 layout: default
+header:
+  css: ["/css/dartboard.css"]
 ---
-<link href="/css/style.css" type="text/css" rel="stylesheet"/>
-<link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
-<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
-<script type="text/javascript" src="/js/prettify.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
 
-<body onLoad="prettyPrint()">
-
-<section id="intro">
+<section class="intro">
   	<dl>
 		<dt> From quick prototypes to serious apps </dt>
 	    <dd>
@@ -32,9 +27,12 @@ layout: default
 		software. Dart is still in the early stages of development,
         so please take a look and <a href="/support/index.html">tell us what you think</a>.
 	    </dd>
+	  </dl>
+</section>
 		
-		<hr/>
-	    <dn>Examples of Dart code</dn>
+<section class="intro" style="border-top: 1px solid #CCC; padding-top: 10px">
+   <dl>
+	    <dt>Examples of Dart code</dt>
 	    <dd>
 		The Dart code below is inside an app called Dartboard. If you 
 		click the Run button at Dartboard's upper left&mdash;go ahead,

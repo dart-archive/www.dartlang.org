@@ -1,21 +1,24 @@
 <nav>
   <ul>
     {% nav_link / %}Home{% endnav_link %}
-    <li>Getting Started</li>
+    <li>Getting Started
       <ul>
         {% nav_link /docs/technical-overview/index.html %}Technical Overview{% endnav_link %}
-        <li> Tutorials </li>
+        <li> Tutorials
           <ul>
             {% nav_link /docs/getting-started/index.html %}Hello, World{% endnav_link %}
             {% nav_link /docs/getting-started/class.html %}Classes{% endnav_link %}
             {% nav_link /docs/getting-started/interface.html %}Interfaces{% endnav_link %}
           </ul>
+         </li>
       </ul>
-    <li>Language &amp; Libraries </li>
+    </li>
+    <li>Language &amp; Libraries
       <ul>
         {% nav_link /docs/spec/index.html %}Language Spec{% endnav_link %}
         {% nav_link /docs/api/index.html %}Library Reference{% endnav_link %}
       </ul>
+     </li>
     {% nav_link /samples/index.html %}Code Samples{% endnav_link %}
     {% nav_link /articles/index.html %}Articles{% endnav_link %}
     {% nav_link /support/index.html %}Discuss{% endnav_link %}
