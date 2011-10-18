@@ -44,3 +44,5 @@ DEPLOYMENT
 * Configure the version you are deploying: 'dev' or 'prod'.
   * Open ./src/appengine/app.yaml
   * Change version to 'dev' or 'prod'
+
+XXX testing workflow
