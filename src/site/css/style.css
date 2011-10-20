@@ -93,6 +93,10 @@ a:hover {
     \\ ========================================== //
 */
 
+p {
+    font-size: 1em;
+}
+
 .comment, authornote {
   color:red;
   /* display:none; */
@@ -353,9 +357,7 @@ section#what-is-dart h2 {
   color: #1155CC;
 }
 
-p {
-    font-size: 15px;
-}
+
 
 section#start-here {
   height: 100%;
