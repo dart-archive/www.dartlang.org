@@ -2,13 +2,12 @@
 layout: default
 title: "Spirodraw Sample"
 ---
-<link href="/css/style.css" type="text/css" rel="stylesheet"/>
-<link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="/js/prettify.js"></script>
+<h1>Spirodraw code walkthrough</h1>
 
-<body onLoad="prettyPrint()">
-<section>
-<div id="containers">
+<aside class="note">
+  The <a href="https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/client/samples/#samples%2Fspirodraw%253Fstate%253Dclosed">full source code</a> for this sample is available.
+</aside>
+
 <p>The Spirodraw sample is similar to
 <a href="/samples/sunflower/">Sunflower</a>
 and illustrates a few more language features.</p>
@@ -30,14 +29,15 @@ and illustrates a few more language features.</p>
 <h2 id="code_organization">Code organization</h2>
 <p>First, let's take a look at the Spirodraw declarations.</p>
 
-<pre class="prettyprint lang-dart linenums">
+{% pretty_code %}
 #library('spirodraw');
 
 #import('dart:dom');
 #source("ColorPicker.dart");
-#resource("spirodraw.css");</pre>
+#resource("spirodraw.css");
+{% endpretty_code %}
 
-<p>A Dart script belongs to a libary declared with a name given by the #library directive.
+<p>A Dart script belongs to a library declared with a name given by the #library directive.
 Dart scripts include other scripts using the #source directive.
 Included scripts may not contain any # directives. Dart scripts can also use other libraries
 with the #import directive. The #resource directive is currently not used. In the future,
@@ -48,43 +48,44 @@ it may be used to bundle non-code resources with libraries. The arguments to #im
 ColorPicker.dart, and imports the built-in Dart DOM library. For more on libraries, see also the 
 Total sample.</p>
 
-<h2 id="requestAnimationFrame">RequestAnimationFrame</h2>
+<h2 id="requestAnimationFrame">requestAnimationFrame</h2>
 <p>Spirodraw uses <a href="http://www.html5rocks.com/en/tutorials/canvas/performance/#toc-raf">requestAnimationFrame</a>
 to improve rendering.</p>
 
-<pre class="prettyprint lang-dart linenums">
-  void start() {
-    refresh();
-    rad = 0.0;
-    run = true;
+{% pretty_code %}
+void start() {
+  refresh();
+  rad = 0.0;
+  run = true;
+  window.webkitRequestAnimationFrame(animate, frontCanvas);
+}
+
+void animate(int time) {
+  if (run &amp;&amp; rad &lt;= maxTurns * PI2) {
+    rad+=stepSize;
+    drawFrame(rad);
+    num nTurns = rad / PI2;
+    numTurns.innerText = '${nTurns.floor()}/$maxTurns';
     window.webkitRequestAnimationFrame(animate, frontCanvas);
+  } else {
+    stop();
   }
-  
-  void animate(int time) {
-    if (run && rad <= maxTurns * PI2) {
-      rad+=stepSize;
-      drawFrame(rad);
-      num nTurns = rad / PI2;
-      numTurns.innerText = '${nTurns.floor()}/$maxTurns';
-      window.webkitRequestAnimationFrame(animate, frontCanvas);
-    } else {
-      stop();
-    }
-  }</pre>
+}
+{% endpretty_code %}
 
 <p>In the code excerpt above, line 5 invokes webkitRequestAnimationFrame with a closure containing
-the callback function, <em>animate</em>. The animate function in turn requests the next
+the callback function, <code>animate()</code>. The <code>animate()</code> function in turn requests the next
 animation frame, passing a reference to itself as the callback.</p>
 
 <h2 id="string_interpolation">String interpolation</h2>
 <p>As shown in line 13 above, you can evaluate variables in a string literal using 
-$<em>identifier</em> or ${<em>expression</em>}. This syntax offers a shortcut for string 
+<code>$<var>identifier</var></code> or <code>${<var>expression</var>}</code>. This syntax offers a shortcut for string 
 concatenation using the + operator.
 
 <h2 id="top_level_functions">Top-level functions</h2>
 <p>In Dart, a function does not have to be associated with a class.</p>
 
-<pre class="prettyprint lang-dart linenums">
+{% pretty_code %}
 ...
 void main() {
   new Spirodraw().go();
@@ -109,20 +110,21 @@ int gcf(int n, int d) {
     return n;
   int max = Math.max(n, d);
   for (int i = max ~/ 2; i > 1; i--)
-    if ((n % i == 0) && (d % i == 0))
+    if ((n % i == 0) &amp;&amp; (d % i == 0))
       return i;
   return 1;
-}</pre>
+}
+{% endpretty_code %}
 
-<p>In this example, note that the gcf function is defined outside the Spirodraw class and is
-invoked within the calcTurns() function. The main function is likewise defined 
+<p>In this example, note that the <code>gcf()</code> function is defined outside the Spirodraw class and is
+invoked within the <code>calcTurns()</code> function. The <code>main()</code> function is likewise defined 
 outside the Spirodraw class. In Dart, variable declarations can also be top-level,
 but not statements or expressions.</p>
 
 <h2 id="color_picker">ColorPicker sample</h2>
 <p>Now let's look at ColorPicker.dart.</p>
 
-<pre class="prettyprint lang-dart linenums">
+{% pretty_code %}
 // Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -236,7 +238,8 @@ class ColorPicker {
     return '#${hexValues[r]}${hexValues[g]}${hexValues[b]}';
   }
    
-}</pre>
+}
+{% endpretty_code %}
 
 <h2 id="typedef">Function type aliases</h2>
 
@@ -276,6 +279,5 @@ getter/setter name.</p>
 <h2 id="for-in">For-in statement</h2>
 <p>Our last bit of syntactic sugar is shown in lines 89-90. The for-in loop iterates over 
 any object that implements the Iterable interface.</p>
-</div>
-</section>
-</body>
+
+{% include syntax-highlighting.html %}

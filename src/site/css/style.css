@@ -185,15 +185,6 @@ header li {
   display: inline;
 }
 
-#fyeo {
-  background-color: red;
-  color: white;
-  font-style: bold;
-  width: 100%;
-  padding: 5px;
-  text-align: center;
-}
-
 header div#plus1 {
   position: absolute;
   top: 20px;
@@ -250,14 +241,6 @@ div#docs-main {
   width: 650px; /* 600px; */
 }
 
-div#samples p {
-  margin-left: 1.5em;
-}
-
-div#samples h2 {
-  margin-bottom: -10px;
-}
-
 header h2 {
   font-size: 2em;
   font-style: italic;
@@ -265,14 +248,13 @@ header h2 {
 }
 
 article h1 {
-  font-size: 2em;
+  font-size: 3em;
   margin-bottom: 10px;
 }
 
 article h2 {
   margin-bottom: 10px;
-  font-size: 1.5em;
-  margin-top: 1em;
+  font-size: 2em;
 }
 
 article h3 {
@@ -329,21 +311,6 @@ section.intro {
   font-size: 13px;
 }
 
-section.intro dl dt {
-  color: #1155CC;
-  margin-top: 0px;
-  font-size: 2em;
-  font-weight: bold;
-}
-
-section.intro dd {
-  margin-left: 0px;
-}
-
-section.intro h2 {
-  color: #1155CC;
-}
-
 section.intro aside {
   font-size: .8em;
 }
@@ -356,8 +323,6 @@ section#what-is-dart dl dt {
 section#what-is-dart h2 {
   color: #1155CC;
 }
-
-
 
 section#start-here {
   height: 100%;
@@ -431,6 +396,8 @@ pre.commandline {
 article.author h2 {
   font-size: 1.1em;
 }
+
+.beware {color:red; font-weight:bold;}
 
 /* TODO: fix me! */
 blockquote {

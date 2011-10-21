@@ -5,41 +5,37 @@ header:
 ---
 
 <section class="intro">
-  	<dl>
-		<dt> From quick prototypes to serious apps </dt>
-	    <dd>
+		<h2> From quick prototypes to serious apps </h2>
+    <p>
 		Dart's optional types let you prototype quickly
 		and then revise your code to be more maintainable.
-	    </dd>
+    </p>
 
-	    <dt>Wherever you need structured code</dt>
-	    <dd>
+    <h2>Wherever you need structured code</h2>
+    <p>
 		You can use the same Dart code in most modern web 
 		browsers (Chrome, Safari 5+, Firefox 4+) and on servers.
 		Look for more browser support shortly.
-	    </dd>
+    </p>
 	
-	    <dt>Familiar yet new </dt>
-	    <dd>
+    <h2>Familiar yet new </h2>
+    <p>
 		Dart code should look familiar if you know a language or two,
 		and you can use time-tested features such as classes and closures.
 		Dart's new features make it easier for you to develop and maintain 
 		software. Dart is still in the early stages of development,
-        so please take a look and <a href="/support/index.html">tell us what you think</a>.
-	    </dd>
-	  </dl>
+    so please take a look and <a href="/support/index.html">tell us what you think</a>.
+    </p>
 </section>
 		
 <section class="intro" style="border-top: 1px solid #CCC; padding-top: 10px">
-   <dl>
-	    <dt>Examples of Dart code</dt>
-	    <dd>
+    <h2>Examples of Dart code</h2>
+    <p>
 		The Dart code below is inside an app called Dartboard. If you 
 		click the Run button at Dartboard's upper left&mdash;go ahead,
 		you know you want to&mdash;you'll see the expected output 
 		(Hello, Dart!) at the bottom.
-	    </dd>
-	</dl>
+    </p>
 </section>
 
 <section>
@@ -47,17 +43,22 @@ header:
 TODO: Not keen on the styling here, please feel free to change.
       To add more samples, see _includes/samples.html
 {% endcomment %}
+
 <div id="samples">
+<label for="samples-list">Dart code examples:
   <select id="samples-list">
     <option value="hello">Hello, Dart</option>
     <option value="fib">Fibonacci</option>
     <option value="point">Point</option>
     <option value="isolates">Isolate communication</option>
   </select>
+</label>
 </div>
+
 <code id="samples-editor" class="codes for-samples">main() {
   print('Hello, Dart!');
 }</code>
+
 {% include samples.html %}
 
 <script async type="text/javascript"
