@@ -1,0 +1,27 @@
+<h1>{{ page.title }}</h1>
+
+<article class="author">
+  <section class="author-follow">
+    <h2>Follow {{ page.author.fname }}</h2>
+    <ul>
+      <li><a rel="me" href="{{ page.rel.me }}">+{{ page.author.fname }} {{ page.author.lname }}</a></li>
+      <li><a href="http://twitter.com/{{ page.author.twitter }}">@{{ page.author.twitter }}</a></li>
+    </ul>
+  </section>
+
+  <section class="author-bio">
+    <h2>Bio</h2>
+    {{ bio }}
+  </section>
+
+  <section class="author-articles">
+    <h2>On this site</h2>
+    <ul>
+      {% for article in site.pages %}
+        {% if article.rel and article.rel.author == page.author.key %}
+          <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</article>
