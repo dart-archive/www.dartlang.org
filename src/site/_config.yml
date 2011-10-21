@@ -6,3 +6,4 @@ source: .
 destination: ../../build/static
 markdown: rdiscount
 pygments: true
+permalink: /news/:year/:month/:day/:title.html
