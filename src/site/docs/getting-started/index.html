@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Tutorial: Hello, World"
+title: "Tutorial: The Basics"
 header:
   css: ["/css/dartboard.css"]
 ---
-<h1> Tutorial: Hello, World </h1>
+<h1> {{ page.title }} </h1>
 
 <section>
 <p>
@@ -15,6 +15,9 @@ using the Dartboard app.
 </p>
 </section>
 
+{% comment %}
+NOTE: The guts of this page are in /_includes/docs/getting-started/.
+{% endcomment %}
 {% include docs/getting-started/_world.html %}
 
 <section>
