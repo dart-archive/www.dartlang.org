@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Optional Types in Dart"
+rel:
+  author: gilad-bracha
 ---
 
 <h1>Optional Types in Dart</h1>
@@ -99,12 +101,13 @@ to satisfy a narrow-minded type system.
 For example, consider:
 </p>
 
-<pre>
+{% pretty_code %}
 String s1 = '9';
 String s2 = '1';
 ...
 int n = s1 + s2;
-print(n);</pre>
+print(n);
+{% endpretty_code %}
 
 <p>
 This is clearly a problem.
@@ -118,9 +121,10 @@ and printing <code>91</code>.
 However, unlike a classic mandatory type system, code like this
 </p>
 
-<pre>
+{% pretty_code %}
 Object lookup(String key) {...} // a lookup method in a heterogenous table
-String s = lookup('Frankenstein');</pre>
+String s = lookup('Frankenstein');
+{% endpretty_code %}
 
 <p>
 will not cause any complaints from the checker.
@@ -149,12 +153,13 @@ Using type <code>Dynamic</code> makes the checker shut up.
 Occasionally, you may want to use <code>Dynamic</code> explicitly.
 </p>
 
-<pre>
+{% pretty_code %}
 Map&lt;String, Dynamic> m = {
     'one': new Partridge(),
     'two': new TurtleDove(),
     ...,
-    'twelve': new Drummer()};</pre>
+    'twelve': new Drummer()};
+{% endpretty_code %}
 
 <p>
 We could have used the type
@@ -168,9 +173,9 @@ we may prefer to use <code>Dynamic</code>.
 If we try to call methods on the map’s values, for example,
 </p>
 
-<pre>
+{% pretty_code %}
 pearTree = m['one'].container();
-</pre>
+{% endpretty_code %}
 
 <p>
 we would get a warning if the contents were of type <code>Object</code>,
@@ -199,33 +204,33 @@ You can create instances of generic classes without providing type parameters.
 For example:
 </p>
 
-<pre>
+{% pretty_code %}
 new List();
-</pre>
+{% endpretty_code %}
 
 <p>
 works just fine. Of course, you can write
 </p>
 
-<pre>
+{% pretty_code %}
 new List&lt;String>();
-</pre>
+{% endpretty_code %}
 
 <p>
 if you want. 
 </p>
 
-<pre>
+{% pretty_code %}
 new List();
-</pre>
+{% endpretty_code %}
 
 <p>
 is just a shorthand for 
 </p>
 
-<pre>
+{% pretty_code %}
 new List&lt;Dynamic>();
-</pre>
+{% endpretty_code %}
 
 <p>
 In constructors, type parameters play a runtime role.
@@ -233,22 +238,22 @@ They are actually passed at run time,
 so that you can use them when you do dynamic type tests.
 </p>
 
-<pre>
+{% pretty_code %}
 new List&lt;String>() is List&lt;Object>  // true: every string is an object 
 new List&lt;Object>() is List&lt;String>  // false: not all objects are strings
-</pre>
+{% endpretty_code %}
 
 <p>
 Generics in Dart conform to programmer intuition.
 Here are some more interesting cases:
 </p>
 
-<pre>
+{% pretty_code %}
 new List&lt;String>() is List&lt;int>     // false
 new List&lt;String>() is List          // true
 new List&lt;String>() is List&lt;Dynamic> // same as line above
 new List() is List&lt;Dynamic>         // true, these are exactly the same
-</pre>
+{% endpretty_code %}
 
 <p>
 In contrast, type annotations
@@ -258,9 +263,9 @@ play no runtime role and have no effect on program semantics.
 One last case worth studying:
 </p>
 
-<pre>
+{% pretty_code %}
 new List() is List&lt;String>          // true as well!
-</pre>
+{% endpretty_code %}
 
 <p>
 You may be writing your program without types,
@@ -286,9 +291,9 @@ If the checks fail,
 execution will stop at that point with a clear error message. So, 
 </p>
 
-<pre>
+{% pretty_code %}
 String s = new Object();
-</pre>
+{% endpretty_code %}
 
 <p>
 will stop the code in its tracks,
@@ -296,9 +301,9 @@ because <code>Object</code> is not a subtype of <code>String</code>.
 However
 </p>
 
-<pre>
+{% pretty_code %}
 Object foo(){return "x";}
-String s = foo();</pre>
+String s = foo();{% endpretty_code %}
 
 <p>
 works just fine,
@@ -316,12 +321,12 @@ and so on.
 Some more examples:
 </p>
 
-<pre>
+{% pretty_code %}
 &lt;int>[0,1, 1][2] = new Object(); // fails in checked mode
 
 bar(int n) { return n *2;}
 ...
-bar(3.2); // returns 6.4 in production, but fails in checked mode</pre>
+bar(3.2); // returns 6.4 in production, but fails in checked mode{% endpretty_code %}
 
 <p>
 In checked mode , every time an argument is passed to a function,
@@ -330,7 +335,7 @@ if it is a subtype of the declared type of the formal parameter.
 We can correct this easily:
 </p>
 
-<pre>
+{% pretty_code %}
 bar(num n) { return n *2;}
 ...
 bar(3.2); // works fine
@@ -338,7 +343,8 @@ bar(3.2); // works fine
 int i_bar(num n) { return n *2;}
 ...
 i_bar(3.2); // fails in checked mode
-            // because returned value is not an int</pre>
+            // because returned value is not an int
+{% endpretty_code %}
 
 <p>
 Notice the last line.
@@ -350,9 +356,10 @@ even if the result of the function is not assigned to anything.
 Let’s return to our old friend Frankenstein.
 </p>
 
-<pre>
+{% pretty_code %}
 Object lookup(String key) {...} // a lookup method in a heterogenous table
-String s = lookup('Frankenstein'); </pre>
+String s = lookup('Frankenstein');
+{% endpretty_code %}
 
 <p>
 If we are correct in our assumption that the lookup returns a string,
@@ -373,12 +380,12 @@ Of course, if you don’t use types at all,
 checked mode won’t get in your way. 
 </p>
 
-<pre>
+{% pretty_code %}
 my_add(s1, s2) { return s1 + s2;}
 
 my_add(3, 4); // 7
 my_add("3", "4"); // "34"
-</pre>
+{% endpretty_code %}
 
 <p>
 All these checks impose a considerable performance penalty,
@@ -454,3 +461,5 @@ However, you should not hesitate to use reflection when it truly makes sense.
 </p>
 
 </section>
+
+{% include syntax-highlighting.html %}

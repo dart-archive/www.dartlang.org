@@ -2,173 +2,173 @@
 layout: default
 title: "Technical Overview"
 ---
-
-<link href="/css/style.css" type="text/css" rel="stylesheet"/>
-<link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="/js/prettify.js"></script>
-
-<body onLoad="prettyPrint()">
-
 <h1>Technical Overview </h1>
 
 <section>
-<p>
-Dart is a new class-based programming language
-for creating structured web applications.
-Developed with the goals of simplicity, efficiency, and scalability,
-the Dart language combines powerful new language features
-with familiar language constructs into a clear, readable syntax.
-</p>
+  <p>
+  Dart is a new class-based programming language
+  for creating structured web applications.
+  Developed with the goals of simplicity, efficiency, and scalability,
+  the Dart language combines powerful new language features
+  with familiar language constructs into a clear, readable syntax.
+  </p>
 
-<aside class="note">
-<b>Note:</b>
-This document is part of an early preview of
-the Dart language and programming environment.
-Some elements are missing from the current release,
-and the details are subject to change based on the feedback we receive.
-</aside>
+  <aside class="note">
+  <b>Note:</b>
+  This document is part of an early preview of
+  the Dart language and programming environment.
+  Some elements are missing from the current release,
+  and the details are subject to change based on the feedback we receive.
+  </aside>
 
-<h4> Contents </h4>
+  <h4> Contents </h4>
 
-<ul>
-  <li> <a href="#key">Key features</a> </li>
-  <li> <a href="#goals">Design goals</a> </li>
-  <li> <a href="#code">Show me the code </a>
-    <ul>
-    <li> <a href="#classes">Classes and interfaces </a> </li>
-    <li> <a href="#optional-types">Optional types </a> </li>
-    </ul>
-  </li>
-  <li> <a href="#howtouse">How can I use Dart? </a>
-    <ul>
-    <li> <a href="#mimetype">New MIME type </a> </li>
-    </ul>
-  </li>
-{% comment %}
-  <li> <a href="#tools">Tools </a> </li>
-    <li> <a href="#editor">Dart Editor </a> </li>
-{% endcomment %}
-  <li> <a href="#libraries">Libraries </a> </li>
-  <li> <a href="#involved">Get involved </a> </li>
-</ul>
-</section>
-
-
-<section>
-<h2 id="key"> Key features </h2>
-
-<p>
-Key features of the Dart language include:
-</p>
-
-<dl>
-  <dt>Classes</dt>
-  <dd>
-    Classes and interfaces provide a well understood mechanism
-    for efficiently defining APIs.
-    These constructs enable encapsulation and reuse of methods and data.
-    </dd>
-  <dt>Optional types</dt>
-  <dd>
-    Dart programmers can optionally add static types to their code.
-    Depending on programmer preference and stage of application development,
-    the code can migrate from a simple, untyped experimental prototype
-    to a complex, modular application with typing.
-    Because types state programmer intent,
-    less documentation is required to explain what is happening in the code,
-    and type-checking tools can be used for debugging.
-    </dd>
-  <dt>Libraries</dt>
-  <dd>
-    Developers can create and use libraries
-    that are guaranteed not to change during runtime.
-    Independently developed pieces of code can therefore
-    rely on shared libraries.
-    </dd>
-  <dt>Tooling</dt>
-  <dd>
-    Dart will include a rich set of
-    execution environments, libraries, and development tools
-    built to support the language.
-    These tools will enable productive and dynamic development,
-    including edit-and-continue debugging and beyond&mdash;up
-    to a style where you program an application outline, run it,
-    and fill in the blanks as you run.
-    </dd>
-</dl>
-
-</section>
-
-
-<section>
-<h2 id="goals"> Design goals </h2>
-
-<p>
-The Dart programming language is presented here in its early stages.
-The following design goals will guide
-the continued evolution and refinement of this open source project:
-</p>
-
-<ul>
-  <li>Create a <b>structured yet flexible</b>
-    programming language for the web.</li>
-  <li>Make Dart feel <b>familiar and natural</b> to programmers
-    and thus easy to learn.</li>
-  <li>Ensure that all Dart language constructs allow
-    <b>high performance</b> and
-    <b>fast application startup</b>.</li>
-  <li>Make Dart appropriate for the
-    <b>full range of devices on the web</b>&mdash;including
-    phones, tablets, laptops, and servers.</li>
-  <li>Provide tools that make Dart run fast
-    <b>across all major modern browsers</b>. </li>
-</ul>
-
-<p>
-These design goals address the following problems
-currently facing web developers:
-</p>
-
-<ul>
-  <li>Small scripts often evolve into
-    large web applications with no apparent structure&mdash;they&rsquo;re
-    hard to debug and difficult to maintain.
-    In addition, these monolithic apps can&rsquo;t be split up
-    so that different teams can work on them independently.
-    It&rsquo;s difficult to be productive
-    when a web application gets large.</li>
-  <li>Scripting languages are popular
-    because their lightweight nature makes it easy to write code quickly.
-    Generally, the contracts with other parts of an application
-    are conveyed in comments rather than in the language structure itself.
-    As a result, it&rsquo;s difficult for someone other than the author
-    to read and maintain a particular piece of code.</li>
-  <li>With existing languages,
-    the developer is forced to make a choice between
-    static and dynamic languages.
-    Traditional static languages require heavyweight toolchains
-    and a coding style that can feel inflexible and overly constrained.</li>
-  <li>Developers have not been able to create homogeneous systems
-    that encompass both client and server,
-    except for a few cases such as Node.js and Google Web Toolkit (GWT).
+  <ul class="toc">
+    <li> <a href="#key">Key features</a> </li>
+    <li> <a href="#goals">Design goals</a> </li>
+    <li> <a href="#code">Show me the code </a>
+      <ul>
+      <li> <a href="#classes">Classes and interfaces </a> </li>
+      <li> <a href="#optional-types">Optional types </a> </li>
+      </ul>
     </li>
-  <li>Different languages and formats entail context switches
-    that are cumbersome and add complexity to the coding process.</li>
-</ul>
+    <li> <a href="#howtouse">How can I use Dart? </a>
+      <ul>
+      <li> <a href="#mimetype">New MIME type </a> </li>
+      </ul>
+    </li>
+  {% comment %}
+    <li> <a href="#tools">Tools </a> </li>
+      <li> <a href="#editor">Dart Editor </a> </li>
+  {% endcomment %}
+    <li> <a href="#libraries">Libraries </a>
+      <ul>
+        <li><a href="#iterable">Iterable</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#comparable-hashable-pattern">Comparable, Hashable, Pattern</a></li>
+      </ul>
+      
+      </li>
+    <li> <a href="#involved">Get involved </a> </li>
+  </ul>
 </section>
 
 
-<section>
-<h2 id="code">Show me the code</h2>
+<section id="key">
+  <h2> Key features </h2>
+
+  <p>
+  Key features of the Dart language include:
+  </p>
+
+
+  <h3>Classes</h3>
+  <p>
+  Classes and interfaces provide a well understood mechanism
+  for efficiently defining APIs.
+  These constructs enable encapsulation and reuse of methods and data.
+  </p>
+
+  <h3>Optional types</h3>
+  <p>
+  Dart programmers can optionally add static types to their code.
+  Depending on programmer preference and stage of application development,
+  the code can migrate from a simple, untyped experimental prototype
+  to a complex, modular application with typing.
+  Because types state programmer intent,
+  less documentation is required to explain what is happening in the code,
+  and type-checking tools can be used for debugging.
+  </p>
+
+  <h3>Libraries</h3>
+  <p>
+  Developers can create and use libraries
+  that are guaranteed not to change during runtime.
+  Independently developed pieces of code can therefore
+  rely on shared libraries.
+  </p>
+
+  <h3>Tooling</h3>
+  <p>
+  Dart will include a rich set of
+  execution environments, libraries, and development tools
+  built to support the language.
+  These tools will enable productive and dynamic development,
+  including edit-and-continue debugging and beyond&mdash;up
+  to a style where you program an application outline, run it,
+  and fill in the blanks as you run.
+  </p>
+</section>
+
+
+<section id="goals">
+  <h2> Design goals </h2>
+
+  <p>
+  The Dart programming language is presented here in its early stages.
+  The following design goals will guide
+  the continued evolution and refinement of this open source project:
+  </p>
+
+  <ul>
+    <li>Create a <b>structured yet flexible</b>
+      programming language for the web.</li>
+    <li>Make Dart feel <b>familiar and natural</b> to programmers
+      and thus easy to learn.</li>
+    <li>Ensure that all Dart language constructs allow
+      <b>high performance</b> and
+      <b>fast application startup</b>.</li>
+    <li>Make Dart appropriate for the
+      <b>full range of devices on the web</b>&mdash;including
+      phones, tablets, laptops, and servers.</li>
+    <li>Provide tools that make Dart run fast
+      <b>across all major modern browsers</b>. </li>
+  </ul>
+
+  <p>
+  These design goals address the following problems
+  currently facing web developers:
+  </p>
+
+  <ul>
+    <li>Small scripts often evolve into
+      large web applications with no apparent structure&mdash;they&rsquo;re
+      hard to debug and difficult to maintain.
+      In addition, these monolithic apps can&rsquo;t be split up
+      so that different teams can work on them independently.
+      It&rsquo;s difficult to be productive
+      when a web application gets large.</li>
+    <li>Scripting languages are popular
+      because their lightweight nature makes it easy to write code quickly.
+      Generally, the contracts with other parts of an application
+      are conveyed in comments rather than in the language structure itself.
+      As a result, it&rsquo;s difficult for someone other than the author
+      to read and maintain a particular piece of code.</li>
+    <li>With existing languages,
+      the developer is forced to make a choice between
+      static and dynamic languages.
+      Traditional static languages require heavyweight toolchains
+      and a coding style that can feel inflexible and overly constrained.</li>
+    <li>Developers have not been able to create homogeneous systems
+      that encompass both client and server,
+      except for a few cases such as Node.js and Google Web Toolkit (GWT).
+      </li>
+    <li>Different languages and formats entail context switches
+      that are cumbersome and add complexity to the coding process.</li>
+  </ul>
+</section>
+
+
+<section id="code">
+<h2>Show me the code</h2>
 
 <p>
 Here are several code snippets
 to give you a feel for what Dart code looks like.
 </p>
 
-
-<section>
-<h3 id="classes">Classes and interfaces</h3>
+<section id="classes">
+<h3>Classes and interfaces</h3>
 
 <p>
 Dart&rsquo;s interfaces and classes provide you with
@@ -184,7 +184,7 @@ The following example defines an interface,
 along with a class and subclass that implement it:
 </p>
 
-<pre class="prettyprint lang-dart">
+{% pretty_code %}
 <b>interface Shape</b> {
   num perimeter();
 }
@@ -198,12 +198,13 @@ along with a class and subclass that implement it:
 <b>class Square extends Rectangle</b> {
   Square(num size) : super(size, size);
 }
-</pre>
-</section>
+{% endpretty_code %}
+
+</section> <!-- classes -->
 
 
-<section>
-<h3 id="optional-types">Optional types</h3>
+<section id="optional-types">
+<h3>Optional types</h3>
 
 <p>
 Dart provides, at the programmer&rsquo;s option,
@@ -222,7 +223,7 @@ and two methods:
 <code>scale()</code> and <code>distance()</code>.
 </p>
 
-<pre class="prettyprint lang-dart">
+{% pretty_code %}
 class Point {
   var x, y;
   Point(this.x, this.y);
@@ -234,7 +235,7 @@ main() {
   var a = new Point(2,3).scale(10);
   print(a.distance());
 }
-</pre>
+{% endpretty_code %}
 
 <p>
 Here is what this code looks like with types added
@@ -245,7 +246,7 @@ and that a <code>Point</code> contains two values
 of type <code>num</code>:
 </p>
 
-<pre class="prettyprint lang-dart">
+{% pretty_code %}
 class Point {
   num x, y;
   Point(num this.x, num this.y);
@@ -257,13 +258,13 @@ void main() {
   Point a = new Point(2,3).scale(10);
   print(a.distance());
 }
-</pre>
-</section>
-</section>
+{% endpretty_code %}
 
+</section> <!-- optional types -->
+</section> <!-- code -->
 
-<section>
-<h2 id="howtouse">How can I use Dart?</h2>
+<section id="howtouse">
+<h2>How can I use Dart?</h2>
 
 <p>
 You will be able to run Dart code in several ways:
@@ -283,18 +284,15 @@ You will be able to run Dart code in several ways:
   </li>
   <li>
     <p>
-    Use Dartboard to write, modify, and execute
+    Use <a href="http://try.dartlang.org">Dartboard</a> to write, modify, and execute
     small Dart programs within any browser window
-{% comment %}
-    <span class="comment">{PENDING: link to Dartboard}</span>
-{% endcomment %}
     </p>
   </li>
 </ul>
 
 
-<section>
-<h3 id="mimetype">New MIME type</h3>
+<section id="mimetype">
+<h3>New MIME type</h3>
 
 <p>
 You will be able to embed a Dart program directly on an HTML page,
@@ -305,7 +303,7 @@ Here is the proposed new MIME type,
 &ldquo;application/dart&rdquo;:
 </p>
 
-<pre class="prettyprint lang-dart">
+{% pretty_code %}
 &lt;html&gt;
   &lt;body&gt;
     &lt;script type="application/dart"&gt;
@@ -317,14 +315,14 @@ Here is the proposed new MIME type,
     &lt;div id="message"&gt;&lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt; 
-</pre>
-</section>
-</section>
+{% endpretty_code %}
+</section> <!-- howtouse -->
+</section> <!-- mimetype -->
 
 
 {% comment %}
-<section>
-<h2 id="tools">Tools</h2>
+<section id="tools">
+<h2>Tools</h2>
 
 <p>
 The Dart language is accompanied by a set of tools
@@ -355,8 +353,8 @@ for fast iteration and for cloud-based tasks.
 </section>
 
 
-<section>
-<h2 id="editor">Dart Editor</h2>
+<section id="editor">
+<h3>Dart Editor</h3>
 
 <p>
 Taking advantage of Dart&rsquo;s structured nature,
@@ -365,8 +363,8 @@ the Dart Editor will support method name completion and refactoring.
 </section>
 {% endcomment %}
 
-<section>
-<h2 id="libraries">Libraries</h2>
+<section id="libraries">
+<h2>Libraries</h2>
 
 <p>
 Dart will provide the following libraries
@@ -374,7 +372,7 @@ to support web and web server development:
 </p>
 
 <dl>
-  <dt> Core Library </dt>
+  <dt> <a href="/docs/api/index.html">Core Library</a> </dt>
   <dd> Contains interfaces to support
     common data structures and operations.
     </dd>
@@ -391,14 +389,74 @@ Here is an overview of the interface hierarchy for the current Core Library
 (subject to change):
 </p>
 
-<img src="images/interface-hierarchy.png"
-     alt="interface hierarchy diagram"
-     width="620" height="462">
-</section>
+<h3 id="iterable">Iterable</h3>
+
+<figure>
+  <img src='images/iterable-hierarchy.png' width="370" height="189" alt='The Iterable interface hierarchy.'>
+  <figcaption>
+    <p>
+      The <a href="/docs/api/Iterable.html#Iterable::Iterable"><code>Iterable</code></a> interface allows to
+      get an <a href="/docs/api/Iterator.html#Iterator::Iterator"><code>Iterator</code></a> out of an <code>Iterable</code> object.
+      This interface is used by the for-in construct to iterate over an <code>Iterable</code> object.
+    </p>
+
+    <p>
+      <a href="/docs/api/Collection.html#Collection::Collection"><code>Collection</code></a> is an interface that implements
+      <code>Iterable</code> and defines methods implemented by the interfaces
+      <a href="/docs/api/Set.html#Set::Set"><code>Set</code></a>, <a href="/docs/api/List.html#List::List"><code>List</code></a>,
+      and <a href="/docs/api/Queue.html#Queue::Queue"><code>Queue</code></a>.
+    </p>
+    
+    <p>
+      <a href="/docs/api/HashSet.html#HashSet::HashSet"><code>HashSet</code></a> is a more specific implementation of <code>Set</code>.
+    </p>
+  </figcaption>
+</figure>
+
+<h3 id="map">Map</h3>
+
+<figure>
+  <img src='images/map-hierarchy.png' width="181" height="144" alt='The Map interface hierarchy.'>
+  <figcaption>
+    <p>
+      The <a href="/docs/api/Map.html#Map::Map"><code>Map</code></a> interface is an associative container, mapping a key to a value. Null values are supported.
+    </p>
+
+    <p>
+      The <a href="/docs/api/HashMap.html#HashMap::HashMap"><code>HashMap</code></a> interface does not provide any guarantees on the order of keys and values in <code>getKeys</code> and <code>getValues</code>.
+    </p>
+    
+    <p>
+      The <a href="/docs/api/LinkedHashMap.html#LinkedHashMap::LinkedHashMap"><code>LinkedHashMap</code></a> interface preserves insertion order.
+    </p>
+  </figcaption>
+</figure>
+
+<h3 id="comparable-hashable-pattern">Comparable, Hashable, and Pattern</h3>
+
+<figure>
+  <img src='images/comparable-hashable-pattern.png' width="635" height="178" alt='The Comparable, Hashable, and Pattern interface hierarchy.'>
+  <figcaption>
+    <p>
+      The <a href="/docs/api/Comparable.html#Comparable::Comparable"><code>Comparable</code></a> interface is implemented by
+      <code>Date</code>, <code>Duration</code>, <code>num</code>, and <code>String</code>.
+    </p>
+    <p>
+      The <a href="/docs/api/Hashable.html#Hashable::Hashable"><code>Hashable</code></a> interface used implemented by
+      <code>num</code> and <code>String</code>.
+    </p>
+    <p>
+      The <a href="/docs/api/Pattern.html#Pattern::Pattern"><code>Pattern</code></a> interface is implemented by
+      <code>String</code> and <code>RegExp</code>.
+    </p>
+  </figcaption>
+</figure>
+
+</section> <!-- libraries -->
 
 
-<section>
-<h2 id="involved">Get involved</h2>
+<section id="involved">
+<h2>Get involved</h2>
 
 <p>
 This project is open source
@@ -413,7 +471,7 @@ and providing your feedback:
 <ul>
   <li>
     Other pages in the
-    <a href="http://dartlang.org/">Dart website</a> (dartlang.org),
+    <a href="http://dartlang.org/">Dart website</a>,
     such as <a href="/docs/getting-started/">tutorials</a>,
     <a href="/samples/">sample code</a>,
     <a href="/articles/">articles</a>,
@@ -425,7 +483,10 @@ and providing your feedback:
   <li>
     <a href="https://groups.google.com/a/dartlang.org/group/misc/">Dart 
     discussion group</a> (misc at dartlang.org) </li>
+  <li>
+    <a href="http://twitter.com/dart_lang">Follow @dart_lang</a> on Twitter </li>
 </ul>
 
-</section>
+</section> <!-- involved -->
 
+{% include syntax-highlighting.html %}

@@ -1,16 +1,10 @@
 ---
 layout: default
-title: "Tutorial: Hello, World"
+title: "Tutorial: The Basics"
+header:
+  css: ["/css/dartboard.css"]
 ---
-<link href="/css/style.css" type="text/css" rel="stylesheet"/>
-<link href="/css/prettify.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="/js/prettify.js"></script>
-
-<body onLoad="prettyPrint()">
-
-<link rel="stylesheet" type="text/css" href="/css/dartboard.css"/>
-
-<h1> Tutorial: Hello, World </h1>
+<h1> {{ page.title }} </h1>
 
 <section>
 <p>
@@ -21,6 +15,9 @@ using the Dartboard app.
 </p>
 </section>
 
+{% comment %}
+NOTE: The guts of this page are in /_includes/docs/getting-started/.
+{% endcomment %}
 {% include docs/getting-started/_world.html %}
 
 <section>
@@ -35,6 +32,6 @@ The next page introduces classes in the Dart language.
 
 </section>
 
-<script type="text/javascript"
+<script async type="text/javascript"
   src="http://try-dart-lang.appspot.com/dartboard.dart.app.js">
 </script>

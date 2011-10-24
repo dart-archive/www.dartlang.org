@@ -2,12 +2,8 @@
 layout: default
 title: "Embedding Dart in HTML"
 ---
-
-<style type="text/css">
-.beware {color:red; font-weight:bold;}
-</style>
-
 <h1> Embedding Dart in HTML </h1>
+
 <em>Written by Sigmund Cherem and Vijay Menon<br />
 October 2011</em>
 
@@ -138,7 +134,8 @@ but we would still preserve the asynchronous semantics we support today.
 <p>
 We disallow inline event listeners of the form:
 </p>
-<pre>&lt;div onclick="foo()"&gt;Click this text.&lt;/div&gt; </pre>
+
+{% pretty_code %}&lt;div onclick="foo()"&gt;Click this text.&lt;/div&gt; {% endpretty_code %}
 
 <p>
 With JavaScript, programmers can embed inline event listener code
@@ -161,7 +158,8 @@ Here is a simple Hello World in HTML using Dart.
 This script defines its own isolate/library.
 The <code>main()</code> method is implicitly the entry point.  
 </p>
-<pre>
+
+{% pretty_code %}
 &lt;html&gt;
   &lt;body&gt;
     &lt;script type='application/dart'&gt;
@@ -173,7 +171,7 @@ The <code>main()</code> method is implicitly the entry point.
     &lt;div id='message'&gt;&lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</pre>
+{% endpretty_code %}
 
 <p>
 The div element above is guaranteed to exist
@@ -183,7 +181,7 @@ by the time the Dart code starts running.
 <p>
 In contrast to the previous example, the following is an error:
 </p>
-<pre>
+{% pretty_code %}
 &lt;html>
   &lt;body>
     &lt;script type='application/dart'>
@@ -199,7 +197,9 @@ In contrast to the previous example, the following is an error:
     &lt;/script>
     &lt;div id="message">&lt;/div>
   &lt;/body>
-&lt;/html></pre>
+&lt;/html>
+{% endpretty_code %}
+
 <aside class="note">
 <b>Note:</b>
 (1) Each Dart script in the page runs in its own isolate,
@@ -214,7 +214,7 @@ defines the <code>hello()</code> method shown above.
 Then the following executes as expected:
 </p>
 
-<pre>
+{% pretty_code %}
 &lt;html>
   &lt;body>
     &lt;script type='application/dart'>
@@ -226,7 +226,7 @@ Then the following executes as expected:
     &lt;div id="message">&lt;/div>
   &lt;/body>
 &lt;/html>
-</pre>
+{% endpretty_code %}
 </section>
 
 
@@ -240,5 +240,6 @@ into an HTML page with JavaScript code.
 You can find more details in the Dart project wiki page
 <a href="https://code.google.com/p/dart/wiki/HTMLConverter">HTMLConverter</a>.
 </p>
-</body>
-</html>
+</section>
+
+{% include syntax-highlighting.html %}

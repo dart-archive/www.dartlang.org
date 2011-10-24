@@ -1,0 +1,37 @@
+---
+title: Seth Ladd
+layout: default
+rel:
+  me: https://plus.google.com/118397406534237711570/
+---
+<h1>Seth Ladd</h1>
+
+<article class="author">
+  <section class="author-follow">
+    <h2>Follow Seth</h2>
+    <ul>
+      <li><a rel="me" href="{{ page.rel.me }}">+Seth Ladd</a></li>
+      <li><a href="http://twitter.com/sethladd">@sethladd</a></li>
+    </ul>
+  </section>
+
+  <section class="author-bio">
+    <h2>Bio</h2>
+    <p>
+      Seth is a Developer Advocate with the Chrome team. He is a conference organizer (<a href="http://www.alohaonrails.com">Aloha on Rails</a>,
+      <a href="http://newgameconf.com">New Game</a>), author (Expert Spring MVC),
+      helped publish <a href="http://chrome.angrybirds.com">Angry Birds for the web</a>, and is a big fan of HTML5 and the modern web.
+    </p>
+  </section>
+
+  <section class="author-articles">
+    <h2>On this site</h2>
+    <ul>
+      {% for article in site.pages %}
+        {% if article.rel and article.rel.author == 'seth-ladd' %}
+          <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</article>
