@@ -1,0 +1,35 @@
+---
+title: David Chandler
+layout: default
+rel:
+  me: https://plus.google.com/102717421433762219474/
+---
+<h1>David Chandler</h1>
+
+<article class="author">
+  <section class="author-follow">
+    <h2>Follow David</h2>
+    <ul>
+      <li><a rel="me" href="{{ page.rel.me }}">+David Chandler</a></li>
+      <li><a href="http://turbomanage.wordpress.com/">TurboManage (blog)</a></li>
+    </ul>
+  </section>
+
+  <section class="author-bio">
+    <h2>Bio</h2>
+    <p>
+David Chandler works with the Developer Tools team in Atlanta. An electrical engineer by training, Chandler got hooked on developing database Web applications in the days of NCSA Mosaic and has since written Web applications in a variety of languages, including C, perl, ksh, ColdFusion, Java, JSF, GWT, and DART. Prior to joining Google, Chandler worked on Internet banking applications with Intuit and launched a non-profit startup built with GWT and AppEngine. Chandler holds a patent on a method of organizing hierarchical data in a relational database and blogs about Web development at <a href="http://turbomanage.wordpress.com">turbomanage.wordpress.com</a>.
+    </p>
+  </section>
+
+  <section class="author-articles">
+    <h2>On this site</h2>
+    <ul>
+      {% for article in site.pages %}
+        {% if article.rel and article.rel.author == 'david-chandler' %}
+          <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+</article>
