@@ -400,6 +400,16 @@ ul li::before {
   position: absolute;
 }
 
+.dart-slide ul li::before {
+  /*content: '·';*/
+  content: url('../images/dart-tiny.png');
+
+  width: .5em;
+  margin-left: -1.0em;
+
+  position: absolute;
+}
+
 pre {
   font-family: 'Droid Sans Mono', 'Courier New', monospace;
 
