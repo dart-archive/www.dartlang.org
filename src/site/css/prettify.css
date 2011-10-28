@@ -1,16 +1,16 @@
 /* Pretty printing styles. Used with prettify.js. */
 
 /* SPAN elements with the classes below are added by prettyprint. */
-.pln { color: #000 }  /* plain text */
+.pln { color: #333 }  /* plain text */
 
 @media screen {
   .str { color: #080 }  /* string content */
-  .kwd { color: #008 }  /* a keyword */
-  .com { color: #800 }  /* a comment */
-  .typ { color: #606 }  /* a type name */
-  .lit { color: #066 }  /* a literal value */
+  .kwd { color: #15c }  /* a keyword */
+  .com { color: #888 }  /* a comment */
+  .typ { color: #816 }  /* a type name */
+  .lit { color: #088 }  /* a literal value */
   /* punctuation, lisp open bracket, lisp close bracket */
-  .pun, .opn, .clo { color: #660 }
+  .pun, .opn, .clo { color: #666 }
   .tag { color: #008 }  /* a markup tag name */
   .atn { color: #606 }  /* a markup attribute name */
   .atv { color: #080 }  /* a markup attribute value */
@@ -32,7 +32,10 @@
 }
 
 /* Put a border around prettyprinted code snippets. */
-pre.prettyprint { padding: 2px; border: 1px solid #888 }
+pre.prettyprint {
+  padding: 2px;
+  border: 1px solid #ccc;
+}
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
@@ -49,4 +52,44 @@ li.L1,
 li.L3,
 li.L5,
 li.L7,
-li.L9 { background: #eee }
+li.L9 { background: #f4f4f4; }
+
+/* The style guide has "good" and "bad" blocks that are styled specially. */
+pre.good {
+  background: #efe;
+  border: none;
+  border-left: solid 4px #beb;
+  font-family: monospace, sans-serif;
+  padding: 15px;
+}
+
+pre.good:before {
+  content: "good";
+  color: #696;
+  float: right;
+}
+
+pre.bad {
+  background: #fee;
+  border: none;
+  border-left: solid 4px #ebb;
+  font-family: monospace, sans-serif;
+  padding: 15px;
+}
+
+pre.bad:before {
+  content: "bad";
+  color: #a77;
+  float: right;
+}
+
+pre.good li.L1,
+pre.good li.L3,
+pre.good li.L5,
+pre.good li.L7,
+pre.good li.L9,
+pre.bad li.L1,
+pre.bad li.L3,
+pre.bad li.L5,
+pre.bad li.L7,
+pre.bad li.L9 { background: inherit; }

@@ -6,10 +6,11 @@ module Jekyll
       @params = params.split(' ')
       @lang = (@params[0] || 'dart')
       @linenum = @params[1] || '1'
+      @css = @params[2] || ''
     end
 
     def render(context)
-      "<pre class=\"prettyprint lang-#{@lang} linenums:#{@linenum}\">" +
+      "<pre class=\"prettyprint lang-#{@lang} linenums:#{@linenum} #{@css}\">" +
       super.join('') +
       "</pre>"
     end
