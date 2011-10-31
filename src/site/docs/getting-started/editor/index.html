@@ -1,0 +1,17 @@
+<!-- This page serves only to redirect to the platform-specific page. -->
+
+<script type="text/javascript">
+var OSName='linux';
+if (navigator.appVersion.indexOf('Win')!=-1) OSName='win';
+if (navigator.appVersion.indexOf('Mac')!=-1) OSName='macos';
+window.location = 'index-' + OSName + '.html';
+</script>
+
+<noscript>
+Choose the instructions for the OS you're interested in:
+<ul>
+  <li> <a href="index-win.html">Windows</a> </li>
+  <li> <a href="index-linux.html">Linux</a> </li>
+  <li> <a href="index-macos.html">Mac OS</a> </li>
+</ul>
+</noscript>
