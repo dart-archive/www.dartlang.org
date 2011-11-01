@@ -34,21 +34,15 @@ title: "Technical Overview"
     </li>
     <li> <a href="#howtouse">How can I use Dart? </a>
       <ul>
+      <li> <a href="#editor">Dart Editor</a> </li>
+      <li> <a href="#dartboard">Dartboard</a> </li>
       <li> <a href="#mimetype">New MIME type </a> </li>
       </ul>
     </li>
   {% comment %}
     <li> <a href="#tools">Tools </a> </li>
-      <li> <a href="#editor">Dart Editor </a> </li>
   {% endcomment %}
-    <li> <a href="#libraries">Libraries </a>
-      <ul>
-        <li><a href="#iterable">Iterable</a></li>
-        <li><a href="#map">Map</a></li>
-        <li><a href="#comparable-hashable-pattern">Comparable, Hashable, Pattern</a></li>
-      </ul>
-      
-      </li>
+    <li> <a href="#libraries">Libraries </a> </li>
     <li> <a href="#involved">Get involved </a> </li>
   </ul>
 </section>
@@ -267,29 +261,89 @@ void main() {
 <h2>How can I use Dart?</h2>
 
 <p>
-You will be able to run Dart code in several ways:
+You can run Dart code in several ways:
 </p>
 
 <ul>
   <li>
     <p>
-    Translate Dart code to JavaScript that can run in any modern browser:<br />
-    Chrome, Safari 5+, and Firefox 4+ (more browser support coming shortly).
+    Compile Dart code to JavaScript that can run in any modern browser:<br />
+    Chrome, Safari 5+, and Firefox 4+ (more browser support coming shortly)
     </p>
   </li>
   <li>
     <p>
-    Execute Dart code directly in a VM on the server side
-    </p>
-  </li>
-  <li>
-    <p>
-    Use <a href="http://try.dartlang.org">Dartboard</a> to write, modify, and execute
+    Use <a href="#dartboard">Dartboard</a> to write, modify, and execute
     small Dart programs within any browser window
+    </p>
+  </li>
+  <li>
+    <p>
+    <em>Soon:</em>
+    Execute Dart code directly in a VM on your computer
+    </p>
+  </li>
+  <li>
+    <p>
+    <em>Soon:</em>
+    With a <a href="#mimetype">new MIME type</a>,
+    use Dart in a browser
+    without first compiling to JavaScript
     </p>
   </li>
 </ul>
 
+<aside class="note">
+<strong>Note:</strong>
+<a href="#editor">Dart Editor</a>
+supports Dart-to-JavaScript compilation now.
+The command-line tools,
+such as the VM and Dart-to-JavaScript compiler,
+aren't yet ready for general use.
+However, you can build the command-line tools
+using the source code in the
+<a href="http://code.google.com/p/dart/">Dart project</a>.
+</aside>
+
+
+<section id="editor">
+<h3>Dart Editor</h3>
+
+<p>
+Dart Editor is a tool for
+creating, modifying, and launching Dart web apps.
+With one click, you can compile a Dart web app to JavaScript
+and launch the app in a browser.
+Taking advantage of Dart&rsquo;s structured nature,
+Dart Editor supports method name completion,
+and it will support refactoring.
+</p>
+
+<p>
+For information about downloading and using Dart Editor, see the
+<a href="/docs/getting-started/editor/index.html">Dart Editor tutorial</a>.
+</p>
+</section>
+
+
+<section id="dartboard">
+<h3> Dartboard </h3>
+
+<p>
+Several pages on this site use Dartboard
+so that you can see, modify, and run small Dart programs.
+Besides using the embedded Dartboard,
+you can also go directly to
+<a href="http://try.dartlang.org">try.dartlang.org</a>.
+Dartboard runs your code in the Dart VM on a remote server.
+</p>
+
+<p>
+See the <a href="/docs/getting-started/index.html">Dartboard
+&amp; Language Basics tutorial</a>
+for more information about using Dartboard.
+</p>
+</section>
 
 <section id="mimetype">
 <h3>New MIME type</h3>
@@ -341,7 +395,7 @@ Planned offerings will include:
 As the following figure shows,
 the same code can run on both the client and the server.
 On the client side, the Dart code
-(translated to JavaScript)
+(compiled to JavaScript)
 runs inside the browser and can communicate with the HTML5 DOM.
 On the server side, the Dart code runs directly on the command line,
 for fast iteration and for cloud-based tasks.
@@ -351,17 +405,8 @@ for fast iteration and for cloud-based tasks.
      alt="Dart source -> Dart Editor; Dart Editor -> either [Dart VM] or [JavaScript source -> Browser (JavaScript Engine)]"
      width="266" height="417" >
 </section>
-
-
-<section id="editor">
-<h3>Dart Editor</h3>
-
-<p>
-Taking advantage of Dart&rsquo;s structured nature,
-the Dart Editor will support method name completion and refactoring.
-</p>
-</section>
 {% endcomment %}
+
 
 <section id="libraries">
 <h2>Libraries</h2>
@@ -385,9 +430,17 @@ to support web and web server development:
 </dl>
 
 <p>
-Here is an overview of the interface hierarchy for the current Core Library
-(subject to change):
+The interface hierarchy for the Core Library
+currently has three main parts,
+which extend the following interfaces:
 </p>
+
+<ul>
+  <li> <a href="#iterable">Iterable</a> </li>
+  <li> <a href="#map">Map</a> </li>
+  <li> <a href="#comparable-hashable-pattern">Comparable, Hashable, and Pattern</a> </li>
+</ul>
+
 
 <h3 id="iterable">Iterable</h3>
 
@@ -395,7 +448,7 @@ Here is an overview of the interface hierarchy for the current Core Library
   <img src='images/iterable-hierarchy.png' width="370" height="189" alt='The Iterable interface hierarchy.'>
   <figcaption>
     <p>
-      The <a href="/docs/api/Iterable.html#Iterable::Iterable"><code>Iterable</code></a> interface allows to
+      The <a href="/docs/api/Iterable.html#Iterable::Iterable"><code>Iterable</code></a> interface allows you to
       get an <a href="/docs/api/Iterator.html#Iterator::Iterator"><code>Iterator</code></a> out of an <code>Iterable</code> object.
       This interface is used by the for-in construct to iterate over an <code>Iterable</code> object.
     </p>
@@ -439,15 +492,20 @@ Here is an overview of the interface hierarchy for the current Core Library
   <figcaption>
     <p>
       The <a href="/docs/api/Comparable.html#Comparable::Comparable"><code>Comparable</code></a> interface is implemented by
-      <code>Date</code>, <code>Duration</code>, <code>num</code>, and <code>String</code>.
+      <a href="/docs/api/Date.html"><code>Date</code></a>,
+      <a href="/docs/api/Duration.html"><code>Duration</code></a>,
+      <a href="/docs/api/num.html"><code>num</code></a>,
+      and <a href="/docs/api/String.html"><code>String</code></a>.
     </p>
     <p>
-      The <a href="/docs/api/Hashable.html#Hashable::Hashable"><code>Hashable</code></a> interface used implemented by
-      <code>num</code> and <code>String</code>.
+      The <a href="/docs/api/Hashable.html#Hashable::Hashable"><code>Hashable</code></a></a> interface is implemented by
+      <a href="/docs/api/num.html"><code>num</code></a> and
+      <a href="/docs/api/String.html"><code>String</code></a>.
     </p>
     <p>
-      The <a href="/docs/api/Pattern.html#Pattern::Pattern"><code>Pattern</code></a> interface is implemented by
-      <code>String</code> and <code>RegExp</code>.
+      The <a href="/docs/api/Pattern.html#Pattern::Pattern"><code>Pattern</code></a></a> interface is implemented by
+      <a href="/docs/api/String.html"><code>String</code></a> and
+      <a href="/docs/api/RegExp.html"><code>RegExp</code></a>.
     </p>
   </figcaption>
 </figure>
