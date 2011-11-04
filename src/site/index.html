@@ -45,14 +45,13 @@ TODO: Not keen on the styling here, please feel free to change.
 {% endcomment %}
 
 <div id="samples">
-<label for="samples-list">Dart code examples:
+<label for="samples-list" style="display:none">Dart code examples:</label>
   <select id="samples-list">
-    <option value="hello">Hello, Dart</option>
+    <option value="hello">Hello, Dart!</option>
     <option value="fib">Fibonacci</option>
     <option value="point">Point</option>
     <option value="isolates">Isolate communication</option>
   </select>
-</label>
 </div>
 
 <code id="samples-editor" class="codes for-samples">main() {
@@ -62,7 +61,7 @@ TODO: Not keen on the styling here, please feel free to change.
 {% include samples.html %}
 
 <script async type="text/javascript"
-  src="http://try-dart-lang.appspot.com/dartboard.dart.app.js">
+  src="http://try.dartlang.org/dartboard.dart.app.js">
 </script>
 </section>
 
