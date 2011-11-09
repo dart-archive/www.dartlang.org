@@ -1,3 +1,36 @@
+<h1> {{ page.title }} </h1>
+
+<section>
+<p>
+Follow this tutorial to
+install and use Dart Editor on {{ page.osname }}.
+</p>
+
+<p>
+Dart Editor is a lightweight, open-source editor
+based on Eclipse components.
+In addition to editing Dart programs,
+you can use Dart Editor to invoke the Dart-to-JavaScript compiler
+and launch Dart-based web apps.
+</p>
+
+<aside class="note">
+<strong>Note:</strong>
+These instructions are also available for:
+<ul>
+{% if page.osname != 'Windows' %}
+<li> <a href="index-win.html">Windows</a> </li>
+{% endif %}
+{% if page.osname != 'Mac OS X' %}
+<li> <a href="index-macos.html">Mac</a> </li>
+{% endif %}
+{% if page.osname != 'Linux' %}
+<li> <a href="index-linux.html">Linux</a> </li>
+{% endif %}
+</ul>
+</aside>
+</section>
+
 {% comment %}
 PENDING: HIDE THIS UNTIL WE PUBLISH COMMAND-LINE TOOLS
 <aside class="note">
@@ -7,6 +40,113 @@ you can try
 <a href="/docs/getting-started/command-line/">Getting Started: Hello, Command Line</a>.
 </aside>
 {% endcomment %}
+
+<section>
+<h4> Contents </h4>
+<ul>
+  <li> <a href="#download">Step 1: Download and install the software</a> </li>
+  <li> <a href="#launch">Step 2: Launch the editor</a> </li>
+  <li> <a href="#sample">Step 3: Open a sample</a> </li>
+  <li> <a href="#run">Step 4: Run the sample</a> </li>
+  <li> <a href="#features">Step 5: Try some Dart Editor features</a> </li>
+  <li> <a href="#code">Step 6: Create a new web app</a> </li>
+  <li> <a href="#feedback">Give us feedback!</a> </li>
+</ul>
+</section>
+
+<section id="download">
+<h2> Step 1: Download and install the software </h2>
+
+<p>
+In this step, you'll install Dart Editor
+and, if necessary, a Java runtime environment.
+</p>
+
+<ol>
+  <li> {{ download_dart_editor }}
+
+    {{ getting_your_architecture }}
+
+    <aside class="note">
+      <b>Version note:</b>
+      For information about this Dart Editor version, see the
+      <a target="_blank"
+        href="http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/changelog.html">change log</a>.
+      If you want to try out the most recent, untested version of Dart Editor,
+      {{ download_continuous_build }}
+    </aside>
+  </li>
+
+  <li>
+{% if unzip_command_line %}
+  Unarchive the ZIP file. For example:
+  {{ unzip_command_line }}
+{% else %}
+  <p>
+  Unarchive the ZIP file by double-clicking it.
+  </p>
+{% endif %}
+  </li>
+
+  <li>
+    <p>
+    Put the resulting directory somewhere convenient, such as
+    {{ dart_installation_dir }}
+    </p>
+
+    <p>
+    We'll call this your <b>Dart installation directory</b>.
+    This installation directory contains
+    the <code>DartEditor</code> executable file and several subdirectories,
+    including a <code>samples</code> directory.
+    </p>
+    
+    <aside class="note">
+    <strong>Important:</strong>
+    Do <b>not</b> use the Dart installation directory
+    for any other Eclipse-based software.
+    If Dart Editor and Eclipse
+    share the same <code>workspace</code> directory,
+    they'll save conflicting settings,
+    resulting in warnings and errors from both
+    Dart Editor and Eclipse.
+    </aside>
+  </li>
+
+  <li> <p>
+    If you don't already have a Java runtime,
+    download and install it.
+    {{ java_download_instructions }}
+  </li>
+</ol>
+</section>
+
+<section id="launch">
+<h2> Step 2: Launch the editor </h2>
+
+<p>
+Go to your Dart installation directory,
+and double-click <b>DartEditor</b>.
+</p>
+
+<blockquote>
+<img src="images/DartEditor-icon.png"
+  alt="DartEditor icon"
+  width="78" height="92">
+</blockquote>
+
+<p>
+You should see the Dart Editor application window appear,
+looking something like this:
+</p>
+
+<img src="images/DartEditor-initial.png"
+  alt="screenshot of empty Dart Editor window"
+  width="599" height="454">
+
+</section>
+
+{{ launch_tip }}
 
 
 <section id="sample">

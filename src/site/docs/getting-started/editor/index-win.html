@@ -1,157 +1,50 @@
 ---
 layout: default
 title: "Tutorial: Dart Editor (Windows)"
+osname: Windows
 ---
 
-<h1> {{ page.title }} </h1>
+{% capture download_dart_editor %}
+  Download the Dart Editor ZIP file that matches
+  your system architecture:
+  <ul>
+    <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/DartBuild-win32.win32.x86.zip">32-bit Dart Editor</a> </li>
+    <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/DartBuild-win32.win32.x86_64.zip">64-bit Dart Editor</a> </li>
+  </ul>
+{% endcapture %}
 
-<section>
-<p>
-Follow this tutorial to
-install and use Dart Editor on Windows.
-</p>
+{% capture getting_your_architecture %}
+  <p>
+  If you don't know what your system architecture is, see
+  <a href="http://windows.microsoft.com/en-US/windows7/32-bit-and-64-bit-Windows-frequently-asked-questions">Microsoft's support site</a>.
+  </p>
+{% endcapture %}
 
-<p>
-Dart Editor is a lightweight, open-source editor
-based on Eclipse components.
-In addition to editing Dart programs,
-you can use Dart Editor to invoke the Dart-to-JavaScript compiler
-and launch Dart-based web apps.
-</p>
+{% capture download_continuous_build %}
+  use one of these ZIP files instead:
+  <ul>
+    <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/DartBuild-win32.win32.x86.zip">32-bit Dart Editor (latest)</a></li>
+    <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/DartBuild-win32.win32.x86_64.zip">64-bit Dart Editor (latest)</a></li>
+  </ul>
+{% endcapture %}
 
-<aside class="note">
-<strong>Note:</strong>
-These instructions are also available for
-{% comment %}
-<a href="index-win.html">Windows</a>
-{% endcomment %}
-<a href="index-macos.html">Mac</a>
-and
-<a href="index-linux.html">Linux</a>.
-</aside>
-</section>
+{% capture dart_installation_dir %}
+  under your <code>Documents</code> folder.
+{% endcapture %}
 
-<section>
-<h4> Contents </h4>
-<ul>
-  <li> <a href="#download">Step 1: Download and install the software</a> </li>
-  <li> <a href="#launch">Step 2: Launch the editor</a> </li>
-  <li> <a href="#sample">Step 3: Open a sample</a> </li>
-  <li> <a href="#run">Step 4: Run the sample</a> </li>
-  <li> <a href="#features">Step 5: Try some Dart Editor features</a> </li>
-  <li> <a href="#code">Step 6: Create a new web app</a> </li>
-  <li> <a href="#feedback">Give us feedback!</a> </li>
-</ul>
-</section>
+{% capture java_download_instructions %}
+  </p>
+  <ul>
+    <li> You can download the Java runtime environment (JRE) from
+      <a href="http://www.oracle.com/technetwork/java/javase/downloads"
+        target="_blank">Java SE Downloads</a>.
+      </li>
+    <li> To avoid having to modify the PATH environment variable,
+      you can install the JRE
+      under your Dart installation directory,
+      in a subdirectory named <code>jre</code>.
+      </li>
+  </ul>
+{% endcapture %}
 
-<section id="download">
-<h2> Step 1: Download and install the software </h2>
-
-<p>
-In this step, you'll install Dart Editor
-and, if necessary, a Java runtime environment.
-</p>
-
-<ol>
-  <li> Download the Dart Editor ZIP file that matches
-    your system architecture:
-    <ul>
-      <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/DartBuild-win32.win32.x86.zip">32-bit Dart Editor</a> </li>
-      <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/DartBuild-win32.win32.x86_64.zip">64-bit Dart Editor</a> </li>
-    </ul>
-    <p>
-    If you don't know what your system architecture is, see
-    <a href="http://windows.microsoft.com/en-US/windows7/32-bit-and-64-bit-Windows-frequently-asked-questions">Microsoft's support site</a>.
-    </p>
-    <aside class="note">
-      <b>Want the latest version?</b>
-      To try out the most recent, untested version of Dart Editor,
-      download one of these instead:
-      <ul>
-        <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/DartBuild-win32.win32.x86.zip">32-bit Dart Editor</a> </li>
-        <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/DartBuild-win32.win32.x86_64.zip">64-bit Dart Editor</a> </li>
-      </ul>
-    </aside>
-  </li>
-
-  <li>
-    <p>
-    Unarchive the ZIP file by double-clicking it.
-    </p>
-  </li>
-
-  <li>
-    <p>
-    Put the resulting directory somewhere convenient,
-    such as under your <code>Documents</code> folder.
-    </p>
-
-    <p>
-    We'll call this your <b>Dart installation directory</b>.
-    This installation directory contains
-    the <code>DartEditor</code> executable file and several subdirectories,
-    including a <code>samples</code> directory.
-    </p>
-    
-    <aside class="note">
-    <strong>Important:</strong>
-    Do <b>not</b> use the Dart installation directory
-    for any other Eclipse-based software.
-    If Dart Editor and Eclipse
-    share the same <code>workspace</code> directory,
-    they'll save conflicting settings,
-    resulting in warnings and errors from both
-    Dart Editor and Eclipse.
-    </aside>
-  </li>
-
-  <li> <p>
-    If you don't already have a Java runtime,
-    download and install it.
-    </p>
-    <ul>
-      <li> You can download the Java runtime environment (JRE) from
-        <a href="http://www.oracle.com/technetwork/java/javase/downloads"
-          target="_blank">Java SE Downloads</a>.
-        </li>
-      <li> To avoid having to modify the PATH environment variable,
-        you can install the JRE
-        under your Dart installation directory,
-        in a subdirectory named <code>jre</code>.
-        </li>
-    </ul>
-  </li>
-</ol>
-</section>
-
-<section id="launch">
-<h2> Step 2: Launch the editor </h2>
-
-<p>
-Go to your Dart installation directory,
-and double-click <b>DartEditor</b>.
-</p>
-
-<blockquote>
-<img src="images/DartEditor-icon.png"
-  alt="DartEditor icon"
-  width="78" height="92">
-</blockquote>
-
-<p>
-You should see the Dart Editor application window appear,
-looking something like this:
-</p>
-
-<img src="images/DartEditor-initial.png"
-  alt="screenshot of empty Dart Editor window"
-  width="599" height="454">
-
-</section>
-
-{% comment %}
-NOTE: The rest of this doc is in the following include file.
-{% endcomment %}
-
-{% include docs/getting-started/editor/_index.html %}
-
+{% include docs/getting-started/editor/index-common.html %}
