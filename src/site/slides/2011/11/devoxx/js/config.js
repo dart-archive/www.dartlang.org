@@ -16,7 +16,7 @@ window.slidesConfig = window.slidesConfig || {
     twitter: 'drfibonacci',
     blog: 'http://turbomanage.com',
 
-    slides: '',
+    slides: 'http://dartlang.org/slides/',
     feedback: '',
     djbpDemo: 'http://localhost:5103/',
     djbpSrc: 'http://bit.ly/quyPMZ',
