@@ -64,22 +64,6 @@ title: "Dart : Libraries : corelib : List"
  Creates a list with the elements of <code><a href='List.html#List::from::other'>other</a></code>. The order in
  the list will be the order provided by the iterator of <code><a href='List.html#List::from::other'>other</a></code>.
 </dd>
-<dt>
-<code><a href='List.html#List::List'>List&lt;E&gt;</a>.fromList</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='List::fromList::other'>other</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::fromList::startIndex'>startIndex</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::fromList::endIndex'>endIndex</a>)</code>
-</dt>
-<dd>
-
- Creates a list which is a subcopy of <code><a href='List.html#List::fromList::other'>other</a></code>, starting at
- <code><a href='List.html#List::fromList::startIndex'>startIndex</a></code> (inclusive) and ending at <code><a href='List.html#List::fromList::endIndex'>endIndex</a></code> (exclusive). If
- <code><a href='List.html#List::fromList::startIndex'>startIndex</a></code> is negative, it has the same effect as if it were
- zero. If <code><a href='List.html#List::fromList::endIndex'>endIndex</a></code> is greather than the length, it has the same
- effect as if it were <code>other.length</code>
-
-. If <code>startIndex&nbsp;&gt;&nbsp;endIndex</code>
-
-,
- the created list is of <code><a href='List.html#List::length'>length</a></code> 0.
-</dd>
 </dl>
 </section>
 
@@ -132,17 +116,6 @@ title: "Dart : Libraries : corelib : List"
  Removes all elements in the list. The length of the list
  becomes zero. Throws an <code><a href='UnsupportedOperationException.html#UnsupportedOperationException::UnsupportedOperationException'>UnsupportedOperationException</a></code> if
  the list is not extendable.
-</dd>
-<dt>
-<code>void copyFrom</a>(<code><a href='List.html#List::List'>List&lt;E&gt;</a></code> <a name='List::copyFrom::src'>src</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::srcStart'>srcStart</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::dstStart'>dstStart</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::copyFrom::count'>count</a>)</code></dt>
-<dd>
-
- Copies <code><a href='List.html#List::copyFrom::count'>count</a></code> elements from the <code><a href='List.html#List::copyFrom::src'>src</a></code> list starting at index
- <code><a href='List.html#List::copyFrom::srcStart'>srcStart</a></code> to this list starting at index <code><a href='List.html#List::copyFrom::dstStart'>dstStart</a></code>.
-
- The type of <code><a href='List.html#List::copyFrom::src'>src</a></code> is List&lt;Object&gt; because one must be able to
- give a List&lt;Object&gt; only containing eg. String objects and copy
- its elements into a List&lt;String&gt;.
 </dd>
 <dt>
 <code><code><a href='List.html#List::List'>List&lt;E&gt;</a></code> getRange</a>(<code><a href='int.html#int::int'>int</a></code> <a name='List::getRange::start'>start</a>, <code><a href='int.html#int::int'>int</a></code> <a name='List::getRange::length'>length</a>)</code></dt>
