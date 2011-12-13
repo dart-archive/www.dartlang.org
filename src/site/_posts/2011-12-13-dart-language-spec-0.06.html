@@ -1,0 +1,44 @@
+---
+layout: default
+title: Dart language spec v0.06 now available
+rel:
+  author: kathy-walrath
+author:
+  name: Kathy Walrath
+pubdate: 2011-12-13
+---
+
+{% capture contents %}
+
+<p>
+  Version 0.06 of the
+  <a href="http://www.dartlang.org/docs/spec/index.html">Dart language spec</a>
+  is now available.
+</p>
+
+<p>
+  Changes include:
+</p>
+
+<ul>
+<li> 7:5.1:
+  Clarified how initializing formals can act
+  as optional parameters of generative constructors. </li>
+<li> 7.5.2:
+  Treat factories as constructors,
+  so type parameters are implicitly in scope. </li>
+<li> 8.3:
+  Simplify rules for interface factory clauses.
+  Use the keyword <b>default</b> instead of <b>factory</b>. </li>
+<li> 9:
+  Mention that typedefs can have type parameters. </li>
+<li> 10.29:
+  Added checked mode test that type arguments match generic type. </li>
+<li> 13.2:
+  Added definition of malformed types,
+  and requirement on their handling in checked mode. </li>
+</ul>
+
+{% endcapture %}
+
+{% include post.html %}
