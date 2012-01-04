@@ -93,8 +93,15 @@ a:hover {
     \\ ========================================== //
 */
 
+ol {
+    list-style: none;
+    margin-left: 1em;
+}
+
 p {
-    font-size: 1em;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .comment, authornote {
@@ -174,6 +181,12 @@ header {
   position: relative;
 }
 
+header {
+  -moz-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .1);
+  box-shadow: inset 0  -5px 10px rgba(0, 0, 0, .1);
+}
+
 header img {
   position: absolute;
   left: 165px;
@@ -207,6 +220,7 @@ section#classes-nav {
   overflow: hidden;
   font-size: 14px;
 }
+
 nav a {
   text-decoration: none;
 }
@@ -221,12 +235,6 @@ nav li {
 
 nav ul ul {
   margin-top: .65em;
-}
-
-header {
-  -moz-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .1);
-  -webkit-box-shadow: inset 0 -5px 10px rgba(0, 0, 0, .1);
-  box-shadow: inset 0  -5px 10px rgba(0, 0, 0, .1);
 }
 
 div#main, div#docs-main {
@@ -298,6 +306,17 @@ aside.note {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+#faq-toc li {
+    text-indent: -1em;
+    margin-bottom: 0.25em;
+}
+
+#faq-toc .faq-topic {
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+    display: block;
 }
 
 footer {
@@ -375,14 +394,8 @@ section#fields-overview h5, section#fields-overview h6 {
   padding: 1em 0 0.5em 0;
 }
 
-
 section {
   clear: both;
-}
-
-p {
-  margin-top: 1em;
-  margin-bottom: 1em;
 }
 
 pre.commandline {
@@ -453,8 +466,4 @@ th, td {
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
-}
-
-ol.linenums {
-  margin-left:0px;
 }
