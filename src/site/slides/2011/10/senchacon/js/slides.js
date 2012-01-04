@@ -386,7 +386,7 @@ function updateHash(dontPush) {
     } else {
       window.location.replace(hash);
     }
-    _gaq.push(['_trackPageview', document.location.href]);
+    _gaq.push(['_trackPageview', document.location.pathname + document.location.hash]);
   }
 };
 
