@@ -1,0 +1,336 @@
+---
+layout: default
+title: "FAQ"
+rel:
+  author: eli-brandt
+---
+
+<h1>Frequently Asked Questions (FAQ)</h1>
+<em>Collected by Eli Brandt
+<br>
+Version 0.01, January 2012</em>
+{% comment %}
+<!-- Ported from doc 2011-12-14 17:00 -->
+{% endcomment %}
+
+<section>
+<p>
+  This FAQ answers many of the questions we've been asked about Dart. However, because we released Dart
+  as an early technology preview rather than keeping it under wraps until version 1.0, some important
+  open questions remain. We hope to address them with upcoming work and experimentation, inside and
+  outside of Google.
+</p>
+
+<h3>Contents</h3>
+<ol id="faq-toc">
+  <li><a href="#strategy" class="faq-topic">Strategy</a>
+  <ol>
+    <li><a href="#why-dart">Why Dart?</a></li>
+    <li><a href="#why-fix-the-language">Is the language really what needs to be fixed in web development?</a></li>
+    <li><a href="#does-dart-divert-effort">Is Dart going to divert community effort from JavaScript-based web development?</a></li>
+    <li><a href="#will-dart-be-standardized">Is Google planning to put Dart under the control of a standards body?</a></li>
+    <li><a href="#how-will-dart-take-input">Until that point, how will you be taking input on changes to Dart?</a></li>
+    <li><a href="#why-not-designed-by-standards-body">Why didn't Google make Dart an open standard right from the start?</a></li>
+    <li><a href="#future-for-GWT">What's the future for GWT?</a></li>
+    <li><a href="#why-not-multi-language-VM">Why didn't Google build a bytecode VM targetable by multiple languages including Dart?</a></li>
+  </ol> </li>
+
+  <li><a href="#language" class="faq-topic">Language</a>
+  <ol>
+    <li><a href="#compare-to-javascript">Isn't Dart a lot like JavaScript?</a></li>
+    <li><a href="#compare-to-java">Isn't Dart a lot like Java?</a></li>
+    <li><a href="#compare-to-closure">How does Dart compare with using the Closure compiler on JavaScript?</a></li>
+    <li><a href="#compare-to-coffeescript">How does Dart compare with CoffeeScript?</a></li>
+    <li><a href="#compare-to-go">How does Dart relate to Go?</a></li>
+    <li><a href="#compare-to-everything-else">Why isn't Dart more like Haskell / Smalltalk / Python / Scala / other language?</a></li>
+    <li><a href="#earth-shattering-syntactic-kaboom">Why isn't Dart syntax more exciting?</a></li>
+    <li><a href="#is-it-a-dynamic-language">Is it really a dynamic language if it doesn't have eval() or adding fields to a value at run time?</a></li>
+    <li><a href="#can-add-reflection">Can Dart add reflection?</a></li>
+    <li><a href="#can-add-everything">Can Dart add tuples, pattern matching, non-nullable types, interface duck typing, partial evaluation, optional semicolons, ...?</a></li>
+  </ol> </li>
+
+  <li><a href="#types" class="faq-topic">Types</a>
+  <ol>
+    <li><a href="#type-inference">Does Dart have type inference?</a></li>
+    <li><a href="#why-types-optional">Why are type annotations optional?</a></li>
+    <li><a href="#why-types-unsound">Why is the type system designed to be unsound?</a></li>
+    <li><a href="#sound-types-for-performance">But don't you need sound typing information to get high performance?</a></li>
+    <li><a href="#types-why-no-runtime-effect">Why do type annotations have no effect on the runtime behavior?</a></li>
+    <li><a href="#why-covariant-generics">Why are generics covariant?</a></li>
+  </ol> </li>
+
+  <li><a href="#tools" class="faq-topic">Usage and tools</a>
+  <ol>
+    <li><a href="#should-i-use-dart-yet">Should I write my web app in Dart?</a></li>
+    <li><a href="#interop-with-js-libs">How does Dart code interoperate with JavaScript libraries?</a></li>
+    <li><a href="#js-codebase-integration">I have a large JavaScript codebase.  How would I migrate it to Dart?</a></li>
+    <li><a href="#what-browsers-supported">What browsers do you plan to support as JavaScript compilation targets?</a></li>
+    <li><a href="#hello-world-js-size">Why was the JavaScript output for "Hello world" so big?</a></li>
+    <li><a href="#debugging-output-js">How do I debug Dart code after it's been compiled to JavaScript?</a></li>
+    <li><a href="#what-input-compiles">Will any valid Dart code compile to JavaScript, or are there limitations?</a></li>
+    <li><a href="#json-support">Does Dart support JSON?</a></li>
+    <li><a href="#server-support">Will Dart run on the server?</a></li>
+  </ol> </li>
+
+  <li><a href="#acknowledgments" class="faq-topic">Acknowledgments</a></li>
+</ol>
+</section>
+
+{% comment %}
+<!--
+TODO: do we have a standard trick to add some scrollable whitespace at the bottom so people can click on the bottom TOC entries (like #server-support) and go to the right place? 
+
+ANSWER: no. :( It's a common problem but not one I'd thought about fixing. If we add space above the footer, people won't see the footer. If we add space below, it'll just look weird... but maybe that'd be OK. -->
+{% endcomment %}
+
+<section>
+<h2 id="strategy">Strategy</h2>
+
+<h3 id="why-dart">Q. Why Dart?</h3>
+
+<p>At Google we've written our share of web apps, and we've tried in many ways to make improvements to that development process, short of introducing a new language.  Now we think it's time to take that leap.  We designed Dart to be easy to write development tools for, well-suited to modern app development, and capable of high-performance implementations.</p>
+
+<h3 id="why-fix-the-language">Q. Is the language really what needs to be fixed in web development?</h3>
+
+<p>We want to <a href="http://hyperboleandahalf.blogspot.com/2010/06/this-is-why-ill-never-be-adult.html">fix ALL the things</a>.  There's "Dart" the language, and then there's "Dart" the overall project.  The Dart <em>project</em> is betting that the language needs some changes, but we also want to <a href="http://www.dartlang.org/articles/improving-the-dom/">improve the DOM</a> and other libraries, and to improve the tools we use.</p>
+
+<p>At the same time, Google is also placing bets that JavaScript <em>can</em> be evolved as needed, and contributing to that work.  Google wants web development to be great, and if that happens with JavaScript, we're happy.</p>
+
+<h3 id="does-dart-divert-effort">Q. Is Dart going to divert community effort from JavaScript-based web development?</h3>
+
+<p>If people like Dart and use it, then to a certain extent, yes, but isn't this true of any improvement to existing web development?  Nothing is zero-effort to learn or 100% back-compatible to legacy browsers, so people use both new and old.  You might look at it this way: Google is putting significant effort behind both Dart and JavaScript, choosing to develop Dart while at the same time using JavaScript extensively, and working on JavaScript tools, implementation, and language spec.  We're doing both because we think Dart is worth it.</p>
+
+<p>Server-side web programming finds room for many languages: does Python divert effort from Perl, and does Java undercut C++?  Again, to a certain extent, yes they do, but people generally consider that a healthy situation, better than if we all used a single programming language.  Multiple languages have allowed for faster change than any single language has achieved through a standards process.  Furthermore, languages coexist in different niches: does Groovy really compete directly with C++?  People face different engineering tradeoffs and choose different languages to meet them.  Ultimately, we think client-side developers should have this kind of flexibility.</p>
+
+<h3 id="will-dart-be-standardized">Q. Is Google planning to put Dart under the control of a standards body?</h3>
+
+<p>Yes, we hope to.  Once Dart reaches a certain level of maturity and acceptance, we expect that a standards process will be the next step.</p>
+
+<h3 id="how-will-dart-take-input">Q. Until that point, how will you be taking input on changes to Dart?</h3>
+
+<p>We plan to handle it like the V8 project.  We'll listen to feedback and issues, and we'll review patches from outside contributors.  A contributor with a good track record can become a committer to the repository.  Google engineers will also be working in the public repository, making visible changes.</p>
+
+<h3 id="why-not-designed-by-standards-body">Q. Why didn't Google make Dart an open standard right from the start?</h3>
+
+<p>We're taking the usual route to get to an open-standard programming language: someone creates a coherent first version, people experiment with it, and we standardize later.  The open standard web platform has been known to add other pieces this way, where standardization follows after a vendor experiment: canvas, for example.  We understand that this route raises concerns, but we think it is sometimes useful, and in particular that it is useful for programming languages, where design by committee is risky.</p>
+
+<p>The most recent successful language designed by an open committee was Haskell, starting in 1990.  The most widely used was COBOL, followed by Ada.  It's not a common way to do language design.  Among dozens and dozens of major languages, six (give or take a couple of debatables) were designed this way.  (And one of those six was ALGOL-68.) </p>
+
+<h3 id="future-for-GWT">Q. What's the future for GWT?</h3>
+
+<p>Bruce Johnson <a href="http://googlewebtoolkit.blogspot.com/2011/11/gwt-and-dart.html">posted on the GWT blog</a> (with further comments <a href="https://plus.google.com/117487419861992917007/posts/6YWpsHpqMqZ">on Plus</a>): "Dart and GWT both share the goal of enabling structured web programming. In fact, many of the same engineers who brought you GWT are working on Dart. We view Dart as an ambitious evolution of GWT's mission to make web apps better for end users, and we're optimistic about its potential. As Dart evolves and becomes ready for prime time, we anticipate working closely with the GWT developer community to explore Dart."</p>
+
+<p>"Meanwhile, rest assured that GWT will continue to be a productive and reliable way to build the most ambitious web apps&mdash;and even games like Angry Birds. Key projects within Google rely on GWT every day, and we plan to continue improving (and open-sourcing) GWT based on their real-world needs."</p>
+
+<h3 id="why-not-multi-language-VM">Q. Why didn't Google build a bytecode VM targetable by multiple languages including Dart?</h3>
+
+<p>Each approach has advantages and disadvantages, but we feel that in the context of Dart it made sense to build a language-specific VM for the following reasons:
+<ul>
+<li>Google already works on a multi-language bytecode: <a href="https://developers.google.com/native-client/overview#distributing-an-application">LLVM bitcode in PNaCl</a>.</li>
+<li>Even if a bytecode VM is specialized for Dart, a language VM will be simpler and faster because it can work under stronger assumptions&mdash;for instance, a structured control flow.  These assumptions make the implementation cleaner and optimizations easier.</li>
+<li>A general-purpose bytecode VM would be even larger and slower, as it generalizes assumptions and adds functionality that for Dart is dead code: for example, multithreading with a shared heap.</li>
+<li>No bytecode VM is truly general-purpose; they all make assumptions that privilege some class of languages.  A language VM leaves more room to improve the VM and make deep changes to optimization of the language. Some Dart engineers wrote <a href="/articles/why-not-bytecode/">an article</a> talking about the VM question in more detail.</li>
+</ul>
+</p>
+</section>
+
+<section>
+<h2 id="language">Language</h2>
+
+<h3 id="compare-to-javascript">Q. Isn't Dart a lot like JavaScript?</h3>
+
+<p>Yes and no.  The Dart project thinks that JavaScript can use some changes for more productive software engineering, smarter editors and development environments, and web apps that are as beautiful and pleasing as the best client apps can be.  On the other hand, we don't think everything needs to change, and why change what isn't broken?</p>
+
+<p>Dart, like JavaScript, is a dynamically typed language.  It adds optional compile-time type annotations to help you catch errors earlier.  It takes out a few features of JavaScript, such as prototypes and the global object: this should streamline the VM, enable faster execution, and make it easier to do code completion and refactoring.  And Dart adds some goodies.  To name a few:
+<ul>
+<li>User-defined operator methods.  We like the lightweight, readable code these give for <a href="http://www.dartlang.org/articles/improving-the-dom/">our DOM interface</a>.</li>
+<li>Lightweight syntax for anonymous functions.  You use them a lot in web programming; now they look great.  And they come with correct binding of <code>this</code> and full block-level lexical scoping, no gotchas.</li>
+</ul>
+</p>
+
+<p>
+Dart aims to be like JavaScript, but faster, more regular, and more scalable to large programs.
+</p>
+
+<h3 id="compare-to-java">Q. Isn't Dart a lot like Java?</h3>
+
+<p>Well, Java is statically typed, and Dart is dynamically typed.  Dart has optional static type annotations, where in Java they are required.  To us these are big differences in the nature of the two languages.  But Dart is a curly-brace language, and it shares some keywords with Java, such as <code>extends</code> and <code>final</code>, so we can see why people make the comparison.  Honestly, we like having a straightforward and familiar syntax that's easy to pick up, even if that means it's less exciting.</p>
+
+<h3 id="compare-to-closure">Q. How does Dart compare with using the Closure compiler on JavaScript?</h3>
+
+<p>The idea of optional type annotations is similar.  Dart's are nicer syntactically.</p>
+
+<p>Compare the following Closure compiler code:</p>
+
+{% pretty_code %}
+// Closure compiler code
+
+/**
+ * @param {String} name
+ * @return {String}
+ */
+makeGreeting = function(name) {
+  /** @type {String} */
+  var greeting = 'hello ' + name;
+  return greeting;
+}
+{% endpretty_code %}
+
+<p>With the following Dart code:</p>
+
+{% pretty_code %}
+// Dart code
+
+String MakeGreeting(String name) {
+  String greeting = 'hello ' + name;
+  return greeting;
+}
+{% endpretty_code %}
+
+<p>If you are using Closure and can switch to Dart, you will probably enjoy the change.</p>
+
+<h3 id="compare-to-coffeescript">Q. How does Dart compare with CoffeeScript?</h3>
+
+<p>Both Dart and CoffeeScript are inspired by JavaScript, and both can be translated back to it.  They make different choices, particularly in the flavor of their syntax.  As a language we think it's fair to say that Dart differs semantically from JavaScript more than CoffeeScript does; that may result in a less line-for-line translation, but we believe Dart-generated JavaScript can have excellent size and speed.</p>
+
+<p>If you like CoffeeScript for its more structured feel than raw JavaScript, you may like Dart's optional type checking.</p>
+
+<h3 id="compare-to-go">Q. How does Dart relate to Go?</h3>
+
+<p>Dart and Go are both language projects started at Google, but they are independent and have different goals.  As a result, they make different choices, and the languages have very different natures, even while we all try to learn from each others' work.</p>
+
+<h3 id="compare-to-everything-else">Q. Why isn't Dart more like Haskell / Smalltalk / Python / Scala / other language?</h3>
+
+<p>Various reasons, depending on the language being asked about.</p>
+
+<p>For languages that are quite different from JavaScript: it's important for Dart to compile to efficient JavaScript.  Our experience in GWT is that if the source language is too different from JavaScript, it creates some cases where complex output code is needed to emulate the source language's behavior.  This can cause performance to vary in ways that are not transparent to the programmer.</p>
+
+<p>For languages that are less mainstream: we expect that modeling Dart on these would, on the whole, hurt our adoption.  Our team includes fans of these languages, and if we thought Dart could take up our favorite cool language features and push them to widespread adoption we might be tempted, but really we think we've got our hands full introducing a new language at all.</p>
+
+<p>For languages that are "more dynamic" than Dart: Dart deliberately trades off some of this arbitrary runtime modification for the goal of better performance and tools.</p>
+
+<h3 id="earth-shattering-syntactic-kaboom">Q. Why isn't Dart syntax more exciting?</h3>
+
+<p>We did throw in some nice syntactic features such as <code>this.</code> constructor args, but we'd agree that Dart chooses familiarity over excitement.  One team member's personal testimonial: "I wish it had a little more razzle dazzle but I can't deny that literally on my first day of writing Dart code, I was productive in it."</p>
+
+<h3 id="is-it-a-dynamic-language">Q. Is it really a dynamic language if it doesn't have eval() or adding fields to a value at run time?</h3>
+
+<p>Dart as initially released didn't have anything like these, but future versions of Dart will look at adding dynamic features of this sort.  The feature set won't match up exactly with the features in your question, but we hope to serve very much the same purposes.  When we see what gets added, then everyone can decide how they classify the language.</p>
+
+<p>What's important to us is that what you want to do with a dynamic language, you can do with Dart and not feel cramped.  You should be able to design your system without interference from static rules, and to modify the live system during development and sometimes at run time.</p>
+
+<p>So, for example, Dart isn't likely to support evaluating a string as code in the current context, but it may support loading that code dynamically into a new isolate.  Dart isn't likely to support adding fields to a value, but it may (through a mirror system) support adding fields to a class, and you can effectively add methods using <code>noSuchMethod()</code>.  Using these features will have a runtime cost; it's important to us to minimize the cost for programs that don't use them.</p>
+
+<p>This area is still under development, so we welcome your thoughts on what you need from runtime dynamism.</p>
+
+<h3 id="can-add-reflection">Q. Can Dart add reflection?</h3>
+
+<p>Yes.</p>
+
+<h3 id="can-add-everything">Q. Can Dart add tuples, pattern matching, non-nullable types, interface duck typing, partial evaluation, optional semicolons, ...?</h3>
+
+<p>The language is not finished yet.  It might be able to include your feature, although it can't include everything.  Some features don't fit the basic nature of the language, and some don't play well with other features.  Simplicity is the single most important gift we all can give to future programmers.</p>
+
+<p>Please look at the <a href="http://code.google.com/p/dart/issues/list">list of Dart issues</a> to see if your request is already there, and add a new issue if not.  Make a thoughtful argument for your feature.  Sample code with and without your feature is good evidence; a sizeable codebase that shows the need is even better evidence.</p>
+
+<p>Please don't be surprised if the Dart designers say "no" by default, especially for now.  It's far more painful to remove a language feature than to add it, so Dart is likely to add the most obvious features first, and then revisit the next tier later.  And there simply are more possible language features in the world that can fit into any single language without making a total hash of it.   But we do very much appreciate suggestions and evidence.  We hope you'll see our appreciation through careful design choices and fair communication about them.</p>
+</section>
+
+<section>
+<h2 id="types">Types</h2>
+
+<h3 id="type-inference">Q. Does Dart have type inference?</h3>
+
+<p>That's not specified by the language, and it's left up to the compiler or editor that wants to do it.  Type inference could certainly be useful.</p>
+
+<h3 id="why-types-optional">Q. Why are type annotations optional?</h3>
+
+<p>We want to maintain the feel of a dynamically typed language, which is familiar to web developers. Mandatory types don't fit with that goal.</p>
+
+<h3 id="why-types-unsound">Q. Why is the type system designed to be unsound?</h3>
+
+<p>There isn't a "type system" in the traditional sense. Our main goals for the types are to support tooling and documentation. We want to build a pragmatic tool that helps web programmers without getting in their way.  In particular, we want our static warnings to be optimistic rather than to complain about dynamically typed code that may be valid and correctly written, such as "downcast" assignments.  Because Dart execution is always type-safe, we can let some unsound cases get through the static warnings and be caught at run time instead.</p>
+
+<p>Typical object-oriented languages let you downcast, which also introduces unsoundness into the type system and may result in a runtime type error.  In Dart, we choose to allow downcasts without a syntax to mark them.</p>
+
+<h3 id="sound-types-for-performance">Q. But don't you need sound typing information to get high performance?</h3>
+
+<p>Sound types can help with performance but aren't essential. What we need are uniform, simple semantics.</p>
+
+<h3 id="types-why-no-runtime-effect">Q. Why do type annotations have no effect on the runtime behavior?</h3>
+
+<p>If type annotations affect the runtime, programs will change their behavior as programmers add type information, even though the logic remains unchanged. The normal mode of development is to gradually add types for documentation and validation, and if that changes what the program does, programmers have no stable foundation to work on. This is especially true given that types could be inaccurate.</p>
+
+<p>In addition, this policy helps us and others add additional type-checking tools that implement different policies without unforeseen interactions with the runtime.</p>
+
+<h3 id="why-covariant-generics">Q. Why are generics covariant?</h3>
+
+<p>Covariant generics fit a common intuition that programmers have, and very often this intuition is correct, such as in the common "read-only" use of a generic.  Although this intuition isn't always correct, Dart doesn't need it to be.  Dart has already chosen optimistic static checking, so why not continue down that path and allow covariant uses of generics to pass static type checking?</p>
+
+<p>Where covariant generics are too optimistic, Dart's type-safe execution allows the static warnings to be optimistic without being dangerous.  Although covariance can be pessimistic too, we think it will be rare that people run into that, and and there's a simple workaround for any pessimism.</p>
+
+<p>We are familiar with a variety of ways that languages try to mark or infer variance.  We don't think any of them are suitable for Dart, where we want type annotations to be optional and unobtrusive: it wouldn't fit to <em>require</em> marking, and we feel that variance inference systems add too much complexity for their benefit in Dart.</p>
+
+<p>Again, we're trying to be pragmatic, and we think the outcome is reasonable.</p>
+</section>
+
+<section>
+<h2 id="tools">Usage and tools</h2>
+
+<h3 id="should-i-use-dart-yet">Q. Should I write my web app in Dart?</h3>
+
+<p>If you want to experiment, we'd love for you to try Dart and give us feedback.  If your web app is something that needs to be reliable, we really recommend waiting until Dart is more mature.  We've released Dart at a very early stage, and we're likely to make breaking changes to the language.</p>
+
+<h3 id="interop-with-js-libs">Q. How does Dart code interoperate with JavaScript libraries?</h3>
+
+<p>Right now, the supported way is to port the library to Dart.  We're trying an approach using isolates: Dart code calls across an isolate boundary to JavaScript, using RPC stub code that we hope to autogenerate.  This approach has the good property that you never have multiple heaps trying to share data, and that you're not locking yourself out from running on a Dart VM.  We'll see how it works.</p>
+
+<h3 id="js-codebase-integration">Q. I have a large JavaScript codebase.  How would I migrate it to Dart?</h3>
+
+<p>You could use the isolate model described in the previous question, which will encourage you to port fairly coarse chunks with narrow interfaces.  We know you might like fine-grained intercalling, but we are nervous that it would have long-term negative effects on the language and on the VM (from experience with GWT JSNI), and we would very much rather do without it.  So the <code>native</code> keyword is intended for use only by our core library implementations, because we want to be able to make breaking changes to the interaction between native JavaScript and generated JavaScript, breaking only our own core libraries, not the whole world.  Again, we'll see how this works.</p>
+
+<h3 id="what-browsers-supported">Q. What browsers do you plan to support as JavaScript compilation targets?</h3>
+
+We're currently aiming to support the following browsers:
+<ul>
+<li>Internet Explorer, latest two versions that are 9 or higher.</li>
+<li>Firefox, latest two versions that are 7 or higher.</li>
+<li>Chrome, latest version.</li>
+<li>Safari, latest two versions that are 5.1 or higher.</li>
+<li>Opera, latest version that is 12 or higher.</li>
+</ul>
+
+That's a goal; we don't actually support all of these browsers yet.  The goal may change to be either more restrictive or more permissive.  We'll refine this further as Dart matures.
+
+<h3 id="hello-world-js-size">Q. Why was the JavaScript output for "Hello world" so big?</h3>
+
+<p>Dart is young; we're working on the output size.  At the launch of Dart, you had two choices.  One was the <code>dartc</code> compiler without optimization, which slurps in tons of libraries and doesn't eliminate dead code: this is the default mode and is probably what you're seeing if you have absurdly large output for a small program.  The other was <code>dartc</code> with <code>--optimize</code>, which is slow but gets quite a bit smaller.</p>
+
+<p>Since the initial launch, we've also created an even more experimental compiler, <code>frog</code>, written in Dart.  <a href="http://turbomanage.wordpress.com/2011/11/02/dart-to-js-compilation-with-frog/">Its output can be an order of magnitude smaller than <code>dartc --optimize</code></a>, so try <code>frog</code> if you have output size issues.  <a href="https://gist.github.com/1385015">Its output for "Hello world"</a> as of November 2011 was 35 lines, of which 12 are comments.  We'll continue to work on output size.</p>
+
+<h3 id="debugging-output-js">Q. How do I debug Dart code after it's been compiled to JavaScript?</h3>
+
+<p>If you can use <code>frog</code> to compile your program, the generated JavaScript is really quite readable, and it's reasonable to use the browser's development tools on it.</p>
+
+<h3 id="what-input-compiles">Q. Will any valid Dart code compile to JavaScript, or are there limitations?</h3>
+
+<p>Yes, we intend for any valid Dart code to compile to JavaScript.  If some support is missing from one of our compilers, that's a bug (in either the compiler or the spec).</p>
+
+<h3 id="json-support">Q. Does Dart support JSON?</h3>
+
+<p>Yes, Dart libraries can parse from and stringify to JSON.  You can find such a library at <a href="http://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fclient%2Fjson"><code>dart/client/json/</code></a>.</p>
+
+<h3 id="server-support">Q. Will Dart run on the server?</h3>
+
+<p>We have some server code now, such as our test suites.  Have a look at the file, socket, and process APIs in <a href="http://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fruntime%2Fbin"><code>dart/runtime/bin/</code></a>. </p>
+</section>
+
+<section>
+<h2 id="acknowledgments">Acknowledgments</h2>
+
+<p>Thanks to users who asked questions, and to many Googlers who contributed questions, answers, and improvements: Mukesh Agrawal, Lars Bak, Adam Barth, Gilad Bracha, Paul Brauner, David Carlson, Patrick Doyle, Matthias Ernst, Nicolas Geoffray, Dan Grove, William Hesse, Bruce Johnson, Seth Ladd, Patrick Linehan, Florian Loitsch, John Messerly, Srdjan Mitrovic, Anton Muhin, Bob Nystrom, Jack Palevich, David Rochberg, Matt Shulman, Joel Webber, Brian Wilkerson.</p>
+
+</section>
+
+
+{% include syntax-highlighting.html %}
