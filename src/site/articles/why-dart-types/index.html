@@ -95,7 +95,10 @@ Already we have designed ourselves an unsound type rule.
 </p>
 <pre class="prettyprint lang-dart linenums:1 ">
 mammal = cow;      // [1]
-pig = mammal;      // [2] Checks OK statically, but now pig holds a Cow.
+pig = mammal;      // [2] Checks OK statically;
+                   //     at runtime fails only in checked mode.
+
+//In unchecked mode, pig now holds a Cow.
 print(pig.oink()); // [3] NoSuchMethodException if we get this far.
 </pre>
 
