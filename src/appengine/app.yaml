@@ -1,5 +1,5 @@
 application: dart-lang
-version: 2012-01-26-bfce4b5c8892ea682db257c3540aa4ac
+version: yourname-bfce4b5c8892ea682db257c3540aa4ac
 # NOTE: URL is yourname-bfce4b5c8892ea682db257c3540aa4ac.dart-lang.appspot.com
 #       To get your own staging server, change 'yourname' to... you guessed it.
 #       To deploy to dartlang.org (only from a clean master workspace)
