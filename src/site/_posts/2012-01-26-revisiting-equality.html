@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Revisiting equality
+title: Proposed changes for equality
 rel:
   author: gilad-bracha
 author:
@@ -10,17 +10,9 @@ pubdate: 2012-01-26
 
 {% capture contents %}
 
+<section>
+
 <div class="spec-update">
-  
-  <aside>
-    <span class="rationale">Discussion of the motivation for language design decisions appears in blue italics.</span>
-    <span class="commentary">Commentary is green, serving to illustrate or clarify the specification, but are redundant with the normative text. </span>
-    <span class="open-questions">Open questions are red. Open questions are points that are unsettled in the mind of the author(s) of the specification; expect them  (the questions, not the authors; precision is important in a specification) to be eliminated in the final specification</span>
-    <span class="new">New changes are highlighted in yellow</span>
-  </aside>
-
-<h1>Equality Revisited</h1>
-
 
 <p>This is a draft specification for the revised handling of equality. The essence of the change is as follows:</p>
 
@@ -33,6 +25,14 @@ pubdate: 2012-01-26
 </ul>
 
 <p class="open-questions">The question arises, do we need the special story with operators for negate, call and equals? Can we just say that the operators are hardwired to invoke the methods involved?</p>
+  
+  <aside class="note">
+    <b>Note on conventions:</b>
+    <span class="rationale">Discussion of the motivation for language design decisions appears in blue italics.</span>
+    <span class="commentary">Commentary is green, serving to illustrate or clarify the specification, but are redundant with the normative text. </span>
+    <span class="open-questions">Open questions are red. Open questions are points that are unsettled in the mind of the author(s) of the specification; expect them  (the questions, not the authors; precision is important in a specification) to be eliminated in the final specification</span>
+    <span class="new">New changes are highlighted in yellow</span>
+  </aside>
 
 <h2>Specification Changes</h2>
 
@@ -47,7 +47,7 @@ pubdate: 2012-01-26
 <pre>
 <b>operatorSignature</b>:
       returnType? <b>operator</b> operator formalParameterList
-       ;
+    ;
 
 <b>operator</b>:
       unaryOperator
@@ -55,8 +55,8 @@ pubdate: 2012-01-26
     | '[' ']'
     | '[' ']' '='
     | <b>negate</b>
-   | <b>call</b>
-   <span class="new">| <b>equals</b></span>
+    | <b>call</b>
+    <span class="new">| <b>equals</b></span>
     ;
     
 <b>unaryOperator</b>:
@@ -73,8 +73,8 @@ pubdate: 2012-01-26
     ;
 
 <b>prefixOperator</b>:
-       '-'
-   | negateOperator
+      '-'
+    | negateOperator
     ;
 
 
