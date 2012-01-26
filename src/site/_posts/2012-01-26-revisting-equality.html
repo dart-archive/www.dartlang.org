@@ -26,9 +26,11 @@ pubdate: 2012-01-26
 
 <p>The == operator is no longer user definable. It has fixed behavior, that is however customizable via the operator/method equals(). Specifically, given x == y:</p>
 
-<ul><li>a. If x === y then return true. Otherwise</li>
-<li>b. if either x or y is null, return false. Otherwise</li>
-<li>c. return the result of x.equals(y)</li></ul>
+<ul>
+  <li>If x === y then return true. Otherwise</li>
+  <li>if either x or y is null, return false. Otherwise</li>
+  <li>return the result of x.equals(y)</li>
+</ul>
 
 <p>The question arises, do we need the special story with operators for negate, call and equals? Can we just say that the operators are hardwired to invoke the methods involved?</p>
 
