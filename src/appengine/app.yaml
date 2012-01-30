@@ -17,8 +17,11 @@ api_version: 1
 
 handlers:
 
+- url: /news.*
+  script: scripts/redirector.py
+
 - url: /docs/api/.*
-  script: scripts/api-redirect.py
+  script: scripts/redirector.py
 
 - url: /(.*\.png)
   static_files: static/\1
