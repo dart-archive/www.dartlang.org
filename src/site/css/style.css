@@ -204,6 +204,10 @@ header div#plus1 {
   right: 20px;
 }
 
+nav div#search {
+  margin-bottom: .65em;
+}
+
 nav, section#classes-nav {
   clear: both;
   width: 170px;
