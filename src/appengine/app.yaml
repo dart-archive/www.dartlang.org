@@ -20,6 +20,9 @@ handlers:
 - url: /news.*
   script: scripts/redirector.py
 
+- url: /atom.xml
+  script: scripts/redirector.py
+
 - url: /docs/api/.*
   script: scripts/redirector.py
 

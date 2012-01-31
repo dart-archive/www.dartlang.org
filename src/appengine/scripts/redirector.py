@@ -40,9 +40,14 @@ class NewsRedirectPage(webapp.RequestHandler):
         else:
             self.error(404)
 
+class AtomFeedRedirectPage(webapp.RequestHandler):
+    def get(self):
+        self.redirect('http://news.dartlang.org/feeds/posts/default', permanent=True)
+
 application = webapp.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
-                                      ('/news.*', NewsRedirectPage)],
+                                      ('/news.*', NewsRedirectPage),
+                                      ('/atom.xml', AtomFeedRedirectPage)],
                                      debug=True)
 
 def main():
