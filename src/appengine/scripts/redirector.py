@@ -33,7 +33,7 @@ class ApiRedirectPage(webapp.RequestHandler):
 class NewsRedirectPage(webapp.RequestHandler):
     def get(self):
         url = self.request.path[5:len(self.request.path)]
-        if url == '' or url == '/' :
+        if url == '' or url == '/' or url == '/index.html':
             self.redirect('http://news.dartlang.org', permanent=True)
         elif NEWS_POSTS.has_key(url):
             self.redirect('http://news.dartlang.org' + NEWS_POSTS[url], permanent=True)
