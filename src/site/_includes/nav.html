@@ -1,7 +1,16 @@
 <nav>
+  <form action="/search.html" id="cse-search-box">
+    <div id="search">
+      <input type="hidden" name="cx" value="011220921317074318178:i4mscbaxtru" />
+      <input type="hidden" name="ie" value="UTF-8" />
+      <input type="hidden" name="hl" value="en" />
+      <input type="search" name="q" id="q" autocomplete="off" placeholder="Search"/>
+    </div>
+  </form>
+
   <ul>
     {% nav_link / %}Home{% endnav_link %}
-    {% nav_link /news/index.html %}News &amp; Updates{% endnav_link %}
+    {% nav_link http://news.dartlang.org %}News &amp; Updates{% endnav_link %}
     <li>Getting Started
       <ul>
         {% nav_link /docs/technical-overview/index.html %}Technical Overview{% endnav_link %}
