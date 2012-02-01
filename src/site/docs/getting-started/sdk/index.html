@@ -9,20 +9,52 @@ title: "Getting Started with the SDK"
 <section>
 
 <p>
-This page tells you where to download
+This page tells you how to find and use
 prerelease versions of the Dart SDK.
-Soon, we'll have a tutorial on using the SDK.
+The SDK includes the following tools:
 </p>
 
-<p> You can download integration releases of the SDK.
+<ul>
+  <li> Dart-to-JavaScript compiler (aka <em>frog</em>)</li>
+  <li> Dart VM </li>
+  <li> Dart libraries </li>
+</ul>
+
+<p>
+For more information about the SDK, see the blog post
+<a href="http://blog.sethladd.com/2012/01/dart-sdk-quick-tour.html">Dart SDK Quick Tour</a>.
+</p>
+
+<aside class="note">
+<b>Note:</b>
+The SDK is in very early days, and it might not always work.
+If you just want to play with Dart, try
+<a href="/docs/getting-started/index.html">Dartboard</a>.
+For a real development environment, use
+<a href="/docs/getting-started/editor/index.html">Dart Editor</a>.
+</aside>
+
+<section>
+<h4> Contents </h4>
+<ul>
+  <li> <a href="#download">Getting the SDK</a> </li>
+  <li> <a href="#frog">Using frog</a> </li>
+  <li> <a href="#vm">Using the VM</a> </li>
+</ul>
+</section>
+
+<section id="download">
+<h2> Getting the SDK </h2>
+<p>
+You can download integration releases of the SDK.
 They've been tested, to some extent,
 and are expected to work.
 </p>
 
 <ul>
-  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-win32.zip">Windows</a> </li>
-  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-macos.zip">Mac</a> </li>
-  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-linux.zip">Linux</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-win32.zip">Windows SDK</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-macos.zip">Mac SDK</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-linux.zip">Linux SDK</a> </li>
 </ul>
 
 <p>
@@ -32,14 +64,54 @@ and sometimes much more often.
 </p>
 
 <ul>
-  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-win32.zip">Windows (latest)</a> </li>
-  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-macos.zip">Mac (latest)</a> </li>
-  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-linux.zip">Linux (latest)</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-win32.zip">Windows SDK (latest)</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-macos.zip">Mac SDK (latest)</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-linux.zip">Linux SDK (latest)</a> </li>
 </ul>
 
 <p>
-For more information about the SDK, see the blog post
-<a href="http://blog.sethladd.com/2012/01/dart-sdk-quick-tour.html">Dart SDK Quick Tour</a>.
+After you download and unzip the SDK,
+you'll have a directory named <code>dart-sdk</code>.
+Its <code>bin</code> directory has
+<code>frogc</code> (the Dart-to-JavaScript compiler) and
+<code>dart</code> (the Dart VM).
 </p>
+
+</section>
+
+
+<section id="frog">
+<h2>Using frog</h2>
+
+<p>
+To compile a Dart file to JavaScript, use <code>bin/frogc</code>.
+For example:
+</p>
+
+{% pretty_code %}
+$DART_SDK/bin/frogc test.dart
+{% endpretty_code %}
+
+<p>
+This command produces a <code>.js</code> file
+that contains the JavaScript equivalent of your Dart code.
+</p>
+
+</section>
+
+
+<section id="vm">
+<h2>Using the VM</h2>
+
+<p>
+To run a Dart file in the Dart VM, use <code>bin/dart</code>.
+For example:
+
+{% pretty_code %}
+$DART_SDK/bin/dart test.dart
+{% endpretty_code %}
+</p>
+
+</section>
 </section>
 
