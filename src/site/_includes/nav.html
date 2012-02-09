@@ -9,7 +9,7 @@
   </form>
 
   <ul>
-    {% nav_link / %}Home{% endnav_link %}
+    {% nav_link /downloads.html %}Downloads{% endnav_link %}
     {% nav_link http://news.dartlang.org %}News &amp; Updates{% endnav_link %}
     <li>Getting Started
       <ul>
@@ -25,8 +25,8 @@
     </li>
     <li>Language &amp; Libraries
       <ul>
+        {% nav_link http://api.dartlang.org/ %}API Reference{% endnav_link %}
         {% nav_link /docs/spec/index.html %}Language Spec{% endnav_link %}
-        {% nav_link http://api.dartlang.org/ %}Library Reference{% endnav_link %}
       </ul>
      </li>
     {% nav_link /samples/index.html %}Code Samples{% endnav_link %}
