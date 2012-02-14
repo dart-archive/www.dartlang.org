@@ -1,9 +1,9 @@
 application: dart-lang
-version: yourname-bfce4b5c8892ea682db257c3540aa4ac
-# NOTE: URL is yourname-bfce4b5c8892ea682db257c3540aa4ac.dart-lang.appspot.com
-#       To get your own staging server, change 'yourname' to... you guessed it.
+version: CHANGEME
+# NOTE: URL is CHANGEME.dart-lang.appspot.com
+#       To get your own staging server, change 'CHANGEME' to... you guessed it.
 #       To deploy to dartlang.org (only from a clean master workspace)
-#       remove everything up to and including the '-'.
+#       change CHANGEME to a date string: YYYY-MM-DD.
 #       For more information on making changes, see goto/dartsiteupdate.
 #
 # IMPORTANT: AFTER changing the version, DO THIS:
@@ -28,7 +28,7 @@ handlers:
 
 - url: /(.*\.png)
   static_files: static/\1
-  expiration: 1h
+  expiration: 4h
   upload: static/(.*\.png)
     
 - url: (.*)/
