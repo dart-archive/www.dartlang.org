@@ -8,10 +8,7 @@ rel:
 <h1>Frequently Asked Questions (FAQ)</h1>
 <em>Collected by Eli Brandt
 <br>
-Version 0.01, January 2012</em>
-{% comment %}
-<!-- Ported from doc 2011-12-14 17:00 -->
-{% endcomment %}
+Version 0.02, February 2012</em>
 
 <section>
 <p>
@@ -65,6 +62,7 @@ Version 0.01, January 2012</em>
     <li><a href="#interop-with-js-libs">How does Dart code interoperate with JavaScript libraries?</a></li>
     <li><a href="#js-codebase-integration">I have a large JavaScript codebase.  How would I migrate it to Dart?</a></li>
     <li><a href="#what-browsers-supported">What browsers do you plan to support as JavaScript compilation targets?</a></li>
+    <li><a href="#what-browsers-have-dart">What browsers support Dart now?</a></li>
     <li><a href="#hello-world-js-size">Why was the JavaScript output for "Hello world" so big?</a></li>
     <li><a href="#debugging-output-js">How do I debug Dart code after it's been compiled to JavaScript?</a></li>
     <li><a href="#what-input-compiles">Will any valid Dart code compile to JavaScript, or are there limitations?</a></li>
@@ -302,6 +300,17 @@ We're currently aiming to support the following browsers:
 
 That's a goal; we don't actually support all of these browsers yet.  The goal may change to be either more restrictive or more permissive.  We'll refine this further as Dart matures.
 
+<h3 id="what-browsers-have-dart">Q. What browsers support Dart now?</h3>
+
+<p>
+As of February 2012,
+no production browsers can execute Dart code unless it's first compiled to JavaScript.
+However, a Chromium build (nicknamed <em>Dartium</em>)
+is available that can execute Dart code natively.
+For details on downloading and using Dartium, see
+<a href="/dartium/index.html">Chromium with the Dart VM</a>.
+</p>
+
 <h3 id="hello-world-js-size">Q. Why was the JavaScript output for "Hello world" so big?</h3>
 
 <p>Dart is young; we're working on the output size.  At the launch of Dart, you had two choices.  One was the <code>dartc</code> compiler without optimization, which slurps in tons of libraries and doesn't eliminate dead code: this is the default mode and is probably what you're seeing if you have absurdly large output for a small program.  The other was <code>dartc</code> with <code>--optimize</code>, which is slow but gets quite a bit smaller.</p>
@@ -318,7 +327,7 @@ That's a goal; we don't actually support all of these browsers yet.  The goal ma
 
 <h3 id="json-support">Q. Does Dart support JSON?</h3>
 
-<p>Yes, Dart libraries can parse from and stringify to JSON.  You can find such a library at <a href="http://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fclient%2Fjson"><code>dart/client/json/</code></a>.</p>
+<p>Yes, Dart libraries can parse from and stringify to JSON.  You can find such a library at <a href="http://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Flib%2Fjson"><code>dart/lib/json/</code></a>.</p>
 
 <h3 id="server-support">Q. Will Dart run on the server?</h3>
 
