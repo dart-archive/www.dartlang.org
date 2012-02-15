@@ -1,0 +1,153 @@
+---
+layout: default
+title: "Chromium with the Dart VM"
+---
+
+<h1> {{ page.title }} </h1>
+
+<section class="overview">
+
+<p>
+This page tells you how to get and use
+a Chromium-based browser (nicknamed <em>Dartium</em>)
+that includes the Dart virtual machine (VM).
+</p>
+
+<aside class="warning">
+<b>Important:</b>
+This browser is a technical preview,
+and it might have security and stability issues.
+
+<blockquote>
+<b>Do not use Dartium as your primary browser!</b>
+</blockquote>
+</aside>
+
+<h4> Contents </h4>
+<ol class="toc">
+  <li> <a href="#download">Downloading the browser</a> </li>
+  <li> <a href="#detect">Detecting Dart support</a> </li>
+  <li> <a href="#command">Launching from the command line</a> </li>
+</ol>
+</section>
+
+
+<section id="download">
+<h2> Downloading the browser </h2>
+
+<p>
+Download the ZIP file for your platform:
+</p>
+
+<ul>
+  <li> <a href="http://commondatastorage.googleapis.com/dartium-archive/continuous/dartium-mac.zip">Dartium for Mac</a> </li>
+  <li> <a href="http://commondatastorage.googleapis.com/dartium-archive/continuous/dartium-lucid64.zip">Dartium for Linux</a> </li>
+  <li> Dartium for Windows <em>(coming soon!)</em> </li>
+</ul>
+
+<p>
+You don't need to do anything special to install Dartium:
+just unarchive the ZIP file.
+If you like, move the resulting directory to a convenient location.
+</p>
+
+<p>
+To launch Dartium, navigate to its directory in your finder,
+and double-click the blue logo labeled Chromium.
+Or use the <a href="#command">command line</a>.
+</p>
+
+<aside class="note">
+<b>If you already use Chromium:</b>
+If another version of Chromium is open,
+then you could have a profile conflict.
+To avoid this, you can open Dartium or Chromium
+from the command line with the
+<a href="http://www.chromium.org/user-experience/user-data-directory">--user-data-dir flag</a>.
+</section>
+
+
+<section id="detect">
+<h2> Detecting Dart support </h2>
+
+<p>
+Your Dart code will work in Dartium
+without any additional JavaScript code.
+However, you have the option of using JavaScript code
+to test whether the current browser supports Dart.
+To do so,
+look for the function <b>webkitStartDart</b>
+on the window.navigator object.
+For example:
+</p>
+
+{% pretty_code %}
+if (!navigator.webkitStartDart) {
+  // No native Dart support.
+  window.addEventListener("DOMContentLoaded", function (e) {
+      // ...Fall back to compiled JS...
+    }
+  }, false);
+}
+{% endpretty_code %}
+
+</section>
+
+
+<section id="command">
+<h2> Launching from the command line </h2>
+
+<p>
+Soon we expect to make it easy to launch Dartium through Dart Editor.
+Until then, you can launch it by double-clicking its icon
+or, if you need to specify flags, by using the command line.
+</p>
+
+<p>
+Because Dartium is based on Chromium, all
+<a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">Chromium flags</a>
+should work.
+In some cases, you might want to specify Dart-specific flags
+so that you can tweak the embedded Dart VM’s behavior.
+For example, while developing your web app,
+you might want the VM to perform as many checks as possible.
+To achieve that, you can enable checked mode
+(the VM’s --enable_type_checks flag)
+and assertion checks (--enable_asserts flag).
+</p>
+
+<p>
+On Linux, you can enable specify flags by starting Dartium as follows:
+</p>
+
+{% pretty_code %}
+DART_FLAGS='--enable_type_checks --enable_asserts' <em>path</em>/chrome
+{% endpretty_code %}
+
+<p>
+Or on the Mac:
+</p>
+
+{% pretty_code %}
+DART_FLAGS='--enable_type_checks --enable_asserts'              \
+  <em>path</em>/Chromium.app/Contents/MacOS/Chromium
+{% endpretty_code %}
+
+<p>
+Or (also on the Mac):
+</p>
+
+{% pretty_code %}
+DART_FLAG='--enable_type_checks --enable_asserts'               \
+   <b>open</b> <em>path</em>/Chromium.app
+{% endpretty_code %}
+
+<aside class="note">
+<b>Tip:</b>
+You can see the command-line flags and executable path
+of your current Chromium-based browser
+by going to <b>chrome://version/</b>.
+</aside>
+</section>
+
+{% include syntax-highlighting.html %}

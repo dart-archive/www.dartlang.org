@@ -93,7 +93,7 @@ a:hover {
     \\ ========================================== //
 */
 
-ol {
+ol.toc, ol.toc ol {
     list-style: none;
     margin-left: 1em;
 }
@@ -305,8 +305,23 @@ article dd {
   margin-bottom: 10px;
 }
 
-aside.note {
+aside.note, aside.new {
   background-color: #FFFACD;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+aside.new b {
+  color: red;
+}
+
+aside.warning b {
+  color: red;
+}
+
+aside.warning {
+  background-color: #FFCCCC;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
