@@ -1,0 +1,180 @@
+<p>
+A Dart string is a sequence of Unicode character codes.
+You can use either single or double quotes
+to create a string:
+</p>
+
+{% pretty_code dart 0 %}
+var s1 = 'Single quotes work well for string literals.';
+var s2 = "Double quotes work just as well.";
+var s3 = 'It\'s easy to escape the string delimiter.';
+var s4 = "It's even easier to just use the other string delimiter.";
+{% endpretty_code %}
+
+<p>
+You can put the value of an expression inside a string
+by using ${<em>expression</em>}.
+If the expression is a variable,
+you can skip the {}.
+</p>
+
+{% pretty_code dart 0 %}
+var s = 'string interpolation';
+
+print('Dart has $s, which is very handy.');
+print('That deserves all caps. ${s.toUpperCase()} is very handy!');
+{% endpretty_code %}
+
+<p>
+To create a multi-line string,
+you can use a triple quote
+with either single or double quotation marks.
+</p>
+
+{% pretty_code dart 0 %}
+var s1 = '''
+You can create
+multi-line strings like this one.
+''';
+
+var s2 = """This is also a
+multi-line string.""";
+{% endpretty_code %}
+
+{% comment %}
+In a multi-line string, the initial newline is NOT ignored (in Dartboard)
+(and neither is the last newline).
+{% endcomment %}
+
+<p>
+You can create a "raw" string
+by prefixing it with @.
+</p>
+
+{% pretty_code dart 0 %}
+var s = @'In a raw string, even \n is ignored.';
+{% endpretty_code %}
+
+{% comment %}
+In a raw string, \' isn't ignored (in Dartboard).
+{% endcomment %}
+
+<p>
+As for all objects,
+you can check whether two strings are equivalent
+(have the same characters)
+using the <b>==</b> operator:
+</p>
+
+{% pretty_code dart 0 %}
+var name = 'NAME';
+var greeting = "Hello, $name!";
+var greetingTemplate = 'Hello, NAME!';
+
+print(greeting == greetingTemplate); //true; they have the same characters
+{% endpretty_code %}
+
+
+<section id="strings-string">
+<h4> String methods </h4>
+
+<p>
+Each string literal has the type
+<a href="http://api.dartlang.org/dart_core/String.html">String</a>.
+String has some handy methods,
+including some that let you determine whether a string
+starts with, ends with, or contains another string.
+</p>
+
+{% pretty_code dart 0 %}
+var fullName = 'Cuthbert Musgrave Girdlestone, III';
+
+fullName.startsWith('Cuthbert');            // true
+fullName.endsWith('III');                   // true
+fullName.contains(new RegExp('Musgrave'));  // true
+{% endpretty_code %}
+
+<p>
+Strings are immutable objects,
+which means you can create them but you can't change them.
+If you look closely at the
+<a href="http://api.dartlang.org/dart_core/String.html">String API docs</a>,
+you'll notice that none of the methods
+actually changes the state of a String.
+For example, the method replaceAll() returns a new String
+without changing the original String.
+</p>
+
+{% pretty_code dart 0 %}
+var greetingTemplate = 'Hello, NAME!';
+var greeting = greetingTemplate.replaceAll(new RegExp("NAME"), 'Bob');
+print(greeting == greetingTemplate); // false; greetingTemplate didn't change
+{% endpretty_code %}
+
+
+<section id="strings-buffer">
+<h4> StringBuffer methods </h4>
+
+<p>
+To programmatically generate a string, you can use
+<a href="http://api.dartlang.org/dart_core/StringBuffer.html">StringBuffer</a>.
+A StringBuffer doesn't generate a new String object
+until toString() is called.
+</p>
+
+{% pretty_code dart 0 %}
+var sb = new StringBuffer();
+
+sb.add("Use a StringBuffer");
+sb.addAll(["for ", "efficient ", "string ", "creation "]);
+sb.add("if you are ").add("building lots of strings.");
+
+var fullString = sb.toString();
+
+print(fullString); // Use a StringBuffer for efficient string creation
+                   // if you are building lots of strings.
+
+sb.clear();        // All gone!
+{% endpretty_code %}
+
+<br>
+<aside class="note">
+<b>Note:</b>
+StringBuffers are currently slow when compiled to JavaScript.
+See bug #<a href="http://code.google.com/p/dart/issues/detail?id=1216">1216</a>
+for details.
+</aside>
+
+</section>
+
+
+<section id="strings-summary">
+<h4> Summary of strings </h4>
+
+<p>
+A <a href="http://api.dartlang.org/dart_core/String.html">String</a>
+is an immutable sequence of
+32-bit Unicode scalar character codes.
+String literals are delimited with either single quotes or double quotes.
+Strings can be multi-line with triple quotes,
+or "raw" and unfiltered with a @ prefix.
+</p>
+
+<p>
+You can use string interpolation
+to insert variable or expression values into a string literal.
+Another option for building strings is
+<a href="http://api.dartlang.org/dart_core/StringBuffer.html">StringBuffer</a>.
+</p>
+
+<p>
+Strings can do a lot more than we showed here.
+For example, you can
+<a href="http://api.dartlang.org/dart_core/String.html#split">split</a> a string,
+create a
+<a href="http://api.dartlang.org/dart_core/String.html#substring">substring</a>,
+<a href="http://api.dartlang.org/dart_core/String.html#trim">trim</a> it,
+and lots more.
+</p>
+
+</section>

@@ -1,0 +1,79 @@
+---
+layout: default
+title: "A Tour of the Dart Language"
+header:
+  css: ["/css/dartboard.css"]
+---
+
+<h1> {{ page.title }} </h1>
+
+<section class="overview">
+<p>
+Welcome to the Dart language tour!
+We'll show you how to use each major Dart feature,
+from variables to operators to classes and libraries,
+with the assumption that you already know how to program in another language.
+</p>
+
+<aside class="note">
+<b>Tip:</b>
+<a href="http://try.dartlang.org" target="_blank">Open a Dartboard window</a>
+so you can play with each feature.
+</aside>
+
+<p>
+Consult the
+<a href="/docs/spec/index.html">Dart Language Specification</a>
+whenever you want more details about a language feature.
+</p>
+
+<h4> Contents </h4>
+<ol class="toc">
+  <li> <a href="#1-main-print">A basic Dart program</a> </li>
+  <li> Variables <em>(coming soon!)</em> </li>
+  <li> <a href="#3-built-in-types">Built-in types</a> </li>
+{% comment %}
+  <li> Operators <em>(coming soon!)</em> </li>
+  <li> Functions <em>(coming soon!)</em> </li>
+  <li> Control flow <em>(coming soon!)</em> </li>
+  <li> Exceptions <em>(coming soon!)</em> </li>
+  <li> Classes <em>(coming soon!)</em> </li>
+  <li> Interfaces <em>(coming soon!)</em> </li>
+  <li> Libraries &amp;visibility <em>(coming soon!)</em> </li>
+  <li> Generics <em>(coming soon!)</em> </li>
+  <li> Isolates <em>(coming soon!)</em> </li>
+  <li> Typedefs <em>(coming soon!)</em> </li>
+  <li> Reference <em>(coming soon!)</em> </li>
+{% endcomment %}
+</ol>
+
+<aside class="note">
+<b>Work in progress:</b>
+We'll add to this tour over the next few weeks.
+</aside>
+
+</section>
+
+
+{% comment %}
+NOTE: The guts of this page are in /_includes/language-tour/*/*.
+{% endcomment %}
+
+
+<section>
+<h2 id="1-main-print"> A basic Dart program </h2>
+{% include language-tour/1-main-print/index.html %}
+</section>
+
+<section>
+<h2 id="3-built-in-types"> Built-in types </h2>
+{% include language-tour/3-built-in-types/index.html %}
+</section>
+
+
+<script async type="text/javascript"
+  src="http://try.dartlang.org/dartboard.dart.app.js">
+</script>
+
+{% include syntax-highlighting.html %}
+

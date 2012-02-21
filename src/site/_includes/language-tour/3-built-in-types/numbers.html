@@ -1,0 +1,134 @@
+<p>
+Dart numbers come in two flavors:
+</p>
+
+<dl>
+  <dt> <a href="http://api.dartlang.org/dart_core/int.html">int</a> </dt>
+  <dd> Integers of arbitrary size </dd>
+  <dt> <a href="http://api.dartlang.org/dart_core/double.html">double</a> </dt>
+  <dd> Decimal 64-bit doubles, as specified by the IEEE 754 standard </dd>
+</dl>
+
+<p>
+Both <b>int</b> and <b>double</b> are subinterfaces of
+<a href="http://api.dartlang.org/dart_core/num.html"><b>num</b></a>.
+The num interface defines basic operators such as +, -, /, and *,
+as well as bitwise operators such as &gt;&gt;.
+{% comment %}
+{PENDING: should I point to operators here? Or up top?}
+{% endcomment %}
+The num interface is also
+where you'll find abs(), ceil(), and floor(), among other methods.
+If num and its subinterfaces don't have what you're looking for, the
+<a href="http://api.dartlang.org/dart_core/Math.html">Math</a> class might.
+</p>
+
+<p>
+Integers are numbers without a decimal point.
+Here are some examples of defining integer literals:
+</p>
+
+{% pretty_code dart 0 %}
+var x = 1;
+var hex = 0xDEADBEEF;
+var bigInt = 3465346583465243765923847659234765928347659567398475647495873984572947593470294387093493456870849216348723763945678236420938467345762304958724596873045876234572037862934765294365243652548673456705673465273465246734506873456729457623845623456234650457693475603768922346728346256;
+{% endpretty_code %}
+
+{% comment %}
+PENDING: how should we deal with VM/JS differences? I'm thinking we should avoid them. Maybe just make bigint smaller, like I did here?
+{% endcomment %}
+
+<p>
+If a number includes a decimal,
+it is a double.
+Here are some examples of defining double literals:
+</p>
+
+{% pretty_code dart 0 %}
+var y = 1.1;
+var exponents = 1.42e5;
+{% endpretty_code %}
+
+<p>
+Here's how you turn a string into a number, or vice versa:
+</p>
+
+{% pretty_code dart 0 %}
+// string -> int
+var one = Math.parseInt("1");                   // 1
+
+// string -> double
+var onePointOne = Math.parseDouble("1.1");      // 1.1
+
+// int -> string
+String oneAsString = 1.toString();              // "1"
+
+// double -> string
+String piAsString = 3.14159.toStringAsFixed(2); // "3.14"
+{% endpretty_code %}
+
+
+{% comment %}
+Don't include this?
+
+<section id="numbers=num">
+<h4> Using num </h4>
+
+<p>
+Methods such as ceil() and abs() are in the num interface,
+and not in Math.
+</p>
+
+{% pretty_code dart 0 %}
+// abs() gives the absolute value.
+print((-4).abs() == 4);     //true
+
+// ceil() and floor() round up or down.
+print(3.25.ceil() == 4.0);  //true
+print(3.25.floor() == 3.0); //true
+
+// round() rounds up for .5 or greater, otherwise it rounds down.
+print(3.25.round() == 3);   //true
+print(3.89.round() == 4);   //true
+print(3.5.round() == 4);    //true
+print(3.49.round() == 3);   //true
+
+// truncate() cuts off the decimal digits.
+print(3.24532.truncate() == 3.0);    //true
+
+// toInt() converts a double to an int.
+print(3.24.toInt() == 3);   //true
+{% endpretty_code %}
+
+<p>
+The num interface specifies the traditional bit shift, AND, and OR operators.
+For example:
+</p>
+
+{% pretty_code dart 0 %}
+print(3&lt;&lt;1 == 6); // 0011 &lt;&lt; 1 == 0110
+print(3&gt;&gt;1 == 1); // 0011 &gt;&gt; 1 == 0001
+
+print((3|4) == 7); // 0011 | 0100 == 0111
+{% endpretty_code %}
+</section>
+{% endcomment %}
+
+
+<section id="numbers-summary">
+<h4> Summary of numbers </h4>
+
+<p>
+Dart supplies a
+<a href="http://api.dartlang.org/dart_core/num.html">num</a>
+interface with two subinterfaces:
+<a href="http://api.dartlang.org/dart_core/int.html">int</a> and
+<a href="http://api.dartlang.org/dart_core/double.html">double</a>.
+Integers are arbitrary precision, meaning they have arbitrary size.
+Doubles are 64-bit decimals that follow IEEE 754 spec.
+The <a href="http://api.dartlang.org/dart_core/Math.html">Math</a> class
+has constants such as <code>Math.PI</code>
+and utilities such as <code>parseDouble()</code>.
+</p>
+
+</section>

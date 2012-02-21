@@ -1,0 +1,50 @@
+<p>
+Here's some code
+that runs as-is in Dartboard
+and uses some of Dart's most basic features.
+</p>
+
+{% pretty_code dart 0 %}{% include language-tour/1-main-print/start.dart %}{% endpretty_code %}
+
+<p>
+Here's what this program uses
+that applies to all (or almost all) Dart apps:
+</p>
+
+<dl>
+  <dt> main() </dt>
+  <dd>
+    The special, <b>required</b>,
+   top-level function where app execution starts.</dd>
+  <dt> // </dt>
+  <dd>
+    How you indicate that the rest of the line is a comment.
+    Alternatively:
+    {% pretty_code dart 0 %}/* comment that might span many lines */{% endpretty_code %}
+  <dt> var </dt>
+  <dd>
+    The simplest way to declare a variable. </dd>
+{% comment %}
+PENDING: add URL when variable section is written.
+variable.html?
+{% endcomment %}
+  <dt> "..." (or '...')</dt>
+  <dd>
+    A string.
+{% comment %}
+PENDING: add URL when string section is written.
+builtin.html#string?
+{% endcomment %}
+    </aside>
+  <dt> print() </dt>
+  <dd>
+    A handy way to display output. </dd>
+</dl>
+
+<aside class="note">
+  <b>Note:</b>
+  Our code follows the conventions in the
+  <a href="/articles/style-guide/">Dart Style Guide</a>.
+  For example,
+  we indent two spaces by convention. 
+</aside>

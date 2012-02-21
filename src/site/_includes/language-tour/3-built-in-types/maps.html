@@ -1,0 +1,168 @@
+<p>
+In general, a map is an object that associates keys to values.
+Dart support for maps is provided by map literals and the
+<a href="http://api.dartlang.org/dart_core/Map.html">Map</a> interface.
+</p>
+
+<p>
+Here's a simple Dart map:
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = {                         // a map literal
+// keys       values
+  "first"  : "partridge",
+  "second" : "turtledoves",
+  "fifth"  : "golden rings"};
+{% endpretty_code %}
+
+<p>
+In map literals, each <b>key</b> must be a string.
+If you use a Map constructor,
+then you have more options:
+the key can be a string, a number, or any other object
+that implements the
+<a href="http://api.dartlang.org/dart_core/Hashable.html">Hashable</a>
+interface.
+</p>
+
+{% pretty_code dart 0 %}
+var map = new Map();                  // use a Map constructor
+map[1] = "partridge";                 // key is 1; value is "partridge"
+map[2] = "turtledoves";               // key is 2; value is "turtledoves"
+map[5] = "golden rings";              // key is 5; value is "golden rings"
+{% endpretty_code %}
+
+<p>
+A map <b>value</b> can be any object or null.
+</p>
+
+<p>
+You add a new key-value pair to an existing map
+just as you would in JavaScript:
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = { "first": "partridge" };
+<b>gifts["fourth"] = "calling birds";</b>    // add a key-value pair
+{% endpretty_code %}
+
+<p>
+You retrieve a value from a map the same way you would in JavaScript:
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = { "first": "partridge" };
+print(gifts['first']);                // partridge
+{% endpretty_code %}
+
+<p>
+If you look for a key that isn't in a map,
+you get a null in return.
+However, because values can be null,
+you might need to use a method such as
+<a href="http://api.dartlang.org/dart_core/Map.html#containsKey">containsKey()</a> or
+<a href="http://api.dartlang.org/dart_core/Map.html#putIfAbsent">putIfAbsent()</a>
+to make sure you interpret null correctly.
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = { "first": "partridge" };
+print(gifts['fifth']);                // null
+{% endpretty_code %}
+
+<p>
+Use <b>.length</b> to get the number of key-value pairs in the map:
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = { "first": "partridge" };
+gifts["fourth"] = "calling birds";
+print(<b>gifts.length</b>);                  // 2
+{% endpretty_code %}
+
+<p>
+To remove a key-value pair from a map,
+use the <b>remove()</b> method:
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = { "first": "partridge" };
+gifts["fourth"] = "calling birds";
+<b>gifts.remove('first');</b>
+print(gifts.length);                  // 1
+print(gifts['first']);                // null
+{% endpretty_code %}
+
+<p>
+You can copy a map using the <b>Map.from()</b> constructor:
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = { "first": "partridge" };
+var regifts = new Map.from(gifts);
+print(regifts['first']);              // partridge
+{% endpretty_code %}
+
+
+<section id="maps-iterating">
+<h4> Iterating </h4>
+
+<p>
+You have a few choices for iterating through the contents of a map.
+Using the <b>forEach()</b> method gives you access to both
+the key and the value.
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = {
+  "first" : "partridge",
+  "second": "turtledoves",
+  "fifth" : "golden rings"};
+gifts.forEach((k,v) => print('$k : $v'));
+{% endpretty_code %}
+
+<aside class="note">
+<b>Note:</b>
+Don't depend on forEach() returning
+the key-value pairs in a particular order.
+</aside>
+
+<p>
+If you are interested in just the keys or just the values,
+use <b>getKeys()</b> or <b>getValues()</b>, respectively.
+Both methods return a
+<a href="http://api.dartlang.org/dart_core/Collection.html">Collection</a> object.
+</p>
+
+{% pretty_code dart 0 %}
+var gifts = {"first": "partridge", "second": "turtledoves"};
+var values = gifts.getValues();
+values.forEach((v) => print(v));      //partridge, turtledoves
+{% endpretty_code %}
+
+<aside class="note">
+<b>Note:</b>
+Map itself does not extend the Collection interface.
+</aside>
+
+</section>
+
+
+<section id="maps-summary">
+<h4> Summary of maps </h4>
+
+<p>
+Map literals and the
+<a href="http://api.dartlang.org/dart_core/Map.html">Map</a> interface
+let you map keys to values.
+If you use a literal to create a map,
+the keys must be strings.
+</p>
+
+<p>
+You'll learn more about maps in the
+<a href="#generics">Parameterized types (aka generics)</a> section.
+</p>
+
+</section>

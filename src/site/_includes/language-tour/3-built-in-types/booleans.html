@@ -1,0 +1,115 @@
+<p>
+Dart has a formal boolean type, named <b>bool</b>.
+Only two objects have type bool:
+the boolean literals, <b>true</b> and <b>false</b>.
+</p>
+
+<p>
+When Dart expects a boolean value,
+if that value isn't <b>true</b>,
+then it is <b>false</b>.
+Unlike in JavaScript,
+values such as 1 or non-null objects are not treated as true.
+</p>
+
+<p>
+For example, consider the following code:
+</p>
+
+{% pretty_code dart 0 %}
+var name = 'Bob';
+if (name) {
+  print("You have a name!"); // Prints in JavaScript, not in Dart
+}
+{% endpretty_code %}
+
+<p>
+In JavaScript, this code prints "You have a name!" because
+<code>name</code> is a non-null object.
+However, in Dart, the above doesn't print at all
+because <code>name</code> is converted to <b>false</b>
+because <code>name != true</code>.
+</p>
+
+<p>
+Here's another example of code
+that behaves differently in JavaScript and Dart:
+</p>
+
+{% pretty_code dart 0 %}
+if (1) {
+  print("JavaScript prints this line because it thinks 1 is true.");
+} else {
+  print("Dart prints this line because it thinks 1 is NOT true.");
+}
+{% endpretty_code %}
+
+<br>
+<aside class="note">
+<b>Note:</b>
+Dartboard currently has the wrong behavior for the previous two samples:
+it prints the same string that JavaScript would.
+(See bug #<a href="http://code.google.com/p/dart/issues/detail?id=1190">1190</a>
+for details.)
+Also note that,
+unlike most of the samples in this tour,
+the previous two samples don't work in checked mode.
+</aside>
+
+<p>
+Dart's treatment of booleans is designed
+to avoid the strange behaviors that can arise
+when many values can be treated as true.
+What this means for you is that,
+instead of using code like
+<code>if&nbsp;(<em>nonboolean_value</em>)</code>,
+you should instead explicitly check for values.
+For example:
+</p>
+
+{% pretty_code dart 0 %}
+// Check for an empty string.
+var fullName = '';
+if (fullName.isEmpty()) {
+  print("Please enter a full name");
+}
+
+// Check for zero.
+var hitPoints = 0;
+if (hitPoints == 0) {
+  print("Uh oh! Looks like you died.");
+}
+
+// Check for null.
+var unicorn = null;
+if (unicorn == null) {
+  print("You didn't wish hard enough. Wish harder.");
+}
+
+// Check for NaN.
+var iMeantToDoThis = 0/0;
+if (iMeantToDoThis.isNaN()) {
+  print("0/0 is not a number.");
+}
+{% endpretty_code %}
+
+
+
+<section id="boolean-summary">
+<h4> Summary of booleans </h4>
+
+<p>
+Dart has a true boolean type named <b>bool</b>, with only two values:
+<b>true</b> and <b>false</b>.
+Due to Dart's boolean conversion rules,
+all values except <b>true</b> are converted to <b>false</b>.
+</p>
+
+{% comment %}
+{PENDING: I didn't include info on operator results
+(and the resulting differences from JS/Ruby default value assignment)
+because we haven't discussed operators yet.
+We should be sure to cover this in the operator section!}
+{% endcomment %}
+
+</section>
