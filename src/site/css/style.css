@@ -464,6 +464,9 @@ th, td {
     color: red;
 }
 
+.code-error {
+  text-decoration: line-through;
+}
 
 
 

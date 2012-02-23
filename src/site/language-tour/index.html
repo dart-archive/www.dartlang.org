@@ -29,12 +29,13 @@ whenever you want more details about a language feature.
 
 <h4> Contents </h4>
 <ol class="toc">
-  <li> <a href="#1-main-print">A basic Dart program</a> </li>
-  <li> Variables <em>(coming soon!)</em> </li>
-  <li> <a href="#3-built-in-types">Built-in types</a> </li>
+  <li> <a href="#main-print">A basic Dart program</a> </li>
+  <li> <a href="#variables">Variables</a> </li>
+  <li> <a href="#built-in-types">Built-in types</a> </li>
+  <li> <a href="#functions">Functions</a> </li>
+  <li> And more to come... </li>
 {% comment %}
   <li> Operators <em>(coming soon!)</em> </li>
-  <li> Functions <em>(coming soon!)</em> </li>
   <li> Control flow <em>(coming soon!)</em> </li>
   <li> Exceptions <em>(coming soon!)</em> </li>
   <li> Classes <em>(coming soon!)</em> </li>
@@ -61,19 +62,27 @@ NOTE: The guts of this page are in /_includes/language-tour/*/*.
 
 
 <section>
-<h2 id="1-main-print"> A basic Dart program </h2>
+<h2 id="main-print"> A basic Dart program </h2>
 {% include language-tour/1-main-print/index.html %}
 </section>
 
 <section>
-<h2 id="3-built-in-types"> Built-in types </h2>
+  <h2 id="variables"> Variables </h2>
+  {% render language-tour/2-variables/index.markdown %}
+</section>
+
+<section>
+<h2 id="built-in-types"> Built-in types </h2>
 {% include language-tour/3-built-in-types/index.html %}
 </section>
 
+<section>
+  <h2 id="functions"> Functions </h2>
+  {% render language-tour/functions/index.markdown %}
+</section>
 
 <script async type="text/javascript"
   src="http://try.dartlang.org/dartboard.dart.app.js">
 </script>
 
 {% include syntax-highlighting.html %}
-
