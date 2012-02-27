@@ -25,7 +25,10 @@ and it might have security and stability issues.
 
 <h4> Contents </h4>
 <ol class="toc">
-  <li> <a href="#download">Downloading the browser</a> </li>
+  <li> <a href="#download">Downloading the browser</a>
+    <ol>
+      <li> <a href="#linux">Linux: Installing 32-bit libraries</a> </li>
+    </ol> </li>
   <li> <a href="#detect">Detecting Dart support</a> </li>
   <li> <a href="#command">Launching from the command line</a> </li>
 </ol>
@@ -55,7 +58,7 @@ if you want to continue using Dartium.
 </aside>
 
 <p>
-You don't need to do anything special to install Dartium:
+You don't usually need to do anything special to install Dartium:
 just unarchive the ZIP file.
 If you like, move the resulting directory to a convenient location.
 </p>
@@ -64,6 +67,9 @@ If you like, move the resulting directory to a convenient location.
 To launch Dartium, navigate to its directory in your finder,
 and double-click the blue logo labeled Chromium.
 Or use the <a href="#command">command line</a>.
+If launching fails and you're using 64-bit Linux,
+you probably need to
+<a href="#linux">install 32-bit libraries</a>.
 </p>
 
 <aside class="note">
@@ -73,8 +79,35 @@ then you could have a profile conflict.
 To avoid this, you can open Dartium or Chromium
 from the command line with the
 <a href="http://www.chromium.org/user-experience/user-data-directory">--user-data-dir flag</a>.
-</section>
+</aside>
 
+
+<section id="linux">
+<h3> Linux: Installing 32-bit libraries </h3>
+
+<p>
+The Linux Dartium binaries currently require 32-bit libraries.
+If you're using 64-bit Linux without 32-bit libraries,
+then Dartium will fail to launch,
+possibly producing a message like this:
+</p>
+
+<pre>
+!MESSAGE Dartium stderr: <em>path-to-chromium</em>: error while loading shared libraries: libXss.so.1: cannot open shared object file: No such file or directory
+</pre>
+
+<p>
+The workaround is to install 32-bit libraries on your computer.
+You can find instructions at:
+</p>
+
+<blockquote>
+<a href="http://code.google.com/p/chromium/wiki/LinuxBuildInstructionsPrerequisites">LinuxBuildInstructionsPrerequisites</a>
+</blockquote>
+
+
+</section>
+</section>
 
 <section id="detect">
 <h2> Detecting Dart support </h2>
