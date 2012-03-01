@@ -22,7 +22,7 @@ Here's the first chapter's worth.
 
 <section id="toc">
 <h4> Contents </h4>
-<ol>
+<ol class="toc">
   <li> <a href="#1">Puzzler 1: Oddity</a> </li>
   <li> <a href="#2">Puzzler 2: Time for a Change</a> </li>
   <li> <a href="#3">Puzzler 3: Long Division</a> </li>
@@ -32,7 +32,7 @@ Here's the first chapter's worth.
   <li> <a href="#7">Puzzler 7: Swap Meat</a> </li>
   <li> <a href="#8">Puzzler 8: Dos Equis</a> </li>
   <li> <a href="#9">Puzzler 9: Tweedledum</a> </li>
-  <li> <a href="#10">Puzzler 10:Tweedledee</a> </li>
+  <li> <a href="#10">Puzzler 10: Tweedledee</a> </li>
   <li> <a href="#summary">Summary</a> </li>
 </ol>
 </section>
@@ -44,7 +44,7 @@ This method appears to tell you whether its argument is odd or even,
 but fails on negative odd arguments:
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public static boolean isOdd(int i) {
   return i % 2 == 1;
 }
@@ -55,7 +55,7 @@ The puzzler was fixed in Dart:
 The following function <em>does</em> identify odd numbers in Dart (unlike Java):
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 bool isOdd(int i) {
   return i % 2 == 1;
 }
@@ -84,7 +84,7 @@ This program appears to calculate the change
 when $2.00 is paid for a $0.90 purchase.
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class Change {
   public static void main(String args[]) {
     System.out.println(2.00 - 1.10);
@@ -96,7 +96,7 @@ public class Change {
 Here it is translated into Dart:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 main() {
   print(2.00 - 1.10);
 }
@@ -142,7 +142,7 @@ to avoid these problems.
 But consider the following Dart program:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 main() {
   int i = 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000;
   print(i == i + 1);
@@ -166,7 +166,7 @@ which is 1000.
 In fact, it prints 5:
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class LongDivision {
   public static void main(String[] args) {
     final long MICROS_PER_DAY = 24 * 60 * 60 * 1000 * 1000;
@@ -190,7 +190,7 @@ but there's no guarantee that it will do so in general.
 
 <h2 id="4"> Puzzler 4: It's Elementary </h2>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class Elementary {
   public static void main(String[] args) {
     System.out.println(12345 + 5432l); // Lowercase L masquerades as 1!
@@ -211,7 +211,7 @@ This Java program looks like it should print <code>1cafebabe</code>
 but actually prints <code>cafebabe</code> due to unexpected sign extension
 (<code>0xcafebabe</code> is a negative number).
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class JoyOfHex {
   public static void main(String[] args) {
     System.out.println(
@@ -226,7 +226,7 @@ by the use of arbitrary-precision integer arithmetic.
 This Dart program prints <code>1cafebabe</code>:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 main() {
   print((0x100000000 + 0xcafebabe).toRadixString(16));
 }
@@ -235,7 +235,7 @@ main() {
 
 <h2 class="6"> Puzzler 6: Multicast </h2>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class Multicast {
   public static void main(String[] args) {
     System.out.println((int) (char) (byte) -1);
@@ -255,7 +255,7 @@ This program attempts to use a hideous hack
 to swap the contents of two int variables:
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class CleverSwap {
   public static void main(String[] args) {
     int x = 1984;
@@ -270,7 +270,7 @@ public class CleverSwap {
 In Dart:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 main() {
   int x = 1984;
   int y = 2001;
@@ -296,7 +296,7 @@ This program would appear to print <code>XX</code>,
 but actually prints <code>X88</code> in Java:
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class DosEquis {
   public static void main(String[] args) {
     char x = 'X';
@@ -311,7 +311,7 @@ public class DosEquis {
 In Dart:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 main() {
   string x = 'X';
   int i = 0;
@@ -336,7 +336,7 @@ In this puzzle, you’re asked to provide declarations
 to cause the indicated behavior:
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 Public class Tweedledum {
   public static void main(String[] args) {
     // Put your declarations for x and i here
@@ -360,7 +360,7 @@ no implicit narrowing conversion on compound assignment expressions.
 Again, you’re asked to provide declarations to cause the indicated behavior:
 </p>
 
-{% pretty_code %}
+{% pretty_code java 0 %}
 public class Tweedledee {
   public static void main(String[] args) {
     // Put your declarations for x and i here

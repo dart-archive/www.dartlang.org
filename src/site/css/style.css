@@ -94,12 +94,11 @@ a:hover {
 */
 
 ol.toc, ol.toc ol {
-    list-style: none;
+    list-style-type: none;
     margin-left: 1em;
 }
 
 p {
-  font-size: 1em;
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -114,13 +113,11 @@ i, em { font-style: italic; }
 
 article dl dd {
   margin-left: 1em;
-  font-size: 15px;
   font-weight: 400;
 }
 
 article dl dt {
   font-weight: 800;
-  font-size: 1em;
   margin-top: 0.5em;
   margin-bottom: 0em;
 }
@@ -130,6 +127,7 @@ html {
 }
 
 body {
+  font-size: 15px;
   font-family: 'Open Sans', sans-serif;
   background-image: url(/imgs/button-textured.png);
   background-repeat: repeat;
@@ -215,7 +213,6 @@ nav, section#classes-nav {
   display: inline;
   margin: 20px;
   font-weight: 300;
-  font-size: 15px;
   letter-spacing: 20;
 }
 
@@ -283,7 +280,6 @@ article h4 {
 article section {
   margin-bottom: 10px;
   font-weight: 400;
-  font-size: 15px;
 }
 
 article p {
@@ -296,7 +292,6 @@ article ol {
 }
 
 article dt {
-  font-size: 1.25em;
   margin-bottom: 5px;
   font-weight: 800;
 }
@@ -338,15 +333,11 @@ aside.warning {
     display: block;
 }
 
-footer {
+footer p {
   clear: both;
   font-size: 0.8em;
   text-align: center;
   padding: 20px;
-}
-
-section.intro {
-  font-size: 13px;
 }
 
 section.intro aside {
