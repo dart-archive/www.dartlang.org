@@ -7,7 +7,7 @@ rel:
 
 # {{ page.title }}
 _Written by Joshua Bloch <br />
-January 2012_
+February 2012_
 
 <section>
 
