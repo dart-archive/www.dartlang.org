@@ -743,7 +743,7 @@ rather a simple error message.
 
 That’s it for Chapter 2. 
 Now the moment you’ve all been waiting for:
-how does Dart stack up Java?
+how does Dart stack up against Java?
 
 Well, the chapter has 13 puzzles.
 Nine are clear wins for Dart,
