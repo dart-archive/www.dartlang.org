@@ -112,6 +112,39 @@ $DART_SDK/bin/dart test.dart
 {% endpretty_code %}
 </p>
 
+<h3>Enable type checks</h3>
+
+<p>
+  Dart programs run in one of two modes: checked or production. In checked mode,
+  type checks are enabled, providing for early warnings that the compile
+  time checker can catch. In production mode, type checks are ignored.
+</p>
+
+<p>
+  During development, we recommend using type checks. You can enable these
+  checks with a command line flag:
+
+  {% pretty_code %}
+  $DART_SDK/bin/dart --enable_type_checks test.dart
+  {% endpretty_code %}
+</p>
+
+<h3>Enable assertions</h3>
+
+<p>
+  Assertions check a boolean condition, and if false, will raise an exception.
+  The <code>assert()</code> statements do no run in production mode.
+  We recommend that you enable assertions during development.
+</p>
+
+<p>
+  You can enable assertions with a command line flag:
+
+  {% pretty_code %}
+  $DART_SDK/bin/dart --enable_asserts test.dart
+  {% endpretty_code %}
+</p>
+
 </section>
 </section>
 
