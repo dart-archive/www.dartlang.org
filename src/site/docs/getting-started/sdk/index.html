@@ -112,6 +112,41 @@ $DART_SDK/bin/dart test.dart
 {% endpretty_code %}
 </p>
 
+<h3>Enabling type checks</h3>
+
+<p>
+  Dart programs run in one of two modes: checked or production.
+  In checked mode, assignments are dynamically checked, and
+  certain violations of the type system raise exceptions at run time.
+  In production mode, static type annotations have no
+  effect.
+</p>
+
+<p>
+  During development, we recommend using checked mode. You can
+  run in checked mode with a command-line flag:
+
+  {% pretty_code %}
+  $DART_SDK/bin/dart --enable_type_checks test.dart
+  {% endpretty_code %}
+</p>
+
+<h3>Enabling assertions</h3>
+
+<p>
+  An assertion checks a boolean condition and, if false, raises an exception.
+  The <code>assert()</code> statements do not run in production mode.
+  We recommend that you enable assertions during development.
+</p>
+
+<p>
+  You can enable assertions with a command-line flag:
+
+  {% pretty_code %}
+  $DART_SDK/bin/dart --enable_asserts test.dart
+  {% endpretty_code %}
+</p>
+
 </section>
 </section>
 
