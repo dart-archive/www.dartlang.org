@@ -39,7 +39,7 @@ characters, and other textual data."
 
 <h2 id="11"> Puzzle 11: The Last Laugh </h2>
 
-In Java, this program that appears to print `HaHa` actually prints `Ha88`.
+In Java, this program that appears to print `HaHa` actually prints `Ha169`.
 
 {% pretty_code java 0 %}
 public class LastLaugh {
@@ -208,9 +208,11 @@ killing this puzzler dead.
 Here’s the Java program:
 
 {% pretty_code java 0 %}
-main() {
-  // \u0022 is the Unicode escape for double-quote (")
-  print("a\u0022.length + \u0022b".length);
+public class EscapeRout {
+  public static void main(String[] args) {
+    // \u0022 is the Unicode escape for double-quote (")
+    System.out.println("a\u0022.length() + \u0022b".length());
+  }
 }
 {% endpretty_code %}
 
@@ -224,9 +226,11 @@ before the compiler parses the program into tokens.
 Therefore, the program is effectively:
 
 {% pretty_code java 0 %}
-main() {
-  // " is the Unicode escape for double-quote (")
-  print("a".length + "b".length);
+public class EscapeRout {
+  public static void main(String[] args) {
+    // " is the Unicode escape for double-quote (")
+    System.out.println("a".length() + "b".length());
+  }
 }
 {% endpretty_code %}
 
