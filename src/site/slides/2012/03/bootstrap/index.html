@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Bootstrap into Dart</title>
+
+    <meta charset='utf-8'>
+    <script src='slides.js'></script>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-26406144-4']);
+      _gaq.push(['_setDomainName', 'dartlang.org']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    <script type="text/javascript">
+    window.addEventListener('slideenter', function(e) {
+        _gaq.push(['_trackPageview', document.location.pathname + document.location.hash]);
+      });
+    </script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    p.code-note {
+    	font-size: 75%;
+    	font-style: italic;
+    }
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-widescreen template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      
+      <article class='biglogo'>
+      </article>
+
+      <article>
+        <h1>
+          Bootstrap into Dart
+        </h1>
+        <p>
+          Dart team
+          <br>
+          March 5, 2012
+        </p>
+      </article>
+
+      <article>
+        <h2>
+          Online resources
+        </h2>
+      </article>
+
+      <article class="fill">
+        <a href="http://www.dartlang.org/language-tour/index.html"><img class="centered" style='height: 500px' src="images/screenshots/language-tour.png" alt="Language tour site"></a>
+        <div class='source'>
+          <a href="http://www.dartlang.org/language-tour/index.html">Language tour</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <a href="http://api.dartlang.org"><img class="centered" style='height: 500px' src="images/screenshots/api-docs.png" alt="Dart API docs site"></a>
+        <div class='source'>
+          <a href="http://api.dartlang.org">API Docs</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <a href="http://synonym.dartlang.org"><img class="centered" style='height: 500px' src="images/screenshots/synonym.png" alt="Synonyms from JavaScript to Dart site"></a>
+        <div class='source'>
+          <a href="http://synonym.dartlang.org">Synonyms from JavaScript to Dart</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <a href="http://www.dartlang.org/articles/style-guide/"><img class="centered" style='height: 500px' src="images/screenshots/style-guide.png" alt="Dart style guide page"></a>
+        <div class='source'>
+          <a href="http://www.dartlang.org/articles/style-guide/">Dart style guide</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <a href="http://www.dartlang.org/articles/idiomatic-dart/"><img class="centered" style='height: 500px' src="images/screenshots/idiomatic.png" alt="Idiomatic Dart page"></a>
+        <div class='source'>
+          <a href="http://www.dartlang.org/articles/idiomatic-dart/">Idiomatic Dart</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <a href="http://news.dartlang.org"><img class="centered" style='height: 500px' src="images/screenshots/news.png" alt="Dart News &amp; Updates site"></a>
+        <div class='source'>
+          <a href="http://news.dartlang.org">Dart News &amp; Updates</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <a href="http://www.dartlang.org/search.html"><img class="centered" style='height: 500px' src="images/screenshots/search.png" alt="Search the Dartiverse page"></a>
+        <div class='source'>
+          <a href="http://www.dartlang.org/search.html">Search the Dartiverse</a>
+        </div>
+      </article>
+
+      <article>
+      	<h3>Dart team loves feedback!</h3>
+
+      	<ul>
+      		<li><a href="http://dartbug.com">dartbug.com (Public issue tracker)</a></li>
+      		<li><a href="https://groups.google.com/a/dartlang.org/group/misc/topics">Public discussion list</a></li>
+      	</ul>
+      </article>
+
+      <article>
+        <h2>Tools</h2>
+      </article>
+
+      <article>
+        <h3>
+          Tools
+        </h3>
+        <ul>
+          <li>
+          	<a href="http://www.dartlang.org/docs/getting-started/editor/index.html">Dart Editor</a>
+            <ul>
+              <li>
+                Bundles both the SDK and Dartium
+              </li>
+            </ul>
+          </li>
+          <li>
+          	<a href="http://www.dartlang.org/docs/getting-started/sdk/index.html">SDK</a>
+          	<ul>
+          		<li>
+          			Frog compiler to JavaScript
+          		</li>
+          		<li>
+          			VM
+          		</li>
+          		<li>
+          			Libraries
+          		</li>
+          	</ul>
+          </li>
+          <li>
+          	<a href="http://www.dartlang.org/dartium/index.html">Dartium</a> - Chromium with Dart VM
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Editor directory layout
+        </h3>
+        <p>
+          <img style='height: 500px' src='images/sdk-directory-layout.png'>
+        </p>	
+      </article>
+
+      <article>
+        <q>
+          Download new Editor builds frequently.
+        </q>
+        <div class='author'>
+          Tip
+        </div>
+      </article>
+
+      <article>
+      	<h3>Excerise</h3>
+      	<ul>
+      		<li>
+      			<a href="http://www.dartlang.org/docs/getting-started/editor/index.html">Download the Editor</a> (integration build)
+            <ul>
+              <li>
+                <a href="http://www.dartlang.org">www.dartlang.org</a>
+              </li>
+            </ul>
+      		</li>
+      		<li>
+      			Unzip
+      		</li>
+      		<li>
+      			Run
+      		</li>
+      		<li>
+      			Launch a sample
+            <ul>
+              <li>
+                Will launch Dartium
+              </li>
+            </ul>
+      		</li>
+      	</ul>
+      </article>
+
+      <article>
+        <h2>
+          Language overview
+        </h2>
+      </article>
+
+      <article>
+        <h3>
+          Your first program
+        </h3>
+<pre>
+main() {
+  print("Hello, Dart!");
+}
+</pre>
+
+        <ul>
+          <li>
+            All Dart programs start with <code>main()</code>
+          </li>
+          <li>
+            <code>print()</code> goes to stdout (cmd line) or console.log (web app)
+          </li>
+        </ul>
+      </article>
+
+      <article>
+      	<h3>Excerise</h3>
+      	<ul>
+      		<li>
+      			Use the Editor for "Hello, Dart"
+      		</li>
+      		<li>
+      			Run script
+      		</li>
+      		<li>
+      			Run on command line
+      		</li>
+      	</ul>
+
+        <img src="images/screenshots/editor-new-project.png">
+      </article>
+
+      <article>
+      	<h3>Variables</h3>
+      	<ul>
+      		<li>
+      			Optionally typed
+      		</li>
+      		<li>
+      			<code>final</code> can't be changed after initialization
+      		</li>
+      		<li>
+      			Un-initialized variables set to null
+      		</li>
+      	</ul>
+
+<pre>
+var hitPoints = 25;
+int hitPoints = 25;
+
+final Date birthDate = new Date.fromString('2011-04-23 12:00:00Z');
+
+String name;   // null
+int age;       // null
+</pre>
+      </article>
+
+      <article>
+      	<h3><a href="http://api.dartlang.org/dart_core/String.html">String</a></h3>
+      	<ul>
+      		<li>
+      			Sequence of unicode character codes
+      		</li>
+          <li>
+            Immutable
+          </li>
+          <li>
+            New: No more <code>+</code> for String concat
+            <ul>
+              <li>
+                Use String interpolation
+              </li>
+              <li>
+                Coming soon: adjacent string literals are auto-concatenated
+              </li>
+            </ul>
+          </li>
+      	</ul>
+      </article>
+
+      <article>
+        <h3>String interpolation</h3>
+<pre>
+String greeting = 'Hello, <b>${person.name}</b>!';
+
+String greeting = "Hello, <b>$to</b>.";
+</pre>
+      </article>
+
+      <article>
+        <h3>Multi-line strings</h3>
+        <ul>
+          <li>
+            First newline is ignored.
+          </li>
+        </ul>
+<pre>
+String html = """
+&lt;tr>
+  &lt;td>$amount&lt;/td>
+  &lt;td>$dueDate&lt;/td>
+&lt;/tr>
+""";
+</pre>
+      </article>
+
+      <article>
+        <h3>Raw strings</h3>
+<pre>
+String regExpExample = @"Raw strings\n don't escape.";
+</pre>
+
+        <ul>
+          <li>
+            Prefix with <code>@</code>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+      	<h3>Numbers</h3>
+      	<ul>
+      		<li>
+      			<code>int</code> &amp; <code>float</code> extend <code><a href="http://api.dartlang.org/dart_core/num.html">num</a></code>
+      		</li>
+      		<li>
+      			<code>int</code>s are arbitrary precision
+      		</li>
+      		<li>
+      			<code>float</code>s are 64 bit
+      		</li>
+      		<li>
+      			<code>abs()</code>, <code>floor()</code>, etc are on <code><a href="http://api.dartlang.org/dart_core/num.html">num</a></code>
+      		</li>
+      	</ul>
+      </article>
+
+      <article>
+      	<h3>Boolean</h3>
+      	<ul>
+      		<li>
+      			If it's not <code>true</code>, it's treated as <code>false</code>
+      		</li>
+          <li>
+            Production mode will convert anything not <code>true</code> to false
+          </li>
+      	</ul>
+
+        <section>
+<pre>
+if (1) { } else { print('false!'); }
+</pre>
+        </section>
+
+        <p class="code-note">
+        	(Note: above will fail in checked mode, 1 is not a bool)
+        </p>
+      </article>
+
+      <article>
+      	<h3><a href="http://api.dartlang.org/dart_core/List.html">List</a> (array)</h3>
+
+      	<ul>
+      		<li>
+      			Growable or fixed size
+      		</li>
+      	</ul>
+<pre>
+// List literal
+var fruits = [];
+
+// or
+List fruits = new List();
+
+fruits.add('oranges');
+</pre>
+
+<pre>
+// fixed size of 2
+var candyBars = new List(2);
+
+candyBars.add('snickers'); // <span class="red">ERROR</span>, can't add to fixed size
+candyBars[0] = 'snickers'; // OK
+</pre>
+				<p>
+					Fun fact: the word 'array' doesn't appear in the spec.
+				</p>
+      </article>
+
+      <article>
+      	<h3><a href="http://api.dartlang.org/dart_core/Map.html">Map</a></h3>
+
+      	<ul>
+      		<li>
+      			Dart objects aren't maps, unlike JavaScript
+      		</li>
+      	</ul>
+
+<pre>
+// Map literal
+// keys are <b>strings</b>
+var sites = {};
+
+// or when using constructor,
+// keys are <b>Hashable</b>
+var sites = new Map();
+
+map['dart'] = 'http://www.dartlang.org';
+print(map.containsKey('pascal')); // false
+</pre>
+      </article>
+
+      <article>
+      	<h3><a href="http://api.dartlang.org/dart_core/Set.html">Set</a></h3>
+
+      	<ul>
+      		<li>
+      			Collection with no duplicate items
+      		</li>
+      	</ul>
+
+<pre>
+var fruits = new Set();
+
+fruits.add('apples');
+fruits.add('oranges');
+fruits.add('apples');
+
+print(fruits.length); // 2	
+</pre>
+      </article>
+
+      <article>
+      	<h3><a href="http://api.dartlang.org/dart_core/Collection.html">Collection</a></h3>
+      	<ul>
+      		<li>List and Set extends Collection</li>
+      		<li>
+      			Handy methods like
+      			<ul>
+      				<li>
+      					<code>Collection filter(bool f(element))</code>
+      				</li>
+      				<li>
+      					<code>forEach(f(element))</code>
+      				</li>
+      				<li>
+      					<code>Collection map(f(element))</code>
+      				</li>
+      			</ul>
+      		</li>
+      		<li>Note: Map does not extend Collection</li>
+      	</ul>
+      </article>
+
+      <article>
+      	<h3>Dynamic type</h3>
+      	<ul>
+      		<li>
+      			The "unknown" type, when no static type annotation is given
+      		</li>
+      	</ul>
+
+<pre>
+yell(msg) {
+  return '$msg !!!!';
+}
+
+// same as
+
+Dynamic yell(Dynamic msg) {
+  return '$msg !!!';
+}
+</pre>
+
+      </article>
+
+      <article>
+      	<h3>Checking the type</h3>
+
+<pre>
+('hello' is String) == true;
+
+(4 is! String) == true;
+
+(4 is int) == true;
+
+(4 is Dynamic) == true;
+</pre>
+      </article>
+
+      <article>
+        <q>
+          Use types, at least for the "surface area" of your code.
+        </q>
+        <div class='author'>
+          Tip
+        </div>
+      </article>
+
+      <article>
+      	<h3>Equality (today)</h3>
+      	<ul>
+      		<li>
+      			<code>==</code>
+      			<ul>
+      				<li>
+      					user definable
+      				</li>
+      				<li>
+      					"is equal to"
+      				</li>
+      			</ul>
+      		</li>
+      		<li>
+      			<code>===</code>
+      			<ul>
+      				<li>
+      					"is same instance"
+      				</li>
+      			</ul>
+      		</li>
+      	</ul>
+      </article>
+
+      <article>
+      	<h3>Equality (soon)</h3>
+      	<ul>
+      		<li>
+      			<code>==</code>
+      			<ul>
+      				<li>not user definable</li>
+      				<li>
+      					algorithm:
+      					<ol>
+      						<li>if x === y then return true. Otherwise</li>
+      						<li>if either x or y is null, return false. Otherwise</li>
+      						<li>return the result of x.equals(y)</li>
+      					</ol>
+      				</li>
+      			</ul>
+      		</li>
+
+      		<li>
+      			<code>.equals(other)</code>
+      			<ul>
+      				<li>user definable</li>
+      			</ul>
+      		</li>
+
+      		<li>
+      			<code>===</code>
+      			<ul>
+      				<li>"is same instance"</li>
+      			</ul>
+      		</li>
+      	</ul>
+      </article>
+
+      <article>
+        <h2>
+          Functions
+        </h2>
+      </article>
+
+      <article>
+      	<h3>Functions</h3>
+<pre>
+say(msg) {
+  print('$msg Pass it on.');
+}
+
+// assign to variable
+var speak = say;
+
+// use anonymous functions
+var yell = (msg) {
+  speak('$msg!!!');
+}
+
+yell('Dart is here'); // Dart is here!!! Pass it on.
+</pre>
+      </article>
+
+      <article>
+      	<h3>Optional parameters</h3>
+<pre>
+say(msg, <b>[via]</b>) {
+  if (via != null) {
+    print('$msg sent by $via');
+  } else {
+    print(msg);
+  }
+}
+
+say('howdy'); // howdy
+
+say('howdy', 'smoke signals'); // howdy sent by smoke signals
+</pre>
+      </article>
+
+      <article>
+      	<h3>Named parameters</h3>
+
+<pre>
+say(msg, <b>[via]</b>) {
+  if (via != null) {
+    print('$msg sent by $via');
+  } else {
+    print(msg);
+  }
+}
+
+print(say('hello', <b>via:</b>'tin can and string'));
+</pre>
+
+        <ul>
+          <li>
+            Named only works for optional parameters
+          </li>
+        </ul>
+      </article>
+
+      <article>
+      	<h3>Default parameter values</h3>
+<pre>
+say(msg, <b>[via = 'first class']</b>) {
+  print('$msg sent by $via');
+}
+
+print(say('howdy')); // howdy sent by first class
+</pre>
+
+        <ul>
+          <li>
+            Default only works for optional parameters
+          </li>
+        </ul>
+      </article>
+
+      <article>
+      	<h3>Lexical closures</h3>
+<pre>
+Function makeAdder(num n) {
+  return (num i) => n + i;
+}
+
+main() {
+  var add2 = makeAdder(2);
+  print(add2(3)); // 5
+}
+</pre>
+      </article>
+
+      <article>
+      	<h3>Nested functions</h3>
+<pre>
+main() {
+  loudify(msg) {
+    var megaPhone = new MegaPhone();
+    megaPhone.enable();
+    return megaPhone.amplify(msg);
+  }
+  print(loudify("Howdy"));
+}
+</pre>
+      </article>
+
+      <article>
+      	<h3>Overriding top level functions</h3>
+<pre>
+Function consolePrint = print; 
+class Printer { 
+  print(m) => consolePrint(m); 
+} 
+
+// or
+
+consolePrint(m) => print(m); 
+class Printer { 
+  print(m) => consolePrint(m); 
+} 
+
+</pre>
+      </article>
+
+      <article>
+        <h3>typedef</h3>
+        <ul>
+          <li>
+            <code>typedef</code>s are aliases for function types.
+          </li>
+        </ul>
+<pre>
+// before
+sort(num f(a, b)) => ...;
+
+// after
+typedef num sorter(a, b);
+
+sort(sorter f) => ...;
+
+var numSorter = (num x, num y) => x - y;
+print(simple is sorter);    // true
+
+sort(simple);
+</pre>
+      </article>
+
+      <article>
+      	<h2>Dart's runtime modes</h2>
+      </article>
+
+      <article>
+      	<h3>Production mode</h3>
+      	<ul>
+      		<li>
+      			Default mode in VM
+      		</li>
+      		<li>
+      			Dynamic type assertions turned off
+      		</li>
+      		<li>
+      			Runtime semantics ignore static types
+      		</li>
+      		<li>
+      			<i>Fast startup and performance</i>
+      		</li>
+      	</ul>
+      </article>
+
+      <article>
+      	<h3>Checked mode</h3>
+      	<ul>
+      		<li>
+            Dynamic type assertions turned on
+          </li>
+          <li>
+            assert() statements turned on
+          </li>
+          <li>
+            Great for development
+          </li>
+      		<li>
+            <i>Catch potential problems early</i>
+          </li>
+      	</ul>
+      </article>
+
+      <article>
+      	<h3>Enabling dynamic type assertions</h3>
+      	<ul>
+      		<li>
+      			<code>$DART_SDK/bin/dart --enable_type_checks prog.dart</code>
+      		</li>
+      		<li>
+      			<code>$DART_SDK/bin/frogc --enable_type_checks prog.dart</code>
+      		</li>
+      	</ul>
+
+        <img src="images/screenshots/editor-checked-mode.png" height="400" alt="Turn on checked mode in editor">
+      </article>
+
+      <article>
+      	<h3>Dynamic type errors</h3>
+      	<ul>
+      		<li>
+      			Dynamic type assertions are added when passing
+      			in parameters, returning results,
+      			executing assignments.
+      		</li>
+      	</ul>
+
+<pre>
+bar(num n) { return n * 2; }
+
+bar(3.2); // works fine
+ 
+int i_bar(num n) { return n * 2; }
+
+i_bar(3.2); // FAILS in checked mode
+            // because returned value is not an int
+</pre>
+      </article>
+
+      <article class="smaller">
+      	<h3>Static checker</h3>
+      	<ul>
+      		<li>
+      			Static checker performs analysis of static code (i.e. before runtime)
+      		</li>
+      		<li>
+      			The Editor and Frog have a static checker
+      		</li>
+      		<li>
+      			Given enough info (types), the static checker will <b>warn</b> you
+      			about potential problems.
+      		</li>
+      		<li>
+      			<i>Program still compiles and executes</i>
+      		</li>
+      	</ul>
+<pre>
+String s1 = '9';
+String s2 = '1';
+...
+int n = s1 + s2; // Static checker generates WARNING!!
+print(n);
+</pre>
+
+        <img src="images/screenshots/static-type-warning.png">
+      </article>
+
+      <article>
+      	<q>Use checked mode during development.</q>
+
+      	<div class='author'>
+      	  Tip
+      	</div>
+      </article>
+
+      <article>
+      	<h3>Exercise</h3>
+
+      	<ul>
+      		<li>
+      			Write a small program that generates a warning from the static
+      			checker, yet executes and completes in production mode.
+      		</li>
+
+      		<li>
+      			Run your program in both modes in both Editor and VM. Hint: Tools &gt; Manage Launches.
+      		</li>
+      	</ul>
+      </article>
+
+      <article>
+      	<h2>Control flow</h2>
+      </article>
+
+      <article>
+      	<h3>If and else</h3>
+<pre>
+if (isRaining()) {
+  you.bringRainCoat();
+} else if (isSnowing()) {
+  you.wearJacket();
+} else {
+  car.putTopDown();
+}
+</pre>
+      </article>
+
+      <article>
+      	<h3>For loops</h3>
+<pre>
+main() {
+  var callbacks = [];
+  for (var i = 0; i &lt; 2; i++) {
+    callbacks.add(() => print(i));  // closure around the value of i
+  }
+  callbacks.forEach((c) => c());
+}
+
+// prints 0 then 1
+</pre>
+      </article>
+
+      <article>
+      	<h3>forEach in Collection</h3>
+<pre>
+candidates.forEach((candidate) => candidate.interview());
+</pre>
+      </article>
+
+      <article>
+      	<h3>for in</h3>
+<pre>
+var collection = [0, 1, 2];
+for (var x in collection) {
+  print(x);
+}
+</pre>
+        <ul>
+          <li>
+            Uses an <a href="http://api.dartlang.org/dart_core/Iterator.html">Iterator</a>,
+            works on <a href="http://api.dartlang.org/dart_core/Iterable.html">Iterable</a> objects
+          </li>
+        </ul>
+      </article>
+
+      <article>
+      	<h3>while and do while</h3>
+<pre>
+while (!auctionItem.currentWinner(bidder) &amp;&amp;
+       auctionItem.currentBid &lt; bidder.maximumBid) {
+  auctionItem.placeBid(bidder, auction.currentBid + 1);
+}
+</pre>
+
+<pre>
+do {
+  printLine();
+} while (!atEndOfPage());
+</pre>
+      </article>
+
+      <article>
+      	<h3>switch and case</h3>
+<pre>
+var command = 'OPEN';
+switch (command) {
+
+  case 'OPEN':
+    executeOpen();
+    // <span class="red">ERROR</span>: missing break causes an exception to be thrown!!
+
+  case 'CLOSED':
+    executeClose();
+    break;
+}
+
+</pre>
+      </article>
+
+      <article>
+      	<h3>switch and case - empty case falls through</h3>
+<pre>
+var command = 'CLOSED';
+switch (command) {
+  case 'CLOSED':     // empty case falls through
+  case 'NOW_CLOSED':
+    // runs for both CLOSED and NOW_CLOSED
+    executeClose();
+    break;
+}
+</pre>
+      </article>
+
+      <article>
+      	<h3>try catch finally</h3>
+      	<p>
+      		Throw an <a href="http://api.dartlang.org/dart_core/Exception.html">Exception</a>, or any object
+      	</p>
+<pre>
+buyMoreLlamas() {
+  if (llamas.isEmpty()) {
+    <b>throw new OutOfLlamasException();</b>
+  }
+  ...
+}
+
+<b>try</b> {
+  buyMoreLlamas();
+} <b>catch</b>(final OutOutLlamasException e) {
+  print("Buy more llamas!: $e");
+} catch(final e) {
+  print(e); // catch-all
+} <b>finally</b> {
+  cleanUpLlamaPens();
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>try finally</h3>
+        <ul>
+          <li>
+            catch is optional
+          </li>
+          <li>
+            exception will bubble, but finally will run
+          </li>
+        </ul>
+
+<pre>
+<b>try</b> {
+  rayTraceScene();
+} <b>finally</b> {
+  cleanUpTempDir();
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>try catch</h3>
+        <ul>
+          <li>
+            finally is optional
+          </li>
+        </ul>
+
+<pre>
+try {
+  rayTraceScene();
+} catch(final InvalidSceneDescription e) {
+  upgradeSceneDescriptionFormat();
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+      	<h3>Assertions</h3>
+      	<ul>
+      		<li>turn on with <code>--enable_asserts</code></li>
+      		<li>ignored in production mode</li>
+      		<li>if false, throws AssertionError and prints assertion</li>
+      	</ul>
+<pre>
+positiveRange(lower, upper) {
+  assert(lower > 0);
+  assert(upper > lower);
+  var range = new List(upper+1-lower);
+  for (var i = 0; lower &lt;= upper; i++) {
+    range[i] = lower++;
+  }
+  return range;
+}
+
+positiveRange(2, 2);
+
+<span class="red">Unhandled exception:
+'/Users/sethladd/dart/loudify/loudify.dart': Failed assertion: line 3 pos 10: 'upper > lower' is not true.</span>
+</pre>
+      </article>
+
+      <article>
+      	<h2>Classes</h2>
+      </article>
+
+      <article>
+      	<h3>Instance variables</h3>
+      	<ul>
+      		<li>
+      			Unitialized variables default to null
+      		</li>
+      		<li>
+      			Final and non-final variables generate implicit getter
+      		</li>
+      		<li>
+      			Non-final variables generate implicit setter
+      		</li>
+      	</ul>
+<pre>
+class Point {
+  var x, y;
+}
+
+var p = new Point();
+p.x = 2;    // setter
+p.y = 4;
+print(p.x); // getter
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>Instance variable initialization in class body</h3>
+        <ul>
+          <li>
+            Only compile time constants can be used when initializing in class body
+          </li>
+          <li>
+            This helps with fast compilation times
+          </li>
+        </ul>
+<pre>
+class Point {
+  var x = 0,   // OK, int literals are compile time constants
+      y = 0;
+}
+
+class Game {
+  var player = new Player();  // ERROR, not a compile time constant
+}
+
+// instead
+
+class Game {
+  var player;
+  Game() {
+    player = new Player();
+  }
+}
+</pre>
+      </article>
+
+      <article>
+      	<h3>Static class variables</h3>
+      	<ul>
+      		<li>Today: initialize with a compile time constant</li>
+      		<li>Soon: <a href="https://groups.google.com/a/dartlang.org/group/misc/browse_thread/thread/74abab1633834574/ab28909ab5f70145">Lazy init of non-const at first access</a></li>
+      	</ul>
+<pre>
+class Colors {
+  static final RED = 'red';
+  static final GREEN = 'green';
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+      	<h3>Superclass</h3>
+      	<ul>
+      		<li>
+      			Single inheritance
+      		</li>
+      		<li>
+      			Subclass can override superclass members
+      		</li>
+      	</ul>
+<pre>
+class Person {
+  String name;
+  String toString() {
+    return name;
+  }
+}
+
+class Employee <b>extends</b> Person {
+  String company;
+  String toString() {
+    return '$name works at $company';
+  }
+}
+
+var emp = new Employee();
+emp.name = 'Alice';
+emp.company = 'Google';
+print(emp);  // <b>Alice works at Google</b>
+</pre>
+      </article>
+
+      <article>
+        <h3>Superclass constructors</h3>
+        <ul>
+          <li>Implicitly calls super constructors</li>
+        </ul>
+
+<pre>
+class A {
+  A() {
+    print("A");
+  }
+}
+
+class B extends A {
+  B() {
+    print("B");
+  }
+}
+
+void main() {
+  var b = new B(); // <b>prints A then B</b>
+}
+</pre>
+      </article>
+
+      <article>
+      	<h3>Constructors</h3>
+<pre>
+class Point {
+  var x, y;
+  Point(this.x, this.y);
+}
+
+var p = new Point(2, 4);
+
+print(p.x); // 2
+</pre>
+      </article>
+
+      <article class="smaller">
+      	<h3>Initializers list</h3>
+      	<ul>
+      		<li>
+      			<code>final</code> fields must be initialized in initialization list.
+      		</li>
+          <li>
+            Only field initializers, no arbitrary code.
+          </li>
+          <li>
+            The instance is not yet available. Cannot observe <code>this</code>.
+          </li>
+          <li>
+            Can't access instance fields.
+          </li>
+      	</ul>
+<pre>
+class Point {
+  final num x;
+  final num y;
+  final num distanceFromOrigin;
+  
+  Point(x, y) :
+    x = x,
+    y = y,
+    distanceFromOrigin = calcDistance(x, y) {
+    // do other setup now that this exists
+  }
+  
+  static calcDistance(x, y) {
+   Math.sqrt((x*x) + (y*y));
+  }
+}
+</pre>
+      </article>
+
+      <article>
+      	<h3>Named constructors</h3>
+<pre>
+class DomElement {
+  DomElement.<b>tag</b>(String tagName) { ... }
+  DomElement.<b>html</b>(String html) { ... }
+}
+
+var button = new DomElement.tag("button");
+</pre>
+      </article>
+
+      <article>
+        <q>
+          Use named constructors for more readable code.
+        </q>
+        <div class='author'>
+          Tip
+        </div>
+      </article>
+
+      <article>
+        <h3>Operator "overloading"</h3>
+
+        <ul>
+          <li>
+            User definable operators:
+            <code>==, &lt;, >, &lt;=, >=, -, +, /, ~/,  *, %, |, ^, &amp;, &lt;&lt;, >>, []=, [], ~, call, negate</code>
+          </li>
+        </ul>
+<pre>
+class Point {
+  final num x, y;
+  Point(this.x, this.y);
+  Point operator +(Point other) {
+    return new Point(x+other.x, y+other.y);
+  }
+}
+
+void main() {
+  var p1 = new Point(1, 2);
+  var p2 = new Point(2, 2);
+  
+  var p3 = p1 + p2;
+  
+  print(p3.x); // 3
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>Getters and setters</h3>
+        <ul>
+          <li>
+            Scale from properties to encapsulation.
+          </li>
+        </ul>
+<pre>
+// initially
+
+class Person {
+  num age;
+  Person(this.age);
+}
+
+print(new Person(21).age);  // 21
+
+// after refactoring
+
+class Person {
+  Date birthdate;
+  Person(this.birthdate);
+  
+  num get age() {
+    return (new Date.now().difference(birthdate).inDays / 365).toInt();
+  }
+}
+
+var p = new Person(new Date.fromString('1991-01-01 12:00:00Z'));
+print(p.age);  // 21
+</pre>
+      </article>
+
+      <article>
+        <h3>This is this</h3>
+<pre>
+#import('dart:html');
+
+class Awesome {
+
+  Awesome(Element button) {
+    button.on.click.add((e) => cool());  // call cool() from <b>this</b>
+  }
+
+  cool() {
+    window.alert("inside Awesome.cool");
+  }
+
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>Method resolution with super classes</h3>
+        <ul>
+          <li>
+            Lexical scope wins over inheritance scope
+          </li>
+        </ul>
+<pre>
+foo() {
+  print("From top level");
+}
+
+class Super {
+  foo() {
+    print("From super class");
+  }
+}
+
+class Sub extends Super {
+  whichFoo() {
+    foo();    // calls Super.foo or top level foo ?
+  }
+}
+
+void main() {
+  var sub = new Sub();
+  sub.whichFoo();  // prints "From top level"
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>Advanced feature: Factory constructor</h3>
+        <ul>
+          <li>
+            Can return a subclass instance
+          </li>
+          <li>
+            Can return a cached value
+          </li>
+          <li>
+            Name can be either factory OR interface in lexical scope
+          </li>
+        </ul>
+
+<pre>
+class ListFactory<E> {
+  <b>factory</b> List([int length = null]) {
+    if (length === null) {
+      return new GrowableObjectArray<E>();
+    } else {
+      return new ObjectArray<E>(length);
+    }
+  }
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>Advanced feature: Constant constructors</h3>
+        <ul>
+         <li>
+           Class must have zero non-final instance variables
+         </li> 
+         <li>
+           Constructor must not have a body
+         </li>
+         <li>
+           Can be constructed at compile time
+         </li>
+        </ul>
+
+<pre>
+class Point {
+  final num x;
+  final num y;
+  <b>const</b> Point(this.x, this.y);
+  <b>const</b> Point.from(Point p) : x = p.x, y = p.y;
+}
+
+class GamePiece {
+  Point position = <b>const</b> Point(3,4);
+}
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>PENDING: Classes have implicit interfaces</h3>
+        <ul>
+          <li>
+            No more IDuck everywhere!
+          </li>
+          <li>
+            Note: not currently working in VM (<a href="http://code.google.com/p/dart/issues/detail?id=1971">bug</a>)
+          </li>
+        </ul>
+<pre>
+class Duck {
+  quack() {
+    // complicated enterprise n-tier quack
+  }
+}
+
+class MockDuck implements Duck {
+  quack() {
+    // quack for testing
+  }
+}
+
+main() {
+  var mock = new MockDuck();
+  print(mock is Duck);   // true!
+}
+</pre>
+      </article>
+
+      <article>
+        <h2>Generics</h2>
+      </article>
+
+      <article>
+        <h3>Generics</h3>
+        <ul>
+          <li>
+            Reified (remembered at runtime)
+          </li>
+          <li>
+            Co-variant (<code>List&lt;Mammal> cows = new List&lt;Cow>()</code>)
+          </li>
+          <li>
+            Optional
+          </li>
+        </ul>
+<pre>
+new List&lt;String>() is List&lt;Object>   // true: every string is an object 
+new List&lt;Object>() is! List&lt;String>  // true: not all objects are strings
+new List&lt;String>() is! List&lt;int>     // true: strings are not ints
+new List&lt;String>() is List           // true
+</pre>
+      </article>
+
+      <article>
+        <h3>Mixing generics and non-generics</h3>
+        <ul>
+          <li>
+            Suppose you collect baseball cards
+          </li>
+          <li>
+            You find a Dart library to help you manage them
+          </li>
+          <li>
+            This library does NOT use generics
+          </li>
+        </ul>
+<pre>
+class Card {
+  ...
+}
+
+interface CardDatabase {
+  saveCard(Card card);
+  List allCards();
+  List cardsByYear(int year);
+  ...
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>Mixing generics and non-generics, cont.</h3>
+        <ul>
+          <li>
+            You are a Dart viking, and you use generics everywhere
+          </li>
+          <li>
+            You happen to know that <code>allCards()</code> returns a list of cards
+          </li>
+        </ul>
+<pre>
+// your code
+main() {
+  var cards = new CardDatabaseImpl();
+  List&lt;Card> myCollection = cards.allCards();
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>Mixing generics and non-generics, cont.</h3>
+        <ul>
+          <li>
+            Therefore...
+          </li>
+        </ul>
+<pre>
+List&lt;Card> is List
+</pre>
+        <ul>
+          <li>
+            Practically speaking: Dart allows you to use generics, even if your library doesn't
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Upper bounds</h3>
+        <ul>
+          <li>
+            Use <b>extends</b> for upper bound
+          </li>
+          <li>
+            Otherwise, Object is upper bound
+          </li>
+        </ul>
+<pre>
+class HashMap&lt;K <b>extends</b> Hashable, V> implements Map {
+...
+}
+</pre>
+      </article>
+
+      <article>
+        <q>
+          Add generics to your typed code for better code completion and static analysis.
+        </q>
+        <div class='author'>
+          Tip
+        </div>
+      </article>
+
+      <article>
+        <q>
+          Learn more about Dart's generics in articles by
+          <a href="http://www.dartlang.org/articles/optional-types/">Gilad Bracha</a>
+          and <a href="http://www.dartlang.org/articles/why-dart-types/">Eli Brandt</a>.
+        </q>
+        <div class="author">
+          Tip
+        </div>
+      </article>
+
+      <article>
+        <h2>Interfaces</h2>
+      </article>
+
+      <article>
+        <h3>Interfaces</h3>
+        <ul>
+          <li>
+            Has methods, getters, setters, constructors, static final values.
+          </li>
+          <li>
+            No default values allowed.
+          </li>
+        </ul>
+<pre>
+interface Handler {
+  static final SUCCESS = 1;
+  static final FAILURE = 0;
+
+  onSuccess(Event e);
+
+  onFailure(Event e);
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>Super interfaces</h3>
+<pre>
+interface SocketHandler <b>extends</b> Handler {
+
+  onOpen(Event e);
+
+  onClose(Event e);
+
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>Default class</h3>
+        <ul>
+          <li>
+            Reduce surface area of libraries
+          </li>
+          <li>
+            Hide implementation details from clients
+          </li>
+        </ul>
+<pre>
+interface Cache&lt;String, V> <b>default</b> MemoryCache {
+  Cache();
+  V operator [](String key);
+  void operator []=(String key, V value);
+}
+
+class MemoryCache&lt;String, V> implements Cache {
+  ...
+}
+
+Cache cache = new Cache();   // constructs a new MemoryCache
+</pre>
+      </article>
+
+      <article>
+        <h2>Libraries and modularity</h2>
+      </article>
+
+      <article>
+        <h3>#library</h3>
+        <ul>
+          <li>
+            A unit of privacy.
+          </li>
+          <li>
+            A grouping of code.
+          </li>
+          <li>
+            A file can't declare a library if another library file sources it.
+          </li>
+        </ul>
+<pre>
+<b>#library</b>("dart:core");
+
+#import("dart:coreimpl");
+
+#source("runtime/bool.dart");
+#source("runtime/collection.dart");
+#source("runtime/comparable.dart");
+#source("runtime/date.dart");
+#source("runtime/double.dart");
+</pre>
+      </article>
+
+      <article>
+        <h3>Private variables and methods</h3>
+        <ul>
+          <li>
+            Prefix with _ (underscore)
+          </li>
+          <li>
+            Private to the library
+          </li>
+        </ul>
+<pre>
+#library('util');
+
+_deleteTempFiles() { ... };
+_truncateSwap() { ... };
+
+cleanUp() {
+  _deleteTempFiles();
+  _truncateSwap();
+}
+</pre>
+      </article>
+
+      <article>
+        <h3>#import</h3>
+        <ul>
+          <li>
+            Pulls in a library
+          </li>
+          <li>
+            Parameter is a URI (file: implied)
+          </li>
+          <li>
+            Optional prefixes to avoid namespace collision
+          </li>
+          <li>
+            OK to import multiple libraries with the same prefix
+          </li>
+        </ul>
+<pre>
+#import('util.dart', prefix:'helpful');
+
+helpful.cleanUp();
+</pre>
+      </article>
+
+      <article>
+        <h3>#source</h3>
+        <ul>
+          <li>
+            Declares a source file is part of the library
+          </li>
+          <li>
+            Can only source files not already attached to a library
+          </li>
+          <li>
+            Parameter is a URI
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>Misc core libs</h2>
+      </article>
+
+      <article>
+        <h3><a href="http://api.dartlang.org/dart_core/Future.html">Future</a></h3>
+        <ul>
+          <li>
+            Obtain a value sometime in the future
+          </li>
+          <li>
+            Handy for callback type APIs
+          </li>
+          <li>
+            Use with its friendly cousin Completer
+          </li>
+        </ul>
+<pre>
+Future&lt;Results> queryDatabase(sql) {
+  Completer completer = new Completer();
+  doQuery(sql, (results) {
+    completer.complete(results);
+  });
+  return completer.future;
+}
+
+renderTable(Results results) { ... }
+
+queryDatabase(sql).then(renderTable);
+</pre>
+      </article>
+
+      <article>
+        <h3><a href="http://api.dartlang.org/dart_core/Stopwatch.html">Stopwatch</a></h3>
+        <ul>
+          <li>
+            Measure elapsed time
+          </li>
+        </ul>
+<pre>
+benchmark(toMeasure) {
+  var sw = new Stopwatch.start();
+  toMeasure();
+  sw.stop();
+  print(sw.elapsedInMs());
+}
+
+benchmark(renderTable);
+</pre>
+      </article>
+
+      <article>
+        <h3>Other APIs of interest</h3>
+        <ul>
+          <li>
+            <a href="http://api.dartlang.org/dart_core/Date.html">Date</a>
+          </li>
+          <li>
+            <a href="http://api.dartlang.org/dart_core/Math.html">Math</a>
+          </li>
+          <li>
+            <a href="http://api.dartlang.org/dart_core/RegExp.html">RegExp</a>
+          </li>
+          <li>
+            <a href="http://api.dartlang.org/dart_core/Strings.html">Strings</a> - misc methods for strings
+          </li>
+          <li>
+            <a href="http://api.dartlang.org/dart_core/Futures.html">Futures</a> - misc methods for futures
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h2>Thar be dragons</h2>
+      </article>
+
+      <article>
+        <h3>noSuchMethod</h3>
+        <ul>
+          <li>
+            Not totally specified.
+          </li>
+        </ul>
+<pre>
+class CatchAll {
+  noSuchMethod(a, b) {
+    print(a);
+    print(b);
+  }
+}
+
+main() {
+  var u = new CatchAll();
+  u.foo(1);                   // foo,     [1]
+  u.foo = 2;                  // set:foo, [2]
+  u.multi('hello', 'world');  // multi,   [hello, world]
+}
+</pre>
+      </article>
+
+      <article>
+        <h2>Summary</h2>
+      </article>
+
+      <article>
+        <h3>
+          Dart is familiar
+        </h3>
+        <ul>
+          <li>
+            Class based object oriented language
+          </li>
+          <li>
+            Single inheritance and interfaces
+          </li>
+          <li>
+            Syntax similar to C/Java/JavaScript
+          </li>
+          <li>
+            Common built-in types: list, map, int, float, string, etc
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Dart is scalable
+        </h3>
+        <ul>
+          <li>
+            Explore the problem domain with untyped scripts and functions
+          </li>
+          <li>
+            Grow to structured systems with typed classes, interfaces, and libraries
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Dart adds compelling features
+        </h3>
+        <ul>
+          <li>
+            Optional types
+          </li>
+          <li>
+            Isolates
+          </li>
+          <li>
+            Interpolation and multi-line strings
+          </li>
+          <li>
+            Default implementation of interfaces
+          </li>
+          <li>
+            Implicit interfaces for classes
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Dart has two runtime modes</h3>
+        <ul>
+          <li>
+            Production mode
+            <ul>
+              <li>
+                The default, good for deployment
+              </li>
+              <li>
+                Runs the fastest
+              </li>
+              <li>
+                No dynamic type checks
+              </li>
+            </ul>
+          </li>
+          <li>
+            Checked mode
+            <ul>
+              <li>
+                Needs to be enabled
+              </li>
+              <li>
+                Dynamic type assertions
+              </li>
+              <li>
+                Catches potential problems early
+              </li>
+              <li>
+                Great for development and testing
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+    </section>
+
+  </body>
+</html>
