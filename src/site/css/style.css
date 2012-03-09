@@ -93,9 +93,22 @@ a:hover {
     \\ ========================================== //
 */
 
+section#articles {
+  column-count:2;
+  -webkit-column-count:2;
+  -moz-column-count:2;
+}
+
+section#articles section, section#articles section section {
+  column-break-inside:avoid;
+  -webkit-column-break-inside:avoid;
+  break-inside:avoid-column; /* does this work anywhere? */
+  display: inline-block; /* kind of works on mozilla */
+}
+
 ol.toc, ol.toc ol {
-    list-style-type: none;
-    margin-left: 1em;
+  list-style-type: none;
+  margin-left: 1em;
 }
 
 p {
