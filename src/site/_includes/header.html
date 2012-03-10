@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"
+                    itemscope itemtype="http://schema.org/Product"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"
+                    itemscope itemtype="http://schema.org/Product"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"
+                    itemscope itemtype="http://schema.org/Product"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"
+                    itemscope itemtype="http://schema.org/Product"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"
+                    itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>{% if page.title %}{{ page.title }} : {% endif %}Dart : Structured web programming</title>
+
+  <!-- Title & Google+ description -->
+  {% capture page_title %}{% if page.title %}{{ page.title }}{% else %}Dart: Structured web apps{% endif %} | DartLang.org{% endcapture %}
+  <title>{{ page_title }}</title> 
+  <meta itemprop="name" content="{{ page_title }}">
+  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}Dart is a new platform for building structured web apps for modern browsers. It includes a language, a virtual machine, libraries, a UI framework, an editor, and browser integration. Try Dart today!{% endif %}">
+
 	<link rel="stylesheet" href="/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	{% if page.header and page.header.css %}{% for css in page.header.css %}<link href="{{ css }}" rel="stylesheet" type="text/css">{% endfor %}{% endif %}
