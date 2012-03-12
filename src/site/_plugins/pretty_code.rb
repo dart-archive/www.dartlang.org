@@ -18,3 +18,4 @@ module Jekyll
 end
 
 Liquid::Template.register_tag('pretty_code', Jekyll::PrettyCodeTag)
+Liquid::Template.register_tag('pc', Jekyll::PrettyCodeTag)
