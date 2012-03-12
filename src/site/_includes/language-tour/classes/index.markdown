@@ -87,6 +87,33 @@ num distance = point.distanceTo(new Point(4,4));
 print(distance);  // 2.82842...
 {% endpc %}
 
+#### Static methods
+
+Methods that belong to a class are called static methods.
+These methods do not operate on an instance, and thus
+do not have a `this`.
+
+{% pc dart 0 %}
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+
+  static num distanceTo(Point a, Point b) {
+    return Math.sqrt(((a.x-b.x)*(a.x-b.x)) + ((a.y-b.y)*(a.y-b.y)));
+  }
+}
+
+main() {
+  var a = new Point(2, 2);
+  var b = new Point(4, 4);
+  print(Point.distanceTo(a, b));  // 2.82842...
+}
+{% endpc %}
+
+Because Dart has top level functions, you don't always need
+a static method if all you need is to provide some generic
+functionality.
+
 #### Instance variable initialization
 
 Dart only allows compile time constants as initializers
