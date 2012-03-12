@@ -5,52 +5,45 @@ header:
 ---
 
 <section class="intro">
-		<h2> A new platform for structured web apps</h2>
+		<h2> From quick prototypes to serious apps </h2>
     <p>
-    You can use the Dart language and libraries
-    for all web apps,
-    large and small.
-    Dart is still in preview,
-    so try it out and
-    <a href="/support/">tell us what you think</a>.
+		Dart's optional types let you prototype quickly
+		and then revise your code to be more maintainable.
     </p>
 
+    <h2>Wherever you need structured code</h2>
     <p>
-    Dart apps work on servers,
-    on browsers with a built-in Dart VM,
-    and (thanks to Dart-to-JavaScript compilation)
-    on modern web browsers.
-    Here's the current state of Dart support:
+		You can use the same Dart code in most modern web 
+		browsers (Chrome, Safari 5+, Firefox 4+) and on servers.
+		Look for more browser support shortly.
     </p>
-
-    <img
-      alt="Chromium+Dart, servers (via Dart VM); Chrome, Safari 5+, Firefox 4+, more to come (via Dart-to-JavaScript)"
-      src="/imgs/browsers.png"
-      width="600" >
-    <br>
-    <span style="font-weight:bold">
-    &nbsp;
-    Native (Dart VM)
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    JavaScript (Dart-to-JavaScript compiler)
-    </span>
+	
+    <h2>Familiar yet new </h2>
+    <p>
+		Dart code should look familiar if you know a language or two,
+		and you can use time-tested features such as classes and closures.
+		Dart's new features make it easier for you to develop and maintain 
+		software. Dart is still in the early stages of development,
+    so please take a look and <a href="/support/index.html">tell us what you think</a>.
+    </p>
 </section>
 		
+<section class="intro" style="border-top: 1px solid #CCC; padding-top: 10px">
+    <h2>Examples of Dart code</h2>
+    <p>
+		The Dart code below is inside an app called Dartboard. If you 
+		click the Run button at Dartboard's upper left&mdash;go ahead,
+		you know you want to&mdash;you'll see the expected output 
+		(Hello, Dart!) at the bottom.
+    </p>
+</section>
 
 <section>
-<h2>Get started</h2>
+{% comment %}
+TODO: Not keen on the styling here, please feel free to change.
+      To add more samples, see _includes/samples.html
+{% endcomment %}
 
-<p>
-Read a <a href="/docs/technical-overview/">technical overview</a>,
-take a <a href="/language-tour/">language tour</a>, or
-download <a href="/docs/getting-started/editor/">Dart Editor</a>.
-</p>
-
-<p>
-Or play with Dart code right here in your browser, using Dartboard.
-</p>
-
-<section>
 <div id="samples">
 <label for="samples-list" style="display:none">Dart code examples:</label>
   <select id="samples-list">
@@ -60,7 +53,6 @@ Or play with Dart code right here in your browser, using Dartboard.
     <option value="isolates">Isolate communication</option>
   </select>
 </div>
-
 
 <code id="samples-editor" class="codes for-samples">main() {
   print('Hello, Dart!');
@@ -72,5 +64,13 @@ Or play with Dart code right here in your browser, using Dartboard.
   src="http://try.dartlang.org/dartboard.dart.app.js">
 </script>
 </section>
+
+<section>
+<h2>What next?</h2>
+
+<p>
+Follow a <a href="/docs/getting-started/index.html">tutorial</a>,
+or read the <a href="/docs/technical-overview/index.html">technical overview</a>.
+</p>
 
 </section>
