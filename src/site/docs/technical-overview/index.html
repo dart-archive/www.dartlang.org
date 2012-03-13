@@ -178,7 +178,7 @@ The following example defines an interface,
 along with a class and subclass that implement it:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 <b>interface Shape</b> {
   num perimeter();
 }
@@ -217,7 +217,7 @@ and two methods:
 <code>scale()</code> and <code>distance()</code>.
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 class Point {
   var x, y;
   Point(this.x, this.y);
@@ -240,7 +240,7 @@ and that a <code>Point</code> contains two values
 of type <code>num</code>:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 class Point {
   num x, y;
   Point(num this.x, num this.y);
@@ -279,13 +279,11 @@ You can run Dart code in several ways:
   </li>
   <li>
     <p>
-    <em>Soon:</em>
     Execute Dart code directly in a VM on your computer
     </p>
   </li>
   <li>
     <p>
-    <em>Soon:</em>
     With a <a href="#mimetype">new MIME type</a>,
     use Dart in a browser
     without first compiling to JavaScript
@@ -357,7 +355,7 @@ Here is the proposed new MIME type,
 &ldquo;application/dart&rdquo;:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 &lt;html&gt;
   &lt;body&gt;
     &lt;script type="application/dart"&gt;

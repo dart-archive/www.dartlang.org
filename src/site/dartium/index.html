@@ -141,7 +141,7 @@ on the window.navigator object.
 For example:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 if (!navigator.webkitStartDart) {
   // No native Dart support.
   window.addEventListener("DOMContentLoaded", function (e) {
@@ -180,7 +180,7 @@ and assertion checks (--enable_asserts flag).
 On Linux, you can enable specify flags by starting Dartium as follows:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 DART_FLAGS='--enable_type_checks --enable_asserts' <em>path</em>/chrome
 {% endpretty_code %}
 
@@ -188,7 +188,7 @@ DART_FLAGS='--enable_type_checks --enable_asserts' <em>path</em>/chrome
 Or on the Mac:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 DART_FLAGS='--enable_type_checks --enable_asserts'              \
   <em>path</em>/Chromium.app/Contents/MacOS/Chromium
 {% endpretty_code %}
@@ -197,7 +197,7 @@ DART_FLAGS='--enable_type_checks --enable_asserts'              \
 Or (also on the Mac):
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 DART_FLAG='--enable_type_checks --enable_asserts'               \
    <b>open</b> <em>path</em>/Chromium.app
 {% endpretty_code %}

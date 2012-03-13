@@ -44,26 +44,6 @@ main() {
 }
 </pre>
 
-
-    {% comment %}isolates{% endcomment %}
-<pre id="sample-isolates">class Printer extends Isolate {
-  main() {
-    port.receive((message, replyTo) {
-      if (message == null) port.close();
-      else print(message);
-    });
-  }
-}
-
-main() {
-  new Printer().spawn().then((port) {
-    for (var message in ['Hello', 'from', 'other', 'isolate']) {
-      port.send(message);  
-    }
-    port.send(null);
-  });
-} </pre>
-
   </div>
 
   <script type="text/javascript">
