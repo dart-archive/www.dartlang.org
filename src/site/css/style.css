@@ -299,7 +299,7 @@ article p {
   font-weight: 400;
 }
 
-article ol {
+article ol, article ul {
   margin-bottom: 10px;
 }
 
