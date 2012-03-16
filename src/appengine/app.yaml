@@ -16,6 +16,8 @@ api_version: 1
 #default_expiration: "1d"
 
 handlers:
+- url: /\+
+  script: scripts/redirector.py
 
 - url: /news.*
   script: scripts/redirector.py
