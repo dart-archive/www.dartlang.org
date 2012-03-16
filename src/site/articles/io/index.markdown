@@ -107,7 +107,7 @@ from [dart:core](http://api.dartlang.org/dart_core.html).
 main() {
   var options = new Options();
   var file = new File(options.script);
-  file.readAsText('ASCII', (text) => print(text));
+  file.readAsText(Encoding.ASCII, (text) => print(text));
 }
 {% endpretty_code %}
 
