@@ -111,6 +111,12 @@ ol.toc, ol.toc ol {
   margin-left: 1em;
 }
 
+ol.toc ol {
+    margin-bottom: 0;
+}
+
+ol ol { list-style-type: lower-alpha; }
+
 p {
   margin-bottom: 1em;
 }

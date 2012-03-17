@@ -6,14 +6,6 @@ Follow this tutorial to
 install and use Dart Editor on {{ page.osname }}.
 </p>
 
-<p>
-Dart Editor is a lightweight, open-source editor
-based on Eclipse components.
-In addition to editing Dart programs,
-you can use Dart Editor to invoke the Dart-to-JavaScript compiler
-and launch Dart-based web apps.
-</p>
-
 <aside class="note">
 <strong>Note:</strong>
 These instructions are also available for:
@@ -29,17 +21,40 @@ These instructions are also available for:
 {% endif %}
 </ul>
 </aside>
+<p>
+Dart Editor is a lightweight, open-source editor
+based on Eclipse components.
+You can use it to edit and run Dart apps,
+as well as to invoke the Dart-to-JavaScript compiler.
+</p>
+
+<p>
+The Dart Editor download includes:
+</p>
+
+<ul>
+  <li> Dart Editor </li>
+  <li> <a href="/docs/getting-started/sdk/">Dart SDK</a> </li>
+{% if page.dartium_not_included %}
+</ul>
+
+<p>
+On other platforms, the Dart Editor download includes
+a build of Chromium,
+nicknamed <a href="/dartium/"><em>Dartium</em></a>,
+that has a built-in Dart VM.
+Once Dartium is available for Windows,
+we'll add it to the Dart Editor download.
+</p>
+
+{% else %}
+  <li> <a href="/dartium/">"Dartium"</a>:
+    a build of the Chromium browser that includes the Dart VM </li>
+</ul>
+{% endif %}
+
 </section>
 
-{% comment %}
-PENDING: HIDE THIS UNTIL WE PUBLISH COMMAND-LINE TOOLS
-<aside class="note">
-<b>Love command-line programming?</b>
-If you use Linux or Mac OS X,
-you can try
-<a href="/docs/getting-started/command-line/">Getting Started: Hello, Command Line</a>.
-</aside>
-{% endcomment %}
 
 <section>
 <h4> Contents </h4>
@@ -71,7 +86,7 @@ and, if necessary, a Java runtime environment.
       <b>Version note:</b>
       For information about this Dart Editor version, see the
       <a target="_blank"
-        href="http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/changelog.html">change log</a>.
+        href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/changelog.html">change log</a>.
       If you want to try out the most recent, untested version of Dart Editor,
       {{ download_continuous_build }}
     </aside>
@@ -86,6 +101,15 @@ and, if necessary, a Java runtime environment.
   Unarchive the ZIP file by double-clicking it.
   </p>
 {% endif %}
+
+  <aside class="note">
+    <strong>Tip:</strong>
+    If you already have Dart Editor and want to keep its state,
+    install the new Dart Editor on top of the old one.
+    For example, put the new ZIP file beside the old one,
+    and then use the command-line interface to unzip on top of the old files
+    (<code>unzip dart-editor-<em>latest-file</em>.zip</code>).
+  </aside>  
   </li>
 
   <li>
@@ -129,20 +153,20 @@ Go to your Dart installation directory,
 and double-click <b>DartEditor</b>.
 </p>
 
-<blockquote>
-<img src="images/DartEditor-icon.png"
+<p>
+  <img src="images/DartEditor-icon.png"
   alt="DartEditor icon"
   width="78" height="92">
-</blockquote>
+</p>
 
 <p>
 You should see the Dart Editor application window appear,
-looking something like this:
+with a Welcome screen that looks something like this:
 </p>
 
 <img src="images/DartEditor-initial.png"
-  alt="screenshot of empty Dart Editor window"
-  width="599" height="454">
+  alt="screenshot of initial Dart Editor window, with Welcome screen"
+  width="600" height="454">
 
 </section>
 
@@ -154,67 +178,57 @@ looking something like this:
 
 <p>
 The Dart Editor bundle comes with several samples.
-In this step, you'll open one and run it.
+In this step, you'll open one
+and look at its code.
 </p>
 
 <ol>
   <li> <p>
-    Go to the <b>File</b> menu,
-    and choose <b>Open...</b>.
-    Or use the keyboard shortcut
-    (<b>Ctl+O</b> or, on Mac, <b>Option+O</b>).
+    In the Welcome screen,
+    click the image labeled <b>Sunflower</b>.
     </p>
+{% comment %}
+PENDING: move this to a new "Using Dart Editor" page
+    Or open the Sunflower sample the same way
+    you'd open any other Dart application:
+    <ol>
+      <li> <p>
+        Go to the <b>File</b> menu,
+        and choose <b>Open...</b>.
+        Or use the keyboard shortcut
+        (<b>Ctl+O</b> or, on Mac, <b>Option+O</b>).
+        </p>
+      </li>
+      <li> <p>
+        Navigate to your Dart installation directory,
+        then to <b>samples/sunflower</b>.
+        Double-click <b>Sunflower.dart</b>.
+        </p>
+    </ol>
+{% endcomment %}
   </li>
+
   <li> <p>
-    Navigate to your Dart installation directory,
-    then to <b>samples</b>,
-    and then to <b>sunflower</b>.
-    Double-click <b>Sunflower.dart</b>.
-    </p>
-</ol>
-
-<p>
-Your Dart Editor should now look something like this:
-</p>
-
-<img src="images/DartEditor-sunflower.png"
-  alt="screenshot of Dart Editor displaying the Sunflower sample's code"
-  width="600" height="454">
-
-<p>
-Dart Editor not only displays the contents of <code>Sunflower.dart</code>,
-but also updates the Libraries view
-to list important files for the sample.
-This list includes the resources that <code>Sunflower.dart</code> refers to,
-plus any HTML files in the Dart file's directory
-that refer to the app's code,
+    Look at the Files and Editor views.
+    The Editor view displays the contents of <code>Sunflower.dart</code>,
+    and the Files view lists the files
+    in the app's directory.
 {% comment %}
     {NOTE about terminology: The
     <a href="http://www.google.com/url?sa=D&q=http%3A%2F%2Fhelp.eclipse.org%2Findigo%2Findex.jsp">Workbench User Guide</a> says "view", so I'm using that
     since I figure that might be familiar to Eclipse users.}
 {% endcomment %}
-</p>
+  </p>
 
-<p>
-The Libraries view puts this list under a node called
-<code>sunflower</code>,
-corresponding to the following
-line of code in <code>Sunflower.dart</code>:
-</p>
+    <p>
+    Your Dart Editor should look something like this:
+    </p>
 
-{% pretty_code %}
-#library('sunflower');
-{% endpretty_code %}
-
-<p>
-The Libraries view displays entries for the Dart
-<b>core</b> and <b>dom</b> libraries.
-The <b>core</b> library is there because every Dart program uses it.
-The <b>dom</b> library is there because of this program's
-reference to it in the following statement:
-</p>
-
-<pre>#import('dart:dom');</pre>
+    <img src="images/DartEditor-sunflower.png"
+      alt="screenshot of Dart Editor displaying the Sunflower sample's code"
+      width="600" height="454">
+  </li>
+</ol>
 
 <p>
 For more information about the Sunflower example, read the
@@ -227,46 +241,91 @@ For more information about the Sunflower example, read the
 <h2> Step 4: Run the sample </h2>
 
 <p>
-To run any program in Dart Editor,
-just click the Run button
+To run any Dart app,
+just click Dart Editor's Run button
 <img src="images/run.png" alt="Run" width="16" height="16"
   style="vertical-align:top">
-while any item in that program's library is selected.
-Dart Editor compiles your Dart program to JavaScript.
-It then brings up a browser window that displays
-the program's HTML page,
-with the JavaScript version of the program running inside it.
+while any file in that app is selected.
+If you're working on a web app,
+Dart Editor brings up a browser window
+that displays the app's HTML page,
+with the app's code running inside it.
 </p>
 
-<aside class="note">
-  <strong>Tip:</strong>
-  Sometimes the automatic compilation doesn't work.
-  If you get a message that the JavaScript output was not generated,
-  try using
-  <strong>Tools&nbsp;&gt;&nbsp;Force&nbsp;Recompile</strong>.
+<p>
+<a href="/dartium/">Dartium</a> is the default browser,
+but you can specify another using
+<b>Tools > Manage Launches</b>.
+{% comment %}
+{PENDING: write docs to walk people through this. separate page!}
+{% endcomment %}
+Dart Editor automatically compiles the app to JavaScript
+if you specify a non-Dartium browser.
+</p>
+
+<aside class="warning">
+<b>Important:</b>
+Dartium is a technical preview,
+and it might have security and stability issues.
+
+<blockquote>
+<b>Do not use Dartium as your primary browser!</b>
+</blockquote>
 </aside>
 
-<p>
-For example, to run Sunflower,
-click <b>Sunflower.dart</b>
-and then the <b>Run</b> button.
-</p>
 
+<ol>
+  <li> <p>
+    Make sure the current selection is on or inside of a file
+    in the <code>sunflower</code> directory.
+    For example, click <b>Sunflower.dart</b> in the Files view
+    or click within it in the Edit view.
+  </p> </li>
+  <li> <p>
+    Click the Run button
+    <img src="images/run.png" alt="Run" width="16" height="16"
+      style="vertical-align:top">.
+    </p>
+
+<p>
 <img src="images/sunflower-run.png"
-  alt="Snapshot of Libraries view and Run button"
+  alt="Snapshot of Files view and Run button"
   style="border: 1px solid black"
-  width="302" height="157">
-
-<p>
-In the browser window that comes up,
-move the slider to display the sunflower.
-It should look something like this:
+  width="303" height="154">
 </p>
 
-<img src="images/sunflower.png"
-  alt="screenshot of Sunflower app running"
-  style="border: 1px solid black"
-  width="559" height="489">
+{% if dartium_launch_troubleshoot %}
+  {{ dartium_launch_troubleshoot }}
+{% endif %}
+
+    </li>
+
+  <li> <p>
+    In the browser window that comes up,
+    move the slider to display the sunflower.
+    It should look something like this:
+    </p>
+
+    <p>
+    <img src="images/sunflower.png"
+      alt="screenshot of Sunflower app running"
+      style="border: 1px solid black"
+      width="559" height="489">
+    </p>
+
+    <p>
+    If you instead see a message that
+    you need to download a new version of Dartium,
+    we recommend that you download and install a new version of
+    <b>Dart Editor</b>.
+    You'll get an updated version of Dartium, plus the
+    <a href="http://news.dartlang.org/search/label/editor">latest improvements to Dart Editor</a>.
+    Alternatively, download a new version of
+    <a href="/dartium/">Dartium</a>
+    and substitute it for the copy that's in your
+    Dart installation directory.
+    </li>
+</ol>
 
 </section>
 
@@ -283,36 +342,53 @@ We expect to add many more features over time.
 </p>
 
 <ol>
-  <li>
-    <p>
-    In the Editor view of <code>Sunflower.dart</code>,
-    select anywhere within the string <b>Math</b>
-    (at the top of the <code>Sunflower()</code> constructor).
-    Then either press <b>F3</b>
-    or right-click and choose <b>Open Declaration</b>.
+  <li> <p>
+    Learn how to find where variables and types are declared.
     </p>
+    <ol>
+      <li> <p>
+        In the Editor view of <code>Sunflower.dart</code>,
+        hold down the <b>Control</b> key
+        (<b>Command</b> key on Mac)
+        and move the mouse over the source code.
+        A line appears under each item
+        that's declared elsewhere in this <code>.dart</code> file
+        or in another <code>.dart</code> file.
+      </p> </li>
 
-    <img src="images/sunflower-f3.png"
-      alt="screenshot of right-click on Math"
-      style="border: 1px solid black"
-      width="423" height="255">
+      <li> <p>
+        Continuing to press Control or Command,
+        hover over the string <b>Math</b>,
+        (at the top of the <code>Sunflower()</code> constructor),
+        and click.
+        </p>
 
-    <p>
-    The editor opens a new tab that displays the file that declares the
-    <a href="http://api.dartlang.org/dart_core/Math.html"><code>Math</code></a> type.
-    </p>
+        <p>
+        <img src="images/sunflower-hover.png"
+          alt="screenshot of Command/Control-hover over Math"
+          style="border: 1px solid black"
+          width="407" height="223">
+        </p>
 
-    <aside class="note">
-    <b>Tip:</b>
-    You can also use this trick to find declarations within the same file.
-    </aside>
-  </li>
+        <p>
+        The editor displays the file that declares the
+        <a href="http://api.dartlang.org/dart_core/Math.html"><code>Math</code></a> type.
+        </p>
+
+        <aside class="note">
+        <b>Tip:</b>
+        You can also use this trick to find declarations within the same file.
+        </aside>
+      </li>
+    </ol> </li>
   <li>
     <p>
     Click the left arrow button
     <img src="images/leftarrow.png" alt="left arrow" width="16" height="16"
       style="vertical-align:top">
-    (to the left of the Run button)
+    (to the left of the Run button
+    <img src="images/run.png" alt="Run" width="16" height="16"
+      style="vertical-align:top">)
     to go back to <code>Sunflower.dart</code>.
     </p>
   </li>
@@ -329,25 +405,28 @@ We expect to add many more features over time.
     It looks something like this:
     </p>
 
+    <p>
     <img src="images/sunflower-outline.png"
       alt="screenshot of outline panel"
-      width="383" height="339">
+      width="390" height="340">
+    </p>
 
-    <br>
+    <p>
     You can reduce the size of the list
     by typing one or more characters.
     For example, if you type <b>x</b>,
     only the <b>xc</b> variable appears.
-
-    <p>
-    Choose an item from the list&mdash;for example, <b>xc</b>.
-    You'll be taken to its declaration in <code>Sunflower.dart</code>.
     </p>
 
+    <p>
+    If you choose an item from the list&mdash;for example,
+    <b>xc</b>&mdash;
+    the editor scrolls to its declaration in <code>Sunflower.dart</code>.
+    </p>
   </li>
   <li>
     <p>
-    Now it's time to use Dart Editor's auto-complete feature.
+    Now try Dart Editor's auto-complete feature.
     </p>
 
     <ol style="list-style-type: lower-alpha">
@@ -355,9 +434,8 @@ We expect to add many more features over time.
         Find the declaration of <b>TAU</b>,
         near the end of <code>Sunflower.dart</code>:
         </p>
-{% pretty_code %}
-static final TAU = Math.PI * 2;
-{% endpretty_code %}
+{% pretty_code dart 0 %}
+static final TAU = Math.PI * 2;{% endpretty_code %}
         </li>
       <li> <p>
         Delete everything to the right of <code>Math</code>,
@@ -390,8 +468,10 @@ static final TAU = Math.PI * 2;
         and then save again.
         </p> </li>
       <li> <p>
-        Click the <b>Run</b> button to run your changed
-        version.
+        Click the Run button
+        <img src="images/run.png" alt="Run" width="16" height="16"
+          style="vertical-align:top">
+        to run your changed version.
         </p> </li>
 
       <li> <p>
@@ -417,14 +497,14 @@ static final TAU = Math.PI * 2;
 
 <p>
 Now that you're familiar with Dart Editor,
-you can create a web app from scratch.
+let's create a web app from scratch.
 </p>
 
 <ol>
   <li> <p>
-    Click the New Application
+    Click the New Application button
     <img src="images/newapp.png" alt="New App" width="16" height="16"
-     style="vertical-align:top"> button
+     style="vertical-align:top">
     (at the upper left of Dart Editor)
     to create a new app.
     Alternatively, choose <b>File > New Application...</b>
@@ -435,62 +515,53 @@ you can create a web app from scratch.
     A dialog comes up, looking something like this:
     </p>
 
-    <img src="images/DartEditor-newapp.png"
+    <p>
+      <img src="images/DartEditor-newapp.png"
       alt="screenshot of the New Application dialog"
-      width="538" height="304">
+      width="565" height="490">
+    </p>
     </li>
   <li> <p>
     Type in a name for your application&mdash;for
     example, <code>HelloWorld</code>.
     If you don't like the default directory,
     type in a new location or browse to choose the location.
-    Click <b>Finish</b> to create the initial files for the app.
+    Make sure the application type is set to <b>Web</b>.
+    Then click <b>Finish</b> to create the initial files for the app.
     </p>
 
     <p>
     A default Dart file appears in the Edit view,
-    and a few additional items appear
-    in the Libraries view.
+    and a directory with a few files appears
+    in the Files view.
     Your Dart Editor window should look something like this:
     </p>
 
-    <img src="images/DartEditor-helloworld.png"
+    <p>
+      <img src="images/DartEditor-helloworld.png"
       alt="screenshot of Dart Editor just after New Application..."
-      width="599" height="454" >
+      width="600" height="482" >
+    </p>
 
     </li>
   <li> <p>
-    Click the
+    Click the Run button
     <img src="images/run.png" alt="Run" width="16" height="16"
-     style="vertical-align:top">
-    button to run your new app.
+      style="vertical-align:top">
+    to run your new app.
     </p> </li>
 
   <li> <p>
     View the HTML file in Dart Editor
-    by double-clicking it in the Libraries view.
+    by double-clicking it in the Files view.
     </p>
 
     <p>
-    Note that the HTML file's &lt;script> tag
-    refers to a file that ends with
-    <code>.dart.app.js</code>.
-    You can't see this file in Dart Editor,
-    but this JavaScript file is automatically created
-    from your Dart code.
-    Compiling to JavaScript allows browsers that know nothing about Dart
-    to execute your app.
-    </p>
-
-    <aside class="note">
-    <b>Note:</b>
-    The generated JavaScript is rather huge right now.
-    Don't worry, we'll fix that.
-    </aside>
-
-    {% comment %}
-    {PENDING: update when JS production is better.}
-    {% endcomment %}
+    The HTML file has one &lt;script> tag
+    with the type "application/dart",
+    plus a second &lt;script> tag that refers to a JavaScript file.
+    That second tag lets non-Dart browsers
+    find the JavaScript version of the Dart file.
     </p> </li>
   <li> <p>
     Modify the default Dart and HTML files as you like,
