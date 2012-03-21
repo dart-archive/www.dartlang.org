@@ -93,6 +93,19 @@ a:hover {
     \\ ========================================== //
 */
 
+table.operatorTable th {
+  text-align:left;
+}
+
+td.operatorList {
+  font-family: monospace, sans-serif;
+}
+
+td.operator {
+  text-align:center;
+  font-family: monospace, sans-serif;
+}
+
 section#articles {
   column-count:2;
   -webkit-column-count:2;
