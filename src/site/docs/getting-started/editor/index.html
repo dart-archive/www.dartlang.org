@@ -1,26 +1,831 @@
 ---
 layout: default
 title: "Tutorial: Dart Editor"
+description: "Dart Editor is a lightweight, open-source editor based on Eclipse components. You can use it to edit and run Dart apps, as well as to invoke the Dart-to-JavaScript compiler."
 ---
 
-<!-- This page serves only to redirect to the platform-specific page. -->
+<noscript>
+<style type="text/css">
+  .mac {
+    color: red;
+    font-style: italic;
+  }
+
+  .win {
+    color: blue;
+    font-weight: bold;
+  }
+
+  .linux {
+    color: green;
+  }
+</style>
+
+<section>
+You have scripting turned off.
+This page will have
+<span class="linux">Linux</span>,
+<span class="win">Windows</span>, and
+<span class="mac">Mac</span> info mixed together
+unless you enable JavaScript.
+</section>
+</noscript>
 
 <h1> {{ page.title }} </h1>
 
-<script type="text/javascript">
-var OSName='linux';
-if (navigator.appVersion.indexOf('Win')!=-1) OSName='win';
-if (navigator.appVersion.indexOf('Mac')!=-1) OSName='macos';
-window.location = 'index-' + OSName + '.html';
-</script>
-
-<noscript>
 <section>
-Choose the instructions for the OS you're interested in:
+<p>
+Follow this tutorial to
+install and use Dart Editor on
+<span class="linux">Linux.</span>
+<span class="mac">Mac OS X.</span>
+<span class="win">Windows.</span>
+</p>
+
+<aside class="note">
+<strong>Note:</strong>
+These instructions are available for:
+  <ul style="list-style-type: none">
+    <li> <label>
+      <input type="radio" name="osChoices" id="win"> Windows</input>
+      </label> </li>
+    <li> <label>
+     <input type="radio" name="osChoices" id="linux" checked="true"> Linux</input>
+     </label> </li>
+    <li> <label>
+      <input type="radio" name="osChoices" id="mac"> Mac</input>
+      </label> </li>
+  </ul>
+</aside>
+<p>
+Dart Editor is a lightweight, open-source editor
+based on Eclipse components.
+You can use it to edit and run Dart apps,
+as well as to invoke the Dart-to-JavaScript compiler.
+</p>
+
+<p>
+The Dart Editor download includes:
+</p>
+
 <ul>
-  <li> <a href="index-win.html">Windows</a> </li>
-  <li> <a href="index-linux.html">Linux</a> </li>
-  <li> <a href="index-macos.html">Mac OS</a> </li>
+  <li> Dart Editor </li>
+  <li> <a href="/docs/getting-started/sdk/">Dart SDK</a> </li>
+  {% comment %} The following (same text twice) is clunky {% endcomment %}
+  <li class="linux"> <!-- not windows yet -->
+    <a href="/dartium/">"Dartium"</a>:
+    a build of the Chromium browser that includes the Dart VM </li>
+  <li class="mac"> <!-- not windows yet -->
+    <a href="/dartium/">"Dartium"</a>:
+    a build of the Chromium browser that includes the Dart VM </li>
+</ul>
+
+<p class="win">
+On other platforms, the Dart Editor download includes
+a build of Chromium,
+nicknamed <a href="/dartium/"><em>Dartium</em></a>,
+that has a built-in Dart VM.
+Once Dartium is available for Windows,
+we'll add it to the Dart Editor download.
+</p>
+
+</section>
+
+
+<section>
+<h4> Contents </h4>
+<ul>
+  <li> <a href="#download">Step 1: Download and install the software</a> </li>
+  <li> <a href="#launch">Step 2: Launch the editor</a> </li>
+  <li> <a href="#sample">Step 3: Open a sample</a> </li>
+  <li> <a href="#run">Step 4: Run the sample</a> </li>
+  <li> <a href="#features">Step 5: Try some Dart Editor features</a> </li>
+  <li> <a href="#code">Step 6: Create a new web app</a> </li>
+  <li> <a href="#feedback">Give us feedback!</a> </li>
 </ul>
 </section>
-</noscript>
+
+<section id="download">
+<h2> Step 1: Download and install the software </h2>
+
+<p>
+In this step, you'll install Dart Editor
+and, if necessary, a Java runtime environment.
+</p>
+
+<ol>
+  <li> 
+    <!-- download_dart_editor -->
+    <div class="linux">
+      Download the Dart Editor ZIP file that matches
+      your system architecture:
+      <ul>
+        <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-linux.gtk.x86.zip">32-bit Dart Editor</a> </li>
+        <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-linux.gtk.x86_64.zip">64-bit Dart Editor</a> </li>
+      </ul>
+    </div>
+    <div class="mac">
+      Download the Dart Editor ZIP file:
+      <blockquote>
+        <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-macosx.cocoa.x86_64.zip">Dart Editor ZIP file</a>
+      </blockquote>
+    </div>
+    <div class="win">
+      Download the Dart Editor ZIP file that matches
+      your system architecture:
+      <ul>
+        <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-win32.win32.x86.zip">32-bit Dart Editor</a> </li>
+        <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-win32.win32.x86_64.zip">64-bit Dart Editor</a> </li>
+      </ul>
+    </div>
+
+    <!-- getting_your_architecture -->
+    <div class="linux">
+      <p>
+      If you don't know whether you have 32-bit or 64-bit Linux,
+      use the command <code>uname -a</code>.
+      If <code>64</code> is in the output,
+      you have 64-bit Linux;
+      otherwise, you have 32-bit Linux.
+      </p>
+    </div>
+    <!-- no mac -->
+    <div class="win">
+      <p>
+      If you don't know what your system architecture is, see
+      <a href="http://windows.microsoft.com/en-US/windows7/32-bit-and-64-bit-Windows-frequently-asked-questions">Microsoft's support site</a>.
+      </p>
+    </div>
+
+    <aside class="note">
+      <b>Version note:</b>
+      For information about this Dart Editor version, see the
+      <a target="_blank"
+        href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/changelog.html">change log</a>.
+      If you want to try out the most recent, untested version of Dart Editor,
+      <!-- download_continuous_build -->
+      <span class="linux">
+        download the latest
+        <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86.zip">32-bit</a> or
+        <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86_64.zip">64-bit</a>
+        ZIP file instead.
+      </span>
+      <span class="mac">
+        download the
+        <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-macosx.cocoa.x86_64.zip">latest ZIP file</a> instead.
+      </span>
+      <span class="win">
+        download the latest
+        <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86.zip">32-bit</a> or
+        <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86_64.zip">64-bit</a>
+        ZIP file instead.
+      </span>
+    </aside>
+  </li>
+
+  <li>
+  <div class="linux">
+  Unarchive the ZIP file. For example:
+    <pre> $ <b>unzip dart-editor-linux.gtk.x86_64.zip</b> </pre>
+  </div>
+  {% comment %} XXX: having the next p twice is clunky {% endcomment %}
+  <p class="mac">
+  Unarchive the ZIP file by double-clicking it.
+  </p>
+  <p class="win">
+  Unarchive the ZIP file by double-clicking it.
+  </p>
+
+  <aside class="note">
+    <strong>Tip:</strong>
+    If you already have Dart Editor and want to keep its state,
+    install the new Dart Editor on top of the old one.
+    For example, put the new ZIP file beside the old one,
+    and then use the command-line interface to unzip on top of the old files
+    (<code>unzip dart-editor-<em>latest-file</em>.zip</code>).
+  </aside>  
+  </li>
+
+  <li>
+    <p>
+    Put the resulting directory somewhere convenient, such as
+    <!-- dart_installation_dir -->
+    <span class="linux">
+      <code>/home/me/dart</code>.
+    </span>
+    <span class="mac">
+      <code>/Users/me/dart</code>.
+    </span>
+    <span class="win">
+      under your <code>Documents</code> folder.
+    </span>
+    </p>
+
+    <p>
+    We'll call this your <b>Dart installation directory</b>.
+    This installation directory contains
+    the <code>DartEditor</code> executable file and several subdirectories,
+    including a <code>samples</code> directory.
+    </p>
+    
+    <aside class="note">
+    <strong>Important:</strong>
+    Do <b>not</b> use the Dart installation directory
+    for any other Eclipse-based software.
+    If Dart Editor and Eclipse
+    share the same <code>workspace</code> directory,
+    they'll save conflicting settings,
+    resulting in warnings and errors from both
+    Dart Editor and Eclipse.
+    </aside>
+  </li>
+
+  <li> <p>
+    If you don't already have a Java runtime,
+    download and install it. </p>
+    <!-- java_download_instructions -->
+    <p class="linux">
+      You can get JDK 7 from
+      <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html"
+        target="_blank">Java SE Development Kit 7 Downloads</a>.
+    </p>
+    <ul class="mac">
+      <li> If you're using OS X Lion,
+        see the download instructions at
+        <a href="http://support.apple.com/kb/dl1421">Java for OS X Lion</a>.
+        </li>
+      <li> If not, you should be fine;
+        Java is pre-installed on OS versions before Lion.
+        </li>
+    </ul>
+    <ul class="win">
+     <li> You can download the Java runtime environment (JRE) from
+        <a href="http://www.oracle.com/technetwork/java/javase/downloads"
+          target="_blank">Java SE Downloads</a>.
+        </li>
+      <li> To avoid having to modify the PATH environment variable,
+        you can install the JRE
+        under your Dart installation directory,
+        in a subdirectory named <code>jre</code>.
+        </li>
+    </ul>
+</ol>
+</section>
+
+<section id="launch">
+<h2> Step 2: Launch the editor </h2>
+
+<p>
+Go to your Dart installation directory,
+and double-click <b>DartEditor</b>.
+</p>
+
+<p>
+  <img src="images/DartEditor-icon.png"
+  alt="DartEditor icon"
+  width="78" height="92">
+</p>
+
+<p>
+You should see the Dart Editor application window appear,
+with a Welcome screen that looks something like this:
+</p>
+
+<img src="images/DartEditor-initial.png"
+  alt="screenshot of initial Dart Editor window, with Welcome screen"
+  width="600" height="454">
+
+</section>
+
+<!-- launch_tip -->
+<div class="linux">
+  <section id="32bit">
+  <h3>Does the app fail to launch?</h3>
+
+  <p class="comment">
+
+  <p>
+  If you're using 64-bit Linux but have 32-bit Java libraries,
+  Dart Editor won't work.
+  The fix is to use a 64-bit Java JDK.
+  You can get JDK 7 from
+  <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html"
+    target="_blank">Java SE Development Kit 7 Downloads</a>.
+  </p>
+
+  <p>
+  If you already have a 64-bit JDK but it's not the default,
+  you can specify it.
+  Go to your Dart installation directory and
+  add the following two lines to <code>DartEditor.ini</code>:
+  </p>
+
+  {% pretty_code console 0 %}
+  -vm
+  <em>/full/path/to/java</em>{% endpretty_code %}
+
+  <p>
+  For example, the second line might be
+  <code>/usr/local/buildtools/java/jdk-64/bin/java</code>.
+  </p>
+
+  </section>
+</div>
+<div class="mac">
+  <section id="avstartup">
+  <h3>Is startup slow?</h3>
+
+  <p>
+  If you use Sophos Anti-Virus,
+  Dart Editor (like most Java applications)
+  starts up 10-15 times slower than normal.
+  The fix is to turn off scanning of the app's JAR files.
+  For example:
+  </p>
+
+  <ol>
+    <li> In Sophos Anti-Virus preferences,
+      choose <b>On-access Scanning</b>. </li>
+    <li> If the preferences are locked,
+      click the lock and enter your password. </li>
+    <li> Click <b>Excluded Items</b> and then the <b>+</b> sign. </li>
+    <li> Navigate to the directory that contains <code>DartEditor</code>. </li>
+    <li> Search for files under that directory
+      with names that end in <code>.jar</code>. </li>
+    <li> Select all these <code>.jar</code> files,
+      and click Open. </li>
+  </ol>
+
+  </section>
+
+
+  <section id="32bit">
+  <h3>Does the app fail to launch, at all?</h3>
+
+  <p>
+  If you're using one of the increasingly rare 32-bit Macs,
+  you can't launch the normal version of Dart Editor.
+  Instead, you see a warning like this:
+  </p>
+
+  <img src="images/mac-installerror.png"
+    alt="Dialog text: You can't open the application DartEditor.app because it's not supported on this type of Mac."
+    style="border: 1px solid black"
+    width="419" height="161" >
+
+  <p>
+  To fix the problem, download a 32-bit version of Dart Editor:
+  </p>
+
+  <ul>
+    <li> <a href="http://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-macosx.cocoa.x86.zip">32-bit Dart Editor ZIP file</a></li>
+    <li> <a href="http://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-macosx.cocoa.x86.zip">32-bit Dart Editor ZIP file (latest, untested)</a></li>
+  </ul>
+
+  </section>
+</div>
+<div class="win">
+</div>
+
+
+<section id="sample">
+<h2>Step 3: Open a sample</h2>
+
+<p>
+The Dart Editor bundle comes with several samples.
+In this step, you'll open one
+and look at its code.
+</p>
+
+<ol>
+  <li> <p>
+    In the Welcome screen,
+    click the image labeled <b>Sunflower</b>.
+    </p>
+{% comment %}
+PENDING: move this to a new "Using Dart Editor" page
+    Or open the Sunflower sample the same way
+    you'd open any other Dart application:
+    <ol>
+      <li> <p>
+        Go to the <b>File</b> menu,
+        and choose <b>Open...</b>.
+        Or use the keyboard shortcut
+        (<b>Ctl+O</b> or, on Mac, <b>Option+O</b>).
+        </p>
+      </li>
+      <li> <p>
+        Navigate to your Dart installation directory,
+        then to <b>samples/sunflower</b>.
+        Double-click <b>Sunflower.dart</b>.
+        </p>
+    </ol>
+{% endcomment %}
+  </li>
+
+  <li> <p>
+    Look at the Files and Editor views.
+    The Editor view displays the contents of <code>Sunflower.dart</code>,
+    and the Files view lists the files
+    in the app's directory.
+{% comment %}
+    {NOTE about terminology: The
+    <a href="http://www.google.com/url?sa=D&q=http%3A%2F%2Fhelp.eclipse.org%2Findigo%2Findex.jsp">Workbench User Guide</a> says "view", so I'm using that
+    since I figure that might be familiar to Eclipse users.}
+{% endcomment %}
+  </p>
+
+    <p>
+    Your Dart Editor should look something like this:
+    </p>
+
+    <img src="images/DartEditor-sunflower.png"
+      alt="screenshot of Dart Editor displaying the Sunflower sample's code"
+      width="600" height="454">
+  </li>
+</ol>
+
+<p>
+For more information about the Sunflower example, read the
+<a href="/samples/sunflower/index.html">Sunflower Code Walkthrough</a>.
+</p>
+
+</section>
+
+<section id="run">
+<h2> Step 4: Run the sample </h2>
+
+<p>
+To run any Dart app,
+just click Dart Editor's Run button
+<img src="images/run.png" alt="Run" width="16" height="16"
+  style="vertical-align:top">
+while any file in that app is selected.
+If you're working on a web app,
+Dart Editor brings up a browser window
+that displays the app's HTML page,
+with the app's code running inside it.
+</p>
+
+<p>
+<a href="/dartium/">Dartium</a> is the default browser,
+but you can specify another using
+<b>Tools > Manage Launches</b>.
+{% comment %}
+{PENDING: write docs to walk people through this. separate page!}
+{% endcomment %}
+Dart Editor automatically compiles the app to JavaScript
+if you specify a non-Dartium browser.
+</p>
+
+<aside class="warning">
+<b>Important:</b>
+Dartium is a technical preview,
+and it might have security and stability issues.
+
+<blockquote>
+<b>Do not use Dartium as your primary browser!</b>
+</blockquote>
+</aside>
+
+
+<ol>
+  <li> <p>
+    Make sure the current selection is on or inside of a file
+    in the <code>sunflower</code> directory.
+    For example, click <b>Sunflower.dart</b> in the Files view
+    or click within it in the Edit view.
+  </p> </li>
+  <li> <p>
+    Click the Run button
+    <img src="images/run.png" alt="Run" width="16" height="16"
+      style="vertical-align:top">.
+    </p>
+
+    <p>
+    <img src="images/sunflower-run.png"
+      alt="Snapshot of Files view and Run button"
+      style="border: 1px solid black"
+      width="303" height="154">
+    </p>
+
+    <div class="linux">
+      <aside class="note">
+        <b>Can't run Dartium?</b>
+        You probably need to install 32-bit libraries
+        on your 64-bit machine.
+        See <a href="http://dartbug.com/2052">bug #2052</a>
+        for instructions.
+      </aside>
+    </div>
+  </li>
+
+  <li> <p>
+    In the browser window that comes up,
+    move the slider to display the sunflower.
+    It should look something like this:
+    </p>
+
+    <p>
+    <img src="images/sunflower.png"
+      alt="screenshot of Sunflower app running"
+      style="border: 1px solid black"
+      width="559" height="489">
+    </p>
+
+    <p>
+    If you instead see a message that
+    you need to download a new version of Dartium,
+    we recommend that you download and install a new version of
+    <b>Dart Editor</b>.
+    You'll get an updated version of Dartium, plus the
+    <a href="http://news.dartlang.org/search/label/editor">latest improvements to Dart Editor</a>.
+    Alternatively, download a new version of
+    <a href="/dartium/">Dartium</a>
+    and substitute it for the copy that's in your
+    Dart installation directory.
+    </li>
+</ol>
+
+</section>
+
+
+<section id="features">
+<h2> Step 5: Try some Dart Editor features </h2>
+
+<p>
+This section introduces you to some of Dart Editor's features,
+such as finding where APIs are declared,
+outlining the contents of a Dart file,
+and auto-completing references to APIs.
+We expect to add many more features over time.
+</p>
+
+<ol>
+  <li> <p>
+    Learn how to find where variables and types are declared.
+    </p>
+    <ol>
+      <li> <p>
+        In the Editor view of <code>Sunflower.dart</code>,
+        hold down the <b>Control</b> key
+        (<b>Command</b> key on Mac)
+        and move the mouse over the source code.
+        A line appears under each item
+        that's declared elsewhere in this <code>.dart</code> file
+        or in another <code>.dart</code> file.
+      </p> </li>
+
+      <li> <p>
+        Continuing to press Control or Command,
+        hover over the string <b>Math</b>,
+        (at the top of the <code>Sunflower()</code> constructor),
+        and click.
+        </p>
+
+        <p>
+        <img src="images/sunflower-hover.png"
+          alt="screenshot of Command/Control-hover over Math"
+          style="border: 1px solid black"
+          width="407" height="223">
+        </p>
+
+        <p>
+        The editor displays the file that declares the
+        <a href="http://api.dartlang.org/dart_core/Math.html"><code>Math</code></a> type.
+        </p>
+
+        <aside class="note">
+        <b>Tip:</b>
+        You can also use this trick to find declarations within the same file.
+        </aside>
+      </li>
+    </ol> </li>
+  <li>
+    <p>
+    Click the left arrow button
+    <img src="images/leftarrow.png" alt="left arrow" width="16" height="16"
+      style="vertical-align:top">
+    (to the left of the Run button
+    <img src="images/run.png" alt="Run" width="16" height="16"
+      style="vertical-align:top">)
+    to go back to <code>Sunflower.dart</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+    Either press <b>Alt+O</b> (<b>Option+O</b> on Mac) or
+    right-click and choose <b>Quick Outline</b>.
+    </p>
+
+    <p>
+    A panel comes up displaying
+    the classes, methods, and fields
+    declared in <code>Sunflower.dart</code>.
+    It looks something like this:
+    </p>
+
+    <p>
+    <img src="images/sunflower-outline.png"
+      alt="screenshot of outline panel"
+      width="390" height="340">
+    </p>
+
+    <p>
+    You can reduce the size of the list
+    by typing one or more characters.
+    For example, if you type <b>x</b>,
+    only the <b>xc</b> variable appears.
+    </p>
+
+    <p>
+    If you choose an item from the list&mdash;for example,
+    <b>xc</b>&mdash;
+    the editor scrolls to its declaration in <code>Sunflower.dart</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+    Now try Dart Editor's auto-complete feature.
+    </p>
+
+    <ol style="list-style-type: lower-alpha">
+      <li> <p>
+        Find the declaration of <b>TAU</b>,
+        near the end of <code>Sunflower.dart</code>:
+        </p>
+{% pretty_code dart 0 %}
+static final TAU = Math.PI * 2;{% endpretty_code %}
+        </li>
+      <li> <p>
+        Delete everything to the right of <code>Math</code>,
+        and then type a period (<b>.</b>).
+        After a short pause,
+        a list of autocomplete suggestions comes up,
+        looking something like this:
+        </p>
+
+        <img src="images/sunflower-dotcomplete.png"
+          alt="snapshot of autocomplete for Math."
+          style="border: 1px solid black"
+          width="450" height="234">
+        </p> </li>
+      <li> <p>
+        Type or use the arrow keys to select <code>PI</code>,
+        and then press Enter or Return to dismiss the panel.
+        </p> </li>
+      <li> <p>
+        Complete your changes&mdash;for
+        example, if you think sunflower seeds should be semi-circular,
+        use <code>Math.PI</code> instead of <code>Math.PI*2</code>&mdash;and
+        then save the file.
+        </p>
+
+        <p>
+        If Dart Editor displays an error after you save,
+        you've made a syntax error.
+        Fix it or undo your typing,
+        and then save again.
+        </p> </li>
+      <li> <p>
+        Click the Run button
+        <img src="images/run.png" alt="Run" width="16" height="16"
+          style="vertical-align:top">
+        to run your changed version.
+        </p> </li>
+
+      <li> <p>
+        Back in Dart Editor,
+        edit the Dart code again.
+        This time use <b>Ctl+Space</b>
+        to bring up the auto-complete suggestions.
+        </p>
+
+        <p>
+        For example, type <code>Mat</code>, then Ctl+Space
+        to see a list of classes and interfaces
+        that start with "Mat".
+        </p> </li>
+    </ol>
+  </li>
+</ol>
+</section>
+
+
+<section id="code">
+<h2> Step 6: Create a new web app </h2>
+
+<p>
+Now that you're familiar with Dart Editor,
+let's create a web app from scratch.
+</p>
+
+<ol>
+  <li> <p>
+    Click the New Application button
+    <img src="images/newapp.png" alt="New App" width="16" height="16"
+     style="vertical-align:top">
+    (at the upper left of Dart Editor)
+    to create a new app.
+    Alternatively, choose <b>File > New Application...</b>
+    from the Dart Editor menu.
+    </p>
+
+    <p>
+    A dialog comes up, looking something like this:
+    </p>
+
+    <p>
+      <img src="images/DartEditor-newapp.png"
+      alt="screenshot of the New Application dialog"
+      width="565" height="490">
+    </p>
+    </li>
+  <li> <p>
+    Type in a name for your application&mdash;for
+    example, <code>HelloWorld</code>.
+    If you don't like the default directory,
+    type in a new location or browse to choose the location.
+    Make sure the application type is set to <b>Web</b>.
+    Then click <b>Finish</b> to create the initial files for the app.
+    </p>
+
+    <p>
+    A default Dart file appears in the Edit view,
+    and a directory with a few files appears
+    in the Files view.
+    Your Dart Editor window should look something like this:
+    </p>
+
+    <p>
+      <img src="images/DartEditor-helloworld.png"
+      alt="screenshot of Dart Editor just after New Application..."
+      width="600" height="482" >
+    </p>
+
+    </li>
+  <li> <p>
+    Click the Run button
+    <img src="images/run.png" alt="Run" width="16" height="16"
+      style="vertical-align:top">
+    to run your new app.
+    </p> </li>
+
+  <li> <p>
+    View the HTML file in Dart Editor
+    by double-clicking it in the Files view.
+    </p>
+
+    <p>
+    The HTML file has one &lt;script> tag
+    with the type "application/dart",
+    plus a second &lt;script> tag that refers to a JavaScript file.
+    That second tag lets non-Dart browsers
+    find the JavaScript version of the Dart file.
+    </p> </li>
+  <li> <p>
+    Modify the default Dart and HTML files as you like,
+    using auto-completion,
+    <a href="/samples/index.html">samples</a>, and 
+    <a href="http://api.dartlang.org/">API reference documentation</a>
+    to figure out which APIs you can use.
+    </p> </li>
+</ol>
+
+<section>
+<h2 id="feedback">Give us feedback!</h2>
+
+<p>
+We've released Dart Editor at a very early stage.
+Please help us improve it!
+To see known bugs in Dart Editor, look at the issue list:
+</p>
+
+<blockquote>
+<a href="http://code.google.com/p/dart/issues/list?can=2&q=label%3AArea-Editor">Dart Editor issue list</a>
+</blockquote>
+
+<p>
+You can star bugs to receive updates about them,
+and you can add comments to bugs.
+</p>
+
+<p>
+Here are two other ways to give us feedback:
+</p>
+
+<ul>
+  <li> Use the <b>SEND FEEDBACK</b> link
+    at the upper right of the Dart Editor window.
+    <br>
+    We'll open a new issue for you, if appropriate,
+    without disclosing your sensitive or personally identifiable information.
+    </li>
+  <li> <a href="http://code.google.com/p/dart/issues/entry?template=Defect%20report%20from%20user&labels=Area-Editor,Type-Defect,Priority-Medium">Create
+    a new Dart Editor issue.</a>
+    </li>
+</ul>
+
+</section>
+
+<script src="/js/Switcher.dart.js"></script>

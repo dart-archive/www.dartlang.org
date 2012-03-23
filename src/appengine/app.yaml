@@ -1,7 +1,9 @@
 application: dart-lang
 version: CHANGEME
 # NOTE: URL is CHANGEME.dart-lang.appspot.com
-#       To get your own staging server, change 'CHANGEME' to... you guessed it.
+#       To get your own staging server, change 'CHANGEME' to something
+#       like 'kathyw' or 'kathyw-dartium'.
+#
 #       To deploy to dartlang.org (only from a clean master workspace)
 #       change CHANGEME to a date string: YYYY-MM-DD.
 #       For more information on making changes, see goto/dartsiteupdate.
@@ -17,6 +19,9 @@ api_version: 1
 
 handlers:
 - url: /\+
+  script: scripts/redirector.py
+
+- url: /docs/getting-started/editor/index-.*
   script: scripts/redirector.py
 
 - url: /news.*

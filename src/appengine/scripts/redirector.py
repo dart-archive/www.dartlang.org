@@ -34,6 +34,10 @@ class ApiRedirectPage(webapp.RequestHandler):
         else:
             self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
             
+class EditorRedirectPage(webapp.RequestHandler):
+    def get(self):
+        self.redirect('/docs/getting-started/editor/', permanent=True)
+
 class NewsRedirectPage(webapp.RequestHandler):
     def get(self):
         url = self.request.path[5:len(self.request.path)]
@@ -50,6 +54,7 @@ class AtomFeedRedirectPage(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
+                                      ('/docs/getting-started/editor/index-.*', EditorRedirectPage),
                                       ('/news.*', NewsRedirectPage),
                                       ('/atom.xml', AtomFeedRedirectPage),
                                       ('/%2B', PlusRedirectPage),
