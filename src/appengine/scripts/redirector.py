@@ -34,6 +34,12 @@ class ApiRedirectPage(webapp.RequestHandler):
         else:
             self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
             
+class SpecRedirectPage(webapp.RequestHandler):
+    def get(self):
+        suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
+        if suffix == '.html' or suffix == '.pdf':
+            self.redirect('/docs/spec/latest/dart-language-specification' + suffix, permanent=True)
+
 class EditorRedirectPage(webapp.RequestHandler):
     def get(self):
         self.redirect('/docs/getting-started/editor/', permanent=True)
@@ -54,6 +60,7 @@ class AtomFeedRedirectPage(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
+                                      ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
                                       ('/docs/getting-started/editor/index-.*', EditorRedirectPage),
                                       ('/news.*', NewsRedirectPage),
                                       ('/atom.xml', AtomFeedRedirectPage),
