@@ -4,45 +4,48 @@ header:
   css: ["/css/dartboard.css"]
 ---
 
-<section class="intro">
-		<h2> From quick prototypes to serious apps </h2>
-    <p>
-		Dart's optional types let you prototype quickly
-		and then revise your code to be more maintainable.
-    </p>
-
-    <h2>Wherever you need structured code</h2>
-    <p>
-		You can use the same Dart code in most modern web 
-		browsers (Chrome, Safari 5+, Firefox 4+) and on servers.
-		Look for more browser support shortly.
-    </p>
-	
-    <h2>Familiar yet new </h2>
-    <p>
-		Dart code should look familiar if you know a language or two,
-		and you can use time-tested features such as classes and closures.
-		Dart's new features make it easier for you to develop and maintain 
-		software. Dart is still in the early stages of development,
-    so please take a look and <a href="/support/index.html">tell us what you think</a>.
-    </p>
-</section>
-		
-<section class="intro" style="border-top: 1px solid #CCC; padding-top: 10px">
-    <h2>Examples of Dart code</h2>
-    <p>
-		The Dart code below is inside an app called Dartboard. If you 
-		click the Run button at Dartboard's upper left&mdash;go ahead,
-		you know you want to&mdash;you'll see the expected output 
-		(Hello, Dart!) at the bottom.
-    </p>
-</section>
+<h2> A new platform for structured web apps</h2>
 
 <section>
-{% comment %}
-TODO: Not keen on the styling here, please feel free to change.
-      To add more samples, see _includes/samples.html
-{% endcomment %}
+		
+  <div class="homepage-intro">
+    <p>
+      With the Dart platform,
+      you can write code
+      that runs on servers and in modern web browsers.
+      Dart compiles to JavaScript,
+      so your Dart web apps will work in multiple browsers
+      (not just ours).
+    </p>
+
+    <p>
+      The Dart platform includes
+      a language, libraries, an editor,
+      a virtual machine (VM)
+      for both servers and browsers,
+      and a compiler to JavaScript.
+    </p>
+
+    <p>
+      Dart is still in preview, so
+      try it out and tell us what you think.
+    </p>
+  </div>
+
+  <script src="http://feeds.feedburner.com/DartNewsUpdates?format=sigpro" type="text/javascript" ></script><noscript><p>Subscribe to RSS headline updates from: <a href="http://feeds.feedburner.com/DartNewsUpdates"></a></p> </noscript>
+</section>
+
+
+<section>
+<h2>Get started</h2>
+
+<p>
+Read a <a href="/docs/technical-overview/">technical overview</a>,
+take a <a href="/language-tour/">language tour</a>, or
+download <a href="/docs/getting-started/editor/">Dart Editor</a>.
+Or play with Dart code right here in your browser.
+</p>
+
 
 <div id="samples">
 <label for="samples-list" style="display:none">Dart code examples:</label>
@@ -50,7 +53,6 @@ TODO: Not keen on the styling here, please feel free to change.
     <option value="hello">Hello, Dart!</option>
     <option value="fib">Fibonacci</option>
     <option value="point">Point</option>
-    <option value="isolates">Isolate communication</option>
   </select>
 </div>
 
@@ -59,18 +61,10 @@ TODO: Not keen on the styling here, please feel free to change.
 }</code>
 
 {% include samples.html %}
+</section>
 
 <script async type="text/javascript"
   src="http://try.dartlang.org/dartboard.dart.app.js">
 </script>
-</section>
 
-<section>
-<h2>What next?</h2>
 
-<p>
-Follow a <a href="/docs/getting-started/index.html">tutorial</a>,
-or read the <a href="/docs/technical-overview/index.html">technical overview</a>.
-</p>
-
-</section>

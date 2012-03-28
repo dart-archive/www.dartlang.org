@@ -11,6 +11,9 @@ title: "Chromium with the Dart VM"
 This page tells you how to get and use
 a Chromium-based browser (nicknamed <em>Dartium</em>)
 that includes the Dart virtual machine (VM).
+This browser can execute Dart web apps directly,
+so you don't have to compile your code to JavaScript
+until you're ready to test on other browsers.
 </p>
 
 <aside class="warning">
@@ -25,10 +28,8 @@ and it might have security and stability issues.
 
 <h4> Contents </h4>
 <ol class="toc">
-  <li> <a href="#download">Downloading the browser</a>
-    <ol>
-      <li> <a href="#linux">Linux: Installing 32-bit libraries</a> </li>
-    </ol> </li>
+  <li> <a href="#download">Downloading and installing the browser</a> </li>
+  <li> <a href="#launch">Launching the browser</a> </li>
   <li> <a href="#bug">Filing bugs</a> </li>
   <li> <a href="#detect">Detecting Dart support</a> </li>
   <li> <a href="#command">Launching from the command line</a> </li>
@@ -37,15 +38,23 @@ and it might have security and stability issues.
 
 
 <section id="download">
-<h2> Downloading the browser </h2>
+<h2> Downloading and installing the browser </h2>
 
 <p>
-Download the ZIP file for your platform:
+If you have an up-to-date version of
+<a href="/docs/getting-started/editor/index.html">Dart Editor</a>,
+you already have Dartium.
+</p>
+
+<p>
+If you don't have Dart Editor
+or want a different version of Dartium,
+download the Dartium ZIP file for your platform:
 </p>
 
 <ul>
-  <li> <a href="http://commondatastorage.googleapis.com/dartium-archive/continuous/dartium-mac.zip">Dartium for Mac</a> </li>
-  <li> <a href="http://commondatastorage.googleapis.com/dartium-archive/continuous/dartium-lucid64.zip">Dartium for Linux</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dartium-archive/continuous/dartium-mac.zip">Dartium for Mac</a> </li>
+  <li> <a href="http://gsdview.appspot.com/dartium-archive/continuous/dartium-lucid64.zip">Dartium for Linux</a> </li>
   <li> Dartium for Windows <em>(coming soon!)</em> </li>
 </ul>
 
@@ -61,16 +70,35 @@ if you want to continue using Dartium.
 <p>
 You don't usually need to do anything special to install Dartium:
 just unarchive the ZIP file.
-If you like, move the resulting directory to a convenient location.
+If you want Dart Editor to launch a particular copy of Dartium,
+then put that copy inside
+the <b>dart-sdk</b> directory of your
+<a href="/docs/getting-started/editor/index.html">Dart Editor
+installation directory</a>,
+replacing the original copy of Chromium.
 </p>
+
+</section>
+
+
+<section id="launch">
+<h2> Launching the browser </h2>
 
 <p>
 To launch Dartium, navigate to its directory in your finder,
 and double-click the blue logo labeled Chromium.
-Or use the <a href="#command">command line</a>.
+Or use
+<a href="/docs/getting-started/editor/">Dart Editor</a>
+or the <a href="#command">command line</a>.
+</p>
+
+<p>
 If launching fails and you're using 64-bit Linux,
-you probably need to
-<a href="#linux">install 32-bit libraries</a>.
+you probably need to install 32-bit libraries.
+See <a href="http://dartbug.com/2052">bug #2052</a>
+for details and tips.
+</aside>
+
 </p>
 
 <aside class="note">
@@ -82,32 +110,6 @@ from the command line with the
 <a href="http://www.chromium.org/user-experience/user-data-directory">--user-data-dir flag</a>.
 </aside>
 
-
-<section id="linux">
-<h3> Linux: Installing 32-bit libraries </h3>
-
-<p>
-The Linux Dartium binaries currently require 32-bit libraries.
-If you're using 64-bit Linux without 32-bit libraries,
-then Dartium will fail to launch,
-possibly producing a message like this:
-</p>
-
-<pre>
-!MESSAGE Dartium stderr: <em>path-to-chromium</em>: error while loading shared libraries: libXss.so.1: cannot open shared object file: No such file or directory
-</pre>
-
-<p>
-The workaround is to install 32-bit libraries on your computer.
-You can find instructions at:
-</p>
-
-<blockquote>
-<a href="http://code.google.com/p/chromium/wiki/LinuxBuildInstructionsPrerequisites">LinuxBuildInstructionsPrerequisites</a>
-</blockquote>
-
-
-</section>
 </section>
 
 
@@ -141,7 +143,7 @@ on the window.navigator object.
 For example:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 if (!navigator.webkitStartDart) {
   // No native Dart support.
   window.addEventListener("DOMContentLoaded", function (e) {
@@ -158,12 +160,6 @@ if (!navigator.webkitStartDart) {
 <h2> Launching from the command line </h2>
 
 <p>
-Soon we expect to make it easy to launch Dartium through Dart Editor.
-Until then, you can launch it by double-clicking its icon
-or, if you need to specify flags, by using the command line.
-</p>
-
-<p>
 Because Dartium is based on Chromium, all
 <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">Chromium flags</a>
 should work.
@@ -177,18 +173,18 @@ and assertion checks (--enable_asserts flag).
 </p>
 
 <p>
-On Linux, you can enable specify flags by starting Dartium as follows:
+On Linux, you can specify flags by starting Dartium as follows:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 DART_FLAGS='--enable_type_checks --enable_asserts' <em>path</em>/chrome
 {% endpretty_code %}
 
 <p>
-Or on the Mac:
+On the Mac:
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 DART_FLAGS='--enable_type_checks --enable_asserts'              \
   <em>path</em>/Chromium.app/Contents/MacOS/Chromium
 {% endpretty_code %}
@@ -197,7 +193,7 @@ DART_FLAGS='--enable_type_checks --enable_asserts'              \
 Or (also on the Mac):
 </p>
 
-{% pretty_code %}
+{% pretty_code dart 0 %}
 DART_FLAG='--enable_type_checks --enable_asserts'               \
    <b>open</b> <em>path</em>/Chromium.app
 {% endpretty_code %}
@@ -207,7 +203,7 @@ DART_FLAG='--enable_type_checks --enable_asserts'               \
 <b>Tip:</b>
 You can see the command-line flags and executable path
 of your current Chromium-based browser
-by going to <b>chrome://version/</b>.
+by going to <b>chrome://version</b>.
 </aside>
 </section>
 

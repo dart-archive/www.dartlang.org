@@ -22,6 +22,10 @@ NEWS_POSTS = {
     '/2011/10/18/dart-language-spec-0.03-now-available.html' :   '/2011/10/dart-language-spec-v003-now-available.html'
 }
 
+class PlusRedirectPage(webapp.RequestHandler):
+    def get(self):
+        self.redirect('https://plus.google.com/109866369054280216564/posts', permanent=True)
+
 class ApiRedirectPage(webapp.RequestHandler):
     def get(self):
         filename = self.request.path.split('/docs/api/')[1]
@@ -30,6 +34,10 @@ class ApiRedirectPage(webapp.RequestHandler):
         else:
             self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
             
+class EditorRedirectPage(webapp.RequestHandler):
+    def get(self):
+        self.redirect('/docs/getting-started/editor/', permanent=True)
+
 class NewsRedirectPage(webapp.RequestHandler):
     def get(self):
         url = self.request.path[5:len(self.request.path)]
@@ -46,8 +54,11 @@ class AtomFeedRedirectPage(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
+                                      ('/docs/getting-started/editor/index-.*', EditorRedirectPage),
                                       ('/news.*', NewsRedirectPage),
-                                      ('/atom.xml', AtomFeedRedirectPage)],
+                                      ('/atom.xml', AtomFeedRedirectPage),
+                                      ('/%2B', PlusRedirectPage),
+                                      ('/\+', PlusRedirectPage)],
                                      debug=True)
 
 def main():

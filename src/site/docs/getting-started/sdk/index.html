@@ -45,10 +45,17 @@ For a real development environment, use
 
 <section id="download">
 <h2> Getting the SDK </h2>
+
 <p>
-You can download integration releases of the SDK.
-They've been tested, to some extent,
-and are expected to work.
+If you have an up-to-date version of
+<a href="/docs/getting-started/editor/index.html">Dart Editor</a>,
+you already have the SDK.
+</p>
+
+<p>
+If you don't have Dart Editor
+or want a different version of the SDK,
+download the SDK ZIP file for your platform:
 </p>
 
 <ul>
@@ -88,7 +95,7 @@ To compile a Dart file to JavaScript, use <code>bin/frogc</code>.
 For example:
 </p>
 
-{% pretty_code %}
+{% pretty_code console 0 %}
 $DART_SDK/bin/frogc test.dart
 {% endpretty_code %}
 
@@ -107,7 +114,7 @@ that contains the JavaScript equivalent of your Dart code.
 To run a Dart file in the Dart VM, use <code>bin/dart</code>.
 For example:
 
-{% pretty_code %}
+{% pretty_code console 0 %}
 $DART_SDK/bin/dart test.dart
 {% endpretty_code %}
 </p>
@@ -126,9 +133,9 @@ $DART_SDK/bin/dart test.dart
   During development, we recommend using checked mode. You can
   run in checked mode with a command-line flag:
 
-  {% pretty_code %}
-  $DART_SDK/bin/dart --enable_type_checks test.dart
-  {% endpretty_code %}
+{% pretty_code console 0 %}
+$DART_SDK/bin/dart --enable_type_checks test.dart
+{% endpretty_code %}
 </p>
 
 <h3>Enabling assertions</h3>
@@ -142,9 +149,9 @@ $DART_SDK/bin/dart test.dart
 <p>
   You can enable assertions with a command-line flag:
 
-  {% pretty_code %}
-  $DART_SDK/bin/dart --enable_asserts test.dart
-  {% endpretty_code %}
+{% pretty_code console 0 %}
+$DART_SDK/bin/dart --enable_asserts test.dart
+{% endpretty_code %}
 </p>
 
 </section>
