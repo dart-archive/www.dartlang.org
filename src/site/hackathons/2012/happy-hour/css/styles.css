@@ -240,6 +240,10 @@ section#schedule ul li span.schedule-time {
     display: inline-block;
 }
 
+section#schedule ul li span.title {
+    font-weight: bold;
+}
+
 #faqs dt {
     font-weight: bold;
     margin-bottom: 5px;
