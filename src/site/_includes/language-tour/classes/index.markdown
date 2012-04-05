@@ -62,6 +62,79 @@ class Point {
 }
 {% endpc %}
 
+#### Initializer list
+
+Final variables must be initialized before the object is given to `this`.
+Use the initializer list to initialize any final variable.
+This initializer list is run before the constructor body.
+
+{% pc dart 0 %}
+// an immutable point
+class ImmutablePoint {
+  final num x, y;
+
+  // what follows the : is the initializer list
+  Point(x, y) : x = x, y = y;
+}
+{% endpc %}
+
+#### Named constructors
+
+Use a named constructor to more clearly indicate what the
+constructor is doing. This is useful when multiple
+constructors exist for a class.
+
+{% pc dart 0 %}
+class Point {
+  num x, y;
+
+  // named constructor
+  Point.fromJson(Map json) : x = json['x'], y = json['y'];
+
+  Point(this.x, this.y);
+}
+{% endpc %}
+
+Call a named constructor with `new`:
+
+{% pc dart 0 %}
+var origin = new Point.zero();
+{% endpc %}
+
+#### const constructors
+
+`const` objects are compile-time expressions. `const`
+constructors allow you to define objects that
+can take part in compile-time expressions. `const`
+objects are immutable.
+
+Dart wishes to avoid allowing arbitrary expressions for
+initial field values, which lead to complications
+in other languages. `const` is one way to specify initial
+values in an efficient and predictable way.
+
+All instance fields must be final if you have a `const`
+constructor in your class.
+
+{% pc dart 0 %}
+class Point {
+  final num x, y;
+  const Point(this.x, this.y);
+  static final Point origin = const Point(0, 0);
+}
+{% endpc %}
+
+Constructing `const` objects returns compile-time
+canonicalized objects.
+
+{% pc dart 0 %}
+void main() {
+  var a = const Point(1, 1);
+  var b = const Point(1, 1);
+  print(a == b); // true!
+}
+{% endpc %}
+
 #### Getters and setters
 
 Getters and setters provide read and write access
@@ -178,21 +251,5 @@ to initialize an instance variable at the class level:
 class Point {
   num x = 0,  // compile-time constants such as numbers works here
       y = 0;
-}
-{% endpc %}
-
-#### Initializer list
-
-Final variables must be initialized before the object is given to `this`.
-Use the initializer list to initialize any final variable.
-This initializer list is run before the constructor body.
-
-{% pc dart 0 %}
-// an immutable point
-class Point {
-  final num x, y;
-
-  // what follows the : is the initializer list
-  Point(x, y) : x = x, y = y;
 }
 {% endpc %}
