@@ -268,3 +268,23 @@ footer div#copyright {
     text-align: center;
     font-size: 0.8em;
 }
+
+#locations-and-dates {
+    width: 100%;
+}
+
+#locations-and-dates thead th {
+    text-align: left;
+}
+
+#locations-and-dates td, #locations-and-dates th {
+    padding: 5px;
+}
+
+#locations-and-dates tbody tr:nth-child(odd) {
+    background-color: #EEE;
+}
+
+#locations-and-dates td.reg {
+    font-weight: bold;
+}
