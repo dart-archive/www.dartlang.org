@@ -27,6 +27,7 @@ class Point {
     x += amount;
   }
 }
+{% endpc %}
 
 #### Constructors
 
