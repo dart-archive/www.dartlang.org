@@ -17,7 +17,8 @@
   {% capture page_title %}{% if page.title %}{{ page.title }}{% else %}Dart: Structured web apps{% endif %} | DartLang.org{% endcapture %}
   <title>{{ page_title }}</title> 
   <meta itemprop="name" content="{{ page_title }}">
-  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}Dart is a new platform for building structured web apps for modern browsers. It includes a language, a virtual machine, libraries, a UI framework, an editor, browser integration, and a compiler to JavaScript. Try Dart today!{% endif %}">
+  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}Dart is a new platform for building structured web apps for modern browsers. It includes a language, a virtual machine, libraries, a UI framework, an editor, a compiler to JavaScript,
+  and browser integration. Try Dart today!{% endif %}">
 
 	<link rel="stylesheet" href="/css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -28,20 +29,7 @@
     <link href="https://plus.google.com/109866369054280216564" rel="publisher">
 	<script src="/js/modernizr.custom.02548.js"></script>
   
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-26406144-4']);
-    _gaq.push(['_setDomainName', 'dartlang.org']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
+  {% include analytics.html %}
 
   <script type="text/javascript">
 	window.___gcfg = {lang: 'en'};

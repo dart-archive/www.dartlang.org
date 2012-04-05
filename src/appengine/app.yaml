@@ -21,6 +21,9 @@ handlers:
 - url: /\+
   script: scripts/redirector.py
 
+- url: /docs/spec/dartLangSpec.*
+  script: scripts/redirector.py
+
 - url: /docs/getting-started/editor/index-.*
   script: scripts/redirector.py
 

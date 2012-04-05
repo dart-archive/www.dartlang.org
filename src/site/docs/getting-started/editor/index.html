@@ -40,23 +40,20 @@ install and use Dart Editor on
 <span class="linux">Linux.</span>
 <span class="mac">Mac OS X.</span>
 <span class="win">Windows.</span>
+<br>
+(These instructions are available for
+    <label>
+      <input type="radio" name="osChoices" id="win">
+      Windows</input></label>, 
+    <label>
+      <input type="radio" name="osChoices" id="linux" checked="true">
+      Linux</input>
+      </label>, and
+    <label>
+      <input type="radio" name="osChoices" id="mac">
+      Mac</input></label>.)
 </p>
 
-<aside class="note">
-<strong>Note:</strong>
-These instructions are available for:
-  <ul style="list-style-type: none">
-    <li> <label>
-      <input type="radio" name="osChoices" id="win"> Windows</input>
-      </label> </li>
-    <li> <label>
-     <input type="radio" name="osChoices" id="linux" checked="true"> Linux</input>
-     </label> </li>
-    <li> <label>
-      <input type="radio" name="osChoices" id="mac"> Mac</input>
-      </label> </li>
-  </ul>
-</aside>
 <p>
 Dart Editor is a lightweight, open-source editor
 based on Eclipse components.
@@ -71,23 +68,9 @@ The Dart Editor download includes:
 <ul>
   <li> Dart Editor </li>
   <li> <a href="/docs/getting-started/sdk/">Dart SDK</a> </li>
-  {% comment %} The following (same text twice) is clunky {% endcomment %}
-  <li class="linux"> <!-- not windows yet -->
-    <a href="/dartium/">"Dartium"</a>:
-    a build of the Chromium browser that includes the Dart VM </li>
-  <li class="mac"> <!-- not windows yet -->
-    <a href="/dartium/">"Dartium"</a>:
+  <li> <a href="/dartium/">"Dartium"</a>:
     a build of the Chromium browser that includes the Dart VM </li>
 </ul>
-
-<p class="win">
-On other platforms, the Dart Editor download includes
-a build of Chromium,
-nicknamed <a href="/dartium/"><em>Dartium</em></a>,
-that has a built-in Dart VM.
-Once Dartium is available for Windows,
-we'll add it to the Dart Editor download.
-</p>
 
 </section>
 
@@ -184,16 +167,8 @@ and, if necessary, a Java runtime environment.
   </li>
 
   <li>
-  <div class="linux">
-  Unarchive the ZIP file. For example:
-    <pre> $ <b>unzip dart-editor-linux.gtk.x86_64.zip</b> </pre>
-  </div>
-  {% comment %} XXX: having the next p twice is clunky {% endcomment %}
-  <p class="mac">
-  Unarchive the ZIP file by double-clicking it.
-  </p>
-  <p class="win">
-  Unarchive the ZIP file by double-clicking it.
+  <p>
+  Unarchive the ZIP file.
   </p>
 
   <aside class="note">
@@ -206,30 +181,15 @@ and, if necessary, a Java runtime environment.
   </aside>  
   </li>
 
-  <li>
     <p>
-    Put the resulting directory somewhere convenient, such as
-    <!-- dart_installation_dir -->
-    <span class="linux">
-      <code>/home/me/dart</code>.
-    </span>
-    <span class="mac">
-      <code>/Users/me/dart</code>.
-    </span>
-    <span class="win">
-      under your <code>Documents</code> folder.
-    </span>
-    </p>
-
-    <p>
-    We'll call this your <b>Dart installation directory</b>.
-    This installation directory contains
+    The resulting directory,
+    which we'll call your <b>Dart installation directory</b>, contains
     the <code>DartEditor</code> executable file and several subdirectories,
     including a <code>samples</code> directory.
     </p>
     
     <aside class="note">
-    <strong>Important:</strong>
+    <strong>Note:</strong>
     Do <b>not</b> use the Dart installation directory
     for any other Eclipse-based software.
     If Dart Editor and Eclipse

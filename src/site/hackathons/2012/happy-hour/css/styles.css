@@ -1,0 +1,270 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+aside {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+aside.note {
+    background-color: rgba(74, 190, 174, 0.30);
+    padding: 10px;
+}
+
+.pending {
+    color: red;
+}
+
+.important {
+    color: red;
+    font-weight: bold;
+}
+
+a, a:visited {
+    color: #0084C4;
+}
+
+.event-title {
+    font-family: 'Fontdiner Swanky', cursive;
+}
+
+/* css sucks */
+span.hack-for-border {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+#container {
+    margin: 0 auto;
+    width: 900px;
+    background:#fff;
+}
+
+#promo {
+    background-image: url(../img/Dart_Hackathon_900.jpg);
+    height: 750px;
+    color: white;
+    position: relative;
+    border-top: 10px solid #0084C4;
+    border-bottom: 10px solid #0084C4;
+}
+
+#promo h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 4em;
+    text-transform: uppercase;
+    font-family: 'Crimson Text', serif;
+    margin-bottom: 20px;
+}
+
+#promo #plusone {
+    position: absolute;
+    top: 100px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#promo section.event {
+    width: 300px;
+    text-align: center;
+}
+
+#promo section.event div.time {
+    font-size: 3em;
+    font-weight: 800;
+    border-top: 1px solid white;
+    text-transform: uppercase;
+}
+
+#promo h3 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+#promo #kickoff-date {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+#promo #hacking-date {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+#appetizers h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: gray;
+}
+
+#appetizers div {
+    margin-bottom: 30px;
+}
+
+a.internal-only {
+    color: red;
+}
+
+nav {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    background-color: rgba(74, 190, 174, 0.60);
+}
+
+nav ul li {
+    display: inline;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#details {
+    padding: 20px;
+}
+
+#details h2 {
+    color: #0084C4;
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#details p {
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+
+#details section {
+    border-bottom: 1px solid #0084C4;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+#details #content {
+    float: left;
+    width: 500px;
+    padding-right: 20px;
+}
+
+#details #content a {
+    font-weight: bold;
+}
+
+#details #sign-up {
+    float: right;
+    width: 330px;
+}
+
+#details #sign-up p {
+    background-color: rgba(74, 190, 174, 0.30);
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+#details #sign-up img {
+    margin-bottom: 10px;
+}
+
+section#appetizers ul li {
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+section#location ul li {
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+section ul {
+    margin-bottom: 10px;
+}
+
+section#bartenders img.headshot {
+    float: left;
+}
+
+section#bartenders div.bartender {
+    margin-bottom: 20px;
+}
+
+section#bartenders div.bartender h3 {
+    margin-bottom: 10px;
+}
+
+section#bartenders div.bartender p {
+    font-size: 0.8em;
+}
+
+section#bartenders div.bartender p, section#bartenders div.bartender h3 {
+    margin-left: 80px;
+}
+
+section#schedule {
+    clear: both;
+}
+
+section#schedule h3 {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+section#schedule ul {
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+section#schedule ul li {
+    padding: 5px;
+}
+
+section#schedule ul li:nth-child(odd) {
+    background-color: #EEE;
+}
+
+section#schedule ul li span.schedule-time {
+    width: 125px;
+    display: inline-block;
+}
+
+section#schedule ul li span.title {
+    font-weight: bold;
+}
+
+#faqs dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#faqs dd {
+    margin-bottom: 20px;
+    line-height: 1.5em;
+}
+
+footer {
+    padding: 50px 0 50px 20px;
+}
+
+footer p {
+    text-align: center;
+}
+
+footer div#copyright {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
+}
