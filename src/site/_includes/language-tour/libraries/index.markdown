@@ -119,7 +119,7 @@ but remember that each Dart app has an implicit library.
 <section id="libraries-library">
 #### Declaring a library
 
-To explicitly declare a library, you use the **#library** directive.
+To explicitly declare a library, you use a **#library** statement.
 For example:
 
 {% pretty_code dart 0 %}
