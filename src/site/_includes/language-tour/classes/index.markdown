@@ -1,8 +1,8 @@
-Dart is an object oriented language with classes
+Dart is an object-oriented language with classes
 and single inheritance.
 
 Here's how you declare, and then instantiate,
-a class with member (aka instance) variables:
+a class with member variables (also known as instance variables):
 
 {% pc dart 0 %}
 class Point {
@@ -12,12 +12,27 @@ class Point {
 var point = new Point();
 {% endpc %}
 
+#### this
+
+Inside of a class, the `this` keyword references the
+current instance. Only use `this` when there is a name
+conflict. Otherwise, Dart style omits the `this`.
+
+{% pc dart 0 %}
+class Point {
+  num x, y;
+
+  moveX(num amount) {
+    // no need for this.x
+    x += amount;
+  }
+}
+
 #### Constructors
 
-The familiar constructor will create a new instance of a class.
-
-A default, or zero argument, constructor is provided
-if you do not declare a constructor.
+The constructor creates a new instance of a class.
+If you do not declare a constructor,
+a default, or zero argument, constructor is provided for you.
 
 Declare a constructor by creating a method with the
 same name as its class.
@@ -27,6 +42,7 @@ class Point {
   num x, y;
 
   Point(x, y) {
+    // there's a better way to do this, stay tuned
     this.x = x;
     this.y = y;
   }
@@ -34,19 +50,49 @@ class Point {
 {% endpc %}
 
 The pattern of assigning a constructor argument to
-a member variable is so common, Dart has "syntactic suger"
-for this convention:
+a member variable is so common, Dart has syntactic sugar
+for this convention.
 
 {% pc dart 0 %}
 class Point {
   num x, y;
+  // this is sugar for this.x = x
   Point(this.x, this.y);
 }
 {% endpc %}
 
 #### Getters and setters
 
-Final and non-final variables will generate
+Getters and setters provide read and write access
+to internal object state. They appear as properties
+to callers.
+
+{% pc dart 0 %}
+class Rectangle {
+  num left, top, width, height;
+
+  Rectangle(this.left, this.top, this.width, this.height);
+
+  num get right()           => left + width;
+      set right(num value)  => left = value - width;
+  num get bottom()          => top + height;
+      set bottom(num value) => top = value - height;
+}
+{% endpc %}
+
+Use getters and setters as you would use properties.
+
+{% pc dart 0 %}
+var rect = new Rectange(3, 4, 20, 15);
+print(rect.left); // 3
+rect.right = 12;
+{% endpc %}
+
+Getters and setters help you to start with properties,
+and later wrap implementation details with proper methods,
+all without changing client code.
+
+Final and non-final variables generate
 an implicit getter method.
 
 {% pc dart 0 %}
@@ -54,7 +100,7 @@ var point = new Point(2, 2);
 print(point.x);  // 2
 {% endpc %}
 
-Non-final variables will generate an implicit
+Non-final variables generate an implicit
 setter method.
 
 {% pc dart 0 %}
@@ -66,7 +112,8 @@ print(point.y);  // 4
 #### Methods
 
 Classes have methods, which are functions that
-provide behavior and modify the state of an object.
+provide behavior for an object. Methods may
+read or change the state of an object.
 
 {% pc dart 0 %}
 class Point {
@@ -91,14 +138,14 @@ print(distance);  // 2.82842...
 
 Methods that belong to a class are called static methods.
 These methods do not operate on an instance, and thus
-do not have a `this`.
+do not have access to `this`.
 
 {% pc dart 0 %}
 class Point {
   num x, y;
   Point(this.x, this.y);
 
-  static num distanceTo(Point a, Point b) {
+  static num distanceBetween(Point a, Point b) {
     return Math.sqrt(((a.x-b.x)*(a.x-b.x)) + ((a.y-b.y)*(a.y-b.y)));
   }
 }
@@ -106,27 +153,29 @@ class Point {
 main() {
   var a = new Point(2, 2);
   var b = new Point(4, 4);
-  print(Point.distanceTo(a, b));  // 2.82842...
+  print(Point.distanceBetween(a, b));  // 2.82842...
 }
 {% endpc %}
 
-Because Dart has top level functions, you don't always need
-a static method if all you need is to provide some generic
-functionality.
+<aside class="note">
+  Best practice: Because Dart has top-level functions, you
+  don't always need a static method if all you need is to
+  provide some generic functionality.
+</aside>
 
 #### Instance variable initialization
 
-Dart only allows compile time constants as initializers
-for class level instance variables.
+Dart only allows compile-time constants as initializers
+for class-level instance variables.
 
 <aside class="note">Note: this restriction is currently under review.</aside>
 
-Compile time constants like numbers and strings can be used
+Compile-time constants such as numbers and strings can be used
 to initialize an instance variable at the class level:
 
 {% pc dart 0 %}
 class Point {
-  num x = 0,  // compile time constants like numbers works here
+  num x = 0,  // compile-time constants such as numbers works here
       y = 0;
 }
 {% endpc %}
@@ -142,22 +191,7 @@ This initializer list is run before the constructor body.
 class Point {
   final num x, y;
 
+  // what follows the : is the initializer list
   Point(x, y) : x = x, y = y;
-}
-{% endpc %}
-
-An initializer list does not have access to `this`.
-Use a static method 
-
-Add a constructor body after an initializer list to
-build additional state.
-
-{% pc dart 0 %}
-class Point {
-  final num x, y;
-
-  Point(x, y) : x = x, y = y {
-    
-  }
 }
 {% endpc %}
