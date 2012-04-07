@@ -2,20 +2,61 @@ Dart is an object-oriented language with classes
 and single inheritance. The root class is
 [Object](http://api.dartlang.org/dart_core/Object.html). 
 
-Here's how you declare, and then instantiate,
-a class with member variables (also known as instance variables):
+### Instance variables
+
+Here's how you declare
+a class with instance variables
+(also known as member variables):
 
 {% pc dart 0 %}
 class Point {
   num x, y;
 }
+{% endpc %}
 
+All uninitialized instance variables have the value `null`.
+
+Both final and non-final instance variables generate
+an implicit getter method. Non-final instance variables
+generate an implicit setter method.
+
+{% pc dart 0 %}
 main() {
   var point = new Point();
+
+  // setter method
   point.x = 4;
-  print(point.x);
+
+  // getter method
+  print(point.x);  // 4
+
+  // values default to null
+  print(point.y);  // null
 }
 {% endpc %}
+
+#### Instance variable initialization
+
+If you initialize an instance variable
+at the class level declaration
+(instead of in a constructor or method),
+the initial value must be a compile-time constant.
+
+<aside class="note">
+**Note:** this restriction is currently under review.
+</aside>
+
+An example of a compile-time constant is a number literal:
+
+{% pc dart 0 %}
+class Point {
+  num x = 0,
+      y = 0;
+}
+{% endpc %}
+
+Use the constructor body, demonstrated in the next section,
+to assign non-constant values to instance variables.
 
 ### Constructors
 
@@ -29,7 +70,7 @@ same name as its class.
 class Point {
   num x, y;
 
-  Point(x, y) {
+  Point(num x, num y) {
     // there's a better way to do this, stay tuned
     this.x = x;
     this.y = y;
@@ -40,7 +81,7 @@ class Point {
 The `this` keyword references the current instance.
 
 <aside class="note">
-*Note*: Only use `this` when there is a name
+**Note:** Only use `this` when there is a name
 conflict. Otherwise, Dart style omits the `this`.
 </aside>
 
@@ -67,23 +108,37 @@ superclasses's no-argument constructor.
 #### Initializer list
 
 Final variables must be initialized before the object is given to `this`.
-Use the initializer list to initialize any final variable.
-This initializer list is run before the constructor body.
+Use the initializer list, which runs before the constructor body,
+to initialize any final variable.
 
 {% pc dart 0 %}
-// an immutable point
-class ImmutablePoint {
-  final num x, y;
+#import('dart:html');
 
-  // what follows the : is the initializer list
-  Point(x, y) : x = x, y = y;
+class Button {
+  final Collection<ButtonHandler> handlers;
+  final String domId;
+  final Element elem;
+  
+                // what follows the : is the initializer list
+  Button(domId) : domId = domId,
+                  handlers = [],
+                  elem = document.query(domId) {
+    bindHandlers();
+  }
+
+  bindHandlers() {
+   // ...
+  }
 }
 {% endpc %}
 
+The right hand side of an initializer does not have access
+to `this`.
+
 #### Named constructors
 
-Use a named constructor to more clearly indicate what the
-constructor is doing. This is useful when multiple
+Use a named constructor for extra clarity.
+For example, this is useful when multiple
 constructors exist for a class.
 
 {% pc dart 0 %}
@@ -101,7 +156,7 @@ Call a named constructor with `new`:
 
 {% pc dart 0 %}
 var jsonData = JSON.parse('{"x":1, "y":2}');
-var origin = new Point.fromJson(jsonData);
+var point = new Point.fromJson(jsonData);
 {% endpc %}
 
 #### Constant constructors
@@ -110,16 +165,11 @@ Dart has deterministic object creation,
 thus avoiding tricky situations found in other languages.
 To achieve this, only immutable
 compile-time expressions are allowed
-for initial values of instance variable declarations.
+for the initial values of instance variable declarations.
 
-An immutable compile-time constant object is a `const` object.
+An immutable compile-time constant object is known as a `const` object.
 Creating a `const` object requires defining a `const`
 constructor and ensuring all instance fields are `final`.
-
-<aside class="note">
-*Note*: Another example of a compile-time
-constant is a literal number or literal string.
-</aside>
 
 {% pc dart 0 %}
 class Point {
@@ -141,6 +191,11 @@ void main() {
 }
 {% endpc %}
 
+<aside class="note">
+**Note:** Other examples of compile-time
+constants are literal numbers and literal strings.
+</aside>
+
 #### Factory constructors
 
 Factory constructors can return instances that are not
@@ -149,6 +204,9 @@ might return an instance from a cache.
 
 Factory constructors can return instances of different classes.
 For example a factory constructor might return a subclass.
+
+The following example demonstrates a factory constructor
+returning objects from a cache.
 
 {% pc dart 0 %}
 class Logger {
@@ -181,8 +239,15 @@ class Logger {
 }
 {% endpc %}
 
+Use a factory constructor with the `new` keyword:
+
+{% pc dart 0 %}
+var logger = new Logger('UI');
+logger.log('Button clicked');
+{% endpc %}
+
 <aside class="note">
-Factory constructors have no access to `this`.
+**Note:** Factory constructors have no access to `this`.
 </aside>
 
 ### Methods
@@ -219,8 +284,8 @@ print(distance);  // 2.82842...
 #### Getters and setters
 
 Getters and setters provide read and write access
-to internal object state. They are methods that
-do not require trailing parentheses.
+to internal object state. When calling a getter
+or setter, omit the trailing parentheses.
 
 {% pc dart 0 %}
 class Rectangle {
@@ -251,23 +316,6 @@ with instance variables,
 later wrapping them with methods,
 all without changing client code.
 
-Both final and non-final variables generate
-an implicit getter method.
-
-{% pc dart 0 %}
-var point = new Point(2, 2);
-print(point.x);  // 2
-{% endpc %}
-
-Non-final variables also generate an implicit
-setter method.
-
-{% pc dart 0 %}
-var point = new Point(2, 2);
-point.y = 4;
-print(point.y);  // 4
-{% endpc %}
-
 ### Abstract classes
 
 Dart will support abstract classes and abstract methods.
@@ -282,50 +330,29 @@ to track the progress.
 Use `extends` to subclass a class, and `super` to
 refer to the superclass.
 
-Subclasses can override instance methods, getters, and setters.
-
 {% pc dart 0 %}
 class Television {
-  bool _on;
 
   turnOn() {
-    illuminateDisplay();
-    activeIrSensor();
-    _on = true;
+    _illuminateDisplay();
+    _activeIrSensor();
   }
 
-  bool get on() => _on;
 }
 
 class SmartTelevision extends Television {
+
   turnOn() {
     super.turnOn();
-    bootNetworkInterface();
-    initializeMemory();
-    upgradeApps();
+    _bootNetworkInterface();
+    _initializeMemory();
+    _upgradeApps();
   }
+
 }
 {% endpc %}
 
-### Instance variable initialization
-
-If you initialize an instance variable where
-at the class level declaration
-(instead of in a constructor or method),
-the initial value must be a compile-time constant.
-
-<aside class="note">
-**Note:** this restriction is currently under review.
-</aside>
-
-An example of a compile-time constant is a number literal:
-
-{% pc dart 0 %}
-class Point {
-  num x = 0,
-      y = 0;
-}
-{% endpc %}
+Subclasses can override instance methods, getters, and setters.
 
 ### Class level statics
 
@@ -353,7 +380,7 @@ main() {
 {% endpc %}
 
 <aside class="note">
-  *Best practice*: Consider using top-level functions,
+  **Best practice:** Consider using top-level functions,
   instance of static methods, for common or widely
   used utilities and functionality.
 </aside>
