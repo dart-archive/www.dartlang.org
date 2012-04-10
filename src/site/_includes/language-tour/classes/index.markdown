@@ -20,14 +20,16 @@ Both final and non-final instance variables generate
 an implicit getter method. Non-final instance variables
 generate an implicit setter method.
 
+([Getters and setters](#classes-getters-and-setters) are discussed more later.)
+
 {% pc dart 0 %}
 main() {
   var point = new Point();
 
-  // setter method
+  // use the setter method for x
   point.x = 4;
 
-  // getter method
+  // use the getter method for x
   print(point.x);  // 4
 
   // values default to null
@@ -60,11 +62,11 @@ to assign non-constant values to instance variables.
 
 ### Constructors
 
-The most common form of constructor, the generative constructor,
-creates a new instance of a class.
-
 Declare a constructor by creating a method with the
 same name as its class.
+
+The most common form of constructor, the generative constructor,
+creates a new instance of a class.
 
 {% pc dart 0 %}
 class Point {
@@ -107,9 +109,9 @@ superclasses's no-argument constructor.
 
 #### Initializer list
 
-Final variables must be initialized before the object is given to `this`.
+Final variables must be initialized before the object is assigned to `this`.
 Use the initializer list, which runs before the constructor body,
-to initialize any final variable.
+to initialize any final variables.
 
 {% pc dart 0 %}
 #import('dart:html');
@@ -137,7 +139,8 @@ to `this`.
 
 #### Named constructors
 
-Use a named constructor for extra clarity.
+Use a named constructor to implement multiple
+constructors for a class or to provide extra clarity.
 For example, this is useful when multiple
 constructors exist for a class.
 
@@ -181,13 +184,13 @@ class Point {
 
 Because compile-time constants are constant and immutable,
 constructing two identitical `const` objects results in
-one single canonical instance.
+a single, canonical instance.
 
 {% pc dart 0 %}
 void main() {
   var a = const Point(1, 1);
   var b = const Point(1, 1);
-  print(a == b); // true!
+  print(a === b); // true, they are the same instance!
 }
 {% endpc %}
 
@@ -198,12 +201,15 @@ constants are literal numbers and literal strings.
 
 #### Factory constructors
 
-Factory constructors can return instances that are not
-freshly allocated. For example, a factory constructor
-might return an instance from a cache.
+Use the `factory` keyword
+when implementing a constructor that
+doesn't always create a new instance of its class.
+For example, a factory constructor
+might return an instance from a cache,
+or it might return an instance of a subclass.
 
 Factory constructors can return instances of different classes.
-For example a factory constructor might return a subclass.
+For example a factory constructor might return an instance of a subclass.
 
 The following example demonstrates a factory constructor
 returning objects from a cache.
@@ -239,7 +245,8 @@ class Logger {
 }
 {% endpc %}
 
-Use a factory constructor with the `new` keyword:
+As for other constructors,
+to invoke a factory constructor you use the `new` keyword:
 
 {% pc dart 0 %}
 var logger = new Logger('UI');
@@ -281,6 +288,7 @@ num distance = point.distanceTo(new Point(4,4));
 print(distance);  // 2.82842...
 {% endpc %}
 
+<section id="classes-getters-and-setters">
 #### Getters and setters
 
 Getters and setters provide read and write access
@@ -315,6 +323,7 @@ With getters and setters, you can start
 with instance variables,
 later wrapping them with methods,
 all without changing client code.
+</section>
 
 ### Abstract classes
 
@@ -327,7 +336,7 @@ to track the progress.
 
 ### Extending a class
 
-Use `extends` to subclass a class, and `super` to
+Use `extends` to create a subclass, and `super` to
 refer to the superclass.
 
 {% pc dart 0 %}
@@ -354,12 +363,13 @@ class SmartTelevision extends Television {
 
 Subclasses can override instance methods, getters, and setters.
 
-### Class level statics
+### Class-level static members
+
+Use the `static` keyword to implement class-wide variables and methods.
 
 #### Static methods
 
-Methods that belong to a class are called static methods.
-These methods do not operate on an instance, and thus
+Static methods (class methods) do not operate on an instance, and thus
 do not have access to `this`.
 
 {% pc dart 0 %}
@@ -381,13 +391,14 @@ main() {
 
 <aside class="note">
   **Best practice:** Consider using top-level functions,
-  instance of static methods, for common or widely
+  instead of static methods, for common or widely
   used utilities and functionality.
 </aside>
 
 #### Static variables
 
-Variables that belong to a class are called static variables.
+Static variables (class variables) are useful for class-wide state and
+constants.
 
 {% pc dart 0 %}
 class Color {
