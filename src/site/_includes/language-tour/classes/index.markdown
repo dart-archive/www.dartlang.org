@@ -19,7 +19,6 @@ All uninitialized instance variables have the value `null`.
 Both final and non-final instance variables generate
 an implicit getter method. Non-final instance variables
 generate an implicit setter method.
-
 ([Getters and setters](#classes-getters-and-setters) are discussed more later.)
 
 {% pc dart 0 %}
@@ -45,7 +44,7 @@ at the class level declaration
 the initial value must be a compile-time constant.
 
 <aside class="note">
-**Note:** this restriction is currently under review.
+**Note:** This restriction is currently under review.
 </aside>
 
 An example of a compile-time constant is a number literal:
@@ -83,7 +82,7 @@ class Point {
 The `this` keyword references the current instance.
 
 <aside class="note">
-**Note:** Only use `this` when there is a name
+**Note:** Use `this` only when there is a name
 conflict. Otherwise, Dart style omits the `this`.
 </aside>
 
@@ -95,7 +94,7 @@ to make it easy.
 class Point {
   num x, y;
 
-  // syntactic sugar for this.x = x
+  // syntactic sugar for this.x = x and this.y = y
   Point(this.x, this.y);
 }
 {% endpc %}
@@ -105,7 +104,7 @@ class Point {
 If you don't declare a constructor,
 a default constructor is provided for you.
 The default constructor has no arguments and invokes the
-superclasses's no-argument constructor.
+the no-argument constructor in the superclass.
 
 #### Initializer list
 
@@ -141,7 +140,7 @@ to `this`.
 
 Use a named constructor to implement multiple
 constructors for a class or to provide extra clarity.
-For example, this is useful when multiple
+This is useful when multiple
 constructors exist for a class.
 
 {% pc dart 0 %}
@@ -190,6 +189,7 @@ a single, canonical instance.
 void main() {
   var a = const Point(1, 1);
   var b = const Point(1, 1);
+
   print(a === b); // true, they are the same instance!
 }
 {% endpc %}
@@ -207,9 +207,6 @@ doesn't always create a new instance of its class.
 For example, a factory constructor
 might return an instance from a cache,
 or it might return an instance of a subclass.
-
-Factory constructors can return instances of different classes.
-For example a factory constructor might return an instance of a subclass.
 
 The following example demonstrates a factory constructor
 returning objects from a cache.
