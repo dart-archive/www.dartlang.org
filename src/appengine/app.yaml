@@ -12,35 +12,36 @@ version: CHANGEME
 #       make clean
 #       make build
 
-runtime: python
+runtime: python27
 api_version: 1
+threadsafe: true
 
 #default_expiration: "1d"
 
 handlers:
 - url: /\+
-  script: scripts/redirector.py
+  script: scripts.redirector.application
 
 - url: /docs/spec/dartLangSpec.*
-  script: scripts/redirector.py
+  script: scripts.redirector.application
 
 - url: /docs/getting-started/editor/index-.*
-  script: scripts/redirector.py
+  script: scripts.redirector.application
 
 - url: /news.*
-  script: scripts/redirector.py
+  script: scripts.redirector.application
 
 - url: /atom.xml
-  script: scripts/redirector.py
+  script: scripts.redirector.application
 
 - url: /docs/api/.*
-  script: scripts/redirector.py
+  script: scripts.redirector.application
 
 - url: /(.*\.png)
   static_files: static/\1
   expiration: 4h
   upload: static/(.*\.png)
-    
+
 - url: (.*)/
   static_files: static\1/index.html
   upload: static/index.html

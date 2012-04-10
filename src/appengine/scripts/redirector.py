@@ -1,5 +1,4 @@
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
+import webapp2
 
 NEWS_POSTS = {
     '/2012/01/26/revisiting-equality.html' :                     '/2012/01/proposed-changes-for-equality.html',
@@ -22,11 +21,11 @@ NEWS_POSTS = {
     '/2011/10/18/dart-language-spec-0.03-now-available.html' :   '/2011/10/dart-language-spec-v003-now-available.html'
 }
 
-class PlusRedirectPage(webapp.RequestHandler):
+class PlusRedirectPage(webapp2.RequestHandler):
     def get(self):
         self.redirect('https://plus.google.com/109866369054280216564/posts', permanent=True)
 
-class ApiRedirectPage(webapp.RequestHandler):
+class ApiRedirectPage(webapp2.RequestHandler):
     def get(self):
         filename = self.request.path.split('/docs/api/')[1]
         if filename == '' or filename == 'index.html':
@@ -34,17 +33,17 @@ class ApiRedirectPage(webapp.RequestHandler):
         else:
             self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
             
-class SpecRedirectPage(webapp.RequestHandler):
+class SpecRedirectPage(webapp2.RequestHandler):
     def get(self):
         suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
         if suffix == '.html' or suffix == '.pdf':
             self.redirect('/docs/spec/latest/dart-language-specification' + suffix, permanent=True)
 
-class EditorRedirectPage(webapp.RequestHandler):
+class EditorRedirectPage(webapp2.RequestHandler):
     def get(self):
         self.redirect('/docs/getting-started/editor/', permanent=True)
 
-class NewsRedirectPage(webapp.RequestHandler):
+class NewsRedirectPage(webapp2.RequestHandler):
     def get(self):
         url = self.request.path[5:len(self.request.path)]
         if url == '' or url == '/' or url == '/index.html':
@@ -54,11 +53,11 @@ class NewsRedirectPage(webapp.RequestHandler):
         else:
             self.error(404)
 
-class AtomFeedRedirectPage(webapp.RequestHandler):
+class AtomFeedRedirectPage(webapp2.RequestHandler):
     def get(self):
         self.redirect('http://news.dartlang.org/feeds/posts/default', permanent=True)
 
-application = webapp.WSGIApplication(
+application = webapp2.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
                                       ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
                                       ('/docs/getting-started/editor/index-.*', EditorRedirectPage),
@@ -67,9 +66,3 @@ application = webapp.WSGIApplication(
                                       ('/%2B', PlusRedirectPage),
                                       ('/\+', PlusRedirectPage)],
                                      debug=True)
-
-def main():
-    run_wsgi_app(application)
-
-if __name__ == "__main__":
-    main()
