@@ -39,15 +39,15 @@ is a URI specifying the library.
 For built-in libraries,
 the URI has the special `dart:` prefix.
 For other libraries,
-the URI can be relative to the current directory,
-or it can specify a file on a web server.
+the URI can be relative to the current directory.
+(In the future,
+you'll be able to specify a file on a web server.)
 For example:
 
 {% pretty_code dart 0 %}
 #import('dart:io');
 #import('mylib/mylib.dart');
 #import('../../util/utilslib.dart');
-#import('http://example.com/examplelib/examplelib.dart')
 {% endpretty_code %}
 
 
