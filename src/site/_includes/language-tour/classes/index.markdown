@@ -39,7 +39,7 @@ main() {
 #### Instance variable initialization
 
 If you initialize an instance variable
-at the class level declaration
+where it is declared
 (instead of in a constructor or method),
 the initial value must be a compile-time constant.
 
@@ -62,9 +62,8 @@ to assign non-constant values to instance variables.
 ### Constructors
 
 Declare a constructor by creating a method with the
-same name as its class.
-
-The most common form of constructor, the generative constructor,
+same name as its class. The most common form of constructor,
+the generative constructor,
 creates a new instance of a class.
 
 {% pc dart 0 %}
@@ -133,15 +132,13 @@ class Button {
 }
 {% endpc %}
 
-The right hand side of an initializer does not have access
+The right-hand side of an initializer does not have access
 to `this`.
 
 #### Named constructors
 
 Use a named constructor to implement multiple
 constructors for a class or to provide extra clarity.
-This is useful when multiple
-constructors exist for a class.
 
 {% pc dart 0 %}
 class Point {
@@ -154,7 +151,7 @@ class Point {
 }
 {% endpc %}
 
-Call a named constructor with `new`:
+Create new instances from a named constructor with `new`:
 
 {% pc dart 0 %}
 var jsonData = JSON.parse('{"x":1, "y":2}');
@@ -288,9 +285,11 @@ print(distance);  // 2.82842...
 <section id="classes-getters-and-setters">
 #### Getters and setters
 
-Getters and setters provide read and write access
+Getter and setter methods provide read and write access
 to internal object state. When calling a getter
 or setter, omit the trailing parentheses.
+Define getters and setters using the `get` and `set`
+keywords.
 
 {% pc dart 0 %}
 class Rectangle {
@@ -338,23 +337,19 @@ refer to the superclass.
 
 {% pc dart 0 %}
 class Television {
-
   turnOn() {
     _illuminateDisplay();
     _activeIrSensor();
   }
-
 }
 
 class SmartTelevision extends Television {
-
   turnOn() {
     super.turnOn();
     _bootNetworkInterface();
     _initializeMemory();
     _upgradeApps();
   }
-
 }
 {% endpc %}
 
