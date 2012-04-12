@@ -277,17 +277,25 @@ with a Welcome screen that looks something like this:
   If you already have a 64-bit JDK but it's not the default,
   you can specify it.
   Go to your Dart installation directory and
-  add the following two lines to <code>DartEditor.ini</code>:
+  add the following two lines to <code>DartEditor.ini</code>
+  immediately <b>before</b> the existing
+  <code>&#x2011;vmargs</code> line:
   </p>
 
   {% pretty_code console 0 %}
-  -vm
-  <em>/full/path/to/java</em>{% endpretty_code %}
+-vm
+<em>/full/path/to/java</em>{% endpretty_code %}
 
   <p>
-  For example, the second line might be
-  <code>/usr/local/buildtools/java/jdk-64/bin/java</code>.
+  For example, <code>DartEditor.ini</code> might have:
   </p>
+
+{% pc console 0 %}
+...
+-vm
+/usr/local/buildtools/java/jdk-64/bin/java
+-vmargs 
+...  {% endpc %}
 
   </section>
 </div>
