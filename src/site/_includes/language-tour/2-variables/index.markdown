@@ -1,4 +1,4 @@
-Here's an example of creating a variable and assigning a value to it.
+Here's an example of creating a variable and assigning a value to it:
 
 {% pretty_code dart 0 %}
 var name = 'Bob';
@@ -19,7 +19,7 @@ lineCount == null; // true
 
 #### Optional types
 
-You have the optional of adding static types to your variable declarations.
+You have the optional of adding static types to your variable declarations:
 
 {% pretty_code dart 0 %}
 String name = 'Bob';
@@ -36,7 +36,7 @@ addition to a type. Once a `final` variable is set, it can't be changed.
 
 {% pretty_code dart 0 %}
 final String name = 'Bob';
-<span class="code-error">name = 'Alice'; // Compile ERROR (VM or to JavaScript)</span>
+<span class="code-error">name = 'Alice'; // compile ERROR (VM or to JavaScript)</span>
 {% endpretty_code %}
 
 #### Summary

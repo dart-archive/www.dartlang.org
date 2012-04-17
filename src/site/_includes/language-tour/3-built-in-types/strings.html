@@ -71,7 +71,7 @@ var name = 'NAME';
 var greeting = "Hello, $name!";
 var greetingTemplate = 'Hello, NAME!';
 
-print(greeting == greetingTemplate); //true; they have the same characters
+print(greeting == greetingTemplate); // true; they have the same characters
 {% endpretty_code %}
 
 
@@ -131,10 +131,10 @@ sb.add("if you are ").add("building lots of strings.");
 
 var fullString = sb.toString();
 
-print(fullString); // Use a StringBuffer for efficient string creation
-                   // if you are building lots of strings.
+print(fullString); // use a StringBuffer for efficient string creation
+                   // if you are building lots of strings
 
-sb.clear();        // All gone!
+sb.clear();        // all gone!
 {% endpretty_code %}
 
 <br>
@@ -144,37 +144,5 @@ StringBuffers are currently slow when compiled to JavaScript.
 See bug #<a href="http://code.google.com/p/dart/issues/detail?id=1216">1216</a>
 for details.
 </aside>
-
-</section>
-
-
-<section id="strings-summary">
-<h4> Summary of strings </h4>
-
-<p>
-A <a href="http://api.dartlang.org/dart_core/String.html">String</a>
-is an immutable sequence of
-32-bit Unicode scalar character codes.
-String literals are delimited with either single quotes or double quotes.
-Strings can be multi-line with triple quotes,
-or "raw" and unfiltered with a @ prefix.
-</p>
-
-<p>
-You can use string interpolation
-to insert variable or expression values into a string literal.
-Another option for building strings is
-<a href="http://api.dartlang.org/dart_core/StringBuffer.html">StringBuffer</a>.
-</p>
-
-<p>
-Strings can do a lot more than we showed here.
-For example, you can
-<a href="http://api.dartlang.org/dart_core/String.html#split">split</a> a string,
-create a
-<a href="http://api.dartlang.org/dart_core/String.html#substring">substring</a>,
-<a href="http://api.dartlang.org/dart_core/String.html#trim">trim</a> it,
-and lots more.
-</p>
 
 </section>

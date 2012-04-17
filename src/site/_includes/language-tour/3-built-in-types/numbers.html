@@ -80,24 +80,24 @@ and not in Math.
 </p>
 
 {% pretty_code dart 0 %}
-// abs() gives the absolute value.
-print((-4).abs() == 4);     //true
+// abs() gives the absolute value
+print((-4).abs() == 4);     // true
 
-// ceil() and floor() round up or down.
-print(3.25.ceil() == 4.0);  //true
-print(3.25.floor() == 3.0); //true
+// ceil() and floor() round up or down
+print(3.25.ceil() == 4.0);  // true
+print(3.25.floor() == 3.0); // true
 
 // round() rounds up for .5 or greater, otherwise it rounds down.
-print(3.25.round() == 3);   //true
-print(3.89.round() == 4);   //true
-print(3.5.round() == 4);    //true
-print(3.49.round() == 3);   //true
+print(3.25.round() == 3);   // true
+print(3.89.round() == 4);   // true
+print(3.5.round() == 4);    // true
+print(3.49.round() == 3);   // true
 
-// truncate() cuts off the decimal digits.
-print(3.24532.truncate() == 3.0);    //true
+// truncate() cuts off the decimal digits
+print(3.24532.truncate() == 3.0);    // true
 
 // toInt() converts a double to an int.
-print(3.24.toInt() == 3);   //true
+print(3.24.toInt() == 3);   // true
 {% endpretty_code %}
 
 <p>
@@ -113,22 +113,3 @@ print((3|4) == 7); // 0011 | 0100 == 0111
 {% endpretty_code %}
 </section>
 {% endcomment %}
-
-
-<section id="numbers-summary">
-<h4> Summary of numbers </h4>
-
-<p>
-Dart supplies a
-<a href="http://api.dartlang.org/dart_core/num.html">num</a>
-interface with two subinterfaces:
-<a href="http://api.dartlang.org/dart_core/int.html">int</a> and
-<a href="http://api.dartlang.org/dart_core/double.html">double</a>.
-Integers are arbitrary precision, meaning they have arbitrary size.
-Doubles are 64-bit decimals that follow IEEE 754 spec.
-The <a href="http://api.dartlang.org/dart_core/Math.html">Math</a> class
-has constants such as <code>Math.PI</code>
-and utilities such as <code>parseDouble()</code>.
-</p>
-
-</section>

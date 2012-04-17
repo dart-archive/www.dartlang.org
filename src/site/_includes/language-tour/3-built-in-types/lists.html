@@ -48,25 +48,6 @@ var list = [1,2,3,4];
 list.removeRange(2, 1); // remove the third element
 {% endpretty_code %}
 
-<p>
-So far, we've only talked about <b>extendable</b> lists,
-but you can also create lists with a <b>fixed size</b>,
-using the List() constructor:
-{% comment %}
-{PENDING: we haven't mentioned constructors or null yet}
-{% endcomment %}
-</p>
-
-{% pretty_code dart 0 %}
-var list = new List(3); //fixed-size list (full of null values)
-{% endpretty_code %}
-
-<aside class="note">
-<b>Note:</b>
-Fixed-size lists don't support methods such as add() and removeRange()
-that change the list's length.
-</aside>
-
 <section id="list-iterate">
 <h4> Iterating </h4>
 
@@ -144,22 +125,10 @@ every condition or at least one condition, respectively.
 The <a href="http://api.dartlang.org/dart_core/List.html#sort">sort()</a> method
 lets you sort a list using any criteria you like.
 </p>
-</section>
-
-
-<section id="list-summary">
-<h4> Summary of lists </h4>
 
 <p>
-Lists are ordered sequences of objects.
-Dart has no class or interface called Array,
-but lists act extremely similar to the arrays
-that many programming languages have.
-To find the methods you can invoke on lists,
-see the documentation for
-<a href="http://api.dartlang.org/dart_core/List.html">List</a>
-and its superinterface,
-<a href="http://api.dartlang.org/dart_core/Collection.html">Collection</a>.
+For more information about lists,
+see <a href="#generics">Generics</a>.
 </p>
 
 </section>

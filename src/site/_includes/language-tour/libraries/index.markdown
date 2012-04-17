@@ -99,7 +99,7 @@ that the library needs.
 For example, consider the following code:
 
 {% pretty_code dart 0 %}
-<em>// In Ballgame.dart:</em>
+<em>// in Ballgame.dart:</em>
 #import('dart:html');
 
 #source('Ball.dart');
@@ -181,7 +181,7 @@ because it's in a different library from Incrementer
 #library('SubclassingLibrary');
 #import('../HidingLib/hider.dart');
 
-//This class is outside Incrementer's library, so it can't use _hiddenNum.
+// this class is outside Incrementer's library, so it can't use _hiddenNum
 class DoubleIncrementer extends Incrementer {
   void incrementNum() {
     //_hiddenNum = _hiddenNum + 2; // cannot resolve _hiddenNum

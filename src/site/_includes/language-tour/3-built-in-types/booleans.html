@@ -19,7 +19,7 @@ For example, consider the following code:
 {% pretty_code dart 0 %}
 var name = 'Bob';
 if (name) {
-  print("You have a name!"); // Prints in JavaScript, not in Dart
+  print("You have a name!"); // prints in JavaScript, not in Dart
 }
 {% endpretty_code %}
 
@@ -68,42 +68,30 @@ For example:
 </p>
 
 {% pretty_code dart 0 %}
-// Check for an empty string.
+// check for an empty string
 var fullName = '';
 if (fullName.isEmpty()) {
   print("Please enter a full name");
 }
 
-// Check for zero.
+// check for zero
 var hitPoints = 0;
 if (hitPoints == 0) {
   print("Uh oh! Looks like you died.");
 }
 
-// Check for null.
+// check for null
 var unicorn = null;
 if (unicorn == null) {
   print("You didn't wish hard enough. Wish harder.");
 }
 
-// Check for NaN.
+// check for NaN
 var iMeantToDoThis = 0/0;
 if (iMeantToDoThis.isNaN()) {
   print("0/0 is not a number.");
 }
 {% endpretty_code %}
-
-
-
-<section id="boolean-summary">
-<h4> Summary of booleans </h4>
-
-<p>
-Dart has a true boolean type named <b>bool</b>, with only two values:
-<b>true</b> and <b>false</b>.
-Due to Dart's boolean conversion rules,
-all values except <b>true</b> are converted to <b>false</b>.
-</p>
 
 {% comment %}
 {PENDING: I didn't include info on operator results

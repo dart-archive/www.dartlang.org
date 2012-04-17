@@ -1,8 +1,8 @@
 main() {
-  // Variables and values
+  // variables and values
   int number   = 42;
   String text     = "The value of number is";
 
-  // Console output
+  // console output
   print("$text $number.");
 }
