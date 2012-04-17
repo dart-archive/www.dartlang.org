@@ -319,7 +319,53 @@ With getters and setters, you can start
 with instance variables,
 later wrapping them with methods,
 all without changing client code.
+
+<section id="classes-operators">
+#### Operators
+
+Because operators are just instance methods with special names,
+you can override [many operators](#op-methods).
+Here's an example of a class that overrides the `+` and `-` operators.
+
+{% pc dart 0 %}
+class Vector {
+  final int x,y;
+  const Vector(this.x, this.y);
+
+  Vector operator +(Vector v) { //overrides + (a + b)
+    return new Vector(x + v.x, y + v.y);
+  }
+  
+  Vector operator -(Vector v) { //overrides - (a - b)
+    return new Vector(x - v.x, y - v.y);
+  }
+  
+  Vector operator negate() {    //overrides unary negation (-a)
+    return new Vector(-x,-y);
+  }
+  
+  String toString() => '($x,$y)';
+}
+
+main() {
+  Vector v = new Vector(2,3);
+  Vector w = new Vector(2,2);
+  print(v);   //(2,3)
+  print(-v);  //(-2,-3)
+  print(v+w); //(4,5)
+  print(v-w); //(0,1)
+}{% endpc %}
+
+<aside class="note">
+**Implementation note:**
+Overriding `-` affects only the binary subtraction operator.
+To override the unary form of `-`,
+you must use the special identifier **negate**.
+</aside>
+
 </section>
+</section>
+
 
 ### Abstract classes
 

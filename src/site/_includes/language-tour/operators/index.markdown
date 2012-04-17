@@ -412,13 +412,10 @@ WILLCHANGE: will need to tweak the wording.
 but not for long.
 Soon the way to customize the behavior of **==**
 will be by overriding the **equals()** method.
-
-{% comment %}
-\*\*
-Overriding **negate** implements unary negation;
-overriding **-** implements subtraction.
-{% endcomment %}
 </aside>
+
+For an example of overriding operators,
+see [Operators](#classes-operators) in the Classes section.
 
 </section>
 
