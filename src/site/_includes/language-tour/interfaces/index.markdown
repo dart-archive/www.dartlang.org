@@ -41,7 +41,7 @@ For example:
 class Point <b>implements Hashable</b> {
   num x, y;
   ...
-  // Required by Hashable
+  // required by Hashable
   <b>int hashCode() {</b>
     int result = 17;
     result = 37 * result + x.hashCode();

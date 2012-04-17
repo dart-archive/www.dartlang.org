@@ -123,12 +123,12 @@ To explicitly declare a library, you use a **#library** statement.
 For example:
 
 {% pretty_code dart 0 %}
-#library('slider_sample');           //Declare that this is a library.
+#library('slider_sample');           // declare that this is a library.
 
-#import('dart:html');                //It uses the html library...
-#import('../ui_lib/view/view.dart'); //...and a view library.
+#import('dart:html');                // it uses the html library...
+#import('../ui_lib/view/view.dart'); // ...and a view library.
 
-#source('SliderSample.dart');        //Grab the code from SliderSample.dart.
+#source('SliderSample.dart');        // grab the code from SliderSample.dart.
 {% endpretty_code %}
 
 <aside class="note">
@@ -184,8 +184,8 @@ because it's in a different library from Incrementer
 //This class is outside Incrementer's library, so it can't use _hiddenNum.
 class DoubleIncrementer extends Incrementer {
   void incrementNum() {
-    //_hiddenNum = _hiddenNum + 2; //cannot resolve _hiddenNum
-    super.incrementNum();          //the only way to increment _hiddenNum
+    //_hiddenNum = _hiddenNum + 2; // cannot resolve _hiddenNum
+    super.incrementNum();          // the only way to increment _hiddenNum
     super.incrementNum();
   }
 }

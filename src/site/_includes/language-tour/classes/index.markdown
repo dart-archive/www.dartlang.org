@@ -332,15 +332,15 @@ class Vector {
   final int x,y;
   const Vector(this.x, this.y);
 
-  Vector operator +(Vector v) { //overrides + (a + b)
+  Vector operator +(Vector v) { // overrides + (a + b)
     return new Vector(x + v.x, y + v.y);
   }
   
-  Vector operator -(Vector v) { //overrides - (a - b)
+  Vector operator -(Vector v) { // overrides - (a - b)
     return new Vector(x - v.x, y - v.y);
   }
   
-  Vector operator negate() {    //overrides unary negation (-a)
+  Vector operator negate() {    // overrides unary negation (-a)
     return new Vector(-x,-y);
   }
   
@@ -350,10 +350,10 @@ class Vector {
 main() {
   Vector v = new Vector(2,3);
   Vector w = new Vector(2,2);
-  print(v);   //(2,3)
-  print(-v);  //(-2,-3)
-  print(v+w); //(4,5)
-  print(v-w); //(0,1)
+  print(v);   // (2,3)
+  print(-v);  // (-2,-3)
+  print(v+w); // (4,5)
+  print(v-w); // (0,1)
 }{% endpc %}
 
 <aside class="note">

@@ -15,8 +15,8 @@ That precedence means that
 the following two lines of code execute the same way:
 
 {% pretty_code dart 0 %}
-if ((n % i == 0) && (d % i == 0)) //parens improve readability
-if (n % i == 0 && d % i == 0)     //harder to read, but equivalent
+if ((n % i == 0) && (d % i == 0)) // parens improve readability
+if (n % i == 0 && d % i == 0)     // harder to read, but equivalent
 {% endpretty_code %}
 
 This section covers the following topics:
@@ -63,12 +63,12 @@ Example:
 int a = 2;
 int b = 3;
 
-print('${a + b}');  //5
-print('${a - b}');  //-1
-print('${a * b}');  //6
-print('${a / b}');  //0.6666666666666666
-print('${a ~/ b}'); //0 (quotient)
-print('${a % b}');  //2 (remainder)
+print('${a + b}');  // 5
+print('${a - b}');  // -1
+print('${a * b}');  // 6
+print('${a / b}');  // 0.6666666666666666
+print('${a ~/ b}'); // 0 (quotient)
+print('${a % b}');  // 2 (remainder)
 {% endpretty_code %}
 
 Dart also supports both prefix and postfix
@@ -100,10 +100,10 @@ Example:
 {% pretty_code dart 0 %}
 int a = 2;
 
-print('${ ++a }'); //3 (increment before returning a value)
-print('${ a++ }'); //3 (increment after returning a value)
-print('${ a-- }'); //4 (decrement after returning a value)
-print('${ --a }'); //2 (decrement before returning a value)
+print('${ ++a }'); // 3 (increment before returning a value)
+print('${ a++ }'); // 3 (increment after returning a value)
+print('${ a-- }'); // 4 (decrement after returning a value)
+print('${ --a }'); // 2 (decrement before returning a value)
 {% endpretty_code %}
 </section>
 
@@ -171,16 +171,16 @@ int a = 2;
 int b = 3;
 int c = a;
 
-print(a == 2);       //true; 2 and 2 are equal
-print(a != b);       //true; 2 and 3 aren't equal
-print(a === c);      //true; a and c are the same object
-print(a !== b);      //true; 2 and 3 aren't the same object
-print(b > a);        //true; 3 is more than 2
-print(a < b);        //true; 2 is less then 3
-print(b >= b);       //true; 3 is greater than or equal to 3
-print(a <= b);       //true; 2 is less than or equal to 3
-print(a is num);     //true; 2 is a number
-print(a is! String); //true; 2 is an int, not a string
+print(a == 2);       // true; 2 and 2 are equal
+print(a != b);       // true; 2 and 3 aren't equal
+print(a === c);      // true; a and c are the same object
+print(a !== b);      // true; 2 and 3 aren't the same object
+print(b > a);        // true; 3 is more than 2
+print(a < b);        // true; 2 is less then 3
+print(b >= b);       // true; 3 is greater than or equal to 3
+print(a <= b);       // true; 2 is less than or equal to 3
+print(a is num);     // true; 2 is a number
+print(a is! String); // true; 2 is an int, not a string
 {% endpretty_code %}
 </section>
 
@@ -230,10 +230,10 @@ The following example uses both assignment
 and compound assignment operators:
 
 {% pretty_code dart 0 %}
-int a = 2;           //Assign using =
+int a = 2;           // assign using =
 
-a *= 3;              //Assign and multiply: a = a * 3
-print('a *= 3: $a'); //a *= 3: 6
+a *= 3;              // assign and multiply: a = a * 3
+print('a *= 3: $a'); // a *= 3: 6
 {% endpretty_code %}
 </section>
 
@@ -260,7 +260,7 @@ You can invert or combine boolean expressions using the logical operators.
 
 {% pretty_code dart 0 %}
 if (!done && (col == 0 || col == 3)) {
-  //...do something
+  // ...do something
 }
 {% endpretty_code %}
 </section>
@@ -275,7 +275,7 @@ Usually, you'd use these operators with integers.
 <table class="operatorTable">
   <tr> <th> Operator </th> <th> Meaning </th> </tr>
   <tr>
-    <td class="operator"> & </td>
+    <td class="operator"> &amp; </td>
     <td> AND </td>
   </tr><tr>
     <td class="operator"> | </td>
@@ -299,15 +299,15 @@ Here's an example of using bitwise and shift operators.
 int value = 0x22;
 int bitmask = 0x0F;
 
-print(value);                                //34 (0x22)
-print(value.toRadixString(16));              //22
-print(value.toRadixString(2));               //100010
-print((value & bitmask).toRadixString(16));  //2  (AND)
-print((value & ~bitmask).toRadixString(16)); //20 (AND NOT)
-print((value | bitmask).toRadixString(16));  //2f (OR)
-print((value ^ bitmask).toRadixString(16));  //2d (XOR)
-print((value &lt;&lt; 4).toRadixString(16));       //220
-print((value >> 4).toRadixString(16));       //2
+print(value);                                // 34 (0x22)
+print(value.toRadixString(16));              // 22
+print(value.toRadixString(2));               // 100010
+print((value & bitmask).toRadixString(16));  // 2  (AND)
+print((value & ~bitmask).toRadixString(16)); // 20 (AND NOT)
+print((value | bitmask).toRadixString(16));  // 2f (OR)
+print((value ^ bitmask).toRadixString(16));  // 2d (XOR)
+print((value &lt;&lt; 4).toRadixString(16));       // 220
+print((value >> 4).toRadixString(16));       // 2
 {% endpretty_code %}
 </section>
 
