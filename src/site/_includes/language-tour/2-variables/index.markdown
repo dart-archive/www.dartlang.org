@@ -19,7 +19,7 @@ lineCount == null; // true
 
 #### Optional types
 
-You have the optional of adding static types to your variable declarations:
+You have the option of adding static types to your variable declarations:
 
 {% pretty_code dart 0 %}
 String name = 'Bob';

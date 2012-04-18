@@ -63,16 +63,6 @@ try {
 }
 {% endpretty_code %}
 
-You can match more than one exception in a single catch clause.
-
-{% pretty_code dart 0 %}
-try {
-  breedMoreLlamas();
-} catch (final OutOfLlamasException oole,
-        final NoFemaleLlamasException nfle) {
-  print('Out of luck');
-}
-{% endpretty_code %}
 
 #### Finally
 

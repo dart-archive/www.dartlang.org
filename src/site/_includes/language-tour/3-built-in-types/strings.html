@@ -26,8 +26,19 @@ print('That deserves all caps. ${s.toUpperCase()} is very handy!');
 {% endpretty_code %}
 
 <p>
-To create a multi-line string,
-you can use a triple quote
+You can concatenate strings using
+adjacent string literals:
+</p>
+
+{% pretty_code dart 0 %}
+var s = 'string ''concatenation'
+        " works even over line breaks ";
+print(s); // string concatenation works even over line breaks
+{% endpretty_code %}
+
+<p>
+Another way to create a multi-line string:
+use a triple quote
 with either single or double quotation marks.
 </p>
 

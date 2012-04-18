@@ -88,7 +88,7 @@ For example:
 
 {% pc dart 0 %}
 List&lt;String> names = <b>&lt;String></b>['Seth', 'Kathy', 'Lars'];
-Map&lt;String> pages = <b>&lt;String></b>{ // specify <b>value</b> type: String
+Map&lt;String, String> pages = <b>&lt;String></b>{ // specify <b>value</b> type: String
     'index.html':'Homepage',  // (the <b>key</b> type is implicitly String)
     'robots.txt':'Hints for web robots',
     'humans.txt':'We are people, not machines' };
