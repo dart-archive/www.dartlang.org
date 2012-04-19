@@ -42,6 +42,11 @@ handlers:
   expiration: 4h
   upload: static/(.*\.png)
 
+- url: /(.*\.jpg)
+  static_files: static/\1
+  expiration: 4h
+  upload: static/(.*\.png)
+
 - url: (.*)/
   static_files: static\1/index.html
   upload: static/index.html
