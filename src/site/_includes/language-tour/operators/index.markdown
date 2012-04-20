@@ -328,8 +328,8 @@ print((value >> 4).toRadixString(16));       // 2
   </tr><tr>
     <td class="operator"> <em>expr1</em>&nbsp;?&nbsp;<em>expr2</em>&nbsp;:&nbsp;<em>expr3</em> </td>
     <td> conditional </td>
-    <td> if <em>expr</em> is true, executes <em>expr</em>;
-      otherwise, executes <em>expr</em>
+    <td> if <em>expr1</em> is true, executes <em>expr2</em>;
+      otherwise, executes <em>expr3</em>
       (technically special syntax, not an operator)
       </td>
   </tr><tr>
