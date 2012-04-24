@@ -6,8 +6,11 @@ description: "In this article by Sigmund Cherem and Vijay Menon, find out how yo
 ---
 <h1> Embedding Dart in HTML </h1>
 
-<em>Written by Sigmund Cherem and Vijay Menon<br />
-October 2011</em>
+<p>
+<em>Written by Sigmund Cherem and Vijay Menon<br>
+October 2011<br>
+Updated April 2012</em>
+</p>
 
 <section>
 <p>
@@ -23,11 +26,6 @@ An HTML page with Dart can be translated to
 a semantically equivalent page embedding JavaScript.
 </p>
 </section>
-
-{% comment %}
-{PENDING: TOC should go here}
-{% endcomment %}
-
 
 <section>
 <h2> Dart MIME type </h2>
@@ -161,7 +159,7 @@ This script defines its own isolate/library.
 The <code>main()</code> method is implicitly the entry point.  
 </p>
 
-{% pretty_code %}
+{% pretty_code html 0 %}
 &lt;html&gt;
   &lt;body&gt;
     &lt;script type='application/dart'&gt;
@@ -183,7 +181,7 @@ by the time the Dart code starts running.
 <p>
 In contrast to the previous example, the following is an error:
 </p>
-{% pretty_code %}
+{% pretty_code html 0 %}
 &lt;html>
   &lt;body>
     &lt;script type='application/dart'>
@@ -216,7 +214,7 @@ defines the <code>hello()</code> method shown above.
 Then the following executes as expected:
 </p>
 
-{% pretty_code %}
+{% pretty_code html 0 %}
 &lt;html>
   &lt;body>
     &lt;script type='application/dart'>
@@ -229,19 +227,6 @@ Then the following executes as expected:
   &lt;/body>
 &lt;/html>
 {% endpretty_code %}
-</section>
-
-
-<section>
-<h2> Compiling HTML pages </h2>
-
-<p>
-The Dart project includes a script
-that translates an HTML page with 'application/dart' MIME types
-into an HTML page with JavaScript code.
-You can find more details in the Dart project wiki page
-<a href="https://code.google.com/p/dart/wiki/HTMLConverter">HTMLConverter</a>.
-</p>
 </section>
 
 {% include syntax-highlighting.html %}
