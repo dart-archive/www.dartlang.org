@@ -6,7 +6,7 @@ function main() {
     link.addEventListener('click', function(e) {
       var target = e.target;
       var section = target.href.substring(target.href.indexOf('#') + 1);
-      _gaq.push(['_trackPageview', '/language-tour/' + section]);
+      _gaq.push(['_trackPageview', '/language-tour/' + section + '/']);
     });
   }
 }
