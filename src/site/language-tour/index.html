@@ -2,10 +2,11 @@
 layout: default
 title: "A Tour of the Dart Language"
 description: "Learn how to use each major Dart feature. This tour assumes that you already know how to program in another language."
-header:
-  css: ["/css/dartboard.css"]
 ---
 
+<style>
+p.up-to-toc { font-style: italic }
+</style>
 
 <h1> {{ page.title }} </h1>
 
@@ -57,77 +58,117 @@ NOTE: The guts of this page are in /_includes/language-tour/*/*.
 
 
 <section>
-<h2 id="main-print"> A basic Dart program </h2>
-{% render language-tour/1-main-print/index.markdown %}
+  <h2 id="main-print"> A basic Dart program </h2>
+  {% render language-tour/1-main-print/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="variables"> Variables </h2>
   {% render language-tour/2-variables/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
-<h2 id="built-in-types"> Built-in types </h2>
-{% include language-tour/3-built-in-types/index.html %}
+  <h2 id="built-in-types"> Built-in types </h2>
+  {% include language-tour/3-built-in-types/index.html %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="functions"> Functions </h2>
   {% render language-tour/functions/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="operators"> Operators </h2>
   {% render language-tour/operators/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="control-flow"> Control flow </h2>
   {% render language-tour/control-flow/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="exceptions">Exceptions</h2>
   {% render language-tour/exceptions/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="classes">Classes</h2>
   {% render language-tour/classes/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="interfaces">Interfaces</h2>
   {% render language-tour/interfaces/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="generics">Generics</h2>
   {% render language-tour/generics/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="libraries">Libraries and visibility</h2>
   {% render language-tour/libraries/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="isolates">Isolates</h2>
   {% render language-tour/isolates/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="typedefs">Typedefs</h2>
   {% render language-tour/typedefs/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
 <section>
   <h2 id="comments">Comments</h2>
   {% render language-tour/comments/index.markdown %}
+  <p class="up-to-toc">
+    Back to <a href="#toc">Table of Contents</a>.
+  </p>
 </section>
 
-<script async type="text/javascript"
-  src="http://try.dartlang.org/dartboard.dart.app.js">
-</script>
-
 {% include syntax-highlighting.html %}
+
+<script async src="/js/lang-tour-analytics.js"></script>
