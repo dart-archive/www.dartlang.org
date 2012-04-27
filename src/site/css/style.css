@@ -525,6 +525,11 @@ pre.prettyprint {
   margin-bottom: 1em;
 }
 
+figcaption {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .hidden { display: none; visibility: hidden; }
