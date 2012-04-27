@@ -105,6 +105,12 @@ a default constructor is provided for you.
 The default constructor has no arguments and invokes the
 the no-argument constructor in the superclass.
 
+#### Constructors aren't inherited
+
+Subclasses don't inherit constructors from their superclass.
+A subclass that declares no constructors will have
+only the default (no-argument, no name) constructor.
+
 #### Initializer list
 
 Final variables must be initialized before the object is assigned to `this`.
@@ -156,6 +162,43 @@ Create new instances from a named constructor with `new`:
 {% pc dart 0 %}
 var jsonData = JSON.parse('{"x":1, "y":2}');
 var point = new Point.fromJson(jsonData);
+{% endpc %}
+
+Remember that constructors are not inherited, which means
+that a superclass's named constructor is not
+inherited by a subclass. If you want a subclass to be created
+with a named constructor defined in the superclass, you
+must implement that constructor in the subclass.
+
+By default, a constructor in a subclass will call the superclass's
+default constructor. If no default (zero-argument) constructor
+is defined in the superclass, you must manually call
+a constructor in the superclass. 
+
+For example:
+
+{% pc dart 0 %}
+class Person {
+  Person.fromJson(Map data) {
+    print('in Person');
+  }
+}
+
+class Employee extends Person {
+  // Person does not have a default constructor
+  // you must call super.fromJson(data)
+  Employee.fromJson(Map data) : super.fromJson(data) {
+    print('in Employee');
+  }
+}
+
+main() {
+  var emp = new Employee.fromJson({});
+  
+  // prints:
+  // in Person
+  // in Employee
+}
 {% endpc %}
 
 #### Constant constructors
