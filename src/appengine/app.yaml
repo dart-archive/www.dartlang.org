@@ -37,10 +37,18 @@ handlers:
 - url: /docs/api/.*
   script: scripts.redirector.application
 
+- url: /language-tour/.*
+  script: scripts.redirector.application
+
 - url: /(.*\.png)
   static_files: static/\1
   expiration: 4h
   upload: static/(.*\.png)
+
+- url: /(.*\.ico)
+  static_files: static/\1
+  expiration: 1d
+  upload: static/(.*\.ico)
 
 - url: /(.*\.jpg)
   static_files: static/\1
