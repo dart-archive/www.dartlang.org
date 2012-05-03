@@ -11,7 +11,7 @@ module Jekyll
       page_url = context.environments.first["page"]["url"]
       "<li>" +
       ((@url != page_url) ? "<a href=\"#{@url}\">" : '') +
-      super.join('') +
+      super +
       ((@url != page_url) ? "</a>" : "") +
       "</li>"
     end

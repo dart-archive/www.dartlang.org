@@ -113,10 +113,23 @@ that contains the JavaScript equivalent of your Dart code.
 <p>
 To run a Dart file in the Dart VM, use <code>bin/dart</code>.
 For example:
+</p>
 
 {% pretty_code console 0 %}
 $DART_SDK/bin/dart test.dart
 {% endpretty_code %}
+
+<p>
+Print all the command-line options with <code>--print-flags</code>:
+</p>
+
+{% pc console 0 %}
+$DART_SDK/bin/dart --print-flags Test
+{% endpc %}
+
+<p>
+That third argument is required for now, until we fix
+<a href="http://code.google.com/p/dart/issues/detail?id=2837">bug #2837</a>.
 </p>
 
 <h3>Enabling type checks</h3>

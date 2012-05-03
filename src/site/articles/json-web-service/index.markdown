@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Using Dart with JSON Web Services"
+description: "Learn how to consume JSON-based web services with Dart."
 rel:
   author: chris-buckett
 ---

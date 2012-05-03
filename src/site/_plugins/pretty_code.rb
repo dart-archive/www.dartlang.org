@@ -11,7 +11,7 @@ module Jekyll
 
     def render(context)
       "<pre class=\"prettyprint lang-#{@lang} linenums:#{@linenum} #{@css}\">" +
-      super.join('') +
+      super +
       "</pre>"
     end
   end

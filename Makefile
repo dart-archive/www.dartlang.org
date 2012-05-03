@@ -3,13 +3,15 @@ CURRENT_BRANCH=$(shell git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/
 clean:
 	rm -rf ./build
 
-build:
+build: copy add_version
+
+copy:
 	rm -rf ./build && cd ./src/site && jekyll --no-server --no-auto && cd ../.. && cp -R ./src/appengine/* build/
 
 add_version:
 	/usr/local/bin/ruby -p -i -e '$$_.gsub!(/CHANGEME/, "$(CURRENT_BRANCH)")' ./build/app.yaml
 
-deploy: build add_version
+deploy: build
 	cd ./build && appcfg.py update .
 
 server:

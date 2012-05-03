@@ -57,12 +57,17 @@ class AtomFeedRedirectPage(webapp2.RequestHandler):
     def get(self):
         self.redirect('http://news.dartlang.org/feeds/posts/default', permanent=True)
 
+class LanguageTourRedirectPage(webapp2.RequestHandler):
+    def get(self):
+        self.redirect('/docs' + self.request.path, permanent=True)
+
 application = webapp2.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
                                       ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
                                       ('/docs/getting-started/editor/index-.*', EditorRedirectPage),
                                       ('/news.*', NewsRedirectPage),
                                       ('/atom.xml', AtomFeedRedirectPage),
+                                      ('/language-tour/.*', LanguageTourRedirectPage),
                                       ('/%2B', PlusRedirectPage),
                                       ('/\+', PlusRedirectPage)],
                                      debug=True)
