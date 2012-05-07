@@ -1,0 +1,352 @@
+---
+layout: default
+title: "Dart Editor"
+description: "Dart Editor is a lightweight, open-source editor based on Eclipse components. You can use it to edit and run Dart apps, as well as to invoke the Dart-to-JavaScript compiler."
+---
+
+{% include platform-specific-text/_noscript.html %}
+
+<h1>{{ page.title }}</h1>
+
+<p>
+Dart Editor is a lightweight, open-source editor
+based on Eclipse components.
+You can use it to edit and run Dart apps,
+as well as to invoke the Dart-to-JavaScript compiler.
+</p>
+
+<p>
+See <a href="/docs/getting-started/editor/">Getting Started with Dart Editor</a>
+if you've never used Dart Editor.
+</p>
+
+
+<h4> Contents </h4>
+
+<ol class="toc">
+  <li> <a href="#download">Getting Dart Editor</a>
+    <ol>
+      <li> <a href="#update">Updating Dart Editor</a> </li>
+      <li> <a href="#continuous">Getting the continuous build</a> </li>
+    </ol> </li>
+  <li> <a href="#run">Running apps</a> </li>
+  <li> <a href="#view-samples">Viewing samples</a> </li>
+  <li> <a href="#browse-apis">Browsing APIs</a> </li>
+</ol>
+
+
+<section id="download">
+<h2>Getting Dart Editor</h2>
+
+<p>
+You can download Dart Editor for
+<label>
+  <input type="radio" name="osChoices" id="win">
+  Windows</input></label>, 
+<label>
+  <input type="radio" name="osChoices" id="linux" checked="true">
+  Linux</input>
+  </label>, or
+<label>
+  <input type="radio" name="osChoices" id="mac">
+  Mac</input></label>.
+</p>
+
+{% include downloads/_dart-editor.html %}
+
+<p>
+See <a href="/docs/getting-started/editor/">Getting Started with Dart Editor</a>
+for more details.
+</p>
+
+<section id="update">
+<h3>Updating Dart Editor</h3>
+
+<p>
+If you already have Dart Editor and want to keep its state,
+install the new Dart Editor on top of the old one.
+For example, put the new ZIP file beside the old one,
+and then use the command-line interface to unzip on top of the old files:
+</p>
+
+{% pc console 0 %}
+% <b>cd <em>dart-editor-installation-directory</em></b>
+% <b>unzip dart-editor-<em>latest-file</em>.zip</b>
+replace dart/<em>some-file</em>? [y]es, [n]o, [A]ll, [N]one, [r]ename: <b>A</b>
+{% endpc %}
+
+<p>
+See the
+<a target="_blank"
+  href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/changelog.html">change log</a>
+for a list of release dates and features.
+</p>
+</section>
+
+
+<section id="continuous">
+<h3>Getting the continuous build</h3>
+
+<p>
+We recommend that you use the latest supported version of Dart Editor&mdash;the
+version linked to above.
+It's known as the <em>integration build</em>,
+and it's usually updated once per week.
+</p>
+
+<p>
+Another option is to use the continuous build&mdash;the
+most recent, <b>untested</b> version of Dart Editor.
+To get it, download the
+<span class="linux">
+  <a class="download-link" data-bits="32" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86.zip">32-bit</a> or
+  <a class="download-link" data-bits="64" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86_64.zip">64-bit</a>
+  ZIP file for the Linux continuous build.
+</span>
+<span class="mac">
+  <a class="download-link" data-bits="64" data-os="mac" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-macosx.cocoa.x86_64.zip">ZIP file</a> for the Mac continuous build.
+</span>
+<span class="win">
+  <a class="download-link" data-bits="32" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86.zip">32-bit</a> or
+  <a class="download-link" data-bits="64" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86_64.zip">64-bit</a>
+  ZIP file for the Windows continuous build.
+</span>
+</p>
+
+</section>
+</section>
+
+
+<section id="run">
+<h2>Running apps</h2>
+
+<p>
+To run any Dart app,
+just click Dart Editor's Run button
+<img src="/docs/editor/images/run.png" alt="Run" width="16" height="16"
+  style="vertical-align:top">
+while any file in that app is selected.
+If you're working on a web app,
+Dart Editor brings up a browser window
+that displays the app's HTML page,
+with the app's code running inside it.
+</p>
+
+<p>
+By default, Dart Editor launches both web apps and server apps
+in checked mode, with debugging enabled.
+When you execute a web application,
+by default Dart Editor launches <a href="/dartium/">Dartium</a>.
+</p>
+
+<p>
+You can specify another browser or mode using
+<b>Tools > Manage Launches</b>.
+If you specify a non-Dartium browser,
+Dart Editor automatically compiles the app to JavaScript.
+</p>
+</section>
+
+
+<section id="view-samples">
+<h2>Viewing samples</h2>
+
+<p>
+The Welcome page of Dart Editor displays a few samples.
+To open a sample and look at its source code,
+just click the sample's image.
+</p>
+
+<p>
+If you don't see the Welcome page,
+you probably closed it.
+Get it back with <b>Tools > Welcome Page</b>.
+</p>
+
+<p>
+Another way to open a sample is through the <b>File</b> menu.
+For example:
+</p>
+
+<ol>
+  <li> <p>
+    Go to the <b>File</b> menu,
+    and choose <b>Open...</b>.
+    Or use the keyboard shortcut
+    (<b>Ctl+O</b> or, on Mac, <b>Option+O</b>).
+    </p>
+  </li>
+  <li> <p>
+    Navigate to your Dart installation directory,
+    then to <b>samples/sunflower</b>.
+    Double-click <b>Sunflower.dart</b>.
+    </p>
+  </li>
+</ol>
+</section>
+
+
+<section id="browse-apis">
+<h2>Browsing APIs</h2>
+
+<p>
+With Dart Editor,
+you can easily find where APIs are declared,
+outline the contents of a Dart file,
+and auto-complete references to APIs.
+The following mini-tutorial
+assumes you're viewing the Sunflower sample in Dart Editor.
+</p>
+
+<ol>
+  <li> <p>
+    Find where variables and types are declared.
+    </p>
+    <ol>
+      <li> <p>
+        In the Editor view of <code>Sunflower.dart</code>,
+        hold down the <b>Control</b> key
+        (<b>Command</b> key on Mac)
+        and move the mouse over the source code.
+        A line appears under each item
+        that's declared elsewhere in this <code>.dart</code> file
+        or in another <code>.dart</code> file.
+      </p> </li>
+
+      <li> <p>
+        Continuing to press Control or Command,
+        hover over the string <b>Math</b>,
+        (at the top of the <code>Sunflower()</code> constructor),
+        and click.
+        </p>
+
+        <p>
+        <img src="images/sunflower-hover.png"
+          alt="screenshot of Command/Control-hover over Math"
+          style="border: 1px solid black"
+          width="407" height="223">
+        </p>
+
+        <p>
+        The editor displays the file that declares the
+        <a href="http://api.dartlang.org/dart_core/Math.html"><code>Math</code></a> type.
+        </p>
+
+        <aside class="note">
+        <b>Tip:</b>
+        You can also use this trick to find declarations within the same file.
+        </aside>
+      </li>
+    </ol> </li>
+  <li>
+    <p>
+    Click the left arrow button
+    <img src="images/leftarrow.png" alt="left arrow" width="16" height="16"
+      style="vertical-align:top">
+    (to the left of the Run button
+    <img src="images/run.png" alt="Run" width="16" height="16"
+      style="vertical-align:top">)
+    to go back to <code>Sunflower.dart</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+    Either press <b>Alt+O</b> (<b>Option+O</b> on Mac) or
+    right-click and choose <b>Quick Outline</b>.
+    </p>
+
+    <p>
+    A panel comes up displaying
+    the classes, methods, and fields
+    declared in <code>Sunflower.dart</code>.
+    It looks something like this:
+    </p>
+
+    <p>
+    <img src="images/sunflower-outline.png"
+      alt="screenshot of outline panel"
+      width="390" height="340">
+    </p>
+
+    <p>
+    You can reduce the size of the list
+    by typing one or more characters.
+    For example, if you type <b>x</b>,
+    only the <b>xc</b> variable appears.
+    </p>
+
+    <p>
+    If you choose an item from the list&mdash;for example,
+    <b>xc</b>&mdash;
+    the editor scrolls to its declaration in <code>Sunflower.dart</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+    Now try Dart Editor's auto-complete feature.
+    </p>
+
+    <ol style="list-style-type: lower-alpha">
+      <li> <p>
+        Find the declaration of <b>TAU</b>,
+        near the end of <code>Sunflower.dart</code>:
+        </p>
+{% pretty_code dart 0 %}
+static final TAU = Math.PI * 2;{% endpretty_code %}
+        </li>
+      <li> <p>
+        Delete everything to the right of <code>Math</code>,
+        and then type a period (<b>.</b>).
+        After a short pause,
+        a list of autocomplete suggestions comes up,
+        looking something like this:
+        </p>
+
+        <img src="images/sunflower-dotcomplete.png"
+          alt="snapshot of autocomplete for Math."
+          style="border: 1px solid black"
+          width="450" height="234">
+        </p> </li>
+      <li> <p>
+        Type or use the arrow keys to select <code>PI</code>,
+        and then press Enter or Return to dismiss the panel.
+        </p> </li>
+      <li> <p>
+        Complete your changes&mdash;for
+        example, if you think sunflower seeds should be semi-circular,
+        use <code>Math.PI</code> instead of <code>Math.PI*2</code>&mdash;and
+        then save the file.
+        </p>
+
+        <p>
+        If Dart Editor displays an error after you save,
+        you've made a syntax error.
+        Fix it or undo your typing,
+        and then save again.
+        </p> </li>
+      <li> <p>
+        Click the Run button
+        <img src="images/run.png" alt="Run" width="16" height="16"
+          style="vertical-align:top">
+        to run your changed version.
+        </p> </li>
+
+      <li> <p>
+        Back in Dart Editor,
+        edit the Dart code again.
+        This time use <b>Ctl+Space</b>
+        to bring up the auto-complete suggestions.
+        </p>
+
+        <p>
+        For example, type <code>Mat</code>, then Ctl+Space
+        to see a list of classes and interfaces
+        that start with "Mat".
+        </p> </li>
+    </ol>
+  </li>
+</ol>
+</section>
+
+<script async src="/js/Switcher.dart.js"></script>
+<script async src="/js/editor-downloads-analytics.js"></script>

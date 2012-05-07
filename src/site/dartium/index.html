@@ -3,6 +3,8 @@ layout: default
 title: "Chromium with the Dart VM"
 ---
 
+{% include platform-specific-text/_noscript.html %}
+
 <h1> {{ page.title }} </h1>
 
 <section class="overview">
@@ -14,6 +16,16 @@ that includes the Dart virtual machine (VM).
 This browser can execute Dart web apps directly,
 so you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
+Dartium is available for
+<label>
+  <input type="radio" name="osChoices" id="win">
+  Windows</input></label>, 
+<label>
+  <input type="radio" name="osChoices" id="linux" checked="true">
+  Linux</input></label>, and
+<label>
+  <input type="radio" name="osChoices" id="mac">
+  Mac</input></label>.
 </p>
 
 <aside class="warning">
@@ -42,21 +54,17 @@ and it might have security and stability issues.
 
 <p>
 If you have an up-to-date version of
-<a href="/docs/getting-started/editor/index.html">Dart Editor</a>,
+<a href="/docs/editor/">Dart Editor</a>,
 you already have Dartium.
 </p>
 
 <p>
 If you don't have Dart Editor
 or want a different version of Dartium,
-download the Dartium ZIP file for your platform:
+you can download it separately:
 </p>
 
-<ul>
-  <li> <a href="http://gsdview.appspot.com/dartium-archive/continuous/dartium-win.zip">Dartium for Windows</a> </li>
-  <li> <a href="http://gsdview.appspot.com/dartium-archive/continuous/dartium-lucid64.zip">Dartium for Linux</a> </li>
-  <li> <a href="http://gsdview.appspot.com/dartium-archive/continuous/dartium-mac.zip">Dartium for Mac</a> </li>
-</ul>
+{% include downloads/_dartium.html %}
 
 <br>
 <aside class="note">
@@ -73,7 +81,7 @@ just unarchive the ZIP file.
 If you want Dart Editor to launch a particular copy of Dartium,
 then put that copy inside
 the <b>dart-sdk</b> directory of your
-<a href="/docs/getting-started/editor/index.html">Dart Editor
+<a href="/docs/editor/">Dart Editor
 installation directory</a>,
 replacing the original copy of Chromium.
 </p>
@@ -87,8 +95,8 @@ replacing the original copy of Chromium.
 <p>
 To launch Dartium, navigate to its directory in your finder,
 and double-click the blue logo labeled Chromium.
-Or use
-<a href="/docs/getting-started/editor/">Dart Editor</a>
+Or use Dart Editor
+(as described in <a href="/docs/getting-started/editor/">Getting Started with Dart Editor</a>)
 or the <a href="#command">command line</a>.
 </p>
 
@@ -207,4 +215,5 @@ by going to <b>chrome://version</b>.
 </aside>
 </section>
 
+<script async src="/js/Switcher.dart.js"></script>
 {% include syntax-highlighting.html %}

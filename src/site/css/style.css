@@ -288,28 +288,28 @@ header h2 {
 }
 
 article h1 {
-  font-size: 3em;
+  font-size: 2.3em;
   margin-bottom: 10px;
 }
 
 article h2 {
+  font-size: 1.6em;
   margin-bottom: 10px;
-  font-size: 2em;
+  margin-top: 25px;
 }
 
 article h3 {
-  margin-bottom: 10px;
   font-size: 1.2em;
-  margin-top: 1em;
+  margin-bottom: 10px;
+  margin-top: 25px;
 }
 
 article h4 {
   margin-bottom: 10px;
-  margin-top: 1em;
+  margin-top: 25px;
 }
 
 article section {
-  margin-bottom: 10px;
   font-weight: 400;
 }
 
@@ -413,6 +413,26 @@ section#what-is-dart dl dt {
 
 section#what-is-dart h2 {
   color: #1155CC;
+}
+
+div.downloads {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+  margin-left: 1em;
+}
+
+a.button {
+  padding: 1em;
+  margin-right: 1em;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  background-image: url(/imgs/button-textured.png);
+
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px #888;
+  box-shadow: 0 0 5px #888;
 }
 
 section#start-here {

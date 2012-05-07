@@ -1,7 +1,9 @@
 ---
 layout: default
-title: "SDK"
+title: "Getting Started with the SDK"
 ---
+
+{% include platform-specific-text/_noscript.html %}
 
 <h1> {{ page.title }} </h1>
 
@@ -10,7 +12,21 @@ title: "SDK"
 
 <p>
 This page tells you how to find and use
-prerelease versions of the Dart SDK.
+prerelease versions of the Dart SDK on
+<span class="linux">Linux.</span>
+<span class="mac">Mac OS X.</span>
+<span class="win">Windows.</span>
+<br>
+(These instructions are available for
+    <label>
+      <input type="radio" name="osChoices" id="win">
+      Windows</input></label>, 
+    <label>
+      <input type="radio" name="osChoices" id="linux" checked="true">
+      Linux</input></label>, and
+    <label>
+      <input type="radio" name="osChoices" id="mac">
+      Mac</input></label>.)
 The SDK includes the following tools:
 </p>
 
@@ -29,9 +45,9 @@ For more information about the SDK, see the blog post
 <b>Note:</b>
 The SDK is in very early days, and it might not always work.
 If you just want to play with Dart, try
-<a href="/docs/getting-started/index.html">Dartboard</a>.
+<a href="/docs/getting-started/">Dartboard</a>.
 For a real development environment, use
-<a href="/docs/getting-started/editor/index.html">Dart Editor</a>.
+<a href="/docs/getting-started/editor/">Dart Editor</a>.
 </aside>
 
 <section>
@@ -48,33 +64,25 @@ For a real development environment, use
 
 <p>
 If you have an up-to-date version of
-<a href="/docs/getting-started/editor/index.html">Dart Editor</a>,
+<a href="/docs/getting-started/editor/">Dart Editor</a>,
 you already have the SDK.
 </p>
 
 <p>
 If you don't have Dart Editor
 or want a different version of the SDK,
-download the SDK ZIP file for your platform:
-</p>
+download the ZIP file for your platform's SDK:
 
-<ul>
-  <li> <a href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-win32.zip">Windows SDK</a> </li>
-  <li> <a href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-macos.zip">Mac SDK</a> </li>
-  <li> <a href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-linux.zip">Linux SDK</a> </li>
-</ul>
+{% include downloads/_sdk.html %}
 
 <p>
-Or live dangerously: download the latest, untested build of the SDK.
+Or live dangerously: download the
+<span class="win"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-win32.zip">latest, untested build of the Windows SDK</a>.</span>
+<span class="mac"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-macos.zip">latest, untested build of the Mac SDK</a>.</span>
+<span class="linux"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-linux.zip">latest, untested build of the Linux SDK</a>.</span>
 These continuous builds are updated at least daily,
 and sometimes much more often.
 </p>
-
-<ul>
-  <li> <a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-win32.zip">Windows SDK (latest)</a> </li>
-  <li> <a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-macos.zip">Mac SDK (latest)</a> </li>
-  <li> <a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-linux.zip">Linux SDK (latest)</a> </li>
-</ul>
 
 <p>
 After you download and unzip the SDK,
@@ -171,3 +179,4 @@ $DART_SDK/bin/dart --enable_asserts test.dart
 </section>
 
 {% include syntax-highlighting.html %}
+<script async src="/js/Switcher.dart.js"></script>

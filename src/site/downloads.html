@@ -3,6 +3,8 @@ layout: default
 title: "Downloads"
 ---
 
+{% include platform-specific-text/_noscript.html %}
+
 <h1> {{ page.title }} </h1>
 
 <section id="overview">
@@ -10,21 +12,27 @@ title: "Downloads"
 <p>
 You don't need to download anything to write, run, and modify
 small Dart scripts.
-Just use <b>Dartboard</b> in a modern browser:
+Just use
+<a href="http://try.dartlang.org" target="_blank">Dartboard</a>
+in a modern browser.
 </p>
-
-<ul>
-  <li>
-    <a href="http://try.dartlang.org">try.dartlang.org</a>
-    (just Dartboard) </li>
-  <li>
-    <a href="/docs/getting-started/">Tutorial: Dartboard &amp; Language Basics</a>
-    (examples and tips) </li>
-</ul>
 
 <p>
 When you're ready to do some real Dart programming,
 download <b>Dart Editor</b>.
+<br>
+    (<label>
+      <input type="radio" name="osChoices" id="win">
+      Windows</input></label>, 
+    <label>
+      <input type="radio" name="osChoices" id="linux" checked="true">
+      Linux</input></label>, or
+    <label>
+      <input type="radio" name="osChoices" id="mac">
+      Mac</input></label>)
+</p>
+
+<p>
 The Dart Editor download includes
 the Dart <b>SDK</b> and a build of Chromium, nicknamed <b>Dartium</b>,
 that includes the Dart virtual machine (VM).
@@ -34,6 +42,7 @@ Finally, you can also download the source code for the <b>Dart project</b>.
 
 </section>
 
+
 <section id="editor">
 <h2> Dart Editor </h2>
 
@@ -42,11 +51,12 @@ With Dart Editor,
 you can write, build, and run
 web and server apps.
 The Dart Editor download includes the SDK and Dartium.
+Instructions for downloading, installing, and using Dart Editor are in
+<a href="/docs/getting-started/editor/">Getting Started with Dart Editor</a>.
 </p>
 
-<ul>
-  <li> <a href="/docs/getting-started/editor/">Instructions for downloading and installing Dart Editor</a> </li>
-</ul>
+{% include downloads/_dart-editor.html %}
+
 </section>
 
 
@@ -56,11 +66,11 @@ The Dart Editor download includes the SDK and Dartium.
 <p>
 The SDK contains a Dart-to-JavaScript compiler (aka <em>frog</em>),
 the Dart VM, and Dart libraries.
-</p>
+You can find instructions for downloading and using the SDK in
+<a href="/docs/getting-started/sdk/">Getting Started with the SDK</a>.
 
-<ul>
-  <li> <a href="/docs/getting-started/sdk/">Instructions for downloading the SDK</a> </li>
-</ul>
+{% include downloads/_sdk.html %}
+
 </section>
 
 
@@ -71,11 +81,12 @@ the Dart VM, and Dart libraries.
 With this browser,
 you can run and debug Dart scripts
 without first compiling them to JavaScript.
+For instructions on downloading, installing, and launching Dartium, see
+<a href="/dartium/">Chromium with the Dart VM</a>.
 </p>
 
-<ul>
-  <li> <a href="/dartium/">Instructions for downloading Dartium</a> </li>
-</ul>
+{% include downloads/_dartium.html %}
+
 </section>
 
 
@@ -96,3 +107,7 @@ You can browse or download the source code for the
 </ul>
 
 </section>
+
+
+<script async src="/js/Switcher.dart.js"></script>
+<script async src="/js/editor-downloads-analytics.js"></script>

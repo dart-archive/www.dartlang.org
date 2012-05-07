@@ -1,0 +1,253 @@
+---
+layout: default
+title: "Troubleshooting Dart Editor"
+description: "Installing and running Dart Editor is easy. Except when it isn't."
+---
+
+{% include platform-specific-text/_noscript.html %}
+
+<h1> {{ page.title }} </h1>
+
+<section>
+<p>
+This page has troubleshooting tips
+<a href="/docs/editor/">Dart Editor</a>,
+and in particular for the tutorial
+<a href="/docs/getting-started/editor/">Getting Started
+  with Dart Editor</a>.
+<br>
+(These tips are available for
+    <label>
+      <input type="radio" name="osChoices" id="win">
+      Windows</input></label>, 
+    <label>
+      <input type="radio" name="osChoices" id="linux" checked="true">
+      Linux</input>
+      </label>, or
+    <label>
+      <input type="radio" name="osChoices" id="mac">
+      Mac</input></label>.)
+</p>
+
+<p>
+  If we missed something, please
+  <a href="/support/">let us know</a>.
+</p>
+
+<h4> Contents </h4>
+<ol class="toc">
+  <li> <a href="#download-dart-editor">Getting your system architecture</a> </li>
+  <li> <a href="#launch-dart-editor">Launching Dart Editor</a> </li>
+  <li> <a href="#dartium">Launching Dartium</a> </li>
+  <li> <a href="#eclipse">Using Eclipse</a> </li>
+  <li> <a href="#bugs">Other known issues</a> </li>
+</ol>
+
+<section>
+
+  <section id="download-dart-editor">
+  <h2> Getting your system architecture </h2>
+
+  <div class="linux">
+    <p>
+    If you don't know whether you have 32-bit or 64-bit Linux,
+    use the command <code>uname -a</code>.
+    If <code>64</code> is in the output,
+    you have 64-bit Linux;
+    otherwise, you have 32-bit Linux.
+    </p>
+  </div>
+
+  <div class="mac">
+    <p>
+    Almost all Mac OS X systems have a 64-bit OS.
+    If you think yours doesn't, see
+    See <a href="#mac-32bit">Failure to launch</a>.
+    </p>
+  </div>
+
+  <div class="win">
+    <p>
+    If you don't know whether you have 32-bit or 64-bit Windows, see
+    <a href="http://windows.microsoft.com/en-US/windows7/32-bit-and-64-bit-Windows-frequently-asked-questions">Microsoft's support site</a>.
+    </p>
+  </div>
+
+  </section>
+
+  <section id="launch-dart-editor">
+  <h2> Launching Dart Editor </h2>
+
+  <p>
+    This section discusses problems you might encounter
+    when launching Dart Editor.
+    <span class="comment">{PENDING: add section on missing JRE?}</span>
+  </p>
+
+<div class="linux">
+  <section id="32bit">
+  <h3>Failure to launch</h3>
+
+  <p class="comment">
+
+  <p>
+  If you're using 64-bit Linux but have 32-bit Java libraries,
+  Dart Editor won't work.
+  </p>
+
+  <p>
+  The fix: use a 64-bit Java JDK.
+  You can get a 64-bit JDK 7 from
+  <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html"
+    target="_blank">Java SE Development Kit 7 Downloads</a>.
+  </p>
+
+  <p>
+  If you already have a 64-bit JDK but it's not the default,
+  you can specify it.
+  Go to your Dart installation directory and
+  add the following two lines to <code>DartEditor.ini</code>
+  immediately <b>before</b> the existing
+  <code>&#x2011;vmargs</code> line:
+  </p>
+
+  {% pretty_code console 0 %}
+-vm
+<em>/full/path/to/java</em>{% endpretty_code %}
+
+  <p>
+  For example, <code>DartEditor.ini</code> might have:
+  </p>
+
+{% pc console 0 %}
+...
+-vm
+/usr/local/buildtools/java/jdk-64/bin/java
+-vmargs 
+...  {% endpc %}
+
+  </section>
+</div>
+<div class="mac">
+  <section id="avstartup">
+  <h3>Slow startup</h3>
+
+  <p>
+  If you use Sophos Anti-Virus,
+  Dart Editor (like most Java applications)
+  starts up 10-15 times slower than normal.
+
+  <p>
+  The fix: Turn off scanning of the app's JAR files.
+  For example:
+  </p>
+
+  <ol>
+    <li> In Sophos Anti-Virus preferences,
+      choose <b>On-access Scanning</b>. </li>
+    <li> If the preferences are locked,
+      click the lock and enter your password. </li>
+    <li> Click <b>Excluded Items</b> and then the <b>+</b> sign. </li>
+    <li> Navigate to the directory that contains <code>DartEditor</code>. </li>
+    <li> Search for files under that directory
+      with names that end in <code>.jar</code>. </li>
+    <li> Select all these <code>.jar</code> files,
+      and click Open. </li>
+  </ol>
+
+  </section>
+
+
+  <section id="mac-32bit">
+  <h3>Failure to launch</h3>
+
+  <p>
+  If you're using one of the increasingly rare 32-bit Macs,
+  you can't launch the normal version of Dart Editor.
+  Instead, you see a warning like this:
+  </p>
+
+  <p>
+  <img src="images/mac-installerror.png"
+    alt="Dialog text: You can't open the application DartEditor.app because it's not supported on this type of Mac."
+    style="border: 1px solid black"
+    width="419" height="161" >
+  </p>
+
+  <p>
+  The fix: use a
+  <a href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-macosx.cocoa.x86.zip">32-bit version of Dart Editor</a>.
+  </p>
+
+  </section>
+</div>
+<div class="win">
+  <p>
+    No known launch issues for Windows.
+</div>
+
+</section>
+
+
+<section id="dartium">
+  <h2>Launching Dartium</h2>
+
+    <p>
+    By default,
+    when you click Dart Editor's Run button
+    <img src="images/run.png" alt="Run" width="16" height="16"
+    style="vertical-align:top">,
+    your web app runs in Dartium.
+    If you instead see a message that
+    you need to download a new version of Dartium,
+    your software is old.
+    </p>
+
+    <p>
+    The fix: Download and install a new version of
+    <b>Dart Editor</b>.
+    You'll get an updated version of Dartium, plus the
+    <a href="http://news.dartlang.org/search/label/editor">latest improvements to Dart Editor</a>.
+    Alternatively, download a new version of
+    <a href="/dartium/">Dartium</a>
+    and substitute it for the copy that's in your
+    Dart installation directory.
+
+</section>
+
+<section id="eclipse">
+  <h2>Using Eclipse</h2>
+
+  <p>
+  If Dart Editor and Eclipse
+  share the same <code>workspace</code> directory,
+  they'll save conflicting settings,
+  resulting in warnings and errors from both
+  Dart Editor and Eclipse.
+  </p>
+
+  <p>
+  The fix: Don't use the Dart installation directory
+  for any other Eclipse-based software.
+  </p>
+</section>
+
+<section id="bugs">
+  <h2> Other known issues </h2>
+  <p>
+  To see known bugs in Dart Editor, look at the issue list:
+  </p>
+
+  <blockquote>
+  <a href="http://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Editor">Dart Editor issue list</a>
+  </blockquote>
+
+  <p>
+  You can star bugs to receive updates about them,
+  and you can add comments to bugs.
+  </p>
+
+</section>
+</section>
+
+<script async src="/js/Switcher.dart.js"></script>
