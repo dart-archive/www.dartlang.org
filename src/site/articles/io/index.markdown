@@ -9,7 +9,7 @@ rel:
 _Written by Mads Ager <br />
 March 2012_
 
-<section>
+<section markdown="1">
 The [dart:io](http://api.dartlang.org/io.html) library
 is aimed at server-side code
 that runs on the standalone Dart VM.
@@ -29,7 +29,7 @@ dart:io uses an asynchronous programming model inspired by
 </section>
 
 
-<section id="toc">
+<section id="toc" markdown="1">
 
 #### Contents
 
@@ -43,7 +43,7 @@ dart:io uses an asynchronous programming model inspired by
 </section>
 
 
-<section id="vm">
+<section id="vm" markdown="1">
 ## The Dart VM and the event loop
 
 Before we dive into asynchronous I/O operations,
@@ -89,7 +89,7 @@ and would continue to print out ‘timer’ every second.
 </section>
 
 
-<section id="file-system">
+<section id="file-system" markdown="1">
 ## File system access
 
 The dart:io library provides access to files and directories through the
@@ -201,7 +201,7 @@ stdout, files, sockets, HTTP connections, and so on.
 </section>
 
 
-<section id="processes">
+<section id="processes" markdown="1">
 ##Interacting with processes
 
 You can start a process by creating a
@@ -266,7 +266,7 @@ starting processes for that scenario.
 </section>
 
 
-<section id="web-servers">
+<section id="web-servers" markdown="1">
 ##Writing web servers
 
 Recently, we landed an HTTP library as part of dart:io
@@ -305,12 +305,13 @@ If the file is not found we will respond with a ‘404 Not Found’ status.
 We make use of the streaming interface
 to pipe all the data read from a file directly to the response output stream.
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% pretty_code dart 0 %}
+#import('dart:io');
 
 startServer(String basePath) {
   var server = new HttpServer();
   server.listen('127.0.0.1', 8080);
-  server.onRequest = (HttpRequest request, HttpResponse response) {
+  server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
     var path = request.path == '/' ? '/index.html' : request.path;
     var file = new File('${basePath}${path}');
     file.exists((found) {
@@ -345,7 +346,7 @@ We plan on optimizing the HTTP library in the near future!
 </section>
 
 
-<section id="feedback">
+<section id="feedback" markdown="1">
 ## Feature requests welcome
 
 The dart:io library is already capable of performing a lot of tasks.

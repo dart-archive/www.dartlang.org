@@ -14,7 +14,7 @@ The content of the message can be:
 * A primitive value (null, num, bool, double, String)
 * An instance of SendPort
 * A list or map whose elements are any of the above, including other lists and maps
-* In [special circumstances](#sending-any-type-of-object), an object of any type
+* In [special circumstances](#send-any-type-of-object), an object of any type
 
 List and maps can have cyclic references to themselves.
 Each message is copied when sent to another isolate, ensuring
@@ -47,7 +47,7 @@ Pass the entry point to
 [spawnFunction()](http://api.dartlang.org/dart_isolate.html#spawnFunction).
 
 <aside class="note">
-**Note:** dart2js does not yet support static methods as isolate entry points.
+<b>Note:</b> dart2js does not yet support static methods as isolate entry points.
 </aside>
 
 {% pc dart 0 %}
@@ -86,7 +86,6 @@ main() {
 }
 {% endpc %}
 
-<section id="sending-any-type-of-object">
 #### Send any type of object
 
 In special circumstances (such as when using spawnFunction() inside the Dart VM),
@@ -96,7 +95,6 @@ The object message is copied when sent.
 Sending arbitrary object instances to an isolate, even if
 using spawnFunction(), is not yet available when compiling to
 JavaScript.
-</section>
 
 #### Receive messages
 

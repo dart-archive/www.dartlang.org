@@ -304,9 +304,13 @@ article h3 {
   margin-top: 25px;
 }
 
-article h4 {
+article h4, article h5 {
   margin-bottom: 10px;
   margin-top: 25px;
+}
+
+article h5 {
+  font-size: 0.9em;
 }
 
 article section {
@@ -549,6 +553,8 @@ figcaption {
   font-style: italic;
   font-size: 0.9em;
 }
+
+p.up-to-toc { margin: 2em 0 2em 0; }
 
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
