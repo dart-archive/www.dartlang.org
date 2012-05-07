@@ -223,6 +223,140 @@
       </article>
 
       <article>
+        <h2>Dart's runtime modes</h2>
+      </article>
+
+      <article>
+        <h3>Production mode</h3>
+        <ul>
+          <li>
+            Default mode in VM
+          </li>
+          <li>
+            Static type annotations are ignored
+          </li>
+          <li>
+            <i>Fast startup and performance</i>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Checked mode</h3>
+        <ul>
+          <li>
+            Static type annotations help catch errors
+          </li>
+          <li>
+            Dynamic type assertions turned on
+          </li>
+          <li>
+            assert() statements turned on
+          </li>
+          <li>
+            Great for development
+          </li>
+          <li>
+            <i>Catch potential problems early</i>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Enabling checked mode</h3>
+        <ul>
+          <li>
+            <code>$DART_SDK/bin/dart --enable_type_checks prog.dart</code>
+          </li>
+          <li>
+            <code>$DART_SDK/bin/frogc --enable_type_checks prog.dart</code>
+          </li>
+        </ul>
+
+        <img src="images/screenshots/editor-checked-mode.png" height="400" alt="Turn on checked mode in editor">
+      </article>
+
+      <article>
+        <h3>Dynamic type assertions</h3>
+        <ul>
+          <li>
+            Added in checked mode
+          </li>
+          <li>
+            Checks static types against real types
+            <ul>
+              <li>
+                When passing in parameters, returning results,
+                executing assignments
+              </li>
+            </ul>
+          </li>
+          <li>
+            Throws exception if encounters type mismatch
+          </li>
+        </ul>
+
+<pre>
+int timesTwo(num n) => n * 2;
+
+timesTwo(3.2); // FAILS in checked mode
+               // dynamic type assertion throws exception
+               // because returned value is not an int
+</pre>
+      </article>
+
+      <article class="smaller">
+        <h3>Static checker</h3>
+        <ul>
+          <li>
+            Static checker performs analysis of static code (i.e. before runtime)
+          </li>
+          <li>
+            The Editor and Frog have a static checker
+          </li>
+          <li>
+            Given enough info (types), the static checker will <b>warn</b> you
+            about potential problems.
+          </li>
+          <li>
+            <i>Program still compiles and executes</i>
+          </li>
+        </ul>
+<pre>
+String s1 = '9';
+String s2 = '1';
+...
+int n = s1 + s2; // Static checker generates WARNING!!
+print(n);
+</pre>
+
+        <img src="images/screenshots/static-type-warning.png">
+      </article>
+
+      <article>
+        <q>Use checked mode during development.</q>
+
+        <div class='author'>
+          Tip
+        </div>
+      </article>
+
+      <article>
+        <h3>Exercise</h3>
+
+        <ul>
+          <li>
+            Write a small program that generates a warning from the static
+            checker, yet executes and completes in production mode.
+          </li>
+
+          <li>
+            Run your program in both modes in both Editor and VM. Hint: Tools &gt; Manage Launches.
+          </li>
+        </ul>
+      </article>
+
+      <article>
         <h2>
           Language overview
         </h2>
@@ -275,7 +409,7 @@ main() {
       			<code>final</code> can't be changed after initialization
       		</li>
       		<li>
-      			Un-initialized variables set to null
+      			Uninitialized variables set to null
       		</li>
       	</ul>
 
@@ -306,7 +440,7 @@ int age;       // null
                 Use String interpolation
               </li>
               <li>
-                Coming soon: adjacent string literals are auto-concatenated
+                Adjacent string literals are auto-concatenated
               </li>
             </ul>
           </li>
@@ -353,6 +487,22 @@ String regExpExample = @"Raw strings\n don't escape.";
       </article>
 
       <article>
+        <h3>Adjacent string literals</h3>
+        <ul>
+          <li>
+            Used instead of +
+          </li>
+          <li>
+            Useful for long strings
+          </li>
+        </ul>
+<pre>
+String msg = 'Hello there and welcome to the Dart '
+             'Language presentation.';
+</pre>
+      </article>
+
+      <article>
       	<h3>Numbers</h3>
       	<ul>
       		<li>
@@ -376,20 +526,20 @@ String regExpExample = @"Raw strings\n don't escape.";
       		<li>
       			If it's not <code>true</code>, it's treated as <code>false</code>
       		</li>
-          <li>
-            Production mode will convert anything not <code>true</code> to false
-          </li>
       	</ul>
 
         <section>
 <pre>
-if (1) { } else { print('false!'); }
+if (1) { } else { print('false!'); } // you don't want to do this
+                                     // Dart != JavaScript
+                                     // fails in checked mode
+                                     // false in production mode
+
+if (!atLeastTwentyOneInUS()) {       // much better, this is a real boolean
+  denyBeer();
+}
 </pre>
         </section>
-
-        <p class="code-note">
-        	(Note: above will fail in checked mode, 1 is not a bool)
-        </p>
       </article>
 
       <article>
@@ -488,29 +638,12 @@ print(fruits.length); // 2
       </article>
 
       <article>
-      	<h3>Dynamic type</h3>
-      	<ul>
-      		<li>
-      			The "unknown" type, when no static type annotation is given
-      		</li>
-      	</ul>
-
-<pre>
-yell(msg) {
-  return '$msg !!!!';
-}
-
-// same as
-
-Dynamic yell(Dynamic msg) {
-  return '$msg !!!';
-}
-</pre>
-
-      </article>
-
-      <article>
       	<h3>Checking the type</h3>
+        <ul>
+          <li>
+            Checks the actual object type, <b>not</b> the type annotation
+          </li>
+        </ul>
 
 <pre>
 ('hello' is String) == true;
@@ -518,8 +651,6 @@ Dynamic yell(Dynamic msg) {
 (4 is! String) == true;
 
 (4 is int) == true;
-
-(4 is Dynamic) == true;
 </pre>
       </article>
 
@@ -719,153 +850,32 @@ class Printer {
       </article>
 
       <article>
-        <h3>typedef</h3>
+        <h3>Function aliases</h3>
         <ul>
           <li>
-            <code>typedef</code>s are aliases for function types.
+            <code>typedef</code> defines aliases for function types.
+          </li>
+          <li>
+            Helps prevent lost type information
           </li>
         </ul>
 <pre>
-// before
-sort(num f(a, b)) => ...;
+typedef int Compare(a, b);
 
-// after
-typedef num sorter(a, b);
+class SortedCollection {
+  Compare compare;
 
-sort(sorter f) => ...;
+  SortedCollection(this.compare);
+}
 
-var numSorter = (num x, num y) => x - y;
-print(simple is sorter);    // true
+int sort(a, b) => ... ;
 
-sort(simple);
+main() {
+  SortedCollection collection = new SortedCollection(sort);
+  print(collection.compare is Function);  // true
+  print(collection.compare is Compare);   // true
+}
 </pre>
-      </article>
-
-      <article>
-      	<h2>Dart's runtime modes</h2>
-      </article>
-
-      <article>
-      	<h3>Production mode</h3>
-      	<ul>
-      		<li>
-      			Default mode in VM
-      		</li>
-      		<li>
-      			Dynamic type assertions turned off
-      		</li>
-      		<li>
-      			Runtime semantics ignore static types
-      		</li>
-      		<li>
-      			<i>Fast startup and performance</i>
-      		</li>
-      	</ul>
-      </article>
-
-      <article>
-      	<h3>Checked mode</h3>
-      	<ul>
-      		<li>
-            Dynamic type assertions turned on
-          </li>
-          <li>
-            assert() statements turned on
-          </li>
-          <li>
-            Great for development
-          </li>
-      		<li>
-            <i>Catch potential problems early</i>
-          </li>
-      	</ul>
-      </article>
-
-      <article>
-      	<h3>Enabling dynamic type assertions</h3>
-      	<ul>
-      		<li>
-      			<code>$DART_SDK/bin/dart --enable_type_checks prog.dart</code>
-      		</li>
-      		<li>
-      			<code>$DART_SDK/bin/frogc --enable_type_checks prog.dart</code>
-      		</li>
-      	</ul>
-
-        <img src="images/screenshots/editor-checked-mode.png" height="400" alt="Turn on checked mode in editor">
-      </article>
-
-      <article>
-      	<h3>Dynamic type errors</h3>
-      	<ul>
-      		<li>
-      			Dynamic type assertions are added when passing
-      			in parameters, returning results,
-      			executing assignments.
-      		</li>
-      	</ul>
-
-<pre>
-bar(num n) { return n * 2; }
-
-bar(3.2); // works fine
- 
-int i_bar(num n) { return n * 2; }
-
-i_bar(3.2); // FAILS in checked mode
-            // because returned value is not an int
-</pre>
-      </article>
-
-      <article class="smaller">
-      	<h3>Static checker</h3>
-      	<ul>
-      		<li>
-      			Static checker performs analysis of static code (i.e. before runtime)
-      		</li>
-      		<li>
-      			The Editor and Frog have a static checker
-      		</li>
-      		<li>
-      			Given enough info (types), the static checker will <b>warn</b> you
-      			about potential problems.
-      		</li>
-      		<li>
-      			<i>Program still compiles and executes</i>
-      		</li>
-      	</ul>
-<pre>
-String s1 = '9';
-String s2 = '1';
-...
-int n = s1 + s2; // Static checker generates WARNING!!
-print(n);
-</pre>
-
-        <img src="images/screenshots/static-type-warning.png">
-      </article>
-
-      <article>
-      	<q>Use checked mode during development.</q>
-
-      	<div class='author'>
-      	  Tip
-      	</div>
-      </article>
-
-      <article>
-      	<h3>Exercise</h3>
-
-      	<ul>
-      		<li>
-      			Write a small program that generates a warning from the static
-      			checker, yet executes and completes in production mode.
-      		</li>
-
-      		<li>
-      			Run your program in both modes in both Editor and VM. Hint: Tools &gt; Manage Launches.
-      		</li>
-      	</ul>
       </article>
 
       <article>
@@ -1066,7 +1076,7 @@ positiveRange(2, 2);
       	<h3>Instance variables</h3>
       	<ul>
       		<li>
-      			Unitialized variables default to null
+      			Uninitialized variables default to null
       		</li>
       		<li>
       			Final and non-final variables generate implicit getter
@@ -1428,7 +1438,7 @@ class GamePiece {
       </article>
 
       <article class="smaller">
-        <h3>PENDING: Classes have implicit interfaces</h3>
+        <h3>Classes have implicit interfaces</h3>
         <ul>
           <li>
             No more IDuck everywhere!
@@ -1835,6 +1845,32 @@ main() {
   u.multi('hello', 'world');  // multi,   [hello, world]
 }
 </pre>
+      </article>
+
+      <article>
+        <h2>Advanced topics</h2>
+      </article>
+
+      <article>
+        <h3>Dynamic type</h3>
+        <ul>
+          <li>
+            The "unknown" type, when no static type annotation is given
+          </li>
+        </ul>
+
+<pre>
+yell(msg) {
+  return '$msg !!!!';
+}
+
+// same as
+
+Dynamic yell(Dynamic msg) {
+  return '$msg !!!';
+}
+</pre>
+
       </article>
 
       <article>
