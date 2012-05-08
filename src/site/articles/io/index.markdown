@@ -274,7 +274,7 @@ to make it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
 [HttpServer](http://api.dartlang.org/io/HttpServer.html)
-and hook up an onRequest handler.
+and hook up a `defaultRequestHandler`.
 
 Here is a simple web server
 that just answers ‘Hello, world’ to any request.
@@ -284,7 +284,7 @@ that just answers ‘Hello, world’ to any request.
 main() {
   var server = new HttpServer();
   server.listen('127.0.0.1', 8080);
-  server.onRequest = (HttpRequest request, HttpResponse response) {
+  server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
     response.outputStream.write('Hello, world'.charCodes());
     response.outputStream.close();
   };
@@ -308,18 +308,28 @@ to pipe all the data read from a file directly to the response output stream.
 {% pretty_code dart 0 %}
 #import('dart:io');
 
+send404(HttpResponse response) {
+  response.statusCode = HttpStatus.NOT_FOUND;
+  response.outputStream.close();
+}
+
 startServer(String basePath) {
   var server = new HttpServer();
   server.listen('127.0.0.1', 8080);
   server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
     var path = request.path == '/' ? '/index.html' : request.path;
     var file = new File('${basePath}${path}');
-    file.exists((found) {
-      if (found) {
-        file.openInputStream().pipe(response.outputStream);
+    file.fullPath((String fullPath) {
+      if (!fullPath.startsWith(basePath)) {
+        send404(response);
       } else {
-        response.statusCode = HttpStatus.NOT_FOUND;
-        response.outputStream.close();
+        file.exists((found) {
+          if (found) {
+            file.openInputStream().pipe(response.outputStream);
+          } else {
+            send404(response);
+          }
+        });
       }
     });
   };
