@@ -274,7 +274,7 @@ to make it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
 [HttpServer](http://api.dartlang.org/io/HttpServer.html)
-and hook up an onRequest handler.
+and hook up a `defaultRequestHandler`.
 
 Here is a simple web server
 that just answers ‘Hello, world’ to any request.
@@ -284,7 +284,7 @@ that just answers ‘Hello, world’ to any request.
 main() {
   var server = new HttpServer();
   server.listen('127.0.0.1', 8080);
-  server.onRequest = (HttpRequest request, HttpResponse response) {
+  server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
     response.outputStream.write('Hello, world'.charCodes());
     response.outputStream.close();
   };
