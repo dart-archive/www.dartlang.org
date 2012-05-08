@@ -308,18 +308,28 @@ to pipe all the data read from a file directly to the response output stream.
 {% pretty_code dart 0 %}
 #import('dart:io');
 
+send404(HttpResponse response) {
+  response.statusCode = HttpStatus.NOT_FOUND;
+  response.outputStream.close();
+}
+
 startServer(String basePath) {
   var server = new HttpServer();
   server.listen('127.0.0.1', 8080);
   server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
     var path = request.path == '/' ? '/index.html' : request.path;
     var file = new File('${basePath}${path}');
-    file.exists((found) {
-      if (found) {
-        file.openInputStream().pipe(response.outputStream);
+    file.fullPath((String fullPath) {
+      if (!fullPath.startsWith(basePath)) {
+        send404(response);
       } else {
-        response.statusCode = HttpStatus.NOT_FOUND;
-        response.outputStream.close();
+        file.exists((found) {
+          if (found) {
+            file.openInputStream().pipe(response.outputStream);
+          } else {
+            send404(response);
+          }
+        });
       }
     });
   };
