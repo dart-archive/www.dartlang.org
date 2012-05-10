@@ -23,28 +23,25 @@ title: "Technical Overview"
 
   <h4> Contents </h4>
 
-  <ul class="toc">
+  <ol class="toc">
     <li> <a href="#key">Key features</a> </li>
     <li> <a href="#goals">Design goals</a> </li>
     <li> <a href="#code">Show me the code </a>
-      <ul>
+      <ol>
       <li> <a href="#classes">Classes and interfaces </a> </li>
       <li> <a href="#optional-types">Optional types </a> </li>
-      </ul>
+      </ol>
     </li>
     <li> <a href="#howtouse">How can I use Dart? </a>
-      <ul>
+      <ol>
       <li> <a href="#editor">Dart Editor</a> </li>
-      <li> <a href="#dartboard">Dartboard</a> </li>
       <li> <a href="#mimetype">New MIME type </a> </li>
-      </ul>
+      </ol>
     </li>
-  {% comment %}
     <li> <a href="#tools">Tools </a> </li>
-  {% endcomment %}
     <li> <a href="#libraries">Libraries </a> </li>
     <li> <a href="#involved">Get involved </a> </li>
-  </ul>
+  </ol>
 </section>
 
 
@@ -273,12 +270,6 @@ You can run Dart code in several ways:
   </li>
   <li>
     <p>
-    Use <a href="#dartboard">Dartboard</a> to write, modify, and execute
-    small Dart programs within any browser window
-    </p>
-  </li>
-  <li>
-    <p>
     Execute Dart code directly in a VM on your computer
     </p>
   </li>
@@ -291,19 +282,6 @@ You can run Dart code in several ways:
   </li>
 </ul>
 
-<aside class="note">
-<strong>Note:</strong>
-<a href="#editor">Dart Editor</a>
-supports Dart-to-JavaScript compilation now.
-The command-line tools,
-such as the VM and Dart-to-JavaScript compiler,
-aren't yet ready for general use.
-However, you can build the command-line tools
-using the source code in the
-<a href="http://code.google.com/p/dart/">Dart project</a>.
-</aside>
-
-
 <section id="editor">
 <h3>Dart Editor</h3>
 
@@ -313,8 +291,7 @@ creating, modifying, and launching Dart web apps.
 With one click, you can compile a Dart web app to JavaScript
 and launch the app in a browser.
 Taking advantage of Dart&rsquo;s structured nature,
-Dart Editor supports method name completion,
-and it will support refactoring.
+Dart Editor supports method name completion and refactoring.
 </p>
 
 <p>
@@ -323,50 +300,63 @@ For information about downloading and using Dart Editor, see the
 </p>
 </section>
 
-
-<section id="dartboard">
-<h3> Dartboard </h3>
-
-<p>
-Several pages on this site use Dartboard
-so that you can see, modify, and run small Dart programs.
-Besides using the embedded Dartboard,
-you can also go directly to
-<a href="http://try.dartlang.org">try.dartlang.org</a>.
-Dartboard runs your code in the Dart VM on a remote server.
-</p>
-</section>
-
 <section id="mimetype">
 <h3>New MIME type</h3>
 
 <p>
-You will be able to embed a Dart program directly on an HTML page,
-or you will be able to use a
-<code>#import</code> or <code>#source</code> statement
-to pull in external files.
+You will be able to link to a Dart program directly from an HTML page.
 Here is the proposed new MIME type,
 &ldquo;application/dart&rdquo;:
 </p>
 
-{% pretty_code dart 0 %}
-&lt;html&gt;
-  &lt;body&gt;
-    &lt;script type="application/dart"&gt;
-      main() {
-        Element element = document.getElementById('message');
-        element.innerHTML = 'Hello from Dart';
-      }     
-    &lt;/script&gt;
-    &lt;div id="message"&gt;&lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt; 
+{% pretty_code html 0 %}
+&lt;!DOCTYPE html>
+
+&lt;html>
+  &lt;head>
+    &lt;title>Simple Dart Web App&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Simple Dart Web App&lt;/h1>
+    &lt;h2 id="status">dart is starting up...&lt;/h2>
+    &lt;script type="application/dart" src="SimpleDartWebApp.dart">&lt;/script>
+    &lt;script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js">&lt;/script>
+  &lt;/body>
+&lt;/html>
 {% endpretty_code %}
+
+<p>
+The dart.js file above will swap out the <code>application/dart</code>
+tag with a <code>text/javascript</code> tag if the browser does not
+have an embedded Dart virtual machine.
+</p>
+
+<p>
+The following is the Dart code for the page above:
+</p>
+
+{% pc dart 0 %}
+#import('dart:html');
+
+class SimpleDartWebApp {
+  void run() {
+    write("Hello World!");
+  }
+
+  void write(String message) {
+    // the HTML library defines a global "document" variable
+    document.query('#status').innerHTML = message;
+  }
+}
+
+void main() {
+  new SimpleDartWebApp().run();
+}
+{% endpc %}
 </section> <!-- howtouse -->
 </section> <!-- mimetype -->
 
 
-{% comment %}
 <section id="tools">
 <h2>Tools</h2>
 
@@ -374,21 +364,28 @@ Here is the proposed new MIME type,
 The Dart language is accompanied by a set of tools
 to aid rapid prototyping, coding, and debugging
 for the entire development cycle.
-Planned offerings will include:
+Offerings include:
 </p>
 
 <ul>
   <li>The Dart Editor</li>
-  <li>The dartc compiler</li>
+  <li>The dart2js compiler</li>
   <li>The Dart VM</li>
+  <li>Dartium: Chromium with an embedded Dart VM</li>
 </ul>
 
 <p>
-As the following figure shows,
-the same code can run on both the client and the server.
-On the client side, the Dart code
-(compiled to JavaScript)
-runs inside the browser and can communicate with the HTML5 DOM.
+On the client side, you can deploy Dart apps in two ways.
+For browsers without an embedded Dart VM,
+you can compile the Dart code to JavaScript,
+using the dart2js compiler. This compiler generates ECMAScript5-compatible
+JavaScript from the Dart code. Dart code can run
+directly in browsers that have a Dart VM,
+including Dartium (a special build of Chromium)
+and eventually Chrome.
+</p>
+
+<p>
 On the server side, the Dart code runs directly on the command line,
 for fast iteration and for cloud-based tasks.
 </p>
@@ -397,14 +394,13 @@ for fast iteration and for cloud-based tasks.
      alt="Dart source -> Dart Editor; Dart Editor -> either [Dart VM] or [JavaScript source -> Browser (JavaScript Engine)]"
      width="266" height="417" >
 </section>
-{% endcomment %}
 
 
 <section id="libraries">
 <h2>Libraries</h2>
 
 <p>
-Dart will provide the following libraries
+Dart provides the following libraries
 to support web and web server development:
 </p>
 
@@ -413,12 +409,18 @@ to support web and web server development:
   <dd> Contains interfaces to support
     common data structures and operations.
     </dd>
-  <dt> DOM Library </dt>
+  <dt> <a href="http://api.dartlang.org/html.html">HTML Library</a> </dt>
   <dd> Contains interfaces to the HTML5 DOM,
     loosely based on the proposed HTML5 standard
     as specified by the W3C/WHATWG.
     These interfaces will evolve in parallel with
     the HTML5 standards.</dd>
+
+  <dt> <a href="http://api.dartlang.org/io.html">I/O Library</a> </dt>
+  <dd> Contains interfaces to read and write files, open directories,
+    open network sockets, and run HTTP servers. This library is for
+    command-line Dart programs.
+    </dd>
 </dl>
 
 <p>
@@ -519,7 +521,7 @@ and providing your feedback:
   <li>
     Other pages in the
     <a href="http://dartlang.org/">Dart website</a>,
-    such as <a href="/docs/getting-started/">tutorials</a>,
+    such as <a href="/docs/getting-started/editor/">tutorials</a>,
     <a href="/samples/">sample code</a>,
     <a href="/articles/">articles</a>,
     and the latest draft of the
@@ -531,7 +533,7 @@ and providing your feedback:
     <a href="https://groups.google.com/a/dartlang.org/group/misc/">Dart 
     discussion group</a> (misc at dartlang.org) </li>
   <li>
-    <a href="http://twitter.com/dart_lang">Follow @dart_lang</a> on Twitter </li>
+    <a href="https://plus.google.com/109866369054280216564/">+Dart</a> on Google+ </li>
 </ul>
 
 </section> <!-- involved -->
