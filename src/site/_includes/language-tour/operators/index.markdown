@@ -32,7 +32,7 @@ This section covers the following topics:
 </ul>
 
 
-<section id="op-arithmetic">
+<section id="op-arithmetic" markdown="1">
 ### Arithmetic operators
 
 Dart supports the usual arithmetic operators.
@@ -108,7 +108,7 @@ print('${ --a }'); // 2 (decrement before returning a value)
 </section>
 
 
-<section id="op-equality">
+<section id="op-equality" markdown="1">
 ### Equality and relational operators
 
 <table class="operatorTable">
@@ -185,7 +185,7 @@ print(a is! String); // true; 2 is an int, not a string
 </section>
 
 
-<section id="op-assign">
+<section id="op-assign" markdown="1">
 ### Assignment operators
 
 You assign values using the <b>=</b> operator.
@@ -238,7 +238,7 @@ print('a *= 3: $a'); // a *= 3: 6
 </section>
 
 
-<section id="op-logical">
+<section id="op-logical" markdown="1">
 ### Logical operators 
 
 You can invert or combine boolean expressions using the logical operators.
@@ -266,7 +266,7 @@ if (!done && (col == 0 || col == 3)) {
 </section>
 
 
-<section id="op-bit">
+<section id="op-bit" markdown="1">
 ### Bitwise and shift operators
 
 You can manipulate the individual bits of objects in Dart.
@@ -312,7 +312,7 @@ print((value >> 4).toRadixString(16));       // 2
 </section>
 
 
-<section id="op-other">
+<section id="op-other" markdown="1">
 ### Other operators
 
 <table class="operatorTable">
@@ -353,7 +353,7 @@ NOTE: The following aren't operators; they're syntax:
 {% endcomment %}
 
 
-<section id="op-methods">
+<section id="op-methods" markdown="1">
 ### Operators are methods
 
 Operators are just instance methods with special names.
@@ -387,7 +387,7 @@ The following operators can be overridden:
 % <br>
 | <br>
 ^ <br>
-& <br>
+&amp; <br>
 &lt;&lt; <br>
 >> <br>
 [] <!-- (list access operator) --> <br>
@@ -404,7 +404,7 @@ negate <em>(<code>-expr</code>)</em> <!-- (unary minus: -) --> **
 {% endcomment %}
 </p>
 
-<aside class="note">
+<aside class="note" markdown="1">
 {% comment %}
 WILLCHANGE: will need to tweak the wording.
 {% endcomment %}
@@ -420,7 +420,7 @@ see [Operators](#classes-operators) in the Classes section.
 </section>
 
 
-<section id="op-summary">
+<section id="op-summary" markdown="1">
 ### Summary of operators
 
 Dart operators should look and act familiar.

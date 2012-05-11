@@ -75,7 +75,7 @@ It's a placeholder that you can think of as
 a type that a developer will define later.
 
 
-<section id="generics-literals">
+<section id="generics-literals" markdown="1">
 ### Using collection literals
 
 Both built-in collection types are parameterized:
@@ -94,7 +94,7 @@ Map&lt;String, String> pages = <b>&lt;String></b>{ // specify <b>value</b> type:
     'humans.txt':'We are people, not machines' };
 {% endpc %}
 
-<aside class="note">
+<aside class="note" markdown="1">
   **Note:**
   Map literals always have string _keys_.
   The type before the brace specifies the type of the map's _values_.
@@ -103,7 +103,7 @@ Map&lt;String, String> pages = <b>&lt;String></b>{ // specify <b>value</b> type:
 </section>
 
 
-<section id="generics-constructors">
+<section id="generics-constructors" markdown="1">
 ### Using constructors
 
 To specify one or more types when using a constructor,
@@ -126,7 +126,7 @@ Map&lt;int, View> views = new Map<b>&lt;int, View></b>();
 {% endpc %}
 </section>
 
-<section id="generics-collections">
+<section id="generics-collections" markdown="1">
 ### Generic collections and the types they contain
 
 Dart generic types are _reified_,
@@ -150,7 +150,7 @@ The solution is to either
 check each item's type or
 wrap item-manipulation code in an [exception handler](#exceptions).
 
-<aside class="note">
+<aside class="note" markdown="1">
   **Note:**
   In contrast,
   generics in Java use _erasure_,
@@ -161,7 +161,7 @@ wrap item-manipulation code in an [exception handler](#exceptions).
 </section>
 
 
-<section id="generics-summary">
+<section id="generics-summary" markdown="1">
 ### Summary of generics
 
 For more information about generics, see

@@ -11,7 +11,7 @@ Interfaces are handy for specifying APIs
 without specifying exactly how the APIs are implemented.
 
 
-<section id="interfaces-defining">
+<section id="interfaces-defining" markdown="1">
 ### Defining an interface
 
 Use the `interface` keyword to define an interface.
@@ -29,7 +29,7 @@ the interface just has a semicolon (`;`).
 </section>
 
 
-<section id="interfaces-implementing">
+<section id="interfaces-implementing" markdown="1">
 ### Implementing an interface
 
 A class can implement one or more interfaces
@@ -61,7 +61,7 @@ class Point <b>implements Comparable, Hashable</b> {
 }
 {% endpretty_code %}
 
-<aside class="note">
+<aside class="note" markdown="1">
   **Note:**
   Soon you'll be able to treat Dart classes as interfaces.
   This feature will be useful when creating mock objects for testing.
@@ -70,7 +70,7 @@ class Point <b>implements Comparable, Hashable</b> {
 </section>
 
 
-<section id="interfaces-extending">
+<section id="interfaces-extending" markdown="1">
 ### Extending an interface
 
 You can create an interface
@@ -88,7 +88,7 @@ interface HashablePoint extends Hashable {
 }
 {% endpretty_code %}
 
-<aside class="note">
+<aside class="note" markdown="1">
   **Note:**
   Technically, interfaces don't have instance variables
   such as `x` and `y`.
@@ -120,13 +120,13 @@ void main() {
 </section>
 
 
-<section id="interfaces-default-class">
+<section id="interfaces-default-class" markdown="1">
 ### Defining constructors and a default class
 
 An interface can define constructors,
 as long as it specifies a _default class_.
 
-<aside class="note">
+<aside class="note" markdown="1">
   **Note:**
   Many of the Dart APIs are implemented as
   interfaces that have default classes.
@@ -165,7 +165,7 @@ var cache = new ObjectCache(); // same as: new MemoryCache()
 </section>
 
 
-<section id="interfaces-summary">
+<section id="interfaces-summary" markdown="1">
 ### Summary of interfaces
 Interfaces are everywhere in Dart,
 from built-in types to

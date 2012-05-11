@@ -19,7 +19,7 @@ This section describes how it currently works.
 </aside>
 
 
-<section id="libraries-import">
+<section id="libraries-import" markdown="1">
 ### Using libraries
 
 Use **#import** to
@@ -51,7 +51,7 @@ For example:
 {% endpretty_code %}
 
 
-<section id="libraries-prefix">
+<section id="libraries-prefix" markdown="1">
 #### Specifying prefixes
 
 If you import two libraries that have conflicting identifiers,
@@ -71,7 +71,7 @@ var element2 = new lib2.Element(); // uses Element from library2
 </section>
 
 
-<section id="libraries-library">
+<section id="libraries-library" markdown="1">
 ### Implementing libraries
 
 Use [#source](#libraries-source)
@@ -83,13 +83,13 @@ to specify that a file
 implements a library.
 
 
-<section id="libraries-source">
+<section id="libraries-source" markdown="1">
 #### Associating a file with the current library
 
 You can put your library's implementation into multiple .dart files
 by using **#source** in the library's main .dart file.
 
-<aside class="note">
+<aside class="note" markdown="1">
 **Included files can't have directives.**
 A single file in each library
 must have all the directives (such as #import and #library)
@@ -116,7 +116,7 @@ Ballgame.dart doesn't have a #library statement,
 but remember that each Dart app has an implicit library.
 
 
-<section id="libraries-library">
+<section id="libraries-library" markdown="1">
 #### Declaring a library
 
 To explicitly declare a library, you use a **#library** statement.
@@ -137,7 +137,7 @@ For example:
 </aside>
 </section>
 
-<section id="libraries-private-members">
+<section id="libraries-private-members" markdown="1">
 #### Declaring private members
 
 If an identifier starts with an underscore,
@@ -193,7 +193,7 @@ class DoubleIncrementer extends Incrementer {
 
 </section>
 
-<section id="libraries-summary">
+<section id="libraries-summary" markdown="1">
 ### Summary of libraries and visibility
 Use **#import** if you need to use a library,
 **\#source** to pull files into a library,

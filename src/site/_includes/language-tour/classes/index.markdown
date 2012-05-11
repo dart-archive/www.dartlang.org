@@ -43,7 +43,7 @@ where it is declared
 (instead of in a constructor or method),
 the initial value must be a compile-time constant.
 
-<aside class="note">
+<aside class="note" markdown="1">
 **Note:** This restriction is currently under review.
 </aside>
 
@@ -80,7 +80,7 @@ class Point {
 
 The `this` keyword references the current instance.
 
-<aside class="note">
+<aside class="note" markdown="1">
 **Note:** Use `this` only when there is a name
 conflict. Otherwise, Dart style omits the `this`.
 </aside>
@@ -121,7 +121,7 @@ to initialize any final variables.
 #import('dart:html');
 
 class Button {
-  final Collection<ButtonHandler> handlers;
+  final Collection&lt;ButtonHandler> handlers;
   final String domId;
   final Element elem;
   
@@ -234,7 +234,7 @@ void main() {
 }
 {% endpc %}
 
-<aside class="note">
+<aside class="note" markdown="1">
 **Note:** Other examples of compile-time
 constants are literal numbers and literal strings.
 </aside>
@@ -256,7 +256,7 @@ class Logger {
   final String name;
   bool mute = false;
 
-  static Map<String, Logger> _cache;
+  static Map&lt;String, Logger> _cache;
 
   factory Logger(String name) {
     if (_cache == null) {
@@ -290,7 +290,7 @@ var logger = new Logger('UI');
 logger.log('Button clicked');
 {% endpc %}
 
-<aside class="note">
+<aside class="note" markdown="1">
 **Note:** Factory constructors have no access to `this`.
 </aside>
 
@@ -325,7 +325,7 @@ num distance = point.distanceTo(new Point(4,4));
 print(distance);  // 2.82842...
 {% endpc %}
 
-<section id="classes-getters-and-setters">
+<section id="classes-getters-and-setters" markdown="1">
 #### Getters and setters
 
 Getter and setter methods provide read and write access
@@ -363,7 +363,7 @@ with instance variables,
 later wrapping them with methods,
 all without changing client code.
 
-<section id="classes-operators">
+<section id="classes-operators" markdown="1">
 #### Operators
 
 Because operators are just instance methods with special names,
@@ -399,7 +399,7 @@ main() {
   print(v-w); // (0,1)
 }{% endpc %}
 
-<aside class="note">
+<aside class="note" markdown="1">
 **Implementation note:**
 Overriding `-` affects only the binary subtraction operator.
 To override the unary form of `-`,
@@ -470,7 +470,7 @@ main() {
 }
 {% endpc %}
 
-<aside class="note">
+<aside class="note" markdown="1">
   **Best practice:** Consider using top-level functions,
   instead of static methods, for common or widely
   used utilities and functionality.
