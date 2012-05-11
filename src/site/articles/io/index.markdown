@@ -102,17 +102,23 @@ we use the
 [Options](http://api.dartlang.org/dart_core/Options.html) interface
 from [dart:core](http://api.dartlang.org/dart_core.html).
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% pretty_code dart 0 %}
+#import('dart:io');
 
 main() {
   var options = new Options();
   var file = new File(options.script);
-  file.readAsText(Encoding.ASCII, (text) => print(text));
+  Future<String> finishedReading = file.readAsText(Encoding.ASCII);
+  finishedReading.handleException((e) {
+    print("Could not read file ${options.script}, error: $e");
+  });
+  finishedReading.then((String contents) => print(contents));
 }
+
 {% endpretty_code %}
 
 Notice that the readAsText() method is asynchronous;
-it takes a callback argument that is called with the contents of the file
+it returns a Future that will return the contents of the file
 once the file has been read from the underlying system.
 This asynchronicity allows the Dart thread to perform other work
 while waiting for the I/O operation to complete.
@@ -130,30 +136,32 @@ Here is a version that opens the file for random access operations.
 The code opens the file for reading and then reads one byte at a time
 until it encounters the char code for ‘;’.
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% pretty_code dart 0 %}
+#import('dart:io');
 
 main() {
   var options = new Options();
+  var semicolon = ';'.charCodeAt(0);
   var result = [];
 
-  new File(options.script).open(FileMode.READ, (RandomAccessFile file) {
-    var semicolon = ';'.charCodeAt(0);
+  new File(options.script).open(FileMode.READ).then((RandomAccessFile file) {
     // Callback to deal with each byte.
-    void onByte(byte) {
+    void onByte(int byte) {
       result.add(byte);
       if (byte == semicolon) {
         print(new String.fromCharCodes(result));
-        file.close(() => null);
+        file.close();
       } else {
-        file.readByte(onByte);
+        file.readByte().then(onByte);
       }
     }
-
-    // Read the first byte to get started.
-    file.readByte(onByte);
+    openedFile.readByte().then(onByte);
   });
 }
 {% endpretty_code %}
+
+When you see a use of `then()`, you are seeing a Future in action.
+Both the `open()` and `readByte()` methods return a Future object.
 
 This code is, of course,
 a very simple use of random-access operations.
@@ -223,10 +231,11 @@ has an onLine handler that gets called
 whenever a full line of text has been decoded
 and is ready to be read using readLine.
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% pretty_code dart 0 %}
+#import('dart:io');
 
 main() {
-  var p = new Process.start('ls', ['-l']);
+  var p = Process.start('ls', ['-l']);
   var stdoutStream = new StringInputStream(p.stdout);
   stdoutStream.onLine = () => print(stdoutStream.readLine());
   p.onExit = (exitCode) {
@@ -247,11 +256,12 @@ Instead of printing the output to stdout,
 we can use the streaming interfaces
 to pipe the output of the process to a file instead.
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% pretty_code dart 0 %}
+#import('dart:io');
 
 main() {
   var output = new File('output.txt').openOutputStream();
-  var p = new Process.start('ls', ['-l']);
+  var p = Process.start('ls', ['-l']);
   p.stdout.pipe(output);
   p.onExit = (exitCode) => print('exit code: $exitCode');
 }
