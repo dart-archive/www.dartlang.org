@@ -109,16 +109,13 @@ main() {
   var options = new Options();
   var file = new File(options.script);
   Future<String> finishedReading = file.readAsText(Encoding.ASCII);
-  finishedReading.handleException((e) {
-    print("Could not read file ${options.script}, error: $e");
-  });
-  finishedReading.then((String contents) => print(contents));
+  finishedReading.then((text) => print(text));
 }
-
 {% endpretty_code %}
 
 Notice that the readAsText() method is asynchronous;
-it returns a Future that will return the contents of the file
+it returns a [Future](http://api.dartlang.org/dart_core/Future.html)
+that will return the contents of the file
 once the file has been read from the underlying system.
 This asynchronicity allows the Dart thread to perform other work
 while waiting for the I/O operation to complete.
