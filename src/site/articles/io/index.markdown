@@ -108,7 +108,7 @@ from [dart:core](http://api.dartlang.org/dart_core.html).
 main() {
   var options = new Options();
   var file = new File(options.script);
-  Future<String> finishedReading = file.readAsText(Encoding.ASCII);
+  Future&lt;String> finishedReading = file.readAsText(Encoding.ASCII);
   finishedReading.then((text) => print(text));
 }
 {% endpretty_code %}
