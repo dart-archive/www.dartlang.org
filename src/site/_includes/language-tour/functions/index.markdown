@@ -62,20 +62,31 @@ must be compile time constants. If no default value is
 provided, the value is `null` (as we saw above).
 
 {% pretty_code dart 0 %}
-String say(String from, String msg, [String device='carrier pigeon']) {
+String say(String from, String msg,
+    [String device='carrier pigeon', String mood]) {
   var result = "$from says $msg";
   if (device != null) {
   	result = "$result with a $device";
+  }
+  if (mood != null) {
+    result = "$result (in a $mood mood)";
   }
   return result;
 }
 {% endpretty_code %}
 
-Omitting the optional parameter, you can see how the default value is used:
+Omitting the optional parameters, you can see how the default values is used:
 
 {% pretty_code dart 0 %}
 print(say("Bob", "Howdy")); // Bob says Howdy with a carrier pigeon
 {% endpretty_code %}
+
+You can pass null to an optional parameter, overriding its default
+value.
+
+{% pc dart 0 %}
+print(say('Bob', 'Howdy', null)); // Bob says Howdy
+{% endpc %}
 
 #### Named parameters
 
@@ -84,6 +95,9 @@ Optional parameters are also named parameters.
 {% pretty_code dart 0 %}
 print(say("Bob", "Howdy", device: "tin can and string"));
 // Bob says Howdy with a tin can and string
+
+print(say("Bob", "Howdy", mood: "fresh"));
+// Bob says Howdy with a carrier pigeon (in a fresh mood)
 {% endpretty_code %}
 
 #### First class functions
