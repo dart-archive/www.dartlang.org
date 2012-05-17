@@ -4,79 +4,111 @@ title: "A Tour of the Dart Libraries"
 description: "Learn how to use each major Dart library feature."
 ---
 
-# {{ page.title }} 
-
-<section class="overview" markdown="1">
+# {{ page.title }}
 
 Welcome to the Dart library tour!
-We'll show you how to use each major Dart library feature,
-including the core, HTML, JSON, server IO libraries, and more.
+We'll show you how to use the major features in each library
+that comes with Dart.
 
-This tour only serves to provide an overview of
-library functionality, it is by no means comprehensive.
+This tour is just an overview of
+library functionality; it is by no means comprehensive.
 Consult the
 [Dart API reference](http://api.dartlang.org/)
-for the full details about a library or interface.
+for the full details about a class or interface.
 
 <aside class="note" markdown="1">
-**Note:** Expect major changes to the Dart libraries before a 1.0
-release.
+**Note:** Expect major changes to the Dart libraries before Dart's
+first release.
 </aside>
 
 #### Contents {#toc}
 
-1. ToC
-{:toc .toc}
+1. [dart:core - Strings, collections, and more](#dartcore---strings-collections-and-more)
+    1. [Collections](#collections)
+        1. [Lists](#lists)
+        1. [Sets](#sets)
+        1. [Common collection methods](#common-collection-methods)
+        1. [Maps (aka dictionaries or hashes)](#maps-aka-dictionaries-or-hashes)
+    1. [Dates and times](#dates-and-times)
+    1. [Utility interfaces](#utility-interfaces)
+    1. [Math and numbers](#math-and-numbers)
+    1. [Strings and regular expressions](#strings-and-regular-expressions)
+    1. [Asynchronous programming](#asynchronous-programming)
+    1. [Exceptions](#exceptions)
+1. [dart:isolate - Concurrency with isolates](#dartisolate---concurrency-with-isolates)
+    1. [Isolate concepts](#isolate-concepts)
+    1. [Using isolates](#using-isolates)
+        1. [Sending messages](#sending-messages)
+        1. [Receiving messages](#receiving-messages)
+        1. [Receiving replies](#receiving-replies)
+1. [dart:io - File and socket I/O for command-line apps](#dartio---file-and-socket-io-for-command-line-apps)
+    1. [Files and directories](#files-and-directories)
+    1. Sockets (coming soon)
+    1. HTTP Server (coming soon)
+    1. HTTP Client (coming soon)
+    1. Web socket server (coming soon)
+1. HTML (coming soon)
+1. JSON (coming soon)
+1. URI (coming soon)
+1. UTF (coming soon)
+1. Crypto (coming soon)
+{:.toc}
 
-</section>
+## dart:core - Strings, collections, and more
 
-## Strings, collections, and other core functionality
-
-The Dart core library forms a small but critical set of built-in functionality.
-This library is automatically imported into your Dart program.
+The Dart core library provides a small but critical set of built-in functionality.
+This library is automatically imported into every Dart program.
 
 ### Collections
 
-Dart ships with a core Collections API. Included are interfaces for Lists,
+Dart ships with a core collections API, which includes interfaces for Lists,
 Maps, and Sets.
 
 #### Lists
 
-A [List](http://api.dartlang.org/dart_core/List.html) in Dart is an ordered
-collection of items. List is analogous to an array in other languages.
+A [list](http://api.dartlang.org/dart_core/List.html) in Dart is an ordered
+collection of items, analogous to an array in other languages.
 Lists are zero indexed, and they can contain duplicate items.
 
-##### Adding and removing
+The language tour has
+[more information about lists](/docs/language-tour/#lists).
+
+##### Creating, adding, and removing
+
+As the language tour shows, you can create and initialize lists using literals.
+Alternatively, use one of the [List
+constructors](http://api.dartlang.org/dart_core/List.html#List). The List class
+also provides several methods for adding items to and removing items from lists.
 
 {% pc dart 0 %}
-// list literal
+// use a list constructor
+var vegetables = new List();
+
+// or, simply use a list literal
 var fruits = ['apples', 'oranges'];
 
-// list constructor
-fruits = new List();
-
 // add to a list
-fruits.add('applies');
+fruits.add('kiwis');
 
 // add multiple items to a list
-fruits.addAll(['oranges', 'bananas']);
+fruits.addAll(['grapes', 'bananas']);
 
 // get the list length
-assert(fruits.length == 3);
+assert(fruits.length == 5);
 
 // remove a single item
 var appleIndex = fruits.indexOf('apples');
 fruits.removeRange(appleIndex, 1);
-assert(fruits.length == 2);
+assert(fruits.length == 4);
 
 // remove all elements from a list
 fruits.clear();
 assert(fruits.length == 0);
 {% endpc %}
 
-##### Accessing and finding items
+##### Getting and setting items
 
-Lists use zero-based indexing, where zero
+Lists use zero-based indexing, where 0
 is the index of the first element, and
 `list.length-1` is the index of the last
 element. Use `indexOf()` to find
@@ -94,9 +126,11 @@ assert(fruits.indexOf('apples') == 0);
 
 ##### Sorting
 
-Sort a list using the `sort()` method, and provide
-a sorting function that compares two objects, returning
-&lt; 0 for smaller, 0 for same, and &gt; 1 for larger.
+Sort a list using the `sort()` method, and you must provide
+a sorting function that compares two objects.
+The sorting function must
+return &lt; 0 for _smaller_,
+0 for the _same_, and &gt; 0 for _bigger_.
 
 {% pc dart 0 %}
 var fruits = ['bananas', 'apples', 'oranges'];
@@ -120,11 +154,12 @@ var fruit = fruits[0];
 assert(fruit is String);
 
 // generates static analysis warning, num is not a string
-// throws exception in checked mode
-fruits.add(5);  // BUG!
+fruits.add(5);  // BAD: throws exception in checked mode
 {% endpc %}
 
-&rarr; Refer to the full
+##### More information
+
+Refer to the full
 [List API docs](http://api.dartlang.org/dart_core/List.html)
 for a full list of methods.
 
@@ -133,7 +168,8 @@ for a full list of methods.
 
 #### Sets
 
-A [Set](http://api.dartlang.org/dart_core/Set.html)
+A [set](http://api.dartlang.org/dart_core/Set.html)
+in Dart
 is an unordered collection of unique items.
 Because a set is unordered,
 you can't get a set's items by index (position).
@@ -157,7 +193,7 @@ assert(ingredients.length == 2);
 ##### Checking membership
 
 Use `contains()` and `containsAll()` to check whether
-an object or objects exists in the set.
+one or more objects are in a set.
 
 {% pc dart 0 %}
 var ingredients = new Set();
@@ -188,12 +224,14 @@ assert(intersection[0] == 'xenon');
 
 // check whether this set is a subset of another collection
 // that is, does another collection contains all the items of this set
-var allElements = ['hydrogen', 'helium', 'lithium', 'beryllium', '...',
-                   'gold', 'titanium', 'xenon', '...'];
+var allElements = ['hydrogen', 'helium', 'lithium', 'beryllium',
+                   'gold', 'titanium', 'xenon' /* all the rest */];
 assert(ingredients.isSubsetOf(allElements) == true);
 {% endpc %}
 
-&rarr; Refer to the full
+##### More information
+
+Refer to the full
 [Set API docs](http://api.dartlang.org/dart_core/Set.html)
 for a full list of methods.
 
@@ -206,9 +244,9 @@ Both List and Set extend the
 [Collection](http://api.dartlang.org/dart_core/Collection.html) interface.
 As such, they share common functionality found in all collections.
 
-The following examples work with any object that extends Collection.
+The following examples work with any object that implements Collection.
 
-##### Check if empty
+##### Checking whether a collection has items
 
 {% pc dart 0 %}
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
@@ -217,7 +255,7 @@ var teas = ['green', 'black', 'chamomile', 'earl grey'];
 assert(teas.isEmpty() == false);
 {% endpc %}
 
-##### Apply a function to each item
+##### Applying a function to each item
 
 {% pc dart 0 %}
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
@@ -231,12 +269,12 @@ var loudTeas = teas.map((tea) => tea.toUpperCase());
 assert(loudTeas[0] == 'GREEN');
 {% endpc %}
 
-##### Filter and check items
+##### Filtering and checking items
 
 Use `forEach()` and `map()` to apply a function to each
 element of the collection. Use `some()` and `every()`
-to check if some or all items in a collection apply
-match some condition.
+to check whether some or all items in a collection
+match a condition.
 
 {% pc dart 0 %}
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
@@ -246,19 +284,21 @@ isDecaffeinated(String teaName) => teaName == 'chamomile';
 
 // use filter() to create a new collection with only the items
 // that return true from the provided function
-var decaffinatedTeas = teas.filter((tea) => isDecaffeinated(tea));
+var decaffeinatedTeas = teas.filter((tea) => isDecaffeinated(tea));
 // or teas.filter(isDecaffeinated)
 
 // use some() to check whether at least one item in the collection
 // satisfies a condition
-assert(teas.some(isCaffeinated) == true);
+assert(teas.some(isDecaffeinated) == true);
 
 // use every() to check whether all the items in a collection
 // satisfy a condition
-assert(teas.every(isCaffeinated) == false);
+assert(teas.every(isDecaffeinated) == false);
 {% endpc %}
 
-&rarr; Refer to the full
+##### More information
+
+Refer to the full
 [Collection API docs](http://api.dartlang.org/dart_core/Collection.html)
 for a full list of methods.
 
@@ -268,21 +308,23 @@ for a full list of methods.
 #### Maps (aka dictionaries or hashes)
 
 The [Map](http://api.dartlang.org/dart_core/Map.html)
-interface, also commonly known as a dictionary or hash,
+interface, commonly known as a _dictionary_ or _hash_,
 is an unordered collection of key-value pairs.
 Maps associate a key to some value for easy retrieval.
+Unlike in JavaScript, Dart objects are not maps.
 
-Unlike in JavaScript, Dart objects are not all Maps.
+The language tour has more
+[information about maps](/docs/language-tour/#maps).
 
 <aside class="note">
   <b>Note:</b> The Map
   interface does not extend Collection.
 </aside>
 
-##### Declaring a map
+##### Creating maps
 
 You can declare a map using a terse literal syntax,
-or a traditional constructor.
+or you can use a traditional constructor.
 
 {% pc dart 0 %}
 // map literals use strings as keys
@@ -293,20 +335,22 @@ var hawaiianBeaches = {
 };
 
 // maps can be built from a constructor
-var nobleGases = new Map();
+var searchTerms = new Map();
 
 // maps are parameterized types; you can specify what types
 // the key and value should be
-nobleGases = new Map&lt;int, String>();
+var nobleGases = new Map&lt;int, String>();
 {% endpc %}
 
 ##### Adding, retrieving, and removing items
 
-Add and retrieve items from a map using the bracket syntax.
+You add, get, and set map items using the bracket syntax.
 Use `remove()` to remove a key and its value from a map.
 
 {% pc dart 0 %}
-// maps from constructors can use any Hashable object as a key
+var nobleGases = new Map&lt;int, String>();
+
+// maps from constructors can use any Hashable object as a key;
 // for example, int implements Hashable
 nobleGases[54] = 'xenon';
 
@@ -319,7 +363,7 @@ assert(nobleGases[54] == 'xenon');
 // check whether a map contains a key
 assert(nobleGases.containsKey(54) == true);
 
-// only add a key-value pair if the key does not yet exist in the map
+// add a key-value pair only if the key doesn't yet exist in the map
 var value = nobleGases.putIfAbsent(36, () => 'krypton');
 assert(value == 'krypton');
 
@@ -332,7 +376,7 @@ assert(nobleGases.containsKey(54) == false);
 
 You can retrieve all the values or all the keys from
 a map. You can also iterate through the key-value
-mappings.
+pairs.
 
 {% pc dart 0 %}
 var hawaiianBeaches = {
@@ -353,14 +397,16 @@ assert(values.length == 3);
 assert(values.some((v) => v.indexOf('waikiki') != -1) == true);
 
 // iterate through the key-value pairs
-// do not depend on iteration order
+// NOTE: do not depend on iteration order
 hawaiianBeaches.forEach((k,v) {
   print("I want to visit $k and swim at $v");
   // I want to visit oahu and swim at [waikiki, kailua, waimanalo]
 });
 {% endpc %}
 
-&rarr; Refer to the full
+##### More information
+
+Refer to the full
 [Map API docs](http://api.dartlang.org/dart_core/Map.html)
 for a full list of methods.
 
@@ -369,7 +415,7 @@ for a full list of methods.
 
 ### Dates and times
 
-A [Date](http://api.dartlang.org/dart_core/Date.html) is a point in time.
+A [Date](http://api.dartlang.org/dart_core/Date.html) object is a point in time.
 You can make a point in time relative to a
 location with a [TimeZone](http://api.dartlang.org/dart_core/TimeZone.html).
 
@@ -385,21 +431,21 @@ var y2k = new Date(2000, 1, 1, 0, 0, 0, 0);
 // specify all the parts of a date and time with a time zone
 y2k = new Date.withTimeZone(2000, 1, 1, 0, 0, 0, 0, const TimeZone.utc());
 
-// specify a date and time with the unix epoch, in ms
+// specify a date and time in milliseconds since the unix epoch
 y2k = const Date.fromEpoch(1336017592000, const TimeZone.utc());
 
-// parse a ISO 8601 date
+// parse an ISO 8601 date
 y2k = new Date.fromString('2000-01-01T00:00:00Z');
 {% endpc %}
 
 #### The epoch
 
-To get the number of milliseconds since the epoch,
-use the `value` getter.
+The `value` getter on a date returns the number of milliseconds since
+the epoch.
 
 {% pc dart 0 %}
 var y2k = new Date.fromString('2000-01-01T00:00:00Z');
-var millisecondsSinceEpoch = now.value;
+var millisecondsSinceEpoch = y2k.value;
 assert(millisecondsSinceEpoch == 946684800000);
 {% endpc %}
 
@@ -421,15 +467,18 @@ var december2000 = y2001.subtract(const Duration(30, 0 ,0, 0, 0));
 assert(december2000.year == 2000);
 assert(december2000.month == 12);
 
-// calculate the difference between two dates, returns a Duration
+// calculate the difference between two dates
+// returns a Duration object
 var duration = y2001.difference(y2k);
-assert(duration.inDays == 366);
+assert(duration.inDays == 366); // y2k was a leap year
 {% endpc %}
 
-&rarr; Refer to the full
-[Date API docs](http://api.dartlang.org/dart_core/Date.html)
-and
-[Duration API docs](http://api.dartlang.org/dart_core/Duration.html)
+#### More information
+
+Refer to the full
+[Date API docs](http://api.dartlang.org/dart_core/Date.html),
+[Duration API docs](http://api.dartlang.org/dart_core/Duration.html),
+and [TimeZone API docs](http://api.dartlang.org/dart_core/TimeZone.html)
 for a full list of methods.
 
 [Back to contents.](#toc)
@@ -437,10 +486,10 @@ for a full list of methods.
 
 ### Utility interfaces
 
-The core library also contains various utility interfaces, useful for
-sorting, maps, and iterating.
+The core library contains various utility interfaces, useful for
+sorting, mapping values, and iterating.
 
-#### Comparing an object
+#### Comparing objects
 
 Use the [Comparable](http://api.dartlang.org/dart_core/Comparable.html)
 interface to indicate that an object can be compared
@@ -462,29 +511,24 @@ main() {
 }
 {% endpc %}
 
-&rarr; Refer to the full
-[Comparable API docs](http://api.dartlang.org/dart_core/Comparable.html)
-for a full list of methods.
-
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-#### Acting as a key for maps
+#### Implementing map keys
 
+The default implementation of Map requires map keys to implement Hashable.
 The [Hashable](http://api.dartlang.org/dart_core/Hashable.html) interface
 indicates that an object can provide an integer
-hashcode. The default implementation of Map, the HashMap, requires that its
-keys implement Hashabe.
+hash code.
 
-Only objects that implement Hashable can be used as a key for a map.
-Objects that are equal (via ==) must also have identical hashcodes.
-A hashcode does not have to be unique, but it should
+Objects that are equal (via ==) must have identical hash codes.
+A hash code doesn't have to be unique, but it should
 be well distributed.
 
 {% pc dart 0 %}
 class Person implements Hashable {
   String firstName, lastName;
-  
+
   Person(this.firstName, this.lastName);
 
   // strategy from Effective Java, Chapter 11
@@ -503,7 +547,9 @@ main() {
 }
 {% endpc %}
 
-&rarr; Refer to the full
+##### More information
+
+Refer to the full
 [Hashable API docs](http://api.dartlang.org/dart_core/Hashable.html)
 for a full list of methods.
 
@@ -512,41 +558,47 @@ for a full list of methods.
 
 #### Iteration
 
-Two interfaces make up iteration abilities in Dart, and allow objects
-to take part in for-in loops. Implementing the
+Two interfaces contribute to iteration abilities in Dart, allowing objects
+to work in for-in loops. Implementing the
 [Iterable](http://api.dartlang.org/dart_core/Iterable.html)
 interface signals that an object can provide an Iterator.
-The [Iterator](http://api.dartlang.org/dart_core/Iterator.html) iterface
+The [Iterator](http://api.dartlang.org/dart_core/Iterator.html) interface
 defines the actual iteration ability.
 
 {% pc dart 0 %}
-// mythical processes object that lets you iterate through all processes
+class Process {
+  // represents a process...
+}
 
 class ProcessIterator implements Iterator&lt;Process> {
-  bool hasNext() {
-    // true if a call to next() returns a non-null process
-  }
-
   Process next() {
-    // returns the next process, or throws NoMoreElementsException if no more
+    // return the next process if possible; but if not:
+    throw new NoMoreElementsException();
+  }
+  bool hasNext() {
+    // true if calling next() would return a process
+    return false;
   }
 }
 
+// a mythical class that lets you iterate through all processes
 class Processes implements Iterable&lt;Process> {
   Iterator&lt;Process> iterator() {
-    // return a new ProcessIterator
+    return new ProcessIterator();
   }
 }
 
 main() {
   // objects that implement Iterable can be used with for-in
   for (var process in new Processes()) {
-    // use the process
+    // do something with the process
   }
 }
 {% endpc %}
 
-&rarr; Refer to the full
+##### More information
+
+Refer to the full
 [Iterable API docs](http://api.dartlang.org/dart_core/Iterable.html)
 and
 [Iterator API docs](http://api.dartlang.org/dart_core/Iterator.html)
@@ -558,8 +610,10 @@ for a full list of methods.
 ### Math and numbers
 
 The [Math](http://api.dartlang.org/dart_core/Math.html) class
-provides common functionality like sin/cos, max/min,
-parsing strings into numbers, and constants like PI and E.
+provides common functionality such as sine and cosine,
+maximum and minimum,
+string-to-number conversion,
+and constants such as _pi_ and _e_.
 
 #### Converting strings to numbers
 
@@ -570,32 +624,36 @@ assert(Math.parseInt('42') == 42);
 assert(Math.parseDouble("0.50") == 0.5);
 {% endpc %}
 
-#### Convert a number to a string
+#### Converting numbers to strings
 
-Use the built-in toString() to convert an int or double to a String.
+Use the toString() method (defined by
+[Object](http://api.dartlang.org/dart_core/Object.html))
+to convert an int or double to a string.
 
-To control the numbers of digits to the left of the decimal,
-use toStringAsFixed(). To control the precision of the toString(),
+To specify the number of digits to the right of the decimal,
+use toStringAsFixed()
+(defined by [num](http://api.dartlang.org/dart_core/num.html)).
+To specify the number of significant digits in the string,
 use toStringAsPrecision().
 
 {% pc dart 0 %}
-// converting an integer
+// convert an int to a string
 assert(42.toString() == '42');
 
-// converting a decimal
+// convert a double to a string
 assert(123.456.toString() == '123.456');
 
-// toStringAsFixed will round the decimal value
+// specify the number of digits after the decimal
 assert(123.456.toStringAsFixed(2) == '123.46');
 
-// control the precision
+// specify the number of sig figs
 assert(123.456.toStringAsPrecision(2) == '1.2e+2');
 assert(Math.parseDouble('1.2e+2') == 120.0);
 {% endpc %}
 
 #### Trigonometry
 
-Use the Math class for the basic trig functions.
+Use the Math class for the basic trigonometric functions.
 
 <aside class="note">
 <b>Note:</b> These methods use radians, not degrees!
@@ -605,7 +663,7 @@ Use the Math class for the basic trig functions.
 // cosine
 assert(Math.cos(Math.PI) == -1.0);
 
-// sin
+// sine
 var degrees = 30;
 var radians = degrees * (Math.PI / 180);
 // radians is now 0.52359
@@ -615,11 +673,9 @@ var sinOf30degrees = Math.sin(radians);
 assert(Math.parseDouble(sinOf30degrees.toStringAsPrecision(2)) == 0.5);
 {% endpc %}
 
-The Math class also contains methods for asin, atan, and atan2.
+#### Maximum and mininum
 
-#### Max and min
-
-Optimized max and min methods are also provided by Math.
+Math provides optimized max and min methods.
 
 {% pc dart 0 %}
 assert(Math.max(1, 1000) == 1000);
@@ -628,17 +684,17 @@ assert(Math.min(1, -1000) == -1000);
 
 #### Math constants
 
-Find your favoritates, like PI, E, and more, in Math.
+Find your favorite constants&mdash;_pi_, _e_, and more&mdash;in Math.
 
 {% pc dart 0 %}
-// some examples, see the Math class for others
+// see the Math class for additional constants
 
-print(Math.E); // 2.718281828459045
-print(Math.PI); // 3.141592653589793
+print(Math.E);     // 2.718281828459045
+print(Math.PI);    // 3.141592653589793
 print(Math.SQRT2); // 1.4142135623730951
 {% endpc %}
 
-#### Random number generator
+#### Random numbers
 
 Generate random numbers between 0.0 and 1.0 with the Math class.
 
@@ -653,9 +709,16 @@ var rand = Math.random();
   for the status.
 </aside>
 
-&rarr; Refer to the full
+#### More information
+
+Refer to the full
 [Math API docs](http://api.dartlang.org/dart_core/Math.html)
 for a full list of methods.
+Also see the API docs for
+[num](http://api.dartlang.org/dart_core/num.html),
+[int](http://api.dartlang.org/dart_core/int.html),
+and
+[double](http://api.dartlang.org/dart_core/double.html).
 
 [Back to contents.](#toc)
 {:.up-to-toc}
@@ -663,9 +726,9 @@ for a full list of methods.
 ### Strings and regular expressions
 
 A [String](http://api.dartlang.org/dart_core/String.html) is
-an immutable ordered lists of unicode code points.
-Regular expressions are used by the string interface for
-searching and replacing.
+an immutable, ordered list of 32-bit Unicode character codes.
+You can use regular expressions to
+search within strings and to replace parts of strings.
 
 The [Pattern](http://api.dartlang.org/dart_core/Pattern.html)
 interface is implemented by both String and
@@ -674,13 +737,16 @@ and is used for methods like
 [split](http://api.dartlang.org/dart_core/String.html#split) and
 [contains](http://api.dartlang.org/dart_core/String.html#contains).
 
+The language tour has
+[more information about strings](/docs/language-tour/#strings).
+
 #### Searching inside a string
 
 You can find particular locations within a string, as well as check
 whether a string begins with or ends with a particular pattern.
 
 {% pc dart 0 %}
-// use contains() to check whether a string contains another string
+// check whether a string contains another string
 assert("Never odd or even".contains("odd") == true);
 
 // does a string start with another string?
@@ -695,8 +761,8 @@ assert("Never odd or even".indexOf("odd") == 6);
 
 #### Extracting data from a string
 
-You can get the individual characters (as strings)
-or individual character codes (as integers) from a string.
+You can get the individual characters (as Strings)
+or individual character codes (as ints) from a string.
 
 You can also extract a substring or split a string
 into a list of substrings.
@@ -713,7 +779,7 @@ assert(parts[0] == 'structured');
 // get the character (as a string) by index
 assert("Never odd or even"[0] == "N");
 
-// use splitChars() to get a list of all characters (as string)
+// use splitChars() to get a list of all characters (as Strings);
 // good for iterating
 for (var char in "hello".splitChars()) {
   print(char);
@@ -728,22 +794,22 @@ assert(charCodes.length == 17);
 assert(charCodes[0] == 78);
 {% endpc %}
 
-#### Upper and lower case
+#### Converting to uppercase or lowercase
 
-Easily convert strings to their upper and lower case variants.
+Easily convert strings to their uppercase and lowercase variants.
 
 {% pc dart 0 %}
-// convert to upper case
+// uppercase
 assert("structured web apps".toUpperCase() == 'STRUCTURED WEB APPS');
 
-// convert to lower case
+// lowercase
 assert("STRUCTURED WEB APPS".toLowerCase() == 'structured web apps');
 {% endpc %}
 
 #### Trimming and empty strings
 
-Remove all leading and trailing whitespace with trim(), and check
-whether a string is empty (length is zero) with isEmpty().
+Remove all leading and trailing white space with trim().
+To check whether a string is empty (length is zero), use isEmpty().
 
 {% pc dart 0 %}
 // trim a string
@@ -752,14 +818,14 @@ assert('  hello  '.trim() == 'hello');
 // check whether a string is empty
 assert(''.isEmpty() == true);
 
-// strings with only whitespace are not empty
+// strings with only white space are not empty
 assert('  '.isEmpty() == false);
 {% endpc %}
 
 #### Regular expressions
 
 The [RegExp](http://api.dartlang.org/dart_core/RegExp.html)
-interface has the same capabilities as JavaScript
+interface provides the same capabilities as JavaScript
 regular expressions. Use regular expressions for efficient searching
 and pattern matching of strings.
 
@@ -796,24 +862,30 @@ for (Match match in numbers.allMatches(someDigits)) {
 }
 {% endpc %}
 
-&rarr;  Refer to the full
+#### More information
+
+Refer to the full
 [String API docs](http://api.dartlang.org/dart_core/String.html)
 for a full list of methods.
+Also see the API docs for
+[RegExp](http://api.dartlang.org/dart_core/RegExp.html) and
+[Match](http://api.dartlang.org/dart_core/Match.html).
 
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-### Async programming
+### Asynchronous programming
 
-The use of asynchronous programming is on the rise, and Dart provides
-a [Future](http://api.dartlang.org/dart_core/Future.html) interface as an
-alternative to callback functions. A Future is
-like a promise for a result to be provided "sometime in the future".
+Async programming often uses callback functions,
+but Dart provides an alternative:
+the [Future](http://api.dartlang.org/dart_core/Future.html) interface.
+A Future is
+like a promise for a result to be provided "sometime in the future."
 
-A Future's friend is the
-[Completer](http://api.dartlang.org/dart_core/Completer.html). A Complete
-helps by producing a Future
-and later supplyng a value to it.
+You have the option of using a
+[Completer](http://api.dartlang.org/dart_core/Completer.html)
+to produce a Future
+and, later, to supply a value to the Future.
 
 {% pc dart 0 %}
 Future&lt;bool> longExpensiveSearch() {
@@ -823,23 +895,24 @@ Future&lt;bool> longExpensiveSearch() {
     // ...
     // sometime later,
     // found it!!
-    complete.complete(true);
+    completer.complete(true);
   });
   return completer.future;
 }
 
-Future&lt;bool> result = longExpensiveSearch();
+Future&lt;bool> result = longExpensiveSearch(); //returns immediately
 
-// when the search is complete, then() will be called
+// result.then() returns immediately
 result.then((success) {
+  // the following code executes when the operation is complete
   print("The item was found: $success");
 });
 {% endpc %}
 
 #### Chaining multiple async methods
 
-The Future interface specifices a chain() method, which is a useful way
-to write multiple async methods that are run in order.
+The Future interface specifies a chain() method, which is a useful way
+to specify that multiple async methods run in a certain order.
 
 {% pc dart 0 %}
 Future result = costlyQuery();
@@ -847,7 +920,7 @@ result.handleException((exception) => print("DOH!"));
 
 result.chain((value) => expensiveWork())
       .chain((value) => lengthyComputation())
-      .then((value) => print("done!"));
+      .then((value)  => print("done!"));
 {% endpc %}
 
 In the above example, the methods run in the following order:
@@ -855,6 +928,7 @@ In the above example, the methods run in the following order:
 1. costlyQuery()
 1. expensiveWork()
 1. lengthyComputation()
+
 
 #### Waiting for multiple futures
 
@@ -872,8 +946,12 @@ Futures.join([deleteDone, copyDone, checksumDone]).then(() {
 });
 {% endpc %}
 
-&rarr;  Refer to the full
-[Future API docs](http://api.dartlang.org/dart_core/Future.html)
+#### More information
+
+Refer to the API docs for
+[Future](http://api.dartlang.org/dart_core/Future.html),
+[Futures](http://api.dartlang.org/dart_core/Futures.html), and
+[Completer](http://api.dartlang.org/dart_core/Completer.html)
 for a full list of methods.
 
 [Back to contents.](#toc)
@@ -881,18 +959,18 @@ for a full list of methods.
 
 ### Exceptions
 
-The Dart core library includes various common exceptions,
+The Dart core library defines many common exceptions,
 all extending the base
 [Exception](http://api.dartlang.org/dart_core/Exception.html)
 interface.
 
 Learn more about throwing and catching exceptions
-in the [Exceptions section](http://www.dartlang.org/docs/language-tour/#exceptions)
-of the Dart Language Tour.
+in the [Exceptions section](/docs/language-tour/#exceptions)
+of the language tour.
 
 #### Common exceptions
 
-Some common exceptions include:
+Some of the most common exceptions include:
 
 [NoSuchMethodException](http://api.dartlang.org/dart_core/NoSuchMethodException.html)
 : Thrown when a receiving object does not implement a method.
@@ -902,14 +980,13 @@ Some common exceptions include:
 null object.
 
 [IllegalArgumentException](http://api.dartlang.org/dart_core/IllegalArgumentException.html)
-: Can be thrown by a method that encounters an unexecpted argument.
+: Can be thrown by a method that encounters an unexpected argument.
 
-There are many more built-in exceptions in the core library.
 
 #### Defining your own exception
 
-Throwing an application specific exception is a common way to indicate
-an error has occurred. You can define a custom exception
+Throwing an application-specific exception is a common way to indicate
+that an error has occurred. You can define a custom exception
 by implementing the Exception interface.
 
 {% pc dart 0 %}
@@ -920,39 +997,48 @@ class FooException implements Exception {
 }
 {% endpc %}
 
-&rarr;  Refer to the full
-[Exception API docs](http://api.dartlang.org/dart_core/Exception.html)
-for a full list of methods.
+#### More information
+
+See the
+[Exception API docs](http://api.dartlang.org/dart_core/Exception.html).
 
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-## Concurrency with isolates
+## dart:isolate - Concurrency with isolates
 
 {% render language-tour/isolates/index.markdown %}
 
-&rarr;  Refer to the full
-[Isolate API docs](http://api.dartlang.org/dart_isolate/Isolate.html)
-for a full list of methods.
+#### More information
+
+Refer to the API docs for
+[isolates](http://api.dartlang.org/dart_isolate.html).
 
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-## Files and sockets with IO
+## dart:io - File and socket I/O for command-line apps
 
 The [dart:io library](http://api.dartlang.org/io.html) provides
 file and socket capabilities
-for the Dart VM when running from the command-line. These libraries
-are not yet available to Dart programs targeting the web browser.
+for the Dart VM when running from the command line. These libraries
+are not yet available to Dart programs that target the web browser.
 
-In general, the `dart:io` library promotes an asynchronous API. Most operations
-return results via callbacks or event listeners. The API discourages use
-of synchronous operations, although you will encounter a few sync methods
-(clearly marked with a Sync suffix on the method name).
+In general, the dart:io library implements and promotes an
+asynchronous API. Synchronous
+methods can easily block the main loop, making
+it difficult to scale server applications. Therefore, most operations
+return results via callbacks or Future objects, a pattern common
+with modern server platforms such as Node.js.
 
-### Import the IO library
+The few synchronous methods
+in the dart:io library
+are clearly marked with a Sync suffix on the method name.
+We don't cover them here.
 
-The IO functionality can be found in the `dart:io` library.
+### Importing the I/O library
+
+I/O functionality is in the `dart:io` library.
 
 {% pc dart 0 %}
 #import('dart:io');
@@ -960,132 +1046,177 @@ The IO functionality can be found in the `dart:io` library.
 
 ### Files and directories
 
-You can read and write files and browse directories in command-line Dart
-applications.
+Command-line Dart applications can read and write files and browse directories.
+You have two choices for reading the contents of a file:
+all at once, or streaming.
+Reading a file all at once requires enough memory
+to store all the contents of the file.
+If the file is very large or you want to process it while reading it,
+you should use a [stream](#streaming-file-contents).
 
-#### Handle errors
-
-You can register an error callback with `onError()` to be
-notified whenever a problem occurs with handling a file
-or directory.
-
-{% pc dart 0 %}
-#import('dart:io');
-
-main() {
-  var config = new File('config.txt');
-  config.onError = (e) => print(e);
-}
-{% endpc %}
-
-#### Read entire file contents as text
+#### Reading a file as text
 
 When reading a text file, you can read the entire file
 contents with `readAsText()`. When the individual lines are
 important, you can use `readAsLines()`. In both cases,
-the contents of the file are returned as text.
+a Future object is returned that provides the
+the contents of the file as one or more strings.
 
 {% pc dart 0 %}
 #import('dart:io');
 
 main() {
   var config = new File('config.txt');
-  config.onError = (e) => print(e);
 
-  config.readAsText(Encoding.UTF_8, (String contents) {
+  // put the whole file in a single string
+  config.readAsText(Encoding.UTF_8).then((String contents) {
     print("The entire file is ${contents.length} characters long");
   });
 
-  // if you want the contents as individual lines from the file
-  config.readAsLines(Encoding.UTF_8, (List&lt;String> lines) {
+  // put each line of the file into its own string
+  config.readAsLines(Encoding.UTF_8).then((List&lt;String> lines) {
     print("The entire file is ${lines.length} lines long");
   });
 }
 {% endpc %}
 
-#### Read entire file contents as binary
+#### Reading a file as binary
 
-The following code will read an entire file into a list of bytes (as ints).
-If your file is too large for memory or you want to stream the file,
-refer to the streaming examples below.
+The following code reads an entire file into a list of bytes (as ints).
 
 {% pc dart 0 %}
 #import('dart:io');
 
 main() {
   var config = new File('config.txt');
-  config.onError = (e) => print(e);
 
-  config.readAsBytes((List&lt;int> contents) {
+  config.readAsBytes().then((List&lt;int> contents) {
     print("The entire file is ${contents.length} bytes long");
   });
 }
 {% endpc %}
 
-In the examples above, the API uses callbacks to signal completion.
-This technique is preferred for performance reasons.
+In the examples above, the API uses Future objects to signal completion.
+This asynchronous technique is preferred for performance reasons.
 However, you have the option to use synchronous and blocking
 methods: `readAsTextSync()`, `readAsLinesSync()`, and `readAsBytesSync()`.
 
-#### Stream file contents
+#### Handling errors
 
-Use an [InputStream](http://api.dartlang.org/io/InputStream.html)
-to stream a file. An InputStream will run the `onData`
-callback when data
-is ready to be read by the application. When the InputStream
-is finished reading the file, the `onClosed` callback is run.
+Errors are thrown as exceptions if you do not
+register an explicit handler. If you want to
+capture an error, you can register a handleException handler
+with the Future object.
 
 {% pc dart 0 %}
 #import('dart:io');
 
 main() {
   var config = new File('config.txt');
-  config.onError = (e) => print(e);
+  Future&lt;String> readFile = config.readAsText();
+  readFile.handleExceptione((e) => print("Error: $e"));
+  readFile.then((text) => print(text));
+}
+{% endpc %}
 
+#### Streaming file contents
+
+Use an [InputStream](http://api.dartlang.org/io/InputStream.html)
+to read a file, a little at a time. The `onData`
+callback runs when data
+is ready to be read. When the InputStream
+is finished reading the file, the `onClosed` callback executes.
+
+{% pc dart 0 %}
+#import('dart:io');
+
+main() {
+  var config = new File('config.txt');
   var inputStream = config.openInputStream();
+
   inputStream.onError = (e) => print(e);
   inputStream.onClosed = () => print("file is now closed");
   inputStream.onData = () {
-    List<int> bytes = inputStream.read();
+    List&lt;int> bytes = inputStream.read();
     print("Read ${bytes.length} bytes from stream");
   };
 }
 {% endpc %}
 
-#### List files in a directory
+#### Writing file contents
+
+Use an [OutputStream](http://api.dartlang.org/io/OutputStream.html)
+to write data to a file. Open a file
+for writing with `openOutputStream()` and declare a
+mode. Use `FileMode.WRITE` to completely overwrite existing data in the file,
+and `FileMode.APPEND`
+to add to the end.
+
+{% pc dart 0 %}
+#import('dart:io');
+
+main() {
+  var logFile = new File('log.txt');
+  var out = logFile.openOutputStream(FileMode.WRITE);
+  out.writeString('FILE ACCESSED ${new Date.now()}');
+  out.close();
+}
+{% endpc %}
+
+To write binary data, use `write(List<int> buffer)`.
+
+#### Listing files in a directory
 
 Finding all files and subdirectories for a directory is an asynchronous
-operation. You can register callback handlers to be notified when
+operation. The `list()` method returns a
+[DirectoryLister](http://api.dartlang.org/io/DirectoryLister.html),
+on which you can register callback handlers to be notified when
 a file is encountered (using `onFile`) or when a directory is
 encountered (using `onDir`).
-
-There is no equivalent synchronous API for walking a directory
-tree.
 
 {% pc dart 0 %}
 #import('dart:io');
 
 main() {
   var dir = new Directory('/tmp');
-  dir.onError = (e) => print(e);
-  dir.onFile = (String name) => print("Found file ${name}");
-  dir.onDir = (String name) => print("Found dir ${name}");
 
-  // begin walking the directory tree, recursively
-  dir.list(recursive:true);
+  DirectoryLister lister = dir.list(recursive:true); //returns immediately
+  lister.onError = (e) => print(e);
+  lister.onFile = (String name) => print("Found file $name");
+  lister.onDir = (String name) => print("Found dir $name");
 }
 {% endpc %}
 
-&rarr;  Refer to the full
-[File API docs](http://api.dartlang.org/io/File.html)
-and
-[Directory API docs](http://api.dartlang.org/io/Directory.html)
+No equivalent synchronous API exists for walking a directory
+tree.
+
+
+#### Other common functionality
+
+The File and Directory interfaces contain other functionality,
+including but not limited to:
+
+* [creating a file](http://api.dartlang.org/io/File.html#create)
+* [creating a directory](http://api.dartlang.org/io/Directory.html#create)
+* [deleting a file](http://api.dartlang.org/io/File.html#delete)
+* [deleting a directory](http://api.dartlang.org/io/Directory.html#delete)
+* [getting the length of a file](http://api.dartlang.org/io/File.html#length)
+* [random access to a file](http://api.dartlang.org/io/File.html#open)
+
+#### More information
+
+Refer to the full API docs for
+[File](http://api.dartlang.org/io/File.html),
+[Directory](http://api.dartlang.org/io/Directory.html),
+and [DirectoryLister](http://api.dartlang.org/io/DirectoryLister.html)
 for a full list of methods. For more information,
 read [An introduction to the dart:io library](/articles/io/).
 
 [Back to contents.](#toc)
 {:.up-to-toc}
 
+
+{% comment %}
 ### Sockets
 
 Coming soon.
@@ -1113,5 +1244,7 @@ Coming soon.
 ## Crypto
 
 Coming soon.
+{% endcomment %}
+
 
 {% include syntax-highlighting.html %}

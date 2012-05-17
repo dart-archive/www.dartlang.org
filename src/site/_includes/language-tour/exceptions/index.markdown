@@ -91,3 +91,6 @@ try {
   cleanLlamaStalls();  // then run finally
 }
 {% endpretty_code %}
+
+Learn more about
+<a href="/docs/library-tour/#exceptions">exceptions</a> in the library tour.

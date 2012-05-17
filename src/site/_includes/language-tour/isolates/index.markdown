@@ -1,5 +1,5 @@
 All code in Dart runs in the context of an isolate.
-Use additional isolates for concurrent programming,
+Use additional isolates for concurrent programming
 and to run third-party code more securely.
 
 ### Isolate concepts
@@ -9,12 +9,12 @@ including globals, are available only to that isolate. The only mechanism
 available to communicate between isolates is to pass messages.
 Messages are sent through ports.
 
-The content of the message can be:
+The content of a message can be:
 
 * A primitive value (null, num, bool, double, String)
 * An instance of SendPort
 * A list or map whose elements are any of the above, including other lists and maps
-* In [special circumstances](#send-any-type-of-object), an object of any type
+* In [special circumstances](#sending-any-type-of-object), an object of any type
 
 Lists and maps can have cyclic references to themselves.
 Each message is copied when sent to another isolate, ensuring
@@ -27,7 +27,7 @@ be compiled to Web workers, if they are available.
 ### Isolates in the VM
 
 In the standalone VM, the main() function runs in the first isolate
-(also knows as the _main isolate_).
+(also known as the _main isolate_).
 When the main isolate terminates, it terminates the whole VM, regardless
 of whether other isolates are still running.
 
@@ -45,15 +45,15 @@ to the main isolate to close its ReceivePort, thus stopping the program.
 To use an isolate, you import the isolates library,
 spawn a new isolate, and then send and receive messages.
 
-#### Import the isolates library
+#### Importing the isolates library
 
-The isolates API can be found in the `dart:isolate` library.
+The isolates API is in the `dart:isolate` library.
 
 {% pc dart 0 %}
 #import('dart:isolate');
 {% endpc %}
 
-#### Spawn an isolate
+#### Spawning isolates
 
 Any top-level function or static method
 ([not currently working](#isolates-static-method))
@@ -87,7 +87,7 @@ main() {
 
 We plan to support spawning an isolate from code at a URI.
 
-#### Send messages
+#### Sending messages
 
 Send a message to an isolate via a
 [SendPort](http://api.dartlang.org/dart_isolate/SendPort.html).
@@ -114,22 +114,21 @@ main() {
 }
 {% endpc %}
 
-#### Send any type of object
+#### Sending any type of object
 
 In special circumstances (such as when using spawnFunction() inside the Dart VM),
 it is possible to send any type of object instance to an isolate.
 The object message is copied when sent.
 
-Sending arbitrary object instances to an isolate, even if
-using spawnFunction(), is not yet available when compiling to
+Support for sending arbitrary object instances to an isolate is not yet available when compiling to
 JavaScript.
 
-#### Receive messages
+#### Receiving messages
 
 Use a [ReceivePort](http://api.dartlang.org/dart_isolate/ReceivePort.html)
 to receive messages sent to an isolate. Obtain a handle to the
 default ReceivePort
-from the [port](http://api.dartlang.org/dart_isolate.html#get:port)
+from the top-level [port](http://api.dartlang.org/dart_isolate.html#get:port)
 property. You can also create new instances of ReceivePort, if
 you want to route messages to different ports and callbacks.
 
@@ -157,7 +156,7 @@ main() {
 }
 {% endpc %}
 
-#### Receive a reply
+#### Receiving replies
 
 Use the [call()](http://api.dartlang.org/dart_isolate/SendPort.html#call)
 method on SendPort as a simple way to send a
@@ -181,20 +180,20 @@ main() {
 }
 {% endpc %}
 
-The `call()` method creates a new receive port, sends a message to this
-send port with replyTo set to such receive port. When a reply is
+The call() method creates a new receive port and then sends a message to the
+send port with replyTo set to the receive port. When a reply is
 received, it closes the receive port and completes the returned future.
 
-### Coordination Strategy
+#### Keeping the main isolate alive
 
 As mentioned above, when the main isolate terminates, the entire VM
-terminates (even if there are other child isolates running). To keep
-the main isolate running, it must create an open ReceivePort. Before the
+terminates (even if other child isolates are running). To keep
+running, the main isolate must create an open ReceivePort. Before the
 main isolate can terminate, the ReceivePort must be closed.
 
 You can coordinate isolates with message passing,
 sending a message to inform the main isolate when a child
-isolate is finished. Here is an example:
+isolate finishes. Here is an example:
 
 {% pc dart 0 %}
 #import('dart:isolate');
@@ -219,13 +218,12 @@ main() {
 }
 {% endpc %}
 
-In the above example, the child isolate is allowed to run to completion
-because the main isolate kept a ReceivePort open.
-
+In the above example, the child isolate runs to completion
+because the main isolate keeps a ReceivePort open.
 The main isolate creates a ReceivePort to wait for
-a "shutdown" message. The term "shutdown" is arbitrary, the ReceivePort
+a "shutdown" message. The term "shutdown" is arbitrary; the ReceivePort
 simply needs to wait for some signal.
 
-Once the "shutdown" message is received, the main isolate closes the
-ReceivePort. With the ReceivePort closed, and with nothing else to do,
-the main isolate terminates, also terminating the program.
+Once the main isolate receives a "shutdown" message, it closes the
+ReceivePort. With the ReceivePort closed and nothing else to do,
+the main isolate terminates, causing the app to exit.
