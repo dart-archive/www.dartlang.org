@@ -9,13 +9,13 @@ rel:
 _Written by Joshua Bloch <br />
 February 2012_
 
-<section>
+<section markdown="1">
 
 The second chapter of _Java Puzzlers_ is entitled
 "Puzzlers with Character," and concerns "strings,
 characters, and other textual data."
 
-<section id="toc">
+<section id="toc" markdown="1">
 
 #### Contents
 
@@ -136,7 +136,7 @@ the program to Dart, we get:
 {% pretty_code dart 0 %}
 main() {
   String letters = 'ABC';
-  List<String> numbers = [ '1', '2', '3' ];
+  List&lt;String> numbers = [ '1', '2', '3' ];
   print(letters + ' easy as ' + numbers);
 }
 {% endpretty_code %}
@@ -380,14 +380,14 @@ Here’s the original program,
 which translates a sequence of
 bytes into a string and then prints every character code in the string:
 
-{% pretty_code java %}
+{% pretty_code java 0 %}
 public class StringCheese {
   public static void main(String args[]) {
     byte bytes[] = new byte[256];
-    for(int i = 0; i < 256; i++)
+    for(int i = 0; i &lt; 256; i++)
       bytes[i] = (byte)i;
     String str = new String(bytes);
-    for(int i = 0, n = str.length(); i < n; i++)
+    for(int i = 0, n = str.length(); i &lt; n; i++)
       System.out.print((int)str.charAt(i) + " ");
   }
 }
@@ -413,7 +413,7 @@ but we _will_ fix this.
 Here’s the Java program,
 which appears to classify characters:
 
-{% pretty_code java %}
+{% pretty_code java 0 %}
 public class Classifier {
   public static void main(String[] args) {
     System.out.println(
@@ -437,12 +437,12 @@ public class Classifier {
 In fact, it doesn’t compile as the multi-line comment is terminated
 "accidentally" in the middle of this line:
 
-<pre> *      if ("+-<b>*/</b>&|!=".indexOf(ch) >= 0)
+<pre> *      if ("+-<b>*/</b>&amp;|!=".indexOf(ch) >= 0)
                ^^</pre>
 
 Here is the Dart equivalent:
 
-{% pretty_code dart %}
+{% pretty_code dart 0 %}
 main() {
   print(classify('n') + classify('+') + classify('2'));
 }
@@ -454,7 +454,7 @@ String classify(String ch) {
     return 'LETTER ';
 <b>/*</b>
  *  (Operators not supported yet) 
- *  if ('+-<b>*/</b>&|!='.indexOf(ch) >= 0)
+ *  if ('+-<b>*/</b>&amp;|!='.indexOf(ch) >= 0)
  *      return 'OPERATOR ';
  */
   return 'UNKNOWN ';
@@ -472,23 +472,23 @@ to Dart programmers as it teaches Java programmers:
 do it with single-line comments**,
 as most IDEs do:
 
-{% pretty_code dart %}
+{% pretty_code dart 0 %}
 String classify(String ch) {
   if ('0123456789'.indexOf(ch) >= 0)
     return 'NUMERAL ';
   if ('abcdefghijklmnopqrstuvwxyz'.indexOf(ch) >= 0)
     return 'LETTER ';
 <b>//</b>  (Operators not supported yet) 
-<b>//</b>  if ('+-*/&|!='.indexOf(ch) >= 0)
+<b>//</b>  if ('+-*/&amp;|!='.indexOf(ch) >= 0)
 <b>//</b>    return 'OPERATOR ';
   return 'UNKNOWN ';
 }
 {% endpretty_code %}
 
-<br>
-<h2 id="20">Puzzle 20: What’s My Class?</h2>
 
-This Java puzzler can’t be be directly translated into Dart,
+<h2 id="20">Puzzle 20: What's My Class?</h2>
+
+This Java puzzler can't be be directly translated into Dart,
 as Dart lacks the required reflection facilities:
 
 {% pretty_code java 0 %}
