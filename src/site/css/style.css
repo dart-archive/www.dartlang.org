@@ -117,6 +117,7 @@ section#articles section, section#articles section section {
   -webkit-column-break-inside:avoid;
   break-inside:avoid-column; /* does this work anywhere? */
   display: inline-block; /* kind of works on mozilla */
+  margin-bottom:.65em;
 }
 
 ol.toc, ol.toc ol {
