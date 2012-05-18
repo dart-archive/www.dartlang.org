@@ -148,6 +148,7 @@ print('${ --a }'); // 2 (decrement before returning a value)
   </tr>
 </table>
 
+<div markdown="1">
 To test whether two objects x and y represent the same thing,
 use the **==** operator.
 You don't usually need to use the **===** operator,
@@ -165,6 +166,7 @@ is true if obj implements the interface specified by T.
 For example, <code>obj <b>is</b> Object</code> is always true.
 
 Here's an example of using each of the equality and relational operators:
+</div>
 
 {% pretty_code dart 0 %}
 int a = 2;
@@ -239,7 +241,7 @@ print('a *= 3: $a'); // a *= 3: 6
 
 
 <section id="op-logical" markdown="1">
-### Logical operators 
+### Logical operators
 
 You can invert or combine boolean expressions using the logical operators.
 
@@ -414,8 +416,10 @@ Soon the way to customize the behavior of **==**
 will be by overriding the **equals()** method.
 </aside>
 
+<p markdown="1">
 For an example of overriding operators,
 see [Operators](#classes-operators) in the Classes section.
+</p>
 
 </section>
 

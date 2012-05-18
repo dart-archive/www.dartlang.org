@@ -51,7 +51,7 @@ main() {
 }
 {% endpc %}
 
-<aside class="note">
+<aside class="note" markdown="1">
 **Note:** Currently, typedefs are restricted to function types.
 This may change in a future version of the language specification.
 </aside>

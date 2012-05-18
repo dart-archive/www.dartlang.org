@@ -34,6 +34,11 @@ var hex = 0xDEADBEEF;
 var bigInt = 3465346583465243765923847659234765928347659567398475647495873984572947593470294387093493456870849216348723763945678236420938467345762304958724596873045876234572037862934765294365243652548673456705673465273465246734506873456729457623845623456234650457693475603768922346728346256;
 {% endpretty_code %}
 
+<aside class="note">
+  <b>Note:</b>
+  Big integers are currently treated differently between Dart and JavaScript.
+</aside>
+
 {% comment %}
 PENDING: how should we deal with VM/JS differences? I'm thinking we should avoid them. Maybe just make bigint smaller, like I did here?
 {% endcomment %}
@@ -55,49 +60,20 @@ Here's how you turn a string into a number, or vice versa:
 
 {% pretty_code dart 0 %}
 // string -> int
-var one = Math.parseInt("1");                   // 1
+var one = Math.parseInt("1");
+assert(one == 1);
 
 // string -> double
-var onePointOne = Math.parseDouble("1.1");      // 1.1
+var onePointOne = Math.parseDouble("1.1");
+assert(onePointOne == 1.1);
 
 // int -> string
-String oneAsString = 1.toString();              // "1"
+var oneAsString = 1.toString();
+assert(oneAsString == "1");
 
 // double -> string
-String piAsString = 3.14159.toStringAsFixed(2); // "3.14"
-{% endpretty_code %}
-
-
-{% comment %}
-Don't include this?
-
-<section id="numbers=num">
-<h4> Using num </h4>
-
-<p>
-Methods such as ceil() and abs() are in the num interface,
-and not in Math.
-</p>
-
-{% pretty_code dart 0 %}
-// abs() gives the absolute value
-print((-4).abs() == 4);     // true
-
-// ceil() and floor() round up or down
-print(3.25.ceil() == 4.0);  // true
-print(3.25.floor() == 3.0); // true
-
-// round() rounds up for .5 or greater, otherwise it rounds down.
-print(3.25.round() == 3);   // true
-print(3.89.round() == 4);   // true
-print(3.5.round() == 4);    // true
-print(3.49.round() == 3);   // true
-
-// truncate() cuts off the decimal digits
-print(3.24532.truncate() == 3.0);    // true
-
-// toInt() converts a double to an int.
-print(3.24.toInt() == 3);   // true
+var piAsString = 3.14159.toStringAsFixed(2);
+assert(piAsString == "3.14");
 {% endpretty_code %}
 
 <p>
@@ -112,4 +88,3 @@ print(3&gt;&gt;1 == 1); // 0011 &gt;&gt; 1 == 0001
 print((3|4) == 7); // 0011 | 0100 == 0111
 {% endpretty_code %}
 </section>
-{% endcomment %}

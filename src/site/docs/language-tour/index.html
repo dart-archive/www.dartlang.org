@@ -144,7 +144,26 @@ NOTE: The guts of this page are in /_includes/language-tour/*/*.
 
 <section>
   <h2 id="isolates">Isolates</h2>
-  {% render language-tour/isolates/index.markdown %}
+
+  <p>
+    All code in Dart runs in the context of an isolate.
+    You can use additional isolates for concurrent programming,
+    and to run third-party code more securely.
+  </p>
+
+  <p>
+    The isolates within an app don't share any state or memory.
+    Instead, isolates communicate by passing messages.
+    When an isolate sends a message,
+    the receiving isolate
+    gets a local copy of the original message's data.
+  </p>
+
+  <p>
+    Learn more about
+    <a href="/docs/library-tour/#dartisolate---concurrency-with-isolates">isolates</a> in the library tour.
+  </p>
+
   <p class="up-to-toc">
     <a href="#toc">Back to contents.</a>
   </p>

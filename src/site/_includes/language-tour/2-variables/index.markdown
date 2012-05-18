@@ -41,6 +41,8 @@ final String name = 'Bob';
 
 #### Summary
 
-Dart variables are optionally typed, though we generally recommend using types.
+Although Dart variables are optionally typed,
+we generally recommend using types
+because they make your intent clear.
 Variables can be marked as `final`, locking the value. Unitialized variables
 have an initial value of `null`.
