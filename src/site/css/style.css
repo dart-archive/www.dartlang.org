@@ -145,13 +145,6 @@ i, em { font-style: italic; }
 
 article dl dd {
   margin-left: 1em;
-  font-weight: 400;
-}
-
-article dl dt {
-  font-weight: 800;
-  margin-top: 0.5em;
-  margin-bottom: 0em;
 }
 
 html {
@@ -329,7 +322,8 @@ article ol, article ul {
 
 article dt {
   margin-bottom: 5px;
-  font-weight: 800;
+  margin-top: 0.5em;
+  font-weight: bold;
 }
 
 article dd {
