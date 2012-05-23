@@ -1,9 +1,6 @@
 The dartlang.org site. Built with Jekyll (https://github.com/mojombo/jekyll)
 and hosted on App Engine.
 
-See https://code.google.com/a/google.com/p/spotlang-org/wiki/HowToBuild
-for more help on building and deploying the Dart documentation.
-
 ORIENTATION
 
 * ./src
@@ -24,7 +21,8 @@ CONFIGURING YOUR MAC SYSTEM
 
 * Open a new Terminal.
 * run 'gem install jekyll'
-* Download and install the App Engine launcher: http://googleappengine.googlecode.com/files/GoogleAppEngineLauncher-1.5.2.dmg
+* run 'gem install kramdown'
+* Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
 
 DEVELOPMENT
 
@@ -36,13 +34,9 @@ DEVELOPMENT
 
 DEPLOYMENT
 
-* run 'make build'
+* run 'make clean && make deploy'
   * this builds the site and places everything into 'build'
-* Use App Engine Launcher to deploy the site.
+  * this command also uses the current branch for the app engine version name
+  * this command will then deploy the site
 * You will probably need to grab a unique password from your Google Account settings.
   * Save this into the App Engine Launcher during the first deployment.
-* Configure the version you are deploying: 'dev' or 'prod'.
-  * Open ./src/appengine/app.yaml
-  * Change version to 'dev' or 'prod'
-
-XXX testing workflow
