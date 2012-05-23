@@ -420,86 +420,39 @@ to support web and web server development:
   <dd> Contains interfaces to read and write files, open directories,
     open network sockets, and run HTTP servers. This library is for
     command-line Dart programs.
-    </dd>
+  </dd>
+
+  <dt> <a href="http://api.dartlang.org/dart_isolate.html">Isolate Library</a> </dt>
+  <dd>
+    Contains interfaces for spawning and communicating with isolates,
+    the mechanism for concurrency and security in a Dart program.
+  </dd>
+
+  <dt> <a href="http://api.dartlang.org/crypto.html">Crypto Library</a> </dt>
+  <dd>
+    Contains interfaces for creating one-way hashes (SHA1, MD5, SHA256)
+    and HMAC support.
+  </dd>
+
+  <dt> <a href="http://api.dartlang.org/json.html">JSON Library</a> </dt>
+  <dd>
+    Contains the ability to parse and produce JSON-encoded text.
+  </dd>
+
+  <dt> <a href="http://api.dartlang.org/unittest.html">Unit Test Library</a> </dt>
+  <dd>
+    Contains functions and classes for writing unit tests in Dart.
+  </dd>
 </dl>
 
 <p>
-The interface hierarchy for the Core Library
-currently has three main parts,
-which extend the following interfaces:
+  See the
+  <a href="/docs/library-tour/">library tour</a>
+  and the
+  <a href="http://api.dartlang.org">API reference</a> docs for
+  details on all the bundled
+  Dart libraries.
 </p>
-
-<ul>
-  <li> <a href="#iterable">Iterable</a> </li>
-  <li> <a href="#map">Map</a> </li>
-  <li> <a href="#comparable-hashable-pattern">Comparable, Hashable, and Pattern</a> </li>
-</ul>
-
-
-<h3 id="iterable">Iterable</h3>
-
-<p>
-  <img src='images/iterable-hierarchy.png' width="370" height="189" alt='The Iterable interface hierarchy.'>
-</p>
-    <p>
-      The <a href="http://api.dartlang.org/dart_core/Iterable.html"><code>Iterable</code></a> interface allows you to
-      get an <a href="http://api.dartlang.org/dart_core/Iterator.html"><code>Iterator</code></a> out of an <code>Iterable</code> object.
-      This interface is used by the for-in construct to iterate over an <code>Iterable</code> object.
-    </p>
-
-    <p>
-      <a href="http://api.dartlang.org/dart_core/Collection.html"><code>Collection</code></a> is an interface that implements
-      <code>Iterable</code> and defines methods implemented by the interfaces
-      <a href="http://api.dartlang.org/dart_core/Set.html"><code>Set</code></a>, <a href="http://api.dartlang.org/dart_core/List.html"><code>List</code></a>,
-      and <a href="http://api.dartlang.org/dart_core/Queue.html"><code>Queue</code></a>.
-    </p>
-    
-    <p>
-      <a href="http://api.dartlang.org/dart_core/HashSet.html"><code>HashSet</code></a> is a more specific implementation of <code>Set</code>.
-    </p>
-
-<h3 id="map">Map</h3>
-
-<p>
-  <img src='images/map-hierarchy.png' width="181" height="144" alt='The Map interface hierarchy.'>
-</p>
-
-    <p>
-      The <a href="http://api.dartlang.org/dart_core/Map.html"><code>Map</code></a> interface is an associative container, mapping a key to a value. Null values are supported.
-    </p>
-
-    <p>
-      The <a href="http://api.dartlang.org/dart_core/HashMap.html"><code>HashMap</code></a> interface does not provide any guarantees on the order of keys and values in <code>getKeys</code> and <code>getValues</code>.
-    </p>
-    
-    <p>
-      The <a href="http://api.dartlang.org/dart_core/LinkedHashMap.html"><code>LinkedHashMap</code></a> interface preserves insertion order.
-    </p>
-
-
-<h3 id="comparable-hashable-pattern">Comparable, Hashable, and Pattern</h3>
-
-<p>
-  <img src='images/comparable-hashable-pattern.png' width="635" height="178" alt='The Comparable, Hashable, and Pattern interface hierarchy.'>
-</p>
-    <p>
-      The <a href="http://api.dartlang.org/dart_core/Comparable.html"><code>Comparable</code></a> interface is implemented by
-      <a href="http://api.dartlang.org/dart_core/Date.html"><code>Date</code></a>,
-      <a href="http://api.dartlang.org/dart_core/Duration.html"><code>Duration</code></a>,
-      <a href="http://api.dartlang.org/dart_core/num.html"><code>num</code></a>,
-      and <a href="http://api.dartlang.org/dart_core/String.html"><code>String</code></a>.
-    </p>
-    <p>
-      The <a href="http://api.dartlang.org/dart_core/Hashable.html"><code>Hashable</code></a></a> interface is implemented by
-      <a href="http://api.dartlang.org/dart_core/num.html"><code>num</code></a> and
-      <a href="http://api.dartlang.org/dart_core/String.html"><code>String</code></a>.
-    </p>
-    <p>
-      The <a href="http://api.dartlang.org/dart_core/Pattern.html"><code>Pattern</code></a></a> interface is implemented by
-      <a href="http://api.dartlang.org/dart_core/String.html"><code>String</code></a> and
-      <a href="http://api.dartlang.org/dart_core/RegExp.html"><code>RegExp</code></a>.
-    </p>
-
 
 </section> <!-- libraries -->
 
@@ -519,13 +472,11 @@ and providing your feedback:
 
 <ul>
   <li>
-    Other pages in the
-    <a href="http://dartlang.org/">Dart website</a>,
-    such as <a href="/docs/getting-started/editor/">tutorials</a>,
-    <a href="/samples/">sample code</a>,
-    <a href="/articles/">articles</a>,
-    and the latest draft of the
-    <a href="/docs/spec/">Dart Language Specification</a> </li>
+    Other pages in the Dart website,
+    such as the <a href="/docs/language-tour/">language tour</a>,
+    <a href="/docs/library-tour/">library tour</a>,
+    tutorials, and <a href="/docs/spec/">language specification</a>.
+  </li>
   <li>
     <a href="https://code.google.com/p/dart/">Dart project</a>
     with issue tracker and source code </li>
