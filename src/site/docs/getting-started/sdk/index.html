@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Getting Started with the SDK"
+description: "Learn to use the Dart SDK, which includes the Dart VM and the Dart-to-JavaScript compiler."
 ---
 
 {% include platform-specific-text/_noscript.html %}
@@ -31,7 +32,7 @@ The SDK includes the following tools:
 </p>
 
 <ul>
-  <li> Dart-to-JavaScript compiler (aka <em>frog</em>)</li>
+  <li> Dart-to-JavaScript compiler (dart2js)</li>
   <li> Dart VM </li>
   <li> Dart libraries </li>
 </ul>
@@ -41,20 +42,11 @@ For more information about the SDK, see the blog post
 <a href="http://blog.sethladd.com/2012/01/dart-sdk-quick-tour.html">Dart SDK Quick Tour</a>.
 </p>
 
-<aside class="note">
-<b>Note:</b>
-The SDK is in very early days, and it might not always work.
-If you just want to play with Dart, try
-<a href="/docs/getting-started/">Dartboard</a>.
-For a real development environment, use
-<a href="/docs/getting-started/editor/">Dart Editor</a>.
-</aside>
-
 <section>
 <h4> Contents </h4>
 <ul>
   <li> <a href="#download">Getting the SDK</a> </li>
-  <li> <a href="#frog">Using frog</a> </li>
+  <li> <a href="#dart2js">Using dart2js</a> </li>
   <li> <a href="#vm">Using the VM</a> </li>
 </ul>
 </section>
@@ -80,37 +72,57 @@ Or live dangerously: download the
 <span class="win"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-win32.zip">latest, untested build of the Windows SDK</a>.</span>
 <span class="mac"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-macos.zip">latest, untested build of the Mac SDK</a>.</span>
 <span class="linux"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-linux.zip">latest, untested build of the Linux SDK</a>.</span>
-These continuous builds are updated at least daily,
-and sometimes much more often.
+These continuous builds usually are updated daily.
 </p>
 
 <p>
-After you download and unzip the SDK,
+After you download and unpack the SDK,
 you'll have a directory named <code>dart-sdk</code>.
 Its <code>bin</code> directory has
-<code>frogc</code> (the Dart-to-JavaScript compiler) and
+<code>dart2js</code> (the Dart-to-JavaScript compiler) and
 <code>dart</code> (the Dart VM).
 </p>
 
 </section>
 
 
-<section id="frog">
-<h2>Using frog</h2>
+<section id="dart2js">
+<h2>Using dart2js</h2>
 
 <p>
-To compile a Dart file to JavaScript, use <code>bin/frogc</code>.
+To compile a Dart file to JavaScript, use <code>bin/dart2js</code>.
 For example:
 </p>
 
 {% pretty_code console 0 %}
-$DART_SDK/bin/frogc test.dart
+$DART_SDK/bin/dart2js test.dart
 {% endpretty_code %}
 
 <p>
 This command produces a <code>.js</code> file
 that contains the JavaScript equivalent of your Dart code.
 </p>
+
+<p>
+Common command-line options for dart2js include:
+</p>
+
+<dl>
+<dt>-o &lt;file&gt;</dt>
+<dd>Generate the output into &lt;file&gt;</dd>
+
+<dt>-c</dt>
+<dd>Insert runtime type checks and enable assertions (checked mode).</dd>
+
+<dt>-h</dt>
+<dd>Display this message (add -v for information about all options).</dd>
+</dl>
+
+<aside class="note">
+<b>What happened to frog?</b>
+frog was a previous version of a Dart-to-JavaScript
+compiler. It has been deprecated and replaced by dart2js.
+</aside>
 
 </section>
 
@@ -152,7 +164,7 @@ That third argument is required for now, until we fix
 
 <p>
   During development, we recommend using checked mode. You can
-  run in checked mode with a command-line flag:
+  run the VM in checked mode with a command-line flag:
 
 {% pretty_code console 0 %}
 $DART_SDK/bin/dart --enable_type_checks test.dart
@@ -168,7 +180,7 @@ $DART_SDK/bin/dart --enable_type_checks test.dart
 </p>
 
 <p>
-  You can enable assertions with a command-line flag:
+  You can enable assertions in the VM with a command-line flag:
 
 {% pretty_code console 0 %}
 $DART_SDK/bin/dart --enable_asserts test.dart

@@ -313,13 +313,13 @@ For details on downloading and using Dartium, see
 
 <h3 id="hello-world-js-size">Q. Why was the JavaScript output for "Hello world" so big?</h3>
 
-<p>Dart is young; we're working on the output size.  At the launch of Dart, you had two choices.  One was the <code>dartc</code> compiler without optimization, which slurps in tons of libraries and doesn't eliminate dead code: this is the default mode and is probably what you're seeing if you have absurdly large output for a small program.  The other was <code>dartc</code> with <code>--optimize</code>, which is slow but gets quite a bit smaller.</p>
+<p>Dart was young. At the launch of Dart, our initial goal was to generate functional JavaScript from Dart code.</p>
 
-<p>Since the initial launch, we've also created an even more experimental compiler, <code>frog</code>, written in Dart.  <a href="http://turbomanage.wordpress.com/2011/11/02/dart-to-js-compilation-with-frog/">Its output can be an order of magnitude smaller than <code>dartc --optimize</code></a>, so try <code>frog</code> if you have output size issues.  <a href="https://gist.github.com/1385015">Its output for "Hello world"</a> as of November 2011 was 35 lines, of which 12 are comments.  We'll continue to work on output size.</p>
+<p>Since the initial launch, we've created an improved compiler, <code>dart2js</code>, written in Dart. This compiler aims to be compliant with the language specification, and will continue to be optimized for performance. The dart2js compiler generates significantly smaller JavaScript output than the launch version of <code>dartc</code> (the original Dart-to-JavaScript compiler).</p>
 
 <h3 id="debugging-output-js">Q. How do I debug Dart code after it's been compiled to JavaScript?</h3>
 
-<p>If you can use <code>frog</code> to compile your program, the generated JavaScript is really quite readable, and it's reasonable to use the browser's development tools on it.</p>
+<p>The generated JavaScript from dart2js is readable, and it's reasonable to use the browser's development tools on it. We expect to eventually provide Source Maps output, which allows you to debug the Dart code from the JavaScript code inside of your browser's developer tools.</p>
 
 <h3 id="what-input-compiles">Q. Will any valid Dart code compile to JavaScript, or are there limitations?</h3>
 
