@@ -43,6 +43,7 @@ and it might have security and stability issues.
   <li> <a href="#download">Downloading and installing the browser</a> </li>
   <li> <a href="#launch">Launching the browser</a> </li>
   <li> <a href="#bug">Filing bugs</a> </li>
+  <li> <a href="#linking">Linking to Dart source</a> </li>
   <li> <a href="#detect">Detecting Dart support</a> </li>
   <li> <a href="#command">Launching from the command line</a> </li>
 </ol>
@@ -136,16 +137,51 @@ and use the Dartium bug template:
 
 </section>
 
+<section id="linking">
+<h2> Linking to Dart source </h2>
+
+<p>
+  Use a script tag with a type <code>application/dart</code>
+to link to your Dart source file.
+</p>
+
+<p>Example:</p>
+
+{% pc html 0 %}
+&lt;!DOCTYPE html>
+&lt;html>
+  &lt;body>
+    &lt;script type="application/dart" src="app.dart"&gt;&lt;/script&gt;
+    &lt;!-- bootstraps the Dart VM and handles non-Dart browsers --&gt;
+    &lt;script type="text/javascript"
+      src="http://dart.googlecode.com/svn/trunk/dart/client/dart.js"&gt;
+    &lt;/script&gt;
+  &lt;/body>
+&lt;/html>
+{% endpc %}
+
+<aside class="note">
+  <b>Tip:</b> The Dart Editor automatically adds both
+  the <code>application/dart</code> script tag and the
+  bootstrap JavaScript tag into the project's main HTML file.
+</aside>
+
+</section>
+
 
 <section id="detect">
 <h2> Detecting Dart support </h2>
 
 <p>
-Your Dart code will work in Dartium
-without any additional JavaScript code.
-However, you have the option of using JavaScript code
-to test whether the current browser supports Dart.
-To do so,
+  The above example uses a bootstrap script that takes care
+  of turning on the Dart VM, as well as compatibility with
+  non-Dart browsers. Instead of using the <code>dart.js</code>
+  script, you can manually include the necessary JavaScript
+  code.
+</p>
+
+<p>
+To start the Dart VM,
 look for the function <b>webkitStartDart</b>
 on the window.navigator object.
 For example:
@@ -158,6 +194,10 @@ if (!navigator.webkitStartDart) {
       // ...Fall back to compiled JS...
     }
   }, false);
+} else {
+  if (!navigator.webkitStartDart()) {
+    document.body.innerHTML = 'This build has expired.  Please download a new Dartium at http://www.dartlang.org/dartium/index.html';
+  }
 }
 {% endpretty_code %}
 
