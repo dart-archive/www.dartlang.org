@@ -61,6 +61,10 @@ class LanguageTourRedirectPage(webapp2.RequestHandler):
     def get(self):
         self.redirect('/docs' + self.request.path, permanent=True)
 
+class GettingStartedSdkRedirectPage(webapp2.RequestHandler):
+    def get(self):
+        self.redirect('/docs/sdk/', permanent=True)
+
 application = webapp2.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
                                       ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
@@ -68,6 +72,7 @@ application = webapp2.WSGIApplication(
                                       ('/news.*', NewsRedirectPage),
                                       ('/atom.xml', AtomFeedRedirectPage),
                                       ('/language-tour/.*', LanguageTourRedirectPage),
+                                      ('/docs/getting-started/sdk/.*', GettingStartedSdkRedirectPage),
                                       ('/%2B', PlusRedirectPage),
                                       ('/\+', PlusRedirectPage)],
                                      debug=True)

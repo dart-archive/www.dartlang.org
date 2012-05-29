@@ -40,6 +40,9 @@ handlers:
 - url: /language-tour/.*
   script: scripts.redirector.application
 
+- url: /docs/getting-started/sdk/.*
+  script: scripts.redirector.application
+
 - url: /(.*\.png)
   static_files: static/\1
   expiration: 1d
