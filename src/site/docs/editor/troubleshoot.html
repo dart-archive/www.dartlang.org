@@ -21,7 +21,7 @@ and in particular for the tutorial
 These tips are available for
     <label>
       <input type="radio" name="osChoices" id="win">
-      Windows</input></label>, 
+      Windows</input></label>,
     <label>
       <input type="radio" name="osChoices" id="linux" checked="true">
       Linux</input>
@@ -39,6 +39,7 @@ If we missed something, please
   <li> <a href="#launch-dart-editor">Launching Dart Editor</a> </li>
   <li> <a href="#dartium">Launching Dartium</a> </li>
   <li> <a href="#eclipse">Using Eclipse</a> </li>
+  <li> <a href="#install">Problems after re-installing</a> </li>
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
 
@@ -124,7 +125,7 @@ If we missed something, please
 ...
 -vm
 /usr/local/buildtools/java/jdk-64/bin/java
--vmargs 
+-vmargs
 ...  {% endpc %}
 
   </section>
@@ -213,8 +214,8 @@ If we missed something, please
     <a href="/dartium/">Dartium</a>
     and substitute it for the copy that's in your
     Dart installation directory.
-
 </section>
+
 
 <section id="eclipse">
   <h2>Using Eclipse</h2>
@@ -232,6 +233,26 @@ If we missed something, please
   for any other Eclipse-based software.
   </p>
 </section>
+
+<section id="install">
+  <h2>Problems after re-installing</h2>
+
+  <p>
+    If you install Dart Editor on top of an old copy,
+    as described in
+    <a href="/docs/editor/#update">Updating without losing preferences</a>,
+    you run a small risk that Dart Editor will start behaving strangely.
+  </p>
+
+  <p>
+    In this case,
+    try downloading and installing a fresh copy of Dart Editor
+    (abandoning the old state).
+    If the strange behavior still happens, then
+    <a href="getting-started/#feedback">report the issue</a>.
+  </p>
+</section>
+
 
 <section id="bugs">
   <h2> Other known issues </h2>
