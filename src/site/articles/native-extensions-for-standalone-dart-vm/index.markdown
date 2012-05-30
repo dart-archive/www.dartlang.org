@@ -9,7 +9,7 @@ rel:
 _Written by William Hesse <br />
 May 2012_
 
-Dart programs running on the standalone Dart VM (_command-line apps_) can call C or C++ functions in a shared library, by means of native extensions. This article shows how to write, compile, and build such native extensions on Windows, Mac OS X, and Linux.
+Dart programs running on the standalone Dart VM (_command-line apps_) can call C or C++ functions in a shared library, by means of native extensions. This article shows how to write and build such native extensions on Windows, Mac OS X, and Linux.
 
 You can provide two types of native extensions: asynchronous or synchronous. An _asynchronous extension_ runs a native function on a separate thread, scheduled by the Dart VM. A _synchronous extension_ uses the Dart virtual machine library's C API (the Dart Embedding API) directly and runs on the same thread as the Dart isolate. An asynchronous function is called by sending a message to a Dart port, receiving the response on a reply port.
 
@@ -155,7 +155,7 @@ void SystemSrand(Dart_NativeArguments arguments) {
     if (fits) {
       int64_t seed;
       HandleError(Dart_IntegerToInt64(seed_object, &seed));
-      srand(static_cast\<unsigned\>(seed));
+      srand(static_cast&lt;unsigned>(seed));
       success = true;
     }
   }
@@ -292,8 +292,8 @@ class RandomArray {
     var args = new List(2);
     args[0] = seed;
     args[1] = length;
-    getPort().call(args).then((result) {
-      if (result is !Null) {
+    _servicePort.call(args).then((result) {
+      if (result !== null) {
         callback(result);
       } else {
         throw new Exception("Random array creation failed");
@@ -301,14 +301,14 @@ class RandomArray {
     });
   }
   // A getter for the port that caches it.
-  SendPort getPort() {
+  SendPort get _servicePort() {
     if (_port == null) {
-      _port = _getServerPort();
+      _port = _newServicePort();
     }
     return _port;
   }
 
-  SendPort _getServerPort() native "RandomArray_ServicePort";
+  SendPort _newServicePort() native "RandomArray_ServicePort";
 }
 {% endpretty_code %}
 
