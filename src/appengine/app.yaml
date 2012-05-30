@@ -25,7 +25,7 @@ handlers:
 - url: /docs/spec/dartLangSpec.*
   script: scripts.redirector.application
 
-- url: /docs/getting-started/editor/index-.*
+- url: /docs/getting-started/editor/.*
   script: scripts.redirector.application
 
 - url: /news.*

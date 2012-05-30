@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Getting Started with Dart Editor"
-description: "Dart Editor is a lightweight, open-source editor based on Eclipse components. You can use it to edit and run Dart apps, as well as to invoke the Dart-to-JavaScript compiler."
+description: "Step-by-step instructions for installing Dart Editor and using it to create and run Dart apps."
 ---
 
 {% include platform-specific-text/_noscript.html %}
@@ -9,9 +9,9 @@ description: "Dart Editor is a lightweight, open-source editor based on Eclipse 
 <h1> {{ page.title }} </h1>
 
 <section>
+
 <p>
-Follow this tutorial to
-install and use Dart Editor on
+Follow this tutorial to install and use Dart Editor on
 <span class="linux">Linux.</span>
 <span class="mac">Mac OS X.</span>
 <span class="win">Windows.</span>
@@ -19,7 +19,7 @@ install and use Dart Editor on
 (These instructions are available for
     <label>
       <input type="radio" name="osChoices" id="win">
-      Windows</input></label>, 
+      Windows</input></label>,
     <label>
       <input type="radio" name="osChoices" id="linux" checked="true">
       Linux</input>
@@ -30,22 +30,12 @@ install and use Dart Editor on
 </p>
 
 <p>
-Dart Editor is a lightweight, open-source editor
-based on Eclipse components.
+Dart Editor is a lightweight, open-source editor for Dart code.
 You can use it to edit and run Dart apps,
 as well as to invoke the Dart-to-JavaScript compiler.
+For more information about what Dart Editor can do,
+see the <a href="/docs/editor/">Dart Editor homepage</a>.
 </p>
-
-<p>
-The Dart Editor download includes:
-</p>
-
-<ul>
-  <li> Dart Editor </li>
-  <li> <a href="/docs/getting-started/sdk/">Dart SDK</a> </li>
-  <li> <a href="/dartium/">"Dartium"</a>:
-    a build of the Chromium browser that includes the Dart VM </li>
-</ul>
 
 </section>
 
@@ -74,22 +64,22 @@ and, if necessary, a Java runtime environment.
 </p>
 
 <ol>
-  <li> 
+  <li>
     <p>
     Download and unzip the Dart Editor ZIP file.
     <span class="linux">
     If you don't know whether to download the 32-bit or 64-bit version, see
-    <a href="/docs/getting-started/editor/troubleshoot.html#download-dart-editor">Getting your system architecture</a>
+    <a href="/docs/editor/troubleshoot.html#download-dart-editor">Getting your system architecture</a>
     in the Troubleshooting page.
     </span>
     <!-- PENDING: Switcher would be better if we could just say class="linux windows"... -->
     <span class="win">
     If you don't know whether to download the 32-bit or 64-bit version, see
-    <a href="/docs/getting-started/editor/troubleshoot.html#download-dart-editor">Getting your system architecture</a>
+    <a href="/docs/editor/troubleshoot.html#download-dart-editor">Getting your system architecture</a>
     in the Troubleshooting page.
     </span>
     </p>
-    
+
     {% include downloads/_dart-editor.html %}
 
     <p>
@@ -139,7 +129,7 @@ and, if necessary, a Java runtime environment.
 
 <p>
 Go to your Dart installation directory,
-and double-click the <b>DartEditor</b> icon
+and double-click the <b>DartEditor</b> executable file
 <img src="/imgs/Dart_Logo_21.png"
 alt="DartEditor icon"
 width="21" height="21">.
@@ -156,7 +146,7 @@ with a Welcome page that looks something like this:
 
 <p>
   Having problems? See
-  <a href="troubleshoot.html#launch-dart-editor">Launching Dart Editor</a> in the
+  <a href="/docs/editor/troubleshoot.html#launch-dart-editor">Launching Dart Editor</a> in the
   Troubleshooting page.
 </p>
 </section>
@@ -166,8 +156,8 @@ with a Welcome page that looks something like this:
 <h2> Step 3: Create and run an app </h2>
 
 <p>
-It's easy to create a simple web or server app from scratch.
-This step walks you through creating a server app.
+It's easy to create a simple web or command-line app from scratch.
+This step walks you through creating a command-line app.
 </p>
 
 <ol>
@@ -189,7 +179,7 @@ This step walks you through creating a server app.
   </p></li>
 
   <li> <p>
-    Select <b>Server application</b>
+    Select <b>Command-line application</b>
     in the sample content section.
     Then click <b>Finish</b> to create the initial files for the app.
     </p>
@@ -222,7 +212,7 @@ This step walks you through creating a server app.
     </p>
 
     <p>
-    For server apps,
+    For command-line apps,
     the output of print() appears at the bottom right,
     in a new tab next to the Problems tab.
     </p>
@@ -301,7 +291,7 @@ In this step, you'll open a sample web app and run it in Dartium.
 
 <p>
   Having problems? See
-  <a href="troubleshoot.html#dartium">Launching Dartium</a> in the
+  <a href="/docs/editor/troubleshoot.html#dartium">Launching Dartium</a> in the
   Troubleshooting page.
 </p>
 

@@ -41,7 +41,7 @@ class SpecRedirectPage(webapp2.RequestHandler):
 
 class EditorRedirectPage(webapp2.RequestHandler):
     def get(self):
-        self.redirect('/docs/getting-started/editor/', permanent=True)
+        self.redirect('/docs/editor/getting-started/', permanent=True)
 
 class NewsRedirectPage(webapp2.RequestHandler):
     def get(self):
@@ -68,7 +68,7 @@ class GettingStartedSdkRedirectPage(webapp2.RequestHandler):
 application = webapp2.WSGIApplication(
                                      [('/docs/api/.*', ApiRedirectPage),
                                       ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
-                                      ('/docs/getting-started/editor/index-.*', EditorRedirectPage),
+                                      ('/docs/getting-started/editor/.*', EditorRedirectPage),
                                       ('/news.*', NewsRedirectPage),
                                       ('/atom.xml', AtomFeedRedirectPage),
                                       ('/language-tour/.*', LanguageTourRedirectPage),

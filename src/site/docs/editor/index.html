@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Dart Editor"
-description: "Dart Editor is a lightweight, open-source editor based on Eclipse components. You can use it to edit and run Dart apps, as well as to invoke the Dart-to-JavaScript compiler."
+description: "Read all about Dart Editor's features."
 ---
 
 {% include platform-specific-text/_noscript.html %}
@@ -9,14 +9,16 @@ description: "Dart Editor is a lightweight, open-source editor based on Eclipse 
 <h1>{{ page.title }}</h1>
 
 <p>
-Dart Editor is a lightweight, open-source editor
-based on Eclipse components.
-You can use it to edit and run Dart apps,
-as well as to invoke the Dart-to-JavaScript compiler.
+This page has detailed instructions for using Dart Editor,
+a lightweight, open-source editor.
+A few of the covered topics are
+<a href="#run-production-mode">enabling production mode</a>,
+<a href="#dart2js">compiling to JavaScript</a>, and
+<a href="#run-non-dartium">specifying a browser</a>.
 </p>
 
 <p>
-See <a href="/docs/getting-started/editor/">Getting Started with Dart Editor</a>
+See <a href="getting-started/">Getting Started with Dart Editor</a>
 if you've never used Dart Editor.
 </p>
 
@@ -26,12 +28,38 @@ if you've never used Dart Editor.
 <ol class="toc">
   <li> <a href="#download">Getting Dart Editor</a>
     <ol>
-      <li> <a href="#update">Updating Dart Editor</a> </li>
-      <li> <a href="#continuous">Getting the continuous build</a> </li>
+      <li> <a href="#continuous">Getting the most recent build</a> </li>
+      <li> <a href="#update">Updating without losing preferences</a> </li>
     </ol> </li>
-  <li> <a href="#run">Running apps</a> </li>
   <li> <a href="#view-samples">Viewing samples</a> </li>
-  <li> <a href="#browse-apis">Browsing APIs</a> </li>
+  <li> <a href="#app">Managing the Files view</a>
+    <ol>
+      <li> <a href="#app-open">Adding apps</a> </li>
+      <li> <a href="#app-remove">Removing apps</a> </li>
+    </ol> </li>
+  <li> <a href="#create">Creating apps</a> </li>
+  <li> <a href="#edit">Editing apps</a>
+    <ol>
+      <li> <a href="#autocomplete">Using autocomplete</a> </li>
+      <li> <a href="#browse-apis">Browsing APIs</a> </li>
+      <li> <a href="#refactor">Refactoring</a> </li>
+      <li> <a href="#searching">Searching</a> </li>
+    </ol> </li>
+  <li> <a href="#run">Running apps</a>
+    <ol>
+      <li> <a href="#manage-launch">Specifying launch configurations</a> </li>
+      <li> <a href="#run-production-mode">Running in production mode</a> </li>
+      <li> <a href="#run-non-dartium">Specifying a browser</a> </li>
+    </ol>
+  </li>
+  <li> <a href="#debug">Debugging apps</a> </li>
+  <li> <a href="#dart2js">Compiling to JavaScript</a> </li>
+  <li> <a href="#more">Other features</a>
+    <ol>
+      <li> <a href="#preferences">Customizing Dart Editor</a> </li>
+      <li> <a href="#keys">Keyboard alternatives</a> </li>
+    </ol>
+  </li>
 </ol>
 
 
@@ -42,7 +70,7 @@ if you've never used Dart Editor.
 You can download Dart Editor for
 <label>
   <input type="radio" name="osChoices" id="win">
-  Windows</input></label>, 
+  Windows</input></label>,
 <label>
   <input type="radio" name="osChoices" id="linux" checked="true">
   Linux</input>
@@ -55,12 +83,55 @@ You can download Dart Editor for
 {% include downloads/_dart-editor.html %}
 
 <p>
-See <a href="/docs/getting-started/editor/">Getting Started with Dart Editor</a>
-for more details.
+The Dart Editor download includes:
 </p>
 
+<ul>
+  <li> Dart Editor </li>
+  <li> <a href="/docs/getting-started/sdk/">Dart SDK</a> </li>
+  <li> <a href="/dartium/">"Dartium"</a>:
+    a build of the Chromium browser that includes the Dart VM </li>
+</ul>
+
+<p>
+See <a href="getting-started/">Getting Started with Dart Editor</a>
+for help with downloading and launching Dart Editor.
+</p>
+
+<section id="continuous">
+<h3>Getting the most recent build</h3>
+
+<p>
+The version linked to above is the <em>integration build</em>.
+It's usually updated once per week.
+</p>
+
+<p>
+Another option is to get the <em>continuous build</em>&mdash;the
+latest, <b>untested</b> version of Dart Editor.
+If you use the continuous build, please update it frequently and
+<a href="getting-started/#feedback">send feedback</a>
+about new features and bugs that you encounter.
+</p>
+
+<div class="linux downloads">
+  <a class="download-link button" data-bits="32" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86.zip">32-bit Dart Editor (Linux latest)</a>
+  <a class="download-link button" data-bits="64" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86_64.zip">64-bit Dart Editor (Linux latest)</a>
+</div>
+
+<div class="mac downloads">
+  <a class="download-link button" data-bits="64" data-os="mac" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-macosx.cocoa.x86_64.zip">Dart Editor (Mac latest)</a>
+</div>
+
+<div class="win downloads">
+  <a class="download-link button" data-bits="32" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86.zip">32-bit Dart Editor (Windows latest)</a>
+  <a class="download-link button" data-bits="64" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86_64.zip">64-bit Dart Editor (Windows latest)</a>
+</div>
+</section>
+
+
 <section id="update">
-<h3>Updating Dart Editor</h3>
+<h3>Updating without losing preferences</h3>
 
 <p>
 If you already have Dart Editor and want to keep its state,
@@ -82,35 +153,423 @@ See the
 for a list of release dates and features.
 </p>
 </section>
+</section>
 
 
-<section id="continuous">
-<h3>Getting the continuous build</h3>
+<section id="view-samples">
+<h2>Viewing samples</h2>
 
 <p>
-We recommend that you use the latest supported version of Dart Editor&mdash;the
-version linked to above.
-It's known as the <em>integration build</em>,
-and it's usually updated once per week.
+The Welcome page of Dart Editor displays a few samples.
+To open a sample and look at its source code,
+click the sample's image.
 </p>
 
 <p>
-Another option is to use the continuous build&mdash;the
-most recent, <b>untested</b> version of Dart Editor.
-To get it, download the
-<span class="linux">
-  <a class="download-link" data-bits="32" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86.zip">32-bit</a> or
-  <a class="download-link" data-bits="64" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86_64.zip">64-bit</a>
-  ZIP file for the Linux continuous build.
-</span>
-<span class="mac">
-  <a class="download-link" data-bits="64" data-os="mac" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-macosx.cocoa.x86_64.zip">ZIP file</a> for the Mac continuous build.
-</span>
-<span class="win">
-  <a class="download-link" data-bits="32" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86.zip">32-bit</a> or
-  <a class="download-link" data-bits="64" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86_64.zip">64-bit</a>
-  ZIP file for the Windows continuous build.
-</span>
+If you don't see the Welcome page,
+you probably closed it.
+Get it back with <b>Tools > Welcome Page</b>.
+</p>
+
+<p>
+Another way to open a sample is by opening it
+through the <b>File</b> menu.
+Choose <b>File > Open...</b>, then
+navigate to your Dart installation directory.
+Go to <b>samples</b>,
+and then open your sample's directory
+(for example, <b>sunflower</b>).
+</p>
+
+</section>
+
+
+<section id="app">
+<h2>Managing the Files view</h2>
+
+<p>
+The Files view shows the files
+that implement the libraries included in Dart,
+as well as all the apps that you create or open.
+</p>
+
+<p>
+To keep the Files view from resetting the next time you update Dart Editor,
+follow the instructions in
+<a href="#update">Updating without losing preferences</a>.
+</p>
+
+
+<section id="app-open">
+<h3>Adding apps</h3>
+
+<p>
+Here's how to open an app, which makes it appear in your Files view:
+</p>
+
+<ol>
+  <li> <p>
+    Go to the <b>File</b> menu,
+    and choose <b>Open...</b>.
+    Or use the keyboard shortcut
+    (<b>Ctl+O</b> or, on Mac, <b>Cmd+O</b>).
+    </p>
+  </li>
+  <li> <p>
+    Select the directory that contains the app's files,
+    and click <b>Open</b>.
+    </p>
+  </li>
+</ol>
+
+<p>
+The directory and all its files appear in the Files view.
+</p>
+</section>
+
+
+<section id="app-remove">
+<h3>Removing apps</h3>
+
+<p>
+You can remove an app from the Files view,
+either with or without deleting its files.
+</p>
+
+<p>
+To hide the app but keep it in your file system,
+right-click the directory in the Files view
+(on the Mac: Ctl+click),
+and choose <b>Remove from Editor</b>.
+</p>
+
+<p>
+To delete the app and its files permanently,
+right-click (or Ctl+click) the directory
+and choose <b>Delete</b>.
+</p>
+</section>
+</section>
+
+
+<section id="create">
+<h2>Creating apps</h2>
+
+<p>
+It's easy to create a simple web or command-line app from scratch:
+</p>
+
+<ol>
+  <li> <p>
+    Click the New Application button
+    <img src="images/newapp.png" alt="New App" width="16" height="16"
+     style="vertical-align:top">
+    (at the upper left of Dart Editor).
+    Alternatively, choose <b>File > New Application...</b>
+    from the Dart Editor menu.
+    A dialog appears.
+    </p>
+    </li>
+  <li> <p>
+    Type in a name for your application&mdash;for
+    example, <code>HelloWorld</code>.
+    If you don't like the default directory,
+    type in a new location or browse to choose the location.
+  </p></li>
+
+  <li> <p>
+    In the sample content section,
+    select either <b>Web application</b> or <b>Command-line application</b>.
+    Then click <b>Finish</b> to create the initial files for the app.
+    </p>
+
+    <p>
+      <img src="images/DartEditor-newwebapp.png"
+      alt="screenshot of the New Application dialog"
+      width="605" height="530">
+    </p>
+
+    <p>
+    A default Dart file appears in the Edit view,
+    and its directory appears
+    in the Files view.
+    Your Dart Editor window should look something like this:
+    </p>
+
+    <p>
+      <img src="images/DartEditor-helloweb.png"
+      alt="screenshot of Dart Editor just after New Application..."
+      width="665" height="495" >
+    </p>
+
+    </li>
+  </ol>
+</section>
+
+
+
+<section id="edit">
+<h2>Editing apps</h2>
+
+<p>
+Dart Editor provides the basic editing functionality you'd expect,
+plus features such as
+Dart code completion,
+API browsing,
+support for refactoring,
+and the ability to search multiple files.
+</p>
+
+
+<section id="autocomplete">
+<h3>Using autocomplete</h3>
+
+<p>
+Autocomplete suggestions look something like this:
+</p>
+
+<p>
+<img src="images/helloweb-dotcomplete.png"
+  alt="snapshot of autocomplete for document."
+  style="border: 1px solid black"
+  width="404" height="351">
+</p>
+
+<p>
+The autocomplete suggestions appear when you either:
+</p>
+
+<ul>
+  <li>
+    <p>
+    Type a class, interface, or variable name, and then type a period.
+    <br />
+    For example, type <code>document.</code> or <code>Math.</code>
+    and pause a moment.
+    Once the suggestions appear,
+    continue typing to pare down the list.
+    </p>
+  </li>
+
+  <li>
+    <p>
+    Type <b>Ctl+Space</b>.
+    <br />
+    For example, type <code>Mat</code>, then Ctl+Space
+    to see a list of classes and interfaces
+    that start with "Mat".
+    </p>
+  </li>
+</ul>
+
+<p>
+When the suggestions come up,
+you can click, type, or use the arrow keys to select the one you want.
+Press Enter or Return to choose a suggestion,
+or Esc to dismiss the panel.
+</p>
+</section>
+</section>
+
+
+<section id="browse-apis">
+<h3>Browsing APIs</h3>
+
+<p>
+With Dart Editor you can easily find where APIs are declared.
+You can also
+outline the contents of a Dart file.
+</p>
+
+<section id="browse-api-declaration">
+<h4>Finding where an API is declared</h4>
+
+<p>
+Use this feature to go to the declaration of
+an API item&mdash;variable, method, type, library, and so on&mdash;either
+within the same .dart file or in another file.
+</p>
+
+<ol>
+  <li>
+    <p>
+    In the Edit view of a Dart file,
+    hold down the <b>Control</b> key
+    (<b>Command</b> key on Mac)
+    and move the mouse over the source code.
+    A line appears under each API item.
+    </p>
+
+    <p>
+      <img src="images/sunflower-hover.png"
+        alt="screenshot of Command/Control-hover over Math"
+        style="border: 1px solid black"
+        width="371" height="152">
+    </p>
+  </li>
+
+  <li>
+    <p>
+    Continuing to press Control or Command,
+    hover over an underlined string,
+    and click.
+    </p>
+
+    <p>
+      The editor displays the file that declares the item.
+      For example, if you Command-click Math,
+      the file that declares the
+      <a href="http://api.dartlang.org/dart_core/Math.html"><code>Math</code></a> type appears.
+    </p>
+  </li>
+</ol>
+</section>
+
+<section id="browse-api-outline">
+<h4>Outlining a file's contents</h4>
+
+<p>
+Either press <b>Alt+O</b> (<b>Option+O</b> on Mac) or
+right-click and choose <b>Quick Outline</b>.
+</p>
+
+<p>
+A panel comes up displaying
+the classes, methods, and fields
+declared in the current Dart file.
+For example,
+the outline for the Sunflower sample's <code>Sunflower.dart</code> file
+looks something like this:
+</p>
+
+<p>
+<img src="images/sunflower-outline.png"
+  alt="screenshot of outline panel"
+  width="350" height="300">
+</p>
+
+<p>
+You can reduce the size of the list
+by typing one or more characters.
+For example, if you type <b>x</b>,
+only the <b>xc</b> variable appears.
+</p>
+
+<p>
+If you choose an item from the list&mdash;for example,
+<b>xc</b>&mdash;
+the editor scrolls to its declaration.
+</p>
+
+<p>
+Alternatively, add a more permanent outline view
+by choosing <b>Tools > Outline</b>.
+</p>
+
+<p>
+<img src="images/sunflower-outline-view.png"
+  alt="screenshot of outline view"
+  width="673" height="494">
+</p>
+
+</section>
+
+
+<section id="callers-view">
+<h4>Finding where an API is used</h4>
+
+<p>
+You can find where an API&mdash;such as a function&mdash;is used
+using the Callers view.
+To bring it up,
+click the function's name
+and then choose <b>Callers</b> from the <b>Tools</b> menu
+(or type Ctl+Alt+H).
+</p>
+
+<p>
+To see how a caller itself is called,
+click its arrow in the Callers view.
+For example, the following screenshot shows
+that the CountDownClock() constructor and
+a function named f()
+call the updateTime() method.
+It also shows that the constructor
+is called from main().
+</p>
+
+<p>
+  <img src="images/clock-callers.png"
+    alt="screenshot of the Callers view"
+    width="622" height="577">
+</p>
+
+<p>
+Once the Callers view is visible,
+you can click the Show Callee Hierarchy button
+<img src="images/callees.gif" alt="" width="16" height="16"
+  style="vertical-align:top">
+to see <em>callees</em>&mdash;the
+functions called by the function you're inspecting.
+For example, the following screenshot shows
+that updateTime() calls several getters and methods,
+plus the now() date constructor.
+</p>
+
+<p>
+  <img src="images/clock-callees.png"
+    alt="screenshot of the Callers view with the callee symbol selected"
+    width="622" height="577">
+</p>
+
+</section>
+</section>
+
+<section id="refactor">
+<h3>Refactoring</h3>
+
+<p>
+To change the name of an item throughout your code,
+put the cursor within (or double-click)
+its name in the Edit view
+and choose <b>Edit > Rename...</b>.
+</p>
+
+<p>
+You can rename almost anything&mdash;local variables,
+function parameters,
+fields,
+methods,
+types,
+top-level functions,
+library prefixes,
+top-level compilation units,
+and more.
+An example of renaming a top-level compilation unit is
+changing the name of a file that's sourced by a library.
+</p>
+</section>
+
+
+<section id="searching">
+<h3>Searching</h3>
+
+<p>
+The search field at the upper right of the Dart Editor window
+is an easy way to go directly to:
+</p>
+
+<ul>
+  <li> Types </li>
+  <li> Files </li>
+  <li> Text inside of files </li>
+</ul>
+
+<p>
+The scope of a text search is every file in your Files view.
+Results for text searches come up in a Search view.
+Within that view, double-click a file to see it in the Edit view.
+All occurrences of the search string in the Edit view are highlighted.
 </p>
 
 </section>
@@ -122,8 +581,8 @@ To get it, download the
 
 <p>
 To run any Dart app,
-just click Dart Editor's Run button
-<img src="/docs/editor/images/run.png" alt="Run" width="16" height="16"
+click Dart Editor's Run button
+<img src="images/run.png" alt="" width="16" height="16"
   style="vertical-align:top">
 while any file in that app is selected.
 If you're working on a web app,
@@ -133,219 +592,313 @@ with the app's code running inside it.
 </p>
 
 <p>
-By default, Dart Editor launches both web apps and server apps
-in checked mode, with debugging enabled.
-When you execute a web application,
-by default Dart Editor launches <a href="/dartium/">Dartium</a>.
+When you run a web application using Dart Editor,
+by default the app uses the copy of
+<a href="/dartium/">Dartium</a> that's included in the Dart Editor download,
+with the Dart code executing directly in the browser.
+If your launch configuration specifies a browser,
+then Dart Editor compiles the Dart code to JavaScript
+that executes in the browser.
+</p>
+
+
+<section id="manage-launch">
+<h3>Specifying launch configurations</h3>
+
+<p>
+Use <b>Tools > Manage Launches</b> to specify
+as many launch configurations as you like.
 </p>
 
 <p>
-You can specify another browser or mode using
-<b>Tools > Manage Launches</b>.
-If you specify a non-Dartium browser,
-Dart Editor automatically compiles the app to JavaScript.
+For web apps, you can specify the following:
 </p>
+
+<ul>
+  <li> HTML file or URL to open </li>
+  <li> browser and browser arguments to use (JavaScript only) </li>
+  <li> debugging enabled (Dart only) </li>
+  <li> checked mode (Dart only) </li>
+</ul>
+
+<p>
+For example,
+a web app might have several launch configurations:
+</p>
+
+<ul>
+  <li> A Dart (Dartium) launch configuration </li>
+  <li> Several JavaScript launch configurations:
+    <ul>
+      <li> System default browser </li>
+      <li> Google Chrome </li>
+      <li> Firefox </li>
+      <li> <em>...at least one configuration for each additional browser...</em> </li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+You can specify the following for command-line apps:
+</p>
+
+<ul>
+  <li> .dart file to execute </li>
+  <li> arguments to pass to the app </li>
+  <li> checked mode </li>
+  <li> heap size </li>
+</ul>
 </section>
 
-
-<section id="view-samples">
-<h2>Viewing samples</h2>
-
-<p>
-The Welcome page of Dart Editor displays a few samples.
-To open a sample and look at its source code,
-just click the sample's image.
-</p>
+<section id="run-production-mode">
+<h3>Running in production mode</h3>
 
 <p>
-If you don't see the Welcome page,
-you probably closed it.
-Get it back with <b>Tools > Welcome Page</b>.
-</p>
-
-<p>
-Another way to open a sample is through the <b>File</b> menu.
-For example:
+By default, apps run in checked mode.
+To run in production mode instead,
+disable checked mode in your app's launch configuration:
 </p>
 
 <ol>
-  <li> <p>
-    Go to the <b>File</b> menu,
-    and choose <b>Open...</b>.
-    Or use the keyboard shortcut
-    (<b>Ctl+O</b> or, on Mac, <b>Option+O</b>).
-    </p>
+  <li>
+    Run your app at least once,
+    so that it has a launch configuration.
   </li>
-  <li> <p>
-    Navigate to your Dart installation directory,
-    then to <b>samples/sunflower</b>.
-    Double-click <b>Sunflower.dart</b>.
-    </p>
+  <li>
+    Choose <b>Run > Manage Launches</b>,
+    or click the little arrow to the right of the Run button
+    <img src="images/run.png" alt="" width="16" height="16"
+      style="vertical-align:top">.
+  </li>
+  <li>
+    In the Manage Launches dialog,
+    find a launch configuration for your app.
+    Click it if it isn't already selected.
+  </li>
+  <li>
+    Unselect <b>Run in checked mode</b>.
+    <br>
+    <img src="images/production-mode.png"
+      alt="screenshot of checked mode checkbox"
+      width="141" height="23">
+  </li>
+  <li>
+    Click <b>Apply</b> to save your change,
+    or <b>Run</b> to save it and run your app.
   </li>
 </ol>
+
+<p>
+For details about checked mode and production mode, see
+<a href="/docs/language-tour#runtime-modes">Runtime modes</a>
+in the language tour.
+</p>
 </section>
 
 
-<section id="browse-apis">
-<h2>Browsing APIs</h2>
+<section id="run-non-dartium">
+<h3>Specifying a browser</h3>
 
 <p>
-With Dart Editor,
-you can easily find where APIs are declared,
-outline the contents of a Dart file,
-and auto-complete references to APIs.
-The following mini-tutorial
-assumes you're viewing the Sunflower sample in Dart Editor.
+To specify the browser
+in which the your app runs:
 </p>
 
 <ol>
-  <li> <p>
-    Find where variables and types are declared.
+  <li>
+    Choose <b>Run > Manage Launches</b>,
+    or click the little arrow to the right of the Run button
+    <img src="images/run.png" alt="" width="16" height="16"
+      style="vertical-align:top">.
+    <br>
+    The Manage Launches dialog appears.
+    On the left side of the dialog is a list of all launch configurations
+    that you've created or that were automatically created for you.
+    On the right is information about
+    the currently selected launch configuration.
+    <p>
+      <img src="images/manage-launches.png"
+        alt="screenshot of Manage Launches dialog"
+        width="649" height="525">
     </p>
-    <ol>
-      <li> <p>
-        In the Editor view of <code>Sunflower.dart</code>,
-        hold down the <b>Control</b> key
-        (<b>Command</b> key on Mac)
-        and move the mouse over the source code.
-        A line appears under each item
-        that's declared elsewhere in this <code>.dart</code> file
-        or in another <code>.dart</code> file.
-      </p> </li>
-
-      <li> <p>
-        Continuing to press Control or Command,
-        hover over the string <b>Math</b>,
-        (at the top of the <code>Sunflower()</code> constructor),
-        and click.
-        </p>
-
-        <p>
-        <img src="images/sunflower-hover.png"
-          alt="screenshot of Command/Control-hover over Math"
-          style="border: 1px solid black"
-          width="407" height="223">
-        </p>
-
-        <p>
-        The editor displays the file that declares the
-        <a href="http://api.dartlang.org/dart_core/Math.html"><code>Math</code></a> type.
-        </p>
-
-        <aside class="note">
-        <b>Tip:</b>
-        You can also use this trick to find declarations within the same file.
-        </aside>
+  </li>
+  <li>
+    In the Manage Launches dialog,
+    click the Create new launch button
+    <img src="images/run-create.png" alt="" width="16" height="16"
+      style="vertical-align:top">,
+    and choose <b>New web launch: JavaScript</b>.
+    <p>
+      <img src="images/new-web-launch-menu.png"
+        alt="screenshot of Create new launch menu"
+       style="border: 1px solid black"
+        width="" height="">
+    </p>
+  </li>
+  <li>
+    Enter configuration information:
+    <ul>
+      <li>
+        Give the configuration a name that identifies the
+        app, the browser, and anything else important.
+        <br>
+        <b>Example:</b>
+        HelloWeb.html in Firefox
       </li>
-    </ol> </li>
-  <li>
+      <li>
+        Specify the HTML file or URL to open.
+        <br>
+        <b>Example:</b> /HelloWeb/HelloWeb.html
+      </li>
+      <li>
+        Unless you want to use the default system browser,
+        unselect "Use default system browser"
+        and specify the location of the browser you want to use.
+        <br>
+        <b>Example:</b> /Applications/Firefox.app
+      </li>
+    </ul>
     <p>
-    Click the left arrow button
-    <img src="images/leftarrow.png" alt="left arrow" width="16" height="16"
-      style="vertical-align:top">
-    (to the left of the Run button
-    <img src="images/run.png" alt="Run" width="16" height="16"
-      style="vertical-align:top">)
-    to go back to <code>Sunflower.dart</code>.
+      <img src="images/new-web-launch.png"
+        alt="PENDING"
+        width="649" height="525">
     </p>
   </li>
   <li>
-    <p>
-    Either press <b>Alt+O</b> (<b>Option+O</b> on Mac) or
-    right-click and choose <b>Quick Outline</b>.
-    </p>
-
-    <p>
-    A panel comes up displaying
-    the classes, methods, and fields
-    declared in <code>Sunflower.dart</code>.
-    It looks something like this:
-    </p>
-
-    <p>
-    <img src="images/sunflower-outline.png"
-      alt="screenshot of outline panel"
-      width="390" height="340">
-    </p>
-
-    <p>
-    You can reduce the size of the list
-    by typing one or more characters.
-    For example, if you type <b>x</b>,
-    only the <b>xc</b> variable appears.
-    </p>
-
-    <p>
-    If you choose an item from the list&mdash;for example,
-    <b>xc</b>&mdash;
-    the editor scrolls to its declaration in <code>Sunflower.dart</code>.
-    </p>
-  </li>
-  <li>
-    <p>
-    Now try Dart Editor's auto-complete feature.
-    </p>
-
-    <ol style="list-style-type: lower-alpha">
-      <li> <p>
-        Find the declaration of <b>TAU</b>,
-        near the end of <code>Sunflower.dart</code>:
-        </p>
-{% pretty_code dart 0 %}
-static final TAU = Math.PI * 2;{% endpretty_code %}
-        </li>
-      <li> <p>
-        Delete everything to the right of <code>Math</code>,
-        and then type a period (<b>.</b>).
-        After a short pause,
-        a list of autocomplete suggestions comes up,
-        looking something like this:
-        </p>
-
-        <img src="images/sunflower-dotcomplete.png"
-          alt="snapshot of autocomplete for Math."
-          style="border: 1px solid black"
-          width="450" height="234">
-        </p> </li>
-      <li> <p>
-        Type or use the arrow keys to select <code>PI</code>,
-        and then press Enter or Return to dismiss the panel.
-        </p> </li>
-      <li> <p>
-        Complete your changes&mdash;for
-        example, if you think sunflower seeds should be semi-circular,
-        use <code>Math.PI</code> instead of <code>Math.PI*2</code>&mdash;and
-        then save the file.
-        </p>
-
-        <p>
-        If Dart Editor displays an error after you save,
-        you've made a syntax error.
-        Fix it or undo your typing,
-        and then save again.
-        </p> </li>
-      <li> <p>
-        Click the Run button
-        <img src="images/run.png" alt="Run" width="16" height="16"
-          style="vertical-align:top">
-        to run your changed version.
-        </p> </li>
-
-      <li> <p>
-        Back in Dart Editor,
-        edit the Dart code again.
-        This time use <b>Ctl+Space</b>
-        to bring up the auto-complete suggestions.
-        </p>
-
-        <p>
-        For example, type <code>Mat</code>, then Ctl+Space
-        to see a list of classes and interfaces
-        that start with "Mat".
-        </p> </li>
-    </ol>
+    Click <b>Apply</b> to save your changes,
+    or <b>Run</b> to save your changes and launch the app.
   </li>
 </ol>
+
+<p>
+Now that you've set up the launch,
+you can choose it any time from the Run button
+<img src="images/run.png" alt="" width="16" height="16"
+  style="vertical-align:top">.
+Your app will be automatically compiled to JavaScript
+each time you run it.
+</p>
+</section>
+</section>
+
+<section id="debug">
+<h2>Debugging apps</h2>
+
+<p>
+Although you can't yet debug command-line apps,
+{% comment %}
+  {PENDING: update in June, when debugging for command-line apps is enabled!}
+{% endcomment %}
+you can debug web apps natively, using the Dart Editor and Dartium.
+Debugging must be enabled in your launch configuration
+(which it is, by default).
+</p>
+
+<p>
+Some tips for debugging:
+</p>
+
+<ul>
+  <li>
+    Set breakpoints by double-clicking in the left margin of the Edit view.
+  </li>
+  <li>
+    Use the Debugger view to view your app's state
+    and control its execution.
+    By default, the Debugger view is to the right of the Edit view.
+  </li>
+  <li>
+    To see the values of variables,
+    mouse over the variable
+    or look in the Debugging view's Call Stack.
+  </li>
+  <li>
+    While you're debugging,
+    Dart Editor takes the place of the Dartium console.
+    For example, Dart Editor displays the output of print() statements.
+  </li>
+  <li>
+    Because everything in Dart is an object
+    and operators are really methods,
+    you'll probably use Step Return (F7)
+    more than you'd expect
+    to climb out of Dart libraries.
+  </li>
+</ul>
+
+<p>
+  <img src="images/debugger.png"
+    alt="screenshot of Sunflower being debugged"
+    width="752" height="501">
+</p>
+</section>
+
+
+<section id="dart2js">
+<h2>Compiling to JavaScript</h2>
+
+<p>
+You might not need to do anything to compile your code to JavaScript.
+When you run an app using a
+<a href="#run-non-dartium">launch configuration that specifies a browser</a>,
+Dart Editor automatically compiles the app to JavaScript
+before executing it in the browser.
+</p>
+
+<p>
+However, you can also compile Dart code to JavaScript without running it.
+Just choose <b>Tools > Generate JavaScript</b>.
+</p>
+
+</section>
+
+<section id="more">
+<h2>Other features</h2>
+
+<p>
+Dart Editor has many additional features,
+including customization and keyboard alternatives.
+</p>
+
+<section id="preferences">
+<h3>Customizing Dart Editor</h3>
+
+<p>
+You can customize the editor's font, margins, key bindings, and more
+using the Preferences dialog.
+To bring up the dialog,
+choose <b>Tools > Preferences</b>
+(or on Mac: <b>Dart Editor > Preferences</b>).
+</p>
+
+<p>
+You can also customize which views you see in Dart Editor,
+as well as their size and position.
+To add views, use the <b>Tools</b> menu.
+To remove a view, click its <b>X</b>.
+To move a view, drag its tab to a different position,
+either within or outside of the Dart Editor window.
+To resize a view,
+drag its edges.
+</p>
+</section>
+
+
+<section id="keys">
+<h3>Keyboard alternatives</h3>
+
+<p>
+To get a list of all keyboard alternatives,
+choose <b>Help > Key Assist</b>.
+</p>
+
+<p>
+  <img src="images/key-assist.png"
+    alt="screenshot of help for keyboard alternatives"
+    width="231" height="235">
+</p>
+
+</section>
 </section>
 
 <script async src="/js/Switcher.dart.js"></script>
