@@ -27,9 +27,11 @@
       <ul>
         {% nav_link /docs/editor/ %}Dart Editor{% endnav_link %}
         {% nav_link /dartium/ %}Chromium with the Dart VM{% endnav_link %}
-        {% nav_link /docs/sdk/ %}SDK{% endnav_link %}
-        {% nav_link /docs/dart2js/ %}Compiling to JavaScript{% endnav_link %}
-        {% nav_link /docs/standalone-dart-vm/ %}Standlone Dart VM{% endnav_link %}
+        <li> <a href="/docs/sdk/">SDK</a>
+          <ul>
+            {% nav_link /docs/dart2js/ %}dart2js{% endnav_link %}
+            {% nav_link /docs/standalone-dart-vm/ %}dart{% endnav_link %}
+          </ul> </li>
       </ul> </li>
     <li>Resources
       <ul>

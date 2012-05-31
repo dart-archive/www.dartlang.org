@@ -1,15 +1,23 @@
 ---
 layout: default
-title: "dart2js: The Dart to JavaScript Compiler"
-description: "Use dart2js, the Dart to JavaScript compiler. Your Dart web apps can work on all modern browsers, thanks to dart2js."
+title: "dart2js: The Dart-to-JavaScript Compiler"
+description: "Use dart2js, the Dart to JavaScript compiler, to enable your Dart web apps to work on all modern browsers."
 ---
 
 # {{ page.title }}
 
-Find the dart2js tool in the [Dart SDK](/docs/sdk/).
+This page tells you how to use the _dart2js_ tool
+to compile Dart code to JavaScript.
+Dart Editor uses dart2js behind the scenes whenever
+[Dart Editor compiles to JavaScript](/docs/editor/#dart2js).
 
-To compile a Dart file to JavaScript, use `bin/dart2js`.
-For example:
+The `bin/dart2js` executable is in the [Dart SDK](/docs/sdk/).
+You can either [download the SDK separately](/docs/sdk/#download)
+or get it as part of the [Dart Editor package](/docs/editor/#download).
+
+## Basic usage
+
+Here's an example of compiling a Dart file to JavaScript:
 
 {% pretty_code console 0 %}
 $DART_SDK/bin/dart2js test.dart
@@ -18,12 +26,12 @@ $DART_SDK/bin/dart2js test.dart
 This command produces a `.js` file
 that contains the JavaScript equivalent of your Dart code.
 
-## Command-line options
+## Options
 
 Common command-line options for dart2js include:
 
--o &lt;file&gt;
-: Generate the output into &lt;file&gt;
+-o _&lt;file&gt;_
+: Generate the output into _&lt;file&gt;_.
 
 -c
 : Insert runtime type checks and enable assertions (checked mode).

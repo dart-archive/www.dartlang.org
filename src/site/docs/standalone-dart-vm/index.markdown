@@ -1,28 +1,30 @@
 ---
 layout: default
 title: "dart: The Standalone Dart VM"
-description: "Use the standalone Dart VM to run Dart programs on the command line. You can write server-side scripts, programs, and servers with the Dart VM."
+description: "Use the standalone Dart VM to run Dart scripts, programs, and servers from the command line."
 ---
 
 # {{ page.title }}
 
-Find the standalone Dart VM in the [Dart SDK](/docs/sdk/).
+This page tells you how to use the _dart_ tool (`bin/dart`)
+to run Dart command-line apps
+such as server-side scripts, programs, and servers.
+During development, you also have the option to
+[run command-line apps using Dart Editor](/docs/editor/#run).
 
-To run a Dart file in the Dart VM, use `bin/dart`.
-For example:
+The `bin/dart` executable is in the [Dart SDK](/docs/sdk/).
+You can either [download the SDK separately](/docs/sdk/#download)
+or get it as part of the [Dart Editor package](/docs/editor/#download).
+
+
+## Basic usage
+
+Here's an example of running a Dart file on the command line:
 
 {% pretty_code console 0 %}
 $DART_SDK/bin/dart test.dart
 {% endpretty_code %}
 
-Print all the command-line options with `--print-flags`:
-
-{% pc console 0 %}
-$DART_SDK/bin/dart --print-flags Test
-{% endpc %}
-
-That third argument is required for now, until we fix
-<a href="http://code.google.com/p/dart/issues/detail?id=2837">bug #2837</a>.
 
 ## Enabling type checks
 
@@ -41,8 +43,9 @@ $DART_SDK/bin/dart --enable_type_checks test.dart
 
 ## Enabling assertions
 
-An assertion checks a boolean condition and, if false, raises an exception.
-The `assert()` statements do not run in production mode.
+An `assert()` statement checks a boolean condition,
+raising an exception if the condition is false.
+Assertions do not run in production mode.
 We recommend that you enable assertions during development.
 
 You can enable assertions in the VM with a command-line flag:
@@ -50,5 +53,14 @@ You can enable assertions in the VM with a command-line flag:
 {% pretty_code console 0 %}
 $DART_SDK/bin/dart --enable_asserts test.dart
 {% endpretty_code %}
+
+
+## Additional options
+
+Print all the command-line options with `--print-flags`:
+
+{% pc console 0 %}
+$DART_SDK/bin/dart --print-flags
+{% endpc %}
 
 {% include syntax-highlighting.html %}
