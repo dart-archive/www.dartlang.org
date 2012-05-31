@@ -24,7 +24,7 @@ Keep in mind that, like many things with Dart, this guide isn't carved in stone.
   <li> <a href="#how-to-read">How to read this</a> </li>
   <li> <a href="#types">Types</a> </li>
   <li> <a href="#members">Members</a> </li>
-  <li> <a href="#annotations">Type Annotations</a> </li>
+  <li> <a href="#annotations">Type annotations</a> </li>
   <li> <a href="#names">Names</a> </li>
   <li> <a href="#comments">Comments</a> </li>
   <li> <a href="#whitespace">Whitespace</a> </li>
@@ -225,7 +225,7 @@ new Timer.repeating();
 new ListBox(scroll: scrollBoth, showScrollbars: true);
 {% endpretty_code %}
 
-<h2 id="annotations">Type Annotations</h2>
+<h2 id="annotations">Type annotations</h2>
 
 #### PREFER providing type annotations on public APIs.
 
