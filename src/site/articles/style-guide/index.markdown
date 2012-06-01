@@ -9,7 +9,7 @@ description: "Follow these guidelines for consistent, readable Dart code."
 <h1>Dart Style Guide</h1>
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time><br />
-Updated: March 2012
+Updated: May 2012
 </em>
 
 As we build up an ecosystem of Dart code, it's helpful if it follows a consistent coding style. A dedicated style guide for Dart helps us make the most of the features unique to the language and makes it easier for users to collaborate.
