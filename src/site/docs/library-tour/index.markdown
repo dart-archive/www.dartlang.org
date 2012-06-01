@@ -909,12 +909,27 @@ result.then((success) {
 });
 {% endpc %}
 
-#### Chaining multiple async methods
+#### Chaining multiple asynchronous methods
 
 The Future interface specifies a chain() method, which is a useful way
 to specify that multiple async methods run in a certain order.
+The chain() method takes a single function as a parameter, which
+receives the value from the previous Future in the chain.
+The function passed to chain() must itself return a Future.
 
 {% pc dart 0 %}
+Future expensiveWork() {
+  // ...
+}
+
+Future lengthyComputation() {
+  // ...
+}
+
+Future costlyQuery() {
+  // ...
+}
+
 Future result = costlyQuery();
 result.handleException((exception) => print("DOH!"));
 
@@ -929,6 +944,11 @@ In the above example, the methods run in the following order:
 1. expensiveWork()
 1. lengthyComputation()
 
+In addition to the chain() method, the Future interface also defines a
+transform() method. Use transform() when you only need to manipulate the
+returned value, returning a new value immediately.
+Use chain() when you need to start
+another asynchronous operation, returning a Future.
 
 #### Waiting for multiple futures
 
