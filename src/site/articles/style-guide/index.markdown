@@ -112,7 +112,11 @@ class Point {
 
 #### DO place the `super()` call last in a constructor initialization list.
 
-The `super()` call always happens last to guarantee that all initializers are run before the subclass constructor has access to `this`, so putting the `super()` call visually last reinforces this.
+Field initializers are evaluated in the order that they appear in the constructor initialization list. If you place a `super()` call in the middle of an initializer list, the superclass's initializers will be evaluated right then before evaluating the rest of the subclass's initializers.
+
+What it *doesn't* mean is that the superclass's *constructor body* will be executed then. That always happens after all initializers are run regardless of where `super()` appears. It's vanishingly rare that the order of initializers matters, so the placement of `super()` in the list almost never matters either.
+
+Getting in the habit of placing it last improves consistency, visually reinforces when the superclass's constructor body is run, and may help performance.
 
 {% pretty_code dart 0 good %}
 View(Style style, List children)
@@ -127,12 +131,12 @@ View(Style style, List children)
 
 #### DO use a getter for operations that conceptually access a property.
 
-If the name of the method starts with `get` or is an adjective like `visible` or `empty` that's a sign you're better off using a getter. More specifically, a getter should:
+If the name of the method starts with `get` or is an adjective like `visible` or `empty` that's a sign you're better off using a getter. More specifically, you should use a getter instead of a method when it:
 
-  * **Not take any arguments.**
-  * **Return a value.**
-  * **Be side-effect free.** Invoking a getter shouldn't change any externally-visible state (caching internally or lazy initialization is OK). Invoking the same getter repeatedly should return the same value unless the object is explicitly changed between calls.
-  * **Be fast.** Users expect expressions like `foo.bar` to execute quickly.
+  * **Does not take any arguments.**
+  * **Returns a value.**
+  * **Is side-effect free.** Invoking a getter shouldn't change any externally-visible state (caching internally or lazy initialization is OK). Invoking the same getter repeatedly should return the same value unless the object is explicitly changed between calls.
+  * **Is fast.** Users expect expressions like `foo.bar` to execute quickly.
 
 {% pretty_code dart 0 good %}
 rect.width
@@ -147,13 +151,13 @@ window.refresh // doesn't return a value
 
 #### DO use a setter for operations that conceptually change a property.
 
-If the name of the method starts with `set` that's often a sign that it could be a setter. More specifically, a setter should:
+If the name of the method starts with `set` that's often a sign that it could be a setter. More specifically, use a setter instead of a method when it:
 
-  * **Take a single argument.**
-  * **Change some state in the object.**
-  * **Usually have a corresponding getter.** It feels weird for users to have state that they can modify but not see. (The converse is not true; it's fine to have getters that don't have setters.)
-  * **Be idempotent.** Calling the same setter twice with the same value should do nothing the second time.
-  * **Be fast.** Users expect expressions like `foo.bar = value` to execute quickly.
+  * **Takes a single argument.**
+  * **Changes some state in the object.**
+  * **Has a corresponding getter.** It feels weird for users to have state that they can modify but not see. (The converse is not true; it's fine to have getters that don't have setters.)
+  * **Is idempotent.** Calling the same setter twice with the same value should do nothing the second time.
+  * **Is fast.** Users expect expressions like `foo.bar = value` to execute quickly.
 
 {% pretty_code dart 0 good %}
 rect.width = 3;
@@ -279,17 +283,13 @@ Map&lt;int, List&lt;Person&gt;&gt; groupByZip(Iterable&lt;Person&gt; people) {
 
 {% endpretty_code %}
 
-#### DON'T use `double` as a type annotation.
+#### AVOID using `double` as a type annotation.
 
-Annotating that a parameter is type `double` means not only that it *may* be a floating-point value, but that it *must*. It's a type error to pass an `int` to it. There should never be cases where code can handle floating-point values but not integers. The type annotation you want is `num`, which allows *both* integer and floating-point values.
+Annotating a parameter or variable as type `double` means not only that it *can* accept a floating-point value, but that it *must*. It's a type error to pass an `int` to it. Almost all code that can handle floating-point numbers works correctly with integers, so the type you usually want is `num`.
 
-The `double` type exists in Dart only because of the desire to report static type warnings in places like this:
+An exception: if you know for certain that your code is performance critical (think of your favorite physics engine), it *might* make sense to restrict types to `double` because Dart's arbitrary-precision integers can be slower than floating-point numbers.
 
-{% pretty_code dart 0 bad %}
-int three = 3.14159; // Not an int.
-{% endpretty_code %}
-
-If floating-point literals had static type `num`, that would not be a static warning due to bidirectional assignment compatibility.
+But don't rush into doing this: the caller usually knows more about their performance needs than the callee, and prematurely annotating something as `double` prevents callers from using your code with integers.
 
 #### DON'T type annotate initializing formals.
 
@@ -546,19 +546,19 @@ if (arg == null) return defaultValue;
 
 #### DO use spaces around binary and ternary operators, after commas, and not around unary operators.
 
-Note that `<` and `>` are considered binary operators when used as expressions, but not for specifying generic types. Also, `is` is considered a binary operator. However, the `.` used to access members is not and should *not* have spaces around it.
+Note that `<` and `>` are considered binary operators when used as expressions, but not for specifying generic types. Both `is` and `is!` are considered single binary operators. However, the `.` used to access members is not and should *not* have spaces around it.
 
 {% pretty_code dart 0 good %}
 a = 1 + 2 / (3 * -b);
 c = !condition == a &gt; b;
 d = a ? b : object.method(a, b, c);
-if (obj is !SomeType) print('not SomeType');
+if (obj is! SomeType) print('not SomeType');
 {% endpretty_code %}
 {% pretty_code dart 0 bad %}
 a=1+2/(3* - b);
 c= ! condition==a&gt;b;
 d= a?b:object.method(a,b,c);
-if (obj is! SomeType) print('not SomeType');
+if (obj is !SomeType) print('not SomeType');
 {% endpretty_code %}
 
 #### DO place spaces around `in`, and after each `;` in a loop.
