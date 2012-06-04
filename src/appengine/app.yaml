@@ -28,6 +28,9 @@ handlers:
 - url: /docs/getting-started/editor/.*
   script: scripts.redirector.application
 
+- url: /editor.*
+  script: scripts.redirector.application
+
 - url: /news.*
   script: scripts.redirector.application
 
