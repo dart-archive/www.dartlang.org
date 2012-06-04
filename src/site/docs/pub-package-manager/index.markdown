@@ -20,11 +20,15 @@ The `bin/pub` executable is in the [Dart SDK](/docs/sdk/).
 You can either [download the SDK separately](/docs/sdk/#download)
 or get it as part of the [Dart Editor package](/docs/editor/#download).
 
+To use a library that's in a Dart package,
+you need to create a pubspec file, use pub to install the package,
+point Dart to the packages location, and then import the library.
+
 ## Creating a pubspec file
 
-A **pubspec** file defines an application's package dependencies, and
-where to get the packages. Put this file in the same directory as the
-file containing the app's 
+To use a package, your application must have a file named **pubspec** that
+specifies your app's package dependencies and their download locations.
+Put this file in the same directory as the file containing the app's 
 main() method.
 
 Here is an example of a pubspec file that associates the
@@ -48,8 +52,8 @@ cd your/app
 $DART_SDK/bin/pub install
 {% endpretty_code %}
 
-This creates a _packages_ directory inside the current directory,
-and clones the git repositories into the packages directory.
+This command creates a _packages_ directory inside the current directory,
+cloning the git repositories into the packages directory.
 
 The packages directory also contains any _transitive
 dependencies_. 
