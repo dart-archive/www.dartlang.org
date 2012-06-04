@@ -43,7 +43,8 @@ $DART_SDK/bin/dart --enable_type_checks test.dart
 
 ## Enabling assertions
 
-An `assert()` statement checks a boolean condition,
+An [assert statement](/docs/language-tour/#assert)
+checks a boolean condition,
 raising an exception if the condition is false.
 Assertions do not run in production mode.
 We recommend that you enable assertions during development.

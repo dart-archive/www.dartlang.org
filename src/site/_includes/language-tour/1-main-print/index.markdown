@@ -11,41 +11,55 @@ that applies to all (or almost all) Dart apps:
 </p>
 
 <dl>
-  <dt> main() </dt>
-  <dd>
-    The special, <b>required</b>,
-   top-level function where app execution starts.
-  </dd>
   <dt> // </dt>
   <dd>
     How you indicate that the rest of the line is a
     <a href="#comments">comment</a>.
     Alternatively:
-    {% pretty_code dart 0 %}/* comment that might span many lines */{% endpretty_code %}
+    {% pretty_code dart 0 %}/* This comment might span many lines. */{% endpretty_code %}
   </dd>
-  <dt> int, String </dt>
+
+  <dt> num </dt>
   <dd>
-    Declare a variable with static type annotations.
+    A type. Some of the other <a href="#built-in-types">built-in types</a>
+    are String, int, and bool.
   </dd>
-{% comment %}
-PENDING: add URL when variable section is written.
-variable.html?
-{% endcomment %}
-  <dt> "..." (or '...')</dt>
+
+  <dt> assert() </dt>
   <dd>
-    A string.
+    A way of <a href="#assert">checking assumptions</a>
+    while you're testing your code.
   </dd>
-{% comment %}
-PENDING: add URL when string section is written.
-builtin.html#string?
-{% endcomment %}
-  <dt> $text </dt>
+
+  <dt> 100 </dt>
   <dd>
-    String interpolation, including a variable's toString() value inside of a string literal.
+    A <a href="#numbers">number</a> literal.
   </dd>
+
   <dt> print() </dt>
   <dd>
     A handy way to display output.
+  </dd>
+
+  <dt> "..." (or '...')</dt>
+  <dd>
+    A <a href="#strings">string</a> literal.
+  </dd>
+
+  <dt> $text </dt>
+  <dd>
+    String interpolation: including a variable's toString() value inside of a string literal.
+  </dd>
+
+  <dt> main() </dt>
+  <dd>
+    The special, <b>required</b>,
+    top-level function where app execution starts.
+  </dd>
+
+  <dt> var </dt>
+  <dd>
+    Declares a variable without specifying its type.
   </dd>
 </dl>
 

@@ -5,6 +5,7 @@ You can control the flow of your Dart code using any of the following:
 * [While and do while](#while)
 * [Break and continue](#break)
 * [Switch and case](#switch)
+* [Assert statement](#assert)
 
 <h4 id="if-else">If and else</h4>
 
@@ -181,3 +182,28 @@ switch (command) {
     break;
 }
 {% endpretty_code %}
+
+<h4 id="assert">Assert</h4>
+
+Use an assert statement to disrupt normal execution
+if a boolean condition is false.
+Here are some examples of assert statements:
+
+{% pretty_code dart 0 %}
+assert(text != null);  // Make sure the variable has a non-null value.
+assert(number &lt; 100);  // Make sure the value is less than 100.
+{% endpretty_code %}
+
+<aside class="note" markdown="1">
+  **Important:** Assert statements work only in checked mode.
+  They have no effect in production mode.
+</aside>
+
+Inside the parentheses, you can put any expression
+that resolves to a boolean value.
+If the expression's value is true,
+the assertion succeeds and execution continues.
+Otherwise,
+the assertion fails and an exception (an
+[AssertionError](http://api.dartlang.org/dart_core/AssertionError.html))
+is thrown.
