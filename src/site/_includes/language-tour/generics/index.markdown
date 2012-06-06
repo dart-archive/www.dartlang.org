@@ -15,7 +15,7 @@ for the same reason you might want to use other types in your code:
 Types (generic or not) let you document and annotate your code,
 making it easier to express your intent.
 
-For example, 
+For example,
 if you intend for a list to contain only strings,
 you can declare it as **List&lt;String>**
 (read that as "List of String").
@@ -25,10 +25,10 @@ can detect that assigning a non-string to the list
 is probably a mistake.
 
 {% pc dart 0 %}
-List&lt;String> names = new List&lt;String>();
+var names = new List&lt;String>();
 names.addAll(['Seth', 'Kathy', 'Lars']);
 ...
-names.add(42); // fails in checked mode (succeeds in production mode)
+names.add(42); // Fails in checked mode (succeeds in production mode).
 {% endpc %}
 
 Another reason for using generics
@@ -87,9 +87,9 @@ before the opening bracket.
 For example:
 
 {% pc dart 0 %}
-List&lt;String> names = <b>&lt;String></b>['Seth', 'Kathy', 'Lars'];
-Map&lt;String, String> pages = <b>&lt;String></b>{ // specify <b>value</b> type: String
-    'index.html':'Homepage',  // (the <b>key</b> type is implicitly String)
+var names = <b>&lt;String></b>['Seth', 'Kathy', 'Lars'];
+var pages = <b>&lt;String></b>{        // Specify <b>value</b> type: String
+    'index.html':'Homepage', // (the <b>key</b> type is implicitly String).
     'robots.txt':'Hints for web robots',
     'humans.txt':'We are people, not machines' };
 {% endpc %}
@@ -113,16 +113,16 @@ just after the class or interface name.
 For example:
 
 {% pc dart 0 %}
-List&lt;String> names = new List<b>&lt;String></b>();
+var names = new List<b>&lt;String></b>();
 names.addAll(['Seth', 'Kathy', 'Lars']);
-Set&lt;String> nameSet = new Set<b>&lt;String></b>.from(names);
+var nameSet = new Set<b>&lt;String></b>.from(names);
 {% endpc %}
 
 The following code creates a map
 that has integer keys and values of type View:
 
 {% pc dart 0 %}
-Map&lt;int, View> views = new Map<b>&lt;int, View></b>();
+var views = new Map<b>&lt;int, View></b>();
 {% endpc %}
 </section>
 
@@ -136,9 +136,9 @@ For example, you can test the type of a collection,
 even in production mode:
 
 {% pc dart 0 %}
-List&lt;String> names = new List&lt;String>();
+var names = new List&lt;String>();
 names.addAll(['Seth', 'Kathy', 'Lars']);
-print(names is List&lt;String>);           // true
+assert(names is List&lt;String>);
 {% endpc %}
 
 However, the **is** expression

@@ -24,8 +24,8 @@ just as you would in JavaScript:
 
 {% pretty_code dart 0 %}
 var list = [1,2,3];
-print(list.length); // the # of elements: 3
-print(list[1]);     // the second item: 2
+assert(list.length == 3);
+assert(list[1] == 2);
 {% endpretty_code %}
 
 <p>
@@ -45,7 +45,7 @@ use the <b>removeRange()</b> method:
 
 {% pretty_code dart 0 %}
 var list = [1,2,3,4];
-list.removeRange(2, 1); // remove the third element
+list.removeRange(2, 1); // Remove the third element.
 {% endpretty_code %}
 
 <section id="list-iterate">
@@ -90,8 +90,8 @@ use the <b>forEach()</b> method:
 
 {% pretty_code dart 0 %}
 var list = [1,2,3];
-void printElement(element) => print(element);
-list.forEach(printElement);
+printElement(element) => print(element);  // Define a function.
+list.forEach(printElement);  // Call the function on each list element.
 {% endpretty_code %}
 
 <p>
@@ -115,7 +115,7 @@ is just one of many handy methods defined by the
 <a href="http://api.dartlang.org/dart_core/List.html">List</a>
 interface and its superinterface,
 <a href="http://api.dartlang.org/dart_core/Collection.html">Collection</a>.
-For example, 
+For example,
 the <a href="http://api.dartlang.org/dart_core/Collection.html#filter">filter()</a> method
 returns a new collection with only the elements that satisfy a condition.
 The <a href="http://api.dartlang.org/dart_core/Collection.html#every">every()</a> and

@@ -9,8 +9,8 @@ Here's a simple Dart map:
 </p>
 
 {% pretty_code dart 0 %}
-var gifts = {                         // a map literal
-// keys       values
+var gifts = {                         // A map literal
+// Keys       Values
   "first"  : "partridge",
   "second" : "turtledoves",
   "fifth"  : "golden rings"};
@@ -27,10 +27,10 @@ interface.
 </p>
 
 {% pretty_code dart 0 %}
-var map = new Map();                  // use a Map constructor
-map[1] = "partridge";                 // key is 1; value is "partridge"
-map[2] = "turtledoves";               // key is 2; value is "turtledoves"
-map[5] = "golden rings";              // key is 5; value is "golden rings"
+var map = new Map();                  // Use a Map constructor.
+map[1] = "partridge";                 // Key is 1; value is "partridge".
+map[2] = "turtledoves";               // Key is 2; value is "turtledoves".
+map[5] = "golden rings";              // Key is 5; value is "golden rings".
 {% endpretty_code %}
 
 <p>
@@ -44,7 +44,7 @@ just as you would in JavaScript:
 
 {% pretty_code dart 0 %}
 var gifts = { "first": "partridge" };
-<b>gifts["fourth"] = "calling birds";</b>    // add a key-value pair
+<b>gifts["fourth"] = "calling birds";</b>    // Add a key-value pair.
 {% endpretty_code %}
 
 <p>
@@ -53,7 +53,7 @@ You retrieve a value from a map the same way you would in JavaScript:
 
 {% pretty_code dart 0 %}
 var gifts = { "first": "partridge" };
-print(gifts['first']);                // partridge
+assert(gifts['first'] == 'partridge');
 {% endpretty_code %}
 
 <p>
@@ -68,7 +68,7 @@ to make sure you interpret null correctly.
 
 {% pretty_code dart 0 %}
 var gifts = { "first": "partridge" };
-print(gifts['fifth']);                // null
+assert(gifts['fifth'] == null);
 {% endpretty_code %}
 
 <p>
@@ -78,7 +78,7 @@ Use <b>.length</b> to get the number of key-value pairs in the map:
 {% pretty_code dart 0 %}
 var gifts = { "first": "partridge" };
 gifts["fourth"] = "calling birds";
-print(<b>gifts.length</b>);                  // 2
+assert(<b>gifts.length</b> == 2);
 {% endpretty_code %}
 
 <p>
@@ -90,8 +90,8 @@ use the <b>remove()</b> method:
 var gifts = { "first": "partridge" };
 gifts["fourth"] = "calling birds";
 <b>gifts.remove('first');</b>
-print(gifts.length);                  // 1
-print(gifts['first']);                // null
+assert(gifts.length == 1);
+assert(gifts['first'] == null);
 {% endpretty_code %}
 
 <p>
@@ -101,7 +101,7 @@ You can copy a map using the <b>Map.from()</b> constructor:
 {% pretty_code dart 0 %}
 var gifts = { "first": "partridge" };
 var regifts = new Map.from(gifts);
-print(regifts['first']);              // partridge
+assert(regifts['first'] == 'partridge');
 {% endpretty_code %}
 
 
@@ -138,7 +138,9 @@ Both methods return a
 {% pretty_code dart 0 %}
 var gifts = {"first": "partridge", "second": "turtledoves"};
 var values = gifts.getValues();
-values.forEach((v) => print(v));      // partridge, turtledoves
+
+//Print partridge and turtledoves, but not necessarily in that order.
+values.forEach((v) => print(v));
 {% endpretty_code %}
 
 <aside class="note">

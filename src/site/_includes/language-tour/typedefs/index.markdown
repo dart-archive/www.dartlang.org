@@ -15,13 +15,13 @@ class SortedCollection {
   }
 }
 
-int sort(Object a, Object b) => ... ;
+int sort(Object a, Object b) => 0; // Initial, broken implementation.
 
 main() {
   SortedCollection collection = new SortedCollection(sort);
 
-  // all we know is that compare is a function, but what type of function?
-  print(collection.compare is Function);  // true
+  // All we know is that compare is a function, but what type of function?
+  assert(collection.compare is Function);
 }
 {% endpc %}
 
@@ -42,12 +42,12 @@ class SortedCollection {
   SortedCollection(this.compare);
 }
 
-int sort(Object a, Object b) => ... ;
+int sort(Object a, Object b) => 0; // Initial, broken implementation.
 
 main() {
   SortedCollection collection = new SortedCollection(sort);
-  print(collection.compare is Function);  // true
-  print(collection.compare is Compare);   // true
+  assert(collection.compare is Function);
+  assert(collection.compare is Compare);
 }
 {% endpc %}
 
@@ -65,7 +65,7 @@ typedef int Compare(int a, int b);
 int sort(int a, int b) => a - b;
 
 main() {
-  print(sort is Compare);  // true!
+  assert(sort is Compare);  // True!
 }
 {% endpc %}
 
@@ -81,7 +81,6 @@ class SortedCollection&lt;T> {
 
 main() {
   SortedCollection&lt;int> s = new SortedCollection&lt;int>((a,b) => a - b);
-  print(s.compare is Compare&lt;int>);  // true
-  print(s.compare('a','b'));  // checked mode throws exception
+  assert(s.compare is Compare&lt;int>);
 }
 {% endpc %}

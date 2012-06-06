@@ -15,8 +15,8 @@ That precedence means that
 the following two lines of code execute the same way:
 
 {% pretty_code dart 0 %}
-if ((n % i == 0) && (d % i == 0)) // parens improve readability
-if (n % i == 0 && d % i == 0)     // harder to read, but equivalent
+if ((n % i == 0) && (d % i == 0)) // Parens improve readability.
+if (n % i == 0 && d % i == 0)     // Harder to read, but equivalent.
 {% endpretty_code %}
 
 This section covers the following topics:
@@ -60,15 +60,15 @@ Dart supports the usual arithmetic operators.
 Example:
 
 {% pretty_code dart 0 %}
-int a = 2;
-int b = 3;
+var a = 2;
+var b = 3;
 
-print('${a + b}');  // 5
-print('${a - b}');  // -1
-print('${a * b}');  // 6
-print('${a / b}');  // 0.6666666666666666
-print('${a ~/ b}'); // 0 (quotient)
-print('${a % b}');  // 2 (remainder)
+assert(a + b == 5);
+assert(a - b == -1);
+assert(a * b == 6);
+assert(a / b > 0.6 && a / b < 0.7);
+assert(a ~/ b == 0);  // Quotient
+assert(a % b == 2);   // Remainder
 {% endpretty_code %}
 
 Dart also supports both prefix and postfix
@@ -98,12 +98,12 @@ increment and decrement operators.
 Example:
 
 {% pretty_code dart 0 %}
-int a = 2;
+var a = 2;
 
-print('${ ++a }'); // 3 (increment before returning a value)
-print('${ a++ }'); // 3 (increment after returning a value)
-print('${ a-- }'); // 4 (decrement after returning a value)
-print('${ --a }'); // 2 (decrement before returning a value)
+assert(++a == 3);  // Increment before returning a value.
+assert(a++ == 3);  // Increment after returning a value.
+assert(a-- == 4);  // Decrement after returning a value.
+assert(--a == 2);  // Decrement before returning a value.
 {% endpretty_code %}
 </section>
 
@@ -169,20 +169,20 @@ Here's an example of using each of the equality and relational operators:
 </div>
 
 {% pretty_code dart 0 %}
-int a = 2;
-int b = 3;
-int c = a;
+var a = 2;
+var b = 3;
+var c = a;
 
-print(a == 2);       // true; 2 and 2 are equal
-print(a != b);       // true; 2 and 3 aren't equal
-print(a === c);      // true; a and c are the same object
-print(a !== b);      // true; 2 and 3 aren't the same object
-print(b > a);        // true; 3 is more than 2
-print(a < b);        // true; 2 is less then 3
-print(b >= b);       // true; 3 is greater than or equal to 3
-print(a <= b);       // true; 2 is less than or equal to 3
-print(a is num);     // true; 2 is a number
-print(a is! String); // true; 2 is an int, not a string
+assert(a == 2);       // 2 and 2 are equal.
+assert(a != b);       // 2 and 3 aren't equal.
+assert(a === c);      // a and c are the same object.
+assert(a !== b);      // 2 and 3 aren't the same object.
+assert(b > a);        // 3 is more than 2.
+assert(a < b);        // 2 is less then 3.
+assert(b >= b);       // 3 is greater than or equal to 3.
+assert(a <= b);       // 2 is less than or equal to 3.
+assert(a is num);     // 2 is a number.
+assert(a is! String); // 2 is an int, not a string.
 {% endpretty_code %}
 </section>
 
@@ -232,10 +232,9 @@ The following example uses both assignment
 and compound assignment operators:
 
 {% pretty_code dart 0 %}
-int a = 2;           // assign using =
-
-a *= 3;              // assign and multiply: a = a * 3
-print('a *= 3: $a'); // a *= 3: 6
+var a = 2;           // Assign using =
+a *= 3;              // Assign and multiply: a = a * 3
+assert(a == 6);
 {% endpretty_code %}
 </section>
 
@@ -262,7 +261,7 @@ You can invert or combine boolean expressions using the logical operators.
 
 {% pretty_code dart 0 %}
 if (!done && (col == 0 || col == 3)) {
-  // ...do something
+  // ...Do something...
 }
 {% endpretty_code %}
 </section>
@@ -298,18 +297,15 @@ Usually, you'd use these operators with integers.
 Here's an example of using bitwise and shift operators.
 
 {% pretty_code dart 0 %}
-int value = 0x22;
-int bitmask = 0x0F;
+final value = 0x22;
+final bitmask = 0x0F;
 
-print(value);                                // 34 (0x22)
-print(value.toRadixString(16));              // 22
-print(value.toRadixString(2));               // 100010
-print((value & bitmask).toRadixString(16));  // 2  (AND)
-print((value & ~bitmask).toRadixString(16)); // 20 (AND NOT)
-print((value | bitmask).toRadixString(16));  // 2f (OR)
-print((value ^ bitmask).toRadixString(16));  // 2d (XOR)
-print((value &lt;&lt; 4).toRadixString(16));       // 220
-print((value >> 4).toRadixString(16));       // 2
+assert((value & bitmask)  == 0x02);  // AND
+assert((value & ~bitmask) == 0x20);  // AND NOT
+assert((value | bitmask)  == 0x2f);  // OR
+assert((value ^ bitmask)  == 0x2d);  // XOR
+assert((value &lt;&lt; 4)       == 0x220);
+assert((value >> 4)       == 0x02);
 {% endpretty_code %}
 </section>
 
@@ -351,7 +347,7 @@ NOTE: The following aren't operators; they're syntax:
 =>
 {}
 ;
-?: <span class="comment">{PENDING: This was in the operator precedence table.} </span>
+?:
 {% endcomment %}
 
 

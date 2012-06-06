@@ -19,7 +19,7 @@ For example, consider the following code:
 {% pretty_code dart 0 %}
 var name = 'Bob';
 if (name) {
-  print("You have a name!"); // prints in JavaScript, not in Dart
+  print("You have a name!"); // Prints in JavaScript, not in Dart.
 }
 {% endpretty_code %}
 
@@ -47,13 +47,7 @@ if (1) {
 <br>
 <aside class="note">
 <b>Note:</b>
-Dartboard currently has the wrong behavior for the previous two samples:
-it prints the same string that JavaScript would.
-(See bug #<a href="http://code.google.com/p/dart/issues/detail?id=1190">1190</a>
-for details.)
-Also note that,
-unlike most of the samples in this tour,
-the previous two samples don't work in checked mode.
+The previous two samples work only in production mode, not checked mode.
 </aside>
 
 <p>
@@ -68,29 +62,21 @@ For example:
 </p>
 
 {% pretty_code dart 0 %}
-// check for an empty string
+// Check for an empty string.
 var fullName = '';
-if (fullName.isEmpty()) {
-  print("Please enter a full name");
-}
+assert(<b>fullName.isEmpty()</b>);
 
-// check for zero
+// Check for zero.
 var hitPoints = 0;
-if (hitPoints == 0) {
-  print("Uh oh! Looks like you died.");
-}
+assert(<b>hitPoints &lt;= 0</b>);
 
-// check for null
-var unicorn = null;
-if (unicorn == null) {
-  print("You didn't wish hard enough. Wish harder.");
-}
+// Check for null.
+var unicorn;
+assert(<b>unicorn == null</b>);
 
-// check for NaN
+// Check for NaN.
 var iMeantToDoThis = 0/0;
-if (iMeantToDoThis.isNaN()) {
-  print("0/0 is not a number.");
-}
+assert(<b>iMeantToDoThis.isNaN()</b>);
 {% endpretty_code %}
 
 {% comment %}
@@ -98,6 +84,7 @@ if (iMeantToDoThis.isNaN()) {
 (and the resulting differences from JS/Ruby default value assignment)
 because we haven't discussed operators yet.
 We should be sure to cover this in the operator section!}
+{QUESTION: Is this covered? If so, should we point to it from here?}
 {% endcomment %}
 
 </section>

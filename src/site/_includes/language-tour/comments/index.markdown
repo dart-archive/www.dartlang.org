@@ -9,7 +9,7 @@ is ignored by the Dart compiler.
 
 {% pc dart 0 %}
 main() {
-  // TODO: refactor into an AbstractLlamaGreetingFactory ?
+  // TODO: Refactor into an AbstractLlamaGreetingFactory?
   print("Welcome to my Llama farm!");
 }
 {% endpc %}
@@ -58,15 +58,15 @@ class Llama {
   /**
    * Feed your llama [Food]. Typically, one bale of hay per week.
    */
-  feed(Food food) {
-    ...
+  void feed(Food food) {
+    // ...
   }
 
   /**
    * Exercise your llama with an [activity] for [timeLimit] minutes.
    */
-  exercise(Activity activity, int timeLimit) {
-    ...
+  void exercise(Activity activity, int timeLimit) {
+    // ...
   }
 }
 {% endpc %}
@@ -79,8 +79,7 @@ follows.
 &lt;div class="doc">
 &lt;p>Feed your llama &lt;a class="crossref" href="../llama/Food.html">Food&lt;/a>. Typically, one bale of hay per week.&lt;/p>
 &lt;pre class="source">
-feed(Food food) {
-  // ...
+void feed(Food food) {
 }
 &lt;/pre>
 &lt;/div>

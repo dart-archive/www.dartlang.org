@@ -59,19 +59,19 @@ Here's how you turn a string into a number, or vice versa:
 </p>
 
 {% pretty_code dart 0 %}
-// string -> int
+// String -> int
 var one = Math.parseInt("1");
 assert(one == 1);
 
-// string -> double
+// String -> double
 var onePointOne = Math.parseDouble("1.1");
 assert(onePointOne == 1.1);
 
-// int -> string
+// int -> String
 var oneAsString = 1.toString();
 assert(oneAsString == "1");
 
-// double -> string
+// double -> String
 var piAsString = 3.14159.toStringAsFixed(2);
 assert(piAsString == "3.14");
 {% endpretty_code %}
@@ -82,9 +82,8 @@ For example:
 </p>
 
 {% pretty_code dart 0 %}
-print(3&lt;&lt;1 == 6); // 0011 &lt;&lt; 1 == 0110
-print(3&gt;&gt;1 == 1); // 0011 &gt;&gt; 1 == 0001
-
-print((3|4) == 7); // 0011 | 0100 == 0111
+assert((3 &lt;&lt; 1) == 6);  // 0011 &lt;&lt; 1 == 0110
+assert((3 &gt;&gt; 1) == 1);  // 0011 &gt;&gt; 1 == 0001
+assert((3 | 4)  == 7);  // 0011 | 0100 == 0111
 {% endpretty_code %}
 </section>

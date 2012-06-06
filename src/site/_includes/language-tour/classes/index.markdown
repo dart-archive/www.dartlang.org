@@ -1,6 +1,6 @@
 Dart is an object-oriented language with classes
 and single inheritance. The root class is
-[Object](http://api.dartlang.org/dart_core/Object.html). 
+[Object](http://api.dartlang.org/dart_core/Object.html).
 
 ### Instance variables
 
@@ -22,17 +22,15 @@ generate an implicit setter method.
 ([Getters and setters](#classes-getters-and-setters) are discussed more later.)
 
 {% pc dart 0 %}
+class Point {
+  num x, y;
+}
+
 main() {
   var point = new Point();
-
-  // use the setter method for x
-  point.x = 4;
-
-  // use the getter method for x
-  print(point.x);  // 4
-
-  // values default to null
-  print(point.y);  // null
+  point.x = 4;             // Use the setter method for x.
+  assert(point.x == 4);    // Use the getter method for x.
+  assert(point.y == null); // Values default to null.
 }
 {% endpc %}
 
@@ -71,7 +69,7 @@ class Point {
   num x, y;
 
   Point(num x, num y) {
-    // there's a better way to do this, stay tuned
+    // There's a better way to do this, stay tuned.
     this.x = x;
     this.y = y;
   }
@@ -93,7 +91,7 @@ to make it easy.
 class Point {
   num x, y;
 
-  // syntactic sugar for this.x = x and this.y = y
+  // Syntactic sugar for this.x = x and this.y = y
   Point(this.x, this.y);
 }
 {% endpc %}
@@ -124,8 +122,8 @@ class Button {
   final Collection&lt;ButtonHandler> handlers;
   final String domId;
   final Element elem;
-  
-                // what follows the : is the initializer list
+
+                // What follows the : is the initializer list.
   Button(domId) : domId = domId,
                   handlers = [],
                   elem = document.query(domId) {
@@ -133,7 +131,7 @@ class Button {
   }
 
   bindHandlers() {
-   // ...
+    // ...
   }
 }
 {% endpc %}
@@ -150,7 +148,7 @@ constructors for a class or to provide extra clarity.
 class Point {
   num x, y;
 
-  // named constructor
+  // Named constructor
   Point.fromJson(Map json) : x = json['x'], y = json['y'];
 
   Point(this.x, this.y);
@@ -173,7 +171,7 @@ must implement that constructor in the subclass.
 By default, a constructor in a subclass will call the superclass's
 default constructor. If no default (zero-argument) constructor
 is defined in the superclass, you must manually call
-a constructor in the superclass. 
+a constructor in the superclass.
 
 For example:
 
@@ -185,8 +183,8 @@ class Person {
 }
 
 class Employee extends Person {
-  // Person does not have a default constructor
-  // you must call super.fromJson(data)
+  // Person does not have a default constructor;
+  // you must call super.fromJson(data).
   Employee.fromJson(Map data) : super.fromJson(data) {
     print('in Employee');
   }
@@ -194,12 +192,13 @@ class Employee extends Person {
 
 main() {
   var emp = new Employee.fromJson({});
-  
-  // prints:
+
+  // Prints:
   // in Person
   // in Employee
 }
 {% endpc %}
+
 
 #### Constant constructors
 
@@ -222,7 +221,7 @@ class Point {
 {% endpc %}
 
 Because compile-time constants are constant and immutable,
-constructing two identitical `const` objects results in
+constructing two identical `const` objects results in
 a single, canonical instance.
 
 {% pc dart 0 %}
@@ -230,7 +229,7 @@ void main() {
   var a = const Point(1, 1);
   var b = const Point(1, 1);
 
-  print(a === b); // true, they are the same instance!
+  assert(a === b); // They are the same instance!
 }
 {% endpc %}
 
@@ -322,7 +321,7 @@ an instance of Point:
 {% pc dart 0 %}
 var point = new Point(2, 2);
 num distance = point.distanceTo(new Point(4,4));
-print(distance);  // 2.82842...
+assert(distance &lt; 2.9 && distance > 2.8);
 {% endpc %}
 
 <section id="classes-getters-and-setters" markdown="1">
@@ -353,9 +352,9 @@ instance variables.
 
 {% pc dart 0 %}
 var rect = new Rectangle(3, 4, 20, 15);
-print(rect.left); // 3
+assert(rect.left == 3);
 rect.right = 12;
-print(rect.left); // -8
+assert(rect.left == -8);
 {% endpc %}
 
 With getters and setters, you can start
@@ -375,28 +374,29 @@ class Vector {
   final int x,y;
   const Vector(this.x, this.y);
 
-  Vector operator +(Vector v) { // overrides + (a + b)
+  Vector operator +(Vector v) { // Overrides + (a + b).
     return new Vector(x + v.x, y + v.y);
   }
-  
-  Vector operator -(Vector v) { // overrides - (a - b)
+
+  Vector operator -(Vector v) { // Overrides - (a - b).
     return new Vector(x - v.x, y - v.y);
   }
-  
-  Vector operator negate() {    // overrides unary negation (-a)
+
+  Vector operator negate() {    // Overrides unary negation (-a).
     return new Vector(-x,-y);
   }
-  
+
   String toString() => '($x,$y)';
 }
 
 main() {
-  Vector v = new Vector(2,3);
-  Vector w = new Vector(2,2);
-  print(v);   // (2,3)
-  print(-v);  // (-2,-3)
-  print(v+w); // (4,5)
-  print(v-w); // (0,1)
+  final v = new Vector(2,3);
+  final w = new Vector(2,2);
+
+  assert(v.x == 2 && v.y == 3);         // v   == (2,3)
+  assert((-v).x == -2 && (-v).y == -3); // -v  == (-2,-3)
+  assert((v+w).x == 4 && (v+w).y == 5); // v+w == (4,5)
+  assert((v-w).x == 0 && (v-w).y == 1); // v-w == (0,1)
 }{% endpc %}
 
 <aside class="note" markdown="1">
@@ -412,12 +412,9 @@ you must use the special identifier **negate**.
 
 ### Abstract classes
 
-Dart will support abstract classes and abstract methods.
+Dart now supports abstract classes and abstract methods.
+Check back soon for coverage of the feature.
 
-As of 2012-04-04, abstract is not yet implemented. Follow
-bugs [1603](http://code.google.com/p/dart/issues/detail?id=1603)
-and [1605](http://code.google.com/p/dart/issues/detail?id=1605)
-to track the progress.
 
 ### Extending a class
 
@@ -426,14 +423,14 @@ refer to the superclass.
 
 {% pc dart 0 %}
 class Television {
-  turnOn() {
+  void turnOn() {
     _illuminateDisplay();
     _activeIrSensor();
   }
 }
 
 class SmartTelevision extends Television {
-  turnOn() {
+  void turnOn() {
     super.turnOn();
     _bootNetworkInterface();
     _initializeMemory();
@@ -466,7 +463,8 @@ class Point {
 main() {
   var a = new Point(2, 2);
   var b = new Point(4, 4);
-  print(Point.distanceBetween(a, b));  // 2.82842...
+  var distance = Point.distanceBetween(a,b);
+  assert(distance &lt; 2.9 && distance > 2.8);
 }
 {% endpc %}
 
@@ -486,10 +484,9 @@ class Color {
   static final RED = const Color('red');
   final String name;
   const Color(this.name);
-  String toString() => name;
 }
 
 main() {
-  print(Color.RED); // 'red'
+  assert(Color.RED.name == 'red');
 }
 {% endpc %}

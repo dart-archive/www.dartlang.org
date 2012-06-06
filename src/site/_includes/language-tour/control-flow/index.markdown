@@ -5,7 +5,7 @@ You can control the flow of your Dart code using any of the following:
 * [While and do while](#while)
 * [Break and continue](#break)
 * [Switch and case](#switch)
-* [Assert statement](#assert)
+* [Assert](#assert)
 
 <h4 id="if-else">If and else</h4>
 
@@ -28,7 +28,7 @@ See [Booleans](#booleans) for more info.
 You can iterate with the standard `for` loop.
 
 {% pretty_code dart 0 %}
-for (int i = 0; i < candidates.length; i++) {
+for (var i = 0; i < candidates.length; i++) {
   candidates[i].interview();
 }
 {% endpretty_code %}
@@ -67,10 +67,6 @@ var collection = [0, 1, 2];
 for (var x in collection) {
   print(x);
 }
-// prints:
-// 0
-// 1
-// 2
 {% endpretty_code %}
 
 <h4 id="while">While and do while</h4>
@@ -106,7 +102,7 @@ while (true) {
 Use `continue` to skip to the next loop iteration.
 
 {% pretty_code dart 0 %}
-for (int i = 0; i < candidates.length; i++) {
+for (var i = 0; i < candidates.length; i++) {
   var candidate = candidates[i];
   if (candidate.yearsExperience < 5) {
     continue;
@@ -125,7 +121,8 @@ candidates.filter((c) => c.yearsExperience >= 5)
 
 <h4 id="switch">Switch and case</h4>
 
-Switch statements in Dart compare objects using `==`. Remember to include a `break` statement
+Switch statements in Dart compare int or const String objects using `==`.
+Remember to include a `break` statement
 at the end of each non-empty `case` clause to avoid fall-through (which is an error, see below).
 A `default` clause can be used to catch conditions that don't match.
 
@@ -161,7 +158,7 @@ switch (command) {
 
   case 'OPEN':
     executeOpen();
-    // ERROR: missing break causes an exception to be thrown!!
+    // ERROR: Missing break causes an exception to be thrown!!
 
   case 'CLOSED':
     executeClose();
@@ -175,9 +172,9 @@ of fall-through.
 {% pretty_code dart 0 %}
 var command = 'CLOSED';
 switch (command) {
-  case 'CLOSED':     // empty case falls through
+  case 'CLOSED':     // Empty case falls through.
   case 'NOW_CLOSED':
-    // runs for both CLOSED and NOW_CLOSED
+    // Runs for both CLOSED and NOW_CLOSED.
     executeClose();
     break;
 }
@@ -186,12 +183,14 @@ switch (command) {
 <h4 id="assert">Assert</h4>
 
 Use an assert statement to disrupt normal execution
-if a boolean condition is false.
-Here are some examples of assert statements:
+if a [boolean](#booleans) condition is false.
+You can find examples of assert statements throughout this tour.
+Here are some more:
 
 {% pretty_code dart 0 %}
 assert(text != null);  // Make sure the variable has a non-null value.
 assert(number &lt; 100);  // Make sure the value is less than 100.
+assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.
 {% endpretty_code %}
 
 <aside class="note" markdown="1">

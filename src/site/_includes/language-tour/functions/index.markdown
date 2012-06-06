@@ -7,7 +7,7 @@ String say(String from, String msg) => "$from says $msg";
 And here's an example of calling it:
 
 {% pretty_code dart 0 %}
-print(say("Bob", "Hello")); // "Bob says Hello"
+assert(say("Bob", "Hello") == "Bob says Hello");
 {% endpretty_code %}
 
 Omitting the types, you could write the above as:
@@ -36,7 +36,7 @@ Wrapping a function parameter in `[]` marks it as an optional parameter.
 String say(String from, String msg, [String device]) {
   var result = "$from says $msg";
   if (device != null) {
-  	result = "$result with a $device";
+    result = "$result with a $device";
   }
   return result;
 }
@@ -45,14 +45,14 @@ String say(String from, String msg, [String device]) {
 Here's an example of calling this function without the optional parameter:
 
 {% pretty_code dart 0 %}
-print(say("Bob", "Howdy")); // Bob says Howdy
+assert(say("Bob", "Howdy") == "Bob says Howdy");
 {% endpretty_code %}
 
 Here's an example of calling this function with the third parameter:
 
 {% pretty_code dart 0 %}
-print(say("Bob", "Howdy", "smoke signal"));
-// Bob says Howdy with a smoke signal
+assert(say("Bob", "Howdy", "smoke signal") ==
+    "Bob says Howdy with a smoke signal");
 {% endpretty_code %}
 
 #### Default values for optional parameters
@@ -78,14 +78,14 @@ String say(String from, String msg,
 Omitting the optional parameters, you can see how the default values is used:
 
 {% pretty_code dart 0 %}
-print(say("Bob", "Howdy")); // Bob says Howdy with a carrier pigeon
+assert(say("Bob", "Howdy") == 'Bob says Howdy with a carrier pigeon');
 {% endpretty_code %}
 
 You can pass null to an optional parameter, overriding its default
 value.
 
 {% pc dart 0 %}
-print(say('Bob', 'Howdy', null)); // Bob says Howdy
+assert(say('Bob', 'Howdy', null) == 'Bob says Howdy');
 {% endpc %}
 
 #### Named parameters
@@ -93,11 +93,11 @@ print(say('Bob', 'Howdy', null)); // Bob says Howdy
 Optional parameters are also named parameters.
 
 {% pretty_code dart 0 %}
-print(say("Bob", "Howdy", device: "tin can and string"));
-// Bob says Howdy with a tin can and string
+assert(say("Bob", "Howdy", device: "tin can and string") ==
+    "Bob says Howdy with a tin can and string");
 
-print(say("Bob", "Howdy", mood: "fresh"));
-// Bob says Howdy with a carrier pigeon (in a fresh mood)
+assert(say("Bob", "Howdy", mood: "fresh") ==
+    "Bob says Howdy with a carrier pigeon (in a fresh mood)");
 {% endpretty_code %}
 
 #### First class functions
@@ -105,31 +105,32 @@ print(say("Bob", "Howdy", mood: "fresh"));
 You can pass a function as a parameter to another function. For example:
 
 {% pretty_code dart 0 %}
-List ages = [1,4,5,7,10,14,21];
-List oddAges = ages.filter((i) => i % 2 == 1);
+var ages = [1,4,5,7,10,14,21];
+var oddAges = ages.filter((i) => i % 2 == 1);
 {% endpretty_code %}
 
 Which is the same as:
 
 {% pretty_code dart 0 %}
 bool isOdd(num i) => i % 2 == 1;
-List ages = [1,4,5,7,10,14,21];
-List oddAges = ages.filter(isOdd);
+var ages = [1,4,5,7,10,14,21];
+var oddAges = ages.filter(isOdd);
 {% endpretty_code %}
 
 You can also assign a function to a variable, such as:
 
 {% pretty_code dart 0 %}
 var loudify = (msg) => '!!! ${msg.toUpperCase()} !!!';
-print(loudify('hello'));
+assert(loudify('hello') ==
+    '!!! HELLO !!!');
 {% endpretty_code %}
 
 #### Lexical closures
 
 Functions can close over variables defined in surrounding scopes.
-The below example shows how `makeAdder` captures the variable `n`
+The following example shows how `makeAdder` captures the variable `n`
 and makes it available to the function that `makeAdder` returns.
-Whereever the returned function goes, it remembers `n`.
+Wherever the returned function goes, it remembers `n`.
 
 {% pretty_code dart 0 %}
 Function makeAdder(num n) {
@@ -138,7 +139,7 @@ Function makeAdder(num n) {
 
 main() {
   var add2 = makeAdder(2);
-  print(add2(3)); // 5
+  assert(add2(3) == 5);
 }
 {% endpretty_code %}
 

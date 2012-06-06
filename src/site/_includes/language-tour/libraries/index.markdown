@@ -63,8 +63,8 @@ then you might have code like this:
 #import('lib1/library1.dart');
 #import('lib2/library2.dart', prefix:'lib2');
 ...
-var element1 = new Element();      // uses Element from library1
-var element2 = new lib2.Element(); // uses Element from library2
+var element1 = new Element();      // Uses Element from library1.
+var element2 = new lib2.Element(); // Uses Element from library2.
 {% endpretty_code %}
 
 </section>
@@ -77,7 +77,7 @@ var element2 = new lib2.Element(); // uses Element from library2
 Use [#source](#libraries-source)
 (also known as an _include directive_)
 to specify the files that
-are part of the current library, 
+are part of the current library,
 and [#library](#libraries-library)
 to specify that a file
 implements a library.
@@ -123,12 +123,12 @@ To explicitly declare a library, you use a **#library** statement.
 For example:
 
 {% pretty_code dart 0 %}
-#library('slider_sample');           // declare that this is a library.
+#library('slider_sample');           // Declare that this is a library.
 
-#import('dart:html');                // it uses the html library...
-#import('../ui_lib/view/view.dart'); // ...and a view library.
+#import('dart:html');                // It uses the html library
+#import('../ui_lib/view/view.dart'); // and a view library.
 
-#source('SliderSample.dart');        // grab the code from SliderSample.dart.
+#source('SliderSample.dart');        // Grab the code from SliderSample.dart.
 {% endpretty_code %}
 
 <aside class="note">
@@ -152,11 +152,11 @@ called `_hiddenNum`.
 
 class Incrementer {
   num _hiddenNum = 0;
-  
+
   void incrementNum() {
     _hiddenNum++;
   }
-  
+
   void printNum() {
     print("The hidden number is $_hiddenNum");
   }
@@ -164,7 +164,7 @@ class Incrementer {
 
 void main() {
   var o = new Incrementer();
-  print("We can read _hiddenNum (${o._hiddenNum}).");
+  assert(o._hiddenNum == 0); // We can read _hiddenNum.
 }
 {% endpretty_code %}
 
@@ -181,11 +181,11 @@ because it's in a different library from Incrementer
 #library('SubclassingLibrary');
 #import('../HidingLib/hider.dart');
 
-// this class is outside Incrementer's library, so it can't use _hiddenNum
+// This class is outside Incrementer's library, so it can't use _hiddenNum.
 class DoubleIncrementer extends Incrementer {
   void incrementNum() {
-    //_hiddenNum = _hiddenNum + 2; // cannot resolve _hiddenNum
-    super.incrementNum();          // the only way to increment _hiddenNum
+    //_hiddenNum = _hiddenNum + 2; // Cannot resolve _hiddenNum.
+    super.incrementNum();          // Must use super to increment _hiddenNum.
     super.incrementNum();
   }
 }

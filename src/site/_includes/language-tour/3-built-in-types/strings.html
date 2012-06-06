@@ -21,8 +21,10 @@ you can skip the {}.
 {% pretty_code dart 0 %}
 var s = 'string interpolation';
 
-print('Dart has $s, which is very handy.');
-print('That deserves all caps. ${s.toUpperCase()} is very handy!');
+assert('Dart has $s, which is very handy.' ==
+       'Dart has string interpolation, which is very handy.');
+assert('That deserves all caps. ${s.toUpperCase()} is very handy!' ==
+       'That deserves all caps. STRING INTERPOLATION is very handy!');
 {% endpretty_code %}
 
 <p>
@@ -31,9 +33,9 @@ adjacent string literals:
 </p>
 
 {% pretty_code dart 0 %}
-var s = 'string ''concatenation'
-        " works even over line breaks ";
-print(s); // string concatenation works even over line breaks
+var s = 'String ''concatenation'
+        " works even over line breaks.";
+assert(s == 'String concatenation works even over line breaks.');
 {% endpretty_code %}
 
 <p>
@@ -82,7 +84,7 @@ var name = 'NAME';
 var greeting = "Hello, $name!";
 var greetingTemplate = 'Hello, NAME!';
 
-print(greeting == greetingTemplate); // true; they have the same characters
+assert(greeting == greetingTemplate);
 {% endpretty_code %}
 
 
@@ -100,9 +102,9 @@ starts with, ends with, or contains another string.
 {% pretty_code dart 0 %}
 var fullName = 'Cuthbert Musgrave Girdlestone, III';
 
-fullName.startsWith('Cuthbert');            // true
-fullName.endsWith('III');                   // true
-fullName.contains(new RegExp('Musgrave'));  // true
+assert(fullName.startsWith('Cuthbert'));
+assert(fullName.endsWith('III'));
+assert(fullName.contains(new RegExp('Musgrave')));
 {% endpretty_code %}
 
 <p>
@@ -119,7 +121,7 @@ without changing the original String.
 {% pretty_code dart 0 %}
 var greetingTemplate = 'Hello, NAME!';
 var greeting = greetingTemplate.replaceAll(new RegExp("NAME"), 'Bob');
-print(greeting == greetingTemplate); // false; greetingTemplate didn't change
+assert(greeting != greetingTemplate); // greetingTemplate didn't change.
 {% endpretty_code %}
 
 Learn more about
@@ -139,16 +141,18 @@ until toString() is called.
 {% pretty_code dart 0 %}
 var sb = new StringBuffer();
 
-sb.add("Use a StringBuffer");
+sb.add("Use a StringBuffer ");
 sb.addAll(["for ", "efficient ", "string ", "creation "]);
 sb.add("if you are ").add("building lots of strings.");
 
 var fullString = sb.toString();
 
-print(fullString); // use a StringBuffer for efficient string creation
-                   // if you are building lots of strings
+assert(fullString ==
+    'Use a StringBuffer for efficient string creation '
+    'if you are building lots of strings.');
 
-sb.clear();        // all gone!
+sb.clear();  // All gone!
+assert(sb.toString() == '');
 {% endpretty_code %}
 
 <br>

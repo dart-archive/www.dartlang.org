@@ -16,7 +16,7 @@ Some examples of common exceptions include:
 * [NullPointerException](http://api.dartlang.org/dart_core/NullPointerException.html)
 * [IllegalArgumentException](http://api.dartlang.org/dart_core/IllegalArgumentException.html)
 
-However, Dart programs can throw any object as an exception. 
+However, Dart programs can throw any object as an exception.
 
 #### Throw
 
@@ -54,11 +54,11 @@ clause does not specify a type, that clause can handle any type of thrown object
 {% pretty_code dart 0 %}
 try {
   breedMoreLlamas();
-} catch (final OutOfLlamasException e) {  // a specific exception
+} catch (final OutOfLlamasException e) {  // A specific exception
   buyMoreLlamas();
-} catch (final Exception e) {             // anything that is an exception
+} catch (final Exception e) {             // Anything that is an exception
   print("Unknown exception: $e");
-} catch (final e) {                       // no specified type, handles all
+} catch (final e) {                       // No specified type, handles all
   print("Something really unknown: $e");
 }
 {% endpretty_code %}
@@ -76,7 +76,7 @@ the finally clause runs and then the exception is propagated.
 try {
   breedMoreLlamas();
 } finally {
-  cleanLlamaStalls();  // always run, even if exception is thrown
+  cleanLlamaStalls();  // Always clean up, even if exception is thrown.
 }
 {% endpretty_code %}
 
@@ -86,9 +86,9 @@ The finally clause runs after any matching catch clauses.
 try {
   breedMoreLlamas();
 } catch (final e) {
-  print("Error: $e");  // handle exception first
+  print("Error: $e");  // Handle exception first.
 } finally {
-  cleanLlamaStalls();  // then run finally
+  cleanLlamaStalls();  // Then clean up.
 }
 {% endpretty_code %}
 

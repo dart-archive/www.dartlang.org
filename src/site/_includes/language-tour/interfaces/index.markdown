@@ -41,7 +41,7 @@ For example:
 class Point <b>implements Hashable</b> {
   num x, y;
   ...
-  // required by Hashable
+  // Required by Hashable
   <b>int hashCode() {</b>
     int result = 17;
     result = 37 * result + x.hashCode();
@@ -102,19 +102,19 @@ and checking types.
 
 {% pc dart 0 %}
 class Point implements HashablePoint {
-  num x, y; // required by HashablePoint
+  num x, y; // Required by HashablePoint
 
-  // required by Hashable
+  // Required by Hashable
   int hashCode() {
-    ...
+    // ...
   }
 }
 
-void main() {
-  Point p = new Point();
-  print(p is Point);          // true
-  print(p is Hashable);       // true
-  print(p is HashablePoint);  // true
+main() {
+  var p = new Point();
+  assert(p is Point);
+  assert(p is Hashable);
+  assert(p is HashablePoint);
 }
 {% endpc %}
 </section>
@@ -141,7 +141,7 @@ For example:
 {% pretty_code dart 0 %}
 interface ObjectCache default MemoryCache {
   ObjectCache();
-  ...
+  // ...
 }
 {% endpretty_code %}
 
@@ -149,7 +149,7 @@ The code for the default class might look like this:
 
 {% pretty_code dart 0 %}
 class MemoryCache implements ObjectCache {
-  ...
+  // ...
 }
 {% endpretty_code %}
 
@@ -159,7 +159,9 @@ in the interface's default class.
 For example:
 
 {% pc dart 0 %}
-var cache = new ObjectCache(); // same as: new MemoryCache()
+var cache = new ObjectCache(); // Same as: new MemoryCache()
+assert(cache is ObjectCache);
+assert(cache is MemoryCache);
 {% endpc %}
 
 </section>
