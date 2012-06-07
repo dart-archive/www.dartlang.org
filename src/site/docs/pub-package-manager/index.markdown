@@ -21,17 +21,17 @@ You can either [download the SDK separately](/docs/sdk/#download)
 or get it as part of the [Dart Editor package](/docs/editor/#download).
 
 To use a library that's in a Dart package,
-you need to create a pubspec file, use pub to install the package,
+you need to create a **pubspec**, use pub to install the package,
 point Dart to the packages location, and then import the library.
 
-## Creating a pubspec file
+## Creating a pubspec
 
-To use a package, your application must have a file named **pubspec** that
-specifies your app's package dependencies and their download locations.
-Put this file in the same directory as the file containing the app's 
-main() method.
+To use a package, your application must define a pubspec
+that lists dependencies and their download locations.
+This file is named **pubspec.yaml** and is placed into the same directory
+as the file containing the app's  main() method.
 
-Here is an example of a pubspec file that associates the
+Here is an example of a pubspec.yaml file that associates the
 `awesome` package with a git repository:
 
 {% pretty_code console 0 %}
@@ -40,12 +40,12 @@ dependencies:
     git: git://github.com/munificent/awesome.git
 {% endpretty_code %}
 
-A pubspec file uses the [YAML](http://yaml.org/) format.
+The pubspec uses the [YAML](http://yaml.org/) format.
 
 ## Installing the packages
 
-Now that you have a pubspec file, you can run `pub install`. You must
-run this command from the directory containing the pubspec file.
+Now that you have a pubspec, you can run `pub install`. You must
+run this command from the directory containing the pubspec.yaml file.
 
 {% pretty_code console 0 %}
 cd your/app
@@ -67,7 +67,7 @@ You can specify where packages are located for both the Dart Editor
 and the Dart VM.
 
 If you use the `pub install` command, the packages directory is created
-for you next to the pubspec file.
+for you next to the pubspec.yaml file.
 
 ### Mapping packages for the Dart Editor
 
