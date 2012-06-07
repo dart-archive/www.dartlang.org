@@ -48,10 +48,10 @@ first release.
     1. HTTP Client (coming soon)
     1. Web socket server (coming soon)
 1. HTML (coming soon)
-1. JSON (coming soon)
-1. URI (coming soon)
-1. UTF (coming soon)
-1. Crypto (coming soon)
+1. [JSON](#json)
+1. [URI](#uri)
+1. [UTF](#utf)
+1. [Crypto](#crypto)
 {:.toc}
 
 ## dart:core - Strings, collections, and more
@@ -1062,6 +1062,10 @@ I/O functionality is in the `dart:io` library.
 
 {% pc dart 0 %}
 #import('dart:io');
+
+main() {
+  // the app
+}
 {% endpc %}
 
 ### Files and directories
@@ -1249,22 +1253,350 @@ Coming soon.
 
 Coming soon.
 
+{% endcomment %}
+
 ## JSON
 
-Coming soon.
+[JSON](http://www.json.org/) is a simple text
+format for representing structured objects and collections.
+The [JSON library](http://api.dartlang.org/json.html)
+decodes JSON-formatted strings into Dart objects,
+and encodes objects into JSON-formatted strings.
+
+The Dart JSON library works in both web apps and command-line apps.
+
+### Importing the JSON library
+
+To use the JSON library, import dart:json.
+
+{% pc dart 0 %}
+#import('dart:json');
+
+main() {
+  // the app
+}
+{% endpc %}
+
+### Decoding JSON
+
+Decode a JSON-encoded string into a Dart object with `JSON.parse()`.
+
+{% pc dart 0 %}
+#import('dart:json');
+
+main() {
+  var jsonString = """
+  [
+    {"score": 40},
+    {"score": 80}
+  ]
+  """;
+  
+  var scores = JSON.parse(jsonString);
+  assert(scores is List);
+  
+  var firstScore = scores[0];
+  assert(firstScore is Map);
+  assert(firstScore['score'] == 40);
+}
+{% endpc %}
+
+### Encoding JSON
+
+Encode a supported Dart object into a JSON-formatted string
+with `JSON.stringify()`.
+
+Only objects of type list, map, string, int, double, bool, or null can
+be encoded into JSON.
+
+{% pc dart 0 %}
+#import('dart:json');
+
+main() {
+  var scores = [
+    {'score': 40},
+    {'score': 80},
+    {'score': 100, 'overtime': true, 'special_guest': null}
+  ];
+  
+  var jsonText = JSON.stringify(scores);
+  assert(jsonText == '[{"score":40},{"score":80},'
+                     '{"score":100,"overtime":true,'
+                     '"special_guest":null}]');
+}
+{% endpc %}
+
+[Back to contents.](#toc)
+{:.up-to-toc}
 
 ## URI
 
-Coming soon.
+The [URI library](http://api.dartlang.org/uri.html) provides functions
+to encode and decode strings for use in URIs. These functions
+handle characters that are special for URIs, such as `&` and `=`.
+
+The URI library also contains the
+[Uri class](http://api.dartlang.org/uri/Uri.html),
+which parses and exposes
+the components of a URI, such as domain, port, and scheme.
+
+The URI library works in both web apps and command-line apps.
+
+### Importing the URI library
+
+To use the URI library, import dart:uri.
+
+{% pc dart 0 %}
+#import('dart:uri');
+
+main() {
+  // the app
+}
+{% endpc %}
+
+### Encoding and decoding fully qualified URIs
+
+To encode and decode characters *except* those with special meaning in a URI
+(such as `/`, `:`, `&`, `#`), use
+[encodeUri()](http://api.dartlang.org/uri.html#encodeUri)
+and [decodeUri()](http://api.dartlang.org/uri.html#decodeUri). Use these
+functions when you need to encode or decode a fully qualified URI,
+leaving intact special URI characters.
+
+{% pc dart 0 %}
+#import('dart:uri');
+
+main() {
+  var uri = 'http://example.org/api?foo=some message';
+  var encoded = encodeUri(uri);
+  assert(encoded == 'http://example.org/api?foo=some%20message');
+
+  var decoded = decodeUri(encoded);
+  assert(uri == decoded);
+}
+{% endpc %}
+
+Notice how only the space between `some` and `message` was encoded.
+
+### Encoding and decoding URI components
+
+To encode and decode all characters in a string that have special meaning
+in a URI, including (but not limited to)
+`/`, `&`, and `:`, use
+[encodeUriComponent()](http://api.dartlang.org/uri.html#encodeUriComponent) and
+[decodeUriComponent()](http://api.dartlang.org/uri.html#decodeUriComponent).
+
+{% pc dart 0 %}
+#import('dart:uri');
+
+main() {
+  var uri = 'http://example.org/api?foo=some message';
+  var encoded = encodeUriComponent(uri);
+  assert(encoded == 'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
+
+  var decoded = decodeUriComponent(encoded);
+  assert(uri == decoded);
+}
+{% endpc %}
+
+Notice how every special character was encoded. For example, `/` was encoded
+to `%3A`.
+
+### Parsing URIs
+
+You can parse a URI into its parts with the
+[Uri.fromString() constructor](http://api.dartlang.org/uri/Uri.html#Uri).
+
+{% pc dart 0 %}
+#import('dart:uri');
+
+main() {
+  var uri = new Uri.fromString('http://example.org/foo/bar#frag');
+
+  assert(uri.scheme == 'http');
+  assert(uri.domain == 'example.org');
+  assert(uri.path == '/foo/bar');
+  assert(uri.fragment == 'frag');
+}
+{% endpc %}
+
+The Uri class exposes more URI components. Learn more by
+reading the [Uri API docs](http://api.dartlang.org/uri/Uri.html).
+
+### Building URIs
+
+You can build up a URI from individual parts using the
+[Uri() constructor](http://api.dartlang.org/uri/Uri.html#Uri).
+
+{% pc dart 0 %}
+#import('dart:uri');
+
+main() {
+  var uri = new Uri(scheme: 'http', domain: 'example.org', path: '/foo/bar',
+                    fragment: 'frag');
+  assert(uri.toString() == 'http://example.org/foo/bar#frag');
+}
+{% endpc %}
+
+[Back to contents.](#toc)
+{:.up-to-toc}
 
 ## UTF
 
-Coming soon.
+The [UTF library](http://api.dartlang.org/utf.html) helps bridge the gap
+between strings and UTF8/UTF16/UTF32 encodings.
+
+### Importing the UTF library
+
+To use the UTF library, import dart:utf.
+
+{% pc dart 0 %}
+#import('dart:utf');
+
+main() {
+  // the app
+}
+{% endpc %}
+
+### Decoding UTF8 characters
+
+Use `decodeUtf8()` to decode UTF8-encoded bytes to a Dart string.
+
+{% pc dart 0 %}
+#import('dart:utf');
+
+main() {
+  String string = decodeUtf8([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
+                          0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
+                          0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
+                          0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
+                          0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1]);
+  assert(string == "Îñţérñåţîöñåļîžåţîờñ");
+}
+{% endpc %}
+
+### Encoding strings to UTF8 bytes
+
+Use `encodeUtf8()` to encode a Dart string as a list of UTF8-encoded bytes.
+
+{% pc dart 0 %}
+#import('dart:utf');
+
+main() {
+  List&lt;int> expected = [0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9, 0x72,
+                      0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xc3,
+                      0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4, 0xbc, 0xc3, 0xae,
+                      0xc5, 0xbe, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xe1,
+                      0xbb, 0x9d, 0xc3, 0xb1];
+
+  List&lt;int> encoded = encodeUtf8("Îñţérñåţîöñåļîžåţîờñ");
+
+  assert(encoded.length == expected.length);
+  for (var i = 0; i < encoded.length; i++) {
+    assert(encoded[i] == expected[i]);
+  }
+}
+{% endpc %}
+
+### Other functionality
+
+The UTF library can decode and encode UTF16 and UTF32 bytes.
+The library can also convert directly to and from Unicode codepoints
+and UTF8-encoded bytes. Learn more about the
+[UTF library](http://api.dartlang.org/utf.html).
+
+[Back to contents.](#toc)
+{:.up-to-toc}
 
 ## Crypto
 
-Coming soon.
-{% endcomment %}
+The [Dart crypto library](http://api.dartlang.org/crypto.html)
+contains functions useful for cryptographic applications,
+such as creating cryptographic hashes and generating
+has-based message authentication codes.
 
+### Importing the crypto library
+
+To use the crypto library, import dart:crypto.
+
+{% pc dart 0 %}
+#import('dart:crypto');
+
+main() {
+  // the app
+}
+{% endpc %}
+
+### Generating cryptographic hashes
+
+You can generate [SHA256](http://api.dartlang.org/crypto/SHA256.html),
+[SHA1](http://api.dartlang.org/crypto/SHA1.html), and
+[MD5](http://api.dartlang.org/crypto/MD5.html) hashes
+(also known as *digests* or *message digests*)
+with dart:crypto. We
+recommend using SHA256, but we have included SHA1 and MD5 for
+compatibility with older systems.
+
+Learn more about
+[cryptographic hash functions](http://en.wikipedia.org/wiki/Cryptographic_hash_function).
+
+{% pc dart 0 %}
+#import('dart:crypto');
+
+main() {
+  var sha256 = new SHA256();
+  var digest = sha256.update("message".charCodes()).digest();
+  var hexString = CryptoUtils.bytesToHex(digest);
+  assert(hexString ==
+      'ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d');
+}
+{% endpc %}
+
+If the message content changes, the digest value also changes
+(with a very high probability).
+
+### Generating message authentication codes
+
+Use a hash-based message authentication code (HMAC) to combine a
+cryptographic hash function with a secret key.
+Learn more about [HMACs](http://en.wikipedia.org/wiki/HMAC).
+
+{% pc dart 0 %}
+#import('dart:crypto');
+main() {
+  var hmac = new HMAC(new SHA256(), "secretkey".charCodes());
+  var hmacDigest = hmac.update("message".charCodes()).digest();
+  var hmacHex = CryptoUtils.bytesToHex(hmacDigest);
+  assert(hmacHex ==
+      '5c3e2f56de9411068f675ef32ffa12735210b9cbfee2ba521367a3955334a343');
+}
+{% endpc %}
+
+If either the message contents or key changes,
+the digest value also changes (with a very high probability).
+
+### Generating Base64 strings
+
+You can represent binary data as a character string by using the
+[Base64](http://en.wikipedia.org/wiki/Base_64) encoding scheme. Use the
+`CryptoUtils.bytesToBase64()` utility method to convert a list
+of bytes into a base64-encoded string.
+
+{% pc dart 0 %}
+#import('dart:crypto');
+#import('dart:io');
+
+main() {
+  var file = new File('icon.ico');
+  var bytes = file.readAsBytesSync();
+  var base64 = CryptoUtils.bytesToBase64(bytes);
+  assert(base64 ==
+    "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38G"
+    "IAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==");
+}
+{% endpc %}
+
+[Back to contents.](#toc)
+{:.up-to-toc}
 
 {% include syntax-highlighting.html %}

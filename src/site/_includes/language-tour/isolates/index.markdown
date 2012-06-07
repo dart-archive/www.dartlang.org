@@ -51,6 +51,10 @@ The isolates API is in the `dart:isolate` library.
 
 {% pc dart 0 %}
 #import('dart:isolate');
+
+main() {
+  // the app
+}
 {% endpc %}
 
 #### Spawning isolates
