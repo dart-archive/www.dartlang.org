@@ -410,10 +410,65 @@ you must use the special identifier **negate**.
 </section>
 
 
-### Abstract classes
+### Abstract classes {#classes-abstract}
 
-Dart now supports abstract classes and abstract methods.
-Check back soon for coverage of the feature.
+Dart supports abstract classes and methods.
+Use the **abstract** keyword whenever you
+want to create a class that leaves some implementation details
+up to its subclasses.
+
+In normal use, you shouldn't create instances of an abstract class.
+However, Dart doesn't prevent you from doing so.
+For example, you might instantiate an abstract class
+to provide mock objects for testing.
+
+You can mark either classes or methods as abstract.
+If a class has any abstract methods, then the class itself is abstract.
+Here's an example of declaring an abstract class that has an abstract method.
+
+{% pc dart 0 %}
+// This class is abstract because it has an abstract method.
+class AbstractContainer {
+  // ... define constructors, fields, methods ...
+
+  abstract void updateChildren(); // Abstract methods have no body.
+}
+{% endpc %}
+
+A subclass of an abstract class should either
+implement all abstract methods or declare itself as abstract.
+Here's an example of an abstract subclass.
+
+{% pc dart 0 %}
+abstract class AbstractSpecializedContainer extends AbstractContainer {
+  // ... define more constructors, fields, methods ...
+
+  // OK to not implement updateChildren(), since this class is abstract.
+}
+{% endpc %}
+
+Finally, here's an example of implementing and instantiating
+a subclass of an abstract class.
+
+{% pc dart 0 %}
+class SpecializedContainer extends AbstractSpecializedContainer {
+
+  // Implement the abstract method defined by AbstractContainer.
+  void updateChildren() {
+    // ... Do something.
+  }
+}
+
+main() {
+  var c1 = new SpecializedContainer();
+
+  // You can instantiate abstract classes (but you'll get a warning).
+  var c2 = new AbstractContainer(); // WARNING
+
+  assert(c1 is AbstractContainer);
+  assert(c2 is AbstractContainer);
+}
+{% endpc %}
 
 
 ### Extending a class
