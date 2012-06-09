@@ -416,8 +416,7 @@ for a full list of methods.
 ### Dates and times
 
 A [Date](http://api.dartlang.org/dart_core/Date.html) object is a point in time.
-You can make a point in time relative to a
-location with a [TimeZone](http://api.dartlang.org/dart_core/TimeZone.html).
+A point in time is either a in the local time-zone, or is in UTC.
 
 #### Constructing dates
 
@@ -428,11 +427,15 @@ var now = new Date.now();
 // create a new Date with the local time zone
 var y2k = new Date(2000, 1, 1, 0, 0, 0, 0);
 
-// specify all the parts of a date and time with a time zone
-y2k = new Date.withTimeZone(2000, 1, 1, 0, 0, 0, 0, const TimeZone.utc());
+// you can also use named parameters
+y2k = new Date(2000, month: 1, day: 1, hours: 0, minutes: 0, seconds: 0,
+               milliseconds: 0);
 
-// specify a date and time in milliseconds since the unix epoch
-y2k = const Date.fromEpoch(1336017592000, const TimeZone.utc());
+// specify all the parts of a date as a UTC time
+y2k = new Date(2000, 1, 1, 0, 0, 0, 0, isUtc: true);
+
+// specify a UTC date and time in milliseconds since the unix epoch
+y2k = const Date.fromEpoch(1336017592000, isUtc: true);
 
 // parse an ISO 8601 date
 y2k = new Date.fromString('2000-01-01T00:00:00Z');
@@ -476,9 +479,8 @@ assert(duration.inDays == 366); // y2k was a leap year
 #### More information
 
 Refer to the full
-[Date API docs](http://api.dartlang.org/dart_core/Date.html),
+[Date API docs](http://api.dartlang.org/dart_core/Date.html) and
 [Duration API docs](http://api.dartlang.org/dart_core/Duration.html),
-and [TimeZone API docs](http://api.dartlang.org/dart_core/TimeZone.html)
 for a full list of methods.
 
 [Back to contents.](#toc)
