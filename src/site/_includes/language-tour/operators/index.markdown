@@ -271,7 +271,7 @@ if (!done && (col == 0 || col == 3)) {
 ### Bitwise and shift operators
 
 You can manipulate the individual bits of objects in Dart.
-Usually, you'd use these operators with integers.
+Usually, you use these operators with integers.
 
 <table class="operatorTable">
   <tr> <th> Operator </th> <th> Meaning </th> </tr>
@@ -290,8 +290,8 @@ Usually, you'd use these operators with integers.
   </tr><tr>
     <td class="operator"> &lt;&lt; </td>  <td> shift left </td>
   </tr><tr>
-    <td class="operator"> >> </td>  <td> shift right </td>
-  <tr>
+    <td class="operator"> &gt;&gt; </td>  <td> shift right </td>
+  </tr>
 </table>
 
 Here's an example of using bitwise and shift operators.
@@ -305,7 +305,7 @@ assert((value & ~bitmask) == 0x20);  // AND NOT
 assert((value | bitmask)  == 0x2f);  // OR
 assert((value ^ bitmask)  == 0x2d);  // XOR
 assert((value &lt;&lt; 4)       == 0x220);
-assert((value >> 4)       == 0x02);
+assert((value &gt;&gt; 4)       == 0x02);
 {% endpretty_code %}
 </section>
 
@@ -338,7 +338,6 @@ assert((value >> 4)       == 0x02);
       from expression <code>foo</code> </td>
   </tr>
 </table>
-
 
 </section>
 

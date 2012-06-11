@@ -12,11 +12,10 @@ Dart numbers come in two flavors:
 <p>
 Both <b>int</b> and <b>double</b> are subinterfaces of
 <a href="http://api.dartlang.org/dart_core/num.html"><b>num</b></a>.
-The num interface defines basic operators such as +, -, /, and *,
-as well as bitwise operators such as &gt;&gt;.
-{% comment %}
-{PENDING: should I point to operators here? Or up top?}
-{% endcomment %}
+The num interface defines
+<a href="#op-arithmetic">basic operators</a> such as +, -, /, and *,
+as well as
+<a href="#op-bit">bitwise operators</a> such as &gt;&gt;.
 The num interface is also
 where you'll find abs(), ceil(), and floor(), among other methods.
 If num and its subinterfaces don't have what you're looking for, the
@@ -38,10 +37,6 @@ var bigInt = 3465346583465243765923847659234765928347659567398475647495873984572
   <b>Note:</b>
   Big integers are currently treated differently between Dart and JavaScript.
 </aside>
-
-{% comment %}
-PENDING: how should we deal with VM/JS differences? I'm thinking we should avoid them. Maybe just make bigint smaller, like I did here?
-{% endcomment %}
 
 <p>
 If a number includes a decimal,
