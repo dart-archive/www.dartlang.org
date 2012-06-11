@@ -768,14 +768,16 @@ each time you run it.
 <h2>Debugging apps</h2>
 
 <p>
-Although you can't yet debug command-line apps,
-{% comment %}
-  {PENDING: update in June, when debugging for command-line apps is enabled!}
-{% endcomment %}
-you can debug web apps natively, using the Dart Editor and Dartium.
+You can debug both command-line and web apps with Dart Editor.
 Debugging must be enabled in your launch configuration
 (which it is, by default).
 </p>
+
+<aside class="note">
+<b>Platform note:</b>
+Command-line debugging is currently supported for Mac only.
+We expect to support other platforms soon.
+</aside>
 
 <p>
 Some tips for debugging:
@@ -796,16 +798,17 @@ Some tips for debugging:
     or look in the Debugging view's Call Stack.
   </li>
   <li>
-    While you're debugging,
-    Dart Editor takes the place of the Dartium console.
-    For example, Dart Editor displays the output of print() statements.
-  </li>
-  <li>
     Because everything in Dart is an object
     and operators are really methods,
     you'll probably use Step Return (F7)
     more than you'd expect
     to climb out of Dart libraries.
+  </li>
+  <li>
+    To debug web apps, you use Dart Editor with Dartium.
+    While you're debugging,
+    Dart Editor takes the place of the Dartium console.
+    For example, Dart Editor displays the output of print() statements.
   </li>
 </ul>
 
