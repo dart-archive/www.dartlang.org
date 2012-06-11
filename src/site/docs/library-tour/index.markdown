@@ -416,7 +416,7 @@ for a full list of methods.
 ### Dates and times
 
 A [Date](http://api.dartlang.org/dart_core/Date.html) object is a point in time.
-A point in time is either a in the local time-zone, or is in UTC.
+The time is either UTC or the local time zone.
 
 #### Constructing dates
 
@@ -480,7 +480,7 @@ assert(duration.inDays == 366); // y2k was a leap year
 
 Refer to the full
 [Date API docs](http://api.dartlang.org/dart_core/Date.html) and
-[Duration API docs](http://api.dartlang.org/dart_core/Duration.html),
+[Duration API docs](http://api.dartlang.org/dart_core/Duration.html)
 for a full list of methods.
 
 [Back to contents.](#toc)
