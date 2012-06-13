@@ -53,7 +53,7 @@ The isolates API is in the `dart:isolate` library.
 #import('dart:isolate');
 
 main() {
-  // the app
+  // The app
 }
 {% endpc %}
 
@@ -105,7 +105,7 @@ To simply send a message, use
 #import('dart:isolate');
 
 echo() {
-  // receive messages here, see next section
+  // Receive messages here. (See the next section.)
 }
 
 main() {

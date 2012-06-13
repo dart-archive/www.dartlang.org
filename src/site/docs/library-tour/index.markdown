@@ -81,27 +81,27 @@ constructors](http://api.dartlang.org/dart_core/List.html#List). The List class
 also provides several methods for adding items to and removing items from lists.
 
 {% pc dart 0 %}
-// use a list constructor
+// Use a list constructor.
 var vegetables = new List();
 
-// or, simply use a list literal
+// Or simply use a list literal.
 var fruits = ['apples', 'oranges'];
 
-// add to a list
+// Add to a list.
 fruits.add('kiwis');
 
-// add multiple items to a list
+// Add multiple items to a list.
 fruits.addAll(['grapes', 'bananas']);
 
-// get the list length
+// Get the list length.
 assert(fruits.length == 5);
 
-// remove a single item
+// Remove a single item.
 var appleIndex = fruits.indexOf('apples');
 fruits.removeRange(appleIndex, 1);
 assert(fruits.length == 4);
 
-// remove all elements from a list
+// Remove all elements from a list.
 fruits.clear();
 assert(fruits.length == 0);
 {% endpc %}
@@ -117,10 +117,10 @@ the index of an object in a list.
 {% pc dart 0 %}
 var fruits = ['apples', 'oranges'];
 
-// access a list item by index
+// Access a list item by index.
 assert(fruits[0] == 'apples');
 
-// find an item in a list
+// Find an item in a list.
 assert(fruits.indexOf('apples') == 0);
 {% endpc %}
 
@@ -135,7 +135,7 @@ return &lt; 0 for _smaller_,
 {% pc dart 0 %}
 var fruits = ['bananas', 'apples', 'oranges'];
 
-// sort a list
+// Sort a list.
 fruits.sort((a, b) => a.compareTo(b));
 assert(fruits[1] == 'bananas');
 {% endpc %}
@@ -146,15 +146,15 @@ Lists are parameterized types, so you can specify the type that a list
 should contain.
 
 {% pc dart 0 %}
-// this list should contain only strings
+// This list should contain only strings.
 var fruits = new List&lt;String>();
 
 fruits.add('apples');
 var fruit = fruits[0];
 assert(fruit is String);
 
-// generates static analysis warning, num is not a string
-fruits.add(5);  // BAD: throws exception in checked mode
+// Generates static analysis warning; num is not a string.
+fruits.add(5);  // BAD: Throws exception in checked mode.
 {% endpc %}
 
 ##### More information
@@ -181,11 +181,11 @@ var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 assert(ingredients.length == 3);
 
-// adding a duplicate item has no effect
+// Adding a duplicate item has no effect.
 ingredients.add('gold');
 assert(ingredients.length == 3);
 
-// remove an item from a set
+// Remove an item from a set.
 ingredients.remove('gold');
 assert(ingredients.length == 2);
 {% endpc %}
@@ -199,10 +199,10 @@ one or more objects are in a set.
 var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
-// check whether an item is in the set
+// Check whether an item is in the set.
 assert(ingredients.contains('titanium') == true);
 
-// check whether all the items are in the set
+// Check whether all the items are in the set.
 assert(ingredients.containsAll(['titanium', 'xenon']) == true);
 {% endpc %}
 
@@ -216,14 +216,14 @@ in another, potentially larger, collection.
 var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
-// create the intersection of two sets
-var nobleGasses = new Set.from(['xenon', 'argon']);
-var intersection = ingredients.intersection(nobleGasses);
+// Create the intersection of two sets.
+var nobleGases = new Set.from(['xenon', 'argon']);
+var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
 assert(intersection[0] == 'xenon');
 
-// check whether this set is a subset of another collection
-// that is, does another collection contains all the items of this set
+// Check whether this set is a subset of another collection.
+// That is, does another collection contains all the items of this set?
 var allElements = ['hydrogen', 'helium', 'lithium', 'beryllium',
                    'gold', 'titanium', 'xenon' /* all the rest */];
 assert(ingredients.isSubsetOf(allElements) == true);
@@ -251,7 +251,7 @@ The following examples work with any object that implements Collection.
 {% pc dart 0 %}
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-// use isEmpty() to check whether a collection has no items
+// Use isEmpty() to check whether a collection has no items.
 assert(teas.isEmpty() == false);
 {% endpc %}
 
@@ -260,11 +260,11 @@ assert(teas.isEmpty() == false);
 {% pc dart 0 %}
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-// use forEach() to apply a function to every item in a collection
+// Use forEach() to apply a function to every item in a collection.
 teas.forEach((tea) => print('I drink $tea'));
 
-// use map() to create a new collection by applying a function to each
-// item and collecting the results
+// Use map() to create a new collection by applying a function to each
+// item and collecting the results.
 var loudTeas = teas.map((tea) => tea.toUpperCase());
 assert(loudTeas[0] == 'GREEN');
 {% endpc %}
@@ -279,20 +279,20 @@ match a condition.
 {% pc dart 0 %}
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-// chamomile is not caffeinated
+// Chamomile is not caffeinated.
 isDecaffeinated(String teaName) => teaName == 'chamomile';
 
-// use filter() to create a new collection with only the items
-// that return true from the provided function
+// Use filter() to create a new collection with only the items
+// that return true from the provided function.
 var decaffeinatedTeas = teas.filter((tea) => isDecaffeinated(tea));
-// or teas.filter(isDecaffeinated)
+// Or teas.filter(isDecaffeinated)
 
-// use some() to check whether at least one item in the collection
-// satisfies a condition
+// Use some() to check whether at least one item in the collection
+// satisfies a condition.
 assert(teas.some(isDecaffeinated) == true);
 
-// use every() to check whether all the items in a collection
-// satisfy a condition
+// Use every() to check whether all the items in a collection
+// satisfy a condition.
 assert(teas.every(isDecaffeinated) == false);
 {% endpc %}
 
@@ -327,18 +327,18 @@ You can declare a map using a terse literal syntax,
 or you can use a traditional constructor.
 
 {% pc dart 0 %}
-// map literals use strings as keys
+// Map literals use strings as keys.
 var hawaiianBeaches = {
   "oahu" : ['waikiki', 'kailua', 'waimanalo'],
   "big island" : ['wailea bay', 'pololu beach'],
   "kauai" : ['hanalei', 'poipu']
 };
 
-// maps can be built from a constructor
+// Maps can be built from a constructor.
 var searchTerms = new Map();
 
-// maps are parameterized types; you can specify what types
-// the key and value should be
+// Maps are parameterized types; you can specify what types
+// the key and value should be.
 var nobleGases = new Map&lt;int, String>();
 {% endpc %}
 
@@ -350,24 +350,24 @@ Use `remove()` to remove a key and its value from a map.
 {% pc dart 0 %}
 var nobleGases = new Map&lt;int, String>();
 
-// maps from constructors can use any Hashable object as a key;
-// for example, int implements Hashable
+// Maps from constructors can use any Hashable object as a key;
+// for example, int implements Hashable.
 nobleGases[54] = 'xenon';
 
-// associate a key with a value
+// Associate a key with a value.
 nobleGases[54] = 'xenon';
 
-// retrieve a value with a key
+// Retrieve a value with a key.
 assert(nobleGases[54] == 'xenon');
 
-// check whether a map contains a key
+// Check whether a map contains a key.
 assert(nobleGases.containsKey(54) == true);
 
-// add a key-value pair only if the key doesn't yet exist in the map
+// Add a key-value pair only if the key doesn't yet exist in the map.
 var value = nobleGases.putIfAbsent(36, () => 'krypton');
 assert(value == 'krypton');
 
-// remove a key and its value
+// Remove a key and its value.
 nobleGases.remove(54);
 assert(nobleGases.containsKey(54) == false);
 {% endpc %}
@@ -385,19 +385,19 @@ var hawaiianBeaches = {
   "kauai" : ['hanalei', 'poipu']
 };
 
-// get all the keys as an unordered collection
+// Get all the keys as an unordered collection.
 var keys = hawaiianBeaches.getKeys();
 
 assert(keys.length == 3);
 assert(new Set.from(keys).contains('oahu') == true);
 
-// get all the values as an unordered collection
+// Get all the values as an unordered collection.
 var values = hawaiianBeaches.getValues();
 assert(values.length == 3);
 assert(values.some((v) => v.indexOf('waikiki') != -1) == true);
 
-// iterate through the key-value pairs
-// NOTE: do not depend on iteration order
+// Iterate through the key-value pairs.
+// NOTE: Do not depend on iteration order.
 hawaiianBeaches.forEach((k,v) {
   print("I want to visit $k and swim at $v");
   // I want to visit oahu and swim at [waikiki, kailua, waimanalo]
@@ -421,23 +421,23 @@ The time is either UTC or the local time zone.
 #### Constructing dates
 
 {% pc dart 0 %}
-// get the current date and time
+// Get the current date and time.
 var now = new Date.now();
 
-// create a new Date with the local time zone
+// Create a new Date with the local time zone.
 var y2k = new Date(2000, 1, 1, 0, 0, 0, 0);
 
-// you can also use named parameters
+// You can also use named parameters.
 y2k = new Date(2000, month: 1, day: 1, hours: 0, minutes: 0, seconds: 0,
                milliseconds: 0);
 
-// specify all the parts of a date as a UTC time
+// Specify all the parts of a date as a UTC time.
 y2k = new Date(2000, 1, 1, 0, 0, 0, 0, isUtc: true);
 
-// specify a UTC date and time in milliseconds since the unix epoch
+// Specify a UTC date and time in milliseconds since the Unix epoch.
 y2k = const Date.fromEpoch(1336017592000, isUtc: true);
 
-// parse an ISO 8601 date
+// Parse an ISO 8601 date.
 y2k = new Date.fromString('2000-01-01T00:00:00Z');
 {% endpc %}
 
@@ -461,19 +461,19 @@ and to shift a date's time forward or backwards.
 {% pc dart 0 %}
 var y2k = new Date.fromString('2000-01-01T00:00:00Z');
 
-// add one year
+// Add one year.
 var y2001 = y2k.add(const Duration(366, 0, 0, 0, 0));
 assert(y2001.year == 2001);
 
-// subtract 30 days
+// Subtract 30 days.
 var december2000 = y2001.subtract(const Duration(30, 0 ,0, 0, 0));
 assert(december2000.year == 2000);
 assert(december2000.month == 12);
 
-// calculate the difference between two dates
-// returns a Duration object
+// Calculate the difference between two dates.
+// Returns a Duration object.
 var duration = y2001.difference(y2k);
-assert(duration.inDays == 366); // y2k was a leap year
+assert(duration.inDays == 366); // y2k was a leap year.
 {% endpc %}
 
 #### More information
@@ -533,7 +533,7 @@ class Person implements Hashable {
 
   Person(this.firstName, this.lastName);
 
-  // strategy from Effective Java, Chapter 11
+  // Strategy from Effective Java, Chapter 11.
   int hashCode() {
     int result = 17;
     result = 37 * result + firstName.hashCode();
@@ -569,21 +569,21 @@ defines the actual iteration ability.
 
 {% pc dart 0 %}
 class Process {
-  // represents a process...
+  // Represents a process...
 }
 
 class ProcessIterator implements Iterator&lt;Process> {
   Process next() {
-    // return the next process if possible; but if not:
+    // Return the next process if possible; but if not:
     throw new NoMoreElementsException();
   }
   bool hasNext() {
-    // true if calling next() would return a process
+    // True if calling next() would return a process.
     return false;
   }
 }
 
-// a mythical class that lets you iterate through all processes
+// A mythical class that lets you iterate through all processes.
 class Processes implements Iterable&lt;Process> {
   Iterator&lt;Process> iterator() {
     return new ProcessIterator();
@@ -591,9 +591,9 @@ class Processes implements Iterable&lt;Process> {
 }
 
 main() {
-  // objects that implement Iterable can be used with for-in
+  // Objects that implement Iterable can be used with for-in.
   for (var process in new Processes()) {
-    // do something with the process
+    // Do something with the process.
   }
 }
 {% endpc %}
@@ -639,16 +639,16 @@ To specify the number of significant digits in the string,
 use toStringAsPrecision().
 
 {% pc dart 0 %}
-// convert an int to a string
+// Convert an int to a string.
 assert(42.toString() == '42');
 
-// convert a double to a string
+// Convert a double to a string.
 assert(123.456.toString() == '123.456');
 
-// specify the number of digits after the decimal
+// Specify the number of digits after the decimal.
 assert(123.456.toStringAsFixed(2) == '123.46');
 
-// specify the number of sig figs
+// Specify the number of sig figs.
 assert(123.456.toStringAsPrecision(2) == '1.2e+2');
 assert(Math.parseDouble('1.2e+2') == 120.0);
 {% endpc %}
@@ -662,16 +662,16 @@ Use the Math class for the basic trigonometric functions.
 </aside>
 
 {% pc dart 0 %}
-// cosine
+// Cosine
 assert(Math.cos(Math.PI) == -1.0);
 
-// sine
+// Sine
 var degrees = 30;
 var radians = degrees * (Math.PI / 180);
-// radians is now 0.52359
+// radians is now 0.52359.
 var sinOf30degrees = Math.sin(radians);
 
-// truncate the decimal places to 2
+// Truncate the decimal places to 2.
 assert(Math.parseDouble(sinOf30degrees.toStringAsPrecision(2)) == 0.5);
 {% endpc %}
 
@@ -689,7 +689,7 @@ assert(Math.min(1, -1000) == -1000);
 Find your favorite constants&mdash;_pi_, _e_, and more&mdash;in Math.
 
 {% pc dart 0 %}
-// see the Math class for additional constants
+// See the Math class for additional constants.
 
 print(Math.E);     // 2.718281828459045
 print(Math.PI);    // 3.141592653589793
@@ -748,16 +748,16 @@ You can find particular locations within a string, as well as check
 whether a string begins with or ends with a particular pattern.
 
 {% pc dart 0 %}
-// check whether a string contains another string
+// Check whether a string contains another string.
 assert("Never odd or even".contains("odd") == true);
 
-// does a string start with another string?
+// Does a string start with another string?
 assert("Never odd or even".startsWith("Never") == true);
 
-// does a string end with another string?
+// Does a string end with another string?
 assert("Never odd or even".endsWith("even") == true);
 
-// find the location of a string inside a string
+// Find the location of a string inside a string.
 assert("Never odd or even".indexOf("odd") == 6);
 {% endpc %}
 
@@ -770,27 +770,27 @@ You can also extract a substring or split a string
 into a list of substrings.
 
 {% pc dart 0 %}
-// grab a substring
+// Grab a substring.
 assert("Never odd or even".substring(6, 9) == 'odd');
 
-// split a string using a string pattern
+// Split a string using a string pattern.
 var parts = "structured web apps".split(" ");
 assert(parts.length == 3);
 assert(parts[0] == 'structured');
 
-// get the character (as a string) by index
+// Get the character (as a string) by index.
 assert("Never odd or even"[0] == "N");
 
-// use splitChars() to get a list of all characters (as Strings);
-// good for iterating
+// Use splitChars() to get a list of all characters (as Strings);
+// good for iterating.
 for (var char in "hello".splitChars()) {
   print(char);
 }
 
-// get the char code at an index
+// Get the char code at an index.
 assert("Never odd or even".charCodeAt(0) == 78);
 
-// get all the char codes as a list of integers
+// Get all the char codes as a list of integers.
 var charCodes = "Never odd or even".charCodes();
 assert(charCodes.length == 17);
 assert(charCodes[0] == 78);
@@ -801,10 +801,10 @@ assert(charCodes[0] == 78);
 Easily convert strings to their uppercase and lowercase variants.
 
 {% pc dart 0 %}
-// uppercase
+// Convert to uppercase.
 assert("structured web apps".toUpperCase() == 'STRUCTURED WEB APPS');
 
-// lowercase
+// Convert to lowercase.
 assert("STRUCTURED WEB APPS".toLowerCase() == 'structured web apps');
 {% endpc %}
 
@@ -814,13 +814,13 @@ Remove all leading and trailing white space with trim().
 To check whether a string is empty (length is zero), use isEmpty().
 
 {% pc dart 0 %}
-// trim a string
+// Trim a string.
 assert('  hello  '.trim() == 'hello');
 
-// check whether a string is empty
+// Check whether a string is empty.
 assert(''.isEmpty() == true);
 
-// strings with only white space are not empty
+// Strings with only white space are not empty.
 assert('  '.isEmpty() == false);
 {% endpc %}
 
@@ -832,17 +832,17 @@ regular expressions. Use regular expressions for efficient searching
 and pattern matching of strings.
 
 {% pc dart 0 %}
-// a regular expression for one or more digits
+// A regular expression for one or more digits.
 var numbers = const RegExp(@'\d+');
 
 var allCharacters = "llamas live fifteen to twenty years";
 var someDigits = "llamas live 15 to 20 years";
 
-// contains() can use a regular expression
+// contains() can use a regular expression.
 assert(allCharacters.contains(numbers) == false);
 assert(someDigits.contains(numbers) == true);
 
-// replace every match with another string
+// Replace every match with another string.
 var exedOut = someDigits.replaceAll(numbers, "XX");
 assert(exedOut == 'llamas live XX to XX years');
 {% endpc %}
@@ -855,12 +855,12 @@ provides access to a regular expression match.
 var numbers = const RegExp(@'\d+');
 var someDigits = "llamas live 15 to 20 years";
 
-// check whether the reg exp has a match in a string
+// Check whether the reg exp has a match in a string.
 assert(numbers.hasMatch(someDigits) == true);
 
-// loop through all matches
+// Loop through all matches.
 for (Match match in numbers.allMatches(someDigits)) {
-  print(match.group(0)); // 15, then 20
+  print(match.group(0)); // 15, then 20.
 }
 {% endpc %}
 
@@ -893,9 +893,9 @@ and, later, to supply a value to the Future.
 Future&lt;bool> longExpensiveSearch() {
   var completer = new Completer();
   database.search(() {
-    // perform exhaustive search
+    // Perform exhaustive search.
     // ...
-    // sometime later,
+    // Sometime later,
     // found it!!
     completer.complete(true);
   });
@@ -904,9 +904,9 @@ Future&lt;bool> longExpensiveSearch() {
 
 Future&lt;bool> result = longExpensiveSearch(); //returns immediately
 
-// result.then() returns immediately
+// result.then() returns immediately.
 result.then((success) {
-  // the following code executes when the operation is complete
+  // The following code executes when the operation is complete.
   print("The item was found: $success");
 });
 {% endpc %}
@@ -1029,7 +1029,7 @@ See the
 
 ## dart:isolate - Concurrency with isolates
 
-{% render language-tour/isolates/index.markdown %}
+{% render library-tour/isolates.markdown %}
 
 #### More information
 
@@ -1066,7 +1066,7 @@ I/O functionality is in the `dart:io` library.
 #import('dart:io');
 
 main() {
-  // the app
+  // The app
 }
 {% endpc %}
 
@@ -1094,12 +1094,12 @@ the contents of the file as one or more strings.
 main() {
   var config = new File('config.txt');
 
-  // put the whole file in a single string
+  // Put the whole file in a single string.
   config.readAsText(Encoding.UTF_8).then((String contents) {
     print("The entire file is ${contents.length} characters long");
   });
 
-  // put each line of the file into its own string
+  // Put each line of the file into its own string.
   config.readAsLines(Encoding.UTF_8).then((List&lt;String> lines) {
     print("The entire file is ${lines.length} lines long");
   });
@@ -1208,8 +1208,8 @@ main() {
 
   DirectoryLister lister = dir.list(recursive:true); //returns immediately
   lister.onError = (e) => print(e);
-  lister.onFile = (String name) => print("Found file $name");
-  lister.onDir = (String name) => print("Found dir $name");
+  lister.onFile = (name) => print("Found file $name");
+  lister.onDir = (name) => print("Found dir $name");
 }
 {% endpc %}
 
@@ -1275,7 +1275,7 @@ To use the JSON library, import dart:json.
 #import('dart:json');
 
 main() {
-  // the app
+  // The app
 }
 {% endpc %}
 
@@ -1293,10 +1293,10 @@ main() {
     {"score": 80}
   ]
   """;
-  
+
   var scores = JSON.parse(jsonString);
   assert(scores is List);
-  
+
   var firstScore = scores[0];
   assert(firstScore is Map);
   assert(firstScore['score'] == 40);
@@ -1320,7 +1320,7 @@ main() {
     {'score': 80},
     {'score': 100, 'overtime': true, 'special_guest': null}
   ];
-  
+
   var jsonText = JSON.stringify(scores);
   assert(jsonText == '[{"score":40},{"score":80},'
                      '{"score":100,"overtime":true,'
@@ -1352,7 +1352,7 @@ To use the URI library, import dart:uri.
 #import('dart:uri');
 
 main() {
-  // the app
+  // The app
 }
 {% endpc %}
 
@@ -1402,7 +1402,7 @@ main() {
 {% endpc %}
 
 Notice how every special character was encoded. For example, `/` was encoded
-to `%3A`.
+to `%2F`.
 
 ### Parsing URIs
 
@@ -1456,7 +1456,7 @@ To use the UTF library, import dart:utf.
 #import('dart:utf');
 
 main() {
-  // the app
+  // The app
 }
 {% endpc %}
 
@@ -1468,11 +1468,11 @@ Use `decodeUtf8()` to decode UTF8-encoded bytes to a Dart string.
 #import('dart:utf');
 
 main() {
-  String string = decodeUtf8([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
-                          0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
-                          0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
-                          0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
-                          0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1]);
+  var string = decodeUtf8([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
+                           0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
+                           0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
+                           0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
+                           0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1]);
   assert(string == "Îñţérñåţîöñåļîžåţîờñ");
 }
 {% endpc %}
@@ -1486,10 +1486,10 @@ Use `encodeUtf8()` to encode a Dart string as a list of UTF8-encoded bytes.
 
 main() {
   List&lt;int> expected = [0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9, 0x72,
-                      0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xc3,
-                      0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4, 0xbc, 0xc3, 0xae,
-                      0xc5, 0xbe, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xe1,
-                      0xbb, 0x9d, 0xc3, 0xb1];
+                        0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xc3,
+                        0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4, 0xbc, 0xc3, 0xae,
+                        0xc5, 0xbe, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xe1,
+                        0xbb, 0x9d, 0xc3, 0xb1];
 
   List&lt;int> encoded = encodeUtf8("Îñţérñåţîöñåļîžåţîờñ");
 
@@ -1525,7 +1525,7 @@ To use the crypto library, import dart:crypto.
 #import('dart:crypto');
 
 main() {
-  // the app
+  // The app
 }
 {% endpc %}
 
