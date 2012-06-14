@@ -27,6 +27,15 @@ assert('That deserves all caps. ${s.toUpperCase()} is very handy!' ==
        'That deserves all caps. STRING INTERPOLATION is very handy!');
 {% endpretty_code %}
 
+<aside class="note">
+<b>Note:</b>
+The <b>==</b> operator tests whether
+two objects are equivalent.
+In the case of strings,
+they're equivalent
+if they have the same characters.
+</aside>
+
 <p>
 You can concatenate strings using
 adjacent string literals:
@@ -68,23 +77,15 @@ by prefixing it with @.
 var s = @'In a raw string, even \n is ignored.';
 {% endpretty_code %}
 
-{% comment %}
-In a raw string, \' isn't ignored (in Dartboard).
-{% endcomment %}
-
 <p>
-As for all objects,
-you can check whether two strings are equivalent
-(have the same characters)
-using the <b>==</b> operator:
+You can build a string using both raw strings and string interpolation,
+thanks to concatenation:
 </p>
 
 {% pretty_code dart 0 %}
-var name = 'NAME';
-var greeting = "Hello, $name!";
-var greetingTemplate = 'Hello, NAME!';
-
-assert(greeting == greetingTemplate);
+var x = 123;
+var s = @'$x' '$x' @'$x';
+assert(s == @'$x123$x'); // The string has these characters: $x123$x
 {% endpretty_code %}
 
 
