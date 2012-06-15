@@ -75,7 +75,7 @@ String say(String from, String msg,
 }
 {% endpretty_code %}
 
-Omitting the optional parameters, you can see how the default values is used:
+Omitting the optional parameters, you can see how the default values are used:
 
 {% pretty_code dart 0 %}
 assert(say("Bob", "Howdy") == 'Bob says Howdy with a carrier pigeon');

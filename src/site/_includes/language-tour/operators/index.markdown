@@ -116,7 +116,6 @@ assert(--a == 2);  // Decrement before returning a value.
   <tr>
     <td class="operator"> == </td>
     <td> equal <em>(see discussion below)</em> </td>
-    <td>
   </tr><tr>
     <td class="operator"> != </td>
     <td> not equal </td>
