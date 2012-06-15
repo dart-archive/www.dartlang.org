@@ -30,7 +30,7 @@ that contains the JavaScript equivalent of your Dart code.
 
 Common command-line options for dart2js include:
 
--o _&lt;file&gt;_
+-o_&lt;file&gt;_
 : Generate the output into _&lt;file&gt;_.
 
 -c

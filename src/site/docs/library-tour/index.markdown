@@ -48,10 +48,10 @@ first release.
     1. HTTP Client (coming soon)
     1. Web socket server (coming soon)
 1. HTML (coming soon)
-1. [JSON](#json)
-1. [URI](#uri)
-1. [UTF](#utf)
-1. [Crypto](#crypto)
+1. [dart:json - Encoding and decoding objects](#json)
+1. [dart:uri - Manipulating URLs](#uri)
+1. [dart:utf - Strings and Unicode](#utf)
+1. [dart:crypto - Hash codes and more](#crypto)
 {:.toc}
 
 ## dart:core - Strings, collections, and more
@@ -1257,7 +1257,7 @@ Coming soon.
 
 {% endcomment %}
 
-## JSON
+## dart:json - Encoding and decoding objects {#json}
 
 [JSON](http://www.json.org/) is a simple text
 format for representing structured objects and collections.
@@ -1331,7 +1331,7 @@ main() {
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-## URI
+## dart:uri - Manipulating URLs {#uri}
 
 The [URI library](http://api.dartlang.org/uri.html) provides functions
 to encode and decode strings for use in URIs. These functions
@@ -1443,7 +1443,8 @@ main() {
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-## UTF
+
+## dart:utf - Strings and Unicode {#utf}
 
 The [UTF library](http://api.dartlang.org/utf.html) helps bridge the gap
 between strings and UTF8/UTF16/UTF32 encodings.
@@ -1510,7 +1511,8 @@ and UTF8-encoded bytes. Learn more about the
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-## Crypto
+
+## dart:crypto - Hash codes and more {#crypto}
 
 The [Dart crypto library](http://api.dartlang.org/crypto.html)
 contains functions useful for cryptographic applications,
