@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Jekyll
   class PrettyCodeTag < Liquid::Block
 
@@ -11,7 +13,7 @@ module Jekyll
 
     def render(context)
       "<pre class=\"prettyprint lang-#{@lang} linenums:#{@linenum} #{@css}\">" +
-      super +
+      CGI.escapeHTML(super) +
       "</pre>"
     end
   end
