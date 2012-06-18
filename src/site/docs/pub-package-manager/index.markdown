@@ -60,6 +60,28 @@ dependencies_.
 For example, if the `awesome` package is dependent on the `sweet` package, 
 the pub tool will also download and install the `sweet` package.
 
+## Using libraries from the SDK
+
+Not all libraries that ship with the SDK are available in the `dart:`
+namespace. To use those libraries (for example, unittest) in your app,
+add an `sdk` source to your `pubspec.yaml` file. For example:
+
+{% pretty_code console 0 %}
+dependencies:
+  unittest
+    sdk: unittest
+{% endpretty_code %}
+
+When you use the SDK as a source for packages, you must specify a
+`--sdkdir` command-line
+argument, pointing to the SDK location. The path to the
+SDK must be a fully qualified path, until [bug 3714](http://code.google.com/p/dart/issues/detail?id=3714) is addressed.
+
+{% pretty_code console 0 %}
+cd your/app
+$DART_SDK/bin/pub install --sdkdir=/full/path/to/dart/sdk
+{% endpretty_code %}
+
 ## Pointing Dart to your packages
 
 The Dart runtime needs to know where the packages are located.
