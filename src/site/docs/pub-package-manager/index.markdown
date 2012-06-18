@@ -62,6 +62,13 @@ the pub tool will also download and install the `sweet` package.
 
 ## Using libraries from the SDK
 
+<aside class="note">
+<b>Note:</b> The functionality described in this section is temporary.
+It's possible that some libraries
+that currently ship in the SDK will be pulled out of the SDK and installable
+directly from pub.
+</aside>
+
 Not all libraries that ship with the SDK are available in the `dart:`
 namespace. To use those libraries (for example, unittest) in your app,
 add an `sdk` source to your `pubspec.yaml` file. For example:
@@ -81,6 +88,8 @@ SDK must be a fully qualified path, until [bug 3714](http://code.google.com/p/da
 cd your/app
 $DART_SDK/bin/pub install --sdkdir=/full/path/to/dart/sdk
 {% endpretty_code %}
+
+
 
 ## Pointing Dart to your packages
 
