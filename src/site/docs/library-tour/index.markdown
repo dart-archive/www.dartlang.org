@@ -540,6 +540,13 @@ class Person implements Hashable {
     result = 37 * result + lastName.hashCode();
     return result;
   }
+
+  // Always implement operator== if class implements Hashable.
+  bool operator==(other) {
+    if (other == null) return false;
+    if (other === this) return true;
+    return (other.firstName == firstName && other.lastName == lastName);
+  }
 }
 
 main() {

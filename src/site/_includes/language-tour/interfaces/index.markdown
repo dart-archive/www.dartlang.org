@@ -41,14 +41,20 @@ For example:
 class Point <b>implements Hashable</b> {
   num x, y;
   ...
-  // Required by Hashable
-  <b>int hashCode() {</b>
+  // Required by Hashable.
+  int hashCode() {
     int result = 17;
     result = 37 * result + x.hashCode();
     result = 37 * result + y.hashCode();
     return result;
-  <b>}</b>
-  ...
+  }
+  
+  // Always implement operator== if the class implements Hashable.
+  bool operator==(other) {
+    if (other == null) return false;
+    if (other === this) return true;
+    return (other.x == x && other.y == y);
+  }
 }
 {% endpretty_code %}
 
@@ -106,6 +112,11 @@ class Point implements HashablePoint {
 
   // Required by Hashable
   int hashCode() {
+    // ...
+  }
+
+  // Always implement operator== if class implements Hashable.
+  bool operator==(other) {
     // ...
   }
 }
