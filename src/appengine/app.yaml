@@ -22,6 +22,9 @@ handlers:
 - url: /\+
   script: scripts.redirector.application
 
+- url: /mailing-list
+  script: scripts.redirector.application
+
 - url: /docs/spec/dartLangSpec.*
   script: scripts.redirector.application
 

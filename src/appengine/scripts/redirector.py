@@ -1,4 +1,4 @@
-import webapp2
+from webapp2 import *
 
 NEWS_POSTS = {
     '/2012/01/26/revisiting-equality.html' :                     '/2012/01/proposed-changes-for-equality.html',
@@ -21,11 +21,7 @@ NEWS_POSTS = {
     '/2011/10/18/dart-language-spec-0.03-now-available.html' :   '/2011/10/dart-language-spec-v003-now-available.html'
 }
 
-class PlusRedirectPage(webapp2.RequestHandler):
-    def get(self):
-        self.redirect('https://plus.google.com/109866369054280216564/posts', permanent=True)
-
-class ApiRedirectPage(webapp2.RequestHandler):
+class ApiRedirectPage(RequestHandler):
     def get(self):
         filename = self.request.path.split('/docs/api/')[1]
         if filename == '' or filename == 'index.html':
@@ -33,21 +29,13 @@ class ApiRedirectPage(webapp2.RequestHandler):
         else:
             self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
             
-class SpecRedirectPage(webapp2.RequestHandler):
+class SpecRedirectPage(RequestHandler):
     def get(self):
         suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
         if suffix == '.html' or suffix == '.pdf':
             self.redirect('/docs/spec/latest/dart-language-specification' + suffix, permanent=True)
 
-class EditorGSRedirectPage(webapp2.RequestHandler):
-    def get(self):
-        self.redirect('/docs/editor/getting-started/', permanent=True)
-
-class EditorRedirectPage(webapp2.RequestHandler):
-    def get(self):
-        self.redirect('/docs/editor/', permanent=True)
-
-class NewsRedirectPage(webapp2.RequestHandler):
+class NewsRedirectPage(RequestHandler):
     def get(self):
         url = self.request.path[5:len(self.request.path)]
         if url == '' or url == '/' or url == '/index.html':
@@ -57,27 +45,22 @@ class NewsRedirectPage(webapp2.RequestHandler):
         else:
             self.error(404)
 
-class AtomFeedRedirectPage(webapp2.RequestHandler):
-    def get(self):
-        self.redirect('http://news.dartlang.org/feeds/posts/default', permanent=True)
-
-class LanguageTourRedirectPage(webapp2.RequestHandler):
-    def get(self):
-        self.redirect('/docs' + self.request.path, permanent=True)
-
-class GettingStartedSdkRedirectPage(webapp2.RequestHandler):
-    def get(self):
-        self.redirect('/docs/sdk/', permanent=True)
-
-application = webapp2.WSGIApplication(
-                                     [('/docs/api/.*', ApiRedirectPage),
-                                      ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
-                                      ('/docs/getting-started/editor/.*', EditorGSRedirectPage),
-                                      ('/editor.*', EditorRedirectPage),
-                                      ('/news.*', NewsRedirectPage),
-                                      ('/atom.xml', AtomFeedRedirectPage),
-                                      ('/language-tour/.*', LanguageTourRedirectPage),
-                                      ('/docs/getting-started/sdk/.*', GettingStartedSdkRedirectPage),
-                                      ('/%2B', PlusRedirectPage),
-                                      ('/\+', PlusRedirectPage)],
-                                     debug=True)
+application = WSGIApplication(
+     [('/docs/api/.*', ApiRedirectPage),
+      ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
+      ('/news.*', NewsRedirectPage),
+      Route('/language-tour/', RedirectHandler,
+        defaults={'_uri': '/docs/language-tour/'}),
+      Route('/editor<:/?>', RedirectHandler,
+        defaults={'_uri': '/docs/editor/'}),
+      Route('/docs/getting-started/editor/', RedirectHandler,
+        defaults={'_uri': '/docs/editor/getting-started/'}),
+      Route('/docs/getting-started/sdk/', RedirectHandler,
+        defaults={'_uri': '/docs/sdk/'}),
+      Route('/atom.xml', RedirectHandler,
+        defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
+      Route('/+', RedirectHandler,
+        defaults={'_uri': 'https://plus.google.com/109866369054280216564/posts'}),
+      Route('/mailing-list', RedirectHandler,
+        defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!forum/misc'})],
+     debug=True)

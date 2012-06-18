@@ -19,10 +19,18 @@ ORIENTATION
 
 CONFIGURING YOUR MAC SYSTEM
 
+* Ensure you have Python 2.7.
+  * On a mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
 * run 'gem install jekyll'
 * run 'gem install kramdown'
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
+  * Tell App Engine to use Python 2.7 if it's not
+    * It will say, in the log "you're using 2.6"
+    * On a Mac?
+      * Go to Preferences, and enter the direct path to the Python 2.7 binary,
+      which you downloaded from http://www.python.org/download/releases/2.7.3/
+        * The full path is /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
 
 DEVELOPMENT
 
