@@ -19,9 +19,9 @@ or get it as part of the [Dart Editor package](/docs/editor/#download).
 
 Here's an example of compiling a Dart file to JavaScript:
 
-{% pretty_code console 0 %}
+{% highlight bash %}
 $DART_SDK/bin/dart2js test.dart
-{% endpretty_code %}
+{% endhighlight %}
 
 This command produces a `.js` file
 that contains the JavaScript equivalent of your Dart code.
@@ -45,5 +45,3 @@ Common command-line options for dart2js include:
 frog was a previous version of a Dart-to-JavaScript
 compiler. It has been deprecated and replaced by dart2js.
 </aside>
-
-{% include syntax-highlighting.html %}

@@ -14,10 +14,10 @@ which has higher precedence than the <b>&&</b> operator.
 That precedence means that
 the following two lines of code execute the same way:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 if ((n % i == 0) && (d % i == 0)) // Parens improve readability.
 if (n % i == 0 && d % i == 0)     // Harder to read, but equivalent.
-{% endpretty_code %}
+{% endhighlight %}
 
 This section covers the following topics:
 
@@ -59,7 +59,7 @@ Dart supports the usual arithmetic operators.
 
 Example:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var a = 2;
 var b = 3;
 
@@ -69,7 +69,7 @@ assert(a * b == 6);
 assert(a / b > 0.6 && a / b < 0.7);
 assert(a ~/ b == 0);  // Quotient
 assert(a % b == 2);   // Remainder
-{% endpretty_code %}
+{% endhighlight %}
 
 Dart also supports both prefix and postfix
 increment and decrement operators.
@@ -97,14 +97,14 @@ increment and decrement operators.
 
 Example:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var a = 2;
 
 assert(++a == 3);  // Increment before returning a value.
 assert(a++ == 3);  // Increment after returning a value.
 assert(a-- == 4);  // Decrement after returning a value.
 assert(--a == 2);  // Decrement before returning a value.
-{% endpretty_code %}
+{% endhighlight %}
 </section>
 
 
@@ -167,7 +167,7 @@ For example, <code>obj <b>is</b> Object</code> is always true.
 Here's an example of using each of the equality and relational operators:
 </div>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var a = 2;
 var b = 3;
 var c = a;
@@ -182,7 +182,7 @@ assert(b >= b);       // 3 is greater than or equal to 3.
 assert(a <= b);       // 2 is less than or equal to 3.
 assert(a is num);     // 2 is a number.
 assert(a is! String); // 2 is an int, not a string.
-{% endpretty_code %}
+{% endhighlight %}
 </section>
 
 
@@ -230,11 +230,11 @@ Here's a full list of the assignment operators:
 The following example uses both assignment
 and compound assignment operators:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var a = 2;           // Assign using =
 a *= 3;              // Assign and multiply: a = a * 3
 assert(a == 6);
-{% endpretty_code %}
+{% endhighlight %}
 </section>
 
 
@@ -258,11 +258,11 @@ You can invert or combine boolean expressions using the logical operators.
   </tr>
 </table>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 if (!done && (col == 0 || col == 3)) {
   // ...Do something...
 }
-{% endpretty_code %}
+{% endhighlight %}
 </section>
 
 
@@ -295,7 +295,7 @@ Usually, you use these operators with integers.
 
 Here's an example of using bitwise and shift operators.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 final value = 0x22;
 final bitmask = 0x0F;
 
@@ -303,9 +303,9 @@ assert((value & bitmask)  == 0x02);  // AND
 assert((value & ~bitmask) == 0x20);  // AND NOT
 assert((value | bitmask)  == 0x2f);  // OR
 assert((value ^ bitmask)  == 0x2d);  // XOR
-assert((value &lt;&lt; 4)       == 0x220);
-assert((value &gt;&gt; 4)       == 0x02);
-{% endpretty_code %}
+assert((value << 4)       == 0x220);
+assert((value >> 4)       == 0x02);
+{% endhighlight %}
 </section>
 
 

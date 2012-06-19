@@ -29,8 +29,8 @@ characters, and other textual data."
   <li> <a href="#17">Puzzle 17: Huh?</a> </li>
   <li> <a href="#18">Puzzle 18: String Cheese</a> </li>
   <li> <a href="#19">Puzzle 19: Classy Fire</a> </li>
-  <li> <a href="#20">Puzzle 20: What’s My Class?</a> </li>
-  <li> <a href="#21">Puzzle 21:  What’s My Class, Take 2</a> </li>
+  <li> <a href="#20">Puzzle 20: What's My Class?</a> </li>
+  <li> <a href="#21">Puzzle 21:  What's My Class, Take 2</a> </li>
   <li> <a href="#22">Puzzle 22: Dupe of URL</a> </li>
   <li> <a href="#23">Puzzle 23: No Pain, No Gain</a> </li>
   <li> <a href="#summary">Summary</a> </li>
@@ -41,14 +41,14 @@ characters, and other textual data."
 
 In Java, this program that appears to print `HaHa` actually prints `Ha169`.
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class LastLaugh {
   public static void main(String args[]) {
     System.out.print("H" + "a");
     System.out.print('H' + 'a');
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 The puzzler is fixed by Dart's lack of a (deficient) char type;
 there is no direct Dart equivalent of the program.
@@ -57,15 +57,15 @@ In the book (_Java Puzzlers_),
 the solution to this puzzle contains a related puzzle:
 Can you guess what the following statement prints?
 
-{% pretty_code java 0 %}
+{% highlight java %}
 System.out.println("2 + 2 = " + 2+2);
-{% endpretty_code %}
+{% endhighlight %}
 
 Translating this mini-puzzle into Dart, we get:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 print('2 + 2 = ' + 2+2);
-{% endpretty_code %}
+{% endhighlight %}
 
 Both the Java and Dart versions print `2 + 2 = 22`,
 which may not be what you expected.
@@ -76,9 +76,9 @@ I suspect that, after a brief period of mourning,
 no one would miss it.
 It's just as easy, and arguably clearer, to say:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 print('2 + 2 = ${2 + 2}');
-{% endpretty_code %}
+{% endhighlight %}
 
 This version does print `2 + 2 = 4`,
 just as you were taught in elementary school.
@@ -87,9 +87,9 @@ when you're printing the value of a variable
 rather than a more complex expression,
 as you can leave out the braces:
 
-{% pretty_code java 0 %}
+{% highlight java %}
     print('$i bottles of beer on the wall, $i bottles of beer');
-{% endpretty_code %}
+{% endhighlight %}
 
 Although it might seem that you'd get less compile-time checking,
 Dart Editor picks up the slack.
@@ -115,7 +115,7 @@ String concatenation operator from your Dart programs today.
 
 Consider this Java program:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class Abc {
   public static void main(String[] args) {
     String letters = "ABC";
@@ -123,7 +123,7 @@ public class Abc {
     System.out.println(letters + " easy as " + numbers);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Sadly, it prints `ABC easy as [C@16f0472` (or some such),
 because Java's
@@ -133,43 +133,43 @@ trap is notorious for tripping up beginning programming students.
 Translating
 the program to Dart, we get:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   String letters = 'ABC';
-  List&lt;String> numbers = [ '1', '2', '3' ];
+  List<String> numbers = [ '1', '2', '3' ];
   print(letters + ' easy as ' + numbers);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 or if you don't like types:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   var letters = 'ABC';
   var numbers = [ '1', '2', '3' ];
   print(letters + ' easy as ' + numbers);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-Because the Dart equivalent of Java’s array is a List,
+Because the Dart equivalent of Java's array is a List,
 which is a full-fledged Collection,
 I expected the Dart version to work just fine.
-It didn’t.
+It didn't.
 It printed
 `ABC easy as Object`,
 essentially replicating the Java behavior.
 So I
 [fixed it](http://blog.sethladd.com/2012/02/pretty-print-dart-collections.html)!
-Now the Dart version prints `ABC easy as [1, 2, 3]` and all is well (assuming you’re
+Now the Dart version prints `ABC easy as [1, 2, 3]` and all is well (assuming you're
 running the "bleeding edge" build).
 This is true for the VM and for DartBoard.
 
 
 <h2 id="13">Puzzle 13: Animal Farm</h2>
 
-Here’s the Java program:
+Here's the Java program:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class AnimalFarm {
   public static void main(String[] args) {
     final String pig = "length: 10";
@@ -179,16 +179,16 @@ public class AnimalFarm {
                        + pig == dog);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-It doesn’t print `Animals are equal: true`.
-It doesn’t print
+It doesn't print `Animals are equal: true`.
+It doesn't print
 `Animals are equal: false`, either.
 It just prints `false`. Why?
 Because the + operator binds tighter than the == operator.
-Here’s the Dart version:
+Here's the Dart version:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   final String pig = 'length: 10';
   final String dog = 'length: ' + pig.length;
@@ -196,25 +196,25 @@ main() {
   print('Animals are equal: '
         + pig == dog);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Sadly, it fails in exactly the same fashion as the Java version.
-Happily, we’re hard at work eliminating
+Happily, we're hard at work eliminating
 the string concatenation operator from Dart,
 killing this puzzler dead.
 
 <h2 id="14">Puzzle 14: Escape Rout</h2>
 
-Here’s the Java program:
+Here's the Java program:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class EscapeRout {
   public static void main(String[] args) {
     // \u0022 is the Unicode escape for double-quote (")
     System.out.println("a\u0022.length() + \u0022b".length());
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 A cursory glance suggests that it should print `26`,
 the number of characters between the quotation marks.
@@ -225,37 +225,37 @@ as the Unicode escapes are translated into the characters they represent
 before the compiler parses the program into tokens.
 Therefore, the program is effectively:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class EscapeRout {
   public static void main(String[] args) {
     // " is the Unicode escape for double-quote (")
     System.out.println("a".length() + "b".length());
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-Here’s the program translated into Dart:
+Here's the program translated into Dart:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   // \u0022 is the Unicode escape for double-quote (")
   print("a\u0022.length + \u0022b".length);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 It prints `14` as per the "deeper analysis" above.
 Why 14 instead of 16?
-Because Dart doesn’t use parens to get the length of an array.
+Because Dart doesn't use parens to get the length of an array.
 But the key point is that Dart _does_ support Unicode escapes,
-but _doesn’t_ accept them everywhere and
+but _doesn't_ accept them everywhere and
 process them early in the compilation process as Java does.
 
 <h2 id="15">Puzzle 15: Hello Whirled</h2>
 
-Here’s the original Java program,
+Here's the original Java program,
 which would appear to print `Hello world`:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 /**
  * Generated by the IBM IDL-to-Java compiler, version 1.0
  * from F:\TestRoot\apps\a1\units\include\PolicyHome.idl
@@ -267,22 +267,22 @@ public class Test {
     System.out.println("o world");
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-Sadly, it doesn’t compile,
+Sadly, it doesn't compile,
 due to a malformed Unicode escape.
 Where is it?
 In the comment, of course.
-It’s hidden in the file name: `\units`.
+It's hidden in the file name: `\units`.
 As soon as the compiler sees a character that
-isn’t a hex digit after the `\u`, it’s all over.
+isn't a hex digit after the `\u`, it's all over.
 You might think the compiler would ignore Unicode escapes in comments,
-but it doesn’t know it’s in a comment
-because it hasn’t parsed the program yet.
+but it doesn't know it's in a comment
+because it hasn't parsed the program yet.
 
-Here’s the (rough) Dart equivalent:
+Here's the (rough) Dart equivalent:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 /**
  * Generated by the IBM IDL-to-Java compiler, version 1.0
  * from F:\TestRoot\apps\a1\units\include\PolicyHome.idl
@@ -292,7 +292,7 @@ main() {
   print("Hell");
   print("o world");
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 This program prints:
 
@@ -301,21 +301,21 @@ This program prints:
 
 demonstrating that Dart has fixed the puzzler.
 It does, however,
-raise the issue that Dart doesn’t have a way to print a string
+raise the issue that Dart doesn't have a way to print a string
 without a trailing newline character.
 Because Dart is designed
 primarily as a web programming language,
 console support is minimal.
-But there’s no reason it has to stay that way.
+But there's no reason it has to stay that way.
 I hope to provide a proper console facility some day.
 
 <h2 id="16">Puzzle 16: Line Printer</h2>
 
-Here’s the Java program,
+Here's the Java program,
 which looks like it ought to print a
 couple of newline characters:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class LinePrinter {
   public static void main(String[] args) {
     // Note: \u000A is Unicode representation of linefeed (LF)
@@ -323,26 +323,26 @@ public class LinePrinter {
     System.out.println(c);
   } 
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-Sadly, it doesn’t compile,
+Sadly, it doesn't compile,
 as the Unicode escape in the single-line comment (\u000A)
 terminates the comment,
 leaving the remainder of the line as garbage in the program.
 This is very similar to what happened in the previous puzzle,
 except that the Unicode escape is well-formed.
-Here’s the Dart version:
+Here's the Dart version:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   // Note: \u000A is Unicode representation of linefeed (LF)
   int c = 0x000A;
   print(new String.fromCharCodes([c]));
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 It prints two newline characters,
-exactly as you’d expect.
+exactly as you'd expect.
 Its verbosity does suggest that String should perhaps have
 a constructor that takes a single char code,
 but hey, we can fix that.
@@ -350,10 +350,10 @@ but hey, we can fix that.
 
 <h2 id="17">Puzzle 17: Huh?</h2>
 
-Here’s the Java program
+Here's the Java program
 (and I hope you have your barf bag near at hand):
 
-{% pretty_code java 0 %}
+{% highlight java %}
 \u0070\u0075\u0062\u006c\u0069\u0063\u0020\u0020\u0020\u0020
 \u0063\u006c\u0061\u0073\u0073\u0020\u0055\u0067\u006c\u0079
 \u007b\u0070\u0075\u0062\u006c\u0069\u0063\u0020\u0020\u0020
@@ -365,37 +365,37 @@ Here’s the Java program
 \u002e\u0070\u0072\u0069\u006e\u0074\u006c\u006e\u0028\u0020
 \u0022\u0048\u0065\u006c\u006c\u006f\u0020\u0077\u0022\u002b
 \u0022\u006f\u0072\u006c\u0064\u0022\u0029\u003b\u007d\u007d
-{% endpretty_code %}
+{% endhighlight %}
 
-If you have any doubts that it’s a legitimate Java program copy it,
+If you have any doubts that it's a legitimate Java program copy it,
 paste it into a file named Ugly.java, and run it.
 Nothing like this will run in Dart
 because Unicode escapes are restricted to string literals.
-Now isn’t that comforting?
+Now isn't that comforting?
 
 
 <h2 id="18">Puzzle 18: String Cheese</h2>
 
-Here’s the original program,
+Here's the original program,
 which translates a sequence of
 bytes into a string and then prints every character code in the string:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class StringCheese {
   public static void main(String args[]) {
     byte bytes[] = new byte[256];
-    for(int i = 0; i &lt; 256; i++)
+    for(int i = 0; i < 256; i++)
       bytes[i] = (byte)i;
     String str = new String(bytes);
-    for(int i = 0, n = str.length(); i &lt; n; i++)
+    for(int i = 0, n = str.length(); i < n; i++)
       System.out.print((int)str.charAt(i) + " ");
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 You might expect it to print the byte values it started with,
 but the behavior turns out to be unspecified.
-It depends on the Java Runtime Environment’s _default charset_.
+It depends on the Java Runtime Environment's _default charset_.
 This program has no equivalent in Dart,
 as Dart does not (yet) have facilities for
 translating byte sequences into Unicode character sequences.
@@ -410,10 +410,10 @@ but we _will_ fix this.
 
 <h2 id="19">Puzzle 19: Classy Fire</h2>
 
-Here’s the Java program,
+Here's the Java program,
 which appears to classify characters:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class Classifier {
   public static void main(String[] args) {
     System.out.println(
@@ -432,9 +432,9 @@ public class Classifier {
       return "UNKNOWN ";
   } 
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-In fact, it doesn’t compile as the multi-line comment is terminated
+In fact, it doesn't compile as the multi-line comment is terminated
 "accidentally" in the middle of this line:
 
 <pre> *      if ("+-<b>*/</b>&amp;|!=".indexOf(ch) >= 0)
@@ -442,7 +442,7 @@ In fact, it doesn’t compile as the multi-line comment is terminated
 
 Here is the Dart equivalent:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   print(classify('n') + classify('+') + classify('2'));
 }
@@ -452,18 +452,18 @@ String classify(String ch) {
     return 'NUMERAL ';
   if ('abcdefghijklmnopqrstuvwxyz'.indexOf(ch) >= 0)
     return 'LETTER ';
-<b>/*</b>
+/*
  *  (Operators not supported yet) 
- *  if ('+-<b>*/</b>&amp;|!='.indexOf(ch) >= 0)
+ *  if ('+-*/&|!='.indexOf(ch) >= 0)
  *      return 'OPERATOR ';
  */
   return 'UNKNOWN ';
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 This puzzler behaves exactly the same in Dart as it does in Java,
-which is to say it won’t compile in Dart, either.
-But that’s not such a bad thing.
+which is to say it won't compile in Dart, either.
+But that's not such a bad thing.
 The alternative, which is to have multi-line comments nest,
 is no better.
 This puzzle teaches the same lesson
@@ -472,18 +472,18 @@ to Dart programmers as it teaches Java programmers:
 do it with single-line comments**,
 as most IDEs do:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 String classify(String ch) {
   if ('0123456789'.indexOf(ch) >= 0)
     return 'NUMERAL ';
   if ('abcdefghijklmnopqrstuvwxyz'.indexOf(ch) >= 0)
     return 'LETTER ';
-<b>//</b>  (Operators not supported yet) 
-<b>//</b>  if ('+-*/&amp;|!='.indexOf(ch) >= 0)
-<b>//</b>    return 'OPERATOR ';
+//  (Operators not supported yet) 
+//  if ('+-*/&|!='.indexOf(ch) >= 0)
+//    return 'OPERATOR ';
   return 'UNKNOWN ';
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 
 <h2 id="20">Puzzle 20: What's My Class?</h2>
@@ -491,7 +491,7 @@ String classify(String ch) {
 This Java puzzler can't be be directly translated into Dart,
 as Dart lacks the required reflection facilities:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 package com.javapuzzlers;
 
 public class Me {
@@ -500,35 +500,35 @@ public class Me {
       Me.class.getName().replaceAll(".", "/") + ".class");
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 But the real problem has nothing to do with reflection.
 The program prints <code>///////////////////.class</code>
-due to surprising behavior in Java’s <code>String.replaceAll</code> method.
+due to surprising behavior in Java's <code>String.replaceAll</code> method.
 The first parameter is a not an ordinary string,
 but a regular expression.
-Luckily, this is not true of Dart’s analogous function,
+Luckily, this is not true of Dart's analogous function,
 as demonstrated by the following program:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   print('I.like.cheese'.replaceAll('.', '/'));
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 This program prints <code>I/like/cheese</code>,
-just as you’d hope.
+just as you'd hope.
 
 
-<h2 id="21">Puzzle 21:  What’s My Class, Take 2</h2>
+<h2 id="21">Puzzle 21:  What's My Class, Take 2</h2>
 
 This puzzle is similar to the previous one,
-in that it uses Java’s basic reflection facilities,
-but it’s really about the <code>replaceAll</code> function.
+in that it uses Java's basic reflection facilities,
+but it's really about the <code>replaceAll</code> function.
 The Java program looks like it should return
 the file path corresponding to the class:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 package com.javapuzzlers;
 import java.io.File;
 
@@ -538,7 +538,7 @@ public class MeToo {
     replaceAll("\\.", File.separator) + ".class");
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 It works on Linux but on Windows,
 it fails with a <code>StringIndexOutOfBoundsException</code>,
@@ -546,7 +546,7 @@ because the second parameter of <code>replaceAll</code> is not
 an ordinary string but a <em>replacement string</em>,
 as defined in the Java regex spec.
 
-Again, we can’t exactly port the program to Dart,
+Again, we can't exactly port the program to Dart,
 because Dart lacks a reflection facility (for now),
 but the underlying problem (with <code>replaceAll</code>)
 has been fixed.
@@ -556,20 +556,20 @@ string literals preceded with an at-sign are known as <em>raw strings</em>,
 and no postprocessing of escapes or interpolation is done.
 So this program prints <code>I\still\like\cheese</code>:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   print("I.still.like.cheese".replaceAll('.', @'\'));
 }
-{% endpretty_code %}
+{% endhighlight %}
 <br>
 
 <h2 id="22">Puzzle 22: Dupe of URL</h2>
 
-Here’s a very strange Java program.
-It looks like it shouldn’t compile, but it does.
+Here's a very strange Java program.
+It looks like it shouldn't compile, but it does.
 It even runs:
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class BrowserTest {
   public static void main(String[] args) {
     System.out.print("iexplore:");
@@ -577,19 +577,19 @@ public class BrowserTest {
     System.out.println(":maximize");
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 So what does it do? Nothing much.
 It just prints <code>:iexplore::maximize</code>.
 Here it is ported to Dart.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   print("chrome:");
   http://www.google.com;
   print(":maximize");
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Amazingly, it still compiles and runs.
 Again it just prints <code>chrome:</code> and <code>maximize:</code>.
@@ -602,21 +602,21 @@ So why is it legal to put a label at an arbitrary position
 in a language without a <b>goto</b> statement?
 Search me.
 If it were up to me,
-it wouldn’t be.
+it wouldn't be.
 That said, this is not a very important puzzler.
-I can’t imagine a serious bug popping up because this is legal.
+I can't imagine a serious bug popping up because this is legal.
 
 
 <h2 id="23">Puzzle 23: No Pain, No Gain</h2>
 
-Here’s a Java program that might appear to
+Here's a Java program that might appear to
 print one of three words:
 <code>Pain</code>, <code>Gain</code>,
 and <code>Main</code> chosen randomly,
 with equal likelihood.
 But the title of the puzzle suggests that that might not be the case.
 
-{% pretty_code java 0 %}
+{% highlight java %}
 import java.util.*;
 
 public class Rhymes {
@@ -635,13 +635,13 @@ public class Rhymes {
     System.out.println(word);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 In fact, the program prints the non-word <code>ain</code> every time you run it.
 And why is that?
 The program contains 3 (!) bugs.
 
-First there’s a “fencepost error” in the expression <code>rnd.nextInt(2)</code>.
+First there's a “fencepost error” in the expression <code>rnd.nextInt(2)</code>.
 The argument is the <em>modulus</em>:
 the random number generator returns 0 or 1, never 2.
 This is a programming error, pure and simple,
@@ -656,14 +656,14 @@ are appended in turn.
 At this point,
 you might suspect that
 the string buffer would contain <code>Main</code>,
-but it doesn’t;
+but it doesn't;
 it contains <code>ain</code>.
 Why? The problem is the constructor,
 <code>new StringBuffer('M')</code>.
 Note that the argument is a <code>char</code>,
 not a <code>String</code>.
 Sadly, <code>StringBuffer</code> lacks a <code>char</code> constructor.
-But that’s OK;
+But that's OK;
 <code>StringBuffer</code> does have an <code>int</code> constructor,
 and the compiler happily and silently converts
 the <code>char</code> to an <code>int</code>
@@ -676,7 +676,7 @@ So the mysterious behavior is explained.
 
 What happens when we do a naive translation to Dart?
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   StringBuffer word = null;
   switch ((Math.random() * 2).toInt()) {
@@ -689,16 +689,16 @@ main() {
   word.add('n');
   print(word);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-Of course the fencepost error remains, but that’s OK;
-it’s “pilot error,” and we know enough not to make that error.
+Of course the fencepost error remains, but that's OK;
+it's “pilot error,” and we know enough not to make that error.
 The most serious trap has been fixed in the platform:
-Dart doesn’t have Java’s problematic char type.
+Dart doesn't have Java's problematic char type.
 
 Sadly, the fallthrough problem has not been eliminated.
 If you run this program with the 2 changed to a 3 on Dartboard,
-you’ll find that ⅓ of the time it prints <code>Main</code>,
+you'll find that ⅓ of the time it prints <code>Main</code>,
 and ⅔ of the time,
 it fails at <em>runtime</em> with the error message
 “Switch case fall-through!”
@@ -710,22 +710,22 @@ In other words, I believe the switch statement should function
 much like every other control flow statement:
 if you want to put multiple statements in a branch,
 you should have to surround them in brackets.
-I believe the fallthrough was questionable even in the ‘70s,
+I believe the fallthrough was questionable even in the '70s,
 when the C programming language was developed,
-and Java should not have propagated the mistake into the ‘90s.
+and Java should not have propagated the mistake into the '90s.
 I see no reason the syntax of a language developed in the new millenium
 should allow a fallthrough.
-And I <em>really</em> don’t understand why it’s syntactically permissible
+And I <em>really</em> don't understand why it's syntactically permissible
 but fails at runtime.
 
-But wait, there’s more:
+But wait, there's more:
 If you run the program on the VM,
-you’ll find that it <em>always</em> prints <code>Main</code>,
+you'll find that it <em>always</em> prints <code>Main</code>,
 whether or not you put break statements after each case!
 Why?
 Because there is (currently) no way to seed the random number generator,
 and it always uses the same seed.
-But don’t worry,
+But don't worry,
 this will definitely be fixed.
 I intend to provide
 a proper pseudorandom number generator facility
@@ -734,7 +734,7 @@ multiple implementations,
 and proper support for integers (not just doubles).
 Oh, one more thing about the behavior of this program under the VM:
 if you put the body of the main method in a loop,
-you’ll see that the runtime fallthrough behavior is
+you'll see that the runtime fallthrough behavior is
 slightly different in the VM and on Dartboard:
 in the VM, you get a
 <a href="http://api.dartlang.org/dart_core/FallThroughError.html">“Switch
@@ -745,8 +745,8 @@ rather a simple error message.
 
 <h2 id="summary">Summary</h2>
 
-That’s it for Chapter 2. 
-Now the moment you’ve all been waiting for:
+That's it for Chapter 2. 
+Now the moment you've all been waiting for:
 how does Dart stack up against Java?
 
 Well, the chapter has 13 puzzles.
@@ -761,4 +761,4 @@ And one (23) is every bit as bad in Dart as it was in Java.
 But with a little luck, maybe we'll fix it.
 See you soon for another chapter of Puzzler fun.
 
-{% include syntax-highlighting.html %}
+

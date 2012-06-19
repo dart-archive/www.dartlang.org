@@ -8,11 +8,11 @@ Here's how you declare
 a class with instance variables
 (also known as member variables):
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
 }
-{% endpc %}
+{% endhighlight %}
 
 All uninitialized instance variables have the value `null`.
 
@@ -21,7 +21,7 @@ an implicit getter method. Non-final instance variables
 generate an implicit setter method.
 ([Getters and setters](#classes-getters-and-setters) are discussed more later.)
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
 }
@@ -32,7 +32,7 @@ main() {
   assert(point.x == 4);    // Use the getter method for x.
   assert(point.y == null); // Values default to null.
 }
-{% endpc %}
+{% endhighlight %}
 
 #### Instance variable initialization
 
@@ -47,12 +47,12 @@ the initial value must be a compile-time constant.
 
 An example of a compile-time constant is a number literal:
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x = 0,
       y = 0;
 }
-{% endpc %}
+{% endhighlight %}
 
 Use the constructor body, demonstrated in the next section,
 to assign non-constant values to instance variables.
@@ -64,7 +64,7 @@ same name as its class. The most common form of constructor,
 the generative constructor,
 creates a new instance of a class.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
 
@@ -74,7 +74,7 @@ class Point {
     this.y = y;
   }
 }
-{% endpc %}
+{% endhighlight %}
 
 The `this` keyword references the current instance.
 
@@ -87,14 +87,14 @@ The pattern of assigning a constructor argument to
 a member variable is so common, Dart has syntactic sugar
 to make it easy.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
 
   // Syntactic sugar for this.x = x and this.y = y
   Point(this.x, this.y);
 }
-{% endpc %}
+{% endhighlight %}
 
 #### Default constructors
 
@@ -115,11 +115,11 @@ Final variables must be initialized before the object is assigned to `this`.
 Use the initializer list, which runs before the constructor body,
 to initialize any final variables.
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:html');
 
 class Button {
-  final Collection&lt;ButtonHandler> handlers;
+  final Collection<ButtonHandler> handlers;
   final String domId;
   final Element elem;
 
@@ -134,7 +134,7 @@ class Button {
     // ...
   }
 }
-{% endpc %}
+{% endhighlight %}
 
 The right-hand side of an initializer does not have access
 to `this`.
@@ -144,7 +144,7 @@ to `this`.
 Use a named constructor to implement multiple
 constructors for a class or to provide extra clarity.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
 
@@ -153,14 +153,14 @@ class Point {
 
   Point(this.x, this.y);
 }
-{% endpc %}
+{% endhighlight %}
 
 Create new instances from a named constructor with `new`:
 
-{% pc dart 0 %}
+{% highlight dart %}
 var jsonData = JSON.parse('{"x":1, "y":2}');
 var point = new Point.fromJson(jsonData);
-{% endpc %}
+{% endhighlight %}
 
 Remember that constructors are not inherited, which means
 that a superclass's named constructor is not
@@ -175,7 +175,7 @@ a constructor in the superclass.
 
 For example:
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Person {
   Person.fromJson(Map data) {
     print('in Person');
@@ -197,7 +197,7 @@ main() {
   // in Person
   // in Employee
 }
-{% endpc %}
+{% endhighlight %}
 
 
 #### Constant constructors
@@ -212,26 +212,26 @@ An immutable compile-time constant object is known as a `const` object.
 Creating a `const` object requires defining a `const`
 constructor and ensuring all instance fields are `final`.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   final num x, y;
   const Point(this.x, this.y);
   static final Point origin = const Point(0, 0);
 }
-{% endpc %}
+{% endhighlight %}
 
 Because compile-time constants are constant and immutable,
 constructing two identical `const` objects results in
 a single, canonical instance.
 
-{% pc dart 0 %}
+{% highlight dart %}
 void main() {
   var a = const Point(1, 1);
   var b = const Point(1, 1);
 
   assert(a === b); // They are the same instance!
 }
-{% endpc %}
+{% endhighlight %}
 
 <aside class="note" markdown="1">
 **Note:** Other examples of compile-time
@@ -250,12 +250,12 @@ or it might return an instance of a subclass.
 The following example demonstrates a factory constructor
 returning objects from a cache.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Logger {
   final String name;
   bool mute = false;
 
-  static Map&lt;String, Logger> _cache;
+  static Map<String, Logger> _cache;
 
   factory Logger(String name) {
     if (_cache == null) {
@@ -279,15 +279,15 @@ class Logger {
     }
   }
 }
-{% endpc %}
+{% endhighlight %}
 
 As for other constructors,
 to invoke a factory constructor you use the `new` keyword:
 
-{% pc dart 0 %}
+{% highlight dart %}
 var logger = new Logger('UI');
 logger.log('Button clicked');
-{% endpc %}
+{% endhighlight %}
 
 <aside class="note" markdown="1">
 **Note:** Factory constructors have no access to `this`.
@@ -304,7 +304,7 @@ Instance methods on objects can access instance variables and `this`.
 The distanceTo() method in the following sample is an
 example of an instance method.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
   Point(this.x, this.y);
@@ -313,16 +313,16 @@ class Point {
     return Math.sqrt(((x-other.x)*(x-other.x)) + ((y-other.y)*(y-other.y)));
   }
 }
-{% endpc %}
+{% endhighlight %}
 
 Here's how you invoke the distanceTo() method on
 an instance of Point:
 
-{% pc dart 0 %}
+{% highlight dart %}
 var point = new Point(2, 2);
 num distance = point.distanceTo(new Point(4,4));
-assert(distance &lt; 2.9 && distance > 2.8);
-{% endpc %}
+assert(distance < 2.9 && distance > 2.8);
+{% endhighlight %}
 
 <section id="classes-getters-and-setters" markdown="1">
 #### Getters and setters
@@ -333,7 +333,7 @@ or setter, omit the trailing parentheses.
 Define getters and setters using the `get` and `set`
 keywords.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Rectangle {
   num left, top, width, height;
 
@@ -344,18 +344,18 @@ class Rectangle {
   num get bottom()          => top + height;
       set bottom(num value) => top = value - height;
 }
-{% endpc %}
+{% endhighlight %}
 
 Use explicit getters and setters just like you
 would use the generated getters and setters from
 instance variables.
 
-{% pc dart 0 %}
+{% highlight dart %}
 var rect = new Rectangle(3, 4, 20, 15);
 assert(rect.left == 3);
 rect.right = 12;
 assert(rect.left == -8);
-{% endpc %}
+{% endhighlight %}
 
 With getters and setters, you can start
 with instance variables,
@@ -369,7 +369,7 @@ Because operators are just instance methods with special names,
 you can override [many operators](#op-methods).
 Here's an example of a class that overrides the `+` and `-` operators.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Vector {
   final int x,y;
   const Vector(this.x, this.y);
@@ -397,7 +397,7 @@ main() {
   assert((-v).x == -2 && (-v).y == -3); // -v  == (-2,-3)
   assert((v+w).x == 4 && (v+w).y == 5); // v+w == (4,5)
   assert((v-w).x == 0 && (v-w).y == 1); // v-w == (0,1)
-}{% endpc %}
+}{% endhighlight %}
 
 <aside class="note" markdown="1">
 **Implementation note:**
@@ -426,31 +426,31 @@ You can mark either classes or methods as abstract.
 If a class has any abstract methods, then the class itself is abstract.
 Here's an example of declaring an abstract class that has an abstract method.
 
-{% pc dart 0 %}
+{% highlight dart %}
 // This class is abstract because it has an abstract method.
 class AbstractContainer {
   // ... define constructors, fields, methods ...
 
   abstract void updateChildren(); // Abstract methods have no body.
 }
-{% endpc %}
+{% endhighlight %}
 
 A subclass of an abstract class should either
 implement all abstract methods or declare itself as abstract.
 Here's an example of an abstract subclass.
 
-{% pc dart 0 %}
+{% highlight dart %}
 abstract class AbstractSpecializedContainer extends AbstractContainer {
   // ... define more constructors, fields, methods ...
 
   // OK to not implement updateChildren(), since this class is abstract.
 }
-{% endpc %}
+{% endhighlight %}
 
 Finally, here's an example of implementing and instantiating
 a subclass of an abstract class.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class SpecializedContainer extends AbstractSpecializedContainer {
 
   // Implement the abstract method defined by AbstractContainer.
@@ -468,7 +468,7 @@ main() {
   assert(c1 is AbstractContainer);
   assert(c2 is AbstractContainer);
 }
-{% endpc %}
+{% endhighlight %}
 
 
 ### Extending a class
@@ -476,7 +476,7 @@ main() {
 Use `extends` to create a subclass, and `super` to
 refer to the superclass.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Television {
   void turnOn() {
     _illuminateDisplay();
@@ -492,7 +492,7 @@ class SmartTelevision extends Television {
     _upgradeApps();
   }
 }
-{% endpc %}
+{% endhighlight %}
 
 Subclasses can override instance methods, getters, and setters.
 
@@ -505,7 +505,7 @@ Use the `static` keyword to implement class-wide variables and methods.
 Static methods (class methods) do not operate on an instance, and thus
 do not have access to `this`.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
   Point(this.x, this.y);
@@ -519,9 +519,9 @@ main() {
   var a = new Point(2, 2);
   var b = new Point(4, 4);
   var distance = Point.distanceBetween(a,b);
-  assert(distance &lt; 2.9 && distance > 2.8);
+  assert(distance < 2.9 && distance > 2.8);
 }
-{% endpc %}
+{% endhighlight %}
 
 <aside class="note" markdown="1">
   **Best practice:** Consider using top-level functions,
@@ -534,7 +534,7 @@ main() {
 Static variables (class variables) are useful for class-wide state and
 constants.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Color {
   static final RED = const Color('red');
   final String name;
@@ -544,4 +544,4 @@ class Color {
 main() {
   assert(Color.RED.name == 'red');
 }
-{% endpc %}
+{% endhighlight %}

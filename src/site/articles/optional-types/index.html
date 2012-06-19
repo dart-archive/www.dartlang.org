@@ -11,7 +11,7 @@ October 2011</em>
 
 <section>
 <p>
-One of the Dart programming language’s most innovative features
+One of the Dart programming language's most innovative features
 is the use of optional types.
 This document seeks to explain how optional types work.
 </p>
@@ -72,7 +72,7 @@ Types provide the following benefits:
     as a debugging aid. </li>
   <li> Sometimes, types can help improve performance
     when compiling to JavaScript.
-    We’ll say more about this later. </li>
+    We'll say more about this later. </li>
 </ul>
 </section>
 
@@ -91,7 +91,7 @@ can always compile and run your code, no matter what the checker says.
 <p>
 The checker does not scream about every possible type violation.
 It is not a typechecker,
-because Dart doesn’t use types the way a classic type system does.
+because Dart doesn't use types the way a classic type system does.
 The checker complains about things that are very likely to be real problems,
 rather than forcing you to jump through hoops
 to satisfy a narrow-minded type system.
@@ -101,13 +101,13 @@ to satisfy a narrow-minded type system.
 For example, consider:
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 String s1 = '9';
 String s2 = '1';
 ...
 int n = s1 + s2;
 print(n);
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 This is clearly a problem.
@@ -121,14 +121,14 @@ and printing <code>91</code>.
 However, unlike a classic mandatory type system, code like this
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 Object lookup(String key) {...} // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 will not cause any complaints from the checker.
-That’s because there is a very good chance that the code is correct,
+That's because there is a very good chance that the code is correct,
 despite the lack of type information.
 You, the programmer, often have semantic knowledge
 that a typechecker does not.
@@ -153,13 +153,13 @@ Using type <code>Dynamic</code> makes the checker shut up.
 Occasionally, you may want to use <code>Dynamic</code> explicitly.
 </p>
 
-{% pretty_code %}
-Map&lt;String, Dynamic> m = {
+{% highlight dart %}
+Map<String, Dynamic> m = {
     'one': new Partridge(),
     'two': new TurtleDove(),
     ...,
     'twelve': new Drummer()};
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 We could have used the type
@@ -170,12 +170,12 @@ about which very little is known.
 Since the contents of the map have no common superinterface
 other than <code>Object</code>,
 we may prefer to use <code>Dynamic</code>.
-If we try to call methods on the map’s values, for example,
+If we try to call methods on the map's values, for example,
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 pearTree = m['one'].container();
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 we would get a warning if the contents were of type <code>Object</code>,
@@ -198,39 +198,39 @@ How does this square with the claim that types are optional?
 </p>
 
 <p>
-Well, if you don’t want to ever think about types,
-generics won’t force you to.
+Well, if you don't want to ever think about types,
+generics won't force you to.
 You can create instances of generic classes without providing type parameters.
 For example:
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 new List();
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 works just fine. Of course, you can write
 </p>
 
-{% pretty_code %}
-new List&lt;String>();
-{% endpretty_code %}
+{% highlight dart %}
+new List<String>();
+{% endhighlight %}
 
 <p>
 if you want. 
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 new List();
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 is just a shorthand for 
 </p>
 
-{% pretty_code %}
-new List&lt;Dynamic>();
-{% endpretty_code %}
+{% highlight dart %}
+new List<Dynamic>();
+{% endhighlight %}
 
 <p>
 In constructors, type parameters play a runtime role.
@@ -238,22 +238,22 @@ They are actually passed at run time,
 so that you can use them when you do dynamic type tests.
 </p>
 
-{% pretty_code %}
-new List&lt;String>() is List&lt;Object>  // true: every string is an object 
-new List&lt;Object>() is List&lt;String>  // false: not all objects are strings
-{% endpretty_code %}
+{% highlight dart %}
+new List<String>() is List<Object>  // true: every string is an object 
+new List<Object>() is List<String>  // false: not all objects are strings
+{% endhighlight %}
 
 <p>
 Generics in Dart conform to programmer intuition.
 Here are some more interesting cases:
 </p>
 
-{% pretty_code %}
-new List&lt;String>() is List&lt;int>     // false
-new List&lt;String>() is List          // true
-new List&lt;String>() is List&lt;Dynamic> // same as line above
-new List() is List&lt;Dynamic>         // true, these are exactly the same
-{% endpretty_code %}
+{% highlight dart %}
+new List<String>() is List<int>     // false
+new List<String>() is List          // true
+new List<String>() is List<Dynamic> // same as line above
+new List() is List<Dynamic>         // true, these are exactly the same
+{% endhighlight %}
 
 <p>
 In contrast, type annotations
@@ -263,9 +263,9 @@ play no runtime role and have no effect on program semantics.
 One last case worth studying:
 </p>
 
-{% pretty_code %}
-new List() is List&lt;String>          // true as well!
-{% endpretty_code %}
+{% highlight dart %}
+new List() is List<String>          // true as well!
+{% endhighlight %}
 
 <p>
 You may be writing your program without types,
@@ -291,9 +291,9 @@ If the checks fail,
 execution will stop at that point with a clear error message. So, 
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 String s = new Object();
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 will stop the code in its tracks,
@@ -301,9 +301,9 @@ because <code>Object</code> is not a subtype of <code>String</code>.
 However
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 Object foo(){return "x";}
-String s = foo();{% endpretty_code %}
+String s = foo();{% endhighlight %}
 
 <p>
 works just fine,
@@ -321,12 +321,12 @@ and so on.
 Some more examples:
 </p>
 
-{% pretty_code %}
-&lt;int>[0,1, 1][2] = new Object(); // fails in checked mode
+{% highlight dart %}
+<int>[0,1, 1][2] = new Object(); // fails in checked mode
 
 bar(int n) { return n *2;}
 ...
-bar(3.2); // returns 6.4 in production, but fails in checked mode{% endpretty_code %}
+bar(3.2); // returns 6.4 in production, but fails in checked mode{% endhighlight %}
 
 <p>
 In checked mode , every time an argument is passed to a function,
@@ -335,7 +335,7 @@ if it is a subtype of the declared type of the formal parameter.
 We can correct this easily:
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 bar(num n) { return n *2;}
 ...
 bar(3.2); // works fine
@@ -344,7 +344,7 @@ int i_bar(num n) { return n *2;}
 ...
 i_bar(3.2); // fails in checked mode
             // because returned value is not an int
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Notice the last line.
@@ -353,20 +353,20 @@ even if the result of the function is not assigned to anything.
 </p>
 
 <p>
-Let’s return to our old friend Frankenstein.
+Let's return to our old friend Frankenstein.
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 Object lookup(String key) {...} // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 If we are correct in our assumption that the lookup returns a string,
 checked mode will execute smoothly.
-If we’re wrong, it will catch our mistake for us.
+If we're wrong, it will catch our mistake for us.
 In production mode, the code will run without complaint.
-Assume the lookup actually returns an object that isn’t a string,
+Assume the lookup actually returns an object that isn't a string,
 say an instance of class <code>Frankenstein</code>.
 The variable <code>s</code> will contain that instance.
 In no case will Dart do a magical coercion into a string.
@@ -376,16 +376,16 @@ and types would not be optional anymore.
 </p>
 
 <p>
-Of course, if you don’t use types at all,
-checked mode won’t get in your way. 
+Of course, if you don't use types at all,
+checked mode won't get in your way. 
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 my_add(s1, s2) { return s1 + s2;}
 
 my_add(3, 4); // 7
 my_add("3", "4"); // "34"
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 All these checks impose a considerable performance penalty,
@@ -405,7 +405,7 @@ but checked mode helps localize them.
 <p>
 How you use types is up to you.
 If you hate types, you need not use them at all.
-You won’t get any type warnings,
+You won't get any type warnings,
 and you can develop in the style you feel comfortable with
 in other dynamic languages.
 You can still benefit from types,
@@ -418,15 +418,15 @@ checked mode will detect that at the point where you made the mistake.
 <p>
 If you love types, you may use them everywhere,
 much like in a statically typed language.
-However, even then you won’t get the same level of static checking.
-Dart’s rules are much less rigid.
+However, even then you won't get the same level of static checking.
+Dart's rules are much less rigid.
 We anticipate providing additional tools
 that might interpret type annotations more strictly
 for those who like that sort of thing.
 </p>
 
 <p>
-We don’t recommend either of these extremes.
+We don't recommend either of these extremes.
 Use types where they make sense.
 The most valuable thing you can do is add types
 to the headers of public members of your libraries.
@@ -434,7 +434,7 @@ Next, do the same for the private ones.
 Even if nobody else has to maintain the code,
 you will find it helpful
 if you leave the code and come back in a few weeks or months.
-In both cases, you don’t necessarily have to
+In both cases, you don't necessarily have to
 add types to the bodies of methods or functions.
 Users of the library get value from type signatures,
 even if they are not 100% accurate.
@@ -443,7 +443,7 @@ even if they are not 100% accurate.
 <p>
 Within the bodies of functions,
 it may not always pay to annotate declarations.
-Sometimes the code is simple enough that it doesn’t really matter,
+Sometimes the code is simple enough that it doesn't really matter,
 and types might just create clutter.
 </p>
 
@@ -462,4 +462,4 @@ However, you should not hesitate to use reflection when it truly makes sense.
 
 </section>
 
-{% include syntax-highlighting.html %}
+

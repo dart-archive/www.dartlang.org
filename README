@@ -23,7 +23,13 @@ CONFIGURING YOUR MAC SYSTEM
   * On a mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
 * run 'gem install jekyll'
+  * ensure you are using 0.11.2 or higher
 * run 'gem install kramdown'
+* run 'gem install pygments.rb'
+* install the bleeding edge of Pygments
+  * hg clone https://bitbucket.org/olov/pygments-main
+  * cd pygments-main
+  * python setup.py install
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not
     * It will say, in the log "you're using 2.6"

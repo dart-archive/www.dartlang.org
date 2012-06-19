@@ -44,11 +44,11 @@ Some of the code in the shared library is setup and initialization code, which c
 
 ###The synchronous sample extension
 
-Because the asynchronous extension works like a synchronous extension with some added functions, we’ll show the synchronous extension first. First we’ll show the Dart part of the extension and the sequence of function calls that happen when the extension is loaded.  Then we explain how to use the Dart Embedding API, show the native code, and show what happens when the extension is called.
+Because the asynchronous extension works like a synchronous extension with some added functions, we'll show the synchronous extension first. First we'll show the Dart part of the extension and the sequence of function calls that happen when the extension is loaded.  Then we explain how to use the Dart Embedding API, show the native code, and show what happens when the extension is called.
 
 Here is the Dart part of the synchronous extension, called <b>sample_synchronous_extension.dart</b>:
 
-{% pretty_code c 0 %}
+{% highlight dart %}
 #library("sample_synchronous_extension");
 
 #import("dart-ext:sample_extension");
@@ -56,7 +56,7 @@ Here is the Dart part of the synchronous extension, called <b>sample_synchronous
 // The simplest way to call native code: top-level functions.
 int systemRand() native "SystemRand";
 bool systemSrand(int seed) native "SystemSrand";
-{% endpretty_code %}
+{% endhighlight %}
 
 The code that implements a native extension executes at two different times. First, it runs when the native extension is loaded. Later, it runs when a function with a native implementation is called.
 
@@ -64,7 +64,7 @@ Here is the sequence of events at load time, when a Dart app that imports sample
 
 1. The Dart library sample_synchronous_extension.dart is loaded, and the Dart VM hits the code <b><code>#import("dart-ext:sample_extension")</code></b>.
 2. The VM loads the shared library "sample_extension" from the directory containing the Dart library.
-3. The function sample_extension_Init() in the shared library is called. It registers the shared library function ResolveName() as the name resolver for all native functions in the library sample_extension.dart. We’ll see what the name resolver does when we look at synchronous native functions, below.
+3. The function sample_extension_Init() in the shared library is called. It registers the shared library function ResolveName() as the name resolver for all native functions in the library sample_extension.dart. We'll see what the name resolver does when we look at synchronous native functions, below.
 
 <aside class="note" markdown="1">
 **Note:**
@@ -74,25 +74,25 @@ The filename of the shared library depends on the platform. On Windows, the VM l
 ###Using the Dart Embedding API from native code
 
 As the sample extensions show, the native shared library contains an initialization function, a name resolution function, and the native implementations of functions declared as native in the Dart part of the extension. The initialization function registers the native name resolution function as responsible for looking up native function names in this library. When a function declared as **<code>native "<em>function_name</em>"</code>**
-in the Dart library is called, the native library’s name resolution function is called with the string "<em>function_name</em>" as an argument, plus the number of arguments in the function call. The name resolution function then returns a function pointer to the native implementation of that function. The initialization function and the name resolution function look pretty much the same in all Dart native extensions.
+in the Dart library is called, the native library's name resolution function is called with the string "<em>function_name</em>" as an argument, plus the number of arguments in the function call. The name resolution function then returns a function pointer to the native implementation of that function. The initialization function and the name resolution function look pretty much the same in all Dart native extensions.
 
 The functions in the native library use the Dart Embedding API to communicate with the VM, so the native code includes the header <b>dart_api.h</b>, which is in the SDK at dart-sdk/include/dart_api.h or in the repository at [runtime/include/dart_api.h](http://dart.googlecode.com/svn/trunk/dart/runtime/include/dart_api.h). The Dart Embedding API is the interface that embedders use to include the Dart VM in a web browser or in the standalone VM for the command line. It consists of about 100 function interfaces and many data type and data structure definitions. These are all shown, with comments, in dart_api.h. Examples of using them are in the unit test file [runtime/vm/dart_api_impl_test.cc](http://code.google.com/p/dart/source/browse/trunk/dart/runtime/vm/dart_api_impl_test.cc).
 
 A native function to be called from Dart must have the type **Dart\_NativeFunction**, which is defined in dart_api.h as:
 
-{% pretty_code c 0 %}
+{% highlight cpp %}
 typedef void (*Dart_NativeFunction)(Dart_NativeArguments arguments);
-{% endpretty_code %}
+{% endhighlight %}
 
 So a Dart_NativeFunction is a pointer to a function taking a Dart_NativeArguments object, and returning no value. The arguments object is a Dart object accessed by API functions that return the number of arguments, and return a Dart_Handle to the argument at a specified index. The native function returns a Dart object to the Dart app, as the return value, by storing it in the arguments object using the Dart_SetReturnValue() function.
 
 ###Dart handles
 
-The extension's native implementations of functions use Dart_Handles extensively. Calls in the Dart Embedding API return a Dart_Handle and often take Dart_Handles as arguments. A Dart_Handle is an opaque indirect pointer to an object on the Dart heap, and Dart_Handles are copied by value. These handles remain valid even when a garbage-collection phase moves Dart objects on the heap, so native code must use handles to store references to heap objects.  Because these handles take resources to store and maintain, you must free them when they’re no longer used. Until a handle is freed, the VM's garbage collector cannot collect the object it points to, even if there are no other references to it.
+The extension's native implementations of functions use Dart_Handles extensively. Calls in the Dart Embedding API return a Dart_Handle and often take Dart_Handles as arguments. A Dart_Handle is an opaque indirect pointer to an object on the Dart heap, and Dart_Handles are copied by value. These handles remain valid even when a garbage-collection phase moves Dart objects on the heap, so native code must use handles to store references to heap objects.  Because these handles take resources to store and maintain, you must free them when they're no longer used. Until a handle is freed, the VM's garbage collector cannot collect the object it points to, even if there are no other references to it.
 
 The Dart Embedding API provides Dart_EnterScope() and Dart_ExitScope() to manage the lifetime of handles.  A call to Dart_EnterScope() creates a local handle scope. Most handles and memory pointers returned by the Dart Embedding API are allocated in the current local scope, and will be invalid after the call to Dart_ExitScope(). For example:
 
-{% pretty_code c 0 %}
+{% highlight cpp %}
 Dart_EnterScope();
 
 // create object in the heap and keep it alive with a handle
@@ -102,19 +102,19 @@ Dart_Handle str = Dart_NewString("asdf");
 Dart_ExitScope();
 
 // str is invalid and the string in the heap can be garbage collected
-{% endpretty_code %}
+{% endhighlight %}
 
 If the native function does not create a local scope, then most Dart Embedding API calls will leak handles, using up resources (and keeping Dart objects alive) until Dart_ExitScope() is called on the enclosing scope at some unknown future time. If the extension wants to keep a pointer to a Dart object for a long time, it should use a _persistent handle_ (see Dart_NewPersistentHandle() and Dart_NewWeakPersistentHandle()), which remains valid after a local scope ends.
 
 Calls into the Dart Embedding API might return errors in their Dart_Handle return values. These errors, which might be exceptions, should be passed up to the caller of the function as the return value.
 
-Most of the functions in a native extension&mdash;the functions of type Dart_NativeFunction&mdash;have no return value and must pass the error up to the proper handler in another way. They call Dart_PropagateError to pass errors and control flow to where the error should be handled. The sample uses a helper function, called HandleError(), to make this convenient.  A call to Dart_PropagateError() never returns. It’s assumed to take care of ending the local handle scope, so the function doesn't need to call Dart_ExitScope() on a path that calls Dart_PropagateError().
+Most of the functions in a native extension&mdash;the functions of type Dart_NativeFunction&mdash;have no return value and must pass the error up to the proper handler in another way. They call Dart_PropagateError to pass errors and control flow to where the error should be handled. The sample uses a helper function, called HandleError(), to make this convenient.  A call to Dart_PropagateError() never returns. It's assumed to take care of ending the local handle scope, so the function doesn't need to call Dart_ExitScope() on a path that calls Dart_PropagateError().
 
 ###The native code: sample_extension.cc
 
-Now we’ll show the native code for the sample extension, starting with the initialization function, then the native function implementations, and ending with the name resolution function. The two native functions implementing the asynchronous extension are shown later.
+Now we'll show the native code for the sample extension, starting with the initialization function, then the native function implementations, and ending with the name resolution function. The two native functions implementing the asynchronous extension are shown later.
 
-{% pretty_code c 0 %}
+{% highlight cpp %}
 #include "dart_api.h"
 // Forward declaration of ResolveName function.
 Dart_NativeFunction ResolveName(Dart_Handle name, int argc);
@@ -156,7 +156,7 @@ void SystemSrand(Dart_NativeArguments arguments) {
     if (fits) {
       int64_t seed;
       HandleError(Dart_IntegerToInt64(seed_object, &seed));
-      srand(static_cast&lt;unsigned>(seed));
+      srand(static_cast<unsigned>(seed));
       success = true;
     }
   }
@@ -177,7 +177,7 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc) {
   Dart_ExitScope();
   return result;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Here is the sequence of events that happens at runtime, when the function systemRand() (defined in sample_synchronous_extension.dart) is called for the first time.
 
@@ -199,14 +199,14 @@ In many ways, asynchronous extensions are simpler to program than synchronous ex
 To create an asynchronous native extension, we do three things:
 
 1. Wrap the C function we wish to call with a wrapper that converts the Dart_CObject input argument to the desired input parameters, converts the result of the function to a Dart_CObject, and posts it back to Dart.
-2. Write a native function that creates a native port and attaches it to the wrapped function.  This native function is a synchronous native method, and it’s in a native extension that looks just like the synchronous extension above. We have just added the wrapped function from step 1 to the extension, as well.
+2. Write a native function that creates a native port and attaches it to the wrapped function.  This native function is a synchronous native method, and it's in a native extension that looks just like the synchronous extension above. We have just added the wrapped function from step 1 to the extension, as well.
 3. Write a Dart class that fetches the native port and caches it. In that class, provide a function that forwards its arguments to the native port as a message, and calls a callback argument when it receives a reply to that message.
 
 ###Wrapping the C function
 
 Here is an example of a C function that creates an array of random bytes, given a seed and a length.  It returns the data in a newly allocated array, which will be freed by the wrapper:
 
-{% pretty_code c 0 %}
+{% highlight cpp %}
 uint8_t* random_array(int seed, int length) {
   if (length <= 0 || length > 10000000) return NULL;
 
@@ -219,11 +219,11 @@ uint8_t* random_array(int seed, int length) {
   }
   return values;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
-To call this from Dart, we put it in a wrapper that unpacks the Dart_CObject containing seed and length, and that packs the result values into a Dart_CObject.  A Dart_CObject can hold an integer (of various sizes), a double, a string, or an array of Dart_CObjects. It is implemented in  [dart_api.h](http://dart.googlecode.com/svn/trunk/dart/runtime/include/dart_api.h) as a struct containing a union. Look in dart_api.h to see the fields and tags used to access the union’s members. After the Dart_CObject is posted, it and all its resources can be freed, since they have been copied into Dart objects on the Dart heap.
+To call this from Dart, we put it in a wrapper that unpacks the Dart_CObject containing seed and length, and that packs the result values into a Dart_CObject.  A Dart_CObject can hold an integer (of various sizes), a double, a string, or an array of Dart_CObjects. It is implemented in  [dart_api.h](http://dart.googlecode.com/svn/trunk/dart/runtime/include/dart_api.h) as a struct containing a union. Look in dart_api.h to see the fields and tags used to access the union's members. After the Dart_CObject is posted, it and all its resources can be freed, since they have been copied into Dart objects on the Dart heap.
 
-{% pretty_code c 0 %}
+{% highlight cpp %}
 void wrappedRandomArray(Dart_Port dest_port_id,
                         Dart_Port reply_port_id,
                         Dart_CObject* message) {
@@ -256,7 +256,7 @@ void wrappedRandomArray(Dart_Port dest_port_id,
   result.type = Dart_CObject::kNull;
   Dart_PostCObject(reply_port_id, &result);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Dart_PostCObject() is the only Dart Embedding API function that should be called from the wrapper or the C function. Most of the API is illegal to call here, because there is no current isolate. No errors or exceptions can be thrown, so any error must be encoded in the reply message, to be decoded and thrown by the Dart part of the extension.
 
@@ -264,7 +264,7 @@ Dart_PostCObject() is the only Dart Embedding API function that should be called
 
 Now we set up the mechanism that calls this wrapped C function from Dart code, by sending a message. We create a native port that calls this function, and return a send port connected to that port. The Dart library gets the port from this function, and forwards calls to the port.
 
-{% pretty_code c 0 %}
+{% highlight cpp %}
 void randomArrayServicePort(Dart_NativeArguments arguments) {
   Dart_EnterScope();
   Dart_SetReturnValue(arguments, Dart_Null());
@@ -276,13 +276,13 @@ void randomArrayServicePort(Dart_NativeArguments arguments) {
   }
   Dart_ExitScope();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 ###Calling the native port from Dart
 
 On the Dart side, we need a class that stores this send port, sending messages to it when a Dart asynchronous function with a callback is called. The Dart class gets the port the first time the function is called, caching it in the usual way. Here is the Dart library for the asynchronous extension:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #library("sample_asynchronous_extension");
 
 #import("dart-ext:sample_extension");
@@ -311,11 +311,11 @@ class RandomArray {
 
   SendPort _newServicePort() native "RandomArray_ServicePort";
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 ###Conclusion and further resources
 
-You’ve seen both synchronous and asynchronous native extensions. We hope that you’ll use these tools to provide access to existing C and C++ libraries, thereby adding useful new capabilities to the standalone Dart VM.  We recommend using asynchronous extensions rather than synchronous extensions, because asynchronous extensions don’t block the main Dart thread and can be simpler to implement. The built-in Dart I/O libraries are built around asynchronous calls to achieve high, non-blocking throughput. Extensions should have the same performance goals.
+You've seen both synchronous and asynchronous native extensions. We hope that you'll use these tools to provide access to existing C and C++ libraries, thereby adding useful new capabilities to the standalone Dart VM.  We recommend using asynchronous extensions rather than synchronous extensions, because asynchronous extensions don't block the main Dart thread and can be simpler to implement. The built-in Dart I/O libraries are built around asynchronous calls to achieve high, non-blocking throughput. Extensions should have the same performance goals.
 
 
 ##Appendix: Compiling and linking extensions
@@ -361,4 +361,4 @@ The Windows DLL compilation is complicated by the fact that we need to link with
 4. Build the project, and copy the DLL to the correct directory, relative to the Dart library part of the extension.  Make sure to build a 32-bit DLL for use with the 32-bit SDK download, and a 64-bit DLL for use with the 64-bit download.
 
 
-{% include syntax-highlighting.html %}
+

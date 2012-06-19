@@ -30,9 +30,9 @@ Dart web apps generally use the
 [dart:html](http://api.dartlang.org/html.html)
 library, which they import like this:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('dart:html');
-{% endpretty_code %}
+{% endhighlight %}
 
 The only required argument to #import
 is a URI specifying the library.
@@ -44,11 +44,11 @@ the URI can be relative to the current directory.
 you'll be able to specify a file on a web server.)
 For example:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('dart:io');
 #import('mylib/mylib.dart');
 #import('../../util/utilslib.dart');
-{% endpretty_code %}
+{% endhighlight %}
 
 
 <section id="libraries-prefix" markdown="1">
@@ -59,13 +59,13 @@ then you can specify a prefix for one or both libraries.
 For example, if library1 and library2 both define Element,
 then you might have code like this:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('lib1/library1.dart');
 #import('lib2/library2.dart', prefix:'lib2');
 ...
 var element1 = new Element();      // Uses Element from library1.
 var element2 = new lib2.Element(); // Uses Element from library2.
-{% endpretty_code %}
+{% endhighlight %}
 
 </section>
 </section>
@@ -98,8 +98,8 @@ that the library needs.
 
 For example, consider the following code:
 
-{% pretty_code dart 0 %}
-<em>// in Ballgame.dart:</em>
+{% highlight dart %}
+// in Ballgame.dart:
 #import('dart:html');
 
 #source('Ball.dart');
@@ -108,7 +108,7 @@ For example, consider the following code:
 main() {
   ...
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 In this example, Ball.dart and Util.dart are compiled into
 the library Ballgame.dart.
@@ -122,14 +122,14 @@ but remember that each Dart app has an implicit library.
 To explicitly declare a library, you use a **#library** statement.
 For example:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #library('slider_sample');           // Declare that this is a library.
 
 #import('dart:html');                // It uses the html library
 #import('../ui_lib/view/view.dart'); // and a view library.
 
 #source('SliderSample.dart');        // Grab the code from SliderSample.dart.
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note">
   <b>Note:</b>
@@ -147,7 +147,7 @@ in the following code, the Incrementer class
 has an instance variable
 called `_hiddenNum`.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #library('HidingLibrary');
 
 class Incrementer {
@@ -166,7 +166,7 @@ void main() {
   var o = new Incrementer();
   assert(o._hiddenNum == 0); // We can read _hiddenNum.
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 The main() method can refer to \_hiddenNum
 because it's in the same library as Incrementer.
@@ -177,7 +177,7 @@ For example, the following code can't use \_hiddenNum
 because it's in a different library from Incrementer
 (which is implemented in the library at `HidingLib/hider.dart`):
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #library('SubclassingLibrary');
 #import('../HidingLib/hider.dart');
 
@@ -189,7 +189,7 @@ class DoubleIncrementer extends Incrementer {
     super.incrementNum();
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 </section>
 

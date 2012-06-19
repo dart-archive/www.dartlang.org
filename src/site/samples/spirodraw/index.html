@@ -39,13 +39,12 @@ and illustrates a few more language features.</p>
 <h2 id="code_organization">Code organization</h2>
 <p>First, let's take a look at the Spirodraw declarations.</p>
 
-{% pretty_code %}
+{% highlight dart %}
 #library('spirodraw');
 
 #import('dart:dom');
 #source("ColorPicker.dart");
-#resource("spirodraw.css");
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>A Dart script belongs to a library declared with a name given by the #library directive.
 Dart scripts include other scripts using the #source directive.
@@ -62,7 +61,7 @@ Total sample.</p>
 <p>Spirodraw uses <a href="http://www.html5rocks.com/en/tutorials/canvas/performance/#toc-raf">requestAnimationFrame</a>
 to improve rendering.</p>
 
-{% pretty_code %}
+{% highlight dart %}
 void start() {
   refresh();
   rad = 0.0;
@@ -71,7 +70,7 @@ void start() {
 }
 
 void animate(int time) {
-  if (run &amp;&amp; rad &lt;= maxTurns * PI2) {
+  if (run && rad <= maxTurns * PI2) {
     rad+=stepSize;
     drawFrame(rad);
     num nTurns = rad / PI2;
@@ -81,7 +80,7 @@ void animate(int time) {
     stop();
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>In the code excerpt above, line 5 invokes webkitRequestAnimationFrame with a closure containing
 the callback function, <code>animate()</code>. The <code>animate()</code> function in turn requests the next
@@ -95,7 +94,7 @@ concatenation using the + operator.
 <h2 id="top_level_functions">Top-level functions</h2>
 <p>In Dart, a function does not have to be associated with a class.</p>
 
-{% pretty_code %}
+{% highlight dart %}
 ...
 void main() {
   new Spirodraw().go();
@@ -120,11 +119,11 @@ int gcf(int n, int d) {
     return n;
   int max = Math.max(n, d);
   for (int i = max ~/ 2; i > 1; i--)
-    if ((n % i == 0) &amp;&amp; (d % i == 0))
+    if ((n % i == 0) && (d % i == 0))
       return i;
   return 1;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>In this example, note that the <code>gcf()</code> function is defined outside the Spirodraw class and is
 invoked within the <code>calcTurns()</code> function. The <code>main()</code> function is likewise defined 
@@ -134,7 +133,7 @@ but not statements or expressions.</p>
 <h2 id="color_picker">ColorPicker sample</h2>
 <p>Now let's look at ColorPicker.dart.</p>
 
-{% pretty_code %}
+{% highlight dart %}
 // Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -176,7 +175,7 @@ class ColorPicker {
   void onMouseMove(MouseEvent event) {
     int x = event.offsetX;
     int y = event.offsetY - 40;
-    if (( y &lt; 0) || (x &gt;= width)) {
+    if (( y < 0) || (x >= width)) {
       return;
     }
     ctx.setFillStyle(getHexString(getColorIndex(x, y)));
@@ -188,7 +187,7 @@ class ColorPicker {
     event.cancelBubble = true;
     int x = event.offsetX;
     int y = event.offsetY - 40;
-    if ((y &lt; 0) || (x &gt;= width))
+    if ((y < 0) || (x >= width))
       return;
     selectedColor = getColorIndex(x, y);
     fireSelected();
@@ -208,9 +207,9 @@ class ColorPicker {
  
   void drawPalette() {
     int i=0;
-    for (int r=0; r &lt; 256; r+=51) {
-      for (int g=0; g &lt; 256; g+=51) {
-        for (int b=0; b &lt; 256; b+=51) {
+    for (int r=0; r < 256; r+=51) {
+      for (int g=0; g < 256; g+=51) {
+        for (int b=0; b < 256; b+=51) {
           String color = getHexString(i);
           ctx.setFillStyle(color);
           int x = BW * (i % COLS);
@@ -249,7 +248,7 @@ class ColorPicker {
   }
    
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <h2 id="typedef">Function type aliases</h2>
 
@@ -290,4 +289,4 @@ getter/setter name.</p>
 <p>Our last bit of syntactic sugar is shown in lines 89-90. The for-in loop iterates over 
 any object that implements the Iterable interface.</p>
 
-{% include syntax-highlighting.html %}
+

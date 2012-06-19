@@ -175,21 +175,21 @@ The following example defines an interface,
 along with a class and subclass that implement it:
 </p>
 
-{% pretty_code dart 0 %}
-<b>interface Shape</b> {
+{% highlight dart %}
+interface Shape {
   num perimeter();
 }
 
-<b>class Rectangle implements Shape</b> {
+class Rectangle implements Shape {
   final num height, width; 
   Rectangle(num this.height, num this.width);  // Compact constructor syntax.
-  num perimeter() =&gt; 2*height + 2*width;       // Short function syntax.
+  num perimeter() => 2*height + 2*width;       // Short function syntax.
 }
 
-<b>class Square extends Rectangle</b> {
+class Square extends Rectangle {
   Square(num size) : super(size, size);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 </section> <!-- classes -->
 
@@ -214,19 +214,19 @@ and two methods:
 <code>scale()</code> and <code>distance()</code>.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Point {
   var x, y;
   Point(this.x, this.y);
-  scale(factor) =&gt; new Point(x*factor, y*factor);
-  distance() =&gt; Math.sqrt(x*x + y*y);
+  scale(factor) => new Point(x*factor, y*factor);
+  distance() => Math.sqrt(x*x + y*y);
 }
 
 main() {
   var a = new Point(2,3).scale(10);
   print(a.distance());
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Here is what this code looks like with types added
@@ -237,19 +237,19 @@ and that a <code>Point</code> contains two values
 of type <code>num</code>:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
   Point(num this.x, num this.y);
-  Point scale(num factor) =&gt; new Point(x*factor, y*factor);
-  num distance() =&gt; Math.sqrt(x*x + y*y);
+  Point scale(num factor) => new Point(x*factor, y*factor);
+  num distance() => Math.sqrt(x*x + y*y);
 }
 
 void main() {
   Point a = new Point(2,3).scale(10);
   print(a.distance());
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 </section> <!-- optional types -->
 </section> <!-- code -->
@@ -309,21 +309,21 @@ Here is the proposed new MIME type,
 &ldquo;application/dart&rdquo;:
 </p>
 
-{% pretty_code html 0 %}
-&lt;!DOCTYPE html>
+{% highlight html %}
+<!DOCTYPE html>
 
-&lt;html>
-  &lt;head>
-    &lt;title>Simple Dart Web App&lt;/title>
-  &lt;/head>
-  &lt;body>
-    &lt;h1>Simple Dart Web App&lt;/h1>
-    &lt;h2 id="status">dart is starting up...&lt;/h2>
-    &lt;script type="application/dart" src="SimpleDartWebApp.dart">&lt;/script>
-    &lt;script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js">&lt;/script>
-  &lt;/body>
-&lt;/html>
-{% endpretty_code %}
+<html>
+  <head>
+    <title>Simple Dart Web App</title>
+  </head>
+  <body>
+    <h1>Simple Dart Web App</h1>
+    <h2 id="status">dart is starting up...</h2>
+    <script type="application/dart" src="SimpleDartWebApp.dart"></script>
+    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>
+{% endhighlight %}
 
 <p>
 The dart.js file above will swap out the <code>application/dart</code>
@@ -335,7 +335,7 @@ have an embedded Dart virtual machine.
 The following is the Dart code for the page above:
 </p>
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:html');
 
 class SimpleDartWebApp {
@@ -352,7 +352,7 @@ class SimpleDartWebApp {
 void main() {
   new SimpleDartWebApp().run();
 }
-{% endpc %}
+{% endhighlight %}
 </section> <!-- howtouse -->
 </section> <!-- mimetype -->
 
@@ -489,4 +489,4 @@ and providing your feedback:
 
 </section> <!-- involved -->
 
-{% include syntax-highlighting.html %}
+

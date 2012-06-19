@@ -16,12 +16,12 @@ values such as 1 or non-null objects are not treated as true.
 For example, consider the following code:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var name = 'Bob';
 if (name) {
   print("You have a name!"); // Prints in JavaScript, not in Dart.
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 In JavaScript, this code prints "You have a name!" because
@@ -36,13 +36,13 @@ Here's another example of code
 that behaves differently in JavaScript and Dart:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 if (1) {
   print("JavaScript prints this line because it thinks 1 is true.");
 } else {
   print("Dart prints this line because it thinks 1 is NOT true.");
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <br>
 <aside class="note">
@@ -61,23 +61,23 @@ you should instead explicitly check for values.
 For example:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 // Check for an empty string.
 var fullName = '';
-assert(<b>fullName.isEmpty()</b>);
+assert(fullName.isEmpty());
 
 // Check for zero.
 var hitPoints = 0;
-assert(<b>hitPoints &lt;= 0</b>);
+assert(hitPoints <= 0);
 
 // Check for null.
 var unicorn;
-assert(<b>unicorn == null</b>);
+assert(unicorn == null);
 
 // Check for NaN.
 var iMeantToDoThis = 0/0;
-assert(<b>iMeantToDoThis.isNaN()</b>);
-{% endpretty_code %}
+assert(iMeantToDoThis.isNaN());
+{% endhighlight %}
 
 {% comment %}
 {PENDING: I didn't include info on operator results

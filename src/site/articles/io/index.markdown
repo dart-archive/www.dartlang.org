@@ -70,13 +70,13 @@ Once that code executes to completion,
 no more pending operations are in the event queue
 and the VM terminates.
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% highlight dart %}#import('dart:io');
 
 main() {
   new Timer(1000, (Timer t) => print('timer'));
   print('end of main');
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Running this example at the command line, we get:
 
@@ -86,7 +86,7 @@ Running this example at the command line, we get:
 
 Had we made the timer repeating by using the Timer.repeating() constructor,
 the VM would not terminate
-and would continue to print out ‘timer’ every second.
+and would continue to print out 'timer' every second.
 </section>
 
 
@@ -103,16 +103,16 @@ we use the
 [Options](http://api.dartlang.org/dart_core/Options.html) interface
 from [dart:core](http://api.dartlang.org/dart_core.html).
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('dart:io');
 
 main() {
   var options = new Options();
   var file = new File(options.script);
-  Future&lt;String> finishedReading = file.readAsText(Encoding.ASCII);
+  Future<String> finishedReading = file.readAsText(Encoding.ASCII);
   finishedReading.then((text) => print(text));
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Notice that the readAsText() method is asynchronous;
 it returns a [Future](http://api.dartlang.org/dart_core/Future.html)
@@ -122,7 +122,7 @@ This asynchronicity allows the Dart thread to perform other work
 while waiting for the I/O operation to complete.
 
 To illustrate more detailed file operations,
-let’s change the example to read the contents
+let's change the example to read the contents
 only up to the first semicolon and then to print that.
 You could do this in two ways:
 either open the file for random access,
@@ -132,9 +132,9 @@ for the file and stream in the data.
 
 Here is a version that opens the file for random access operations.
 The code opens the file for reading and then reads one byte at a time
-until it encounters the char code for ‘;’.
+until it encounters the char code for ';'.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('dart:io');
 
 main() {
@@ -156,7 +156,7 @@ main() {
     openedFile.readByte().then(onByte);
   });
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 When you see a use of `then()`, you are seeing a Future in action.
 Both the `open()` and `readByte()` methods return a Future object.
@@ -166,7 +166,7 @@ a very simple use of random-access operations.
 Operations are available for writing,
 seeking to a given position, truncating, and so on.
 
-Let’s implement a version using an input stream.
+Let's implement a version using an input stream.
 The following code opens an InputStream object for the file.
 InputStreams are active objects that start reading data
 when they are created.
@@ -180,7 +180,7 @@ the handler is guaranteed to be called again.
 To prevent further calls,
 you can set the onData handler to null.
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% highlight dart %}#import('dart:io');
 
 main() {
   Options options = new Options();
@@ -196,7 +196,7 @@ main() {
     }
   };
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 [InputStream](http://api.dartlang.org/io/InputStream.html)s
 are used in multiple places in dart:io:
@@ -220,7 +220,7 @@ and killing the process.
 When the process exits the onExit handler is called with
 the exit code of the process.
 
-The following example runs ‘ls -l’ in a separate process
+The following example runs 'ls -l' in a separate process
 and prints the output and the exit code for the process to stdout.
 Since we are interested in getting lines,
 we are wrapping the stdout stream of the process in a StringInputStream.
@@ -229,7 +229,7 @@ has an onLine handler that gets called
 whenever a full line of text has been decoded
 and is ready to be read using readLine.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('dart:io');
 
 main() {
@@ -241,7 +241,7 @@ main() {
     p.close();
   };
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Notice that the onExit handler can be called
 before all of the lines of output have been processed.
@@ -254,7 +254,7 @@ Instead of printing the output to stdout,
 we can use the streaming interfaces
 to pipe the output of the process to a file instead.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('dart:io');
 
 main() {
@@ -263,7 +263,7 @@ main() {
   p.stdout.pipe(output);
   p.onExit = (exitCode) => print('exit code: $exitCode');
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 The current process API can be a bit heavy to use
 if all you really want to do is run a process to completion
@@ -285,9 +285,9 @@ all you have to do is create an
 and hook up a `defaultRequestHandler`.
 
 Here is a simple web server
-that just answers ‘Hello, world’ to any request.
+that just answers 'Hello, world' to any request.
 
-{% pretty_code dart 0 %}#import('dart:io');
+{% highlight dart %}#import('dart:io');
 
 main() {
   var server = new HttpServer();
@@ -297,23 +297,23 @@ main() {
     response.outputStream.close();
   };
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Running this application
-and pointing your browser to ‘http://127.0.0.1:8080’
-gives you ‘Hello, world’ as expected.
+and pointing your browser to 'http://127.0.0.1:8080'
+gives you 'Hello, world' as expected.
 
-Let’s add a bit more and actually serve files.
+Let's add a bit more and actually serve files.
 The base path for every file that we serve will be
 the location of the script.
 If no path is specified in a request we will serve index.html.
 For a request with a path,
 we will attempt to find the file and serve it.
-If the file is not found we will respond with a ‘404 Not Found’ status.
+If the file is not found we will respond with a '404 Not Found' status.
 We make use of the streaming interface
 to pipe all the data read from a file directly to the response output stream.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('dart:io');
 
 send404(HttpResponse response) {
@@ -351,7 +351,7 @@ main() {
     startServer(d.path);
   });
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Writing HTTP clients is very similar using the
 [HttpClient](http://api.dartlang.org/io/HttpClient.html) class.
@@ -374,7 +374,7 @@ All of the tests that you see being run on the
 [buildbot](http://build.chromium.org/p/client.dart)
 are running on the Dart VM using the dart:io library!
 
-That said, we’d like to add a lot of features to dart:io.
+That said, we'd like to add a lot of features to dart:io.
 Some of the things on our list are:
 
 * Better support for path manipulation.
@@ -397,4 +397,4 @@ use the Area-IO label in the issue tracker at
 </section>
 
 
-{% include syntax-highlighting.html %}
+

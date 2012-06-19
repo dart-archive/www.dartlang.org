@@ -1,20 +1,20 @@
 Here's a simple function:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 String say(String from, String msg) => "$from says $msg";
-{% endpretty_code %}
+{% endhighlight %}
 
 And here's an example of calling it:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 assert(say("Bob", "Hello") == "Bob says Hello");
-{% endpretty_code %}
+{% endhighlight %}
 
 Omitting the types, you could write the above as:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 say(from, msg) => "$from says $msg";
-{% endpretty_code %}
+{% endhighlight %}
 
 However, we recommend using types for function signatures.
 
@@ -22,17 +22,17 @@ The `=> e;` syntax is a shorthand for `{ return e; }`.
 For example, `say(from, msg) => "$from says $msg";`
 is the same as:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 say(from, msg) {
   return "$from says $msg";
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 #### Optional parameters
 
 Wrapping a function parameter in `[]` marks it as an optional parameter.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 String say(String from, String msg, [String device]) {
   var result = "$from says $msg";
   if (device != null) {
@@ -40,20 +40,20 @@ String say(String from, String msg, [String device]) {
   }
   return result;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Here's an example of calling this function without the optional parameter:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 assert(say("Bob", "Howdy") == "Bob says Howdy");
-{% endpretty_code %}
+{% endhighlight %}
 
 Here's an example of calling this function with the third parameter:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 assert(say("Bob", "Howdy", "smoke signal") ==
     "Bob says Howdy with a smoke signal");
-{% endpretty_code %}
+{% endhighlight %}
 
 #### Default values for optional parameters
 
@@ -61,7 +61,7 @@ Optional parameters may have default values. The default values
 must be compile time constants. If no default value is
 provided, the value is `null` (as we saw above).
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 String say(String from, String msg,
     [String device='carrier pigeon', String mood]) {
   var result = "$from says $msg";
@@ -73,57 +73,57 @@ String say(String from, String msg,
   }
   return result;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Omitting the optional parameters, you can see how the default values are used:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 assert(say("Bob", "Howdy") == 'Bob says Howdy with a carrier pigeon');
-{% endpretty_code %}
+{% endhighlight %}
 
 You can pass null to an optional parameter, overriding its default
 value.
 
-{% pc dart 0 %}
+{% highlight dart %}
 assert(say('Bob', 'Howdy', null) == 'Bob says Howdy');
-{% endpc %}
+{% endhighlight %}
 
 #### Named parameters
 
 Optional parameters are also named parameters.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 assert(say("Bob", "Howdy", device: "tin can and string") ==
     "Bob says Howdy with a tin can and string");
 
 assert(say("Bob", "Howdy", mood: "fresh") ==
     "Bob says Howdy with a carrier pigeon (in a fresh mood)");
-{% endpretty_code %}
+{% endhighlight %}
 
 #### First class functions
 
 You can pass a function as a parameter to another function. For example:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var ages = [1,4,5,7,10,14,21];
 var oddAges = ages.filter((i) => i % 2 == 1);
-{% endpretty_code %}
+{% endhighlight %}
 
 Which is the same as:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 bool isOdd(num i) => i % 2 == 1;
 var ages = [1,4,5,7,10,14,21];
 var oddAges = ages.filter(isOdd);
-{% endpretty_code %}
+{% endhighlight %}
 
 You can also assign a function to a variable, such as:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var loudify = (msg) => '!!! ${msg.toUpperCase()} !!!';
 assert(loudify('hello') ==
     '!!! HELLO !!!');
-{% endpretty_code %}
+{% endhighlight %}
 
 #### Lexical closures
 
@@ -132,7 +132,7 @@ The following example shows how `makeAdder` captures the variable `n`
 and makes it available to the function that `makeAdder` returns.
 Wherever the returned function goes, it remembers `n`.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 Function makeAdder(num n) {
   return (num i) => n + i;
 }
@@ -141,7 +141,7 @@ main() {
   var add2 = makeAdder(2);
   assert(add2(3) == 5);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 (Special thanks to Bob Nystrom for this example.)
 

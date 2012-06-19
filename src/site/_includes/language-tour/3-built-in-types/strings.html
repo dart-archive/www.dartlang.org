@@ -4,12 +4,12 @@ You can use either single or double quotes
 to create a string:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var s1 = 'Single quotes work well for string literals.';
 var s2 = "Double quotes work just as well.";
 var s3 = 'It\'s easy to escape the string delimiter.';
 var s4 = "It's even easier to just use the other string delimiter.";
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 You can put the value of an expression inside a string
@@ -18,14 +18,14 @@ If the expression is a variable,
 you can skip the {}.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var s = 'string interpolation';
 
 assert('Dart has $s, which is very handy.' ==
        'Dart has string interpolation, which is very handy.');
 assert('That deserves all caps. ${s.toUpperCase()} is very handy!' ==
        'That deserves all caps. STRING INTERPOLATION is very handy!');
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note">
 <b>Note:</b>
@@ -41,11 +41,11 @@ You can concatenate strings using
 adjacent string literals:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var s = 'String ''concatenation'
         " works even over line breaks.";
 assert(s == 'String concatenation works even over line breaks.');
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Another way to create a multi-line string:
@@ -53,7 +53,7 @@ use a triple quote
 with either single or double quotation marks.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var s1 = '''
 You can create
 multi-line strings like this one.
@@ -61,7 +61,7 @@ multi-line strings like this one.
 
 var s2 = """This is also a
 multi-line string.""";
-{% endpretty_code %}
+{% endhighlight %}
 
 {% comment %}
 In a multi-line string, the initial newline is NOT ignored (in Dartboard)
@@ -73,20 +73,20 @@ You can create a "raw" string
 by prefixing it with @.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var s = @'In a raw string, even \n is ignored.';
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 You can build a string using both raw strings and string interpolation,
 thanks to concatenation:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var x = 123;
 var s = @'$x' '$x' @'$x';
 assert(s == @'$x123$x'); // The string has these characters: $x123$x
-{% endpretty_code %}
+{% endhighlight %}
 
 
 <section id="strings-string">
@@ -100,13 +100,13 @@ including some that let you determine whether a string
 starts with, ends with, or contains another string.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var fullName = 'Cuthbert Musgrave Girdlestone, III';
 
 assert(fullName.startsWith('Cuthbert'));
 assert(fullName.endsWith('III'));
 assert(fullName.contains(new RegExp('Musgrave')));
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Strings are immutable objects,
@@ -119,11 +119,11 @@ For example, the method replaceAll() returns a new String
 without changing the original String.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var greetingTemplate = 'Hello, NAME!';
 var greeting = greetingTemplate.replaceAll(new RegExp("NAME"), 'Bob');
 assert(greeting != greetingTemplate); // greetingTemplate didn't change.
-{% endpretty_code %}
+{% endhighlight %}
 
 Learn more about
 <a href="/docs/library-tour/#strings-and-regular-expressions">string methods</a>
@@ -139,7 +139,7 @@ A StringBuffer doesn't generate a new String object
 until toString() is called.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var sb = new StringBuffer();
 
 sb.add("Use a StringBuffer ");
@@ -154,7 +154,7 @@ assert(fullString ==
 
 sb.clear();  // All gone!
 assert(sb.toString() == '');
-{% endpretty_code %}
+{% endhighlight %}
 
 <br>
 <aside class="note">

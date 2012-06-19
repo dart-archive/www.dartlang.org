@@ -6,7 +6,7 @@ when a function type is assigned to a variable.
 
 Consider the following code, which does not use a typedef.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class SortedCollection {
   Function compare;
 
@@ -23,7 +23,7 @@ main() {
   // All we know is that compare is a function, but what type of function?
   assert(collection.compare is Function);
 }
-{% endpc %}
+{% endhighlight %}
 
 Type information is lost when assigning `f` to `compare`.
 The type of `f` is `(Object, Object) → int`, yet
@@ -33,8 +33,8 @@ both developers and tools can use that information.
 
 Adding a typedef lets Dart retain the type information.
 
-{% pc dart 0 %}
-<b>typedef int Compare(Object a, Object b);</b>
+{% highlight dart %}
+typedef int Compare(Object a, Object b);
 
 class SortedCollection {
   Compare compare;
@@ -49,7 +49,7 @@ main() {
   assert(collection.compare is Function);
   assert(collection.compare is Compare);
 }
-{% endpc %}
+{% endhighlight %}
 
 <aside class="note" markdown="1">
 **Note:** Currently, typedefs are restricted to function types.
@@ -59,7 +59,7 @@ This may change in a future version of the language specification.
 As typedefs are simply aliases, they offer a way to check the
 type of any function. For example:
 
-{% pc dart 0 %}
+{% highlight dart %}
 typedef int Compare(int a, int b);
 
 int sort(int a, int b) => a - b;
@@ -67,20 +67,20 @@ int sort(int a, int b) => a - b;
 main() {
   assert(sort is Compare);  // True!
 }
-{% endpc %}
+{% endhighlight %}
 
 Typedefs can be parameterized.
 
-{% pc dart 0 %}
-typedef int Compare&lt;T>(T a, T b);
+{% highlight dart %}
+typedef int Compare<T>(T a, T b);
 
-class SortedCollection&lt;T> {
-  Compare&lt;T> compare;
+class SortedCollection<T> {
+  Compare<T> compare;
   SortedCollection(this.compare);
 }
 
 main() {
-  SortedCollection&lt;int> s = new SortedCollection&lt;int>((a,b) => a - b);
-  assert(s.compare is Compare&lt;int>);
+  SortedCollection<int> s = new SortedCollection<int>((a,b) => a - b);
+  assert(s.compare is Compare<int>);
 }
-{% endpc %}
+{% endhighlight %}

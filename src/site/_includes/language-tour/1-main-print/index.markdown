@@ -3,7 +3,19 @@ Here's some code
 that uses some of Dart's most basic features.
 </p>
 
-{% pretty_code dart 0 %}{% include language-tour/1-main-print/start.dart %}{% endpretty_code %}
+{% highlight dart %}
+// Define a function.
+printNumber(num smallNumber) {
+  assert(smallNumber < 100);            // Check our assumptions.
+  print("The number is $smallNumber."); // Print to the console.
+}
+
+// This is where the app starts executing.
+main() {
+  var number = 42;           // Declare and initialize a variable.
+  printNumber(number);       // Call a function.
+}
+{% endhighlight %}
 
 <p>
 Here's what this program uses
@@ -16,7 +28,7 @@ that applies to all (or almost all) Dart apps:
     How you indicate that the rest of the line is a
     <a href="#comments">comment</a>.
     Alternatively:
-    {% pretty_code dart 0 %}/* This comment might span many lines. */{% endpretty_code %}
+    {% highlight dart %}/* This comment might span many lines. */{% endhighlight %}
   </dd>
 
   <dt> num </dt>

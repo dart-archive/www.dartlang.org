@@ -16,14 +16,13 @@ The `bin/dart` executable is in the [Dart SDK](/docs/sdk/).
 You can either [download the SDK separately](/docs/sdk/#download)
 or get it as part of the [Dart Editor package](/docs/editor/#download).
 
-
 ## Basic usage
 
 Here's an example of running a Dart file on the command line:
 
-{% pretty_code console 0 %}
+{% highlight bash %}
 $DART_SDK/bin/dart test.dart
-{% endpretty_code %}
+{% endhighlight %}
 
 
 ## Enabling type checks
@@ -37,9 +36,9 @@ effect.
 During development, we recommend using checked mode. You can
 run the VM in checked mode with a command-line flag:
 
-{% pretty_code console 0 %}
+{% highlight bash %}
 $DART_SDK/bin/dart --enable_type_checks test.dart
-{% endpretty_code %}
+{% endhighlight %}
 
 ## Enabling assertions
 
@@ -51,17 +50,17 @@ We recommend that you enable assertions during development.
 
 You can enable assertions in the VM with a command-line flag:
 
-{% pretty_code console 0 %}
+{% highlight bash %}
 $DART_SDK/bin/dart --enable_asserts test.dart
-{% endpretty_code %}
+{% endhighlight %}
 
 
 ## Additional options
 
 Print all the command-line options with `--print-flags`:
 
-{% pc console 0 %}
+{% highlight bash %}
 $DART_SDK/bin/dart --print-flags
-{% endpc %}
+{% endhighlight %}
 
-{% include syntax-highlighting.html %}
+

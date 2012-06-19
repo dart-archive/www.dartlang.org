@@ -52,14 +52,14 @@ Anyone who defines a <b>call</b> operator can emulate a function.
 Example:
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 class WannabeFunction {
-  operator call (String a, String b) =&gt; '$a $b';
+  operator call (String a, String b) => '$a $b';
 }
 
 var wf = new WannabeFunction();
 wf("Hello", "World" ); // "Hello World"
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 When <code>x(a<sub>1</sub>, .., a<sub>n</sub>)</code> is evaluated,
@@ -101,24 +101,24 @@ Actual function objects have an <code>apply()</code> method
 whose signature is defined in the <code>Function</code> interface as:
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 interface Function {
   apply(ArgumentDescriptor args);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 where
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 class ArgumentDescriptor {
-  final List&lt;Dynamic&gt; positionalArguments;
-  final Map&lt;String, Dynamic&gt; namedArguments;
-  ArgumentDescriptor(List&lt;Dynamic&gt; this.positionalArguments,
-      Map&lt;String, Dynamic&gt; this.namedArguments);
+  final List<Dynamic> positionalArguments;
+  final Map<String, Dynamic> namedArguments;
+  ArgumentDescriptor(List<Dynamic> this.positionalArguments,
+      Map<String, Dynamic> this.namedArguments);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 The <code>ArgumentDescriptor</code> class turns out
@@ -136,12 +136,12 @@ is to implement <code>Function</code>
 and define their own <code>apply()</code> method.
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 class Int2Int implements Function {
-  apply(ArgumentDescriptor args) =&gt; this(args.positionalArguments[0]);
-  operator call (int a) =&gt; a*2; // function with a different signature
+  apply(ArgumentDescriptor args) => this(args.positionalArguments[0]);
+  operator call (int a) => a*2; // function with a different signature
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 However, implementing <code>Function</code> is not essential.
@@ -151,9 +151,9 @@ by closurizing its <code>call</code> method
 and calling <code><code>apply()</code></code> on it:
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 f.call.apply(args);
-{% endpretty_code %}
+{% endhighlight %}
 <br>
 <aside class="note">
 <b>Side note:</b>
@@ -179,11 +179,11 @@ To simulate functions properly,
 we want them to be members of the appropriate function type:
 </p>
 
-{% pretty_code %}
+{% highlight dart %}
 typedef BinaryFunction(x, y);
 ...
 new WannabeFunction() is BinaryFunction; // true
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Therefore, we decree that an object is a member of a function type
@@ -203,11 +203,11 @@ Here's an example showing how you could use
 function emulation inside <code>noSuchMethod()</code>:
 </p>
 
-{% pretty_code %}
-noSuchMethod(InvocationMirror msg) =&gt;
-      msg.memberName == 'foo' ? msg.invokeOn(bar())
+{% highlight dart %}
+noSuchMethod(InvocationMirror msg) =>
+      msg.memberName == 'foo' ? msg.invokeOn(bar())
                               : baz.apply(msg.arguments);
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 In the second line, <code>invokeOn()</code> handles the common case
@@ -228,7 +228,7 @@ The only argument to <code>noSuchMethod()</code>
 is an <code>InvocationMirror</code>,
 which is currently defined as follows:
 
-{% pretty_code %}
+{% highlight dart %}
 interface InvocationMirror {
 
   final String memberName;
@@ -240,7 +240,7 @@ interface InvocationMirror {
 
   invokeOn(Object o);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 
 <p>
@@ -342,13 +342,13 @@ implement your own function type in Dart once the feature is implemented:
     The easiest way to define <code>apply()</code> is:
     </p>
 
-{% pretty_code %}
-apply(args) =&gt; this.call.apply(args);
-{% endpretty_code %}
+{% highlight dart %}
+apply(args) => this.call.apply(args);
+{% endhighlight %}
   </li>
 </ol>
 </section>
 
 </section>
 
-{% include syntax-highlighting.html %}
+

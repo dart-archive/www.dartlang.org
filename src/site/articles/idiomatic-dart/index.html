@@ -38,7 +38,7 @@ Updated: March 2012</em>
 
 <p>First up is getting rid of some tedium. Many constructors simply take their arguments and assign them to fields, like:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
   Point(num x, num y) {
@@ -46,16 +46,16 @@ class Point {
     this.y = y;
   }
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>So we've got to type <code>x</code> <em>four</em> times here just to initialize a field. Lame. We can do better:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
   Point(this.x, this.y);
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>If an argument has <code>this.</code> before it in a constructor argument list, the field with that name will automatically be initialized with that argument's value. This example shows another little feature too: if a constructor body is completely empty, you can just use a semicolon (<code>;</code>) instead of <code>{}</code>.<p>
 
@@ -63,7 +63,7 @@ class Point {
 
 <p>Like most dynamically-typed languages, Dart doesn't support overloading. With methods, this isn't much of a limitation because you can always use a different name, but constructors aren't so lucky. To alleviate that, Dart lets you define <em>named constructors</em>:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Point {
   num x, y;
   Point(this.x, this.y);
@@ -73,15 +73,15 @@ class Point {
     y = Math.sin(theta) * radius;
   }
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>Here our Point class has three constructors, a normal one and two named ones. You can use them like so:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var a = new Point(1, 2);
 var b = new Point.zero();
 var c = new Point.polar(Math.PI, 4.0);
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>Note that we're still using <code>new</code> here when we invoke the named constructor. It isn't just a static method.</p>
 
@@ -91,10 +91,10 @@ var c = new Point.polar(Math.PI, 4.0);
 
 <p>Dart supports that without requiring you to change what it looks like when you create the object. Instead, you can define a <em>factory constructor</em>. When you <em>call</em> it, it looks like a regular constructor. But the implementation is free to do anything it wants. For example:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Symbol {
   final String name;
-  static Map&lt;String, Symbol&gt; _cache;
+  static Map<String, Symbol> _cache;
 
   factory Symbol(String name) {
     if (_cache == null) {
@@ -112,7 +112,7 @@ class Symbol {
 
   Symbol._internal(this.name);
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>Here we have a class that defines symbols. A symbol is like a string but we guarantee that there will only be one symbol with a given name in existence at any point in time. This lets you safely compare two symbols for equality just by testing that they're the same object.</p>
 
@@ -120,10 +120,10 @@ class Symbol {
 
 <p>What's cool is that the <em>caller</em> never sees this. They just do:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var a = new Symbol('something');
 var b = new Symbol('something');
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>The second call to <code>new</code> will return the previously cached one. This is nice because it means that if we don't need a factory constructor at first, but later realize we do, we won't have to change all of our existing code that's calling <code>new</code> to instead call some static method.</p>
 
@@ -133,28 +133,28 @@ var b = new Symbol('something');
 
 <p>Dart has three notations for creating functions: one for named functions, one for anonymous functions with statement bodies and one for expression bodies. The named form looks like this:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 void sayGreeting(String salutation, String name) {
   final greeting = '$salutation $name';
   print(greeting);
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>This looks like a regular function definition in C or a method in Java or JavaScript. Unlike C and C++, these can be nested in the middle of another function. If you don't need to give a name to a function, there is an anonymous form too. It looks like the above but without a name or return type, like so:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 window.on.click.add((event) {
   print('You clicked the window.');
 })
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>Here we're passing a function to the <code>add()</code> method to register an event handler. Finally, if you need a really lightweight function that just evaluates and returns a single expression, there's <code>=&gt;</code>:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var items = [1, 2, 3, 4, 5];
-var odd = items.filter((i) =&gt; i % 2 == 1);
+var odd = items.filter((i) => i % 2 == 1);
 print(odd); // [1, 3, 5]
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>A parenthesized argument list followed by <code>=&gt;</code> and a single expression creates a function that takes those arguments, and returns the result of the expression.</p>
 
@@ -162,29 +162,29 @@ print(odd); // [1, 3, 5]
 
 <p>Dart has one more trick up its sleeve that is one of my favorite features of the language: you can also use <code>=&gt;</code> for defining members. Sure, you <em>could</em> do this:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Rectangle {
   num width, height;
 
   bool contains(num x, num y) {
-    return (x &lt; width) &amp;&amp; (y &lt; height);
+    return (x < width) && (y < height);
   }
 
   num area() {
     return width * height;
   }
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>But why do that when you can just do:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Rectangle {
   num width, height;
-  bool contains(num x, num y) =&gt; (x &lt; width) &amp;&amp; (y &lt; height);
-  num area() =&gt; width * height;
+  bool contains(num x, num y) => (x < width) && (y < height);
+  num area() => width * height;
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>We find arrow functions are great for defining simple getters and other one-liner methods that calculate or access some property of an object.</p>
 
@@ -192,28 +192,28 @@ class Rectangle {
 
 <p>Speaking of properties, Dart uses your standard <code>object.someProperty</code> syntax for working with them. That's how most languages work when <code>someProperty</code> is an actual field on the class, but Dart also allows you to define methods that look like property access but execute whatever code you want. As in other languages, these are called <em>getters</em> and <em>setters</em>. Here's an example:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Rectangle {
   num left, top, width, height;
 
-  num get right()           =&gt; left + width;
-      set right(num value)  =&gt; left = value - width;
-  num get bottom()          =&gt; top + height;
-      set bottom(num value) =&gt; top = value - height;
+  num get right()           => left + width;
+      set right(num value)  => left = value - width;
+  num get bottom()          => top + height;
+      set bottom(num value) => top = value - height;
 
   Rectangle(this.left, this.top, this.width, this.height);
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>Here we have a Rectangle class with four actual fields, <code>left</code>, <code>top</code>, <code>width</code>, and <code>height</code>. It also has getters and setters to define two more logical properties: <code>right</code> and <code>bottom</code>. If you're using the class, there is no visible difference between a "real" field and getters and setters:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var rect = new Rectangle(3, 4, 20, 15);
 print(rect.left);
 print(rect.bottom);
 rect.top = 6;
 rect.right = 12;
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>This blurring the line between fields and getters/setters is fundamental to the language. The clearest way to think of it is that fields <em>are</em> just getters and setters with magical implementations. This means that you can do fun stuff like override an inherited getter with a field and vice versa. If an interface defines a getter, you can implement it by simply having a field with the same name and type. If the field is mutable (not <code>final</code>) it can implement a setter that an interface requires.</p>
 
@@ -221,30 +221,30 @@ rect.right = 12;
 
 <p>Later, if you need to do some validation or other work, you can always replace that field with a getter and setter. If we wanted our Rectangle class to make sure it always has a non-negative size, we could change it to:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Rectangle {
   num left, top;
   num _width, _height;
 
-  num get width() =&gt; _width;
+  num get width() => _width;
   set width(num value) {
-    if (value &lt; 0) throw 'Width cannot be negative.';
+    if (value < 0) throw 'Width cannot be negative.';
     _width = value;
   }
 
-  num get height() =&gt; _height;
+  num get height() => _height;
   set height(num value) {
-    if (value &lt; 0) throw 'Height cannot be negative.';
+    if (value < 0) throw 'Height cannot be negative.';
     _height = value;
   }
 
-  num get right()           =&gt; left + width;
-      set right(num value)  =&gt; left = value - width;
-  num get bottom()          =&gt; top + height;
-      set bottom(num value) =&gt; top = value - height;
+  num get right()           => left + width;
+      set right(num value)  => left = value - width;
+  num get bottom()          => top + height;
+      set bottom(num value) => top = value - height;
 
   Rectangle(this.left, this.top, this._width, this._height);
-}{% endpretty_code dart 0 %}
+}{% endhighlight dart 0 %}
 
 <p>And now we've modified the class to do some validation without having to touch any of the existing code that was already using it.</p>
 
@@ -252,8 +252,8 @@ class Rectangle {
 
 <p>Dart is a "pure" object-oriented language in that everything you can place in a variable is a real object (no mutant "primitives") and every object is an instance of some class. It's not a <em>dogmatic</em> OOP language though. You aren't required to place everything you define inside some class. Instead, you are free to define functions, variables, and even getters and setters at the top level if you want.</p>
 
-{% pretty_code dart 0 %}
-num abs(num value) =&gt; value &lt; 0 ? -value : value;
+{% highlight dart %}
+num abs(num value) => value < 0 ? -value : value;
 
 final TWO_PI = Math.PI * 2.0;
 
@@ -261,7 +261,7 @@ int get today() {
   final date = new DateTime.now();
   return date.day;
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>Even in languages that don't require you to place everything inside a class or object, like JavaScript, it's still common to do so as a form of namespacing: top-level definitions with the same name could inadvertently collide. To address that, Dart has a library system that allows you to import definitions from other libraries with a prefix applied to disambiguate it. That means you shouldn't <em>need</em> to defensively squirrel your definitions inside classes.</p>
 
@@ -273,7 +273,7 @@ int get today() {
 
 <p>Dart has a few kinds of string literals. You can use single or double quotes, and you can use triple-quoted multiline strings:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 'I am a "string"'
 "I'm one too"
 
@@ -286,30 +286,30 @@ As
 am
 I
 """
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>To build bigger strings from these pieces, you <em>can</em> just concatenate them using <code>+</code>:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var name = 'Fred';
 var salutation = 'Hi';
 var greeting = salutation + ', ' + name;
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>But it's cleaner and faster to use <em>string interpolation</em>:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var name = 'Fred';
 var salutation = 'Hi';
 var greeting = '$salutation, $name';
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>A dollar sign (<code>$</code>) in a string literal followed by a variable will expand to that variable's value. (If the variable isn't a string, it calls <code>toString()</code> on it.) You can also interpolate expressions by placing them inside curly braces:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var r = 2;
 print('The area of a circle with radius $r is ${Math.PI * r * r}');
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <h2 id="operators">Operators</h2>
 
@@ -317,21 +317,21 @@ print('The area of a circle with radius $r is ${Math.PI * r * r}');
 
 <p>This means that you can also overload (most) operators for your own types. For example, here's a <code>Vector</code> class:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class Vector {
   num x, y;
   Vector(this.x, this.y);
-  operator +(Vector other) =&gt; new Vector(x + other.x, y + other.y);
+  operator +(Vector other) => new Vector(x + other.x, y + other.y);
 }
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>With that, we can add vectors using familiar syntax:</p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var position = new Vector(3, 4);
 var velocity = new Vector(1, 2);
 var newPosition = position + velocity;
-{% endpretty_code dart 0 %}
+{% endhighlight dart 0 %}
 
 <p>That being said, please don't go crazy with this. We're giving you the keys to the car and trusting that you won't turn around and drive it through the living room.</p>
 
@@ -367,4 +367,3 @@ a floating point and <i>cannot</i> be an integer, which is what double expresses
 
 </section>
 
-{% include syntax-highlighting.html %}

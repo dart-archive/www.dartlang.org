@@ -14,31 +14,31 @@ title: "Sunflower Code Walkthrough"
 Here is the HTML for the Sunflower sample, which includes heading text, the Canvas object, an 
 HTML5 range input (slider), and an image showing the equations used to render the sunflower.</p>
 
-{% pretty_code html %}
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;sunflower&lt;/title&gt;
-    &lt;link type="text/css" rel="stylesheet" href="sunflower.css"&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;drfibonacci's* Sunflower Spectacular&lt;/h1&gt;
-    &lt;h2&gt;* Count the clockwise and counter-clockwise spiral arms at the edges&lt;/h2&gt;
-    &lt;div class="image"&gt;&lt;/div&gt;
-    &lt;div&gt;
-        &lt;canvas id="canvas" width="300" height="300"&gt;&lt;/canvas&gt;
-    &lt;/div&gt;
-    &lt;div&gt;
-        &lt;label&gt;# seeds (n):&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="rangeOption"&gt;
-      &lt;input id="slider" type="range" max="1000" value="0" /&gt;
-      &lt;label class="minLabel"&gt;0&lt;/label&gt;
-      &lt;label class="maxLabel"&gt;1000&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;script type="application/dart" src="Sunflower.dart"&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-{% endpretty_code %}
+{% highlight html %}
+<html>
+  <head>
+    <title>sunflower</title>
+    <link type="text/css" rel="stylesheet" href="sunflower.css">
+  </head>
+  <body>
+    <h1>drfibonacci's* Sunflower Spectacular</h1>
+    <h2>* Count the clockwise and counter-clockwise spiral arms at the edges</h2>
+    <div class="image"></div>
+    <div>
+        <canvas id="canvas" width="300" height="300"></canvas>
+    </div>
+    <div>
+        <label># seeds (n):</label>
+    </div>
+    <div class="rangeOption">
+      <input id="slider" type="range" max="1000" value="0" />
+      <label class="minLabel">0</label>
+      <label class="maxLabel">1000</label>
+    </div>
+    <script type="application/dart" src="Sunflower.dart"></script>
+  </body>
+</html>
+{% endhighlight %}
 
 <p>Note that the script tag includes source of type application/dart. This allows you
 to run the script directly in a browser that supports Dart.
@@ -49,7 +49,7 @@ the DOM is ready (on DOMContentLoaded).</p>
 
 <p>Now let's look at the Dart code.</p>
 
-{% pretty_code %}
+{% highlight dart %}
 class Sunflower {
 
   static void main() {
@@ -84,7 +84,7 @@ class Sunflower {
     
     drawFrame();
   }
-{% endpretty_code %}
+{% endhighlight %}
   
 <p>As with other object-oriented languages, the fundamental unit of code organization is a class. By convention, class file names end with ".dart". Code execution begins with the main() method and does not require any arguments. Sunflower's main() method simply invokes the constructor, which sets up the Canvas, registers an event handler, and draws the first frame.</p>
 
@@ -98,11 +98,11 @@ class Sunflower {
 
 <p>Finally, let's take a look at the methods that actually draw on the Canvas.</p>
 
-{% pretty_code dart 35 %}
+{% highlight dart %}
   // Draw the complete figure for the current number of seeds.
   void drawFrame() {
     ctx.clearRect(0, 0, MAX_D, MAX_D);
-    for (int i=0; i&lt;seeds; i++) {
+    for (int i=0; i<seeds; i++) {
       num theta = i * PI2 / PHI;
       num r = Math.sqrt(i) * SCALE_FACTOR;
       num x = xc + r * Math.cos(theta);
@@ -124,7 +124,7 @@ class Sunflower {
   }
 
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>The drawFrame() method does all the calculations, and drawSeed() paints on the Canvas (actually, the CanvasRenderingContext2D). Dart generates DOM bindings automatically from the browser's IDL, which means you can use a good HTML5 reference like <a href="http://html5rocks.com">HTML5 ROCKS</a> or <a href="http://developer.mozilla.org">Mozilla Developer Network</a> to write Dart code that interacts with the DOM. You can easily convert from JavaScript to Dart syntax using a few simple rules:</p>
 
@@ -136,4 +136,4 @@ class Sunflower {
 
 <p>By combining HTML layout with a dynamically typed language, Dart makes it quick and easy to create rich user interfaces.</p>
 
-{% include syntax-highlighting.html %}
+

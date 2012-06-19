@@ -1,8 +1,8 @@
 Here's an example of creating a variable and assigning a value to it:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var name = 'Bob';
-{% endpretty_code %}
+{% endhighlight %}
 
 Variables are references. The variable named `name` contains a reference
 to a String object with a value of "Bob".
@@ -12,18 +12,18 @@ to a String object with a value of "Bob".
 Uninitialized variables have an initial value of `null`. This includes numbers,
 which are also objects.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 int lineCount;
 assert(lineCount == null); // Variables (even numbers) are initially null.
-{% endpretty_code %}
+{% endhighlight %}
 
 #### Optional types
 
 You have the option of adding static types to your variable declarations:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 String name = 'Bob';
-{% endpretty_code %}
+{% endhighlight %}
 
 Adding types is a way to clearly express your intent.
 Tools like compilers and editors can use these types to
@@ -40,15 +40,15 @@ help you, by providing early warnings for bugs and code completion.
 If you never intend to change a variable, use `final` instead of var or in
 addition to a type. Once a `final` variable is set, it can't be changed.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 final name = 'Bob'; // Or: final String name = 'Bob';
-<span class="code-error">name = 'Alice';     // ERROR (VM or dart2js)</span>
-{% endpretty_code %}
+name = 'Alice';     // ERROR (VM or dart2js)
+{% endhighlight %}
 
 #### Summary
 
 Although Dart variables are optionally typed,
 we generally recommend using types
 because they make your intent clear.
-Variables can be marked as `final`, locking the value. Unitialized variables
+Variables can be marked as `final`, locking the value. Uninitialized variables
 have an initial value of `null`.

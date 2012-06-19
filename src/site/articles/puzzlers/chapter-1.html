@@ -14,7 +14,7 @@ January 2012</em>
 <p>
 Years ago I co-wrote a book called
 <em>Java Puzzlers: Traps, Pitfalls, and Corner Cases</em>.
-Now that I’m on the Dart team,
+Now that I'm on the Dart team,
 I'm translating all of these puzzlers to Dart to see if they still puzzle,
 and if they have anything useful to tell us about the Dart design.
 Here's the first chapter's worth.
@@ -44,22 +44,22 @@ This method appears to tell you whether its argument is odd or even,
 but fails on negative odd arguments:
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public static boolean isOdd(int i) {
   return i % 2 == 1;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 The puzzler was fixed in Dart:
 The following function <em>does</em> identify odd numbers in Dart (unlike Java):
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 bool isOdd(int i) {
   return i % 2 == 1;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 That said, I'm not so sure the cure is any better than the disease;
@@ -71,7 +71,7 @@ D = d * (D div d) + D mod d
 </blockquote>
 
 <p>
-It’s also incompatible with JavaScript, Java, C, C++, and C#.
+It's also incompatible with JavaScript, Java, C, C++, and C#.
 I've been discussing this issue with
 <a href="/authors/florian-loitsch.html">Florian Loitsch</a>.
 </p>
@@ -84,28 +84,28 @@ This program appears to calculate the change
 when $2.00 is paid for a $0.90 purchase.
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class Change {
   public static void main(String args[]) {
     System.out.println(2.00 - 1.10);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Here it is translated into Dart:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   print(2.00 - 1.10);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 In Java and Dartboard, it prints 0.8999999999999999.
 Using the Dart VM, it (currently) prints 0.9,
-but this is because we’re currently using C’s formatting functions;
+but this is because we're currently using C's formatting functions;
 in the near future, the Dart VM will display
 the same (puzzling) behavior as Dartboard.
 </p>
@@ -117,11 +117,11 @@ There are many who would argue that it should.
 One man (Mike Cowlishaw, former IBM Fellow)
 devoted a good chunk of his life to this:
 <a href="http://speleotrove.com/decimal">http://speleotrove.com/decimal</a>.
-C# does support 128-bit floating decimals, for what it’s worth.
-But if you’re deploying to JavaScript,
+C# does support 128-bit floating decimals, for what it's worth.
+But if you're deploying to JavaScript,
 floating-point decimal arithmetic will be ungodly slow,
-and it won’t be fast anywhere
-(except, perhaps, on IBM’s Power6 chip,
+and it won't be fast anywhere
+(except, perhaps, on IBM's Power6 chip,
 which supports floating decimal natively,
 due to the efforts of the aforementioned Mike Cowlishaw).
 Incidentally, Cowlishaw was on the EcmaScript committee,
@@ -134,7 +134,7 @@ should we provide linguistic support for decimal literals?
 </p>
 
 <p>
-As you’re doubtless aware,
+As you're doubtless aware,
 the floating point binary problem is worse in Dart
 than when you compile to JavaScript.
 In Java, most programmers know enough to use int rather than double
@@ -142,17 +142,17 @@ to avoid these problems.
 But consider the following Dart program:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   int i = 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000;
   print(i == i + 1);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 When you run it on Dartboard,
 it prints true, which is <em>really</em> confusing.
-I don’t think we can, in good conscience, support this behavior.
+I don't think we can, in good conscience, support this behavior.
 But I understand that this is a hard, over-constrained problem.
 </p>
 
@@ -166,7 +166,7 @@ which is 1000.
 In fact, it prints 5:
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class LongDivision {
   public static void main(String[] args) {
     final long MICROS_PER_DAY = 24 * 60 * 60 * 1000 * 1000;
@@ -175,10 +175,10 @@ public class LongDivision {
     System.out.println(MICROS_PER_DAY / MILLIS_PER_DAY);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
-This puzzler doesn’t apply directly to Dart
+This puzzler doesn't apply directly to Dart
 because it has no long type,
 and was fixed because Dart's int type is arbitrary-precision.
 If you label the variables as int,
@@ -190,16 +190,16 @@ but there's no guarantee that it will do so in general.
 
 <h2 id="4"> Puzzler 4: It's Elementary </h2>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class Elementary {
   public static void main(String[] args) {
     System.out.println(12345 + 5432l); // Lowercase L masquerades as 1!
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
-This puzzler doesn’t apply to Dart,
+This puzzler doesn't apply to Dart,
 as there are no long (64-bit) literals in Dart.
 </p>
 
@@ -211,14 +211,14 @@ This Java program looks like it should print <code>1cafebabe</code>
 but actually prints <code>cafebabe</code> due to unexpected sign extension
 (<code>0xcafebabe</code> is a negative number).
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class JoyOfHex {
   public static void main(String[] args) {
     System.out.println(
       Long.toHexString(0x100000000L + 0xcafebabe));
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 This was fixed in Dart,
@@ -226,22 +226,22 @@ by the use of arbitrary-precision integer arithmetic.
 This Dart program prints <code>1cafebabe</code>:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   print((0x100000000 + 0xcafebabe).toRadixString(16));
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 
 <h2 class="6"> Puzzler 6: Multicast </h2>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class Multicast {
   public static void main(String[] args) {
     System.out.println((int) (char) (byte) -1);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 This puzzle doesn't apply in Dart as it has no casts.
@@ -255,7 +255,7 @@ This program attempts to use a hideous hack
 to swap the contents of two int variables:
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class CleverSwap {
   public static void main(String[] args) {
     int x = 1984;
@@ -264,27 +264,27 @@ public class CleverSwap {
     System.out.println("x = " + x + "; y = " + y);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 In Dart:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   int x = 1984;
   int y = 2001;
   x ^= y ^= x ^= y;
   print("x = ${x}; y = ${y}");
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 This puzzler behaves exactly the same in Java and Dart.
 Luckily, it doesn't indicate a language problem:
 It's just a cautionary tale regarding
 overly clever programming and premature optimization.
-(For what it’s worth, the Rube Goldberg “fix” in the book also
+(For what it's worth, the Rube Goldberg “fix” in the book also
 applies equally well to Dart and Java.)
 </p>
 
@@ -296,7 +296,7 @@ This program would appear to print <code>XX</code>,
 but actually prints <code>X88</code> in Java:
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class DosEquis {
   public static void main(String[] args) {
     char x = 'X';
@@ -305,38 +305,38 @@ public class DosEquis {
     System.out.print(false ? i : x);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 In Dart:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   string x = 'X';
   int i = 0;
   print(true  ? x : 0);
   print(false ? i : x);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 This puzzle is fixed in Dart,
-because Dart doesn’t have a char type that is a (barely) glorified int type,
-doesn’t do primitive widening conversions on ternary expressions,
+because Dart doesn't have a char type that is a (barely) glorified int type,
+doesn't do primitive widening conversions on ternary expressions,
 and doesn't have weird rules concerning small int values
-(don't ask; read the book if you’re morbidly curious).
+(don't ask; read the book if you're morbidly curious).
 </p>
 
 
 <h2 id="#9"> Puzzler 9: Tweedledum </h2>
 
 <p>
-In this puzzle, you’re asked to provide declarations
+In this puzzle, you're asked to provide declarations
 to cause the indicated behavior:
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 Public class Tweedledum {
   public static void main(String[] args) {
     // Put your declarations for x and i here
@@ -345,7 +345,7 @@ Public class Tweedledum {
     x = x + i;  // Must be ILLEGAL
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Fixed in Dart:
@@ -357,10 +357,10 @@ no implicit narrowing conversion on compound assignment expressions.
 <h2 id="10"> Puzzler 10: Tweedledee </h2>
 
 <p>
-Again, you’re asked to provide declarations to cause the indicated behavior:
+Again, you're asked to provide declarations to cause the indicated behavior:
 </p>
 
-{% pretty_code java 0 %}
+{% highlight java %}
 public class Tweedledee {
   public static void main(String[] args) {
     // Put your declarations for x and i here
@@ -369,11 +369,11 @@ public class Tweedledee {
     x += i;     // Must be ILLEGAL
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 This one is fixed in Dart;
-in fact, it’s even fixed in Java, as of 1.6.
+in fact, it's even fixed in Java, as of 1.6.
 It had to do with peculiarities of Java's String concatenation operator
 and its corresponding compound assignment operator.
 </p>
@@ -390,4 +390,4 @@ and one doesn't really indicate a language problem (Puzzler 7).
 
 </section>
 
-{% include syntax-highlighting.html %}
+

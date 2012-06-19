@@ -147,18 +147,18 @@ to link to your Dart source file.
 
 <p>Example:</p>
 
-{% pc html 0 %}
-&lt;!DOCTYPE html>
-&lt;html>
-  &lt;body>
-    &lt;script type="application/dart" src="app.dart"&gt;&lt;/script&gt;
-    &lt;!-- bootstraps the Dart VM and handles non-Dart browsers --&gt;
-    &lt;script type="text/javascript"
-      src="http://dart.googlecode.com/svn/trunk/dart/client/dart.js"&gt;
-    &lt;/script&gt;
-  &lt;/body>
-&lt;/html>
-{% endpc %}
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <body>
+    <script type="application/dart" src="app.dart"></script>
+    <!-- bootstraps the Dart VM and handles non-Dart browsers -->
+    <script type="text/javascript"
+      src="http://dart.googlecode.com/svn/trunk/dart/client/dart.js">
+    </script>
+  </body>
+</html>
+{% endhighlight %}
 
 <aside class="note">
   <b>Tip:</b> The Dart Editor automatically adds both
@@ -187,7 +187,7 @@ on the window.navigator object.
 For example:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight javascript %}
 if (!navigator.webkitStartDart) {
   // No native Dart support.
   window.addEventListener("DOMContentLoaded", function (e) {
@@ -199,7 +199,7 @@ if (!navigator.webkitStartDart) {
     document.body.innerHTML = 'This build has expired.  Please download a new Dartium at http://www.dartlang.org/dartium/index.html';
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 </section>
 
@@ -212,11 +212,11 @@ Because Dartium is based on Chromium, all
 <a href="http://www.chromium.org/developers/how-tos/run-chromium-with-flags">Chromium flags</a>
 should work.
 In some cases, you might want to specify Dart-specific flags
-so that you can tweak the embedded Dart VM’s behavior.
+so that you can tweak the embedded Dart VM's behavior.
 For example, while developing your web app,
 you might want the VM to perform as many checks as possible.
 To achieve that, you can enable checked mode
-(the VM’s --enable_type_checks flag)
+(the VM's --enable_type_checks flag)
 and assertion checks (--enable_asserts flag).
 </p>
 
@@ -224,27 +224,27 @@ and assertion checks (--enable_asserts flag).
 On Linux, you can specify flags by starting Dartium as follows:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight bash %}
 DART_FLAGS='--enable_type_checks --enable_asserts' <em>path</em>/chrome
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 On the Mac:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight bash %}
 DART_FLAGS='--enable_type_checks --enable_asserts'              \
   <em>path</em>/Chromium.app/Contents/MacOS/Chromium
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Or (also on the Mac):
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight bash %}
 DART_FLAG='--enable_type_checks --enable_asserts'               \
-   <b>open</b> <em>path</em>/Chromium.app
-{% endpretty_code %}
+   open PATH/Chromium.app
+{% endhighlight %}
 
 <br>
 <aside class="note">
@@ -256,4 +256,4 @@ by going to <b>chrome://version</b>.
 </section>
 
 <script async src="/js/Switcher.dart.js"></script>
-{% include syntax-highlighting.html %}
+

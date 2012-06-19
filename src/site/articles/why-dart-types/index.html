@@ -53,7 +53,7 @@ assume code is valid unless we can be statically sure it isn't.
 The code in this article assumes these declarations of a little type hierarchy, and some variables:
 </p>
 
-<pre class="prettyprint lang-dart linenums:1 ">
+{% highlight dart %}
 class Mammal {}
 class Cow extends Mammal { String moo() => 'moo!'; }
 class Pig extends Mammal { String oink() => 'oink!'; }
@@ -61,7 +61,7 @@ class Pig extends Mammal { String oink() => 'oink!'; }
 Mammal mammal = new Mammal();
 Cow cow = new Cow();
 Pig pig = new Pig();
-</pre>
+{% endhighlight %}
 </section>
 
 
@@ -79,11 +79,11 @@ we very soon find that these static checks will be unsound.
 Consider some code with a valid "down-assignment", assigning a supertype to a subtype:
 </p>
 
-<pre class="prettyprint lang-dart linenums:1 ">
+{% highlight dart %}
 mammal = cow;  // [1]
 cow = mammal;  // [2] cow holds a Cow.
 print(cow.moo());
-</pre>
+{% endhighlight %}
 
 <p>An up-assignment like [1] is always valid, so we make them pass static type checking.  A down-assignment could be valid, as [2] is, or invalid.  Because down-assignments <em>may</em> be valid and Dart is optimistic that you know what you're doing, we make them pass static checking too.  This gives us the assignment rule in the language spec:</p>
 <blockquote>A type T <em>may be assigned to</em> a type S, written  T &hArr; S, iff either T &lt;: S or S &lt;: T.</blockquote>
@@ -93,14 +93,15 @@ print(cow.moo());
 <p>
 Already we have designed ourselves an unsound type rule.
 </p>
-<pre class="prettyprint lang-dart linenums:1 ">
+
+{% highlight dart %}
 mammal = cow;      // [1]
 pig = mammal;      // [2] Checks OK statically;
                    //     at runtime fails only in checked mode.
 
 //In unchecked mode, pig now holds a Cow.
 print(pig.oink()); // [3] NoSuchMethodException if we get this far.
-</pre>
+{% endhighlight %}
 
 <p>Down-assignment [2] was not valid, leading to a dynamic type error if they are enabled, or else an exception when the <code>Cow</code> stored in <code>pig</code> can't <code>Oink()</code>.</p>
 
@@ -125,21 +126,21 @@ print(pig.oink()); // [3] NoSuchMethodException if we get this far.
 The following code snippet will work in the absence of type checks.  So Dart would like for it to pass both static and dynamic type checks:
 </p>
 
-<pre class="prettyprint lang-dart linenums:1 ">
+{% highlight dart %}
 // Uses "list" covariantly.
-Mammal peekMammalList(List&lt;Mammal&gt; list) {
+Mammal peekMammalList(List<Mammal> list) {
   return list[2];
 }
 
 main() {
-  List&lt;Cow&gt; cowList = new List&lt;Cow&gt;(4);
+  List<Cow> cowList = new List<Cow>(4);
   peekMammalList(cowList);
   // Covariant use:
   // * static type checking OK
   // * dynamic type checking OK
   // * runs happily
 }
-</pre>
+{% endhighlight %}
 
 <p>Some generics that people write are strictly covariant on a type argument.  For example, a <code>ReadOnlyReference&lt;Cow&gt;</code> is substitutable for a <code>ReadOnlyReference&lt;Mammal&gt;</code>: someone expecting the latter will encounter no surprises if given the former.  Some generics are contravariant on a type argument, such as a <code>WriteOnlyReference&lt;T&gt;</code>.  And many are neither, so they're invariant.  Generics taking multiple type arguments may have different variances on each one.</p>
 
@@ -155,27 +156,27 @@ On top of this, a generic that is invariant may be used in a way that's covarian
 
 <p>I found this a little surprising.  But I think the idea is that use of contravariance is not very common (remember <code>Function</code> is not a generic in Dart), and you can use an uninstantiated generic as a workaround.  (Would bivariant generics be less surprising, or more?)</p>
 
-<pre class="prettyprint lang-dart linenums:1">
+{% highlight dart %}
 // Use "list" as an output argument.
 //
 // This function body works contravariantly -- "list" could be any 
-// List&lt;T&gt; where T is Cow or a supertype -- but the declaration 
+// List<T> where T is Cow or a supertype -- but the declaration 
 // doesn't allow that.
-void pokeCowList(List&lt;Cow&gt; list) {
+void pokeCowList(List<Cow> list) {
   list[2] = new Cow();
 }
 
 // Use "list" as an output argument.
 //
 // Here we loosen the declaration to allow contravariance -- 
-// "list" can be any List&lt;T&gt; where T is Cow or a supertype -- 
+// "list" can be any List<T> where T is Cow or a supertype -- 
 // but we have to over-loosen it, allowing any List at all.
 void pokeCowListWorkaround(List list) {
   list[2] = new Cow();
 }
 
 main() {
-  List&lt;Mammal&gt; mammalList = new List&lt;Mammal&gt;(4);
+  List<Mammal> mammalList = new List<Mammal>(4);
 
   pokeCowListWorkaround(mammalList);
   // Contravariant use with workaround:
@@ -189,14 +190,14 @@ main() {
   // * dynamic type checking fails!
   // * runs happily if dynamic checking is off
 
-  List&lt;int&gt; intList = new List&lt;int&gt;(4);
+  List<int> intList = new List<int>(4);
   pokeCowListWorkaround(intList);
   // Incorrect use, but workaround has silenced type checking:
   // * static type checking OK
   // * dynamic type checking OK
   // * fails at runtime
 }
-</pre>
+{% endhighlight %}
 
 
 <h3>Couldn't Dart do variance inference, or something?</h3>
@@ -211,9 +212,9 @@ main() {
 <p>One reason is that for Dart to operate as a dynamically typed language, it needs some way to express that a variable makes no static claims about what types of values it can hold.  We express this as <code>var thing = ...</code>, a declaration with no type annotation.  (The alternative is to require static type annotations on all declarations but allow this type to be <code>Dynamic</code>, which permits any value.  But this adds no value for this case, just code clutter.)</p>
 
 <p>We also think programmers should be able to decide which type annotations are useful and which are too obvious to justify carrying the annotation in the source code.  We use the <code>var</code> declaration form for this case as well:</p>
-<pre class="prettyprint lang-dart linenums:1 ">
+{% highlight dart %}
 var s = "obviously a string";
-</pre>
+{% endhighlight %}
 
 <p>You could also imagine distinguishing the two cases, "declared as dynamic" versus "I don't care to declare a type, but feel free to infer it and use that" (maybe <code>auto s = ...</code>).  The only reason I see to distinguish them is if inferred types are giving spurious static type warnings that you could suppress by declaring as <code>Dynamic</code>, but we don't intend for type inference to give spurious type warnings.  Also, we do have other mechanisms to suppress them if needed, such as the <code>.dynamic</code> getter.</p>
 
@@ -240,4 +241,4 @@ I would imagine that as we work further on the editor experience, we may think a
 </section>
 </section>
 
-{% include syntax-highlighting.html %}
+

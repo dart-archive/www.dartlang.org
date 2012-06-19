@@ -8,13 +8,13 @@ Dart support for maps is provided by map literals and the
 Here's a simple Dart map:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = {                         // A map literal
 // Keys       Values
   "first"  : "partridge",
   "second" : "turtledoves",
   "fifth"  : "golden rings"};
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 In map literals, each <b>key</b> must be a string.
@@ -26,12 +26,12 @@ that implements the
 interface.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var map = new Map();                  // Use a Map constructor.
 map[1] = "partridge";                 // Key is 1; value is "partridge".
 map[2] = "turtledoves";               // Key is 2; value is "turtledoves".
 map[5] = "golden rings";              // Key is 5; value is "golden rings".
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 A map <b>value</b> can be any object or null.
@@ -42,19 +42,19 @@ You add a new key-value pair to an existing map
 just as you would in JavaScript:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = { "first": "partridge" };
-<b>gifts["fourth"] = "calling birds";</b>    // Add a key-value pair.
-{% endpretty_code %}
+gifts["fourth"] = "calling birds";    // Add a key-value pair.
+{% endhighlight %}
 
 <p>
 You retrieve a value from a map the same way you would in JavaScript:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = { "first": "partridge" };
 assert(gifts['first'] == 'partridge');
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 If you look for a key that isn't in a map,
@@ -66,43 +66,43 @@ you might need to use a method such as
 to make sure you interpret null correctly.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = { "first": "partridge" };
 assert(gifts['fifth'] == null);
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Use <b>.length</b> to get the number of key-value pairs in the map:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = { "first": "partridge" };
 gifts["fourth"] = "calling birds";
-assert(<b>gifts.length</b> == 2);
-{% endpretty_code %}
+assert(gifts.length == 2);
+{% endhighlight %}
 
 <p>
 To remove a key-value pair from a map,
 use the <b>remove()</b> method:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = { "first": "partridge" };
 gifts["fourth"] = "calling birds";
-<b>gifts.remove('first');</b>
+gifts.remove('first');
 assert(gifts.length == 1);
 assert(gifts['first'] == null);
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 You can copy a map using the <b>Map.from()</b> constructor:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = { "first": "partridge" };
 var regifts = new Map.from(gifts);
 assert(regifts['first'] == 'partridge');
-{% endpretty_code %}
+{% endhighlight %}
 
 
 <section id="maps-iterating">
@@ -114,13 +114,13 @@ Using the <b>forEach()</b> method gives you access to both
 the key and the value.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = {
   "first" : "partridge",
   "second": "turtledoves",
   "fifth" : "golden rings"};
 gifts.forEach((k,v) => print('$k : $v'));
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note">
 <b>Note:</b>
@@ -135,13 +135,13 @@ Both methods return a
 <a href="http://api.dartlang.org/dart_core/Collection.html">Collection</a> object.
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var gifts = {"first": "partridge", "second": "turtledoves"};
 var values = gifts.getValues();
 
 //Print partridge and turtledoves, but not necessarily in that order.
 values.forEach((v) => print(v));
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note">
 <b>Note:</b>

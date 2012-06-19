@@ -34,11 +34,11 @@ as the file containing the app's  main() method.
 Here is an example of a pubspec.yaml file that associates the
 `awesome` package with a git repository:
 
-{% pretty_code console 0 %}
+{% highlight yaml %}
 dependencies:
   awesome:
     git: git://github.com/munificent/awesome.git
-{% endpretty_code %}
+{% endhighlight %}
 
 The pubspec uses the [YAML](http://yaml.org/) format.
 
@@ -47,10 +47,10 @@ The pubspec uses the [YAML](http://yaml.org/) format.
 Now that you have a pubspec, you can run `pub install`. You must
 run this command from the directory containing the pubspec.yaml file.
 
-{% pretty_code console 0 %}
+{% highlight yaml %}
 cd your/app
 $DART_SDK/bin/pub install
-{% endpretty_code %}
+{% endhighlight %}
 
 This command creates a _packages_ directory inside the current directory,
 cloning the git repositories into the packages directory.
@@ -73,23 +73,21 @@ Not all libraries that ship with the SDK are available in the `dart:`
 namespace. To use those libraries (for example, unittest) in your app,
 add an `sdk` source to your `pubspec.yaml` file. For example:
 
-{% pretty_code console 0 %}
+{% highlight yaml %}
 dependencies:
   unittest
     sdk: unittest
-{% endpretty_code %}
+{% endhighlight %}
 
 When you use the SDK as a source for packages, you must specify a
 `--sdkdir` command-line
 argument, pointing to the SDK location. The path to the
 SDK must be a fully qualified path, until [bug 3714](http://code.google.com/p/dart/issues/detail?id=3714) is addressed.
 
-{% pretty_code console 0 %}
+{% highlight bash %}
 cd your/app
 $DART_SDK/bin/pub install --sdkdir=/full/path/to/dart/sdk
-{% endpretty_code %}
-
-
+{% endhighlight %}
 
 ## Pointing Dart to your packages
 
@@ -117,9 +115,9 @@ For command-line Dart applications that use packages, use the
 
 For example:
 
-{% pc console 0 %}
+{% highlight bash %}
 $DART_SDK/bin/dart --package-root=./packages/ app.dart
-{% endpc %}
+{% endhighlight %}
 
 Note the required trailing slash when specifying the `./packages/` directory.
 
@@ -127,12 +125,12 @@ Note the required trailing slash when specifying the `./packages/` directory.
 
 To import libraries found in packages, use the `package:` prefix.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 #import('package:awesome/awesome.dart');
-{% endpretty_code %}
+{% endhighlight %}
 
 ## Additional options
 
 Run `$DART_SDK/bin/pub --help` for a list of commands.
 
-{% include syntax-highlighting.html %}
+

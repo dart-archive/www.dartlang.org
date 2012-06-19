@@ -22,28 +22,28 @@ However, Dart programs can throw any object as an exception.
 
 Here's how you throw, or _raise_, an exception.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 throw new IllegalArgumentException('Value must be greater than zero');
-{% endpretty_code %}
+{% endhighlight %}
 
 You can also throw arbitrary objects.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 throw "Out of llamas!";
-{% endpretty_code %}
+{% endhighlight %}
 
 #### Catch
 
 Catching, or capturing, an exception stops the exception from propagated.
 Catching an exception gives you a chance to handle it.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 try {
   breedMoreLlamas();
 } catch (final OutOfLlamasException e) {
   buyMoreLlamas();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 To handle code that can throw more than one type of exception, you can specify
 multiple catch clauses.
@@ -51,7 +51,7 @@ The first catch clause that matches the thrown object's
 type handles the exception. If the catch
 clause does not specify a type, that clause can handle any type of thrown object.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 try {
   breedMoreLlamas();
 } catch (final OutOfLlamasException e) {  // A specific exception
@@ -61,7 +61,7 @@ try {
 } catch (final e) {                       // No specified type, handles all
   print("Something really unknown: $e");
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 
 #### Finally
@@ -72,17 +72,17 @@ use the finally clause.
 If no catch clause matches the exception,
 the finally clause runs and then the exception is propagated.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 try {
   breedMoreLlamas();
 } finally {
   cleanLlamaStalls();  // Always clean up, even if exception is thrown.
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 The finally clause runs after any matching catch clauses.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 try {
   breedMoreLlamas();
 } catch (final e) {
@@ -90,7 +90,7 @@ try {
 } finally {
   cleanLlamaStalls();  // Then clean up.
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Learn more about
 <a href="/docs/library-tour/#exceptions">exceptions</a> in the library tour.

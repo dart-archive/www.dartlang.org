@@ -49,13 +49,13 @@ spawn a new isolate, and then send and receive messages.
 
 The isolates API is in the `dart:isolate` library.
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:isolate');
 
 main() {
   // The app
 }
-{% endpc %}
+{% endhighlight %}
 
 #### Spawning isolates
 
@@ -73,7 +73,7 @@ Pass the entry point to
 support static methods as isolate entry points.
 </aside>
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:isolate');
 
 runInIsolate() {
@@ -87,7 +87,7 @@ main() {
   // Use a ReceivePort (details below) to keep the main isolate alive
   // long enough for runInIsolate to perform its work.
 }
-{% endpc %}
+{% endhighlight %}
 
 We plan to support spawning an isolate from code at a URI.
 
@@ -101,7 +101,7 @@ newly created isolate's SendPort.
 To simply send a message, use
 [send()](http://api.dartlang.org/dart_isolate/SendPort.html#send).
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:isolate');
 
 echo() {
@@ -116,7 +116,7 @@ main() {
   // Use a ReceivePort (details below) to keep the main isolate alive
   // long enough for echo to perform its work.
 }
-{% endpc %}
+{% endhighlight %}
 
 #### Sending any type of object
 
@@ -141,7 +141,7 @@ callback function passed to the
 [receive()](http://api.dartlang.org/dart_isolate/ReceivePort.html#receive)
 method.
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:isolate');
 
 echo() {
@@ -158,7 +158,7 @@ main() {
   // Use a ReceivePort (details below) to keep the main isolate alive
   // long enough for runInIsolate to perform its work.
 }
-{% endpc %}
+{% endhighlight %}
 
 #### Receiving replies
 
@@ -167,7 +167,7 @@ method on SendPort as a simple way to send a
 message and receive a reply. The call() method returns a
 [Future](http://api.dartlang.org/dart_core/Future.html) for the reply.
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:isolate');
 
 echo() {
@@ -182,7 +182,7 @@ main() {
     print(reply);    // I received: Hello from main
   });
 }
-{% endpc %}
+{% endhighlight %}
 
 The call() method creates a new receive port and then sends a message to the
 send port with replyTo set to the receive port. When a reply is
@@ -199,7 +199,7 @@ You can coordinate isolates with message passing,
 sending a message to inform the main isolate when a child
 isolate finishes. Here is an example:
 
-{% pc dart 0 %}
+{% highlight dart %}
 #import('dart:isolate');
 
 childIsolate() {
@@ -220,7 +220,7 @@ main() {
   });
   sender.send("do work please", receiver.toSendPort());
 }
-{% endpc %}
+{% endhighlight %}
 
 In the above example, the child isolate runs to completion
 because the main isolate keeps a ReceivePort open.

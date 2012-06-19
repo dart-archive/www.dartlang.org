@@ -135,7 +135,7 @@ but we would still preserve the asynchronous semantics we support today.
 We disallow inline event listeners of the form:
 </p>
 
-{% pretty_code %}&lt;div onclick="foo()"&gt;Click this text.&lt;/div&gt; {% endpretty_code %}
+{% highlight html %}<div onclick="foo()">Click this text.</div>{% endhighlight %}
 
 <p>
 With JavaScript, programmers can embed inline event listener code
@@ -159,19 +159,19 @@ This script defines its own isolate/library.
 The <code>main()</code> method is implicitly the entry point.  
 </p>
 
-{% pretty_code html 0 %}
-&lt;html&gt;
-  &lt;body&gt;
-    &lt;script type='application/dart'&gt;
+{% highlight html %}
+<html>
+  <body>
+    <script type='application/dart'>
       void main() {
-        HTMLElement element = document.getElementById(&#39;message&#39;);
-        element.innerHTML = &#39;Hello from Dart&#39;;
+        HTMLElement element = document.getElementById('message');
+        element.innerHTML = 'Hello from Dart';
       }
-    &lt;/script&gt;
-    &lt;div id='message'&gt;&lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-{% endpretty_code %}
+    </script>
+    <div id='message'></div>
+  </body>
+</html>
+{% endhighlight %}
 
 <p>
 The div element above is guaranteed to exist
@@ -181,24 +181,24 @@ by the time the Dart code starts running.
 <p>
 In contrast to the previous example, the following is an error:
 </p>
-{% pretty_code html 0 %}
-&lt;html>
-  &lt;body>
-    &lt;script type='application/dart'>
+{% highlight html %}
+<html>
+  <body>
+    <script type='application/dart'>
       void hello(String text) {
         HTMLElement element = document.getElementById('message');
         element.innerHTML = text;
       } <span class="beware">// This tag triggers a warning as no main() is defined.</span>
-    &lt;/script>
-    &lt;script type="application/dart">
+    </script>
+    <script type="application/dart">
       void main() {
-        <b>hello</b>('Hello from Dart'); <span class="beware">// hello() will not resolve.</span>
+        hello('Hello from Dart'); <span class="beware">// hello() will not resolve.</span>
       }
-    &lt;/script>
-    &lt;div id="message">&lt;/div>
-  &lt;/body>
-&lt;/html>
-{% endpretty_code %}
+    </script>
+    <div id="message"></div>
+  </body>
+</html>
+{% endhighlight %}
 
 <aside class="note">
 <b>Note:</b>
@@ -214,19 +214,19 @@ defines the <code>hello()</code> method shown above.
 Then the following executes as expected:
 </p>
 
-{% pretty_code html 0 %}
-&lt;html>
-  &lt;body>
-    &lt;script type='application/dart'>
-      <b>#source(Hello.dart)</b>
+{% highlight html %}
+<html>
+  <body>
+    <script type='application/dart'>
+      #source(Hello.dart)
       void main() {
         hello('Hello from Dart');
       }
-    &lt;/script>
-    &lt;div id="message">&lt;/div>
-  &lt;/body>
-&lt;/html>
-{% endpretty_code %}
+    </script>
+    <div id="message"></div>
+  </body>
+</html>
+{% endhighlight %}
 </section>
 
-{% include syntax-highlighting.html %}
+

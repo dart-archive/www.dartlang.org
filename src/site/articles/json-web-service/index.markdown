@@ -13,7 +13,7 @@ April 2012_
 
 <h2 id="intro">Introduction</h2>
 
-Most client-side Dart apps need a way to communicate with a server, and sending JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is the preferred way to do this. This article discusses communicating with a server using the [XMLHttpRequest API](http://api.dartlang.org/html/XMLHttpRequest.html) from the [dart:html](http://api.dartlang.org/html.html) library and parsing JSON data using the [dart:json](http://api.dartlang.org/json.html) library. It then goes on to show how to provide strong type information about that JSON data through the use of JsonObject and Dart’s interface feature.
+Most client-side Dart apps need a way to communicate with a server, and sending JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is the preferred way to do this. This article discusses communicating with a server using the [XMLHttpRequest API](http://api.dartlang.org/html/XMLHttpRequest.html) from the [dart:html](http://api.dartlang.org/html.html) library and parsing JSON data using the [dart:json](http://api.dartlang.org/json.html) library. It then goes on to show how to provide strong type information about that JSON data through the use of JsonObject and Dart's interface feature.
 
 #### Contents
 
@@ -40,7 +40,7 @@ Most client-side Dart apps need a way to communicate with a server, and sending 
 
 Many modern web apps are powered by RESTful web services that send and receive data encoded as JSON. This article features a web service that responds to an HTTP GET to the URL `/programming-languages/dart` by returning the following JSON string, which contains a string, a list, and a map that represent information about the Dart language:
 
-{% pc json 0 %}
+{% highlight json %}
 {
   "language": "dart",                                 // String 
   "targets": ["dartium","javascript"],                // List 
@@ -49,7 +49,7 @@ Many modern web apps are powered by RESTful web services that send and receive d
     "api": "api.dartlang.org"
   }
 }
-{% endpc %}
+{% endhighlight %}
 
 The same web service accepts data on the same URL with an HTTP POST.  The web service interprets a POST as a request to create a new object on the server, like an SQL INSERT.  The POSTed JSON data is sent in the HTTP body.
 
@@ -59,9 +59,9 @@ When communicating with a web service, use the XMLHttpRequest API from the dart:
 
 <h3 id="getting-data">Getting data from the server</h3>
 
-Get objects from the server using HTTP GET.  XMLHttpRequest provides a named constructor called getTEMPNAME that takes a URL and a callback function that’s invoked when the server responds.
+Get objects from the server using HTTP GET.  XMLHttpRequest provides a named constructor called getTEMPNAME that takes a URL and a callback function that's invoked when the server responds.
 
-{% pc dart 0 %}
+{% highlight dart %}
 getLanguageData(String languageName, onSuccess(XMLHttpRequest req)) {
   var url = "http://my-site.com/programming-languages/$languageName"; 
   
@@ -75,7 +75,7 @@ onSuccess(XMLHttpRequest req) {
 }
 
 getLanguageData("dart", onSuccess);
-{% endpc %}
+{% endhighlight %}
 
 Note: getTEMPNAME is a convenience constructor, and its name will change. The full XMLHttpRequest API is still an option for HTTP GET, if you need more control over the API.  
 
@@ -83,7 +83,7 @@ Note: getTEMPNAME is a convenience constructor, and its name will change. The fu
 
 To create a new object on the server, use the raw XMLHttpRequest API with the HTTP POST method.  Use the readyStateChange listener to be notified when the request is complete.  The example below calls an onSuccess function when the request is complete:
 
-{% pc dart 0 %}
+{% highlight dart %}
 saveLanguageData(String data, onSuccess(XMLHttpRequest req)) {
   XMLHttpRequest req = new XMLHttpRequest(); // create a new XHR
   
@@ -108,7 +108,7 @@ onSuccess(XMLHttpRequest req) {
 String jsonData = '{"language":"dart"}'; // etc...
 saveLanguageData(stringData, onSuccess); // send the data to 
                                          // the server
-{% endpc %}
+{% endhighlight %}
 
 <h2 id="parsing-json">Parsing JSON</h2>
 
@@ -118,7 +118,7 @@ The dart:json library provides two static functions, JSON.parse() and JSON.strin
 
 The parse() function converts a JSON string into a List of values or a Map of key-value pairs, depending upon the format of the JSON:
 
-{% pc dart 0 %}
+{% highlight dart %}
 String listAsJson = '["Dart",0.8]'; // input List of data
 List parsedList = JSON.parse(listAsJson);
 print(parsedList[0]); // Dart
@@ -127,20 +127,20 @@ print(parsedList[1]); // 0.8
 String mapAsJson = '{"language":"dart"}';  // input Map of data
 Map parsedMap = JSON.parse(mapAsJson);
 print(parsedMap["language"]); // dart
-{% endpc %}
+{% endhighlight %}
 
 JSON also works for more complex data structures, such as nested maps inside of lists.
 
-Use JSON.parse() to convert the XMLHttpRequest’s response from raw text to an actual Dart object:
+Use JSON.parse() to convert the XMLHttpRequest's response from raw text to an actual Dart object:
 
-{% pc dart 0 %}
+{% highlight dart %}
 onSuccess(XMLHttpRequest req) {
   Map data = JSON.parse(req.responseText); // parse response text
   print(data["language"]); // dart
   print(data["targets"][0]); // dartium
   print(data["website"]["homepage"]); // www.dartlang.org
 }
-{% endpc %}
+{% endhighlight %}
 
 Using simple Maps with strings as keys has some unfortunate side effects.  Making a typo in any of the string names will return a null value which could then go on to cause a NullPointerException.  Accessing the values from the map cannot be validated before run-time.
 
@@ -148,14 +148,14 @@ One of the benefits of using Dart is support for optional static types. Static t
 
 Ideally, you want to access JSON data in a structured way, taking advantage of the tools to help you catch bugs early. The following example feels more like natural Dart code:
 
-{% pc dart 0 %}
+{% highlight dart %}
 Language data = // ... initialize data ...
 
 // property access is validated by tools
 print(data.language); 
 print(data.targets[0]); 
 print(data.website.homepage); 
-{% endpc %}
+{% endhighlight %}
 
 Fortunately, the ability to write code using this “dot notation” is built into Dart, through its support of classes and interfaces.  The solution, then, is to combine the flexibility of a Map with the structure of an interface.
 
@@ -165,11 +165,11 @@ This flexibility of JSON and Maps combined with the structure of an interface is
 
 To learn more about JsonObject and download its code, go to the [project on GitHub](https://github.com/chrisbu/dartwatch-JsonObject).
 
-JsonObject uses Dart’s noSuchMethod method support, which enables objects to intercept unknown method calls.  For example, if you invoke a getter such as data.language , where data is a JsonObject, then behind the scenes noSuchMethod("get:language",null) is called.  Likewise, when you try to set a value on a JsonObject, noSuchMethod("set:language",["Dart"]) is called. JsonObject intercepts the calls to noSuchMethod and accesses the underlying Map.
+JsonObject uses Dart's noSuchMethod method support, which enables objects to intercept unknown method calls.  For example, if you invoke a getter such as data.language , where data is a JsonObject, then behind the scenes noSuchMethod("get:language",null) is called.  Likewise, when you try to set a value on a JsonObject, noSuchMethod("set:language",["Dart"]) is called. JsonObject intercepts the calls to noSuchMethod and accesses the underlying Map.
 
 Here is an example of using JsonObject instead of a raw Map:
 
-{% pc dart 0 %}
+{% highlight dart %}
 onSuccess(XMLHttpRequest req) {
   // decode the JSON response text using JsonObject
   var data = new JsonObject.fromJsonString(req.responseText);
@@ -180,9 +180,9 @@ onSuccess(XMLHttpRequest req) {
   print(data.targets[0]);       // Get a value in a list
   print(data.website.homepage); // Get a value from a child object
 };
-{% endpc %}
+{% endhighlight %}
 
-A slight issue remains. Dart Editor displays warnings with this code, because JsonObject doesn’t have methods such as language or targets. You could suppress the warnings by using the dynamic var type, but then you don’t get code completion and more useful warnings.
+A slight issue remains. Dart Editor displays warnings with this code, because JsonObject doesn't have methods such as language or targets. You could suppress the warnings by using the dynamic var type, but then you don't get code completion and more useful warnings.
 
 <figure>
 <img src="dart-editor-with-warnings.png" alt="Dart Editor screenshot with static warnings" width="613" height="475">
@@ -191,7 +191,7 @@ A slight issue remains. Dart Editor displays warnings with this code, because Js
 
 To get around this issue and provide strong type checking, you can combine the JsonObject with interfaces. You know the structure of the data that you are expecting JSON data to look like, so you can define a set of interfaces to match that structure.
 
-{% pc dart 0 %}
+{% highlight dart %}
 interface LanguageWebsite extends JsonObject { 
   String homepage;
   String api;
@@ -199,16 +199,16 @@ interface LanguageWebsite extends JsonObject {
 
 interface Language extends JsonObject {
   String language;
-  List&lt;String> targets;
+  List<String> targets;
   LanguageWebsite website;
 }
-{% endpc %}
+{% endhighlight %}
 
 It is interesting to note that the interfaces extend the JsonObject class. One of the surprising features of Dart is that classes (such as JsonObject) are also interfaces. You might hear this feature referred to as "implicit interfaces for classes."
 
 The combination of JsonObject and domain-specific interfaces allows you to use static types for your JSON data, as in the following example:
 
-{% pc dart 0 %}
+{% highlight dart %}
 // assign a new JsonObject instance to a variable of type Language
 Language data = new JsonObject.fromJsonString(req.responseText);  
 
@@ -219,7 +219,7 @@ print(data.targets[0]);
 // nested types are also strongly typed
 LanguageWebsite website = data.website; // contains a JsonObject
 website.homepage = "http://www.dartlang.org";
-{% endpc %}
+{% endhighlight %}
 
 Type checking now validates this code correctly, with no warnings in Dart Editor.
 
@@ -230,23 +230,23 @@ Type checking now validates this code correctly, with no warnings in Dart Editor
 
 JsonObject also allows you to create new, empty objects based on your interface, without first converting from a JSON string, by using the default constructor:
 
-{% pc dart 0 %}
+{% highlight dart %}
   Language data = new JsonObject();
   data.language = "Dart";
   data.website = new LanguageWebsite();
   data.website.homepage = "http://www.dartlang.org";
-{% endpc %}
+{% endhighlight %}
 
 JsonObject also implements the Map interface, which means that you can use the standard map syntax:
 
-{% pc dart 0 %}
+{% highlight dart %}
 Language data = new JsonObject();
 data["language"] = "Dart"; // standard map syntax
-{% endpc %}
+{% endhighlight %}
 
 Because JsonObject implements Map, you can pass a JsonObject into JSON.stringify(), which converts a Map into JSON for sending the data back to the server:
 
-{% pc dart 0 %}
+{% highlight dart %}
 Language data = new JsonObject.fromJsonString(req.responseText);
 
 // later...
@@ -257,7 +257,7 @@ String json = JSON.stringify(data);
 XMLHttpRequest req = new XMLHttpRequest(); 
 req.open("POST", url); 
 req.send(json); 
-{% endpc %}
+{% endhighlight %}
 
 <h3 id="note-on-jsonp">A note on JSONP and XMLHttpRequest</h3>
 
@@ -283,4 +283,3 @@ This article showed how a client-side Dart application communicates with a JSON-
 
 Chris Buckett is a Technical Consultant for [Entity Group Ltd](http://www.entity.co.uk/), responsible for building and delivering enterprise client-server webapps, mostly with GWT, Java and .Net.  He runs the [dartwatch.com blog](http://dartwatch.com/), and is currently writing the book _Dart in Action_, which is available as an “Early Access” publication from Manning. Save 39% on the purchase of Dart in Action with Promotional code dart39 at [manning.com](http://goo.gl/7pVH7).
 
-{% include syntax-highlighting.html %}

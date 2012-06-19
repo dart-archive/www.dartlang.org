@@ -7,12 +7,12 @@ A single-line comment begins with `//`.
 Everything between `//` and the end of line
 is ignored by the Dart compiler.
 
-{% pc dart 0 %}
+{% highlight dart %}
 main() {
   // TODO: Refactor into an AbstractLlamaGreetingFactory?
   print("Welcome to my Llama farm!");
 }
-{% endpc %}
+{% endhighlight %}
 
 ### Multi-line comments
 
@@ -21,7 +21,7 @@ Everything between `/*` and `*/` is ignored by the
 Dart compiler (unless the comment is a documentation comment, see below).
 Multi-line comments can nest.
 
-{% pc dart 0 %}
+{% highlight dart %}
 main() {
   /*
    * This is a lot of work. Consider raising chickens.
@@ -32,7 +32,7 @@ main() {
   larry.clean();
    */
 }
-{% endpc %}
+{% endhighlight %}
 
 ### Documentation comments
 
@@ -46,7 +46,7 @@ lexical scope of the documented program element.
 Here is an example of documentation comments with references
 to other classes and arguments:
 
-{% pc dart 0 %}
+{% highlight dart %}
 /**
  * The llama (Lama glama) is a domesticated South American
  * camelid, widely used as a meat and pack animal by Andean
@@ -69,21 +69,21 @@ class Llama {
     // ...
   }
 }
-{% endpc %}
+{% endhighlight %}
 
 You can use the dartdoc utility, bundled in the SDK, to parse
 Dart code and generate HTML. An example of dartdoc output
 follows.
 
-{% pc html 0 %}
-&lt;div class="doc">
-&lt;p>Feed your llama &lt;a class="crossref" href="../llama/Food.html">Food&lt;/a>. Typically, one bale of hay per week.&lt;/p>
-&lt;pre class="source">
+{% highlight html %}
+<div class="doc">
+<p>Feed your llama <a class="crossref" href="../llama/Food.html">Food</a>. Typically, one bale of hay per week.</p>
+<pre class="source">
 void feed(Food food) {
 }
-&lt;/pre>
-&lt;/div>
-{% endpc %}
+</pre>
+</div>
+{% endhighlight %}
 
 Notice how `[Food]` from the documentation comments
 is converted to an HTML link to the API docs for the Food class.

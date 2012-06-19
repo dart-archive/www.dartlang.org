@@ -9,7 +9,7 @@ You can control the flow of your Dart code using any of the following:
 
 <h4 id="if-else">If and else</h4>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 if (isRaining()) {
   you.bringRainCoat();
 } else if (isSnowing()) {
@@ -17,7 +17,7 @@ if (isRaining()) {
 } else {
   car.putTopDown();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Remember, unlike JavaScript, Dart treats all values
 that are not `true` as `false`.
@@ -27,17 +27,17 @@ See [Booleans](#booleans) for more info.
 
 You can iterate with the standard `for` loop.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 for (var i = 0; i < candidates.length; i++) {
   candidates[i].interview();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Closures inside of Dart's `for` loops correctly capture the
 value of the index, avoiding a common pitfall found in JavaScript.
 For example, consider:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 main() {
   var callbacks = [];
   for (var i = 0; i < 2; i++) {
@@ -45,7 +45,7 @@ main() {
   }
   callbacks.forEach((c) => c());
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 The output is `0` and then `1`, as expected. In contrast,
 the example would print `2` and then `2` in JavaScript.
@@ -56,52 +56,52 @@ method. Using forEach() is
 a good option if you don't need to know the current iteration
 counter.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 candidates.forEach((candidate) => candidate.interview());
-{% endpretty_code %}
+{% endhighlight %}
 
 Collections also support the `for-in` form of iteration:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var collection = [0, 1, 2];
 for (var x in collection) {
   print(x);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <h4 id="while">While and do while</h4>
 
 A `while` loop evaluates the conditional before the loop.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 while (!auctionItem.currentWinner(bidder) &&
        auctionItem.currentBid < bidder.maximumBid) {
   auctionItem.placeBid(bidder, auction.currentBid + 1);
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 A do while loop evaluates the conditional *after* the loop.
 
-{% pretty_code dart 0%}
+{% highlight dart%}
 do {
   printLine();
 } while (!atEndOfPage());
-{% endpretty_code %}
+{% endhighlight %}
 
 <h4 id="break">Break and continue</h4>
 
 Use `break` to stop looping.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 while (true) {
   if (shutDownRequested()) break;
   processIncomingRequests();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Use `continue` to skip to the next loop iteration.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 for (var i = 0; i < candidates.length; i++) {
   var candidate = candidates[i];
   if (candidate.yearsExperience < 5) {
@@ -109,15 +109,15 @@ for (var i = 0; i < candidates.length; i++) {
   }
   candidate.interview();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 You might write that example differently if you're
 using a [Collection](http://api.dartlang.org/dart_core/Collection.html).
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 candidates.filter((c) => c.yearsExperience >= 5)
           .forEach((c) => c.interview());
-{% endpretty_code %}
+{% endhighlight %}
 
 <h4 id="switch">Switch and case</h4>
 
@@ -126,7 +126,7 @@ Remember to include a `break` statement
 at the end of each non-empty `case` clause to avoid fall-through (which is an error, see below).
 A `default` clause can be used to catch conditions that don't match.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var command = 'OPEN';
 switch (command) {
   case 'CLOSED':
@@ -147,12 +147,12 @@ switch (command) {
   default:
     executeUnknown();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 The following example omits the `break` statement in the `case` clause,
 thus generating an error:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var command = 'OPEN';
 switch (command) {
 
@@ -164,12 +164,12 @@ switch (command) {
     executeClose();
     break;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 However, Dart does support empty `case` clauses, allowing a form
 of fall-through.
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var command = 'CLOSED';
 switch (command) {
   case 'CLOSED':     // Empty case falls through.
@@ -178,7 +178,7 @@ switch (command) {
     executeClose();
     break;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <h4 id="assert">Assert</h4>
 
@@ -187,11 +187,11 @@ if a [boolean](#booleans) condition is false.
 You can find examples of assert statements throughout this tour.
 Here are some more:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 assert(text != null);  // Make sure the variable has a non-null value.
-assert(number &lt; 100);  // Make sure the value is less than 100.
+assert(number < 100);  // Make sure the value is less than 100.
 assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note" markdown="1">
   **Important:** Assert statements work only in checked mode.

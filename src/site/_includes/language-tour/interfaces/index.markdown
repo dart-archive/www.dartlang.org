@@ -18,11 +18,11 @@ Use the `interface` keyword to define an interface.
 For example, here's the code that defines the
 [Hashable](http://api.dartlang.org/dart_core/Hashable.html) interface:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 interface Hashable {
   int hashCode();
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Notice how, instead of having a method body (`{...}`),
 the interface just has a semicolon (`;`).
@@ -37,10 +37,11 @@ by declaring them in its **implements** clause
 and then providing the APIs required by the interfaces.
 For example:
 
-{% pretty_code dart 0 %}
-class Point <b>implements Hashable</b> {
+{% highlight dart %}
+class Point implements Hashable {
   num x, y;
   ...
+
   // Required by Hashable.
   int hashCode() {
     int result = 17;
@@ -56,16 +57,16 @@ class Point <b>implements Hashable</b> {
     return (other.x == x && other.y == y);
   }
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Here's an example of
 specifying that a class implements multiple interfaces:
 
-{% pretty_code dart 0 %}
-class Point <b>implements Comparable, Hashable</b> {
+{% highlight dart %}
+class Point implements Comparable, Hashable {
   ...
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note" markdown="1">
   **Note:**
@@ -88,11 +89,11 @@ Use the **extends** keyword
 to specify which interface (or interfaces) you're adding to.
 Here's an example of creating a subinterface of Hashable:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 interface HashablePoint extends Hashable {
   num x, y;
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note" markdown="1">
   **Note:**
@@ -106,7 +107,7 @@ interface HashablePoint extends Hashable {
 Here's an example of implementing a subinterface
 and checking types.
 
-{% pc dart 0 %}
+{% highlight dart %}
 class Point implements HashablePoint {
   num x, y; // Required by HashablePoint
 
@@ -127,7 +128,7 @@ main() {
   assert(p is Hashable);
   assert(p is HashablePoint);
 }
-{% endpc %}
+{% endhighlight %}
 </section>
 
 
@@ -149,31 +150,31 @@ Use the `default` keyword to specify
 the default class.
 For example:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 interface ObjectCache default MemoryCache {
   ObjectCache();
   // ...
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 The code for the default class might look like this:
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 class MemoryCache implements ObjectCache {
   // ...
 }
-{% endpretty_code %}
+{% endhighlight %}
 
 Invoking a constructor via an interface
 results in a call to the equivalent constructor
 in the interface's default class.
 For example:
 
-{% pc dart 0 %}
+{% highlight dart %}
 var cache = new ObjectCache(); // Same as: new MemoryCache()
 assert(cache is ObjectCache);
 assert(cache is MemoryCache);
-{% endpc %}
+{% endhighlight %}
 
 </section>
 

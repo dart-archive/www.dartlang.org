@@ -20,12 +20,13 @@
   <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}Dart is a new platform for building structured web apps for modern browsers. It includes a language, a VM, libraries, tools, and a compiler to JavaScript. Try Dart today!{% endif %}">
 
 	<link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/syntax.css">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	{% if page.header and page.header.css %}{% for css in page.header.css %}<link href="{{ css }}" rel="stylesheet" type="text/css">{% endfor %}{% endif %}
 	{% if page.rel.author %}<link rel="author" href="/authors/{{ page.rel.author }}.html">{% endif %}
 	{% if page.rel.me %}<link rel="me" href="{{ page.rel.me }}">{% endif %}
 	<link rel="alternate" type="application/atom+xml" href="http://news.dartlang.org/feeds/posts/default" title="Atom feed">
-    <link href="https://plus.google.com/109866369054280216564" rel="publisher">
+  <link href="https://plus.google.com/109866369054280216564" rel="publisher">
 	<script src="/js/modernizr.custom.02548.js"></script>
   
   {% include analytics.html %}

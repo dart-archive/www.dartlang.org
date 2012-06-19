@@ -27,11 +27,11 @@ Integers are numbers without a decimal point.
 Here are some examples of defining integer literals:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var x = 1;
 var hex = 0xDEADBEEF;
 var bigInt = 3465346583465243765923847659234765928347659567398475647495873984572947593470294387093493456870849216348723763945678236420938467345762304958724596873045876234572037862934765294365243652548673456705673465273465246734506873456729457623845623456234650457693475603768922346728346256;
-{% endpretty_code %}
+{% endhighlight %}
 
 <aside class="note">
   <b>Note:</b>
@@ -44,16 +44,16 @@ it is a double.
 Here are some examples of defining double literals:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 var y = 1.1;
 var exponents = 1.42e5;
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 Here's how you turn a string into a number, or vice versa:
 </p>
 
-{% pretty_code dart 0 %}
+{% highlight dart %}
 // String -> int
 var one = Math.parseInt("1");
 assert(one == 1);
@@ -69,16 +69,16 @@ assert(oneAsString == "1");
 // double -> String
 var piAsString = 3.14159.toStringAsFixed(2);
 assert(piAsString == "3.14");
-{% endpretty_code %}
+{% endhighlight %}
 
 <p>
 The num interface specifies the traditional bit shift, AND, and OR operators.
 For example:
 </p>
 
-{% pretty_code dart 0 %}
-assert((3 &lt;&lt; 1) == 6);  // 0011 &lt;&lt; 1 == 0110
-assert((3 &gt;&gt; 1) == 1);  // 0011 &gt;&gt; 1 == 0001
+{% highlight dart %}
+assert((3 < 1) == 6);  // 0011 << 1 == 0110
+assert((3 >> 1) == 1);  // 0011 >> 1 == 0001
 assert((3 | 4)  == 7);  // 0011 | 0100 == 0111
-{% endpretty_code %}
+{% endhighlight %}
 </section>
