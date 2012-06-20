@@ -428,14 +428,14 @@ var now = new Date.now();
 var y2k = new Date(2000, 1, 1, 0, 0, 0, 0);
 
 // You can also use named parameters.
-y2k = new Date(2000, month: 1, day: 1, hours: 0, minutes: 0, seconds: 0,
-               milliseconds: 0);
+y2k = new Date(2000, month: 1, day: 1, hour: 0, minute: 0, second: 0,
+               millisecond: 0);
 
 // Specify all the parts of a date as a UTC time.
 y2k = new Date(2000, 1, 1, 0, 0, 0, 0, isUtc: true);
 
 // Specify a UTC date and time in milliseconds since the Unix epoch.
-y2k = const Date.fromEpoch(1336017592000, isUtc: true);
+y2k = const Date.fromMillisecondsSinceEpoch(1336017592000, isUtc: true);
 
 // Parse an ISO 8601 date.
 y2k = new Date.fromString('2000-01-01T00:00:00Z');
@@ -443,13 +443,12 @@ y2k = new Date.fromString('2000-01-01T00:00:00Z');
 
 #### The epoch
 
-The `value` getter on a date returns the number of milliseconds since
-the epoch.
+The `millisecondsSinceEpoch` getter on a date returns the number
+of milliseconds since the epoch.
 
 {% highlight dart %}
 var y2k = new Date.fromString('2000-01-01T00:00:00Z');
-var millisecondsSinceEpoch = y2k.value;
-assert(millisecondsSinceEpoch == 946684800000);
+assert(y2k.millisecondsSinceEpoch == 946684800000);
 {% endhighlight %}
 
 #### Calculations
