@@ -6,7 +6,7 @@ rel:
 description: "Follow these guidelines for consistent, readable Dart code."
 ---
 
-<h1>Dart Style Guide</h1>
+# Dart Style Guide
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time><br />
 Updated: May 2012
@@ -492,6 +492,7 @@ capitalized like words.
 {% highlight dart good %}
 SliderMenu
 XmlHttpRequest
+typedef num Adder(num x, num y);
 {% endhighlight %}
 </div>
 
