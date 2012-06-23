@@ -2,3 +2,5 @@
 build
 *.swp
 _site/
+.sass-cache/
+_cache/
