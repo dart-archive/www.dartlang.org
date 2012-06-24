@@ -85,7 +85,7 @@ main() {
 
   // Note: incomplete.
   // Use a ReceivePort (details below) to keep the main isolate alive
-  // long enough for runInIsolate to perform its work.
+  // long enough for runInIsolate() to perform its work.
 }
 {% endhighlight %}
 
@@ -114,7 +114,7 @@ main() {
 
   // Note: incomplete.
   // Use a ReceivePort (details below) to keep the main isolate alive
-  // long enough for echo to perform its work.
+  // long enough for echo() to perform its work.
 }
 {% endhighlight %}
 
@@ -156,7 +156,7 @@ main() {
 
   // Note: incomplete.
   // Use a ReceivePort (details below) to keep the main isolate alive
-  // long enough for runInIsolate to perform its work.
+  // long enough for runInIsolate() to perform its work.
 }
 {% endhighlight %}
 
@@ -186,7 +186,7 @@ main() {
 
 The call() method creates a new receive port and then sends a message to the
 send port with replyTo set to the receive port. When a reply is
-received, it closes the receive port and completes the returned future.
+received, the receive port closes, and the returned Future completes.
 
 #### Keeping the main isolate alive
 
