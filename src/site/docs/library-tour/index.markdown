@@ -35,6 +35,9 @@ first release.
     1. [Strings and regular expressions](#strings-and-regular-expressions)
     1. [Asynchronous programming](#asynchronous-programming)
     1. [Exceptions](#exceptions)
+1. [dart:html - Using HTML5 APIs](#html)
+    1. [Manipulating the DOM](#html-dom)
+    1. [WebSockets](#html-websockets)
 1. [dart:isolate - Concurrency with isolates](#dartisolate---concurrency-with-isolates)
     1. [Isolate concepts](#isolate-concepts)
     1. [Using isolates](#using-isolates)
@@ -47,7 +50,6 @@ first release.
     1. HTTP Server (coming soon)
     1. HTTP Client (coming soon)
     1. Web socket server (coming soon)
-1. HTML (coming soon)
 1. [dart:json - Encoding and decoding objects](#json)
 1. [dart:uri - Manipulating URLs](#uri)
 1. [dart:utf - Strings and Unicode](#utf)
@@ -1025,7 +1027,7 @@ class FooException implements Exception {
 }
 {% endhighlight %}
 
-#### More information
+### More information
 
 See the
 [Exception API docs](http://api.dartlang.org/dart_core/Exception.html).
@@ -1033,11 +1035,26 @@ See the
 [Back to contents.](#toc)
 {:.up-to-toc}
 
+## dart:html - Using HTML5 APIs {#html}
+
+{% render library-tour/html.markdown %}
+{% render library-tour/html-dom.markdown %}
+{% render library-tour/html-websockets.markdown %}
+
+### More information
+
+Refer to the API docs for
+[dart:html](http://api.dartlang.org/html.html).
+
+[Back to contents.](#toc)
+{:.up-to-toc}
+
+
 ## dart:isolate - Concurrency with isolates
 
 {% render library-tour/isolates.markdown %}
 
-#### More information
+### More information
 
 Refer to the API docs for
 [isolates](http://api.dartlang.org/dart_isolate.html).
@@ -1260,8 +1277,8 @@ Coming soon.
 ### Web socket server
 
 Coming soon.
-
 {% endcomment %}
+
 
 ## dart:json - Encoding and decoding objects {#json}
 
