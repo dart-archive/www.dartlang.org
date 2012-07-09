@@ -229,9 +229,9 @@ while in the first case it is the more descriptive:
     Expected: a value equal to 5
          But: was <4>
 
-It is possible to pass an additional string argument to `expect()` (using either form) which will be appended to the output, and doing so is strongly encouraged if using the predicate form to improve the resulting output. For example:
+It is possible to pass an additional string argument to `expect()` (using either form) which will be appended to the output, and doing so is strongly encouraged if using the predicate form to improve the resulting output. When using the predicate form this argument must be named `reason`; when using matchers it can simply be the third positional argument. For example:
 
-    test('Addition test', () => expect(2 + 2 == 5, 'Two twos are not five'));
+    test('Addition test', () => expect(2 + 2 == 5, reason:'Two twos are not five'));
 
 which results in:
 
@@ -240,17 +240,17 @@ which results in:
 
 There are circumstances when the predicate form is preferable to using matchers. If you have code that should be unreachable, then you can use:
 
-    expect(false, 'Unreachable');
+    expect(false, reason:'Unreachable');
 
 Another case might be where you have a complex predicate that would be too tedious to write using composite matchers, or where the predicate is implemented by a function, and where a simpler text description is useful. For example:
 
-    expect(isPrime(x), '${x} is not prime');
+    expect(isPrime(x), reason:'${x} is not prime');
 
 The latter example could be written as:
 
     expect(isPrime(x), isTrue, '${x} is not prime');
 
-but in this case using the isTrue matcher is not adding any value. 
+However in this case using the isTrue matcher is not adding any value. 
 
 There are a large set of possible matchers that can be used with `expect()`, and it is possible to create custom ones. In fact, matchers can be composed to create more complex matchers. Matchers will be discussed in more detail later in this article.
 
@@ -268,11 +268,30 @@ It can be helpful to group similar tests together, which can be done with `group
 
 Test names have their group names prepended; in this case, the first test has the name 'My test group Test 1' and the second test has the name 'My test group Test 2'. Test groups can be nested (with multiple group names prepended).
 
-Groups are not themselves tests, and so should not include assertions or calls to expect outside of the contained tests.
+Groups are not themselves tests, and so should not include assertions or calls to expect() outside of the contained tests.
 
-## Running a single test
+## Setup and Teardown
+
+Inside a group body, in addition to calling test() you can call setUp() and/or tearDown() with function arguments. The function passed as an argument to setUp() will be called before each test, and that passed to tearDown() will be called after each test.
+
+Usually you would set these up at the start of the group:
+
+    group('foo', () {
+      setUp(() {...});
+      tearDown(() {...});
+      test(description, () {...});
+      ...
+    });
+
+However you can interlace them differently; each test() will use the most recently set values. 
+
+Whenever a new group is started these functions are reset. This applies for nested groups too. Nested groups do not inherit these functions or augment them; they get their own. This is the most flexible approach as chaining can always be done explicitly.
+
+## Running a limited set of tests
 
 The Dart unittest library provides a mechanism to quickly run just one unit test. This is useful if you have a failing test that you want to explore in the debugger, and you want to remove the distraction of other tests. To isolate a test, change the name of the call for that test from `test()` to `solo_test()`. If there is one `solo_test()` call then only that test will be run (if you mistakenly have more than one `solo_test()` then an exception will be thrown).
+
+Another way of reducing the set of tests which are run is to use the `setFilter(pattern)` function. This function takes a `String` argument that is used to create a `RegExp`, which in turn is matched against each test description; only those tests that match will be run.
 
 ## Asynchronous tests
 
@@ -299,7 +318,7 @@ Here is an example of expectAsync0:
       window.setTimeout(expectAsync0(checkProgress), 100); 
     });
 
-When this test starts to run, it calls window.setTimeout and pass a closure, created by expectAsync0,  as the event handler. This closure will in turn call `checkProgress()`. If `checkProgress()` throws an exception the closure catches it and mark the test as failed. The test is not considered complete until either the closure is executed or the test framework times out and fails the test.
+When this test starts to run, it calls `window.setTimeout` and passes a closure, created by `expectAsync0`, as the event handler. This closure will in turn call `checkProgress()`. If `checkProgress()` throws an exception the closure catches it and mark the test as failed. The test is not considered complete until either the closure is executed or the test framework times out and fails the test.
 
 `expectAsyncN()` can take an additional count argument to specify how many times the callback must be called before the test is considered complete. For example:
 
@@ -309,7 +328,7 @@ When this test starts to run, it calls window.setTimeout and pass a closure, cre
       window.setTimeout(callback, 0);
     });
 
-There are times when we have callbacks that we don't expect to be called. For example. consider a function that takes two callback arguments, and only one of them will be called (a common example would be onSuccess and onFailure handlers). Even though we don't expect some callback to be called, we still need to guard the code so that the test harness handles the failure case where it is called. We can do this with `expectAsyncN()` with a count parameter of zero. For example:
+There are times when we have callbacks that we don't expect to be called. For example, consider a function that takes two callback arguments, and only one of them will be called (a common example would be onSuccess and onFailure handlers). Even though we don't expect some callback to be called, we still need to guard the code so that the test harness handles the failure case where it is called. We can do this with `expectAsyncN()` with a count parameter of zero. For example:
 
     test('getDirectory', () {
       fs.root.getDirectory('nonexistent', flags:{},
@@ -318,13 +337,17 @@ There are times when we have callbacks that we don't expect to be called. For ex
                 expect(false, 'Should not be reached'), count:0),
         errorCallback:
             expectAsync1((e) =>
-                expect.equals(e.code, FileError.NOT_FOUND_ERR)));
+                expect(e.code, equals(FileError.NOT_FOUND_ERR)));
     });
+
+We might have a callback that's called an undetermined number of times, where
+only a test can tell us when it's the last time. For these cases we can use `expectAsyncUntilN()` (where N is 0, 1 or 2). These functions take a second function argument which should return false if more callbacks are expected or true if all callbacks are done.
+
 
 ## Matchers
 
 
-So far we have only looked at the equals(N) matcher. The Dart unittest library contains a large set of predefined matchers, which we will look at briefly now. The Dart SDK documentation contains details for each matcher. Note that a number of matchers can in turn take matchers as their arguments; in these cases simple values can be used too, and they will automatically be wrapped in equals(v) matchers. For example:
+So far we have only looked at the `equals(v)` matcher. The Dart unittest library contains a large set of predefined matchers, which we will look at briefly now. The Dart SDK documentation contains details for each matcher. Note that a number of matchers can in turn take matchers as their arguments; in these cases simple values can be used too, and they will automatically be wrapped in `equals(v)` matchers. For example:
 
     expect(foo, hasLength(6));
 
@@ -347,7 +370,7 @@ The following simple matchers take no arguments, and have mostly self-evident me
     isNegative
     isNonNegative
 
-isEmpty works with Strings, Maps or Collections.
+`isEmpty` works with Strings, Maps or Collections.
 
 To test equality or identity, respectively, we have these matchers:
 
@@ -375,13 +398,13 @@ For string matching, we have:
     stringContainsInOrder(List<String> substrings)
     matches(regexp)  
 
-equalsIgnoringWhitespace(v) normalizes whitespace runs to single spaces first and trims off leading and trailing whitespace. 
+`equalsIgnoringWhitespace(v)` normalizes whitespace runs to single spaces first and trims off leading and trailing whitespace. 
 
 For objects that have a length property, we have this matcher:
 
     hasLength(m)
 
-m here can be a value or a matcher; e.g hasLength(6) or hasLength(greaterThan(5)).
+m here can be a value or a matcher; e.g `hasLength(6)` or `hasLength(greaterThan(5))`.
 
 For testing whether functions throw exceptions, we have:
 
@@ -389,7 +412,7 @@ For testing whether functions throw exceptions, we have:
     throwsA(m)
     returnsNormally
 
-throwsA takes a matcher argument which will be matched against the exception; an example is shown in the next paragraph. returnsNormally will swallow any thrown exception and throw an ExpectException instead with details of the inner exception including the stack trace.
+`throwsA` takes a matcher argument which will be matched against the exception; an example is shown in the next paragraph. `returnsNormally` will swallow any thrown exception and throw an `ExpectException` instead with details of the inner exception including the stack trace.
 
 For type checking, we have:
 
@@ -419,21 +442,21 @@ So for example we can write:
             throwsNullPointerException));
 
 <aside class="note">
-<b>Note:</b> these type matchers (isInstance and throwsA plus its variants) currently
+<b>Note:</b> these type matchers (`isInstance` and `throwsA` plus its variants) currently
 work in the Dart VM only; they do not work in Dart compiled to Javascript.
 </aside>
 
-For matching the inner content of compound objects, we have a number of matchers, starting with the comprehensive:
+For matching the inner content of compound objects, we have a number of matchers, starting with the ubiquitous `equals()`:
 
-    recursivelyMatches(object, [limit])
+    equals(object, [depth])
 
-This works with scalars, Maps and iterables (which should match in order). The limit parameter is to deal with cyclic structures; after [limit] comparisons the match will fail if it has not already terminated. The default limit is 1000. 
+This works with scalars, Maps and iterables (which should match in order). The depth parameter is to deal with cyclic structures; after [depth] comparisons the match will fail if it has not already terminated. The default depth is 100. 
 
 Here is an example, taken from the JSON parse tests:
 
     expect(JSON.parse('{"x": {"a":3, "b": -4.5}, "y":[{}], '
                    '"z":"hi","w":{"c":null,"d":true}, "v":null}'),
-      recursivelyMatches({"x": {"a":3, "b": -4.5}, "y":[{}],
+      equals({"x": {"a":3, "b": -4.5}, "y":[{}],
                    "z":"hi","w":{"c":null,"d":true}, "v":null}));
 
 For testing just a subpart of an object, we can use:
@@ -444,10 +467,12 @@ This works with Strings (matches substrings), Maps (matches if the Map has that 
 
     expect([1, 2, 3, 4], contains(isNonZero));
 
+The converse matcher to `contains()` is `isIn()`.
+
     everyElement(m)
     someElement(m)
 
-These works on collections. m can be a value or a matcher. E.g.:
+These work on collections. m can be a value or a matcher. E.g.:
 
     expect(foo, someElement(greaterThan(10)));
 
@@ -456,11 +481,11 @@ For any Iterable:
     orderedEquals(Iterable expected)
     unorderedEquals(Iterable expected)
 
-Note that unorderedEquals is O(n^2) and should be used with care on larger objects.
+Note that `unorderedEquals` is O(n^2) and should be used with care on larger objects.
 
 For Maps:
 
-    containsValue(v) (for Maps)
+    containsValue(v)
     containsPair(key, valueOrMatcher)
 
 Finally, we have some operators for combining or inverting matchers:
@@ -469,11 +494,11 @@ Finally, we have some operators for combining or inverting matchers:
     allOf(List<Matcher> matchers)
     anyOf(List<Matcher> matchers)
 
-The allOf and anyOf represent AND/OR operations. They can take a list of matchers or several individual matcher arguments (limited to 7 in the latter case).
+The `allOf()` and `anyOf()` represent AND/OR operations. They can take a list of matchers or several individual matcher or scalar arguments (limited to 7 in the latter case).
 
 ### Creating custom matchers
 
-Should the set of matchers provided by default be insufficient, it is possible to create your own. A matcher implements the Matcher interface:
+Should the set of matchers provided by default be insufficient, it is possible to create your own. A matcher implements the `Matcher` interface:
 
     interface Matcher {
       /** This does the matching of the actual vs expected values. */
@@ -484,7 +509,7 @@ Should the set of matchers provided by default be insufficient, it is possible t
       Description describeMismatch(item, Description mismatchDescription);
     }
 
-In most cases rather than extending this interface you would implement a subclass of BaseMatcher, to reduce the number of necessary methods that must be implemented from 3 to 2:
+In most cases rather than extending this interface you would implement a subclass of `BaseMatcher`, to reduce the number of necessary methods that must be implemented from 3 to 2:
 
     class BaseMatcher implements Matcher {
       const BaseMatcher();
@@ -514,8 +539,8 @@ Here is an example of a custom matcher that matches string prefixes while ignori
 There are three important parts to this:
 
 * the constructor which needs to take in any expected value information or a matcher that is used to test the expected value;
-* the matches(item) method which matches an actual value, and returns true if the match is good and false otherwise;
-* the describe method, which generates a textual description of the matcher.
+* the `matches(item)` method which matches an actual value, and returns true if the match is good and false otherwise;
+* the `describe()` method, which generates a textual description of the matcher.
 
 Recall a typical error message from `expect()` looks like:
 
@@ -526,9 +551,9 @@ The `describe()` method of the matcher is used to build the “Expected:" part o
 
 Both `describe()` and `describeMismatch()` use the Description class, which has the following useful methods:
 
-* add(text) which appends the text to the description;
-* addDescriptionOf(value) which describes a value, possibly recursively calling `describe()` if the value is a matcher;
-* addAll(start, separator, end, list) which appends the contents of list (an Iterable), formatting it with the provided start, end and separator characters.
+* `add(text)` which appends the text to the description;
+* `addDescriptionOf(value)` which describes a value, possibly recursively calling `describe()` if the value is a matcher;
+* `addAll(start, separator, end, list)` which appends the contents of list (an `Iterable`), formatting it with the provided start, end and separator characters.
 
 ## Configuring the test environment
 
@@ -536,28 +561,28 @@ Depending on whether you are running tests from the command line, within the edi
 
 * `onInit()` which is called when the test framework is initialized, before any tests are added;
 * `onStart()` which is called before the first test is run;
-* onTestResult(TestCase) which is called upon completion of each test;
-* onDone(passed, failed, errors, List<TestCase> results, String uncaughtError) which is called when all tests are done; in the default configuration this prints the test summary.
+* `onTestResult(TestCase)` which is called upon completion of each test;
+* `onDone(passed, failed, errors, List<TestCase> results, String uncaughtError)` which is called when all tests are done; in the default configuration this prints the test summary.
 
-You don't need to create your own Configuration classes; the library has several built-in which should be adequate for most purposes. These are:
+You don't need to create your own `Configuration` classes; the library has several built-in which should be adequate for most purposes. These are:
 
-* the default Configuration, which prints test results to standard output;
-* VmConfiguration, which exits the process with a return value of 1 upon failure; useful in particular for driving tests from other programs or scripts where the return code of the process is useful to detect success or failure; call `useVmConfiguration()` to use this, and import vm_config.dart;
-* HtmlConfiguration, which puts test results in an HTML table and sets the browser document body to be this table; call `useHtmlConfiguration()` to use this, and import html_config.dart;
-* HtmlEnhancedConfiguration, which is similar to HtmlConfiguration but provides a richer layout; call `useHtmlEnhancedConfiguration()` to use this, and import html_enhanced_config.dart.
+* the default `Configuration`, which prints test results to standard output;
+* `VmConfiguration`, which exits the process with a return value of 1 upon failure; useful in particular for driving tests from other programs or scripts where the return code of the process is useful to detect success or failure; call `useVmConfiguration()` to use this, and import vm_config.dart;
+* `HtmlConfiguration`, which puts test results in an HTML table and sets the browser document body to be this table; call `useHtmlConfiguration()` to use this, and import html_config.dart;
+* `HtmlEnhancedConfiguration`, which is similar to `HtmlConfiguration` but provides a richer layout; call `useHtmlEnhancedConfiguration()` to use this, and import html_enhanced_config.dart.
 
 For running tests in a continuous integration environment, the default or VmConfigurations are most useful. 
 
 ## Using `expect()` in other contexts
 
-While `expect()` has been used here in the context of unit tests, it is possible to use it in other contexts as a general assertion mechanism. The default behavior is to throw an ExpectException upon failure with the failure reason as the message property, but that can be customized. In fact, expect has its own unit tests that do just this.
+While `expect()` has been used here in the context of unit tests, it is possible to use it in other contexts as a general assertion mechanism. The default behavior is to throw an `ExpectException` upon failure with the failure reason as the message property, but that can be customized. In fact, expect has its own unit tests that do just this.
 
 There are two functions that can be used to customize the behavior of expect:
 
-* configureExpectHandler - this is used to change the object which handles `expect()` failures. The default object simply throws ExpectExceptions. It may be desirable to do something different; for example to log the error and swallow the exception instead.
-* configureExpectFormatter - this is used to change the function which is used to format error messages by `expect()`. It is rare that this would need to change and it will not be considered further here; see the SDK documentation for details.
+* `configureExpectHandler` - this is used to change the object which handles `expect()` failures. The default object simply throws ExpectExceptions. It may be desirable to do something different; for example to log the error and swallow the exception instead.
+* `configureExpectFormatter` - this is used to change the function which is used to format error messages by `expect()`. It is rare that this would need to change and it will not be considered further here; see the SDK documentation for details.
 
-The easiest way to customize the error handler is to create a class that inherits from DefaultFailureHandler and overrides this method:
+The easiest way to customize the error handler is to create a class that inherits from `DefaultFailureHandler` and overrides this method:
 
     void fail(String reason) {
       throw new ExpectException(reason);
@@ -577,10 +602,3 @@ For example, this failure handler just keeps a count of the number of failures:
       }
     }
 
-## What's next
-
-The unit test library is still being actively developed and improved. Some of the features that will be coming soon are:
-
-* test setup and tear down;
-* more flexible methods for handling complex asynchronous tests;
-* the ability to filter the set of tests that should be run.
