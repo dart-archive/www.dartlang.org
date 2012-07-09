@@ -1163,7 +1163,12 @@ with the Future object.
 main() {
   var config = new File('config.txt');
   Future<String> readFile = config.readAsText();
-  readFile.handleExceptione((e) => print("Error: $e"));
+  readFile.handleException((e) {
+    print('Error: $e');
+    // ... other error handling goes here ...
+    return true; // We've handled the exception; no need to propagate it.
+  });       
+
   readFile.then((text) => print(text));
 }
 {% endhighlight %}
