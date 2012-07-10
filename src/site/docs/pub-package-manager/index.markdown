@@ -75,7 +75,7 @@ add an `sdk` source to your `pubspec.yaml` file. For example:
 
 {% highlight yaml %}
 dependencies:
-  unittest
+  unittest:
     sdk: unittest
 {% endhighlight %}
 
