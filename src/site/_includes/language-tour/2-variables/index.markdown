@@ -31,7 +31,7 @@ help you, by providing early warnings for bugs and code completion.
 
 <aside class="note" markdown="1">
   **Note:** This chapter follows the
-  [style guide recommendation](/articles/style-guide/#annotations)
+  [style guide recommendation](/articles/style-guide/#type-annotations)
   of using **var**, rather than type annotations, for local variables.
 </aside>
 
@@ -42,7 +42,7 @@ addition to a type. Once a `final` variable is set, it can't be changed.
 
 {% highlight dart %}
 final name = 'Bob'; // Or: final String name = 'Bob';
-name = 'Alice';     // ERROR (VM or dart2js)
+name = 'Alice';     // ERROR
 {% endhighlight %}
 
 #### Summary

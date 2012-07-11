@@ -100,7 +100,7 @@ class Point {
 
 If you don't declare a constructor,
 a default constructor is provided for you.
-The default constructor has no arguments and invokes the
+The default constructor has no arguments and invokes
 the no-argument constructor in the superclass.
 
 #### Constructors aren't inherited
@@ -480,7 +480,7 @@ refer to the superclass.
 class Television {
   void turnOn() {
     _illuminateDisplay();
-    _activeIrSensor();
+    _activateIrSensor();
   }
 }
 

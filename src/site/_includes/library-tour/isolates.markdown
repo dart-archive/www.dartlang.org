@@ -18,7 +18,7 @@ The content of a message can be:
 
 Lists and maps can have cyclic references to themselves.
 Each message is copied when sent to another isolate, ensuring
-one isolate cannot change the state in another isolate.
+one isolate cannot directly change the state in another isolate.
 
 Isolates might run in a separate process or thread, depending on the
 implementation. For web applications, isolates can
@@ -109,7 +109,7 @@ echo() {
 }
 
 main() {
-  SendPort sendPort = spawnFunction(echo);
+  var sendPort = spawnFunction(echo);
   sendPort.send("Hello from main");
 
   // Note: incomplete.
@@ -120,12 +120,13 @@ main() {
 
 #### Sending any type of object
 
-In special circumstances (such as when using spawnFunction() inside the Dart VM),
-it is possible to send any type of object instance to an isolate.
+In special circumstances
+(such as when using spawnFunction() inside the Dart VM),
+it is possible to send any type of object to an isolate.
 The object message is copied when sent.
 
-Support for sending arbitrary object instances to an isolate is not yet available when compiling to
-JavaScript.
+Support for sending arbitrary objects to an isolate
+is not yet available when compiling to JavaScript.
 
 #### Receiving messages
 
@@ -145,13 +146,13 @@ method.
 #import('dart:isolate');
 
 echo() {
-  port.receive((msg, SendPort reply) {
+  port.receive((msg, reply) {
     print("I received: $msg");
   });
 }
 
 main() {
-  SendPort sendPort = spawnFunction(echo);
+  var sendPort = spawnFunction(echo);
   sendPort.send("Hello from main");
 
   // Note: incomplete.
@@ -171,13 +172,13 @@ message and receive a reply. The call() method returns a
 #import('dart:isolate');
 
 echo() {
-  port.receive((msg, SendPort reply) {
+  port.receive((msg, reply) {
     reply.send("I received: $msg");
   });
 }
 
 main() {
-  SendPort sendPort = spawnFunction(echo);
+  var sendPort = spawnFunction(echo);
   sendPort.call("Hello from main").then((reply) {
     print(reply);    // I received: Hello from main
   });
@@ -203,15 +204,15 @@ isolate finishes. Here is an example:
 #import('dart:isolate');
 
 childIsolate() {
-  port.receive((msg, SendPort replyTo) {
+  port.receive((msg, replyTo) {
     print('doing some work');
     if (replyTo != null) replyTo.send("shutdown");
   });
 }
 
 main() {
-  SendPort sender = spawnFunction(childIsolate);
-  ReceivePort receiver = new ReceivePort();
+  var sender = spawnFunction(childIsolate);
+  var receiver = new ReceivePort();
   receiver.receive((msg, _) {
     if (msg == 'shutdown') {
       print('shutting down');

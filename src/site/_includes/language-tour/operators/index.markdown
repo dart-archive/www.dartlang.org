@@ -98,12 +98,23 @@ increment and decrement operators.
 Example:
 
 {% highlight dart %}
-var a = 2;
+var a, b;
 
-assert(++a == 3);  // Increment before returning a value.
-assert(a++ == 3);  // Increment after returning a value.
-assert(a-- == 4);  // Decrement after returning a value.
-assert(--a == 2);  // Decrement before returning a value.
+a = 0;  
+b = ++a;         // Increment a before b gets its value.
+assert(a == b);  // 1 == 1  
+
+a = 0;
+b = a++;         // Increment a AFTER b gets its value.
+assert(a != b);  // 1 != 0
+
+a = 0;
+b = --a;         // Decrement a before b gets its value.
+assert(a == b);  // -1 == -1
+
+a = 0;
+b = a--;         // Decrement a AFTER b gets its value.
+assert(a != b) ; // -1 != 0
 {% endhighlight %}
 </section>
 
@@ -366,7 +377,6 @@ This has a couple of consequences:
   which version of the operator is used.
   For example, if you define a Vector class and a Point class,
   `aVector + aPoint` uses the Vector version of +.
-</section>
 
 The following operators can be overridden:
 

@@ -138,7 +138,7 @@ even in production mode:
 {% highlight dart %}
 var names = new List<String>();
 names.addAll(['Seth', 'Kathy', 'Lars']);
-assert(names is List<String>);
+print(names is List<String>); // true
 {% endhighlight %}
 
 However, the **is** expression
@@ -156,7 +156,7 @@ wrap item-manipulation code in an [exception handler](#exceptions).
   generics in Java use _erasure_,
   which means that generic type parameters are removed at runtime.
   In Java, you can test whether an object is a List,
-  but you can't test whether it's a List<String>.
+  but you can't test whether it's a List&lt;String>.
 </aside>
 </section>
 

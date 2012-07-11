@@ -222,7 +222,7 @@ ingredients.addAll(['gold', 'titanium', 'xenon']);
 var nobleGases = new Set.from(['xenon', 'argon']);
 var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
-assert(intersection[0] == 'xenon');
+assert(intersection.contains('xenon'));
 
 // Check whether this set is a subset of another collection.
 // That is, does another collection contains all the items of this set?
@@ -268,7 +268,7 @@ teas.forEach((tea) => print('I drink $tea'));
 // Use map() to create a new collection by applying a function to each
 // item and collecting the results.
 var loudTeas = teas.map((tea) => tea.toUpperCase());
-assert(loudTeas[0] == 'GREEN');
+assert(loudTeas.some((tea) => tea == 'GREEN'));
 {% endhighlight %}
 
 ##### Filtering and checking items
@@ -437,7 +437,7 @@ y2k = new Date(2000, month: 1, day: 1, hour: 0, minute: 0, second: 0,
 y2k = new Date(2000, 1, 1, 0, 0, 0, 0, isUtc: true);
 
 // Specify a UTC date and time in milliseconds since the Unix epoch.
-y2k = const Date.fromMillisecondsSinceEpoch(1336017592000, isUtc: true);
+y2k = new Date.fromMillisecondsSinceEpoch(1336017592000, isUtc: true);
 
 // Parse an ISO 8601 date.
 y2k = new Date.fromString('2000-01-01T00:00:00Z');
@@ -656,7 +656,7 @@ assert(123.456.toString() == '123.456');
 // Specify the number of digits after the decimal.
 assert(123.456.toStringAsFixed(2) == '123.46');
 
-// Specify the number of sig figs.
+// Specify the number of significant figures.
 assert(123.456.toStringAsPrecision(2) == '1.2e+2');
 assert(Math.parseDouble('1.2e+2') == 120.0);
 {% endhighlight %}
@@ -867,7 +867,7 @@ var someDigits = "llamas live 15 to 20 years";
 assert(numbers.hasMatch(someDigits) == true);
 
 // Loop through all matches.
-for (Match match in numbers.allMatches(someDigits)) {
+for (var match in numbers.allMatches(someDigits)) {
   print(match.group(0)); // 15, then 20.
 }
 {% endhighlight %}
@@ -900,23 +900,23 @@ and, later, to supply a value to the Future.
 {% highlight dart %}
 Future<bool> longExpensiveSearch() {
   var completer = new Completer();
-  database.search(() {
-    // Perform exhaustive search.
-    // ...
-    // Sometime later,
-    // found it!!
-    completer.complete(true);
-  });
+  // Perform exhaustive search.
+  // ...
+  // Sometime later,
+  // found it!!
+  completer.complete(true);
   return completer.future;
 }
 
-Future<bool> result = longExpensiveSearch(); //returns immediately
+void main() {
+  var result = longExpensiveSearch(); //returns immediately
 
-// result.then() returns immediately.
-result.then((success) {
-  // The following code executes when the operation is complete.
-  print("The item was found: $success");
-});
+  // result.then() returns immediately.
+  result.then((success) {
+    // The following code executes when the operation is complete.
+    print("The item was found: $success");
+  });
+}
 {% endhighlight %}
 
 #### Chaining multiple asynchronous methods
@@ -1108,7 +1108,7 @@ you should use a [stream](#streaming-file-contents).
 When reading a text file, you can read the entire file
 contents with `readAsText()`. When the individual lines are
 important, you can use `readAsLines()`. In both cases,
-a Future object is returned that provides the
+a Future object is returned that provides
 the contents of the file as one or more strings.
 
 {% highlight dart %}
@@ -1315,12 +1315,13 @@ Decode a JSON-encoded string into a Dart object with `JSON.parse()`.
 #import('dart:json');
 
 main() {
-  var jsonString = """
+  // NOTE: Be sure to use ", not ', inside the JSON string.
+  var jsonString = '''
   [
     {"score": 40},
     {"score": 80}
   ]
-  """;
+  ''';
 
   var scores = JSON.parse(jsonString);
   assert(scores is List);
@@ -1336,8 +1337,9 @@ main() {
 Encode a supported Dart object into a JSON-formatted string
 with `JSON.stringify()`.
 
-Only objects of type list, map, string, int, double, bool, or null can
+Only objects of type List, Map, String, int, double, bool, or null can
 be encoded into JSON.
+List and Map objects are encoded recursively.
 
 {% highlight dart %}
 #import('dart:json');
@@ -1522,10 +1524,13 @@ main() {
 
   List<int> encoded = encodeUtf8("Îñţérñåţîöñåļîžåţîờñ");
 
-  assert(encoded.length == expected.length);
-  for (var i = 0; i < encoded.length; i++) {
-    assert(encoded[i] == expected[i]);
-  }
+  assert(() {
+    if (encoded.length != expected.length) return false;
+    for (var i = 0; i < encoded.length; i++) {
+      if (encoded[i] != expected[i]) return false;
+    }
+    return true;
+  });
 }
 {% endhighlight %}
 
