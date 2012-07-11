@@ -325,21 +325,21 @@ startServer(String basePath) {
   var server = new HttpServer();
   server.listen('127.0.0.1', 8080);
   server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
-    var path = request.path == '/' ? '/index.html' : request.path;
-    var file = new File('${basePath}${path}');
-    file.fullPath((String fullPath) {
-      if (!fullPath.startsWith(basePath)) {
-        send404(response);
-      } else {
-        file.exists((found) {
-          if (found) {
-            file.openInputStream().pipe(response.outputStream);
+    final String path = request.path == '/' ? '/index.html' : request.path;
+    final File file = new File('${basePath}${path}');
+    file.exists().then((bool found) {
+      if (found) {
+        file.fullPath().then((String fullPath) {
+          if (!fullPath.startsWith(basePath)) {
+            _send404(response);
           } else {
-            send404(response);
+            file.openInputStream().pipe(response.outputStream);
           }
         });
+      } else {
+        _send404(response);
       }
-    });
+    }); 
   };
 }
 
