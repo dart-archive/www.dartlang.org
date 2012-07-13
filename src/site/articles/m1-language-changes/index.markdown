@@ -12,6 +12,7 @@ Right now as we near our “Milestone 1” release, we are making a slew of fun 
 
 ## Contents
 
+1. [First class types](#first-class-types)
 1. [No explicit interfaces](#no-explicit-interfaces)
 1. [No "+" on String](#no--on-string)
 1. [No throwing `null`](#no-throwing-null)
@@ -29,6 +30,26 @@ Right now as we near our “Milestone 1” release, we are making a slew of fun 
 1. [Getter and setter definition syntax](#getter-and-setter-definition-syntax)
 1. [Conclusion](#conclusion)
 {:.toc}
+
+## First class types
+
+As we get ready for mirrors to come online with Dart, one minor step along the way is adding support for first-class types. With this change, you can refer to a class by name in an expression:
+
+{% highlight dart %}
+class SomeType {}
+
+main() {
+  print(SomeType); // <- Refer to the class.
+}
+{% endhighlight %}
+
+When you refer to a class by name, you're given a reference to an instance of type `Type`. Until mirrors are here, you won't be able to do much with it, but you can get its name, and compare instances with each other for equality.
+
+In addition, you can get the type of an object by accessing its `type` property:
+
+{% highlight dart %}
+print('a string'.type == String); // true
+{% endhighlight %}
 
 ## No explicit interfaces
 
