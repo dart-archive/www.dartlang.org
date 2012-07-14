@@ -59,7 +59,7 @@ and no more pending operations are in the queue.
 One simple way to add an event to the event queue is to
 schedule a function to be called in the future.
 You can do this by creating a
-[Timer](http://api.dartlang.org/io/Timer.html) object.
+[Timer](http://api.dartlang.org/dart_isolate/Timer.html) object.
 The following example registers a timer with the event queue
 and then drops off the end of main().
 Because a pending operation is in the event queue,
@@ -70,7 +70,8 @@ Once that code executes to completion,
 no more pending operations are in the event queue
 and the VM terminates.
 
-{% highlight dart %}#import('dart:io');
+{% highlight dart %}
+#import('dart:isolate');
 
 main() {
   new Timer(1000, (Timer t) => print('timer'));
