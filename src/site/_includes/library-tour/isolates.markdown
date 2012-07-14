@@ -67,10 +67,13 @@ It is illegal to use a function closure as an entry point to an isolate.
 Pass the entry point to
 [spawnFunction()](http://api.dartlang.org/dart_isolate.html#spawnFunction).
 
-<aside class="note" id="isolates-static-method" markdown="1">
-<b>Note:</b> Both the dart2js compiler and the Dart VM
-([bug #3011](http://code.google.com/p/dart/issues/detail?id=3011)) do not yet
-support static methods as isolate entry points.
+<aside id="isolates-static-method">
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    <b>Note:</b> Both the dart2js compiler and the Dart VM
+    <a href="http://code.google.com/p/dart/issues/detail?id=3011">bug #3011</a>
+    do not yet support static methods as isolate entry points.
+  </div>
 </aside>
 
 {% highlight dart %}

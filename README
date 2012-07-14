@@ -26,6 +26,13 @@ CONFIGURING YOUR MAC SYSTEM
   * ensure you are using 0.11.2 or higher
 * run 'gem install kramdown'
 * run 'gem install pygments.rb'
+* run 'gem install compass'
+* Install a forked version of compass-twitter-bootstrap
+  * git clone git://github.com/toao/compass-twitter-bootstrap.git
+  * cd compass-twitter-bootstrap
+  * run 'rake build'
+  * cd pkg
+  * run 'gem install compass_twitter_bootstrap'
 * install the bleeding edge of Pygments
   * hg clone https://bitbucket.org/olov/pygments-main
   * cd pygments-main

@@ -8,9 +8,6 @@ description: "Learn to download and use the Dart SDK, which includes the Dart VM
 
 <h1> {{ page.title }} </h1>
 
-
-<section>
-
 <p>
 This page tells you how to find and use
 prerelease versions of the Dart SDK on
@@ -19,15 +16,14 @@ prerelease versions of the Dart SDK on
 <span class="win">Windows.</span>
 <br>
 (These instructions are available for
-    <label>
-      <input type="radio" name="osChoices" id="win">
-      Windows</input></label>, 
-    <label>
-      <input type="radio" name="osChoices" id="linux" checked="true">
-      Linux</input></label>, and
-    <label>
-      <input type="radio" name="osChoices" id="mac">
-      Mac</input></label>.)
+    <input type="radio" name="osChoices" id="win">
+    <label class="os-choice" for="win">Windows</label>,
+
+    <input type="radio" name="osChoices" id="linux" checked="true">
+    <label class="os-choice" for="linux">Linux</label>, or
+
+    <input type="radio" name="osChoices" id="mac">
+    <label class="os-choice" for="mac">Mac</label>.)
 </p>
 
 <section>
@@ -86,8 +82,5 @@ and a <code>lib</code> directory for the Dart libraries.
   <li> <a href="/docs/pub-package-manager/">Dart package manager</a> (pub)</li>
 </ul>
 </section>
-
-</section>
-
 
 <script async src="/js/Switcher.dart.js"></script>

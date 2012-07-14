@@ -258,7 +258,7 @@ num abs(num value) => value < 0 ? -value : value;
 final TWO_PI = Math.PI * 2.0;
 
 int get today() {
-  final date = new DateTime.now();
+  final date = new Date.now();
   return date.day;
 }
 {% endhighlight dart 0 %}
@@ -288,15 +288,7 @@ I
 """
 {% endhighlight dart 0 %}
 
-<p>To build bigger strings from these pieces, you <em>can</em> just concatenate them using <code>+</code>:
-
-{% highlight dart %}
-var name = 'Fred';
-var salutation = 'Hi';
-var greeting = salutation + ', ' + name;
-{% endhighlight dart 0 %}
-
-<p>But it's cleaner and faster to use <em>string interpolation</em>:</p>
+<p>There is no plus (+) operator on String. It's cleaner and faster to use <em>string interpolation</em>:</p>
 
 {% highlight dart %}
 var name = 'Fred';
@@ -304,7 +296,10 @@ var salutation = 'Hi';
 var greeting = '$salutation, $name';
 {% endhighlight dart 0 %}
 
-<p>A dollar sign (<code>$</code>) in a string literal followed by a variable will expand to that variable's value. (If the variable isn't a string, it calls <code>toString()</code> on it.) You can also interpolate expressions by placing them inside curly braces:</p>
+<p>A dollar sign (<code>$</code>) in a string literal followed by a variable
+  will expand to that variable's value. (If the variable isn't a string,
+  it calls <code>toString()</code> on it.) You can also interpolate expressions by
+  placing them inside curly braces:</p>
 
 {% highlight dart %}
 var r = 2;

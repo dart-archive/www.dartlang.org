@@ -1,113 +1,111 @@
 ---
 layout: default
 title: "Downloads &amp; Source"
+description: "Download Dart Editor, the Dart SDK, and Dartium. Also, get the source code for the Dart project."
 ---
 
 {% include platform-specific-text/_noscript.html %}
 
 <h1> {{ page.title }} </h1>
 
+<p>
+  Choose your OS: 
+  <input type="radio" name="osChoices" id="win">
+  <label class="os-choice" for="win">Windows</label>,
+
+  <input type="radio" name="osChoices" id="linux" checked="true">
+  <label class="os-choice" for="linux">Linux</label>, or
+
+  <input type="radio" name="osChoices" id="mac">
+  <label class="os-choice" for="mac">Mac</label>.
+</p>
+
+
 <section id="overview">
 
 <p>
-Get everything you need when you download <b>Dart Editor</b>.
-<br>
-    (<label>
-      <input type="radio" name="osChoices" id="win">
-      Windows</input></label>, 
-    <label>
-      <input type="radio" name="osChoices" id="linux" checked="true">
-      Linux</input></label>, or
-    <label>
-      <input type="radio" name="osChoices" id="mac">
-      Mac</input></label>)
-</p>
+Get everything you need when you download Dart Editor.
+Alternatively, download just the SDK or Dartium.
 
-<p>
-The Dart Editor download includes
-the Dart <b>SDK</b> and a build of Chromium, nicknamed <b>Dartium</b>,
-that includes the Dart virtual machine (VM).
-Optionally, you can download the SDK and Dartium separately.
-Finally, you can also download the source code for the <b>Dart project</b>.
 </p>
 
 </section>
 
 
 <section id="editor">
-<h2> Dart Editor </h2>
+  <h2> Everything you need </h2>
 
-<p>
-With Dart Editor,
-you can write, build, and run
-web and server apps.
-The Dart Editor download includes the SDK and Dartium.
-Instructions for downloading, installing, and using Dart Editor are in
-<a href="/docs/editor/getting-started/">Getting Started with Dart Editor</a>.
-</p>
+  <p>
+  With Dart Editor,
+  you can write, build, and run
+  web and server apps.
+  The Dart Editor download includes the SDK and Dartium.
+  Instructions for downloading, installing, and using Dart Editor are in
+  <a href="/docs/editor/getting-started/">Getting Started with Dart Editor</a>.
+  </p>
 
-{% include downloads/_dart-editor.html %}
+  {% include downloads/_dart-editor.html %}
 
 </section>
 
 
 <section id="sdk">
-<h2> SDK </h2>
+  <h2> The stand-alone SDK </h2>
 
-<p>
-The SDK contains a Dart-to-JavaScript compiler (<em>dart2js</em>),
-the Dart VM, and Dart libraries.
-You can find instructions for downloading and using the SDK in
-<a href="/docs/getting-started/sdk/">Getting Started with the SDK</a>.
+  <p>
+  The SDK contains a Dart-to-JavaScript compiler (<em>dart2js</em>),
+  the Dart VM, and Dart libraries.
+  You can find instructions for downloading and using the SDK in
+  <a href="/docs/getting-started/sdk/">Getting Started with the SDK</a>.
 
-{% include downloads/_sdk.html %}
+  {% include downloads/_sdk.html %}
 
 </section>
 
 
 <section id="dartium">
-<h2> Dartium </h2>
+  <h2> Chromium + embedded Dart VM </h2>
 
-<p>
-With this browser,
-you can run and debug Dart scripts
-without first compiling them to JavaScript.
-For instructions on downloading, installing, and launching Dartium, see
-<a href="/dartium/">Chromium with the Dart VM</a>.
-</p>
+  <p>
+  With this browser,
+  you can run and debug Dart scripts
+  without first compiling them to JavaScript.
+  For instructions on downloading, installing, and launching Dartium, see
+  <a href="/dartium/">Chromium with the Dart VM</a>.
+  </p>
 
-{% include downloads/_dartium.html %}
+  {% include downloads/_dartium.html %}
 
 </section>
 
 
 <section id="project">
-<h2> Source code </h2>
+  <h2> Source code </h2>
 
-<p>
-You can download, browse, and contribute to the source code for the
-<a href="http://dart.googlecode.com">Dart open-source project</a>.
-</p>
+  <p>
+  You can download, browse, and contribute to the source code for the
+  <a href="http://dart.googlecode.com">Dart open-source project</a>.
+  </p>
 
-<ul>
-  <li>
-    <a href="http://code.google.com/p/dart/source/browse/">Browse</a>
-    the source
-  </li>
-  <li>
-    <a href="http://code.google.com/p/dart/source/checkout">Check out</a>
-    the source code straight from Subversion
-  </li>
-  <li>
-    <a href="http://code.google.com/p/dart/wiki/Building#Building_everything">Build</a>
-    the source using the project build tools and scripts
-    </a>
-  </li>
-  <li>
-    <a href="http://code.google.com/p/dart/wiki/Contributing">Contribute</a>
-    patches to the Dart project
-  </li>
-</ul>
+  <ul>
+    <li>
+      <a href="http://code.google.com/p/dart/source/browse/">Browse</a>
+      the source
+    </li>
+    <li>
+      <a href="http://code.google.com/p/dart/wiki/GettingTheSource?tm=4">Check out</a>
+      the source code straight from Subversion
+    </li>
+    <li>
+      <a href="http://code.google.com/p/dart/wiki/Building#Building_everything">Build</a>
+      the source using the project build tools and scripts
+      </a>
+    </li>
+    <li>
+      <a href="http://code.google.com/p/dart/wiki/Contributing">Contribute</a>
+      patches to the Dart project
+    </li>
+  </ul>
 
 </section>
 

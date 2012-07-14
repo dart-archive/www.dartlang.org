@@ -1,6 +1,6 @@
 .highlight  { background: #F0F0F0; border-radius: 5px; margin-bottom: 1em;}
 
-.bad .highlight {
+div.bad div.highlight pre {
   border-radius: 5px;
 
   background-image: linear-gradient(bottom, rgb(255,242,242) 16%, rgb(255,204,204) 86%);
@@ -18,7 +18,7 @@
   );
 }
 
-.good .highlight {
+div.good div.highlight pre {
   border-radius: 5px;
 
   background-image: linear-gradient(bottom, rgb(243,255,240) 16%, rgb(213,255,204) 86%);
@@ -44,6 +44,7 @@
 
 .bad .highlight pre:before {
   content: "bad";
+  color: red;
   float: right;
 }
 

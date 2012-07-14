@@ -38,10 +38,3 @@ Common command-line options for dart2js include:
 
 -h
 : Display this message (add -v for information about all options).
-
-
-<aside class="note">
-<b>What happened to frog?</b>
-frog was a previous version of a Dart-to-JavaScript
-compiler. It has been deprecated and replaced by dart2js.
-</aside>

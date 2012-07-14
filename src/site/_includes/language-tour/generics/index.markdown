@@ -94,10 +94,12 @@ var pages = <String>{        // Specify value type: String
     'humans.txt':'We are people, not machines' };
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-  **Note:**
-  Map literals always have string _keys_.
-  The type before the brace specifies the type of the map's _values_.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Map literals always have string _keys_.
+    The type before the brace specifies the type of the map's _values_.
+  </div>
 </aside>
 
 </section>
@@ -150,16 +152,17 @@ The solution is to either
 check each item's type or
 wrap item-manipulation code in an [exception handler](#exceptions).
 
-<aside class="note" markdown="1">
-  **Note:**
-  In contrast,
-  generics in Java use _erasure_,
-  which means that generic type parameters are removed at runtime.
-  In Java, you can test whether an object is a List,
-  but you can't test whether it's a List&lt;String>.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    In contrast,
+    generics in Java use _erasure_,
+    which means that generic type parameters are removed at runtime.
+    In Java, you can test whether an object is a List,
+    but you can't test whether it's a <code>List&lt;String&gt;</code>.
+  </div>
 </aside>
 </section>
-
 
 <section id="generics-summary" markdown="1">
 ### Summary of generics

@@ -49,6 +49,9 @@ handlers:
 - url: /docs/getting-started/sdk/.*
   script: scripts.redirector.application
 
+- url: /resources/
+  script: scripts.redirector.application
+
 - url: /(.*\.png)
   static_files: static/\1
   expiration: 1d
@@ -63,6 +66,11 @@ handlers:
   static_files: static/\1
   expiration: 1d
   upload: static/(.*\.jpg)
+
+- url: /(.*\.woff)
+  static_files: static/\1
+  expiration: 7d
+  upload: static/(.*\.woff)
 
 - url: (.*)/
   static_files: static\1/index.html

@@ -29,10 +29,13 @@ Adding types is a way to clearly express your intent.
 Tools like compilers and editors can use these types to
 help you, by providing early warnings for bugs and code completion.
 
-<aside class="note" markdown="1">
-  **Note:** This chapter follows the
-  [style guide recommendation](/articles/style-guide/#type-annotations)
-  of using **var**, rather than type annotations, for local variables.
+<aside markdown="1">
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    This chapter follows the
+    <a href="/articles/style-guide/#type-annotations">style guide recommendation</a>
+    of using <strong>var</strong>, rather than type annotations, for local variables.
+  </div>
 </aside>
 
 #### final

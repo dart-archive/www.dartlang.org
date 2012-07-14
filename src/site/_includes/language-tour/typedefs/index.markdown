@@ -51,9 +51,12 @@ main() {
 }
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-**Note:** Currently, typedefs are restricted to function types.
-This may change in a future version of the language specification.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    Currently, typedefs are restricted to function types.
+    This may change in a future version of the language specification.
+  </div>
 </aside>
 
 As typedefs are simply aliases, they offer a way to check the

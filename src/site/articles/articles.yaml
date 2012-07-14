@@ -1,0 +1,122 @@
+everyday-dart:
+  title: Everyday Dart
+  articles:
+  -
+    title: Dart Style Guide
+    url: /articles/style-guide/
+    authors:
+    - Bob Nystrom
+    date: October 2011 (updated May 2012)
+    desc: How we format, structure, and organize our code.
+  -
+    title: Idiomatic Dart
+    url: /articles/idiomatic-dart/
+    authors:
+    - Bob Nystrom
+    date: October 2011 (updated March 2012)
+    desc: Get a sense of how to write Dart code like a native. 
+
+language-details:
+  title: Language Details
+  articles:
+  -
+    title: Milestone 1 Language Changes
+    url: /articles/m1-language-changes/
+    authors:
+    - Bob Nystrom
+    date: June 2012
+    desc: A brief introduction to some language changes made for the M1 target.
+  -
+    title: Dart Puzzlers
+    url: /articles/puzzlers/index.html
+    authors:
+    - Josh Bloch
+    date: February 2012
+    desc: See what happens when the author of Java Puzzlers translates each puzzler to Dart.
+  -
+    title: Emulating Functions in Dart
+    url: /articles/emulating-functions/
+    authors:
+    - Gilad Bracha
+    date: January 2012
+    desc: Learn how you'll be able to create classes that can substitute for functions.
+  -
+    title: Optional Types in Dart
+    url: /articles/optional-types/
+    authors:
+    - Gilad Bracha
+    date: October 2011
+    desc: Learn what Dart's dynamic type system does and doesn't do, and get tips for using types.
+
+libraries-and-apis:
+  title: Libraries and APIs
+  articles:
+  -
+    title: Mocking with Dart
+    url: /articles/mocking-with-dart/
+    authors:
+    - Graham Wheeler
+    date: July 2012
+    desc: Write mock and spy classes using the Dart unit test library.
+  -
+    title: Unit Tests with Dart
+    url: /articles/dart-unit-tests/
+    authors:
+    - Graham Wheeler
+    date: June 2012
+    desc: Write both synchronous and asynchronous tests using the Dart unit test library.
+  -
+    title: Native Extensions for the Standalone Dart VM
+    url: /articles/native-extensions-for-standalone-dart-vm/
+    authors:
+    - William Hesse
+    date: May 2012
+    desc: Use shared libraries written in C or C++ from your Dart command-line apps.
+  -
+    title: Using Dart with JSON Web Services
+    url: /articles/json-web-service/
+    authors:
+    - Chris Buckett
+    date: April 2012
+    desc: Connect your client-side Dart web app to a JSON web service.
+  -
+    title: An Introduction to the dart:io Library
+    url: /articles/io/
+    authors:
+    - Mads Ager
+    date: March 2012
+    desc: Learn how your server-side Dart code can use the dart:io library to perform asynchronous I/O using files, sockets, HTTP connections, and more.
+  -
+    title: Improving the DOM
+    url: /articles/improving-the-dom/
+    authors:
+    - Bob Nystrom
+    date: October 2011
+    desc: See what our new API for working with the DOM looks like in Dart.
+  -
+    title: Embedding Dart in HTML
+    url: /articles/embedding-in-html/
+    authors:
+    - Sigmund Cherem
+    - Vijay Menon
+    date: October 2011
+    desc: Find out how you'll be able to embed Dart directly on HTML pages.
+
+design-decisions:
+  title: Design Decisions
+  articles:
+  -
+    title: Why Dart Types are Optional and Unsound
+    url: /articles/why-dart-types/
+    authors:
+    - Eli Brandt
+    date: December 2011
+    desc: Understand why Dart's type system works the way it does.
+  -
+    title: Why Not a Bytecode VM?
+    url: /articles/why-not-bytecode/
+    authors:
+    - Florian Loitsch
+    - Bob Nystrom
+    date: November 2011
+    desc: Understand one of Dart's key architectural decisions.

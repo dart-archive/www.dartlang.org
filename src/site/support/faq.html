@@ -10,13 +10,14 @@ rel:
 <br>
 Version 0.02, February 2012</em>
 
-<section>
 <p>
   This FAQ answers many of the questions we've been asked about Dart. However, because we released Dart
   as an early technology preview rather than keeping it under wraps until version 1.0, some important
   open questions remain. We hope to address them with upcoming work and experimentation, inside and
   outside of Google.
 </p>
+
+<section id="contents">
 
 <h3>Contents</h3>
 <ol id="faq-toc" class="toc">
@@ -72,7 +73,7 @@ Version 0.02, February 2012</em>
 
   <li><a href="#acknowledgments" class="faq-topic">Acknowledgments</a></li>
 </ol>
-</section>
+</section> <!-- /#contents -->
 
 {% comment %}
 <!--
@@ -81,8 +82,8 @@ TODO: do we have a standard trick to add some scrollable whitespace at the botto
 ANSWER: no. :( It's a common problem but not one I'd thought about fixing. If we add space above the footer, people won't see the footer. If we add space below, it'll just look weird... but maybe that'd be OK. -->
 {% endcomment %}
 
-<section>
-<h2 id="strategy">Strategy</h2>
+<section id="strategy">
+<h2>Strategy</h2>
 
 <h3 id="why-dart">Q. Why Dart?</h3>
 
@@ -130,10 +131,10 @@ ANSWER: no. :( It's a common problem but not one I'd thought about fixing. If we
 <li>No bytecode VM is truly general-purpose; they all make assumptions that privilege some class of languages.  A language VM leaves more room to improve the VM and make deep changes to optimization of the language. Some Dart engineers wrote <a href="/articles/why-not-bytecode/">an article</a> talking about the VM question in more detail.</li>
 </ul>
 </p>
-</section>
+</section> <!-- /#strategy -->
 
-<section>
-<h2 id="language">Language</h2>
+<section id="language">
+<h2>Language</h2>
 
 <h3 id="compare-to-javascript">Q. Isn't Dart a lot like JavaScript?</h3>
 
@@ -180,7 +181,7 @@ makeGreeting = function(name) {
 // Dart code
 
 String MakeGreeting(String name) {
-  String greeting = 'hello ' + name;
+  String greeting = 'hello $name';
   return greeting;
 }
 {% endhighlight %}
@@ -232,10 +233,10 @@ String MakeGreeting(String name) {
 <p>Please look at the <a href="http://code.google.com/p/dart/issues/list">list of Dart issues</a> to see if your request is already there, and add a new issue if not.  Make a thoughtful argument for your feature.  Sample code with and without your feature is good evidence; a sizeable codebase that shows the need is even better evidence.</p>
 
 <p>Please don't be surprised if the Dart designers say "no" by default, especially for now.  It's far more painful to remove a language feature than to add it, so Dart is likely to add the most obvious features first, and then revisit the next tier later.  And there simply are more possible language features in the world that can fit into any single language without making a total hash of it.   But we do very much appreciate suggestions and evidence.  We hope you'll see our appreciation through careful design choices and fair communication about them.</p>
-</section>
+</section> <!-- /#language -->
 
-<section>
-<h2 id="types">Types</h2>
+<section id="types">
+<h2>Types</h2>
 
 <h3 id="type-inference">Q. Does Dart have type inference?</h3>
 
@@ -270,10 +271,10 @@ String MakeGreeting(String name) {
 <p>We are familiar with a variety of ways that languages try to mark or infer variance.  We don't think any of them are suitable for Dart, where we want type annotations to be optional and unobtrusive: it wouldn't fit to <em>require</em> marking, and we feel that variance inference systems add too much complexity for their benefit in Dart.</p>
 
 <p>Again, we're trying to be pragmatic, and we think the outcome is reasonable.</p>
-</section>
+</section> <!-- /#types -->
 
-<section>
-<h2 id="tools">Usage and tools</h2>
+<section id="tools">
+<h2>Usage and tools</h2>
 
 <h3 id="should-i-use-dart-yet">Q. Should I write my web app in Dart?</h3>
 
@@ -332,14 +333,12 @@ For details on downloading and using Dartium, see
 <h3 id="server-support">Q. Will Dart run on the server?</h3>
 
 <p>We have some server code now, such as our test suites.  Have a look at the file, socket, and process APIs in <a href="http://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fruntime%2Fbin"><code>dart/runtime/bin/</code></a>. </p>
-</section>
 
-<section>
-<h2 id="acknowledgments">Acknowledgments</h2>
+</section> <!-- /#tools -->
+
+<section id="acknowledgements">
+<h2>Acknowledgments</h2>
 
 <p>Thanks to users who asked questions, and to many Googlers who contributed questions, answers, and improvements: Mukesh Agrawal, Lars Bak, Adam Barth, Gilad Bracha, Paul Brauner, David Carlson, Patrick Doyle, Matthias Ernst, Nicolas Geoffray, Dan Grove, William Hesse, Bruce Johnson, Seth Ladd, Patrick Linehan, Florian Loitsch, John Messerly, Srdjan Mitrovic, Anton Muhin, Bob Nystrom, Jack Palevich, David Rochberg, Matt Shulman, Joel Webber, Brian Wilkerson.</p>
 
 </section>
-
-
-

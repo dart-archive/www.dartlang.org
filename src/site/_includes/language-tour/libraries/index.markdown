@@ -12,10 +12,12 @@ they can hide implementation details such as private variables.
 <b>Every Dart app is a library</b>,
 even if it doesn't use #library.
 
-<aside class="note">
-<b>Note:</b>
-The library system in Dart <b>will change</b>.
-This section describes how it currently works.
+<aside>
+  <div class="alert">
+    <strong>Warning:</strong>
+    The library system in Dart <b>will change</b>.
+    This section describes how it currently works.
+  </div>
 </aside>
 
 
@@ -89,11 +91,14 @@ implements a library.
 You can put your library's implementation into multiple .dart files
 by using **#source** in the library's main .dart file.
 
-<aside class="note" markdown="1">
-**Included files can't have directives.**
-A single file in each library
-must have all the directives (such as #import and #library)
-that the library needs.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Included files can't have directives.
+    A single file in each library
+    must have all the directives (such as #import and #library)
+    that the library needs.
+  </div>
 </aside>
 
 For example, consider the following code:
@@ -116,7 +121,7 @@ Ballgame.dart doesn't have a #library statement,
 but remember that each Dart app has an implicit library.
 
 
-<section id="libraries-library" markdown="1">
+<section id="declaring-library" markdown="1">
 #### Declaring a library
 
 To explicitly declare a library, you use a **#library** statement.
@@ -131,10 +136,13 @@ For example:
 #source('SliderSample.dart');        // Grab the code from SliderSample.dart.
 {% endhighlight %}
 
-<aside class="note">
-  <b>Note:</b>
-  The string in the #library statement isn't currently used.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    The string in the #library statement isn't currently used.
+  </div>
 </aside>
+
 </section>
 
 <section id="libraries-private-members" markdown="1">

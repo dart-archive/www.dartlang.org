@@ -16,9 +16,12 @@ Consult the
 [Dart API reference](http://api.dartlang.org/)
 for the full details about a class or interface.
 
-<aside class="note" markdown="1">
-**Note:** Expect major changes to the Dart libraries before Dart's
-first release.
+<aside>
+  <div class="alert">
+    <strong>Warning:</strong>
+    Expect major changes to the Dart libraries before Dart's
+    first release.
+  </div>
 </aside>
 
 #### Contents {#toc}
@@ -318,9 +321,12 @@ Unlike in JavaScript, Dart objects are not maps.
 The language tour has more
 [information about maps](/docs/language-tour/#maps).
 
-<aside class="note">
-  <b>Note:</b> The Map
-  interface does not extend Collection.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    The Map
+    interface does not extend Collection.
+  </div>
 </aside>
 
 ##### Creating maps
@@ -665,8 +671,11 @@ assert(Math.parseDouble('1.2e+2') == 120.0);
 
 Use the Math class for the basic trigonometric functions.
 
-<aside class="note">
-<b>Note:</b> These methods use radians, not degrees!
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    These methods use radians, not degrees!
+  </div>
 </aside>
 
 {% highlight dart %}
@@ -712,11 +721,14 @@ Generate random numbers between 0.0 and 1.0 with the Math class.
 var rand = Math.random();
 {% endhighlight %}
 
-<aside class="note">
-  <b>Note:</b> The current implementation of random() for the
-  Dart VM is not random at all. Follow
-  <a href="http://code.google.com/p/dart/issues/detail?id=499">bug 499</a>
-  for the status.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    The current implementation of random() for the
+    Dart VM is not random at all. Follow
+    <a href="http://code.google.com/p/dart/issues/detail?id=499">bug 499</a>
+    for the status.
+  </div>
 </aside>
 
 #### More information

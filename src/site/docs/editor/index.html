@@ -44,20 +44,21 @@ If you run into a problem, see
 <h2>Getting Dart Editor</h2>
 
 <p>
-You can download Dart Editor for
-<label>
-  <input type="radio" name="osChoices" id="win">
-  Windows</input></label>,
-<label>
-  <input type="radio" name="osChoices" id="linux" checked="true">
-  Linux</input>
-  </label>, or
-<label>
-  <input type="radio" name="osChoices" id="mac">
-  Mac</input></label>.
+You can download Dart Editor for:
+
+    <input type="radio" name="osChoices" id="win">
+    <label class="os-choice" for="win">Windows</label>,
+
+    <input type="radio" name="osChoices" id="linux" checked="true">
+    <label class="os-choice" for="linux">Linux</label>, or
+
+    <input type="radio" name="osChoices" id="mac">
+    <label class="os-choice" for="mac">Mac</label>.
 </p>
 
 {% include downloads/_dart-editor.html %}
+
+<h3>Contents</h3>
 
 <p>
 The Dart Editor download includes:
@@ -127,12 +128,14 @@ and then use the command-line interface to unzip on top of the old files:
 replace dart/SOME_FILE? [y]es, [n]o, [A]ll, [N]one, [r]ename: <b>A</b>
 {% endhighlight %}
 
-<aside class="note">
-<b>Note:</b>
-If Dart Editor starts behaving strangely after you install
-on top of an old copy,
-then you might need to abandon the old state.
-Try downloading and installing a fresh copy of Dart Editor.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    If Dart Editor starts behaving strangely after you install
+    on top of an old copy,
+    then you might need to abandon the old state.
+    Try downloading and installing a fresh copy of Dart Editor.
+  </div>
 </aside>
 
 </section>
@@ -773,10 +776,13 @@ Debugging must be enabled in your launch configuration
 (which it is, by default).
 </p>
 
-<aside class="note">
-<b>Platform note:</b>
-Command-line debugging is currently supported for Mac only.
-We expect to support other platforms soon.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    Command-line debugging is currently supported for Mac
+    and Linux only.
+    We expect to support Windows as well.
+  </div>
 </aside>
 
 <p>

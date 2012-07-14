@@ -17,25 +17,24 @@ This browser can execute Dart web apps directly,
 so you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
 Dartium is available for
-<label>
-  <input type="radio" name="osChoices" id="win">
-  Windows</input></label>,
-<label>
-  <input type="radio" name="osChoices" id="linux" checked="true">
-  Linux</input></label>, and
-<label>
-  <input type="radio" name="osChoices" id="mac">
-  Mac</input></label>.
+    <input type="radio" name="osChoices" id="win">
+    <label class="os-choice" for="win">Windows</label>,
+
+    <input type="radio" name="osChoices" id="linux" checked="true">
+    <label class="os-choice" for="linux">Linux</label>, or
+
+    <input type="radio" name="osChoices" id="mac">
+    <label class="os-choice" for="mac">Mac</label>.
 </p>
 
-<aside class="warning">
-<b>Important:</b>
-This browser is a technical preview,
-and it might have security and stability issues.
+<aside>
+  <div class="alert">
+    <strong>Warning:</strong>
+    This browser is a technical preview,
+    and it might have security and stability issues.
 
-<blockquote>
-<b>Do not use Dartium as your primary browser!</b>
-</blockquote>
+    <b>Do not use Dartium as your primary browser!</b>
+  </div>
 </aside>
 
 <h4> Contents </h4>
@@ -68,12 +67,15 @@ you can download it separately:
 {% include downloads/_dartium.html %}
 
 <br>
-<aside class="note">
-<b>Note:</b>
-The Dartium binary <b>will expire</b> after a few days.
-When that happens,
-you'll need to download a new copy
-if you want to continue using Dartium.
+
+<aside>
+  <div class="alert">
+    <strong>Warning:</strong>
+    The Dartium binary <b>will expire</b> after a few days.
+    When that happens,
+    you'll need to download a new copy
+    if you want to continue using Dartium.
+  </div>
 </aside>
 
 <p>
@@ -110,14 +112,14 @@ for details and tips.
 
 </p>
 
-<aside class="note">
+<p>
 <b>If you already use Chromium:</b>
 If another version of Chromium is open,
 then you could have a profile conflict.
 To avoid this, you can open Dartium or Chromium
 from the command line with the
 <a href="http://www.chromium.org/user-experience/user-data-directory">--user-data-dir flag</a>.
-</aside>
+</p>
 
 </section>
 
@@ -160,10 +162,13 @@ to link to your Dart source file.
 </html>
 {% endhighlight %}
 
-<aside class="note">
-  <b>Tip:</b> The Dart Editor automatically adds both
-  the <code>application/dart</code> script tag and the
-  bootstrap JavaScript tag into the project's main HTML file.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    The Dart Editor automatically adds both
+    the <code>application/dart</code> script tag and the
+    bootstrap JavaScript tag into the project's main HTML file.
+  </div>
 </aside>
 
 </section>
@@ -225,7 +230,7 @@ On Linux, you can specify flags by starting Dartium as follows:
 </p>
 
 {% highlight bash %}
-DART_FLAGS='--enable_type_checks --enable_asserts' <em>path</em>/chrome
+DART_FLAGS='--enable_type_checks --enable_asserts' PATH/chrome
 {% endhighlight %}
 
 <p>
@@ -234,7 +239,7 @@ On the Mac:
 
 {% highlight bash %}
 DART_FLAGS='--enable_type_checks --enable_asserts'              \
-  <em>path</em>/Chromium.app/Contents/MacOS/Chromium
+  PATH/Chromium.app/Contents/MacOS/Chromium
 {% endhighlight %}
 
 <p>
@@ -247,11 +252,13 @@ DART_FLAG='--enable_type_checks --enable_asserts'               \
 {% endhighlight %}
 
 <br>
-<aside class="note">
-<b>Tip:</b>
-You can see the command-line flags and executable path
-of your current Chromium-based browser
-by going to <b>chrome://version</b>.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    You can see the command-line flags and executable path
+    of your current Chromium-based browser
+    by going to <b>chrome://version</b>.
+  </div>
 </aside>
 </section>
 

@@ -26,9 +26,16 @@ if (name) {
 <p>
 In JavaScript, this code prints "You have a name!" because
 <code>name</code> is a non-null object.
-However, in Dart, the above doesn't print at all
+However, in Dart <strong>running in production mode</strong>,
+the above doesn't print at all
 because <code>name</code> is converted to <b>false</b>
 because <code>name != true</code>.
+</p>
+
+<p>
+In Dart <strong>running in checked mode</strong>, the above code
+will throw an exception because the <code>name</code>
+variable is not a boolean.
 </p>
 
 <p>
@@ -40,14 +47,21 @@ that behaves differently in JavaScript and Dart:
 if (1) {
   print("JavaScript prints this line because it thinks 1 is true.");
 } else {
-  print("Dart prints this line because it thinks 1 is NOT true.");
+  print("Dart in production mode prints this line.");
+
+  // However, in checked mode, if (1) will throw an exception
+  // because 1 is not a boolean.
 }
 {% endhighlight %}
 
-<br>
-<aside class="note">
-<b>Note:</b>
-The previous two samples work only in production mode, not checked mode.
+
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    The previous two samples work only in production mode, not checked mode.
+    In checked mode, an exception is thrown if a non-boolean is used
+    when a boolean is expected.
+  </div>
 </aside>
 
 <p>
@@ -86,5 +100,3 @@ because we haven't discussed operators yet.
 We should be sure to cover this in the operator section!}
 {QUESTION: Is this covered? If so, should we point to it from here?}
 {% endcomment %}
-
-</section>

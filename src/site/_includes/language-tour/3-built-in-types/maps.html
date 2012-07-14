@@ -122,10 +122,12 @@ var gifts = {
 gifts.forEach((k,v) => print('$k : $v'));
 {% endhighlight %}
 
-<aside class="note">
-<b>Note:</b>
-Don't depend on forEach() returning
-the key-value pairs in a particular order.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Don't depend on forEach() returning
+    the key-value pairs in a particular order.
+  </div>
 </aside>
 
 <p>
@@ -143,9 +145,11 @@ var values = gifts.getValues();
 values.forEach((v) => print(v));
 {% endhighlight %}
 
-<aside class="note">
-<b>Note:</b>
-Map itself does not extend the Collection interface.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Map itself does not extend the Collection interface.
+  </div>
 </aside>
 
 </section>

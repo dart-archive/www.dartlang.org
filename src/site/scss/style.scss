@@ -1,0 +1,197 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700|Montserrat:400,700);
+
+/* Override bootstrap variables */
+$sansFontFamily: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$baseFontSize: 14px !default;
+$baseLineHeight: 22px !default;
+
+$dartFont: 'Montserrat', sans-serif;
+
+@import "compass_twitter_bootstrap_awesome";
+
+/* colors from logo */
+$blue-dark: #0081C6;
+$blue-light: #00A4E4;
+$green-dark: #00D2B8;
+$green-light: #55DDCA;
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+/* place after the body + padding */
+
+@import "compass_twitter_bootstrap_responsive";
+
+section {
+  margin-bottom: 1em;
+}
+
+.alert {
+  a {
+    color: $linkColorHover;
+    text-decoration: underline;
+  }
+}
+
+ol.toc li {
+  list-style-type: none;
+}
+
+.search-query {
+  width: 100px;
+}
+
+.btn-primary {
+  @include bootstrap-buttonBackground($blue-dark, $blue-light);
+}
+
+.thumbnail {
+  background-color: whitesmoke;
+  padding: 15px;
+}
+
+/* override because we have an image in there */
+.navbar a.brand {
+  padding: 6px 20px 0 20px;
+}
+
+.navbar-search {
+  margin-top: 4px;
+}
+
+.navbar li.share-button {
+  padding:10px 8px 0 8px;
+
+  .gplus {
+    width:32px;
+  }
+
+  .twitter {
+    width:56px;
+  }
+}
+
+article.homepage {
+
+  pre code {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-family: $dartFont;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    color: $blue-light;
+  }
+
+  section {
+    margin-bottom: 60px;
+
+    .callouts {
+      h2 {
+        text-transform: uppercase;
+        font-family: $dartFont;
+      }
+
+      p.img {
+        text-align: center;
+      }
+    }
+  }
+
+  ul.buttons {
+    text-align: center;
+    list-style: none;
+
+    li {
+      display: inline-block;
+    }
+  }
+
+  #top-mast {
+    text-align: center;
+    margin-bottom: 30px;
+
+    .logo {
+      margin-bottom: 36px;
+      position: relative;
+      left: -28px;
+    }
+
+    .contents {
+      padding-top: 30px;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+      @media (min-width: 481px) {
+        background-image: url('/imgs/Dart_Background-large-white-dartboard.jpg');
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 200;
+      line-height: $baseLineHeight * 1.5;
+      color: $heroUnitLeadColor;
+    }
+
+    ul.buttons {
+      margin-top: 40px;
+
+      li {
+        margin: 0 1em;
+        vertical-align: top;
+        margin-top: 10px;
+        width: 180px;
+        height: 73px;
+      }
+
+      li.download {
+        padding-top: 9px;
+      }
+
+      li.twitter {
+        padding-top: 12px;
+      }
+    }
+  }
+
+  .overview-transition {
+    text-align: center;
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 1em;
+      color: #AAA;
+    }
+  }
+
+}
+
+section.article div.author-and-date {
+  font-style: italic;
+}
+
+label.os-choice {
+  display: inline;
+}
+
+footer {
+  margin-top: 10px;
+  text-align: center;
+  p {
+    font-size: $baseFontSize - 2;
+    color: $grayLight;
+  }
+}
+
+@import "syntax";

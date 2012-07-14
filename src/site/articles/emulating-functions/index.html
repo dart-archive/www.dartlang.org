@@ -15,14 +15,16 @@ This document describes a refinement of the Dart programming language
 that allows user-defined classes that are substitutable for functions.
 </p>
 
-<aside class="note">
-<b>Note:</b>
-This functionality is <b>not yet implemented</b>,
-but is specified as part of version 0.07 of the
-<a href="http://www.dartlang.org/docs/spec/index.html">Dart
-Programming Language Specification</a>.
-Hopefully it will find its way into our implementations in due course,
-though it may be quite a while.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    This functionality is <b>not yet implemented</b>,
+    but is specified as part of version 0.07 of the
+    <a href="http://www.dartlang.org/docs/spec/index.html">Dart
+    Programming Language Specification</a>.
+    Hopefully it will find its way into our implementations in due course,
+    though it may be quite a while.
+  </div>
 </aside>
 
 <section class="toc">
@@ -76,8 +78,7 @@ and if so issues a helpful error message suggesting
 you might have wanted to use a closure.
 </p>
 
-<aside class="note">
-<b>Side note:</b>
+<p>
 Why do we insist on <b>call</b>? It might seem like
 
 <pre>operator () (int a) =&gt; a *2;</pre>
@@ -91,7 +92,7 @@ we need to be able to closurize the operator
 (for example, <code>f.call</code>), which doesn&rsquo;t work for <b>()</b>.
 (We don&rsquo;t allow <code>f.()</code>.
 It is clearly too error prone.)
-</aside>
+</p>
 
 <section>
 <h2 id="apply"> The Function interface and apply() method </h2>
@@ -155,8 +156,8 @@ and calling <code><code>apply()</code></code> on it:
 f.call.apply(args);
 {% endhighlight %}
 <br>
-<aside class="note">
-<b>Side note:</b>
+
+<p>
 We could say that if you declare operator <b>call</b>,
 <code>apply()</code> gets created for you.
 However, this entails an undesirable degree of magic.
@@ -166,7 +167,7 @@ whether locally declared or (worse) inherited.
 Debuggers need to know how to display
 these synthetic <code>apply()</code> methods,
 and so on.
-</aside>
+</p>
 </section>
 
 <section>
@@ -222,11 +223,11 @@ then that code should instead be
 <code>baz.<b>call.</b>apply(msg.arguments)</code>.
 </p>
 
-<aside class="note">
-<b>Side note:</b>
+<p>
 The only argument to <code>noSuchMethod()</code>
 is an <code>InvocationMirror</code>,
 which is currently defined as follows:
+</p>
 
 {% highlight dart %}
 interface InvocationMirror {
@@ -300,7 +301,7 @@ Likewise, <code>isGetter</code> does not imply a getter was being looked up;
 if a method was present,
 it would be closurized and returned.
 </p>
-</aside>
+
 </section>
 
 

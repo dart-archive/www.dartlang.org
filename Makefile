@@ -5,8 +5,11 @@ clean:
 
 build: copy add_version
 
-copy:
-	rm -rf ./build && cd ./src/site && jekyll --no-server --no-auto && cd ../.. && cp -R ./src/appengine/* build/
+compass:
+	compass compile src/site/
+
+copy: clean compass
+	cd ./src/site && jekyll --no-server --no-auto && cd ../.. && cp -R ./src/appengine/* build/
 
 add_version:
 	ruby -p -i -e '$$_.gsub!(/CHANGEME/, "$(CURRENT_BRANCH)")' ./build/app.yaml

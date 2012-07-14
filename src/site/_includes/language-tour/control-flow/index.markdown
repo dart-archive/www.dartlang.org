@@ -193,9 +193,12 @@ assert(number < 100);  // Make sure the value is less than 100.
 assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-  **Important:** Assert statements work only in checked mode.
-  They have no effect in production mode.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Assert statements work only in checked mode.
+    They have no effect in production mode.
+  </div>
 </aside>
 
 Inside the parentheses, you can put any expression

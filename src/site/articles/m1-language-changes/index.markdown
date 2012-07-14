@@ -3,12 +3,12 @@ layout: default
 title: "Milestone 1 Language Changes"
 rel:
   author: bob-nystrom
-description: "A brief introduction to some of the language changes we are making heading into our next milestone."
+description: "A brief introduction to some of the language changes planned for the M1 milestone."
 ---
 
 # Milestone 1 Language Changes
 
-Right now as we near our “Milestone 1” release, we are making a slew of fun language changes. There are tracking bugs in the repo for all of them, but I wanted to run through them here and try to provide some context and rationale where I can.
+Right now as we near our "Milestone 1" release, we are making a slew of fun language changes. There are tracking bugs in the repo for all of them, but I wanted to run through them here and try to provide some context and rationale where I can.
 
 ## Contents
 
@@ -16,10 +16,10 @@ Right now as we near our “Milestone 1” release, we are making a slew of fun 
 1. [No explicit interfaces](#no-explicit-interfaces)
 1. [No "+" on String](#no--on-string)
 1. [No throwing `null`](#no-throwing-null)
-1. [The “as” cast operator](#the-as-cast-operator)
+1. [The "as" cast operator](#the-as-cast-operator)
 1. [Cascades](#cascades)
 1. [Lazy static initialization](#lazy-static-initialization)
-1. [Support “const” modifier for variables](#support-const-modifier-for-variables)
+1. [Support "const" modifier for variables](#support-const-modifier-for-variables)
 1. [Syntax for defining operators](#syntax-for-defining-operators)
 1. [Split library scope and import scope](#split-library-scope-and-import-scope)
 1. [Revised switch](#revised-switch)
@@ -85,7 +85,7 @@ Getting rid of interfaces simplifies the language while also removing some of th
 
 ## No "+" on String
 
-A deeply contentious issue, Dart no longer allows using the “+” operator on strings. So no more:
+A deeply contentious issue, Dart no longer allows using the "+" operator on strings. So no more:
 
 {% highlight dart %}
 print("Hi, " + yourName);
@@ -109,7 +109,7 @@ Dart now considers it a dynamic error to throw `null`. In almost every case wher
 
 ([Tracking issue #2940](http://dartbug.com/2940))
 
-## The “as” cast operator
+## The "as" cast operator
 
 Dart now has an infix operator `as` that lets you cast an expression to a given type without having to declare a type annotated local variable. Where before, if you wanted to indicate some extra knowledge about the types of objects in your code, you had to do:
 
@@ -149,9 +149,9 @@ toggleButton.text = 'Click Me!';
 toggleButton.labels.add(toggleLabel);
 {% endhighlight %}
 
-Some APIs, like jQuery in JavaScript or StringBuffer in Java get around this by using “fluent interfaces”: their methods return this so you can chain calls directly. But that forces API designers to choose between returning a useful value or allowing chaining: they can’t support both. It also forces all APIs to be designed up front to support this.
+Some APIs, like jQuery in JavaScript or StringBuffer in Java get around this by using "fluent interfaces": their methods return this so you can chain calls directly. But that forces API designers to choose between returning a useful value or allowing chaining: they can’t support both. It also forces all APIs to be designed up front to support this.
 
-To remedy that, Smalltalk pioneered something called “message cascades” which Dart has adopted. These let you sequence a series of method calls that all apply to the same receiver, like so:
+To remedy that, Smalltalk pioneered something called "message cascades" which Dart has adopted. These let you sequence a series of method calls that all apply to the same receiver, like so:
 
 {% highlight dart %}
 query('#my-form').query('button')
@@ -178,7 +178,7 @@ We’ve decided to loosen that so that `static final` fields and `final` top-lev
 
 ([Tracking issue #3557](http://dartbug.com/3557))
 
-## Support “const” modifier for variables
+## Support "const" modifier for variables
 
 The above change is more flexible, but it leaves an open issue: how do you define a `static final` field or `final` top-level variable that *is* constant, and that can be used in constant expressions? With this looser behavior, you lose the ability to do:
 
@@ -203,7 +203,7 @@ class SomeClass {
 
 ## Syntax for defining operators
 
-This is a pretty minor change. The previous spec used `equals` and `negate` as special identifiers for defining equality and unary negation operators, respectively. That raises some confusing questions like “Can you also call those methods by name?” To simplify that, we will just use `==` and `-` to define those operators. We’ll disambiguate unary and binary minus by their arity (number of parameters).
+This is a pretty minor change. The previous spec used `equals` and `negate` as special identifiers for defining equality and unary negation operators, respectively. That raises some confusing questions like "Can you also call those methods by name?" To simplify that, we will just use `==` and `-` to define those operators. We’ll disambiguate unary and binary minus by their arity (number of parameters).
 
 {% highlight dart %}
 class MagicNumber {
@@ -230,11 +230,11 @@ foo() => print('foo!');
 main() => foo();
 {% endhighlight %}
 
-Later, you upgrade to the latest greatest version of “somelib” and discover to your dismay that they’ve added a `foo()` function to it. Currently, this breaks your code since those names are in the same namespace and collide. Stephen’s proposal is:
+Later, you upgrade to the latest greatest version of "somelib" and discover to your dismay that they’ve added a `foo()` function to it. Currently, this breaks your code since those names are in the same namespace and collide. Stephen’s proposal is:
 
 > I suggest that imports happen into a scope surrounding the current library.  This would reduce a clash in an imported library to an override warning and at the same time ensure the current library's behaviour did not change.
 
-In other words, with this change, your local `foo()` will *shadow* the new one in “somelib” instead of colliding, and your code does the right thing.
+In other words, with this change, your local `foo()` will *shadow* the new one in "somelib" instead of colliding, and your code does the right thing.
 
 In addition, we’ve removed another annoying restriction. Previously, if you imported the same name from two different libraries (say Node from dart:html and dartdoc) then you would get a name collision error *even if you didn’t use that name anywhere in your code.* Now, Dart will only worry about name collisions for names that you actually use. You only get an error if there is an ambiguous *use* of a name in your code.
 
@@ -269,7 +269,7 @@ Note that in the desugared `if-else` form, it ends up calling the equality (`==`
 
 This has unpleasant optimization implications. In languages like C and Java, a `switch` statement can only be used with numeric values. Compilers can and do compile down a `switch` statement to either a jump table that directly selects a case based on the value, or to a binary search of the cases, or some mixed heuristic of the two. In other words, in those languages selecting the right `case` for a `switch` can have `O(1)` or `O(log n)` performance (where `n` is the number of cases). In Dart, it’s always `O(n)`.
 
-So we’ve decided to restrict `switch` in Dart. Instead of calling a user-defined equality operator, we only allow you to switch on numbers, strings, and constant objects. This gives compilers enough flexibility to compile them more efficiently. Since constant objects are canonicalized, they can be reliably compared purely based on *identity*, so they don’t have the problem of allowing user-defined equality operators. This lets you still switch on user-defined “enum-like” objects.
+So we’ve decided to restrict `switch` in Dart. Instead of calling a user-defined equality operator, we only allow you to switch on numbers, strings, and constant objects. This gives compilers enough flexibility to compile them more efficiently. Since constant objects are canonicalized, they can be reliably compared purely based on *identity*, so they don’t have the problem of allowing user-defined equality operators. This lets you still switch on user-defined "enum-like" objects.
 
 ## Selective imports
 
@@ -281,13 +281,13 @@ Now, you’ll be given finer grained control. If you do:
 #import('somelib.dart', show: ['foo', 'bar']);
 {% endhighlight %}
 
-Then you will *only* import the names “foo” and “bar” from “somelib”. This is good if you are only using a small part of a library and want to make that clear. Conversely:
+Then you will *only* import the names "foo" and "bar" from "somelib". This is good if you are only using a small part of a library and want to make that clear. Conversely:
 
 {% highlight dart %}
 #import('somelib.dart', hide: ['foo', 'bar']);
 {% endhighlight %}
 
-Here, you import every name except “foo” and “bar”. This is good for excluding the one name that happens to cause a collision.
+Here, you import every name except "foo" and "bar". This is good for excluding the one name that happens to cause a collision.
 
 ([Tracking issue #817](http://dartbug.com/817))
 
@@ -295,9 +295,9 @@ Here, you import every name except “foo” and “bar”. This is good for exc
 
 Let’s say you’re doing some refactoring and you decide to move a class from one library to another. But, you don’t want to break all of the code that assumes that class is still in the old library. Ideally, you’d like code that imports *either* of those to be able to get to your class: you want it to appear to be in both places.
 
-Or, let’s say you have a giant library with hundreds of names in it (we’ll call it “dart:html”). You want to split that up into a few smaller libraries. But you’d also like users that want the whole kit and caboodle to just be able to import “dart:html” and get everything.
+Or, let’s say you have a giant library with hundreds of names in it (we’ll call it "dart:html"). You want to split that up into a few smaller libraries. But you’d also like users that want the whole kit and caboodle to just be able to import "dart:html" and get everything.
 
-To fix this, Dart has “re-exports”. When you import a library, you can choose to also re-export the names you import from it. That will make it appear to code using *your* library that those names are coming directly from it. This lets you decouple the library where users get something from the library where it’s physically defined. For example:
+To fix this, Dart has "re-exports". When you import a library, you can choose to also re-export the names you import from it. That will make it appear to code using *your* library that those names are coming directly from it. This lets you decouple the library where users get something from the library where it’s physically defined. For example:
 
 {% highlight dart %}
 // bar.dart
@@ -308,7 +308,7 @@ anotherMethod() => print('hello!');
 #import('bar.dart', export: true);
 {% endhighlight %}
 
-Thanks to the `export: true` part here, any code that imports “foo.dart” will be able to access `someMethod()` and `anotherMethod()` as if they had been defined directly in “foo.dart”. You can use this in combination with selective imports to only re-export a subset of the names that an imported library defines. If we change the import in “foo.dart” to:
+Thanks to the `export: true` part here, any code that imports "foo.dart" will be able to access `someMethod()` and `anotherMethod()` as if they had been defined directly in "foo.dart". You can use this in combination with selective imports to only re-export a subset of the names that an imported library defines. If we change the import in "foo.dart" to:
 
 {% highlight dart %}
 #import('bar.dart', show: ['someMethod'], export: true);
@@ -342,7 +342,7 @@ class Logger {
 
 One strange consequence of marrying Dart’s optional type semantics with a Java-like syntax is that you end up with a syntax for `catch` clauses that *looks* like a type annotation, but is very much not like a type annotation in Dart: Dart type annotations have no runtime effects, but the type in a `catch` clause is used at runtime to test against the thrown exception.
 
-This causes some confusion and some nasty syntactic corner cases. For example, if you just have `catch(foo)` does that mean “catch an exception of any type and bind it to `foo`” (which lines up with other parameters in Dart where the type annotation is optional), or does it mean “catch an exception of type `foo` and don’t bind it to a variable” (which is what it would mean in Java)?
+This causes some confusion and some nasty syntactic corner cases. For example, if you just have `catch(foo)` does that mean "catch an exception of any type and bind it to `foo`" (which lines up with other parameters in Dart where the type annotation is optional), or does it mean "catch an exception of type `foo` and don’t bind it to a variable" (which is what it would mean in Java)?
 
 To avoid that, we decided that that syntax is invalid and you *must* do either `catch(var foo)` or `catch(foo someVar)` to be clear about your intent. But that’s definitely *not* the syntax for a parameter in Dart, so now users trip over *that.*
 
@@ -374,7 +374,7 @@ Setters now have an `=` after their name, before the parameter list:
 set theAnswer=(int value) { print('The answer is now $value.'); }
 {% endhighlight %}
 
-When reflecting over a type (in the forthcoming mirrors system), the name of a setter will include the “=”, so this makes the definition syntax reflect that.
+When reflecting over a type (in the forthcoming mirrors system), the name of a setter will include the "=", so this makes the definition syntax reflect that.
 
 ([Tracking issue #3602](http://dartbug.com/3602))
 

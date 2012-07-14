@@ -1,25 +1,28 @@
-		<div id="main" role="main">
-			<article>
-				{{ content }}
-			</article>
+	<hr>
+
+	<footer>
+		<div class="row">
+			<div class="span8 offset2">
+				<p>
+				  Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.
+				</p>
+				<p>
+					<a href="/tos.html">Terms of Service</a> &mdash;
+					<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+				</p>
+			</div>
 		</div>
-		
-		<footer>
-			<p>
-			  Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a 		href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.
-			</p>
-			<p>
-				<a href="/tos.html" style="border-right: 1px solid black; padding-right: 5px">Terms of Service</a>
-				<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
-			</p>
 	</footer>
 
-	</div>
+	</div> <!-- /.container -->
 
-	<!--[if lt IE 7 ]>
-	<script src="js/dd_belatedpng.js"></script>
-	<script> DD_belatedPNG.fix('img, .png_bg');</script>
-	<![endif]-->
+{% bundle %}
+- /js/jquery-1.7.2.min.js
+- /js/bootstrap-tab.js
+- /js/bootstrap-dropdown.js
+- /js/bootstrap-collapse.js
+- /js/scripts.js
+{% endbundle %}
 
 </body>
 </html>

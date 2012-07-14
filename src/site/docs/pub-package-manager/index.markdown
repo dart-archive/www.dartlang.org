@@ -7,9 +7,12 @@ your web and command-line Dart apps."
 
 # {{ page.title }}
 
-<aside class="note">
-  <b>Note:</b> pub is under active development, so expect
-  some changes to the functionality of the tool and these docs.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    Pub is under active development, so expect
+    some changes to the functionality of the tool and these docs.
+  </div>
 </aside>
 
 This page tells you how to use the _pub_ tool (`bin/pub`)
@@ -28,8 +31,8 @@ point Dart to the packages location, and then import the library.
 
 To use a package, your application must define a pubspec
 that lists dependencies and their download locations.
-This file is named **pubspec.yaml** and is placed into the same directory
-as the file containing the app's  main() method.
+This file is named **pubspec.yaml** and is placed into the
+root directory of your package or app.
 
 Here is an example of a pubspec.yaml file that associates the
 `awesome` package with a git repository:
@@ -40,16 +43,22 @@ dependencies:
     git: git://github.com/munificent/awesome.git
 {% endhighlight %}
 
+Packages can be installed from git today, and in the future
+we expect to support other sources such as a hosted
+service at pub.dartlang.org.
+
 The pubspec uses the [YAML](http://yaml.org/) format.
 
 ## Installing the packages
 
 Now that you have a pubspec, you can run `pub install`. You must
-run this command from the directory containing the pubspec.yaml file.
+run this command from the directory containing the pubspec.yaml file,
+which must be next to the entrypoint file (the file you pass
+to the Dart VM or in your &lt;script&gt; tag).
 
 {% highlight yaml %}
 cd your/app
-$DART_SDK/bin/pub install
+YOUR_DART_SDK_DIR/bin/pub install
 {% endhighlight %}
 
 This command creates a _packages_ directory inside the current directory,
@@ -62,11 +71,14 @@ the pub tool will also download and install the `sweet` package.
 
 ## Using libraries from the SDK
 
-<aside class="note">
-<b>Note:</b> The functionality described in this section is temporary.
-It's possible that some libraries
-that currently ship in the SDK will be pulled out of the SDK and installable
-directly from pub.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    The functionality described in this section is temporary.
+    It's possible that some libraries
+    that currently ship in the SDK will be pulled out of the SDK and installable
+    directly from pub.
+  </div>
 </aside>
 
 Not all libraries that ship with the SDK are available in the `dart:`
@@ -103,9 +115,12 @@ for you next to the pubspec.yaml file.
 To help the Dart Editor understand how to find packages, go to Preferences 
 and point the "Package directory" to `/path/to/your/app/packages`.
 
-<aside class="note">
-  <b>Note:</b>  In the future, you'll be able to configure the packages
-  mapping per project, instead of globally.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    In the future, you'll be able to configure the packages
+    mapping per project, instead of globally.
+  </div>
 </aside>
 
 ### Mapping packages for the Dart VM
@@ -129,8 +144,11 @@ To import libraries found in packages, use the `package:` prefix.
 #import('package:awesome/awesome.dart');
 {% endhighlight %}
 
+The Dart runtime will take everything after `package:` and look it up
+within the package-root location.
+
 ## Additional options
 
-Run `$DART_SDK/bin/pub --help` for a list of commands.
+Run `YOUR_DART_SDK_DIR/bin/pub --help` for a list of commands.
 
 

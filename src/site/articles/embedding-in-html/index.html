@@ -118,12 +118,14 @@ This has a few consequences:
   </li>
 </ol>
 
-<aside class="note">
-<b>Note:</b>
-We are considering allowing Dart code to run as soon as a script is loaded
-(for example, like JavaScript with HTML5 async attributes).
-This would allow running a script before the DOM is fully loaded,
-but we would still preserve the asynchronous semantics we support today.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    We are considering allowing Dart code to run as soon as a script is loaded
+    (for example, like JavaScript with HTML5 async attributes).
+    This would allow running a script before the DOM is fully loaded,
+    but we would still preserve the asynchronous semantics we support today.
+  </div>
 </aside>
 </section>
 
@@ -188,11 +190,11 @@ In contrast to the previous example, the following is an error:
       void hello(String text) {
         HTMLElement element = document.getElementById('message');
         element.innerHTML = text;
-      } <span class="beware">// This tag triggers a warning as no main() is defined.</span>
+      } // This tag triggers a warning as no main() is defined.
     </script>
     <script type="application/dart">
       void main() {
-        hello('Hello from Dart'); <span class="beware">// hello() will not resolve.</span>
+        hello('Hello from Dart'); // hello() will not resolve.
       }
     </script>
     <div id="message"></div>
@@ -200,11 +202,10 @@ In contrast to the previous example, the following is an error:
 </html>
 {% endhighlight %}
 
-<aside class="note">
-<b>Note:</b>
-(1) Each Dart script in the page runs in its own isolate,
-and (2) exactly one <code>main()</code> should exist per script.
-</aside>
+<p>
+  Each Dart script in the page runs in its own isolate,
+  and exactly one <code>main()</code> should exist per script.
+</p>
 
 <p>
 To incorporate external code,

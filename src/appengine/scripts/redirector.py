@@ -57,6 +57,8 @@ application = WSGIApplication(
         defaults={'_uri': '/docs/editor/getting-started/'}),
       Route('/docs/getting-started/sdk/', RedirectHandler,
         defaults={'_uri': '/docs/sdk/'}),
+      Route('/resources/', RedirectHandler,
+        defaults={'_uri': '/community/'}),
       Route('/atom.xml', RedirectHandler,
         defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
       Route('/+', RedirectHandler,

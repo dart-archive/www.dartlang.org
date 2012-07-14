@@ -68,10 +68,12 @@ class Point implements Comparable, Hashable {
 }
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-  **Note:**
-  Soon you'll be able to treat Dart classes as interfaces.
-  This feature will be useful when creating mock objects for testing.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Dart classes have implicit interfaces.
+    This feature is useful when creating mock objects for testing.
+  </div>
 </aside>
 
 </section>
@@ -95,13 +97,15 @@ interface HashablePoint extends Hashable {
 }
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-  **Note:**
-  Technically, interfaces don't have instance variables
-  such as `x` and `y`.
-  What looks like an instance variable is really a
-  shortcut for declaring
-  [getter and setter methods](#classes-getters-and-setters).
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    Technically, interfaces don't have instance variables
+    such as `x` and `y`.
+    What looks like an instance variable is really a
+    shortcut for declaring
+    [getter and setter methods](#classes-getters-and-setters).
+  </div>
 </aside>
 
 Here's an example of implementing a subinterface
@@ -138,12 +142,14 @@ main() {
 An interface can define constructors,
 as long as it specifies a _default class_.
 
-<aside class="note" markdown="1">
-  **Note:**
-  Many of the Dart APIs are implemented as
-  interfaces that have default classes.
-  For example, all of the <a href="#built-in-types">built-in types</a>,
-  including <a href="#numbers">num and int</a>, are interfaces.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    Many of the Dart APIs are implemented as
+    interfaces that have default classes.
+    For example, all of the <a href="#built-in-types">built-in types</a>,
+    including <a href="#numbers">num and int</a>, are interfaces.
+  </div>
 </aside>
 
 Use the `default` keyword to specify

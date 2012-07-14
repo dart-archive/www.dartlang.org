@@ -21,7 +21,7 @@ or get it as part of the [Dart Editor package](/docs/editor/#download).
 Here's an example of running a Dart file on the command line:
 
 {% highlight bash %}
-$DART_SDK/bin/dart test.dart
+YOUR_DART_SDK_DIR/bin/dart test.dart
 {% endhighlight %}
 
 
@@ -37,7 +37,7 @@ During development, we recommend using checked mode. You can
 run the VM in checked mode with a command-line flag:
 
 {% highlight bash %}
-$DART_SDK/bin/dart --enable_type_checks test.dart
+YOUR_DART_SDK_DIR/bin/dart --enable-type-checks test.dart
 {% endhighlight %}
 
 ## Enabling assertions
@@ -51,7 +51,7 @@ We recommend that you enable assertions during development.
 You can enable assertions in the VM with a command-line flag:
 
 {% highlight bash %}
-$DART_SDK/bin/dart --enable_asserts test.dart
+YOUR_DART_SDK_DIR/bin/dart --enable-asserts test.dart
 {% endhighlight %}
 
 

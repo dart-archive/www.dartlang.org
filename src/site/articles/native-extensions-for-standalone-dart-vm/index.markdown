@@ -66,9 +66,11 @@ Here is the sequence of events at load time, when a Dart app that imports sample
 2. The VM loads the shared library "sample_extension" from the directory containing the Dart library.
 3. The function sample_extension_Init() in the shared library is called. It registers the shared library function ResolveName() as the name resolver for all native functions in the library sample_extension.dart. We'll see what the name resolver does when we look at synchronous native functions, below.
 
-<aside class="note" markdown="1">
-**Note:**
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
 The filename of the shared library depends on the platform. On Windows, the VM loads sample_extension.dll, on Linux it loads libsample_extension.so, and on Mac it loads libsample_extension.dylib. We show how to build and link these shared libraries in an appendix at the end of the article.
+  </div>
 </aside>
 
 ###Using the Dart Embedding API from native code

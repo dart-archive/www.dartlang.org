@@ -441,9 +441,12 @@ So for example we can write:
         expect(()=> throw new NullPointerException(),
             throwsNullPointerException));
 
-<aside class="note">
-<b>Note:</b> these type matchers (`isInstance` and `throwsA` plus its variants) currently
-work in the Dart VM only; they do not work in Dart compiled to Javascript.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    These type matchers (`isInstance` and `throwsA` plus its variants) currently
+    work in the Dart VM only; they do not work in Dart compiled to Javascript.
+  </div>
 </aside>
 
 For matching the inner content of compound objects, we have a number of matchers, starting with the ubiquitous `equals()`:

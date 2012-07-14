@@ -41,8 +41,11 @@ where it is declared
 (instead of in a constructor or method),
 the initial value must be a compile-time constant.
 
-<aside class="note" markdown="1">
-**Note:** This restriction is currently under review.
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    This restriction is currently under review.
+  </div>
 </aside>
 
 An example of a compile-time constant is a number literal:
@@ -78,9 +81,12 @@ class Point {
 
 The `this` keyword references the current instance.
 
-<aside class="note" markdown="1">
-**Note:** Use `this` only when there is a name
-conflict. Otherwise, Dart style omits the `this`.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Use <code>this</code> only when there is a name
+    conflict. Otherwise, Dart style omits the <code>this</code>.
+  </div>
 </aside>
 
 The pattern of assigning a constructor argument to
@@ -233,9 +239,12 @@ void main() {
 }
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-**Note:** Other examples of compile-time
-constants are literal numbers and literal strings.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Other examples of compile-time
+    constants are literal numbers and literal strings.
+  </div>
 </aside>
 
 #### Factory constructors
@@ -289,8 +298,11 @@ var logger = new Logger('UI');
 logger.log('Button clicked');
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-**Note:** Factory constructors have no access to `this`.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Factory constructors have no access to <code>this</code>.
+  </div>
 </aside>
 
 ### Methods
@@ -363,7 +375,7 @@ later wrapping them with methods,
 all without changing client code.
 
 <section id="classes-operators" markdown="1">
-#### Operators
+#### Operators as methods
 
 Because operators are just instance methods with special names,
 you can override [many operators](#op-methods).
@@ -399,11 +411,13 @@ main() {
   assert((v-w).x == 0 && (v-w).y == 1); // v-w == (0,1)
 }{% endhighlight %}
 
-<aside class="note" markdown="1">
-**Implementation note:**
-Overriding `-` affects only the binary subtraction operator.
-To override the unary form of `-`,
-you must use the special identifier **negate**.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Overriding <code>-</code> affects only the binary subtraction operator.
+    To override the unary form of <code>-</code>,
+    you must use the special identifier <b>negate</b>.
+  </div>
 </aside>
 
 </section>
@@ -523,10 +537,13 @@ main() {
 }
 {% endhighlight %}
 
-<aside class="note" markdown="1">
-  **Best practice:** Consider using top-level functions,
-  instead of static methods, for common or widely
-  used utilities and functionality.
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    Consider using top-level functions,
+    instead of static methods, for common or widely
+    used utilities and functionality.
+  </div>
 </aside>
 
 #### Static variables

@@ -410,16 +410,6 @@ negate <em>(<code>-expr</code>)</em> <!-- (unary minus: -) --> **
 {% endcomment %}
 </p>
 
-<aside class="note" markdown="1">
-{% comment %}
-WILLCHANGE: will need to tweak the wording.
-{% endcomment %}
-\* The **==** operator can currently be overridden,
-but not for long.
-Soon the way to customize the behavior of **==**
-will be by overriding the **equals()** method.
-</aside>
-
 <p markdown="1">
 For an example of overriding operators,
 see [Operators](#classes-operators) in the Classes section.
