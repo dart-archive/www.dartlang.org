@@ -11,8 +11,6 @@ rel:
 _Written by Chris Buckett<br>
 April 2012_
 
-<h2 id="intro">Introduction</h2>
-
 Most client-side Dart apps need a way to communicate with a server, and sending JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is the preferred way to do this. This article discusses communicating with a server using the [XMLHttpRequest API](http://api.dartlang.org/html/XMLHttpRequest.html) from the [dart:html](http://api.dartlang.org/html.html) library and parsing JSON data using the [dart:json](http://api.dartlang.org/json.html) library. It then goes on to show how to provide strong type information about that JSON data through the use of JsonObject and Dart's interface feature.
 
 #### Contents

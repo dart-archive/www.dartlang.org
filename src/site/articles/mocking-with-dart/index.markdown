@@ -6,9 +6,10 @@ rel:
 description: "Using Dart's unit test library for mocking and spying."
 ---
 
-# Mocking with Dart
+# {{ page.title }}
+_Written by Graham Wheeler <br />
+July 2012_
 
-## Introduction
 
 The Dart unit test library now supports integration testing with mocks. The 
 mocks provide the ability to:
