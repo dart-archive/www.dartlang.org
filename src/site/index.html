@@ -56,8 +56,9 @@ layout: homepage
 main() {
   var msg = query('#msg');
   var btn = new ButtonElement();
+  btn.text = 'Click me!';
   btn.on.click.add((e) => msg.text = 'Dart!');
-  document.nodes.add(btn);
+  document.body.nodes.add(btn);
 }
 {% endhighlight %}
 </div>
@@ -68,10 +69,11 @@ main() {
 main() {
   var msg = query('#msg');
   var btn = new ButtonElement();
+  btn.text = 'Click me!';
   btn.on.click.add((e) {
     msg.text = 'Dart!'
   });
-  document.nodes.add(btn);
+  document.body.nodes.add(btn);
 }
 {% endhighlight %}
 </div>
