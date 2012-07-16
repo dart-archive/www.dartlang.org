@@ -62,13 +62,12 @@ ol.toc li {
 }
 
 .navbar li.share-button {
-  .gplus {
-    width:32px;
-  }
+  padding: 8px 8px 0 0;
 
-  .twitter {
-    width:56px;
-  }
+    a {
+      padding: 0;
+    }
+
 }
 
 article.homepage {
