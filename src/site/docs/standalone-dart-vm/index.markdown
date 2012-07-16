@@ -1,7 +1,8 @@
 ---
 layout: default
 title: "dart: The Standalone Dart VM"
-description: "Use the standalone Dart VM to run Dart scripts, programs, and servers from the command line."
+description: "Use the standalone Dart VM to run Dart scripts,
+programs, and servers from the command line."
 has-permalinks: true
 ---
 
@@ -25,36 +26,29 @@ Here's an example of running a Dart file on the command line:
 YOUR_DART_SDK_DIR/bin/dart test.dart
 {% endhighlight %}
 
+## Enabling checked mode
 
-## Enabling type checks
+Dart programs run in one of two modes: _checked_ or _production_.
+By default, the Dart VM runs in production mode.
+We recommend that you enable checked mode for development
+and testing.
 
-Dart programs run in one of two modes: checked or production.
 In checked mode, assignments are dynamically checked, and
 certain violations of the type system raise exceptions at run time.
 In production mode, static type annotations have no
 effect.
 
-During development, we recommend using checked mode. You can
-run the VM in checked mode with a command-line flag:
-
-{% highlight bash %}
-YOUR_DART_SDK_DIR/bin/dart --enable-type-checks test.dart
-{% endhighlight %}
-
-## Enabling assertions
-
+Assert statements are also enabled in checked mode.
 An [assert statement](/docs/language-tour/#assert)
 checks a boolean condition,
 raising an exception if the condition is false.
 Assertions do not run in production mode.
-We recommend that you enable assertions during development.
 
-You can enable assertions in the VM with a command-line flag:
+You can run the VM in checked mode with a command-line flag:
 
 {% highlight bash %}
-YOUR_DART_SDK_DIR/bin/dart --enable-asserts test.dart
+YOUR_DART_SDK_DIR/bin/dart --enable-checked-mode test.dart
 {% endhighlight %}
-
 
 ## Additional options
 
@@ -63,5 +57,3 @@ Print all the command-line options with `--print-flags`:
 {% highlight bash %}
 $DART_SDK/bin/dart --print-flags
 {% endhighlight %}
-
-
