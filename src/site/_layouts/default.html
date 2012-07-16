@@ -1,6 +1,6 @@
 {% include header.html %}
 
-  <article>
+  <article{% if page.has-permalinks %} class="has-permalinks"{% endif %}>
     {{ content }}
   </article>
 

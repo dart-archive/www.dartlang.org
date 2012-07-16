@@ -2,6 +2,7 @@
 layout: default
 title: "A Tour of the Dart Libraries"
 description: "Learn how to use each major Dart library feature."
+has-permalinks: true
 ---
 
 # {{ page.title }}

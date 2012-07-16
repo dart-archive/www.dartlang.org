@@ -2,6 +2,7 @@
 layout: default
 title: "dart: The Standalone Dart VM"
 description: "Use the standalone Dart VM to run Dart scripts, programs, and servers from the command line."
+has-permalinks: true
 ---
 
 # {{ page.title }}

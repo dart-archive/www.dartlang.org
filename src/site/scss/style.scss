@@ -62,8 +62,6 @@ ol.toc li {
 }
 
 .navbar li.share-button {
-  padding:10px 8px 0 8px;
-
   .gplus {
     width:32px;
   }
@@ -183,6 +181,15 @@ section.article div.author-and-date {
 
 label.os-choice {
   display: inline;
+}
+
+a.permalink {
+  margin-left: 0.5em;
+  display:none;
+}
+
+.has-permalink:hover > a.permalink {
+  display:inline;
 }
 
 footer {

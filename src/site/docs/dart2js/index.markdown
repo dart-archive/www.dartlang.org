@@ -1,7 +1,9 @@
 ---
 layout: default
 title: "dart2js: The Dart-to-JavaScript Compiler"
-description: "Use dart2js, the Dart to JavaScript compiler, to enable your Dart web apps to work on all modern browsers."
+description: "Use dart2js, the Dart to JavaScript compiler, to
+enable your Dart web apps to work on all modern browsers."
+has-permalinks: true
 ---
 
 # {{ page.title }}

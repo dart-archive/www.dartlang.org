@@ -4,6 +4,7 @@ title: "Unit Testing with Dart"
 rel:
   author: graham-wheeler
 description: "Using Dart's unit test library for synchronous and asynchronous tests."
+has-permalinks: true
 ---
 
 # {{ page.title }}

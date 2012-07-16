@@ -3,6 +3,7 @@ layout: default
 title: "pub: The Dart Package Manager"
 description: "With pub, you can use third-party Dart libraries in 
 your web and command-line Dart apps."
+has-permalinks: true
 ---
 
 # {{ page.title }}

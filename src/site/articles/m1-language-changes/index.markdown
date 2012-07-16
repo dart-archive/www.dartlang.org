@@ -4,6 +4,7 @@ title: "Milestone 1 Language Changes"
 rel:
   author: bob-nystrom
 description: "A brief introduction to some of the language changes planned for the M1 milestone."
+has-permalinks: true
 ---
 
 # {{ page.title }}

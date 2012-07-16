@@ -4,6 +4,7 @@ title: "Dart Style Guide"
 rel:
   author: bob-nystrom
 description: "Follow these guidelines for consistent, readable Dart code."
+has-permalinks: true
 ---
 
 # Dart Style Guide
