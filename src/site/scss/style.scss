@@ -79,10 +79,12 @@ article.homepage {
   h1 {
     font-family: $dartFont;
     text-transform: uppercase;
+    -webkit-text-stroke: 1px; /* fixes horrible font rendering on windows, see https://code.google.com/p/chromium/issues/detail?id=137692 */
   }
 
   h2 {
     color: $blue-light;
+    -webkit-text-stroke: 0.5px; /* fixes horrible font rendering on windows, see https://code.google.com/p/chromium/issues/detail?id=137692 */
   }
 
   section {
