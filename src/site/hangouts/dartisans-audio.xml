@@ -5,15 +5,16 @@ layout: none
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"> 
 <channel>
   <title>Dartisans: Dart Programming Language Podcast</title>
-  <link>http://www.dartlang.org/</link> 
+  <link>http://www.dartlang.org/hangouts/</link> 
   <description>News, interviews, and Q&amp;A with the Dart team and community.</description>
   <itunes:summary>News, interviews, and Q&amp;A with the Dart team and community.</itunes:summary> 
   <language>en</language> 
   <copyright>This work is licensed under a Creative Commons Attribution 3.0 Unported License.</copyright> 
   <lastBuildDate>{{ "now" | date_to_rfc2822 }}</lastBuildDate>
-  <itunes:image href="/hangouts/dartisans-podcast.png" />
+  <itunes:image href="http://www.dartlang.org/hangouts/dartisans-podcast.png" />
   <itunes:author>Dart Team</itunes:author>
   <itunes:keywords>dart,web,programming,javascript,html5</itunes:keywords>
+  <itunes:explicit>No</itunes:explicit>
   <itunes:category text="Technology">
     <itunes:category text="Software How-To" />
   </itunes:category>
