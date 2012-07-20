@@ -52,6 +52,9 @@ handlers:
 - url: /resources/
   script: scripts.redirector.application
 
+- url: /dartisans/podcast-feed
+  script: scripts.redirector.application
+
 - url: /(.*\.png)
   static_files: static/\1
   expiration: 1d

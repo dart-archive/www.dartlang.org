@@ -1,0 +1,40 @@
+url-prefix: http://commondatastorage.googleapis.com/dartlang-podcast/
+episodes:
+- title: 'Dartisans ep. 7: Pub and packages'
+  file: dartisans-ep-07-pub-and-packages.mp3
+  pubdate: 2012-07-10
+  description: In this episode of Dartisans, we talk to Bob Nystrom and Nathan Weizenbaum,
+               the engineers on the pub package manager project.
+               We also chat with Kevin Moore, one of the early pub package users.
+  length: 20191870
+- title: 'Dartisans ep. 6: Meet the Community'
+  file: dartisans-ep-06-meet-the-community.mp3
+  pubdate: 2012-06-22
+  description: In this episode of Dartisans, we meet some early adopters of Dart and learn about
+               their open source work. Thanks to Adam Smith, Chris Buckett, John Evans, John McCutchan,
+               and Lars Tackmann for joining us.
+  length: 23124272
+- title: 'Dartisans ep. 5: Meet the Dart virtual machine team'
+  file: dartisans-ep-05-dart-virtual-machine-team.mp3
+  pubdate: 2012-05-21
+  description: In this episode of Dartisans, we meet some of the Dart VM engineers. We learn about
+               their experience building VMs and what’s in store for the Dart VM.
+  length: 27532906
+- title: 'Dartisans ep. 4: Meet the Dart Editor team'
+  file: dartisans-ep-04-dart-editor-team.mp3
+  pubdate: 2012-03-30
+  description: In this episode of Dartisans, we meet some of the Dart Editor engineers and get a demo
+               of features and functionality.
+  length: 17609091
+- title: 'Dartisans ep. 3: Library design with Josh Bloch'
+  file: dartisans-ep-03-josh-bloch.mp3
+  pubdate: 2012-02-29
+  description: In this episode of Dartisans, we chat with Josh Bloch about library design and some of
+               his plans for the Dart libraries.
+  length: 25121489
+- title: 'Dartisans ep. 2: Chromium with Dart VM announced!'
+  file: dartisans-ep-02-chromium-with-dart-vm.mp3
+  pubdate: 2012-02-15
+  description: In this episode of Dartisans, we chat with Vijay Menon and Anton Muhin about their
+               announcement of binary availability of Chromium with an embedded Dart VM.
+  length: 26469408
