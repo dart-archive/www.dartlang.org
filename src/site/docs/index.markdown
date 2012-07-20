@@ -28,7 +28,7 @@ know how to program in another language.
 
 ## Libraries
 
-[Library Reference](http://api.dartlang.org)
+[API Reference](http://api.dartlang.org)
 : Browse the full API reference docs for the Dart libraries.
 
 [Library Tour](/docs/library-tour/)
