@@ -55,6 +55,9 @@ handlers:
 - url: /dartisans/podcast-feed
   script: scripts.redirector.application
 
+- url: /hangouts.*
+  script: scripts.redirector.application
+
 - url: /(.*\.png)
   static_files: static/\1
   expiration: 1d

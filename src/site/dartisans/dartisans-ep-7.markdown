@@ -4,7 +4,7 @@ title: "Dartisans 7: Meet the Community"
 description: "A video recording of the Dartisans Ep. 7 hangout with the engineers on the pub package manager."
 ---
 
-# Dartisans 7
+# Dartisans ep. 7
 
 ## Pub and packages
 
@@ -16,4 +16,6 @@ This hangout was recorded on 2012-07-10.
 
 <iframe width="640" height="360" src="http://www.youtube.com/embed/HAIIfh8C2Q8" frameborder="0" allowfullscreen></iframe>
 
-Watch more [recordings of previous Dart hangouts.](index.html)
+Watch more [recordings of previous episodes of Dartisans](index.html)
+or subscribe to an
+<a href="/dartisans/podcast-feed"><i class="icon-rss"> </i> audio podcast of Dartisans</a>.

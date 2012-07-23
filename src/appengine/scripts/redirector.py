@@ -45,10 +45,16 @@ class NewsRedirectPage(RequestHandler):
         else:
             self.error(404)
 
+class HangoutsRedirectPage(RequestHandler):
+    def get(self):
+        path = self.request.path.replace('/hangouts', '/dartisans', 1)
+        self.redirect(path, permanent=True)
+
 application = WSGIApplication(
      [('/docs/api/.*', ApiRedirectPage),
       ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
       ('/news.*', NewsRedirectPage),
+      ('/hangouts.*', HangoutsRedirectPage),
       Route('/dartisans/podcast-feed', RedirectHandler,
         defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                   '_code': 302}),

@@ -4,7 +4,7 @@ title: "Dartisans 6: Meet the Community"
 description: "A video recording of the Dartisans Ep. 6 hangout with the members of the Dart community."
 ---
 
-# Dartisans 6
+# Dartisans ep. 6
 
 ## Meet the Community
 
@@ -21,4 +21,6 @@ This hangout was recorded on 2012-06-22.
 
 <iframe width="640" height="360" src="http://www.youtube.com/embed/HPvTFX-HUz4" frameborder="0" allowfullscreen></iframe>
 
-Watch more [recordings of previous Dart hangouts.](index.html)
+Watch more [recordings of previous episodes of Dartisans](index.html)
+or subscribe to an
+<a href="/dartisans/podcast-feed"><i class="icon-rss"> </i> audio podcast of Dartisans</a>.
