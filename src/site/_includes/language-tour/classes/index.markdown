@@ -305,6 +305,55 @@ logger.log('Button clicked');
   </div>
 </aside>
 
+You can use a factory constructor to return a subclass.
+For example, the following code returns either a
+file or directory, based on a constructor argument:
+
+{% highlight dart %}
+/** Some file system entry, either a directory or a file. */
+class Entry {
+  factory Entry(String path) {
+    if (/* path is pointing to a file */) {
+      return new File(path);
+    } else {
+      return new Directory(path);
+    }
+  }
+}
+
+class File extends Entry {
+  ...
+}
+
+class Directory extends Entry {
+  ...
+}
+{% endhighlight %}
+
+Factory constructors are useful when you want to perform
+non-trivial work on values destined for final fields.
+In Dart, all final fields must be initialized in the constructor
+initialization list. That means that, unlike Java and C#, we
+don't have the luxury of having a nice constructor body where we
+can do arbitrary statements to calculate stuff before we finally
+know what to store in those fields. If you need to do that,
+you can instead use a factory constructor to do that work, which
+then delegates to the real constructor to initialize those fields.
+
+{% highlight dart %}
+class Name {
+  final String first;
+  final String last;
+
+  factory Name(String name) {
+    var parts = name.split(' ');
+    return new Name._(parts[0], parts[1]);
+  }
+
+  Name._(this.first, this.last);
+}
+{% endhighlight %}
+
 ### Methods
 
 Methods are functions that
