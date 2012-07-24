@@ -30,6 +30,8 @@ CONFIGURING YOUR MAC SYSTEM
 * Install a forked version of compass-twitter-bootstrap
   * git clone git://github.com/toao/compass-twitter-bootstrap.git
   * cd compass-twitter-bootstrap
+  * (ensure you have bundler installed. try running 'sudo gem install bundler')
+  * run 'bundle'
   * run 'rake build'
   * cd pkg
   * run 'gem install compass_twitter_bootstrap'
