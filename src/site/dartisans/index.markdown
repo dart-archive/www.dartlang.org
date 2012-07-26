@@ -14,8 +14,13 @@ This page archives recordings of Dartisans, the video show
 and podcast about Dart. Dartisans is a semi-regular
 broadcast featuring special guests from the Dart team and the community.
 
-You can also subscribe to an
-<a href="/dartisans/podcast-feed"><i class="icon-rss"> </i> audio podcast of Dartisans</a>.
+You can also subscribe to an audio podcast of Dartisans,
+either with a
+<a href="/dartisans/podcast-feed"
+  title="Subscribe to Dartisans podcast feed"> <i class="icon-rss"> </i> direct link</a>
+or with
+<a href="http://itunes.apple.com/us/podcast/dartisans-dart-programming/id546874773?mt=2"
+  title="Subscribe to Dartisans podcast with iTunes"> <i class="icon-rss"> </i> iTunes</a>.
 
 {% for episode in page.episodes.episodes %}
 

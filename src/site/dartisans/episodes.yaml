@@ -1,40 +1,85 @@
 url-prefix: http://commondatastorage.googleapis.com/dartlang-podcast/
 episodes:
+- title: 'Dartisans ep. 8: Rikulo and changes to library/import syntax'
+  subtitle: Rikulo and changes to library/import syntax
+  file: dartisans-ep-08-rikulo-and-changes-to-library-import-syntax.mp3
+  pubdate: 2012-07-25
+  description: In this episode of Dartisans, we talk to the developers of
+               Rikulo, an open source mobile web app framework built with Dart.
+               We also chat with
+               <a href="https://plus.google.com/106019496651402300537/posts">Gilad Bracha</a>
+               about the changes to the library
+               import syntax coming with M1.
+  length: 20942858
+  num: 8
+  youtubeid: LIU1fdhdmkk
 - title: 'Dartisans ep. 7: Pub and packages'
   file: dartisans-ep-07-pub-and-packages.mp3
+  subtitle: Pub and packages
   pubdate: 2012-07-10
-  description: In this episode of Dartisans, we talk to Bob Nystrom and Nathan Weizenbaum,
+  description: In this episode of Dartisans, we talk to
+               <a href="https://plus.google.com/100798142896685420545/posts">Bob Nystrom</a>
+               and
+               <a href="https://plus.google.com/116776358422263344346/posts">Nathan Weizenbaum</a>,
                the engineers on the pub package manager project.
-               We also chat with Kevin Moore, one of the early pub package users.
+               We also chat with
+               <a href="https://plus.google.com/110066012384188006594/posts">Kevin Moore</a>,
+               one of the early pub package users.
   length: 20191870
+  num: 7
+  youtubeid: HAIIfh8C2Q8
 - title: 'Dartisans ep. 6: Meet the Community'
   file: dartisans-ep-06-meet-the-community.mp3
+  subtitle: Meet the Community
   pubdate: 2012-06-22
   description: In this episode of Dartisans, we meet some early adopters of Dart and learn about
-               their open source work. Thanks to Adam Smith, Chris Buckett, John Evans, John McCutchan,
-               and Lars Tackmann for joining us.
+               their open source work. Thanks to
+               <a href="https://plus.google.com/104569492481999771226/posts">Adam Smith</a>,
+               <a href="https://plus.google.com/117571249567635877826/posts">Chris Buckett</a>,
+               <a href="https://plus.google.com/115427174005651655317/posts">John Evans</a>,
+               <a href="https://plus.google.com/106737154382790678002/posts">John McCutchan</a>,
+               and
+               <a href="https://plus.google.com/107016091651015882408/posts">Lars Tackmann</a>
+               for joining us.
   length: 23124272
+  num: 6
+  youtubeid: HPvTFX-HUz4
 - title: 'Dartisans ep. 5: Meet the Dart virtual machine team'
+  subtitle: Meet the Dart virtual machine team
   file: dartisans-ep-05-dart-virtual-machine-team.mp3
   pubdate: 2012-05-21
   description: In this episode of Dartisans, we meet some of the Dart VM engineers. We learn about
                their experience building VMs and what’s in store for the Dart VM.
   length: 27532906
+  num: 5
+  youtubeid: iaihILzMo2A
 - title: 'Dartisans ep. 4: Meet the Dart Editor team'
+  subtitle: Meet the Dart Editor team
   file: dartisans-ep-04-dart-editor-team.mp3
   pubdate: 2012-03-30
   description: In this episode of Dartisans, we meet some of the Dart Editor engineers and get a demo
                of features and functionality.
   length: 17609091
+  num: 4
+  youtubeid: 9MCFzEISn0c
 - title: 'Dartisans ep. 3: Library design with Josh Bloch'
+  subtitle: Library design with Josh Bloch
   file: dartisans-ep-03-josh-bloch.mp3
   pubdate: 2012-02-29
   description: In this episode of Dartisans, we chat with Josh Bloch about library design and some of
                his plans for the Dart libraries.
   length: 25121489
+  num: 3
+  youtubeid: wmsVHdllIPM
 - title: 'Dartisans ep. 2: Chromium with Dart VM announced!'
+  subtitle: Chromium with Dart VM announced!
   file: dartisans-ep-02-chromium-with-dart-vm.mp3
   pubdate: 2012-02-15
-  description: In this episode of Dartisans, we chat with Vijay Menon and Anton Muhin about their
+  description: In this episode of Dartisans, we chat with
+               <a href="https://plus.google.com/114045999004646044580/posts">Vijay Menon</a>
+               and
+               <a href="https://plus.google.com/113884493438085685730/posts">Anton Muhin</a> about their
                announcement of binary availability of Chromium with an embedded Dart VM.
   length: 26469408
+  num: 2
+  youtubeid: 4EHKN1ywdb4
