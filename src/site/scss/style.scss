@@ -63,11 +63,20 @@ ol.toc li {
 
 .navbar li.share-button {
   padding: 8px 8px 0 0;
-
     a {
       padding: 0;
     }
+}
 
+.navbar .nav > li > a{
+  opacity: 1;
+  color: white;
+}
+
+.navbar .nav li.dropdown .dropdown-toggle .caret, .navbar .nav li.dropdown.open .caret {
+  border-top-color: $blue-dark;
+  border-bottom-color: $blue-dark;
+  opacity: 1;
 }
 
 article.homepage {
