@@ -1,29 +1,14 @@
-<div class="linux downloads">
-  <a class="download-link button btn btn-primary" data-bits="32" data-os="linux" data-build="integration" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-linux.gtk.x86.zip">
+{% for editor in site.custom.downloads.binaries %}
+
+<div class="{{ editor.os }} downloads">
+  <a class="download-link btn btn-primary" data-bits="32" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dart-editor-{{ editor.editor-os }}.{{ editor.lib }}.x86.{{ editor.editor-ext }}">
     <i class="icon-download-alt"></i>
-    32-bit Dart Editor + SDK + Dartium (Linux)
+    32-bit Dart Editor + SDK + Dartium ({{ editor.name }})
   </a>
-  <a class="download-link button btn btn-primary" data-bits="64" data-os="linux" data-build="integration" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-linux.gtk.x86_64.zip">
+  <a class="download-link btn btn-primary" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dart-editor-{{ editor.editor-os }}.{{ editor.lib }}.x86_64.{{ editor.editor-ext }}">
     <i class="icon-download-alt"></i>
-    64-bit Dart Editor + SDK + Dartium (Linux)
+    64-bit Dart Editor + SDK + Dartium ({{ editor.name }})
   </a>
 </div>
 
-<div class="mac downloads">
-  <a class="download-link button btn btn-primary" data-bits="64" data-os="mac" data-build="integration" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-macosx.cocoa.x86_64.zip">
-    <i class="icon-download-alt"></i>
-    Dart Editor + SDK + Dartium (Mac)
-  </a>
-</div>
-
-<div class="win downloads">
-  <a class="download-link button btn btn-primary" data-bits="32" data-os="win" data-build="integration" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-win32.win32.x86.zip">
-    <i class="icon-download-alt"></i>
-    32-bit Dart Editor + SDK + Dartium (Windows)
-  </a>
-
-  <a class="download-link button btn btn-primary" data-bits="64" data-os="win" data-build="integration" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-editor-win32.win32.x86_64.zip">
-    <i class="icon-download-alt"></i>
-    64-bit Dart Editor + SDK + Dartium (Windows)
-  </a>
-</div>
+{% endfor %}

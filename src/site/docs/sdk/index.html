@@ -12,19 +12,15 @@ has-permalinks: true
 <p>
 This page tells you how to find and use
 prerelease versions of the Dart SDK on
-<span class="linux">Linux.</span>
-<span class="mac">Mac OS X.</span>
-<span class="win">Windows.</span>
+
+{% for os in site.custom.downloads.binaries %}
+<span class="{{ os.os }}">{{ os.name }}.</span>
+{% endfor %}
+
 <br>
+
 (These instructions are available for
-    <input type="radio" name="osChoices" id="win">
-    <label class="os-choice" for="win">Windows</label>,
-
-    <input type="radio" name="osChoices" id="linux" checked="true">
-    <label class="os-choice" for="linux">Linux</label>, or
-
-    <input type="radio" name="osChoices" id="mac">
-    <label class="os-choice" for="mac">Mac</label>.)
+{% include os-choices.html %})
 </p>
 
 <section>
@@ -40,7 +36,7 @@ prerelease versions of the Dart SDK on
 
 <p>
 If you have an up-to-date version of
-<a href="/docs/getting-started/editor/">Dart Editor</a>,
+<a href="/docs/editor/getting-started/">Dart Editor</a>,
 you already have the SDK. Look for a dart-sdk directory
 inside of the Dart Editor directory.
 </p>
@@ -50,13 +46,28 @@ If you don't have Dart Editor
 or want a different version of the SDK,
 download the ZIP file for your platform's SDK:
 
+<p>
 {% include downloads/_sdk.html %}
+</p>
 
 <p>
 Or live dangerously: download the
-<span class="win"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-win32.zip">latest, untested build of the Windows SDK</a>.</span>
-<span class="mac"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-macos.zip">latest, untested build of the Mac SDK</a>.</span>
-<span class="linux"><a href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-linux.zip">latest, untested build of the Linux SDK</a>.</span>
+
+{% for sdk in site.custom.downloads.binaries %}
+
+{{ sdk.os }}
+
+<span class="{{ sdk.os }}">
+  latest, untested build of the
+  <a href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
+    {{ sdk.name }} 64 bit SDK</a>
+  or the
+  <a href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/dartsdk-{{ sdk.os }}-32.{{ sdk.ext }}">
+    {{ sdk.name }} 32 bit SDK</a>.
+</span>
+
+{% endfor %}
+
 These continuous builds usually are updated daily.
 </p>
 

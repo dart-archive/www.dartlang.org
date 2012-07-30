@@ -1,20 +1,15 @@
 <div class="downloads">
-  <span class="win">
-    <a class="download-link btn btn-primary" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-win32.zip">
+  {% for sdk in site.custom.downloads.binaries %}
+  <span class="{{ sdk.os }}">
+    <a class="download-link btn btn-primary" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
     	<i class="icon-download-alt"></i>
-    	Dart SDK (Windows)
+    	Dart SDK ({{ sdk.name }} 64 bit)
    	</a>
-  </span>
-  <span class="mac">
-    <a class="download-link btn btn-primary" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-macos.zip">
-    	<i class="icon-download-alt"></i>
-    	Dart SDK (Mac)
+    or
+    <a class="download-link btn btn-primary" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-32.{{ sdk.ext }}">
+      <i class="icon-download-alt"></i>
+      Dart SDK ({{ sdk.name }} 32 bit)
     </a>
   </span>
-  <span class="linux">
-    <a class="download-link btn btn-primary" href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/dart-linux.zip">
-    	<i class="icon-download-alt"></i>
-    	Dart SDK (Linux)
-    </a>
-  </span>
+  {% endfor %}
 </div>

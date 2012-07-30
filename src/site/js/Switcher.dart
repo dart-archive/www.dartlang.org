@@ -1,15 +1,15 @@
 #import('dart:html');
 
-final osList = const ['mac', 'win', 'linux'];  // all supported OSs
-var osName = 'linux'; // the currently displayed platform
+final List<String> osList = const <String>['macos', 'win32', 'linux'];  // all supported OSs
+String osName = 'linux'; // the currently displayed platform
 
 /** Initializes osName and selects the corresponding radio button. */
 void detectPlatform() {
   // osName is initially 'linux', since linux strings are unpredictable.
   if (window.navigator.appVersion.contains('Win')) {
-    osName = 'win';
+    osName = 'win32';
   } else if (window.navigator.appVersion.contains('Mac')) {
-    osName = 'mac';
+    osName = 'macos';
   }
   document.query('#$osName').attributes['checked'] = 'true';
 }

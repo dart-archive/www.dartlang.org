@@ -46,15 +46,7 @@ If you run into a problem, see
 
 <p>
 You can download Dart Editor for:
-
-    <input type="radio" name="osChoices" id="win">
-    <label class="os-choice" for="win">Windows</label>,
-
-    <input type="radio" name="osChoices" id="linux" checked="true">
-    <label class="os-choice" for="linux">Linux</label>, or
-
-    <input type="radio" name="osChoices" id="mac">
-    <label class="os-choice" for="mac">Mac</label>.
+{% include os-choices.html %}
 </p>
 
 {% include downloads/_dart-editor.html %}
@@ -67,7 +59,7 @@ The Dart Editor download includes:
 
 <ul>
   <li> Dart Editor </li>
-  <li> <a href="/docs/getting-started/sdk/">Dart SDK</a> </li>
+  <li> <a href="/docs/sdk/">Dart SDK</a> </li>
   <li> <a href="/dartium/">"Dartium"</a>:
     a build of the Chromium browser that includes the Dart VM </li>
 </ul>
@@ -85,7 +77,7 @@ The version linked to above is the <em>integration build</em>.
 It's usually updated once per week.
 The
 <a target="_blank"
-  href="https://gsdview.appspot.com/dart-editor-archive-integration/latest/changelog.html">change log</a>
+  href="{{ config.custom.downloads.editor-url-prefix }}-integration/latest/changelog.html">change log</a>
 has a list of release dates and features.
 </p>
 
@@ -97,19 +89,16 @@ If you use the continuous build, please update it frequently and
 about new features and bugs that you encounter.
 </p>
 
-<div class="linux downloads">
-  <a class="download-link button" data-bits="32" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86.zip">32-bit Dart Editor (Linux latest)</a>
-  <a class="download-link button" data-bits="64" data-os="linux" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-linux.gtk.x86_64.zip">64-bit Dart Editor (Linux latest)</a>
+{% for editor in site.custom.downloads.binaries %}
+
+<div class="{{ editor.os }} downloads">
+  <a class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="latest" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/dart-editor-{{ editor.editor-os }}.{{ editor.lib }}.x86.{{ editor.editor-ext }}">32-bit Dart Editor ({{ editor.name }} latest)</a>
+  or the
+  <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="latest" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/dart-editor-{{ editor.editor-os }}.{{ editor.lib }}.x86_64.{{ editor.editor-ext }}">64-bit Dart Editor ({{ editor.name }} latest)</a>
 </div>
 
-<div class="mac downloads">
-  <a class="download-link button" data-bits="64" data-os="mac" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-macosx.cocoa.x86_64.zip">Dart Editor (Mac latest)</a>
-</div>
+{% endfor %}
 
-<div class="win downloads">
-  <a class="download-link button" data-bits="32" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86.zip">32-bit Dart Editor (Windows latest)</a>
-  <a class="download-link button" data-bits="64" data-os="win" data-build="latest" href="https://gsdview.appspot.com/dart-editor-archive-continuous/latest/dart-editor-win32.win32.x86_64.zip">64-bit Dart Editor (Windows latest)</a>
-</div>
 </section>
 
 
