@@ -1,4 +1,4 @@
-function main() {
+$(document).ready(function() {
   var links = document.querySelectorAll('a.download-link');
   for (var i = 0; i < links.length; i++) {
     var link = links[i];
@@ -12,10 +12,4 @@ function main() {
       _gaq.push(['_trackEvent', 'Editor Downloads', os, bitsAndBuild]);
     });
   }
-}
-
-if (document.readyState != 'loading') {
-  main();
-} else {
-  document.addEventListener('DOMContentLoaded', main);
-}
+});

@@ -3,6 +3,9 @@ layout: default
 title: "Chromium with the Dart VM"
 description: "Download and use Dartium, a build of Chromium with an embedded Dart VM."
 has-permalinks: true
+js:
+- url: /js/os-switcher.js
+  defer: true
 ---
 
 {% include platform-specific-text/_noscript.html %}
@@ -19,14 +22,8 @@ This browser can execute Dart web apps directly,
 so you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
 Dartium is available for
-    <input type="radio" name="osChoices" id="win">
-    <label class="os-choice" for="win">Windows</label>,
 
-    <input type="radio" name="osChoices" id="linux" checked="true">
-    <label class="os-choice" for="linux">Linux</label>, or
-
-    <input type="radio" name="osChoices" id="mac">
-    <label class="os-choice" for="mac">Mac</label>.
+{% include os-choices.html %}
 </p>
 
 <aside>
@@ -263,6 +260,3 @@ DART_FLAG='--enable_type_checks --enable_asserts'               \
   </div>
 </aside>
 </section>
-
-<script async src="/js/Switcher.dart.js"></script>
-

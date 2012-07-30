@@ -2,6 +2,9 @@
 layout: default
 title: "Troubleshooting Dart Editor"
 description: "Installing and running Dart Editor is easy. Except when it isn't."
+js:
+- url: /js/os-switcher.js
+  defer: true
 ---
 
 {% include platform-specific-text/_noscript.html %}
@@ -19,16 +22,8 @@ and in particular for the tutorial
 
 <p>
 These tips are available for
-    <label>
-      <input type="radio" name="osChoices" id="win">
-      Windows</input></label>,
-    <label>
-      <input type="radio" name="osChoices" id="linux" checked="true">
-      Linux</input>
-      </label>, or
-    <label>
-      <input type="radio" name="osChoices" id="mac">
-      Mac</input></label>.
+{% include os-choices.html %}
+
 If we missed something, please
 <a href="/support/">let us know</a>.
 </p>
@@ -58,7 +53,7 @@ If we missed something, please
     </p>
   </div>
 
-  <div class="mac">
+  <div class="macos">
     <p>
     Almost all Mac OS X systems have a 64-bit OS.
     If you think yours doesn't, see
@@ -66,7 +61,7 @@ If we missed something, please
     </p>
   </div>
 
-  <div class="win">
+  <div class="win32">
     <p>
     If you don't know whether you have 32-bit or 64-bit Windows, see
     <a href="http://windows.microsoft.com/en-US/windows7/32-bit-and-64-bit-Windows-frequently-asked-questions">Microsoft's support site</a>.
@@ -273,5 +268,3 @@ If we missed something, please
 
 </section>
 </section>
-
-<script async src="/js/Switcher.dart.js"></script>

@@ -24,5 +24,9 @@
 - /js/scripts.js
 {% endbundle %}
 
+{% for js in page.js %}
+<script {% if js.defer %}defer{% endif %} src="{{ js.url }}"></script>
+{% endfor %}
+
 </body>
 </html>

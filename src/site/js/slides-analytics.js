@@ -1,4 +1,4 @@
-function main() {
+$(document).ready(function() {
   var links = document.querySelectorAll('a.pdf');
 
   for (var i = 0; i < links.length; i++) {
@@ -9,13 +9,7 @@ function main() {
       var target = e.target;
       var href = target.href;
       _gaq.push(['_trackPageview', href]);
-      setTimeout('document.location = "' + href + '"', 100);
+      setTimeout('document.location = "' + href + '"', 200);
     });
   }
-}
-
-if (document.readyState != 'loading') {
-  main();
-} else {
-  document.addEventListener('DOMContentLoaded', main);
-}
+});

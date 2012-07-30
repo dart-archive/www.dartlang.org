@@ -1,4 +1,4 @@
-function main() {
+$(document).ready(function() {
   var links = document.querySelectorAll('ol.toc a');
 
   for (var i = 0; i < links.length; i++) {
@@ -10,10 +10,4 @@ function main() {
       _gaq.push(['_trackPageview', '/language-tour/' + section + '/']);
     });
   }
-}
-
-if (document.readyState != 'loading') {
-  main();
-} else {
-  document.addEventListener('DOMContentLoaded', main);
-}
+});
