@@ -22,7 +22,7 @@ layout: none
   {% for episode in page.episodes.episodes %}
   <item>
     <title>{{ episode.title }}</title>
-    <description>{{ episode.description }}</description>
+    <description>{{ episode.description | strip_html }}</description>
     <pubDate>{{ episode.pubdate | date_to_rfc2822 }}</pubDate>
     <guid>{{ page.episodes.url-prefix }}{{ episode.file }}</guid>
     <enclosure url="{{ page.episodes.url-prefix }}{{ episode.file }}" length="{{ episode.length }}" type="audio/mpeg" />
