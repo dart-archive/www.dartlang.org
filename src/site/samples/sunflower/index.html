@@ -17,32 +17,39 @@ HTML5 range input (slider), and an image showing the equations used to render th
 {% highlight html %}
 <html>
   <head>
-    <title>sunflower</title>
+    <meta charset="utf-8">
+    <title>Sunflower Demo</title>
     <link type="text/css" rel="stylesheet" href="sunflower.css">
   </head>
   <body>
-    <h1>drfibonacci's* Sunflower Spectacular</h1>
-    <h2>* Count the clockwise and counter-clockwise spiral arms at the edges</h2>
-    <div class="image"></div>
-    <div>
-        <canvas id="canvas" width="300" height="300"></canvas>
+    <h1>drfibonacci's Sunflower Spectacular</h1>
+    
+    <p>A canvas 2D demo.</p>
+    
+    <div id="container">
+      <canvas id="canvas" width="300" height="300" class="center"></canvas>
+      <form class="center">
+        <input id="slider" type="range" max="1000" value="500"/>
+      </form>
+      <br/>
+      <img src="math.png" width="350px" height="42px" class="center">
     </div>
-    <div>
-        <label># seeds (n):</label>
-    </div>
-    <div class="rangeOption">
-      <input id="slider" type="range" max="1000" value="0" />
-      <label class="minLabel">0</label>
-      <label class="maxLabel">1000</label>
-    </div>
-    <script type="application/dart" src="Sunflower.dart"></script>
+
+    <footer>
+      <p id="summary"> </p>
+      <p id="notes"> </p>
+    </footer>
+
+    <script type="application/dart" src="sunflower.dart"></script>
+    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
   </body>
 </html>
 {% endhighlight %}
 
 <p>Note that the script tag includes source of type application/dart. This allows you
 to run the script directly in a browser that supports Dart.
-You can also use <a href="/docs/dart2js/">dart2js</a> to compile this app to JavaScript.</p>
+For browsers that do not have an embedded Dart VM, you can also use <a href="/docs/dart2js/">dart2js</a> to compile this app to JavaScript. The <code>dart.js</code> file is used to bootstrap a Dart app into most web browsers,
+by replacing <code>sunflower.dart</code> with <code>sunflower.dart.js</code>.</p>
 
 <p>Whether you run Dart natively or compile it to JavaScript, Dart code execution begins when 
 the DOM is ready (on DOMContentLoaded).</p>
@@ -50,90 +57,95 @@ the DOM is ready (on DOMContentLoaded).</p>
 <p>Now let's look at the Dart code.</p>
 
 {% highlight dart %}
-class Sunflower {
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
 
-  static void main() {
-    new Sunflower();
-  }
-  
-  // Constants
-  static final SEED_RADIUS = 2;
-  static final SCALE_FACTOR = 4;
-  static final PI2 = Math.PI * 2;
-  static final PHI = (Math.sqrt(5)+1) / 2;
-  static final MAX_D = 300;
-  static final ORANGE = "orange";
-  
-  // Variables  
-  CanvasRenderingContext2D ctx;
-  num xc, yc;
-  num seeds = 0;
+#library('sunflower');
 
-  Sunflower() {
-    Document doc = window.document;
-    
-    HTMLCanvasElement canvas = doc.getElementById("canvas");
-    xc = yc = MAX_D / 2;
-    ctx = canvas.getContext("2d");
-    
-    HTMLInputElement slider = doc.getElementById("slider");
-    slider.onchange = (Event e) {
-      seeds = Math.parseInt(slider.value);
-      drawFrame();
-    };
-    
-    drawFrame();
-  }
+#import('dart:html');
+
+final SEED_RADIUS = 2;
+final SCALE_FACTOR = 4;
+final TAU = Math.PI * 2;
+
+final MAX_D = 300;
+final ORANGE = "orange";
+
+num centerX, centerY;
+int seeds = 0;
+
+var PHI;
+
+main() {
+  PHI = (Math.sqrt(5) + 1) / 2;
+  
+  CanvasElement canvas = query("#canvas");
+  centerX = centerY = MAX_D / 2;
+  var context = canvas.context2d;
+  
+  InputElement slider = query("#slider");
+  slider.on.change.add((Event e) {
+    seeds = Math.parseInt(slider.value);
+    drawFrame(context);
+  }, true);
+  
+  seeds = Math.parseInt(slider.value);
+  
+  drawFrame(context);
+}
 {% endhighlight %}
   
-<p>As with other object-oriented languages, the fundamental unit of code organization is a class. By convention, class file names end with ".dart". Code execution begins with the main() method and does not require any arguments. Sunflower's main() method simply invokes the constructor, which sets up the Canvas, registers an event handler, and draws the first frame.</p>
+<p>By convention, source file names end with ".dart". Code execution begins with the main() method and does not require any arguments. Sunflower's main() method sets up the Canvas, registers an event handler, and draws the first frame.</p>
 
-<p>The Sunflower class declares several constants and variables which are explicitly typed. Use of explicit types supports tooling, but Dart also allows untyped (<code>dynamic</code>) variables using the keyword &quot;var&quot; instead of a type. The <code>num</code> type, like most types provided by the Dart core library, is an interface. It looks like a primitive because it's lowercase, but Dart has no primitives. Instead, num is the base type from which both int and double are derived. Using num eliminates the need to explicitly convert from int to double and vice versa.</p>
+<p>The Sunflower file declares several constants and variables which are explicitly typed. Use of explicit types supports tooling, but Dart also allows untyped (<code>dynamic</code>) variables using the keyword &quot;var&quot; instead of a type. The <code>num</code> type, like most types provided by the Dart core library, is an interface. It looks like a primitive because it's lowercase, but Dart has no primitives. Instead, num is the base type from which both int and double are derived. Using num eliminates the need to explicitly convert from int to double and vice versa.</p>
 
-<p>Dart provides thin wrappers around the DOM which we can use to obtain references to elements in the page. The Sunflower constructor calls window.document.getElementById() to obtain the Canvas and range input objects using their IDs from the HTML file.</p>
+<p>Dart provides thin wrappers around the DOM which we can use to obtain references to elements in the page. The Sunflower constructor calls query() to obtain the Canvas and range input objects using their IDs from the HTML file.</p>
 
-<p>Lines 28-31 above register an event handler that runs whenever the value of the slider changes. The block of code inside the curly braces is a <code>closure</code>, a function which can be passed around as a variable. This construct, familiar to JavaScript developers, is less verbose than Java's anonymous inner classes familiar to GWT developers.</p>
+<p>Notice the event handler <code>on.change.add</code>, inside the main() function, that runs whenever the value of the slider changes. The block of code inside the curly braces is a <code>closure</code>, a function which can be passed around as a variable. This construct, familiar to JavaScript developers, is less verbose than Java's anonymous inner classes familiar to GWT developers.</p>
 
-<p>Note the use of Math.parseInt() in line 29 to convert a String to a number. In Dart, the methods to convert a String to a number are located in the Math class. There is also HTMLInputElement.valueAsNumber() for convenience, which this example could have used.</p>
+<p>Note the use of Math.parseInt() to convert a String to a number. In Dart, the methods to convert a String to a number are located in the Math class.</p>
 
 <p>Finally, let's take a look at the methods that actually draw on the Canvas.</p>
 
 {% highlight dart %}
-  // Draw the complete figure for the current number of seeds.
-  void drawFrame() {
-    ctx.clearRect(0, 0, MAX_D, MAX_D);
-    for (int i=0; i<seeds; i++) {
-      num theta = i * PI2 / PHI;
-      num r = Math.sqrt(i) * SCALE_FACTOR;
-      num x = xc + r * Math.cos(theta);
-      num y = yc - r * Math.sin(theta);
-      drawSeed(x,y);
-    }
+/**
+ * Draw the complete figure for the current number of seeds.
+ */
+void drawFrame(CanvasRenderingContext2D context) {
+  context.clearRect(0, 0, MAX_D, MAX_D);
+  
+  for (var i = 0; i < seeds; i++) {
+    var theta = i * TAU / PHI;
+    var r = Math.sqrt(i) * SCALE_FACTOR;
+    var x = centerX + r * Math.cos(theta);
+    var y = centerY - r * Math.sin(theta);
+    
+    drawSeed(context, x, y);
   }
   
-  // Draw a small circle representing a seed centered at (x,y).
-  void drawSeed(num x, num y) {
-    ctx.beginPath();
-    ctx.setLineWidth(2);
-    ctx.setFillColor(ORANGE);
-    ctx.setStrokeColor(ORANGE);
-    ctx.arc(x, y, SEED_RADIUS, 0, PI2, false);
-    ctx.fill();
-    ctx.closePath();
-    ctx.stroke();
-  }
+  displaySeedCount(seeds);
+}
 
+/**
+ * Draw a small circle representing a seed centered at (x,y).
+ */
+void drawSeed(CanvasRenderingContext2D context, num x, num y) {
+  context.beginPath();
+  context.lineWidth = 2;
+  context.fillStyle = ORANGE;
+  context.strokeStyle = ORANGE;
+  context.arc(x, y, SEED_RADIUS, 0, TAU, false);
+  context.fill();
+  context.closePath();
+  context.stroke();
+}
+
+void displaySeedCount(num seedCount) {
+  query("#notes").text = "${seedCount} seeds";  
 }
 {% endhighlight %}
 
-<p>The drawFrame() method does all the calculations, and drawSeed() paints on the Canvas (actually, the CanvasRenderingContext2D). Dart generates DOM bindings automatically from the browser's IDL, which means you can use a good HTML5 reference like <a href="http://html5rocks.com">HTML5 ROCKS</a> or <a href="http://developer.mozilla.org">Mozilla Developer Network</a> to write Dart code that interacts with the DOM. You can easily convert from JavaScript to Dart syntax using a few simple rules:</p>
-
-<ul>
-<li>Object method signatures like Canvas arc() and fill() are unchanged.</li>
-<li>Object properties are generally exposed with the same names as in JavaScript.</li>
-<li>Event handlers (all the onX methods) may be created simply by assigning a closure that takes an Event argument.</li>
-</ul>
+<p>The drawFrame() method does all the calculations, and drawSeed() paints on the Canvas (actually, the CanvasRenderingContext2D). Dart generates DOM bindings automatically from the browser's IDL, which means you can use a good HTML5 reference like <a href="http://html5rocks.com">HTML5 ROCKS</a> or <a href="http://developer.mozilla.org">Mozilla Developer Network</a> to write Dart code that interacts with the DOM.</p>
 
 <p>By combining HTML layout with a dynamically typed language, Dart makes it quick and easy to create rich user interfaces.</p>
-
-

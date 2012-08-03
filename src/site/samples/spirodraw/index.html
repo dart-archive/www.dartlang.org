@@ -101,7 +101,7 @@ class Spirodraw {
     int ru = rUnits.abs();
     int wrUnits = RUnits + rUnits;
     int g = gcf (wrUnits, ru);
-    return ru ~/ g;
+    return (ru ~/ g).toInt();
   }
   ...
 }
@@ -126,22 +126,21 @@ but not statements or expressions.</p>
 <p>Now let's look at ColorPicker.dart.</p>
 
 {% highlight dart %}
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
 typedef void PickerListener(String selectedColor);
 
 class ColorPicker {
-
-  static final hexValues = ['00', '33', '66', '99', 'CC', 'FF'];
+  static final hexValues = const ['00', '33', '66', '99', 'CC', 'FF'];
   static final COLS = 18;
   // Block height, width, padding
   static final BH = 10;
   static final BW = 10;
   static final BP = 1;
   final List<PickerListener> _listeners;
-  HTMLCanvasElement canvasElement;
+  CanvasElement canvasElement;
   String _selectedColor = 'red';
   final height = 160;
   final width = 180;
@@ -150,7 +149,7 @@ class ColorPicker {
   ColorPicker(this.canvasElement) :
     _listeners = []
   {
-    ctx = canvasElement.getContext("2d");
+    ctx = canvasElement.context2d;
     drawPalette();
     addHandlers();
     showSelected();
@@ -158,8 +157,9 @@ class ColorPicker {
   
   String get selectedColor() => _selectedColor;
   
-  void set selectedColor(num i) {
-    _selectedColor = getHexString(i.floor());
+  void set selectedColor(String color) {
+    _selectedColor = color;
+    
     showSelected();
     fireSelected();
   }
@@ -170,10 +170,10 @@ class ColorPicker {
     if (( y < 0) || (x >= width)) {
       return;
     }
-    ctx.setFillStyle(getHexString(getColorIndex(x, y)));
+    ctx.fillStyle = getHexString(getColorIndex(x, y));
     ctx.fillRect(0, 0, width/2, 30);
   }
-  
+
   void onMouseDown(MouseEvent event) {
     Element elt = event.target;
     event.cancelBubble = true;
@@ -181,29 +181,28 @@ class ColorPicker {
     int y = event.offsetY - 40;
     if ((y < 0) || (x >= width))
       return;
-    selectedColor = getColorIndex(x, y);
-    fireSelected();
+    selectedColor = getHexString(getColorIndex(x, y));
   }
- 
+
   /**
    * Adds a [PickerListener] to receive updates.
    */
   void addListener(PickerListener listener) {
     _listeners.add(listener);
   }
- 
+
   void addHandlers() {
-    canvasElement.onmousemove = (e) { onMouseMove(e); };
-    canvasElement.onmousedown = (e) { onMouseDown(e); };
+    canvasElement.on.mouseMove.add((e) => onMouseMove(e), true);
+    canvasElement.on.mouseDown.add((e) => onMouseDown(e), true);
   }
- 
+
   void drawPalette() {
     int i=0;
     for (int r=0; r < 256; r+=51) {
       for (int g=0; g < 256; g+=51) {
         for (int b=0; b < 256; b+=51) {
           String color = getHexString(i);
-          ctx.setFillStyle(color);
+          ctx.fillStyle = color;
           int x = BW * (i % COLS);
           int y = BH * (i ~/ COLS) + 40;
           ctx.fillRect(x + BP, y + BP, BW - 2 * BP, BH - 2 * BP);
@@ -212,33 +211,36 @@ class ColorPicker {
       }
     }
   }
- 
+
   void fireSelected() {
     for (final listener in _listeners) {
       listener(_selectedColor);
     }
   }
- 
+
   int getColorIndex(int x, int y) {
     // Get color index 0-215 using row, col
     int i = y ~/ BH * COLS + x ~/ BW;
     return i;
   }
- 
+
   void showSelected() {
-    ctx.setFillStyle(_selectedColor);
+    ctx.fillStyle = _selectedColor;
     ctx.fillRect(width / 2, 0, width / 2, 30);
-    ctx.setFillStyle("white");
+    ctx.fillStyle = "white";
     ctx.fillRect(0, 0, width / 2, 30);
   }
   
-  String getHexString(int i) {
-    int r = i ~/ 36;
+  String getHexString(num value) {
+    int i = value.floor().toInt();
+    
+    int r = (i ~/ 36) % 6;
     int g = (i % 36) ~/ 6;
     int b = i % 6;
+    
     return '#${hexValues[r]}${hexValues[g]}${hexValues[b]}';
   }
-   
+  
 }
 {% endhighlight %}
 
@@ -247,38 +249,38 @@ class ColorPicker {
 <p>In Dart, functions are objects just like strings and numbers. If you want to use a function as 
 a variable type or return type, you can use a function type alias, or typedef.</p>
 
-<p>In the example above, the typedef statement in line 5 declares a function type 
-PickerListener that takes a String argument and returns void. Lines 63-65 add a function of 
-type PickerListener to a List, and lines 89-90 iterate over the List to invoke each function.</p>
+<p>In the example above, the typedef statement declares a function type 
+PickerListener that takes a String argument and returns void.</p>
 
 <p>Function type aliases offer a compact way to represent any type of callback.</p>
 
 <h2 id="type_propagation">Type propagation</h2>
 <p>Dart types are automatically propagated from constants and literals. For example,
-line 9 initializes a List of Strings, but the variable type List&lt;String&gt; is
+the line <code>_listeners = []</code> initializes a List of Strings, but the variable type List&lt;String&gt; is
 omitted because the type can be determined from the string literals.</p>
 
 <h2 id="initializers">Constructor initializers</h2>
 <p>Often constructor arguments are used to initialize instance fields. To avoid repetitive 
 this.name = name initializers, Dart allows you to write this.name in the constructor instead 
-of the argument name. See the ColorPicker constructor in line 22 for an example. Also, Dart 
-lets you write an initializer list in the constructor as shown in line 23. Initializers are 
+of the argument name. See the ColorPicker constructor for an example. Also, Dart 
+lets you write an initializer list in the constructor. Initializers are 
 executed before the instance is constructed and are used to initialize final fields.</p>
 
 <h2 id="terse_function_syntax">Terse function syntax</h2>
 <p>Functions that simply return an expression can be declared in a compact one-line 
-syntax using =&gt; as shown in line 31.</p>
+syntax using =&gt; as shown with <code>selectedColor()</code> getter.</p>
 
 <h2 id="getters_setters">Getters and setters</h2>
 <p>Note the definition of an explicit getter and
-setter in lines 31-37. When you define a getter or setter function this way, Dart will 
+setter for selectedColor. When you define a getter or setter function this way, Dart will 
 automatically invoke the getter or setter when you reference a variable having the same 
 name as the getter/setter. By convention, the actual variable name is prefixed with an 
 underscore, which makes it private to the library and distinguishes it from the 
 getter/setter name.</p>
 
 <h2 id="for-in">For-in statement</h2>
-<p>Our last bit of syntactic sugar is shown in lines 89-90. The for-in loop iterates over 
+<p>Our last bit of syntactic sugar is shown with <code>for (final listener in _listeners)</code>.
+  The for-in loop iterates over 
 any object that implements the Iterable interface.</p>
 
 
