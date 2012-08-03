@@ -93,13 +93,13 @@ dependencies:
 {% endhighlight %}
 
 When you use the SDK as a source for packages, you must specify a
-`--sdkdir` command-line
-argument, pointing to the SDK location. The path to the
-SDK must be a fully qualified path, until [bug 3714](http://code.google.com/p/dart/issues/detail?id=3714) is addressed.
+`DART_SDK` environment variable,
+pointing to the SDK location.
 
 {% highlight bash %}
+export DART_SDK=/path/to/your/SDK
 cd your/app
-$DART_SDK/bin/pub install --sdkdir=/full/path/to/dart/sdk
+$DART_SDK/bin/pub install
 {% endhighlight %}
 
 ## Pointing Dart to your packages
