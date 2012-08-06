@@ -1,0 +1,59 @@
+- title: Dart for Hipsters
+  authors:
+    - Chris Strom
+  publisher: Pragmatic Publishers
+  cover: dart-for-hipsters.png
+  link: http://pragprog.com/book/csdart/dart-for-hipsters
+  desc: 'Psst! You’re not stuck with JavaScript anymore.
+        Dart for Hipsters teaches you the fastest way possible: with real
+        code and real projects starting on page 1. The unabashed goal of
+        Dart is to make programming for the Web simpler, faster, and more
+        powerful. And Dart for Hipsters is the fast-paced, most thorough way
+        to learn it. You’ll explore the ins and outs of Dart by writing a
+        simple application that grows in complexity from modest beginnings
+        to a separate library that fully leverages the power of Dart.
+        Caution: after reading you may develop an intense attachment to
+        structured code and skinny jeans.'
+
+- title: Dart in Action
+  authors:
+    - Chris Buckett
+  publisher: Manning
+  cover: dart-in-action.png
+  link: http://www.manning.com/buckett/
+  desc: 'Dart in Action introduces the Dart language and provides techniques and
+        examples showing how to use it as a viable replacement for Java and JavaScript
+        in browser-based desktop and mobile applications. It begins with a rapid
+        overview of the Dart language and tools including features like interacting with
+        the browser, optional typing, classes, libraries, and concurrency with
+        isolates. After you master the core concepts, you move on to running Dart on
+        the server and creating "single page" HTML5 web applications.'
+
+- title: 'Dart: Up and Running'
+  authors:
+    - Kathy Walrath
+    - Seth Ladd
+  publisher: O'Reilly
+  cover: dart-up-and-running.png
+  link: http://shop.oreilly.com/product/0636920025719.do
+  desc: 'With Dart, Google has developed a web development language that not only
+         matches the dynamic nature of JavaScript, but addresses its problems as well.
+         This practical book gets you up to speed on the Dart language, libraries,
+         and tools for developing structured, fast, and maintainable web apps that
+         run in any modern browser. The Dart platform has been designed to scale from
+         simple scripts to complex apps, running on both the client and the server.
+         With this book, you’ll learn how Dart can help you architect and develop
+         HTML5 apps for the modern Web.'
+
+- title: What is Dart?
+  authors:
+    - Kathy Walrath
+    - Seth Ladd
+  publisher: O'Reilly
+  cover: what-is-dart.png
+  link: http://shop.oreilly.com/product/0636920025887.do
+  desc: 'Get ready to build modern web apps. This concise book covers the Dart language,
+        libraries, and tools that help you develop structured, fast, and maintainable web
+        apps that run in any modern browser. The Dart platform has been designed to scale
+        from simple scripts to complex apps, running on both the client and the server. With
+        this book, you can use Dart to architect and develop HTML5 apps for the modern web.'
