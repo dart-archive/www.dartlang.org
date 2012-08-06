@@ -20,7 +20,8 @@ Dart includes a unit test library that is easy to use, adaptable, and supports b
 1. [A simple unit test example](#a-simple-unit-test-example)
 1. [Basic synchronous tests](#basic-synchronous-tests)
 1. [Grouping tests](#grouping-tests)
-1. [Running a single test](#running-a-single-test)
+1. [Setup and teardown](#setup-and-teardown)
+1. [Running a limited set of tests](#running-a-limited-set-of-tests)
 1. [Asynchronous tests](#asynchronous-tests)
 1. [Matchers](#matchers)
 1. [Configuring the test environment](#configuring-the-test-environment)
@@ -273,7 +274,7 @@ Test names have their group names prepended; in this case, the first test has th
 
 Groups are not themselves tests, and so should not include assertions or calls to expect() outside of the contained tests.
 
-## Setup and Teardown
+## Setup and teardown
 
 Inside a group body, in addition to calling test() you can call setUp() and/or tearDown() with function arguments. The function passed as an argument to setUp() will be called before each test, and that passed to tearDown() will be called after each test.
 
