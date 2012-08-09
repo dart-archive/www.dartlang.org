@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "pub: The Dart Package Manager"
-description: "With pub, you can use third-party Dart libraries in 
+description: "With pub, you can use third-party Dart libraries in
 your web and command-line Dart apps."
 has-permalinks: true
 ---
@@ -48,7 +48,9 @@ Packages can be installed from git today, and in the future
 we expect to support other sources such as a hosted
 service at pub.dartlang.org.
 
-The pubspec uses the [YAML](http://yaml.org/) format.
+The pubspec uses the [YAML](http://yaml.org/) format. [Learn more about the pubspec format][pubspec].
+
+[pubspec]: pubspec.html
 
 ## Installing the packages
 
@@ -66,8 +68,8 @@ This command creates a _packages_ directory inside the current directory,
 cloning the git repositories into the packages directory.
 
 The packages directory also contains any _transitive
-dependencies_. 
-For example, if the `awesome` package is dependent on the `sweet` package, 
+dependencies_.
+For example, if the `awesome` package is dependent on the `sweet` package,
 the pub tool will also download and install the `sweet` package.
 
 ## Using libraries from the SDK
@@ -113,7 +115,7 @@ for you next to the pubspec.yaml file.
 
 ### Mapping packages for the Dart Editor
 
-To help the Dart Editor understand how to find packages, go to Preferences 
+To help the Dart Editor understand how to find packages, go to Preferences
 and point the "Package directory" to `/path/to/your/app/packages`.
 
 <aside>
