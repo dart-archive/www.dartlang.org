@@ -12,20 +12,14 @@ custom:
     editor-url-prefix: "https://gsdview.appspot.com/dart-editor-archive"
     binaries:
       - os: win32
-        editor-os: win32
         name: Windows
         ext: zip
         editor-ext: zip
-        lib: win32
       - os: macos
-        editor-os: macosx
         name: Mac
         ext: zip
         editor-ext: zip
-        lib: cocoa
       - os: linux
-        editor-os: linux
         name: Linux
         ext: tar.gz
         editor-ext: zip
-        lib: gtk

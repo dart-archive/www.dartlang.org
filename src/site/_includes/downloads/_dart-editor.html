@@ -1,11 +1,11 @@
 {% for editor in site.custom.downloads.binaries %}
 
 <div class="{{ editor.os }} downloads">
-  <a class="download-link btn btn-primary" data-bits="32" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dart-editor-{{ editor.editor-os }}.{{ editor.lib }}.x86.{{ editor.editor-ext }}">
+  <a class="download-link btn btn-primary" data-bits="32" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-{{ editor.os }}-32.{{ editor.editor-ext }}">
     <i class="icon-download-alt"></i>
     32-bit Dart Editor + SDK + Dartium ({{ editor.name }})
   </a>
-  <a class="download-link btn btn-primary" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dart-editor-{{ editor.editor-os }}.{{ editor.lib }}.x86_64.{{ editor.editor-ext }}">
+  <a class="download-link btn btn-primary" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">
     <i class="icon-download-alt"></i>
     64-bit Dart Editor + SDK + Dartium ({{ editor.name }})
   </a>
