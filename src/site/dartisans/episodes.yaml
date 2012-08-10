@@ -1,5 +1,16 @@
 url-prefix: http://commondatastorage.googleapis.com/dartlang-podcast/
 episodes:
+- title: 'Dartisans ep. 9: Isolates and Mirror API'
+  subtitle: Isolates and Mirror API
+  file: dartisans-ep-09-isolates-and-mirror-api.mp3
+  pubdate: 2012-08-08
+  description: In this episode of Dartisans, we talk to Todd Turnidge,
+               a software engineer on the Dart team, about isolates, the embedding API,
+               and mirrors (for reflection). We also chat with Johnni Winther
+               about his work on dart2js.
+  length: 20256122
+  num: 9
+  youtubeid: yV_a9G1ejwM
 - title: 'Dartisans ep. 8: Rikulo and changes to library/import syntax'
   subtitle: Rikulo and changes to library/import syntax
   file: dartisans-ep-08-rikulo-and-changes-to-library-import-syntax.mp3
