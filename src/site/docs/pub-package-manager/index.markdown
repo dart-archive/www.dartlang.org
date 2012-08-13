@@ -154,4 +154,8 @@ within the package-root location.
 
 Run `YOUR_DART_SDK_DIR/bin/pub --help` for a list of commands.
 
+## See also
+
+* [What is a pubspec?](pubspec.html)
+* [How does versioning work?](versioning.html)
 
