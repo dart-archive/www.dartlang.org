@@ -48,9 +48,7 @@ Packages can be installed from git today, and in the future
 we expect to support other sources such as a hosted
 service at pub.dartlang.org.
 
-The pubspec uses the [YAML](http://yaml.org/) format. [Learn more about the pubspec format][pubspec].
-
-[pubspec]: pubspec.html
+The pubspec uses the [YAML](http://yaml.org/) format. [Learn more about the pubspec format](pubspec.html).
 
 ## Installing the packages
 
