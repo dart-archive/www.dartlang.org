@@ -58,6 +58,9 @@ handlers:
 - url: /hangouts.*
   script: scripts.redirector.application
 
+- url: /eclipse/update
+  script: scripts.redirector.application
+
 - url: /(.*\.png)
   static_files: static/\1
   expiration: 1d
