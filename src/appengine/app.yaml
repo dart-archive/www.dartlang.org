@@ -58,7 +58,7 @@ handlers:
 - url: /hangouts.*
   script: scripts.redirector.application
 
-- url: /eclipse/update
+- url: /eclipse/update.*
   script: scripts.redirector.application
 
 - url: /(.*\.png)

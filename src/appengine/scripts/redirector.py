@@ -22,59 +22,69 @@ NEWS_POSTS = {
 }
 
 class ApiRedirectPage(RequestHandler):
-    def get(self):
-        filename = self.request.path.split('/docs/api/')[1]
-        if filename == '' or filename == 'index.html':
-            self.redirect('http://api.dartlang.org/', permanent=True)
-        else:
-            self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
+  def get(self):
+    filename = self.request.path.split('/docs/api/')[1]
+    if filename == '' or filename == 'index.html':
+        self.redirect('http://api.dartlang.org/', permanent=True)
+    else:
+        self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
             
 class SpecRedirectPage(RequestHandler):
-    def get(self):
-        suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
-        if suffix == '.html' or suffix == '.pdf':
-            self.redirect('/docs/spec/latest/dart-language-specification' + suffix, permanent=True)
+  def get(self):
+    suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
+    if suffix == '.html' or suffix == '.pdf':
+        self.redirect('/docs/spec/latest/dart-language-specification' + suffix, permanent=True)
 
 class NewsRedirectPage(RequestHandler):
-    def get(self):
-        url = self.request.path[5:len(self.request.path)]
-        if url == '' or url == '/' or url == '/index.html':
-            self.redirect('http://news.dartlang.org', permanent=True)
-        elif NEWS_POSTS.has_key(url):
-            self.redirect('http://news.dartlang.org' + NEWS_POSTS[url], permanent=True)
-        else:
-            self.error(404)
+  def get(self):
+    url = self.request.path[5:len(self.request.path)]
+    if url == '' or url == '/' or url == '/index.html':
+        self.redirect('http://news.dartlang.org', permanent=True)
+    elif NEWS_POSTS.has_key(url):
+        self.redirect('http://news.dartlang.org' + NEWS_POSTS[url], permanent=True)
+    else:
+        self.error(404)
 
 class HangoutsRedirectPage(RequestHandler):
-    def get(self):
-        path = self.request.path.replace('/hangouts', '/dartisans', 1)
-        self.redirect(path, permanent=True)
+  def get(self):
+    path = self.request.path.replace('/hangouts', '/dartisans', 1)
+    self.redirect(path, permanent=True)
+
+class EclipseUpdateRedirect(RequestHandler):
+  prefix = 'http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+  def get(self, *args, **kwargs):
+    self.redirect_to_cloud_storage(kwargs['path'])
+  def head(self, *args, **kwargs):
+    self.redirect_to_cloud_storage(kwargs['path'])
+  def redirect_to_cloud_storage(self, path):
+    self.redirect(self.prefix + path, permanent=False)
+
+def eclipse_update(handler, *args, **kwargs):
+  return 
 
 application = WSGIApplication(
-     [('/docs/api/.*', ApiRedirectPage),
-      ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
-      ('/news.*', NewsRedirectPage),
-      ('/hangouts.*', HangoutsRedirectPage),
-      Route('/eclipse/update', RedirectHandler,
-        defaults={'_uri': 'http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update/',
-                  '_code': 302}),
-      Route('/dartisans/podcast-feed', RedirectHandler,
-        defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
-                  '_code': 302}),
-      Route('/language-tour/', RedirectHandler,
-        defaults={'_uri': '/docs/language-tour/'}),
-      Route('/editor<:/?>', RedirectHandler,
-        defaults={'_uri': '/docs/editor/'}),
-      Route('/docs/getting-started/editor/', RedirectHandler,
-        defaults={'_uri': '/docs/editor/getting-started/'}),
-      Route('/docs/getting-started/sdk/', RedirectHandler,
-        defaults={'_uri': '/docs/sdk/'}),
-      Route('/resources/', RedirectHandler,
-        defaults={'_uri': '/community/'}),
-      Route('/atom.xml', RedirectHandler,
-        defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
-      Route('/+', RedirectHandler,
-        defaults={'_uri': 'https://plus.google.com/109866369054280216564/posts'}),
-      Route('/mailing-list', RedirectHandler,
-        defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!forum/misc'})],
-     debug=True)
+   [('/docs/api/.*', ApiRedirectPage),
+    ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
+    ('/news.*', NewsRedirectPage),
+    ('/hangouts.*', HangoutsRedirectPage),
+    Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
+    Route('/dartisans/podcast-feed', RedirectHandler,
+      defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
+                '_code': 302}),
+    Route('/language-tour/', RedirectHandler,
+      defaults={'_uri': '/docs/language-tour/'}),
+    Route('/editor<:/?>', RedirectHandler,
+      defaults={'_uri': '/docs/editor/'}),
+    Route('/docs/getting-started/editor/', RedirectHandler,
+      defaults={'_uri': '/docs/editor/getting-started/'}),
+    Route('/docs/getting-started/sdk/', RedirectHandler,
+      defaults={'_uri': '/docs/sdk/'}),
+    Route('/resources/', RedirectHandler,
+      defaults={'_uri': '/community/'}),
+    Route('/atom.xml', RedirectHandler,
+      defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
+    Route('/+', RedirectHandler,
+      defaults={'_uri': 'https://plus.google.com/109866369054280216564/posts'}),
+    Route('/mailing-list', RedirectHandler,
+      defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!forum/misc'})],
+   debug=True)
