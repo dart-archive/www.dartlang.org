@@ -608,6 +608,337 @@ the log. Using our example above, this test would pass:
 log.getMatches(null, callsTo('foo')).verify(happenedExactly(2));
 {% endhighlight %}
 
+
+## Temporal assertions
+
+So far, you should have learned that:
+
+* you can create subclasses of `Mock` that 'implement' the interfaces of other classes you want to mock, and you can specify the behavior of these mock objects;
+* the actual behavior in any test run is optionally captured in one or more audit trail logs, which can be used later to make assertions about the behavior of the system.
+
+That is, assertions about the behavior of the system over time are made by filtering the execution logs and then verifying some properties of the remaining log messages.
+
+We will now look at more complex ways of verifying the behavior of a system under test over time, using a more complex example, a vending machine.
+
+Our vending machine will be made up of two classes - a `VendingMachineDispenser` responsible for maintaining an inventory of items that it can dispense, and a `VendingMachineCashier` class that takes coin deposits and item selections, and knows about the price of items.
+
+### The dispenser
+
+
+The dispenser class is very simple. All the dispenser does is take a command to dispense an item, and return success or failure depending on whether it has inventory, updating the inventory accordingly:
+
+{% highlight dart %}
+class VendingMachineDispenser {
+   
+  List<int> inventory;
+   
+  VendingMachineDispenser(int numItems, int level) {
+    restock(numItems, level);
+  }
+   
+  void restock(int numItems, int level) {
+    inventory = new List(numItems);
+    for (var i = 0; i < numItems; i++) {
+      inventory[i] = level;
+    }
+  }
+
+  bool dispenseItem(int itemNumber) {
+    if (itemNumber >= 0 && itemNumber < inventory.length &&
+        inventory[itemNumber] > 0) {
+      --inventory[itemNumber];
+      return true;
+    }
+    return false;
+  }
+}
+{% endhighlight %}
+
+### The cashier
+
+The cashier will tell the dispenser to dispense a selected item if enough money has been deposited, and will give the user change. Selecting an item can fail if the dispenser has no stock, insufficient money has been inserted, or the cashier cannot issue change. The cashier will accept nickels (5c) and dimes (10c), up to a maximum of 50c, after which further coins will be rejected.
+
+{% highlight dart %}
+class VendingMachineCashier {
+   
+  const int MaxCapacity = 50;
+   
+  VendingMachineDispenser _dispenser;
+  List<int> _prices;
+  int _deposited = 0;
+  int numNickels = 0, numDimes = 0;
+
+  int get deposited() => _deposited;
+
+  VendingMachineCashier(VendingMachineDispenser dispenser,
+      List<int> prices)
+      : _dispenser = dispenser,
+        _prices = prices;
+   
+  String _depositCoin(int amount) {
+    if (amount == 0 || _deposited > (MaxCapacity - amount)) {
+      rejectCoin();
+    } else {
+      _deposited += amount;
+    }
+    return '${_deposited}c';
+  }
+   
+  String depositNickel() => _depositCoin(5);   
+  String depositDime() => _depositCoin(10);
+  String depositOther() => _depositCoin(0);
+   
+  String selectItem(int itemNumber) {
+    if (_deposited >=  _prices[itemNumber]) {
+      // Make sure we have change.
+      int change = deposited - _prices[itemNumber];
+      if ((change % 10) == 5 && numNickels == 0) {
+        giveChange(_deposited);
+        _deposited = 0;
+        return 'No change';
+      } else if (_dispenser.dispenseItem(itemNumber)) {
+        giveChange(change);
+        _deposited = 0;
+        return 'Insert coin';
+      } else {
+        giveChange(_deposited);
+        _deposited = 0;
+        return 'Item ${itemNumber} out';
+      }
+    }
+    return '${_deposited}c';
+  }
+   
+  String cancel() {
+    giveChange(_deposited);
+    _deposited = 0;
+    return 'Insert coin';
+  }
+   
+  void giveChange(int amount) {
+    while (amount >= 10 && numDimes > 0) {
+      --numDimes;
+      dispenseDime();
+      amount -= 10;
+    }
+    if (amount == 5) {
+      --numNickels;
+      dispenseNickel();
+    }
+  }
+   
+  // Hardware interface; stubs for now.   
+  void rejectCoin() { /* Instruct hardware to reject current coin. */ }
+  void dispenseNickel() { /* Instruct hardware to dispense nickel. */ }
+  void dispenseDime() { /* Instruct hardware to dispense dime. */ }
+}
+{% endhighlight %}
+
+The external interface of the cashier consists of the nickel and dime deposit slots, the item select buttons, and the cancel button.  `selectItem()` is called when an item select button is pressed, and it returns a message that is displayed to the user, which can be 'Insert coin' (the initial message which is also displayed after a successful purchase), 'Item nnn out' is there is no inventory of an item that has just been selected, 'No change' if an item can’t be purchased because the machine cannot issue the correct change, or a total amount currently deposited.
+
+### Mocking the classes
+
+In this example we are trying to validate the behavior of this system. We are not using mocks as stubs, but rather as spys (i.e. we are monitoring the behavior of a real class, not substituting for the class). We need a dispenser spy and a cashier spy:
+
+{% highlight dart %}
+class DispenserSpy extends Mock implements VendingMachineDispenser {
+  VendingMachineDispenser _real;
+
+  DispenserSpy(LogEntryList log, int numItems, int level)
+      : super.custom('dispenser', log),
+        _real = new VendingMachineDispenser(numItems, level) {
+    when(callsTo('dispenseItem')).alwaysCall(_real.dispenseItem);
+  }
+}
+
+class CashierSpy extends Mock implements VendingMachineCashier {
+  VendingMachineCashier _real;
+
+  MockCashier(LogEntryList log, VendingMachineDispenser d,
+      List<int>  prices)
+      : super.custom('cashier', log),
+        _real = new VendingMachineCashier(d, prices) {
+    when(callsTo('depositNickel')).alwaysCall(_real.depositNickel);
+    when(callsTo('depositDime')).alwaysCall(_real.depositDime);
+    when(callsTo('depositOther')).alwaysCall(_real.depositOther);
+    when(callsTo('selectItem')).alwaysCall(_real.selectItem);
+    when(callsTo('cancel')).alwaysCall(_real.cancel);
+    when(callsTo('get deposited')).alwaysCall(()=>_real.deposited);
+  }
+}
+{% endhighlight %}
+
+### Driving the system under test
+
+To generate test logs for verification, we can use random testing (if you are familiar with fuzz testing, this is similar, although the idea is much older). We will simply call the public interface of the system based on the results of a random number generator:
+
+{% highlight dart %}
+void main() {
+  var rand = new Random();
+  LogEntryList log = new LogEntryList();
+  List<int> prices = [25, 40, 50 ];
+  var dispenser = new DispenserSpy(log, 3, 5);
+  var cashier = new CashierSpy(log, dispenser, prices);
+  int numEvents = 500;
+  cashier.deposited; // useful for audit trail
+  while (--numEvents >= 0) {
+    var eNum = rand.nextInt(6);
+    switch (eNum) {
+      case 0:
+        cashier.depositNickel();
+        break;
+      case 1:
+        cashier.depositDime();
+        break;
+      case 2:
+        cashier.depositOther();
+        break;
+      default:
+        cashier.selectItem(eNum - 3);
+        break;
+    }
+    cashier.deposited; // useful for audit trail
+  }
+}
+{% endhighlight %}
+
+The code is quite straightforward; the main oddities are the calls to cashier.deposited; we do this because it is useful for validation purposes to generate log messages at the start and after each action that have the current amount deposited in the cashier; most of our assertions will be assertions about this value.
+
+### Sample temporal assertions
+
+Now we want to make some assertions about the behavior of the system. The behavior we are going to verify is the following:
+
+* when the dispenser successfully dispensed an item, there was enough money in the cashier to pay for it;
+* if the user tried to select an item and no item was dispensed, and this was not due to lack of change or inventory, then this was because there was not enough money;
+* because we are not restocking in the code above after the initial stock, if an item fails to dispense due to lack of stock, any further attempts to dispense the item will also fail;
+* if the user deposits a dime, then the amount in the cashier will go up by 10c provided there was no more than 40c in the cashier; otherwise the amount will be unchanged.
+
+We will break these down step by step. In the first case:
+
+* “when the dispenser successfully dispensed an item” translates to “calls to `VendingMachineDispenser.dispenseItem` that returned true”;
+* “there was enough money” - we can find the amount of money by getting the closest preceding calls to `VendingMachineCashier.deposited`;
+* “to pay for it” means the amount of money we retrieved in the last step was at least as great as the item price.
+
+We can assert this separately for each item, as follows:
+
+{% highlight dart %}
+for (var item = 0; item < 3; item++) {
+  int price = prices[item];
+  // Get all calls to VendingMachineDispenser.dispenseItem that
+  // returned true.
+  LogEntryList dispenses = log.getMatches('dispenser',
+                 callsTo('dispenseItem', item), returning(isTrue));
+
+  // Find the closest preceding calls to VendingMachineCashier.deposited.
+  LogEntryList lastDeposits = log.preceding(dispenses,
+            'cashier', callsTo('get deposited'));
+
+  // Verify that the value returned was at least as high as item price.
+  lastDeposits.verify(alwaysReturned(greaterThanOrEqualTo(price)));
+}
+{% endhighlight %}
+
+For the second example:
+
+* “if the user tried to select an item” translates to calls to `VendingMachineCashier.selectItem`;
+* “and no item was dispensed” means we don’t care about cases where `selectItem` returned 'Insert coin';
+* “and this was not due to lack of change or inventory” means that we don’t care about cases where `selectItem` returned “No change” or “Item nnn out”;
+* “then this was because there was not enough money” means we want to look at the preceding calls to `VendingMachineCashier.deposited` and assert that the deposited amount was less that the item price.
+
+In code:
+
+{% highlight dart %}
+for (var item = 0; item < 3; item++) {
+  // Get the calls to selectItem that did not return ‘Insert coin’,
+  // ‘No change’, or ‘Item nnn out’.
+  LogEntryList failedDispenses = log.getMatches('cashier',
+      callsTo('selectItem', item),
+      returning(
+         isNot(anyOf('Insert coin', 'No change', startsWith('Item')))));
+  // Get the closest preceding calls to VendingMachineCashier.deposited.
+  LogEntryList lastDeposits = log.preceding(failedDispenses,
+                'cashier', callsTo('get deposited'));
+  // Verify that the value returned was lower than the  item price.
+  lastDeposits.verify(alwaysReturned(lessThan(prices[item])));
+}
+{% endhighlight %}
+
+For the third example:
+
+* “if an item fails to dispense due to lack of stock” means `selectItem` returned ‘Item nnn out’;
+* “any further attempts to dispense the item” means we want all logs for `selectItem` that followed the first log for `selectItem` in the prior step;
+* “will also fail” means that none of the logs returned in the second step will have a return value of 'Insert coin'.
+
+In code:
+
+{% highlight dart %}
+for (var item = 0; item < 3; item++) {
+  // We query the logs for selectItem calls twice so save the
+  // CallMatcher for reuse.
+  CallMatcher selectItem = callsTo('selectItem', item);
+  // Get the set of log entries where selectItem return no stock.
+  LogEntryList noStockDispenses = log.getMatches('cashier',
+      selectItem, returning(Item $item out'));
+  // Get the set of log messages for selectItem that came
+  // after the first no stock message.
+  LogEntryList laterDispenses = log.fromFirst(noStockDispenses).
+      getMatches('cashier', selectItem);
+  // Verify that none of those returned success.
+  laterDispenses.verify(neverReturned('Insert coin'));
+}
+{% endhighlight %}
+
+An alternative way that would also work:
+
+{% highlight dart %}
+for (var item = 0; item < 3; item++) {
+  // Get the set of log entries where selectItem return no stock.
+  LogEntryList noStockDispenses = log.getMatches('cashier',
+      callsTo('selectItem', item), returning(Item $item out'));
+  // Get the set of log messages for dispenseItem that came
+  // after the first no stock message.
+  LogEntryList laterDispenses = log.fromFirst(noStockDispenses).
+      getMatches('dispenser', callsTo(‘dispenseItem’, item));
+  // Verify that none of those returned success.
+  laterDispenses.verify(neverReturned(true));
+}
+{% endhighlight %}
+
+For the fourth example, we will use a stepwise validator function. We will get all calls to `depositDime`, and the closest preceding calls to the `deposited` getter, and then we will make assertions about each such pair:
+
+{% highlight dart %}
+// Get all calls to depositDime.
+LogEntryList dd = log.getMatches('cashier', callsTo('depositDime'));
+// Get the closest preceding calls to get deposited, and include
+// the calls to depositDime in the result.
+LogEntryList pairs = log.preceding(dd, 'cashier',
+    callsTo('get deposited'), includeKeys: true);
+// Our validator will operate on each pair, and return 0 upon failure or
+// 2 upon success (so we advance the position by 2 for the next call).
+pairs.stepwiseValidate((l, pos) =>
+    (l[pos+1].value ==
+     '${l[pos].value+(l[pos].value <= 40 ? 10 : 0)}c') ?
+        2 : 0);
+{% endhighlight %}
+
+## Reducing logging for regression tests
+
+Once you have a system working and a collection of assertions that you want to use for regression testing, you may want to reduce the amount of logging that is done by the mocks. For example, in our assertions we never made any use of `depositNickel` in the logs. To reduce the memory requirements and improve performance, we can turn off logging for this method.
+
+Logging is enabled both at the level of `Mock` objects, and `Behavior` objects. In each case the `logging` getter/setter can be used to turn logging on or off. Recall from the earlier that `Behavior` methods such as `alwaysReturn` return the `Behavior` itself, to support chaining of calls. Thus we could have specified the mock behavior for `depositNickel` and turned off logging for that behavior at the same time with a line such as:
+
+{% highlight dart %}
+when(callsTo('depositNickel')).
+    alwaysCall(_real.depositNickel).logging = false;
+{% endhighlight %}
+
+Note that that logging property applies to the `Behavior`, not the specific `Action` in the `Behavior`, so this is equivalent to:
+
+{% highlight dart %}
+when(callsTo('depositNickel')).logging = false;
+when(callsTo(‘depositNickel’)).alwaysCall(_real.depositNickel);
+{% endhighlight %}
+
 ## Conclusion
 
 The Mock support currently available should be a good start for you to do 
