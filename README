@@ -1,6 +1,10 @@
 The dartlang.org site. Built with Jekyll (https://github.com/mojombo/jekyll)
 and hosted on App Engine.
 
+File issues and bugs here: http://dartbug.com/new
+
+Fork and submit patches here: https://github.com/dart-lang/dartlang.org
+
 ORIENTATION
 
 * ./src
