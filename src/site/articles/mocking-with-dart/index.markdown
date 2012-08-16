@@ -878,7 +878,7 @@ for (var item = 0; item < 3; item++) {
   CallMatcher selectItem = callsTo('selectItem', item);
   // Get the set of log entries where selectItem return no stock.
   LogEntryList noStockDispenses = log.getMatches('cashier',
-      selectItem, returning(Item $item out'));
+      selectItem, returning('Item $item out'));
   // Get the set of log messages for selectItem that came
   // after the first no stock message.
   LogEntryList laterDispenses = log.fromFirst(noStockDispenses).
@@ -894,7 +894,7 @@ An alternative way that would also work:
 for (var item = 0; item < 3; item++) {
   // Get the set of log entries where selectItem return no stock.
   LogEntryList noStockDispenses = log.getMatches('cashier',
-      callsTo('selectItem', item), returning(Item $item out'));
+      callsTo('selectItem', item), returning('Item $item out'));
   // Get the set of log messages for dispenseItem that came
   // after the first no stock message.
   LogEntryList laterDispenses = log.fromFirst(noStockDispenses).
