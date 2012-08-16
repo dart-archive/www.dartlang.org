@@ -26,7 +26,6 @@ Dart includes a unit test library that is easy to use, adaptable, and supports b
 1. [Matchers](#matchers)
 1. [Configuring the test environment](#configuring-the-test-environment)
 1. [Using expect() in other contexts](#using-expect-in-other-contexts)
-1. [What's next](#whats-next)
 {:.toc}
 
 ## Differences from the earlier library
@@ -39,7 +38,7 @@ The unit test library is not new, but has undergone some changes. If you have be
 * the Expect class in dart:core is deprecated except for internal use, and `expect()` should be used instead
 
 The new `expect()` is modelled on 3rd generation assert libraries like
-[Hamcrest](http://http//code.google.com/p/hamcrest/), and borrows some ideas
+[Hamcrest](http://code.google.com/p/hamcrest/), and borrows some ideas
 from Ladislav Thon's [dart-matcher](https://github.com/Ladicek/dart-matchers)
 library.
 
