@@ -7,6 +7,8 @@ js:
   defer: true
 - url: /js/editor-downloads-analytics.js
   defer: true
+- url: /js/editor-version.js
+  defer: true
 ---
 
 {% include platform-specific-text/_noscript.html %}
@@ -17,14 +19,7 @@ js:
 
 <p>
 Follow this tutorial to install and use Dart Editor on
-    <input type="radio" name="osChoices" id="win">
-    <label class="os-choice" for="win">Windows</label>,
-
-    <input type="radio" name="osChoices" id="linux" checked="true">
-    <label class="os-choice" for="linux">Linux</label>, or
-
-    <input type="radio" name="osChoices" id="mac">
-    <label class="os-choice" for="mac">Mac</label>.
+{% include os-choices.html %}
 </p>
 
 <p>
