@@ -59,8 +59,6 @@ You can download Dart Editor for:
 
 {% include downloads/_dart-editor.html %}
 
-<h3>Contents</h3>
-
 <p>
 The Dart Editor download includes:
 </p>
@@ -99,10 +97,16 @@ about new features and bugs that you encounter.
 
 {% for editor in site.custom.downloads.binaries %}
 
+{% comment %}
+{QUESTION: Why aren't the following links buttons?
+Also, it'd be good to emphasize the 64-bit versions -- we used to
+barely link to the 32-bit versions.}
+{% endcomment %}
+
 <div class="{{ editor.os }} downloads">
-  <a class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="latest" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-32.{{ editor.editor-ext }}">32-bit Dart Editor ({{ editor.name }} latest)</a>
-  or the
   <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="latest" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">64-bit Dart Editor ({{ editor.name }} latest)</a>
+  <br>
+  <a class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="latest" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-32.{{ editor.editor-ext }}">32-bit Dart Editor ({{ editor.name }} latest)</a>
 </div>
 
 {% endfor %}
@@ -110,33 +114,44 @@ about new features and bugs that you encounter.
 </section>
 
 
-<section id="update">
-<h3>Updating without losing preferences</h3>
+<section id="ref">
+<h3>A note about settings</h3>
 
 <p>
-If you already have Dart Editor and want to keep its state,
-install the new Dart Editor on top of the old one.
-For example, put the new ZIP file beside the old one,
-and then use the command-line interface to unzip on top of the old files:
+We no longer recommend the workaround of
+unzipping your new copy of Dart Editor on top of the old copy.
+Previously, the settings for Dart Editor were saved alongside its executable file,
+meaning that unless you used the workaround,
+you'd lose your list of projects and other customizations
+whenever you updated Dart Editor.
+Now the settings are in a separate place,
+and you can install new copies of Dart Editor wherever you like.
 </p>
 
-{% highlight bash %}
-% cd dart-editor-installation-directory
-% unzip dart-editor-LATEST_FILE.zip
-replace dart/SOME_FILE? [y]es, [n]o, [A]ll, [N]one, [r]ename: <b>A</b>
-{% endhighlight %}
+<p>
+  The following table shows where Dart Editor settings are saved.
+</p>
 
-<aside>
-  <div class="alert alert-info">
-    <strong>Tip:</strong>
-    If Dart Editor starts behaving strangely after you install
-    on top of an old copy,
-    then you might need to abandon the old state.
-    Try downloading and installing a fresh copy of Dart Editor.
-  </div>
-</aside>
-
+<table>
+  <tr>
+    <th> Platform </th> <th> Location of settings </th>
+  </tr>
+  <tr>
+    <td> Windows&nbsp;&nbsp;&nbsp; </td>
+    <td> <code><em>&lt;user's home directory&gt;</em>\DartEditor</code> </td>
+  </tr>
+  <tr>
+    <td> Linux </td>
+    <td> <code>$HOME/.dartEditor</code> </td>
+  </tr>
+  <tr>
+    <td> Mac </td>
+    <td> <code>$HOME/Library/Application Support/DartEditor</code> </td>
+  </tr>
+</table>
 </section>
+
+
 </section>
 
 
@@ -175,12 +190,6 @@ and then open your sample's directory
 The Files view shows the files
 that implement the libraries included in Dart,
 as well as all the apps that you create or open.
-</p>
-
-<p>
-To keep the Files view from resetting the next time you update Dart Editor,
-follow the instructions in
-<a href="#update">Updating without losing preferences</a>.
 </p>
 
 
@@ -224,7 +233,7 @@ either with or without deleting its files.
 To hide the app but keep it in your file system,
 right-click the directory in the Files view
 (on the Mac: Ctl+click),
-and choose <b>Remove from Editor</b>.
+and choose <b>Close Folder</b>.
 </p>
 
 <p>
@@ -249,7 +258,7 @@ It's easy to create a simple web or command-line app from scratch:
     <img src="images/newapp.png" alt="New App" width="16" height="16"
      style="vertical-align:top">
     (at the upper left of Dart Editor).
-    Alternatively, choose <b>File > New Application...</b>
+    Alternatively, choose <b>File > New Application</b>
     from the Dart Editor menu.
     A dialog appears.
     </p>
@@ -282,7 +291,7 @@ It's easy to create a simple web or command-line app from scratch:
 
     <p>
       <img src="images/DartEditor-helloweb.png"
-      alt="screenshot of Dart Editor just after New Application..."
+      alt="screenshot of Dart Editor just after New Application"
       width="665" height="495" >
     </p>
 
