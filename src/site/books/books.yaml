@@ -52,8 +52,8 @@
   publisher: O'Reilly
   cover: what-is-dart.png
   link: http://shop.oreilly.com/product/0636920025887.do
-  desc: 'Get ready to build modern web apps. This concise book covers the Dart language,
-        libraries, and tools that help you develop structured, fast, and maintainable web
-        apps that run in any modern browser. The Dart platform has been designed to scale
-        from simple scripts to complex apps, running on both the client and the server. With
-        this book, you can use Dart to architect and develop HTML5 apps for the modern web.'
+  desc: 'This short, free ebook from March 2012
+        describes the Dart language,
+        libraries, and tools that help you develop structured,
+        fast, and maintainable web
+        apps that run in any modern browser.'
