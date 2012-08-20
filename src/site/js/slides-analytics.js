@@ -7,7 +7,7 @@ $(document).ready(function() {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       var target = e.target;
-      var href = target.href;
+      var href = target.attributes['href'].value;
       _gaq.push(['_trackPageview', href]);
       setTimeout('document.location = "' + href + '"', 200);
     });
