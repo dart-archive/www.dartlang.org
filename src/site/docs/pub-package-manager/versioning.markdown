@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "pub: How does versioning work?"
+title: "Pub: How does versioning work?"
 description: "How packages are versioned and how pub works with them."
 has-permalinks: true
 ---

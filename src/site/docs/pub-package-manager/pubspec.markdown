@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "pub: What is a Pubspec?"
+title: "Pub: What is a Pubspec?"
 description: "More details about the pubspec format and contents."
 has-permalinks: true
 ---
@@ -79,10 +79,9 @@ no markdown or HTML. That's what your README is for.
 ## Dependencies
 
 Finally, the pubspec's *raison d'être*: dependencies. Here, you list each
-package that your package needs in order to work. You only list *immediate
-depedencies*, the stuff your package itself uses directly. If a package you
-depend on has its own dependencies (*transitive dependencies*), then that
-package will take care of them.
+package that your package needs in order to work. You only list immediate
+depedencies, the stuff your package itself uses directly. Pub handles
+transitive dependencies automatically for you.
 
 For each dependency, you will specify the *name* of the package you depend on,
 and the *range of versions* of that package that you'll allow. There are a
@@ -92,6 +91,12 @@ specifies its dependencies a little differently.
 <!-- TODO(rnystrom): Describe the full dependency syntax here. -->
 
 ### Hosted packages
+
+<aside><div class="alert alert-warning">
+
+Hosted packages aren't currently implemented, but they are coming very soon.
+
+</div></aside>
 
 A *hosted* package is one that can be downloaded from
 [pub.dartlang.org][pubsite]. Most of your dependencies will be of this form.
