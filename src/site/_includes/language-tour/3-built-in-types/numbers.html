@@ -57,12 +57,14 @@ Here's how you turn a string into a number, or vice versa:
 </p>
 
 {% highlight dart %}
+#import('dart:math'); // Needed for math functions. See libraries section
+
 // String -> int
-var one = Math.parseInt("1");
+var one = parseInt("1");
 assert(one == 1);
 
 // String -> double
-var onePointOne = Math.parseDouble("1.1");
+var onePointOne = parseDouble("1.1");
 assert(onePointOne == 1.1);
 
 // int -> String
