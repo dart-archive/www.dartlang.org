@@ -16,6 +16,7 @@ add_version:
 
 deploy: build
 	cd ./build && appcfg.py update .
+	echo "Visit http://$(CURRENT_BRANCH).dart-lang.appspot.com"
 
 server:
 	@open http://localhost:8080/ && cd ./src/site && jekyll && cd ../..
