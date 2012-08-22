@@ -9,7 +9,7 @@ $(document).ready(function() {
       var bits = target.getAttribute('data-bits') || 'unknown';
       var build = target.getAttribute('data-build') || 'unknown';
       var bitsAndBuild = build + '/' + bits;
-      _gaq.push(['_trackEvent', 'Editor Downloads', os, bitsAndBuild]);
+      _gaq.push(['_trackEvent', 'Editor Downloads', os, bitsAndBuild, 1]);
     });
   }
 });

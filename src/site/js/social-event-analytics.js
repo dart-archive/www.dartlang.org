@@ -2,7 +2,7 @@
 
 function gplus_pressed(data) {
   if (data && data['state'] == 'on') {
-    pageTracker._trackEvent('Social', 'Share', 'Gplus', 1);
+    _gaq.push(['_trackEvent', 'Social', 'Share', 'Gplus', 1]);
   }
 }
 
@@ -28,13 +28,13 @@ $(document).ready(function() {
 
 function tweetIntentToAnalytics(intent_event) {
   if (intent_event) {
-    pageTracker._trackEvent('Social', 'Share', 'Twitter', 1);
+    _gaq.push(['_trackEvent', 'Social', 'Share', 'Twitter', 1]);
   };
 }
 
 function followIntentToAnalytics(intent_event) {
   if (intent_event) {
-    pageTracker._trackEvent('Social', 'Follow', 'Twitter', 1);
+    _gaq.push(['_trackEvent', 'Social', 'Follow', 'Twitter', 1]);
   };
 }
 
