@@ -393,7 +393,7 @@ themselves can be `expect()`-style `Matcher`s, for example:
 {% highlight dart %}
 m.when(callsTo('sqrt', isNegative)).
   alwaysThrow('No imaginary number support');
-m.when(callsTo('sqrt', isNonNegative)).alwaysCall((x) => Math.sqrt(x));
+m.when(callsTo('sqrt', isNonNegative)).alwaysCall((x) => sqrt(x));
 {% endhighlight %}
 
 You don't need to provide argument matchers in `callsTo()` for all arguments of a method, but you do need 

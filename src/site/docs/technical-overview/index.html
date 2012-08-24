@@ -217,11 +217,13 @@ and two methods:
 </p>
 
 {% highlight dart %}
+#import('dart:math');
+
 class Point {
   var x, y;
   Point(this.x, this.y);
   scale(factor) => new Point(x*factor, y*factor);
-  distance() => Math.sqrt(x*x + y*y);
+  distance() => sqrt(x*x + y*y);
 }
 
 main() {
@@ -240,11 +242,13 @@ of type <code>num</code>:
 </p>
 
 {% highlight dart %}
+#import('dart:math');
+
 class Point {
   num x, y;
   Point(num this.x, num this.y);
   Point scale(num factor) => new Point(x*factor, y*factor);
-  num distance() => Math.sqrt(x*x + y*y);
+  num distance() => sqrt(x*x + y*y);
 }
 
 void main() {

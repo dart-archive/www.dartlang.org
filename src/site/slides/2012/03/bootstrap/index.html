@@ -1230,6 +1230,7 @@ print(p.x); // 2
           </li>
       	</ul>
 <pre>
+#import('dart:math');
 class Point {
   final num x;
   final num y;
@@ -1243,7 +1244,7 @@ class Point {
   }
   
   static calcDistance(x, y) {
-   Math.sqrt((x*x) + (y*y));
+    sqrt((x*x) + (y*y));
   }
 }
 </pre>
@@ -1803,9 +1804,6 @@ benchmark(renderTable);
         <ul>
           <li>
             <a href="http://api.dartlang.org/dart_core/Date.html">Date</a>
-          </li>
-          <li>
-            <a href="http://api.dartlang.org/dart_core/Math.html">Math</a>
           </li>
           <li>
             <a href="http://api.dartlang.org/dart_core/RegExp.html">RegExp</a>

@@ -64,6 +64,7 @@ the DOM is ready (on DOMContentLoaded).</p>
 #library('sunflower');
 
 #import('dart:html');
+#import('dart:math', prefix: 'Math');
 
 final SEED_RADIUS = 2;
 final SCALE_FACTOR = 4;
@@ -104,7 +105,7 @@ main() {
 
 <p>Notice the event handler <code>on.change.add</code>, inside the main() function, that runs whenever the value of the slider changes. The block of code inside the curly braces is a <code>closure</code>, a function which can be passed around as a variable. This construct, familiar to JavaScript developers, is less verbose than Java's anonymous inner classes familiar to GWT developers.</p>
 
-<p>Note the use of Math.parseInt() to convert a String to a number. In Dart, the methods to convert a String to a number are located in the Math class.</p>
+<p>Note the use of Math.parseInt() to convert a String to a number. In Dart, the methods to convert a String to a number are located in the Math library.</p>
 
 <p>Finally, let's take a look at the methods that actually draw on the Canvas.</p>
 
