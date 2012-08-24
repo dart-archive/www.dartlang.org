@@ -83,40 +83,114 @@ package that your package needs in order to work. You only list immediate
 depedencies, the stuff your package itself uses directly. Pub handles
 transitive dependencies automatically for you.
 
-For each dependency, you will specify the *name* of the package you depend on,
-and the *range of versions* of that package that you'll allow. There are a
-couple of different sources that pub can use to find packages, and each one
-specifies its dependencies a little differently.
 
-<!-- TODO(rnystrom): Describe the full dependency syntax here. -->
+For each dependency, you specify the *name* of the package you depend on. For
+library packages, you specify the *range of versions* of that package that
+you allow. You may also specify the *source* which tells pub how the package
+can be located, and any additional *description* that the source needs to find
+the package.
 
-### Hosted packages
+There are a few different ways to specify dependencies based on how much of
+that data you need to provide. The shortest way is to just specify a name:
+
+{% highlight yaml %}
+dependencies:
+  transmogrify:
+{% endhighlight %}
+
+This creates a dependency on `transmogrify`. It allows any version, and looks
+it up using the default source ([pub.dartlang.org][pubsite]). To limit the
+dependency to a range of versions, you can provide a *version constraint*:
+
+{% highlight yaml %}
+dependencies:
+  transmogrify: '>=1.0.0 <2.0.0'
+{% endhighlight %}
+
+This creates a dependency on `transmogrify` using the default source and
+allowing any version from `1.0.0` to `2.0.0` (but not including `2.0.0`). See
+[below](#version-constraints) for details on the version constraint syntax.
 
 <aside><div class="alert alert-warning">
 
-Hosted packages aren't currently implemented, but they are coming very soon.
+The default source isn't currently implemented, but it's coming very soon.
 
 </div></aside>
 
-A *hosted* package is one that can be downloaded from
-[pub.dartlang.org][pubsite]. Most of your dependencies will be of this form.
-They look like this:
+If you want to specify a source, the syntax looks a bit different:
 
-    dependencies:
-      transmogrify: '>=0.4.0 <1.0.0'
+{% highlight yaml %}
+dependencies:
+  transmogrify:
+    repo:
+      url: http://some-repo-server.com
+{% endhighlight %}
+
+This depends on the `transmogrify` package using the `repo` source. The `url:`
+under `repo:` is the description passed to the source. Each source has its own
+description format, detailed below.
+
+You can also provide a version constraint:
+
+{% highlight yaml %}
+dependencies:
+  transmogrify:
+    repo:
+      url: http://some-repo-server.com
+    version: '>=1.0.0 <2.0.0'
+{% endhighlight %}
+
+This depends on `transmogrify` using the repo source. The description provided
+to the source is the map that follows the `repo:` key. The `version:` property
+specifies the version constraint. Everything else (in this case, just `url:`)
+is given to the source to locate the package.
+
+## Dependency sources
+
+Here are the different sources pub can use to locate packages, and the
+descriptions they allow:
+
+### Repository packages
+
+<aside><div class="alert alert-warning">
+
+Repo packages aren't currently implemented, but they are coming very soon.
+
+</div></aside>
+
+A *repository* package is one that can be downloaded from
+[pub.dartlang.org][pubsite] (or another HTTP server that speaks the same API).
+Most of your dependencies will be of this form. They look like this:
+
+{% highlight yaml %}
+dependencies:
+  transmogrify: '>=0.4.0 <1.0.0'
+{% endhighlight %}
 
 Here, you're saying your package depends on a hosted package named
 "transmogrify" and you'll work with any version from 0.4.0 to 1.0.0 (but not
 1.0.0 itself).
+
+If you want to use your own repository server, you can use a description that
+specifies its URL:
+
+{% highlight yaml %}
+dependencies:
+  transmogrify:
+    url: http://your-repo-server.com
+  version: '>=0.4.0 <1.0.0'
+{% endhighlight %}
 
 ### SDK packages
 
 Some packages are a built-in part of the Dart SDK. These are the "batteries
 included" packages that you get for free when you install Dart.
 
-    dependencies:
-      i18n:
-        sdk: i18n
+{% highlight yaml %}
+dependencies:
+  i18n:
+    sdk: i18n
+{% endhighlight %}
 
 The `sdk` here says this package should be found in the installed Dart SDK, and
 "i18n" is the name of the package to use.
@@ -131,18 +205,104 @@ repository.
 
 [git]: http://git-scm.com/
 
-    dependencies:
-      kittens:
-        git: git://github.com/munificent/kittens.git
+{% highlight yaml %}
+dependencies:
+  kittens:
+    git: git://github.com/munificent/kittens.git
+{% endhighlight %}
 
 The `git` here says this package is found using Git, and the URL after that is
 the Git URL that can be used to clone the package. Pub assumes that the package
 is in the root of the git repository.
 
-At some point, we may add more sources where you can get packages and more
-metadata in the pubspec (authors, website, etc.). For now, that's pretty much
-it.
+If you want to depend on a specific commit, branch, or tag, you can also
+provide a `ref` argument:
 
-<!-- TODO(rnystrom): Describe version range syntax. -->
+{% highlight yaml %}
+dependencies:
+  kittens:
+    git:
+      url: git://github.com/munificent/kittens.git
+      ref: some-branch
+{% endhighlight %}
+
+The ref can be anything that Git allows to [identify a commit][commit].
+
+[commit]: http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#naming-commits
+
+## Version constraints
+
+If your package is an application, you don't usually need to specify version
+constraints for your dependencies. You will typically want to use the latest
+versions of the dependencies when you first create your app. Then you'll create
+and check in a lockfile that pins your dependencies to those specific versions.
+Specifying version constraints in your pubpsc then is usually redundant (though
+you can do it if you want).
+
+For a library package that you want users to reuse, though, it is important
+to specify version constraints. That lets people using your package know which
+versions of its dependencies they can rely on to be compatible with your
+library. Your goal is to allow a range of versions as wide as possible to give
+your users' flexibility. But it should be narrow enough to exclude versions
+that you know don't work or haven't been tested.
+
+The Dart community uses [semantic versioning][], which helps you know which
+versions should work. If you know that your package works fine with `1.2.3` of
+some dependency, then semantic versioning tells you that it should work (at
+least) up to `2.0.0`.
+
+A version constraint is a space-separated series of version parts. A part can
+be one of:
+
+<dl class="dl-horizontal">
+  <dt><code>any</code></dt>
+  <dd>The string "any" allows any version. This is equivalent to an empty
+    version constraint, but is more explicit.</dd>
+
+  <dt><code>1.2.3</code></dt>
+  <dd>A concrete version number pins the dependency to only allow that
+    <em>exact</em> version. Avoid using this when you can because it can cause
+    version lock for your users and make it hard for them to use your package
+    along with other packages that also use it.</dd>
+
+  <dt><code>&gt;=1.2.3</code></dt>
+  <dd>Allows the given version or any greater one. You'll typically use this.
+    </dd>
+
+  <dt><code>&gt;1.2.3</code></dt>
+  <dd>Allows any version greater than the specified one but <em>not</em> that
+    version itself.</dd>
+
+  <dt><code>&lt;=1.2.3</code></dt>
+  <dd>Allows any version lower than or equal to the specified one. You
+    <em>won't</em> typically use this.</dd>
+
+  <dt><code>&lt;1.2.3</code></dt>
+  <dd>Allows any version lower than the specified one but <em>not</em> that
+    version itself. This is what you'll usually use because it lets you specify
+    the upper version that you know does <em>not</em> work with your package
+    (because it's the first version to introduce some breaking change).</dd>
+</dl>
+
+<aside><div class="alert alert-warning">
+
+Make sure not to put a space between any of these comparison operators and the
+subsequent version number. <code>&gt;=1.2.3</code> is good,
+<code>&gt;= 1.2.3</code> is not.
+
+</div></aside>
+
+You can specify version parts as you want, and their ranges will be intersected
+together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
+`2.0.0` excluding `2.0.0` itself.
+
+<aside><div class="alert alert-warning">
+
+Note that <code>&gt;</code> is also valid YAML syntax so you will want to quote
+the version string (like <code>'<=1.2.3 >2.0.0'</code>) if the version
+constraint starts with that.
+
+</div></aside>
 
 [pubsite]: http://pub.dartlang.org
+[semantic versioning]: http://semver.org/
