@@ -12,7 +12,7 @@ has-permalinks: true
 _Written by Chris Buckett<br>
 April 2012_
 
-Most client-side Dart apps need a way to communicate with a server, and sending JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is the preferred way to do this. This article discusses communicating with a server using the [XMLHttpRequest API](http://api.dartlang.org/html/XMLHttpRequest.html) from the [dart:html](http://api.dartlang.org/html.html) library and parsing JSON data using the [dart:json](http://api.dartlang.org/json.html) library. It then goes on to show how to provide strong type information about that JSON data through the use of JsonObject and Dart's interface feature.
+Most client-side Dart apps need a way to communicate with a server, and sending JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is the preferred way to do this. This article discusses communicating with a server using the [HttpRequest API](http://api.dartlang.org/html/HttpRequest.html) from the [dart:html](http://api.dartlang.org/html.html) library and parsing JSON data using the [dart:json](http://api.dartlang.org/json.html) library. It then goes on to show how to provide strong type information about that JSON data through the use of JsonObject and Dart's interface feature.
 
 #### Contents
 
@@ -27,7 +27,7 @@ Most client-side Dart apps need a way to communicate with a server, and sending 
   <li><a href="#parsing-json">Parsing JSON</a>
     <ol>
       <li><a href="#jsonobject">Introducing JsonObject</a></li>
-      <li><a href="#note-on-jsonp">A note on JSONP and XMLHttpRequest</a></li>
+      <li><a href="#note-on-jsonp">A note on JSONP and HttpRequest</a></li>
     </ol>
   </li>
   <li><a href="#summary">Summary</a></li>
@@ -54,43 +54,45 @@ The same web service accepts data on the same URL with an HTTP POST.  The web se
 
 <h2 id="connecting-to-server">Connecting to the server</h2>
 
-When communicating with a web service, use the XMLHttpRequest API from the dart:html library. XMLHttpRequest is a standard way to programmatically send and receive data to and from web servers.
+When communicating with a web service, use the HttpRequest API from the dart:html library.
+HttpRequest is a standard way to programmatically send and receive data to and from web servers.
 
 <h3 id="getting-data">Getting data from the server</h3>
 
-Get objects from the server using HTTP GET.  XMLHttpRequest provides a named constructor called getTEMPNAME that takes a URL and a callback function that's invoked when the server responds.
+Get objects from the server using HTTP GET.  HttpRequest provides a named constructor called
+<code>get</code> that takes a URL and a callback function that's invoked when the server responds.
 
 {% highlight dart %}
-getLanguageData(String languageName, onSuccess(XMLHttpRequest req)) {
+getLanguageData(String languageName, onSuccess(HttpRequest req)) {
   var url = "http://my-site.com/programming-languages/$languageName"; 
   
   // call the web server asynchronously 
-  var request = new XMLHttpRequest.getTEMPNAME(url, onSuccess);
+  var request = new HttpRequest.get(url, onSuccess);
 }
 
 // print the raw json response text from the server
-onSuccess(XMLHttpRequest req) {
+onSuccess(HttpRequest req) {
    print(req.responseText); // print the received raw JSON text
 }
 
 getLanguageData("dart", onSuccess);
 {% endhighlight %}
 
-Note: getTEMPNAME is a convenience constructor, and its name will change. The full XMLHttpRequest API is still an option for HTTP GET, if you need more control over the API.  
+Note: getTEMPNAME is a convenience constructor, and its name will change. The full HttpRequest API is still an option for HTTP GET, if you need more control over the API.  
 
 <h3 id="saving-object">Saving objects on the server</h3>
 
-To create a new object on the server, use the raw XMLHttpRequest API with the HTTP POST method.  Use the readyStateChange listener to be notified when the request is complete.  The example below calls an onSuccess function when the request is complete:
+To create a new object on the server, use the raw HttpRequest API with the HTTP POST method.  Use the readyStateChange listener to be notified when the request is complete.  The example below calls an onSuccess function when the request is complete:
 
 {% highlight dart %}
-saveLanguageData(String data, onSuccess(XMLHttpRequest req)) {
-  XMLHttpRequest req = new XMLHttpRequest(); // create a new XHR
+saveLanguageData(String data, onSuccess(HttpRequest req)) {
+  HttpRequest req = new HttpRequest(); // create a new XHR
   
   var url = "http://example.com/programming-languages/";
   req.open("POST", url); // POST to send data
   
   req.on.readyStateChange.add((Event e) {
-    if (req.readyState == XMLHttpRequest.DONE &&
+    if (req.readyState == HttpRequest.DONE &&
         (req.status == 200 || req.status == 0)) {
       onSuccess(req); // called when the POST successfully completes
     }
@@ -100,7 +102,7 @@ saveLanguageData(String data, onSuccess(XMLHttpRequest req)) {
 }
 
 // print the raw json response text from the server
-onSuccess(XMLHttpRequest req) {
+onSuccess(HttpRequest req) {
    print(req.responseText); // print the received raw JSON text
 }
 
@@ -111,7 +113,7 @@ saveLanguageData(stringData, onSuccess); // send the data to
 
 <h2 id="parsing-json">Parsing JSON</h2>
 
-Now that you have seen how XMLHttpRequest GETs data from the server back to the client, and POSTs data from the client to the server, the next step is to make use of the JSON data in the client application.
+Now that you have seen how HttpRequest GETs data from the server back to the client, and POSTs data from the client to the server, the next step is to make use of the JSON data in the client application.
 
 The dart:json library provides two static functions, JSON.parse() and JSON.stringify(). 
 
@@ -130,10 +132,10 @@ print(parsedMap["language"]); // dart
 
 JSON also works for more complex data structures, such as nested maps inside of lists.
 
-Use JSON.parse() to convert the XMLHttpRequest's response from raw text to an actual Dart object:
+Use JSON.parse() to convert the HttpRequest's response from raw text to an actual Dart object:
 
 {% highlight dart %}
-onSuccess(XMLHttpRequest req) {
+onSuccess(HttpRequest req) {
   Map data = JSON.parse(req.responseText); // parse response text
   print(data["language"]); // dart
   print(data["targets"][0]); // dartium
@@ -169,7 +171,7 @@ JsonObject uses Dart's noSuchMethod method support, which enables objects to int
 Here is an example of using JsonObject instead of a raw Map:
 
 {% highlight dart %}
-onSuccess(XMLHttpRequest req) {
+onSuccess(HttpRequest req) {
   // decode the JSON response text using JsonObject
   var data = new JsonObject.fromJsonString(req.responseText);
 
@@ -253,14 +255,14 @@ Language data = new JsonObject.fromJsonString(req.responseText);
 String json = JSON.stringify(data);  
 
 // and POST it back to the server
-XMLHttpRequest req = new XMLHttpRequest(); 
+HttpRequest req = new HttpRequest(); 
 req.open("POST", url); 
 req.send(json); 
 {% endhighlight %}
 
-<h3 id="note-on-jsonp">A note on JSONP and XMLHttpRequest</h3>
+<h3 id="note-on-jsonp">A note on JSONP and HttpRequest</h3>
 
-One caveat: Make sure your app is served from the same origin (domain name, port, and application layer protocol) as the web service you are trying to access with XMLHttpRequest. Otherwise your app will hit the Access-Control-Allow-Origin restriction.  This is a security restriction to prevent loading data from a different server than the one serving the client app.
+One caveat: Make sure your app is served from the same origin (domain name, port, and application layer protocol) as the web service you are trying to access with HttpRequest. Otherwise your app will hit the Access-Control-Allow-Origin restriction.  This is a security restriction to prevent loading data from a different server than the one serving the client app.
 
 You can get around this restriction in a couple of ways.  The first is to use an emerging technology known as [Cross-Origin Resource Sharing](https://developer.mozilla.org/en/http_access_control) (CORS), which is starting to become implemented by web servers. The second, older way is to use a workaround called JSONP, which makes use of JavaScript callbacks.  To use [JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html), you need to use window.postMessage to allow the JavaScript callbacks to communicate with your Dart code.
 
@@ -271,7 +273,7 @@ This article showed how a client-side Dart application communicates with a JSON-
 <h2 id="resources">Resources</h2>
 
 * [dart:json](http://api.dartlang.org/json/JSON.html)
-* [XmlHttpRequest](http://api.dartlang.org/html/XMLHttpRequest.html)
+* [HttpRequest](http://api.dartlang.org/html/HttpRequest.html)
 * [JsonObject](https://github.com/chrisbu/dartwatch-JsonObject)
 * [Using JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html)
 * [About access-control restrictions](https://developer.mozilla.org/en/http_access_control)
