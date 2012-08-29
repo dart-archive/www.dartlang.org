@@ -113,11 +113,11 @@ This creates a dependency on `transmogrify` using the default source and
 allowing any version from `1.0.0` to `2.0.0` (but not including `2.0.0`). See
 [below](#version-constraints) for details on the version constraint syntax.
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 The default source isn't currently implemented, but it's coming very soon.
 
-</div></aside>
+</aside>
 
 If you want to specify a source, the syntax looks a bit different:
 
@@ -154,11 +154,11 @@ descriptions they allow:
 
 ### Repository packages
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 Repo packages aren't currently implemented, but they are coming very soon.
 
-</div></aside>
+</aside>
 
 A *repository* package is one that can be downloaded from
 [pub.dartlang.org][pubsite] (or another HTTP server that speaks the same API).
@@ -286,25 +286,25 @@ be one of:
     (because it's the first version to introduce some breaking change).</dd>
 </dl>
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 Make sure not to put a space between any of these comparison operators and the
 subsequent version number. <code>&gt;=1.2.3</code> is good,
 <code>&gt;= 1.2.3</code> is not.
 
-</div></aside>
+</aside>
 
 You can specify version parts as you want, and their ranges will be intersected
 together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
 `2.0.0` excluding `2.0.0` itself.
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 Note that <code>&gt;</code> is also valid YAML syntax so you will want to quote
 the version string (like <code>'<=1.2.3 >2.0.0'</code>) if the version
 constraint starts with that.
 
-</div></aside>
+</aside>
 
 [pubsite]: http://pub.dartlang.org
 [semantic versioning]: http://semver.org/
