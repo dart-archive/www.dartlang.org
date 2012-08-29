@@ -212,12 +212,10 @@ you can specify that too:
 This updates `handle_stache` to the latest version but leave everything else
 the same.
 
-<!-- TODO(rnystrom): Enable this when that doc exists.
-<a href="command-update.html">
+<a href="pub-update.html">
   <i class="icon-hand-right icon-white">&nbsp;</i>
   Learn more about <tt>pub update</tt>
 </a>
--->
 
 ## Finding packages in the Editor
 
