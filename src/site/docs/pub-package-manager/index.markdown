@@ -85,18 +85,16 @@ package" or "application package".
 To turn your app into an application package so it can use other packages, you
 just need to give it a **pubspec**. This file is written using the
 [YAML language](http://yaml.org) and is named `pubspec.yaml`. The simplest
-possible pubspec contains nothing, so just create an empty file and save it as
+possible pubspec just contains the name of the package. Save the pubspec file as
 `pubspec.yaml` in the root directory of your app.
 
-    $ cd path/to/your_app
-    $ touch pubspec.yaml
+Behold, the most simple `pubspec.yaml`:
 
-<aside class="alert alert-info">
-If you're on Windows or don't rock the command line, just make an empty file
-and save it as <tt>pubspec.yaml</tt> in the root directory of your app.
-</aside>
+{% highlight yaml %}
+name: my_app
+{% endhighlight %}
 
-Now `your_app` is a pub package!
+Now `my_app` is a pub package!
 
 <a href="pubspec.html">
   <i class="icon-hand-right icon-white">&nbsp;</i>
@@ -112,9 +110,11 @@ on the `handle_stache` package.
 
 <!-- TODO(rnystrom): Use a real package here when we have one. -->
 
-You specify your package's dependencies in the pubspec, like so:
+You specify your package's dependencies in the pubspec file immediately after
+your package name. For example:
 
 {% highlight yaml %}
+name: my_app
 dependencies:
   handle_stache:
     git: git://github.com/munificent/handle_stache.git

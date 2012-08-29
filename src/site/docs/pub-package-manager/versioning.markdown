@@ -219,13 +219,13 @@ I'll walk through an example so you can see what this means. Let's say we have
 two apps. Here are their pubspecs:
 
 {% highlight yaml %}
-# myapp
+name: my_app
 dependencies:
   widgets:
 {% endhighlight %}
 
 {% highlight yaml %}
-# otherapp
+name: other_app
 dependencies:
   widgets:
   collections: '<1.5.0'
@@ -234,19 +234,19 @@ dependencies:
 They both depend on `widgets`, whose pubspec is:
 
 {% highlight yaml %}
-# widgets
+name: widgets
 dependencies:
   collections: '>=1.0.0 <2.0.0'
 {% endhighlight %}
 
-The `otherapp` package uses depends directly on `collections` itself. The
+The `other_app` package uses depends directly on `collections` itself. The
 interesting part is that it happens to have a different version constraint on
 it than `widgets` does.
 
 What this means is that you can't just look at the `widgets` package in
 isolation to figure out what version of `collections` it will use. It depends
-on the context. In `myapp`, `widgets` will be using `collections 1.9.9`. But
-in `otherapp`, `widgets` will get saddled with `collections 1.4.9` because of
+on the context. In `my_app`, `widgets` will be using `collections 1.9.9`. But
+in `other_app`, `widgets` will get saddled with `collections 1.4.9` because of
 the *other* constraint that `otherapp` places on it.
 
 This is why each app gets its own "packages" directory: The concrete version
@@ -323,24 +323,28 @@ Sometimes this process never settles down into a stable solution. Gaze into
 the abyss:
 
 {% highlight yaml %}
-# myapp 0.0.0
+name: my_app
+version: 0.0.0
 dependencies:
   yin: '>=1.0.0'
 {% endhighlight %}
 
 {% highlight yaml %}
-# yin 1.0.0
+name: yin
+version: 1.0.0
 dependencies:
 {% endhighlight %}
 
 {% highlight yaml %}
-# yin 2.0.0
+name: yin
+version: 2.0.0
 dependencies:
   yang: '1.0.0'
 {% endhighlight %}
 
 {% highlight yaml %}
-# yang 1.0.0
+name: yang
+version: 1.0.0
 dependencies:
   yin: '1.0.0'
 {% endhighlight %}

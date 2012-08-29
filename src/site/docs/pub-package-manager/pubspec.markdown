@@ -29,10 +29,12 @@ dependencies:
 
 ## Name
 
-Every package needs a name. When your stellar code gets props on the world
-stage, this is what they'll be hollering. Also, it's how other packages will
-refer to yours, and how it will appear on [pub.dartlang.org][pubsite], should
-you publish it.
+**Required**
+
+Every package needs a name. When your stellar code gets props on
+the world stage, this is what they'll be hollering. Also, it's how other
+packages will refer to yours, and how it will appear on
+[pub.dartlang.org][pubsite], should you publish it.
 
 It should be all lowercase, with underscores to separate words,
 `just_like_this`. Stick with basic Latin letters and Arabic digits:
@@ -45,7 +47,11 @@ save you heartache later.
 
 ## Version
 
-Every package has a version. No one really gets excited about versioning, but
+Every package has a version. A version number is required to host your package on
+[pub.dartlang.org][pubsite], but can be omitted for local-only packages. If you
+omit it, your package is implicitly versioned `0.0.0`.
+
+No one really gets excited about versioning, but
 it's a necessary evil for reusing code while letting it evolve quickly. A
 version number is three numbers separated by dots, like `0.2.43`. It can also
 optionally have a build (`+hotfix.oopsie`) or pre-release (`-alpha.12`) suffix.
@@ -59,10 +65,6 @@ clouds will part and sunshine will pour into your soul. If you don't, prepare
 yourself for hordes of angry users.
 
 [semantic versioning]: http://semver.org
-
-A version number is required to host your package on
-[pub.dartlang.org][pubsite], but can be omitted for local-only packages. If you
-omit it, your package is implicitly versioned `0.0.0`.
 
 ## Description
 
