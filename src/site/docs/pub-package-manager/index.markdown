@@ -152,12 +152,10 @@ on, recursively (these are your **transitive dependencies**).
 When this is done, you will have a `packages` directory that contains every
 single package your program needs in order to run.
 
-<!-- TODO(rnystrom): Enable this when that doc exists.
-<a href="command-install.html">
+<a href="pub-install.html">
   <i class="icon-hand-right icon-white">&nbsp;</i>
   Learn more about <tt>pub install</tt>
 </a>
--->
 
 ## Importing code from a dependency
 

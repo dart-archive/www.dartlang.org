@@ -677,9 +677,12 @@ So the mysterious behavior is explained.
 What happens when we do a naive translation to Dart?
 
 {% highlight dart %}
+#import('dart:math');
+
 main() {
   StringBuffer word = null;
-  switch ((Math.random() * 2).toInt()) {
+  var random = new Random();
+  switch ((random.nextDouble() * 2).toInt()) {
     case 1:  word = new StringBuffer('P');
     case 2:  word = new StringBuffer('G');
     default: word = new StringBuffer('M');

@@ -198,6 +198,8 @@ main() {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
+#import('dart:math');
+
 class Point {
   final num x, y;
 
@@ -208,7 +210,7 @@ class Point {
   num distanceTo(Point other) {
     var dx = x - other.x;
     var dy = y - other.y;
-    return Math.sqrt(dx * dx + dy * dy);
+    return sqrt(dx * dx + dy * dy);
   }
 }
 {% endhighlight %}
@@ -297,6 +299,8 @@ class Window extends Widget {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
+#import('dart:math');
+
 class Point {
   final num x, y;
   Point(this.x, this.y);
@@ -308,7 +312,7 @@ class Point {
     // untyped dynamic variable
     var dx = x - other.x;
     var dy = y - other.y;
-    return Math.sqrt(dx * dx + dy * dy);
+    return sqrt(dx * dx + dy * dy);
   }
 }
 {% endhighlight %}

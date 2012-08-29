@@ -35,10 +35,10 @@ for the full details about a class or interface.
         1. [Maps (aka dictionaries or hashes)](#maps-aka-dictionaries-or-hashes)
     1. [Dates and times](#dates-and-times)
     1. [Utility interfaces](#utility-interfaces)
-    1. [Math and numbers](#math-and-numbers)
     1. [Strings and regular expressions](#strings-and-regular-expressions)
     1. [Asynchronous programming](#asynchronous-programming)
     1. [Exceptions](#exceptions)
+1. [dart:math - Math](#dartmath---math)
 1. [dart:html - Using HTML5 APIs](#html)
     1. [Manipulating the DOM](#html-dom)
     1. [WebSockets](#html-websockets)
@@ -624,128 +624,6 @@ for a full list of methods.
 [Back to contents.](#toc)
 {:.up-to-toc}
 
-### Math and numbers
-
-The [Math](http://api.dartlang.org/dart_core/Math.html) class
-provides common functionality such as sine and cosine,
-maximum and minimum,
-string-to-number conversion,
-and constants such as _pi_ and _e_.
-
-#### Converting strings to numbers
-
-You can convert a string into either an integer or double with the Math class.
-
-{% highlight dart %}
-assert(Math.parseInt('42') == 42);
-assert(Math.parseDouble("0.50") == 0.5);
-{% endhighlight %}
-
-#### Converting numbers to strings
-
-Use the toString() method (defined by
-[Object](http://api.dartlang.org/dart_core/Object.html))
-to convert an int or double to a string.
-
-To specify the number of digits to the right of the decimal,
-use toStringAsFixed()
-(defined by [num](http://api.dartlang.org/dart_core/num.html)).
-To specify the number of significant digits in the string,
-use toStringAsPrecision().
-
-{% highlight dart %}
-// Convert an int to a string.
-assert(42.toString() == '42');
-
-// Convert a double to a string.
-assert(123.456.toString() == '123.456');
-
-// Specify the number of digits after the decimal.
-assert(123.456.toStringAsFixed(2) == '123.46');
-
-// Specify the number of significant figures.
-assert(123.456.toStringAsPrecision(2) == '1.2e+2');
-assert(Math.parseDouble('1.2e+2') == 120.0);
-{% endhighlight %}
-
-#### Trigonometry
-
-Use the Math class for the basic trigonometric functions.
-
-<aside>
-  <div class="alert alert-info">
-    <strong>Tip:</strong>
-    These methods use radians, not degrees!
-  </div>
-</aside>
-
-{% highlight dart %}
-// Cosine
-assert(Math.cos(Math.PI) == -1.0);
-
-// Sine
-var degrees = 30;
-var radians = degrees * (Math.PI / 180);
-// radians is now 0.52359.
-var sinOf30degrees = Math.sin(radians);
-
-// Truncate the decimal places to 2.
-assert(Math.parseDouble(sinOf30degrees.toStringAsPrecision(2)) == 0.5);
-{% endhighlight %}
-
-#### Maximum and mininum
-
-Math provides optimized max and min methods.
-
-{% highlight dart %}
-assert(Math.max(1, 1000) == 1000);
-assert(Math.min(1, -1000) == -1000);
-{% endhighlight %}
-
-#### Math constants
-
-Find your favorite constants&mdash;_pi_, _e_, and more&mdash;in Math.
-
-{% highlight dart %}
-// See the Math class for additional constants.
-
-print(Math.E);     // 2.718281828459045
-print(Math.PI);    // 3.141592653589793
-print(Math.SQRT2); // 1.4142135623730951
-{% endhighlight %}
-
-#### Random numbers
-
-Generate random numbers between 0.0 and 1.0 with the Math class.
-
-{% highlight dart %}
-var rand = Math.random();
-{% endhighlight %}
-
-<aside>
-  <div class="alert alert-info">
-    <strong>Note:</strong>
-    The current implementation of random() for the
-    Dart VM is not random at all. Follow
-    <a href="http://code.google.com/p/dart/issues/detail?id=499">bug 499</a>
-    for the status.
-  </div>
-</aside>
-
-#### More information
-
-Refer to the full
-[Math API docs](http://api.dartlang.org/dart_core/Math.html)
-for a full list of methods.
-Also see the API docs for
-[num](http://api.dartlang.org/dart_core/num.html),
-[int](http://api.dartlang.org/dart_core/int.html),
-and
-[double](http://api.dartlang.org/dart_core/double.html).
-
-[Back to contents.](#toc)
-{:.up-to-toc}
-
 ### Strings and regular expressions
 
 A [String](http://api.dartlang.org/dart_core/String.html) is
@@ -1044,6 +922,165 @@ class FooException implements Exception {
 
 See the
 [Exception API docs](http://api.dartlang.org/dart_core/Exception.html).
+
+[Back to contents.](#toc)
+{:.up-to-toc}
+
+## dart:math - Math
+
+The [Math](http://api.dartlang.org/dart_math/index.html) library
+provides common functionality such as sine and cosine,
+maximum and minimum,
+string-to-number conversion,
+and constants such as _pi_ and _e_.
+
+### Importing the Math library
+
+Math functionality is in the `dart:math` library.
+
+{% highlight dart %}
+#import('dart:math');
+
+main() {
+  // Do fun math stuff.
+}
+{% endhighlight %}
+
+### Converting strings to numbers
+
+You can convert a string into either an integer or double with the Math class.
+
+{% highlight dart %}
+#import('dart:math');
+
+main() {
+  assert(parseInt('42') == 42);
+  assert(parseDouble("0.50") == 0.5);
+}
+{% endhighlight %}
+
+### Converting numbers to strings
+
+Use the toString() method (defined by
+[Object](http://api.dartlang.org/dart_core/Object.html))
+to convert an int or double to a string.
+
+To specify the number of digits to the right of the decimal,
+use toStringAsFixed()
+(defined by [num](http://api.dartlang.org/dart_core/num.html)).
+To specify the number of significant digits in the string,
+use toStringAsPrecision().
+
+{% highlight dart %}
+// Convert an int to a string.
+assert(42.toString() == '42');
+
+// Convert a double to a string.
+assert(123.456.toString() == '123.456');
+
+// Specify the number of digits after the decimal.
+assert(123.456.toStringAsFixed(2) == '123.46');
+
+// Specify the number of significant figures.
+assert(123.456.toStringAsPrecision(2) == '1.2e+2');
+{% endhighlight %}
+
+### Trigonometry
+
+Use the Math library for the basic trigonometric functions.
+
+<aside>
+  <div class="alert alert-info">
+    <strong>Tip:</strong>
+    These methods use radians, not degrees!
+  </div>
+</aside>
+
+{% highlight dart %}
+#import('dart:math');
+
+main() {
+  // Cosine
+  assert(cos(PI) == -1.0);
+
+  // Sine
+  var degrees = 30;
+  var radians = degrees * (PI / 180);
+  // radians is now 0.52359.
+  var sinOf30degrees = sin(radians);
+
+  // Truncate the decimal places to 2.
+  assert(parseDouble(sinOf30degrees.toStringAsPrecision(2)) == 0.5);
+}
+{% endhighlight %}
+
+### Maximum and mininum
+
+The Math library provides optimized max and min methods.
+
+{% highlight dart %}
+#import('dart:math');
+
+main() {
+  assert(max(1, 1000) == 1000);
+  assert(min(1, -1000) == -1000);
+}
+{% endhighlight %}
+
+### Math constants
+
+Find your favorite constants&mdash;_pi_, _e_, and more&mdash;in
+the Math library.
+
+{% highlight dart %}
+// See the Math class for additional constants.
+
+#import('dart:math');
+
+main() {
+  print(E);     // 2.718281828459045
+  print(PI);    // 3.141592653589793
+  print(SQRT2); // 1.4142135623730951
+}
+{% endhighlight %}
+
+### Random numbers
+
+Generate random numbers with the Random class.
+You can optionally provide a seed to the Random
+constructor.
+
+{% highlight dart %}
+#import('dart:math');
+
+main() {
+  var random = new Random();
+  random.nextDouble(); // Between 0.0 and 0.1.
+  random.nextInt(10);  // Between 0 and 9.
+}
+{% endhighlight %}
+
+You can even generate random booleans.
+
+{% highlight dart %}
+#import('dart:math');
+
+main() {
+  var random = new Random();
+  random.nextBoolean();  // true or false
+}
+{% endhighlight %}
+
+### More information
+
+Refer to the full
+[Math API docs](http://api.dartlang.org/dart_math/index.html)
+for a full list of methods.
+Also see the API docs for
+[num](http://api.dartlang.org/dart_core/num.html),
+[int](http://api.dartlang.org/dart_core/int.html),
+and
+[double](http://api.dartlang.org/dart_core/double.html).
 
 [Back to contents.](#toc)
 {:.up-to-toc}

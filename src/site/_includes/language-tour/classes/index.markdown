@@ -366,12 +366,14 @@ The distanceTo() method in the following sample is an
 example of an instance method.
 
 {% highlight dart %}
+#import('dart:math');
+
 class Point {
   num x, y;
   Point(this.x, this.y);
 
   num distanceTo(Point other) {
-    return Math.sqrt(((x-other.x)*(x-other.x)) + ((y-other.y)*(y-other.y)));
+    return sqrt(((x-other.x)*(x-other.x)) + ((y-other.y)*(y-other.y)));
   }
 }
 {% endhighlight %}
@@ -569,12 +571,14 @@ Static methods (class methods) do not operate on an instance, and thus
 do not have access to `this`.
 
 {% highlight dart %}
+#import('dart:math');
+
 class Point {
   num x, y;
   Point(this.x, this.y);
 
   static num distanceBetween(Point a, Point b) {
-    return Math.sqrt(((a.x-b.x)*(a.x-b.x)) + ((a.y-b.y)*(a.y-b.y)));
+    return sqrt(((a.x-b.x)*(a.x-b.x)) + ((a.y-b.y)*(a.y-b.y)));
   }
 }
 

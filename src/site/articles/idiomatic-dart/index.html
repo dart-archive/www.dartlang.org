@@ -66,13 +66,15 @@ class Point {
 <p>Like most dynamically-typed languages, Dart doesn't support overloading. With methods, this isn't much of a limitation because you can always use a different name, but constructors aren't so lucky. To alleviate that, Dart lets you define <em>named constructors</em>:</p>
 
 {% highlight dart %}
+#import('dart:math');
+
 class Point {
   num x, y;
   Point(this.x, this.y);
   Point.zero() : x = 0, y = 0;
   Point.polar(num theta, num radius) {
-    x = Math.cos(theta) * radius;
-    y = Math.sin(theta) * radius;
+    x = cos(theta) * radius;
+    y = sin(theta) * radius;
   }
 }
 {% endhighlight dart 0 %}
@@ -80,9 +82,13 @@ class Point {
 <p>Here our Point class has three constructors, a normal one and two named ones. You can use them like so:</p>
 
 {% highlight dart %}
-var a = new Point(1, 2);
-var b = new Point.zero();
-var c = new Point.polar(Math.PI, 4.0);
+#import('dart:math');
+
+main() {
+  var a = new Point(1, 2);
+  var b = new Point.zero();
+  var c = new Point.polar(PI, 4.0);
+}
 {% endhighlight dart 0 %}
 
 <p>Note that we're still using <code>new</code> here when we invoke the named constructor. It isn't just a static method.</p>
@@ -255,9 +261,11 @@ class Rectangle {
 <p>Dart is a "pure" object-oriented language in that everything you can place in a variable is a real object (no mutant "primitives") and every object is an instance of some class. It's not a <em>dogmatic</em> OOP language though. You aren't required to place everything you define inside some class. Instead, you are free to define functions, variables, and even getters and setters at the top level if you want.</p>
 
 {% highlight dart %}
+#import('dart:math');
+
 num abs(num value) => value < 0 ? -value : value;
 
-final TWO_PI = Math.PI * 2.0;
+final TWO_PI = PI * 2.0;
 
 int get today() {
   final date = new Date.now();
@@ -267,7 +275,7 @@ int get today() {
 
 <p>Even in languages that don't require you to place everything inside a class or object, like JavaScript, it's still common to do so as a form of namespacing: top-level definitions with the same name could inadvertently collide. To address that, Dart has a library system that allows you to import definitions from other libraries with a prefix applied to disambiguate it. That means you shouldn't <em>need</em> to defensively squirrel your definitions inside classes.</p>
 
-<p>We're still exploring what this actually means for how we define libraries. Most of our code does place definitions inside classes, like Math. It's hard to tell if this is just an ingrained habit we have from other languages or a practice that's also good for Dart. This is an area we want feedback on.</p>
+<p>We're still exploring what this actually means for how we define libraries. For example, the project used to have a Math class, but we moved all functionality from that class to top-level methods inside the dart:math library.</p>
 
 <p>We do have some examples where we use top-level definitions. The first you'll run into is <code>main()</code> which is expected to be defined at the top level. If you work with the DOM, the familiar <code>document</code> and <code>window</code> "variables" are actually top-level getters in Dart.</p>
 
@@ -304,8 +312,11 @@ var greeting = '$salutation, $name';
   placing them inside curly braces:</p>
 
 {% highlight dart %}
-var r = 2;
-print('The area of a circle with radius $r is ${Math.PI * r * r}');
+#import('dart:math');
+main() {
+  var r = 2;
+  print('The area of a circle with radius $r is ${PI * r * r}');
+}
 {% endhighlight dart 0 %}
 
 <h2 id="operators">Operators</h2>
