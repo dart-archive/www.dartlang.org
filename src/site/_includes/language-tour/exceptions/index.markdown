@@ -40,7 +40,7 @@ Catching an exception gives you a chance to handle it.
 {% highlight dart %}
 try {
   breedMoreLlamas();
-} catch (final OutOfLlamasException e) {
+} on OutOfLlamasException catch (e) {
   buyMoreLlamas();
 }
 {% endhighlight %}
@@ -54,11 +54,11 @@ clause does not specify a type, that clause can handle any type of thrown object
 {% highlight dart %}
 try {
   breedMoreLlamas();
-} catch (final OutOfLlamasException e) {  // A specific exception
+} on OutOfLlamasException catch (e) {  // A specific exception
   buyMoreLlamas();
-} catch (final Exception e) {             // Anything that is an exception
+} on Exception catch (e) {             // Anything that is an exception
   print("Unknown exception: $e");
-} catch (final e) {                       // No specified type, handles all
+} catch (e) {                       // No specified type, handles all
   print("Something really unknown: $e");
 }
 {% endhighlight %}
@@ -85,7 +85,7 @@ The finally clause runs after any matching catch clauses.
 {% highlight dart %}
 try {
   breedMoreLlamas();
-} catch (final e) {
+} catch (e) {
   print("Error: $e");  // Handle exception first.
 } finally {
   cleanLlamaStalls();  // Then clean up.
