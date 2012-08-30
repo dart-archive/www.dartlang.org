@@ -27,9 +27,22 @@ dependencies:
   transmogrify: '>=0.4.0'
 {% endhighlight %}
 
-## Name
+At the top level are a series of fields. The currently supported ones are:
 
-**Required**
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd>Required for every package.</dd>
+  <dt>Version</dt>
+  <dd>Required for packages that will be hosted on pub.dartlang.org.</dd>
+  <dt>Description</dt>
+  <dd>Required for packages that will be hosted on pub.dartlang.org.</dd>
+  <dt>Dependencies</dt>
+  <dd>Can be omitted if your package has no dependencies.</dd>
+</dl>
+
+All other fields will be ignored.
+
+## Name
 
 Every package needs a name. When your stellar code gets props on
 the world stage, this is what they'll be hollering. Also, it's how other
@@ -85,7 +98,6 @@ package that your package needs in order to work. You only list immediate
 depedencies, the stuff your package itself uses directly. Pub handles
 transitive dependencies automatically for you.
 
-
 For each dependency, you specify the *name* of the package you depend on. For
 library packages, you specify the *range of versions* of that package that
 you allow. You may also specify the *source* which tells pub how the package
@@ -124,43 +136,43 @@ If you want to specify a source, the syntax looks a bit different:
 {% highlight yaml %}
 dependencies:
   transmogrify:
-    repo:
-      url: http://some-repo-server.com
+    hosted:
+      url: http://some-package-server.com
 {% endhighlight %}
 
-This depends on the `transmogrify` package using the `repo` source. The `url:`
-under `repo:` is the description passed to the source. Each source has its own
-description format, detailed below.
+This depends on the `transmogrify` package using the `hosted` source.
+Everything under the source key (here, just a map with a `url:` key) is the
+description that gets passed to the source. Each source has its own description
+format, detailed below.
 
 You can also provide a version constraint:
 
 {% highlight yaml %}
 dependencies:
   transmogrify:
-    repo:
-      url: http://some-repo-server.com
+    hosted:
+      url: http://some-package-server.com
     version: '>=1.0.0 <2.0.0'
 {% endhighlight %}
 
-This depends on `transmogrify` using the repo source. The description provided
-to the source is the map that follows the `repo:` key. The `version:` property
-specifies the version constraint. Everything else (in this case, just `url:`)
-is given to the source to locate the package.
+This long form is used when you don't use the default source or when you have a
+complex description you need to specify. But in most cases, you'll just use the
+simple "name: version" form.
 
 ## Dependency sources
 
 Here are the different sources pub can use to locate packages, and the
 descriptions they allow:
 
-### Repository packages
+### Hosted packages
 
 <aside class="alert alert-warning">
 
-Repo packages aren't currently implemented, but they are coming very soon.
+Hosted packages aren't currently implemented, but they are coming very soon.
 
 </aside>
 
-A *repository* package is one that can be downloaded from
+A *hosted* package is one that can be downloaded from
 [pub.dartlang.org][pubsite] (or another HTTP server that speaks the same API).
 Most of your dependencies will be of this form. They look like this:
 
@@ -173,14 +185,15 @@ Here, you're saying your package depends on a hosted package named
 "transmogrify" and you'll work with any version from 0.4.0 to 1.0.0 (but not
 1.0.0 itself).
 
-If you want to use your own repository server, you can use a description that
+If you want to use your own package server, you can use a description that
 specifies its URL:
 
 {% highlight yaml %}
 dependencies:
   transmogrify:
-    url: http://your-repo-server.com
-  version: '>=0.4.0 <1.0.0'
+    hosted:
+      url: http://your-package-server.com
+    version: '>=0.4.0 <1.0.0'
 {% endhighlight %}
 
 ### SDK packages
