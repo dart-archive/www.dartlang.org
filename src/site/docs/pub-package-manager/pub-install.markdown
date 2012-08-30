@@ -63,6 +63,20 @@ will also be removed, as long as no remaining immediate dependencies also depend
 on them. Removing a dependency will never change the versions of any
 already-installed dependencies.
 
+## Linked `packages` directories
+
+Every [entrypoint](glossary.html#entrypoint) in a package needs to be next to a
+`packages` directory in order for it to import packages installed by Pub.
+However, it's not convenient to put every entrypoint at the top level of the
+package alongside the main `packages` directory. You may have example scripts or
+tests that you want to be able to run from subdirectories.
+
+`pub install` solves this issue by creating additional `packages` directories
+that link to the main `packages` directory at the root of your package. It
+assumes your package is laid out according to the [package layout
+guide](package-layout.html), and creates a linked `packages` directory in
+`bin/`, `test/`, and `example/`, as well as their subdirectories.
+
 ## The system package cache
 
 Dependencies are not stored directly in the `packages` directory when they're
