@@ -83,18 +83,6 @@ package" or "application package".
 To turn your app into an application package so it can use other packages, you
 just need to give it a **pubspec**. This file is written using the
 [YAML language](http://yaml.org) and is named `pubspec.yaml`. The simplest
-<<<<<<< HEAD
-possible pubspec contains only your application's name, so in the editor highlight the
-top most folder for your project then right click and click on 'New File...' (or
-alternatively click on File > New File... Ensure your top-most folder is selected
-as the parent folder. In the **File Name:** field enter in `pubspec.yaml`
-and click Finish.
-
-Enter the following in the new file and save.
-
-{% highlight yaml %}
-name: your_app
-=======
 possible pubspec just contains the name of the package. Save the pubspec file as
 `pubspec.yaml` in the root directory of your app.
 
@@ -102,7 +90,6 @@ Behold, the most simple `pubspec.yaml`:
 
 {% highlight yaml %}
 name: my_app
->>>>>>> upstream/master
 {% endhighlight %}
 
 Now `my_app` is a pub package!
@@ -122,17 +109,10 @@ on the `handle_stache` package.
 <!-- TODO(rnystrom): Use a real package here when we have one. -->
 
 You specify your package's dependencies in the pubspec file immediately after
-<<<<<<< HEAD
-your package name, like so:
-
-{% highlight yaml %}
-name: your_app
-=======
 your package name. For example:
 
 {% highlight yaml %}
 name: my_app
->>>>>>> upstream/master
 dependencies:
   handle_stache:
     git: git://github.com/munificent/handle_stache.git
