@@ -32,22 +32,26 @@ would look like:
       tortilla.dart
       bin/
         enchilada
+        packages/ **
       doc/
         getting_started.md
       example/
         lunch.dart
+        packages/ **
       lib/
         beans.dart
         queso.dart
-      packages/ *
-        ...
+      packages/ **
       test/
         enchilada_test.dart
         tortilla_test.dart
+        packages/ **
 
-\* The `packages` directory will exist locally after you're run `pub install`,
-but won't be checked into source control. The `pubspec.lock` will only be in
-source control if the package is an application package.
+\* The `pubspec.lock` will only be in source control if the package is an
+application package.
+
+\** The `packages` directories will exist locally after you're run
+`pub install`, but won't be checked into source control.
 
 ## The basics
 
@@ -59,7 +63,7 @@ Every package will have a [**pubspec**](pubspec.html), a file named
 `pubspec.yaml`, in the root directory of the package. That's what *makes* it a
 package.
 
-Once you have run [`pub install`](pub-install.html) or
+Once you've run [`pub install`](pub-install.html) or
 [`pub update`](pub-update.html) on the package, you will also have a
 **lockfile**, named `pubspec.lock`. If your package is an application package,
 this will be checked into source control. Otherwise, it won't be.
@@ -77,7 +81,8 @@ contents. Consider it pub magic, but not scary magic.
 
 The open source community has a few other files that commonly appear at the top
 level of a project: `README`, `LICENSE`, `AUTHORS`, etc. If you use any of
-those, they can go in the top level of the package too.
+those, they can go in the top level of the package too. The specific ones you
+use are up to you, but please do have a README.
 
 ## Public libraries
 
@@ -86,8 +91,8 @@ those, they can go in the top level of the package too.
       tortilla.dart
 
 Many packages are *library packages*: they define Dart libraries that other
-packages can import and use. These Dart files go directly in the top level
-directory for the package.
+packages can import and use. These public Dart library files go directly in the
+top level directory for the package.
 
 Most packages will define a single library that users can import. In that case,
 its name should usually be the same as the name of the package, like
@@ -117,6 +122,12 @@ in there if it helps you organize things.
 
 Other Dart files within this package (like top-level ones, scripts in `bin`,
 and tests) can import stuff from `lib`, but nothing outside the package should.
+For files within the package, they can still use `"package:"` to import these
+libraries. This is a perfectly valid way to get to files in your *own* package:
+
+{% highlight dart %}
+#import("package:enchilada/lib/beans.dart");
+{% endhighlight %}
 
 ## Tests
 
@@ -127,18 +138,10 @@ and tests) can import stuff from `lib`, but nothing outside the package should.
 
 Every self-respecting package should have tests. With pub, the convention is
 that these go in a `test` directory (or some directory inside it if you like)
-and has `_test` at the end of the file name.
+and have `_test` at the end of their file names.
 
-Typically, these use the unittest package but you can use whatever testing
-system that gets you excited.
-
-<aside class="alert alert-note">
-
-At some point, pub will support automatically running a package's tests When
-this happens, there will likely be guidelines about the format that a testing
-system is expected to follow for its output so that pub can read it.
-
-</aside>
+Typically, these use the [unittest](http://api.dartlang.org/unittest.html)
+package but you can use whatever testing system that gets you excited.
 
 ## Documentation
 
@@ -166,7 +169,7 @@ and use multiple files, consider making a directory for each example. Otherwise,
 you can place each one right inside `example`.
 
 This is an important place to consider using `package:` to import files from
-your own package. That ensure the example code in your package looks exactly
+your own package. That ensures the example code in your package looks exactly
 like code outside of your package would look.
 
 ## Shell scripts
