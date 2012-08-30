@@ -16,6 +16,13 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
+pagespeed:
+  enabled_rewriters:
+    - InlineImages
+    - CollapseWhitespace
+    - RemoveComments
+    - InlineJs
+
 #default_expiration: "1d"
 
 handlers:
