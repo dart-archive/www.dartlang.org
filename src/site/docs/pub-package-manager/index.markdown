@@ -37,7 +37,7 @@ file:
 
     export DART_SDK=<path to dart>
 
-Where `<path to dart>` is the path to the main `dart` directory of the SDK. If
+Here, `<path to dart>` is the path to the main `dart` directory of the SDK. If
 you installed the SDK with the [Dart Editor](/docs/editor/#download), this
 will be the `dart-sdk` directory inside the Editor's main directory.
 
@@ -47,7 +47,7 @@ should turn up the right instructions for your particular version of Windows.
 
 <!-- TODO(rnystrom): Remove the above when bug #1145 is fixed. -->
 
-Your primarily access pub through the `pub` command line app, which lives
+You primarily access pub through the `pub` command line app, which lives
 inside the `bin` directory in the Dart SDK. To make it easier to access `pub`
 (and other executables in there like the Dart VM), you may want to add `bin` to
 your system path. On Mac and Linux, add this to your shell's configuration file:
@@ -75,16 +75,15 @@ In most cases, there's no difference between the two and we'll just say
 "package". In the few places where it does matter, we'll specify "library
 package" or "application package".
 
-<!-- TODO(rnystrom): Enable this when that doc exists.
 <a href="package-layout.html" style="text-align: right;">
   <i class="icon-hand-right icon-white">&nbsp;</i>
   Learn more about packages
 </a>
--->
 
 To turn your app into an application package so it can use other packages, you
 just need to give it a **pubspec**. This file is written using the
 [YAML language](http://yaml.org) and is named `pubspec.yaml`. The simplest
+<<<<<<< HEAD
 possible pubspec contains only your application's name, so in the editor highlight the
 top most folder for your project then right click and click on 'New File...' (or
 alternatively click on File > New File... Ensure your top-most folder is selected
@@ -95,9 +94,18 @@ Enter the following in the new file and save.
 
 {% highlight yaml %}
 name: your_app
+=======
+possible pubspec just contains the name of the package. Save the pubspec file as
+`pubspec.yaml` in the root directory of your app.
+
+Behold, the most simple `pubspec.yaml`:
+
+{% highlight yaml %}
+name: my_app
+>>>>>>> upstream/master
 {% endhighlight %}
 
-Now `your_app` is a pub package!
+Now `my_app` is a pub package!
 
 <a href="pubspec.html">
   <i class="icon-hand-right icon-white">&nbsp;</i>
@@ -114,10 +122,17 @@ on the `handle_stache` package.
 <!-- TODO(rnystrom): Use a real package here when we have one. -->
 
 You specify your package's dependencies in the pubspec file immediately after
+<<<<<<< HEAD
 your package name, like so:
 
 {% highlight yaml %}
 name: your_app
+=======
+your package name. For example:
+
+{% highlight yaml %}
+name: my_app
+>>>>>>> upstream/master
 dependencies:
   handle_stache:
     git: git://github.com/munificent/handle_stache.git
@@ -181,6 +196,34 @@ get an error, the directory may be out of date. Fix it by running
 <tt>pub install</tt> whenever you change your pubspec.
 </aside>
 
+You can also use this style to import libraries from within your own package.
+For example, let's say your package is laid out like:
+
+    handle_stache/
+      handle_stache.dart
+      lib/
+        parser.dart
+      test/
+        parser/
+          parser_test.dart
+
+The `parser_test` file *could* import `parser.dart` like this:
+
+{% highlight dart %}
+#import('../../lib/parser.dart');
+{% endhighlight %}
+
+But that's a pretty nasty relative path. If `parser_test.dart` is ever moved
+up or down a directory, that path will break and you'll have to fix the code.
+Instead, you can do:
+
+{% highlight dart %}
+#import('package:handle_stache/lib/parser.dart');
+{% endhighlight %}
+
+This way, the import can always get to `parser.dart` regardless of where the
+importing file is.
+
 <!-- TODO(rnystrom): Enable this when that doc exists.
 <a href="package-scheme.html">
   <i class="icon-hand-right icon-white">&nbsp;</i>
@@ -215,12 +258,10 @@ you can specify that too:
 This updates `handle_stache` to the latest version but leave everything else
 the same.
 
-<!-- TODO(rnystrom): Enable this when that doc exists.
-<a href="command-update.html">
+<a href="pub-update.html">
   <i class="icon-hand-right icon-white">&nbsp;</i>
   Learn more about <tt>pub update</tt>
 </a>
--->
 
 ## Finding packages in the Editor
 

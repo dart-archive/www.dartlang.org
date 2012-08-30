@@ -29,10 +29,12 @@ dependencies:
 
 ## Name
 
-Every package needs a name. When your stellar code gets props on the world
-stage, this is what they'll be hollering. Also, it's how other packages will
-refer to yours, and how it will appear on [pub.dartlang.org][pubsite], should
-you publish it.
+**Required**
+
+Every package needs a name. When your stellar code gets props on
+the world stage, this is what they'll be hollering. Also, it's how other
+packages will refer to yours, and how it will appear on
+[pub.dartlang.org][pubsite], should you publish it.
 
 It should be all lowercase, with underscores to separate words,
 `just_like_this`. Stick with basic Latin letters and Arabic digits:
@@ -45,7 +47,11 @@ save you heartache later.
 
 ## Version
 
-Every package has a version. No one really gets excited about versioning, but
+Every package has a version. A version number is required to host your package on
+[pub.dartlang.org][pubsite], but can be omitted for local-only packages. If you
+omit it, your package is implicitly versioned `0.0.0`.
+
+No one really gets excited about versioning, but
 it's a necessary evil for reusing code while letting it evolve quickly. A
 version number is three numbers separated by dots, like `0.2.43`. It can also
 optionally have a build (`+hotfix.oopsie`) or pre-release (`-alpha.12`) suffix.
@@ -59,10 +65,6 @@ clouds will part and sunshine will pour into your soul. If you don't, prepare
 yourself for hordes of angry users.
 
 [semantic versioning]: http://semver.org
-
-A version number is required to host your package on
-[pub.dartlang.org][pubsite], but can be omitted for local-only packages. If you
-omit it, your package is implicitly versioned `0.0.0`.
 
 ## Description
 
@@ -111,11 +113,11 @@ This creates a dependency on `transmogrify` using the default source and
 allowing any version from `1.0.0` to `2.0.0` (but not including `2.0.0`). See
 [below](#version-constraints) for details on the version constraint syntax.
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 The default source isn't currently implemented, but it's coming very soon.
 
-</div></aside>
+</aside>
 
 If you want to specify a source, the syntax looks a bit different:
 
@@ -152,11 +154,11 @@ descriptions they allow:
 
 ### Repository packages
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 Repo packages aren't currently implemented, but they are coming very soon.
 
-</div></aside>
+</aside>
 
 A *repository* package is one that can be downloaded from
 [pub.dartlang.org][pubsite] (or another HTTP server that speaks the same API).
@@ -284,25 +286,25 @@ be one of:
     (because it's the first version to introduce some breaking change).</dd>
 </dl>
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 Make sure not to put a space between any of these comparison operators and the
 subsequent version number. <code>&gt;=1.2.3</code> is good,
 <code>&gt;= 1.2.3</code> is not.
 
-</div></aside>
+</aside>
 
 You can specify version parts as you want, and their ranges will be intersected
 together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
 `2.0.0` excluding `2.0.0` itself.
 
-<aside><div class="alert alert-warning">
+<aside class="alert alert-warning">
 
 Note that <code>&gt;</code> is also valid YAML syntax so you will want to quote
 the version string (like <code>'<=1.2.3 >2.0.0'</code>) if the version
 constraint starts with that.
 
-</div></aside>
+</aside>
 
 [pubsite]: http://pub.dartlang.org
 [semantic versioning]: http://semver.org/
