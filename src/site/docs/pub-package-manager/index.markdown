@@ -176,6 +176,8 @@ get an error, the directory may be out of date. Fix it by running
 <tt>pub install</tt> whenever you change your pubspec.
 </aside>
 
+<!-- TODO(rnystrom): Re-enable this when #4820 is fixed.
+
 You can also use this style to import libraries from within your own package.
 For example, let's say your package is laid out like:
 
@@ -203,6 +205,7 @@ Instead, you can do:
 
 This way, the import can always get to `parser.dart` regardless of where the
 importing file is.
+-->
 
 <!-- TODO(rnystrom): Enable this when that doc exists.
 <a href="package-scheme.html">

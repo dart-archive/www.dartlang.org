@@ -122,12 +122,15 @@ in there if it helps you organize things.
 
 Other Dart files within this package (like top-level ones, scripts in `bin`,
 and tests) can import stuff from `lib`, but nothing outside the package should.
+
+<!-- TODO(rnystrom): Re-enable this when #4820 is fixed.
 For files within the package, they can still use `"package:"` to import these
 libraries. This is a perfectly valid way to get to files in your *own* package:
 
 {% highlight dart %}
 #import("package:enchilada/lib/beans.dart");
 {% endhighlight %}
+-->
 
 ## Tests
 
