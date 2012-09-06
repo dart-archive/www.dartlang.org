@@ -38,6 +38,18 @@ where I can.
 1. [All objects hashable](#all-objects-hashable)
 1. [One-line dartdoc comments](#one-line-dartdoc-comments)
 1. [Raw strings marked with r](#raw-strings-marked-with-r)
+1. [Throw is an expression](#throw-is-an-expression)
+1. [Named params and optional params are orthogonal](#named-params-and-optional-params-are-orthogonal)
+1. [Test optional argument with "?"](#test-optional-argument)
+1. [Constructor names are now unique names in a class](#constructor-names-unique)
+
+{::comment}
+1. [Simpler equality](#simpler-equality)
+1. [Import and library syntax changes](#import-and-library-syntax-changes)
+1. [Metadata](#metadata)
+1. [Callable objects](#callable-objects)
+{:/comment}
+
 1. [Conclusion](#conclusion)
 {:.toc}
 
@@ -625,9 +637,185 @@ var raw = r'steak\ntartare';
 
 ([Tracking issue #931](http://dartbug.com/931))
 
+## Throw is an expression
+
+Previously, `throw` was a statement, and thus couldn't be used in a few useful
+places. In M1, `throw` has been converted to an expression. 
+
+For example, now in M1, you can throw exceptions from one-line functions.
+
+{% highlight dart %}
+String get prettyVersion() => throw const NotImplementedException();
+{% endhighlight %}
+
+([Tracking issue #587](http://dartbug.com/587))
+
+## Named params and optional params are orthogonal
+
+In pre-M1 Dart there was one syntax for defining named parameters and optional
+parameters. This prevented you from expressing one without the other.
+
+In pre-M1 Dart:
+
+{% highlight dart %}
+enableFlags([bool bold, bool hidden]) {
+  // ...
+}
+
+// Can pass arguments by name.
+enableFlags(bold: true, hidden: false);
+
+// But they are also optional and positional, too.
+enableFlags();
+enableFlags(false);
+{% endhighlight %}
+
+As an API designer, I want to express that `bold` and `hidden` are named
+parameters, and make the name part of the exposed API.
+
+In M1, named parameters and optional parameters are given different syntax.
+A method or function can make its optional parameters named or positional,
+but not both.
+
+To express named optional parameters, use the new `{ }` syntax. Note that
+a default value is set with `:`.
+
+{% highlight dart %}
+enableFlags({bool bold, bool hidden: true}) {
+  // ...
+}
+
+enableFlags(bold: true, hidden: false);
+enableFlags(hidden: true);
+{% endhighlight %}
+
+In the above example, `bold` defaults to `null` and
+`hidden` defaults to true.
+
+To express optional *positional* parameters, use the `[ ]` syntax:
+
+{% highlight dart %}
+connectToServer(String authKey, [ip = '127.0.0.1', port = 8080]) {
+  // ...
+}
+
+// The following are all valid.
+connectToServer('secret');
+connectToServer('secret', '1.2.3.4');
+connectToServer('secret', '1.2.3.4', 9999);
+{% endhighlight %}
+
+To sum up, named and optional parameters were separated from each other in M1.
+You can use either optional named parameters or optional positional parameters,
+but not both, in a method or function.
+
+## Test optional argument with "?"
+{: #test-optional-argument}
+
+Optional arguments are great, but before M1 it was hard to tell if the caller
+explicitly passed `null` or simply omitted the parameter.
+
+To illustrate, let's use an example:
+
+{% highlight dart %}
+authenticate(String username, [SignedKey key]) {
+  if (key == null) {
+    // Did the caller omit the parameter, or did they pass null?
+  }
+}
+{% endhighlight %}
+
+In M1, you can use the ? operator to test whether an argument was explicitly
+provided.
+
+{% highlight dart %}
+authenticate(String username, [SignedKey key]) {
+  if (?key) {
+    // The key was provided.
+  } else {
+    // The key was not provided.
+  }
+}
+{% endhighlight %}
+
+You might be wondering why, with the existence of default values for optional
+parameters, this new syntax is required. For example, why not provide
+a default value for `key`?
+
+The answer lies in the semantic difference of "passing null as a parameter" and
+omitting the parameter. Sometimes an API treats those two conditions
+differently, often when `null` is a valid value. For example, in the dart:html
+library, we try to fake overloading using optional parameters in some places and
+this makes that easier.
+
+Also, only compile-time constants can be used as default values. Sometimes,
+an object can't be a compile-time constant, and therefore can't be set as a
+default parameter value.
+
+([Tracking bug #4288](http://dartbug.com/4288))
+
+## Constructor names are now unique names in a class
+{: #constructor-names-are-now-unique}
+
+Before M1, you could have a constructor and a method with the same name inside
+a class. For example:
+
+{% highlight dart %}
+// Before M1, this worked.
+
+class Ball {
+  // Constructor with the name 'move'.
+  Ball.move(num x, num y) {
+    // ...
+  }
+
+  // Method with the name 'move'.
+  move(num x, num y) {
+    // ...
+  }
+}
+{% endhighlight %}
+
+In M1, we don't allow constructor names to collide with method names in a class.
+The fix is to rename either the method or the named constructor.
+
+{% highlight dart %}
+// Now in M1...
+
+class Ball {
+  Ball.at(num x, num y) {
+    // ...
+  }
+
+  move(num x, num y) {
+    // ...
+  }
+}
+{% endhighlight %}
+
+{::comment}
+
+## Simpler equality
+
+Coming soon.
+
+## Import and library syntax changes
+
+Coming soon.
+
+## Metadata
+
+Coming soon.
+
+## Callable objects
+
+Coming soon.
+
+{:/comment}
+
 ## Conclusion
 
-There are a few other minor changes and clean-ups, but that’s the big noticeable
+There are a few other minor changes and clean-ups, but that's the big noticeable
 stuff. As always, your feedback, questions and comments are welcome on the
 [mailing list](http://dartlang.org/mailing-list) and our [issue
 tracker](http://dartbug.com).
