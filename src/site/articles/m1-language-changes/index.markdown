@@ -39,7 +39,7 @@ where I can.
 1. [One-line dartdoc comments](#one-line-dartdoc-comments)
 1. [Raw strings marked with r](#raw-strings-marked-with-r)
 1. [Throw is an expression](#throw-is-an-expression)
-1. [Named params and optional params are orthogonal](#named-params-and-optional-params-are-orthogonal)
+1. [Named optional params and positional optional params are specified differently](#named-optional-params-and-positional-optional-params-are-specified-differently)
 1. [Test optional argument with "?"](#test-optional-argument)
 1. [Constructor names are now unique names in a class](#constructor-names-unique)
 
@@ -650,7 +650,7 @@ String get prettyVersion() => throw const NotImplementedException();
 
 ([Tracking issue #587](http://dartbug.com/587))
 
-## Named params and optional params are orthogonal
+## Named optional params and positional optional params are specified differently
 
 In pre-M1 Dart there was one syntax for defining named parameters and optional
 parameters. This prevented you from expressing one without the other.
