@@ -10,7 +10,8 @@ has-permalinks: true
 
 # {{ page.title }}
 _Written by Bob Nystrom <br />
-July 2012_
+July 2012 <br />
+Updated: September 2012_
 
 Right now as we near our "Milestone 1" release, we are making a slew of fun
 language changes. There are tracking bugs in the repo for all of them, but I
@@ -19,7 +20,7 @@ where I can.
 
 ## Contents
 
-1. [First class types](#first-class-types)
+1. [First-class types](#first-class-types)
 1. [No explicit interfaces](#no-explicit-interfaces)
 1. [No "+" on String](#no--on-string)
 1. [No throwing `null`](#no-throwing-null)
@@ -42,6 +43,8 @@ where I can.
 1. [Named optional params and positional optional params are specified differently](#named-optional-params-and-positional-optional-params-are-specified-differently)
 1. [Test optional argument with "?"](#test-optional-argument)
 1. [Constructor names are now unique names in a class](#constructor-names-unique)
+1. [Conclusion](#conclusion)
+{:.toc}
 
 {::comment}
 1. [Simpler equality](#simpler-equality)
@@ -50,10 +53,7 @@ where I can.
 1. [Callable objects](#callable-objects)
 {:/comment}
 
-1. [Conclusion](#conclusion)
-{:.toc}
-
-## First class types
+## First-class types
 
 As we get ready for mirrors to come online with Dart, one minor step along the
 way is adding support for first-class types. With this change, you can refer to
@@ -539,7 +539,7 @@ lambda body shown above.)
 
 ([Tracking issue #3602](http://dartbug.com/3602))
 
-## All objects Hashable
+## All objects hashable
 
 The Object class now implements Hashable.
 This means that every object now responds to the `hashCode()`
@@ -568,7 +568,7 @@ main() {
 
 ([Tracking issue #3369](http://dartbug.com/3369))
 
-## Line-style doc comments
+## One-line dartdoc comments
 
 Sometimes you'd like to write a small dartdoc comment. Previously, even a one-
 line statement required three comment lines:
@@ -585,7 +585,7 @@ feed() {
 Three comment lines for a single statement? We can do better.
 
 Now, there's even less excuse to not comment your code, thanks to the
-introduction of the line-style dartdoc comment. For those times when a single
+introduction of the line-style dartdoc comment. It's for those times when a single
 comment line captures everything you need to say.
 
 {% highlight dart %}
@@ -599,8 +599,9 @@ The `///` style of comments works just fine with multi-line comments, if you
 prefer this style over `/** ... */`. For example:
 
 {% highlight dart %}
-/// Generate a random number.
-/// Returns a number between 0.0 and 1.0.
+/// Returns a random number between 0.0 and 1.0.
+///
+/// The seed for the random number is...
 num generateRandom();
 {% endhighlight %}
 
@@ -755,7 +756,7 @@ default parameter value.
 ([Tracking bug #4288](http://dartbug.com/4288))
 
 ## Constructor names are now unique names in a class
-{: #constructor-names-are-now-unique}
+{: #constructor-names-unique}
 
 Before M1, you could have a constructor and a method with the same name inside
 a class. For example:
