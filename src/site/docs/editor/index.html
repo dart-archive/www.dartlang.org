@@ -271,15 +271,16 @@ It's easy to create a simple web or command-line app from scratch:
   </p></li>
 
   <li> <p>
-    In the sample content section,
-    select either <b>Web application</b> or <b>Command-line application</b>.
+    If you're creating a web app,
+    select <b>Generate content for a basic web app</b>.
     Then click <b>Finish</b> to create the initial files for the app.
     </p>
 
     <p>
       <img src="images/DartEditor-newwebapp.png"
       alt="screenshot of the New Application dialog"
-      width="605" height="530">
+      style="border: 1px solid black"
+      width="398" height="308">
     </p>
 
     <p>
@@ -292,7 +293,8 @@ It's easy to create a simple web or command-line app from scratch:
     <p>
       <img src="images/DartEditor-helloweb.png"
       alt="screenshot of Dart Editor just after New Application"
-      width="665" height="495" >
+      style="border: 1px solid black"
+      width="703" height="423" >
     </p>
 
     </li>
@@ -325,7 +327,7 @@ Autocomplete suggestions look something like this:
 <img src="images/helloweb-dotcomplete.png"
   alt="snapshot of autocomplete for document."
   style="border: 1px solid black"
-  width="404" height="351">
+  width="492" height="320">
 </p>
 
 <p>
@@ -397,7 +399,7 @@ within the same .dart file or in another file.
       <img src="images/sunflower-hover.png"
         alt="screenshot of Command/Control-hover over Math"
         style="border: 1px solid black"
-        width="371" height="152">
+        width="478" height="262">
     </p>
   </li>
 
@@ -410,9 +412,9 @@ within the same .dart file or in another file.
 
     <p>
       The editor displays the file that declares the item.
-      For example, if you Command-click String,
+      For example, if you Command-click cos,
       the file that declares the
-      <code>String</code> type appears.
+      <code>cos()</code> function appears.
     </p>
   </li>
 </ol>
@@ -438,19 +440,20 @@ looks something like this:
 <p>
 <img src="images/sunflower-outline.png"
   alt="screenshot of outline panel"
-  width="350" height="300">
+  style="border: 1px solid black"
+  width="349" height="301">
 </p>
 
 <p>
 You can reduce the size of the list
 by typing one or more characters.
-For example, if you type <b>x</b>,
-only the <b>xc</b> variable appears.
+For example, if you type <b>c</b>,
+only the <b>center</b> variables appear.
 </p>
 
 <p>
 If you choose an item from the list&mdash;for example,
-<b>xc</b>&mdash;
+<b>centerX</b>&mdash;
 the editor scrolls to its declaration.
 </p>
 
@@ -458,13 +461,6 @@ the editor scrolls to its declaration.
 Alternatively, add a more permanent outline view
 by choosing <b>Tools > Outline</b>.
 </p>
-
-<p>
-<img src="images/sunflower-outline-view.png"
-  alt="screenshot of outline view"
-  width="673" height="494">
-</p>
-
 </section>
 
 
@@ -475,8 +471,9 @@ by choosing <b>Tools > Outline</b>.
 You can find where an API&mdash;such as a function&mdash;is used
 using the Callers view.
 To bring it up,
-click the function's name
-and then choose <b>Callers</b> from the <b>Tools</b> menu
+click the function's name,
+right-click,
+and choose <b>Find Callers</b>
 (or type Ctl+Alt+H).
 </p>
 
@@ -484,17 +481,15 @@ and then choose <b>Callers</b> from the <b>Tools</b> menu
 To see how a caller itself is called,
 click its arrow in the Callers view.
 For example, the following screenshot shows
-that the CountDownClock() constructor and
-a function named f()
+that two functions
 call the updateTime() method.
-It also shows that the constructor
-is called from main().
 </p>
 
 <p>
   <img src="images/clock-callers.png"
     alt="screenshot of the Callers view"
-    width="622" height="577">
+    style="border: 1px solid black"
+    width="643" height="415">
 </p>
 
 <p>
@@ -504,16 +499,6 @@ you can click the Show Callee Hierarchy button
   style="vertical-align:top">
 to see <em>callees</em>&mdash;the
 functions called by the function you're inspecting.
-For example, the following screenshot shows
-that updateTime() calls several getters and methods,
-plus the now() date constructor.
-</p>
-
-<p>
-  <img src="images/clock-callees.png"
-    alt="screenshot of the Callers view with the callee symbol selected"
-    width="622" height="577">
-</p>
 
 </section>
 </section>
@@ -525,7 +510,7 @@ plus the now() date constructor.
 To change the name of an item throughout your code,
 put the cursor within (or double-click)
 its name in the Edit view
-and choose <b>Edit > Rename...</b>.
+and choose <b>Edit > Rename...</b> or right-click and choose <b>Rename...</b>.
 </p>
 
 <p>
@@ -609,9 +594,9 @@ For web apps, you can specify the following:
 
 <ul>
   <li> HTML file or URL to open </li>
-  <li> browser and browser arguments to use (JavaScript only) </li>
-  <li> debugging enabled (Dart only) </li>
-  <li> checked mode (Dart only) </li>
+  <li> Browser and browser arguments to use (JavaScript only) </li>
+  <li> Debugging enabled (Dart only) </li>
+  <li> Checked mode (Dart only) </li>
 </ul>
 
 <p>
@@ -636,10 +621,10 @@ You can specify the following for command-line apps:
 </p>
 
 <ul>
-  <li> .dart file to execute </li>
-  <li> arguments to pass to the app </li>
-  <li> checked mode </li>
-  <li> heap size </li>
+  <li> The .dart file to execute </li>
+  <li> Arguments to pass to the app </li>
+  <li> Checked mode </li>
+  <li> Heap size </li>
 </ul>
 </section>
 
@@ -712,7 +697,8 @@ in which the your app runs:
     <p>
       <img src="images/manage-launches.png"
         alt="screenshot of Manage Launches dialog"
-        width="649" height="525">
+        style="border: 1px solid black"
+        width="538" height="457">
     </p>
   </li>
   <li>
@@ -724,7 +710,7 @@ in which the your app runs:
     <p>
       <img src="images/new-web-launch-menu.png"
         alt="screenshot of Create new launch menu"
-       style="border: 1px solid black"
+        style="border: 1px solid black"
         width="302" height="126">
     </p>
   </li>
@@ -753,8 +739,9 @@ in which the your app runs:
     </ul>
     <p>
       <img src="images/new-web-launch.png"
-        alt="PENDING"
-        width="649" height="525">
+        alt="screenshot of non-Dartium launch configuration"
+        style="border: 1px solid black"
+        width="538" height="457">
     </p>
   </li>
   <li>
@@ -828,7 +815,8 @@ Some tips for debugging:
 <p>
   <img src="images/debugger.png"
     alt="screenshot of Sunflower being debugged"
-    width="752" height="501">
+    style="border: 1px solid black"
+    width="640" height="370">
 </p>
 </section>
 
@@ -894,7 +882,8 @@ choose <b>Help > Key Assist</b>.
 <p>
   <img src="images/key-assist.png"
     alt="screenshot of help for keyboard alternatives"
-    width="231" height="235">
+    style="border: 1px solid black"
+    width="228" height="289">
 </p>
 
 </section>
