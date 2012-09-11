@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "pub install"
-description: "Reference documentation for the `pub install` command."
+title: "pub update"
+description: "Reference documentation for the `pub update` command."
 has-permalinks: true
 ---
 

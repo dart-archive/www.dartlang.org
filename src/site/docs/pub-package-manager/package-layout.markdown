@@ -16,8 +16,8 @@ When you build a Pub package, we have a set of conventions we encourage you to
 follow. They describe how you organize the files and directories within your
 package, and how to name things. You don't have to have every single thing
 these guidelines specify. If your package doesn't have binaries, it doesn't
-need a directory for them. But if it does, you'll make everyone's life easier
-if you call it `bin`.
+need a directory for them. But if it does, you should call it `bin` if you want
+pub to know what to do with it.
 
 To give you a picture of the whole enchilada, here's what a complete package
 (conveniently named `enchilada`) that uses every corner of these guidelines
@@ -28,8 +28,6 @@ would look like:
       pubspec.lock *
       README.md
       LICENSE
-      enchilada.dart
-      tortilla.dart
       bin/
         enchilada
         packages/ **
@@ -39,8 +37,11 @@ would look like:
         lunch.dart
         packages/ **
       lib/
-        beans.dart
-        queso.dart
+        enchilada.dart
+        tortilla.dart
+        src/
+          beans.dart
+          queso.dart
       packages/ **
       test/
         enchilada_test.dart
@@ -50,7 +51,7 @@ would look like:
 \* The `pubspec.lock` will only be in source control if the package is an
 application package.
 
-\** The `packages` directories will exist locally after you're run
+\** The `packages` directories will exist locally after you've run
 `pub install`, but won't be checked into source control.
 
 ## The basics
@@ -87,12 +88,13 @@ use are up to you, but please do have a README.
 ## Public libraries
 
     enchilada/
-      enchilada.dart
-      tortilla.dart
+      lib/
+        enchilada.dart
+        tortilla.dart
 
 Many packages are *library packages*: they define Dart libraries that other
-packages can import and use. These public Dart library files go directly in the
-top level directory for the package.
+packages can import and use. These public Dart library files go inside a
+directory called `lib`.
 
 Most packages will define a single library that users can import. In that case,
 its name should usually be the same as the name of the package, like
@@ -107,6 +109,22 @@ the library file, like so:
 #import("package:enchilada/tortilla.dart");
 {% endhighlight %}
 
+If you feel the need to organize your public libraries, you can also create
+subdirectories inside `lib`. If you do that, users will specify that path when
+they import it. Say you have a file hierarchy like this:
+
+    enchilada/
+      lib/
+        some/
+          path/
+            olives.dart
+
+Users will import `olives.dart` like:
+
+{% highlight dart %}
+#import("package:enchilada/some/path/olives.dart");
+{% endhighlight %}
+
 ## Implementation files
 
     enchilada/
@@ -114,23 +132,25 @@ the library file, like so:
         beans.dart
         queso.dart
 
-The top level of a package contains files that are "publicly" visible: other
-packages are free to import them. But much of a package's code is internal
-implementation libraries that should only be imported and used by the package
-itself. Those go inside a directory called `lib`. You can create subdirectories
-in there if it helps you organize things.
+The libraries inside "lib" are publicly visible: other packages are free to
+import them. But much of a package's code is internal implementation libraries
+that should only be imported and used by the package itself. Those go inside a
+subdirectory of `lib` called `src`. You can create subdirectories in there if
+it helps you organize things.
 
-Other Dart files within this package (like top-level ones, scripts in `bin`,
-and tests) can import stuff from `lib`, but nothing outside the package should.
+You are free to import libraries that live in `lib/src` from other libraries
+in the *same* package (like other libraries in `lib`, scripts in `bin`, and
+tests) but you should never import from another package's `lib/src` directory.
+Those files are not part of the package's public API, and they might change in
+ways that could break your code.
 
-<!-- TODO(rnystrom): Re-enable this when #4820 is fixed.
-For files within the package, they can still use `"package:"` to import these
-libraries. This is a perfectly valid way to get to files in your *own* package:
+When you use libraries from within your own package, even stuff in `src`, you
+can (and should) still use `"package:"` to import them. This is perfectly
+legit:
 
 {% highlight dart %}
-#import("package:enchilada/lib/beans.dart");
+#import("package:enchilada/lib/src/beans.dart");
 {% endhighlight %}
--->
 
 ## Tests
 
