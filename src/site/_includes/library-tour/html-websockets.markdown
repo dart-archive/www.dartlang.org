@@ -77,7 +77,7 @@ connectToWebSocket([int retrySeconds = 2]) {
   webSocket = new WebSocket(url);
 
   webSocket.on.message.add((e) {
-    receivedMessage(e.data);
+    receivedMessage((e as MessageEvent).data);
   });
 
   webSocket.on.open.add((e) {

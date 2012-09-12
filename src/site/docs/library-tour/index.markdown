@@ -862,7 +862,7 @@ Future deleteDone = deleteLotsOfFiles();
 Future copyDone = copyLotsOfFiles();
 Future checksumDone = checksumLotsOfOtherFiles();
 
-Futures.join([deleteDone, copyDone, checksumDone]).then(() {
+Futures.wait([deleteDone, copyDone, checksumDone]).then((List values) {
   print('Done with all the long steps');
 });
 {% endhighlight %}
