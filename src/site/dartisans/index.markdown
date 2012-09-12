@@ -29,7 +29,7 @@ or with
     <a href="{{ link }}"><img style="margin-top:9px; box-shadow: 5px 5px 10px #CCC" src="dartisans-{{episode.num | format_num: "%02d" }}-thumb.jpeg"></a>
   </div>
   <div class="span10">
-    <h3><a href="{{ link }}">{{ episode.title }}</a></h3>
+    <h3><a href="{{ link }}">Ep. {{ episode.num}}: {{ episode.subtitle }}</a></h3>
     
     <p>{{ episode.description }}</p>
 

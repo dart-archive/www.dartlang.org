@@ -1,5 +1,15 @@
 url-prefix: http://commondatastorage.googleapis.com/dartlang-podcast/
 episodes:
+- title: "Dartisans ep. 11: Compiling Dart to JavaScript"
+  subtitle: Compiling Dart to JavaScript
+  file: dartisans-ep-11-compiling-dart-to-javascript.mp3
+  pubdate: 2012-08-30
+  description: Dart runs across the modern web by compiling to JavaScript.
+               In this episode of Dartisans, meet some engineers working on dart2js and
+               learn how they compile Dart to JavaScript.
+  length: 13283867
+  num: 11
+  youtubeid: rDdK0PA9Pgo
 - title: "Dartisans ep. 10: IntelliJ's Dart Plugin"
   subtitle: IntelliJ's Dart Plugin
   file: dartisans-ep-10-intellij-dart-plugin.mp3
