@@ -27,6 +27,7 @@ where I can.
 1. [The "as" cast operator](#the-as-cast-operator)
 1. [Cascades](#cascades)
 1. [Lazy static initialization](#lazy-static-initialization)
+1. [Field initialization with non-const objects](#field-initialization-with-non-const-objects)
 1. [Support "const" modifier for variables](#support-const-modifier-for-variables)
 1. [Syntax for defining operators](#syntax-for-defining-operators)
 1. [Split library scope and import scope](#split-library-scope-and-import-scope)
@@ -260,6 +261,26 @@ initialized the first time the variable is accessed. This is closer to behavior
 users coming from Java or C# expect given Dart’s similar syntax.
 
 ([Tracking issue #3557](http://dartbug.com/3557))
+
+## Field initialization with non-const objects
+
+Formerly, Dart required that all fields initialized at their
+declaration had to be compile-time constants. In M1, fields can now be
+initialized by non-const values.
+
+For example:
+
+{% highlight dart %}
+class DeckOfCards {
+  List<Card> cards = <Card>[];
+}
+{% endhighlight %}
+
+The field `cards` is initialized when the object is created. Specifically,
+the field is initialized before the constructor and its initializer list are
+run.
+
+Note that you may not refer to `this` in field initializers.
 
 ## Support "const" modifier for variables
 
