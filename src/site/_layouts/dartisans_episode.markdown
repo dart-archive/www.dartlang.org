@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Dartisans ep. {{ page.episode.title }}
+# {{ page.episode.title }}
 
 <div class="row" style="margin-top: 25px">
 	<div class="span12">
