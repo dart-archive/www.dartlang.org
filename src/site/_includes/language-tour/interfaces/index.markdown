@@ -1,5 +1,6 @@
+In many object oriented languages such as Java,
 Interfaces are types that define how you can interact with an object.
-An interface can specify methods,
+An interface may specify methods,
 constructors,
 instance variables
 (or, more precisely, getters and setters),
@@ -7,32 +8,47 @@ and superinterfaces.
 It doesn't, however, specify the code _inside_ of
 methods and constructors.
 
-Interfaces are handy for specifying APIs
-without specifying exactly how the APIs are implemented.
+This definition may also sound similar to [Abstract Classes](#classes-abstract).
+In Dart the decision was made to drop explicit interfaces. 
 
+Dart does however, have implicit interfaces. Anytime you define a class, 
+Dart implicitly defines an interface that matches the public signature
+of that class.
 
 <section id="interfaces-defining" markdown="1">
-### Defining an interface
+### Defining an interface with abstract classes
 
-Use the `interface` keyword to define an interface.
+Since interfaces are only implicit, if you wanted to create an
+interface to be used by other classes we need to use the `abstract`
+keyword to define the class and methods.
 For example, here's the code that defines the
 [Hashable](http://api.dartlang.org/dart_core/Hashable.html) interface:
 
 {% highlight dart %}
-interface Hashable {
-  int hashCode();
+abstract class Hashable {
+  abstract int hashCode();
 }
 {% endhighlight %}
 
 Notice how, instead of having a method body (`{...}`),
-the interface just has a semicolon (`;`).
+the abstract method just has a semicolon (`;`).
+
+<aside>
+  <div class="alert alert-info">
+    <strong>Note:</strong>
+    Technically, any class, concrete or abstract creates an implicit interface.
+    We only need to use an abstract class if we are only concerned about
+    creating a class that will not be instantiated.
+  </div>
+</aside>
+
 </section>
 
 
 <section id="interfaces-implementing" markdown="1">
 ### Implementing an interface
 
-A class can implement one or more interfaces
+A class can implement one or more implicit interfaces
 by declaring them in its **implements** clause
 and then providing the APIs required by the interfaces.
 For example:
@@ -60,7 +76,7 @@ class Point implements Hashable {
 {% endhighlight %}
 
 Here's an example of
-specifying that a class implements multiple interfaces:
+specifying that a class implements multiple implicit interfaces:
 
 {% highlight dart %}
 class Point implements Comparable, Hashable {
@@ -68,31 +84,23 @@ class Point implements Comparable, Hashable {
 }
 {% endhighlight %}
 
-<aside>
-  <div class="alert alert-info">
-    <strong>Tip:</strong>
-    Dart classes have implicit interfaces.
-    This feature is useful when creating mock objects for testing.
-  </div>
-</aside>
-
 </section>
 
 
 <section id="interfaces-extending" markdown="1">
 ### Extending an interface
 
-You can create an interface
-that builds on one or more interfaces.
+Using abstract classes, you can also create an interface
+that builds on one or more implicit interfaces.
 The new interface is called a _subinterface_,
 and all the interfaces it inherits from are its _superinterfaces_.
 
 Use the **extends** keyword
-to specify which interface (or interfaces) you're adding to.
-Here's an example of creating a subinterface of Hashable:
+to specify which abstract class (or regular class) you're adding to.
+Here's an example of creating an abstract subclass of Hashable:
 
 {% highlight dart %}
-interface HashablePoint extends Hashable {
+abstract class HashablePoint extends Hashable {
   num x, y;
 }
 {% endhighlight %}
@@ -100,7 +108,7 @@ interface HashablePoint extends Hashable {
 <aside>
   <div class="alert alert-info">
     <strong>Note:</strong>
-    Technically, interfaces don't have instance variables
+    Technically, abstract classes don't have instance variables
     such as `x` and `y`.
     What looks like an instance variable is really a
     shortcut for declaring
@@ -136,60 +144,11 @@ main() {
 </section>
 
 
-<section id="interfaces-default-class" markdown="1">
-### Defining constructors and a default class
-
-An interface can define constructors,
-as long as it specifies a _default class_.
-
-<aside>
-  <div class="alert alert-info">
-    <strong>Note:</strong>
-    Many of the Dart APIs are implemented as
-    interfaces that have default classes.
-    For example, all of the <a href="#built-in-types">built-in types</a>,
-    including <a href="#numbers">num and int</a>, are interfaces.
-  </div>
-</aside>
-
-Use the `default` keyword to specify
-the default class.
-For example:
-
-{% highlight dart %}
-interface ObjectCache default MemoryCache {
-  ObjectCache();
-  // ...
-}
-{% endhighlight %}
-
-The code for the default class might look like this:
-
-{% highlight dart %}
-class MemoryCache implements ObjectCache {
-  // ...
-}
-{% endhighlight %}
-
-Invoking a constructor via an interface
-results in a call to the equivalent constructor
-in the interface's default class.
-For example:
-
-{% highlight dart %}
-var cache = new ObjectCache(); // Same as: new MemoryCache()
-assert(cache is ObjectCache);
-assert(cache is MemoryCache);
-{% endhighlight %}
-
-</section>
-
-
 <section id="interfaces-summary" markdown="1">
 ### Summary of interfaces
-Interfaces are everywhere in Dart,
-from built-in types to
-many of the types defined in the standard Dart libraries.
-Because Dart interfaces can have default classes,
-you can use interface constructors.
+Interfaces are part of every class in Dart,
+from built-in types to the standard Dart libraries.
+Because Dart interfaces are implicit, we can use abstract classes
+to build and define interfaces, otherwise they're provided automatically
+by any class you create.
 </section>
