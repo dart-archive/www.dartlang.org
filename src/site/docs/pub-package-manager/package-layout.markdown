@@ -129,8 +129,9 @@ Users will import `olives.dart` like:
 
     enchilada/
       lib/
-        beans.dart
-        queso.dart
+        src/
+          beans.dart
+          queso.dart
 
 The libraries inside "lib" are publicly visible: other packages are free to
 import them. But much of a package's code is internal implementation libraries
