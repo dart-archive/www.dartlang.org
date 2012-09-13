@@ -129,8 +129,9 @@ Users will import `olives.dart` like:
 
     enchilada/
       lib/
-        beans.dart
-        queso.dart
+        src/
+          beans.dart
+          queso.dart
 
 The libraries inside "lib" are publicly visible: other packages are free to
 import them. But much of a package's code is internal implementation libraries
@@ -149,7 +150,7 @@ can (and should) still use `"package:"` to import them. This is perfectly
 legit:
 
 {% highlight dart %}
-#import("package:enchilada/lib/src/beans.dart");
+#import("package:enchilada/src/beans.dart");
 {% endhighlight %}
 
 ## Tests
