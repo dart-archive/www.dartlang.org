@@ -150,7 +150,7 @@ can (and should) still use `"package:"` to import them. This is perfectly
 legit:
 
 {% highlight dart %}
-#import("package:enchilada/lib/src/beans.dart");
+#import("package:enchilada/src/beans.dart");
 {% endhighlight %}
 
 ## Tests
