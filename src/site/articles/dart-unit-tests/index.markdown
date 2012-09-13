@@ -47,7 +47,7 @@ library.
 For those who want to jump right to it, let's start with an example. Let's say we are writing a quicksort algorithm in Dart and want to test it. Open the Dart editor, create a new application "quicksort", then change the "quicksort.dart" file to look as follows
 (you will need to set the appropriate path in the import at the start to point to the unit test library for your environment):
 
-    #import('DART_SDK_PATH/lib/unittest/unittest.dart');
+    #import('DART_SDK_PATH/pkg/unittest/unittest.dart');
 
     int _Partition(List array, int left, int right, int pivotIndex) {
       var pivotValue = array[pivotIndex];
