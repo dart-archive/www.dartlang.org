@@ -614,7 +614,7 @@ together.
 {% highlight dart good %}
 #import('dart:math');
 // ...
-/* Rolls both [Dice] and returns the highest rolled value. */
+/** Rolls both [Dice] and returns the highest rolled value. */
 num greatestRoll(Dice a, Dice b) => max(a.roll(), b.roll());
 {% endhighlight %}
 </div>
