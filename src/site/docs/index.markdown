@@ -38,8 +38,8 @@ know how to program in another language.
 
 [Articles and Tutorials](/articles/)
 : Read these articles for insight into Dart programming topics,
-such as the [Dart Style Guide](http://localhost:8080/articles/style-guide/),
-[Optional Types in Dart](http://localhost:8080/articles/optional-types/), and more.
+such as the [Dart Style Guide](/articles/style-guide/),
+[Optional Types in Dart](/articles/optional-types/), and more.
 
 [FAQ](/support/faq.html)
 : This FAQ answers many of the questions we've been asked about Dart.

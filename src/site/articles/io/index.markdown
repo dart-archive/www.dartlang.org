@@ -212,7 +212,25 @@ stdout, files, sockets, HTTP connections, and so on.
 <section id="processes" markdown="1">
 ##Interacting with processes
 
-You can start a process by creating a
+For the simple case, use
+[Process.run()](http://api.dartlang.org/docs/continuous/dart_io/Process.html#run)
+to run a process
+and collect its output. Use `run()` when you don't
+need iteractive control over the process.
+
+{% highlight dart %}
+#import('dart:io');
+
+main() {
+  // List all files in the current directory,
+  // in a UNIX-like operating systems.
+  Process.run('ls', ['-l']).then((ProcessResult results) {
+    print(results.stdout);
+  });
+}
+{% endhighlight %}
+
+You can also start a process by creating a
 [Process](http://api.dartlang.org/io/Process.html) object
 using the Process.start() constructor.
 Once you have a Process object you can interact with the process
