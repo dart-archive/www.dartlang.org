@@ -102,9 +102,9 @@ no markdown or HTML. That's what your README is for.
 You're encouraged to use these fields to describe the author(s) of your package
 and provide contact information. `author` should be used if your package has a
 single author, while `authors` should be used with a YAML list if more than one
-person wrote the package. Each author can either be a single name (e.g. `Nathan
-Weizenbaum`) or a name and an email address (e.g. `Nathan Weizenbaum
-<nweiz@google.com>`). For example:
+person wrote the package. Each author can either be a single name (for example, `Nathan
+Weizenbaum`) or a name and an email address (for example, `Nathan Weizenbaum
+<nweiz@google.com>`). Here's an example of specifying the `authors` field.
 
 {% highlight yaml %}
 authors:
