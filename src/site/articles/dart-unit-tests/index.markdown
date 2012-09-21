@@ -44,10 +44,9 @@ library.
 
 ## A simple unit test example
 
-For those who want to jump right to it, let's start with an example. Let's say we are writing a quicksort algorithm in Dart and want to test it. Open the Dart editor, create a new application "quicksort", then change the "quicksort.dart" file to look as follows
-(you will need to set the appropriate path in the import at the start to point to the unit test library for your environment):
+For those who want to jump right to it, let's start with an example. Let's say we are writing a quicksort algorithm in Dart and want to test it. Open the Dart editor, create a new application "quicksort", then change the "quicksort.dart" file to look as follows:
 
-    #import('DART_SDK_PATH/pkg/unittest/unittest.dart');  // Use an appropriate path
+    #import('package:unittest/unittest.dart');
 
     int _Partition(List array, int left, int right, int pivotIndex) {
       var pivotValue = array[pivotIndex];
@@ -182,7 +181,7 @@ We can easily run this from the command line using the
 [standalone Dart virtual machine](http://www.dartlang.org/docs/standalone-dart-vm/).
 If you want to test the exit code from the standalone VM, add this import:
 
-    #import('DART_SDK_PATH/pkg/unittest/vm_config.dart');  // Use an appropriate path
+    #import('package:unittest/vm_config.dart');
 
 and add a line before the tests:
 
@@ -196,7 +195,7 @@ You can run the test with the command:
 
 If you prefer the DartEditor environment add this import:
 
-    #import('DART_SDK_PATH/pkg/unittest/html_config.dart');  // Use an appropriate path
+    #import('package:unittest/html_config.dart');
 
 and add a line before the tests:
 
@@ -212,7 +211,7 @@ Tests are created using the top level function `test()`. This function takes a n
 
 Here is a trivial example to illustrate the syntax of `test()`:
 
-    #import('DART_SDK_PATH/pkg/unittest/unittest.dart');  // Use an appropriate path
+    #import('package:unittest/unittest.dart');
     main() {
      test('An empty test', () {
        // a test with expectations and matchers
