@@ -22,6 +22,8 @@ description: >
   Have you been turned into a newt? Would you like to be? This
   package can help: it has all of the newt-transmogrification
   functionality you've been looking for.
+author: Nathan Weizenbaum <nweiz@google.com>
+homepage: http://newtify.dartlang.org
 dependencies:
   efts: '>=2.0.4 <3.0.0'
   transmogrify: '>=0.4.0'
@@ -36,6 +38,10 @@ At the top level are a series of fields. The currently supported ones are:
   <dd>Required for packages that will be hosted on pub.dartlang.org.</dd>
   <dt>Description</dt>
   <dd>Required for packages that will be hosted on pub.dartlang.org.</dd>
+  <dt>Author/Authors</dt>
+  <dd>Optional.</dd>
+  <dt>Homepage</dt>
+  <dd>Optional.</dd>
   <dt>Dependencies</dt>
   <dd>Can be omitted if your package has no dependencies.</dd>
 </dl>
@@ -90,6 +96,30 @@ tells a casual reader what they might want to know about your package.
 Think of the description as the sales pitch for your package. Users will see it
 when they browse [pub.dartlang.org][pubsite]. It should be simple plain text:
 no markdown or HTML. That's what your README is for.
+
+## Author/Authors
+
+You're encouraged to use these fields to describe the author(s) of your package
+and provide contact information. `author` should be used if your package has a
+single author, while `authors` should be used with a YAML list if more than one
+person wrote the package. Each author can either be a single name (for example, `Nathan
+Weizenbaum`) or a name and an email address (for example, `Nathan Weizenbaum
+<nweiz@google.com>`). Here's an example of specifying the `authors` field.
+
+{% highlight yaml %}
+authors:
+- Nathan Weizenbaum <nweiz@google.com>
+- Bob Nystrom <rnystrom@google.com>
+{% endhighlight %}
+
+The authors of a [hosted package](#hosted-packages) will be displayed on
+[pub.dartlang.org][pubsite].
+
+## Homepage
+
+This is optional. It should be a URL pointing to the website for your package.
+For [hosted packages](#hosted-packages), this URL will be linked from the
+package's page on [pub.dartlang.org][pubsite].
 
 ## Dependencies
 

@@ -23,7 +23,7 @@ This document seeks to explain how optional types work.
 <ol class="toc">
   <li> <a href="#overview">Overview</a> </li>
   <li> <a href="#static-checker">The static checker</a> </li>
-  <li> <a href="#type-dynamic">Type Dynamic</a> </li>
+  <li> <a href="#type-dynamic">Type dynamic</a> </li>
   <li> <a href="#generics">Generics</a> </li>
   <li> <a href="#checked-mode">Checked mode</a> </li>
   <li> <a href="#using-types">Using types</a> </li>
@@ -104,19 +104,41 @@ For example, consider:
 </p>
 
 {% highlight dart %}
-String s1 = '9';
-String s2 = '1';
-...
-int n = s1 + s2;
-print(n);
+class Point {
+  final num x, y;
+  Point(this.x, this.y);
+  Point operator +(Point other) {
+    return new Point(x+other.x, y+other.y);
+  }
+  String toString() {
+    return "x: $x, y: $y";
+  }
+}
+
+main() {
+  var p1 = new Point(0, 0);
+  var p2 = new Point(10, 10);
+
+  int n = p1 + p2;
+
+  print(n);
+}
 {% endhighlight %}
 
 <p>
 This is clearly a problem.
 The static checker will issue a warning in this case.
+</p>
+
+<p>
+<img src="imgs/static-warning.png" width="665" height="363"
+     alt="Static warning in Dart Editor"
+     style="border: 1px solid gray; box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.25);">
+</p>
+
 Note that the code still runs,
-setting <code>n</code> to <code>'91'</code>
-and printing <code>91</code>. 
+setting <code>n</code> to an instance of Point
+and printing <code>x: 10, y: 10</code>. 
 </p>
 
 <p>
@@ -141,22 +163,22 @@ even though the lookup method is declared to return <code>Object</code>.
 
 
 <section>
-<h2 id="type-dynamic"> Type Dynamic </h2>
+<h2 id="type-dynamic"> Type dynamic </h2>
 
 <p>
 How does Dart avoid complaints when no types are provided?
-The key to this is the type <code>Dynamic</code>,
+The key to this is the type <code>dynamic</code>,
 which is the default type given when no type
 is explicitly given by the programmer.
-Using type <code>Dynamic</code> makes the checker shut up.
+Using type <code>dynamic</code> makes the checker shut up.
 </p>
 
 <p>
-Occasionally, you may want to use <code>Dynamic</code> explicitly.
+Occasionally, you may want to use <code>dynamic</code> explicitly.
 </p>
 
 {% highlight dart %}
-Map<String, Dynamic> m = {
+Map<String, dynamic> m = {
     'one': new Partridge(),
     'two': new TurtleDove(),
     ...,
@@ -171,7 +193,7 @@ they would have static type <code>Object</code>,
 about which very little is known.
 Since the contents of the map have no common superinterface
 other than <code>Object</code>,
-we may prefer to use <code>Dynamic</code>.
+we may prefer to use <code>dynamic</code>.
 If we try to call methods on the map's values, for example,
 </p>
 
@@ -182,7 +204,7 @@ pearTree = m['one'].container();
 <p>
 we would get a warning if the contents were of type <code>Object</code>,
 because <code>Object</code> does not support container.
-If we use type <code>Dynamic</code>, no warning is issued. 
+If we use type <code>dynamic</code>, no warning is issued. 
 </p>
 </section>
 
@@ -231,7 +253,7 @@ is just a shorthand for
 </p>
 
 {% highlight dart %}
-new List<Dynamic>();
+new List<dynamic>();
 {% endhighlight %}
 
 <p>
@@ -253,8 +275,8 @@ Here are some more interesting cases:
 {% highlight dart %}
 new List<String>() is List<int>     // false
 new List<String>() is List          // true
-new List<String>() is List<Dynamic> // same as line above
-new List() is List<Dynamic>         // true, these are exactly the same
+new List<String>() is List<dynamic> // same as line above
+new List() is List<dynamic>         // true, these are exactly the same
 {% endhighlight %}
 
 <p>
@@ -304,8 +326,11 @@ However
 </p>
 
 {% highlight dart %}
-Object foo(){return "x";}
-String s = foo();{% endhighlight %}
+Object foo() {
+  return "x";
+}
+String s = foo();
+{% endhighlight %}
 
 <p>
 works just fine,
@@ -326,9 +351,12 @@ Some more examples:
 {% highlight dart %}
 <int>[0,1, 1][2] = new Object(); // fails in checked mode
 
-bar(int n) { return n *2;}
+bar(int n) {
+  return n *2;
+}
 ...
-bar(3.2); // returns 6.4 in production, but fails in checked mode{% endhighlight %}
+bar(3.2); // returns 6.4 in production, but fails in checked mode
+{% endhighlight %}
 
 <p>
 In checked mode , every time an argument is passed to a function,
@@ -338,12 +366,20 @@ We can correct this easily:
 </p>
 
 {% highlight dart %}
-bar(num n) { return n *2;}
+bar(num n) {
+  return n *2;
+}
+
 ...
+
 bar(3.2); // works fine
 
-int i_bar(num n) { return n *2;}
+int i_bar(num n) {
+  return n *2;
+}
+
 ...
+
 i_bar(3.2); // fails in checked mode
             // because returned value is not an int
 {% endhighlight %}
@@ -383,10 +419,12 @@ checked mode won't get in your way.
 </p>
 
 {% highlight dart %}
-my_add(s1, s2) { return s1 + s2;}
+my_add(s1, s2) {
+  return s1 + s2;
+}
 
 my_add(3, 4); // 7
-my_add("3", "4"); // "34"
+my_add(new Point(3, 3), new Point(4, 4)); // Point(7, 7)
 {% endhighlight %}
 
 <p>
