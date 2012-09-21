@@ -224,4 +224,9 @@ footer {
   }
 }
 
+article .has-permalink {
+    padding-top: 40px;
+    margin-top: -40px;
+}
+
 @import "syntax";
