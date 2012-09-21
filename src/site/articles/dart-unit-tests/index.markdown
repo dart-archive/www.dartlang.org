@@ -47,7 +47,7 @@ library.
 For those who want to jump right to it, let's start with an example. Let's say we are writing a quicksort algorithm in Dart and want to test it. Open the Dart editor, create a new application "quicksort", then change the "quicksort.dart" file to look as follows
 (you will need to set the appropriate path in the import at the start to point to the unit test library for your environment):
 
-    #import('DART_SDK_PATH/pkg/unittest/unittest.dart');
+    #import('DART_SDK_PATH/pkg/unittest/unittest.dart');  // Use an appropriate path
 
     int _Partition(List array, int left, int right, int pivotIndex) {
       var pivotValue = array[pivotIndex];
@@ -180,17 +180,29 @@ After making that change and running the app again, we see happiness:
 
 We can easily run this from the command line using the
 [standalone Dart virtual machine](http://www.dartlang.org/docs/standalone-dart-vm/).
-If you want to test the exit code from the standalone VM, add this import (with the appropriate path):
+If you want to test the exit code from the standalone VM, add this import:
 
-    #import('dart/lib/unittest/vm_config.dart');
+    #import('DART_SDK_PATH/pkg/unittest/vm_config.dart');  // Use an appropriate path
 
 and add a line before the tests:
 
     useVmConfiguration();
 
-This will result in a zero exit code if all tests pass or a 1 exit code upon test failure. See Configuring the Test Environment later for more details. You can run the test with the command:
+This will result in a zero exit code if all tests pass or a 1 exit code upon test failure. 
+See [Configuring the test environment](#configuring-the-test-environment) later for more details. 
+You can run the test with the command:
 
     dart Quicksort.dart
+
+If you prefer the DartEditor environment add this import:
+
+    #import('DART_SDK_PATH/pkg/unittest/html_config.dart');  // Use an appropriate path
+
+and add a line before the tests:
+
+    useHtmlConfiguration();
+
+Test results will be displayed in the Dartium window and exit codes are shown in the DartEditor Debugger tab.
 
 The rest of this article dives deeper into the unit test library.
 
@@ -200,7 +212,7 @@ Tests are created using the top level function `test()`. This function takes a n
 
 Here is a trivial example to illustrate the syntax of `test()`:
 
-    #import('dart/lib/unittest/unittest.dart'); // Use an appropriate path
+    #import('DART_SDK_PATH/pkg/unittest/unittest.dart');  // Use an appropriate path
     main() {
      test('An empty test', () {
        // a test with expectations and matchers
