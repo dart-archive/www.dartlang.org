@@ -77,7 +77,7 @@ libraries-and-apis:
     url: /articles/json-web-service/
     authors:
     - Chris Buckett
-    date: April 2012
+    date: April 2012 (updated September 2012)
     desc: Connect your client-side Dart web app to a JSON web service.
   -
     title: An Introduction to the dart:io Library
