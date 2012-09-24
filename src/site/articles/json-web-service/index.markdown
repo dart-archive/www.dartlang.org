@@ -158,11 +158,11 @@ print(data.targets[0]);
 print(data.website.homepage); 
 {% endhighlight %}
 
-Fortunately, the ability to write code using this “dot notation” is built into Dart, through its support of classes and interfaces.  The solution, then, is to combine the flexibility of a Map with the structure of an interface.
+Fortunately, the ability to write code using this “dot notation” is built into Dart, through its support of classes. The solution, then, is to combine the flexibility of a Map with the structure of a class.
 
 <h3 id="jsonobject">Introducing JsonObject</h3>
 
-This flexibility of JSON and Maps combined with the structure of an interface is made possible with JsonObject, which is a third-party open source library.  JsonObject uses JSON.parse() to extract the JSON data into a map, and then it uses the noSuchMethod feature of Dart classes to provide a way to access values in the parsed map by using dot notation.
+This flexibility of JSON and Maps combined with the structure of classes is made possible with JsonObject, which is a third-party open source library. JsonObject uses JSON.parse() to extract the JSON data into a map, and then it uses the noSuchMethod feature of Dart classes to provide a way to access values in the parsed map by using dot notation.
 
 To learn more about JsonObject and download its code, go to the [project on GitHub](https://github.com/chrisbu/dartwatch-JsonObject).
 
@@ -183,57 +183,31 @@ onSuccess(HttpRequest req) {
 };
 {% endhighlight %}
 
-A slight issue remains. Dart Editor displays warnings with this code, because JsonObject doesn't have methods such as language or targets. You could suppress the warnings by using the dynamic var type, but then you don't get code completion and more useful warnings.
-
-<figure>
-<img src="dart-editor-with-warnings.png" alt="Dart Editor screenshot with static warnings" width="613" height="475">
-<figcaption>The Dart Editor reports static warnings.</figcaption>
-</figure>
-
-To get around this issue and provide strong type checking, you can combine the JsonObject with interfaces. You know the structure of the data that you are expecting JSON data to look like, so you can define a set of interfaces to match that structure.
+You can also use this in your own classes. By extending JsonObject, and providing a suitable constructor, you can increase the readability of your code, and allow your classes to convert back and forth between a JSON string and JsonObjects internal map structure.
 
 {% highlight dart %}
-interface LanguageWebsite extends JsonObject { 
-  String homepage;
-  String api;
+class Language extends JsonObject {
+  Language.fromJsonString(jsonString) : super.fromJsonString(jsonString);
 }
 
-interface Language extends JsonObject {
-  String language;
-  List<String> targets;
-  LanguageWebsite website;
-}
+onSuccess(HttpRequest req) {
+  // decode the JSON response text using JsonObject
+  Language data = new Language.fromJsonString(req.responseText);
+
+  // dot notation property access    
+  print(data.language);         // Get a simple value
+  data.language = "Dart";       // Set a simple value
+  print(data.targets[0]);       // Get a value in a list
+  print(data.website.homepage); // Get a value from a child object
+};
 {% endhighlight %}
 
-It is interesting to note that the interfaces extend the JsonObject class. One of the surprising features of Dart is that classes (such as JsonObject) are also interfaces. You might hear this feature referred to as "implicit interfaces for classes."
 
-The combination of JsonObject and domain-specific interfaces allows you to use static types for your JSON data, as in the following example:
-
-{% highlight dart %}
-// assign a new JsonObject instance to a variable of type Language
-Language data = new JsonObject.fromJsonString(req.responseText);  
-
-// tools can now validate the property access
-print(data.language);
-print(data.targets[0]);
-
-// nested types are also strongly typed
-LanguageWebsite website = data.website; // contains a JsonObject
-website.homepage = "http://www.dartlang.org";
-{% endhighlight %}
-
-Type checking now validates this code correctly, with no warnings in Dart Editor.
-
-<figure>
-<img src="dart-editor-no-warnings.png" alt="Dart Editor screenshot without static warnings" width="613" height="475">
-<figcaption>The Dart Editor is free of static warnings.</figcaption>
-</figure>
-
-JsonObject also allows you to create new, empty objects based on your interface, without first converting from a JSON string, by using the default constructor:
+JsonObject also allows you to create new, empty objects, without first converting from a JSON string, by using the default constructor:
 
 {% highlight dart %}
   Language data = new JsonObject();
-  data.language = "Dart";
+  data.language = "Dart"; 
   data.website = new LanguageWebsite();
   data.website.homepage = "http://www.dartlang.org";
 {% endhighlight %}
@@ -282,5 +256,5 @@ This article showed how a client-side Dart application communicates with a JSON-
 
 <img src="chris-buckett.png" width="95" height="115" alt="Chris Buckett head shot" align="left" style="margin-right: 10px">
 
-Chris Buckett is a Technical Consultant for [Entity Group Ltd](http://www.entity.co.uk/), responsible for building and delivering enterprise client-server webapps, mostly with GWT, Java and .Net.  He runs the [dartwatch.com blog](http://dartwatch.com/), and is currently writing the book _Dart in Action_, which is available as an “Early Access” publication from Manning. Save 39% on the purchase of Dart in Action with Promotional code dart39 at [manning.com](http://goo.gl/7pVH7).
+Chris Buckett is a Technical Manager for [Entity Group Ltd](http://www.entity.co.uk/), responsible for building and delivering enterprise client-server webapps, mostly with GWT, Java and .Net.  He runs the [dartwatch.com blog](http://dartwatch.com/), and is currently writing the book _Dart in Action_, which is available at [manning.com](http://goo.gl/7pVH7).
 
