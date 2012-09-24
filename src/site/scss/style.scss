@@ -204,6 +204,11 @@ a.permalink {
   }
 }
 
+.spec-commentary {
+  color: blue;
+  font-style: italic;
+}
+
 footer {
   border-top: 1px solid #CECECE;
   background-color: #EFEFEF;
@@ -222,6 +227,8 @@ footer {
     padding-top: 30px;
     text-align: center;
   }
+
+
 }
 
 article .has-permalink {
@@ -230,3 +237,9 @@ article .has-permalink {
 }
 
 @import "syntax";
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}

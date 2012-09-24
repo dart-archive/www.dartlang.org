@@ -38,7 +38,7 @@ language-details:
     url: /articles/emulating-functions/
     authors:
     - Gilad Bracha
-    date: January 2012
+    date: January 2012 (updated September 2012)
     desc: Learn how you'll be able to create classes that can substitute for functions.
   -
     title: Optional Types in Dart
