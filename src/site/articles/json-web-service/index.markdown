@@ -94,7 +94,7 @@ onSuccess(HttpRequest req) {
 getLanguageData("dart", onSuccess);
 {% endhighlight %}
 
-Note: getTEMPNAME is a convenience constructor, and its name will change. The 
+Note: HttpRequest.get() is a convenience constructor, and its name will change. The 
 full HttpRequest API is still an option for HTTP GET, if you need more control 
 over the API.  
 
@@ -213,8 +213,8 @@ GitHub](https://github.com/chrisbu/dartwatch-JsonObject).
 JsonObject uses Dart's noSuchMethod method support, which enables objects to 
 intercept unknown method calls.  For example, if you invoke a getter such as 
 data.language, where data is a JsonObject, then behind the scenes 
-noSuchMethod("get:language",null) is called.  Likewise, when you try to set 
-a value on a JsonObject, noSuchMethod("set:language",["Dart"]) is called. 
+`noSuchMethod("get:language", null)` is called.  Likewise, when you try to set 
+a value on a JsonObject, `noSuchMethod("set:language", ["Dart"])` is called. 
 JsonObject intercepts the calls to noSuchMethod and accesses the underlying Map.
 
 Here is an example of using JsonObject instead of a raw Map:
@@ -351,5 +351,5 @@ Chris Buckett is a Technical Manager for
 delivering enterprise client-server webapps, mostly with GWT, Java and .Net.  
 He runs the [dartwatch.com blog](http://blog.dartwatch.com/), and is currently 
 writing the book _Dart in Action_, which is available 
-at [manning.com](http://goo.gl/7pVH7).
+at [manning.com](http://www.manning.com/buckett).
 
