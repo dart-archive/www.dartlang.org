@@ -10,7 +10,7 @@ has-permalinks: true
 # Using Dart with JSON Web Services
 
 _Written by Chris Buckett<br>
-April 2012 (updated September 2012)
+April 2012_
 
 Most client-side Dart apps need a way to communicate with a server, and sending 
 JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is 
@@ -323,7 +323,33 @@ an emerging technology known as
 older way is to use a workaround called JSONP, which makes use of JavaScript 
 callbacks.  To use [JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html), 
 you need to use window.postMessage to allow the JavaScript callbacks to 
-communicate with your Dart code.
+communicate with your Dart code.  The new Dart - JavaScript interop 
+libraries in the [js interop package](https://github.com/dart-lang/js-interop/) 
+are also suitable for JavaScript callbacks:
+
+{% highlight dart %}
+#import('dart:html');
+#import('package:js/js.dart', prefix: 'js');
+
+void main() {
+  js.scoped(() {
+    // create a top-level JavaScript function called myJsonpCallback
+    js.context.myJsonpCallback = new js.Callback.once( (jsonData) {
+      print(jsonData); // js.Proxy object containing the data
+                       // see js interop docs
+    });
+
+    // add a script tag for the api required
+    ScriptElement script = new Element.tag("script");
+    // add the callback function name to the URL
+    script.src = "http://example.com/some/api?callback=myJsonpCallback"; 
+    document.body.elements.addLast(script); // add the script to the DOM
+  });
+}
+{% endhighlight %}
+
+For more detailed information about JS Interop, see 
+the [js package docs](http://dart-lang.github.com/js-interop/docs/js.html).
 
 <h2 id="summary">Summary</h2>
 
