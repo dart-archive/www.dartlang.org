@@ -732,7 +732,7 @@ and pattern matching of strings.
 
 {% highlight dart %}
 // A regular expression for one or more digits.
-var numbers = const RegExp(@'\d+');
+var numbers = const RegExp(r'\d+');
 
 var allCharacters = "llamas live fifteen to twenty years";
 var someDigits = "llamas live 15 to 20 years";
@@ -751,7 +751,7 @@ The [Match](http://api.dartlang.org/dart_core/Match.html) interface
 provides access to a regular expression match.
 
 {% highlight dart %}
-var numbers = const RegExp(@'\d+');
+var numbers = const RegExp(r'\d+');
 var someDigits = "llamas live 15 to 20 years";
 
 // Check whether the reg exp has a match in a string.

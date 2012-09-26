@@ -636,6 +636,7 @@ we need a new way to mark a raw string.
 Before M1, a raw string looked like:
 
 {% highlight dart %}
+// Pre M1.
 var raw = @'This is a\nraw string';
 {% endhighlight %}
 
