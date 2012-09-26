@@ -52,6 +52,13 @@ libraries-and-apis:
   title: Libraries and APIs
   articles:
   -
+    title: Using JavaScript from Dart
+    url: /articles/js-dart-interop/
+    authors:
+    - Vijay Menon
+    date: September 2012
+    desc: Use both Dart and JavaScript in your web app.
+  -
     title: Mocking with Dart
     url: /articles/mocking-with-dart/
     authors:
