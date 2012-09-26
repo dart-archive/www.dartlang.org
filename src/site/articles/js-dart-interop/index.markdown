@@ -45,10 +45,12 @@ The library is implemented in the GitHub project
 ## Installing the library's package
 
 To install the library's package using [pub](#),
-put the following line in your app's pubspec.yaml file:
+put the following lines in your app's pubspec.yaml file:
 
 {% highlight yaml %}
-dependencies: js: { hosted: js }
+dependencies:
+  js:
+    hosted: js
 {% endhighlight %}
 
 Then use pub install:
