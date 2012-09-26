@@ -75,7 +75,7 @@ import 'package:js/js.dart' as js;
 
 ## Getting the top-level context
 
-To use dart.js, you
+To use the js library, you
 must get a proxy to the top-level JavaScript context of your app's page:
 
 {% highlight dart %}
