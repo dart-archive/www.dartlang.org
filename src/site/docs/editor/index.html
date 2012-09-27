@@ -14,25 +14,38 @@ js:
 
 {% include platform-specific-text/_noscript.html %}
 
-<h1>{{ page.title }}</h1>
+<div class="hero-unit">
+  <div class="row-fluid">
+    <div class="span6">
+      <h1>Dart Editor</h1>
+      <p>
+        Powerful. Lightweight. Open source.
+      </p>
+      <p>
+        {% include downloads/_dart-editor.html %}
+      </p>
+    </div>
+    <div class="span6">
+      <iframe width="300" height="169" src="http://www.youtube.com/embed/9PHMKzgrmxE" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
-<p>
-This page has detailed instructions for using Dart Editor,
-a lightweight, open-source editor.
-A few of the covered topics are
-<a href="#run-production-mode">enabling production mode</a>,
-<a href="#dart2js">compiling to JavaScript</a>, and
-<a href="#run-non-dartium">specifying a browser</a>.
-</p>
+<div class="row">
+  <div class="span4"><aside class="alert alert-info">
+    <b>New to Dart Editor?</b>
+    See <a href="getting-started/">Getting Started with Dart Editor</a>.
+  </aside></div>
 
-<p>
-See <a href="getting-started/">Getting Started with Dart Editor</a>
-if you've never used Dart Editor.
-If you run into a problem, see
-<a href="troubleshoot.html">Troubleshooting Dart Editor</a>.
-</p>
+  <div class="span4">{% include intellij-plugin.html %}</div>
 
-{% include intellij-plugin.html %}
+  <div class="span4">
+  <aside class="alert alert-info">
+    <b>Problems?</b> See
+    <a href="troubleshoot.html">Troubleshooting Dart Editor</a>.
+  </aside>
+  </div>
+</div>
 
 <h4> Contents </h4>
 
@@ -47,7 +60,6 @@ If you run into a problem, see
   <li> <a href="#dart2js">Compiling to JavaScript</a> </li>
   <li> <a href="#more">Other features</a> </li>
 </ol>
-
 
 <section id="download">
 <h2>Getting Dart Editor</h2>
