@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Unit Testing with Dart"
 rel:
   author: graham-wheeler
