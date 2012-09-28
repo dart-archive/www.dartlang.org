@@ -13,31 +13,44 @@ js:
 
 {% include platform-specific-text/_noscript.html %}
 
-<h1> {{ page.title }} </h1>
+<div class="hero-unit">
+  <div class="row-fluid">
+    <div class="span6">
+      <h1>Getting Started With Dart Editor</h1>
+      <p>
+        Powerful. Lightweight. Open source.
+      </p>
+      <p>
+        {% include downloads/_dart-editor.html %}
+      </p>
+    </div>
+    <div class="span6">
+      <iframe width="300" height="169" src="http://www.youtube.com/embed/9PHMKzgrmxE" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
-<section>
+<div class="row">
+  <div class="span4"><aside class="alert alert-info">
+    <b>Familiar with Dart Editor?</b>
+    See <a href="/docs/editor/">Dart Editor documentation</a>.
+  </aside></div>
+
+  <div class="span4">{% include intellij-plugin.html %}</div>
+
+  <div class="span4">
+  <aside class="alert alert-info">
+    <b>Problems?</b> See
+    <a href="troubleshoot.html">Troubleshooting Dart Editor</a>.
+  </aside>
+  </div>
+</div>
 
 <p>
 Follow this tutorial to install and use Dart Editor on
 {% include os-choices.html %}
 </p>
 
-<p>
-Dart Editor is a lightweight, open-source editor for Dart code.
-You can use it to edit and run Dart apps,
-as well as to invoke the Dart-to-JavaScript compiler.
-For more information about what Dart Editor can do,
-see the <a href="/docs/editor/">Dart Editor homepage</a>.
-If you run into a problem, see
-<a href="/docs/editor/troubleshoot.html">Troubleshooting Dart Editor</a>.
-</p>
-
-{% include intellij-plugin.html %}
-
-</section>
-
-
-<section>
 <h4> Contents </h4>
 <ul>
   <li> <a href="#download">Step 1: Download and install the software</a> </li>
@@ -50,10 +63,8 @@ If you run into a problem, see
       <li> <a href="#feedback">Send feedback!</a> </li>
     </ul></li>
 </ul>
-</section>
 
-<section id="download">
-<h2> Step 1: Download and install the software </h2>
+<h2 id="download"> Step 1: Download and install the software </h2>
 
 <p>
 In this step, you'll install Dart Editor
@@ -119,10 +130,7 @@ and, if necessary, a Java runtime environment.
     </ul>
 </ol>
 
-</section>
-
-<section id="launch">
-<h2> Step 2: Launch the editor </h2>
+<h2 id="launch"> Step 2: Launch the editor </h2>
 
 <p>
 Go to your Dart installation directory,
@@ -149,11 +157,8 @@ with a Welcome page that looks something like this:
   <a href="/docs/editor/troubleshoot.html#launch-dart-editor">Launching Dart Editor</a> in the
   Troubleshooting page.
 </p>
-</section>
 
-
-<section id="code">
-<h2> Step 3: Create and run an app </h2>
+<h2 id="code"> Step 3: Create and run an app </h2>
 
 <p>
 It's easy to create a simple web or command-line app from scratch.
@@ -222,8 +227,7 @@ This step walks you through creating a command-line app.
 
 </ol>
 
-<section id="sample">
-<h2>Step 4: Open and run a sample</h2>
+<h2 id="sample">Step 4: Open and run a sample</h2>
 
 <p>
 The Dart Editor bundle comes with several samples.
@@ -300,8 +304,6 @@ In this step, you'll open a sample web app and run it in Dartium.
   Troubleshooting page.
 </p>
 
-</section>
-<section>
 <h2 id="next">What next?</h2>
 
 <p>
@@ -333,4 +335,3 @@ Or you can just <a href="http://code.google.com/p/dart/issues/entry?template=Def
 a new Dart Editor issue.</a>
 </p>
 
-</section>

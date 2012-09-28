@@ -558,7 +558,7 @@ So this program prints <code>I\still\like\cheese</code>:
 
 {% highlight dart %}
 main() {
-  print("I.still.like.cheese".replaceAll('.', @'\'));
+  print("I.still.like.cheese".replaceAll('.', r'\'));
 }
 {% endhighlight %}
 <br>

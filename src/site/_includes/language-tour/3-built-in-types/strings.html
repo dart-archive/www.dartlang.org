@@ -72,11 +72,11 @@ In a multi-line string, the initial newline is NOT ignored (in Dartboard)
 
 <p>
 You can create a "raw" string
-by prefixing it with @.
+by prefixing it with <code>r</code>.
 </p>
 
 {% highlight dart %}
-var s = @"In a raw string, even \n isn't special.";
+var s = r"In a raw string, even \n isn't special.";
 {% endhighlight %}
 
 <p>
@@ -86,8 +86,8 @@ thanks to concatenation:
 
 {% highlight dart %}
 var x = 123;
-var s = @'$x' '$x' @'$x';
-assert(s == @'$x123$x'); // The string has these characters: $x123$x
+var s = r'$x' '$x' r'$x';
+assert(s == r'$x123$x'); // The string has these characters: $x123$x
 {% endhighlight %}
 
 
