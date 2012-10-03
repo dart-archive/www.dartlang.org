@@ -1,16 +1,17 @@
 ---
 layout: default
 title: "Dartboard"
-description: "Learn how to build great web apps using Dart."
+description: "Learn how to build great Web apps using Dart."
 tutorial:
   id: tut-home
 ---
 
 {% capture whats_the_point %}
 
-* Learn to write web apps in Dart.
-* No web experience required.
-* Dart brings structure to web app engineering.
+* Dart is open-source.
+* Dart is a complete Web programming platform.
+* Dart brings structure to Web app engineering.
+* Learn Dart here: No Web experience required.
 
 {% endcapture %}
 
@@ -19,42 +20,75 @@ tutorial:
 # {{ page.title }}
 
 Welcome to **Dartboard**,
-your guide to building great web apps using Dart.
+your guide to building great Web apps using Dart.
 
 Dartboard is a collection of tutorials, _Targets_, that
 will teach you:
+
 * the Dart programming language,
   an object-oriented structured language
   with lexical scoping, closures and optional static typing
-* Dart Editor, a light-weight open source editor with
+* Dart Editor, a light-weight, open source editor with
   code completion and debugging tools
 * Dart APIs, a collection of classes that provide core
-  and web programming capabilities
+  and Web programming capabilities
+* Web components, [XX: get a nice description of these here]
 * and the Dart SDK, which contains the stand-alone virtual machine,
   a package manager, and Chromium with an embedded Dart VM
 
-You can follow the tutorials in order,
+Dartboard is designed so that you can follow the Targets in order,
 building your knowledge of Dart from the ground up,
-or you can choose the 
+or you can customize your learning experience by
+choosing just the Targets you need.
 
+If you are new to Web programming, you're in luck.
+After you download the Dart software,
+you will begin with a very tiny Dart Web app.
+Through this example, you will learn basic concepts
+about Dart, its libraries and tools, HTML5,
+and the Document Object Model (DOM).
+DOM is the programming interface used by browsers
+to represent and manipulate elements on a browser page.
+Understanding the DOM is key to Web programming.
 
-This guide assumes that you know how to write programs in a
-structured language such as C++ or Java.
-If you are new to web programming, you're in luck.
-This tutorial starts at the beginning,
-explaining everything you need to know to write
-an app that can run on the web or on mobile devices.
+Target 1: Get Dart
+: To get started, go to the
+[Downloads and Source](/downloads.html)
+page and download the Dart software for your system.
+Be sure to download the package under **Everything you need**
+because you will be using Dart Editor
+throughout this tutorial.
 
-Go through the following trails in order,
-or read only the sections you need.
+[XX later perhaps cover the download process,
+what tools and libraries come with the Dart software,
+and running the two default apps.]
+
+[Target 2: Write a Mini Web App](mini-web-app/index.html)
+: In this Target, you will use Dart Editor to create
+a stripped-down Web application to
+learn about Dart applications,
+core concepts of Web programming,
+Dart language fundamentals,
+and basic Dart Editor capabilities.
+
+...stay tuned for more...
+
+{% comment %}
+[Set Up Your Dart Installation](dart-software.html)
+: In this section, you will download the Dart software
+and learn about the software and tools that it contains.
 
 <a href="why-dart.html">Why Dart?</a>
-explains the goals and philosophies of the Dart project
+is a little bit of propaganda.
+It explains the goals and philosophies of the Dart project
 and how it can help you be more productive.
+[XX: I stole the content from the front page.
+Should I also steal the front section from Up and Running, too?]
 
 <a href="getting-started/index.html">Getting Started</a>
-steps you through downloading the software
-and running a couple of apps.
+steps you through downloading and installing the software.
+In addition, you will use Dart Editor
+to create and run a stripped-down, bare bones Web app.
 
 [XX: There are no pages from here down]
 
@@ -64,7 +98,7 @@ Here you will learn about the DOM (Document Object Model)
 and how to use its objects to manipulate the elements on a page.
 
 <a href="dart-icore-apis/index.html">The `dart.core` Library</a>
-contains classes for basic functionality such as
+contains classes for basic capability such as
 strings, numbers, Math and more.
 
 <a href="dart-html-apis/index.html">The `dart.html` Library</a>
@@ -74,7 +108,7 @@ describes the classes that correspond to objects in the DOM.
 teaches you the syntax of the Dart language,
 including some of its "syntactic sugar".
 
-...stay tuned for more...
+{% endcomment %}
 
 {% endcapture %}
 

@@ -6,11 +6,11 @@ tutorial:
   id: gs-cmd-line
 ---
 
-
 {% capture whats_the_point %}
 
 * All Dart apps have a main function.
-* ...factoid...
+* The Dart VM runs on the command-line.
+* Dart Editor can run command-line apps.
   
 {% endcapture %}
 
@@ -31,29 +31,29 @@ Alternatively, choose **File > New Application**
 from the Dart Editor menu.
 A dialog appears.
 
-Type `HelloWorld` in the **Application Name** text box.
+Type `helloworld` in the **Application Name** text box.
 A command-line application does not need
-the extra files required by a web app,
-so unselect **Generate content for a basic web app**.
+the extra files required by a Web app,
+so unselect **Generate content for a basic Web app**.
 Click **Finish**.
 
 ![New Application Dialog](images/new-hello-world-app.png)
 
 Dart Editor creates a
-a file named HelloWorld.dart,
+a file named helloworld.dart,
 which contains the Dart source code
 for the canonical Hello World program.
-Dart Editor puts HelloWorld.dart in a
-folder named HelloWorld.
+Dart Editor puts helloworld.dart in a
+folder named helloworld.
 
-We recommend that you follow these naming conventions.
-That is,
-each application should be contained in its own folder
-whose name provides the application name.
-In addition, the file containing the `main` function
-should be named application-name.dart.
+By convention:
 
-![Dart Editor with HelloWorld](images/darteditor-hello-world.png)
+* filenames are lower-case
+* an application is contained in its own folder
+  whose name provides the application name
+* the `main` function is contained in the main file of the app
+
+![Dart Editor with Hello World](images/darteditor-hello-world.png)
 
 The panel to the left is called the _Files view_.
 Here you can manage your folders and files.
@@ -81,16 +81,15 @@ are automatically avialable to all Dart applications.
 
 [XX: bring up command-line args here? or return values? ]
 
-## Run HelloWorld
+## Run Hello World
 
 You can use Dart Editor to run your command-line applications.
-Make sure either the HelloWorld folder or the HelloWorld.dart
-is selected, then click the green run button
-![Dart Editor's run button](images/run.png).
+Make sure either the helloworld folder or the helloworld.dart
+is selected, then click the green run button.
 
 Dart Editor opens a panel at the bottom of its window,
 called the _Output view_ and displays
-the output of the HelloWorld app.
+the output of the Hello World app.
 
 ![Hello World output](images/hello-world-output.png)
 
@@ -101,7 +100,7 @@ variable, you can run the Dart VM as follows:
 
 {% highlight dart %}
 
-% dart HelloWorld.dart
+% dart helloworld.dart
 Hello, World!
 %
 

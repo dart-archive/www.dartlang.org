@@ -6,7 +6,6 @@ tutorial:
   id: gs-download
 ---
 
-
 {% capture whats_the_point %}
 
 * Dart Editor helps you with file management and debugging.

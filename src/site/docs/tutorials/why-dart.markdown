@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Why Dart?
-description: Dart helps you build web apps from R&D through production.
+description: Dart helps you build Web apps
+ from the experimental phase through production.
 tutorial:
   id: why-dart
 ---
@@ -18,11 +19,14 @@ tutorial:
 
 # {{ page.title }}
 
+[XX This is stolen from the front page of the web-site
+what else should go here?]
+
 ## Dart is familiar
 Dart is a class-based,
 object-oriented language with lexical scoping,
 closures, and optional static typing.
-Dart helps you build structured modern web apps
+Dart helps you build structured modern Web apps
 and is easy to learn for a wide range of developers.
 
 ## Dart makes you more productive
@@ -33,9 +37,9 @@ code completion, code navigation, and more.
 The SDK contains the stand-alone virtual machine,
 a package manager, and Chromium with an embedded Dart VM.
 
-## Dart web apps run in all modern browsers.
+## Dart Web apps run in all modern browsers.
 Dart can be compiled to JavaScript,
-so you can use it for web apps in all modern desktop and mobile browsers.
+so you can use it for Web apps in all modern desktop and mobile browsers.
 Our JavaScript compiler generates minimal code
 thanks to tree-shaking.
 Dart apps can also run on the server,
