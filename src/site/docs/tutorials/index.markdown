@@ -52,18 +52,30 @@ to represent and manipulate elements on a browser page.
 Understanding the DOM is key to Web programming.
 
 Target 1: Get Dart
-: To get started, go to the
+: [XX: FOR NOW... later will/may provide
+instructions here] To get started, go to the
 [Downloads and Source](/downloads.html)
 page and download the Dart software for your system.
 Be sure to download the package under **Everything you need**
 because you will be using Dart Editor
 throughout this tutorial.
 
-[XX later perhaps cover the download process,
+{% comment %}
+[Target 1: Getting Started](getting-started/index.html)
+: [XX FOR LATER...THIS IS now completely broken.
+It will cover the download process,
 what tools and libraries come with the Dart software,
 and running the two default apps.]
+[XX much of what's in here is repetitive to
+stuff that's already out there
+and to stuff in Target 2.
+download, run cmd-line, run Web app.
+Adds a little value with definition of terms
+and some hand-holding.
+Should I include this and keep working on it? Or should I chuck it?
+ {% endcomment %}
 
-[Target 2: Write a Mini Web App](mini-web-app/index.html)
+[Target 2: Build a Mini Web App](mini-web-app/index.html)
 : In this Target, you will use Dart Editor to create
 a stripped-down Web application to
 learn about Dart applications,
