@@ -6,8 +6,17 @@
   font-size:8pt;
 }
 
-.whats_the_point {
-  list-style-type:none;
-  line-height:100%;
-  font-size:8pt;
+#whats-the-point {
+  list-style: none;
+
+  li {
+    line-height: 14px;
+  }
+
+  h2 {
+  }
+
+  background-color: $green-light;
+
+
 }
