@@ -3,7 +3,7 @@ layout: default
 title: "Dart Web Components"
 rel:
   author: siggi-cherem
-description: "A brief introduction to Dart web components."
+description: "Use web components today with Dart. This brief introduction shows you how to use the features of tomorrow, today."
 has-permalinks: true
 ---
 
@@ -44,7 +44,7 @@ help you write web applications at scale. An early version is available in the
 [dart-web-components project][dwc].
 
 Many UI frameworks exist for writing web apps in JavaScript&mdash;for example
-[backbone], [ember.js][ember], and [angularjs][angular].  Recently, the web
+[Backbone.js][backbone], [Ember.js][ember], and [AngularJS][angular].  Recently, the web
 community has been pushing to include some of the common ideas of these
 frameworks directly into the browser platform.  As a result, browsers have added
 features like [shadow DOM][sd] and [web components][wc], and other experimental
@@ -59,23 +59,24 @@ and use Dart web components. We plan to publish additional documents soon,
 including a detailed specification and instructions for using the Dart web
 component tools.
 
-#### Table of contents
+#### Contents
 
-  * [MDV templates in Dart](#templates)
-    * [One-way data binding](#one-way-binding)
-    * [Two-way data binding](#two-way-binding)
-    * [Conditionals](#conditionals)
-    * [Loops](#loops)
-    * [Event listeners](#events)
-    * [Summary of templates](#template-summary)
-  * [Web components in Dart](#components)
-    * [Declaring a component](#component-declaration)
-    * [Instantiating a component](#component-instantiation)
-    * [Passing data to a component](#pass-data-to-component)
-    * [Importing a component](#import-components)
-  * [Upcoming features](#next-steps)
-  * [Tools for using Dart web components](#tools)
-  * [More information](#more-info)
+1. [MDV templates in Dart](#templates)
+    1. [One-way data binding](#one-way-binding)
+    1. [Two-way data binding](#two-way-binding)
+    1. [Conditionals](#conditionals)
+    1. [Loops](#loops)
+    1. [Event listeners](#events)
+    1. [Summary of templates](#template-summary)
+1. [Web components in Dart](#components)
+    1. [Declaring a component](#component-declaration)
+    1. [Instantiating a component](#component-instantiation)
+    1. [Passing data to a component](#pass-data-to-component)
+    1. [Importing a component](#import-components)
+1. [Upcoming features](#next-steps)
+1. [Tools for using Dart web components](#tools)
+1. [More information](#more-info)
+{:.toc}
 
 ## MDV templates in Dart {#templates}
 
@@ -116,18 +117,19 @@ column shows the app generated from this code running in an iframe.
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/helloworld.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/helloworld.html.html %}
+{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_helloworld.html.html %}
 {% endcodesample %}
 
-The template expression we just saw above is what we call a **one-way data
-binding**. Like in many other UI libraries and frameworks, we automatically
-watch for changes in your data and ensure the UI is up-to-date whenever the data
-changes.
+The template expression above is a **one-way data
+binding**. It sets up automatic monitoring of the data,
+and ensures that the UI stays up-to-date when the data's value changes.
 
-Dart web components do this by using the [watcher.dart][watcher] library
-(included with the Dart web components package). You can listen for changes and
-notify everyone when changes might occur. The following example illustrates how
-you would manually use this library:
+Dart web components implement this monitoring
+by using the [watcher.dart][watcher] library
+(included with the Dart web components package).
+You can directly invoke this library if necessary.
+For example, the following code invokes [watchers.dispatch()][watcher.dispatch]
+to make a change visible to the UI. 
 
 {% codesample 90 %}
 {% highlight html %}
@@ -150,21 +152,20 @@ you would manually use this library:
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/counter.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/counter.html.html %}
+{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_counter.html.html %}
 {% endcodesample %}
 
-The code manually invokes [watchers.dispatch()][watcher.dispatch] to make a
-change visible to the UI. Every now and then it is useful to access watchers
-directly, but we have found that we often don't have to manually write these
-calls. In particular, Dart web components will automatically make the dispatch
-call when using common features like two-way binding and attaching event
+Although every now and then it's useful to access watchers
+directly, we don't usually have to manually write these
+calls. In particular, Dart web components automatically make the dispatch
+call when using common features such as two-way binding and attaching event
 listeners.
 
 ### Two-way data binding {#two-way-binding}
 
 Two-way data binding lets us define that we want a DOM element's value
 (typically an input box or a check box) to be kept in sync with the value of a
-Dart variable. The following example creates a two way binding between `str` and
+Dart variable. The following example creates a two-way binding between `str` and
 `input.value`. We declare this binding by writing the attribute
 `data-bind="value:str"`.
 
@@ -186,7 +187,7 @@ Dart variable. The following example creates a two way binding between `str` and
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/twoway.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/twoway.html.html %}
+{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_twoway.html.html %}
 {% endcodesample %}
 
 This is a simple example where Dart web components automatically dispatch
@@ -199,12 +200,12 @@ UI.
 <strong>A note about expressions:</strong>
 
 <p>We want to make Dart web components have, to a great extent, feature and design
-parity with MDV. For this reason, we try to match the same syntax of their
+parity with MDV. For this reason, we try to match the syntax of the MDV
 template language. MDV restricts data-binding expressions to an expression
 language containing variables, field dereferences, and array accesses. This
-means that expressions in MDV templates would likely be valid Dart and valid
-JavaScript as well. That also means that advanced Dart expressions are not valid
-within <code>{{'{{'}}expression}}</code>, however you can always hide complex expressions
+means that expressions in MDV templates are likely to be valid Dart and valid
+JavaScript as well. It also means that advanced Dart expressions are not valid
+within <code>{{'{{'}}expression}}</code>. However, you can always hide complex expressions
 under a getter in Dart and use the getter property within the template.</p>
 
 <p>A full specification of the expression syntax will be available soon. </p>
@@ -215,10 +216,10 @@ under a getter in Dart and use the getter property within the template.</p>
 
 ### Conditionals {#conditionals}
 
-Template conditionals allow you to selectively activate parts of the UI. We
-write a conditional by wrapping a portion of the UI in a `<template>` tag and
-writing the condition in an attribute of the form `instantiate="if expr"`.  For
-instance, the following example only shows `They match!` when both input boxes
+Template conditionals allow you to selectively activate parts of the UI. Write
+a conditional by wrapping a portion of the UI in a `<template>` tag and putting
+the condition in an attribute that has the form `instantiate="if expr"`.  For
+instance, the following example shows `They match!` only when both input boxes
 have the same text:
 
 {% codesample 90 %}
@@ -241,17 +242,17 @@ have the same text:
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/matchstrings.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/matchstrings.html.html %}
+{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_matchstrings.html.html %}
 {% endcodesample %}
 
 ### Loops {#loops}
 
-Template loops allow us to iterate over iterable Dart collections.  To create a
-loop that operates on each item in a Dart collection, use the `iterate`
+Template loops allow iteration over Iterable Dart objects, such as Collections.
+To create a loop that operates on each item in an Iterable object, use the `iterate`
 attribute in a `<template>` tag.  The following example shows a fun little app
-that has search as you type. We use the two-way data binding to store the
-`query` string, then we compute a filtered set of results and display it using a
-looping construct.
+that has search as you type. It uses two-way data binding to store the
+`query` string, and then computes a filtered set of results, which it displays
+using a looping construct.
 
 {% codesample 90 %}
 {% highlight html %}
@@ -272,17 +273,19 @@ looping construct.
   </div>
   <script type="application/dart">
     String query = '';
-    List<String> values = const [ 'Apple', 'Apricot', 'Avocado', 'Banana',
-        'Blackberry', 'Blackcurrant', 'Blueberry', 'Currant', 'Cherry',
-        'Clementine', 'Date', 'Durian', 'Fig', 'Gooseberry', 'Grape',
-        'Grapefruit', 'Guava', 'Huckleberry', 'Kiwi', 'Lemon', 'Lime',
-        'Lychee', 'Mandarine', 'Mango', 'Cantaloupe', 'Honeydew melon',
-        'Nectarine', 'Orange', 'Peach', 'Pear', 'Plum', 'Pineapple',
-        'Pomegranate', 'Raspberry', 'Redcurrant', 'Star fruit', 'Strawberry',
-        'Tangerine', 'Tomato', 'Watermelon'];
+    List<String> fruits = const [ 'Apple', 'Apricot', 'Avocado',
+        'Banana', 'Blackberry', 'Blackcurrant', 'Blueberry',
+        'Currant', 'Cherry', 'Clementine', 'Date', 'Durian',
+        'Fig', 'Gooseberry', 'Grape', 'Grapefruit', 'Guava',
+        'Huckleberry', 'Kiwi', 'Lemon', 'Lime', 'Lychee',
+        'Mandarine', 'Mango', 'Cantaloupe', 'Honeydew melon',
+        'Nectarine', 'Orange', 'Peach', 'Pear', 'Plum',
+        'Pineapple', 'Pomegranate', 'Raspberry', 'Redcurrant',
+        'Star fruit', 'Strawberry', 'Tangerine', 'Tomato',
+        'Watermelon'];
 
     List<String> get results {
-      var res = values.filter(
+      var res = fruits.filter(
           (v) => v.toLowerCase().contains(query.toLowerCase()));
       if (res.length > 20) { 
         res.length = 20;
@@ -299,14 +302,14 @@ looping construct.
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/fruitsearch.html %}
-{% sample 300px 600px http://dart-lang.github.com/dart-web-components/example/explainer/fruitsearch.html.html %}
+{% sample 300px 600px http://dart-lang.github.com/dart-web-components/example/explainer/_fruitsearch.html.html %}
 {% endcodesample %}
 
 
-### Event listenters {#events}
+### Event listeners {#events}
 
-Templates also gives us a succinct way to listen for arbitrary UI events and
-associate those events with Dart code. We do this by using `data-action`
+Templates provide a succinct way to listen for arbitrary UI events and
+associate those events with Dart code: `data-action`
 attributes. Here is an example that listens for click events:
 
 {% codesample 90 %}
@@ -326,18 +329,18 @@ attributes. Here is an example that listens for click events:
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/clickcount.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/clickcount.html.html %}
+{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_clickcount.html.html %}
 {% endcodesample %}
 
 
-### Summary of templats {#template-summary}
+### Summary of templates {#template-summary}
 
 Templates solve one part of the problem in building web applications: reducing
-the amount of boilerplate code that is used to set up a typical
+the amount of boilerplate code needed to set up a typical
 model-view-viewmodel architecture. One-way data binding, two-way data binding,
 and data-action listeners help reduce the need for manually creating controller
-objects that do these bindings by hand. If we combine bindings, conditionals,
-and loops, we have a formula to create simple and sophisticated views in a
+objects that do these bindings by hand. By combining bindings, conditionals,
+and loops, you can create simple and sophisticated views in a
 declarative fashion.
 
 However, templating alone is not enough. We need mechanisms to encapsulate and
@@ -346,9 +349,9 @@ web components.
 
 ## Web components in Dart {#components}
 
-Web components provide a way to create encapsulated reusable views, which will
-be useful to build medium and large applications. A web component basically
-includes a view, some data, and behavior. In our case, views are described in
+Web components provide a way to create encapsulated reusable views, which are
+useful for building medium and large applications. A web component includes a
+view, some data, and behavior. With Dart web components, views are described in
 terms of templates, while data and behavior are written directly in Dart.
 
 ### Declaring a component {#component-declaration}
@@ -380,26 +383,32 @@ take the click-count example above and make it a component as follows:
 {% endraw %}
 {% endhighlight %}
 
-The `<element>` tag defines a component whose visual apperance is declared under
+The `<element>` tag defines a component whose visual appearance is declared under
 the child `<template>` tag, and whose behavior code is embedded or sourced by
 the child `<script>` tag.
 
-Components can be thought as if they are extending HTML elements, their
-declaration indicates which element they extend from using the `extends`
-attribute.  The attribute `constructor="CounterComponent"` indicates that this
-component's behavior is defined in the `CounterComponent` class. Today, this
-class must extend from `WebComponent`, but in the future it will be possible to
-extend directly from the HTML element that we declared in the `extends`
-attribute. For instance, `class CounterComponent extends DivElement ...`.
+Components can be thought of as extending HTML elements. The `extends`
+attribute of `<element>` indicates which HTML element the component extends
+(for example, "div").
+The `constructor` attribute indicates the class
+that defines this component's behavior
+(for example, "CounterComponent"). Today, this
+class must be a subclass of `WebComponent`,
+but in the future it will be possible to
+use a subclass of the HTML element declared in the `extends`
+attribute. In the preceding example, that would mean
+`class CounterComponent extends DivElement ...`.
 
-The `<element>` tag also declares the component's name with the `name`
-attribute. This name will be used to instantiate this component later on.
+The `<element>` tag declares the component's name with the `name`
+attribute. Later, this name is used to instantiate the component.
 
 ### Instantiating a component {#component-instantiation}
 
-Instantiating a component can be done in two ways: using its name as a tag, e.g.
-`<x-click-counter></x-click-counter>` or using setting the `is` attribute on the
-tag that the component extends from. For example,
+Instantiating a component can be done in two ways: by using its name as a tag
+(for example, `<x-click-counter></x-click-counter>`)
+or by setting the `is` attribute on the
+tag that the component extends from,
+as in the following example.
 
 {% codesample 90 %}
 {% highlight html %}
@@ -414,7 +423,7 @@ tag that the component extends from. For example,
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/countcomponent.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/countcomponent.html.html %}
+{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_countcomponent.html.html %}
 {% endcodesample %}
 
 
@@ -441,7 +450,7 @@ initializes the `count` field of the component to a different value each time.
 {% endraw %}
 {% endhighlight %}
 {% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/countcomponent5.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/countcomponent5.html.html %}
+{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_countcomponent5.html.html %}
 {% endcodesample %}
 
 ### Importing a component {#import-components}
@@ -454,7 +463,7 @@ application or even across several applications.
 Web components allows us to import other components using `<link
 rel="components">` tags. For example, suppose we created a file
 `clickcounter.html` that contains the declaration of the click-counter component
-as we had above. Then, our last example could be rewritten as follows:
+as we had above. Then the preceding example could be rewritten as follows:
 
 {% highlight html %}
 {% raw %}
@@ -503,28 +512,29 @@ some of the features we are working on:
 {% endraw %}
 {% endhighlight %}
 
-  * Alternative MDV conditional and listing constructs. Instead of using a
+  * Alternative MDV conditional and listing constructs. Instead of using
     `<template>` tags, you will be able to use `instantiate` and
-    `iterate` attributes directly on any element. This is important because in
-    some parts of the HTML is not valid to write `<template>` tags. For example,
+    `iterate` attributes directly on any element. This is important because
+    `<template>` tags aren't valid in all parts of the HTML. For example,
     this feature will make it possible to iterate on table rows and cells.
 
 ## Tools for using Dart web components {#tools}
 
-We are making several tools available to make it easy to create and deploy
-projects that use Dart web components. We have a compiler tool that can be run
+Several tools will help you create and deploy
+projects that use Dart web components. A compiler tool can be run
 offline to generate efficient code for your components. The generated code will
 try to use the native features available in browsers, but otherwise it will
 resort to other techniques to ensure that the semantics of Dart web components
 are the same everywhere.
 
-We have added integration with the Dart editor, so that changes to source files
-can be compiled automatically in the background. We are also developing an
-extension for Dartium that will be able to compile components on the fly as
-you load them. Both the editor and Dartium integration will provide you with a
-smooth edit/refresh cycle.
+Both Dartium and Dart Editor will have support for Dart web components,
+providing you with a smooth edit/refresh cycle.
+In Dart Editor, changes to HTML and Dart source files
+can be compiled automatically in the background.
+An extension for Dartium will compile components on the fly as
+you load them.
 
-More details about our tools will be available soon.
+More details about these tools will be available soon.
 
 ## More information {#more-info}
 
@@ -534,12 +544,13 @@ Check out our Dartisans episode on this topic:
 <iframe width="560" height="315" src="http://www.youtube.com/embed/zUdQkSwslzc" frameborder="0" allowfullscreen></iframe>
 
 You can also follow the project in [GitHub][dwc], track and file bugs in our
-[issue tracker][bugs], and play with other examples in our repo, such us our
+[issue tracker][bugs], and play with other examples in our repo, such as our
 port of [TodoMVC][todomvcindwc].
 
-If you have any questions, feel free to send us email directly at
-[misc@dartlang.org](mailto:misc@dartlang.org).
-
+If you have any questions, you can
+ask them at [Stack Overflow][so]
+or contact us on the [Dart discussion group][group]
+(misc AT dartlang.org).
 
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
 [wc]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html
@@ -552,3 +563,5 @@ If you have any questions, feel free to send us email directly at
 [todomvcindwc]: https://github.com/dart-lang/dart-web-components/tree/master/example/todomvc
 [watcher]: http://dart-lang.github.com/dart-web-components/docs/watcher.html
 [watcher.dispatch]: http://dart-lang.github.com/dart-web-components/docs/watcher.html#dispatch
+[group]: https://groups.google.com/a/dartlang.org/group/misc/topics
+[so]: http://stackoverflow.com/tags/dart
