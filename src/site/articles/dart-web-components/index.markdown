@@ -122,7 +122,7 @@ column shows the app generated from this code running in an iframe.
 {% endraw %}
 {% endhighlight %}
 {% source helloworld.html %}
-{% iframe 300px 200px `_helloworld.html.html` %}
+{% iframe 300px 200px _helloworld.html.html %}
 {% endcodesample %}
 
 The template expression above is a **one-way data
@@ -157,7 +157,7 @@ to make a change visible to the UI.
 {% endraw %}
 {% endhighlight %}
 {% source counter.html %}
-{% iframe 300px 200px `_counter.html.html` %}
+{% iframe 300px 200px _counter.html.html %}
 {% endcodesample %}
 
 Although every now and then it's useful to access watchers
@@ -192,7 +192,7 @@ Dart variable. The following example creates a two-way binding between `str` and
 {% endraw %}
 {% endhighlight %}
 {% source twoway.html %}
-{% iframe 300px 200px `_twoway.html.html` %}
+{% iframe 300px 200px _twoway.html.html %}
 {% endcodesample %}
 
 This is a simple example where Dart web components automatically dispatch
@@ -247,7 +247,7 @@ have the same text:
 {% endraw %}
 {% endhighlight %}
 {% source matchstrings.html %}
-{% iframe 300px 200px `_matchstrings.html.html` %}
+{% iframe 300px 200px _matchstrings.html.html %}
 {% endcodesample %}
 
 ### Loops {#loops}
@@ -307,7 +307,7 @@ using a looping construct.
 {% endraw %}
 {% endhighlight %}
 {% source fruitsearch.html %}
-{% iframe 300px 600px `_fruitsearch.html.html` %}
+{% iframe 300px 600px _fruitsearch.html.html %}
 {% endcodesample %}
 
 
@@ -334,7 +334,7 @@ attributes. Here is an example that listens for click events:
 {% endraw %}
 {% endhighlight %}
 {% source clickcount.html %}
-{% iframe 300px 200px `_clickcount.html.html` %}
+{% iframe 300px 200px _clickcount.html.html %}
 {% endcodesample %}
 
 
@@ -428,7 +428,7 @@ as in the following example.
 {% endraw %}
 {% endhighlight %}
 {% source countcomponent.html %}
-{% iframe 300px 200px `_countcomponent.html.html` %}
+{% iframe 300px 200px _countcomponent.html.html %}
 {% endcodesample %}
 
 
@@ -455,7 +455,7 @@ initializes the `count` field of the component to a different value each time.
 {% endraw %}
 {% endhighlight %}
 {% source countcomponent5.html %}
-{% iframe 300px 200px `_countcomponent5.html.html` %}
+{% iframe 300px 200px _countcomponent5.html.html %}
 {% endcodesample %}
 
 ### Importing a component {#import-components}
