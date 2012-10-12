@@ -52,6 +52,13 @@ libraries-and-apis:
   title: Libraries and APIs
   articles:
   -
+    title: Dart Web Components
+    url: /articles/dart-web-components/
+    authors:
+    - Siggi Cherem
+    date: October 2012
+    desc: Use Dart web components to write web applications at scale.
+  -
     title: Using JavaScript from Dart
     url: /articles/js-dart-interop/
     authors:
