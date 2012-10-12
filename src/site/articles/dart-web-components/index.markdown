@@ -6,16 +6,6 @@ rel:
 description: "Use web components today with Dart. This brief introduction shows you how to use the features of tomorrow, today."
 has-permalinks: true
 ---
-
-# {{ page.title }}
-_Written by Siggi Cherem<br />
-October 2012_
-
-{% codesampleSetup %}
-{% srcprefix https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/ %}
-{% iframeprefix http://dart-lang.github.com/dart-web-components/example/explainer/ %}
-{% endcodesampleSetup %}
-
 {% comment %}
 
 README --- General notes about editing this file:
@@ -44,6 +34,16 @@ that will contain the runnining version of the code sample.
 
 {% endcomment %}
 
+{% codesampleSetup %}
+{% srcprefix https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/ %}
+{% iframeprefix http://dart-lang.github.com/dart-web-components/example/explainer/ %}
+{% endcodesampleSetup %}
+
+# {{ page.title }}
+_Written by Siggi Cherem<br />
+October 2012_
+
+
 Dart web components provide templates, data binding, and encapsulation, to
 help you write web applications at scale. An early version is available in the
 [dart-web-components project][dwc].
@@ -59,10 +59,10 @@ Dart web components combine the ideas of web components and MDV, adapting them
 to work well with Dart.  Dart web components take advantage of advanced browser
 features when possible, emulating missing features when necessary.
 
-This article walks through some examples that illustrate how to write
-and use Dart web components. We plan to publish additional documents soon,
-including a detailed specification and instructions for using the Dart web
-component tools.
+This article walks through some examples that illustrate how to write and use
+Dart web components. We have a separate article with instructions for using the
+[Dart web component tools](tools.html), and we soon plan to publish an
+additional document with a detailed specification.
 
 #### Contents
 
@@ -539,7 +539,8 @@ can be compiled automatically in the background.
 An extension for Dartium will compile components on the fly as
 you load them.
 
-More details about these tools will be available soon.
+For more details about these tools, see [Tools for Dart Web
+Components](tools.html).
 
 ## More information {#more-info}
 
