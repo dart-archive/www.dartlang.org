@@ -11,6 +11,11 @@ has-permalinks: true
 _Written by Siggi Cherem<br />
 October 2012_
 
+{% codesampleSetup %}
+{% srcprefix https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/ %}
+{% iframeprefix http://dart-lang.github.com/dart-web-components/example/explainer/ %}
+{% endcodesampleSetup %}
+
 {% comment %}
 
 README --- General notes about editing this file:
@@ -116,8 +121,8 @@ column shows the app generated from this code running in an iframe.
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/helloworld.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_helloworld.html.html %}
+{% source helloworld.html %}
+{% iframe 300px 200px `_helloworld.html.html` %}
 {% endcodesample %}
 
 The template expression above is a **one-way data
@@ -151,8 +156,8 @@ to make a change visible to the UI.
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/counter.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_counter.html.html %}
+{% source counter.html %}
+{% iframe 300px 200px `_counter.html.html` %}
 {% endcodesample %}
 
 Although every now and then it's useful to access watchers
@@ -186,8 +191,8 @@ Dart variable. The following example creates a two-way binding between `str` and
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/twoway.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_twoway.html.html %}
+{% source twoway.html %}
+{% iframe 300px 200px `_twoway.html.html` %}
 {% endcodesample %}
 
 This is a simple example where Dart web components automatically dispatch
@@ -241,8 +246,8 @@ have the same text:
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/matchstrings.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_matchstrings.html.html %}
+{% source matchstrings.html %}
+{% iframe 300px 200px `_matchstrings.html.html` %}
 {% endcodesample %}
 
 ### Loops {#loops}
@@ -301,8 +306,8 @@ using a looping construct.
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/fruitsearch.html %}
-{% sample 300px 600px http://dart-lang.github.com/dart-web-components/example/explainer/_fruitsearch.html.html %}
+{% source fruitsearch.html %}
+{% iframe 300px 600px `_fruitsearch.html.html` %}
 {% endcodesample %}
 
 
@@ -328,8 +333,8 @@ attributes. Here is an example that listens for click events:
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/clickcount.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_clickcount.html.html %}
+{% source clickcount.html %}
+{% iframe 300px 200px `_clickcount.html.html` %}
 {% endcodesample %}
 
 
@@ -422,8 +427,8 @@ as in the following example.
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/countcomponent.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_countcomponent.html.html %}
+{% source countcomponent.html %}
+{% iframe 300px 200px `_countcomponent.html.html` %}
 {% endcodesample %}
 
 
@@ -449,8 +454,8 @@ initializes the `count` field of the component to a different value each time.
 </body></html>
 {% endraw %}
 {% endhighlight %}
-{% url https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/countcomponent5.html %}
-{% sample 300px 200px http://dart-lang.github.com/dart-web-components/example/explainer/_countcomponent5.html.html %}
+{% source countcomponent5.html %}
+{% iframe 300px 200px `_countcomponent5.html.html` %}
 {% endcodesample %}
 
 ### Importing a component {#import-components}
