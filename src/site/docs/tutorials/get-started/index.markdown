@@ -19,8 +19,6 @@ tutorial:
 
 {% capture content %}
 
-# {{ page.title }}
-
 When you have completed this Target,
 you will have successfully downloaded the Dart software,
 used the Dart Editor to

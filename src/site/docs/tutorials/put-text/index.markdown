@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 2: Build a Mini Web App"
+title: "Target 2: Put Text on a Page"
 description: "Describes the components of a basic Dart Web app."
 has-permalinks: true
 tutorial:
@@ -26,8 +26,6 @@ tutorial:
 {% endcapture %}
 
 {% capture content %}
-
-# {{ page.title }}
 
 The Dart Web application you will create and run
 in this Target is a bare bones, stripped-down application,

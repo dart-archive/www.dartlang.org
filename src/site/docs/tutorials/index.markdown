@@ -6,6 +6,8 @@ tutorial:
   id: tut-home
 ---
 
+
+
 {% capture whats_the_point %}
 
 * Dart is open-source.
@@ -17,8 +19,6 @@ tutorial:
 
 {% capture content %}
 
-# {{ page.title }}
-
 Welcome to **Dartboard**,
 your guide to building great Web apps using Dart.
 
@@ -29,12 +29,12 @@ Under Construction
 </p>
 This tutorial is under construction
 and is a draft.
-Your patience is appreciated.
-To send kindly worded
-comments and suggestions,
-please file an
-<a href="http://dartbug.com/new">issue report</a>
-with "Dartboard Tutorial" in the Summary field.
+Your kindly worded
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback">
+comments and suggestions
+</a>
+are appreciated.
+Thank you for your patience.
 </div>
 
 
@@ -76,7 +76,7 @@ Understanding the DOM is key to Web programming.
 discover what tools and libraries come with the Dart software,
 and use Dart Editor to run two apps.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Target 2: Build a Mini Web App](mini-web-app/index.html)
+![Dart Icon](/imgs/Dart_Logo_21.png) [Target 2: Put Text on a Page](put-text/index.html)
 : In this Target, you will use Dart Editor to create
 a stripped-down Web application to
 learn about Dart applications,
