@@ -9,10 +9,11 @@ tutorial:
 
 {% capture whats_the_point %}
 
-* Run Dart applications in the Dart VM.
-* The Dart VM runs in a Web browser...
-* ...or on the command line.
-* All Dart apps have a `main` function.
+* All Dart apps have a main function.
+* Run Dart Web apps in Dartium.
+* Compile Dart apps to JavaScript for other browsers.
+* Use Dart to write command-line apps also.
+* Dart Editor is a full-function editor.
 
 {% endcapture %}
 
@@ -31,7 +32,7 @@ and will be ready to begin writing Web apps in Dart.
 * [What is a Dart application?](#what-is-app)
 * [Start Dart editor](#start-dart-editor)
 * [Create a command-line app](#create-cmd-line)
-* [`main` and other top-level functions](#top-level-functions)
+* [main and other top-level functions](#top-level-functions)
 * [Run a command-line app](#run-cmd-line)
 * [Create a web app](#create-web-app)
 * [Run a web app in Dartium](#run-web-app)
@@ -59,60 +60,73 @@ The Dart download is a complete Dart development environment
 that includes Dart Editor and other tools,
 libraries, and sample programs.
 
-{% comment %}
-[XX: I want this to be a table instead of an image]
-{% endcomment %}
+<div>
+  <hr>
+  <div class="row">
+    <div class="span2">
+    <img src="images/dart-editor-icon.png"/>
+    </div>
+    <div class="span7">
+    Dart Editor is a powerful,
+    lightweight, open source editor.
+    With it you can create and edit files,
+    manage the files for your project,
+    look up API, debug your code,
+    and control run-time conditions using named launches.
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="span2">
+    <img src="images/chromium.png"/>
+    </div>
+    <div class="span7">
+    Your download contains a special build of the chromium web browser, 
+    called Dartium, that includes the Dart VM.
+    When you run a web app in Dart Editor,
+    it launches Dartium and loads your app.
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="span2">
+    <img src="images/dart-sdk-folder.png"/>
+    </div>
+    <div class="span7">
+    This directory contains the complete Dart Software Development Kit.
+    Here you will find Dart libraries, such as dart.core and dart.html,
+    that define APIs useful to all apps.
 
-
-| image | textasdfasasdfasdfasdfasdfasdfasdfasdfasdf
-| image | textasdfasdfasdjkfhasdkjfgajkshdfhgjhkasdfgasjhdfasdf
-{: .table}
-
-![Dart Software Bundle items](images/dart-bundle-items.png)
-
-{% comment %}
-
-![DartEditor](images/dart-editor-icon.png)
-
-Dart Editor is a powerful, lightweight, open source editor.
-With it you can create and edit files,
-manage the files for your project,
-debug your code, and
-control run-time conditions using named launches.
-[XX: I'm certain there's more excellence.]
-
-![Chromium](images/chromium.png)
-
-Your download contains a special build of the chromium web browser,
-called Dartium,
-that includes the Dart VM.
-
-![Dart SDK Directory](images/dart-sdk-folder.png)
-
-The `dart-sdk` directory contains the complete
-Dart Software Development Kit.
-Here you will find Dart libraries,
-such as `dart.core` and `dart.html`,
-that define APIs useful to all apps and web apps.
-
-The `dart-sdk/bin` contains several useful command-line tools.
-In particular,
-there's `dart2js`, the Dart->JavaScript compiler,
-and `dart`, the command-line version of the Dart VM.
-
-![Dart SDK Directory](images/samples-folder.png)
-
-The `samples` directory contains the source code for several
-Dart web applications.
-
-**Plus some other stuff...**
-
-You will notice there are some other directories
-in the dart installation directory.
-Don't mind your pretty little head about them.
-They are of no concern to us just yet.
-
-{% endcomment %}
+    Within, the bin directory contains several useful command-line tools,
+    such as the Dart->JavaScript compiler,
+    and the command-line version of the Dart VM.
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="span2">
+    <img src="images/samples-folder.png"/>
+    </div>
+    <div class="span7">
+    The samples directory contains the source code
+    for several Dart web applications.
+    You can investigate and run these complete examples
+    directly from the Welcome page in Dart Editor.
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="span2">
+    <img src="images/and-the-rest.png"/>
+    </div>
+    <div class="span7">
+    You will notice there are some other directories
+    in the dart installation directory.
+    You can ignore them for now. 
+    </div>
+  </div>
+  <hr>
+</div>
 
 ##What is a Dart application? {#what-is-app}
 
@@ -291,7 +305,7 @@ By convention:
 Dart Editor does all of this by default
 when you create a new application.
 
-##`main` and other top-level functions {#top-level-functions}
+##main and other top-level functions {#top-level-functions}
 
 Dart allows you to define _top-level_ functions,
 that is, functions that are not encapsulated within a class or object.

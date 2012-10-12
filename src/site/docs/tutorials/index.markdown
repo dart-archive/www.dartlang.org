@@ -22,18 +22,23 @@ tutorial:
 Welcome to **Dartboard**,
 your guide to building great Web apps using Dart.
 
-![Dartboard Cake](images/dart-cake.jpeg)
-
-<aside class="alert alert-warning">
-<strong>Under Construction</strong>:
+<div id="under-construction">
+<p id="construction-label">
+<i class="icon-wrench"> </i>
+Under Construction
+</p>
 This tutorial is under construction
 and is a draft.
-Please be patient.
-Send kindly worded comments to [XX:].
-</aside>
+Your patience is appreciated.
+To send kindly worded
+comments and suggestions,
+please file an
+<a href="http://dartbug.com/new">issue report</a>
+with "Dartboard Tutorial" in the Summary field.
+</div>
 
-Dartboard is a collection of tutorials, _Targets_, that teach:
 
+{% comment %}
 * the Dart programming language,
   an object-oriented structured language
   with lexical scoping, closures and optional static typing
@@ -47,8 +52,11 @@ Dartboard is a collection of tutorials, _Targets_, that teach:
   a Dart > JavaScript compiler, and a package manager
 * and a special build of Chromium that has the Dart VM embedded in it
   for running Dart Web apps directly
+{% endcomment %}
 
-Dartboard is designed so that you can follow the Targets in order,
+Dartboard is a collection of tutorials, _Targets_, that teaches
+your how to build Web programs using Dart and its tools and APIs.
+It is designed so that you can follow the Targets in order,
 building your knowledge of Dart from the ground up,
 or you can customize your learning experience by
 choosing just the Targets you need.
@@ -63,12 +71,12 @@ which is the programming interface used by browsers
 to represent and manipulate elements on a browser page.
 Understanding the DOM is key to Web programming.
 
-[Target 1: Get Started](getting-started/index.html)
+![Dart Icon](/imgs/Dart_Logo_21.png) [Target 1: Get Started](get-started/index.html)
 : Here you will download the Dart software bundle,
 discover what tools and libraries come with the Dart software,
 and use Dart Editor to run two apps.
 
-[Target 2: Build a Mini Web App](mini-web-app/index.html)
+![Dart Icon](/imgs/Dart_Logo_21.png) [Target 2: Build a Mini Web App](mini-web-app/index.html)
 : In this Target, you will use Dart Editor to create
 a stripped-down Web application to
 learn about Dart applications,
@@ -83,7 +91,21 @@ and basic Dart Editor capabilities.
 you will learn how to use widgets in your app.
 {% endcomment %}
 
-...stay tuned for more...
+<div>
+  <hr>
+  <div class="row">
+    <div class="span1">
+    <font size="24">
+    <i class="icon-bullhorn"> </i>
+    </font>
+    </div>
+    <div class="span8">
+...stay tuned for more Targets...
+    </div>
+  </div>
+<hr>
+</div>
+
 
 {% comment %}
 [Set Up Your Dart Installation](dart-software.html)

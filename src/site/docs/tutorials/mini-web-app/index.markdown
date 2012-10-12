@@ -9,14 +9,19 @@ tutorial:
 
 {% capture whats_the_point %}
 
-* Dart Editor is an editor and a set of developer tools.
-* All Dart apps require a top-level `main` function.
-* A Dart Web app needs both a `.dart` file and an `.html` file.
-* An `.html` file hosts your Web app in a browser page.
-* Create structure to your app with the `document` object.
-* Use a `.css` file to set styles for visible elements.
+* Dart Editor does API lookup and code-completion.
+* A Dart Web app needs both a Dart file and an HTML file.
+* An HTML file hosts your Web app in a browser page.
+* Dart supports top-level functions.
+* Use query to get page elements.
+* The DOM models your page as a tree-node structure.
+* The Document object is at the root of the tree.
+
+{% comment %}
 * Control run-time configurations with named launches.
 * Compile to JavaScript to run in any browser.
+* Use CSS to set styles for visible elements.
+{% endcomment %}
 
 {% endcapture %}
 
@@ -39,9 +44,9 @@ to illustrate core principles.
 * [Create the HTML file](#create-html)
 * [Introduction to the DOM](#dom-intro)
 * [Run the mini web app](#run-mini)
+{% comment %}
 * [Compile mini to JavaScript and run it](#mini-with-js)
 * [Add a CSS file](#add-css)
-{% comment %}
 * [9-dart finish](#9-dart-finish)
 {% endcomment %}
 
@@ -250,17 +255,10 @@ Here are some other oft-used structural tags:
 {% endhighlight %}
 
 Presentational tags describes the appearance of text.
-The example below shows several common presentational tags:
-
-{% comment %}
-[XX: show resulting text side-by-side with this]
-{% endcomment %}
-
-{% highlight html %}
-<i>Italic</i> text is for titles.
-Use <b>bold</b> text for emphasis.
-<code>Code</code> text is usually set in a fixed-width font.
-{% endhighlight %}
+Generally, you would use CSS to change the appearance
+of text on the browser page,
+rather than HTML tags.
+We'll cover CSS in the next Target.
 
 Hyper-text markup tags let you link to another page,
 include images, or include apps.
@@ -268,7 +266,7 @@ In the next step,
 we'll see an example of a hyper-text markup tag
 for including a Dart app.
 
-## Create an HTML File {#create-html}
+## Create the HTML File {#create-html}
 
 Now, let's create the HTML for your mini Web app.
 
@@ -397,6 +395,24 @@ You should see this greeting:
 
 ![Mini app's output](images/mini-output.png).
 
+<div>
+  <hr>
+  <div class="row">
+    <div class="span1">
+    <font size="24">
+    <i class="icon-bullhorn"> </i>
+    </font>
+    </div>
+    <div class="span8">
+Watch this space...next to come:
+<br>How to use named launches to save run-time configurations.
+<br>How to use CSS styles to fancify your pages
+    </div>
+  </div>
+<hr>
+</div>
+
+{% comment %}
 ##Compile Mini to JavaScript and Run it {#mini-with-js}
 
 You can create various run-time scenarios for your Dart app
@@ -542,7 +558,6 @@ Save your files and run the app again.
 [XX: talk about IDs]
 [XX: blah blah blah about CSS styles]
 
-{% comment %}
 ##9-dart finish {#9-dart-finish}
 
 [XX: think of good questions]

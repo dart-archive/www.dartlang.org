@@ -6,7 +6,7 @@ tutorial:
   id: this-should-be-unique
 ---
 
-{% capture whats_the_point %}
+{% capture whats-the-point %}
 
 * This text gets captured 
 * ...and used in the left column above the TOC.
