@@ -22,11 +22,9 @@ tutorial:
 Welcome to **Dartboard**,
 your guide to building great Web apps using Dart.
 
-<div id="under-construction">
-<p id="construction-label">
-<i class="icon-wrench"> </i>
-Under Construction
-</p>
+<div id="under-construction" markdown="1">
+<h3> <i class="icon-wrench"> </i> Under Construction </h3>
+
 This tutorial is under construction
 and is a draft.
 Your kindly worded
@@ -35,6 +33,7 @@ comments and suggestions
 </a>
 are appreciated.
 Thank you for your patience.
+
 </div>
 
 

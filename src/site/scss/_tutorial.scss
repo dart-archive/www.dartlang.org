@@ -55,20 +55,19 @@
 
 }
 
-#construction-label
-{
-  font-weight: bold;
-  font-size: 16pt;
-}
-
 #under-construction {
   background-color: #F5E2FF;
   border-radius: 10px;
   border-width: 1px;
   margin: 15px 50px 15px 50px;
   padding: 10px;
-}
 
-.icon-wrench {
-  font-size: 24pt;
+  h3 {
+    font-weight: bold;
+    font-size: 16pt;
+  }
+
+  .icon-wrench {
+    font-size: 24pt;
+  }
 }
