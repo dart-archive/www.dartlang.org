@@ -40,8 +40,14 @@ that will contain the runnining version of the code sample.
 {% endcodesampleSetup %}
 
 # {{ page.title }}
+
 _Written by Siggi Cherem<br />
 October 2012_
+
+<div>
+<img src="dart_logo.png" height="70" alt="dart logo">
+<img src="webcomponent_logo.jpg" height="100" alt="web components logo">
+</div>
 
 
 Dart web components provide templates, data binding, and encapsulation, to
