@@ -137,7 +137,7 @@ You can install the extension as follows:
     extension within Dartium, you can start dragging directly from the
     _download icon_ on the bottom of the page):
 
-<img style="position:relative;left:100px;width:600px;height:auto"
+<img style="position:relative;left:100px" width="600" height="401"
      src="drag_and_drop.png">
 
   * Finally click to accept the extension.

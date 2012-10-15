@@ -45,8 +45,8 @@ _Written by Siggi Cherem<br />
 October 2012_
 
 <div>
-<img src="dart_logo.png" height="70" alt="dart logo">
-<img src="webcomponent_logo.jpg" height="100" alt="web components logo">
+<img src="dart_logo.png" width="69" height="70" alt="dart logo">
+<img src="webcomponent_logo.jpg" width="100" height="100" alt="web components logo">
 </div>
 
 
