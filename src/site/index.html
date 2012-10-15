@@ -61,7 +61,7 @@ layout: homepage
       </p>
 <div class="visible-desktop">
 {% highlight dart %}
-#import('dart:html');
+import 'dart:html';
 
 main() {
   var msg = query('#msg');
@@ -74,7 +74,7 @@ main() {
 </div>
 <div class="visible-tablet visible-phone">
 {% highlight dart %}
-#import('dart:html');
+import 'dart:html';
 
 main() {
   var msg = query('#msg');
@@ -198,7 +198,7 @@ main() {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 class Point {
   final num x, y;
@@ -265,7 +265,7 @@ main() {
 {% highlight dart %}
 // In widget.dart
 
-#library('widget');
+library widget;
 
 class Widget {
   // ...
@@ -276,8 +276,8 @@ class Widget {
 {% highlight dart %}
 // In toolkit.dart
 
-#library('toolkit');
-#import('widget.dart');
+library toolkit;
+import 'widget.dart';
 
 class Window extends Widget {
   // ...
@@ -299,7 +299,7 @@ class Window extends Widget {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 class Point {
   final num x, y;
@@ -339,7 +339,7 @@ class Point {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-flipFlags([bool on, bool up, bool hidden=false]) {
+flipFlags({bool on, bool up, bool hidden=false}) {
   // ...
 }
 
@@ -366,7 +366,7 @@ flipFlags(on: true); // up == null, hidden == false
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-#import('dart:isolate');
+import 'dart:isolate';
 
 echo() {
   port.receive((msg, SendPort replyTo) {
@@ -523,7 +523,7 @@ main() {
         <li class="span6">
           <div class="thumbnail">
             <img src="/imgs/homepage/editor-callers.png" alt="Find callers for methods in Dart Editor">
-            <h5>Open callers</h5>
+            <h5>Find callers</h5>
             <p>
               Quickly find all callers for a method, and easily jump to those locations.
             </p>
