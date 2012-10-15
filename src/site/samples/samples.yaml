@@ -1,0 +1,74 @@
+row01:
+-
+  title: Hello, World
+  name: hello
+  alt: Hello, World in a browser.
+  url: https://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fhi
+  desc: Basic web app with the obligatory "Hello, world" example.
+  features: 
+    - Libraries and imports
+    - main()
+    - Finding DOM elements
+    - Setting text on a web page
+
+-
+  title: Solar System
+  name: solar
+  alt: Solar system in a browser.
+  url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%solar
+  desc: A solar system simulation.
+  features:
+    - HTML5 canvas
+    - Collections
+    - Optional parameters
+    - Math
+
+-
+  title: Countdown Clock
+  name: clock
+  alt: Countdown clock in a browser.
+  url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fclock
+  desc: A countdown clock, complete with bouncing balls, from Google I/O 2011.
+  features:
+    - Animations
+    - Classes
+    - Top-level functions
+    - Multiple files
+
+row02:
+-
+  title: Sunflower
+  name: sunflower
+  alt: Sunflower in a browser.
+  url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%sunflower
+  desc: Canvas 2D app with HTML5 range input and event handler.
+  walkthrough: true
+  features:
+    - HTML5 canvas
+    - Event handling
+    - Compile-time constants
+
+-
+  title: Spirodraw
+  name: spirodraw
+  alt: A spirodraw game in a browser.
+  url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%spirodraw
+  desc: Fun and interactive animation using canvas 2D.
+  walkthrough: true
+  features:
+    - HTML5 canvas
+    - User inputs
+    - Function alias
+    - Library with multiple files
+
+-
+  title: HTML5 and Dart
+  name: html5
+  alt: A list of HTML5 samples written in Dart.
+  url: https://github.com/dart-lang/dart-html5-samples
+  desc: Lots of HTML5 samples written with Dart. Many ported from HTML5 Rocks.
+  features:
+    - HTML5 Rocks ports
+    - WebGL
+    - IndexedDB and local storage
+    - Many more HTML5 samples
