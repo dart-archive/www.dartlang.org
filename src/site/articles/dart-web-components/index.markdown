@@ -15,7 +15,7 @@ README --- General notes about editing this file:
 expressions, we need to escape them in a special way. Unfortunately using
 \{\{\}\} within code makes the backslash show up. There are 2 ways to work
 around this:
-  * Doing {{'{{'}}: lyquid evaluates it as a string expression returning \{\{.
+  * Doing {{'{{'}}: liquid evaluates it as a string expression returning \{\{.
   * Using \{\% raw \%\} blocks.
 
 * the codesample blocks are an extension added to jekyll written as 'liquid'
@@ -25,12 +25,12 @@ blocks. The meaning of a block like this:
   text
   \{\% sample 10 20 url \%\}
   \{\% endcodesample \%\}
-is that we'll create a table, the first colum will have sample source code (in
+is that we'll create a table, the first column will have sample source code (in
 this case "text"). This code can have a \{\% highlight \%\} section, but other
 than that, no markdown is supported here :(. The column width is specified as
 the first argument of the codesample tag above it (in this example 80 means
 80%). The \{\% sample \%\} tag defines the width, height, and url for an iframe
-that will contain the runnining version of the code sample.
+that will contain the running version of the code sample.
 
 {% endcomment %}
 
