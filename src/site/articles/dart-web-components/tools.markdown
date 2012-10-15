@@ -48,7 +48,7 @@ to access our compiler under `packages/web_components/dwc.dart`.
 
 You can invoke the compiler from the command line by invoking the `dwc` script
 on the entry point of your application. For instance, the following example
-shows how to compile an application under the directory `web`, whose entrypoint
+shows how to compile an application under the directory `web`, whose entry point
 is `app.html`.
 
     > packages/web_components/dwc.dart web/app.html
@@ -81,7 +81,7 @@ our generated code will use it if it is available. This feature is not enabled
 by default, but you can turn it on by passing the special flag
 `--enable-experimental-webkit-features` to Chrome. This flag is enabled by
 default in Dartium.  During development, you might find it useful to pass two
-additional flags: `--allow-file-acces-from-files` and
+additional flags: `--allow-file-access-from-files` and
 `--enable-devtools-experiments`. The first lets your files make HttpRequests for
 resources from your file system.  The second will display `#shadowroot` in the
 web inspector for elements that have a ShadowRoot.
@@ -117,7 +117,7 @@ editor, and request the editor to launch it in Dartium.
 If you use Dartium and your own editor, you can
 install a browser extension that will invoke the compiler on demand. This
 on-demand approach is equivalent to what *polyfill* scripts do today for web
-components in Javascript.  The extension creates the illution that Dart web
+components in JavaScript.  The extension creates the illusion that Dart web
 components are supported natively in Dartium. 
 
 <aside><div class="alert alert-info">
