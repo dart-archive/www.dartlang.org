@@ -38,6 +38,12 @@ handlers:
 - url: /docs/getting-started/editor/.*
   script: scripts.redirector.application
 
+- url: /docs/language-tour.*
+  script: scripts.redirector.application
+
+- url: /docs/library-tour.*
+  script: scripts.redirector.application
+
 - url: /editor.*
   script: scripts.redirector.application
 

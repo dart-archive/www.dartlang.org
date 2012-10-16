@@ -209,6 +209,13 @@ a.permalink {
   font-style: italic;
 }
 
+#book-header {
+  color: $grayLight;
+  font-size: $baseFontSize - 1;
+  font-style: italic;
+  text-align:center;
+}
+
 footer {
   border-top: 1px solid #CECECE;
   background-color: #EFEFEF;

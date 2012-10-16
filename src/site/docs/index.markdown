@@ -55,11 +55,11 @@ A few of the covered topics are enabling production mode, compiling to JavaScrip
 includes the Dart virtual machine (VM).
 
 [Dart SDK](/docs/sdk/)
-: Learn how to download and use the Dart SDK, which includes binaries of the VM, 
+: Learn how to download and use the Dart SDK, which includes binaries of the VM,
 dart2js, pub, and more.
 
-[Pub package manager](/docs/pub-package-manager/)
-: This page tells you how to use the pub tool to manage Dart packages.
+[Pub package manager](http://pub.dartlang.org)
+: Browse hosted packages, and learn how to use pub to reuse Dart code.
 
 [Dart2js compiler](/docs/dart2js/)
 : Learn how to use the dart2js tool to compile Dart code to JavaScript.

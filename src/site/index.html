@@ -8,14 +8,20 @@ layout: homepage
 
   <div class="row" id="top-mast">
     <div class="span12 contents">
-      <img class="logo" src="/imgs/dart-logo.png" width="268" height="116">
-      <h1>
-        Build HTML5 apps for the modern web
-      </h1>
-      <p>
-        Dart brings structure to web app engineering
-        with a new language, libraries, and tools.
-      </p>
+      <div class="row">
+        <div class="span6">
+          <img class="logo" src="/imgs/dart-logo-happy-birthday.png" width="300" height="130" alt="Dart">
+          <p style="padding: 0 20px 0 20px">
+            Dart brings structure to web app engineering
+            with a new language, libraries, and tools.
+            <a style="font-weight: bold" href="http://blog.chromium.org/2012/10/dart-m1-release.html">Read about our new M1 release!</a>
+          </p>
+        </div>
+        <div class="span6">
+          <iframe width="400" height="225" src="http://www.youtube.com/embed/5KlnlCq2M5Q?vq=hd720" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
       <div>
         <ul class="buttons">
           <li>
@@ -81,7 +87,7 @@ main() {
   var btn = new ButtonElement();
   btn.text = 'Click me!';
   btn.on.click.add((e) {
-    msg.text = 'Dart!'
+    msg.text = 'Dart!';
   });
   document.body.nodes.add(btn);
 }
@@ -446,7 +452,7 @@ main() {
     <a href="/docs/dart2js/">dart2js compiler</a>,
     the <a href="/docs/standalone-dart-vm/">Dart VM</a>
     for running command-line apps, and the
-    <a href="/docs/pub-package-manager/">pub</a> package manager.
+    <a href="http://pub.dartlang.org">pub</a> package manager.
   </p>
 
   <div class="row">
