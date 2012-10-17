@@ -79,8 +79,8 @@ If you name the output `_app.html_boostrap.dart.js` then the same
 Recent versions of Chrome have experimental support for [shadow DOM][sd], and
 our generated code will use it if it is available. This feature is not enabled
 by default, but you can turn it on by passing the special flag
-`--enable-experimental-webkit-features` to Chrome. This flag is enabled by
-default in Dartium.  During development, you might find it useful to pass two
+`--enable-experimental-webkit-features` to Chrome or Dartium. During development,
+you might find it useful to pass two
 additional flags: `--allow-file-access-from-files` and
 `--enable-devtools-experiments`. The first lets your files make HttpRequests for
 resources from your file system.  The second will display `#shadowroot` in the
