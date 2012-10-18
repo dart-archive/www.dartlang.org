@@ -1,0 +1,246 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Montserrat:400,700);
+
+/* Override bootstrap variables */
+$sansFontFamily: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$baseFontSize: 14px !default;
+$baseLineHeight: 22px !default;
+
+$dartFont: 'Montserrat', sans-serif;
+
+@import "compass_twitter_bootstrap_awesome";
+
+/* colors from logo */
+$blue-dark: #0081C6;
+$blue-light: #00A4E4;
+$green-dark: #00D2B8;
+$green-light: #55DDCA;
+
+body {
+  padding-top: 60px;
+}
+
+/* place after the body + padding */
+
+@import "compass_twitter_bootstrap_responsive";
+
+section {
+  margin-bottom: 1em;
+}
+
+.alert {
+  a {
+    color: $linkColorHover;
+    text-decoration: underline;
+  }
+}
+
+ol.toc li {
+  list-style-type: none;
+}
+
+.search-query {
+  width: 100px;
+}
+
+.btn-primary {
+  @include bootstrap-buttonBackground($blue-dark, $blue-light);
+}
+
+.thumbnail {
+  background-color: whitesmoke;
+  padding: 15px;
+}
+
+/* override because we have an image in there */
+.navbar a.brand {
+  padding: 6px 20px 0 20px;
+}
+
+.navbar-search {
+  margin-top: 4px;
+}
+
+.navbar li.share-button {
+  padding: 8px 8px 0 0;
+    a {
+      padding: 0;
+    }
+}
+
+.navbar .nav > li > a{
+  opacity: 1;
+  color: white;
+}
+
+.navbar .nav li.dropdown .dropdown-toggle .caret, .navbar .nav li.dropdown.open .caret {
+  border-top-color: $blue-dark;
+  border-bottom-color: $blue-dark;
+  opacity: 1;
+}
+
+article.homepage {
+
+  pre code {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-family: $dartFont;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px; /* fixes horrible font rendering on windows, see https://code.google.com/p/chromium/issues/detail?id=137692 */
+  }
+
+  h2 {
+    color: $blue-light;
+    -webkit-text-stroke: 0.5px; /* fixes horrible font rendering on windows, see https://code.google.com/p/chromium/issues/detail?id=137692 */
+  }
+
+  section {
+    margin-bottom: 60px;
+
+    .callouts {
+      h2 {
+        text-transform: uppercase;
+        font-family: $dartFont;
+      }
+
+      p.img {
+        text-align: center;
+      }
+    }
+  }
+
+  ul.buttons {
+    text-align: center;
+    list-style: none;
+
+    li {
+      display: inline-block;
+    }
+  }
+
+  #top-mast {
+    text-align: center;
+    margin-bottom: 30px;
+
+    .logo {
+      margin-bottom: 36px;
+      position: relative;
+      left: -28px;
+    }
+
+    .contents {
+      padding-top: 30px;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+      @media (min-width: 481px) {
+        background-image: url('/imgs/Dart_Background-large-white-dartboard.jpg');
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 200;
+      line-height: $baseLineHeight * 1.5;
+      color: $heroUnitLeadColor;
+    }
+
+    ul.buttons {
+      margin-top: 40px;
+
+      li {
+        margin: 0 1em;
+        vertical-align: top;
+        width: 180px;
+        height: 73px;
+      }
+    }
+  }
+
+  .overview-transition {
+    text-align: center;
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 1em;
+      color: #AAA;
+    }
+  }
+
+}
+
+div.editor-current-version {
+  font-style: italic;
+  margin-bottom: 11px;
+}
+
+section.article div.author-and-date {
+  font-style: italic;
+}
+
+label.os-choice {
+  display: inline;
+}
+
+a.permalink {
+  margin-left: 0.5em;
+  display:none;
+}
+
+.has-permalink:hover > a.permalink {
+  display:inline;
+}
+
+.book {
+  margin-bottom: 2em;
+  img.cover {
+    box-shadow: 8px 8px 15px #CCC;
+  }
+}
+
+.spec-commentary {
+  color: blue;
+  font-style: italic;
+}
+
+footer {
+  border-top: 1px solid #CECECE;
+  background-color: #EFEFEF;
+  color: $grayLight;
+  font-size: $baseFontSize - 1;
+  padding: 70px 0;
+  margin-top: 50px;
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+  p {
+    font-size: $baseFontSize - 2;
+  }
+  .copyright {
+    padding-top: 30px;
+    text-align: center;
+  }
+
+
+}
+
+article .has-permalink {
+    padding-top: 40px;
+    margin-top: -40px;
+}
+
+@import "syntax";
+@import "tutorial";
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}
