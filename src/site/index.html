@@ -8,14 +8,20 @@ layout: homepage
 
   <div class="row" id="top-mast">
     <div class="span12 contents">
-      <img class="logo" src="/imgs/dart-logo.png" width="268" height="116">
-      <h1>
-        Build HTML5 apps for the modern web
-      </h1>
-      <p>
-        Dart brings structure to web app engineering
-        with a new language, libraries, and tools.
-      </p>
+      <div class="row">
+        <div class="span6">
+          <img class="logo" src="/imgs/dart-logo-happy-birthday.png" width="300" height="130" alt="Dart">
+          <p style="padding: 0 20px 0 20px">
+            Dart brings structure to web app engineering
+            with a new language, libraries, and tools.
+            <a style="font-weight: bold" href="http://blog.chromium.org/2012/10/dart-m1-release.html">Read about our new M1 release!</a>
+          </p>
+        </div>
+        <div class="span6">
+          <iframe width="400" height="225" src="http://www.youtube.com/embed/5KlnlCq2M5Q?vq=hd720" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
       <div>
         <ul class="buttons">
           <li>
@@ -61,7 +67,7 @@ layout: homepage
       </p>
 <div class="visible-desktop">
 {% highlight dart %}
-#import('dart:html');
+import 'dart:html';
 
 main() {
   var msg = query('#msg');
@@ -74,14 +80,14 @@ main() {
 </div>
 <div class="visible-tablet visible-phone">
 {% highlight dart %}
-#import('dart:html');
+import 'dart:html';
 
 main() {
   var msg = query('#msg');
   var btn = new ButtonElement();
   btn.text = 'Click me!';
   btn.on.click.add((e) {
-    msg.text = 'Dart!'
+    msg.text = 'Dart!';
   });
   document.body.nodes.add(btn);
 }
@@ -198,7 +204,7 @@ main() {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 class Point {
   final num x, y;
@@ -265,7 +271,7 @@ main() {
 {% highlight dart %}
 // In widget.dart
 
-#library('widget');
+library widget;
 
 class Widget {
   // ...
@@ -276,8 +282,8 @@ class Widget {
 {% highlight dart %}
 // In toolkit.dart
 
-#library('toolkit');
-#import('widget.dart');
+library toolkit;
+import 'widget.dart';
 
 class Window extends Widget {
   // ...
@@ -299,7 +305,7 @@ class Window extends Widget {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 class Point {
   final num x, y;
@@ -339,7 +345,7 @@ class Point {
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-flipFlags([bool on, bool up, bool hidden=false]) {
+flipFlags({bool on, bool up, bool hidden=false}) {
   // ...
 }
 
@@ -366,7 +372,7 @@ flipFlags(on: true); // up == null, hidden == false
             <div class="row">
               <div class="span6">
 {% highlight dart %}
-#import('dart:isolate');
+import 'dart:isolate';
 
 echo() {
   port.receive((msg, SendPort replyTo) {
@@ -446,7 +452,7 @@ main() {
     <a href="/docs/dart2js/">dart2js compiler</a>,
     the <a href="/docs/standalone-dart-vm/">Dart VM</a>
     for running command-line apps, and the
-    <a href="/docs/pub-package-manager/">pub</a> package manager.
+    <a href="http://pub.dartlang.org">pub</a> package manager.
   </p>
 
   <div class="row">
@@ -523,7 +529,7 @@ main() {
         <li class="span6">
           <div class="thumbnail">
             <img src="/imgs/homepage/editor-callers.png" alt="Find callers for methods in Dart Editor">
-            <h5>Open callers</h5>
+            <h5>Find callers</h5>
             <p>
               Quickly find all callers for a method, and easily jump to those locations.
             </p>

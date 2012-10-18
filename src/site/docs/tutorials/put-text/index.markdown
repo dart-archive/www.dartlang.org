@@ -27,26 +27,34 @@ tutorial:
 
 {% capture content %}
 
-The application you will create and run
-in this Target is a bare bones, stripped-down application,
-containing just enough code to
+To write a Dart web app,
+you need to have basic knowledge of
+several topics--the DOM, Elements and Objects,
+HTML, Dart language and libraries,
+and Dart Editor.
+The interaction of all these players in a
+web app is somewhat circular.
+This target circumnavigates the topics
+as it steps you through
+building a bare bones, stripped-down application
+that contains just enough code to
 display text on a browser page.
-Through this example,
-you will learn about the basic scaffolding,
-the minimum files and code, of a web app.
-Before you start writing code,
-you need a basic understanding of the DOM.
+
+At the end,
+you will have enough basic knowledge
+to understand the scaffolding of a web app.
 
 * [Introduction to the DOM](#dom-intro)
 * [Create a new Dart app](#create-dart-app)
 * [Edit Dart source code](#dart-editor-happiness)
-* [Code walk-through of mini app](#code-walk)
+* [Import HTML library](#import-libraries)
+* [Query the DOM](#query-queryall)
+* [Modify text property of an element](#text-property)
 * [Create the HTML file](#create-html)
 * [Run mini app](#run-mini)
-{% comment %}
-* [Understanding basic HTML](#understand-html)
-* [Compile mini to JavaScript and run it](#mini-with-js)
+* [Create a JavaScript launch](#mini-with-js)
 * [Add a CSS file](#add-css)
+{% comment %}
 * [9-dart finish](#9-dart-finish)
 {% endcomment %}
 
@@ -67,7 +75,7 @@ as are the other elements on the page.
 ![Basic DOM Tree](images/basic-html-dom.png)
 
 Internally, the browser represents the page and its elements
-in a tree-node structure within the DOM (Document Object Model).
+in a tree-node data structure within the DOM (Document Object Model).
 The DOM is both a conceptual model and an API implemented by browsers.
 In the DOM, the page is represented by a document object,
 which is at the root of the tree,
@@ -130,7 +138,7 @@ void main() {
 }
 {% endhighlight %}
 
-###Errors
+####Errors
 As you type, Dart Editor processes the text.
 For example, begin typing the first line of code,
 the `import` directive,
@@ -155,7 +163,7 @@ Run-time errors result in exceptions.
 
 Finish typing the complete line of code and the red 'x' disappears.
 
-###Warnings
+####Warnings
 
 **Tip:** Save your file with **File > Save**.
 In some versions of Dart Editor,
@@ -209,7 +217,7 @@ ignore the overly verbose xref... we're fixing that
 ]
 {% endcomment %}
 
-###Code Completion
+####Code Completion
 
 Continue typing, entering `'#RipVanWinkle'`
 as the argument to the `query` function,
@@ -224,12 +232,9 @@ Scroll down and choose `text`, or just type it in.
 
 Finish your edits,
 and save the file with **File > Save**.
+The next two sections
 
-##Code Walk-through of Mini App {#code-walk}
-
-Let's take a look at this little Dart program.
-
-####Importing Libraries
+##Import HTML library {#import-libraries}
 
 ![Code Walk-through of mini.dart](images/0-mini-code-walk-through.png)
 
@@ -244,46 +249,29 @@ Generally speaking, all Dart web apps need the Dart HTML library.
 Key classes include `Document`, `Element`,
 `List<Element>` (a list containing elements), and `Window`.
 
-####The main function
-
-![Code Walk-through of mini.dart](images/1-mini-code-walk-through.png)
+##Query the DOM {#query-queryall}
 
 This app's `main` function contains a single
 line of code that is a little like a run-on sentence
 with multiple things happening one after another.
 Let's de-construct it.
 
-####Identifiers and String Literals
-
-![Code Walk-through of mini.dart](images/3-mini-code-walk-through.png)
-
-Text between single quotes
-defines a string literal.
-You can also use double quotes.
-Strings are a built-in type in Dart.
-They support expression evaluation,
-concatenation, and multi-line strings.
-
-####Query and QueryAll
-
 ![Code Walk-through of mini.dart](images/2-mini-code-walk-through.png)
 
 `query` is a top-level function provided by the Dart HTML library
-that gets objects from the DOM.
+that gets an object from the DOM.
+More specifically,
+it returns a Dart `Element` object
+that is bound to the requested object in the DOM.
+
+![Code Walk-through of mini.dart](images/3-mini-code-walk-through.png)
+
 The argument to `query`, a string,
 is a CSS selector that identifies the object.
+CSS selectors can be classes, identifiers, attributes, etc.
 In this case `#RipVanWinkle` 
-is an ID for a paragraph element
-that gets set in the HTML file you will create later.
-You'll learn more about CSS below.
-
-If successful, 
-`query` returns a Dart `Element` object
-that is bound to the object in the DOM.
-
-
-
-XxXXXXXXXXXXXXXXXXXX
+is a unique ID for a paragraph element
+that is set in the HTML file.
 
 Another useful function for getting elements from the DOM
 is `queryAll`,
@@ -291,23 +279,20 @@ which returns multiple page elements via
 a list of elements--`List<Element>`--all
 of which match the provided selector.
 
-####Text Property of an Element
+##Modify text property of an element {#text-property}
 
 ![Code Walk-through of mini.dart](images/4-mini-code-walk-through.png)
 
 The highlighted code refers to the text property
-of the RipVanWinkle paragraph element.
-
-{% comment %}
-[XX: is that true? is it a property? anything else I need to say here]
-{% endcomment %}
+of the element returned by `query`.
+All Elements have a text property.
 
 ![Code Walk-through of mini.dart](images/5-mini-code-walk-through.png)
 
-And finally it sets the text property
-to the string "Wake up, sleepy head!",
-with the effect of displaying the message
-within the area on the browser page provided for the web app.
+The equals sign sets the text property of the paragraph element
+to the string "Wake up, sleepy head!".
+This subsequently modifies the parallel object in the DOM
+with the effect of displaying the text on the browser page.
 
 {% comment %}
 ## Understanding basic HTML {#understand-html}
@@ -361,7 +346,7 @@ for including a Dart app.
 
 ## Create the HTML File {#create-html}
 
-Now, let's create the HTML for your mini web app.
+Now, let's create an HTML file to host the little app you just created.
 
 In Dart Editor, select **File > New File**.
 Follow convention and use the application name
@@ -376,7 +361,7 @@ slightly simplified, HTML.
 
 <html>
   <head>
-    <title>A Minimalist Web App</title>
+    <title>A Minimalist App</title>
   </head>
 
   <body>
@@ -387,35 +372,33 @@ slightly simplified, HTML.
 </html>
 {% endhighlight %}
 
-You can see the use of the `head`, `title`, `body`, `p` tags.
+This HTML code is similar to the code you saw above.
+Again, you can see the use of the `head`, `title`, `body`,
+and `p` tags.
 And there, in the paragraph tag,
 is the identifier "RipVanWinkle"
-that the Dart code used
+that your Dart app used
 as an argument to `query` to get the paragraph element.
 
-`id="RipVanWinkle"`
-is an example of an HTML _attribute_.
-Attributes provide extra detail for a page element.
-The `id` attribute provides a document-wide identifier.
-Another useful attribute is `class`,
-which you can use to classify elements.
-
-A script is another structural element whose
+New here is the use of the `script` tag.
+A script is structural element,
+that is, a node in the DOM tree, whose
 content is defined by a client-side script.
-The HTML code above has two.
-The first includes the Dart mini app.
+The HTML code above has two scripts.
+
+![Including Dart apps in HTML](images/script-tags.png)
+
+The first includes your mini app.
 It uses two attributes: `type` indicates the type of the script.
 `application/dart` is a new type created by the Dart team,
 which is currently supported by Dartium.
 The `src` attribute provides the URL to the source file of the script.
 In this case, the Dart source file `mini.dart` that you created earlier.
-The Dart file should be in the same directory as the HTML file.
+The Dart file should be in the same directory as its host HTML file.
 
-{% comment %}
-[XX: is the following true?]
 The second use of the `script` tag provides the URL
 for the Dart VM written in JavaScript.
-{% endcomment %}
+You should leave this as it is.
 
 Finish your edits and save the file with **File > Save**.
 
@@ -486,46 +469,46 @@ and then click the Run button
 Dart Editor invokes Dartium
 and loads `mini.html` in it.
 
-You should see this greeting:
-
 ![Mini app's output](images/mini-output.png).
 
-<div>
-  <hr>
-  <div class="row">
-    <div class="span1">
-    <font size="24">
-    <i class="icon-bullhorn"> </i>
-    </font>
-    </div>
-    <div class="span8">
-Watch this space...next to come:
-<br>How to use named launches to save run-time configurations.
-<br>How to use CSS styles to fancify your pages
-    </div>
-  </div>
-<hr>
-</div>
-
-{% comment %}
-##Compile Mini to JavaScript and Run it {#mini-with-js}
+##Create a JavaScript launch {#mini-with-js}
 
 You can create various run-time scenarios for your Dart app
 using *launches* in Dart Editor.
-A launch specifies run-time configurations,
+A launch specifies a run-time configuration,
 such as whether to compile to JavaScript
 or what browser to use.
-
-You have been unwittingly using launches in Dart Editor
-when you ran the default applications in the previous Target.
-Dart Editor automatically creates a default launch
-when you run an application for the first time.
 
 In this section,
 you will create a launch for `mini` app that compiles the app to
 JavaScript and runs it in the default system browser.
 
-####Three Launch Types
+<ol>
+<li markdown="1">
+In Dart Editor,
+click on the wee arrow to the right of the run button
+![Dart Editor's run button](images/run.png).
+A menu appears:
+
+![Manage launches menu](images/manage-launches-menu.png)
+
+You have been unwittingly using launches when running
+the samples so far.
+The menu item `mini.html` is a launch that Dart Editor
+automatically created
+when you ran the application for the first time.
+
+Select **Manage launches** from the menu
+to bring up the **Manage Launches** dialog.
+</li>
+
+<li markdown="1">
+Now, click the new launch button
+![Manage launches menu](images/new-launch-button.png)
+
+A menu appears that gives you three options:
+
+![Manage launches menu](images/new-launch-menu.png)
 
 A command-line launch runs in Dart Editor in
 the **Output view**.
@@ -541,74 +524,60 @@ with the name of the `.html` file that includes the Dart app.
 You must explicitly create a Dart JavaScript launch
 to create a run-time configuration that compiles
 your web app to JavaScript and then runs it in a browser.
-Let's do that now.
 
-####Create a Launch
-
-Step One:
-: In Dart Editor, bring up the *Manage Launches* dialog window
-either with **Run->Manage Launches**
-or by clicking the wee arrow to the right of the
-run button
-![Dart Editor's run button](images/run.png).
-
-You should see a launch in the panel to the left called `mini.html`.
-Dart Editor created this launch automatically
-when you ran the app in the previous step.
-
-Step Two:
-: To create a new launch click
-the New Launch button
-[XX: insert icon image here].
-A menu pops up providing you with three choices:
-
-* Dart Command-line launch
-* Dart JavaScript launch
-* Dartium launch
-
-Step Three:
-: Select **Dart JavaScript Launch**.
-
+Select **Dart JavaScript launch**.
 The dialog window adjusts to present the appropriate options
 for your selection.
+</li>
 
-Step Four:
-: Name the launch.
-Type 'mini using JavaScript' in the first text box.
-This is the name of your launch.
+<li markdown="1">
+Name the launch by typing `mini-with-js` in the first text box.
+
+![Manage JavaScript launch](images/create-new-js-launch.png)
+
 It is recommended that the launch name reflect
 the important aspects of its configuration.
 In this case, the launch name specifies the app name
 and that it's a JavaScript launch.
 If the launch specified a browser, such as FireFox,
-you might name the launch 'mini using JavaScript in FireFox'.
+you might name the launch `mini-with-js-in-firefox`.
+</li>
 
-Step Five:
-: The launch target is the HTML file `mini.html`.
-Type in the pathname or browse to the file.
+<li markdown="1">
+The launch target is the HTML file `mini.html`.
+Browse to the file.
+</li>
 
-Step Six:
-: Click **Apply**.
+<li markdown="1">
+Click **Apply**.
+The named launch should now appear
+in the list to the left of the window.
 
-The named launch should now appear in the menu under the run button.
+![New launch in launch list](images/mini-with-js-item.png)
+</li>
 
-####Run the Launch
+<li markdown="1">
+To run the launch,
+click the Run button at the bottom right of the window.
+Or select it from the Run menu on the main Dart Editor window.
 
-To run the launch, simply select it from the menu.
 This time, Dart Editor
 creates a JavaScript file,
 invokes the default system browser
 and loads the JavaScript file into it.
 The output should look the same.
+</li>
+
+</ol>
 
 ##Add a CSS File {#add-css}
 
-Most HTML uses CSS--cascading style sheets--to define
-_styles_ that set the appearance of page elements.
+Most HTML uses cascading style sheets to define _styles_
+that control the appearance of page elements.
 For example,
 you might create a paragraph style 
-for code samples that set the code in an outlined box,
-shaded in gray, using a fixed-width font.
+to show code samples in an outlined box
+using a fixed-width font.
 
 Let's create a simple CSS file for the `mini` app.
 
@@ -626,33 +595,22 @@ in your `mini` directory with the following text:
 }
 {% endhighlight %}
 
-Now edit `mini.html`, adding the line shown in bold below:
-[XX: how do I show a line in bold?]
+This creates a style sheet for the page element
+with the ID `RipVanWinkle`.
+The style sheet changes the font,
+centers the text,
+and sets the text and background color.
 
-{% highlight dart %}
-<!DOCTYPE html>
+To use this style sheet,
+edit `mini.html` and add the line shown in bold below:
 
-<html>
-  <head>
-    <title>A Minimalist Web App</title>
-    <link rel="stylesheet" href="mini.css">
-  </head>
-  <body>
-    <p id="RipVanWinkle"></p>
-    <script type="application/dart" src="mini.dart"></script>
-    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
-  </body>
-</html>
-{% endhighlight %}
+![HTML with CSS](images/html-with-css.png)
 
 Save your files and run the app again.
 
 ![Mini output with CSS](images/mini-output-with-css.png)
 
-[XX: describe link tag]
-[XX: talk about IDs]
-[XX: blah blah blah about CSS styles]
-
+{% comment %}
 ##9-dart finish {#9-dart-finish}
 
 [XX: think of good questions]

@@ -447,6 +447,17 @@ and does not take any arguments
 (as indicated by the empty parentheses),
 but, like any other function, it could have both.
 
+##String Literals {#strings}
+
+Text between single quotes
+defines a string literal.
+You can also use double quotes.
+Strings are a built-in type in Dart.
+They support expression evaluation,
+concatenation, and multi-line strings.
+
+[XX: fix this]
+
 ##File-naming conventions {#file-names}
 
 When creating an application with Dart Editor,

@@ -59,7 +59,7 @@ Then use pub install:
     Dependencies installed!
 
 For details about using pub, see the
-[pub documentation](/docs/pub-package-manager/).
+[pub documentation](http://pub.dartlang.org/doc).
 
 
 ## Importing the library
@@ -88,7 +88,7 @@ References to the context are automatically forwarded to JavaScript.  For exampl
 js.context.alert('Hello from Dart via JavaScript.');
 {% endhighlight %}
 
-Note: 
+Note:
 Parameters and return values are intuitively passed by value for primitives and by reference for non-primitives. In the latter case, the references are automatically wrapped and unwrapped as proxies by the library.
 
 
@@ -118,7 +118,7 @@ This code instantiates a JavaScript `google.maps.Map` object onto the given canv
 
 Use the top-level `map()` and `array()` functions to create JavaScript maps and arrays from their Dart equivalents.
 For example, the following code
-creates a JavaScript map and returns a Dart proxy to it. 
+creates a JavaScript map and returns a Dart proxy to it.
 
 {% highlight dart %}
 var options = js.map({ 'zoom': 9,

@@ -156,6 +156,13 @@
 			<string>{{31, 299}, {301.5, 34}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>Helvetica</string>
+				<key>Size</key>
+				<real>12</real>
+			</dict>
 			<key>ID</key>
 			<integer>61</integer>
 			<key>Shape</key>
@@ -324,7 +331,7 @@
 			<integer>35</integer>
 			<key>Points</key>
 			<array>
-				<string>{282.0388075206954, 204.96535442583752}</string>
+				<string>{270.93890787210813, 205.07498779650192}</string>
 				<string>{353.5, 152}</string>
 				<string>{403.5, 137}</string>
 				<string>{454.86104633693526, 33.384671737661009}</string>
@@ -398,7 +405,7 @@
 				<string>{117.97923979429129, 183.07741038827481}</string>
 				<string>{180.5, 143}</string>
 				<string>{259.5, 110}</string>
-				<string>{253.02605383206628, 65.491620095455573}</string>
+				<string>{250.55952129332078, 64.48483567508751}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -461,7 +468,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{211, 205}, {115, 20}}</string>
+			<string>{{198, 205}, {115, 20}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -525,7 +532,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{194, 45}, {115, 20}}</string>
+			<string>{{191, 44}, {115, 20}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -566,6 +573,11 @@
 			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
 				<key>stroke</key>
 				<dict>
 					<key>CornerRadius</key>
@@ -586,7 +598,7 @@
 \
 &lt;html&gt;\
   &lt;head&gt;\
-    &lt;title&gt;A Minimalist Web App&lt;/title&gt;\
+    &lt;title&gt;A Minimalist App&lt;/title&gt;\
   &lt;/head&gt;\
 \
   &lt;body&gt;    \
@@ -611,6 +623,11 @@
 			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
 				<key>stroke</key>
 				<dict>
 					<key>CornerRadius</key>
@@ -684,7 +701,7 @@ void main () \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2012-10-11 18:11:22 +0000</string>
+	<string>2012-10-18 18:02:40 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
