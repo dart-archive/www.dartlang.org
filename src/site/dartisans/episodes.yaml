@@ -1,5 +1,28 @@
 url-prefix: http://commondatastorage.googleapis.com/dartlang-podcast/
 episodes:
+- title: "Dartisans ep. 13: An M1 Birthday Special"
+  subtitle: An M1 Birthday Special
+  file: dartisans-ep-13-m1-birthday-special.mp3
+  pubdate: 2012-10-16
+  description: Don't miss this special episode of Dartisans! Hosts JJ Behrens
+               and Seth Ladd, with special guest Gilad Bracha, talk about
+               Dart's M1 release and what's new with the Dart SDK.
+  length: 21815187
+  num: 13
+  youtubeid: r6jG2cSocME
+
+- title: "Dartisans ep. 12: Dart and Web Components"
+  subtitle: Dart and Web Components
+  file: dartisans-ep-12-dart-and-web-components.mp3
+  pubdate: 2012-09-18
+  description: Web Components are ushering in the "declarative renaissance"
+               for modern web development. Watch this episode of Dartisans to
+               learn how you can build Web Components with Dart, and compile
+               them into JavaScript to run across the modern web.
+  length: 22465950
+  num: 12
+  youtubeid: zUdQkSwslzc
+
 - title: "Dartisans ep. 11: Compiling Dart to JavaScript"
   subtitle: Compiling Dart to JavaScript
   file: dartisans-ep-11-compiling-dart-to-javascript.mp3
