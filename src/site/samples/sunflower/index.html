@@ -41,7 +41,7 @@ HTML5 range input (slider), and an image showing the equations used to render th
     </footer>
 
     <script type="application/dart" src="sunflower.dart"></script>
-    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+    <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
   </body>
 </html>
 {% endhighlight %}
@@ -57,21 +57,17 @@ the DOM is ready (on DOMContentLoaded).</p>
 <p>Now let's look at the Dart code.</p>
 
 {% highlight dart %}
-// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
+library sunflower;
 
-#library('sunflower');
+import 'dart:html';
+import 'dart:math';
 
-#import('dart:html');
-#import('dart:math', prefix: 'Math');
+const SEED_RADIUS = 2;
+const SCALE_FACTOR = 4;
+const TAU = PI * 2;
 
-final SEED_RADIUS = 2;
-final SCALE_FACTOR = 4;
-final TAU = Math.PI * 2;
-
-final MAX_D = 300;
-final ORANGE = "orange";
+const MAX_D = 300;
+const ORANGE = "orange";
 
 num centerX, centerY;
 int seeds = 0;
@@ -79,33 +75,48 @@ int seeds = 0;
 var PHI;
 
 main() {
-  PHI = (Math.sqrt(5) + 1) / 2;
-  
+  PHI = (sqrt(5) + 1) / 2;
+
   CanvasElement canvas = query("#canvas");
   centerX = centerY = MAX_D / 2;
   var context = canvas.context2d;
-  
+
   InputElement slider = query("#slider");
   slider.on.change.add((Event e) {
-    seeds = Math.parseInt(slider.value);
+    seeds = int.parse(slider.value);
     drawFrame(context);
   }, true);
-  
-  seeds = Math.parseInt(slider.value);
-  
+
+  seeds = int.parse(slider.value);
+
   drawFrame(context);
 }
 {% endhighlight %}
   
-<p>By convention, source file names end with ".dart". Code execution begins with the main() method and does not require any arguments. Sunflower's main() method sets up the Canvas, registers an event handler, and draws the first frame.</p>
+<p>By convention, source file names end with ".dart". Code execution begins
+  with the main() method and does not require any arguments. Sunflower's
+  main() method sets up the Canvas, registers an event handler, and draws
+  the first frame.</p>
 
-<p>The Sunflower file declares several constants and variables which are explicitly typed. Use of explicit types supports tooling, but Dart also allows untyped (<code>dynamic</code>) variables using the keyword &quot;var&quot; instead of a type. The <code>num</code> type, like most types provided by the Dart core library, is an interface. It looks like a primitive because it's lowercase, but Dart has no primitives. Instead, num is the base type from which both int and double are derived. Using num eliminates the need to explicitly convert from int to double and vice versa.</p>
+<p>The Sunflower file declares several constants and variables which are
+  explicitly typed. Use of explicit types supports tooling, but Dart also
+  allows untyped (<code>dynamic</code>) variables using the keyword
+  &quot;var&quot; instead of a type. The <code>num</code> type is an abstract
+  class. It looks like a
+  primitive because it's lowercase, but Dart has no primitives. Instead,
+  num is the base type from which both int and double are derived. Using
+  num eliminates the need to explicitly convert from int to double and vice versa.</p>
 
-<p>Dart provides thin wrappers around the DOM which we can use to obtain references to elements in the page. The Sunflower constructor calls query() to obtain the Canvas and range input objects using their IDs from the HTML file.</p>
+<p>Dart provides thin wrappers around the DOM which we can use to obtain
+  references to elements in the page. The Sunflower constructor calls query()
+  to obtain the Canvas and range input objects using their IDs from the HTML file.</p>
 
-<p>Notice the event handler <code>on.change.add</code>, inside the main() function, that runs whenever the value of the slider changes. The block of code inside the curly braces is a <code>closure</code>, a function which can be passed around as a variable. This construct, familiar to JavaScript developers, is less verbose than Java's anonymous inner classes familiar to GWT developers.</p>
-
-<p>Note the use of Math.parseInt() to convert a String to a number. In Dart, the methods to convert a String to a number are located in the Math library.</p>
+<p>Notice the event handler <code>on.change.add</code>, inside the main()
+  function, that runs whenever the value of the slider changes. The block of
+  code inside the curly braces is a <code>closure</code>, a function which can
+  be passed around as a variable. This construct, familiar to JavaScript
+  developers, is less verbose than Java's anonymous inner classes familiar
+  to GWT developers.</p>
 
 <p>Finally, let's take a look at the methods that actually draw on the Canvas.</p>
 
@@ -115,16 +126,16 @@ main() {
  */
 void drawFrame(CanvasRenderingContext2D context) {
   context.clearRect(0, 0, MAX_D, MAX_D);
-  
+
   for (var i = 0; i < seeds; i++) {
     var theta = i * TAU / PHI;
-    var r = Math.sqrt(i) * SCALE_FACTOR;
-    var x = centerX + r * Math.cos(theta);
-    var y = centerY - r * Math.sin(theta);
-    
+    var r = sqrt(i) * SCALE_FACTOR;
+    var x = centerX + r * cos(theta);
+    var y = centerY - r * sin(theta);
+
     drawSeed(context, x, y);
   }
-  
+
   displaySeedCount(seeds);
 }
 
@@ -143,10 +154,16 @@ void drawSeed(CanvasRenderingContext2D context, num x, num y) {
 }
 
 void displaySeedCount(num seedCount) {
-  query("#notes").text = "${seedCount} seeds";  
+  query("#notes").text = "${seedCount} seeds";
 }
 {% endhighlight %}
 
-<p>The drawFrame() method does all the calculations, and drawSeed() paints on the Canvas (actually, the CanvasRenderingContext2D). Dart generates DOM bindings automatically from the browser's IDL, which means you can use a good HTML5 reference like <a href="http://html5rocks.com">HTML5 ROCKS</a> or <a href="http://developer.mozilla.org">Mozilla Developer Network</a> to write Dart code that interacts with the DOM.</p>
+<p>The drawFrame() method does all the calculations, and drawSeed() paints
+  on the Canvas (actually, the CanvasRenderingContext2D). Dart generates
+  DOM bindings automatically from the browser's IDL, which means you can
+  use a good HTML5 reference like <a href="http://html5rocks.com">HTML5
+  ROCKS</a> or <a href="http://developer.mozilla.org">Mozilla Developer
+  Network</a> to write Dart code that interacts with the DOM.</p>
 
-<p>By combining HTML layout with a dynamically typed language, Dart makes it quick and easy to create rich user interfaces.</p>
+<p>By combining HTML layout with a dynamically typed language,
+  Dart makes it quick and easy to create rich user interfaces.</p>

@@ -33,22 +33,25 @@ and illustrates a few more language features.</p>
 <p>First, let's take a look at the Spirodraw declarations.</p>
 
 {% highlight dart %}
-#library('spirodraw');
+library spirodraw;
 
-#import('dart:dom');
-#import('dart:math', prefix:'Math');
-#source("ColorPicker.dart");
+import 'dart:html';
+import 'dart:math' as Math;
+
+part "ColorPicker.dart";
 {% endhighlight %}
 
-<p>A Dart script belongs to a library declared with a name given by the #library directive.
-Dart scripts include other scripts using the #source directive.
-Included scripts may not contain any # directives. Dart scripts can also use other libraries
-with the #import directive. The #resource directive is currently not used. In the future,
-it may be used to bundle non-code resources with libraries. The arguments to #import, 
-#source, and #resource are URLs.</p>
+<p>
+A Dart script belongs to a library declared with a name given by
+the <code>library</code> directive.
+Dart scripts include other scripts using the <code>part</code> directive.
+Dart libraries can also use other libraries
+with the <code>import</code> directive.
+</p>
 
-<p>Spirodraw.dart defines a library named 'spirodraw', which contains Spirodraw.dart and
-ColorPicker.dart, and imports the built-in Dart DOM library.</p>
+<p>Spirodraw.dart defines a library named 'spirodraw', which contains
+Spirodraw.dart and ColorPicker.dart, and imports the built-in Dart DOM
+library.</p>
 
 <h2 id="requestAnimationFrame">requestAnimationFrame</h2>
 <p>Spirodraw uses <a href="http://www.html5rocks.com/en/tutorials/canvas/performance/#toc-raf">requestAnimationFrame</a>
@@ -59,7 +62,7 @@ void start() {
   refresh();
   rad = 0.0;
   run = true;
-  window.webkitRequestAnimationFrame(animate, frontCanvas);
+  window.requestAnimationFrame(animate, frontCanvas);
 }
 
 void animate(int time) {
@@ -75,9 +78,10 @@ void animate(int time) {
 }
 {% endhighlight %}
 
-<p>In the code excerpt above, line 5 invokes webkitRequestAnimationFrame with a closure containing
-the callback function, <code>animate()</code>. The <code>animate()</code> function in turn requests the next
-animation frame, passing a reference to itself as the callback.</p>
+<p>In the code excerpt above, line 5 invokes requestAnimationFrame with a
+closure containing the callback function, <code>animate()</code>. The
+<code>animate()</code> function in turn requests the next animation frame,
+passing a reference to itself as the callback.</p>
 
 <h2 id="string_interpolation">String interpolation</h2>
 <p>As shown in line 13 above, you can evaluate variables in a string literal using 
@@ -127,9 +131,7 @@ but not statements or expressions.</p>
 <p>Now let's look at ColorPicker.dart.</p>
 
 {% highlight dart %}
-// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-// for details. All rights reserved. Use of this source code is governed by a
-// BSD-style license that can be found in the LICENSE file.
+part of spirodraw;
 
 typedef void PickerListener(String selectedColor);
 
