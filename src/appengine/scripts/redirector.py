@@ -35,6 +35,14 @@ class SpecRedirectPage(RequestHandler):
     if suffix == '.html' or suffix == '.pdf':
         self.redirect('/docs/spec/latest/dart-language-specification' + suffix, permanent=True)
 
+class PubRedirectPage(RequestHandler):
+  def get(self):
+    filename = self.request.path.split('/docs/pub-package-manager/')[1]
+    if filename == 'pubspec.html':
+        self.redirect('http://pub.dartlang.org/doc/pubspec.html', permanent=True)
+    else:
+        self.redirect('http://pub.dartlang.org/doc', permanent=True)
+
 class NewsRedirectPage(RequestHandler):
   def get(self):
     url = self.request.path[5:len(self.request.path)]
@@ -67,6 +75,7 @@ application = WSGIApplication(
     ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
     ('/news.*', NewsRedirectPage),
     ('/hangouts.*', HangoutsRedirectPage),
+    ('/docs/pub-package-manager/.*', PubRedirectPage),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
