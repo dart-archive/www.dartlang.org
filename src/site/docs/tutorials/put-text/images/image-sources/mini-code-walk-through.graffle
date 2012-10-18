@@ -500,7 +500,7 @@ void main() \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{59.5, 183.71875}, {71.5, 12}}</string>
+			<string>{{59.5, 183.71875}, {340.5, 35}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1046,7 +1046,7 @@ void main() \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2012-10-11 16:31:45 +0000</string>
+	<string>2012-10-17 23:50:56 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -1127,7 +1127,7 @@ void main() \{\
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{349, 229}, {710, 872}}</string>
+		<string>{{298, 244}, {710, 872}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
