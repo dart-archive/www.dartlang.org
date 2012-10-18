@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 2: Put Text on a Page"
+title: "Target 2: Connect Dart & DOM"
 description: "Shows basic scaffolding of a Dart web app"
 has-permalinks: true
 tutorial:
@@ -16,40 +16,37 @@ tutorial:
 * A Dart web app needs both a Dart file and an HTML file.
 * An HTML file hosts your web app in a browser page.
 * Use query to get page elements.
-
-{% comment %}
 * Control run-time configurations with named launches.
 * Compile to JavaScript to run in any browser.
 * Use CSS to set styles for visible elements.
-{% endcomment %}
 
 {% endcapture %}
 
 {% capture content %}
 
 To write a Dart web app,
-you need to have basic knowledge of
-several topics--the DOM, Elements and Objects,
+you need to have basic understanding of
+several topics--the DOM, Elements, Nodes,
 HTML, Dart language and libraries,
 and Dart Editor.
-The interaction of all these players in a
-web app is somewhat circular.
-This target circumnavigates the topics
-as it steps you through
-building a bare bones, stripped-down application
-that contains just enough code to
-display text on a browser page.
 
-At the end,
-you will have enough basic knowledge
-to understand the scaffolding of a web app.
+The interdependencies are circular,
+but we have to begin somewhere,
+so we begin with a simple HTML file,
+which introduces the DOM and page elements.
+From there,
+you build a bare bones, stripped-down
+Dart application
+that contains just enough code to
+put text on the page from the Dart side.
+Though simple,
+this example provides the foundation
+for more interesting and useful web apps.
 
 * [Introduction to the DOM](#dom-intro)
 * [Create a new Dart app](#create-dart-app)
 * [Edit Dart source code](#dart-editor-happiness)
-* [Import HTML library](#import-libraries)
-* [Query the DOM](#query-queryall)
-* [Modify text property of an element](#text-property)
+* [About the Dart source code](#about-dart-code)
 * [Create the HTML file](#create-html)
 * [Run mini app](#run-mini)
 * [Create a JavaScript launch](#mini-with-js)
@@ -60,34 +57,31 @@ to understand the scaffolding of a web app.
 
 ##Introduction to the DOM {#dom-intro}
 
-HTML files contain code that describes a browser page using tags.
+The DOM is a conceptual model
+that represents a document and its structural elements
+as objects in a tree.
+The document object sits at the root of the tree.
+Its children are nodes,
+which might in turn have children.
+
+HTML files contain code that describes a document.
 When an HTML file is loaded into a browser,
-the browser interprets the tags and displays the page as appropriate.
-For example,
-the HTML file shown in the following diagram,
-describes a page with a head and a body section.
-The head section contains the page title.
-The body section contains a header and a paragraph.
-You can't see the head and body sections on the web page.
-But they are part of the structure of the document,
-as are the other elements on the page.
+the browser interprets the HTML and displays
+the document in a window.
 
 ![Basic DOM Tree](images/basic-html-dom.png)
 
-Internally, the browser represents the page and its elements
-in a tree-node data structure within the DOM (Document Object Model).
-The DOM is both a conceptual model and an API implemented by browsers.
-In the DOM, the page is represented by a document object,
-which is at the root of the tree,
-and whose children are the structural elements on the page.
+For example,
+the HTML file shown in the diagram,
+describes a document with head and body elements.
+The head element contains the page title.
+The body element contains a header and a paragraph.
+You can't see the head and body sections
+on the browser page,
+but they are part of the structure of the document.
 
-{% comment %}
-![Basic DOM Tree](images/basic-dom.png)
-{% endcomment %}
-
-A Dart web app gets included on a web page,
-and becomes a node in the DOM tree,
-with the use of the HTML `script` tag.
+The HTML `script` element embeds an executable script,
+which can now be written in Dart.
 Through functions and classes in the Dart HTML library,
 Dart code can query the DOM for objects
 and then manipulate them.
@@ -98,7 +92,7 @@ Let's take special note of the paragraph tag:
 
 ![HTML Paragraph Tag](images/html-paragraph.png)
 
-This creates a paragraph element with an _attribute_
+This defines a paragraph element with an _attribute_
 and a _property_.
 Here, `ID` is the identifier of the element
 and should be unique.
@@ -126,8 +120,7 @@ that contains the Dart code for a default command-line application.
 
 ##Edit Dart source code {#dart-editor-happiness}
 
-In this step,
-you will use Dart Editor
+Use Dart Editor
 to modify the source code
 to look like this:
 
@@ -138,6 +131,7 @@ void main() {
 }
 {% endhighlight %}
 
+{% comment %}
 ####Errors
 As you type, Dart Editor processes the text.
 For example, begin typing the first line of code,
@@ -193,7 +187,6 @@ a string argument and you have not yet provided one.
 Warnings are hints that your code might not work
 but do not prevent your program from executing.
 
-{% comment %}
 [XX Kathy sez 10/17/12
 but they might just be the editor not knowing as much as you do
 An example: if you know a query will return a certain kind of element,
@@ -215,7 +208,6 @@ a run-time error results in an exception “Exceptions” on page 32 being
 raised while the code executes.
 ignore the overly verbose xref... we're fixing that
 ]
-{% endcomment %}
 
 ####Code Completion
 
@@ -232,16 +224,22 @@ Scroll down and choose `text`, or just type it in.
 
 Finish your edits,
 and save the file with **File > Save**.
-The next two sections
 
-##Import HTML library {#import-libraries}
+{% endcomment %}
 
-![Code Walk-through of mini.dart](images/0-mini-code-walk-through.png)
+##About the Dart source code {#about-dart-code}
+
+Let's step through the code.
+
+###Importing libraries
 
 The `import` directive imports the specified library,
 making all of the classes and functions
 in that library
 available to your program.
+
+![Code Walk-through of mini.dart](images/0-mini-code-walk-through.png)
+
 In this example, the program imports
 Dart's HTML library,
 which contains the classes and functions for programming the DOM.
@@ -249,16 +247,16 @@ Generally speaking, all Dart web apps need the Dart HTML library.
 Key classes include `Document`, `Element`,
 `List<Element>` (a list containing elements), and `Window`.
 
-##Query the DOM {#query-queryall}
+###Using the query() function
 
-This app's `main` function contains a single
+This app's `main()` function contains a single
 line of code that is a little like a run-on sentence
 with multiple things happening one after another.
-Let's de-construct it.
+Let's deconstruct it.
 
 ![Code Walk-through of mini.dart](images/2-mini-code-walk-through.png)
 
-`query` is a top-level function provided by the Dart HTML library
+`query()` is a top-level function provided by the Dart HTML library
 that gets an object from the DOM.
 More specifically,
 it returns a Dart `Element` object
@@ -266,7 +264,7 @@ that is bound to the requested object in the DOM.
 
 ![Code Walk-through of mini.dart](images/3-mini-code-walk-through.png)
 
-The argument to `query`, a string,
+The argument to `query()`, a string,
 is a CSS selector that identifies the object.
 CSS selectors can be classes, identifiers, attributes, etc.
 In this case `#RipVanWinkle` 
@@ -274,25 +272,24 @@ is a unique ID for a paragraph element
 that is set in the HTML file.
 
 Another useful function for getting elements from the DOM
-is `queryAll`,
+is `queryAll()`,
 which returns multiple page elements via
 a list of elements--`List<Element>`--all
 of which match the provided selector.
 
-##Modify text property of an element {#text-property}
+###Modifying the text property of an element
 
 ![Code Walk-through of mini.dart](images/4-mini-code-walk-through.png)
 
 The highlighted code refers to the text property
 of the element returned by `query`.
-All Elements have a text property.
+All Dart Elements have a text property.
 
 ![Code Walk-through of mini.dart](images/5-mini-code-walk-through.png)
 
-The equals sign sets the text property of the paragraph element
-to the string "Wake up, sleepy head!".
-This subsequently modifies the parallel object in the DOM
-with the effect of displaying the text on the browser page.
+The equal operator sets the text property of the paragraph element
+to the string "Wake up, sleepy head!",
+thereby displaying the text on the browser page.
 
 {% comment %}
 ## Understanding basic HTML {#understand-html}
@@ -486,7 +483,7 @@ JavaScript and runs it in the default system browser.
 <ol>
 <li markdown="1">
 In Dart Editor,
-click on the wee arrow to the right of the run button
+click the wee arrow to the right of the run button
 ![Dart Editor's run button](images/run.png).
 A menu appears:
 
@@ -497,7 +494,9 @@ the samples so far.
 The menu item `mini.html` is a launch that Dart Editor
 automatically created
 when you ran the application for the first time.
+</li>
 
+<li markdown="1">
 Select **Manage launches** from the menu
 to bring up the **Manage Launches** dialog.
 </li>
@@ -524,7 +523,9 @@ with the name of the `.html` file that includes the Dart app.
 You must explicitly create a Dart JavaScript launch
 to create a run-time configuration that compiles
 your web app to JavaScript and then runs it in a browser.
+</li>
 
+<li markdown="1">
 Select **Dart JavaScript launch**.
 The dialog window adjusts to present the appropriate options
 for your selection.

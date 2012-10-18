@@ -14,7 +14,7 @@ tutorial:
 * Run Dart Web apps directly in Dartium.
 * Compile Dart apps to JavaScript for other browsers.
 * Dart Editor can be your development hub.
-* All Dart apps have a main function.
+* All Dart apps have a main() function.
 * Dart supports top-level functions.
 
 {% endcapture %}
@@ -35,7 +35,8 @@ create and run two small applications.
 * [Run a command-line app](#run-cmd-line)
 * [Create a web app](#create-web-app)
 * [Run a web app in Dartium](#run-web-app)
-* [main and other top-level functions](#top-level-functions)
+* [main() and other top-level functions](#top-level-functions)
+* [String literals](#strings)
 * [File-naming Conventions](#file-names)
 {% comment %}
 * [9-dart finish](#9-dart-finish)
@@ -192,8 +193,8 @@ A Dart application has
 at least one Dart source file
 (a file with the `.dart` suffix)
 and one of its Dart files must contain
-a `main` function.
-The `main` function
+a `main()` function.
+The `main()` function
 is the entry point for your application.
 
 A Dart application is either
@@ -294,7 +295,7 @@ You might recognize it as the canonical Hello World program.
 
 This program prints the text
 `Hello, World!` to the standard output stream
-using the `print` function,
+using the `print()` function,
 which is provided by the `dart:core` library.
 The functions and objects defined in the core library
 are automatically available to all Dart applications.
@@ -375,7 +376,7 @@ for the page and its elements.
 
 ![clickme app's files](images/click-me-files.png)
 
-The `main` function contains two lines of code 
+The `main()` function contains two lines of code 
 that puts text on the browser page
 and registers an *event handler*,
 a function that responds to user-generated events like a mouse click.
@@ -401,24 +402,24 @@ and thus, loads the app.
 
 ![clickme app running in Dartium](images/click-me-app.png)
 
-When you click on 
+When you click the text
 **Click Me!**,
-the text spins.
+it spins.
 
 You can run Dart web applications in other browsers
 by compiling to JavaScript.
 You will do this in the next target,
 when you learn about run-time configurations called launches.
 
-##main and other top-level functions {#top-level-functions}
+##main() and other top-level functions {#top-level-functions}
 
 Dart lets you define _top-level_ functions,
 that is, functions that are not encapsulated within a class or object.
 You've already seen several top-level functions.
-In all apps, the `main` function is a top-level function,
-the Hello World example uses `print`,
-a top-level function defined in `dart:core`,
-and `clickme` declares a top-level function called `rotateText`.
+In all apps, the `main()` function is a top-level function.
+The Hello World example uses `print()`,
+a top-level function defined in `dart:core`.
+And `clickme` declares a top-level function called `rotateText()`.
 
 A function has two parts: a _definition_ and a _declaration_.
 
@@ -427,7 +428,7 @@ A function has two parts: a _definition_ and a _declaration_.
 The definition is code contained
 within a matching pair of curly braces
 that defines the function's behavior.
-The `milesToKM` function performs a simple arithmetic calculation
+The `milesToKM()` function performs a simple arithmetic calculation
 and returns the result.
 
 The declaration sets the function name,
@@ -437,11 +438,11 @@ and the number and type of its input arguments.
 ![Function Parts](images/declaration-parts.png)
 
 This function takes a single argument.
-Function can take multiple arguments,
+Functions can take multiple arguments,
 in which case, the arguments are set apart by commas.
 
 In our previous examples,
-`main` does not have a return value
+`main()` does not have a return value
 (as indicated by `void`)
 and does not take any arguments
 (as indicated by the empty parentheses),
@@ -456,7 +457,9 @@ Strings are a built-in type in Dart.
 They support expression evaluation,
 concatenation, and multi-line strings.
 
-[XX: fix this]
+{% comment %}
+[XX: elaborate about multi-line strings, etc.]
+{% endcomment %}
 
 ##File-naming conventions {#file-names}
 
@@ -470,7 +473,7 @@ Dart Editor uses the application name for:
 
 * the name of the app's directory
 * the basename of the main Dart file
-(the Dart file that contains the `main` function)
+(the Dart file that contains the `main()` function)
 * the basename of the HTML file
 * the basename of the CSS file
 
@@ -487,8 +490,8 @@ Should be able to answer questions about these:
 * key files of a web app
 * how to create an app in Dart Editor
 * how to run an app in Dart Editor
-* main function
-* print function
+* main() function
+* print() function
 * ??
 {% endcomment %}
 
