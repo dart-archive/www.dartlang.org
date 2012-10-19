@@ -86,7 +86,7 @@ starting with the basics in Target 2.)
 discover which tools and libraries come with the Dart software,
 and use Dart Editor to run two apps.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Target 2: Put Text on a Page](put-text/index.html)
+![Dart Icon](/imgs/Dart_Logo_21.png) [Target 2: Connect Dart & HTML](connect-dart-html/index.html)
 : In this target, you will use Dart Editor to create
 a stripped down Dart program
 that simply puts text on a browser page.
