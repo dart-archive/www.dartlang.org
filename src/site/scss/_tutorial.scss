@@ -1,0 +1,73 @@
+/* tutorial styles */
+
+#tutorial-toc {
+  list-style-type:square;
+  font-size:9pt;
+
+  padding: 10px;
+  background-color: #DDFFDD;
+  border-radius: 10px;
+
+  margin: 0px 0px 15px 0px;
+
+  ul {
+    margin: 0px 0px 0px 15px;
+  }
+
+  li {
+    line-height: 120%;
+  }
+
+  h4 {
+    padding-bottom: 7px;
+  }
+
+}
+
+#whats_the_point {
+  list-style-type: square;
+  font-size:8pt;
+
+  padding: 10px;
+  background-color: #D8ECFD;
+  border-radius: 10px;
+
+  margin: 0px 0px 15px 0px;
+
+  ul {
+    margin: 0px 0px 0px 15px;
+  }
+
+  li {
+    line-height: 120%;
+    padding-bottom: 7px;
+  }
+
+  h4 {
+    padding-bottom: 7px;
+  }
+
+/* colors from logo */
+/*$blue-dark: #0081C6;*/
+/*$blue-light: #00A4E4;*/
+/*$green-dark: #00D2B8;*/
+/*$green-light: #55DDCA;*/
+
+}
+
+#under-construction {
+  background-color: #F5E2FF;
+  border-radius: 10px;
+  border-width: 1px;
+  margin: 15px 50px 15px 50px;
+  padding: 10px;
+
+  h3 {
+    font-weight: bold;
+    font-size: 16pt;
+  }
+
+  .icon-wrench {
+    font-size: 24pt;
+  }
+}
