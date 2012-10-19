@@ -112,7 +112,7 @@ you will learn how to use widgets in your app.
     </font>
     </div>
     <div class="span8">
-...stay tuned for more targets...
+...more things to shoot at coming soon...
     </div>
   </div>
 <hr>

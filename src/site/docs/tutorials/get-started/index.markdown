@@ -10,10 +10,9 @@ tutorial:
 {% capture whats_the_point %}
 
 * The Dart bundle has development tools, APIs, and samples.
-* You can use Dart to create web apps and command-line.
+* You can use Dart to create web apps and command-line apps.
 * Run Dart Web apps directly in Dartium.
 * Compile Dart apps to JavaScript for other browsers.
-* Dart Editor can be your development hub.
 * All Dart apps have a main() function.
 * Dart supports top-level functions.
 
@@ -293,7 +292,7 @@ You might recognize it as the canonical Hello World program.
 
 ![Dart Editor with Hello World](images/helloworld-files.png)
 
-This program prints the text
+This program prints
 `Hello, World!` to the standard output stream
 using the `print()` function,
 which is provided by the `dart:core` library.
@@ -386,7 +385,7 @@ We are going to ignore the code for this application for now.
 In the next target,
 you will build a mini app from scratch,
 creating the Dart source, the HTML source,
-and the CSS source from scratch.
+and the CSS source yourself.
 Afterward, you can re-visit the code for `clickme`.
 
 ##Run a web app in Dartium {#run-web-app}
@@ -421,21 +420,21 @@ The Hello World example uses `print()`,
 a top-level function defined in `dart:core`.
 And `clickme` declares a top-level function called `rotateText()`.
 
-A function has two parts: a _definition_ and a _declaration_.
+A function has two parts: a _declaration_ and a _definition_.
 
 ![Function Parts](images/function-parts.png)
-
-The definition is code contained
-within a matching pair of curly braces
-that defines the function's behavior.
-The `milesToKM()` function performs a simple arithmetic calculation
-and returns the result.
 
 The declaration sets the function name,
 the data type of its return value,
 and the number and type of its input arguments.
 
 ![Function Parts](images/declaration-parts.png)
+
+The definition is code contained
+within a matching pair of curly braces
+that defines the function's behavior.
+The `milesToKM()` function performs a simple arithmetic calculation
+and returns the result.
 
 This function takes a single argument.
 Functions can take multiple arguments,
@@ -474,8 +473,8 @@ Dart Editor uses the application name for:
 * the name of the app's directory
 * the basename of the main Dart file
 (the Dart file that contains the `main()` function)
-* the basename of the HTML file
-* the basename of the CSS file
+* the basename of the primary HTML file
+* the basename of the primary CSS file
 
 You should also follow these conventions.
 
