@@ -4,7 +4,7 @@ title: "Target 1: Get Started"
 description: "Download Dart and run two Dart applications"
 has-permalinks: true
 tutorial:
-  id: gs-index
+  id: get-started
 ---
 
 {% capture whats_the_point %}
