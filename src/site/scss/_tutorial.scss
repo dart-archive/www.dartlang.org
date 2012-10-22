@@ -1,5 +1,33 @@
 /* tutorial styles */
 
+#tutorial-side {
+  width: 200px;
+  position: fixed;
+  top: 85px;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  #tutorial-side {
+    width: 258px;
+  }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+  #tutorial-side {
+    width: 158px;
+  }
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { #tutorial-side {position: static; width:100%;} }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { #tutorial-side {position: static; width:100%;} }
+
+
+
 #tutorial-toc {
   list-style-type:square;
   font-size:9pt;
