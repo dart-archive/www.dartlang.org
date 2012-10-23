@@ -12,7 +12,7 @@ has-permalinks: true
 <p>
 <em>Written by Bob Nystrom<br>
 October 2011<br>
-Updated: March 2012</em>
+Updated: October 2012</em>
 </p>
 
 <h4>Contents</h4>
@@ -66,7 +66,7 @@ class Point {
 <p>Like most dynamically-typed languages, Dart doesn't support overloading. With methods, this isn't much of a limitation because you can always use a different name, but constructors aren't so lucky. To alleviate that, Dart lets you define <em>named constructors</em>:</p>
 
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 class Point {
   num x, y;
@@ -82,7 +82,7 @@ class Point {
 <p>Here our Point class has three constructors, a normal one and two named ones. You can use them like so:</p>
 
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 main() {
   var a = new Point(1, 2);
@@ -204,9 +204,9 @@ class Rectangle {
 class Rectangle {
   num left, top, width, height;
 
-  num get right()           => left + width;
+  num get right             => left + width;
       set right(num value)  => left = value - width;
-  num get bottom()          => top + height;
+  num get bottom            => top + height;
       set bottom(num value) => top = value - height;
 
   Rectangle(this.left, this.top, this.width, this.height);
@@ -234,21 +234,21 @@ class Rectangle {
   num left, top;
   num _width, _height;
 
-  num get width() => _width;
+  num get width => _width;
   set width(num value) {
     if (value < 0) throw 'Width cannot be negative.';
     _width = value;
   }
 
-  num get height() => _height;
+  num get height => _height;
   set height(num value) {
     if (value < 0) throw 'Height cannot be negative.';
     _height = value;
   }
 
-  num get right()           => left + width;
+  num get right             => left + width;
       set right(num value)  => left = value - width;
-  num get bottom()          => top + height;
+  num get bottom            => top + height;
       set bottom(num value) => top = value - height;
 
   Rectangle(this.left, this.top, this._width, this._height);
@@ -261,13 +261,13 @@ class Rectangle {
 <p>Dart is a "pure" object-oriented language in that everything you can place in a variable is a real object (no mutant "primitives") and every object is an instance of some class. It's not a <em>dogmatic</em> OOP language though. You aren't required to place everything you define inside some class. Instead, you are free to define functions, variables, and even getters and setters at the top level if you want.</p>
 
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 num abs(num value) => value < 0 ? -value : value;
 
 final TWO_PI = PI * 2.0;
 
-int get today() {
+int get today {
   final date = new Date.now();
   return date.day;
 }
@@ -312,7 +312,7 @@ var greeting = '$salutation, $name';
   placing them inside curly braces:</p>
 
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 main() {
   var r = 2;
   print('The area of a circle with radius $r is ${PI * r * r}');
@@ -359,7 +359,7 @@ var newPosition = position + velocity;
 
 <h2 id="numbers">Numbers</h2>
 
-<p>Dart has a <code>num</code> interface and two subinterfaces: <code>int</code> and <code>double</code>. Integers are of arbitrary size, and double are 64 bit doubles as defined by IEEE 754 standard.</p>
+<p>Dart has a <code>num</code> class and two subclasses: <code>int</code> and <code>double</code>. Integers are of arbitrary size, and double are 64 bit doubles as defined by IEEE 754 standard.</p>
 
 <p>In typical Dart code, we find that we want two kinds of numbers:</p>
 
