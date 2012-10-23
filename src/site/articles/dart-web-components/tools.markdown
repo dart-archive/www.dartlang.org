@@ -51,10 +51,18 @@ on the entry point of your application. For instance, the following example
 shows how to compile an application under the directory `web`, whose entry point
 is `app.html`.
 
-    > packages/web_components/dwc.dart web/app.html
+    > dart --package-root=packages/ packages/web_components/dwc.dart web/app.html
 
-You can pass an argument after the input HTML filename to indicate the directory
-where output will be written.
+<aside><div class="alert alert-info">
+<strong>Note:</strong> This command will get simpler in the future. We
+expect that <em>pub</em> will allow to directly run scripts deployed with a
+package.  At that point, you'll be able to run the command above without the
+<code>--package-root</code> argument and without reaching into the
+<code>packages/</code> directory.
+</div></aside>
+
+After the input HTML file path, you can pass an argument to indicate the
+directory where output will be written.
 
 <aside><div class="alert alert-info">
 <strong>Note:</strong> If you specify an output directory, and your code has

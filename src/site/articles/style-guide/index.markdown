@@ -10,7 +10,7 @@ has-permalinks: true
 # Dart Style Guide
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time><br />
-Updated: May 2012
+Updated: October 2012
 </em>
 
 As we build up an ecosystem of Dart code, it's helpful if it follows a
@@ -280,7 +280,7 @@ class Box {
 {% highlight dart %}
 class Box {
   var _contents;
-  get contents() => _contents;
+  get contents => _contents;
   set contents(value) {
     _contents = value;
   }
@@ -306,7 +306,7 @@ class Box {
 {% highlight dart %}
 class Box {
   var _contents;
-  get contents() => _contents;
+  get contents => _contents;
 }
 {% endhighlight %}
 </div>
@@ -319,8 +319,8 @@ and return a value.
 
 <div class="good">
 {% highlight dart %}
-get width() => right - left;
-bool ready(num time) => minTime === null || minTime <= time;
+get width => right - left;
+bool ready(num time) => minTime == null || minTime <= time;
 containsValue(String value) => getValues().some((v) => v == value);
 {% endhighlight %}
 </div>
@@ -612,7 +612,7 @@ together.
 
 <div class="good">
 {% highlight dart good %}
-#import('dart:math');
+import 'dart:math';
 // ...
 /** Rolls both [Dice] and returns the highest rolled value. */
 num greatestRoll(Dice a, Dice b) => max(a.roll(), b.roll());
