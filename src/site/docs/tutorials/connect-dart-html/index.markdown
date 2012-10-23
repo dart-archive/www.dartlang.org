@@ -20,6 +20,23 @@ tutorial:
 
 {% endcapture %}
 
+{% capture code_links %}
+<ul>
+<li>
+   <a href="examples/mini/mini.dart">mini.dart</a>
+</li>
+<li>
+   <a href="examples/mini/mini.html">mini.html</a>
+</li>
+<li>
+   <a href="examples/mini/mini.css">mini.css</a>
+</li>
+<li>
+   <a href="examples/mini/mini-with-css.html">mini-with-css.html</a>
+</li>
+</ul>
+{% endcapture %}
+
 {% capture content %}
 
 To write a Dart web app,
@@ -45,7 +62,7 @@ These concepts
 provide the foundation
 for more interesting and useful web apps.
 
-* [Introduction to the DOM](#dom-intro)
+* [About the DOM](#dom-intro)
 * [Create a new Dart app](#create-dart-app)
 * [Edit Dart source code](#dart-editor-happiness)
 * [About the Dart source code](#about-dart-code)
@@ -58,7 +75,7 @@ for more interesting and useful web apps.
 * [9-dart finish](#9-dart-finish)
 {% endcomment %}
 
-##Introduction to the DOM {#dom-intro}
+##About the DOM {#dom-intro}
 
 The DOM is a conceptual model
 that represents a document and its structural elements

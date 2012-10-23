@@ -14,6 +14,14 @@ tutorial:
 
 {% endcapture %}
 
+{% capture code_links %}
+
+XX put links to all source files here.
+source files should be in "examples" directory.
+apps should each be in separate directory.
+
+{% endcapture %}
+
 {% capture content %}
 
 This is the page's content

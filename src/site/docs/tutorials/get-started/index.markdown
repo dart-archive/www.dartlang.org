@@ -18,6 +18,23 @@ tutorial:
 
 {% endcapture %}
 
+{% capture code_links %}
+<ul>
+<li>
+   <a href="examples/helloworld/helloworld.dart.html">helloworld.dart</a>
+</li>
+<li>
+   <a href="examples/clickme/clickme.dart.html">clickme.dart</a>
+</li>
+<li>
+   <a href="examples/clickme/clickme.html.html">clickme.html</a>
+</li>
+<li>
+   <a href="examples/clickme/clickme.css.html">clickme.css</a>
+</li>
+</ul>
+{% endcapture %}
+
 {% capture content %}
 
 This target gets you ready
@@ -34,9 +51,9 @@ create and run two small applications.
 * [Run a command-line app](#run-cmd-line)
 * [Create a web app](#create-web-app)
 * [Run a web app in Dartium](#run-web-app)
-* [main() and other top-level functions](#top-level-functions)
-* [String literals](#strings)
-* [File-naming Conventions](#file-names)
+* [About main() and other top-level functions](#top-level-functions)
+* [About string literals](#strings)
+* [About File-naming Conventions](#file-names)
 {% comment %}
 * [9-dart finish](#9-dart-finish)
 {% endcomment %}
@@ -379,9 +396,12 @@ The `main()` function contains two lines of code
 that puts text on the browser page
 and registers an *event handler*,
 a function that responds to user-generated events like a mouse click.
-It uses APIs define in the `dart:html` library.
+It uses APIs defined in the `dart:html` library.
+You will revisit this example in Target 3,
+where you learn more about mouse clicks,
+and page elements.
+So keep the application.
 
-We are going to ignore the code for this application for now.
 In the next target,
 you will build a mini app from scratch,
 creating the Dart source, the HTML source,
@@ -410,7 +430,7 @@ by compiling to JavaScript.
 You will do this in the next target,
 when you learn about run-time configurations called launches.
 
-##main() and other top-level functions {#top-level-functions}
+##About main() and other top-level functions {#top-level-functions}
 
 Dart lets you define _top-level_ functions,
 that is, functions that are not encapsulated within a class or object.
@@ -447,7 +467,7 @@ and does not take any arguments
 (as indicated by the empty parentheses),
 but, like any other function, it could have both.
 
-##String Literals {#strings}
+##About string Literals {#strings}
 
 Text between single quotes
 defines a string literal.
@@ -460,7 +480,7 @@ concatenation, and multi-line strings.
 [XX: elaborate about multi-line strings, etc.]
 {% endcomment %}
 
-##File-naming conventions {#file-names}
+##About file-naming conventions {#file-names}
 
 When creating an application with Dart Editor,
 you are asked to provide an application name.

@@ -8,8 +8,17 @@ tutorial:
 
 {% capture whats_the_point %}
 
+* Page highlights are shown here.
 * Dart is an open-source platform for building structured HTML5 web apps.
 * Learn Dart here: No web experience required.
+
+{% endcapture %}
+
+{% capture code_links %}
+
+Where fitting,
+this area contains links to example source files,
+so you can easily copy and paste code.
 
 {% endcapture %}
 
@@ -97,6 +106,11 @@ and one way to manipulate the DOM.
 You will also begin learning about the Dart language,
 Dart Editor, HTML, and CSS.
 
+![Dart Icon](/imgs/Dart_Logo_21.png) [Target 3: Handle a Mouse Click](handle-mouse-click/index.html)
+: A web app can receive user-generated events,
+like the click of the mouse,
+and do something in response.
+
 {% comment %}
 [Target 3: Write a To Do List App](todo-app/index.html)
 : [XX: this is not here] By writing a small practical web app,
@@ -112,7 +126,7 @@ you will learn how to use widgets in your app.
     </font>
     </div>
     <div class="span8">
-...more things to shoot at coming soon...
+...more things to shoot coming soon...
     </div>
   </div>
 <hr>
