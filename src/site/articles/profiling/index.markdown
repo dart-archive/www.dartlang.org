@@ -18,11 +18,11 @@ order to do that you must determine how long a function or block of code takes
 to execute. This act of measuring code execution time is the fundamental
 technique.
 
-###Narrowing In
+###Narrowing in
 
 Profiling is an act of binary search. You start off by timing a large block of
-code, for example, your entire update loop and then narrow in on the slowest
-part. Eventually you have identified a set of functions or algorithm that is
+code--for example, your entire update loop--and then narrow in on the slowest
+part. Eventually you have identified a set of functions or an algorithm that is
 worth optimizing in order to increase your entire application's performance.
 
 ###Benchmarking
@@ -91,7 +91,7 @@ impact on run-time performance.
 
 <div style="display:block; margin-left:auto; margin-right:auto"><img src="checkedmode.png" /></div>
 
-###Summary
+##Summary
 
 When profiling your application be sure to follow these three rules:
 
@@ -100,4 +100,6 @@ When profiling your application be sure to follow these three rules:
 1. Run your benchmark in production mode with debugging disabled.
 
 If you follow these rules you will be able to accurately measure how fast your
-code runs. Once you've sped up your application share your secrets on the [mailing list](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/misc). Happy profiling!
+code runs. Once you've sped up your application share your secrets on the
+[mailing list](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/misc).
+Happy profiling!
