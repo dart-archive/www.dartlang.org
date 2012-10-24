@@ -7,12 +7,16 @@ rel:
 has-permalinks: true
 ---
 
-# {{ page.title }} _Written by John McCutchan <br /> October 2012_
+# {{ page.title }}
+_Written by John McCutchan <br>
+October 2012_
 
-##Profiling 101
+Profile your application to determine how much memory or CPU time
+it uses. This article focuses on the latter: CPU profiling.
 
-When profiling your application you are determining how much memory or CPU time
-it is using. This article will focus on the latter. The goal of CPU profiling is
+##Introduction to profiling
+
+The goal of CPU profiling is
 to help identify specifically where your application is spending CPU time. In
 order to do that you must determine how long a function or block of code takes
 to execute. This act of measuring code execution time is the fundamental
