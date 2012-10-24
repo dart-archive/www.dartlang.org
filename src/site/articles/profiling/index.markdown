@@ -3,7 +3,7 @@ layout: default
 title: "Profiling Dart Applications"
 description: "Learn how to profile your applications"
 rel:
-    author: johnmccutchan
+    author: john-mccutchan
 has-permalinks: true
 ---
 
