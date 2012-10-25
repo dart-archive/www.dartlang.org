@@ -3,6 +3,12 @@
   {% for editor in site.custom.downloads.binaries %}
 
   <div class="{{ editor.os }} downloads">
+    {% if editor.os == 'macos' %}
+    <a class="download-link btn btn-primary" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">
+      <i class="icon-download-alt"></i>
+      Download Dart Editor
+    </a>
+    {% else %}
     <a class="download-link btn btn-primary" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">
       <i class="icon-download-alt"></i>
       Download 64-bit Dart Editor
@@ -11,6 +17,7 @@
       <i class="icon-download-alt"></i>
       Download 32-bit Dart Editor
     </a>
+    {% endif %}
   </div>
 
   {% endfor %}
@@ -19,5 +26,4 @@
     Current version of Dart Editor:
     <span class="editor-build-rev-integration">[calculating]</span>
   </div>
-
 </div>

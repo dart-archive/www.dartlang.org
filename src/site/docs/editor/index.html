@@ -58,6 +58,7 @@ js:
   <li> <a href="#run">Running apps</a> </li>
   <li> <a href="#debug">Debugging apps</a> </li>
   <li> <a href="#dart2js">Compiling to JavaScript</a> </li>
+  <li> <a href="#ref">Clearing Dart Editor settings</a> </li>
   <li> <a href="#more">Other features</a> </li>
 </ol>
 
@@ -65,11 +66,22 @@ js:
 <h2>Getting Dart Editor</h2>
 
 <p>
-You can download Dart Editor for:
+You can download Dart Editor for
 {% include os-choices.html %}
 </p>
 
-{% include downloads/_dart-editor.html %}
+<p>
+  {% include downloads/_dart-editor.html %}
+</p>
+
+<p>
+  {% include downloads/_dart-editor-continuous.html %}
+</p>
+
+<p>
+See <a href="getting-started/">Getting Started with Dart Editor</a>
+for help with downloading and launching Dart Editor.
+</p>
 
 <p>
 The Dart Editor download includes:
@@ -82,17 +94,13 @@ The Dart Editor download includes:
     a build of the Chromium browser that includes the Dart VM </li>
 </ul>
 
-<p>
-See <a href="getting-started/">Getting Started with Dart Editor</a>
-for help with downloading and launching Dart Editor.
-</p>
 
 <section id="continuous">
-<h3>Getting the most recent build</h3>
 
 <p>
-The version linked to above is the <em>integration build</em>.
-It's usually updated once per week.
+The default version of Dart Editor
+is the <em>integration build</em>.
+It's automatically updated about once per week.
 The
 <a target="_blank"
   href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/changelog.html">change log</a>
@@ -100,70 +108,14 @@ has a list of release dates and features.
 </p>
 
 <p>
-Another option is to get the <em>continuous build</em>&mdash;the
-latest, <b>untested</b> version of Dart Editor.
+Another option is the <em>continuous build</em>&mdash;the
+latest, bleeding edge, <b>untested</b> version of Dart Editor.
 If you use the continuous build, please update it frequently and
 <a href="getting-started/#feedback">send feedback</a>
 about new features and bugs that you encounter.
 </p>
 
-{% for editor in site.custom.downloads.binaries %}
-
-{% comment %}
-{QUESTION: Why aren't the following links buttons?
-Also, it'd be good to emphasize the 64-bit versions -- we used to
-barely link to the 32-bit versions.}
-{% endcomment %}
-
-<div class="{{ editor.os }} downloads">
-  <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="latest" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">64-bit Dart Editor ({{ editor.name }} latest)</a>
-  <br>
-  <a class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="latest" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-32.{{ editor.editor-ext }}">32-bit Dart Editor ({{ editor.name }} latest)</a>
-</div>
-
-{% endfor %}
-
 </section>
-
-
-<section id="ref">
-<h3>A note about settings</h3>
-
-<p>
-We no longer recommend the workaround of
-unzipping your new copy of Dart Editor on top of the old copy.
-Previously, the settings for Dart Editor were saved alongside its executable file,
-meaning that unless you used the workaround,
-you'd lose your list of projects and other customizations
-whenever you updated Dart Editor.
-Now the settings are in a separate place,
-and you can install new copies of Dart Editor wherever you like.
-</p>
-
-<p>
-  The following table shows where Dart Editor settings are saved.
-</p>
-
-<table>
-  <tr>
-    <th> Platform </th> <th> Location of settings </th>
-  </tr>
-  <tr>
-    <td> Windows&nbsp;&nbsp;&nbsp; </td>
-    <td> <code><em>&lt;user's home directory&gt;</em>\DartEditor</code> </td>
-  </tr>
-  <tr>
-    <td> Linux </td>
-    <td> <code>$HOME/.dartEditor</code> </td>
-  </tr>
-  <tr>
-    <td> Mac </td>
-    <td> <code>$HOME/Library/Application Support/DartEditor</code> </td>
-  </tr>
-</table>
-</section>
-
-
 </section>
 
 
@@ -445,7 +397,7 @@ A panel comes up displaying
 the classes, methods, and fields
 declared in the current Dart file.
 For example,
-the outline for the Sunflower sample's <code>Sunflower.dart</code> file
+the outline for the Sunflower sample's <code>sunflower.dart</code> file
 looks something like this:
 </p>
 
@@ -850,6 +802,41 @@ Just choose <b>Tools > Generate JavaScript</b>.
 </p>
 
 </section>
+
+<section id="ref">
+<h2>Clearing Dart Editor settings</h2>
+
+<p>
+Dart Editor settings are in a platform-dependent directory,
+so you don't lose them when you update Dart Editor.
+If your settings become corrupted
+or you want to see the new user experience,
+delete the settings directory.
+</p>
+
+<p>
+  The following table shows where Dart Editor settings are saved.
+</p>
+
+<table>
+  <tr>
+    <th> Platform </th> <th> Location of settings </th>
+  </tr>
+  <tr>
+    <td> Windows&nbsp;&nbsp;&nbsp; </td>
+    <td> <code><em>&lt;user's home directory&gt;</em>\DartEditor</code> </td>
+  </tr>
+  <tr>
+    <td> Linux </td>
+    <td> <code>$HOME/.dartEditor</code> </td>
+  </tr>
+  <tr>
+    <td> Mac </td>
+    <td> <code>$HOME/Library/Application Support/DartEditor</code> </td>
+  </tr>
+</table>
+</section>
+
 
 <section id="more">
 <h2>Other features</h2>

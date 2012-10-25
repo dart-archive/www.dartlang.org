@@ -72,10 +72,11 @@ When you refer to a class by name, you're given a reference to an instance of
 type `Type`. Until mirrors are here, you won't be able to do much with it, but
 you can get its name, and compare instances with each other for equality.
 
-In addition, you can get the type of an object by accessing its `type` property:
+In addition, you can get the type of an object by accessing its `runtimeType`
+property:
 
 {% highlight dart %}
-print('a string'.type == String); // true
+print('a string'.runtimeType == String); // true
 {% endhighlight %}
 
 ## No explicit interfaces
@@ -220,10 +221,10 @@ toggleButton.labels.add(toggleLabel);
 {% endhighlight %}
 
 Some APIs, like jQuery in JavaScript or StringBuffer in Java get around this by
-using "fluent interfaces": their methods return this so you can chain calls
+using "fluent interfaces": their methods return `this` so you can chain calls
 directly. But that forces API designers to choose between returning a useful
 value or allowing chaining: they can’t support both. It also forces all APIs to
-be designed up front to support this.
+be designed up front to support this technique.
 
 To remedy that, Smalltalk pioneered something called "message cascades" which
 Dart has adopted. These let you sequence a series of method calls that all apply
@@ -336,14 +337,14 @@ class MagicNumber {
 Stephen [explains the rationale for this
 change](http://code.google.com/p/dart/issues/detail?id=1285) better than I can:
 
-> There is a problem that a name may be defined by `#import` or by a definition
+> There is a problem that a name may be defined by `import` or by a definition
 > in the current library. A change to the imported library can break a program
 > by introducing a clashing name.
 
 What he means here is consider you have this program:
 
 {% highlight dart %}
-#import('somelib.dart');
+import 'somelib.dart';
 
 foo() => print('foo!');
 main() => foo();
@@ -428,7 +429,7 @@ entire library with a prefix.
 Now, you’ll be given finer grained control. If you do:
 
 {% highlight dart %}
-#import('somelib.dart', show: ['foo', 'bar']);
+import 'somelib.dart' show foo, bar;
 {% endhighlight %}
 
 Then you will *only* import the names "foo" and "bar" from "somelib". This is
@@ -436,7 +437,7 @@ good if you are only using a small part of a library and want to make that
 clear. Conversely:
 
 {% highlight dart %}
-#import('somelib.dart', hide: ['foo', 'bar']);
+import 'somelib.dart' hide foo, bar;
 {% endhighlight %}
 
 Here, you import every name except "foo" and "bar". This is good for excluding
@@ -469,17 +470,21 @@ someMethod() => print('hi!');
 anotherMethod() => print('hello!');
 
 // foo.dart
-#import('bar.dart', export: true);
+import 'bar.dart';
+export 'bar.dart';
 {% endhighlight %}
 
-Thanks to the `export: true` part here, any code that imports "foo.dart" will be
-able to access `someMethod()` and `anotherMethod()` as if they had been defined
-directly in "foo.dart". You can use this in combination with selective imports
-to only re-export a subset of the names that an imported library defines. If we
-change the import in "foo.dart" to:
+Thanks to the `export 'bar.dart'` part here, any code that imports "foo.dart"
+will be able to access `someMethod()` and `anotherMethod()` as if they had been
+defined directly in "foo.dart".
+
+You can use this in combination with `show` and `hide`
+to only re-export a subset of the names that an imported library
+defines. If we add an export in "foo.dart":
 
 {% highlight dart %}
-#import('bar.dart', show: ['someMethod'], export: true);
+import 'bar.dart';
+export 'bar.dart' show someMethod;
 {% endhighlight %}
 
 Then only `someMethod` will be re-exported.
@@ -493,7 +498,7 @@ constant expression. This makes sense for some closures because they truly
 aren’t constant: they may close over non-constant state.
 
 Top level functions and static methods don’t have that problem. So, moving
-forward, Dart lets you treats references to those as constants and lets you use
+forward, Dart lets you treat references to those as constants and lets you use
 them in constant expressions.
 
 {% highlight dart %}
