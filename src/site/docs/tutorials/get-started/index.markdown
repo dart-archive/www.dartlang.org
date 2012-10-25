@@ -21,16 +21,20 @@ tutorial:
 {% capture code_links %}
 <ul>
 <li>
-   <a href="examples/helloworld/helloworld.dart.html">helloworld.dart</a>
+   <a href="examples/helloworld/helloworld.dart.txt" target="_blank">
+      helloworld.dart</a>
 </li>
 <li>
-   <a href="examples/clickme/clickme.dart.html">clickme.dart</a>
+   <a href="examples/clickme/clickme.dart.txt" target="_blank">
+      clickme.dart</a>
 </li>
 <li>
-   <a href="examples/clickme/clickme.html.html">clickme.html</a>
+   <a href="examples/clickme/clickme.html.txt" target="_blank">
+      clickme.html</a>
 </li>
 <li>
-   <a href="examples/clickme/clickme.css.html">clickme.css</a>
+   <a href="examples/clickme/clickme.css.txt" target="_blank">
+      clickme.css</a>
 </li>
 </ul>
 {% endcapture %}
@@ -53,7 +57,7 @@ create and run two small applications.
 * [Run a web app in Dartium](#run-web-app)
 * [About main() and other top-level functions](#top-level-functions)
 * [About string literals](#strings)
-* [About File-naming Conventions](#file-names)
+* [About file naming Conventions](#file-names)
 {% comment %}
 * [9-dart finish](#9-dart-finish)
 {% endcomment %}
@@ -165,7 +169,7 @@ Send feedback button
 directly with the Dart Editor team
 as well as the larger Dart team.
 
-Search box
+Search field
 : Searches every file in your **Files view** for the entered text.
 Results for text searches are displayed in a **Search view**.
 Within that view,
@@ -176,7 +180,7 @@ Run button
 : Runs the application associated with the file
 that is currently selected in the **Files view**.
 
-New App button
+New application button
 : Creates a directory and, within it,
 the files for a new application.
 Alternatively, you can use the
@@ -198,6 +202,11 @@ Editor pane
 : Provides the basic editing functionality you'd expect,
 plus features such as Dart code completion,
 API browsing, and support for refactoring.
+The first time you use Dart Editor,
+it shows the Welcome Page in the Editor pane,
+which provides quick access to Dart resources
+and some nifty samples.
+The Welcome Page is also available under the **Tools** menu.
 
 ##What is a Dart application? {#what-is-app}
 
@@ -333,6 +342,7 @@ and displays the output of the `helloworld` app.
 
 ![Hello World output](images/helloworld-output.png)
 
+{% comment %}
 ###From the Command-line
 You can also run the application from the command-line in a terminal window.
 The Dart VM is in the `dart-sdk/bin` directory
@@ -351,6 +361,7 @@ Hello, World!
 %
 
 {% endhighlight %}
+{% endcomment %}
 
 ##Create a web app {#create-web-app}
 
@@ -387,8 +398,8 @@ and a `.css` file.
 The HTML file contains the code necessary to include your Dart app
 in a browser page.
 The CSS file sets the styles
-(for example, fonts and colors),
-for the page and its elements.
+for the page and its elements,
+(for example, fonts and colors).
 
 ![clickme app's files](images/click-me-files.png)
 
@@ -422,7 +433,7 @@ and thus, loads the app.
 ![clickme app running in Dartium](images/click-me-app.png)
 
 When you click the text
-**Click Me!**,
+**Click me!**,
 it spins.
 
 You can run Dart web applications in other browsers
@@ -438,7 +449,7 @@ You've already seen several top-level functions.
 In all apps, the `main()` function is a top-level function.
 The Hello World example uses `print()`,
 a top-level function defined in `dart:core`.
-And `clickme` declares a top-level function called `rotateText()`.
+And `clickme` defines a top-level function called `rotateText()`.
 
 A function has two parts: a _declaration_ and a _definition_.
 
@@ -480,7 +491,7 @@ concatenation, and multi-line strings.
 [XX: elaborate about multi-line strings, etc.]
 {% endcomment %}
 
-##About file-naming conventions {#file-names}
+##About file naming conventions {#file-names}
 
 When creating an application with Dart Editor,
 you are asked to provide an application name.

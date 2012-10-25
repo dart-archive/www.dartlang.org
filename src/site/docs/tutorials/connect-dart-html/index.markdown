@@ -23,16 +23,20 @@ tutorial:
 {% capture code_links %}
 <ul>
 <li>
-   <a href="examples/mini/mini.dart">mini.dart</a>
+   <a href="examples/mini/mini.dart.txt" target="_blank">
+      mini.dart</a>
 </li>
 <li>
-   <a href="examples/mini/mini.html">mini.html</a>
+   <a href="examples/mini/mini.html.txt" target="_blank">
+      mini.html</a>
 </li>
 <li>
-   <a href="examples/mini/mini.css">mini.css</a>
+   <a href="examples/mini/mini.css.txt" target="_blank">
+      mini.css</a>
 </li>
 <li>
-   <a href="examples/mini/mini-with-css.html">mini-with-css.html</a>
+   <a href="examples/mini/mini-with-css.html.txt" target="_blank">
+      mini-with-css.html</a>
 </li>
 </ul>
 {% endcapture %}

@@ -106,10 +106,9 @@ and one way to manipulate the DOM.
 You will also begin learning about the Dart language,
 Dart Editor, HTML, and CSS.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Target 3: Handle a Mouse Click](handle-mouse-click/index.html)
-: A web app can receive user-generated events,
-like the click of the mouse,
-and do something in response.
+![Dart Icon](/imgs/Dart_Logo_21.png) [Target 3: Element Basics](element-basics/index.html)
+: This Target covers some of the more useful functions and attributes
+of the `Element` class provided by the Dart HTML library.
 
 {% comment %}
 [Target 3: Write a To Do List App](todo-app/index.html)
