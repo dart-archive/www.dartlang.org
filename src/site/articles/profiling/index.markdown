@@ -13,9 +13,9 @@ October 2012_
 
 Programmers often create benchmarks which exercise an important algorithm in a
 larger application. The point of the benchmark is to have an easy to run,
-reproducible stress test of the performance sensitive algorithm. As the
-implementation of the algorithm is optimized the benchmark is run after
-each change, verifying that the change did indeed make the algorithm run faster.
+reproducible stress test of the performance sensitive algorithm.
+The benchmark verifies that changes to the algorithm are indeed
+improvements, and not regressions.
 
 ##Benchmarking Dart
 
