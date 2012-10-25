@@ -1,7 +1,7 @@
 --- 
 layout: default
-title: "Profiling Dart Applications"
-description: "Learn how to profile your applications"
+title: "Benchmarking the Dart VM"
+description: "Learn how to benchmark your applications"
 rel:
     author: john-mccutchan
 has-permalinks: true
@@ -11,33 +11,13 @@ has-permalinks: true
 _Written by John McCutchan <br>
 October 2012_
 
-Profile your application to determine how much memory or CPU time
-it uses. This article focuses on the latter: CPU profiling.
-
-##Introduction to profiling
-
-The goal of CPU profiling is
-to help identify specifically where your application is spending CPU time. In
-order to do that you must determine how long a function or block of code takes
-to execute. This act of measuring code execution time is the fundamental
-technique.
-
-###Narrowing in
-
-Profiling is an act of binary search. You start off by timing a large block of
-code—for example, your entire update loop—and then narrow in on the slowest
-part. Eventually you have identified a set of functions or an algorithm that is
-worth optimizing in order to increase your entire application's performance.
-
-###Benchmarking
-
-Programmers often create benchmarks which exercise an important algorithm in a
+Programmers often create benchmarks that exercise an important algorithm in a
 larger application. The point of the benchmark is to have an easy to run,
-reproducible stress test of the performance sensitive algorithm. As the
-implementation of the algorithm is being optimized the benchmark is run after
-each change, verifying that the change did indeed make the algorithm run faster.
+reproducible stress test of the performance-sensitive algorithm.
+The benchmark verifies that changes to the algorithm are indeed
+improvements, and not regressions.
 
-##Profiling Dart
+##Benchmarking Dart
 
 Dart can go really fast, but you have to give the VM time to optimize your code.
 Most benchmarks we've seen are short and to the point—so short that they don’t
@@ -76,7 +56,7 @@ var elapsed = stopwatch.elapsedInUs(); // Get the microseconds.
 The above code uses Dart’s
 [Stopwatch](http://api.dartlang.org/docs/bleeding_edge/dart_core/Stopwatch.html)
 class, which measures time with high precision and low overhead—exactly what you
-need when profiling.
+need when benchmarking.
 
 ###Run in production mode with debugging disabled
 
@@ -97,7 +77,7 @@ impact on run-time performance.
 
 ##Summary
 
-When profiling your application be sure to follow these three rules:
+When benchmarking your application be sure to follow these three rules:
 
 1. Perform a warm-up before measuring code performance.
 1. Ensure the code does not raise any errors when run in checked mode.
@@ -106,4 +86,4 @@ When profiling your application be sure to follow these three rules:
 If you follow these rules you will be able to accurately measure how fast your
 code runs. Once you've sped up your application, share your secrets on the
 [mailing list](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/misc).
-Happy profiling!
+Happy benchmarking!

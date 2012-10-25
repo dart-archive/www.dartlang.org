@@ -204,6 +204,13 @@ a.permalink {
   }
 }
 
+#book-header {
+  color: $grayLight;;
+  font-size: $baseFontSize - 1;;
+  font-style: italic;
+  text-align:center;
+}
+
 .spec-commentary {
   color: blue;
   font-style: italic;

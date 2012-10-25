@@ -140,7 +140,7 @@ by using the [watcher.dart][watcher] library
 (included with the Dart web components package).
 You can directly invoke this library if necessary.
 For example, the following code invokes [watchers.dispatch()][watcher.dispatch]
-to make a change visible to the UI. 
+to make a change visible to the UI.
 
 {% codesample 90 %}
 {% highlight html %}
@@ -155,7 +155,7 @@ to make a change visible to the UI.
       count = 0;
       window.setInterval(() {
         count++;
-        watchers.dispatch(); 
+        watchers.dispatch();
       }, 1000);
     }
   </script>
@@ -298,7 +298,7 @@ using a looping construct.
     List<String> get results {
       var res = fruits.filter(
           (v) => v.toLowerCase().contains(query.toLowerCase()));
-      if (res.length > 20) { 
+      if (res.length > 20) {
         res.length = 20;
         res.add('... and many more');
       }
@@ -356,7 +356,7 @@ declarative fashion.
 
 However, templating alone is not enough. We need mechanisms to encapsulate and
 abstract views so we can scale to build larger web apps. This is were we need
-web components. 
+web components.
 
 ## Web components in Dart {#components}
 
@@ -499,7 +499,7 @@ as we had above. Then the preceding example could be rewritten as follows:
 We are still adding features and making changes to Dart web components. Here are
 some of the features we are working on:
 
-  * Support for subcomponents. Using a special `<content>` tag, a component
+  * Support for composition. Using a special `<content>` tag, a component
     can embed nodes that will be provided when instantiating it. For instance,
     you could write a component that puts a frame around an image as follows:
 
