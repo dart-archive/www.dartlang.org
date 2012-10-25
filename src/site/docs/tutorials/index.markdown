@@ -106,7 +106,7 @@ and one way to manipulate the DOM.
 You will also begin learning about the Dart language,
 Dart Editor, HTML, and CSS.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Target 3: Add an Element to the DOM](add-elements/index.html)
+![Dart Icon](/imgs/Dart_Logo_21.png) [Practice Target 3: Add an Element to the DOM](add-elements/index.html)
 : The small app in this target
 responds to a user-generated event
 by adding an Element to the DOM.
