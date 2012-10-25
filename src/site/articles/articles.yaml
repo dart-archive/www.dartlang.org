@@ -16,8 +16,8 @@ everyday-dart:
     date: October 2011 (updated October 2012)
     desc: Get a sense of how to write Dart code like a native. 
   -
-    title: Benchmarking Dart
-    url: /articles/profiling/
+    title: Benchmarking the Dart VM
+    url: /articles/benchmarking/
     authors:
     - John McCutchan
     date: October 2012

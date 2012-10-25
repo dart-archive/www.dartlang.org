@@ -1,6 +1,6 @@
 --- 
 layout: default
-title: "Benchmarking Dart Applications"
+title: "Benchmarking the Dart VM"
 description: "Learn how to benchmark your applications"
 rel:
     author: john-mccutchan
@@ -11,9 +11,9 @@ has-permalinks: true
 _Written by John McCutchan <br>
 October 2012_
 
-Programmers often create benchmarks which exercise an important algorithm in a
+Programmers often create benchmarks that exercise an important algorithm in a
 larger application. The point of the benchmark is to have an easy to run,
-reproducible stress test of the performance sensitive algorithm.
+reproducible stress test of the performance-sensitive algorithm.
 The benchmark verifies that changes to the algorithm are indeed
 improvements, and not regressions.
 
@@ -56,7 +56,7 @@ var elapsed = stopwatch.elapsedInUs(); // Get the microseconds.
 The above code uses Dart’s
 [Stopwatch](http://api.dartlang.org/docs/bleeding_edge/dart_core/Stopwatch.html)
 class, which measures time with high precision and low overhead—exactly what you
-need when profiling.
+need when benchmarking.
 
 ###Run in production mode with debugging disabled
 
