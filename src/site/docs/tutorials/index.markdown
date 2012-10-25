@@ -106,15 +106,10 @@ and one way to manipulate the DOM.
 You will also begin learning about the Dart language,
 Dart Editor, HTML, and CSS.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Target 3: Element Basics](element-basics/index.html)
-: This Target covers some of the more useful functions and attributes
-of the `Element` class provided by the Dart HTML library.
-
-{% comment %}
-[Target 3: Write a To Do List App](todo-app/index.html)
-: [XX: this is not here] By writing a small practical web app,
-you will learn how to use widgets in your app.
-{% endcomment %}
+![Dart Icon](/imgs/Dart_Logo_21.png) [Target 3: Add an Element to the DOM](add-elements/index.html)
+: The small app in this target
+responds to a user-generated event
+by adding an Element to the DOM.
 
 <div>
   <hr>
@@ -125,7 +120,7 @@ you will learn how to use widgets in your app.
     </font>
     </div>
     <div class="span8">
-...more things to shoot coming soon...
+...more targets coming...
     </div>
   </div>
 <hr>
