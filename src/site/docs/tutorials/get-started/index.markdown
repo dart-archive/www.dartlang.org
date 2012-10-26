@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Target 1: Get Started"
-description: "Download Dart and run two Dart applications"
+description: "Get Dart and run two Dart applications"
 has-permalinks: true
 tutorial:
   id: get-started
@@ -11,7 +11,7 @@ tutorial:
 
 * The Dart bundle has development tools, APIs, and samples.
 * You can use Dart to create web apps and command-line apps.
-* Run Dart Web apps directly in Dartium.
+* Run Dart web apps directly in Dartium.
 * Compile Dart apps to JavaScript for other browsers.
 * All Dart apps have a main() function.
 * Dart supports top-level functions.
@@ -42,15 +42,15 @@ tutorial:
 {% capture content %}
 
 This target gets you ready
-to begin writing Web apps in Dart.
-You download the Dart software,
+to begin writing web apps in Dart.
+Here you will download the Dart software,
 and use the Dart Editor to
 create and run two small applications.
 
 * [Download the Dart software bundle](#download-dart)
 * [What did you get?](#what-did-you-get)
 * [Start Dart Editor](#start-dart-editor)
-* [What is a Dart application?](#what-is-app)
+* [Two kinds of Dart applications](#what-is-app)
 * [Create a command-line app](#create-cmd-line)
 * [Run a command-line app](#run-cmd-line)
 * [Create a web app](#create-web-app)
@@ -71,7 +71,7 @@ I would prefer to have the download buttons and instructions here]
 
 Go to the
 [Downloads and Source](/downloads.html)
-page and download the Dart software for your system.
+page and download the Dart software for your computer.
 Be sure to download the package under **Everything you need**
 because you will be using Dart Editor
 throughout this tutorial.
@@ -87,40 +87,43 @@ contains the following:
   <hr>
   <div class="row">
     <div class="span2">
-    <img src="images/dart-editor-icon.png" alt="Dart Editor"/>
+    <img src="images/dart-editor-icon.png"
+         width="77" height="93" alt="Dart Editor"/>
     </div>
     <div class="span7">
     Dart Editor is a powerful,
     lightweight, open source editor.
     With it you can create and edit files,
-    manage the files for your project,
+    manage the files and directories for your project,
     look up APIs, debug your code,
-    and control run-time conditions using named launches.
+    and control runtime conditions using named launches.
     </div>
   </div>
   <hr>
   <div class="row">
     <div class="span2">
-    <img src="images/chromium.png" alt="Dartium"/>
+    <img src="images/chromium.png"
+         width="81" height="89" alt="Dartium, a special Chromium build"/>
     </div>
     <div class="span7">
     This is a special build of the Chromium web browser, 
     called Dartium, that has the Dart VM (virtual machine) embedded.
     You can run your apps directly in this browser,
     or use Dart Editor to do it for you,
-    thereby stream-lining the build-test cycle.
+    thereby streamlining the build-test cycle.
     </div>
   </div>
   <hr>
   <div class="row">
     <div class="span2">
-    <img src="images/dart-sdk-folder.png" alt="dart-sdk"/>
+    <img src="images/dart-sdk-directory.png"
+         width="86" height="94" alt="dart-sdk directory"/>
     </div>
     <div class="span7">
-    The `dart-sdk` directory contains the Dart software development kit.
-    Here you will find Dart libraries, such as `dart:core` and `dart:html`,
+    The dart-sdk directory contains the Dart software development kit.
+    Here you will find Dart libraries, such as dart:core and dart:html,
     that define APIs useful to all apps.
-    Within, the `bin` directory contains several useful command-line tools,
+    Within, the bin directory contains several useful command-line tools,
     such as the Dart-to-JavaScript compiler,
     and the command-line version of the Dart VM.
     </div>
@@ -128,10 +131,11 @@ contains the following:
   <hr>
   <div class="row">
     <div class="span2">
-    <img src="images/samples-folder.png" alt="samples"/>
+    <img src="images/samples-directory.png"
+         width="81" height="91" alt="samples directory"/>
     </div>
     <div class="span7">
-    The sample directory contains the complete source code
+    The samples directory contains the complete source code
     for several Dart web applications.
     You can experiment with
     these examples in Dart Editor.
@@ -140,7 +144,8 @@ contains the following:
   <hr>
   <div class="row">
     <div class="span2">
-    <img src="images/and-the-rest.png" alt="more folders"/>
+    <img src="images/and-the-rest.png"
+         width="81" height="71" alt="more directories"/>
     </div>
     <div class="span7">
     You might notice there are some other directories
@@ -155,14 +160,16 @@ contains the following:
 
 Invoke Dart Editor by double-clicking its icon
 in your Dart installation directory
-![Dart Icon](/imgs/Dart_Logo_21.png).
+<img src="/imgs/Dart_Logo_21.png"
+     width="21" height="21" alt="Dart Editor icon">.
 
-Dart Editor displays a Welcome Page
+Dart Editor displays its Welcome Page
 in a tab in the **Editor pane**.
 The following diagram highlights
 the features you need to know about now.
 
-![Dart Editor](images/dart-editor-items.png)
+<img src="images/dart-editor-items.png"
+     width="606" height="410" alt="Dart Editor's basic features">
 
 Send feedback button
 : Allows you to share bugs and requests
@@ -208,76 +215,80 @@ which provides quick access to Dart resources
 and some nifty samples.
 The Welcome Page is also available under the **Tools** menu.
 
-##What is a Dart application? {#what-is-app}
-
-Before you create a Dart application,
-let's define the types of Dart applications
-and how you can run them.
+##Two kinds of Dart applications {#what-is-app}
 
 A Dart application has
 at least one Dart source file
-(a file with the `.dart` suffix)
+(a file with the .dart suffix)
 and one of its Dart files must contain
-a `main()` function.
-The `main()` function
+a main() function.
+The main() function
 is the entry point for your application.
 
-A Dart application is either
-a command-line application or a web application.
+There are two kinds of Dart applications:
+command-line applications and web applications.
 You run command-line applications in the Dart VM from the command-line.
 Web applications are hosted on a web page and run in a browser
-(either directly or by compiling to JavaScript).
+(either directly in a browser that supports Dart
+or by compiling to JavaScript).
 
 ###Command-line applications
 
 Dart command-line applications
-run stand alone from the command line,
-independent of a Web browser.
+run stand alone from the command-line,
+independent of a web browser.
 Command-line apps are often used
-to provide server-side support to a Web app,
+to provide server-side support to a web app,
 but they can also be scripts.
 
 The Dart VM runs Dart code directly without intermediate compilation.
 
-![Running a Command-line Application](images/dartvm-cmd-line.png)
+<img src="images/dartvm-cmd-line.png" width="489" height="109"
+     alt="Run a command-line application without compliation">
 
 Conveniently, you can run command-line apps
-directly in Dart Editor with the click of a button.
+directly in Dart Editor with the click of the Run button
+<img src="images/run.png" width="16" height="16"
+     alt="Run button">.
 Alternatively,
-use the `dart` executable file
-in the `dart-sdk/bin` directory.
+use the Dart VM tool
+in the dart-sdk/bin directory in your Dart installation directory.
 
 ###Web applications
 
 Dart web applications run inside of a browser page.
-In addition to a `.dart` file,
-a Web app requires a `.html` file to host the app.
-Often, a Web app provides the client-side
+In addition to a .dart file,
+a web app requires a .html file to host the app.
+Often, a web app provides the client-side
 user interface for a server.
 
-You can run your Dart Web app from Dart Editor
+You can run your Dart web app from Dart Editor
 by clicking the Run button
-![Dart Editor Run Button](images/run.png).
-By default, Dart Editor invokes Dartium,
-which has the Dart VM embedded in it
-and loads your `.html` file,
+<img src="images/run.png" width="16" height="16"
+     alt="Run button">.
+By default, Dart Editor will invoke Dartium,
+which has the Dart VM embedded in it,
+and loads your .html file,
 which in turn loads your app.
 
-![Running a Web Application](images/dartvm-web-app.png)
+<img src="images/dartvm-web-app.png" width="581" height="251"
+     alt="Run a web application directly in a Dart-savvy browser">
 
 If you want to see your web app in a browser
 that does not yet support Dart,
 you can compile your Dart code to JavaScript
-using the Dart-to-JavaScript compiler
-and load the resulting `.js` file
+using the Dart-to-JavaScript compiler,
+which is in the dart-sdk/bin directory in your Dart installation directory.
+You then load the resulting .js file
 into your browser of choice.
 Dart Editor makes this easy with launches,
 which you will learn about in the next target.
 
-![Running a Web Application](images/dartvm-js.png)
+<img src="images/dartvm-js.png" width="613" height="270"
+     alt="Run a web application by compiling to JavaScript">
 
 The rest of this target steps you through
-creating and running a command-line application
+creating and running first a command-line application
 and then a web application.
 
 ##Create a command-line app {#create-cmd-line}
@@ -287,14 +298,15 @@ Follow these steps to create a command-line application:
 <ol>
 <li>
 In Dart Editor, click the New Application button
-<img src="images/newapp.png" alt="New App button"/>.
+<img src="images/newapp.png" width="15" height="16" alt="New App button"/>.
 A dialog appears.
 
-<img src="images/new-helloworld.png" alt="New Command-line Application"/>
+<img src="images/new-helloworld.png" width="524" height="366"
+     alt="Create a new command-line application"/>
 </li>
 
 <li markdown="1">
-Type `helloworld` in the **Application Name** text box.
+Type helloworld in the **Application Name** text field.
 </li>
 
 <li markdown="1">
@@ -310,37 +322,36 @@ Click **Finish**.
 </ol>
 
 Notice in the **Files view** that
-Dart Editor created a directory called `helloworld` and within
-it a Dart source file named `helloworld.dart`.
+Dart Editor created a directory called helloworld and within
+it a Dart source file named helloworld.dart.
 The contents of
-`helloworld.dart` is shown in the **Editor pane**.
+helloworld.dart is shown in the **Editor pane**.
 You might recognize it as the canonical Hello World program.
 
-![Dart Editor with Hello World](images/helloworld-files.png)
+<img src="images/helloworld-files.png" width="604" height="282"
+     alt="Dart Editor with new command-line app files"/>
 
 This program prints
 `Hello, World!` to the standard output stream
-using the `print()` function,
-which is provided by the `dart:core` library.
+using the print() function,
+which is provided by the dart:core library.
 The functions and objects defined in the core library
 are automatically available to all Dart applications.
 
 ##Run a command-line app {#run-cmd-line}
 
-You can run `helloworld` in two ways:
-from Dart Editor or from the command line.
-
-###From Dart Editor
-Make sure either the `helloworld` directory or the `helloworld.dart` file
+Make sure either the helloworld directory or the helloworld.dart file
 is selected in the **Files view**,
-then click the green Run button
-![Dart Editor Run Button](images/run.png).
+then click the Run button
+<img src="images/run.png" width="16" height="16"
+     alt="Run button">.
 
 Dart Editor opens a new panel,
 called the **Output view**,
-and displays the output of the `helloworld` app.
+and displays the output of the helloworld app.
 
-![Hello World output](images/helloworld-output.png)
+<img src="images/helloworld-output.png" width="562" height="337"
+     alt="Dart Editor with helloworld output view"/>
 
 {% comment %}
 ###From the Command-line
@@ -371,11 +382,11 @@ Now let's create a web application.
 <li markdown="1">
 As you did when creating a command-line application,
 click the **New Application** button
-<img src="images/newapp.png" alt="New App button"/>.
+<img src="images/newapp.png" width="15" height="16" alt="New App button"/>.
 </li>
 
 <li markdown="1">
-Type `clickme` in the **Application Name** text box.
+Type clickme in the **Application Name** text field.
 </li>
 
 <li markdown="1">
@@ -389,48 +400,48 @@ Click **Finish**.
 </li>
 </ol>
 
-![New Application Dialog](images/new-click-me.png)
+<img src="images/new-click-me.png" width="523" height="284"
+     alt="Create a new web application"/>
 
 As before, Dart Editor creates a directory named after your application,
-and a `.dart` file.
-In addition, it also creates a `.html` file
-and a `.css` file.
+and a .dart file.
+In addition, it also creates a .html file
+and a .css file.
 The HTML file contains the code necessary to include your Dart app
 in a browser page.
 The CSS file sets the styles
 for the page and its elements,
 (for example, fonts and colors).
 
-![clickme app's files](images/click-me-files.png)
+<img src="images/click-me-files.png" width="589" height="293"
+     alt="Dart Editor with new web application files"/>
 
-The `main()` function contains two lines of code 
+The main() function contains two lines of code 
 that puts text on the browser page
 and registers an *event handler*,
 a function that responds to user-generated events like a mouse click.
-It uses APIs defined in the `dart:html` library.
-You will revisit this example in Target 3,
-where you learn more about mouse clicks,
-and page elements.
-So keep the application.
+It uses APls defined in the Dart HTML library.
 
 In the next target,
 you will build a mini app from scratch,
 creating the Dart source, the HTML source,
 and the CSS source yourself.
-Afterward, you can re-visit the code for `clickme`.
+Afterward, you can re-visit the code for clickme.
 
 ##Run a web app in Dartium {#run-web-app}
 
-To run `clickme` from Dart Editor,
-make sure either the `clickme` directory or any of its files
+To run clickme from Dart Editor,
+make sure either the clickme directory or any of its files
 is selected,
-then click the green Run button
-![Dart Editor Run Button](images/run.png).
+then click the Run button
+<img src="images/run.png" width="16" height="16"
+     alt="Run button">.
 
-Dart Editor invokes Dartium, which loads the `clickme` app's HTML file,
+Dart Editor invokes Dartium, which loads the clickme app's HTML file,
 and thus, loads the app.
 
-![clickme app running in Dartium](images/click-me-app.png)
+<img src="images/click-me-app.png" width="335" height="341"
+     alt="clickme app running in Dartium"/>
 
 When you click the text
 **Click me!**,
@@ -439,32 +450,34 @@ it spins.
 You can run Dart web applications in other browsers
 by compiling to JavaScript.
 You will do this in the next target,
-when you learn about run-time configurations called launches.
+when you learn about runtime configurations called launches.
 
 ##About main() and other top-level functions {#top-level-functions}
 
 Dart lets you define _top-level_ functions,
 that is, functions that are not encapsulated within a class or object.
 You've already seen several top-level functions.
-In all apps, the `main()` function is a top-level function.
-The Hello World example uses `print()`,
-a top-level function defined in `dart:core`.
-And `clickme` defines a top-level function called `rotateText()`.
+In all apps, the main() function is a top-level function.
+The Hello World example uses print(),
+a top-level function defined in dart:core.
+And the clickme ap defines a top-level function called rotateText().
 
 A function has two parts: a _declaration_ and a _definition_.
 
-![Function Parts](images/function-parts.png)
+<img src="images/function-parts.png" width="359" height="66"
+     alt="Two parts of a function"/>
 
 The declaration sets the function name,
 the data type of its return value,
 and the number and type of its input arguments.
 
-![Function Parts](images/declaration-parts.png)
+<img src="images/declaration-parts.png" width="369" height="150"
+     alt="The parts of a function declaration"/>
 
 The definition is code contained
 within a matching pair of curly braces
 that defines the function's behavior.
-The `milesToKM()` function performs a simple arithmetic calculation
+The milesToKM() function performs a simple arithmetic calculation
 and returns the result.
 
 This function takes a single argument.
@@ -472,8 +485,8 @@ Functions can take multiple arguments,
 in which case, the arguments are set apart by commas.
 
 In our previous examples,
-`main()` does not have a return value
-(as indicated by `void`)
+main() does not have a return value
+(as indicated by void)
 and does not take any arguments
 (as indicated by the empty parentheses),
 but, like any other function, it could have both.
@@ -503,7 +516,7 @@ Dart Editor uses the application name for:
 
 * the name of the app's directory
 * the basename of the main Dart file
-(the Dart file that contains the `main()` function)
+(the Dart file that contains the main() function)
 * the basename of the primary HTML file
 * the basename of the primary CSS file
 

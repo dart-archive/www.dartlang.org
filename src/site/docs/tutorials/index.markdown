@@ -9,8 +9,8 @@ tutorial:
 {% capture whats_the_point %}
 
 * Page highlights are shown here.
-* Dart is an open-source platform for building structured HTML5 web apps.
 * Learn Dart here: No web experience required.
+* Dart is an open-source platform for building structured HTML5 web apps.
 
 {% endcapture %}
 
@@ -76,7 +76,8 @@ but does not cover them exhaustively.
 that teaches you how to build web programs
 using the Dart language, tools, and APIs.
 It is designed so that you can follow the targets in order,
-building your knowledge of Dart from the ground up,
+building your knowledge of Dart and web programming
+from the ground up,
 or you can customize your learning experience by
 choosing just the targets you need.
 
@@ -86,18 +87,18 @@ It helps to be familiar with object-oriented programming paradigms.
 
 You do not need any former knowledge of JavaScript or the DOM
 (Document Object Model) to use these tutorials.
-(The DOM is key to web programming
+The DOM is key to web programming
 and you will learn about it here,
-starting with the basics in Target 2.)
+starting with the basics in Target 2.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Target 1: Get Started](get-started/index.html)
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 1: Get Started](get-started/)
 : Here you will download the Dart software bundle,
 discover which tools and libraries come with the Dart software,
 and use Dart Editor to run two apps.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Target 2: Connect Dart & HTML](connect-dart-html/index.html)
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 2: Connect Dart & HTML](connect-dart-html/)
 : In this target, you will use Dart Editor to create
-a stripped down Dart program
+a stripped-down Dart program
 that simply puts text on a browser page.
 Though simple,
 this tiny program
@@ -106,7 +107,7 @@ and one way to manipulate the DOM.
 You will also begin learning about the Dart language,
 Dart Editor, HTML, and CSS.
 
-![Dart Icon](/imgs/Dart_Logo_21.png) [Practice Target 3: Add an Element to the DOM](add-elements/index.html)
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Practice Target 3: Add an Element to the DOM](add-elements/)
 : The small app in this target
 responds to a user-generated event
 by adding an Element to the DOM.
@@ -126,7 +127,6 @@ by adding an Element to the DOM.
 <hr>
 </div>
 
-
 {% comment %}
 [Set Up Your Dart Installation](dart-software.html)
 : In this section, you will download the Dart software
@@ -139,14 +139,14 @@ and how it can help you be more productive.
 [XX: I stole the content from the front page.
 Should I also steal the front section from Up and Running, too?]
 
-<a href="dart-icore-apis/index.html">The `dart.core` Library</a>
+<a href="dart-icore-apis/">The `dart.core` Library</a>
 contains classes for basic capability such as
 strings, numbers, Math and more.
 
-<a href="dart-html-apis/index.html">The `dart.html` Library</a>
+<a href="dart-html-apis/">The `dart.html` Library</a>
 describes the classes that correspond to objects in the DOM.
 
-<a href="language/index.html">The Dart Language</a>
+<a href="language/">The Dart Language</a>
 teaches you the syntax of the Dart language,
 including some of its "syntactic sugar".
 
