@@ -237,7 +237,7 @@ raised while the code executes.
 ignore the overly verbose xref... we're fixing that
 ]
 
-####Code Completion
+####Code completion
 
 Continue typing, entering `'#RipVanWinkle'`
 as the argument to the `query()` function,
@@ -369,7 +369,7 @@ we'll see an example of a hyper-text markup tag
 for including a Dart app.
 {% endcomment %}
 
-## Create the HTML File {#create-html}
+## Create the HTML file {#create-html}
 
 Now, let's create an HTML file to host the little app you just created.
 
@@ -623,7 +623,7 @@ The output should look the same.
 
 </ol>
 
-##Add a CSS File {#add-css}
+##Add a CSS file {#add-css}
 
 Most HTML uses cascading style sheets to define _styles_
 that control the appearance of page elements.
