@@ -1792,7 +1792,7 @@ benchmark(toMeasure) {
   var sw = new Stopwatch.start();
   toMeasure();
   sw.stop();
-  print(sw.elapsedInMs());
+  print(sw.elapsedMilliseconds);
 }
 
 benchmark(renderTable);
