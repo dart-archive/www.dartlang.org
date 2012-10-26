@@ -34,32 +34,33 @@ tutorial:
 
 As you learned in the previous target,
 the DOM models a web page using a simple tree structure,
-in which each HTML page element,
-a title or paragraph for example,
+in which each HTML page element
+(a title or paragraph, for example)
 is a node in the tree.
-The tree structure is a result of each node
-keeping track of its parent and its children.
-In Dart, the Node class contains the functions
-and properties that implement the treeing behavior of a node.
+Each node in the tree
+keeps track of both its parent and its children.
+In Dart, the Node class contains the methods
+and properties that implement a node's tree functionality.
 
 HTML page elements are one kind of node 
 that can be in the DOM tree.
-In Dart, the Element class is a subclass of Node
-thus an Element can be placed in the DOM tree.
+In Dart, the Element class is a subclass of Node;
+thus, an Element can be placed in the DOM tree.
 Element implements the behavior common to all HTML page elements,
-such as maintaing information about its enclosing rectangle.
+such as maintaining information about its enclosing rectangle.
+
 Element has many subclasses that
 implement specialized behavior
 for different kinds of page elements.
 For example, ParagraphElement and TitleElement are both
 subclasses of Element that implement
-behavior specifc to paragraphs and titles..
+behavior specific to paragraphs and titles.
 
-At a basic level,
-in a Dart web app,
-the type of nodes you care about most are Elements.
-So this target focuses on Elements,
-rather than on Nodes.
+Because the nodes you care about most are usually elements,
+this target focuses on Element,
+rather than on Node.
+This target uses an app called ToDo
+to show how to add an element to the DOM.
 
 * [About elements in the DOM](#tree-structure)
 * [Create and run ToDo app in Dart Editor](#copy-app)
@@ -87,19 +88,20 @@ and a list of its children in the `elements` variable:
 
 You can change the tree structure by adding children to
 and removing children from an Element's list of children.
-The `parent` reference is final and cannot be changed.
-So you cannot move an Element by changing its parent.
+Because the `parent` variable is final,
+you cannot move an Element by changing its parent variable.
 
-Let's take a look at a simplistic app
+Let's take a look at ToDo, a simple app
 that dynamically adds an Element to the DOM tree.
 
 ##Create and run ToDo app in Dart Editor {#copy-app}
 
-Using the links in the pink box to the left
-copy the HTML, Dart, and CSS code
+Using the links in the pink box to the left,
+copy the ToDo app's Dart, HTML, and CSS code
 into a new web app in Dart Editor.
 
-Name the app `todo` and make sure you keep the filenames as listed.
+Name the app `todo` and make sure the filenames are
+the same as those listed in the pink box.
 Then run the app.
 
 Enter `sing` into the input field.
@@ -110,11 +112,11 @@ The ToDo app adds _sing_ to the page just below _dance_.
 
 ![ToDo app running](images/adds-sing.png)
 
-The HTML code for this app sets up the page
+The HTML code for this app sets up the page,
 and therefore the initial elements in the DOM.
 When the user enters text,
-the Dart code dynamically modifies the DOM 
-and therefore the appearance of the page.
+the Dart code dynamically modifies the DOM,
+thus changing the appearance of the page.
 
 This is the beginning of an app to manage a list of things to do.
 Right now, the outlook is rather pessimistic
@@ -124,54 +126,50 @@ but not remove them.
 ##Setting up the page in HTML {#html-code}
 
 The HTML code for the ToDo app sets up the initial
-HTML page and thereby the initial DOM tree.
+HTML page, and thereby the initial DOM tree.
 You could get the same results using Dart code,
-but you need an HTML file to host the Dart app anyway,
-so it makes sense (in this example at least),
-to create the primary page elements
-on the HTML-side of things.
+but it's usually better
+to define the primary page elements in HTML code
+(easier to read, quicker to load).
 
 ![ToDo app HTML](images/todo-html.png)
 
-Of interest to us are the two page elements that have IDs.
-`to-do-input` identifies the input element into which the user types.
-`to-do-list` identifies the unnumbered list element
-to which tasks are added.
-The HTML code puts one item, _dance_.
+Of interest are the two page elements that have IDs:
+`to-do-input` and `to-do-list`.
+The first identifies the \<input> element into which the user types.
+The second identifies the \<ul> (unordered list) element
+containing the task items.
+The HTML code puts one item, _dance_,
 in the list to start.
-Additional elements are added to this list dynamically
-on the Dart-side
-when the user enters text into the input element.
+Dart code adds more elements to this list dynamically
+whenever the user enters text into the input element.
 
 ##Getting an element from the DOM {#dart-code}
 
-The diagram below shows
-the entire Dart code for the little ToDo app.
-The code queries the DOM for the two elements
-from the HTML code that had IDs.
+The following diagram shows
+the Dart code for the ToDo app.
 
 ![ToDo app HTML](images/todo-dart.png)
 
-The main() function uses query() twice
-to get each of the interesting elements.
-There is a performance cost to the query() function,
-so if a program refers to an element more than once,
-it should stash a reference to the element
-rather than calling query() multiple times.
+The main() function uses dart:html's top-level query() function
+to get the interesting elements from the DOM.
+Because calling query() isn't free,
+if a program refers to an element more than once
+it should stash a reference to the element.
 
-This program stashes the reference
+This program stashes a reference
 to the input element
 in a top-level variable called `toDoInput`
-and the reference to unnumbered list element
-in a top-level variable called `toDoList`.
+The unordered list
+is in the top-level variable `toDoList`.
 
 Note the types of these variables: InputElement and UListElement.
 These are both subclasses of Element.
-The Dart HTML has dozens of Element subclasses,
+The dart:html library has dozens of Element subclasses,
 many of which correspond to certain HTML tags.
-This program uses three, as follows:
+This program uses three:
 
-| HTML Tag | Dart Class |
+| **HTML tag** | **Dart class** |
 | \<input> | InputElement |
 | \<ul> | UListElement |
 | \<li> | LIElement |
@@ -179,41 +177,42 @@ This program uses three, as follows:
 
 ## Registering an event handler {#event-handler}
 
-When a user enters text into the input field
-the input field generates a _change_ event.
-The ToDo app is interested in these events
-so it adds an event handler,
-`addToDoItem()`,
-to the input element:
+When a user enters text into the input field,
+a _change event_ fires.
+The ToDo app has a function named `addToDoItem()`
+that can handle these change events.
+The following code
+connects addToDoItem() to the input field:
 
 ![Add an event handler to the ToDo input element](images/event-handler-todo.png)
 
 Rather than dissect this busy line of code,
-think of it instead as a Dart idiom
+think of it as a Dart idiom
 for adding an event handler to an Element.
 
-![Dart Idiom: Add an event handler to an Element](images/event-handler-idiom.png)
+![Dart idiom: Add an event handler to an Element](images/event-handler-idiom.png)
 
 A change event is just one of many different types of events
 that an element can generate.
 For example, you can use `click` to handle mouse clicks,
 or `keyDown` for when someone types a key on the keyboard.
 
-##Adding an element to the DOM Tree {#add-elem}
+##Adding an element to the DOM tree {#add-elem}
 
-This is the change event handler in the ToDo app.
+The change event handler 
+has the following code:
 
 ![The add todo item function](images/add-element-code.png)
 
-The final line of code is where the DOM gets changed.
+The final line is where the DOM gets changed.
 
 ![The add todo item line of code](images/add-element-line.png)
 
-A Dart Element keeps references to all of its children
+An Element keeps references to all of its children
 in a list called `elements`.
 The Element class declares `elements` as a List\<Element>,
 which you can read as "list of element".
-By adding and removing elements to this list,
+By adding and removing elements to and from this list,
 your code changes the DOM
 and thus the appearance of the web page.
 

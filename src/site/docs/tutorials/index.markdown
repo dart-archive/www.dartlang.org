@@ -8,7 +8,7 @@ tutorial:
 
 {% capture whats_the_point %}
 
-* Page highlights are shown here.
+* This blue box shows page highlights.
 * Learn Dart here: No web experience required.
 * Dart is an open-source platform for building structured HTML5 web apps.
 
@@ -16,9 +16,8 @@ tutorial:
 
 {% capture code_links %}
 
-Where fitting,
-this area contains links to example source files,
-so you can easily copy and paste code.
+This pink box has links to the source files
+for the target's examples.
 
 {% endcapture %}
 
@@ -30,7 +29,7 @@ your guide to building great web apps using Dart.
 <div id="under-construction" markdown="1">
 <h3> <i class="icon-wrench"> </i> Under construction </h3>
 
-This tutorial is a draft under construction.
+This is a draft.
 Your kindly worded
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback">
 comments and suggestions
@@ -75,39 +74,38 @@ but does not cover them exhaustively.
 *A Game of Darts* is a collection of tutorials, _targets_,
 that teaches you how to build web programs
 using the Dart language, tools, and APIs.
-It is designed so that you can follow the targets in order,
+You can either follow the targets in order,
 building your knowledge of Dart and web programming
 from the ground up,
-or you can customize your learning experience by
+or customize your learning experience by
 choosing just the targets you need.
 
 You should already know how to program in a structured language
 like C or Java.
-It helps to be familiar with object-oriented programming paradigms.
+It helps to be familiar with object-oriented programming.
 
-You do not need any former knowledge of JavaScript or the DOM
+You don't need to know JavaScript or the DOM
 (Document Object Model) to use these tutorials.
 The DOM is key to web programming
 and you will learn about it here,
 starting with the basics in Target 2.
 
 <img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 1: Get Started](get-started/)
-: Here you will download the Dart software bundle,
+: Download the Dart software bundle,
 discover which tools and libraries come with the Dart software,
 and use Dart Editor to run two apps.
 
 <img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 2: Connect Dart & HTML](connect-dart-html/)
-: In this target, you will use Dart Editor to create
+: Use Dart Editor to create
 a stripped-down Dart program
-that simply puts text on a browser page.
-Though simple,
-this tiny program
-shows you how to host a Dart program on a web page
-and one way to manipulate the DOM.
-You will also begin learning about the Dart language,
-Dart Editor, HTML, and CSS.
+that puts text on a browser page.
+This tiny program
+shows how to host a Dart program on a web page
+and do simple DOM manipulation.
+You'll also learn a bit about the Dart language,
+HTML, and CSS.
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Practice Target 3: Add an Element to the DOM](add-elements/)
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 3: Add an Element to the DOM](add-elements/)
 : The small app in this target
 responds to a user-generated event
 by adding an Element to the DOM.
