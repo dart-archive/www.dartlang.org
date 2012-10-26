@@ -50,7 +50,7 @@ var stopwatch = new Stopwatch();
 stopwatch.start(); //Start timer.
 benchmarkCode();
 stopwatch.stop(); // Stop timer.
-var elapsed = stopwatch.elapsedInUs(); // Get the microseconds.
+var elapsed = stopwatch.elapsedMicroseconds; // Get the microseconds.
 {% endhighlight %}
 
 The above code uses Dart’s
