@@ -61,19 +61,12 @@ package.  At that point, you'll be able to run the command above without the
 <code>packages/</code> directory.
 </div></aside>
 
-After the input HTML file path, you can pass an argument to indicate the
-directory where output will be written.
-
-<aside><div class="alert alert-info">
-<strong>Note:</strong> If you specify an output directory, and your code has
-relative path imports to other .dart files, those files will not be copied to
-the output directory. This limitation may be lifted in the future.
-</div></aside>
-
-The compiler generates many files that start with a leading underscore and
-that have double extensions (e.g. `_app.html.dart`). The entry point to your app
-is the file named  `_app.html.html`. Navigate Dartium to that file and see it
-run.
+By default, the compiler will generate files in the same folder of your entry
+point.  You can pass a `--out dir` option to change where you'd like the
+generated files to be written. All generated files start with a leading
+underscore and have double extensions (for example, `_app.html.dart`). Your
+application's main HTML file is named  `_app.html.html`. Navigate Dartium to
+that file and see it run.
 
 You can use `dart2js` to generate JavaScript code that will run in other
 browsers. The entry point Dart file to compile is the file
@@ -117,8 +110,8 @@ void main() {
 
 This script will invoke `dwc` on `web/app.html` every time the Dart
 Editor detects that you changed a file in your project.  When you want to
-launch your app, you can find the generated file `_app.html.html` in your
-editor, and request the editor to launch it in Dartium.
+launch your app, you can find the generated file under `web/out/_app.html.html`
+in your editor, and request the editor to launch it in Dartium.
 
 ## Dartium on-demand compilation
 
@@ -127,15 +120,6 @@ install a browser extension that will invoke the compiler on demand. This
 on-demand approach is equivalent to what *polyfill* scripts do today for web
 components in JavaScript.  The extension creates the illusion that Dart web
 components are supported natively in Dartium. 
-
-<aside><div class="alert alert-info">
-<strong> Note: </strong>
-The extension requires that your HTML and Dart files are served through an HTTP
-server. This limitation may be lifted in the future. Meanwhile, you can use the
-extension by running a local web server. Running a standard server like
-<code>python -m SimpleHTTPServer</code> or any development server that comes
-with your server stack would do the trick.
-</div></aside>
 
 You can install the extension as follows:
 
@@ -150,9 +134,8 @@ You can install the extension as follows:
 
   * Finally click to accept the extension.
 
-Once you installed the extension, you can open `app.html` directly in Dartium
-(using an HTTP URL for now), and the extension will take care of everything
-else.
+Once you installed the extension, you can open `app.html` directly in Dartium,
+and the extension will take care of everything else.
 
 
 
