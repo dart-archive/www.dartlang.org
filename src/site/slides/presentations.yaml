@@ -1,0 +1,211 @@
+- title: Dart Today and Beyond
+  short: dart-today-and-beyond
+  presenters:
+    - Gilad Bracha
+  date: 2012-10-16
+  slides: 2012/10/html5devconf/dart-today-and-beyond.pdf
+  event: HTML5 Dev Conf 2012 Fall
+
+- title: JavaScript as a compilation target - Making it fast
+  short: javascript-as-compilation-target
+  presenters:
+    - Florian Loitsch
+  date: 2012-10-06
+  video: http://www.youtube.com/watch?v=d-xVOke3ync
+  slides: 2012/10/jsconfeu/javascript-as-compilation-target-florian-loitsch.pdf
+  event: JSConf.EU 2012
+
+- title: Translating Dart to Efficient JavaScript
+  short: translating-dart-to-efficient-javascript
+  presenters:
+    - Kasper Lund
+  date: 2012-10-01
+  slides: 2012/10/gotoaarhus/translating-dart-to-efficient-javascript-kasper-lund.pdf
+  event: GOTO Aarhus 2012
+
+- title: Pushing the Limits of Web Browsers
+  short: pushing-the-limits
+  presenters:
+    - Lars Bak
+  date: 2012-09-24
+  slides: 2012/09/strangeloop/pushing-the-limits-of-web-browsers-lars-bak.pdf
+  video: http://www.infoq.com/presentations/Performance-V8-Dart
+  event: Strangeloop 2012
+
+- title: Dart's plan to make it easier for you to build web apps
+  short: darts-plan
+  presenters:
+    - Bob Nystrom
+  date: 2012-07-24
+  video: http://www.youtube.com/watch?v=9RCuW6K1afs
+  event: OSCON 2012
+
+- title: "Bullseye: Your first Dart app - Codelab"
+  short: bullseye
+  presenters:
+    - Seth Ladd
+    - Jaime Wren
+  date: 2012-06-28
+  event: Google I/O 2012
+  slides: 2012/06/io12/Bullseye-Your-first-Dart-app-Codelab-GoogleIO2012.pdf
+
+- title: Dart - A Modern Web Language
+  short: modern-web-language
+  presenters:
+    - Kasper Lund
+    - Lars Bak
+  date: 2012-06-27
+  video: http://www.youtube.com/watch?v=bsGgfUreyZw
+  event: Google I/O 2012
+  slides: https://www.dartlang.org/slides/2012/06/io12/Dart-A-Modern-Web-Language.pdf
+
+- title: Migrating Code from GWT to Dart
+  short: gwt-to-dart
+  presenters:
+    - Ray Cromwell
+  date: 2012-06-27
+  event: Google I/O 2012
+  video: http://www.youtube.com/watch?v=EvACKPBo_R8
+
+- title: Putting the App Back into Web App - Web Programming with Dart
+  short: back-into-web-app
+  presenters:
+    - Dan Grove
+    - Vijay Menon
+  date: 2012-06-27
+  event: Google I/O 2012
+  video: http://www.youtube.com/watch?v=YxogQGnMA9Y
+  slides: https://www.dartlang.org/slides/2012/06/io12/Putting-the-App-Back-Into-Web-Apps.pdf
+
+- title: Structured web programming with Dart
+  short: structured-web-programming
+  presenters:
+    - Seth Ladd
+  date: 2012-05-31
+  event: FluentConf 2012
+  slides: 2012/05/fluentconf/seth-ladd-structured-web-programming-with-dart.pdf
+
+- title: "Dart: A modern web language"
+  short: modern-web-language-loitsch
+  presenters:
+    - Florian Loitsch
+  event: GTUG Berlin
+  date: 2012-05-24
+  slides: 2012/05/gtug-berlin/florian-loitsch-dart-a-modern-web-language.pdf
+
+- title: "Dart: A modern web language"
+  short: modern-web-language-lund
+  presenters:
+    - Kasper Lund
+  event: GOTO Copenhagen
+  date: 2012-05-21
+  slides: 2012/05/goto-copenhagen/kasper-lund-dart-a-modern-web-language.pdf
+
+- title: Introduction to Dart
+  short: intro-to-dart-carbon-five
+  presenters:
+    - Seth Ladd
+  event: Carbon Five Tech Talk
+  date: 2012-04-05
+  video: http://www.youtube.com/watch?v=E80DLSyGBgc
+
+- title: "Dart: A Well Structured Web Programming Language"
+  short: well-structured
+  presenters:
+    - Gilad Bracha
+  event: Lang.NEXT 2012
+  date: 2012-04-04
+  slides: 2012/04/lang-next/DartLangNext.pdf
+  video: http://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2012/Dart-A-Well-Structured-Web-Programming-Language
+
+- title: Dart in Action
+  short: dart-in-action
+  presenters:
+    - Dan Rubel
+  event: EclipseCon 2012
+  date: 2012-03-27
+  slides: 2012/03/eclipsecon/dart-in-action.pdf
+
+- title: A tour of Dart
+  short: tour-of-dart
+  presenters:
+    - Mike West
+  event: 33rd Degree Conference
+  date: 2012-03-19
+  slides: https://mkw.st/p/33rddegree-dart/
+
+- title: Introduction to Dart for Smalltalkers
+  short: intro-for-smalltalkers
+  presenters:
+    - Eric Clayberg
+  event: Smalltalk Industry Conference
+  date: 2012-03-19
+  slides: 2012/03/smalltalk-industry-conference/DARTtalk-20120319.pdf
+
+- title: Building Modern Web Apps with HTML5 and Dart
+  short: building-modern-web-apps
+  presenters:
+    - David Chandler
+  event: Atlanta Java User Group
+  date: 2011-12-20
+  slides: 2011/12/ajug/
+
+- title: Intro to Dart
+  short: intro-to-dart-ladd-messick
+  presenters:
+    - Seth Ladd
+    - Steve Messick
+  event: GTUG Silicon Valley and GTUG San Francisco
+  date: 2011-12-07
+  slides: 2011/12/gtug/SV-GTUG-Intro-to-Dart-2012-12.pdf
+
+- title: "Dart: a new programming language for structured web programming"
+  short: new-programming-language
+  presenters:
+    - Anders Sandholm
+  event: Google Developer Day Berlin
+  date: 2011-11-19
+  slides: 2011/11/gdd-berlin/dart-presentation-to-gdd-berlin-2011.pdf
+
+- title: Building Modern Web Apps with HTML5 and Dart
+  short: building-modern-web-apps
+  presenters:
+    - David Chandler
+  event: Devoxx 2011
+  date: 2011-11-16
+  slides: 2011/11/devoxx/index.html
+
+- title: A Walk on the Dart Side
+  short: walk-on-dart-side
+  presenters:
+    - Gilad Bracha
+  event: Stanford Tech Talk
+  date: 2011-11-02
+  slides: 2011/11/stanford/dart-a-walk-on-the-dart-side.pdf
+  video: http://www.youtube.com/watch?v=-IavVtOE_Fg
+  blog: http://blog.sethladd.com/2011/11/transcription-of-quick-tour-of-dart-by.html
+
+- title: Building Modern Web Apps with HTML5 and Dart
+  short: building-modern-web-apps
+  presenters:
+    - David Chandler
+  event: SenchaCon 2011
+  date: 2011-10-25
+  slides: 2011/10/senchacon/index.html
+
+- title: A short intro to Dart
+  short: short-intro
+  presenters:
+    - Philip Rogers
+  event: Atlanta GTUG
+  date: 2011-10-25
+  slides: 2011/10/atlanta-gtug/short-intro-to-dart-atlanta-gtug-2010.pdf
+
+- title: "Dart: An Introduction"
+  short: dart-an-intro
+  presenters:
+    - Florian Loitsch
+  event: Riviera DEV
+  date: 2011-10-20
+  slides: 2011/10/rivieradev/dart-a-new-programming-language-for-structured-web-programming-presentation.pdf
+  video: http://www.youtube.com/watch?v=X2JokOosmYE
