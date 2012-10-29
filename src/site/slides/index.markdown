@@ -5,7 +5,7 @@ description: "Watch videos and review slides from presentations about the Dart w
 js:
 - url: /js/slides-analytics.js
   defer: true
-permalinks: true
+snippet_img: imgs/dart-today-and-beyond.jpg
 ---
 
 # Dart Presentations
