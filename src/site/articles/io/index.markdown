@@ -9,7 +9,7 @@ has-permalinks: true
 
 # {{ page.title }}
 _Written by Mads Ager <br />
-March 2012_
+March 2012 (updated October 2012)_
 
 <section markdown="1">
 The [dart:io](http://api.dartlang.org/io.html) library
@@ -72,7 +72,7 @@ no more pending operations are in the event queue
 and the VM terminates.
 
 {% highlight dart %}
-#import('dart:isolate');
+import 'dart:isolate';
 
 main() {
   new Timer(1000, (Timer t) => print('timer'));
@@ -97,16 +97,16 @@ and would continue to print out 'timer' every second.
 
 The dart:io library provides access to files and directories through the
 [File](http://api.dartlang.org/io/File.html) and
-[Directory](http://api.dartlang.org/io/Directory.html) interfaces.
+[Directory](http://api.dartlang.org/io/Directory.html) classes.
 
 The following example prints its own source code.
 To determine the location of the source code being executed,
 we use the
-[Options](http://api.dartlang.org/dart_core/Options.html) interface
+[Options](http://api.dartlang.org/dart_core/Options.html) class
 from [dart:core](http://api.dartlang.org/dart_core.html).
 
 {% highlight dart %}
-#import('dart:io');
+import 'dart:io';
 
 main() {
   var options = new Options();
@@ -137,7 +137,7 @@ The code opens the file for reading and then reads one byte at a time
 until it encounters the char code for ';'.
 
 {% highlight dart %}
-#import('dart:io');
+import 'dart:io';
 
 main() {
   var options = new Options();
@@ -155,7 +155,7 @@ main() {
         file.readByte().then(onByte);
       }
     }
-    openedFile.readByte().then(onByte);
+    file.readByte().then(onByte);
   });
 }
 {% endhighlight %}
@@ -174,7 +174,7 @@ InputStreams are active objects that start reading data
 when they are created.
 Whenever data is available,
 the onData handler is called and the data can be read out from the stream
-using the read() method.
+using the `read()` method.
 The onData handler will continue to be called as long as
 data can be read from the stream.
 If all data is not read from the stream in the onData handler,
@@ -182,7 +182,8 @@ the handler is guaranteed to be called again.
 To prevent further calls,
 you can set the onData handler to null.
 
-{% highlight dart %}#import('dart:io');
+{% highlight dart %}
+import 'dart:io';
 
 main() {
   Options options = new Options();
@@ -216,14 +217,14 @@ For the simple case, use
 [Process.run()](http://api.dartlang.org/docs/continuous/dart_io/Process.html#run)
 to run a process
 and collect its output. Use `run()` when you don't
-need iteractive control over the process.
+need interactive control over the process.
 
 {% highlight dart %}
-#import('dart:io');
+import 'dart:io';
 
 main() {
   // List all files in the current directory,
-  // in a UNIX-like operating systems.
+  // in UNIX-like operating systems.
   Process.run('ls', ['-l']).then((ProcessResult results) {
     print(results.stdout);
   });
@@ -250,38 +251,44 @@ whenever a full line of text has been decoded
 and is ready to be read using readLine.
 
 {% highlight dart %}
-#import('dart:io');
+import 'dart:io';
 
 main() {
-  var p = Process.start('ls', ['-l']);
-  var stdoutStream = new StringInputStream(p.stdout);
-  stdoutStream.onLine = () => print(stdoutStream.readLine());
-  p.onExit = (exitCode) {
-    print('exit code: $exitCode');
-    p.close();
-  };
+  Process.start('ls', ['-l']).then((process) {
+    var stdoutStream = new StringInputStream(process.stdout);
+    stdoutStream.onLine = () => print(stdoutStream.readLine());
+    process.stderr.onData = process.stderr.read;
+    process.onExit = (exitCode) {
+      print('exit code: $exitCode');
+    };
+  });
 }
 {% endhighlight %}
 
 Notice that the onExit handler can be called
-before all of the lines of output have been processed.
-It is safe to call the close() method on the process
-even though there is still data in the stdout and stderr streams.
-The streams will be marked as closed
-but will not actually close until all data has been read.
+before all of the lines of output have been processed. Also note
+that we do not explicitly close the process. In order to 
+not leak resources we have to drain both the stderr and the stdout 
+streams. To do that we set the `onData` handler which will make sure 
+to drain the stderr stream as well as the stdout stream once all data 
+has been read.
 
 Instead of printing the output to stdout,
-we can use the streaming interfaces
+we can use the streaming classes
 to pipe the output of the process to a file instead.
 
 {% highlight dart %}
-#import('dart:io');
+import 'dart:io';
 
 main() {
   var output = new File('output.txt').openOutputStream();
-  var p = Process.start('ls', ['-l']);
-  p.stdout.pipe(output);
-  p.onExit = (exitCode) => print('exit code: $exitCode');
+  Process.start('ls', ['-l']).then((process) {
+    process.stdout.pipe(output);
+    process.stderr.pipe(output);
+    process.onExit = (exitCode) {
+      print('exit code: $exitCode');
+    };
+   });
 }
 {% endhighlight %}
 
@@ -307,13 +314,14 @@ and hook up a `defaultRequestHandler`.
 Here is a simple web server
 that just answers 'Hello, world' to any request.
 
-{% highlight dart %}#import('dart:io');
+{% highlight dart %}
+import 'dart:io';
 
 main() {
   var server = new HttpServer();
   server.listen('127.0.0.1', 8080);
   server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
-    response.outputStream.write('Hello, world'.charCodes());
+    response.outputStream.write('Hello, world'.charCodes);
     response.outputStream.close();
   };
 }
@@ -334,9 +342,9 @@ We make use of the streaming interface
 to pipe all the data read from a file directly to the response output stream.
 
 {% highlight dart %}
-#import('dart:io');
+import 'dart:io';
 
-send404(HttpResponse response) {
+_send404(HttpResponse response) {
   response.statusCode = HttpStatus.NOT_FOUND;
   response.outputStream.close();
 }
@@ -359,7 +367,7 @@ startServer(String basePath) {
       } else {
         _send404(response);
       }
-    }); 
+    });
   };
 }
 
