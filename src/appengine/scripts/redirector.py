@@ -58,8 +58,7 @@ class HangoutsRedirectPage(RequestHandler):
     path = self.request.path.replace('/hangouts', '/dartisans', 1)
     self.redirect(path, permanent=True)
 
-class EclipseUpdateRedirect(RequestHandler):
-  prefix = 'http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+class CloudStorageRedirect(RequestHandler):
   def get(self, *args, **kwargs):
     self.redirect_to_cloud_storage(kwargs['path'])
   def head(self, *args, **kwargs):
@@ -67,8 +66,12 @@ class EclipseUpdateRedirect(RequestHandler):
   def redirect_to_cloud_storage(self, path):
     self.redirect(self.prefix + path, permanent=False)
 
-def eclipse_update(handler, *args, **kwargs):
-  return 
+class EditorUpdateRedirect(CloudStorageRedirect):
+  prefix = 'http://gsdview.appspot.com/dart-editor-archive-integration'
+
+class EclipseUpdateRedirect(CloudStorageRedirect):
+  prefix = 'http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'  
+
 
 application = WSGIApplication(
    [('/docs/api/.*', ApiRedirectPage),
@@ -76,6 +79,7 @@ application = WSGIApplication(
     ('/news.*', NewsRedirectPage),
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
+    Route('/editor/update<path:.*>', EditorUpdateRedirect),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
