@@ -7,7 +7,7 @@ $(document).ready(function() {
     link.addEventListener('click', function(e) {
       var target = e.target;
       var section = target.href.substring(target.href.indexOf('#') + 1);
-      _gaq.push(['_trackPageview', '/language-tour/' + section + '/']);
+      _gaq.push(['_trackPageview', '/docs/dart-up-and-running/ch02/' + section + '/']);
     });
   }
 });

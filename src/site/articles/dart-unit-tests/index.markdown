@@ -558,16 +558,8 @@ the job. For example:
             throwsA(new isInstanceOf<String>()));
 
 As the usual case is to throw an exception, there are predefined matchers for a 
-number of the core exception types:
-
-    throwsBadNumberFormatException
-    throwsException
-    throwsIllegalArgumentException
-    throwsIndexOutOfRangeException
-    throwsNoSuchMethodException
-    throwsNotImplementedException
-    throwsNullPointerException
-    throwsUnsupportedOperationException
+number of the core exception types. For example, you can use
+`throwsFormatException`, `throwsNoSuchMethodError`, and more.
 
 So for example we can write:
 

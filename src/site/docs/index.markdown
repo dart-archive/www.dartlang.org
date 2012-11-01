@@ -18,7 +18,7 @@ lightweight editor for Dart development.
 
 ## Language
 
-[Language Tour](/docs/language-tour/)
+[Language Tour](/docs/dart-up-and-running/ch02.html)
 : Learn how to use each major Dart language feature, from variables to
 operators to classes and libraries, with the assumption that you already
 know how to program in another language.
@@ -31,7 +31,7 @@ know how to program in another language.
 [API Reference](http://api.dartlang.org)
 : Browse the full API reference docs for the Dart libraries.
 
-[Library Tour](/docs/library-tour/)
+[Library Tour](/docs/dart-up-and-running/ch03.html)
 : Learn how to use the major features in each library that comes with Dart.
 
 ## Usage
