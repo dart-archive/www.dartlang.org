@@ -26,8 +26,8 @@ js:
 <section>
 <h4 id="TOC"> Contents </h4>
   <ol class="toc">
-    <li><a href="#a-basic-dart-program">A basic Dart program</a></li>
-    <li><a href="#important-concepts">Important concepts</a></li>
+    <li><a href="#main-print">A basic Dart program</a></li>
+    <li><a href="#ch02-concepts">Important concepts</a></li>
     <li><a href="#variables">Variables</a></li>
     <li><a href="#built-in-types">Built-in types</a></li>
     <li><a href="#functions">Functions</a></li>
@@ -36,7 +36,7 @@ js:
     <li><a href="#exceptions">Exceptions</a></li>
     <li><a href="#classes">Classes</a></li>
     <li><a href="#generics">Generics</a></li>
-    <li><a href="#libraries-and-visibility">Libraries and visibility</a></li>
+    <li><a href="#libraries">Libraries and visibility</a></li>
     <li><a href="#isolates">Isolates</a></li>
     <li><a href="#typedefs">Typedefs</a></li>
     <li><a href="#comments">Comments</a></li>
@@ -459,7 +459,7 @@ assert((value &gt;&gt; 4)       == 0x02);  // Shift right</pre></div><div class=
               <em class="replaceable"><code>expr2</code></em>; otherwise, executes
               <em class="replaceable"><code>expr3</code></em></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">.</td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">Member access</td><td style="border-bottom: 0.5pt solid ; ">Refers to a property of an expression; example: <code class="literal">foo.bar</code> selects property <code class="literal">bar</code> from expression <code class="literal">foo</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">..</td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">Cascade</td><td style="border-bottom: 0.5pt solid ; ">Allows you to perform multiple
               operations on the members of a single object; described in <a class="xref" href="ch02.html#classes" title="Classes">Classes</a></td></tr><tr><td style="border-right: 0.5pt solid ; ">?<em class="replaceable"><code>identifier</code></em></td><td style="border-right: 0.5pt solid ; ">Argument definition test</td><td style="">Tests whether the caller specified an optional parameter;
-              described in <a class="xref" href="ch02.html#functions-optional-parameters" title="Optional parameters">Optional parameters</a></td></tr></tbody></table></div></div></div></div><div class="sect1" title="Control flow statements"><h2 id="control-flow"/>Control flow statements</h2><p>You can control the flow of your Dart code using any of the
+              described in <a class="xref" href="ch02.html#functions-optional-parameters" title="Optional parameters">Optional parameters</a></td></tr></tbody></table></div></div></div></div><div class="sect1" title="Control flow statements"><h2 id="control-flow-statements"/>Control flow statements</h2><p>You can control the flow of your Dart code using any of the
     following:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><code class="literal">if</code> and <code class="literal">else</code></p></li><li class="listitem"><p><code class="literal">for</code> loops</p></li><li class="listitem"><p><code class="literal">while</code> and <code class="literal">do</code>-<code class="literal">while</code>
         loops</p></li><li class="listitem"><p><code class="literal">break</code> and <code class="literal">continue</code></p></li><li class="listitem"><p><code class="literal">switch</code> and <code class="literal">case</code></p></li><li class="listitem"><p><code class="literal">assert</code></p></li></ul></div><p>You can also affect the control flow using <code class="literal">try-catch</code> and <code class="literal">throw</code>, as explained in <a class="xref" href="ch02.html#exceptions" title="Exceptions">Exceptions</a>.</p><div class="sect2" title="If and else"><h3 id="if-else"/>If and else</h3><p>Dart supports <code class="literal">if</code> statements
       with optional <code class="literal">else</code> statements. Also
@@ -1214,7 +1214,7 @@ class Llama {
 }</pre><p>In the generated documentation, <code class="literal">[Food]</code> becomes a link to the API docs for the
       Food class.</p><p>To parse Dart code and generate HTML documentation, you can use
       Dart Editor, which in turn uses the SDK’s dartdoc package. For an
-      example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org">Dart API documentation</a>.</p></div></div><div class="sect1" title="Summary"><h2 id="id627744"/>Summary</h2><p>This chapter summarized the commonly used features in the Dart
+      example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org">Dart API documentation</a>.</p></div></div><div class="sect1" title="Summary"><h2 id="summary"/>Summary</h2><p>This chapter summarized the commonly used features in the Dart
     language. For more information about the language, see the <a class="ulink" href="http://www.dartlang.org/docs/spec/">Dart Language
     Specification</a> and <a class="ulink" href="http://www.dartlang.org/articles/">articles</a> such as <a class="ulink" href="http://www.dartlang.org/articles/idiomatic-dart/">Idiomatic Dart</a>.</p></div><div class="footnotes"><br/><hr/><div class="footnote"><p><sup>[<a id="ftn.id548827" href="#id548827" class="para">1</a>] </sup>URI stands for <em class="firstterm">uniform resource
           identifier</em>. URLs (<em class="firstterm">uniform resource
