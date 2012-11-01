@@ -44,7 +44,7 @@ js:
   </ol>
 </section>
 
-  <div class="sect1" title="A basic Dart program"><h2 id="main-print"/>A basic Dart program</h2><p>The following code uses many of Dart’s most basic features.</p><pre class="programlisting">// Define a function.
+  <div class="sect1" title="A basic Dart program"><h2 id="a-basic-dart-program"/>A basic Dart program</h2><p>The following code uses many of Dart’s most basic features.</p><pre class="programlisting">// Define a function.
 printNumber(num aNumber) {
   print('The number is $aNumber.'); // Print to the console.
 }
@@ -63,7 +63,7 @@ main() {
           see <a class="xref" href="ch02.html#strings" title="Strings">Strings</a>.</p></dd><dt><span class="term"><code class="literal">main()</code></span></dt><dd><p>The special, <span class="emphasis"><em>required</em></span>, top-level function
           where app execution starts.</p></dd><dt><span class="term"><code class="literal">var</code></span></dt><dd><p>A way to declare a variable without specifying its
           type.</p></dd></dl></div><aside class="note" title="Note"><div class="alert alert-info"><strong>Note: </strong>Our code follows the conventions in the <a class="ulink" href="http://www.dartlang.org/articles/style-guide/">Dart Style
-      Guide.</a> For example, we use two-space indentation.</div></aside><div class="sect1" title="Important concepts"><h2 id="ch02-concepts"/>Important concepts</h2><p>As you learn about the Dart language, keep these facts and concepts
+      Guide.</a> For example, we use two-space indentation.</div></aside><div class="sect1" title="Important concepts"><h2 id="important-concepts"/>Important concepts</h2><p>As you learn about the Dart language, keep these facts and concepts
     in mind:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p>Everything you can place in a variable is an
         <span class="emphasis"><em>object</em></span>, and every object is an instance of a
         <span class="emphasis"><em>class</em></span>. Even numbers and functions are objects.
@@ -80,7 +80,7 @@ main() {
         or object (static and instance variables). Instance variables are
         sometimes known as <em class="firstterm">fields</em> or
         <em class="firstterm">properties</em>.</p></li><li class="listitem"><p>Unlike Java, Dart doesn’t have the keywords <code class="literal">public</code>, <code class="literal">protected</code>, and <code class="literal">private</code>. If an identifier starts with an
-        underscore (_), it’s private to its library. For details, see <a class="xref" href="ch02.html#libraries" title="Libraries and visibility">Libraries and visibility</a>.</p></li><li class="listitem"><p><em class="firstterm">Identifiers</em> can start with a letter or _,
+        underscore (_), it’s private to its library. For details, see <a class="xref" href="ch02.html#libraries-and-visibility" title="Libraries and visibility">Libraries and visibility</a>.</p></li><li class="listitem"><p><em class="firstterm">Identifiers</em> can start with a letter or _,
         followed by any combination of those characters plus digits.</p></li><li class="listitem"><p>Sometimes it matters whether something is an
         <span class="emphasis"><em>expression</em></span> or a <span class="emphasis"><em>statement</em></span>,
         so we’ll be precise about those two words.</p></li><li class="listitem"><p>Dart tools can report two kinds of errors: warnings and errors.
@@ -459,7 +459,7 @@ assert((value &gt;&gt; 4)       == 0x02);  // Shift right</pre></div><div class=
               <em class="replaceable"><code>expr2</code></em>; otherwise, executes
               <em class="replaceable"><code>expr3</code></em></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">.</td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">Member access</td><td style="border-bottom: 0.5pt solid ; ">Refers to a property of an expression; example: <code class="literal">foo.bar</code> selects property <code class="literal">bar</code> from expression <code class="literal">foo</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">..</td><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; ">Cascade</td><td style="border-bottom: 0.5pt solid ; ">Allows you to perform multiple
               operations on the members of a single object; described in <a class="xref" href="ch02.html#classes" title="Classes">Classes</a></td></tr><tr><td style="border-right: 0.5pt solid ; ">?<em class="replaceable"><code>identifier</code></em></td><td style="border-right: 0.5pt solid ; ">Argument definition test</td><td style="">Tests whether the caller specified an optional parameter;
-              described in <a class="xref" href="ch02.html#functions-optional-parameters" title="Optional parameters">Optional parameters</a></td></tr></tbody></table></div></div></div></div><div class="sect1" title="Control flow statements"><h2 id="control-flow"/>Control flow statements</h2><p>You can control the flow of your Dart code using any of the
+              described in <a class="xref" href="ch02.html#functions-optional-parameters" title="Optional parameters">Optional parameters</a></td></tr></tbody></table></div></div></div></div><div class="sect1" title="Control flow statements"><h2 id="control-flow-statements"/>Control flow statements</h2><p>You can control the flow of your Dart code using any of the
     following:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><code class="literal">if</code> and <code class="literal">else</code></p></li><li class="listitem"><p><code class="literal">for</code> loops</p></li><li class="listitem"><p><code class="literal">while</code> and <code class="literal">do</code>-<code class="literal">while</code>
         loops</p></li><li class="listitem"><p><code class="literal">break</code> and <code class="literal">continue</code></p></li><li class="listitem"><p><code class="literal">switch</code> and <code class="literal">case</code></p></li><li class="listitem"><p><code class="literal">assert</code></p></li></ul></div><p>You can also affect the control flow using <code class="literal">try-catch</code> and <code class="literal">throw</code>, as explained in <a class="xref" href="ch02.html#exceptions" title="Exceptions">Exceptions</a>.</p><div class="sect2" title="If and else"><h3 id="if-else"/>If and else</h3><p>Dart supports <code class="literal">if</code> statements
       with optional <code class="literal">else</code> statements. Also
@@ -1027,7 +1027,7 @@ print(names is List&lt;String&gt;); // true</pre><p>However, the <code class="li
         which means that generic type parameters are removed at runtime. In
         Java, you can test whether an object is a List, but you can’t test
         whether it’s a List&lt;String&gt;.</p></div><p>For more information about generics, see <a class="ulink" href="http://www.dartlang.org/articles/optional-types/">Optional Types in
-      Dart.</a></p></div></div><div class="sect1" title="Libraries and visibility"><h2 id="libraries"/>Libraries and visibility</h2><p>The <code class="literal">import</code>, <code class="literal">part</code>, and <code class="literal">library</code> directives can help you create a modular
+      Dart.</a></p></div></div><div class="sect1" title="Libraries and visibility"><h2 id="libraries-and-visibility"/>Libraries and visibility</h2><p>The <code class="literal">import</code>, <code class="literal">part</code>, and <code class="literal">library</code> directives can help you create a modular
     and shareable code base. Libraries not only provide APIs, but are a unit
     of privacy: identifiers that start with an underscore (_) are visible only
     inside the library.</p><aside class="note" title="Note"><div class="alert alert-info"><strong>Note: </strong><span class="emphasis"><em>Every Dart app is a library</em></span>, even if it
@@ -1214,7 +1214,7 @@ class Llama {
 }</pre><p>In the generated documentation, <code class="literal">[Food]</code> becomes a link to the API docs for the
       Food class.</p><p>To parse Dart code and generate HTML documentation, you can use
       Dart Editor, which in turn uses the SDK’s dartdoc package. For an
-      example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org">Dart API documentation</a>.</p></div></div><div class="sect1" title="Summary"><h2 id="id627744"/>Summary</h2><p>This chapter summarized the commonly used features in the Dart
+      example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org">Dart API documentation</a>.</p></div></div><div class="sect1" title="Summary"><h2 id="summary"/>Summary</h2><p>This chapter summarized the commonly used features in the Dart
     language. For more information about the language, see the <a class="ulink" href="http://www.dartlang.org/docs/spec/">Dart Language
     Specification</a> and <a class="ulink" href="http://www.dartlang.org/articles/">articles</a> such as <a class="ulink" href="http://www.dartlang.org/articles/idiomatic-dart/">Idiomatic Dart</a>.</p></div><div class="footnotes"><br/><hr/><div class="footnote"><p><sup>[<a id="ftn.id548827" href="#id548827" class="para">1</a>] </sup>URI stands for <em class="firstterm">uniform resource
           identifier</em>. URLs (<em class="firstterm">uniform resource
