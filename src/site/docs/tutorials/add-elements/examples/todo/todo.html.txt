@@ -3,19 +3,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Todo</title>
+    <title>todo app</title>
     <link rel="stylesheet" href="todo.css">
   </head>
   <body>
-    <h1>Todo</h1>
+    <h1>Procrastinator's todo list</h1>
         
-     <div>
+    <div>
       <input id="to-do-input" type="text" placeholder="What needs to be done?">
     </div>
        
     <div>
-      <ul id="to-do-list">
-      </ul>
+      <ul id="to-do-list">My list:</ul>
     </div>
     
     <script type="application/dart" src="todo.dart"></script>

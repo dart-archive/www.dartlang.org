@@ -12,6 +12,6 @@ void main() {
 void addToDoItem() {
   var newToDo = new LIElement();
   newToDo.text = toDoInput.value;
-  toDoInput.value = "";
+  toDoInput.value = '';
   toDoList.elements.add(newToDo);
 }

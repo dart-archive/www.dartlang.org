@@ -2,6 +2,7 @@
 layout: default
 title: Put the Page Title here
 description: This should be exciting! Attention grabbing! Life changing!
+has-permalinks: true
 tutorial:
   id: this-should-be-unique
 ---
@@ -11,14 +12,6 @@ tutorial:
 * This text gets captured 
 * ...and used in the left column above the TOC.
 * It should be a list of factoids
-
-{% endcapture %}
-
-{% capture code_links %}
-
-XX put links to all source files here.
-source files should be in "examples" directory.
-apps should each be in separate directory.
 
 {% endcapture %}
 

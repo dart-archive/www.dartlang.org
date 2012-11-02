@@ -1,7 +1,8 @@
 ---
 layout: default
-title: "A Game of Darts"
+title: "A Game of Darts&mdash;Tutorials"
 description: "Learn how to build great web apps using Dart."
+has-permalinks: true
 tutorial:
   id: tut-home
 ---
@@ -11,13 +12,6 @@ tutorial:
 * This blue box shows page highlights.
 * Learn Dart here: No web experience required.
 * Dart is an open-source platform for building structured HTML5 web apps.
-
-{% endcapture %}
-
-{% capture code_links %}
-
-This pink box has links to the source files
-for the target's examples.
 
 {% endcapture %}
 
@@ -88,7 +82,7 @@ You don't need to know JavaScript or the DOM
 (Document Object Model) to use these tutorials.
 The DOM is key to web programming
 and you will learn about it here,
-starting with the basics in Target 2.
+starting with the basic concepts in Target 2.
 
 <img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 1: Get Started](get-started/)
 : Download the Dart software bundle,
@@ -98,12 +92,13 @@ and use Dart Editor to run two apps.
 <img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 2: Connect Dart & HTML](connect-dart-html/)
 : Use Dart Editor to create
 a stripped-down Dart program
-that puts text on a browser page.
-This tiny program
-shows how to host a Dart program on a web page
-and do simple DOM manipulation.
-You'll also learn a bit about the Dart language,
-HTML, and CSS.
+that simply puts text on a browser page.
+Though simple,
+this tiny program
+shows you how to host a Dart program on a web page
+and one way to manipulate the DOM.
+You will also begin learning about the Dart language,
+Dart Editor, HTML, and CSS.
 
 <img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [Target 3: Add an Element to the DOM](add-elements/)
 : The small app in this target
@@ -149,6 +144,10 @@ teaches you the syntax of the Dart language,
 including some of its "syntactic sugar".
 
 {% endcomment %}
+
+<TD style="float:left">Tutorial version: 2 Nov 2012</TD>
+
+<TD><a href="/docs/tutorials/get-started/" style="float:right;">Next</a></TD>
 
 {% endcapture %}
 
