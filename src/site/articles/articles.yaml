@@ -27,6 +27,13 @@ language-details:
   title: Language Details
   articles:
   -
+    title: Emulating Functions in Dart
+    url: /articles/emulating-functions/
+    authors:
+    - Gilad Bracha
+    date: January 2012 (updated November 2012)
+    desc: Learn how you'll be able to create classes that can substitute for functions.
+  -
     title: Milestone 1 Language Changes
     url: /articles/m1-language-changes/
     authors:
@@ -40,13 +47,6 @@ language-details:
     - Josh Bloch
     date: February 2012
     desc: See what happens when the author of Java Puzzlers translates each puzzler to Dart.
-  -
-    title: Emulating Functions in Dart
-    url: /articles/emulating-functions/
-    authors:
-    - Gilad Bracha
-    date: January 2012 (updated November 2012)
-    desc: Learn how you'll be able to create classes that can substitute for functions.
   -
     title: Optional Types in Dart
     url: /articles/optional-types/
@@ -73,6 +73,13 @@ libraries-and-apis:
     date: September 2012
     desc: Use both Dart and JavaScript in your web app.
   -
+    title: Using Dart with JSON Web Services
+    url: /articles/json-web-service/
+    authors:
+    - Chris Buckett
+    date: April 2012 (updated September 2012)
+    desc: Connect your client-side Dart web app to a JSON web service.
+  -
     title: Mocking with Dart
     url: /articles/mocking-with-dart/
     authors:
@@ -93,13 +100,6 @@ libraries-and-apis:
     - William Hesse
     date: May 2012
     desc: Use shared libraries written in C or C++ from your Dart command-line apps.
-  -
-    title: Using Dart with JSON Web Services
-    url: /articles/json-web-service/
-    authors:
-    - Chris Buckett
-    date: April 2012 (updated September 2012)
-    desc: Connect your client-side Dart web app to a JSON web service.
   -
     title: An Introduction to the dart:io Library
     url: /articles/io/
