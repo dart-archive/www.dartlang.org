@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 2: Connect Dart & HTML"
+title: "Target 2: Connect Dart &amp; HTML"
 description: "Shows basic scaffolding of a Dart web app"
 has-permalinks: true
 tutorial:
@@ -54,9 +54,6 @@ for more interesting and useful web apps.
 * [Run mini app](#run-mini)
 * [Create a JavaScript launch](#mini-with-js)
 * [Add a CSS file](#add-css)
-{% comment %}
-* [9-dart finish](#9-dart-finish)
-{% endcomment %}
 
 ##About the DOM {#dom-intro}
 
@@ -149,107 +146,6 @@ void main() {
 }
 {% endhighlight %}
 
-{% comment %}
-####Errors
-As you type, Dart Editor processes the text.
-For example, begin typing the first line of code,
-the `import` directive,
-and stop just after you type the first single quotation mark.
-
-<img src="images/error-editor-screenshot.png"
-     alt="Dart Editor error">
-
-You will see a small red 'x'
-in the gutter on the left side of the **Editor pane**.
-This means that Dart Editor has detected an error.
-Hover the mouse over the red 'x' and 
-a helpful error message is displayed in a tooltip:
-
-<img src="images/error-tooltip-screenshot.png"
-     alt="Dart Editor error tooltip">
-
-This particular error is syntactic.
-The single quote starts a string literal,
-which is left uncompleted.
-Errors can be either compile-time or run-time.
-Compile-time errors prevent your program from running at all.
-Run-time errors result in exceptions.
-
-Finish typing the complete line of code and the red 'x' disappears.
-
-####Warnings
-
-**Tip:** Save your file with **File > Save**.
-In some versions of Dart Editor,
-you need to save the file and start typing again
-before a newly imported library is detected.
-
-Now delete the line of code that calls print().
-And start typing the function call to query().
-Stop after you type the first parenthesis.
-Note that Dart Editor helpfully provides a matching parenthesis.
-Note also that Dart Editor displays
-a yellow warning symbol in the gutter.
-
-<img src="images/warning-editor-screenshot.png"
-     alt="Dart Editor warning">
-
-In the background, Dart Editor does API lookup.
-Dart Editor recognizes the top-level query() function
-from the Dart HTML library,
-but it has detected a possible problem.
-Hover the mouse over the yellow warning sign and 
-a helpful warning message will be displayed in a tooltip:
-
-<img src="images/warning-tooltip-screenshot.png"
-     alt="Dart Editor warning tooltip">
-
-Dart Editor is telling you that query() requires
-a string argument and you have not yet provided one.
-Warnings are hints that your code might not work
-but do not prevent your program from executing.
-
-[XX Kathy sez 10/17/12
-but they might just be the editor not knowing as much as you do
-An example: if you know a query will return a certain kind of element,
-you might get a warning when you treat it as that kind of element
-(i think)
-warnings also might just be fyi kinds of things
-e.g. if you instantiate a class that has abstract methods,
-it might or might not be ok.
-I think warnings are more "this could be a problem,
-so I'm letting you know, but it might be ok"
-
-We mention it in chapter 2 (which you might be referring to):
-Dart tools can report two kinds of errors: warnings and errors.
-Warnings are just hints that your code might not work,
-but they don’t prevent your program from executing.
-Errors can be either compile-time or run-time.
-A compile-time error prevents the code from executing at all;
-a run-time error results in an exception “Exceptions” on page 32 being 
-raised while the code executes.
-ignore the overly verbose xref... we're fixing that
-]
-
-####Code completion
-
-Continue typing, entering '#RipVanWinkle'
-as the argument to the query() function,
-and stop after you type the period.
-Dart Editor displays a menu with auto-complete suggestions
-based on the context.
-You can also invoke the menu by typing **Ctl+Space**.
-
-<img src="images/query-api-lookup.png"
-     alt="Lookup query in Dart libraries in Dart Editor">
-
-Scroll down and choose text, or just type it in.
-
-Finish your edits,
-and save the file with **File > Save**.
-
-{% endcomment %}
-
 ##About the Dart source code {#about-dart-code}
 
 Let's step through the code.
@@ -269,15 +165,15 @@ which contains the classes and functions for programming the DOM.
 Generally speaking, all Dart web apps need the Dart HTML library.
 Key classes include:
 
-| Dart Class | Description |
+| Dart class | Description |
 |---|---|
-| <a href="http://api.dartlang.org/dart_html/Node.html">Node</a> | Implements a Dart Node. |
-| <a href="http://api.dartlang.org/dart_html/Element.html">Element</a> | A subclass of Node, implements a web page element. |
-| <a href="http://api.dartlang.org/dart_html/Document.html">Document</a> | Another subclass of Node. Implements the document object. |
+| <a href="http://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a> | Implements a Dart Node. |
+| <a href="http://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | A subclass of Node, implements a web page element. |
+| <a href="http://api.dartlang.org/dart_html/Document.html" target="_blank">Document</a> | Another subclass of Node. Implements the document object. |
 {: .table}
 
 The Dart core library contains another useful class,
-<a href="http://api.dartlang.org/dart_core/List.html">List</a>,
+<a href="http://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
 a parameterized class that can specify the type of its members.
 The Element class keeps its list of child Elements
 in a List\<Element>, a list that can contain only Element objects.
@@ -293,14 +189,14 @@ query() is a top-level function provided by the Dart HTML library
 that gets an Element object from the DOM.
 
 <img src="images/3-mini-code-walk-through.png"
-     alt="Query for a DOM object by its ID">
+     alt="An example of querying for a DOM object by its ID">
 
 The argument to query(), a string,
 is a CSS selector that identifies the object.
-CSS selectors can be classes, identifiers, attributes, etc.
-In this case #RipVanWinkle 
-is a unique ID for a paragraph element
-that is set in the HTML file.
+Most commonly CSS selectors are classes, identifiers, or attributes.
+In this case RipVanWinkle is the unique ID for a paragraph element
+declared in the HTML file
+and #RipVanWinkle specifies that ID.
 
 <img src="images/2-mini-code-walk-through.png"
      alt="ID attribute from HTML file">
@@ -308,7 +204,7 @@ that is set in the HTML file.
 Another useful function for getting elements from the DOM
 is queryAll(),
 which returns multiple Element objects via
-a list of elements--List<Element>&mdash;all
+a list of elements&mdash;List<Element>&mdash;all
 of which match the provided selector.
 
 ###Setting the text of an Element
@@ -316,6 +212,7 @@ of which match the provided selector.
 In the DOM, the text of a page element is contained
 in a child node, specifically, a Text node.
 In the following diagram,
+the node containing the string
 "RipVanWinkle paragraph."
 is a text node.
 
@@ -328,13 +225,16 @@ embedded links and images,
 would be represented with a subtree of text nodes and other objects.
 
 In Dart,
-for convenience and to simplify code,
-instead of walking a subtree of nodes to get
-a page element's text,
-you can use the Element class's getter and setter `.text`.
+you can simply use the Element `text` property,
+which has a getter
+that walks the subtree of nodes for you and extracts their text.
 
 <img src="images/4-mini-code-walk-through.png"
      alt="Text node child of the paragraph">
+
+However, if the text node has styles (and thus a subtree),
+getting text and then setting it immediately is likely
+to change the DOM, as a result of losing subtree information.
 
 Often, as with our RipVanWinkle example,
 this simplification has no adverse effects.
@@ -342,7 +242,7 @@ Do know, however, that with more complex situations
 getting text and then setting it immediately
 will likely change the text.
 
-The equal operator sets the text
+The assignment operator (=) sets the text
 of the Element returned by the query() function
 to the string "Wake up, sleepy head!".
 
@@ -352,56 +252,6 @@ to the string "Wake up, sleepy head!".
 This causes the browser to immediately re-render
 the browser page containing this app
 dynamically displaying the text on the browser page.
-
-{% comment %}
-## Understanding basic HTML {#understand-html}
-
-To display a web app on a browser page,
-you need an HTML file to host the web app.
-
-HTML is a markup language that describes a browser page using tags.
-Tags are special identifiers that appear between angle brackets.
-When an HTML file is loaded into a browser,
-the browser interprets the tags and displays the page as appropriate.
-Tags can describe structural elements,
-presentational information,
-or hyper-text markup.
-
-Tags usually come in pairs.
-For example, consider:
-
-{% highlight html %}
-<title>The Page Title</title>
-{% endhighlight %}
-
-This HTML code creates a structural element--a title--whose
-text is **The Page Title**.
-Most browsers display the page title
-in the window header of the browser page.
-Here are some other oft-used structural tags:
-
-{% highlight html %}
-<h1>A Level-One Header</h1>
-<h2>A Level-Two Header</h2>
-<h6>Up to Six Levels</h6>
-<head>A header section at the top of the browser page.</head>
-<body>The main body of the browser page</body>
-<p>A paragraph</p>
-<!--A comment -->
-{% endhighlight %}
-
-Presentational tags describes the appearance of text.
-Generally, you would use CSS to change the appearance
-of text on the browser page,
-rather than HTML tags.
-We'll cover CSS in the next Target.
-
-Hyper-text markup tags let you link to another page,
-include images, or include apps.
-In the next step,
-we'll see an example of a hyper-text markup tag
-for including a Dart app.
-{% endcomment %}
 
 ## Create the HTML file {#create-html}
 
@@ -450,7 +300,7 @@ slightly simplified, HTML.
 
 Finish your edits and save the file with **File > Save**.
 
-##About the HMTL source code {#about-html-code}
+##About the HTML source code {#about-html-code}
 
 This HTML code is similar to the simple HTML code in the
 various diagrams earlier in this target.
@@ -485,59 +335,6 @@ between `mini.dart` and `mini.html`.
 
 <img src="images/dart-html-connect.png"
      alt="The connection between the HTML file and the Dart file">
-
-{% comment %}
-##Introduction to the DOM {#dom-intro}
-
-DOM stands for Document Object Model and is both
-a conceptual model and an API implemented by browsers
-for representing and manipulating a page and the elements on it.
-
-The DOM represents the HTML page as a tree-node structure.
-At the top of the tree is the _document_ object,
-that is, every page has a document object at its root.
-The document has children,
-each of which represents an element on the page
-and might, in turn, have children.
-
-The DOM creates a tree of page elements based on the HTML source code.
-Here's the DOM tree for the HTML code you wrote for `mini` app.
-(The DOM tree includes at least the elements shown in the diagram.
-It may have more.)
-
-<img src="images/DOMTree.png"
-     alt="The DOM tree for mini app">
-
-As you saw with the "RipVanWinkle" paragraph element,
-these objects can be retrieved from within the Dart code
-and modified, thereby changing the browser page.
-
-In addition to the query() and queryAll() functions,
-a Dart web app has a top-level document object
-created automatically by the Dart VM,
-which is a reference to the document object in the DOM.
-You can refer to it with the name `document`
-anywhere in your Dart web app.
-`document` has the type Document,
-a class provided by the Dart HTML library.
-
-Document inherits from two key classes in the HTML library:
-Node and Element.
-Node provides the functions needed to manage
-the tree-node structure of the document.
-Element represents an HTML page element.
-With it you can get and set attributes,
-manage its appearance,
-and register event handlers.
-
-Specific types of page elements inherit from Element,
-for example, ParagraphElement, TitleElement,
-and HeadElement.
-{% endcomment %}
-
-{% comment %}
-[XX: attributes, properties, nodes, elements]
-{% endcomment %}
 
 ## Run the mini web app {#run-mini}
 
@@ -713,26 +510,21 @@ Save your files and run the app again.
 <img src="images/mini-output-with-css.png"
      alt="Mini app running in Dartium with CSS styles in effect">
 
-{% comment %}
-##9-dart finish {#9-dart-finish}
-
-[XX: think of good questions]
-
-Should be able to answer these questions:
-
-* how to create an app in Dart Editor
-* how to run an app in Dart Editor
-* how to create a named launch
-* how to run in JavaScript
-* DOM: document object, 
-* relationship between HTML, Dart, DOM
-* dart.html library
-* and another
-* and another
-{% endcomment %}
-
-<TD><a href="/docs/tutorials/get-started/" style="float:left;">Previous</a></TD>
-<TD><a href="/docs/tutorials/add-elements/" style="float:right;">Next</a></TD>
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/get-started/"><i class="icon-chevron-left"> </i> Get Started</a>
+  </div>
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback
+</a>
+  </div>
+  <div class="span3">
+  <a href="/docs/tutorials/add-elements/" class="pull-right">Add an Element to the DOM <i class="icon-chevron-right"> </i> </a>
+  </div>
+</div>
 
 {% endcapture %}
 

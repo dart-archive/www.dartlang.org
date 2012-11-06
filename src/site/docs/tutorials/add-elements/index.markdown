@@ -25,7 +25,7 @@ Each node in the tree represents an item on the page.
 Each node in the tree keeps track of both
 its parent and its children.
 In Dart, the
-<a href="http://api.dartlang.org/dart_html/Node.html">Node</a>
+<a href="http://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a>
 class contains the methods and properties
 that implement node's tree functionality.
 
@@ -37,7 +37,7 @@ button elements, and so on.
 
 In Dart,
 elements are implemented by the
-<a href="http://api.dartlang.org/dart_html/Element.html">Element</a>
+<a href="http://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a>
 class, which is a subclass of Node.
 Because the nodes you care about most are usually elements,
 this target focuses on Element,
@@ -64,9 +64,20 @@ into a new web app in Dart Editor.
 Name the app todo and make sure the filenames
 are the same as those listed here.
 
-* [todo.dart](examples/todo/todo.dart.txt)
-* [todo.html](examples/todo/todo.html.txt)
-* [todo.css](examples/todo/todo.css.txt)
+<ul>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/todo.dart"
+   target="_blank">todo.dart</a>
+ </li>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/todo.html"
+   target="_blank">todo.html</a>
+ </li>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/todo.css"
+   target="_blank">todo.css</a>
+ </li>
+ </ul>
 
 Then run the app.
 Enter _dance_ into the input field.
@@ -206,11 +217,11 @@ The dart:html library has dozens of Element subclasses,
 many of which correspond to certain HTML tags.
 This program uses three:
 
-| HTML Tag | Dart Class |
+| HTML tag | Dart class |
 |---|---|
-| \<input> | <a href="http://api.dartlang.org/dart_html/InputElement.html">InputElement</a> |
-| \<ul> | <a href="http://api.dartlang.org/dart_html/UListElement.html">UListElement</a> |
-| \<li> | <a href="http://api.dartlang.org/dart_html/LIElement.html">LIElement</a> |
+| \<input> | <a href="http://api.dartlang.org/dart_html/InputElement.html" target="_blank">InputElement</a> |
+| \<ul> | <a href="http://api.dartlang.org/dart_html/UListElement.html" target="_blank">UListElement</a> |
+| \<li> | <a href="http://api.dartlang.org/dart_html/LIElement.html" target="_blank">LIElement</a> |
 {: .table}
 
 ## Registering an event handler {#event-handler}
@@ -243,14 +254,28 @@ The change event handler has the following code:
 The final line of code is where the DOM gets changed.
 The add() function is defined in the List class in the dart:core library.
 
-An Element keeps references to all of its childnre in a list called `elements`.
+An Element keeps references to all of its children in a list called `elements`.
 By adding and removing elements to and from this list,
 your code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
-The affect, in our todo app, is that a new bullet item appears 
+The effect, in our todo app, is that a new bullet item appears 
 in the to do list.
 
-<TD><a href="/docs/tutorials/connect-dart-html/" style="float:left;">Previous</a></TD>
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/connect-dart-html/"><i class="icon-chevron-left"> </i> Connect Dart &amp; HTML</a>
+  </div>
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback
+</a>
+  </div>
+  <div class="span3">
+  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  </div>
+</div>
 
 {% endcapture %}
 

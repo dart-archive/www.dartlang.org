@@ -35,18 +35,9 @@ create and run two small applications.
 * [Create a web app](#create-web-app)
 * [Run a web app in Dartium](#run-web-app)
 * [About main() and other top-level functions](#top-level-functions)
-* [About string literals](#strings)
 * [About file naming Conventions](#file-names)
-{% comment %}
-* [9-dart finish](#9-dart-finish)
-{% endcomment %}
 
 ##Download the Dart software bundle {#download-dart}
-
-{% comment %}
-[XX: instead of sending them away,
-I would prefer to have the download buttons and instructions here]
-{% endcomment %}
 
 Go to the
 [Downloads and Source](/downloads.html)
@@ -447,19 +438,6 @@ and does not take any arguments
 (as indicated by the empty parentheses),
 but, like any other function, it could have both.
 
-##About string literals {#strings}
-
-Text between single quotes
-defines a string literal.
-You can also use double quotes.
-Strings are a built-in type in Dart.
-They support expression evaluation,
-concatenation, and multi-line strings.
-
-{% comment %}
-[XX: elaborate about multi-line strings, etc.]
-{% endcomment %}
-
 ##About file naming conventions {#file-names}
 
 When creating an application with Dart Editor,
@@ -479,24 +457,21 @@ Dart Editor uses the application name for:
 You should also follow these conventions
 when creating applications outside of Dart Editor.
 
-{% comment %}
-##9-dart finish {#9-dart-finish}
-
-[XX: think of good questions]
-
-Should be able to answer questions about these:
-
-* key files of a cmd-line app
-* key files of a web app
-* how to create an app in Dart Editor
-* how to run an app in Dart Editor
-* main() function
-* print() function
-* ??
-{% endcomment %}
-
-<TD><a href="/docs/tutorials/" style="float:left;">Previous</a></TD>
-<TD><a href="/docs/tutorials/connect-dart-html/" style="float:right;">Next</a></TD>
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/"><i class="icon-chevron-left"> </i> Home</a>
+  </div>
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback
+</a>
+  </div>
+  <div class="span3">
+  <a href="/docs/tutorials/connect-dart-html/" class="pull-right">Connect Dart &amp; HTML <i class="icon-chevron-right"> </i></a>
+  </div>
+</div>
 
 {% endcapture %}
 
