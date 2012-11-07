@@ -70,7 +70,12 @@ class EditorUpdateRedirect(CloudStorageRedirect):
   prefix = 'http://gsdview.appspot.com/dart-editor-archive-integration'
 
 class EclipseUpdateRedirect(CloudStorageRedirect):
-  prefix = 'http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'  
+  prefix = 'http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+  def get(self, *args, **kwargs):
+    filename = kwargs['path']
+    if filename == '' or filename == '/':
+      filename = '/index.html'
+    self.redirect_to_cloud_storage(filename)
 
 
 application = WSGIApplication(
