@@ -309,7 +309,7 @@ dependencies:
 and import the package using the following import statement:
 
 {% highlight dart %}
-#import("package:json_object/json_object.dart");
+import "package:json_object/json_object.dart";
 {% endhighlight %}
 
 
@@ -332,8 +332,8 @@ libraries in the [js interop package](https://github.com/dart-lang/js-interop/)
 are suitable for JavaScript callbacks:
 
 {% highlight dart %}
-#import('dart:html');
-#import('package:js/js.dart', prefix: 'js');
+import 'dart:html';
+import 'package:js/js.dart', prefix: 'js';
 
 void main() {
   js.scoped(() {
