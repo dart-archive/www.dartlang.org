@@ -333,7 +333,7 @@ are suitable for JavaScript callbacks:
 
 {% highlight dart %}
 import 'dart:html';
-import 'package:js/js.dart', prefix: 'js';
+import 'package:js/js.dart' as js;
 
 void main() {
   js.scoped(() {
