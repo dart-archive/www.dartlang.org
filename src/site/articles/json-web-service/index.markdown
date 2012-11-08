@@ -80,18 +80,24 @@ that's invoked when the server responds.
 
 {% highlight dart %}
 getLanguageData(String languageName, onSuccess(HttpRequest req)) {
-  var url = "http://my-site.com/programming-languages/$languageName";
+  var url = "http://example.com/programming-languages/$languageName";
 
   // call the web server asynchronously
   var request = new HttpRequest.get(url, onSuccess);
 }
+{% endhighlight %}
 
+Then elsewhere in your code, you can define an <code>onSuccess</code> 
+callback function and call the <code>getLanguageData</code> function:
+{% highlight dart %}
 // print the raw json response text from the server
 onSuccess(HttpRequest req) {
    print(req.responseText); // print the received raw JSON text
 }
 
-getLanguageData("dart", onSuccess);
+main() {
+  getLanguageData("dart", onSuccess);
+}
 {% endhighlight %}
 
 Note: HttpRequest.get() is a convenience constructor, and its name will change. The
@@ -109,9 +115,7 @@ complete:
 saveLanguageData(String data, onSuccess(HttpRequest req)) {
   HttpRequest req = new HttpRequest(); // create a new XHR
 
-  var url = "http://example.com/programming-languages/";
-  req.open("POST", url); // POST to send data
-
+  // add an event handler that is called when the request finishes
   req.on.readyStateChange.add((Event e) {
     if (req.readyState == HttpRequest.DONE &&
         (req.status == 200 || req.status == 0)) {
@@ -119,6 +123,8 @@ saveLanguageData(String data, onSuccess(HttpRequest req)) {
     }
   });
 
+  var url = "http://example.com/programming-languages/";
+  req.open("POST", url); // Use POST http method to send data in the next call
   req.send(data); // kick off the request to the server
 }
 
@@ -296,14 +302,14 @@ Simply specify the following dependency:
 
 {% highlight yaml %}
 dependencies:
-  JsonObject:
+  json_object:
     git: git://github.com/chrisbu/dartwatch-JsonObject.git
 {% endhighlight %}
 
 and import the package using the following import statement:
 
 {% highlight dart %}
-#import("package:JsonObject/JsonObject.dart");
+#import("package:json_object/json_object.dart");
 {% endhighlight %}
 
 
@@ -321,11 +327,9 @@ an emerging technology known as
 [Cross-Origin Resource Sharing](https://developer.mozilla.org/en/http_access_control)
 (CORS), which is starting to become implemented by web servers. The second,
 older way is to use a workaround called JSONP, which makes use of JavaScript
-callbacks.  To use [JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html),
-you need to use window.postMessage to allow the JavaScript callbacks to
-communicate with your Dart code.  The new Dart - JavaScript interop
+callbacks.  The Dart - JavaScript interop
 libraries in the [js interop package](https://github.com/dart-lang/js-interop/)
-are also suitable for JavaScript callbacks:
+are suitable for JavaScript callbacks:
 
 {% highlight dart %}
 #import('dart:html');
