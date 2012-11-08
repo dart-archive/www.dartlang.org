@@ -10,8 +10,8 @@ has-permalinks: true
 
 <p>
 <em>Written by Gilad Bracha <br>
-January 2012<br>
-Updated: November 2012</em>
+January 2012
+(updated November 2012)</em>
 </p>
 
 This document describes how to define Dart classes

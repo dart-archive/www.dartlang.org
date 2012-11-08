@@ -10,7 +10,7 @@ has-permalinks: true
 # Using Dart with JSON Web Services
 
 _Written by Chris Buckett<br>
-April 2012_
+April 2012 (updated November 2012)_
 
 Most client-side Dart apps need a way to communicate with a server, and sending
 JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is

@@ -10,8 +10,8 @@ has-permalinks: true
 
 # {{ page.title }}
 _Written by Bob Nystrom <br />
-July 2012 <br />
-Updated: September 2012_
+July 2012
+(updated September 2012)_
 
 Right now as we near our "Milestone 1" release, we are making a slew of fun
 language changes. There are tracking bugs in the repo for all of them, but I

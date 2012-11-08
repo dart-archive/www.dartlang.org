@@ -9,8 +9,8 @@ has-permalinks: true
 
 # Dart Style Guide
 <em>Written by Bob Nystrom<br />
-<time pubdate date="2011-10-27">October 2011</time><br />
-Updated: October 2012
+<time pubdate date="2011-10-27">October 2011</time>
+(updated October 2012)
 </em>
 
 As we build up an ecosystem of Dart code, it's helpful if it follows a

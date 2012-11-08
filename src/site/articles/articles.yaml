@@ -2,19 +2,12 @@ everyday-dart:
   title: Everyday Dart
   articles:
   -
-    title: Dart Style Guide
-    url: /articles/style-guide/
+    title: A Game of Darts&mdash;Tutorials
+    url: /docs/tutorials/
     authors:
-    - Bob Nystrom
-    date: October 2011 (updated October 2012)
-    desc: How we format, structure, and organize our code.
-  -
-    title: Idiomatic Dart
-    url: /articles/idiomatic-dart/
-    authors:
-    - Bob Nystrom
-    date: October 2011 (updated October 2012)
-    desc: Get a sense of how to write Dart code like a native. 
+    - Mary Campione
+    date: October 2012 (updated November 2012)
+    desc: Beginner's guide to web programming using Dart.
   -
     title: Benchmarking the Dart VM
     url: /articles/benchmarking/
@@ -23,12 +16,19 @@ everyday-dart:
     date: October 2012
     desc: Learn how to benchmark your Dart application.
   -
-    title: A Game of Darts&mdash;Tutorials
-    url: /docs/tutorials/
+    title: Idiomatic Dart
+    url: /articles/idiomatic-dart/
     authors:
-    - Mary Campione
-    date: Ongoing
-    desc: Beginner's guide to web programming using Dart.
+    - Bob Nystrom
+    date: October 2011 (updated October 2012)
+    desc: Get a sense of how to write Dart code like a native. 
+  -
+    title: Dart Style Guide
+    url: /articles/style-guide/
+    authors:
+    - Bob Nystrom
+    date: October 2011 (updated October 2012)
+    desc: How we format, structure, and organize our code.
 
 language-details:
   title: Language Details
@@ -66,6 +66,13 @@ libraries-and-apis:
   title: Libraries and APIs
   articles:
   -
+    title: Using Dart with JSON Web Services
+    url: /articles/json-web-service/
+    authors:
+    - Chris Buckett
+    date: April 2012 (updated November 2012)
+    desc: Connect your client-side Dart web app to a JSON web service.
+  -
     title: Dart Web Components
     url: /articles/dart-web-components/
     authors:
@@ -73,19 +80,19 @@ libraries-and-apis:
     date: October 2012
     desc: Use Dart web components to write web applications at scale.
   -
+    title: An Introduction to the dart:io Library
+    url: /articles/io/
+    authors:
+    - Mads Ager
+    date: March 2012 (updated October 2012)
+    desc: Learn how your server-side Dart code can use the dart:io library to perform asynchronous I/O using files, sockets, HTTP connections, and more.
+  -
     title: Using JavaScript from Dart
     url: /articles/js-dart-interop/
     authors:
     - Vijay Menon
     date: September 2012
     desc: Use both Dart and JavaScript in your web app.
-  -
-    title: Using Dart with JSON Web Services
-    url: /articles/json-web-service/
-    authors:
-    - Chris Buckett
-    date: April 2012 (updated September 2012)
-    desc: Connect your client-side Dart web app to a JSON web service.
   -
     title: Mocking with Dart
     url: /articles/mocking-with-dart/
@@ -108,12 +115,13 @@ libraries-and-apis:
     date: May 2012
     desc: Use shared libraries written in C or C++ from your Dart command-line apps.
   -
-    title: An Introduction to the dart:io Library
-    url: /articles/io/
+    title: Embedding Dart in HTML
+    url: /articles/embedding-in-html/
     authors:
-    - Mads Ager
-    date: March 2012
-    desc: Learn how your server-side Dart code can use the dart:io library to perform asynchronous I/O using files, sockets, HTTP connections, and more.
+    - Sigmund Cherem
+    - Vijay Menon
+    date: October 2011 (updated April 2012)
+    desc: Find out how you'll be able to embed Dart directly on HTML pages.
   -
     title: Improving the DOM
     url: /articles/improving-the-dom/
@@ -121,14 +129,6 @@ libraries-and-apis:
     - Bob Nystrom
     date: October 2011
     desc: See what our new API for working with the DOM looks like in Dart.
-  -
-    title: Embedding Dart in HTML
-    url: /articles/embedding-in-html/
-    authors:
-    - Sigmund Cherem
-    - Vijay Menon
-    date: October 2011
-    desc: Find out how you'll be able to embed Dart directly on HTML pages.
 
 design-decisions:
   title: Design Decisions
