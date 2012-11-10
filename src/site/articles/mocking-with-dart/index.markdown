@@ -12,7 +12,7 @@ _Written by Graham Wheeler <br />
 July 2012_
 
 
-The Dart unit test library now supports integration testing with mocks. The 
+The Dart unit test library now supports testing with mocks. The 
 mocks provide the ability to:
 
 * substitute thin proxy objects for the objects that a system under test 
@@ -393,7 +393,7 @@ themselves can be `expect()`-style `Matcher`s, for example:
 {% highlight dart %}
 m.when(callsTo('sqrt', isNegative)).
   alwaysThrow('No imaginary number support');
-m.when(callsTo('sqrt', isNonNegative)).alwaysCall((x) => sqrt(x));
+m.when(callsTo('sqrt', isNonNegative)).alwaysCall((x) => math.sqrt(x));
 {% endhighlight %}
 
 You don't need to provide argument matchers in `callsTo()` for all arguments of a method, but you do need 
@@ -508,7 +508,7 @@ with the object.
 
 The `actionMatcher` is a special matcher that can be used to filter based on the 
 method action. Action matchers are passed a `LogEntry` to their `matches()` 
-method. There are two predefined action matchers` available:
+method. There are two predefined action matchers available:
 
 * `returning(m)`
 * `throwing(m)`
@@ -527,7 +527,7 @@ are two groups, one that matches based on results:
 
 * `alwaysReturned(value)`
 * `sometimeReturned(value)`
-* `neverReturned`
+* `neverReturned(value)`
 * `alwaysThrew(value)`
 * `sometimeThrew(value)`
 * `neverThrew(value)`
@@ -734,7 +734,7 @@ class VendingMachineCashier {
 }
 {% endhighlight %}
 
-The external interface of the cashier consists of the nickel and dime deposit slots, the item select buttons, and the cancel button.  `selectItem()` is called when an item select button is pressed, and it returns a message that is displayed to the user, which can be 'Insert coin' (the initial message which is also displayed after a successful purchase), 'Item nnn out' is there is no inventory of an item that has just been selected, 'No change' if an item can’t be purchased because the machine cannot issue the correct change, or a total amount currently deposited.
+The external interface of the cashier consists of the nickel and dime deposit slots, the item select buttons, and the cancel button.  `selectItem()` is called when an item select button is pressed, and it returns a message that is displayed to the user, which can be 'Insert coin' (the initial message which is also displayed after a successful purchase), 'Item nnn out' if there is no inventory of an item that has just been selected, 'No change' if an item can’t be purchased because the machine cannot issue the correct change, or a total amount currently deposited.
 
 ### Mocking the classes
 
@@ -941,7 +941,6 @@ when(callsTo(‘depositNickel’)).alwaysCall(_real.depositNickel);
 
 ## Conclusion
 
-The Mock support currently available should be a good start for you to do 
-integration tests. We expect that the library will become richer, more 
+The Mock support currently available should be a good start. We expect that the library will become richer, more 
 comprehensive, and easier to use as more language features become available. In 
 the meantime, we welcome your [feedback](/support/).
