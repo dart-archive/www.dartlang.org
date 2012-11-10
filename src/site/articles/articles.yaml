@@ -66,6 +66,13 @@ libraries-and-apis:
   title: Libraries and APIs
   articles:
   -
+    title: Unit Tests with Dart
+    url: /articles/dart-unit-tests/
+    authors:
+    - Graham Wheeler
+    date: June 2012 (updated November 2012)
+    desc: Write both synchronous and asynchronous tests using the Dart unit test library.
+  -
     title: Using Dart with JSON Web Services
     url: /articles/json-web-service/
     authors:
@@ -100,13 +107,6 @@ libraries-and-apis:
     - Graham Wheeler
     date: July 2012
     desc: Write mock and spy classes using the Dart unit test library.
-  -
-    title: Unit Tests with Dart
-    url: /articles/dart-unit-tests/
-    authors:
-    - Graham Wheeler
-    date: June 2012
-    desc: Write both synchronous and asynchronous tests using the Dart unit test library.
   -
     title: Native Extensions for the Standalone Dart VM
     url: /articles/native-extensions-for-standalone-dart-vm/
