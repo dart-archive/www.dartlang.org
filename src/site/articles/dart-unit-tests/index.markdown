@@ -12,7 +12,7 @@ _Written by Graham Wheeler <br />
 June 2012 (updated November 2012)_
 
 
-Dart includes a unit test library that is easy to use, adaptable, and supports both synchronous and asynchronous tests. This article describes how to write and run tests, how testing fits into the overall Dart ecosystem, and what is coming next.
+Dart includes a unit test library that is easy to use, adaptable, and supports both synchronous and asynchronous tests. This article describes how to write and run tests, and how testing fits into the overall Dart ecosystem.
 
 ## Contents
 
@@ -26,7 +26,6 @@ Dart includes a unit test library that is easy to use, adaptable, and supports b
 1. [Matchers](#matchers)
 1. [Configuring the test environment](#configuring-the-test-environment)
 1. [Using expect() in other contexts](#using-expect-in-other-contexts)
-1. [What's next](#whats-next)
 {:.toc}
 
 ## Differences from the earlier library
@@ -200,7 +199,7 @@ and add a line before the tests:
 useVmConfiguration();
 {% endhighlight %}
 
-This will result in a zero exit code if all tests pass or a 1 exit code upon test failure. See Configuring the Test Environment later for more details. You can run the test with the command:
+This will result in a zero exit code if all tests pass or a 1 exit code upon test failure. See [Configuring the test environment](#configuring-the-test-environment) later for more details. You can run the test with the command:
 
     dart Quicksort.dart
 
@@ -268,7 +267,7 @@ while in the first case it is the more descriptive:
 It is possible to pass an additional string argument to `expect()` (using either form) which will be appended to the output, and doing so is strongly encouraged if using the predicate form to improve the resulting output. The additional argument is a named argument called `reason`. For example:
 
 {% highlight dart %}
-test('Addition test', () => expect(2 + 2 == 5, reason:'Two twos are not five'));
+test('Addition test', () => expect(2 + 2 == 5, isTrue, reason:'Two twos are not five'));
 {% endhighlight %}
 
 which results in:
