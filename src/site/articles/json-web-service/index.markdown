@@ -267,7 +267,7 @@ converting from a JSON string, by using the default constructor:
 {% highlight dart %}
   Language data = new JsonObject();
   data.language = "Dart";
-  data.website = new LanguageWebsite();
+  data.website = new JsonObject();
   data.website.homepage = "http://www.dartlang.org";
 {% endhighlight %}
 
