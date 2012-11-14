@@ -44,7 +44,7 @@ The library is implemented in the GitHub project
 
 ## Installing the library's package
 
-To install the library's package using [pub](#),
+To install the library's package using [pub](http://pub.dartlang.org/doc),
 put the following lines in your app's pubspec.yaml file:
 
 {% highlight yaml %}
