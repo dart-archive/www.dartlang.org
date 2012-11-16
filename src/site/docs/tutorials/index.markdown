@@ -75,6 +75,11 @@ Dart Editor, HTML, and CSS.
 responds to a user-generated event
 by adding an Element to the DOM.
 
+<img src="new-icon.png" width="48" height="48"> [Target 4: Remove Elements from the DOM](remove-elements/)
+: In this target,
+you will modify the little todo app from Target 3
+to remove elements from the DOM.
+
 <div>
   <hr>
   <div class="row">
@@ -92,7 +97,7 @@ by adding an Element to the DOM.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:7px">Version: 6 Nov 2012</p>
+  <p style="font-size:7px">Version: 16 Nov 2012</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

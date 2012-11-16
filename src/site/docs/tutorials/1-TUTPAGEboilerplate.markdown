@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Put the Page Title here
-description: This should be exciting! Attention grabbing! Life changing!
+title: "Put the Page Title here"
+description: "This should be exciting! Attention grabbing! Life changing!"
 has-permalinks: true
 tutorial:
   id: this-should-be-unique
 ---
 
-{% capture whats-the-point %}
+{% capture whats_the_point %}
 
 * This text gets captured 
 * ...and used in the left column above the TOC.

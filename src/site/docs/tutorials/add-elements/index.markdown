@@ -4,15 +4,16 @@ title: "Target 3: Add an Element to the DOM"
 description: "You have an Element object, now what?"
 has-permalinks: true
 tutorial:
-  id: add-elems
+  id: add-elements
 ---
 
 {% capture whats_the_point %}
 
-* In Dart, elements are of type Element.
+* In Dart, page elements are of type Element.
 * An Element knows its parent.
 * An Element keeps its children in a List\<Element>.
 * Change the DOM by adding or removing children of elements.
+* Respond to user-generated events with an EventListener.
 
 {% endcapture %}
 
@@ -43,14 +44,16 @@ Because the nodes you care about most are usually elements,
 this target focuses on Element,
 rather than on Node.
 
-* [Copy and run the todo web app](#copy-app)
+* [Copy and run the todo app](#copy-app)
 * [About parent and child Elements in Dart](#tree-structure)
 * [Setting up the page in HTML](#html-code)
 * [Getting an element from the DOM](#dart-code)
 * [Registering an event handler](#event-handler)
+* [About EventListener functions](#about-event-listeners)
 * [Adding an element to the DOM tree](#add-elem)
+* [Styling the page elements](#about-css)
 
-##Copy and run the todo web app {#copy-app}
+##Copy and run the todo app {#copy-app}
 
 In this target, you will be working with a sample web app
 that is a partial implementation of a todo list.
@@ -84,7 +87,7 @@ Enter _dance_ into the input field.
 
 ![todo app running in Dartium](images/type-dance.png)
 
-The todo app adds _dance_ to the page just below _My list:_.
+The todo app adds _dance_ to the page just below the input field.
 
 ![todo app after dance is added to the list](images/adds-dance.png)
 
@@ -207,7 +210,7 @@ it should stash a reference to the element.
 
 This program stashes a reference
 to the input element
-in a top-level variable called `toDoInput`
+in a top-level variable called `toDoInput`.
 The unordered list
 is in the top-level variable `toDoList`.
 
@@ -227,10 +230,11 @@ This program uses three:
 ## Registering an event handler {#event-handler}
 
 When a user enters text into the input field,
-a _change_ event fires.
-The todo app has a function named addToDoItem()
+a _change_ event fires,
+indicating that the value in the input field has just changed.
+The todo app has a function, addToDoItem(),
 that can handle these change events.
-The following code connects addToDoItem to the input field:
+The following code connects addToDoItem() to the input field:
 
 ![Add an event handler to the toDoInput element](images/event-handler-todo.png)
 
@@ -241,15 +245,46 @@ for adding an event handler to an Element.
 ![Dart idiom: Add an event handler to an Element](images/event-handler-idiom.png)
 
 A change event is just one of many different types of events
-that an element can generate.
+that an input element can generate.
 For example, you can use `click` to handle mouse clicks,
-or `keyDown` for when someone types a key on the keyboard.
+or `keyDown` for when the user presses a key on the keyboard.
+
+<a name="about-event-listeners">
+<h2><img src="../new-icon.png" width="48" height="48">About EventListener functions</h2>
+
+The argument passed to the add() function is a _callback function_
+of type 
+<a href="http://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a>.
+EventListener is a typedef defined in the dart:html library as follows:
+
+{% highlight dart %}
+typedef void EventListener(Event event)
+{% endhighlight %}
+
+As you can see, an EventListener returns no value (void) and takes an
+<a href="http://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a>
+object as an argument.
+Any function with this signature is an EventListener.
+Based on its signature, the addToDoItem() function is an EventListener.
+
+{% highlight dart %}
+void addToDoItem(Event e) { ... }
+{% endhighlight %}
+
+The Event object passed into an EventListener function
+carries information about the Event that occurred.
+For example, the Event object knows what Element fired the event,
+the timestamp for when the event occurred and,
+in some cases, such as in a mouse click event,
+the location of the event.
+
+The addToDoItem() function ignores the Event object passed to it.
 
 ##Adding an element to the DOM tree {#add-elem}
 
 The change event handler has the following code:
 
-![The addToDoItem function explained](images/add-element-code.png)
+![The addToDoItem() function explained](images/add-element-code.png)
 
 The final line of code is where the DOM gets changed.
 The add() function is defined in the List class in the dart:core library.
@@ -260,6 +295,28 @@ your code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
 The effect, in our todo app, is that a new bullet item appears 
 in the to do list.
+
+<a name="about-css">
+<h2><img src="../new-icon.png" width="48" height="48">Styling the page elements</h2>
+
+Let's take a look at the CSS file for this app.
+
+![The effect of CSS styles](images/css-code.png)
+
+This code uses three different kinds of CSS selectors.
+The first is an HTML element selector that matches the \<body> element
+and sets some basic style attributes,
+such as the background color,
+for the entire page.
+Next in the file are two ID selectors:
+#to-do-input controls the appearance of the input field
+and #to-do-list sets the appearance of the unordered list element
+in general.
+The elements in the list are controlled by the final rule,
+which uses both an ID selector and an HTML selector together.
+This rule matches all \<li> elements in the
+element with the id to-do-list, thus styling
+each item in the to do list.
 
 <div class="row">
   <div class="span3">
@@ -273,7 +330,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/remove-elements/" class="pull-right">Remove Elements <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

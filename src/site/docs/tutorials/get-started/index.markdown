@@ -34,6 +34,7 @@ create and run two small applications.
 * [Run a command-line app](#run-cmd-line)
 * [Create a web app](#create-web-app)
 * [Run a web app in Dartium](#run-web-app)
+* [About the HTML, CSS and Dart triumvirate](#source-files)
 * [About main() and other top-level functions](#top-level-functions)
 * [About file naming Conventions](#file-names)
 
@@ -342,28 +343,25 @@ and displays the output of the helloworld app.
 Now let's create a web application.
 As you did when creating a command-line application,
 click the **New Application** button
+<img src="images/newapp.png" width="15" height="16" alt="New App button"/>.
 This time you are creating a web app,
 so select **Generate content for a basic web app**.
-<img src="images/newapp.png" width="15" height="16" alt="New App button"/>.
 
 <img src="images/new-click-me.png"
      alt="Create a new web application"/>
 
 Dart Editor creates the directory and files needed
 for a boilerplate web application.
-As before, the directory is named after your application,
-as is the Dart source file that contains the main() function.
-In addition, Dart Editor creates an HTML file and a CSS file.
-The HTML file contains the code necessary to include your Dart app
-in a browser page.
-The CSS file sets the styles
-for the page and its elements,
-(for example, fonts and colors).
 
 <img src="images/click-me-files.png"
      alt="Dart Editor with new web application files"/>
 
-The main() function contains some Dart code 
+As before, the directory is named after your application.
+So is the Dart source file that contains the main() function.
+In addition, Dart Editor creates an HTML file and a CSS file.
+
+The main() function in the clickme app
+contains Dart code 
 that puts text on the browser page
 and registers an *event handler*&mdash;a function
 that responds to user-generated events like a mouse click.
@@ -397,6 +395,41 @@ by compiling to JavaScript.
 You will do this in the next target,
 when you learn about runtime configurations called launches.
 
+<a name="source-files">
+<h2><img src="../new-icon.png" width="48" height="48">About the HTML, CSS and Dart triumvirate</h2>
+
+Typically three files, the HTML file, the Dart file, and the CSS file,
+together implement a Dart web application.
+Each is written in a different language
+and each is responsible for a different aspect of the program:
+
+| Language | Purpose |
+|---|---|
+| HTML | Describes the content of the document (the page elements in the document and the structure) |
+| CSS | Governs the appearance of page elements |
+| Dart | Implements the interactivity and dynamic behavior of the program |
+{: .table}
+
+HTML is a language for describing web pages.
+Using tags, HTML sets up the initial page structure,
+puts elements on the page,
+and embeds any scripts for page interactivity.
+It also establishes names and types for page elements,
+called CSS selectors,
+which allow HTML, CSS and Dart programs to refer to the same elements.
+
+CSS, Cascading Style Sheets, describe the appearance
+(the look and formatting) of the elements within a document.
+CSS controls many aspects of formatting:
+type face, font size, color, background color,
+borders, margins, an alignment, to name a few.
+
+Dart code is embedded into an HTML file as a script.
+A Dart program can
+respond to events such as mouse clicks,
+manipulate the elements on a web page dynamically,
+and can save information.
+
 ##About main() and other top-level functions {#top-level-functions}
 
 Dart lets you define _top-level_ functions,
@@ -409,19 +442,20 @@ The Hello World example calls print(),
 a top-level function defined in dart:core.
 And the clickme app defines a top-level function called reverseText().
 
-A function has two parts: a _declaration_ and a _definition_.
+A function declaration
+has two parts: a _signature_ and a _body_.
 
 <img src="images/function-parts.png"
-     alt="Two parts of a function, the definition and the declaration"/>
+     alt="Two parts of a function, the signature and the body"/>
 
-The declaration sets the function name,
+The signature sets the function name,
 the data type of its return value,
 and the number and type of its input arguments.
 
 <img src="images/declaration-parts.png"
      alt="The parts of a function declaration"/>
 
-The definition is code contained
+The body is code contained
 within a matching pair of curly braces
 that defines the function's behavior.
 The milesToKM() function performs a simple arithmetic calculation

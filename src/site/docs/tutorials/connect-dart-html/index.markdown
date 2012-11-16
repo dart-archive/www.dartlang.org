@@ -9,14 +9,12 @@ tutorial:
 
 {% capture whats_the_point %}
 
-* The DOM models a browser page in a tree structure.
-* The Document object is at the root of the tree.
-* A Dart web app needs both a Dart file and an HTML file.
+* The DOM models a browser page in a tree/node structure.
 * An HTML file hosts your Dart code in a browser page.
-* Use query() to get DOM elements.
+* Use query() to get elements from the DOM.
 * Control run-time configurations with named launches.
 * Compile to JavaScript to run in any modern browser.
-* Use CSS to set styles for visible elements.
+* Use CSS selectors to identify elements.
 
 {% endcapture %}
 
@@ -53,7 +51,8 @@ for more interesting and useful web apps.
 * [About the HTML source code](#about-html-code)
 * [Run mini app](#run-mini)
 * [Create a JavaScript launch](#mini-with-js)
-* [Add a CSS file](#add-css)
+* [Create the CSS file](#add-css)
+* [About CSS selectors](#about-css-code)
 
 ##About the DOM {#dom-intro}
 
@@ -146,6 +145,10 @@ void main() {
 }
 {% endhighlight %}
 
+<img src="../new-icon.png" width="48" height="48">
+<i class="icon-info-sign"> </i>
+<a href="errors-warnings.html">What is Dart Editor trying to tell me?</a>
+
 ##About the Dart source code {#about-dart-code}
 
 Let's step through the code.
@@ -194,6 +197,8 @@ that gets an Element object from the DOM.
 The argument to query(), a string,
 is a CSS selector that identifies the object.
 Most commonly CSS selectors are classes, identifiers, or attributes.
+We'll look at these in a little more detail later in this target,
+when we add a CSS file to the mini app.
 In this case RipVanWinkle is the unique ID for a paragraph element
 declared in the HTML file
 and #RipVanWinkle specifies that ID.
@@ -468,19 +473,14 @@ The output should look the same.
 
 </ol>
 
-##Add a CSS file {#add-css}
+##Create the CSS file {#add-css}
 
 Most HTML uses cascading style sheets to define _styles_
 that control the appearance of page elements.
-For example,
-you might create a special paragraph style 
-for showing code samples in an outlined box
-using a fixed-width font.
-
 Let's create a simple CSS file for the mini app.
 
 In Dart Editor, create a file named mini.css
-in your mini directory with the following text:
+in the mini directory with the following text:
 
 {% highlight dart %}
 #RipVanWinkle {
@@ -488,17 +488,14 @@ in your mini directory with the following text:
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   margin-top: 20px;
-  background-color: #SlateBlue;
-  color: #Yellow;  
+  background-color: SlateBlue;
+  color: Yellow;  
 }
 {% endhighlight %}
 
-This creates a style sheet for the page element
+This defines a style
+for the page element
 with the ID RipVanWinkle.
-The style sheet sets the font,
-centers the text,
-and sets the text and background color.
-
 To use this style sheet,
 edit mini.html and add the line shown in bold below:
 
@@ -509,6 +506,73 @@ Save your files and run the app again.
 
 <img src="images/mini-output-with-css.png"
      alt="Mini app running in Dartium with CSS styles in effect">
+
+<a name="about-css-code">
+<h2><img src="../new-icon.png" width="48" height="48">About CSS selectors</h2>
+
+The CSS file for the mini app has one CSS rule in it.
+A CSS rule has two main parts: a selector and a set of declarations.
+
+<img src="images/css-rule-explained.png"
+     alt="The parts of a CSS rule">
+
+The CSS selector is a pattern used to 
+select matching elements in the DOM.
+It is a tactic for allowing
+the CSS, HTML and Dart code
+to refer to the same objects.
+Commonly, a selector specifies an ID,
+an HTML element type,
+a class, or an attribute.
+They can also be nested.
+
+CSS selectors are important in Dart programs
+because you use them with query() and queryAll()
+to get matching elements from the DOM.
+Most often Dart programs use ID selectors with query()
+and class selectors with queryAll().
+
+CSS selectors are established on the HTML-side
+and used in the CSS file to match
+the elements or elements to be styled.
+Here are some examples of CSS selectors
+as used in a CSS file.
+
+| Selector Type | Example | Description |
+|---|---|
+| ID selector | #RipVanWinkle | Matches a single, unique element |
+| HTML element | p | Matches all paragraphs |
+| HTML element | h1 | Matches all level-one headers |
+| Class | _.classname_ | Matches all items with the class _classname_  |
+| Asterisk | * | Using the asterisk matches all elements |
+| Attribute | input[type="button"] | Matches all button input elements |
+{: .table}
+
+In mini app, the selector #RipVanWinkle is an ID selector,
+as signaled by the hash tag (#);
+it matches a single, unique element with the specified ID,
+our now tired RipVanWinkle paragraph element.
+RipVanWinkle is the ID in the HTML file.
+It is referred to in the CSS file and in the Dart code
+using a hash tag(#).
+Classnames are specified in the HTML file without a period (.)
+and referred to in the CSS file and in Dart code with a period (.).
+
+Between the curly brackets of a CSS rule is
+a list of declarations,
+each of which ends in a semi-colon (;).
+Each declaration specifies an attribute and its value.
+Together the set of declarations define the _style sheet_
+for all matching elements.
+The style sheet is used to set the appearance
+of the matching element(s) on the web page.
+
+<img src="images/css-property-value.png"
+     alt="A declaration specifies an attribute and its value">
+
+The CSS rule for the RipVanWinkle paragraph
+specifies several attributes;
+for example, it sets the text color to Yellow.
 
 <div class="row">
   <div class="span3">
