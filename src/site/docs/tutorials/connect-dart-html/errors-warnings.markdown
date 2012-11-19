@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "What is Dart Editor trying to tell me?"
-description: "Errors and Warnings and Code Completions"
+title: "What Is Dart Editor Trying to Tell Me?"
+description: "Errors and warnings and code completions"
 has-permalinks: true
 tutorial:
   id: errors-warnings
@@ -21,12 +21,14 @@ tutorial:
 
 {% capture content %}
 
-As you type, Dart Editor processes the text
+As you type, Dart Editor processes the text,
 analyzing it for errors and performing code completion.
 The sections below show you a few of the errors and
-warnings you might see
-and also how to use Dart Editor's code completion help.
-Use this program to follow along:
+warnings you might see.
+They also show you how to use Dart Editor's code completion help.
+
+Follow along with the instructions as you transform
+the code for the default helloworld command-line app into this code:
 
 {% highlight dart %}
 import 'dart:html';
@@ -36,9 +38,10 @@ void main() {
 {% endhighlight %}
 
 ##Errors
-Begin typing the first line of code,
+Place the text cursor before the 'v' in void,
+and begin typing the first line of code,
 the `import` directive,
-and stop just after you type the first single quotation mark.
+and stop just after you type the first quotation mark.
 
 <img src="images/error-editor-screenshot.png"
      alt="Dart Editor error">
@@ -46,8 +49,8 @@ and stop just after you type the first single quotation mark.
 You will see a small red 'x'
 in the gutter on the left side of the **Editor pane**.
 This means that Dart Editor has detected an error.
-Hover the mouse over the red 'x' and 
-a helpful error message is displayed in a tooltip:
+When you point to the red 'x',
+a tooltip displays a helpful error message.
 
 <img src="images/error-tooltip-screenshot.png"
      alt="Dart Editor error tooltip">
@@ -59,17 +62,20 @@ Errors can be either compile-time or run-time.
 Compile-time errors prevent your program from running at all.
 Run-time errors result in exceptions.
 
-Finish typing the complete line of code and the red 'x' disappears.
+Finish typing the complete line of code including the semi-colon (;)
+and the red 'x' disappears.
 
-##Warnings
-
+<aside class="alert" markdown="1">
 **Tip:** Save your file with **File > Save**.
 In some versions of Dart Editor,
 you need to save the file and start typing again
 before a newly imported library is detected.
+</aside>
 
-Now delete the line of code that calls print().
-And start typing the function call to query().
+##Warnings
+
+Now delete the line of code that calls print(),
+and start typing the function call to query().
 Stop after you type the first parenthesis.
 Note that Dart Editor helpfully provides a matching parenthesis.
 Note also that Dart Editor displays
@@ -82,7 +88,7 @@ In the background, Dart Editor does API lookup.
 Dart Editor recognizes the top-level query() function
 from the Dart HTML library,
 but it has detected a possible problem.
-Hover the mouse over the yellow warning sign and 
+Point the mouse at the yellow warning sign and 
 a helpful warning message will be displayed in a tooltip:
 
 <img src="images/warning-tooltip-screenshot.png"
@@ -90,8 +96,8 @@ a helpful warning message will be displayed in a tooltip:
 
 Dart Editor is telling you that query() requires
 a string argument and you have not yet provided one.
-Warnings are hints that your code might not work
-but do not prevent your program from executing.
+Warnings are hints that your code might not work,
+but they don't prevent your program from executing.
 
 ##Code completion
 
@@ -100,7 +106,7 @@ as the argument to the query() function,
 and stop after you type the period.
 Dart Editor displays a menu with auto-complete suggestions
 based on the context.
-You can also invoke the menu by typing **Ctl+Space**.
+You can also bring up the menu by typing **Ctl+Space**.
 
 <img src="images/query-api-lookup.png"
      alt="Lookup query in Dart libraries in Dart Editor">

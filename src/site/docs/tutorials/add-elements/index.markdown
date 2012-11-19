@@ -13,7 +13,7 @@ tutorial:
 * An Element knows its parent.
 * An Element keeps its children in a List\<Element>.
 * Change the DOM by adding or removing children of elements.
-* Respond to user-generated events with an EventListener.
+* Respond to user input with an EventListener.
 
 {% endcapture %}
 
@@ -273,10 +273,10 @@ void addToDoItem(Event e) { ... }
 
 The Event object passed into an EventListener function
 carries information about the Event that occurred.
-For example, the Event object knows what Element fired the event,
-the timestamp for when the event occurred and,
-in some cases, such as in a mouse click event,
-the location of the event.
+For example, the Event object knows which Element fired the event,
+and when.
+For location-specific events such as mouse clicks,
+the Event object also knows where the event occurred.
 
 The addToDoItem() function ignores the Event object passed to it.
 
@@ -313,9 +313,9 @@ Next in the file are two ID selectors:
 and #to-do-list sets the appearance of the unordered list element
 in general.
 The elements in the list are controlled by the final rule,
-which uses both an ID selector and an HTML selector together.
+which uses both an ID selector and an HTML selector.
 This rule matches all \<li> elements in the
-element with the id to-do-list, thus styling
+element with the ID to-do-list, thus styling
 each item in the to do list.
 
 <div class="row">

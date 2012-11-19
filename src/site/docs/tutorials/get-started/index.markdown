@@ -34,7 +34,7 @@ create and run two small applications.
 * [Run a command-line app](#run-cmd-line)
 * [Create a web app](#create-web-app)
 * [Run a web app in Dartium](#run-web-app)
-* [About the HTML, CSS and Dart triumvirate](#source-files)
+* [About the HTML, CSS, and Dart triumvirate](#source-files)
 * [About main() and other top-level functions](#top-level-functions)
 * [About file naming Conventions](#file-names)
 
@@ -276,7 +276,7 @@ Follow these steps to create a command-line application:
 <ol>
 <li markdown="1">
 Type helloworld in the **Application Name** text field.
-By convention, application names are lower case.
+By convention, application names are lowercase.
 This name is used for the app's directory
 and the basename for the files it creates.
 </li>
@@ -398,8 +398,8 @@ when you learn about runtime configurations called launches.
 <a name="source-files">
 <h2><img src="../new-icon.png" width="48" height="48">About the HTML, CSS and Dart triumvirate</h2>
 
-Typically three files, the HTML file, the Dart file, and the CSS file,
-together implement a Dart web application.
+Typically three files&mdash;an HTML file, a Dart file,
+and a CSS file&mdash;together implement a Dart web application.
 Each is written in a different language
 and each is responsible for a different aspect of the program:
 
@@ -414,15 +414,15 @@ HTML is a language for describing web pages.
 Using tags, HTML sets up the initial page structure,
 puts elements on the page,
 and embeds any scripts for page interactivity.
-It also establishes names and types for page elements,
-called CSS selectors,
-which allow HTML, CSS and Dart programs to refer to the same elements.
+HTML sets up the initial document tree
+and specifies element types, classes, and IDs,
+which allow HTML, CSS, and Dart programs to refer to the same elements.
 
-CSS, Cascading Style Sheets, describe the appearance
-(the look and formatting) of the elements within a document.
+CSS, which stands for Cascading Style Sheets, describes the appearance
+of the elements within a document.
 CSS controls many aspects of formatting:
 type face, font size, color, background color,
-borders, margins, an alignment, to name a few.
+borders, margins, and alignment, to name a few.
 
 Dart code is embedded into an HTML file as a script.
 A Dart program can
@@ -452,32 +452,31 @@ The signature sets the function name,
 the data type of its return value,
 and the number and type of its input arguments.
 
-<img src="images/declaration-parts.png"
-     alt="The parts of a function declaration"/>
+<img src="images/signature-parts.png"
+     alt="The parts of a function signature"/>
 
-The body is code contained
-within a matching pair of curly braces
-that defines the function's behavior.
+The body is the code that defines the function's behavior.
+It usually appears between curly braces ({_code_}).
+If the body is a single expression, then you
+can skip the braces and use the => shorthand:
+
+{% highlight dart %}
+double milesToKM(double miles) => miles/0.62;
+{% endhighlight %}
+
 The milesToKM() function performs a simple arithmetic calculation
 and returns the result.
 
 This function takes a single argument.
 Functions can take multiple arguments,
-in which case, the arguments are set apart by commas.
-
-In our previous examples,
-main() does not have a return value
-(as indicated by void)
-and does not take any arguments
-(as indicated by the empty parentheses),
-but, like any other function, it could have both.
+in which case the arguments are set apart by commas.
 
 ##About file naming conventions {#file-names}
 
 When creating an application with Dart Editor,
 you are asked to provide an application name.
 By convention, application names,
-and thus, the related files and directories, are lower case.
+and thus, the related files and directories, are lowercase.
 
 As you saw,
 Dart Editor uses the application name for:

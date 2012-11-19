@@ -11,10 +11,11 @@ tutorial:
 
 * The DOM models a browser page in a tree/node structure.
 * An HTML file hosts your Dart code in a browser page.
-* Use query() to get elements from the DOM.
-* Control run-time configurations with named launches.
+* Use query() with an ID to get an element from the DOM.
+* Control run-time configurations in Dart Editor with named launches.
 * Compile to JavaScript to run in any modern browser.
-* Use CSS selectors to identify elements.
+* CSS selectors are patterns used to select matching elements in the DOM.
+* Use CSS rules to style elements.
 
 {% endcapture %}
 
@@ -51,8 +52,8 @@ for more interesting and useful web apps.
 * [About the HTML source code](#about-html-code)
 * [Run mini app](#run-mini)
 * [Create a JavaScript launch](#mini-with-js)
-* [Create the CSS file](#add-css)
-* [About CSS selectors](#about-css-code)
+* [Create a CSS file](#add-css)
+* [About CSS selectors](#about-css-selectors)
 
 ##About the DOM {#dom-intro}
 
@@ -196,8 +197,8 @@ that gets an Element object from the DOM.
 
 The argument to query(), a string,
 is a CSS selector that identifies the object.
-Most commonly CSS selectors are classes, identifiers, or attributes.
-We'll look at these in a little more detail later in this target,
+Most commonly CSS selectors specify classes, identifiers, or attributes.
+We'll look at these in a little more detail later,
 when we add a CSS file to the mini app.
 In this case RipVanWinkle is the unique ID for a paragraph element
 declared in the HTML file
@@ -473,7 +474,7 @@ The output should look the same.
 
 </ol>
 
-##Create the CSS file {#add-css}
+##Create a CSS file {#add-css}
 
 Most HTML uses cascading style sheets to define _styles_
 that control the appearance of page elements.
@@ -507,24 +508,20 @@ Save your files and run the app again.
 <img src="images/mini-output-with-css.png"
      alt="Mini app running in Dartium with CSS styles in effect">
 
-<a name="about-css-code">
+<a name="about-css-selectors">
 <h2><img src="../new-icon.png" width="48" height="48">About CSS selectors</h2>
 
-The CSS file for the mini app has one CSS rule in it.
-A CSS rule has two main parts: a selector and a set of declarations.
-
-<img src="images/css-rule-explained.png"
-     alt="The parts of a CSS rule">
-
-The CSS selector is a pattern used to 
-select matching elements in the DOM.
-It is a tactic for allowing
-the CSS, HTML and Dart code
+IDs, classes, and other information about elements
+are established in HTML.
+Your Dart code can use this information
+to get elements using a CSS selector&mdash;a pattern
+used to select matching elements in the DOM.
+CSS selectors allow the CSS, HTML, and Dart code
 to refer to the same objects.
 Commonly, a selector specifies an ID,
 an HTML element type,
 a class, or an attribute.
-They can also be nested.
+Selectors can also be nested.
 
 CSS selectors are important in Dart programs
 because you use them with query() and queryAll()
@@ -532,13 +529,9 @@ to get matching elements from the DOM.
 Most often Dart programs use ID selectors with query()
 and class selectors with queryAll().
 
-CSS selectors are established on the HTML-side
-and used in the CSS file to match
-the elements or elements to be styled.
-Here are some examples of CSS selectors
-as used in a CSS file.
+Here are some examples of CSS selectors:
 
-| Selector Type | Example | Description |
+| Selector type | Example | Description |
 |---|---|
 | ID selector | #RipVanWinkle | Matches a single, unique element |
 | HTML element | p | Matches all paragraphs |
@@ -547,6 +540,26 @@ as used in a CSS file.
 | Asterisk | * | Using the asterisk matches all elements |
 | Attribute | input[type="button"] | Matches all button input elements |
 {: .table}
+
+<aside class="alert">
+  <strong>Tip:</strong>
+As you saw,
+mini app used a CSS selector,
+the ID #RipVanWinkle,
+even when there was no CSS file.
+You do not need a CSS file for a Dart program.
+Nor do you need a CSS file to use CSS selectors.
+CSS selectors are established in the HTML file
+and used by the Dart program 
+to select matching elements.
+</aside>
+
+Let's look at the CSS code for mini app.
+The CSS file for the mini app has one CSS rule in it.
+A CSS rule has two main parts: a selector and a set of declarations.
+
+<img src="images/css-rule-explained.png"
+     alt="The parts of a CSS rule">
 
 In mini app, the selector #RipVanWinkle is an ID selector,
 as signaled by the hash tag (#);

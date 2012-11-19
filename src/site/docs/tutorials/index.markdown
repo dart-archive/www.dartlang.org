@@ -97,7 +97,7 @@ to remove elements from the DOM.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:7px">Version: 16 Nov 2012</p>
+  <p style="font-size:xx-small">Version: 19 Nov 2012</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
