@@ -58,6 +58,54 @@ The above code uses Dart’s
 class, which measures time with high precision and low overhead—exactly what you
 need when benchmarking.
 
+###Use the benchmark harness
+
+The Dart team has provided an official benchmark harness that ensures
+your benchmark will be following correct benchmarking procedures
+including warm-ups.
+
+The harness is available as a pub package and is incredibly easy to use.
+
+1\. Add the following to your pubspec.yaml and run ```pub instal```:
+
+{% highlight yaml %}
+dependencies:
+    benchmark_harness:
+        git: https://github.com/dart-lang/benchmark_harness.git
+{% endhighlight %}
+
+2\. Copy the following template which creates a class extending ```BenchmarkBase```:
+
+{% highlight dart %}
+// Import BenchmarkBase class.
+import 'package:benchmark_harness/benchmark_harness.dart';
+
+// Create a new benchmark by extending BenchmarkBase
+class TemplateBenchmark extends BenchmarkBase {
+  const TemplateBenchmark() : super("Template");
+
+  static void main() {
+    new TemplateBenchmark().report();
+  }
+
+  // The benchmark code.
+  void run() {
+  }
+
+  // Not measured setup code executed prior to the benchmark runs.
+  void setup() { }
+
+  // Not measures teardown code executed after the benchark runs.
+  void teardown() { }
+}
+
+// Main function runs the benchmark.
+main() {
+  // Run TemplateBenchmark
+  TemplateBenchmark.main();
+}
+{% endhighlight %}
+
 ###Run in production mode with debugging disabled
 
 The Dart VM can run in two modes: checked and production mode. Checked mode is
@@ -79,7 +127,7 @@ impact on run-time performance.
 
 When benchmarking your application be sure to follow these three rules:
 
-1. Perform a warm-up before measuring code performance.
+1. Use the official benchmarking harness.
 1. Ensure the code does not raise any errors when run in checked mode.
 1. Run your benchmark in production mode with debugging disabled.
 
