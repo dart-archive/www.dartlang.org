@@ -10,8 +10,8 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-twitter-bootstrap (0.0.1)
-      compass (>= 0.11.5)
+    compass_twitter_bootstrap (2.0.3)
+      compass
     directory_watcher (1.4.1)
     fast-stemmer (1.0.1)
     fssm (0.2.9)
@@ -39,7 +39,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass
-  compass-twitter-bootstrap
+  compass_twitter_bootstrap
   jekyll
   kramdown
   pygments.rb
