@@ -9,7 +9,7 @@ has-permalinks: true
 
 # {{ page.title }}
 _Written by John McCutchan <br>
-October 2012_
+October 2012 (updated November 2012)_
 
 Programmers often create benchmarks that exercise an important algorithm in a
 larger application. The point of the benchmark is to have an easy to run,
@@ -22,30 +22,32 @@ improvements, and not regressions.
 Dart can go really fast, but you have to give the VM time to optimize your code.
 Most benchmarks we've seen are short and to the point—so short that they don’t
 trigger the VM’s optimizer. This isn’t an issue with real-world applications,
-which execute long enough to be optimized. Read on to find out how to use the benchmark_harness library to properly run a Dart benchmark.
+which execute long enough to be optimized.
+Read on to find out how to use the benchmark_harness library
+to properly run a Dart benchmark.
 
 ###Use the benchmark harness
 
 The Dart team has provided an official benchmark harness that ensures
-your benchmark follows the benchmarking procedures necessary for the Dart VM's optimizer.
+your benchmark follows the benchmarking procedures necessary
+for the Dart VM's optimizer.
 
 The harness is available as a pub package and is incredibly easy to use.
 
-1\. Add the following to your pubspec.yaml and run `pub install`:
+1\. Add the following to your pubspec.yaml, and run `pub install`:
 
 {% highlight yaml %}
 dependencies:
-    dependencies:
-      benchmark_harness: ">=1.0.0 <2.0.0"
+  benchmark_harness: ">=1.0.0 <2.0.0"
 {% endhighlight %}
 
-2\. Copy the following template which creates a class extending `BenchmarkBase`:
+2\. Copy the following template, which creates a class extending `BenchmarkBase`:
 
 {% highlight dart %}
 // Import BenchmarkBase class.
 import 'package:benchmark_harness/benchmark_harness.dart';
 
-// Create a new benchmark by extending BenchmarkBase
+// Create a new benchmark by extending BenchmarkBase.
 class TemplateBenchmark extends BenchmarkBase {
   const TemplateBenchmark() : super("Template");
 
@@ -57,16 +59,16 @@ class TemplateBenchmark extends BenchmarkBase {
   void run() {
   }
 
-  // Not measured setup code executed prior to the benchmark runs.
+  // Not measured: setup code executed before the benchmark runs.
   void setup() { }
 
-  // Not measures teardown code executed after the benchark runs.
+  // Not measured: teardown code executed after the benchmark runs.
   void teardown() { }
 }
 
 // Main function runs the benchmark.
 main() {
-  // Run TemplateBenchmark
+  // Run TemplateBenchmark.
   TemplateBenchmark.main();
 }
 {% endhighlight %}

@@ -13,15 +13,8 @@ everyday-dart:
     url: /articles/benchmarking/
     authors:
     - John McCutchan
-    date: October 2012
+    date: October 2012 (updated November 2012)
     desc: Learn how to benchmark your Dart application.
-  -
-    title: Idiomatic Dart
-    url: /articles/idiomatic-dart/
-    authors:
-    - Bob Nystrom
-    date: October 2011 (updated October 2012)
-    desc: Get a sense of how to write Dart code like a native.
   -
     title: Dart Style Guide
     url: /articles/style-guide/
@@ -29,6 +22,13 @@ everyday-dart:
     - Bob Nystrom
     date: October 2011 (updated November 2012)
     desc: How we format, structure, and organize our code.
+  -
+    title: Idiomatic Dart
+    url: /articles/idiomatic-dart/
+    authors:
+    - Bob Nystrom
+    date: October 2011 (updated October 2012)
+    desc: Get a sense of how to write Dart code like a native.
 
 language-details:
   title: Language Details
