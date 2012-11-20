@@ -10,7 +10,7 @@ has-permalinks: true
 # Dart Style Guide
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
-(updated October 2012)
+(updated November 2012)
 </em>
 
 As we build up an ecosystem of Dart code, it's helpful if it follows a
@@ -19,7 +19,7 @@ the most of the features unique to the language and makes it easier for
 users to collaborate.
 
 There will likely be things you disagree with in this guide. As the author,
-there are things *I* disagree with. I hope you'll agree that consistency is
+there are things even I disagree with. I hope you'll agree that consistency is
 often worth more than our individual preferences.
 
 Keep in mind that, like many things with Dart, this guide isn't carved in
@@ -93,20 +93,20 @@ num distance(num x1, num y1, num x2, num y2) => ...
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 class GeometryUtils {
-  num distance(num x1, num y1, num x2, num y2) => ...
+  static num distance(num x1, num y1, num x2, num y2) => ...
 }
 {% endhighlight %}
 </div>
 
-#### AVOID defining a one-member interface when a simple function will do.
+#### AVOID defining a one-member abstract class when a simple function will do.
 
 Unlike Java, Dart has first-class functions, closures, and a nice light syntax
 for using them. If all you need is something like a callback, just use a
-function. If you're defining an interface and it only has a single member with a
-meaningless name like `call` or `invoke`, there is a good chance you just want a
-function.
+function. If you're defining an class and it only has a single abstract member
+with a meaningless name like `call` or `invoke`, there is a good chance you
+just want a function.
 
 <div class="good">
 {% highlight dart %}
@@ -116,7 +116,7 @@ typedef bool Predicate(item);
 
 <div class="bad">
 {% highlight dart %}
-interface Predicate {
+abstract class Predicate {
   bool test(item);
 }
 {% endhighlight %}
@@ -227,7 +227,7 @@ button.visible
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 collection.sum // may be slow to calculate
 DateTime.now   // returns different value each call
 window.refresh // doesn't return a value
@@ -311,7 +311,7 @@ class Box {
 {% endhighlight %}
 </div>
 
-#### DO use `=>` to define members whose body is a single expression that fits on one line.
+#### CONSIDER using `=>` to define members whose body returns the result of a single expression.
 
 In addition to using `=>` for function expressions, Dart also lets you define
 members with them. They are a good fit for simple members that just calculate
@@ -324,6 +324,10 @@ bool ready(num time) => minTime == null || minTime <= time;
 containsValue(String value) => getValues().some((v) => v == value);
 {% endhighlight %}
 </div>
+
+Members that don't fit on one line can still use `=>`, but if you find yourself
+cramming a single expression into several continued lines, it is probably
+cleaner to just use a curly body with an explicit `return`.
 
 #### AVOID boolean arguments unless their meaning is completely obvious.
 
@@ -409,7 +413,7 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 Map<int, List<Person>> groupByZip(Iterable<Person> people) {
   Map<int, List<Person>> peopleByZip = new Map<int, List<Person>>();
   for (Person person in people) {
@@ -421,21 +425,12 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
 {% endhighlight %}
 </div>
 
-#### AVOID using `double` as a type annotation.
+#### PREFER using `num` over `double` for parameter type annotations.
 
-Annotating a parameter or variable as type `double` means not only that it *can*
-accept a floating-point value, but that it *must*. It's a type error to pass an
-`int` to it. Almost all code that can handle floating-point numbers works
-correctly with integers, so the type you usually want is `num`.
-
-An exception: if you know for certain that your code is performance critical
-(think of your favorite physics engine), it *might* make sense to restrict types
-to `double` because Dart's arbitrary-precision integers can be slower than
-floating-point numbers.
-
-But don't rush into doing this: the caller usually knows more about their
-performance needs than the callee, and prematurely annotating something as
-`double` prevents callers from using your code with integers.
+Annotating a parameter as type `double` means not only that it *can* accept a
+floating-point value, but that it *must*. It's a type error to pass an `int` to
+it. Almost all code that can handle floating-point numbers works correctly with
+integers, so the type you usually want is `num`.
 
 #### DON'T type annotate initializing formals.
 
@@ -452,7 +447,7 @@ class Point {
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 class Point {
   int x, y;
   Point(int this.x, int this.y);
@@ -474,10 +469,65 @@ var names = people.map((person) => person.name);
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 var names = people.map(String _(Person person) {
   return person.name;
 });
+{% endhighlight %}
+</div>
+
+#### AVOID annotating with `dynamic` when not required.
+
+In most places in Dart, a type annotation can be omitted, in which case the type
+will automatically be `dynamic`. Thus, omitting the type annotation entirely is
+semantically equivalent but more terse.
+
+<div class="good">
+{% highlight dart %}
+lookUpOrDefault(String name, Map map, defaultValue) {
+  var value = map[name];
+  if (value != null) return value;
+  return defaultValue;
+}
+{% endhighlight %}
+</div>
+
+<div class="bad">
+{% highlight dart %}
+dynamic lookUpOrDefault(String name, Map map, dynamic defaultValue) {
+  var value = map[name];
+  if (value != null) return value;
+  return defaultValue;
+}
+{% endhighlight %}
+</div>
+
+#### DO annotate with `Object` instead of `dynamic` to indicate any object is accepted.
+
+Some operations will work with any possible object. For example, a log method
+could take any object and call `toString()` on it. Two types in Dart permit all
+objects: `Object` and `dynamic`. However, they convey two different things.
+
+The `Object` annotation says "I accept any object, and I only require it to have
+the methods that `Object` itself defines."
+
+A `dynamic` type annotation means that no type annotation can express what
+objects you actually allow. (Or maybe one could, but you don't care to write
+it.)
+
+<div class="good">
+{% highlight dart %}
+// Accepts any object.
+log(Object object) {
+  print(object.toString());
+}
+
+// Only accepts bool or String, which can't be expressed in a type annotation.
+convertToBool(arg) {
+  if (arg is bool) return arg;
+  if (arg is String) return arg == 'true';
+  throw 'Cannot convert $arg to a bool.';
+}
 {% endhighlight %}
 </div>
 
@@ -485,33 +535,62 @@ var names = people.map(String _(Person person) {
 
 #### DO name types using `UpperCamelCase`.
 
-Classes, interfaces, and typedefs should capitalize the first letter of each
-word (including the first word), and use no separators. Abbreviations should be
-capitalized like words.
+Classes and typedefs should capitalize the first letter of each word (including
+the first word), and use no separators.
 
 <div class="good">
-{% highlight dart good %}
+{% highlight dart %}
 SliderMenu
 XmlHttpRequest
 typedef num Adder(num x, num y);
 {% endhighlight %}
 </div>
 
-#### DO name other identifiers using `lowerCamelCase`.
+#### DO name constants using `ALL_CAPS_WITH_UNDERSCORES`.
 
-Class members, top level definitions, variables, parameters, and named
-parameters, should capitalize the first letter of each word *except* the first
-word, and use no separators. Abbreviations should be capitalized like words.
+Constants&mdash;variables declared using `const`&mdash;are special in Dart
+because they can be used in constant expressions, unlike `final` variables. To
+clarify this, they are given their own naming style.
 
 <div class="good">
-{% highlight dart good %}
+{% highlight dart %}
+const PI = 3.14;
+const DEFAULT_TIMEOUT = 1000;
+final urlScheme = new RegExp('^([a-z]+):');
+
+class Dice {
+  static final numberGenerator = new Random();
+}
+{% endhighlight %}
+</div>
+
+<div class="bad">
+{% highlight dart %}
+const pi = 3.14;
+const kDefaultTimeout = 1000;
+final URL_SCHEME = new RegExp('^([a-z]+):');
+
+class Dice {
+  static final NUMBER_GENERATOR = new Random();
+}
+{% endhighlight %}
+</div>
+
+#### DO name other identifiers using `lowerCamelCase`.
+
+Class members, top-level definitions, variables, parameters, and named
+parameters should capitalize the first letter of each word *except* the first
+word, and use no separators.
+
+<div class="good">
+{% highlight dart %}
 item
 xmlHttpRequest
 clearItems
 {% endhighlight %}
 </div>
 
-#### DO name libraries and sourcefiles using `lowercase_with_underscores`.
+#### DO name libraries and source files using `lowercase_with_underscores`.
 
 Some file systems are not case-sensitive, so many projects require filenames to
 be all lowercase. Using a separate character allows names to still be readable
@@ -520,7 +599,7 @@ a valid Dart identifier, which may be helpful if the language later supports
 symbolic imports.
 
 <div class="good">
-{% highlight dart good %}
+{% highlight dart %}
 slider_menu
 file_system
 peg_parser
@@ -528,10 +607,39 @@ peg_parser
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 SliderMenu
 filesystem
 peg-parser
+{% endhighlight %}
+</div>
+
+#### DO capitalize acronyms and abbreviations longer than two letters like words.
+
+Capitalized acronyms can be harder to read, and are ambiguous when you have
+multiple adjacent acronyms. Given the name `HTTPSFTPConnection`, there's no way
+to tell if that's an HTTPS FTP connection or an HTTP SFTP one.
+
+To avoid this, acronyms are capitalized like regular words, except for two-letter ones.
+
+<div class="good">
+{% highlight dart %}
+HttpConnection
+uiHandler
+IOStream
+xmlHttpRequest
+ID
+id
+{% endhighlight %}
+</div>
+
+<div class="bad">
+{% highlight dart %}
+HTTPConnection
+UiHandler
+IoStream
+XMLHttpRequest
+Id
 {% endhighlight %}
 </div>
 
@@ -539,19 +647,28 @@ peg-parser
 
 #### DO comment members and types using doc-style comments.
 
-These start with `/**` and end with `*/`. Within a doc comment, you can use
-[markdown][] for formatting.
+Dart supports two syntaxes of doc comments. Line doc comments start each line
+with `///`:
 
-[markdown]: http://daringfireball.net/projects/markdown/
+<div class="good">
+{% highlight dart %}
+/// Parses a set of option strings. For each option:
+///
+/// * If it is `null`, then it is ignored.
+/// * If it is a string, then [validate] is called on it.
+/// * If it is any other type, it is *not* validated.
+void parse(List options) {
+  ...
+}
+{% endhighlight %}
+</div>
+
+Block doc comments start with `/**`, end with `*/` and can span multiple lines:
 
 <div class="good">
 {% highlight dart %}
 /**
- * Parses a set of option strings. For each option:
- *
- * * If it is `null`, then it is ignored.
- * * If it is a string, then [validate] is called on it.
- * * If it is any other type, it is *not* validated.
+ * Parses a set of option strings.
  */
 void parse(List options) {
   ...
@@ -559,13 +676,9 @@ void parse(List options) {
 {% endhighlight %}
 </div>
 
-#### PREFER using a single-line Dart-doc comment if the comment is short enough.
+Within a doc comment, you can use [markdown][] for formatting.
 
-<div class="good">
-{% highlight dart %}
-/** Returns the greater of the two arguments. */
-max(a, b) => a > b ? a : b;
-{% endhighlight %}</div>
+[markdown]: http://daringfireball.net/projects/markdown/
 
 #### DO use line comments for everything else.
 
@@ -579,7 +692,7 @@ greet(name) {
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 greet(name) {
   /* Assume we have a valid name. */
   print('Hi, $name!');
@@ -599,7 +712,7 @@ usually should. "Returns the number of items." is an acceptable comment.
 </div>
 
 <div class="bad">
-{% highlight dart bad %}
+{% highlight dart %}
 // remove the last item from the collection
 {% endhighlight %}
 </div>
@@ -611,7 +724,7 @@ then documentation generators can look up the name and cross-link the two
 together.
 
 <div class="good">
-{% highlight dart good %}
+{% highlight dart %}
 import 'dart:math';
 // ...
 /** Rolls both [Dice] and returns the highest rolled value. */
@@ -667,15 +780,13 @@ way the compiler does.
 
 Using spaces for formatting ensures the code looks the same in everyone's
 editor. It also makes sure it looks the same when posted to blogs, or on code
-sites like [Google Code][] or [github][].
+sites like [Google Code][] or [GitHub][].
 
 [google code]: http://code.google.com/projecthosting/
 [github]: http://github.com
 
-You may complain that spaces take more effort to type. If that's the case, I
-encourage you to pause your 8-track player, put on your parachute pants and go
-out and find a modern text editor that makes spaces as easy to work with as
-tabs.
+Modern editors emulate the behavior of tabs while inserting spaces, giving you
+the easy editing of tabs and the consistency of spaces.
 
 #### AVOID lines longer than 80 characters.
 
@@ -688,7 +799,50 @@ experience is that your code is likely too verbose and could be a little more
 compact. Do you really need to call that class
 `AbstractWidgetFactoryManagerBuilder`?
 
-#### DO indent blocks with two spaces.
+#### DO place the operator on the preceding line in a multi-line expression.
+
+There are valid arguments for both styles but most of our code seems to go this
+way, and consistency matters most.
+
+<div class="good">
+{% highlight dart %}
+if (isDeepFried ||
+    (hasPieCrust && !vegan) ||
+    containsBacon) {
+  print('Bob likes it.');
+}
+{% endhighlight %}
+</div>
+
+Note that this includes `=>` as well:
+
+<div class="good">
+{% highlight dart %}
+bobLikes() =>
+    isDeepFried || (hasPieCrust && !vegan) || containsBacon;
+{% endhighlight %}
+</div>
+
+<div class="bad">
+{% highlight dart %}
+bobLikes()
+    => isDeepFried || (hasPieCrust && !vegan) || containsBacon;
+{% endhighlight %}
+</div>
+
+#### DO place the `.` on the next line in a multi-line expression.
+
+This supercedes the previous rule. Unlike other operators, if you split an
+expression on a `.`, then put that at the beginning of the second line.
+
+<div class="good">
+{% highlight dart %}
+someVeryLongVariable.withAVeryLongProperty
+    .aMethodOnThatObject();
+{% endhighlight %}
+</div>
+
+#### DO indent block bodies two spaces.
 
 <div class="good">
 {% highlight dart %}
@@ -729,9 +883,13 @@ window.setTimeout(() {
 {% endhighlight %}
 </div>
 
-Note that even though second and third lines are a continuation of the first,
-they are not indented four spaces. Instead, they line up with the first line.
-The second line is indented two spaces because it is a block.
+<div class="bad">
+{% highlight dart %}
+window.setTimeout(() {
+      print('I am a callback');
+    });
+{% endhighlight %}
+</div>
 
 #### DO place the opening curly brace (`{`) on the same line as what it follows.
 
@@ -782,8 +940,23 @@ if (arg == null) return defaultValue;
 {% endhighlight %}
 </div>
 
-#### DO use spaces around binary and ternary operators, after commas, and not
-around unary operators.
+#### DO indent switch cases two spaces and case bodies four spaces.
+
+<div class="good">
+{% highlight dart %}
+switch (fruit) {
+  case 'apple':
+    print('delish');
+    break;
+
+  case 'durian':
+    print('stinky');
+    break;
+}
+{% endhighlight %}
+</div>
+
+#### DO use spaces around binary and ternary operators, after commas, and not around unary operators.
 
 Note that `<` and `>` are considered binary operators when used as expressions,
 but not for specifying generic types. Both `is` and `is!` are considered single
