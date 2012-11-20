@@ -88,8 +88,7 @@ For example, the tree has page elements,
 text nodes, and attribute nodes.
 Here is the DOM tree for the simple HTML file above.
 
-<img src="images/simple-dom-tree.png"
-     alt="The DOM tree for a simple HTML file">
+<img src="images/simple-dom-tree.svg" alt="The DOM tree for a simple HTML file">
 
 Notice that some tags, such as the \<p> paragraph tag,
 are represented by multiple nodes.

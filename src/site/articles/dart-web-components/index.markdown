@@ -65,13 +65,9 @@ Dart web components combine the ideas of web components and MDV, adapting them
 to work well with Dart.  Dart web components take advantage of advanced browser
 features when possible, emulating missing features when necessary.
 
-This article walks through some examples that illustrate how to write and use
-Dart web components. We have a separate article with instructions for using the
-[Dart web component tools](tools.html), and we soon plan to publish an
-additional document with a detailed specification.
-
 #### Contents
 
+1. [Tool setup](#tool-setup)
 1. [MDV templates in Dart](#templates)
     1. [One-way data binding](#one-way-binding)
     1. [Two-way data binding](#two-way-binding)
@@ -88,6 +84,14 @@ additional document with a detailed specification.
 1. [Tools for using Dart web components](#tools)
 1. [More information](#more-info)
 {:.toc}
+
+## Tool setup
+
+_These examples will not work out of the box in
+a standard Dart SDK, you need to first set up the Dart web component tools._ We
+have a separate article with instructions for using the
+[Dart web component tools](tools.html), which details how to use Dart Editor
+and command-line scripts to compile Dart web components.
 
 ## MDV templates in Dart {#templates}
 

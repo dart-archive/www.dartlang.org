@@ -1,0 +1,6 @@
+source "http://rubygems.org"
+gem "jekyll"
+gem "kramdown"
+gem "pygments.rb"
+gem "compass"
+gem "compass-twitter-bootstrap"
