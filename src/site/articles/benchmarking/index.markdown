@@ -22,48 +22,61 @@ improvements, and not regressions.
 Dart can go really fast, but you have to give the VM time to optimize your code.
 Most benchmarks we've seen are short and to the point—so short that they don’t
 trigger the VM’s optimizer. This isn’t an issue with real-world applications,
-which execute long enough to be optimized. Read on to find out how to correctly
-set up a Dart benchmark.
+which execute long enough to be optimized. Read on to find out how to use the benchmark_harness library to properly run a Dart benchmark.
 
-###Performing warm-ups
+###Use the benchmark harness
 
-The Dart VM is designed to start running your application code immediately with
-minimal startup time. In order to achieve this goal, code optimization is
-delayed until a function becomes "hot". Code becomes hot when it has been run
-numerous times.
+The Dart team has provided an official benchmark harness that ensures
+your benchmark follows the benchmarking procedures necessary for the Dart VM's optimizer.
 
-To correctly benchmark Dart, you need to let Dart warm up. For Dart a warm-up is
-a simple for loop:
+The harness is available as a pub package and is incredibly easy to use.
+
+1\. Add the following to your pubspec.yaml and run `pub install`:
+
+{% highlight yaml %}
+dependencies:
+    benchmark_harness:
+        git: https://github.com/dart-lang/benchmark_harness.git
+{% endhighlight %}
+
+2\. Copy the following template which creates a class extending `BenchmarkBase`:
 
 {% highlight dart %}
-// Warm-up
-for (int i = 0; i < 2000; i++) {
-    benchmarkCode();
+// Import BenchmarkBase class.
+import 'package:benchmark_harness/benchmark_harness.dart';
+
+// Create a new benchmark by extending BenchmarkBase
+class TemplateBenchmark extends BenchmarkBase {
+  const TemplateBenchmark() : super("Template");
+
+  static void main() {
+    new TemplateBenchmark().report();
+  }
+
+  // The benchmark code.
+  void run() {
+  }
+
+  // Not measured setup code executed prior to the benchmark runs.
+  void setup() { }
+
+  // Not measures teardown code executed after the benchark runs.
+  void teardown() { }
+}
+
+// Main function runs the benchmark.
+main() {
+  // Run TemplateBenchmark
+  TemplateBenchmark.main();
 }
 {% endhighlight %}
-
-After the warm-up the function is optimized. Now it’s time to measure the
-performance:
-
-{% highlight dart %}
-var stopwatch = new Stopwatch();
-stopwatch.start(); //Start timer.
-benchmarkCode();
-stopwatch.stop(); // Stop timer.
-var elapsed = stopwatch.elapsedMicroseconds; // Get the microseconds.
-{% endhighlight %}
-
-The above code uses Dart’s
-[Stopwatch](http://api.dartlang.org/docs/bleeding_edge/dart_core/Stopwatch.html)
-class, which measures time with high precision and low overhead—exactly what you
-need when benchmarking.
 
 ###Run in production mode with debugging disabled
 
 The Dart VM can run in two modes: checked and production mode. Checked mode is
 slower because the VM is checking types at runtime. Before benchmarking make
 sure that your code runs without issue in checked mode. If checked mode finds an
-issue, it will likely cause a performance drop in production mode. After making
+issue, it will likely cause a performance problem in production mode. After making
 sure your program is correct, you should run your benchmark in production mode
 to get an accurate measurement of real world performance.
 
@@ -79,7 +92,7 @@ impact on run-time performance.
 
 When benchmarking your application be sure to follow these three rules:
 
-1. Perform a warm-up before measuring code performance.
+1. Use the official benchmarking harness.
 1. Ensure the code does not raise any errors when run in checked mode.
 1. Run your benchmark in production mode with debugging disabled.
 
