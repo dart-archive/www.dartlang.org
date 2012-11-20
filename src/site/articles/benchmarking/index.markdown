@@ -35,8 +35,8 @@ The harness is available as a pub package and is incredibly easy to use.
 
 {% highlight yaml %}
 dependencies:
-    benchmark_harness:
-        git: https://github.com/dart-lang/benchmark_harness.git
+    dependencies:
+      benchmark_harness: ">=1.0.0 <2.0.0"
 {% endhighlight %}
 
 2\. Copy the following template which creates a class extending `BenchmarkBase`:
