@@ -66,7 +66,7 @@ including warm-ups.
 
 The harness is available as a pub package and is incredibly easy to use.
 
-1\. Add the following to your pubspec.yaml and run ```pub instal```:
+1\. Add the following to your pubspec.yaml and run ```pub install```:
 
 {% highlight yaml %}
 dependencies:
