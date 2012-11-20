@@ -22,51 +22,16 @@ improvements, and not regressions.
 Dart can go really fast, but you have to give the VM time to optimize your code.
 Most benchmarks we've seen are short and to the point—so short that they don’t
 trigger the VM’s optimizer. This isn’t an issue with real-world applications,
-which execute long enough to be optimized. Read on to find out how to correctly
-set up a Dart benchmark.
-
-###Performing warm-ups
-
-The Dart VM is designed to start running your application code immediately with
-minimal startup time. In order to achieve this goal, code optimization is
-delayed until a function becomes "hot". Code becomes hot when it has been run
-numerous times.
-
-To correctly benchmark Dart, you need to let Dart warm up. For Dart a warm-up is
-a simple for loop:
-
-{% highlight dart %}
-// Warm-up
-for (int i = 0; i < 2000; i++) {
-    benchmarkCode();
-}
-{% endhighlight %}
-
-After the warm-up the function is optimized. Now it’s time to measure the
-performance:
-
-{% highlight dart %}
-var stopwatch = new Stopwatch();
-stopwatch.start(); //Start timer.
-benchmarkCode();
-stopwatch.stop(); // Stop timer.
-var elapsed = stopwatch.elapsedMicroseconds; // Get the microseconds.
-{% endhighlight %}
-
-The above code uses Dart’s
-[Stopwatch](http://api.dartlang.org/docs/bleeding_edge/dart_core/Stopwatch.html)
-class, which measures time with high precision and low overhead—exactly what you
-need when benchmarking.
+which execute long enough to be optimized. Read on to find out how to use the benchmark_harness library to properly run a Dart benchmark.
 
 ###Use the benchmark harness
 
 The Dart team has provided an official benchmark harness that ensures
-your benchmark will be following correct benchmarking procedures
-including warm-ups.
+your benchmark follows the benchmarking procedures necessary for the Dart VM's optimizer.
 
 The harness is available as a pub package and is incredibly easy to use.
 
-1\. Add the following to your pubspec.yaml and run ```pub install```:
+1\. Add the following to your pubspec.yaml and run `pub install`:
 
 {% highlight yaml %}
 dependencies:
@@ -74,7 +39,7 @@ dependencies:
         git: https://github.com/dart-lang/benchmark_harness.git
 {% endhighlight %}
 
-2\. Copy the following template which creates a class extending ```BenchmarkBase```:
+2\. Copy the following template which creates a class extending `BenchmarkBase`:
 
 {% highlight dart %}
 // Import BenchmarkBase class.
@@ -111,7 +76,7 @@ main() {
 The Dart VM can run in two modes: checked and production mode. Checked mode is
 slower because the VM is checking types at runtime. Before benchmarking make
 sure that your code runs without issue in checked mode. If checked mode finds an
-issue, it will likely cause a performance drop in production mode. After making
+issue, it will likely cause a performance problem in production mode. After making
 sure your program is correct, you should run your benchmark in production mode
 to get an accurate measurement of real world performance.
 
