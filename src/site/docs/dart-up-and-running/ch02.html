@@ -275,21 +275,21 @@ assert(gifts.length == 2);</pre><p>For more information about maps, see <a class
       default values must be compile-time constants such as literals. If no
       default value is provided, the value is <code class="literal">null</code>.</p><p>If you need to know whether the caller passed in a value for an
       optional parameter, use the syntax <code class="literal">?<em class="replaceable"><code>param</code></em></code>.</p><pre class="programlisting">if (?device) {    // Returns true if the caller specified the parameter.
-  //...The user set the value. Do something with it...
+  // ...The user set the value. Do something with it...
 }</pre><div class="sect3" title="Optional named parameters"><h4 id="functions-optional-named-parameters"/>Optional named parameters</h4><p>When calling a function, you can specify named parameters using
         <code class="literal"><em class="replaceable"><code>paramName</code></em>:
         <em class="replaceable"><code>value</code></em></code>. For example:</p><pre class="programlisting">enableFlags(bold: true, hidden: false);</pre><p>When defining a function, use <code class="literal">{<em class="replaceable"><code>param1</code></em>,
         <em class="replaceable"><code>param2</code></em>, …}</code> to specify named
         parameters.</p><pre class="programlisting">/// Sets the [bold] and [hidden] flags to the values you specify.
 enableFlags({bool bold, bool hidden}) {
-  //...
+  // ...
 }</pre><p>Use a colon (<code class="literal">:</code>) to specify
         default values.</p><pre class="programlisting">/**
  * Sets the [bold] and [hidden] flags to the values you specify,
  * defaulting to false.
  */
 enableFlags({bool bold: false, bool hidden: false}) {
-  //...
+  // ...
 }
 
 enableFlags(bold: true); // bold will be true; hidden will be false.</pre><aside class="note" title="Note"><div class="alert alert-info"><strong>Note: </strong>The preceding two examples use documentation comments <a class="xref" href="ch02.html#comments-doc" title="Documentation comments">Documentation comments</a>.</div></aside><div class="sect3" title="Optional positional parameters"><h4 id="functions-optional-positional-parameters"/>Optional positional parameters</h4><p>Wrapping a set of function parameters in <code class="literal">[]</code> marks them as optional positional
@@ -912,7 +912,7 @@ main() {
   print(greetBob(new Imposter()));
 }</pre><p>Here’s an example of specifying that a class implements multiple
       interfaces:</p><pre class="programlisting">class Point <span class="bold"><strong>implements Comparable, Location</strong></span> {
-  //...
+  // ...
 }</pre></div><div class="sect2" title="Extending a class"><h3 id="id491080"/>Extending a class</h3><p>Use <code class="literal">extends</code> to create a
       subclass, and <code class="literal">super</code> to refer to the
       superclass.</p><pre class="programlisting">class Television {
@@ -978,7 +978,7 @@ main() {
       checked mode) can detect that assigning a non-string to the list is
       probably a mistake.</p><pre class="programlisting">var names = new List&lt;String&gt;();
 names.addAll(['Seth', 'Kathy', 'Lars']);
-//...
+// ...
 names.add(42); // Fails in checked mode (succeeds in production mode).</pre><p>Another reason for using generics is to reduce code duplication.
       Generics let you share a single interface and implementation between
       many types, while still taking advantage of checked mode and static
@@ -1027,11 +1027,11 @@ print(names is List&lt;String&gt;); // true</pre><p>However, the <code class="li
         which means that generic type parameters are removed at runtime. In
         Java, you can test whether an object is a List, but you can’t test
         whether it’s a List&lt;String&gt;.</p></div><p>For more information about generics, see <a class="ulink" href="http://www.dartlang.org/articles/optional-types/">Optional Types in
-      Dart.</a></p></div></div><div class="sect1" title="Libraries and visibility"><h2 id="libraries"/>Libraries and visibility</h2><p>The <code class="literal">import</code>, <code class="literal">part</code>, and <code class="literal">library</code> directives can help you create a modular
+      Dart.</a></p></div></div><div class="sect1" title="Libraries and visibility"><h2 id="libraries"/>Libraries and visibility</h2><p>The <code class="literal">import</code>, <code class="literal">library</code>, and <code class="literal">part</code> directives can help you create a modular
     and shareable code base. Libraries not only provide APIs, but are a unit
     of privacy: identifiers that start with an underscore (_) are visible only
     inside the library.</p><aside class="note" title="Note"><div class="alert alert-info"><strong>Note: </strong><span class="emphasis"><em>Every Dart app is a library</em></span>, even if it
-      doesn’t use a library directive.</p></div><p>Libraries can be distributed using packages. See <a class="xref" href="ch04.html#ch04-tools-pub" title="pub: The Dart package manager">pub: The Dart package manager</a> for information about pub, a package manager
+      doesn’t use <code>library</code>.</p></div><p>Libraries can be distributed using packages. See <a class="xref" href="ch04.html#ch04-tools-pub" title="pub: The Dart package manager">pub: The Dart package manager</a> for information about pub, a package manager
     included in the SDK.</p><div class="sect2" title="Using libraries"><h3 id="libraries-import"/>Using libraries</h3><p>Use <code class="literal">import</code> to specify how a
       namespace from one library is used in the scope of another
       library.</p><p>For example, Dart web apps generally use the <a class="ulink" href="http://api.dartlang.org/html.html">dart:html</a> library, which
@@ -1045,58 +1045,63 @@ import 'package:utils/utils.dart';</pre><div class="sect3" title="Specifying a l
         if library1 and library2 both have an Element class, then you might
         have code like this:</p><pre class="programlisting">import 'package:lib1/lib1.dart';
 import 'package:lib2/lib2.dart' as lib2;
-//...
+// ...
 var element1 = new Element();      // Uses Element from lib1.
 var element2 = new lib2.Element(); // Uses Element from lib2.</pre></div><div class="sect3" title="Importing only part of a library"><h4 id="id313362"/>Importing only part of a library</h4><p>If you want to use only part of a library, you can selectively
         import the library. For example:</p><pre class="programlisting">import 'package:lib1/lib1.dart' show foo, bar; // Import only foo and bar from lib1.
-import 'package:lib2/lib2.dart' hide foo;      // Import all names EXCEPT foo from lib2.</pre></div></div><div class="sect2" title="Implementing libraries"><h3 id="libraries-implementing"/>Implementing libraries</h3><p>Use the <code class="literal">part</code> directive to
-      specify the files that are part of a library, and <code class="literal">library</code> to specify that a file declares a
-      library.</p><div class="sect3" title="Using multiple files"><h4 id="libraries-part"/>Using multiple files</h4><p>Whether or not you specify a <code class="literal">library</code> directive, you can use <code class="literal">part</code> to specify the files that implement the
-        current library.</p><pre class="programlisting">// No library directive; this file defines an anonymous library.
-part 'ball.dart';   // Part of this library's implementation is in ball.dart.
-part 'util.dart';   // Another part is in util.dart.
+import 'package:lib2/lib2.dart' hide foo;      // Import all names EXCEPT foo from lib2.</pre></div></div><div class="sect2" title="Implementing libraries"><h3 id="libraries-implementing"/>Implementing libraries</h3>
+<p>Use <code class="literal">library</code>
+to name a library, and
+<code class="literal">part</code> to
+      specify additional files in the library.
+<aside class="note" title="Note"><div class="alert alert-info">
+<strong>Note: </strong>
+You don’t have to use <code>library</code> in an app
+(a file that has a top-level main() function),
+but doing so lets you implement the app in multiple files.</div>
+</aside>
+<div class="sect3" title="Declaring a library"><h4 id="libraries-library"/>Declaring a library</h4><p>Use <code>library <em>identifier</em></code> to specify the name of the current library:</p><pre class="programlisting">library ballgame;   // Declare that this is a library named ballgame.
 
 import 'dart:html'; // This app uses the HTML library.
-//...
-main() {            // Having a main() method makes this an app (and thus a library).
-  //...
-}</pre></div><div class="sect3" title="Declaring a library"><h4 id="libraries-library"/>Declaring a library</h4><p>To explicitly declare a library, use a <code class="literal">library</code> statement. For example:</p><pre class="programlisting">library ballgame;   // Declare that this is a library.
+// ...Code goes here... </pre>
+</div>
+<div class="sect3" title="Associating a file with a library"><h4 id="libraries-source"/>Associating a file with a library</h4><p>To add an implementation file, put <code class="literal">part <em>fileUri</em></code> in the file that has the <code>library</code> statement,
+where <em>fileUri</em> is the path to the implementation file.
+Then in the implementation file,
+put <code class="literal">part of <em>identifier</em></code>,
+where <em>identifier</em> is the name of the library.
+The following example uses <code class="literal">part</code> and
+<code class="literal">part of</code>
+to implement a library in three files.</p>
 
-part 'ball.dart';   // Part of this library's implementation is in ball.dart.
-part 'util.dart';   // Another part is in util.dart.
+<p>The first file, <code>ballgame.dart</code>, declares the ballgame library,
+imports other libraries it needs,
+and specifies that <code class="literal">ball.dart</code>
+and <code class="literal">util.dart</code>
+are parts of this library:</p>
+<pre class="programlisting">library ballgame;
 
-import 'dart:html'; // This app uses the HTML library.
-//...
-main() {            // We could move this code to another file in this library.
-  //...
-}</pre></div><div class="sect3" title="Associating a file with a library"><h4 id="libraries-source"/>Associating a file with a library</h4><p>You can use <code class="literal">part</code> followed by
-        <code class="literal">of</code> (<code class="literal">part
-        of</code>) in implementation files to specify that the file is
-        associated with a library. Using <code class="literal">part
-        of</code> is optional, but it helps tools such as Dart Editor.
-        Here’s an example of using <code class="literal">part</code> and
-        <code class="literal">part of</code>:</p><pre class="programlisting">// In ballgame.dart:
-library ballgame;
-
-import 'dart:utf';
+import 'dart:html';
 // ...Other imports go here...
 
 part 'ball.dart';
 part 'util.dart';
 
-//...
+// ...Code might go here...</pre>
 
 
-// In ball.dart:
-part of ballgame;
+<p>The second file, <code>ball.dart</code>,
+implements part of the ballgame library:</p>
+<pre class="programlisting">part of ballgame;
 
-// ...code goes here...
+// ...Code goes here...  </pre>
 
 
-// In util.dart:
-part of ballgame;
+<p>The third file, <code>util.dart</code>,
+implements the rest of the ballgame library:</p>
+<pre class="programlisting">part of ballgame;
 
-// ...code goes here...</pre></div><div class="sect3" title="Re-exporting libraries"><h4 id="id627546"/>Re-exporting libraries</h4><p>You can combine or repackage libraries by re-exporting part or
+// ...Code goes here...</pre></div><div class="sect3" title="Re-exporting libraries"><h4 id="id627546"/>Re-exporting libraries</h4><p>You can combine or repackage libraries by re-exporting part or
         all of them. For example, you might have a huge library that you
         implement as a set of smaller libraries. Or you might create a library
         that provides a subset of methods from another library.</p><pre class="programlisting"><span class="emphasis"><em>// In french.dart:</em></span>
@@ -1203,13 +1208,13 @@ class Llama {
    * The typical llama eats one bale of hay per week.
    */
   void feed(Food food) {
-    //...
+    // ...
   }
 
   /// Exercises your llama with an [activity] for
   /// [timeLimit] minutes.
   void exercise(Activity activity, int timeLimit) {
-    //...
+    // ...
   }
 }</pre><p>In the generated documentation, <code class="literal">[Food]</code> becomes a link to the API docs for the
       Food class.</p><p>To parse Dart code and generate HTML documentation, you can use
