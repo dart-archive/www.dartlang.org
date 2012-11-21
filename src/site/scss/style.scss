@@ -27,6 +27,15 @@ section {
   margin-bottom: 1em;
 }
 
+code {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  margin-bottom: 1em;
+}
+
 .alert {
   a {
     color: $linkColorHover;
