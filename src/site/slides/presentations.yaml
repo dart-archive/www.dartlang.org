@@ -1,3 +1,11 @@
+- title: "Productivity or Performance. Pick Two."
+  short: productivity-performance
+  presenters:
+    - Seth Ladd
+  date: 2012-11-14
+  slides: 2012/11/devoxx/dart-productivity-and-performance.pdf
+  event: Devoxx 2012
+
 - title: "Breaking Open: Dart"
   short: breaking-open-dart
   presenters:
@@ -12,6 +20,7 @@
     - Gilad Bracha
   date: 2012-10-16
   slides: 2012/10/html5devconf/dart-today-and-beyond.pdf
+  video: http://www.youtube.com/watch?v=yXY5bGlhxlw
   event: HTML5 Dev Conf 2012 Fall
 
 - title: JavaScript as a compilation target - Making it fast

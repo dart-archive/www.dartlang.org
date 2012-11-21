@@ -87,7 +87,7 @@ features when possible, emulating missing features when necessary.
 
 ## Tool setup
 
-_These examples will not work out of the box in
+_The examples in this article do not work out of the box in
 a standard Dart SDK, you need to first set up the Dart web component tools._ We
 have a separate article with instructions for using the
 [Dart web component tools](tools.html), which details how to use Dart Editor

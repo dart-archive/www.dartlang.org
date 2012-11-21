@@ -59,10 +59,10 @@ You can also watch episodes of [Dartisans, our Dart videocast](/dartisans/).
       </div>
       <p class="buttons">
         {% if preso.video %}
-        <a href="{{ preso.video }}" class="btn btn-primary"><i class="icon-film">&nbsp;</i>Watch</a>
+        <a href="{{ preso.video }}" target="_blank" class="video btn btn-primary"><i class="icon-film">&nbsp;</i>Watch</a>
         {% endif %}
         {% if preso.slides %}
-        <a href="{{ preso.slides }}" class="btn btn-primary"><i class="icon-picture">&nbsp;</i>Slides</a>
+        <a href="{{ preso.slides }}" target="_blank" class="pdf btn btn-primary"><i class="icon-picture">&nbsp;</i>Slides</a>
         {% endif %}
       </p>
     </div>
