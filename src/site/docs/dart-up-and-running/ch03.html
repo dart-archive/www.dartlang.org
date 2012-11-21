@@ -665,10 +665,10 @@ elem.text = 'Creating is easy!';</pre><p>You can also create an element by parsi
         a parent to the element. You can add an element to any existing
         element’s children. In the following example, <code class="literal">body</code>
         is an element, and its child elements are accessible (as a
-        List&lt;Element&gt;) from the <code class="literal">elements</code>
+        List&lt;Element&gt;) from the <code class="literal">children</code>
         property.</p><pre class="screen">var elem = new ParagraphElement();
 elem.text = "Don't forget to feed the llamas!";
-document.body.elements.add(elem);</pre></div><div class="sect3" title="Adding, replacing, and removing nodes"><h4 id="ch03-adding-replacing-and-removing-nodes"/>Adding, replacing, and removing nodes</h4><p>Recall that elements are just a kind of node. You can find
+document.body.children.add(elem);</pre></div><div class="sect3" title="Adding, replacing, and removing nodes"><h4 id="ch03-adding-replacing-and-removing-nodes"/>Adding, replacing, and removing nodes</h4><p>Recall that elements are just a kind of node. You can find
         all the children of a node using the <code class="literal">nodes</code> property
         of Node, which returns a List&lt;Node&gt;. Once you have this list,
         you can use the usual List methods and operators to manipulate the
