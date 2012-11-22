@@ -432,7 +432,7 @@ take the click-count example above and make it a component as follows:
       </div>
     </template>
     <script type="application/dart">
-      import 'package:web_components/web_component.dart';
+      import 'package:web_components/web_components.dart';
 
       class CounterComponent extends WebComponent {
         int count = 0;
