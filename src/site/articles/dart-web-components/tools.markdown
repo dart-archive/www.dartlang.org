@@ -21,7 +21,7 @@ components.
 
 We use a compiler to generate efficient code for your Dart web components.
 You'll sometimes invoke this compiler from the command line, but often you might
-not even know that it's there. 
+not even know that it's there.
 
 Special support is available for both [Dartium][dartium] and the [Dart
 Editor][editor] to provide you with a smooth edit/refresh cycle.  Below you'll
@@ -51,7 +51,7 @@ on the entry point of your application. For instance, the following example
 shows how to compile an application under the directory `web`, whose entry point
 is `app.html`.
 
-    > dart --package-root=packages/ packages/web_components/dwc.dart web/app.html
+    > dart --package-root=packages/ packages/web_components/dwc.dart --out web/out/ web/app.html
 
 <aside><div class="alert alert-info">
 <strong>Note:</strong> This command will get simpler in the future. We
@@ -61,31 +61,43 @@ package.  At that point, you'll be able to run the command above without the
 <code>packages/</code> directory.
 </div></aside>
 
-By default, the compiler will generate files in the same folder of your entry
-point.  You can pass a `--out dir` option to change where you'd like the
-generated files to be written. All generated files start with a leading
-underscore and have double extensions (for example, `_app.html.dart`). Your
-application's main HTML file is named  `_app.html.html`. Navigate Dartium to
-that file and see it run.
+The `--out web/out/` option indicates that we want the generated files to be
+written under `web/out/`. If the option is not specified, the compiler will
+generate files in the same folder of your entry point by default. In that case,
+all generated files will be mangled to avoid name collisions. For instance, file
+names will start with a leading underscore and have double extensions (for
+example, `_app.html.dart`).  When you specify an output dir, the compiler avoids
+mangling file names.
+
+In our example above, the application's main HTML file is `web/out/app.html`.
+Navigate Dartium to that file and see it run.  If you don't specify an output
+directory, the main file will be `web/_app.html.html`.
 
 You can use `dart2js` to generate JavaScript code that will run in other
-browsers. The entry point Dart file to compile is the file
-`_app.html_boostrap.dart`.
+browsers. The entry point Dart script you need to compile is
+`app.html_boostrap.dart`.
 
-    > dart2js _app.html_bootstrap.dart -o_app.html_bootstrap.dart.js
+    > cd web/out/
+    > dart2js app.html_bootstrap.dart -oapp.html_bootstrap.dart.js
 
-If you name the output `_app.html_boostrap.dart.js` then the same
-`_app.html.html` will work in all [modern browsers][mb].
+Note that we made the output file name exactly the input file name followed by
+an extra `.js` extension. This makes it possible to reuse the same HTML file
+under `web/out/app.html` on any [modern browsers][mb].
 
 Recent versions of Chrome have experimental support for [shadow DOM][sd], and
-our generated code will use it if it is available. This feature is not enabled
-by default, but you can turn it on by passing the special flag
-`--enable-experimental-webkit-features` to Chrome or Dartium. During development,
-you might find it useful to pass two
-additional flags: `--allow-file-access-from-files` and
-`--enable-devtools-experiments`. The first lets your files make HttpRequests for
-resources from your file system.  The second will display `#shadowroot` in the
-web inspector for elements that have a ShadowRoot.
+our generated code can use it if it is available. This feature is not enabled
+by default. To turn it on, you need to:
+
+  * Import `package:web_components/web_components.dart` and
+    set `useShadowDom = true` in your app's main script.
+  * Provide the special flag `--enable-experimental-webkit-features` to Chrome
+    or Dartium.
+
+When developing with the Shadow DOM, you'll find these two additional flags very
+useful: `--allow-file-access-from-files` and `--enable-devtools-experiments`.
+The first lets your files make HttpRequests for resources from your file system.
+The second will display `#shadowroot` in the web inspector for elements that
+have a ShadowRoot.
 
 ## Editor background compilation
 
@@ -110,16 +122,16 @@ void main() {
 
 This script will invoke `dwc` on `web/app.html` every time the Dart
 Editor detects that you changed a file in your project.  When you want to
-launch your app, you can find the generated file under `web/out/_app.html.html`
+launch your app, you can find the generated file under `web/out/app.html`
 in your editor, and request the editor to launch it in Dartium.
 
 ## Dartium on-demand compilation
 
-If you use Dartium and your own editor, you can
-install a browser extension that will invoke the compiler on demand. This
-on-demand approach is equivalent to what *polyfill* scripts do today for web
-components in JavaScript.  The extension creates the illusion that Dart web
-components are supported natively in Dartium. 
+If you use Dartium and your own editor, you can install a browser extension that
+will invoke the compiler on demand. This on-demand approach is equivalent to
+what *polyfill* scripts do today for web components in JavaScript.  The
+extension creates the illusion that Dart web components are supported natively
+in Dartium.
 
 You can install the extension as follows:
 
@@ -136,7 +148,6 @@ You can install the extension as follows:
 
 Once you installed the extension, you can open `app.html` directly in Dartium,
 and the extension will take care of everything else.
-
 
 
 [dwc]: https://github.com/dart-lang/dart-web-components/

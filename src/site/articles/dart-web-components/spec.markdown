@@ -567,7 +567,9 @@ property.
 
 <aside>
 <div class="alert alert-info">
-<strong>Status:</strong> More interactive elements need to be supported. See <a
+<strong>Status:</strong> More interactive elements need to be supported. The
+syntax will change soon from <code>data-bind="domProperty:dartField"</code>
+to <code>bind-domProperty="dartField"</code>. See <a
 href="https://github.com/dart-lang/dart-web-components/issues/167">Issue
 #167</a> for more details.
 </div>

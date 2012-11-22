@@ -42,7 +42,7 @@ that will contain the running version of the code sample.
 # {{ page.title }}
 
 _Written by Siggi Cherem<br />
-October 2012_
+October 2012 (Updated November 2012)_
 
 <div>
 <img src="dart_logo.png" width="69" height="70" alt="dart logo">
@@ -50,9 +50,9 @@ October 2012_
 </div>
 
 
-Dart web components provide templates, data binding, and encapsulation, to
-help you write web applications at scale. An early version is available in the
-[dart-web-components project][dwc].
+Dart web components provide templates, data binding, and encapsulation, to help
+you write web applications at scale. An early version is available today
+as a [pub package][dwcpub].
 
 Many UI frameworks exist for writing web apps in JavaScript&mdash;for example
 [Backbone.js][backbone], [Ember.js][ember], and [AngularJS][angular].  Recently, the web
@@ -65,9 +65,20 @@ Dart web components combine the ideas of web components and MDV, adapting them
 to work well with Dart.  Dart web components take advantage of advanced browser
 features when possible, emulating missing features when necessary.
 
+This article walks through some examples. For more details, check out our
+[specification](spec.html), the [summary of features](summary.html), and our
+[installation instructions](tools.html).
+
+<div class="alert alert-danger">
+<strong>Note:</strong> The examples in this article do not work
+out of the box in a standard Dart SDK, you need to first set up the Dart web
+component tools. We have a <a href="tools.html">separate article with
+setup instructions</a>, which details how to use Dart Editor and
+command-line scripts to compile Dart web components.
+</div>
+
 #### Contents
 
-1. [Tool setup](#tool-setup)
 1. [MDV templates in Dart](#templates)
     1. [One-way data binding](#one-way-binding)
     1. [Two-way data binding](#two-way-binding)
@@ -79,19 +90,11 @@ features when possible, emulating missing features when necessary.
     1. [Declaring a component](#component-declaration)
     1. [Instantiating a component](#component-instantiation)
     1. [Passing data to a component](#pass-data-to-component)
+    1. [Passing child nodes to a component](#composition)
     1. [Importing a component](#import-components)
-1. [Upcoming features](#next-steps)
 1. [Tools for using Dart web components](#tools)
 1. [More information](#more-info)
 {:.toc}
-
-## Tool setup
-
-_The examples in this article do not work out of the box in
-a standard Dart SDK, you need to first set up the Dart web component tools._ We
-have a separate article with instructions for using the
-[Dart web component tools](tools.html), which details how to use Dart Editor
-and command-line scripts to compile Dart web components.
 
 ## MDV templates in Dart {#templates}
 
@@ -132,7 +135,7 @@ column shows the app generated from this code running in an iframe.
 {% endraw %}
 {% endhighlight %}
 {% source helloworld.html %}
-{% iframe 300px 200px helloworld.html.html %}
+{% iframe 300px 200px helloworld.html %}
 {% endcodesample %}
 
 The template expression above is a **one-way data
@@ -167,7 +170,7 @@ to make a change visible to the UI.
 {% endraw %}
 {% endhighlight %}
 {% source counter.html %}
-{% iframe 300px 200px counter.html.html %}
+{% iframe 300px 200px counter.html %}
 {% endcodesample %}
 
 Although every now and then it's useful to access watchers
@@ -202,31 +205,13 @@ Dart variable. The following example creates a two-way binding between `str` and
 {% endraw %}
 {% endhighlight %}
 {% source twoway.html %}
-{% iframe 300px 200px twoway.html.html %}
+{% iframe 300px 200px twoway.html %}
 {% endcodesample %}
 
 This is a simple example where Dart web components automatically dispatch
 events for data-model changes. In particular, whenever you update the value of
 the text box, the string and its length will be updated in other parts of the
 UI.
-
-<aside>
-<div class="alert alert-info">
-<strong>A note about expressions:</strong>
-
-<p>We want to make Dart web components have, to a great extent, feature and design
-parity with MDV. For this reason, we try to match the syntax of the MDV
-template language. MDV restricts data-binding expressions to an expression
-language containing variables, field dereferences, and array accesses. This
-means that expressions in MDV templates are likely to be valid Dart and valid
-JavaScript as well. It also means that advanced Dart expressions are not valid
-within <code>{{'{{'}}expression}}</code>. However, you can always hide complex expressions
-under a getter in Dart and use the getter property within the template.</p>
-
-<p>A full specification of the expression syntax will be available soon. </p>
-</div>
-</aside>
-
 
 
 ### Conditionals {#conditionals}
@@ -257,7 +242,44 @@ have the same text:
 {% endraw %}
 {% endhighlight %}
 {% source matchstrings.html %}
-{% iframe 300px 200px matchstrings.html.html %}
+{% iframe 300px 200px matchstrings.html %}
+{% endcodesample %}
+
+It is also possible to use attributes to directly select elements you want to
+show. Because `<template>` tags are not allowed within HTML tables, this feature
+makes it possible to have conditional rows and cells. For instance, the
+following example hides the columns of phone numbers when the checkbox is not
+selected:
+
+{% codesample 90 %}
+{% highlight html %}
+{% raw %}
+<html><body>
+  <input type="checkbox" data-bind="checked:show">Show phones<br>
+  <table><thead><tr>
+    <td>Last</td><td>First</td><td template instantiate="if show">Phone</td>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>Bracha</td><td>Gilad</td>
+      <td template instantiate="if show">555-555-5555</td>
+    </tr><tr>
+      <td>Bak</td><td>Lars</td>
+      <td template instantiate="if show">222-222-2222</td>
+    </tr><tr>
+      <td>Ladd</td><td>Seth</td>
+      <td template instantiate="if show">111-222-3333</td>
+    </tr>
+  </tbody></table>
+  <script type="application/dart">
+    bool show = true;
+    main() {}
+  </script>
+</body></html>
+{% endraw %}
+{% endhighlight %}
+{% source tableif.html %}
+{% iframe 300px 200px tableif.html %}
 {% endcodesample %}
 
 ### Loops {#loops}
@@ -317,22 +339,48 @@ using a looping construct.
 {% endraw %}
 {% endhighlight %}
 {% source fruitsearch.html %}
-{% iframe 300px 600px fruitsearch.html.html %}
+{% iframe 300px 600px fruitsearch.html %}
 {% endcodesample %}
 
+Just like we showed with conditionals, you can also express loops using
+attributes on any element.  Because `<template>` tags are not allowed within
+HTML tables, this is the only way to use loops for table rows and cells.  For
+instance, this example creates a 3x3 table like in tic-tac-toe:
+
+{% codesample 90 %}
+{% highlight html %}
+{% raw %}
+<html><body>
+  <table>
+    <tbody template iterate='row in table'>
+      <tr template iterate='cell in row'>
+        <td>{{cell}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <script type="application/dart">
+    var table = [['X', 'O', '_'], ['O', 'X', '_'], ['_', '_', 'X']];
+    main() {}
+  </script>
+</body></html>
+{% endraw %}
+{% endhighlight %}
+{% source tictactoe.html %}
+{% iframe 300px 200px tictactoe.html %}
+{% endcodesample %}
 
 ### Event listeners {#events}
 
 Templates provide a succinct way to listen for arbitrary UI events and
-associate those events with Dart code: `data-action`
-attributes. Here is an example that listens for click events:
+associate those events with Dart code: `on-event...` attributes. Here is an
+example that listens for click events:
 
 {% codesample 90 %}
 {% highlight html %}
 {% raw %}
 <html><body>
   <div>
-    <button data-action="click:increment">Click me</button>
+    <button on-click="increment()">Click me</button>
     <span>(click count: {{count}})</span>
   </div>
   <script type="application/dart">
@@ -344,7 +392,7 @@ attributes. Here is an example that listens for click events:
 {% endraw %}
 {% endhighlight %}
 {% source clickcount.html %}
-{% iframe 300px 200px clickcount.html.html %}
+{% iframe 300px 200px clickcount.html %}
 {% endcodesample %}
 
 
@@ -353,10 +401,9 @@ attributes. Here is an example that listens for click events:
 Templates solve one part of the problem in building web applications: reducing
 the amount of boilerplate code needed to set up a typical
 model-view-viewmodel architecture. One-way data binding, two-way data binding,
-and data-action listeners help reduce the need for manually creating controller
-objects that do these bindings by hand. By combining bindings, conditionals,
-and loops, you can create simple and sophisticated views in a
-declarative fashion.
+and event listeners help reduce the need for manually creating controller
+objects that do these bindings by hand. By combining bindings, conditionals, and
+loops, you can create simple and sophisticated views in a declarative fashion.
 
 However, templating alone is not enough. We need mechanisms to encapsulate and
 abstract views so we can scale to build larger web apps. This is were we need
@@ -380,7 +427,7 @@ take the click-count example above and make it a component as follows:
   <element name="x-click-counter" constructor="CounterComponent" extends="div">
     <template>
       <div>
-        <button data-action="click:increment">Click me</button>
+        <button on-click="increment()">Click me</button>
         <span>(click count: {{count}})</span>
       </div>
     </template>
@@ -420,10 +467,9 @@ attribute. Later, this name is used to instantiate the component.
 ### Instantiating a component {#component-instantiation}
 
 Instantiating a component can be done in two ways: by using its name as a tag
-(for example, `<x-click-counter></x-click-counter>`)
-or by setting the `is` attribute on the
-tag that the component extends from,
-as in the following example.
+(for example, `<x-click-counter></x-click-counter>`) or by setting the `is`
+attribute on the tag that the component extends from, as in the following
+example.  Note that using an end tag `</x-click-counter>` is required.
 
 {% codesample 90 %}
 {% highlight html %}
@@ -438,7 +484,7 @@ as in the following example.
 {% endraw %}
 {% endhighlight %}
 {% source countcomponent.html %}
-{% iframe 300px 200px countcomponent.html.html %}
+{% iframe 300px 200px countcomponent.html %}
 {% endcodesample %}
 
 
@@ -465,8 +511,40 @@ initializes the `count` field of the component to a different value each time.
 {% endraw %}
 {% endhighlight %}
 {% source countcomponent5.html %}
-{% iframe 300px 200px countcomponent5.html.html %}
+{% iframe 300px 200px countcomponent5.html %}
 {% endcodesample %}
+
+### Passing child nodes to a component {#composition}
+
+Dart web components support composition. Using a special `<content>` tag, a
+component can distribute child nodes provided when instantiating it. For
+instance, the following component wraps it's child nodes in a red frame:
+
+{% codesample 90 %}
+{% highlight html %}
+{% raw %}
+<html><body>
+  <element name="x-redbox" constructor="RedBox" extends="div">
+  <template>
+    <div style='border: solid 2px red; text-align:center;'>
+      <content></content>
+    </div>
+  </template>
+  </element>
+
+  <x-redbox>
+    <span>hi</span>
+  </x-redbox>
+  <script type="application/dart">main(){}</script>
+</body></html>
+{% endraw %}
+{% endhighlight %}
+{% source redbox.html %}
+{% iframe 300px 200px redbox.html %}
+{% endcodesample %}
+
+You can also use CSS selectors to control how child nodes are distributed. See
+the [full specification](spec.html#appearance) for more details.
 
 ### Importing a component {#import-components}
 
@@ -498,41 +576,6 @@ as we had above. Then the preceding example could be rewritten as follows:
 {% endraw %}
 {% endhighlight %}
 
-## Upcoming features {#next-steps}
-
-We are still adding features and making changes to Dart web components. Here are
-some of the features we are working on:
-
-  * Support for composition. Using a special `<content>` tag, a component
-    can embed nodes that will be provided when instantiating it. For instance,
-    you could write a component that puts a frame around an image as follows:
-
-{% highlight html %}
-{% raw %}
-<html>
-  <body>
-    <element name="x-myframe">
-      <template>
-        <!-- some complex wrapping happens here ... -->
-        <div class="framestyle">...<content></content>...</div>
-      </template>
-    </element>
-
-    <div is="x-myframe">
-      <!-- img will be included where we wrote <content> above -->
-      <img src="...">
-    </div>
-  </body>
-</html>
-{% endraw %}
-{% endhighlight %}
-
-  * Alternative MDV conditional and listing constructs. Instead of using
-    `<template>` tags, you will be able to use `instantiate` and
-    `iterate` attributes directly on any element. This is important because
-    `<template>` tags aren't valid in all parts of the HTML. For example,
-    this feature will make it possible to iterate on table rows and cells.
-
 ## Tools for using Dart web components {#tools}
 
 Several tools will help you create and deploy
@@ -555,7 +598,8 @@ Components](tools.html).
 ## More information {#more-info}
 
 There are many resources to explore and learn more about Dart web components.
-Check out our Dartisans episode on this topic:
+Read the [summary of features](summary.html) and the [full
+specification](spec.html). Check out our Dartisans episode on this topic:
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/zUdQkSwslzc" frameborder="0" allowfullscreen></iframe>
 
@@ -571,6 +615,7 @@ or contact us on the [Dart discussion group][group]
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
 [wc]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html
 [mdv]: http://code.google.com/p/mdv/
+[dwcpub]: http://pub.dartlang.org/packages/web_components
 [dwc]: https://github.com/dart-lang/dart-web-components/
 [bugs]: https://github.com/dart-lang/dart-web-components/issues
 [backbone]: http://backbonejs.org/
