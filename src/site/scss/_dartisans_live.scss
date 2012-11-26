@@ -1,0 +1,49 @@
+#dartisans-ribbon {
+  position: fixed;
+  top: 0px;
+  right: -95px;
+  background: #00A4E4;
+  color: white;
+  -webkit-transform: rotateZ(40deg);
+  -moz-transform: rotateZ(40deg);
+  -ms-transform: rotateZ(40deg);
+  -o-transform: rotateZ(40deg);
+  transform: rotateZ(40deg);
+  font-size: 25px;
+  padding: 5px 70px;
+  text-transform: uppercase;
+  z-index: 1000;
+  -webkit-transform-origin: 0 50%;
+  -moz-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  -o-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  font-weight: 600;
+  -webkit-box-shadow: 0px 0px 10px #222;
+  -moz-box-shadow: 0px 0px 10px #222;
+  -ms-box-shadow: 0px 0px 10px #222;
+  -o-box-shadow: 0px 0px 10px #222;
+  box-shadow: 0px 0px 10px #222;
+  text-shadow: 0px 0px 5px #000;
+}
+
+@media (max-width: 979px) {
+  #dartisans-ribbon {
+    top: -30px;
+  }
+}
+
+@media (max-width: 480px) {
+  #dartisans-ribbon {
+    position: static;
+  }
+}
+
+#dartisans-ribbon .record {
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-bottom: 2px;
+}

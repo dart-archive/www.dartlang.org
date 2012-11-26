@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/toao/compass-twitter-bootstrap.git
+  revision: adaa7e3a0cd176df0d15e163877420667f763311
+  specs:
+    compass_twitter_bootstrap (2.0.3)
+      compass
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -10,8 +17,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass_twitter_bootstrap (2.0.3)
-      compass
     directory_watcher (1.4.1)
     fast-stemmer (1.0.1)
     fssm (0.2.9)
@@ -39,7 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass
-  compass_twitter_bootstrap
+  compass_twitter_bootstrap!
   jekyll
   kramdown
   pygments.rb
