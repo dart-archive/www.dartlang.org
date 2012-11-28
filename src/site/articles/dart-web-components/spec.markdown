@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Dart Web Components Specification"
+title: "Dart Web Components and Templates Specification"
 rel:
   author: siggi-cherem
-description: "A detailed specification of how to use Dart Web Components for declarative modern web apps."
+description: "A detailed specification of how to use Dart Web Components and templates for declarative modern web apps."
 has-permalinks: true
 ---
 {% comment %}
@@ -32,8 +32,9 @@ high-level introduction and examples, see our [explainer article](index.html).
         1. [Appearance](#appearance)
         2. [Behavior](#behavior)
     2. [Instantiation](#instantiation)
-    3. [Template lexical scope](#template-scope)
-    4. [Class members](#class-members)
+    3. [Retrieval](#retrieval)
+    4. [Template lexical scope](#template-scope)
+    5. [Class members](#class-members)
         1. [Lifecycle methods](#lifecycle-methods)
         2. [Implied fields](#implied-fields)
 2. [Template Syntax](#template-syntax)
@@ -265,6 +266,26 @@ href="https://github.com/dart-lang/dart-web-components/issues/93">issue #93</a>.
 </div>
 </aside>
 
+### Retrieval
+
+You can reach a component instance using the `xtag` property of the
+associated HTML element. For example, if you create a tag as `<x-foo
+id="#example"></x-foo>` in the top-level body of your page, you can get an
+instance of the component by calling `document.query('#example').xtag`.
+
+Note that `xtag` only works after an application is initialized and web
+components have been created. In particular, the `xtag` will be null when the
+main script of an application just started running, but will be available at the
+end of the event loop. See the [main script section](#main-script) for more
+details.
+
+<aside>
+<div class="alert alert-info">
+<strong>Note</strong>: The `xtag` field will not be needed in the future when
+components extend directly from HTML elements.
+</div>
+</aside>
+
 ### Template lexical scope {#template-scope}
 
 
@@ -305,7 +326,7 @@ the component. Additionally, once processed by the DWC compiler, the component
 has an additional private field that make it possible to programatically access
 its template.
 
-### Lifecycle methods
+#### Lifecycle methods
 
 Special callback methods are invoked by during the lifetime of a Dart web
 component. These methods are defined as part of the `WebComponent` class, and
@@ -328,7 +349,7 @@ lifecycle methods are:
 </div>
 </aside>
 
-### Implied fields
+#### Implied fields
 
 The DWC compiler generates special fields to make it easy to
 access elements in the `<template>` of a component. The compiled component
@@ -462,9 +483,24 @@ You can also use `{{'{{'}}expression}}` bindings in the middle of HTML
 attributes. An attribute written as `foo="{{'{{'}}exp}}"` will be initialized
 with the value of `exp`. Like bindings in content nodes, expressions are
 [watched](#watchers) for changes and attributes will be updated in place when
-expressions' changes are detected. You can use bindings in any kind of
-attribute, but there are some additional features available for class and style
-attributes.
+expressions' changes are detected.  At runtime, attribute values will be updated
+using an assignment directly on the HTML element property corresponding to that
+attribute. Bindings of the form `attribute="{{'{{'}}exp}}"` are assigned
+directly, however bindings of the form `attribute="abc {{'{{'}}exp}} xyc"` will
+perform string interpolation.
+
+It is perfectly valid to use bindings to set and update boolean attributes.
+Without data-bindings a tag such as `<input type="checkbox"
+disabled="false">` will be disabled.  The value "false" is ignored by browsers
+and the only two ways to make the element enabled is to remove the `disabled`
+attribute or to programatically set the `disabled` property on the element to
+false. When you use attribute bindings you can simply write: `<input
+type="checkbox" disabled="{{'{{'}}exp}}">`. At runtime this will create the
+element with the disabled attribute, but the property will be assigned the value
+of `exp` immediately after. If `exp` is false, the element will be enabled.
+
+You can use bindings in any kind of attribute, but there are some additional
+features available for class and style attributes.
 
 * class attributes: A common use of data bindings in attributes is to select
   classes to attach to an element. You can bind a single class attribute by
@@ -1144,6 +1180,16 @@ will automatically generate a standard one.
 in the DWC compiler.
 </div>
 </aside>
+
+Within your main script, you can query for DOM elements that you had initially
+written in the page. However, you cannot query for children of conditional and
+iteration nodes.
+
+The initialization of web components is done after `main` is executed, but
+before the end of the event loop. If you query in `main` for the element
+associated with a component, its `xtag` will be null. To [retrieve a component
+instance](#retrieval) you need to defer queries until the end of the event loop,
+for example using a `setTimeout(f, 0)`.
 
 ### Top-level templates
 

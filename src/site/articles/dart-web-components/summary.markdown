@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Dart Web Components Feature Summary"
+title: "Dart Web Components and Templates Feature Summary"
 rel:
   author: siggi-cherem
-description: "A table summarizing all features in Dart Web Components."
+description: "A table summarizing all features in Dart Web Components and Templates."
 has-permalinks: true
 ---
 {% comment %}
@@ -88,6 +88,19 @@ that the component directly or indirectly extends from
 <br>
 <br>
 <strong>Note:</strong> Do not omit the closing tag.
+</td></tr>
+
+<tr><td>
+<a href="spec.html#retrieval">Retrieval</a>
+</td><td>
+{% highlight dart %}document.query('x-foo').xtag{% endhighlight %}
+</td><td>
+Retrieves a reference to a component previously instantiated in your page.
+<br>
+<br>
+<strong>Note:</strong> The <code>xtag</code> fields will be null within
+<code>main</code>, but will be available at the end of the event loop.
+
 </td></tr>
 
 <tr><td>
