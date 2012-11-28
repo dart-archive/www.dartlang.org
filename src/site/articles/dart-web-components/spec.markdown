@@ -537,41 +537,71 @@ similar to how class attributes are smart to accept lists or strings.
 
 #### Binding interactive elements
 
-Bindings can also be used to monitor user modifications on interactive
-elements, such as input boxes, text areas, and radio buttons. We do so by
-binding an interactive element with a Dart property. Unlike the bindings we
-discussed above, these bindings operate in two directions: changes in the Dart
-property are reflected in the UI, but also changes from the user in the UI are
-reflected directly in the Dart property. Because of their bidirectional nature,
-we refer to these bindings as _two-way data bindings_. Two-way data bindings
-are expressed with an attribute of the form `data-bind="domProperty:
-dartField"`, where `domProperty` is the associated property in the element that
-we are monitoring, and `dartField` is a field or property with a getter and
-setter. This is the current list of DOM properties supported by the DWC
-compiler:
+Bindings can also be used to monitor user modifications on interactive elements,
+such as input boxes, text areas, and radio buttons. We do so by binding an
+interactive element with a Dart assignable value, such as a field or a property
+with a getter and setter. Unlike the bindings we discussed above, these bindings
+operate in two directions: changes in the Dart value are reflected in the UI,
+but also changes from the user in the UI are reflected directly in the Dart
+value. Because of their bidirectional nature, we refer to these bindings as
+_two-way data bindings_. Two-way data bindings are expressed with an attribute
+of the form `bind-property="assignableValue"`, where _property_ is the
+associated property in the HTML element that we are monitoring, and
+_assignableValue_ is a Dart assignable value. This is the current list of
+two-way bindings supported by the DWC compiler:
 
-| | Interactive element          |  | DOM property   |  | Description                                |  | Event that triggers an update |
+| | Interactive element          |  | Attribute      |  | Description                                |  | Event that triggers an update |
 |-| :-----------                 |- | :--------      |- | :-------                                   |- | :------ | 
-| | `<input type="checkbox">`    |  | `checked`      |  | Whether the checkbox is checked            |  | `click`  |
-| | `<input type="text">`        |  | `value`        |  | The current value in the input box         |  | `input`  |
 | | `<textarea>`                 |  | `value`        |  | The current value in the textarea element  |  | `input`  |
+| | `<input type="text">`        |  | `value`        |  | The current value in the input box         |  | `input`  |
+| | `<input type="checkbox">`    |  | `checked`      |  | Whether the checkbox is checked            |  | `change` |
+| | `<input type="radio">`       |  | `checked`      |  | Whether a radio button is checked          |  | `change` |
+| | `<input name="group" type="radio" value="option">`       |  | `value`        |  | Whether a value matches the radio button's value |  | `change` |
 | | `<select>`                   |  | `selectedIndex`|  | Selected option index on the dropdown list |  | `change` |
 | | `<select>`                   |  | `value`        |  | Selected option value on the dropdown list |  | `change` |
 |=| ===============              |= | =========      |= | ========                                   |= | == |
 
-Under the hood two-way bindings are implemented by using a
-[watcher](#watchers) to watch for changes in Dart that will trigger updates in
-the corresponding DOM property, and a [UI event listener](#event-listeners)
-that will react to user interactions and update the corresponding Dart
-property.
+Under the hood two-way bindings are implemented by using a [watcher](#watchers)
+to watch for changes in Dart that will trigger updates in the corresponding HTML
+element property, and a [UI event listener](#event-listeners) that will react to
+user interactions and update the corresponding Dart assignable value.
+
+Most two-way bindings copy contents between an HTML element property and a Dart
+value without doing any processing of the data. There is one special binding on
+radio buttons that behaves differently. Radio buttons can be grouped together by
+name, so only one button in a group is selected at a time. You can track which
+element is seleceted in two ways: you can bind each radio button to a boolean
+flag, or you can bind all radio buttons in a group to a single Dart value. The
+following example illustrates how to do both. Note that in this example both
+groups behave exactly the same way.
+
+{% highlight html %}
+{% raw %}
+<element name='x-example2'>
+ <template>
+   <input name="a" type="radio" value="one" bind-value="groupValue">One
+   <input name="a" type="radio" value="two" bind-value="groupValue">Two
+
+   <input name="b" type="radio" value="one" bind-checked="oneSelected">One
+   <input name="b" type="radio" value="two" bind-checked="twoSelected">Two
+ </template>
+ <script type='application/dart'>
+   class Example2 extends WebComponent {
+      var groupValue = "one";
+
+      bool get oneSelected => groupValue == 'one';
+      bool get twoSelected => groupValue == 'two';
+      set oneSelected(v) { groupValue = 'one'; }
+      set twoSelected(v) { groupValue = 'two'; }
+   }
+ </script>
+</element>
+{% endraw %}
+{% endhighlight %}
 
 <aside>
 <div class="alert alert-info">
-<strong>Status:</strong> More interactive elements need to be supported. The
-syntax will change soon from <code>data-bind="domProperty:dartField"</code>
-to <code>bind-domProperty="dartField"</code>. See <a
-href="https://github.com/dart-lang/dart-web-components/issues/167">Issue
-#167</a> for more details.
+  <strong>Status:</strong> More interactive elements need to be supported.
 </div>
 </aside>
 

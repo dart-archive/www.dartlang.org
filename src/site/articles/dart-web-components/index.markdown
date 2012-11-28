@@ -185,7 +185,7 @@ Two-way data binding lets us define that we want a DOM element's value
 (typically an input box or a check box) to be kept in sync with the value of a
 Dart variable. The following example creates a two-way binding between `str` and
 `input.value`. We declare this binding by writing the attribute
-`data-bind="value:str"`.
+`bind-value="str"`.
 
 {% codesample 90 %}
 {% highlight html %}
@@ -193,7 +193,7 @@ Dart variable. The following example creates a two-way binding between `str` and
 <html><body>
   <div>
     Input:
-    <input type="text" data-bind="value:str" placeholder="type something here">
+    <input type="text" bind-value="str" placeholder="type something here">
     <div> Value: {{str}}</div>
     <div> Length: {{str.length}}</div>
   </div>
@@ -227,8 +227,8 @@ have the same text:
 {% raw %}
 <html><body>
   <div>
-    <div> Input1: <input type="text" data-bind="value:str1"></div>
-    <div> Input2: <input type="text" data-bind="value:str2"></div>
+    <div> Input1: <input type="text" bind-value="str1"></div>
+    <div> Input2: <input type="text" bind-value="str2"></div>
     <template instantiate="if str1 == str2">
       <div>They match!</div>
     </template>
@@ -255,7 +255,7 @@ selected:
 {% highlight html %}
 {% raw %}
 <html><body>
-  <input type="checkbox" data-bind="checked:show">Show phones<br>
+  <input type="checkbox" bind-checked="show">Show phones<br>
   <table><thead><tr>
     <td>Last</td><td>First</td><td template instantiate="if show">Phone</td>
   </tr></thead>
@@ -297,7 +297,7 @@ using a looping construct.
 <html><body>
   <div>
     <span>Search for something:</span>
-    <input type="text" data-bind="value:query">
+    <input type="text" bind-value="query">
     <div>
       <template instantiate='if noMatches'><span>No matches</span></template>
       <template instantiate='if !noMatches'><span>Top results:</span></template>

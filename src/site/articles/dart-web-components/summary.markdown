@@ -281,16 +281,16 @@ in <em>exp</em> as CSS property-value pairs.
 in interactive elements
 </td><td>
 {% highlight html %}<input type="text"
-       data-bind="value:property">{% endhighlight %}
-{% highlight html %}<textarea data-bind="value:property">
+       bind-value="assignableValue">{% endhighlight %}
+{% highlight html %}<textarea bind-value="assignableValue">
 </textarea>{% endhighlight %}
 {% highlight html %}<input type="checkbox"
-       data-bind="checked:property">{% endhighlight %}
+       bind-checked="assignableValue">{% endhighlight %}
 </td><td>
-Directly updates Dart properties with user input. Like data bindings in
-attributes, this displays the latest value of a property in the element.
-Additionally, when the element is updated due to UI interaction, the Dart
-property is also updated and kept in sync.
+Directly updates <em>assignableValue</em> with user input. Like data bindings in
+attributes, this displays the latest value of the <em>assignableValue</em>
+expression in the element.  Additionally, when the element is updated due to UI
+interaction, the <em>assignableValue</em> is also updated and kept in sync.
 </td></tr>
 
 
@@ -373,17 +373,15 @@ This can be used to create rows and cells in tables.
 <a href="spec.html#event-listeners">Inline event listener</a>
 </td><td>
 {% highlight html %}
-<div data-action="click:myHandler">
+<div on-click="myHandler($event)">
 contents
 </div>
 {% endhighlight %}
 </td><td>
-Binds a UI event to a Dart function. Whenever the event fires, the associated
-function is executed and watchers are notified about possible changes.
-<br>
-<br>
-<strong>Note:</strong> This syntax might change in the near future. See
-the <a href="spec.html#event-listeners">specification</a> for more details.
+Binds a UI event to a Dart expression. Whenever the event fires, the associated
+expression is executed and watchers are notified about possible changes. The
+fired event is stored in the special variable <code>$event</code>, available in
+the scope of the Dart expression.
 </td></tr>
 
 </tbody></table>
