@@ -566,9 +566,9 @@ to watch for changes in Dart that will trigger updates in the corresponding HTML
 element property, and a [UI event listener](#event-listeners) that will react to
 user interactions and update the corresponding Dart assignable value.
 
-Most two-way bindings copy contents between an HTML element property and a Dart
-value without doing any processing of the data. There is one special binding on
-radio buttons that behaves differently. Radio buttons can be grouped together by
+Although most two-way bindings copy contents between an HTML element property
+and a Dart value without doing any processing of the data, one special binding
+on radio buttons behaves differently. Radio buttons can be grouped together by
 name, so only one button in a group is selected at a time. You can track which
 element is seleceted in two ways: you can bind each radio button to a boolean
 flag, or you can bind all radio buttons in a group to a single Dart value. The
