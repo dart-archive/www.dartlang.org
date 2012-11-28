@@ -292,20 +292,13 @@ main() {
 }
 {% endhighlight %}
 
-The current process API can be a bit heavy to use
-if all you really want to do is run a process to completion
-and then inspect its output.
-We will be adding more convenient ways of
-starting processes for that scenario.
-
 </section>
 
 
 <section id="web-servers" markdown="1">
 ##Writing web servers
 
-Recently, we landed an HTTP library as part of dart:io
-to make it easy to write HTTP servers and clients.
+dart:io makes it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
 [HttpServer](http://api.dartlang.org/io/HttpServer.html)
@@ -384,11 +377,6 @@ main() {
 Writing HTTP clients is very similar using the
 [HttpClient](http://api.dartlang.org/io/HttpClient.html) class.
 
-One word of warning about the new HTTP library:
-performance has not been a priority for the library yet.
-Rest assured that it will be.
-We plan on optimizing the HTTP library in the near future!
-
 </section>
 
 
@@ -401,20 +389,6 @@ we have rewritten the Dart testing scripts from Python to Dart.
 All of the tests that you see being run on the
 [buildbot](http://build.chromium.org/p/client.dart)
 are running on the Dart VM using the dart:io library!
-
-That said, we'd like to add a lot of features to dart:io.
-Some of the things on our list are:
-
-* Better support for path manipulation.
-* Addition of string encodings on string write methods.
-* Completion of the HTTP library.
-  At this point the library supports only a subset of HTTP 1.1.
-* Improvement of the dart:io error messages.
-  At this point they are not very helpful.
-* Native extension libraries that will make it easy to
-  wrap native libraries in an asynchronous API
-  for use with dart:io on the Dart VM.
-* Improved performance of all operations.
 
 Please give dart:io a spin and let us know what you think.
 Feature requests are very welcome!
