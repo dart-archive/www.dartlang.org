@@ -50,9 +50,9 @@ Because the asynchronous extension works like a synchronous extension with some 
 Here is the Dart part of the synchronous extension, called <b>sample_synchronous_extension.dart</b>:
 
 {% highlight dart %}
-#library("sample_synchronous_extension");
+library sample_synchronous_extension;
 
-#import("dart-ext:sample_extension");
+import 'dart-ext:sample_extension';
 
 // The simplest way to call native code: top-level functions.
 int systemRand() native "SystemRand";
@@ -63,8 +63,8 @@ The code that implements a native extension executes at two different times. Fir
 
 Here is the sequence of events at load time, when a Dart app that imports sample_synchronous_extension.dart starts running:
 
-1. The Dart library sample_synchronous_extension.dart is loaded, and the Dart VM hits the code <b><code>#import("dart-ext:sample_extension")</code></b>.
-2. The VM loads the shared library "sample_extension" from the directory containing the Dart library.
+1. The Dart library sample_synchronous_extension.dart is loaded, and the Dart VM hits the code <b><code>import 'dart-ext:sample_extension'</code></b>.
+2. The VM loads the shared library 'sample_extension' from the directory containing the Dart library.
 3. The function sample_extension_Init() in the shared library is called. It registers the shared library function ResolveName() as the name resolver for all native functions in the library sample_extension.dart. We'll see what the name resolver does when we look at synchronous native functions, below.
 
 <aside>
@@ -286,26 +286,28 @@ void randomArrayServicePort(Dart_NativeArguments arguments) {
 On the Dart side, we need a class that stores this send port, sending messages to it when a Dart asynchronous function with a callback is called. The Dart class gets the port the first time the function is called, caching it in the usual way. Here is the Dart library for the asynchronous extension:
 
 {% highlight dart %}
-#library("sample_asynchronous_extension");
+library sample_asynchronous_extension;
 
-#import("dart-ext:sample_extension");
+import 'dart-ext:sample_extension';
 
+// A class caches the native port used to call an asynchronous extension.
 class RandomArray {
   static SendPort _port;
+
   void randomArray(int seed, int length, void callback(List result)) {
     var args = new List(2);
     args[0] = seed;
     args[1] = length;
     _servicePort.call(args).then((result) {
-      if (result !== null) {
+      if (result != null) {
         callback(result);
       } else {
         throw new Exception("Random array creation failed");
       }
     });
   }
-  // A getter for the port that caches it.
-  SendPort get _servicePort() {
+
+  SendPort get _servicePort {
     if (_port == null) {
       _port = _newServicePort();
     }
