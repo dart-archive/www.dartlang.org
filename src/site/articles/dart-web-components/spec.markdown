@@ -351,36 +351,15 @@ lifecycle methods are:
 
 #### Implied fields
 
-The DWC compiler generates special fields to make it easy to
-access elements in the `<template>` of a component. The compiled component
-class will have a private field named `_root`, which points to the root element
-of the template. When Shadow DOM is enabled, this node is the shadow root of the
-component.
-
-Additionally, for any element that has the `id` attribute specified, the
-compiler will include a private field pointing to such element. The name of the
-field is the camelCase version of the original identifier. For example,
-
-{% highlight html %}
-{% raw %}
-<element name='x-example2'>
- <template>... <input id="my-id-1" type="text"></input></template>
- <script type='application/dart'>
-   class Example2 extends WebComponent {
-     String get textValue => _myId1.value;
-   }
- </script>
-</element>
-{% endraw %}
-{% endhighlight %}
-
-An instance of `Example2` will have a private field `_myId1` that will point to
-the input box.
+At runtime the class associated with a component will have a private field named
+`_root`, which points to the root element of the template. When Shadow DOM is
+enabled, this node is the shadow root of the component.
 
 <aside>
 <div class="alert alert-info">
-<strong>Status:</strong> These implied fields will likely be removed in the near
-future.  See <a
+<strong>Status:</strong> Today the root field is injected automatically by the
+DWC compiler. Eventually we might require to declare the field explicitly
+so that developers can use the Dart editor and don't see any warnings. See <a
 href="https://github.com/dart-lang/dart-web-components/issues/195">Issue
 #195</a> for more details.
 </div>
@@ -692,7 +671,20 @@ appropriate to [use one or the other](#which-conditional).
 A template conditional element is a `<template>` tag containing a special
 attribute of the form `instantiate="if expression"`, where `expression` is a
 valid Dart expression, just like any [data binding expression](#data-binding).
-For instance, consider this example:
+Alternatively, instead of `instantiate="if exp"` you can write `if="exp"`.
+
+<aside>
+<div class="alert alert-info">
+<strong>Note:</strong> 
+The final syntax for conditionals is not finalyzed. In particular, currently
+only <code>instantiate="if ..."</code> is part of the MDV specification.
+However, the DWC compiler supports both <code>instantiate="if ..."</code> and
+<code>if="..."</code> and it will later provide feedback whenever one is
+deprecated in favor of the other.
+</div>
+</aside>
+
+Consider this concrete example:
 
 {% highlight html %}
 Unconditional portion 1
@@ -918,7 +910,6 @@ attributes as follows:
 <tr instantiate="if showRow"><td> row </td></tr>
 </tbody></table>
 {% endhighlight %}
-
 
 ### Loops
 

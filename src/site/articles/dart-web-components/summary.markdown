@@ -315,12 +315,18 @@ interaction, the <em>assignableValue</em> is also updated and kept in sync.
 contents
 </template>
 {% endhighlight %}
+
+{% highlight html %}<template if="exp">contents</template>{% endhighlight %}
 </td><td>
 Conditionally adds <em>contents</em> if <em>exp</em> evaluates to true. The
 contents are added <em>after</em> the template tag
 (not as children of the template tag).
 To make a conditional
 row or cell in a table, use conditional tag attributes instead.
+<br>
+<br>
+<strong>Note:</strong> both <code>instance="if exp"</code> and
+<code>if="exp"</code> are accepted, the syntax is not yet finalized.
 </td></tr>
 
 <tr><td>
@@ -331,6 +337,7 @@ row or cell in a table, use conditional tag attributes instead.
 contents
 </div>
 {% endhighlight %}
+{% highlight html %}<div template if="exp">contents</div>{% endhighlight %}
 {% highlight html %}
 <table><tbody>
 <tr>
@@ -343,6 +350,10 @@ contents
 </td><td>
 Conditionally adds the element to the DOM tree if the expression is true. This
 can be used to make rows and cells conditionally visible.
+<br>
+<br>
+<strong>Note:</strong> both <code>instance="if exp"</code> and
+<code>if="exp"</code> are accepted, the syntax is not yet finalized.
 </td></tr>
 
 <tr><td>
