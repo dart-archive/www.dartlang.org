@@ -91,7 +91,7 @@ to remove elements from the DOM.
 <hr>
 
 <img src="new-icon.png" width="48" height="48"> [ Target 5: Install Shared Packages](packages/)
-: Packages helps programmers to organize and share code.
+: Packages help programmers to organize and share code.
 Many open-source Dart packages are hosted at the
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 repository.
