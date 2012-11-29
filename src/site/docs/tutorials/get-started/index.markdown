@@ -395,8 +395,7 @@ by compiling to JavaScript.
 You will do this in the next target,
 when you learn about runtime configurations called launches.
 
-<a name="source-files">
-<h2><img src="../new-icon.png" width="48" height="48">About the HTML, CSS and Dart triumvirate</h2>
+##About the HTML, CSS and Dart triumvirate {#source-files}
 
 Typically three files&mdash;an HTML file, a Dart file,
 and a CSS file&mdash;together implement a Dart web application.

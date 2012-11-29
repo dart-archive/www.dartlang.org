@@ -101,7 +101,7 @@ Except for the root node, each node in the tree has exactly one parent.
 Each node can have many children.
 
 An HTML file defines the initial structure of a document.
-Dart or JavaScript can dynamically modify that document by
+Dart or JavaScript can dynamically modify that document
 by adding, deleting, and modifying the nodes in the DOM tree.
 When the DOM is changed,
 the browser immediately re-renders the window.
@@ -145,7 +145,6 @@ void main() {
 }
 {% endhighlight %}
 
-<img src="../new-icon.png" width="48" height="48">
 <i class="icon-info-sign"> </i>
 <a href="errors-warnings.html">What is Dart Editor trying to tell me?</a>
 
@@ -507,8 +506,7 @@ Save your files and run the app again.
 <img src="images/mini-output-with-css.png"
      alt="Mini app running in Dartium with CSS styles in effect">
 
-<a name="about-css-selectors">
-<h2><img src="../new-icon.png" width="48" height="48">About CSS selectors</h2>
+##About CSS selectors {#about-css-selectors}
 
 IDs, classes, and other information about elements
 are established in HTML.

@@ -28,7 +28,7 @@ its parent and its children.
 In Dart, the
 <a href="http://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a>
 class contains the methods and properties
-that implement node's tree functionality.
+that implement a node's tree functionality.
 
 HTML page elements are one kind of node that can be in the DOM tree.
 They have a rectangular area on the page and can receive events.
@@ -152,7 +152,7 @@ For example:
 {: .table}
 
 An Element maintains references to its child element in a List\<Element>,
-which your Dart code can refer to with the getter `elements`.
+which your Dart code can refer to with the getter `children`.
 The List class has various functions and operators
 whereby you can refer to each child Element individually,
 iterate over the list, and add and remove elements.
@@ -249,8 +249,7 @@ that an input element can generate.
 For example, you can use `click` to handle mouse clicks,
 or `keyDown` for when the user presses a key on the keyboard.
 
-<a name="about-event-listeners">
-<h2><img src="../new-icon.png" width="48" height="48">About EventListener functions</h2>
+##About EventListener functions {#about-event-listeners}
 
 The argument passed to the add() function is a _callback function_
 of type 
@@ -289,15 +288,14 @@ The change event handler has the following code:
 The final line of code is where the DOM gets changed.
 The add() function is defined in the List class in the dart:core library.
 
-An Element keeps references to all of its children in a list called `elements`.
+An Element keeps references to all of its children in a list called `children`.
 By adding and removing elements to and from this list,
 your code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
 The effect, in our todo app, is that a new bullet item appears 
 in the to do list.
 
-<a name="about-css">
-<h2><img src="../new-icon.png" width="48" height="48">Styling the page elements</h2>
+##Styling the page elements {#about-css}
 
 Let's take a look at the CSS file for this app.
 

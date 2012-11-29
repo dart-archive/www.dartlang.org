@@ -10,7 +10,7 @@ tutorial:
 {% capture whats_the_point %}
 
 * Use _element_.remove() to remove an element from the DOM.
-* Remove all children from an element with _element_.elements.clear().
+* Remove all children from an element with _element_.children.clear().
 * Function expressions are a convenient way to define single-use functions.
 * => is a shorthand syntax for defining functions that contain just one
 expression.
@@ -30,33 +30,33 @@ the Dart program removes the item from the list
 Also, the program has a **Delete All** button
 for removing all items from the list.
 
-* [Copy and run the todo-with-delete app](#copy-app)
+* [Copy and run the todo_with_delete app](#copy-app)
 * [Changing the appearance when cursor is over an element](#css-hover)
 * [Removing an element from the DOM tree](#remove-elem)
 * [Removing all child elements from an element](#remove-all-elem)
 * [About function expressions and =>](#about-function-expressions)
-* [About Dart's event-related classes ](#about-event-classes)
+* [About Dart's event-related classes](#about-event-classes)
 
-##Copy and run the todo-with-delete app {#copy-app}
+##Copy and run the todo_with_delete app {#copy-app}
 
 Use the following links to
 copy the HTML, Dart, and CSS code
 into a new web app in Dart Editor.
-Name the app todo-with-delete and make sure the filenames
+Name the app todo_with_delete and make sure the filenames
 are the same as those listed here.
 
 <ul>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo-with-delete/todo-with-delete.dart"
-   target="_blank">todo-with-delete.dart</a>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/todo_with_delete.dart"
+   target="_blank">todo_with_delete.dart</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo-with-delete/todo-with-delete.html"
-   target="_blank">todo-with-delete.html</a>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/todo_with_delete.html"
+   target="_blank">todo_with_delete.html</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo-with-delete/todo-with-delete.css"
-   target="_blank">todo-with-delete.css</a>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/todo_with_delete.css"
+   target="_blank">todo_with_delete.css</a>
  </li>
  </ul>
 
@@ -65,7 +65,7 @@ Enter a few items into the input field.
 The following diagram shows the app after
 _dance_, _sing_, _walk the dog_, and _laugh_ have all been entered.
 
-![Entering items into the todo-with-delete app](images/enter-items.png)
+![Entering items into the todo_with_delete app](images/enter-items.png)
 
 Point the mouse cursor at one of the items in the list.
 Its appearance changes;
@@ -101,7 +101,7 @@ These visual clues are an important part of the user interface
 in this example because they are the only indication to the user
 that something will happen when the item is clicked.
 
-This behavior is coded in the todo-with-delete app's CSS file with this rule:
+This behavior is coded in the todo_with_delete app's CSS file with this rule:
 
 {% highlight dart %}
 #to-do-list li:hover {
@@ -129,7 +129,7 @@ using functions from the List class.
 
 ![Use element.remove() to remove an element from the DOM](images/remove-element.png)
 
-In the todo-with-delete app,
+In the todo_with_delete app,
 the user clicks an item to delete it.
 This is achieved with one line of Dart code.
 When a new to do item is created,
@@ -148,11 +148,11 @@ and the item disappears from the to do list.
 When the user clicks the **Delete All** button,
 all elements are removed from the list.
 
-![Use element.elements.clear() to remove all of an element's children](images/remove-all-elements.png)
+![Use element.children.clear() to remove all of an element's children](images/remove-all-elements.png)
 
 In this case, using the List class's clear() function
 yields the most concise code.
-Here's the code from the todo-with-delete app
+Here's the code from the todo_with_delete app
 that implements the **Delete All** button.
 
 <ol>
@@ -180,7 +180,7 @@ Here is all of the Dart code related to the **Delete All** button.
 
 ##About function expressions and => {#about-function-expressions}
 
-The todo-with-delete app uses
+The todo_with_delete app uses
 some interesting Dart syntax
 when adding an event listener to the **Delete All** button.
 The argument passed into the add() function
@@ -194,7 +194,7 @@ It is equivalent to writing this:
 
 {% highlight dart %}
 deleteAll.on.click.add((e) {
-  toDoList.elements.clear();
+  toDoList.children.clear();
 });
 {% endhighlight %}
 
@@ -208,7 +208,7 @@ void main() {
 }
 
 void deleteAllElements(Event e) {
-  toDoList.elements.clear();
+  toDoList.children.clear();
 }
 ...
 {% endhighlight %}
@@ -231,7 +231,7 @@ Note that many listeners can be registered for each event type.
 
 Various Dart classes, all defined in the dart:html library,
 are involved in registering an event handler.
-The following diagram shows a line of code from the todo-with-delete
+The following diagram shows a line of code from the todo_with_delete
 app that registers a mouse click event listener on an element.
 
 ![Dart classes involved in event listener registration](images/event-classes.png)
@@ -269,7 +269,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/packages/" class="pull-right">Install Shared Packages <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 
