@@ -10,16 +10,32 @@ has-permalinks: true
 <h1>Improving the DOM</h1>
 <p>
 <em>Written by Bob Nystrom<br />
-October 2011</em>
+October 2011
+(updated November 2012)</em>
 </p>
+
+<h2>Table of Contents</h2>
+
+<ol>
+  <li><a href="#simpler-names">Simpler names</a></li>
+  <li><a href="#better-querying">Better querying</a></li>
+  <li><a href="#use-real-collections">Use real collections</a></li>
+  <li><a href="#use-constructors">Use constructors</a></li>
+  <li><a href="#events">Events</a></li>
+  <li><a href="#more-granular-libraries">More granular libraries</a></li>
+</ol>
 
 <p>One of the great opportunities a new language gives you is a chance to also define a cleaner set of APIs for users to work with. When it comes to coding in a browser, that API is the DOM. The DOM API that JavaScripters suffer is creaking under the weight of history and technological ballast such as XML.</p>
 
-<p>We have the chance to blow away a lot of that history and were lucky enough to get <a href="http://infrequently.org/">Alex Russell</a> and <a href="http://erik.eae.net/">Erik Arvidsson</a> to help us lay out what the DOM could have looked like if we had a time machine. What we have still needs a lot of work and feedback from people like you, but it's already promising. Here's a glimpse.</p>
+<p>We have the chance to blow away a lot of that history and were lucky enough to get <a href="http://infrequently.org/">Alex Russell</a> and <a href="http://erik.eae.net/">Erik Arvidsson</a> to help us lay out what the DOM could have looked like if we had a time machine. Here's a glimpse.</p>
 
-<h2>Simpler names</h2>
+<h2 id="simpler-names">Simpler names</h2>
 
 <p>The simplest changes were just cleaning up some painful names. <code>HTMLElement</code> is just <code>Element</code> and we've dropped <code>HTML</code> from most of the type names. Instead of <code>childNodes</code> and <code>children</code> we have <code>nodes</code> and <code>elements</code>. <code>ownerDocument</code> is just <code>document</code>. We've tried to optimize names so that the things you use the most are the most terse.</p>
+
+<p>When's the last time you use <code>XMLHttpRequest</code> to actually, you
+  know, request XML? We thought so. So we've renamed <code>XMLHttpRequest</code>
+  to <code>HttpRequest</code>.</p>
 
 <h2>Better querying</h2>
 
@@ -42,9 +58,8 @@ selectElement.options
 
 <p>All of this piled up before <a href="http://jquery.com/">jQuery</a> appeared on a mountaintop to give us the revelation that <em>Thou Shalt Find Nodes By Using CSS Selectors</em>. With the One True Way in hand, we've stripped it down to just two (!) methods: <code>query()</code> and <code>queryAll()</code>.</p>
 
-<table width="100%">
-<tr>
-<td width="50%">
+<div class="row">
+  <div class="span6">
 <pre>
 // Old:
 elem.getElementById('foo');
@@ -54,8 +69,8 @@ elem.getElementsByClassName('foo');
 elem.querySelector('.foo .bar');
 elem.querySelectorAll('.foo .bar');
 </pre>
-</td>
-<td width="50%">
+  </div>
+  <div class="span6">
 <pre>
 // New:
 elem.query('#foo');
@@ -65,30 +80,29 @@ elem.queryAll('.foo');
 elem.query('.foo .bar');
 elem.queryAll('.foo .bar');
 </pre>
-</td>
-</tr>
-</table>
+  </div>
+</div>
 
 <p>The idea here is that if you want to use a library like jQuery, that's fine, but you shouldn't <em>have</em> to just to make the API palatable.</p>
 
-<h2>Use real collections</h2>
+<h2 id="use-real-collections">Use real collections</h2>
 
 <p>In JavaScript, the DOM collection types are different from the built-in Array type, which trips users up when methods they use on one aren't available on the other. For Dart, we've cleaned that up. Methods like <code>elements</code>, <code>nodes</code>, and <code>query()</code> that return collections do so by returning objects that implement the Dart core library's built-in collection interfaces. They either <em>are</em> regular Dart lists, maps, and sets, or they are interchangeable with them.</p>
 
 <p>Building on top of Dart's collection types lets us get rid of a bunch of special-case methods too. Instead of a bunch of methods on <code>Element</code> for working with attributes, we just made <code>attributes</code> a map:</p>
 
-<table width="100%">
-<tr>
-<td width="50%">
-<pre>
+<div class="row">
+  <div class="span6">
+    <pre>
 // Old:
 elem.hasAttribute('name');
 elem.getAttribute('name')
 elem.setAttribute('name', 'value');
 elem.removeAttribute('name');
 </pre>
-</td>
-<td width="50%">
+  </div>
+
+  <div class="span6">
 <pre>
 // New:
 elem.attributes.containsKey('name');
@@ -96,53 +110,46 @@ elem.attributes['name'];
 elem.attributes['name'] = 'value';
 elem.attributes.remove('name');
 </pre>
-</td>
-</tr>
-</table>
+  </div>
+</div>
 
 <p>Likewise, by making <code>nodes</code> and <code>elements</code> full-featured collections, we can get rid of a bunch of methods on <code>Element</code> and <code>Node</code>:</p>
 
-<table width="100%">
-<tr>
-<td width="50%">
-<pre>
+<div class="row">
+  <div class="span6">
+    <pre>
 // Old:
 elem.hasChildNodes();
 elem.firstChild();
-elem.appendChild(child);
-</pre>
-</td>
-<td width="50%">
-<pre>
+elem.appendChild(child);</pre>
+  </div>
+
+  <div class="span6">
+    <pre>
 // New:
 elem.nodes.isEmpty();
 elem.nodes[0];
-elem.nodes.add(child);
-</pre>
-</td>
-</tr>
-</table>
+elem.nodes.add(child);</pre>
+  </div>
+</div>
 
-<h2>Use constructors</h2>
+<h2 id="use-constructors">Use constructors</h2>
 
 <p>In order to create new instances of DOM types, you're forced to go through factory methods on the document. We like constructors:</p>
 
-<table width="100%">
-<tr>
-<td width="50%">
-<pre>
+<div class="row">
+  <div class="span6">
+    <pre>
 // Old:
-document.createElement('div');
-</pre>
-</td>
-<td width="50%">
-<pre>
+document.createElement('div');</pre>
+  </div>
+
+  <div class="span6">
+    <pre>
 // New:
-new Element.tag('div');
-</pre>
-</td>
-</tr>
-</table>
+new DivElement();</pre>
+  </div>
+</div>
 
 <p>Or how about:</p>
 
@@ -153,7 +160,7 @@ TableElement table = new Element.html(
 
 <p>We're still fleshing this out, but with Dart's named constructors, we should be able to make it pretty easy to conjure up DOM objects in a variety of ways.</p>
 
-<h2>Events</h2>
+<h2 id="events">Events</h2>
 
 <p>Finally, the biggest change, and I think the most useful one. We've cleaned up how event handlers are bound. The DOM has two ways of working with events. The old way is that you can bind a single handler by setting one of the <code>on___</code> properties on the element directly. (For mysterious reasons, these are named <code>allinlowercase</code> unlike the rest of the DOM.)</p>
 
@@ -161,11 +168,10 @@ TableElement table = new Element.html(
 
 <p>We've simplified that. We killed all of the <code>on___</code> properties on Element and then created a new ElementEvents class. For each of the known event types, there is a property on that class: <code>click</code>, <code>mouseDown</code>, etc. Each of those properties is an event object that can add and remove listeners and dispatch events.</p>
 
-<p>We wired that back up to the DOM by giving Element a property called <code>on</code> that accesses it. Now all of the event-related functionality is tucked away in a single property. On the off chance that you <em>do</em> want to register a dynamically-named event, we also put a subscript operator on NodeEvents. That's a lot of text. Here's some code:</p>
+<p>We wired that back up to the DOM by giving Element a property called <code>on</code> that accesses it. Now all of the event-related functionality is tucked away in a single property. On the off chance that you <em>do</em> want to register a dynamically-named event, we also put a subscript operator on ElementEvents. That's a lot of text. Here's some code:</p>
 
-<table width="100%">
-<tr>
-<td width="50%">
+<div class="row">
+  <div class="span6">
 <pre>
 // Old:
 elem.addEventListener('click',
@@ -174,8 +180,8 @@ elem.addEventListener('click',
 elem.removeEventListener(
     'click', listener);
 </pre>
-</td>
-<td width="50%">
+  </div>
+  <div class="span6">
 <pre>
 // New:
 elem.on.click.add(
@@ -183,15 +189,13 @@ elem.on.click.add(
 
 elem.on.click.remove(listener);
 </pre>
-</td>
-</tr>
-</table>
+  </div>
+</div>
 
-<p>For the rare times where you do need to work with events generically, or dynamically generate their names, we also added a subscript operator to NodeEvents so you can do that too:</p>
+<p>For the rare times where you do need to work with events generically, or dynamically generate their names, we also added a subscript operator to ElementEvents so you can do that too:</p>
 
-<table width="100%">
-<tr>
-<td width="50%">
+<div class="row">
+  <div class="span6">
 <pre>
 // Old:
 elem.addEventListener(
@@ -199,18 +203,38 @@ elem.addEventListener(
     (event) => print('dynamic!'),
     false);
 </pre>
-</td>
-<td width="50%">
+  </div>
+  <div class="span6">
 <pre>
 // New:
 elem.on['some' + 'name'].add(
     (event) => print('dynamic!'));
 </pre>
-</td>
-</tr>
-</table>
+  </div>
+</div>
 
 <p>Some DOM classes support more events than just the stuff in Element. For those, there are subclasses of ElementEvents that add more properties. For example, Document's <code>on</code> returns a DocumentEvents class that adds <code>readyStateChange</code>, <code>selectionChange</code>, and <code>contentLoaded</code>.</p>
+
+<h2 id="more-granular-libraries">More granular libraries</h2>
+
+<p>
+  The original DOM libraries all live in the same namespace. So WebGL and SVG
+  have to share room with elements and events. This forced namespacing into
+  the class and function names. For example, all class names for SVG were
+  prefixed with, you guessed it, "SVG".
+</p>
+
+<p>
+  Dart supports real libraries, so we can take large sections of the DOM
+  interface and give it a proper namespace. We've started with <code>dart:svg</code>,
+  which puts all the SVG classes together and removes the SVG prefix from
+  the class names. This makes <code>dart:html</code> more lightweight, too.
+</p>
+
+<p>
+  We expect <code>dart:svg</code> is only the beginning, with more functionality to
+  graduate to individual libraries over time.
+</p>
 
 <h2>Want to know more?</h2>
 
@@ -223,3 +247,8 @@ which use the dart:html library:
 <a href="http://code.google.com/p/dart/source/browse/trunk/dart/samples/sunflower/">Sunflower</a>.
 </p>
 
+<p>
+Speaking of browser programming, you might be interested in our
+<a href="/articles/dart-web-components/">Web UI
+libraries that build on Web Components and provide live, two-way data binding</a>.
+</p>

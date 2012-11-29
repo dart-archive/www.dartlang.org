@@ -141,7 +141,7 @@ libraries-and-apis:
     url: /articles/improving-the-dom/
     authors:
     - Bob Nystrom
-    date: October 2011
+    date: October 2011 (updated November 2012)
     desc: See what our new API for working with the DOM looks like in Dart.
 
 design-decisions:
