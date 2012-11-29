@@ -41,7 +41,7 @@ If you have suggestions for improving the conventions,
       1. [Code font](#code-font)
       1. [Italics](#italics)
       1. [Boldface](#boldface)
-1. [Word choice](#word-choice)
+1. [Word choice, punctuation, and so on](#word-choice-punctuation-and-so-on)
 1. [Resources](#resources)
 {: .toc}
 
@@ -262,11 +262,27 @@ _or_
 The specification doesn't include double asterisk and underscore,
 and it's possible that a single asterisk will mean boldface.
 
+Here's an example of a warning:
 
-## Word choice
+<pre>
+ *
+ * **Warning:** This feature is not yet supported in all modern browsers.
+ * See <http://caniuse.com/flexbox> for current status.
+ */
+</pre>
+
+
+## Word choice, punctuation, and so on
 
 * Keep it short, direct, and clear. This doc is for users, not implementers.
 * Avoid abbreviations such as “i.e.” and “e.g.” (Many people don’t know what they mean.) Just say “that is” and “for example” if necessary.
+* Use single quotes (') instead of double quotes (") in code samples
+  unless you have a reason to do the opposite.
+  (Just be consistent.)
+* Use "this" instead of "the"
+  when referring to an object created from the current class.
+  Example:
+  Adds an item to this list.
 
 
 ## Resources

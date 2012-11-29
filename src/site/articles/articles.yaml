@@ -2,6 +2,13 @@ everyday-dart:
   title: Everyday Dart
   articles:
   -
+    title: Guidelines for Dart Doc Comments
+    url: /articles/doc-comment-guidelines/
+    authors:
+    - Kathy Walrath
+    date: November 2012
+    desc: Learn the markup rules and content conventions for automatically generated Dart API doc.
+  -
     title: A Game of Darts&mdash;Tutorials
     url: /docs/tutorials/
     authors:
@@ -48,19 +55,19 @@ language-details:
     date: July 2012 (updated September 2012)
     desc: A brief introduction to some language changes made for the M1 target.
   -
+    title: Optional Types in Dart
+    url: /articles/optional-types/
+    authors:
+    - Gilad Bracha
+    date: October 2011 (updated September 2012)
+    desc: Learn what Dart's dynamic type system does and doesn't do, and get tips for using types.
+  -
     title: Dart Puzzlers
     url: /articles/puzzlers/index.html
     authors:
     - Josh Bloch
     date: February 2012
     desc: See what happens when the author of Java Puzzlers translates each puzzler to Dart.
-  -
-    title: Optional Types in Dart
-    url: /articles/optional-types/
-    authors:
-    - Gilad Bracha
-    date: October 2011
-    desc: Learn what Dart's dynamic type system does and doesn't do, and get tips for using types.
 
 libraries-and-apis:
   title: Libraries and APIs
@@ -71,7 +78,7 @@ libraries-and-apis:
     authors:
     - Shailen Tuli
     date: November 2012
-    desc: A quickstart quide to creating a pub package and writing unittests for it.
+    desc: A quick start guide to creating a pub package and writing unit tests for it.
   -
     title: Unit Tests with Dart
     url: /articles/dart-unit-tests/
