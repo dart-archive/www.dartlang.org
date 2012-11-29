@@ -39,7 +39,7 @@ The unit test library is not new, but has undergone some changes. If you have be
 
 The new `expect()` is modelled on 3rd generation assert libraries like
 [Hamcrest](http://http//code.google.com/p/hamcrest/), and borrows some ideas
-from Ladislav Thon's [dart-matcher](https://github.com/Ladicek/dart-matchers)
+from Ladislav Thon's [darmatch](https://github.com/Ladicek/darmatch)
 library.
 
 ## A simple unit test example
@@ -326,13 +326,13 @@ group('foo', () {
 
 However you can interlace them differently; each test() will use the most recently set values. 
 
-Whenever a new group is started these functions are reset. This applies for nested groups too. Nested groups do not inherit these functions or augment them; they get their own. This is the most flexible approach as chaining can always be done explicitly.
+Whenever a new group is started, these functions are reset. This applies for nested groups too. Nested groups do not inherit these functions or augment them; they get their own. This is the most flexible approach as chaining can always be done explicitly.
 
 ## Running a limited set of tests
 
 The Dart unittest library provides a mechanism to quickly run just one unit test. This is useful if you have a failing test that you want to explore in the debugger, and you want to remove the distraction of other tests. To isolate a test, change the name of the call for that test from `test()` to `solo_test()`. If there is one `solo_test()` call then only that test will be run (if you mistakenly have more than one `solo_test()` then an exception will be thrown).
 
-Another way of reducing the set of tests which are run is to call the `filterTests` function. This function can take a `RegExp` argument, or a `String` argument that is used to create a `RegExp`, which in turn is matched against each test description; only those tests that match will be run. To filter, you must disable the automatic execution of tests before any calls to `group()` or `test()` iby setting `config.autorun` to false.  If you have not imported a unittest config library like `html_config.dart`, you will need to create a default configuration first; in this case use:
+Another way of reducing the set of tests which are run is to call the `filterTests` function. This function can take a `RegExp` argument, or a `String` argument that is used to create a `RegExp`, which in turn is matched against each test description; only those tests that match will be run. To filter, you must disable the automatic execution of tests before any calls to `group()` or `test()` by setting `config.autorun` to false.  If you have not imported a unittest config library like `html_config.dart`, you will need to create a default configuration first; in this case use:
 
 {% highlight dart %}
 ensureInitialized();
@@ -510,9 +510,11 @@ For type checking, we have:
 For example:
 
 {% highlight dart %}
-test('Exception type',
+
+test('Exception type', () {
     expect(()=> throw 'X',
-        throwsA(new isInstanceOf<String>()));
+    throwsA(new isInstanceOf<String>()));
+});
 {% endhighlight %}
 
 <aside>
@@ -541,9 +543,11 @@ As the usual case is to throw an exception, there are predefined matchers for a 
 So for example we can write:
 
 {% highlight dart %}
-test('Null Exception',
-    expect(()=> throw new NullPointerException(),
-        throwsNullPointerException));
+test('Range Error', () {
+    expect(()=> throw new RangeError("out of range"),
+    throwsRangeError);
+});
+  
 {% endhighlight %}
 
 For matching the inner content of compound objects, we have a number of matchers, starting with the ubiquitous `equals()`:
@@ -649,12 +653,10 @@ Here is an example of a custom matcher that matches string prefixes while ignori
 {% highlight dart %}
 class PrefixMatcher extends BaseMatcher {
   final String _prefix;
-  PrefixMatcher(prefix) {
-    this._prefix = collapseWhitespace(_prefix);
-  }
+  PrefixMatcher(prefix) : this._prefix = collapseWhitespace(prefix);
   bool matches(item, MatchState matchState) {
     return item is String &&
-        collapseWhitespace(item)).startsWith(_prefix);
+        collapseWhitespace(item).startsWith(_prefix);
   }
   Description describe(Description description) =>
     description.add('a string starting with ').

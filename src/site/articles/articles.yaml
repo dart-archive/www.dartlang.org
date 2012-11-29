@@ -66,6 +66,13 @@ libraries-and-apis:
   title: Libraries and APIs
   articles:
   -
+    title: Writing Unit Tests for Pub Packages
+    url: /articles/writing-unit-tests-for-pub-packages/
+    authors:
+    - Shailen Tuli
+    date: November 2012
+    desc: A quickstart quide to creating a pub package and writing unittests for it.
+  -
     title: Unit Tests with Dart
     url: /articles/dart-unit-tests/
     authors:
