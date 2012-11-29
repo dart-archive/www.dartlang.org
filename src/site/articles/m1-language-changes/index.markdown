@@ -44,13 +44,13 @@ where I can.
 1. [Named optional params and positional optional params are specified differently](#named-optional-params-and-positional-optional-params-are-specified-differently)
 1. [Test optional argument with "?"](#test-optional-argument)
 1. [Constructor names are now unique names in a class](#constructor-names-unique)
+1. [Simpler equality](#simpler-equality)
+1. [Metadata](#metadata)
+1. [Import and library syntax changes](#import-and-library-syntax-changes)
 1. [Conclusion](#conclusion)
 {:.toc}
 
 {::comment}
-1. [Simpler equality](#simpler-equality)
-1. [Import and library syntax changes](#import-and-library-syntax-changes)
-1. [Metadata](#metadata)
 1. [Callable objects](#callable-objects)
 {:/comment}
 
@@ -821,19 +821,262 @@ class Ball {
 }
 {% endhighlight %}
 
-{::comment}
-
 ## Simpler equality
 
-Coming soon.
+In M1, equality got a makeover. The biggest change is `===` is now replaced
+by the top-level function `identical(a, b)`. Also, to define your own equality
+semantics in your class, implement the `==` operator instead of `equals`.
+The semantics of `==` also changed.
 
-## Import and library syntax changes
+To determine if two variables point to the same _instance_,
+use `identical(a, b)`. The old `===` no longer exists.
 
-Coming soon.
+For example:
+
+{% highlight dart %}
+class Person {
+  String firstName, lastName;
+  Person(this.firstName, this.lastName);
+}
+
+main() {
+  var bob = new Person("Bob", "Smith");
+  var robert = bob;
+  var roberto = new Person("Bob", "Smith");
+
+  print(identical(bob, robert));              // true
+  print(identical(bob, roberto));             // false
+}
+{% endhighlight %}
+
+To define your own equality semantics for a class, implement the `==` operator.
+
+Here's an example:
+
+{% highlight dart %}
+class Person {
+  String firstName, lastName;
+  Person(this.firstName, this.lastName);
+  
+  bool operator ==(Person other) {
+    return (other.firstName == firstName && other.lastName == lastName);
+  }
+}
+
+main() {
+  var bob = new Person("Bob", "Smith");
+  var robert = bob;
+  var roberto = new Person("Bob", "Smith");
+
+  print(identical(bob, robert));              // true
+  print(identical(bob, roberto));             // false
+  
+  print(bob == robert);                       // true
+  print(bob == roberto);                      // true
+}
+{% endhighlight %}
+
+Astute readers might wonder why the implementation of `operator ==` doesn't
+first check for null. Luckily, the new semantics of `==` take care of the null
+check.
+
+For `a == b`, the following happens:
+
+1. If either a or b is null, return identical(a, b)
+1. Otherwise, return a.==(b)
 
 ## Metadata
 
-Coming soon.
+You can now add metadata to classes, libraries, fields, parameters, and more.
+For example, you can mark a function as _deprecated_ with a metadata annotation.
+An editor (such as Dart Editor) can recognize the method as deprecated and
+provide visual clues.
+
+A metadata annotation begins with `@` followed by a reference to a compile-time
+constant variable, or a call to a constant constructor. In other words,
+there is no specific metadata type and developers can easily define
+their own metadata annotations. The Dart project provides the meta package,
+which contains `override` and `deprecated`.
+
+Here is a usage example of a metadata annotation. Specifically,
+`superOldMethod` is marked with `@deprecated`.
+
+{% highlight dart %}
+import 'package:meta/meta.dart';
+
+@deprecated
+superOldMethod() {
+  print("don't call me, I'm old!");
+}
+
+main() {
+  superOldMethod();
+}
+{% endhighlight %}
+
+Dart Editor applies a visual style to deprecated methods:
+
+<img src="imgs/deprecated-metadata.png"
+     alt="Dart Editor applies a visual style when @deprecated is used">
+
+## Import and library syntax changes
+
+We received a lot of feedback regarding the syntax and behavior of libraries
+and imports. Significant changes were made in M1 on both fronts.
+
+The change that affects the most code is that
+imports and library directives are now more succinct and look less like
+C. Instead of:
+
+{% highlight dart %}
+#library('trading_cards');  // OLD SYNTAX; no longer works.
+#import('dart:html');       // OLD SYNTAX; no longer works.
+{% endhighlight %}
+
+You now use library and import like this:
+
+{% highlight dart %}
+library trading_cards;
+import 'dart:html';
+{% endhighlight %}
+
+Notice how, in the above code, the `#` and parentheses are gone. Also, the
+library name is now an identifier (not a string literal).
+
+The syntax for importing a library with a namespace has also changed. Here
+is an example of the new format:
+
+{% highlight dart %}
+import 'dart:svg' as svg;
+{% endhighlight %}
+
+### Control the names imported by a library
+
+New with M1 is the ability to selectively _show_ or _hide_ names when
+a library is imported. This is useful, for example, when collisions would
+otherwise occur.
+
+For example, consider the case of an app importing two libraries that implement
+a function with the same name.
+
+{% highlight dart %}
+library computer;
+
+run(Program program) {
+  // ...
+}
+{% endhighlight %}
+
+{% highlight dart %}
+library exercise;
+
+run(Marathon marathon) {
+  // ...
+}
+{% endhighlight %}
+
+Here is the main app that uses both libraries. This app does not compile
+because `run` is defined in both computer and exercise.
+
+{% highlight dart %}
+library app;
+
+import 'computer.dart';
+import 'exercise.dart';
+
+main() {
+  run(thing);  // compile-time error, run is defined in two libraries!
+}
+{% endhighlight %}
+
+Luckily, you can now import libraries and control the names that are added to
+your namespace. Use `show` to pull in *only* the names specified, or `hide` to
+pull in names *except* those specified.
+
+For example, you can hide the `run` identifier from the app and no
+collision will occur.
+
+{% highlight dart %}
+import 'computer.dart' hide run;
+import 'exercise.dart';
+{% endhighlight %}
+
+### Re-export
+
+Also new with M1 is the ability for a library to expose
+names from imported libraries as its own. This functionality is handy for
+library authors to create a single developer-facing library while still
+using sub-libraries for better code organization and privacy.
+
+To illustrate, consider a typical UI framework. It's not uncommon to split
+up the framework into separate libraries, such as models, views, and
+controllers. However, it would be a burden on the consumer of this framework to
+have to manually import each sub-library (models, views, and controllers).
+
+With M1 and re-export, the framework author can create a single holistic library
+called ui_framework, import all implementation libraries, and re-export their
+names. Framework authors get the benefit of splitting code into individual
+libraries, while consumers of the framework need only import a single library.
+
+Here is an example:
+
+{% highlight dart %}
+library ui_framework;
+import 'models.dart';
+import 'views.dart';
+import 'controllers.dart';
+
+export 'models.dart';
+export 'views.dart';
+export 'controllers.dart';
+{% endhighlight %}
+
+{% highlight dart %}
+library my_app;
+import 'ui_framework.dart';
+
+main() {
+  var model = new Model();
+  var view = new View();
+  var controller = new Controller();
+}
+{% endhighlight %}
+
+
+
+
+### Parts
+
+Libraries can still be split into multiple files (what used to be `#source`).
+However, the relationship between a library and its parts is now more
+declarative.
+
+Instead of:
+
+{% highlight dart %}
+#library('trading_cards');   // OLD SYNTAX; no longer works.
+#source('game_rules.dart');  // OLD SYNTAX; no longer works.
+{% endhighlight %}
+
+You now declare _parts_ of a library like:
+
+{% highlight dart %}
+library trading_cards;
+part 'game_rules.dart';
+{% endhighlight %}
+
+And the part must declare that it is a _part of_ a library. Over in
+game_rules.dart:
+
+{% highlight dart %}
+// Inside game_rules.dart
+
+part of trading_cards;
+{% endhighlight %}
+
+
+
+{::comment}
 
 ## Callable objects
 
