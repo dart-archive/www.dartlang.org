@@ -1087,11 +1087,15 @@ called:
 The name for the `on-` attributes is the hyphened version of the Dart name
 associated with the event in `dart:html`, which is what you would normally write
 in calls of the form `elem.on.event.add(eventListener)`. For example, the
-attribute for the `doubleClick` event is `on-double-click`.  The action in the
-attribute is can be any valid Dart expression, but typically is a method
-invocation. This expression is evaluated using lexical scoping just like any
-[data binding expression](#data-binding). A special variable `$event` is added
-to the scope of this expression to refer to the HTML event that was fired.
+attribute for the `doubleClick` event is `on-double-click`. See the API docs for
+[ElementEvents][elemevents] and [InputElementEvents][inputevents] for a complete
+list of event names.
+
+The action written in the attribute value can be any valid Dart expression, but
+typically is a method invocation. This expression is evaluated using lexical
+scoping just like any [data binding expression](#data-binding). A special
+variable `$event` is added to the scope of this expression to refer to the HTML
+event that was fired.
 
 At runtime, when the event is fired, the handler will be invoked followed
 immediately after by a call to `dispatch` that notifies watchers about data
@@ -1204,3 +1208,5 @@ are evaluated in the top-level context of the main script.
 [wcappendix]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html#appendix-b-html-elements
 [tostring]: http://api.dartlang.org/docs/bleeding_edge/dart_core/Object.html#toString
 [safehtml]: https://github.com/dart-lang/dart-web-components/blob/master/lib/safe_html.dart
+[elemevents]: http://api.dartlang.org/docs/bleeding_edge/dart_html/ElementEvents.html
+[inputevents]: http://api.dartlang.org/docs/bleeding_edge/dart_html/InputElementEvents.html
