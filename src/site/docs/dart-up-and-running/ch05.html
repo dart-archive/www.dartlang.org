@@ -12,7 +12,7 @@ has-permalinks: true
   our <a class="ulink" href="https://www.dartlang.org/slides/2012/06/io12/Bullseye-Your-first-Dart-app-Codelab-GoogleIO2012.pdf">code
   lab</a>.</p><p><a class="xref" href="ch05.html#DartChat-screenshot" title="Figure 5-1. Multiple chat clients can use the chat server to talk">Figure 5-1</a> shows the chat client executing
   in a Dartium window. Each copy of the chat client can send messages to the
-  chat server, which forwards those messages to the other chat clients.</p><div class="figure"id="DartChat-screenshot"/><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0501.png" alt="Multiple chat clients can use the chat server to talk"/></div></div><p class="title">Figure 5-1. Multiple chat clients can use the chat server to talk</p></div><div class="sect1" title="How to run Dart Chat"><div class="titlepage"><div><div><h1 class="title"id="ch05-how-to-run"/>How to run Dart Chat</h1></div></div></div><p>The easiest way to run the Dart Chat client and server apps is to
+  chat server, which forwards those messages to the other chat clients.</p><div class="figure"id="DartChat-screenshot"/><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0501.png" alt="Multiple chat clients can use the chat server to talk"/></div></div><p class="title">Figure 5-1. Multiple chat clients can use the chat server to talk</p></div><div class="sect1" title="How to run Dart Chat"><div class="titlepage"><div><div><h2 class="title"id="ch05-how-to-run"/>How to run Dart Chat</h2></div></div></div><p>The easiest way to run the Dart Chat client and server apps is to
     open them in Dart Editor.</p><div class="orderedlist"><ol class="orderedlist"><li class="listitem"><p>Download the Dart Chat source code from GitHub:</p><p>
           <a class="ulink" href="https://github.com/dart-lang/io-2012-dart-code-lab">https://github.com/dart-lang/io-2012-dart-code-lab</a>
         </p></li><li class="listitem"><p>In Dart Editor, use <span class="bold"><strong>File &gt; Open
@@ -22,7 +22,7 @@ has-permalinks: true
         debugging output for the server.</p></li><li class="listitem"><p>Select <code class="literal">client/chat-client.dart</code>, and then
         click the Run button <span class="inlinemediaobject"><img src="figs/incoming/run.png" alt=""/></span>.</p><p>Dartium launches, if necessary, and displays a Dart Chat
         tab.</p></li><li class="listitem"><p>To create another copy of the chat client, go to the Dart
-        Chat tab in Dartium. Right-click the tab, and choose <span class="bold"><strong>Duplicate</strong></span>.</p></li></ol></div></div><div class="sect1" title="How Dart Chat works"><div class="titlepage"><div><div><h1 class="title"id="ch05-how-it-works"/>How Dart Chat works</h1></div></div></div><p>The chat server and client are simple. The chat server is an HTTP
+        Chat tab in Dartium. Right-click the tab, and choose <span class="bold"><strong>Duplicate</strong></span>.</p></li></ol></div></div><div class="sect1" title="How Dart Chat works"><div class="titlepage"><div><div><h2 class="title"id="ch05-how-it-works"/>How Dart Chat works</h2></div></div></div><p>The chat server and client are simple. The chat server is an HTTP
     server that provides a WebSocket. The chat client uses that WebSocket for
     a bi-directional communication channel with the server. The client sends
     chat messages to the sever over the WebSocket, and the server relays those
@@ -43,7 +43,7 @@ has-permalinks: true
     clients.</p><p>The twist is that this client’s JavaScript code is produced from
     Dart code, thanks to the dart2js compiler. Any modern browser can run this
     JavaScript code. Dartium (and any other browsers that support Dart) can
-    run either the JavaScript code or the original Dart code.</p></div><div class="sect1" title="The client’s HTML code"><div class="titlepage"><div><div><h1 class="title"id="ch05-client-html-code"/>The client’s HTML code</h1></div></div></div><p>The main elements in the client UI are two text fields (with the IDs
+    run either the JavaScript code or the original Dart code.</p></div><div class="sect1" title="The client’s HTML code"><div class="titlepage"><div><div><h2 class="title"id="ch05-client-html-code"/>The client’s HTML code</h2></div></div></div><p>The main elements in the client UI are two text fields (with the IDs
     “chat-username” and “chat-message”) and a status area (ID:
     “chat-display”).</p><pre class="programlisting">&lt;!-- In client/index.html: --&gt;
 &lt;textarea id="chat-display" rows="10" disabled&gt;&lt;/textarea&gt;
@@ -64,10 +64,10 @@ has-permalinks: true
     constructed its DOM (document object model).</p><p>You can get <a class="ulink" href="http://dart.googlecode.com/svn/trunk/dart/client/dart.js">dart.js</a>
     from the Dart project. See <a class="xref" href="ch04.html#ch04-tools-dart2js" title="dart2js: The Dart-to-JavaScript compiler">dart2js: The Dart-to-JavaScript compiler</a> for more
     information about compiling Dart code into its JavaScript
-    equivalent.</p></div><div class="sect1" title="The client’s Dart code"><div class="titlepage"><div><div><h1 class="title"id="ch05-client-dart-code"/>The client’s Dart code</h1></div></div></div><p>Dart code (client/chat-client.dart) provides the client’s logic,
+    equivalent.</p></div><div class="sect1" title="The client’s Dart code"><div class="titlepage"><div><div><h2 class="title"id="ch05-client-dart-code"/>The client’s Dart code</h2></div></div></div><p>Dart code (client/chat-client.dart) provides the client’s logic,
     using the DOM to interact with UI elements. For example, the client’s Dart
     code uses the DOM to find the text area where the client displays
-    messages.</p><div class="sect2" title="Finding DOM elements"><div class="titlepage"><div><div><h2 class="title"id="id641182"/>Finding DOM elements</h2></div></div></div><p>The client app uses dart:html’s top-level query() method to get
+    messages.</p><div class="sect2" title="Finding DOM elements"><div class="titlepage"><div><div><h3 class="title"id="id641182"/>Finding DOM elements</h3></div></div></div><p>The client app uses dart:html’s top-level query() method to get
       the client’s UI elements from the DOM.</p><pre class="programlisting">// In client/chat-client.dart:
 import 'dart:html';
 //...
@@ -75,7 +75,7 @@ TextAreaElement chatElem = query('#chat-display');
 InputElement usernameElem = query('#chat-username');
 InputElement messageElem = query('#chat-message');</pre><p>The query() method uses a selector string that identifies an
       element in the DOM. See <a class="xref" href="ch03.html#ch03-finding-elements" title="Finding elements">Finding elements</a> for
-      more about selectors.</p></div><div class="sect2" title="Wrapping DOM elements"><div class="titlepage"><div><div><h2 class="title"id="id641208"/>Wrapping DOM elements</h2></div></div></div><p>Rather than always dealing with DOM APIs, the chat client wraps
+      more about selectors.</p></div><div class="sect2" title="Wrapping DOM elements"><div class="titlepage"><div><div><h3 class="title"id="id641208"/>Wrapping DOM elements</h3></div></div></div><p>Rather than always dealing with DOM APIs, the chat client wraps
       the elements in Dart objects:</p><pre class="programlisting">chatWindow = new ChatWindow(chatElem);
 usernameInput = new UsernameInput(usernameElem);
 messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput, and MessageInput are custom classes
@@ -107,8 +107,8 @@ messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput,
       bugs or improve code completion.</p><p>Wrapping elements is a technique you can use as you develop a
       simple app that might evolve into a larger app. As the app grows, you
       might change it to use a real <a class="ulink" href="http://en.wikipedia.org/wiki/Model-view-controller">model-view-controller
-      (MVC) architecture.</a></p><div class="note" title="Note"><h3 class="title">Note</h3><p>We expect the Dart project to provide an MVC-type framework for
-        clients.</p></div></div><div class="sect2" title="Updating DOM elements"><div class="titlepage"><div><div><h2 class="title"id="id641289"/>Updating DOM elements</h2></div></div></div><p>The bind() method sets up the event handlers, which bind events
+      (MVC) architecture.</a></p><div class="note" title="Note"><h4 class="title">Note</h4><p>We expect the Dart project to provide an MVC-type framework for
+        clients.</p></div></div><div class="sect2" title="Updating DOM elements"><div class="titlepage"><div><div><h3 class="title"id="id641289"/>Updating DOM elements</h3></div></div></div><p>The bind() method sets up the event handlers, which bind events
       from the DOM to logic in the Dart objects. For example, in
       UsernameInput, the _onUsernameChange() method is called any time the
       text in the input element changes.</p><p>To display messages in the chat window, the ChatWindow class adds
@@ -128,7 +128,7 @@ messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput,
   }
 }</pre><p>In both examples, the View objects expose an application-specific
       API—for example, displayMessage() or _onUsernameChange()—and encapsulate
-      the manipulation of DOM elements.</p></div><div class="sect2" title="Encoding and decoding messages"><div class="titlepage"><div><div><h2 class="title"id="ch05-dart-json"/>Encoding and decoding messages</h2></div></div></div><p>The dart:json library encodes and decodes JSON-formatted messages.
+      the manipulation of DOM elements.</p></div><div class="sect2" title="Encoding and decoding messages"><div class="titlepage"><div><div><h3 class="title"id="ch05-dart-json"/>Encoding and decoding messages</h3></div></div></div><p>The dart:json library encodes and decodes JSON-formatted messages.
       JSON is an easy way to provide string message data to WebSockets. Using
       JSON also gives a bit of structure to the messages and leaves the door
       open to creating more detailed messages in the future.</p><p>The stringify() method converts a Dart object to a JSON encoded
@@ -136,7 +136,7 @@ messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput,
       object. Here’s the JSON-related code from the chat client:</p><pre class="programlisting">import 'dart:json';
 
 var encoded = JSON.stringify({'f': from, 'm': message});
-Map message = JSON.parse(encodedMessage);</pre><p>See <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and decoding objects">dart:json - Encoding and decoding objects</a> for more information.</p></div><div class="sect2" title="Communicating with WebSockets"><div class="titlepage"><div><div><h2 class="title"id="id641357"/>Communicating with WebSockets</h2></div></div></div><p>The custom class ChatConnection takes care of the chat client’s
+Map message = JSON.parse(encodedMessage);</pre><p>See <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and decoding objects">dart:json - Encoding and decoding objects</a> for more information.</p></div><div class="sect2" title="Communicating with WebSockets"><div class="titlepage"><div><div><h3 class="title"id="id641357"/>Communicating with WebSockets</h3></div></div></div><p>The custom class ChatConnection takes care of the chat client’s
       WebSocket communication. First it connects to the WebSocket by calling
       the WebSocket constructor with the argument
       <code class="literal">'ws://127.0.0.1:1337/ws'</code>. Then ChatConnection adds
@@ -186,9 +186,9 @@ _sendEncodedMessage(String encodedMessage) {
   
   webSocket.on.close.add((e) =&gt; scheduleReconnect());
   webSocket.on.error.add((e) =&gt; scheduleReconnect());</pre><p>The reconnect logic uses setTimeout() to schedule a retry using an
-      exponential backoff algorithm.</p></div></div><div class="sect1" title="The server’s code"><div class="titlepage"><div><div><h1 class="title"id="ch05-server"/>The server’s code</h1></div></div></div><p>The chat-server.dart file contains most of the code used in the chat
+      exponential backoff algorithm.</p></div></div><div class="sect1" title="The server’s code"><div class="titlepage"><div><div><h2 class="title"id="ch05-server"/>The server’s code</h2></div></div></div><p>The chat-server.dart file contains most of the code used in the chat
     server. It is responsible for serving static files and managing WebSocket
-    connections. The chat server also logs the chat messages to a file.</p><div class="sect2" title="Serving static files"><div class="titlepage"><div><div><h2 class="title"id="id641449"/>Serving static files</h2></div></div></div><p>The chat server uses dart:io’s HttpServer to implement a web
+    connections. The chat server also logs the chat messages to a file.</p><div class="sect2" title="Serving static files"><div class="titlepage"><div><div><h3 class="title"id="id641449"/>Serving static files</h3></div></div></div><p>The chat server uses dart:io’s HttpServer to implement a web
       server. The default request handler is configured to serve static files
       from a specific directory on the file system.</p><pre class="programlisting">runServer(String basePath, int port) {
   HttpServer server = new HttpServer();  
@@ -222,7 +222,7 @@ onRequest(HttpRequest request, HttpResponse response) {
     }
   });</pre><p>See <a class="xref" href="ch03.html#ch03-asynchronous-programming" title="Asynchronous programming">Asynchronous programming</a> for more
       information about using Future, and <a class="xref" href="ch03.html#ch03-files-and-directories" title="Files and directories">Files and directories</a> for details on file and
-      directory I/O.</p></div><div class="sect2" title="Managing WebSocket connections"><div class="titlepage"><div><div><h2 class="title"id="id641516"/>Managing WebSocket connections</h2></div></div></div><p>In addition to serving static files, the chat server manages
+      directory I/O.</p></div><div class="sect2" title="Managing WebSocket connections"><div class="titlepage"><div><div><h3 class="title"id="id641516"/>Managing WebSocket connections</h3></div></div></div><p>In addition to serving static files, the chat server manages
       WebSocket connections, routing chat messages between clients. The
       dart:io WebSocketHandler class accepts HTTP connections, converts them
       into WebSocket connections, and then passes them to ChatHandler.</p><pre class="programlisting">runServer(String basePath, int port) {
@@ -257,7 +257,7 @@ onRequest(HttpRequest request, HttpResponse response) {
       connection to a collection. When the client disconnects (either through
       an error or on purpose), the server removes that client’s connection
       from the collection. When a new message arrives, the server sends the
-      message to all connected clients except the original source.</p></div><div class="sect2" title="Logging messages to a file"><div class="titlepage"><div><div><h2 class="title"id="id641560"/>Logging messages to a file</h2></div></div></div><p>The chat server logs data to a file, client/chat-log.txt, using a
+      message to all connected clients except the original source.</p></div><div class="sect2" title="Logging messages to a file"><div class="titlepage"><div><div><h3 class="title"id="id641560"/>Logging messages to a file</h3></div></div></div><p>The chat server logs data to a file, client/chat-log.txt, using a
       custom library implemented in file-logger.dart. This library uses an
       isolate to handle file I/O without tying up the root isolate. Here’s the
       code that creates and starts this isolate:</p><pre class="programlisting">SendPort _loggingPort = spawnFunction(startLogging);</pre><p>The value returned by dart:isolate’s spawnFunction() is a SendPort
@@ -292,7 +292,7 @@ onRequest(HttpRequest request, HttpResponse response) {
       isolate sends the log data:</p><pre class="programlisting">void log(String message) {
   _loggingPort.send(message);
 }</pre><p>See <a class="xref" href="ch03.html#ch03-dartisolate---concurrency-with-isolates" title="dart:isolate - Concurrency with isolates">dart:isolate - Concurrency with isolates</a> for more
-      information about using isolates.</p></div></div><div class="sect1" title="What next?"><div class="titlepage"><div><div><h1 class="title"id="ch05-what-next"/>What next?</h1></div></div></div><p>You’ve seen how the Dart Chat sample uses both server-side and
+      information about using isolates.</p></div></div><div class="sect1" title="What next?"><div class="titlepage"><div><div><h2 class="title"id="ch05-what-next"/>What next?</h2></div></div></div><p>You’ve seen how the Dart Chat sample uses both server-side and
     client-side Dart code to implement a web app. Here are some other samples
     you might want to look at:</p><div class="itemizedlist"><ul class="itemizedlist"><li class="listitem"><p><a class="ulink" href="https://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fsolar">
         Solar,</a> which simulates the solar system with animations in a
