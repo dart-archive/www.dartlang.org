@@ -9,7 +9,7 @@ pygments: true
 permalink: /news/:year/:month/:day/:title.html
 custom:
   downloads:
-    editor-url-prefix: "https://gsdview.appspot.com/dart-editor-archive"
+    editor-url-prefix: "https://storage.cloud.google.com/dart-editor-archive"
     binaries:
       - os: win32
         name: Windows
