@@ -63,7 +63,7 @@ language-details:
     desc: Learn what Dart's dynamic type system does and doesn't do, and get tips for using types.
   -
     title: Dart Puzzlers
-    url: /articles/puzzlers/index.html
+    url: /articles/puzzlers/
     authors:
     - Josh Bloch
     date: February 2012
@@ -73,12 +73,19 @@ libraries-and-apis:
   title: Libraries and APIs
   articles:
   -
+    title: "Reflection in Dart with Mirrors: An Introduction"
+    url: /articles/reflection-with-mirrors/
+    authors:
+    - Gilad Bracha
+    date: November 2012
+    desc: Learn about Dart's mirror-based reflection API, which lets you find class members, invoke methods by name on objects, and more.
+  -
     title: Writing Unit Tests for Pub Packages
     url: /articles/writing-unit-tests-for-pub-packages/
     authors:
     - Shailen Tuli
     date: November 2012
-    desc: A quick start guide to creating a pub package and writing unit tests for it.
+    desc: Take a tour through creating a pub package and writing unit tests for it.
   -
     title: Unit Tests with Dart
     url: /articles/dart-unit-tests/
@@ -93,6 +100,13 @@ libraries-and-apis:
     - Chris Buckett
     date: April 2012 (updated November 2012)
     desc: Connect your client-side Dart web app to a JSON web service.
+  -
+    title: Improving the DOM
+    url: /articles/improving-the-dom/
+    authors:
+    - Bob Nystrom
+    date: October 2011 (updated November 2012)
+    desc: See what the Dart API for working with the DOM looks like.
   -
     title: Dart Web Components
     url: /articles/dart-web-components/
@@ -136,13 +150,6 @@ libraries-and-apis:
     - Vijay Menon
     date: October 2011 (updated April 2012)
     desc: Find out how you'll be able to embed Dart directly on HTML pages.
-  -
-    title: Improving the DOM
-    url: /articles/improving-the-dom/
-    authors:
-    - Bob Nystrom
-    date: October 2011 (updated November 2012)
-    desc: See what our new API for working with the DOM looks like in Dart.
 
 design-decisions:
   title: Design Decisions
