@@ -677,7 +677,7 @@ So the mysterious behavior is explained.
 What happens when we do a naive translation to Dart?
 
 {% highlight dart %}
-#import('dart:math');
+import 'dart:math';
 
 main() {
   StringBuffer word = null;

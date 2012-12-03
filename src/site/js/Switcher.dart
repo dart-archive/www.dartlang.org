@@ -1,4 +1,4 @@
-#import('dart:html');
+import 'dart:html';
 
 final List<String> osList = const <String>['macos', 'win32', 'linux'];  // all supported OSs
 String osName = 'linux'; // the currently displayed platform

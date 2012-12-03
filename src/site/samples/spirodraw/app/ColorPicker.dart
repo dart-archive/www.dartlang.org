@@ -2,22 +2,24 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+part of spirodraw;
+
 typedef void PickerListener(String selectedColor);
 
 class ColorPicker {
-  static final hexValues = const ['00', '33', '66', '99', 'CC', 'FF'];
-  static final COLS = 18;
+  static const hexValues = const ['00', '33', '66', '99', 'CC', 'FF'];
+  static const COLS = 18;
   // Block height, width, padding
-  static final BH = 10;
-  static final BW = 10;
-  static final BP = 1;
+  static const BH = 10;
+  static const BW = 10;
+  static const BP = 1;
   final List<PickerListener> _listeners;
   CanvasElement canvasElement;
   String _selectedColor = 'red';
   final height = 160;
   final width = 180;
   CanvasRenderingContext2D ctx;
-  
+
   ColorPicker(this.canvasElement) :
     _listeners = []
   {
@@ -26,16 +28,16 @@ class ColorPicker {
     addHandlers();
     showSelected();
   }
-  
-  String get selectedColor() => _selectedColor;
-  
+
+  String get selectedColor => _selectedColor;
+
   void set selectedColor(String color) {
     _selectedColor = color;
-    
+
     showSelected();
     fireSelected();
   }
-  
+
   void onMouseMove(MouseEvent event) {
     int x = event.offsetX;
     int y = event.offsetY - 40;
@@ -51,8 +53,9 @@ class ColorPicker {
     event.cancelBubble = true;
     int x = event.offsetX;
     int y = event.offsetY - 40;
-    if ((y < 0) || (x >= width))
+    if ((y < 0) || (x >= width)) {
       return;
+    }
     selectedColor = getHexString(getColorIndex(x, y));
   }
 
@@ -102,15 +105,15 @@ class ColorPicker {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, width / 2, 30);
   }
-  
+
   String getHexString(num value) {
     int i = value.floor().toInt();
-    
+
     int r = (i ~/ 36) % 6;
     int g = (i % 36) ~/ 6;
     int b = i % 6;
-    
+
     return '#${hexValues[r]}${hexValues[g]}${hexValues[b]}';
   }
-  
+
 }

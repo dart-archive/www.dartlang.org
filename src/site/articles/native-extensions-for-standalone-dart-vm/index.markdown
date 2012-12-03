@@ -19,7 +19,7 @@ You can provide two types of native extensions: asynchronous or synchronous. An 
 
 A Dart native extension contains two files: a Dart library and a native library. The Dart library defines classes and top-level functions as usual, but declares that some of these functions are implemented in native code, using the **native** keyword. The native library is a shared library, written in C or C++, that contains the implementations of those functions.
 
-The Dart library specifies the native library using an #import statement and the **dart-ext**: URI scheme.  As with any other import, the URI specifies a path to the shared library, either absolute or relative to the directory containing the Dart library.
+The Dart library specifies the native library using an `import` statement and the **dart-ext**: URI scheme.  As with any other import, the URI specifies a path to the shared library, either absolute or relative to the directory containing the Dart library.
 
 ###Example code
 

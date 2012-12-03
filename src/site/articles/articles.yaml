@@ -148,7 +148,7 @@ libraries-and-apis:
     authors:
     - Sigmund Cherem
     - Vijay Menon
-    date: October 2011 (updated April 2012)
+    date: October 2011 (updated November 2012)
     desc: Find out how you'll be able to embed Dart directly on HTML pages.
 
 design-decisions:
