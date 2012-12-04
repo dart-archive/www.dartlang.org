@@ -2,9 +2,14 @@
 layout: default
 title: "Dart Web Components"
 rel:
-  author: siggi-cherem
-description: "Use web components today with Dart. This brief introduction shows you how to use the features of tomorrow, today."
+  author: sigmund-cherem
+description: "Use web components today with Dart. This brief introduction
+     shows you how to use the features of tomorrow, today."
 has-permalinks: true
+article:
+  written_on: 2012-10-01
+  updated_on: 2012-11-01
+  collection: libraries-and-apis
 ---
 {% comment %}
 

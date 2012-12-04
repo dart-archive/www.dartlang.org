@@ -5,6 +5,9 @@ rel:
   author: kathy-walrath
 description: "How we write doc comments for the Dart APIs."
 has-permalinks: true
+article:
+  written_on: 2012-11-01
+  collection: everyday-dart
 ---
 
 # {{ page.title }}

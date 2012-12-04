@@ -8,6 +8,10 @@ rel:
     - sigmund-cherem
     - vijay-menon
     - seth-ladd
+article:
+  written_on: 2011-10-01
+  updated_on: 2012-11-01
+  collection: libraries-and-apis
 ---
 
 # Embedding Dart in HTML

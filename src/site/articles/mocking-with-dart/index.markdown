@@ -5,6 +5,9 @@ rel:
   author: graham-wheeler
 description: "Using Dart's unit test library for mocking and spying."
 has-permalinks: true
+article:
+  written_on: 2012-07-01
+  collection: libraries-and-apis
 ---
 
 # {{ page.title }}

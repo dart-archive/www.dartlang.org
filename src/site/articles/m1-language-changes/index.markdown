@@ -6,12 +6,16 @@ rel:
 description: "A brief introduction to some of the language changes planned
              for the M1 milestone."
 has-permalinks: true
+article:
+  written_on: 2012-07-01
+  updated_on: 2012-11-01
+  collection: language-details
 ---
 
 # {{ page.title }}
 _Written by Bob Nystrom <br />
 July 2012
-(updated September 2012)_
+(updated November 2012)_
 
 Right now as we near our "Milestone 1" release, we are making a slew of fun
 language changes. There are tracking bugs in the repo for all of them, but I

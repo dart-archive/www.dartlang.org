@@ -1,6 +1,14 @@
-require 'yaml'
+require 'time'
 
 module Jekyll
+
+  class Page
+    attr_accessor :name
+
+    def full_path
+      File.join(@dir, self.url).sub(/index\.html$/, '')
+    end
+  end
 
   class ArticlesTag < Liquid::Tag
     def initialize(tag_name, section_name, tokens)
@@ -8,29 +16,64 @@ module Jekyll
       @section_name = section_name.strip
     end
 
+    def load_authors(ctx)
+      ctx.registers[:site].pages.select{|p| p.data["author"]}.map do |page|
+        page.data["author"]
+      end.inject({}) do |map, author|
+        map[author['key']] = author
+        map
+      end
+    end
+
     def render(context)
-      @data_file = File.join(context.registers[:site].source, 'articles', 'articles.yaml')
-      @articles = YAML.load_file(@data_file)
 
-      section = @articles[@section_name]
+      @authors = load_authors(context)
 
-      <<-END
-        <section id="#{@section_name}">
-        <h2>#{section['title']}</h2>
-        #{section['articles'].map{|article| render_article(article)}.join("\n")}
-        </section>
-      END
+      @articles = context.registers[:site].pages.select{|p| p.data["article"]}
+      @articles_for_section = @articles.select do |a|
+        a.data["article"]["collection"] == @section_name
+      end.sort do |a, b|
+        a_up = a.data['article']['updated_on'] || a.data['article']['written_on']
+        b_up = b.data['article']['updated_on'] || b.data['article']['written_on']
+        a_pub = a.data['article']['written_on']
+        b_pub = b.data['article']['written_on']
+
+        "#{a_up}-#{a_pub}" <=> "#{b_up}-#{b_pub}"
+      end.reverse
+
+      @articles_for_section.map{|article| render_article(article)}.join("\n")
 
     end
 
     def render_article(article)
+      author_names = fmt_author_name(article)
+
+      written_on = article.data["article"]["written_on"]
+      updated_on = article.data["article"]["updated_on"]
+      date = fmt_date(written_on)
+      if updated_on
+        date += " (updated #{fmt_date(updated_on)})"
+      end
+
       <<-END
       <section class="article">
-        <h4><a href="#{article['url']}">#{article['title']}</a></h4>
-        <div class="author-and-date">#{article['authors'].join(' and ')}, #{article['date']}</div>
-        <p>#{article['desc']}</p>
+        <h4><a href="#{article.full_path}">#{article.data['title']}</a></h4>
+        <div class="author-and-date">#{author_names}, #{date}</div>
+        <p>#{article.data['description']}</p>
       </section>
       END
+    end
+
+    def fmt_date(date)
+      return 'unknown' unless date
+      date.strftime("%B %Y")
+    end
+
+    def fmt_author_name(article)
+      return 'The Dart Team' unless article.data['rel'] and article.data['rel']['author']
+      [article.data['rel']['author']].flatten.map do |a|
+        @authors[a] ? "#{@authors[a]['fname']} #{@authors[a]['lname']}" : 'UNKNOWN'
+      end.join(', ')
     end
 
   end

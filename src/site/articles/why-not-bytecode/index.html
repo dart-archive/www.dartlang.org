@@ -1,9 +1,15 @@
 ---
 layout: default
 title: "Why Not a Bytecode VM?"
+description: "This article discusses the trade-offs VMs have to make,
+       and explains why we think that a language VM makes more sense for Dart."
 rel:
-  author: bob-nystrom
-  author: florian-loitsch
+  author:
+    - florian-loitsch
+    - bob-nystrom
+article:
+  written_on: 2011-11-01
+  collection: design-decisions
 ---
 
 <section>
@@ -18,6 +24,7 @@ Dart VM is not bytecode based, but instead works on Dart source code directly.
 A bytecode VM seems to have a big advantage over a language VM: given a
 standardized bytecode format, developers can write in the language of their
 choice and then simply compile to the specified bytecodes.</p>
+
 <p>In this article we will discuss the trade-offs VMs have to make, and explain
 why we think that a language VM makes more sense for Dart.</p>
 
@@ -53,7 +60,8 @@ Virtual Machine, after all.</p>
 
 <p>Another advantage of bytecode VMs is that they can evolve by simply
 adding new bytecodes (which the JVM is doing
-with <a href="http://java.sun.com/developer/technicalArticles/DynTypeLang/"><code>invokedynamic</code></a>).
+with
+<a href="http://java.sun.com/developer/technicalArticles/DynTypeLang/"><code>invokedynamic</code></a>).
 However, the cost is increased complexity in the VM.
 Worse, seemingly similar features might require different bytecodes. For
 instance, in order to support all possible languages a VM needs to support a
@@ -78,7 +86,8 @@ instead.</p>
 
 <p>There's more to a VM than the instruction set. If you look at the JVM, it
 specifies a class file format,
-a concurrency model (in the case of the JVM threads with shared state), class initialization, and
+a concurrency model (in the case of the JVM threads with shared state), class
+initialization, and
 a bunch of other stuff that nails down semantic choices.</p>
 
 <p>If you're building a VM (bytecode or not) from scratch, you have to think
@@ -91,17 +100,24 @@ run doesn't use it.</p>
 
 <h2>Optimizing for the language</h2>
 
-<p>If you ask one of the VM guys why a language VM is better than a bytecode VM, they'll tell you
+<p>If you ask one of the VM guys why a language VM is better than a bytecode VM,
+  they'll tell you
 a different but maybe even more important story: performance. Optimization is
 often based on being able to take things for granted. A VM tailored for a single
 language can take that language for granted and optimize specifically for it.</p>
 
 <p>For example, V8 internally uses "smis" ("small integers") to make integer
-operations less costly. Other JavaScript engines use similar tricks such as <a href="http://wingolog.org/archives/2011/05/18/value-representation-in-javascript-implementations">NaN tagging</a> to
+operations less costly. Other JavaScript engines use similar tricks such as
+<a href="http://wingolog.org/archives/2011/05/18/value-representation-in-javascript-implementations">NaN tagging</a> to
 similar effect. They do this to help make dynamic languages run fast.</p>
 
-<p>Meanwhile, JVMs don't do these optimizations. Since all types are statically known, the compiler knows exactly how much storage they need and what operations they support. It can then generate appropriate tight code for those types. This is fast if your language is statically typed, but if you're trying
-to compile a <em>dynamically typed</em> language to the JVM, it won't be able to run as fast as a VM that can assume dynamic typing all the way down and optimize specifically for that.</p>
+<p>Meanwhile, JVMs don't do these optimizations. Since all types are statically
+known, the compiler knows exactly how much storage they need and what operations
+they support. It can then generate appropriate tight code for those types. This
+is fast if your language is statically typed, but if you're trying to compile a
+<em>dynamically typed</em> language to the JVM, it won't be able to run as fast
+as a VM that can assume dynamic typing all the way down and optimize
+specifically for that.</p>
 
 <h2>The line of trust</h2>
 
@@ -139,17 +155,28 @@ iteration loop is fast and easy because the engine for your language runs it
 directly from source.</p>
 
 <p>
-  You may ask, "but doesn't Dart require an explicit compile step to
+You may ask, "but doesn't Dart require an explicit compile step to
 compile to JavaScript for running in the browser?" Well, yes, but we're talking
 specifically about the native Dart VM here. And we <em>are</em> working to make
-the Dart-to-JavaScript side of things as nice of a development experience as we can. Iteration time matters.
+the Dart-to-JavaScript side of things as nice of a development experience as we
+can. Iteration time matters.
 </p>
 
 <h2>Compiling to source</h2>
 
-<p>Of course, Scala and <a href='http://research.microsoft.com/en-us/um/cambridge/projects/fsharp/'>F#</a> show that a new language can be developed
-for an existing VM, but it's possible to do that without bytecode: you can compile to source. Right now, if you want a new language that runs in the browser, compiling to JavaScript is your only option. <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> is the most prominent example of this today, but there are <a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JavaScript">many others</a>. Dart itself compiles to JavaScript to let you use it on browsers that don't support Dart natively.</p>
+<p>Of course, Scala and <a href='http://research.microsoft.com/en-us/um/cambridge/projects/fsharp/'>F#</a> show that a new language can be
+developed for an existing VM, but it's possible to do that without bytecode: you
+can compile to source. Right now, if you want a new language that runs in the
+browser, compiling to JavaScript is your only option. <a
+href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> is the most
+prominent example of this today, but there are <a
+href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JavaScript">many others</a>. Dart itself compiles to JavaScript to
+let you use it on browsers that don't support Dart natively.</p>
 
-<p>Likewise, if you want a new language that runs on Dart's native VM, you could compile that language to Dart. Doing so will then let your language take advantage of all of the optimizations that the VM does when it compiles from source to machine code. In other words, Dart <em>is</em> your (highly specialized) bytecode.</p>
+<p>Likewise, if you want a new language that runs on Dart's native VM, you
+  could compile that language to Dart. Doing so will then let your language
+  take advantage of all of the optimizations that the VM does when it compiles
+  from source to machine code. In other words, Dart <em>is</em> your (highly
+  specialized) bytecode.</p>
 
 </section>

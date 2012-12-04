@@ -5,6 +5,10 @@ description: "An introduction to the Dart I/O library, which is aimed at server-
 rel:
   author: mads-ager
 has-permalinks: true
+article:
+  written_on: 2012-03-01
+  updated_on: 2012-09-01
+  collection: libraries-and-apis
 ---
 
 # {{ page.title }}

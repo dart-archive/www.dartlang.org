@@ -1,8 +1,12 @@
 ---
 layout: default
 title: "Why Dart Types Are Optional and Unsound"
+description: A review of why Dart has optional static type annotations.
 rel:
   author: eli-brandt
+article:
+  written_on: 2011-12-01
+  collection: design-decisions
 ---
 
 <h1>Why Dart Types Are Optional and Unsound</h1>
@@ -11,16 +15,24 @@ rel:
 December 2011</em>
 </p>
 
-<section>
 
-<p>Dart uses types in a way that might seem strange.  Most popular languages that offer a type system use it very differently.  If you're familiar with types in Java, Haskell, Scala, or any statically typed language, you may wonder why on earth Dart makes the choices that it does.</p>
+
+<p>Dart uses types in a way that might seem strange.  Most popular languages
+  that offer a type system use it very differently.  If you're familiar with
+  types in Java, Haskell, Scala, or any statically typed language, you may
+  wonder why on earth Dart makes the choices that it does.</p>
 
 <p>I wondered, too.  Let me try to explain where Dart is coming from.</p>
 
-<p>This document is intended for people who are interested in types and have some knowledge of modern strongly-typed languages, but aren't necessarily deep into type theory.  (For example, me.)  It assumes that you know <em>what</em> Dart's optional types are doing, and are asking <em>why</em>; for a review of the <em>what</em>, see <a href="/articles/optional-types/">Optional Types in Dart</a>.</p>
+<p>This document is intended for people who are interested in types and have
+  some knowledge of modern strongly-typed languages, but aren't necessarily
+  deep into type theory.  (For example, me.)  It assumes that you know
+  <em>what</em> Dart's optional types are doing, and are asking <em>why</em>;
+  for a review of the <em>what</em>, see <a href="/articles/optional-types/">Optional
+  Types in Dart</a>.</p>
 
 
-<section>
+
 <h4> Contents </h4>
 
 <ol class="toc">
@@ -32,10 +44,10 @@ December 2011</em>
 <li><a href="#no-effect-at-runtime">Why do type annotations have no effect at runtime?</a> </li>
 <li><a href="#strong-typing-for-performance">Don't you want strong typing for better performance?</a> </li>
 </ol>
-</section>
 
 
-<section>
+
+
 <h2 id="background">Background: Dart is a dynamically typed language, and proud of it</h2>
 
 <p>Dart is dynamically typed, in the tradition of LISP, Smalltalk, Python, and JavaScript.  Users of dynamically typed languages, and in particular users of JavaScript for web programming, will understand why we chose this.  If you are more of a static typing person, you may not be convinced&mdash;but let's save this for another discussion.  For now, let's take this as a starting point: Dart is dynamically typed.</p>
@@ -64,17 +76,17 @@ Mammal mammal = new Mammal();
 Cow cow = new Cow();
 Pig pig = new Pig();
 {% endhighlight %}
-</section>
 
 
-<section>
+
+
 <h2 id="unsound">Why is the static typing unsound?</h2>
 
 <p>
 Given our goal that Dart's static checks should be optimistic,
 we very soon find that these static checks will be unsound.
 
-<section>
+
 <h3>Optimism on down-assignments</h3>
 
 <p>
@@ -118,10 +130,10 @@ print(pig.oink()); // [3] NoSuchMethodException if we get this far.
 <h3>Dart adds soundness to dynamic typing</h3>
 
 <p>You could look at JavaScript as having a trivial static type system that says "everything is the same type".  This type system never complains about anything, so you could say it's as unsound as you can get.  Dart's static typing is more sound than that, in that it statically rejects more bad programs.</p>
-</section>
 
 
-<section>
+
+
 <h2 id="generics-covariant">Why are generics covariant?</h2>
 
 <p>
@@ -205,10 +217,10 @@ main() {
 <h3>Couldn't Dart do variance inference, or something?</h3>
 
 <p>I wouldn't say the Dart team is in love with covariant generics; it's pragmatic.  Something better could come along, but keep in mind where Dart is coming from in considering what's "better" for it.  We don't want Dart to be a testbed for active programming languages research, but I think we're open to taking up ideas after they become well understood and unsurprising, a.k.a. a little bit boring. And since Dart has already made friends with unsoundness, we're not as motivated as some languages to buy sound generic variance if the cost is complicated type machinery.</p>
-</section>
 
 
-<section>
+
+
 <h2 id="annotations-optional">Why are static type annotations optional?</h2>
 
 <p>One reason is that for Dart to operate as a dynamically typed language, it needs some way to express that a variable makes no static claims about what types of values it can hold.  We express this as <code>var thing = ...</code>, a declaration with no type annotation.  (The alternative is to require static type annotations on all declarations but allow this type to be <code>Dynamic</code>, which permits any value.  But this adds no value for this case, just code clutter.)</p>
@@ -221,10 +233,10 @@ var s = "obviously a string";
 <p>You could also imagine distinguishing the two cases, "declared as dynamic" versus "I don't care to declare a type, but feel free to infer it and use that" (maybe <code>auto s = ...</code>).  The only reason I see to distinguish them is if inferred types are giving spurious static type warnings that you could suppress by declaring as <code>Dynamic</code>, but we don't intend for type inference to give spurious type warnings.  Also, we do have other mechanisms to suppress them if needed, such as the <code>.dynamic</code> getter.</p>
 
 I would imagine that as we work further on the editor experience, we may think about whether we want <code>var</code> declarations to present always as <code>Dynamic</code>, or always as an inferred type if available, or some combination.  But that's purely speculation.
-</section>
 
 
-<section>
+
+
 <h2 id="no-effect-at-runtime">Why do type annotations have no effect at runtime?</h2>
 
 <p>One reason is that type annotations are optional.  If they affect run-time behavior, then what happens to <code>var</code> declarations?  We might always give them behavior as if they were typed <code>Dynamic</code>, but that would be strange when the programmer knows the type but didn't care to type it out.  We might give them behavior depending on what static type is derived by type inference, but that would make your program behavior depend on how complete the inference manages to be, which can be difficult to predict.</p>
@@ -232,15 +244,15 @@ I would imagine that as we work further on the editor experience, we may think a
 <p>Another reason is that type annotations can be completely erroneous.  The program is still allowed to run, as best it can, if runtime checking is not turned on.  Making its behavior depend on incorrect type declarations would be very strange.</p>
 
 <p>Finally, decoupling the static type annotation system from runtime behavior allows it more freedom to evolve.  Imagine two static analysis modes, one more conservative and one more permissive: it's reasonable for your choice of mode to affect whether a given program compiles warning-free, but it would be unreasonable to assign the program two different runtime meanings.</p>
-</section>
 
 
-<section>
+
+
 <h2 id="strong-typing-for-performance">Don't you want strong typing for better performance?</h2>
 
 <p>That's what I thought, too.  The VM designers say that in practice, type guarantees really don't help them nearly as much as you might think, because type checks are not a major drain on performance.</p>
 
-</section>
-</section>
+
+
 
 

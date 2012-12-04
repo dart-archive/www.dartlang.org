@@ -3,7 +3,10 @@ layout: default
 title: Tools for Dart Web Components
 description: "Tools for creating a project with Dart web components"
 rel:
-  author: siggi-cherem
+  author: sigmund-cherem
+article:
+  written_on: 2012-10-01
+  collection: libraries-and-apis
 ---
 # {{ page.title}}
 _Written by Siggi Cherem<br />

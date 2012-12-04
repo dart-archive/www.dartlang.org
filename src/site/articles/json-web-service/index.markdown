@@ -5,9 +5,13 @@ description: "Learn how to consume JSON-based web services with Dart."
 rel:
   author: chris-buckett
 has-permalinks: true
+article:
+  written_on: 2012-04-01
+  updated_on: 2012-11-01
+  collection: libraries-and-apis
 ---
 
-# Using Dart with JSON Web Services
+# {{ page.title }}
 
 _Written by Chris Buckett<br>
 April 2012 (updated November 2012)_

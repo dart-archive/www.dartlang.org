@@ -5,6 +5,9 @@ description: "Learn how to write unit tests for your pub packages using the unit
 rel:
     author: shailen-tuli
 has-permalinks: true
+article:
+  written_on: 2012-11-01
+  collection: libraries-and-apis
 ---
 
 # {{ page.title }}

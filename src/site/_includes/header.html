@@ -17,7 +17,7 @@
 
 	<link rel="stylesheet" href="/css/style.css">
 	{% if page.header and page.header.css %}{% for css in page.header.css %}<link href="{{ css }}" rel="stylesheet" type="text/css">{% endfor %}{% endif %}
-	{% if page.rel.author %}<link rel="author" href="/authors/{{ page.rel.author }}.html">{% endif %}
+	{% for author in page.rel.author %}<link rel="author" href="/authors/{{ author }}.html">{% endfor %}
 	{% if page.rel.me %}<link rel="me" href="{{ page.rel.me }}">{% endif %}
 	<link rel="alternate" type="application/atom+xml" href="http://news.dartlang.org/feeds/posts/default" title="Atom feed">
   <link href="https://plus.google.com/109866369054280216564" rel="publisher">
@@ -54,12 +54,6 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <!-- required for collapseable bar -->
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <a class="brand" href="/" title="Dart Homepage">
             <img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart">
           </a>
@@ -108,26 +102,23 @@
                 <li><a href="/docs/standalone-dart-vm/">Dart VM</a></li>
               </ul>
             </li>
-          </ul>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="dropdown">
-                  <a href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown">
-                        Resources
-                        <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="http://api.dartlang.org" title="Dart API docs">API Reference</a></li>
-                    <li><a href="/samples/">Code Samples</a></li>
-                    <li><a href="http://synonym.dartlang.org/">Translations from JavaScript</a></li>
-                    <li><a href="/slides/">Presentations</a></li>
-                    <li><a href="/books/">Books</a></li>
-                    <li><a href="/dartisans/">Dartisans Videos and Podcast</a></li>
-                    <li><a href="/community/">Community</a></li>
-                  </ul>
-              </li>
+            <li class="dropdown">
+                <a href="#"
+                      class="dropdown-toggle"
+                      data-toggle="dropdown">
+                      Resources
+                      <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="http://api.dartlang.org" title="Dart API docs">API Reference</a></li>
+                  <li><a href="/samples/">Code Samples</a></li>
+                  <li><a href="http://synonym.dartlang.org/">Translations from JavaScript</a></li>
+                  <li><a href="/slides/">Presentations</a></li>
+                  <li><a href="/books/">Books</a></li>
+                  <li><a href="/dartisans/">Dartisans Videos and Podcast</a></li>
+                  <li><a href="/community/">Community</a></li>
+                </ul>
+            </li>
               <li class="dropdown">
                   <a href="#"
                         class="dropdown-toggle"
@@ -143,12 +134,9 @@
                   </ul>
               </li>
               <li><a href="http://news.dartlang.org/" title="The latest news about Dart">News</a></li>
-            </ul>
-            <ul class="nav pull-right">
               <li class="share-button gplus"><div class="g-plusone" data-size="medium" data-callback="gplus_pressed" data-annotation="none"></div></li>
               <li class="share-button twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-hashtags="dartlang">Tweet</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>

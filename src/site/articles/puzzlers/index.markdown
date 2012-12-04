@@ -1,11 +1,15 @@
 ---
 layout: default
 title: "Dart Puzzlers"
+description: "In which Josh Bloch, co-author of the original Java Puzzlers, walks through the puzzles with his Dart hat on."
 rel:
   author: joshua-bloch
+article:
+  written_on: 2012-05-01
+  collection: language-details
 ---
 
-# Dart Puzzlers
+# {{ page.title }}
 
 In which Josh Bloch, co-author of the original Java Puzzlers,
 walks through the puzzles with his Dart hat on.

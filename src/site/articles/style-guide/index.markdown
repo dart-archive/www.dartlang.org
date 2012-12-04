@@ -5,9 +5,13 @@ rel:
   author: bob-nystrom
 description: "Follow these guidelines for consistent, readable Dart code."
 has-permalinks: true
+article:
+  written_on: 2011-10-01
+  updated_on: 2012-11-01
+  collection: everyday-dart
 ---
 
-# Dart Style Guide
+# {{ page.title }}
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
 (updated November 2012)

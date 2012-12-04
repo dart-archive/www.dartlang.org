@@ -6,6 +6,9 @@ rel:
 description: "An introduction to Dart-JavaScript interoperatibility
              using the js Dart library."
 has-permalinks: true
+article:
+  written_on: 2012-09-01
+  collection: libraries-and-apis
 ---
 
 # {{ page.title }}

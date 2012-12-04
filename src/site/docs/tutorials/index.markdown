@@ -1,10 +1,17 @@
 ---
 layout: default
 title: "A Game of Darts&mdash;Tutorials"
-description: "Learn how to build great web apps using Dart."
+description: "A beginner's guide to building web apps with Dart."
 has-permalinks: true
+rel:
+  author:
+    - mary-campione
 tutorial:
   id: tut-home
+article:
+  written_on: 2012-10-01
+  updated_on: 2012-11-01
+  collection: everyday-dart
 ---
 
 {% capture whats_the_point %}

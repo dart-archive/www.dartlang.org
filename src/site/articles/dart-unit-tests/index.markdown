@@ -5,6 +5,10 @@ rel:
   author: graham-wheeler
 description: "Using Dart's unit test library for synchronous and asynchronous tests."
 has-permalinks: true
+article:
+  written_on: 2012-06-01
+  updated_on: 2012-11-01
+  collection: libraries-and-apis
 ---
 
 # {{ page.title }}
