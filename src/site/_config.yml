@@ -9,7 +9,8 @@ pygments: true
 permalink: /news/:year/:month/:day/:title.html
 custom:
   downloads:
-    editor-url-prefix: "https://storage.cloud.google.com/dart-editor-archive"
+    editor-url-prefix: "https://storage.googleapis.com/dart-editor-archive"
+    dartium-url-prefix: "https://storage.googleapis.com/dartium-archive"
     binaries:
       - os: win32
         name: Windows
