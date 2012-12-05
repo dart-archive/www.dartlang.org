@@ -46,7 +46,7 @@ that will contain the running version of the code sample.
 
 # {{ page.title }}
 
-_Written by Siggi Cherem<br />
+_Written by Sigmund Cherem<br />
 October 2012 (Updated November 2012)_
 
 <div>

@@ -15,7 +15,7 @@ and \{\% codesample \%\}.
 
 # {{ page.title }}
 
-_Written by Siggi Cherem<br />
+_Written by Sigmund Cherem<br />
 November 2012_
 
 Dart web components ([DWC][dwc]) provide templates, data binding, and

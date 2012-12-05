@@ -9,7 +9,7 @@ article:
   collection: libraries-and-apis
 ---
 # {{ page.title}}
-_Written by Siggi Cherem<br />
+_Written by Sigmund Cherem<br />
 October 2012_
 
 
