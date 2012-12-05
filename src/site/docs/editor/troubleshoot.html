@@ -54,9 +54,15 @@ If we missed something, please
 
   <div class="macos">
     <p>
-    Almost all Mac OS X systems have a 64-bit OS.
-    If you think yours doesn't, see
-    <a href="#mac-32bit">Failure to launch</a>.
+    Although almost all Mac OS X systems have a 64-bit OS,
+    we currently recommend using the 32-bit Dart Editor,
+    due to 10.8 launch issues.
+    </p>
+
+    <p>
+    However, you are free to download and install the
+    <a class="download-link" data-bits="64" data-os="macos" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-macos-64.zip">
+    64-bit version of Dart Editor</a>.
     </p>
   </div>
 
@@ -72,18 +78,9 @@ If we missed something, please
   <section id="launch-dart-editor">
   <h2> Launching Dart Editor </h2>
 
-  <p>
-    This section discusses problems you might encounter
-    when launching Dart Editor.
-{% comment %}
-    {PENDING: add section on missing JRE?}
-{% endcomment %}
-  </p>
 
 <div class="linux">
-  <section id="32bit">
-  <h3>Failure to launch</h3>
-
+  <section id="linux-32bit">
   <p class="comment">
 
   <p>
@@ -126,7 +123,78 @@ If we missed something, please
 
   </section>
 </div>
-<div class="mac">
+<div class="macos">
+  <p>
+    This section discusses problems you might encounter
+    when launching Dart Editor on Mac OS X.
+  </p>
+
+  <section id="security-preferences">
+  <h3>Unidentified developer</h3>
+
+  <p>
+  If you're running Mac OS 10.8 (Mountain Lion),
+  your computer might refuse to start Dart Editor
+  because it's not from the Mac App Store or an identified developer.
+  Until we fix this problem
+  (<a href="http://code.google.com/p/dart/issues/detail?id=5088">bug
+  #5088</a>),
+  you can work around it.
+  </p>
+
+  <p>
+  The easiest workaround:
+  When launching Dart Editor for the first time,
+  don't double-click the Dart Editor icon.
+  Instead, right-click (or Ctl+click) it to bring up a context menu,
+  and choose <b>Open</b>.
+  Then, in the dialog that comes up, click <b>Open</b>.
+  </p>
+
+  <p>
+  An alternative workaround is to change your security settings.
+  Go to <b>System Preferences > Security & Privacy</b>.
+  In the <b>General</b> tab under
+  <b>Allow applications downloaded from:</b>,
+  choose <b>Anywhere</b>.
+  You should now be able to start Dart Editor.
+  Once you've run Dart Editor,
+  you can change the preference back to its previous setting.
+  </p>
+  </section>
+
+  <section id="corruption">
+  <h3>"DartEditor.app" is damaged (64-bit only)</h3>
+
+  <p>
+  Sometimes when you try to launch a new, 64-bit build of Dart Editor,
+  Mac OS X incorrectly displays a corruption warning:
+  </p>
+
+  <blockquote>
+  "DartEditor.app" is damaged and can't be opened.
+  You should move it to the Trash.
+  </blockquote>
+
+  <p>
+  The workaround is to download and install the
+  <a class="download-link" data-bits="32" data-os="macos" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-macos-32.zip">
+  32-bit version of Dart Editor</a>.
+  </p>
+
+  <section id="java-install">
+  <h3>Java installation failure</h3>
+
+  <p>
+  When you try to run Dart Editor but don't have a Java SE 6 runtime,
+  Dart Editor offers to install Java for you.
+  If the installation doesn't work,
+  you can either restart Dart Editor or
+  <a href="http://support.apple.com/kb/DL1572">install Java yourself</a>.
+  </p>
+
+  </section>
+
   <section id="avstartup">
   <h3>Slow startup</h3>
 
@@ -157,7 +225,7 @@ If we missed something, please
 
 
   <section id="mac-32bit">
-  <h3>Failure to launch</h3>
+  <h3>32-bit Mac</h3>
 
   <p>
   If you're using one of the increasingly rare 32-bit Macs,
@@ -179,10 +247,27 @@ If we missed something, please
   </p>
 
   </section>
+
 </div>
 <div class="win32">
+
   <p>
-    No known launch issues for Windows.
+  Your Java version should have the same bit width as
+  your Dart Editor version.
+  For example, if you're using a 64-bit Dart Editor,
+  then you should use 64-bit Java.
+  Otherwise, you might see a message like this
+  when you try to launch Dart Editor:
+  </p>
+
+<pre>
+Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\client\jvm.dll
+</pre>
+
+    <p>
+    You can find the bit width of your default Java version using the command
+    `java -version`.
+    </p>
 </div>
 
 </section>
