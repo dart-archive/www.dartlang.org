@@ -6,6 +6,9 @@ rel:
 description: "An introduction to reflection in Dart,
               which is based on the concept of mirrors."
 has-permalinks: true
+article:
+  written_on: 2012-11-30
+  collection: libraries-and-apis
 ---
 
 # {{ page.title }}

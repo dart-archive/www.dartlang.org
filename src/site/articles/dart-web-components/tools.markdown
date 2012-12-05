@@ -4,9 +4,6 @@ title: Tools for Dart Web Components
 description: "Tools for creating a project with Dart web components"
 rel:
   author: sigmund-cherem
-article:
-  written_on: 2012-10-01
-  collection: libraries-and-apis
 ---
 # {{ page.title}}
 _Written by Sigmund Cherem<br />
