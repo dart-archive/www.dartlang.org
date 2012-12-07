@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Dart Web Components"
+title: "Web UI Package"
 rel:
   author: sigmund-cherem
-description: "Use web components today with Dart. This brief introduction
-     shows you how to use the features of tomorrow, today."
+description: "Use web components and templates today with Dart. This brief
+     introduction shows you how to use the features of tomorrow, today."
 has-permalinks: true
 article:
   written_on: 2012-10-01
@@ -40,14 +40,14 @@ that will contain the running version of the code sample.
 {% endcomment %}
 
 {% codesampleSetup %}
-{% srcprefix https://github.com/dart-lang/dart-web-components/blob/master/example/explainer/ %}
+{% srcprefix https://github.com/dart-lang/web-ui/blob/master/example/explainer/ %}
 {% iframeprefix example/ %}
 {% endcodesampleSetup %}
 
 # {{ page.title }}
 
 _Written by Sigmund Cherem<br />
-October 2012 (Updated November 2012)_
+October 2012 (Updated December 2012)_
 
 <div>
 <img src="dart_logo.png" width="69" height="70" alt="dart logo">
@@ -55,9 +55,9 @@ October 2012 (Updated November 2012)_
 </div>
 
 
-Dart web components provide templates, data binding, and encapsulation, to help
-you write web applications at scale. An early version is available today
-as a [pub package][dwcpub].
+The Web UI package (Web UI for short) provides web components, templates, data
+binding, and encapsulation, to help you write web applications at scale.  Web UI
+is available as a [pub package][pubpackage].
 
 Many UI frameworks exist for writing web apps in JavaScript&mdash;for example
 [Backbone.js][backbone], [Ember.js][ember], and [AngularJS][angular].  Recently, the web
@@ -66,9 +66,9 @@ frameworks directly into the browser platform.  As a result, browsers have added
 features like [shadow DOM][sd] and [web components][wc], and other experimental
 and cool ideas have been proposed, such as [model-driven views][mdv] (MDV).
 
-Dart web components combine the ideas of web components and MDV, adapting them
-to work well with Dart.  Dart web components take advantage of advanced browser
-features when possible, emulating missing features when necessary.
+Web UI combines the ideas from web components and MDV, adapting them to work
+well with Dart.  The package takes advantage of advanced browser features when
+possible, emulating missing features when necessary.
 
 This article walks through some examples. For more details, check out our
 [specification](spec.html), the [summary of features](summary.html), and our
@@ -76,10 +76,10 @@ This article walks through some examples. For more details, check out our
 
 <div class="alert alert-danger">
 <strong>Note:</strong> The examples in this article do not work
-out of the box in a standard Dart SDK, you need to first set up the Dart web
-component tools. We have a <a href="tools.html">separate article with
-setup instructions</a>, which details how to use Dart Editor and
-command-line scripts to compile Dart web components.
+out of the box in a standard Dart SDK, you need to first set up the Dart Web
+UI tools. We have a <a href="tools.html">separate article with setup
+instructions</a>, which details how to use Dart Editor and command-line scripts
+to compile code that uses Web UI.
 </div>
 
 #### Contents
@@ -97,14 +97,14 @@ command-line scripts to compile Dart web components.
     1. [Passing data to a component](#pass-data-to-component)
     1. [Passing child nodes to a component](#composition)
     1. [Importing a component](#import-components)
-1. [Tools for using Dart web components](#tools)
+1. [Tools for using Web UI](#tools)
 1. [More information](#more-info)
 {:.toc}
 
 ## MDV templates in Dart {#templates}
 
 Most UI frameworks provide templates to specify views with a succinct
-declarative syntax. Dart web components closely follow the MDV syntax, which is
+declarative syntax. Web UI closely follows the MDV syntax, which is
 basically HTML with small extensions to enable the following features:
 
   * **One-way data binding**: Embed data into your UI
@@ -147,12 +147,10 @@ The template expression above is a **one-way data
 binding**. It sets up automatic monitoring of the data,
 and ensures that the UI stays up-to-date when the data's value changes.
 
-Dart web components implement this monitoring
-by using the [watcher.dart][watcher] library
-(included with the Dart web components package).
-You can directly invoke this library if necessary.
-For example, the following code invokes [watchers.dispatch()][watcher.dispatch]
-to make a change visible to the UI.
+Web UI implements this monitoring by using the [watcher.dart][watcher] library.
+You can directly invoke this library if necessary.  For example, the following
+code invokes [watchers.dispatch()][watcher.dispatch] to make a change visible to
+the UI.
 
 {% codesample 90 %}
 {% highlight html %}
@@ -161,7 +159,7 @@ to make a change visible to the UI.
   <div>Hello counter: {{count}}</div>
   <script type="application/dart">
     import 'dart:html';
-    import 'package:web_components/watcher.dart' as watchers;
+    import 'package:web_ui/watcher.dart' as watchers;
     int count;
     main() {
       count = 0;
@@ -178,11 +176,10 @@ to make a change visible to the UI.
 {% iframe 300px 200px counter.html %}
 {% endcodesample %}
 
-Although every now and then it's useful to access watchers
-directly, we don't usually have to manually write these
-calls. In particular, Dart web components automatically make the dispatch
-call when using common features such as two-way binding and attaching event
-listeners.
+Although every now and then it's useful to access watchers directly, we don't
+usually have to manually write these calls. In particular, Web UI tries to
+automatically make the dispatch call when using common features such as two-way
+binding and attaching event listeners.
 
 ### Two-way data binding {#two-way-binding}
 
@@ -213,10 +210,9 @@ Dart variable. The following example creates a two-way binding between `str` and
 {% iframe 300px 200px twoway.html %}
 {% endcodesample %}
 
-This is a simple example where Dart web components automatically dispatch
-events for data-model changes. In particular, whenever you update the value of
-the text box, the string and its length will be updated in other parts of the
-UI.
+This is a simple example where Web UI automatically dispatches events for
+data-model changes. In particular, whenever you update the value of the text
+box, the string and its length will be updated in other parts of the UI.
 
 
 ### Conditionals {#conditionals}
@@ -418,8 +414,8 @@ web components.
 
 Web components provide a way to create encapsulated reusable views, which are
 useful for building medium and large applications. A web component includes a
-view, some data, and behavior. With Dart web components, views are described in
-terms of templates, while data and behavior are written directly in Dart.
+view, some data, and behavior. In Web UI, views are described in terms of
+templates, while data and behavior are written directly in Dart.
 
 ### Declaring a component {#component-declaration}
 
@@ -437,7 +433,7 @@ take the click-count example above and make it a component as follows:
       </div>
     </template>
     <script type="application/dart">
-      import 'package:web_components/web_components.dart';
+      import 'package:web_ui/web_ui.dart';
 
       class CounterComponent extends WebComponent {
         int count = 0;
@@ -521,7 +517,7 @@ initializes the `count` field of the component to a different value each time.
 
 ### Passing child nodes to a component {#composition}
 
-Dart web components support composition. Using a special `<content>` tag, a
+Web components support composition. Using a special `<content>` tag, a
 component can distribute child nodes provided when instantiating it. For
 instance, the following component wraps it's child nodes in a red frame:
 
@@ -581,53 +577,49 @@ as we had above. Then the preceding example could be rewritten as follows:
 {% endraw %}
 {% endhighlight %}
 
-## Tools for using Dart web components {#tools}
+## Tools for using Web UI {#tools}
 
-Several tools will help you create and deploy
-projects that use Dart web components. A compiler tool can be run
-offline to generate efficient code for your components. The generated code will
-try to use the native features available in browsers, but otherwise it will
-resort to other techniques to ensure that the semantics of Dart web components
-are the same everywhere.
+Several tools will help you create and deploy projects that use Web UI. A
+compiler tool can be run offline to generate efficient code for your components
+and templates. The generated code will try to use the native features available
+in browsers, but otherwise it will resort to other techniques to ensure that the
+program semantics are the same everywhere.
 
-Both Dartium and Dart Editor will have support for Dart web components,
-providing you with a smooth edit/refresh cycle.
-In Dart Editor, changes to HTML and Dart source files
-can be compiled automatically in the background.
-An extension for Dartium will compile components on the fly as
-you load them.
+Both Dartium and Dart Editor will have support for Web UI, providing you with a
+smooth edit/refresh cycle.  In Dart Editor, changes to HTML and Dart source
+files can be compiled automatically in the background.  An extension for Dartium
+will compile components on the fly as you load them.
 
-For more details about these tools, see [Tools for Dart Web
-Components](tools.html).
+For more details about these tools, see [Tools for Web UI](tools.html).
 
 ## More information {#more-info}
 
-There are many resources to explore and learn more about Dart web components.
-Read the [summary of features](summary.html) and the [full
-specification](spec.html). Check out our Dartisans episode on this topic:
+There are many resources to explore and learn more about Web UI.  Read the
+[summary of features](summary.html) and the [full specification](spec.html).
+Check out our two Dartisans episodes on this topic:
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/zUdQkSwslzc" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/CqS4lnO_dqs" frameborder="0" allowfullscreen></iframe>
 
-You can also follow the project in [GitHub][dwc], track and file bugs in our
+You can also follow the project in [GitHub][project], track and file bugs in our
 [issue tracker][bugs], and play with other examples in our repo, such as our
-port of [TodoMVC][todomvcindwc].
+port of [TodoMVC][todomvcindwc].  Please note that we recently changed the name
+of this package from *Dart web components* to *Web UI*.
 
-If you have any questions, you can
-ask them at [Stack Overflow][so]
-or contact us on the [Dart discussion group][group]
-(misc AT dartlang.org).
+If you have any questions, you can ask them at [Stack Overflow][so] or contact
+us on the [Dart discussion group][group] (web-ui AT dartlang.org).
 
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
 [wc]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html
 [mdv]: http://code.google.com/p/mdv/
-[dwcpub]: http://pub.dartlang.org/packages/web_components
-[dwc]: https://github.com/dart-lang/dart-web-components/
-[bugs]: https://github.com/dart-lang/dart-web-components/issues
+[pubpackage]: http://pub.dartlang.org/packages/web_ui
+[project]: https://github.com/dart-lang/web-ui/
+[bugs]: https://github.com/dart-lang/web-ui/issues
 [backbone]: http://backbonejs.org/
 [angular]: http://angularjs.org/
 [ember]: http://emberjs.com/
-[todomvcindwc]: https://github.com/dart-lang/dart-web-components/tree/master/example/todomvc
-[watcher]: http://dart-lang.github.com/dart-web-components/docs/watcher.html
-[watcher.dispatch]: http://dart-lang.github.com/dart-web-components/docs/watcher.html#dispatch
-[group]: https://groups.google.com/a/dartlang.org/group/misc/topics
+[todomvcindwc]: https://github.com/dart-lang/web-ui/tree/master/example/todomvc
+[watcher]: http://dart-lang.github.com/web-ui/docs/watcher.html
+[watcher.dispatch]: http://dart-lang.github.com/web-ui/docs/watcher.html#dispatch
+[group]: https://groups.google.com/a/dartlang.org/group/web-ui/topics
 [so]: http://stackoverflow.com/tags/dart

@@ -1,27 +1,26 @@
 ---
 layout: default
-title: Tools for Dart Web Components
-description: "Tools for creating a project with Dart web components"
+title: Tools for Web UI
+description: "Tools for creating a project with Web UI"
 rel:
   author: sigmund-cherem
 ---
 # {{ page.title}}
 _Written by Sigmund Cherem<br />
-October 2012_
+October 2012 (Updated December 2012)_
 
 
-Dart web components provide templates, data binding, and encapsulation to help
-you write web applications at scale. You can learn about Dart web components in
-our [explainer article](index.html). This article describes tools that will
-help you create and deploy projects that use Dart web
-components.
+The Web UI package (Web UI for short) provides web components and templates to
+help you write web applications at scale. You can learn about this package in
+our [explainer article](index.html). This article describes tools that will help
+you create and deploy projects that use Web UI.
 
 
 ## The overall approach: a compiler in disguise
 
-We use a compiler to generate efficient code for your Dart web components.
-You'll sometimes invoke this compiler from the command line, but often you might
-not even know that it's there.
+We use a compiler to generate efficient code for applications that use the Web
+UI package.  You'll sometimes invoke this compiler from the command line, but
+often you might not even know that it's there.
 
 Special support is available for both [Dartium][dartium] and the [Dart
 Editor][editor] to provide you with a smooth edit/refresh cycle.  Below you'll
@@ -33,16 +32,16 @@ to JavaScript.
 
 ## Set up
 
-Dart web components is available under the `web_components` pub package. Simply
-add a dependency to your `pubspec.yaml` file:
+Web UI is available under the `web_ui` pub package. Simply add a dependency to
+your `pubspec.yaml` file:
 
     ...
     dependencies:
-      web_components: any
+      web_ui: any
 
 Then run `pub install` and you'll have everything you need to get started. You
-can use `package:web_components/...` imports in your code, and you will be able
-to access our compiler under `packages/web_components/dwc.dart`.
+can use `package:web_ui/...` imports in your code, and you will be able
+to access our compiler under `packages/web_ui/dwc.dart`.
 
 ## Command-line API
 
@@ -51,7 +50,7 @@ on the entry point of your application. For instance, the following example
 shows how to compile an application under the directory `web`, whose entry point
 is `app.html`.
 
-    > dart --package-root=packages/ packages/web_components/dwc.dart --out web/out/ web/app.html
+    > dart --package-root=packages/ packages/web_ui/dwc.dart --out web/out/ web/app.html
 
 <aside><div class="alert alert-info">
 <strong>Note:</strong> This command will get simpler in the future. We
@@ -88,7 +87,7 @@ Recent versions of Chrome have experimental support for [shadow DOM][sd], and
 our generated code can use it if it is available. This feature is not enabled
 by default. To turn it on, you need to:
 
-  * Import `package:web_components/web_components.dart` and
+  * Import `package:web_ui/web_ui.dart` and
     set `useShadowDom = true` in your app's main script.
   * Provide the special flag `--enable-experimental-webkit-features` to Chrome
     or Dartium.
@@ -112,7 +111,7 @@ named `build.dart` in the same directory as your `pubspec.yaml` file with the
 following contents:
 
 {% highlight dart %}
-import 'package:web_components/component_build.dart';
+import 'package:web_ui/component_build.dart';
 import 'dart:io';
 
 void main() {
@@ -120,10 +119,12 @@ void main() {
 }
 {% endhighlight %}
 
-This script will invoke `dwc` on `web/app.html` every time the Dart
-Editor detects that you changed a file in your project.  When you want to
-launch your app, you can find the generated file under `web/out/app.html`
-in your editor, and request the editor to launch it in Dartium.
+This script will invoke `dwc` on `web/app.html` every time the Dart Editor
+detects that you changed a file in your project.  When you want to launch your
+app, you can directly launch the input HTML file `web/app.html` and the editor
+will automatically redirect to run the generated file. You can also find the
+generated file under `web/out/app.html`, and request the editor to launch it
+directly.
 
 ## Dartium on-demand compilation
 
@@ -150,8 +151,8 @@ Once you installed the extension, you can open `app.html` directly in Dartium,
 and the extension will take care of everything else.
 
 
-[dwc]: https://github.com/dart-lang/dart-web-components/
-[extension]: http://dart-lang.github.com/dart-web-components/extension/dwc.crx
+[dwc]: https://github.com/dart-lang/web-ui/
+[extension]: http://dart-lang.github.com/web-ui/extension/web_ui.crx
 [dartium]: http://www.dartlang.org/dartium/
 [editor]: http://www.dartlang.org/docs/editor/
 [dart2js]: http://www.dartlang.org/docs/dart2js/

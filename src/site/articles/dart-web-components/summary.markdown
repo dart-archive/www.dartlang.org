@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Dart Web Components and Templates Feature Summary"
+title: "Web UI Feature Summary"
 rel:
   author: siggi-cherem
-description: "A table summarizing all features in Dart Web Components and Templates."
+description: "A table summarizing all features in the Web UI package."
 has-permalinks: true
 ---
 {% comment %}
@@ -16,13 +16,13 @@ See README comment in index.markdown for explanations of
 # {{ page.title }}
 
 _Written by Sigmund Cherem<br />
-November 2012_
+November 2012 (Updated December 2012)_
 
-Dart web components provide templates, data binding, and encapsulation to help
-you write web applications at scale. The following tables collect
-all features supported by Dart web components. Read the [reference
-specification](spec.html) for more details, or refer to our [explainer
-article](index.html) for a high-level introduction and examples.
+The Web UI package (Web UI for short) provides web components and templates to
+help you write web applications at scale. The following tables collect all
+features supported by Web UI. Read the [reference specification](spec.html) for
+more details, or refer to our [explainer article](index.html) for a high-level
+introduction and examples.
 
 #### Contents
 1. [Web components features](#web-components-features)
@@ -238,7 +238,7 @@ and within components that the current HTML page defines.
 Injects the value of evaluating <em>exp</em> in the document and watches for
 changes. Any time a change to <em>exp</em> is detected, the UI is updated.
 Values of the special type SafeHtml (from <a
-href="https://github.com/dart-lang/dart-web-components/blob/master/lib/safe_html.dart">package:web_components/safe_html.dart</a>)
+href="https://github.com/dart-lang/web-ui/blob/master/lib/safe_html.dart">package:web_components/safe_html.dart</a>)
 are treated in a special manner.
 If the value of <em>exp</em> is not SafeHtml,
 the contents are converted to a string
