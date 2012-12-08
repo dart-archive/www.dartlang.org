@@ -607,7 +607,7 @@ port of [TodoMVC][todomvcindwc].  Please note that we recently changed the name
 of this package from *Dart web components* to *Web UI*.
 
 If you have any questions, you can ask them at [Stack Overflow][so] or contact
-us on the [Dart discussion group][group] (web-ui AT dartlang.org).
+us on the [Web UI discussion group][group] (web-ui AT dartlang.org).
 
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
 [wc]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html
