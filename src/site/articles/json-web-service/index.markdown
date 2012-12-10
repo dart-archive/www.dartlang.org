@@ -138,7 +138,7 @@ onSuccess(HttpRequest req) {
 }
 
 String jsonData = '{"language":"dart"}'; // etc...
-saveLanguageData(stringData, onSuccess); // send the data to
+saveLanguageData(jsonData, onSuccess); // send the data to
                                          // the server
 {% endhighlight %}
 
