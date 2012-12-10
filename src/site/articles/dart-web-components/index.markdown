@@ -8,7 +8,7 @@ description: "Use web components and templates today with Dart. This brief
 has-permalinks: true
 article:
   written_on: 2012-10-01
-  updated_on: 2012-11-01
+  updated_on: 2012-12-01
   collection: libraries-and-apis
 ---
 {% comment %}
