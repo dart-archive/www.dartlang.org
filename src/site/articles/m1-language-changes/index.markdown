@@ -8,14 +8,14 @@ description: "A brief introduction to some of the language changes planned
 has-permalinks: true
 article:
   written_on: 2012-07-01
-  updated_on: 2012-11-01
+  updated_on: 2012-12-01
   collection: language-details
 ---
 
 # {{ page.title }}
 _Written by Bob Nystrom <br />
 July 2012
-(updated November 2012)_
+(updated December 2012)_
 
 Right now as we near our "Milestone 1" release, we are making a slew of fun
 language changes. There are tracking bugs in the repo for all of them, but I
@@ -51,6 +51,7 @@ where I can.
 1. [Simpler equality](#simpler-equality)
 1. [Metadata](#metadata)
 1. [Import and library syntax changes](#import-and-library-syntax-changes)
+1. [Strings are UTF-16](#strings-are-utf-16)
 1. [Conclusion](#conclusion)
 {:.toc}
 
@@ -132,7 +133,7 @@ class.
 
 ## No "+" on String
 
-A deeply contentious issue, Dart no longer allows using the "+" operator on
+Dart no longer allows using the "+" operator on
 strings. So no more:
 
 {% highlight dart %}
@@ -230,7 +231,7 @@ directly. But that forces API designers to choose between returning a useful
 value or allowing chaining: they can’t support both. It also forces all APIs to
 be designed up front to support this technique.
 
-To remedy that, Smalltalk pioneered something called "message cascades" which
+To remedy that, Smalltalk pioneered something called "message cascades", which
 Dart has adopted. These let you sequence a series of method calls that all apply
 to the same receiver, like so:
 
@@ -242,7 +243,7 @@ query('#my-form').query('button')
 {% endhighlight %}
 
 Here, everything after `..` is called on the result of the expression before the
-first `..`. What’s nice is that this works with every API, not just ones
+first `..`. What’s nice is that cascades work with every API, not just ones
 explicitly implemented using a fluent pattern.
 
 ([Tracking issue #2501](http://dartbug.com/2501))
@@ -261,7 +262,7 @@ class Stopwatch {
 {% endhighlight %}
 
 We’ve decided to loosen that so that `static final` fields and `final` top-level
-variables can be initialized using *any* expression. These will then be lazy
+variables can be initialized using *any* expression. These will then be lazily
 initialized the first time the variable is accessed. This is closer to behavior
 users coming from Java or C# expect given Dart’s similar syntax.
 
@@ -305,7 +306,7 @@ Since `someConstant` doesn’t *have* to be constant now, it may not be, which
 means it can’t be used in a constant expression like `const [someConstant]`. To
 fix that, Dart will also allow `const` as a modifier for variables. This way you
 can indicate which top-level `final` variables and `static final` fields are
-constant and which are lazy-initialized non-constant:
+constant and which are lazily-initialized non-constant:
 
 {% highlight dart %}
 class SomeClass {
@@ -328,9 +329,9 @@ those operators. We’ll disambiguate unary and binary minus by their arity
 
 {% highlight dart %}
 class MagicNumber {
-  bool operator ==(other) => …
-  MagicNumber operator -() => … // unary negate
-  MagicNumber operator -(other) => … // infix minus
+  bool operator ==(other) => ...
+  MagicNumber operator -() => ... // unary negate
+  MagicNumber operator -(other) => ... // infix minus
 }
 {% endhighlight %}
 
@@ -367,10 +368,11 @@ In other words, with this change, your local `foo()` will *shadow* the new one
 in "somelib" instead of colliding, and your code does the right thing.
 
 In addition, we’ve removed another annoying restriction. Previously, if you
-imported the same name from two different libraries (say Node from dart:html and
-dartdoc) then you would get a name collision error *even if you didn’t use that
+imported the same name from two different libraries
+(say, Node from dart:html and dartdoc)
+then you would get a name collision error *even if you didn’t use that
 name anywhere in your code.* Now, Dart will only worry about name collisions for
-names that you actually use. You only get an error if there is an ambiguous
+names that you actually use. You get an error only if there is an ambiguous
 *use* of a name in your code.
 
 ([Tracking issue #1285](http://dartbug.com/1285))
@@ -677,7 +679,7 @@ places. In M1, `throw` has been converted to an expression.
 For example, now in M1, you can throw exceptions from one-line functions.
 
 {% highlight dart %}
-String get prettyVersion() => throw const NotImplementedException();
+String get prettyVersion => throw const NotImplementedException();
 {% endhighlight %}
 
 ([Tracking issue #587](http://dartbug.com/587))
@@ -1087,6 +1089,15 @@ part of trading_cards;
 Coming soon.
 
 {:/comment}
+
+## Strings are UTF-16
+
+Before M1, a string was a sequence of Unicode character codes.
+Now, a string is a sequence of valid UTF-16 code units.
+This is mostly an internal change to improve performance,
+but you might care about it
+if your code compares or stores strings.
+
 
 ## Conclusion
 
