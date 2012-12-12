@@ -133,7 +133,7 @@ encapsulated using [Shadow DOM][sd]. Within a `<template>` it is valid to:
   * use other [component tag names](#declaration)
   * use [templating features](#template-syntax) (described further below)
   * use the `<content>` element for [composition][content-el]
-  * use ithe `<shadow>` element for [extension][shadow-el]
+  * use the `<shadow>` element for [extension][shadow-el]
 
 The `<content>` tag, combined with [CSS selectors][css],
 lets you control how to
@@ -167,10 +167,10 @@ tag declares the code associated with the component.
 It must be specified unless
 a component has no behavior and its code can be assumed to be an empty class.
 If the tag is present, it must use the `type="application/dart"` attribute to
-indicate that the code is written is in Dart.
+indicate that the code is written in Dart.
 
 Whether you write code inline or you include it via a `src` attribute, the code
-must be a valid Dart library. In such library you must define a class
+must be a valid Dart library. In such a library you must define a class
 corresponding to the component. The name of this class must match the name
 specified by the `constructor` attribute. For example,
 
@@ -200,7 +200,7 @@ from the tag name, for example,
 {% endhighlight %}
 
 Currently the component's Dart class must be a subclass of `WebComponent` from
-`package:web_components/web_components.dart`.
+`package:web_ui/web_ui.dart`.
 
 <aside>
 <div class="alert alert-info">
@@ -274,7 +274,7 @@ href="https://github.com/dart-lang/web-ui/issues/93">issue #93</a>.
 
 You can reach a component instance using the `xtag` property of the
 associated HTML element. For example, if you create a tag as `<x-foo
-id="#example"></x-foo>` in the top-level body of your page, you can get an
+id="example"></x-foo>` in the top-level body of your page, you can get an
 instance of the component by calling `document.query('#example').xtag`.
 
 Note that `xtag` only works after an application is initialized and web
@@ -332,7 +332,7 @@ programatically access its template.
 
 #### Lifecycle methods
 
-Special callback methods are invoked by during the lifetime of a Dart web
+Special callback methods are invoked during the lifetime of a Dart web
 component. These methods are defined as part of the `WebComponent` class, and
 you can override them to run code at those lifecycle events. These special
 lifecycle methods are:
@@ -433,7 +433,7 @@ page will be updated in place.
 
 You can use any valid Dart expression inside the double brackets `{{'{{'}} ...
 }}`. While any expression is allowed, it is good practice to use expressions
-that are have no visible side-effects. In particular, binding expressions will
+that have no visible side-effects. In particular, binding expressions will
 be evaluated to render your application, and sometimes they might be evaluated
 more than once in a single event cycle. If your expression has visible
 side effects, those changes might trigger more updates in the document
@@ -447,8 +447,8 @@ instance, if we use `x='<span>two</span>'`, the result will be `<span>one
 &lt;span&gt;two&lt;/span&gt; three</span>`
 
 On occasions, you may want to inject HTML fragments directly in the page.
-You can do so by creating an `SafeHtml` class under
-[`package:web_components/safe_html.dart`][safehtml]. If your content happen to
+You can do so by creating an instance of `SafeHtml` (see 
+[`package:web_ui/safe_html.dart`][safehtml]). If your content happen to
 be an instance of `SafeHtml`, then the data will not be escaped.
 
 **Note:** Use `SafeHtml` carefully. In particular, you can easily
@@ -636,7 +636,7 @@ groups behave exactly the same way.
 As hinted in the previous sections, data bindings are reactive. We would like
 the UI to be updated automatically whenever a Dart expression used in a data
 binding changes. Watchers provide a way to implement this functionality. Their
-implementation is available under `package:web_components/watcher.dart`. For
+implementation is available under `package:web_ui/watcher.dart`. For
 each expression used in a data binding, we create a watcher. These watchers are
 inactive until the special method `dispatch` in the watcher's library is
 invoked. The `dispatch` method will iterate over all active watchers and fire
@@ -739,12 +739,12 @@ here
 Unconditional portion 2
 {% endhighlight %}
 
-Note that the contents of the initial template not are not within the template
+Note that the contents of the initial template are not within the template
 tag anymore, they got added directly as siblings. This behavior is
 intentional. Template nodes are intended to be inert, and they are mainly used
 as a declaration. This matches closely the semantics of [MDV][mdv] templates.
 
-A benefit of this semantics is that the resulting HTML is often closer to the
+A benefit of this semantics is that the resulting HTML is often closer to 
 what the developer intended to say. For example, a template of the form:
 
 {% highlight html %}
@@ -825,7 +825,7 @@ The runtime semantics of these conditionals is similar, but not quite the same
 as conditional `<template>` elements. Like before, an invisible placeholder is
 added to the tree regardless of the condition being true or false. Instead of a
 template node, the HTML will have an empty clone of the element annotated with
-the condition. When the condition is true, the actual element it self is added
+the condition. When the condition is true, the actual element itself is added
 (with the template attribute removed). For instance, the following shows the
 rendered tree when the condition is true in the example above:
 
