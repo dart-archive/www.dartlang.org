@@ -67,10 +67,10 @@ class CloudStorageRedirect(RequestHandler):
     self.redirect(self.prefix + path, permanent=False)
 
 class EditorUpdateRedirect(CloudStorageRedirect):
-  prefix = 'http://gsdview.appspot.com/dart-editor-archive-integration'
+  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
 
 class EclipseUpdateRedirect(CloudStorageRedirect):
-  prefix = 'http://commondatastorage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
   def get(self, *args, **kwargs):
     filename = kwargs['path']
     if filename == '' or filename == '/':
