@@ -29,17 +29,33 @@ October 2011
   <li><a href="#more-granular-libraries">More granular libraries</a></li>
 </ol>
 
-<p>One of the great opportunities a new language gives you is a chance to also define a cleaner set of APIs for users to work with. When it comes to coding in a browser, that API is the DOM. The DOM API that JavaScripters suffer is creaking under the weight of history and technological ballast such as XML.</p>
+<p>One of the great opportunities a new language gives you is a chance to also
+define a cleaner set of APIs for users. When it comes to coding in a browser,
+that API is the DOM. The DOM API that JavaScripters suffer is creaking under the
+weight of history and technological ballasts such as XML.</p>
 
-<p>We have the chance to blow away a lot of that history and were lucky enough to get <a href="http://infrequently.org/">Alex Russell</a> and <a href="http://erik.eae.net/">Erik Arvidsson</a> to help us lay out what the DOM could have looked like if we had a time machine. Here's a glimpse.</p>
+<p>With Dart, we have the chance to blow away a lot of that history and were lucky enough to get <a href="http://infrequently.org/">Alex Russell</a> and <a href="http://erik.eae.net/">Erik Arvidsson</a> to help us lay out what the DOM could have looked like if we had a time machine. Here's a glimpse:</p>
 
 <h2 id="simpler-names">Simpler names</h2>
 
-<p>The simplest changes were just cleaning up some painful names. <code>HTMLElement</code> is just <code>Element</code> and we've dropped <code>HTML</code> from most of the type names. Instead of <code>childNodes</code> and <code>children</code> we have <code>nodes</code> and <code>elements</code>. <code>ownerDocument</code> is just <code>document</code>. We've tried to optimize names so that the things you use the most are the most terse.</p>
+<p>The simplest changes were just cleaning up some painful names.
+<code>HTMLElement</code> is just <code>Element</code> and we've dropped
+<code>HTML</code> from most of the type names when it makes sense. Instead of
+<code>childNodes</code> and <code>children</code> we have <code>nodes</code> and
+<code>elements</code>. <code>ownerDocument</code> is just <code>document</code>.
+We've tried to optimize names so that the things you use the most are the most
+terse.</p>
 
 <p>When's the last time you use <code>XMLHttpRequest</code> to actually, you
   know, request XML? We thought so. So we've renamed <code>XMLHttpRequest</code>
   to <code>HttpRequest</code>.</p>
+
+<p>We've also made the captialization of names for DOM types more consistent.
+Take a look at good ol' <code>XMLHttpRequest</code>. Why not
+<code>XmlHttpRequest</code> or even <code>XMLHTTPRequest</code>? In
+Dart, you won't have to wonder -- all names containing acronyms with greater
+than two letters always use camelCase for capitalization, like
+<code>SvgSvgElement</code>.
 
 <h2>Better querying</h2>
 
@@ -162,7 +178,7 @@ TableElement table = new Element.html(
     '&lt;table&gt;&lt;tr&gt;&lt;td&gt;Hello &lt;em&gt;Dart!&lt;/em&gt;&lt;/table&gt;');
 </pre>
 
-<p>We're still fleshing this out, but with Dart's named constructors, we should be able to make it pretty easy to conjure up DOM objects in a variety of ways.</p>
+<p>With Dart's named constructors, we make it cleaner to conjure up DOM objects in a variety of ways.</p>
 
 <h2 id="events">Events</h2>
 
@@ -172,7 +188,7 @@ TableElement table = new Element.html(
 
 <p>We've simplified that. We killed all of the <code>on___</code> properties on Element and then created a new ElementEvents class. For each of the known event types, there is a property on that class: <code>click</code>, <code>mouseDown</code>, etc. Each of those properties is an event object that can add and remove listeners and dispatch events.</p>
 
-<p>We wired that back up to the DOM by giving Element a property called <code>on</code> that accesses it. Now all of the event-related functionality is tucked away in a single property. On the off chance that you <em>do</em> want to register a dynamically-named event, we also put a subscript operator on ElementEvents. That's a lot of text. Here's some code:</p>
+<p>We wired that back up to the DOM by giving Element a property called <code>on</code> that accesses it. Now all of the event-related functionality is tucked away in a single property. That's a lot of text. Here's some code:</p>
 
 <div class="row">
   <div class="span6">
@@ -196,7 +212,9 @@ elem.on.click.remove(listener);
   </div>
 </div>
 
-<p>For the rare times where you do need to work with events generically, or dynamically generate their names, we also added a subscript operator to ElementEvents so you can do that too:</p>
+<p> On the off chance that you <em>do</em> want to register a dynamically-named
+event, or work with events generically, we also put a subscript operator on
+ElementEvents:</p>
 
 <div class="row">
   <div class="span6">
@@ -211,7 +229,7 @@ elem.addEventListener(
   <div class="span6">
 <pre>
 // New:
-elem.on['some' + 'name'].add(
+elem.on['dynamic' + 'event' + 'name'].add(
     (event) => print('dynamic!'));
 </pre>
   </div>
@@ -236,8 +254,29 @@ elem.on['some' + 'name'].add(
 </p>
 
 <p>
-  We expect <code>dart:svg</code> is only the beginning, with more functionality to
-  graduate to individual libraries over time.
+  Other subdivided DOM libraries include <code>dart:indexed_db</code>,
+  <code>dart:web_audio</code>.
+</p>
+
+<h2 id="cross-browser-consistency">Cross-browser consistency in HTML APIs</h2>
+
+<p>
+  When was the last time you had to write browser-specific variations of your
+  code so that your website would behave similarly on each browser?
+  Probably the last time you wrote code for the web!
+</p>
+
+<p>
+  Dart strives to provide consistency in behavior across browsers so that you
+  don't have to worry about these details. While this is still a work in
+  progress, you will probably find yourself worrying less about browser
+  specifics when using the Dart HTML libraries.
+</p>
+
+<p>
+  One such example is the <code>KeyboardEventController</code> class, which
+  provides better support for keyboard events on international keyboard
+  variants.
 </p>
 
 <h2>Want to know more?</h2>
