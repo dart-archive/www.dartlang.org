@@ -32,7 +32,7 @@ October 2011
 <p>One of the great opportunities a new language gives you is a chance to also
 define a cleaner set of APIs for users. When it comes to coding in a browser,
 that API is the DOM. The DOM API that JavaScripters suffer is creaking under the
-weight of history and technological ballasts such as XML.</p>
+weight of history and technological ballast such as XML.</p>
 
 <p>With Dart, we have the chance to blow away a lot of that history and were lucky enough to get <a href="http://infrequently.org/">Alex Russell</a> and <a href="http://erik.eae.net/">Erik Arvidsson</a> to help us lay out what the DOM could have looked like if we had a time machine. Here's a glimpse:</p>
 
@@ -50,12 +50,12 @@ terse.</p>
   know, request XML? We thought so. So we've renamed <code>XMLHttpRequest</code>
   to <code>HttpRequest</code>.</p>
 
-<p>We've also made the captialization of names for DOM types more consistent.
+<p>We've also made the capitalization of names for DOM types more consistent.
 Take a look at good ol' <code>XMLHttpRequest</code>. Why not
 <code>XmlHttpRequest</code> or even <code>XMLHTTPRequest</code>? In
-Dart, you won't have to wonder -- all names containing acronyms with greater
+Dart, you don't have to wonder&mdash;all names containing acronyms with greater
 than two letters always use camelCase for capitalization, like
-<code>SvgSvgElement</code>.
+<code>SvgElement</code>.
 
 <h2>Better querying</h2>
 
@@ -178,7 +178,7 @@ TableElement table = new Element.html(
     '&lt;table&gt;&lt;tr&gt;&lt;td&gt;Hello &lt;em&gt;Dart!&lt;/em&gt;&lt;/table&gt;');
 </pre>
 
-<p>With Dart's named constructors, we make it cleaner to conjure up DOM objects in a variety of ways.</p>
+<p>Dart's named constructors make it easier to conjure up DOM objects in a variety of ways.</p>
 
 <h2 id="events">Events</h2>
 
@@ -188,7 +188,9 @@ TableElement table = new Element.html(
 
 <p>We've simplified that. We killed all of the <code>on___</code> properties on Element and then created a new ElementEvents class. For each of the known event types, there is a property on that class: <code>click</code>, <code>mouseDown</code>, etc. Each of those properties is an event object that can add and remove listeners and dispatch events.</p>
 
-<p>We wired that back up to the DOM by giving Element a property called <code>on</code> that accesses it. Now all of the event-related functionality is tucked away in a single property. That's a lot of text. Here's some code:</p>
+<p>We wired that back up to the DOM by giving Element a property called
+<code>on</code> that accesses it. Now all of the event-related functionality is
+tucked away in a single property. Here's an example:</p>
 
 <div class="row">
   <div class="span6">
