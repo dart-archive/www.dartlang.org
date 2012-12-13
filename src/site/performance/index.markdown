@@ -60,12 +60,17 @@ Are the results 32-bit or 64-bit?
 : They are 32-bit. While the code runs on a 64-bit operating system, we’re
   running the 32-bit version of both the V8 and Dart VMs.
 
-Is it fair to use typed versions of the benchmarks for Dart? Shouldn't they be untyped to make the comparison with JavaScript fair? (credit to [olliej on HN](http://news.ycombinator.com/item?id=4903435))
+Is it fair to use typed versions of the benchmarks for Dart? Shouldn't they be untyped to make the comparison with JavaScript fair? 
 : Yes, it is fair. Type annotations in Dart have &mdash; by design &mdash;
   no impact on
   runtime performance in the VM's default mode (production). For more details,
   read more about Dart's
   [optional static types](http://www.dartlang.org/articles/optional-types/) and
   [why they are optional](http://www.dartlang.org/articles/why-dart-types/).
+  _Credit to [olliej on HN](http://news.ycombinator.com/item?id=4903435)._
+
+Where are the other benchmarks?
+: Porting benchmarks correctly takes time. As more benchmarks become ready,
+  we will publish more charts.
 
 </section>
