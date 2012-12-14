@@ -56,3 +56,18 @@ DEPLOYMENT
   * this command will then deploy the site
 * You will probably need to grab a unique password from your Google Account settings.
   * Save this into the App Engine Launcher during the first deployment.
+
+REGENERATING DARTISANS PLAYLISTS
+
+Did you just run a Dartisans? Good for you! Here's what you need to do:
+
+1. Update the description to be present tense (instead of future), to remove the
+   link to the moderator page.
+1. Ensure the episode is added to the Dartisans playlist, owned by
+   Google Developers channel.
+1. Sort the playlist by date.
+1. Ensure your episode explicitly sets a Recorded On date.
+1. Format your episode's title like this: "Dartisans ep. XX: Subtitle Here"
+1. Pick a great image thumbnail. Don't use the static Dart logo.
+1. Now run `make dartisansplaylist`
+1. Test it, commit, and go!

@@ -6,7 +6,7 @@ description: "The Dartisans show features special guests from the Dart team and 
 
 {% injectdata episodes dartisans/episodes.yaml %}
 
-# Dartisans &mdash; The Dart show and podcast
+# Dartisans: The Dart show and podcast
 
 This page archives recordings of Dartisans, the video show
 and podcast about Dart. Dartisans is a semi-regular
@@ -26,14 +26,14 @@ or with
 
 <div class="row" style="margin-bottom:1em">
   <div class="span2">
-    <a href="{{ link }}"><img style="margin-top:9px; box-shadow: 5px 5px 10px #CCC" src="dartisans-{{episode.num | format_num: "%02d" }}-thumb.jpeg"></a>
+    <a href="{{ link }}"><img style="margin-top:9px; box-shadow: 5px 5px 10px #CCC" src="{{episode.thumbnail}}"></a>
   </div>
   <div class="span10">
-    <h3><a href="{{ link }}">Ep. {{ episode.num}}: {{ episode.subtitle }}</a></h3>
+    <h3><a href="{{ link }}">Ep. {{ episode.num }}: {{ episode.subtitle }}</a></h3>
     
     <p>{{ episode.description }}</p>
 
-    <p>Aired {{episode.pubdate}}.</p>
+    <p>{{episode.pubdate}}</p>
   </div>
 </div>
 

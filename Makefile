@@ -26,3 +26,6 @@ optimize:
 
 o2:
 	@find . -iname *.png | xargs -L 1 optipng -o2
+
+dartisansplaylist:
+	dart scripts/gen_dartisans_playlist.dart
