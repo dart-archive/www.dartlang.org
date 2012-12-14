@@ -51,7 +51,7 @@ from the New Application window in Dart Editor.
 
 Start Dart Editor and bring up the **New Application** window.
 Use vector_victor for the application name.
-Select **Add pub support** to make Dart Editor
+Select **Add Pub support** to make Dart Editor
 generate basic package support.
 Click **Finish**.
 
@@ -65,7 +65,9 @@ Double click pubspec.yaml to view its contents.
 ![Dart Editor with pubspec.yaml file](images/victor-files.png)
 
 The pubspec.yaml file is what makes the vector_victor directory a package.
-This file contains the package specification written in YAML.
+This file contains the package specification written in YAML
+(visit <a href="http://pub.dartlang.org/doc/pubspec.html">Pubspec Format</a>
+for in-depth coverage).
 At minimum, the pubspec provides a name for the package.
 It also can provide a description and identify packages on
 which this package depends.
@@ -111,12 +113,19 @@ the vector_math package,
 modify the pubspec.yaml file as shown below.
 Be sure to remove the hash marks (#) so that
 the dependencies list is not commented out.
+Also, YAML is whitespace sensitive;
+it's important to indent the package name.
 
 ![A pubspec with dependency on the vector_math package](images/pubspec-vectormath.png)
 
 `any` means that this application can use
 any version of the vector_math package.
 You could instead specify a particular version of the package.
+When versioning becomes important to your project,
+check out
+<a href="http://pub.dartlang.org/doc/versioning.html">
+Pub's Versioning Philosophy
+</a>.
 
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 is the primary public repository for Dart packages.
@@ -130,7 +139,8 @@ as we have done here.
 
 In Dart Editor, save pubspec.yaml with **File > Save**.
 When you save the file,
-Dart Editor automatically runs pub install,
+Dart Editor automatically runs
+<a href="http://pub.dartlang.org/doc/pub-install.html">pub install</a>,
 which recursively installs the Dart libraries
 from the packages in the dependencies list.
 You can also select **Pub Install** from the **Tools** menu in Dart Editor.
@@ -248,7 +258,7 @@ Note that you specify the filename, not the library name.
 
 <div class="row">
   <div class="span3">
-  <a href="/docs/tutorials/remove-elements/"><i class="icon-chevron-left"> </i> Remove Elements</a>
+  <a href="/docs/tutorials/remove-elements/"><i class="icon-chevron-left"> </i> Remove DOM Elements</a>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
@@ -258,7 +268,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/web-ui/" class="pull-right">Embed Live Data in HTML <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

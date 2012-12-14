@@ -328,7 +328,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/remove-elements/" class="pull-right">Remove Elements <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/remove-elements/" class="pull-right">Remove DOM Elements <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

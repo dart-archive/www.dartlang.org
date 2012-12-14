@@ -10,7 +10,7 @@ tutorial:
   id: tut-home
 article:
   written_on: 2012-10-01
-  updated_on: 2012-11-01
+  updated_on: 2012-12-01
   collection: everyday-dart
 ---
 
@@ -26,21 +26,6 @@ article:
 
 Welcome to 
 your guide to building great web apps using Dart.
-
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
-
-</div>
 
 *A Game of Darts* is a collection of tutorials, _targets_,
 that teaches you how to build web programs
@@ -90,19 +75,50 @@ by adding an Element to the DOM.
 
 <hr>
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 4: Remove Elements from the DOM](remove-elements/)
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 4: Remove DOM Elements](remove-elements/)
 : In this target,
 you will modify the little todo app from Target 3
 to remove elements from the DOM.
 
 <hr>
 
-<img src="new-icon.png" width="48" height="48"> [ Target 5: Install Shared Packages](packages/)
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 5: Install Shared Packages](packages/)
 : Packages help programmers to organize and share code.
 Many open-source Dart packages are hosted at the
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 repository.
 This target walks you through the steps to install one of those packages.
+
+<hr>
+
+<div id="under-construction" markdown="1">
+<h3> <i class="icon-magic"> </i> Dart's Web UI package</h3>
+Web components and templating
+are the next great ideas in web application development.
+Together they provide a framework and the building blocks to
+create richer and and more dynamic Web applications
+by seamlessly adding a layer of functionality
+on top of the browser platform.
+With the Dart team's
+<a href="http://pub.dartlang.org/packages/web_ui">Web UI</a>
+package you can get started using templating and web components now.
+</div>
+
+
+<img src="web-ui-icon.png" width="48" height="48"> [ Target 6: Embed Live Data in HTML](web-ui/)
+: This target gets you started using the Web UI package
+and provides examples of using two key features of templates:
+data-binding and template expressions.
+
+
+{% comment %}
+
+<hr>
+
+<img src="new-icon.png" width="48" height="48"> [ Target 7: Create a Custom DOM Type](custom-elements/)
+: With custom elements you can create your own specialized DOM element type.
+This target shows you how to do this using Dart's web_ui package.
+{% endcomment %}
 
 <div>
   <hr>
@@ -113,7 +129,7 @@ This target walks you through the steps to install one of those packages.
     </font>
     </div>
     <div class="span8">
-...more targets coming...
+...coming soon, Target 7: Using web components to create a custom DOM type...and more...
     </div>
   </div>
 <hr>
@@ -121,7 +137,7 @@ This target walks you through the steps to install one of those packages.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:xx-small">Version: 30 Nov 2012</p>
+  <p style="font-size:xx-small">Version: 14 Dec 2012</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

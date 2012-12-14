@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 4: Remove Elements from the DOM"
+title: "Target 4: Remove DOM Elements"
 description: "Remove a child element from the DOM"
 has-permalinks: true
 tutorial:
