@@ -437,7 +437,7 @@ The returned value is an integer that gets converted to a string.
 * &#123;&#123;shoutThis.toUpperCase()&#125;&#125;
 calls a string function that converts the string to upper case letters.
 Note that toUpperCase() returns a new string;
-it does NOT cange the value of shoutThis.
+it does NOT change the value of shoutThis.
 * The third expression uses the conditional ternary operator;
 if the entered value is longer than 5 characters,
 a substring is displayed.
