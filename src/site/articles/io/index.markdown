@@ -279,7 +279,7 @@ has been read.
 
 Instead of printing the output to stdout,
 we can use the streaming classes
-to pipe the output of the process to a file instead.
+to pipe the output of the process to a file.
 
 {% highlight dart %}
 import 'dart:io';
@@ -378,7 +378,7 @@ main() {
 }
 {% endhighlight %}
 
-Writing HTTP clients is very similar using the
+Writing HTTP clients is very similar to using the
 [HttpClient](http://api.dartlang.org/io/HttpClient.html) class.
 
 </section>
