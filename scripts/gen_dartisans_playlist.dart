@@ -33,7 +33,7 @@ Future<String> loadDartisansPlaylist() {
 Map parsePlaylistJson(String json) => JSON.parse(json);
 
 writePlaylistYaml(Directory directory, Map playlist) {
-  var episodeOffset = 2;
+  var episodeOffset = 1;
   var file = new File('${directory.path}/../$OUTPUT_FILENAME');
   var output = file.openOutputStream();
   output.writeString("""

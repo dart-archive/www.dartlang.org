@@ -101,13 +101,22 @@ episodes:
   num: 6
   youtubeid: HPvTFX-HUz4
   thumbnail: http://i.ytimg.com/vi/HPvTFX-HUz4/0.jpg
+- title: "Dartisans ep. 5: Meet the Dart VM Team"
+  subtitle: "Meet the Dart VM Team"
+#  file: unknown.mp3
+  pubdate: 2012-05-21
+  description: "In this episode of Dartisans, we are joined by special guests from the Dart VM team. The VM engineers discuss performance, isolates, mirror based reflection, and more.  Learn more about Dart at http://dartlang.org."
+#  length: 21815187
+  num: 5
+  youtubeid: hPjdGs3IHDg
+  thumbnail: http://i.ytimg.com/vi/hPjdGs3IHDg/0.jpg
 - title: "Dartisans ep. 4: Hangout with the Dart Editor Team"
   subtitle: "Hangout with the Dart Editor Team"
 #  file: unknown.mp3
   pubdate: 2012-03-30
   description: "This is Dartisans, the Hangout show that brings you interviews and access to the Dart team. This episode features the Dart Editor team as they demo all the new features of the editor.  You'll love what the Dart Editor team has been up to."
 #  length: 21815187
-  num: 5
+  num: 4
   youtubeid: 9MCFzEISn0c
   thumbnail: http://i.ytimg.com/vi/9MCFzEISn0c/0.jpg
 - title: "Dartisans ep. 3: Dart Libraries with Josh Bloch"
@@ -116,7 +125,7 @@ episodes:
   pubdate: 2012-02-29
   description: "In this episode of Dartisans, we chat with Josh Bloch about the Dart libraries. Josh shares some insight into library and API design."
 #  length: 21815187
-  num: 4
+  num: 3
   youtubeid: wmsVHdllIPM
   thumbnail: http://i.ytimg.com/vi/wmsVHdllIPM/0.jpg
 - title: "Dartisans ep. 2: Chromium with Dart VM Announced!"
@@ -125,6 +134,6 @@ episodes:
   pubdate: 2012-02-15
   description: "We announce that binary builds of Chromium with Dart VM are now available. Seth Ladd hosts with two guests from the Dart team, Vijay Menon and Anton Muhin. Download Dartium at http://www.dartlang.org/dartium/  Learn more about Dart at http://dartlang.org."
 #  length: 21815187
-  num: 3
+  num: 2
   youtubeid: 4EHKN1ywdb4
   thumbnail: http://i.ytimg.com/vi/4EHKN1ywdb4/0.jpg
