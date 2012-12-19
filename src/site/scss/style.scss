@@ -224,8 +224,16 @@ a.permalink {
 }
 
 .spec-commentary {
+  color: green;
+}
+
+.spec-rationale {
   color: blue;
   font-style: italic;
+}
+
+.spec-change {
+  background: yellow;
 }
 
 footer {
