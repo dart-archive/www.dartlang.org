@@ -118,7 +118,7 @@ for (var char in 'hello'.splitChars()) {
 assert('Never odd or even'.charCodeAt(0) == 78);
 
 // Get all the char codes as a list of integers.
-var charCodes = 'Never odd or even'.charCodes();
+var charCodes = 'Never odd or even'.charCodes;
 assert(charCodes.length == 17);
 assert(charCodes[0] == 78);</pre></div><div class="sect3" title="Converting to uppercase or lowercase"><h4 id="ch03-converting-to-uppercase-or-lowercase"/>Converting to uppercase or lowercase</h4><p>You can easily convert strings to their uppercase and
         lowercase variants.</p><pre class="screen">// Convert to uppercase.
@@ -1296,7 +1296,7 @@ main() {
 
 main() {
   var sha256 = new SHA256();
-  var digest = sha256.update('message'.charCodes()).digest();
+  var digest = sha256.update('message'.charCodes).digest();
   var hexString = CryptoUtils.bytesToHex(digest);
   assert(hexString ==
       'ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d');
@@ -1304,8 +1304,8 @@ main() {
       (with a very high probability).</p></div><div class="sect2" title="Generating message authentication codes"><h3 id="ch03-crypto-authentication"/>Generating message authentication codes</h3><p>Use a hash-based message authentication code (<a class="ulink" href="http://en.wikipedia.org/wiki/HMAC">HMAC</a>) to combine a
       cryptographic hash function with a secret key.</p><pre class="screen">import 'dart:crypto';
 main() {
-  var hmac = new HMAC(new SHA256(), 'secretkey'.charCodes());
-  var hmacDigest = hmac.update('message'.charCodes()).digest();
+  var hmac = new HMAC(new SHA256(), 'secretkey'.charCodes);
+  var hmacDigest = hmac.update('message'.charCodes).digest();
   var hmacHex = CryptoUtils.bytesToHex(hmacDigest);
   assert(hmacHex ==
       '5c3e2f56de9411068f675ef32ffa12735210b9cbfee2ba521367a3955334a343');
