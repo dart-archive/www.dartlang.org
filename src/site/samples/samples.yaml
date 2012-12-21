@@ -93,11 +93,11 @@ row03:
   title: TodoMVC
   name: todomvc
   alt: Todo list.
-  source_url: https://github.com/dart-lang/dart-web-components/tree/master/example/todomvc
-  live_url: http://dart-lang.github.com/dart-web-components/example/todomvc/index.html
-  desc: Port of TodoMVC to Dart using the Dart web components package. <a href="/articles/dart-web-components/">Read more about Dart web components.</a>
+  source_url: https://github.com/dart-lang/web-ui/tree/master/example/todomvc
+  live_url: http://dart-lang.github.com/web-ui/example/todomvc/index.html
+  desc: Port of TodoMVC to Dart using the Web UI package. <a href="/articles/dart-web-components/">Read more about the Web UI package.</a>
   features:
-    - Touch and mouse events
-    - Web Audio API
-    - HTML5 canvas
-    - Sprite atlases
+    - Custom elements
+    - One-way and two-way data binding
+    - Template loops and conditionals
+    - Declarative event handler assignment
