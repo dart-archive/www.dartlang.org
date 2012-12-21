@@ -12,7 +12,7 @@ tutorial:
 * Web UI combines the ideas from web components and MDV.
 * Web UI is an open-source package.
 * Compile Web UI apps automatically in Dart Editor.
-* Use data-binding to sync Dart variables and UI elements.
+* Use data binding to sync Dart variables and UI elements.
 * Watchers keep Dart and the UI in sync.
 
 {% endcapture %}
@@ -121,6 +121,21 @@ so take care to indent the package name as shown:
 
 ![Sample pubspec file with web_ui dependency](images/sample-pubspec.png)
 
+<aside class="alert" markdown="1">
+<strong>Note:</strong>
+If you include a version constraint,
+instead of using `any`,
+your code will be less likely to break
+because of new releases of the packages.
+For example: `web_ui:  >=0.2.9 < 0.2.10`.
+You can proactively upgrade to new versions when you are ready.
+Check the web-UI package
+<a href="https://github.com/dart-lang/web-ui/blob/master/CHANGELOG.md">
+CHANGELOG</a>
+to see what version of web_ui 
+works with the version of the SDK you are running.
+</aside>
+
 * Select pubspec.yaml and install the package by
 choosing **Tools > Pub Install** from the menu.
 This recursively installs the web_ui package
@@ -157,7 +172,7 @@ import 'package:web_ui/component_build.dart';
 import 'dart:io';
 
 void main() {
-  build (new Options().arguments, ['web/littleben.html']);
+  build(new Options().arguments, ['web/littleben.html']);
 }
 {% endhighlight %}
 
@@ -308,13 +323,22 @@ but I have not figured out what it should be]
 1. ...and fires an event that updates the UI.
 1. The current time appears on the page.
 
-The example would be more interesting
-if the current time were continually updated like a clock.
-The next section shows you how to do this.
+The littleben app displays the current time when it starts up.
+It would be more interesting
+if the time continually updated like a clock,
+like this:
+
+<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:100px;padding:5px"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/littleben/web/out/littleben.html">
+</iframe>
+
+The next section shows you the code for the app running above.
 
 ##Dispatching the watchers {#watching}
 
-Modify littleben.dart with the changes highlighted in the following diagram:
+Modify
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/littleben-with-watchers/web/littleben.dart">littleben.dart</a>
+with the changes highlighted in the following diagram:
 
 ![littleben.dart with watchers added](images/littleben-with-watcher.png)
 
@@ -399,9 +423,24 @@ Use these links to find the complete source code:
   </li>
 </ul>
 
-
 Using the Web UI package's two-way data binding feature,
 you can bind the value of an element to the value of a Dart variable.
+In the shout example, running below,
+the value of the text field is bound to a Dart string called shoutThis.
+As you type, the value of shoutThis is updated,
+the watchers are dispatched, and the UI gets updated.
+
+<div>
+<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:230px;padding:5px"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/shout/web/out/shout.html">
+</iframe>
+</div>
+
+When you type in the input field,
+the Web UI system,
+which intercedes in the event handling mechanism,
+dispatches the watchers to evaluate the expression and update the UI.
+
 To do so, specify the `bind-value` attribute on an element.
 For example, this line of code
 binds the value of a text field to a Dart string called `shoutThis`:
@@ -409,14 +448,6 @@ binds the value of a text field to a Dart string called `shoutThis`:
 {% highlight dart %}
 <input type="text" bind-value="shoutThis" placeholder="Shout This!">
 {% endhighlight %}
-
-The value of the string `shoutThis` and
-the value of the input field are kept in sync by watchers
-in the Web UI system.
-When the user types in the input field,
-the Web UI system,
-which intercedes in the event handling mechanism,
-dispatches the watchers to evaluate the expression and update the UI.
 
 The following example code
 uses an input field whose value is bound to a Dart string.
@@ -452,6 +483,11 @@ that creates a palindrome from the entered value.
 
 The palindrome() function does NOT modify shoutThis.
 If it did, it would create an infinite loop situation.
+The Web UI system has a protection against infinite loops;
+it detects if the watchers don't converge
+and stops the loop after several iterations.
+However, this is simply a protection and not a feature you should rely on.
+
 Use caution!
 You should use expressions that are practically side-effect free.
 
@@ -461,6 +497,12 @@ Soon to come:
 We will be adding coverage of template conditionals and template loops.
 
 {% comment %}
+
+xx: where can template expressions appear?
+bind-value, anywhere in a text attribute,
+as the value of a named attribute (which is the Dart var name
+as with the ratio example)
+
 ##Using conditionals and loops and other exciting things {#conditionals}
 
 xx
@@ -495,7 +537,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/custom-elements/" class="pull-right">Define a Custom DOM Tag <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

@@ -93,32 +93,28 @@ This target walks you through the steps to install one of those packages.
 
 <div id="under-construction" markdown="1">
 <h3> <i class="icon-magic"> </i> Dart's Web UI package</h3>
-Web components and templating
+Web components and templates
 are the next great ideas in web application development.
-Together they provide a framework and the building blocks to
-create richer and and more dynamic Web applications
-by seamlessly adding a layer of functionality
-on top of the browser platform.
-With the Dart team's
-<a href="http://pub.dartlang.org/packages/web_ui">Web UI</a>
-package you can get started using templating and web components now.
+Together they provide the building blocks to
+create richer and and more dynamic web applications.
+With the Dart team's Web UI package,
+you can get started using templates and web components now.
 </div>
 
 
 <img src="web-ui-icon.png" width="48" height="48"> [ Target 6: Embed Live Data in HTML](web-ui/)
 : This target gets you started using the Web UI package
 and provides examples of using two key features of templates:
-data-binding and template expressions.
-
-
-{% comment %}
+data binding and template expressions.
 
 <hr>
 
-<img src="new-icon.png" width="48" height="48"> [ Target 7: Create a Custom DOM Type](custom-elements/)
-: With custom elements you can create your own specialized DOM element type.
-This target shows you how to do this using Dart's web_ui package.
-{% endcomment %}
+<img src="web-ui-icon.png" width="48" height="48"> [ Target 7: Define a Custom DOM Tag](custom-elements/)
+: Continuing your introduction to the Web UI package,
+this target shows you how to use custom elements to
+define a new DOM tag.
+Custom elements are one feature
+of the Web Components model proposed by the W3C consortium.
 
 <div>
   <hr>
@@ -129,7 +125,7 @@ This target shows you how to do this using Dart's web_ui package.
     </font>
     </div>
     <div class="span8">
-...coming soon, Target 7: Using web components to create a custom DOM type...and more...
+...more targets coming...
     </div>
   </div>
 <hr>
@@ -137,7 +133,7 @@ This target shows you how to do this using Dart's web_ui package.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:xx-small">Version: 14 Dec 2012</p>
+  <p style="font-size:xx-small">Version: Winter Solstice 2012</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
