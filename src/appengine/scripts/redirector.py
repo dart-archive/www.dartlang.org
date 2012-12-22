@@ -77,6 +77,11 @@ class EclipseUpdateRedirect(CloudStorageRedirect):
       filename = '/index.html'
     self.redirect_to_cloud_storage(filename)
 
+class BookRedirect(RequestHandler):
+  def get(self, *args, **kwargs):
+    self.redirect('/docs/dart-up-and-running/contents/ch0' + kwargs['num'] + '.html', permanent=True)
+  def head(self, *args, **kwargs):
+    self.redirect('/docs/dart-up-and-running/contents/ch0' + kwargs['num'] + '.html', permanent=True)
 
 application = WSGIApplication(
    [('/docs/api/.*', ApiRedirectPage),
@@ -86,15 +91,16 @@ application = WSGIApplication(
     ('/docs/pub-package-manager/.*', PubRedirectPage),
     Route('/editor/update<path:.*>', EditorUpdateRedirect),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
+    Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                 '_code': 302}),
     Route('/language-tour/', RedirectHandler,
-      defaults={'_uri': '/docs/language-tour/'}),
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html'}),
     Route('/docs/language-tour/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/ch02.html'}),
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html'}),
     Route('/docs/library-tour/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/ch03.html'}),
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch03.html'}),
     Route('/editor<:/?>', RedirectHandler,
       defaults={'_uri': '/docs/editor/'}),
     Route('/docs/getting-started/editor/', RedirectHandler,
@@ -108,7 +114,7 @@ application = WSGIApplication(
     Route('/atom.xml', RedirectHandler,
       defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
     Route('/+', RedirectHandler,
-      defaults={'_uri': 'https://plus.google.com/109866369054280216564/posts'}),
+      defaults={'_uri': 'https://google.com/+dartlang'}),
     Route('/mailing-list', RedirectHandler,
       defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!forum/misc'})],
    debug=True)
