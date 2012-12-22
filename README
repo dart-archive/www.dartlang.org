@@ -24,7 +24,7 @@ ORIENTATION
 CONFIGURING YOUR MAC SYSTEM
 
 * Ensure you have Ruby 1.9.3 or greater.
-  * You can use brew (if you're on a Mac) or RVM (if you're on Mac or Linux)
+  * You can use brew (if you're on a Mac)
 * Ensure you have Python 2.7.
   * On a mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
@@ -61,8 +61,8 @@ REGENERATING DARTISANS PLAYLISTS
 
 Did you just run a Dartisans? Good for you! Here's what you need to do:
 
-1. Update the description to be present tense (instead of future), to remove the
-   link to the moderator page.
+1. Update the description to be present tense (instead of future),
+   and remove the link to the moderator page.
 1. Ensure the episode is added to the Dartisans playlist, owned by
    Google Developers channel.
 1. Sort the playlist by date.

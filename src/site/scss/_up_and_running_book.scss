@@ -1,0 +1,36 @@
+article.up-and-running-contents {
+
+  #book-header {
+    color: $grayLight;;
+    font-size: $baseFontSize - 1;;
+    font-style: italic;
+    text-align:center;
+  }
+
+  span.remark {
+    display: none;
+  }
+
+  div.toc p:first-child b:first-child {
+    display: none;
+  }
+
+  dd dl {
+    margin-top: 0px;
+  }
+
+  .note , .tip {
+    @extend .alert;
+    @extend .alert-info;
+  }
+
+  .caution, .warning {
+    @extend .alert;
+    @extend .alert-danger;
+  }
+
+  a.xref i {
+    font-style: normal;
+  }
+
+}

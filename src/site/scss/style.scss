@@ -216,13 +216,6 @@ a.permalink {
   }
 }
 
-#book-header {
-  color: $grayLight;;
-  font-size: $baseFontSize - 1;;
-  font-style: italic;
-  text-align:center;
-}
-
 .spec-commentary {
   color: green;
 }
@@ -266,6 +259,7 @@ article .has-permalink {
 @import "syntax";
 @import "tutorial";
 @import "dartisans_live";
+@import "up_and_running_book";
 
 @media print {
   .no-print {

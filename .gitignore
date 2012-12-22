@@ -4,3 +4,4 @@ build
 _site/
 .sass-cache/
 _cache/
+_bookhtml
