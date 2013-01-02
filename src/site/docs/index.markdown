@@ -2,11 +2,25 @@
 layout: default
 title: "Documentation"
 description: "Documentation, references, and more about the Dart language, libraries, and tools."
+has-permalinks: true
 ---
 
 # Documentation
 
+The Dart project has the following kinds of documentation:
+
+* [Getting started](#getting-started)
+* [Language](#language)
+* [Libraries](#libraries)
+* [Usage](#usage)
+* [Tools](#tools)
+
+
 ## Getting started
+
+[A Game of Darts—Tutorials](/docs/tutorials/)
+: A guide to building web apps using Dart.
+You don't need to know JavaScript or web programming to use these tutorials.
 
 [Technical Overview](/docs/technical-overview/)
 : Learn about the Dart language, see Dart code, and
@@ -50,7 +64,7 @@ such as the [Dart Style Guide](/articles/style-guide/),
 : Get detailed instructions for using Dart Editor, a lightweight, open-source editor.
 A few of the covered topics are enabling production mode, compiling to JavaScript, and specifying a browser.
 
-[Chromium + Dart VM aka Dartium](/dartium/)
+[Chromium with the Dart VM](/dartium/)
 : Learn how to get and use a Chromium-based browser (nicknamed Dartium) that
 includes the Dart virtual machine (VM).
 
@@ -58,7 +72,7 @@ includes the Dart virtual machine (VM).
 : Learn how to download and use the Dart SDK, which includes binaries of the VM,
 dart2js, pub, and more.
 
-[Pub package manager](http://pub.dartlang.org)
+[Pub package manager (pub.dartlang.org)](http://pub.dartlang.org)
 : Browse hosted packages, and learn how to use pub to reuse Dart code.
 
 [Dart2js compiler](/docs/dart2js/)
