@@ -78,11 +78,29 @@ If we missed something, please
   <section id="launch-dart-editor">
   <h2> Launching Dart Editor </h2>
 
+<div class="win32">
+
+  <p>
+  Your Java version should have the same bit width as
+  your Dart Editor version.
+  For example, if you're using a 64-bit Dart Editor,
+  then you should use 64-bit Java.
+  Otherwise, you might see a message like this
+  when you try to launch Dart Editor:
+  </p>
+
+<pre>
+Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\client\jvm.dll
+</pre>
+
+    <p>
+    You can find the bit width of your default Java version using the command
+    `java -version`.
+    </p>
+</div>
 
 <div class="linux">
   <section id="linux-32bit">
-  <p class="comment">
-
   <p>
   If you're using 64-bit Linux but have 32-bit Java libraries,
   Dart Editor won't work.
@@ -93,41 +111,33 @@ If we missed something, please
   You can get a 64-bit JDK 7 from
   <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html"
     target="_blank">Java SE Development Kit 7 Downloads</a>.
-  </p>
-
-  <p>
   If you already have a 64-bit JDK but it's not the default,
-  you can specify it.
-  Go to your Dart installation directory and
-  add the following two lines to <code>DartEditor.ini</code>
-  immediately <b>before</b> the existing
-  <code>&#x2011;vmargs</code> line:
+  you can specify the Java runtime.
   </p>
 
-<pre><code>
--vm
-<em>/full/path/to/java</em>
-</code></pre>
+</section>
+</div> <!-- end of linux-only section -->
 
-  <p>
-  For example, <code>DartEditor.ini</code> might have:
-  </p>
 
-<pre><code>
-...
--vm
-/usr/local/buildtools/java/jdk-64/bin/java
--vmargs
-...
-</code></pre>
-
-  </section>
-</div>
 <div class="macos">
+
   <p>
-    This section discusses problems you might encounter
-    when launching Dart Editor on Mac OS X.
+  A few things can go wrong when launching Dart Editor on a Mac:
   </p>
+
+  <ul>
+    <li> <a href="#security-preferences">Unidentified developer</a>
+      </li>
+    <li> <a href="#corruption">"DartEditor.app" is damaged (64-bit only)</a>
+      </li>
+    <li> <a href="#java-install">Java installation failure</a>
+      </li>
+    <li> <a href="#avstartup">Slow startup</a>
+      </li>
+    <li> <a href="#mac-32bit">32-bit Mac</a>
+      </li>
+  </ul>
+
 
   <section id="security-preferences">
   <h3>Unidentified developer</h3>
@@ -254,28 +264,47 @@ If we missed something, please
 
   </section>
 
-</div>
-<div class="win32">
+</div> <!-- end of mac-only section -->
+
+  <section id="runtime">
+  <h3>Specifying the Java runtime</h3>
 
   <p>
-  Your Java version should have the same bit width as
-  your Dart Editor version.
-  For example, if you're using a 64-bit Dart Editor,
-  then you should use 64-bit Java.
-  Otherwise, you might see a message like this
-  when you try to launch Dart Editor:
+  If necessary, you can specify the Java runtime that Dart Editor uses.
+  Go to your Dart installation directory and
+  add the following two lines to <code>DartEditor.ini</code>
+  immediately <b>before</b> the existing
+  <code>&#x2011;vmargs</code> line:
   </p>
 
-<pre>
-Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\client\jvm.dll
+<pre>-vm
+<em>/full/path/to/java</em>
 </pre>
 
-    <p>
-    You can find the bit width of your default Java version using the command
-    `java -version`.
-    </p>
+<div class="win32">
+  <p>
+  <b>Important:</b>
+  On Windows, use double backslashes (<code>\\</code>)
+  as the directory separator:
+  </p>
+
+<pre>-vm
+c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
+</pre>
 </div>
 
+  <p>
+  For example, <code>DartEditor.ini</code> might have:
+  </p>
+
+<pre>...
+-vm
+/usr/local/buildtools/java/jdk-64/bin/java
+-vmargs
+...
+</pre>
+
+</section>
 </section>
 
 
