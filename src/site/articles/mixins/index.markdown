@@ -163,7 +163,7 @@ class DOMElementList<E> extends DOMList with Collection<E> {
 }
 
 class DOMElementSet<E> extends DOMSet with Collection<E> {
-   DOMSetList<E> newInstance() => new DOMSet<E>();
+   DOMElementSet<E> newInstance() => new DOMElementSet<E>();
 }
 {% endhighlight %}
 
