@@ -7,7 +7,7 @@ description: 'Learn how to write code that looks and feels like Dart.'
 has-permalinks: true
 article:
   written_on: 2011-10-01
-  updated_on: 2012-10-01
+  updated_on: 2013-01-04
   collection: everyday-dart
 ---
 
@@ -16,7 +16,7 @@ article:
 <p>
 <em>Written by Bob Nystrom<br>
 October 2011
-(updated October 2012)</em>
+(updated January 2013)</em>
 </p>
 
 <h4>Contents</h4>
@@ -353,13 +353,18 @@ var newPosition = position + velocity;
 
 <h2 id="equality">Equality</h2>
 
-<p>One set of operators bears special attention. Dart has two pairs of equality operators: <code>==</code> and <code>!=</code>, and <code>===</code> and <code>!==</code>. These will look familiar a JavaScripter, but they work a little differently here.</p>
+<p>Dart has two equality operators,
+<code>==</code> and <code>!=</code>,
+which work a little differently from the JavaScript equality operators.
+Unlike JavaScript, Dart has no <code>===</code> operator.
+Instead, it has a top-level function called <code>identical()</code>.
+</p>
 
-<p><code>==</code> and <code>!=</code> are for testing equivalence. They are what you'll use 99% of the time. Unlike JavaScript, they don't do any implicit conversions, so they will behave like you'd expect. Don't be afraid to use them. Unlike <em>Java</em>, they work for any type that has an equivalence relation defined. No more <code>someString.equals("something")</code>.</p>
+<p><code>==</code> and <code>!=</code> are for testing equivalence. They are what you'll use 99% of the time. Unlike in JavaScript, they don't do any implicit conversions, so they will behave like you'd expect. Don't be afraid to use them. Unlike <em>Java</em>, they work for any type that has an equivalence relation defined. No more <code>someString.equals("something")</code>.</p>
 
 <p>You can overload <code>==</code> for your own types if that makes sense for them. You don't have to overload <code>!=</code>: Dart will automatically infer that from your definition of <code>==</code>.</p>
 
-<p>The other operators, <code>===</code> and <code>!==</code> are for testing <em>identity</em>. <code>a === b</code> will only return <code>true</code> if <code>a</code> and <code>b</code> are the <em>exact same object in memory</em>. In practice, you will rarely need to use these. By default, calling <code>==</code> will fall back to <code>===</code> if no more meaningful equivalence operator is defined for the type, so the only time you'll need this is if you specifically want to side-step any user-defined <code>==</code> operator.</p>
+<p>The <code>identical()</code> function is for testing whether two objects are the <em>exact same object in memory</em>. In practice, you will rarely need to use it. The Object class definition of <code>==</code> returns <code>identical(this, other)</code>, so the only time you'll need to call <code>identical()</code> is if you overload <code>==</code> or specifically want to sidestep an overloaded <code>==</code> operator.</p>
 
 <h2 id="numbers">Numbers</h2>
 
