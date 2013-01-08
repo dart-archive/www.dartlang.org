@@ -115,12 +115,12 @@ import 'dart:io';
 main() {
   var options = new Options();
   var file = new File(options.script);
-  Future<String> finishedReading = file.readAsText(Encoding.ASCII);
+  Future<String> finishedReading = file.readAsString(Encoding.ASCII);
   finishedReading.then((text) => print(text));
 }
 {% endhighlight %}
 
-Notice that the readAsText() method is asynchronous;
+Notice that the readAsString() method is asynchronous;
 it returns a [Future](http://api.dartlang.org/dart_core/Future.html)
 that will return the contents of the file
 once the file has been read from the underlying system.
