@@ -3,7 +3,7 @@ layout: book
 title: "Chapter 2. A Tour of the Dart Language from Dart: Up and Running"
 description: "Read Chapter 2. A Tour of the Dart Language of Dart: Up and Running, published by O'Reilly."
 ---
-<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. A Tour of the Dart Language</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch02"></a>Chapter 2. A Tour of the Dart Language</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch02.html#main-print">A Basic Dart Program</a></span></dt><dt><span class="sect1"><a href="ch02.html#ch02-concepts">Important Concepts</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#ch02-runtime-modes">Runtime Modes</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#variables">Variables</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#variables-default-value">Default Value</a></span></dt><dt><span class="sect2"><a href="ch02.html#variables-optional-types">Optional Types</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16511600">Final and Const</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#built-in-types">Built-in Types</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch02.html#strings">Strings</a></span></dt><dt><span class="sect2"><a href="ch02.html#booleans">Booleans</a></span></dt><dt><span class="sect2"><a href="ch02.html#lists">Lists</a></span></dt><dt><span class="sect2"><a href="ch02.html#maps">Maps</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#functions">Functions</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#functions-optional-parameters">Optional Parameters</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16631648">Functions as First-Class Objects</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16634800">Lexical Closures</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16639568">Return Values</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#operators">Operators</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#op-arithmetic">Arithmetic Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-equality">Equality and Relational Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16734192">Type Test Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-assign">Assignment Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-logical">Logical Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-bit">Bitwise and Shift Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-other">Other Operators</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#control-flow-statements">Control Flow Statements</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#if-else">If and Else</a></span></dt><dt><span class="sect2"><a href="ch02.html#for-loops">For Loops</a></span></dt><dt><span class="sect2"><a href="ch02.html#while">While and Do-While</a></span></dt><dt><span class="sect2"><a href="ch02.html#break">Break and Continue</a></span></dt><dt><span class="sect2"><a href="ch02.html#switch">Switch and Case</a></span></dt><dt><span class="sect2"><a href="ch02.html#assert">Assert</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#exceptions">Exceptions</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#idp16891696">Throw</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16896128">Catch</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16902768">Finally</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#classes">Classes</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#idp16921472">Instance Variables</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16927744">Constructors</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16959648">Methods</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-class-abstract">Abstract Classes</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp16997696">Implicit Interfaces</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp17003280">Extending a Class</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp17006976">Class Variables and Methods</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#generics">Generics</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#idp17019232">Why Use Generics?</a></span></dt><dt><span class="sect2"><a href="ch02.html#generics-literals">Using Collection Literals</a></span></dt><dt><span class="sect2"><a href="ch02.html#generics-constructors">Using Constructors</a></span></dt><dt><span class="sect2"><a href="ch02.html#generics-collections">Generic Collections and the Types they Contain</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#libraries">Libraries and Visibility</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#libraries-import">Using Libraries</a></span></dt><dt><span class="sect2"><a href="ch02.html#libraries-implementing">Implementing Libraries</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#isolates">Isolates</a></span></dt><dt><span class="sect1"><a href="ch02.html#typedefs">Typedefs</a></span></dt><dt><span class="sect1"><a href="ch02.html#comments">Comments</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#idp17105840">Single-Line Comments</a></span></dt><dt><span class="sect2"><a href="ch02.html#idp17108992">Multi-Line Comments</a></span></dt><dt><span class="sect2"><a href="ch02.html#comments-doc">Documentation Comments</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use each major Dart feature, from
+<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 2. A Tour of the Dart Language</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch01.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch02"></a>Chapter 2. A Tour of the Dart Language</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch02.html#main-print">A Basic Dart Program</a></span></dt><dt><span class="sect1"><a href="ch02.html#ch02-concepts">Important Concepts</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#ch02-runtime-modes">Runtime Modes</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#variables">Variables</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#variables-default-value">Default Value</a></span></dt><dt><span class="sect2"><a href="ch02.html#variables-optional-types">Optional Types</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-final-const">Final and Const</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#built-in-types">Built-in Types</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch02.html#strings">Strings</a></span></dt><dt><span class="sect2"><a href="ch02.html#booleans">Booleans</a></span></dt><dt><span class="sect2"><a href="ch02.html#lists">Lists</a></span></dt><dt><span class="sect2"><a href="ch02.html#maps">Maps</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#functions">Functions</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#functions-optional-parameters">Optional Parameters</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-functions-first-class">Functions as First-Class Objects</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-functions-lexical-closures">Lexical Closures</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-functions-return-values">Return Values</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#operators">Operators</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#op-arithmetic">Arithmetic Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-equality">Equality and Relational Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-op-type-test">Type Test Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-assign">Assignment Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-logical">Logical Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-bit">Bitwise and Shift Operators</a></span></dt><dt><span class="sect2"><a href="ch02.html#op-other">Other Operators</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#control-flow-statements">Control Flow Statements</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#if-else">If and Else</a></span></dt><dt><span class="sect2"><a href="ch02.html#for-loops">For Loops</a></span></dt><dt><span class="sect2"><a href="ch02.html#while">While and Do-While</a></span></dt><dt><span class="sect2"><a href="ch02.html#break">Break and Continue</a></span></dt><dt><span class="sect2"><a href="ch02.html#switch">Switch and Case</a></span></dt><dt><span class="sect2"><a href="ch02.html#assert">Assert</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#exceptions">Exceptions</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#ch02-exceptions-throw">Throw</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-exceptions-catch">Catch</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-exceptions-finally">Finally</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#classes">Classes</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#ch02-instance-variables">Instance Variables</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-constructors">Constructors</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-methods">Methods</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-class-abstract">Abstract Classes</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-implicit-interfaces">Implicit Interfaces</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-class-extend">Extending a Class</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-class-vars-and-methods">Class Variables and Methods</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#generics">Generics</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#ch02-generics-why">Why Use Generics?</a></span></dt><dt><span class="sect2"><a href="ch02.html#generics-literals">Using Collection Literals</a></span></dt><dt><span class="sect2"><a href="ch02.html#generics-constructors">Using Constructors</a></span></dt><dt><span class="sect2"><a href="ch02.html#generics-collections">Generic Collections and the Types they Contain</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#libraries">Libraries and Visibility</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#libraries-import">Using Libraries</a></span></dt><dt><span class="sect2"><a href="ch02.html#libraries-implementing">Implementing Libraries</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#isolates">Isolates</a></span></dt><dt><span class="sect1"><a href="ch02.html#typedefs">Typedefs</a></span></dt><dt><span class="sect1"><a href="ch02.html#comments">Comments</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch02.html#ch02-comments-single-line">Single-Line Comments</a></span></dt><dt><span class="sect2"><a href="ch02.html#ch02-comments-multi-line">Multi-Line Comments</a></span></dt><dt><span class="sect2"><a href="ch02.html#comments-doc">Documentation Comments</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch02.html#ch02-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use each major Dart feature, from
   variables and operators to classes and libraries, with the assumption that
   you already know how to program in another language.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>To play with each feature, create a command-line application project
     in Dart Editor, as described in <a class="xref" href="ch01.html#ch01-editor" title="Up and Running">the section called “Up and Running”</a>.</p></div><p>Consult the <a class="ulink" href="http://www.dartlang.org/docs/spec/" target="_top">Dart
@@ -31,8 +31,8 @@ main() {
       Guide.</a> For example, we use two-space indentation.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch02-concepts"></a>Important Concepts</h2></div></div></div><p>As you learn about the Dart language, keep these facts and concepts
     in mind:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Everything you can place in a variable is an
         <span class="emphasis"><em>object</em></span>, and every object is an instance of a
-        <span class="emphasis"><em>class</em></span>. Even numbers and functions are objects.
-        All objects inherit from the <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>
+        <span class="emphasis"><em>class</em></span>. Even numbers, functions, and <code class="literal">null</code> are objects. All objects inherit from
+        the <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>
         class.</p></li><li class="listitem"><p>Specifying static types (such as <code class="literal">num</code> in the preceding example) clarifies your
         intent and enables static checking by tools, but it’s optional. (You
         might notice when you’re debugging your code that objects with no
@@ -74,7 +74,7 @@ assert(lineCount == null);
       as compilers and editors can use these types to help you, by providing
       early warnings for bugs and code completion.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This chapter follows the <a class="ulink" href="http://www.dartlang.org/articles/style-guide/#type-annotations" target="_top">style
         guide recommendation</a> of using <code class="literal">var</code>, rather than type annotations, for local
-        variables.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16511600"></a>Final and Const</h3></div></div></div><p>If you never intend to change a variable, use <code class="literal">final</code> or <code class="literal">const</code>, either instead of <code class="literal">var</code> or in addition to a type. A final variable
+        variables.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-final-const"></a>Final and Const</h3></div></div></div><p>If you never intend to change a variable, use <code class="literal">final</code> or <code class="literal">const</code>, either instead of <code class="literal">var</code> or in addition to a type. A final variable
       can be set only once; a const variable is a compile-time
       constant.</p><p>A local, top-level, or class variable that’s declared as <code class="literal">final</code> is initialized the first time it’s
       used.</p><pre class="programlisting">final name = 'Bob';   // Or: final String name = 'Bob';
@@ -100,8 +100,8 @@ const atm = 1.01325 * bar; // Standard atmosphere</pre></div></div><div class="s
       &gt;&gt;. The num type is also where you’ll find
       <code class="literal">abs()</code>,<code class="literal"> ceil()</code>, and
       <code class="literal">floor()</code>, among other methods. If num and its subtypes
-      don’t have what you’re looking for, the <a class="ulink" href="http://api.dartlang.org/dart_core/Math.html" target="_top">Math</a> class
-      might. (In JavaScript produced from Dart code, <a class="ulink" href="http://dartbug.com/1533" target="_top">big integers currently behave
+      don’t have what you’re looking for, the <a class="ulink" href="http://api.dartlang.org/dart_math.html" target="_top">Math</a> library might.
+      (In JavaScript produced from Dart code, <a class="ulink" href="http://dartbug.com/1533" target="_top">big integers currently behave
       differently</a> than they do when the same Dart code runs in the
       Dart VM.)</p><p>Integers are numbers without a decimal point. Here are some
       examples of defining integer literals:</p><pre class="programlisting">var x = 1;
@@ -139,7 +139,7 @@ assert('Dart has $s, which is very handy.' ==
 assert('That deserves all caps. ${s.toUpperCase()} is very handy!' ==
        'That deserves all caps. STRING INTERPOLATION is very handy!');</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="literal">==</code> operator tests whether
         two objects are equivalent. Two strings are equivalent if they have
-        the same characters.</p></div><p>You can concatenate strings using adjacent string literals:</p><pre class="programlisting">var s = 'String ''concatenation'
+        the same characters.</p></div><p>You can concatenate strings using adjacent string literals:</p><pre class="programlisting">var s = 'String ' 'concatenation'
         " works even over line breaks.";
 assert(s == 'String concatenation works even over line breaks.');</pre><p>Another way to create a multi-line string: use a triple quote with
       either single or double quotation marks.</p><pre class="programlisting">var s1 = '''
@@ -155,14 +155,12 @@ multi-line string.""";</pre><p>You can create a <span class="quote">“<span cla
       JavaScript and as Dart code:</p><pre class="programlisting">var name = 'Bob';
 if (name) {
   print('You have a name!'); // Prints in JavaScript, not in Dart.
-}</pre><p>If you run this code as JavaScript, without compiling to Dart, it
-      prints <span class="quote">“<span class="quote">You have a name!</span>”</span> because <code class="literal">name</code> is a non-null object. However, in Dart
-      running in <span class="emphasis"><em>production mode</em></span>, the above doesn’t print
-      at all because <code class="literal">name</code> is converted to
-      <code class="literal">false</code> (because <code class="literal">name != true</code>). In Dart running in
-      <span class="emphasis"><em>checked mode</em></span>, the above code throws an exception
-      because the <code class="literal">name</code> variable is not a
-      bool.</p><p>Here’s another example of code that behaves differently in
+}</pre><p>If you run this code as JavaScript, it prints <span class="quote">“<span class="quote">You have a
+      name!</span>”</span> because <code class="literal">name</code> is a
+      non-null object. However, in Dart running in <span class="emphasis"><em>production
+      mode</em></span>, the above doesn’t print at all because <code class="literal">name</code> is converted to <code class="literal">false</code> (because <code class="literal">name
+      != true</code>). In Dart running in <span class="emphasis"><em>checked
+      mode</em></span>, the above code throws an exception because the <code class="literal">name</code> variable is not a bool.</p><p>Here’s another example of code that behaves differently in
       JavaScript and Dart:</p><pre class="programlisting">if (1) {
   print('JavaScript prints this line because it thinks 1 is true.');
 } else {
@@ -283,14 +281,14 @@ enableFlags(bold: true); // bold will be true; hidden will be false.</pre><div c
   return result;
 }
 
-assert(say('Bob', 'Howdy') == 'Bob says Howdy with a carrier pigeon');</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16631648"></a>Functions as First-Class Objects</h3></div></div></div><p>You can pass a function as a parameter to another function. For
+assert(say('Bob', 'Howdy') == 'Bob says Howdy with a carrier pigeon');</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-functions-first-class"></a>Functions as First-Class Objects</h3></div></div></div><p>You can pass a function as a parameter to another function. For
       example:</p><pre class="programlisting">printElement(element) {
   print(element);
 }
   
 var list = [1,2,3];
 list.forEach(printElement); // Pass printElement as a parameter.</pre><p>You can also assign a function to a variable, such as:</p><pre class="programlisting">var loudify = (msg) =&gt; '!!! ${msg.toUpperCase()} !!!';
-assert(loudify('hello') == '!!! HELLO !!!');</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16634800"></a>Lexical Closures</h3></div></div></div><p>Functions can close over variables defined in surrounding scopes.
+assert(loudify('hello') == '!!! HELLO !!!');</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-functions-lexical-closures"></a>Lexical Closures</h3></div></div></div><p>Functions can close over variables defined in surrounding scopes.
       In the following example, <code class="literal">makeAdder()</code> captures the
       variable <code class="literal">n</code> and makes it available to
       the function that <code class="literal">makeAdder()</code> returns. Wherever the
@@ -305,7 +303,7 @@ main() {
 
   assert(add2(3) == 5);
   assert(add4(3) == 7);
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16639568"></a>Return Values</h3></div></div></div><p>All functions return a value. If no return value is specified, the
+}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-functions-return-values"></a>Return Values</h3></div></div></div><p>All functions return a value. If no return value is specified, the
       statement <code class="literal">return null;</code> is implicitly
       appended to the function body.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="operators"></a>Operators</h2></div></div></div><p>Dart defines the operators shown in <a class="xref" href="ch02.html#operator_table" title="Table 2.1. Operators and their precedence">Table 2.1, “Operators and their precedence”</a>. You can override many of these operators, as
     described in <a class="xref" href="ch02.html#classes-operators" title="Operators">the section called “Operators”</a>.</p><div class="table"><a name="operator_table"></a><p class="title"><b>Table 2.1. Operators and their precedence</b></p><div class="table-contents"><table summary="Operators and their precedence" border="1"><colgroup><col><col></colgroup><thead><tr><th>Description</th><th>Operator</th></tr></thead><tbody><tr><td>unary postfix and argument definition test</td><td><em class="replaceable"><code>expr</code></em>++
@@ -390,7 +388,7 @@ assert(a != b);       // 2 and 3 aren't equal.
 assert(b &gt; a);        // 3 is more than 2.
 assert(a &lt; b);        // 2 is less then 3.
 assert(b &gt;= b);       // 3 is greater than or equal to 3.
-assert(a &lt;= b);       // 2 is less than or equal to 3.</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16734192"></a>Type Test Operators</h3></div></div></div><p>The <code class="literal">as</code>, <code class="literal">is</code>, and <code class="literal">is!</code>
+assert(a &lt;= b);       // 2 is less than or equal to 3.</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-op-type-test"></a>Type Test Operators</h3></div></div></div><p>The <code class="literal">as</code>, <code class="literal">is</code>, and <code class="literal">is!</code>
       operators are handy for checking types at runtime.</p><div class="table"><a name="type_test_operator_table"></a><p class="title"><b>Table 2.5. Type test operators</b></p><div class="table-contents"><table summary="Type test operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>as</td><td>Typecast</td></tr><tr><td>is</td><td>True if the object has the specified type</td></tr><tr><td>is!</td><td>False if the object has the specified type</td></tr></tbody></table></div></div><br class="table-break"><p>The result of <code class="literal">obj is T</code> is true
       if <code class="literal">obj</code> implements the interface
       specified by <code class="literal">T</code>. For example, <code class="literal">obj is Object</code> is always true.</p><p>Use the <code class="literal">as</code> operator to cast an
@@ -551,10 +549,10 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
     and <a class="ulink" href="http://api.dartlang.org/docs/continuous/dart_core/Error.html" target="_top">Error</a>
     types, as well as numerous predefined subtypes. You can, of course, define
     your own exceptions. However, Dart programs can throw any non-null
-    object—not just Exception and Error objects—as an exception.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16891696"></a>Throw</h3></div></div></div><p>Here’s an example of throwing, or <span class="emphasis"><em>raising</em></span>, an
+    object—not just Exception and Error objects—as an exception.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-throw"></a>Throw</h3></div></div></div><p>Here’s an example of throwing, or <span class="emphasis"><em>raising</em></span>, an
       exception.</p><pre class="programlisting">throw new ExpectException('Value must be greater than zero');</pre><p>You can also throw arbitrary objects.</p><pre class="programlisting">throw 'Out of llamas!';</pre><p>Because throwing an exception is an expression, you can throw
       exceptions in =&gt; statements, as well as anywhere else that allows
-      expressions:</p><pre class="programlisting">num distanceTo(Point other) =&gt; throw const NotImplementedException();</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16896128"></a>Catch</h3></div></div></div><p>Catching, or capturing, an exception stops the exception from
+      expressions:</p><pre class="programlisting">num distanceTo(Point other) =&gt; throw const NotImplementedException();</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-catch"></a>Catch</h3></div></div></div><p>Catching, or capturing, an exception stops the exception from
       propagating. Catching an exception gives you a chance to handle
       it.</p><pre class="programlisting">try {
   breedMoreLlamas();
@@ -575,7 +573,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
 }</pre><p>As the preceding code shows, you can use either <code class="literal">on</code> or <code class="literal">catch</code>
       or both. Use <code class="literal">on</code> when you need to
       specify the exception type. Use <code class="literal">catch</code>
-      when your exception handler needs the exception object.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16902768"></a>Finally</h3></div></div></div><p>To ensure that some code runs whether or not an exception is
+      when your exception handler needs the exception object.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-finally"></a>Finally</h3></div></div></div><p>To ensure that some code runs whether or not an exception is
       thrown, use a <code class="literal">finally</code> clause. If no
       catch clause matches the exception, the exception is propagated after
       the finally clause runs.</p><pre class="programlisting">try {
@@ -614,7 +612,7 @@ num distance = p.distanceTo(new Point(4,4)); // Invoke distanceTo() on p.</pre><
     single, canonical instance.</p><pre class="programlisting">var a = const ImmutablePoint(1, 1);
 var b = const ImmutablePoint(1, 1);
 
-assert(identical(a,b)); // They are the same instance!</pre><p>The following sections discuss how to implement classes.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16921472"></a>Instance Variables</h3></div></div></div><p>Here’s how you declare instance variables:</p><pre class="programlisting">class Point {
+assert(identical(a,b)); // They are the same instance!</pre><p>The following sections discuss how to implement classes.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-instance-variables"></a>Instance Variables</h3></div></div></div><p>Here’s how you declare instance variables:</p><pre class="programlisting">class Point {
   num x;      // Declare an instance variable (x), initially null.
   num y;      // Declare y, initially null.
   num z = 0;  // Declare z, initially 0.
@@ -634,7 +632,7 @@ main() {
 }</pre><p>If you initialize an instance variable where it is declared
       (instead of in a constructor or method), the value is set when the
       instance is created, which is before the constructor and its initializer
-      list execute.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16927744"></a>Constructors</h3></div></div></div><p>Declare a constructor by creating a function with the same name as
+      list execute.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-constructors"></a>Constructors</h3></div></div></div><p>Declare a constructor by creating a function with the same name as
       its class (plus, optionally, an additional identifier as described in
       <a class="xref" href="ch02.html#ch02-constructors-named" title="Named constructors">the section called “Named constructors”</a>). The most common form of
       constructor, the generative constructor, creates a new instance of a
@@ -656,9 +654,9 @@ main() {
 
   // Syntactic sugar for setting x and y before the constructor body runs.
   Point(this.x, this.y);
-}</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp16934640"></a>Default constructors</h4></div></div></div><p>If you don’t declare a constructor, a default constructor is
+}</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructors-default"></a>Default constructors</h4></div></div></div><p>If you don’t declare a constructor, a default constructor is
         provided for you. The default constructor has no arguments and invokes
-        the no-argument constructor in the superclass.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp16936000"></a>Constructors aren’t inherited</h4></div></div></div><p>Subclasses don’t inherit constructors from their superclass. A
+        the no-argument constructor in the superclass.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructors-not-inherited"></a>Constructors aren’t inherited</h4></div></div></div><p>Subclasses don’t inherit constructors from their superclass. A
         subclass that declares no constructors has only the default (no
         argument, no name) constructor.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructors-named"></a>Named constructors</h4></div></div></div><p>Use a named constructor to implement multiple constructors for a
         class or to provide extra clarity.</p><pre class="programlisting">class Point {
@@ -676,7 +674,7 @@ main() {
         superclass’s named constructor is not inherited by a subclass. If you
         want a subclass to be created with a named constructor defined in the
         superclass, you must implement that constructor in the
-        subclass.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp16940288"></a>Invoking a non-default superclass constructor</h4></div></div></div><p>By default, a constructor in a subclass calls the superclass’s
+        subclass.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructor-non-default-superclass"></a>Invoking a non-default superclass constructor</h4></div></div></div><p>By default, a constructor in a subclass calls the superclass’s
         unnamed, no-argument constructor. If the superclass doesn’t have such
         a constructor, then you must manually call one of the constructors in
         the superclass. Specify the superclass constructor after a colon (:),
@@ -700,7 +698,7 @@ main() {
   // Prints:
   // in Person
   // in Employee
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp16942784"></a>Initializer list</h4></div></div></div><p>Besides invoking a superclass constructor, you can also
+}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructor-initializer-list"></a>Initializer list</h4></div></div></div><p>Besides invoking a superclass constructor, you can also
         initialize instance variables before the constructor body runs.
         Separate initializers with commas.</p><pre class="programlisting">class Point {
   num x;
@@ -713,7 +711,7 @@ main() {
     print('In Point.fromJson(): ($x, $y)');
   }
 }</pre><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>The right-hand side of an initializer does not have access to
-          <code class="literal">this</code>.</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp16946432"></a>Redirecting constructors</h4></div></div></div><p>Sometimes a constructor’s only purpose is to redirect to another
+          <code class="literal">this</code>.</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructor-redirecting"></a>Redirecting constructors</h4></div></div></div><p>Sometimes a constructor’s only purpose is to redirect to another
         constructor in the same class. A redirecting constructor’s body is
         empty, with the constructor call appearing after a colon (:).</p><pre class="programlisting">class Point {
   num x;
@@ -721,7 +719,7 @@ main() {
 
   Point(this.x, this.y);                // The main constructor for this class.
   Point.alongXAxis(num x) : this(x, 0); // Delegates to the main constructor.
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp16948624"></a>Constant constructors</h4></div></div></div><p>If your class produces objects that never change, you can make
+}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructor-constant"></a>Constant constructors</h4></div></div></div><p>If your class produces objects that never change, you can make
         these objects compile-time constants. To do this, define a <code class="literal">const</code> constructor and make sure that all
         instance variables are <code class="literal">final</code> or
         <code class="literal">const</code>.</p><pre class="programlisting">class ImmutablePoint {
@@ -759,7 +757,7 @@ main() {
     }
   }
 }</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Factory constructors have no access to <code class="literal">this</code>.</p></div><p>To invoke a factory constructor, you use the <code class="literal">new</code> keyword:</p><pre class="programlisting">var logger = new Logger('UI');
-logger.log('Button clicked');</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16959648"></a>Methods</h3></div></div></div><p>Methods are functions that provide behavior for an object.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp16960736"></a>Instance methods</h4></div></div></div><p>Instance methods on objects can access instance variables and
+logger.log('Button clicked');</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-methods"></a>Methods</h3></div></div></div><p>Methods are functions that provide behavior for an object.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-methods-instance"></a>Instance methods</h4></div></div></div><p>Instance methods on objects can access instance variables and
         <code class="literal">this</code>. The
         <code class="literal">distanceTo()</code> method in the following sample is an
         example of an instance method.</p><pre class="programlisting">class Point {
@@ -857,7 +855,7 @@ abstract class AbstractContainer {
   }
 // Abstract method causes a warning but doesn't prevent instantiatation.
   void doSomething(); 
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp16997696"></a>Implicit Interfaces</h3></div></div></div><p>Every class implicitly defines an interface containing all the
+}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-implicit-interfaces"></a>Implicit Interfaces</h3></div></div></div><p>Every class implicitly defines an interface containing all the
       instance members of the class and of any interfaces it implements. If
       you want to create a class A that supports class B’s API without
       inheriting B’s implementation, class A should implement the B
@@ -884,7 +882,7 @@ main() {
 }</pre><p>Here’s an example of specifying that a class implements multiple
       interfaces:</p><pre class="programlisting">class Point <span class="bold"><strong>implements Comparable, Location</strong></span> {
   // ...
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp17003280"></a>Extending a Class</h3></div></div></div><p>Use <code class="literal">extends</code> to create a
+}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-extend"></a>Extending a Class</h3></div></div></div><p>Use <code class="literal">extends</code> to create a
       subclass, and <code class="literal">super</code> to refer to the
       superclass.</p><pre class="programlisting">class Television {
   void turnOn() {
@@ -901,8 +899,8 @@ class SmartTelevision extends Television {
     _upgradeApps();
   }
 }</pre><p>Subclasses can override instance methods, getters, and
-      setters.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp17006976"></a>Class Variables and Methods</h3></div></div></div><p>Use the <code class="literal">static</code> keyword to
-      implement class-wide variables and methods.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17008672"></a>Static variables</h4></div></div></div><p>Static variables (class variables) are useful for class-wide
+      setters.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-vars-and-methods"></a>Class Variables and Methods</h3></div></div></div><p>Use the <code class="literal">static</code> keyword to
+      implement class-wide variables and methods.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-static-variables"></a>Static variables</h4></div></div></div><p>Static variables (class variables) are useful for class-wide
         state and constants.</p><pre class="programlisting">class Color {
   static const RED = const Color('red'); // A constant static variable.
   final String name;                     // An instance variable.
@@ -911,7 +909,7 @@ class SmartTelevision extends Television {
 
 main() {
   assert(Color.RED.name == 'red');
-}</pre><p>Static variables aren’t initialized until they’re used.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17011248"></a>Static methods</h4></div></div></div><p>Static methods (class methods) do not operate on an instance,
+}</pre><p>Static variables aren’t initialized until they’re used.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-static-methods"></a>Static methods</h4></div></div></div><p>Static methods (class methods) do not operate on an instance,
         and thus do not have access to <code class="literal">this</code>.</p><pre class="programlisting">class Point {
   num x;
   num y;
@@ -938,7 +936,7 @@ main() {
     List as a <span class="emphasis"><em>generic</em></span> (or
     <span class="emphasis"><em>parameterized</em></span>) type—a type that has formal type
     parameters. By convention, type variables have single-letter names, such
-    as E, T, S, K, and V.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp17019232"></a>Why Use Generics?</h3></div></div></div><p>Because types are optional in Dart, you never
+    as E, T, S, K, and V.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-generics-why"></a>Why Use Generics?</h3></div></div></div><p>Because types are optional in Dart, you never
       <span class="emphasis"><em>have</em></span> to use generics. You might
       <span class="emphasis"><em>want</em></span> to, though, for the same reason you might want
       to use other types in your code: types (generic or not) let you document
@@ -1006,7 +1004,7 @@ print(names is List&lt;String&gt;); // true</pre><p>However, the <code class="li
     included in the SDK.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="libraries-import"></a>Using Libraries</h3></div></div></div><p>Use <code class="literal">import</code> to specify how a
       namespace from one library is used in the scope of another
       library.</p><p>For example, Dart web apps generally use the <a class="ulink" href="http://api.dartlang.org/html.html" target="_top">dart:html</a> library, which
-      they can import like this:</p><pre class="programlisting">import 'dart:html';</pre><p>The only required argument to <code class="literal">import</code> is a URI<a href="#ftn.idp17056160" class="footnote" name="idp17056160"><sup class="footnote">[1]</sup></a> specifying the library. For built-in libraries, the URI
+      they can import like this:</p><pre class="programlisting">import 'dart:html';</pre><p>The only required argument to <code class="literal">import</code> is a URI<a href="#ftn.ch02-footnote-1" class="footnote" name="ch02-footnote-1"><sup class="footnote">[1]</sup></a> specifying the library. For built-in libraries, the URI
       has the special <code class="literal">dart:</code> scheme. For
       other libraries, you can use a file system path or the <code class="literal">package:</code> scheme. The <code class="literal">package:</code> scheme specifies libraries provided
       by a package manager such as the pub tool. For example:</p><pre class="programlisting">import 'dart:io';
@@ -1018,7 +1016,7 @@ import 'package:utils/utils.dart';</pre><div class="sect3"><div class="titlepage
 import 'package:lib2/lib2.dart' as lib2;
 // ...
 var element1 = new Element();      // Uses Element from lib1.
-var element2 = new lib2.Element(); // Uses Element from lib2.</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17063072"></a>Importing only part of a library</h4></div></div></div><p>If you want to use only part of a library, you can selectively
+var element2 = new lib2.Element(); // Uses Element from lib2.</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-library-import-part"></a>Importing only part of a library</h4></div></div></div><p>If you want to use only part of a library, you can selectively
         import the library. For example:</p><pre class="programlisting">import 'package:lib1/lib1.dart' show foo, bar; // Import only foo and bar.
 import 'package:lib2/lib2.dart' hide foo;      // Import all names EXCEPT foo.</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="libraries-implementing"></a>Implementing Libraries</h3></div></div></div><p>Use <code class="literal">library</code> to name a library,
       and <code class="literal">part</code> to specify additional files
@@ -1055,7 +1053,7 @@ part 'util.dart';
 // ...Code goes here...</pre><p>The third file, <code class="literal">util.dart</code>, implements the
         rest of the ballgame library:</p><pre class="programlisting">part of ballgame;
 
-// ...Code goes here...</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17084624"></a>Re-exporting libraries</h4></div></div></div><p>You can combine or repackage libraries by re-exporting part or
+// ...Code goes here...</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-library-reexport"></a>Re-exporting libraries</h4></div></div></div><p>You can combine or repackage libraries by re-exporting part or
         all of them. For example, you might have a huge library that you
         implement as a set of smaller libraries. Or you might create a library
         that provides a subset of methods from another library.</p><pre class="programlisting"><span class="emphasis"><em>// In french.dart:</em></span>
@@ -1126,11 +1124,11 @@ int sort(int a, int b) =&gt; a - b;
 main() {
   assert(sort is Compare);  // True!
 }</pre></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="comments"></a>Comments</h2></div></div></div><p>Dart supports single-line comments, multi-line comments, and
-    documentation comments.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp17105840"></a>Single-Line Comments</h3></div></div></div><p>A single-line comment begins with <code class="literal">//</code>. Everything between <code class="literal">//</code> and the end of line is ignored by the Dart
+    documentation comments.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-comments-single-line"></a>Single-Line Comments</h3></div></div></div><p>A single-line comment begins with <code class="literal">//</code>. Everything between <code class="literal">//</code> and the end of line is ignored by the Dart
       compiler.</p><pre class="programlisting">main() {
   // TODO: refactor into an AbstractLlamaGreetingFactory?
   print('Welcome to my Llama farm!');
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp17108992"></a>Multi-Line Comments</h3></div></div></div><p>A multi-line comment begins with <code class="literal">/*</code> and ends with <code class="literal">*/</code>. Everything between <code class="literal">/*</code> and <code class="literal">*/</code>
+}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-comments-multi-line"></a>Multi-Line Comments</h3></div></div></div><p>A multi-line comment begins with <code class="literal">/*</code> and ends with <code class="literal">*/</code>. Everything between <code class="literal">/*</code> and <code class="literal">*/</code>
       is ignored by the Dart compiler (unless the comment is a documentation
       comment; see the next section). Multi-line comments can nest.</p><pre class="programlisting">main() {
   /*
@@ -1173,8 +1171,8 @@ class Llama {
 }</pre><p>In the generated documentation, <code class="literal">[Food]</code> becomes a link to the API docs for the
       Food class.</p><p>To parse Dart code and generate HTML documentation, you can use
       Dart Editor, which in turn uses the SDK’s dartdoc package. For an
-      example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org" target="_top">Dart API documentation.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="summary"></a>Summary</h2></div></div></div><p>This chapter summarized the commonly used features in the Dart
+      example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org" target="_top">Dart API documentation.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch02-summary"></a>Summary</h2></div></div></div><p>This chapter summarized the commonly used features in the Dart
     language. For more information about the language, see the <a class="ulink" href="http://www.dartlang.org/docs/spec/" target="_top">Dart Language
-    Specification</a> and <a class="ulink" href="http://www.dartlang.org/articles/" target="_top">articles</a> such as <a class="ulink" href="http://www.dartlang.org/articles/idiomatic-dart/" target="_top">Idiomatic Dart.</a></p></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.idp17056160" class="footnote"><p><a href="#idp17056160" class="para"><sup class="para">[1] </sup></a>URI stands for <em class="firstterm">uniform resource
+    Specification</a> and <a class="ulink" href="http://www.dartlang.org/articles/" target="_top">articles</a> such as <a class="ulink" href="http://www.dartlang.org/articles/idiomatic-dart/" target="_top">Idiomatic Dart.</a></p></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.ch02-footnote-1" class="footnote"><p><a href="#ch02-footnote-1" class="para"><sup class="para">[1] </sup></a>URI stands for <em class="firstterm">uniform resource
           identifier</em>. URLs (<em class="firstterm">uniform resource
           locators</em>) are a common kind of URI.</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch01.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 1. Quick Start </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 3. A Tour of the Dart Libraries</td></tr></table></div>

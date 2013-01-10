@@ -8,11 +8,10 @@ description: "Read pub: The Dart Package Manager of Dart: Up and Running, publis
     number of Dart libraries and a list of the library dependencies. A package
     can also contain resources for its libraries, such as documentation,
     tests, and images. If your app uses one or more packages, then your app
-    itself must be a package.</p><p>A package can live anywhere. Some packages are distributed in the Dart SDK, under the
-        <code class="literal">pkg</code> directory. Others are on GitHub. We plan to publish
-      packages at<span class="keep-together">
-        <a class="ulink" href="http://pub.dartlang.org" target="_top">pub.dartlang.org</a>,</span> and we hope you
-      will, too.</p><p>To use a library that’s in a Dart package, you need to do the
+    itself must be a package.</p><p>A package can live anywhere. Some packages are distributed in the
+    Dart SDK, under the <code class="literal">pkg</code> directory.
+    Others are on GitHub. We plan to publish packages at<span class="keep-together"> <a class="ulink" href="http://pub.dartlang.org" target="_top">pub.dartlang.org</a>,</span> and we
+    hope you will, too.</p><p>To use a library that’s in a Dart package, you need to do the
     following:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Create a pubspec (a file that lists package
         dependencies).</p></li><li class="listitem"><p>Use pub to install the package.</p></li><li class="listitem"><p>Import the library.</p></li></ol></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-pubspec"></a>Creating a Pubspec</h3></div></div></div><p>To use a package, your application must define a pubspec that
       lists dependencies and their download locations. The pubspec is a file
@@ -25,13 +24,13 @@ dependencies:
   js:
     hosted: js
   intl:
-    sdk: intl</pre><p>For details, see the <a class="ulink" href="http://pub.dartlang.org/doc/pubspec.html%20%20%20%20%20%20%20%20%20" target="_top">pubspec
+    sdk: intl</pre><p>For details, see the <a class="ulink" href="http://pub.dartlang.org/doc/pubspec.html" target="_top">pubspec
       documentation</a> and the documentation for the packages you’re
       interested in using.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-install"></a>Installing Packages</h3></div></div></div><p>Once you have a pubspec, you can run <code class="literal">pub
       install</code> from the top directory of your application.</p><pre class="screen">cd <em class="replaceable"><code>my/app</code></em>
-<em class="replaceable"><code>$DART_SDK</code></em>/bin/pub install</pre><p>This command determines which packages your app depends on,
-      and puts them in a central cache. For git dependencies, pub clones the
-      git repository. For hosted dependencies, pub downloads the package from
+<em class="replaceable"><code>$DART_SDK</code></em>/bin/pub install</pre><p>This command determines which packages your app depends on, and
+      puts them in a central cache. For git dependencies, pub clones the git
+      repository. For hosted dependencies, pub downloads the package from
       pub.dartlang.org. Transitive dependencies are included, too. For
       example, if the js package is dependent on the unittest package, the pub
       tool grabs both the js package and the unittest package.</p><p>Finally, pub creates a <code class="literal">packages</code>
@@ -39,5 +38,5 @@ dependencies:
       packages that your app depends on.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-import"></a>Importing Libraries from Packages</h3></div></div></div><p>To import libraries found in packages, use the <code class="literal">package:</code> prefix.</p><pre class="programlisting">import 'package:js/js.dart' as js;
 import 'package:intl/intl.dart';</pre><p>The Dart runtime takes everything after <code class="literal">package:</code> and looks it up within the <code class="literal">packages</code> directory for your app.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-more-options"></a>More Information</h3></div></div></div><p>Run <code class="literal"><em class="replaceable"><code>$DART_SDK</code></em>/bin/pub
       --help</code> for a list of commands. For more information about pub,
-        see the <a class="ulink" href="http://pub.dartlang.org/doc" target="_top">pub
+      see the <a class="ulink" href="http://pub.dartlang.org/doc" target="_top">pub
       documentation.</a></p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04-tools-editor.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 4. Tools </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Dart Editor</td></tr></table></div>

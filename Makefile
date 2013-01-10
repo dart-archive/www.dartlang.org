@@ -33,7 +33,7 @@ dartisansplaylist:
 
 convert-docbook-to-html:
 ifndef BOOK_XML_DIR
-	@echo "BOOK_XML_DIR must be set to convert the docbook to html, skipping this step"
+	@echo "You must specify the location of the .xml files. Example: \n  make book BOOK_XML_DIR=~/Spot/dartbook/SVN \nSkipping docbook-to-html conversion."
 else
 	cd $(BOOK_XML_DIR) ; \
 	xsltproc --xinclude \
@@ -49,7 +49,7 @@ convert-book-html-to-jekyll: convert-docbook-to-html
 
 copy-book-images:
 ifndef BOOK_XML_DIR
-	@echo "BOOK_XML_DIR must be set to copy the figures, skipping this step"
+	@echo "You must specify the location of the .xml files. Example: \n  make book BOOK_XML_DIR=~/Spot/dartbook/SVN \nSkipping copy-book-images."
 else
 	mkdir -p src/site/docs/dart-up-and-running/contents/figs/web
 	cp -R $(BOOK_XML_DIR)/figs/web/*.png src/site/docs/dart-up-and-running/contents/figs/web
