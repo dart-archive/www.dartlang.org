@@ -53,6 +53,9 @@ handlers:
 - url: /editor.*
   script: scripts.redirector.application
 
+- url: /performance
+  script: scripts.redirector.application
+
 - url: /news.*
   script: scripts.redirector.application
 

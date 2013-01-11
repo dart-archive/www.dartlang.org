@@ -103,6 +103,8 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch03.html'}),
     Route('/editor<:/?>', RedirectHandler,
       defaults={'_uri': '/docs/editor/'}),
+    Route('/performance', RedirectHandler,
+      defaults={'_uri': '/performance/'}),
     Route('/docs/getting-started/editor/', RedirectHandler,
       defaults={'_uri': '/docs/editor/getting-started/'}),
     Route('/docs/getting-started/sdk/', RedirectHandler,
