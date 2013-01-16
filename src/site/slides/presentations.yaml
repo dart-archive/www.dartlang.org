@@ -1,9 +1,18 @@
+- title: "Esto Es Dart"
+  short: esto-es-dart
+  presenters:
+    - JJ Behrens
+  date: 2013-01-07
+  video: http://www.youtube.com/watch?v=YdzSdWUkA5s
+  event: Esto es Google
+
 - title: "Productivity or Performance. Pick Two."
   short: productivity-performance
   presenters:
     - Seth Ladd
   date: 2012-11-14
   slides: 2012/11/devoxx/dart-productivity-and-performance.pdf
+  video: http://www.parleys.com/#st=5&id=3484&sl=49
   event: Devoxx 2012
 
 - title: "Breaking Open: Dart"
