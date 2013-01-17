@@ -390,7 +390,7 @@ section discusses these special features in detail.
 
 ### Data binding
 
-Data bindings consicely describe the relation between portions of the document
+Data bindings concisely describe the relation between portions of the document
 and Dart expressions.
 Bindings can be used to indicate that some HTML content or
 attributes should be rendered with the result of evaluating a Dart expression.
@@ -685,7 +685,7 @@ Alternatively, instead of `instantiate="if exp"` you can write `if="exp"`.
 <aside>
 <div class="alert alert-info">
 <strong>Note:</strong> 
-The final syntax for conditionals is not finalyzed. In particular, currently
+The final syntax for conditionals is not finalized. In particular, currently
 only <code>instantiate="if ..."</code> is part of the MDV specification.
 However, Web UI supports both <code>instantiate="if ..."</code> and
 <code>if="..."</code> and it will later provide feedback whenever one is
@@ -715,7 +715,7 @@ declared, then if the condition is true, the contents of the template node will
 be appended as siblings of this placeholder.
 
 The Web UI compiler uses a shallow clone of the original template node as the
-invisible placeholder. For example, this is how the tree looks like when the
+invisible placeholder. For example, this is how the tree looks when the
 condition is false in our example above:
 
 {% highlight html %}
@@ -733,7 +733,7 @@ Unconditional portion 1
 <template instantiate="if exp" style="display:none"></template>
 this
 <div>
-  is somethings <strong>shown</strong>
+  is sometimes <strong>shown</strong>
 </div>
 here
 Unconditional portion 2
@@ -817,7 +817,7 @@ the following code, `item 2` will only be visible if `showItem2` is true.
 <aside>
 <div class="alert alert-info">
 <strong>Note:</strong> In the future a single attribute will be enough, we
-intent to remove the extra <code>template</code> attribute.
+intend to remove the extra <code>template</code> attribute.
 </div>
 </aside>
 
@@ -1102,7 +1102,7 @@ called:
 {% endraw %}
 {% endhighlight %}
 
-The name for the `on-` attributes is the hyphened version of the Dart name
+The name for the `on-` attributes is the hyphenated version of the Dart name
 associated with the event in `dart:html`,
 which is what you would normally write
 in calls of the form `elem.on.event.add(eventListener)`. For example, the
