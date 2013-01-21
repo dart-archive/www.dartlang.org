@@ -154,9 +154,7 @@ to link to your Dart source file.
   <body>
     <script type="application/dart" src="app.dart"></script>
     <!-- bootstraps the Dart VM and handles non-Dart browsers -->
-    <script type="text/javascript"
-      src="http://dart.googlecode.com/svn/trunk/dart/client/dart.js">
-    </script>
+    <script src="packages/browser/dart.js"></script>
   </body>
 </html>
 {% endhighlight %}
@@ -246,7 +244,7 @@ Or (also on the Mac):
 </p>
 
 {% highlight bash %}
-DART_FLAG='--enable_type_checks --enable_asserts'               \
+DART_FLAGS='--enable_type_checks --enable_asserts'               \
    open PATH/Chromium.app
 {% endhighlight %}
 

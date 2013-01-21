@@ -56,7 +56,7 @@ Here is a minimal example, which works in all browsers (even if they don't
   <body>
     <h1>Hello, Dart!</h1>
     <script type="application/dart" src="app.dart"></script>
-    <script type="text/javascript" src="dart.js"></script>
+    <script type="text/javascript" src="packages/browser/dart.js"></script>
   </body>
 </html>
 {% endhighlight %}
@@ -106,12 +106,28 @@ For example:
 
 {% highlight html %}
 <script type="application/dart" src="awesome_app.dart"></script>
-<script type="text/javascript" src="dart.js"></script>
+<script type="text/javascript" src="packages/browser/dart.js"></script>
 {% endhighlight %}
 
-You can download a copy of dart.js from
-[https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js](https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js). We expect to provide
-this script via a pub package in the future.
+To get a copy of the dart.js file,
+you can use the [pub package manager](http://pub.dartlang.org).
+Here's how:
+
+1. Add the following to your application's pubspec.yaml:
+
+       dependencies:
+         browser: any
+
+2. Run `pub install`.
+
+3. Use a relative script tag to point to the installed version:
+
+       <script src="packages/browser/dart.js"></script>
+
+If you don't want to use pub,
+you can instead download a copy of
+[dart.js from the Dart project](https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js).
+Note that the location of the file might change.
 
 ## Fundamental differences from JavaScript
 

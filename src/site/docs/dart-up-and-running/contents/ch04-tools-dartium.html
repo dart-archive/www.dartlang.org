@@ -32,10 +32,8 @@ description: "Read Dartium: Chromium with the Dart VM of Dart: Up and Running, p
   &lt;body&gt;
     &lt;script type="application/dart" src="app.dart"&gt;&lt;/script&gt;
 
-    &lt;!-- bootstraps the Dart VM and handles non-Dart browsers --&gt;
-    &lt;script type="text/javascript"
-      src="http://dart.googlecode.com/svn/trunk/dart/client/dart.js"&gt;
-    &lt;/script&gt;
+    &lt;!-- Bootstraps the Dart VM and handles non-Dart browsers. --&gt;
+    &lt;script src="packages/browser/dart.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Dart Editor automatically adds both the <code class="literal">application/dart</code> script tag and the
         bootstrap JavaScript tag into the project’s main HTML file.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-detect"></a>Detecting Dart Support</h3></div></div></div><p>The above example uses a bootstrap script that takes care of
