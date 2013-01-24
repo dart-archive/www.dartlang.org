@@ -332,16 +332,13 @@ using a looping construct.
         'Watermelon'];
 
     List<String> get results {
-      var res = fruits.filter(
-          (v) => v.toLowerCase().contains(query.toLowerCase()));
-      if (res.length > 20) {
-        res.length = 20;
-        res.add('... and many more');
-      }
-      return res;
+      var lQuery = query.toLowerCase();
+      var res = fruits.where((v) => v.toLowerCase().contains(lQuery));
+      return (res.length <= 20) ? res.toList()
+          : (res.take(20).toList()..add('... and many more'));
     }
 
-    bool get noMatches => results.isEmpty();
+    bool get noMatches => results.isEmpty;
 
     main() {}
   </script>
@@ -501,18 +498,19 @@ example.  Note that using an end tag `</x-click-counter>` is required.
 ### Passing data to a component {#pass-data-to-component}
 
 All of the public fields in a component declaration can be initialized directly
-when we instantiate a component. We can do this by writing a special
-`data-value` attribute in the HTML. For instance, the following example
-instantiates two click-counter components (declared just like above), but
-initializes the `count` field of the component to a different value each time.
+when we instantiate a component. We can do this by binding to an attribute name
+that matches the hyphened-spelling of the field name.  For instance, the
+following example instantiates two click-counter components (declared just like
+above), but initializes the `count` field of the component to a different value
+each time.
 
 {% codesample 90 %}
 {% highlight html %}
 {% raw %}
 <html><body>
   <!-- ... element declared as above -->
-  <div is="x-click-counter" data-value="count: myNumber"></div>
-  <div is="x-click-counter" data-value="count: 5"></div>
+  <div is="x-click-counter" count="{{myNumber}}"></div>
+  <div is="x-click-counter" count="{{5}}"></div>
   <script type="application/dart">
     int myNumber = 12;
     main(){}
@@ -575,8 +573,8 @@ as we had above. Then the preceding example could be rewritten as follows:
     <link rel="components" href="clickcounter.html">
   </head>
   <body>
-    <div is="x-click-counter" data-value="count: myNumber"></div>
-    <div is="x-click-counter" data-value="count: 5"></div>
+    <div is="x-click-counter" count="{{myNumber}}"></div>
+    <div is="x-click-counter" count="{{5}}"></div>
     <script type="application/dart">
       int myNumber = 12;
       main(){}
