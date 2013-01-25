@@ -1,6 +1,8 @@
 import 'dart:json';
 import 'dart:io';
 import 'dart:uri';
+import 'dart:json' as JSON;
+import 'dart:async';
 
 final String YT_PLAYLIST_URL = 'http://gdata.youtube.com/feeds/api/playlists/';
 final String PLAYLIST_ID = 'PLOU2XLYxmsIIS2zgjdmBEwTrA6m5YgHBs';
@@ -21,11 +23,11 @@ Future<String> loadDartisansPlaylist() {
       completer.complete(buffer.toString());
     };
     input.onError = (e) {
-      completer.completeException("ERROR reading from input: $e");
+      completer.completeError("ERROR reading from input: $e");
     };
   };
   conn.onError = (e) {
-    completer.completeException("ERROR CONNECTING TO YT: $e");
+    completer.completeError("ERROR CONNECTING TO YT: $e");
   };
   return completer.future;
 }
@@ -73,7 +75,7 @@ writeEntry(OutputStream out, Map entry, int epNum) {
   String desc = entry['content'][r'$t']
                   .replaceAll("\n", ' ')
                   .replaceAll('"', "'");
-  
+
   out.writeString("""
 - title: "${title}"
   subtitle: "${subtitle}"
@@ -90,7 +92,7 @@ writeEntry(OutputStream out, Map entry, int epNum) {
 main() {
   var script = new File(new Options().script);
   var directory = script.directorySync();
-  
+
   loadDartisansPlaylist()
   .then((String json) {
     Map data = parsePlaylistJson(json);

@@ -1,6 +1,7 @@
 #!/usr/bin/env dart
 
 import 'dart:io';
+import 'dart:async';
 
 Directory outputDir;
 
@@ -63,6 +64,6 @@ main() {
   checkDir(outputDir);
 
   dirContents(inputDir)
-    .transform((filenames) => filenames.filter((f) => f.endsWith(".html")))
+    .then((filenames) => filenames.where((f) => f.endsWith(".html")))
     .then((htmlFilenames) => htmlFilenames.forEach((f) => convertFile(f)));
 }

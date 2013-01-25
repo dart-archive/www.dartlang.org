@@ -175,7 +175,7 @@ if (name) {
       this means for you is that, instead of using code like <code class="literal">if (<em class="replaceable"><code>nonbooleanValue</code></em>)</code>,
       you should instead explicitly check for values. For example:</p><pre class="programlisting">// Check for an empty string.
 var fullName = '';
-assert(fullName.isEmpty());
+assert(fullName.isEmpty);
 
 // Check for zero.
 var hitPoints = 0;
@@ -381,7 +381,6 @@ assert(a != b) ; // -1 != 0</pre></div><div class="sect2"><div class="titlepage"
           first operand. You’ll see more about this in <a class="xref" href="ch02.html#classes-operators" title="Operators">the section called “Operators”</a>.</p></li></ol></div><p>Here’s an example of using each of the equality and relational
       operators:</p><pre class="programlisting">var a = 2;
 var b = 3;
-var c = a;
 
 assert(a == 2);       // 2 and 2 are equal.
 assert(a != b);       // 2 and 3 aren't equal.
@@ -473,7 +472,7 @@ for (var x in collection) {
     continue;
   }
   candidate.interview();
-}</pre><p>You might write that example differently if you’re using a <a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html" target="_top">Collection.</a></p><pre class="programlisting">candidates.filter((c) =&gt; c.yearsExperience &gt;= 5)
+}</pre><p>You might write that example differently if you’re using a <a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html" target="_top">Collection.</a></p><pre class="programlisting">candidates.where((c) =&gt; c.yearsExperience &gt;= 5)
           .forEach((c) =&gt; c.interview());</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="switch"></a>Switch and Case</h3></div></div></div><p>Switch statements in Dart compare integer, string, or compile-time
       constants using <code class="literal">==</code>. The compared
       objects must all be instances of the same class (and not of any of its

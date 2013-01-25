@@ -80,14 +80,14 @@ assert('structured web apps'.toUpperCase() == 'STRUCTURED WEB APPS');
 // Convert to lowercase.
 assert('STRUCTURED WEB APPS'.toLowerCase() == 'structured web apps');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-trimming-and-empty-strings"></a>Trimming and empty strings</h4></div></div></div><p>Remove all leading and trailing white space with
         <code class="literal">trim()</code>. To check whether a string is empty (length
-        is zero), use <code class="literal">isEmpty()</code>.</p><pre class="screen">// Trim a string.
+        is zero), use <code class="literal">isEmpty</code>.</p><pre class="screen">// Trim a string.
 assert('  hello  '.trim() == 'hello');
 
 // Check whether a string is empty.
-assert(''.isEmpty());
+assert(''.isEmpty);
 
 // Strings with only white space are not empty.
-assert(!'  '.isEmpty());</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_replacing_part_of_a_string"></a>Replacing part of a string</h4></div></div></div><p>Strings are immutable objects, which means you can create them
+assert(!'  '.isEmpty);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_replacing_part_of_a_string"></a>Replacing part of a string</h4></div></div></div><p>Strings are immutable objects, which means you can create them
         but you can’t change them. If you look closely at the <a class="ulink" href="http://api.dartlang.org/dart_core/String.html" target="_top">String API
         docs,</a> you’ll notice that none of the methods actually changes
         the state of a String. For example, the method
@@ -113,7 +113,7 @@ sb.clear();  // All gone!
 assert(sb.toString() == '');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-regular-expressions"></a>Regular expressions</h4></div></div></div><p>The RegExp class provides the same capabilities as JavaScript
         regular expressions. Use regular expressions for efficient searching
         and pattern matching of strings.</p><pre class="screen">// A regular expression for one or more digits
-var numbers = const RegExp(r'\d+');
+var numbers = new RegExp(r'\d+');
 
 var allCharacters = 'llamas live fifteen to twenty years';
 var someDigits = 'llamas live 15 to 20 years';
@@ -125,7 +125,7 @@ assert(someDigits.contains(numbers));
 // Replace every match with another string.
 var exedOut = someDigits.replaceAll(numbers, 'XX');
 assert(exedOut == 'llamas live XX to XX years');</pre><p>You can work directly with the RegExp class, too. The Match
-        class provides access to a regular expression match.</p><pre class="screen">var numbers = const RegExp(r'\d+');
+        class provides access to a regular expression match.</p><pre class="screen">var numbers = new RegExp(r'\d+');
 var someDigits = 'llamas live 15 to 20 years';
 
 // Check whether the reg exp has a match in a string.
@@ -231,30 +231,37 @@ var allElements = ['hydrogen', 'helium', 'lithium', 'beryllium',
 assert(ingredients.isSubsetOf(allElements));</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Set.html" target="_top">Set API docs</a>
         for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-common-collection-methods"></a>Common collection methods</h4></div></div></div><p>Both List and Set extend the Collection class. As such, they
         share common functionality found in all collections. The following
-        examples work with any object that implements Collection.</p><p>Use <code class="literal">isEmpty()</code> to check whether a collection
-        has no items.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
-assert(!teas.isEmpty());</pre><p>To apply a function to each item in a collection, you can use
-        <code class="literal">forEach()</code>. Or use <code class="literal">map()</code> if you
-        want a new collection that contains the results.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
+        examples work with any object that implements Collection.</p><p>Use <code class="literal">isEmpty</code> to check whether a collection has
+        no items.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
+assert(!teas.isEmpty);</pre><p>To apply a function to each item in a collection, you can use
+        <code class="literal">forEach()</code>. Or use
+        <code class="literal">mappedBy().toList()</code> if you want an object that
+        contains the results.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 teas.forEach((tea) =&gt; print('I drink $tea'));
 
-var loudTeas = teas.map((tea) =&gt; tea.toUpperCase());
-assert(loudTeas.some((tea) =&gt; tea == 'GREEN'));</pre><p>Use <code class="literal">some()</code> and <code class="literal">every()</code> to
-        check whether some or all items in a collection match a
-        condition.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
+var loudTeas = teas.mappedBy((tea) =&gt; tea.toUpperCase()).toList();
+assert(loudTeas.any((tea) =&gt; tea == 'GREEN'));</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The object returned by <code class="literal">mappedBy()</code> is
+          <span class="emphasis"><em>lazily evaluated</em></span>: your function isn’t called
+          until you ask for an item from the returned object. To force the
+          function to be called for every item in the collection, you can use
+          <code class="literal">toList()</code> or <code class="literal">toSet()</code>.</p></div><p>Use <code class="literal">where()</code> to
+        get all the items in a collection that match a condition.
+        Use <code class="literal">any()</code>
+        and <code class="literal">every()</code> to check whether some or all items in a
+        collection match a condition.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 // Chamomile is not caffeinated.
-isDecaffeinated(String teaName) =&gt; teaName == 'chamomile';
+bool isDecaffeinated(String teaName) =&gt; teaName == 'chamomile';
 
-// Use filter() to create a new collection with only the items
-// that return true from the provided function.
-var decaffeinatedTeas = teas.filter((tea) =&gt; isDecaffeinated(tea));
-// or teas.filter(isDecaffeinated)
+// Use where() to find only the items that return true
+// from the provided function.
+var decaffeinatedTeas = teas.where((tea) =&gt; isDecaffeinated(tea));
+// or teas.where(isDecaffeinated)
 
-// Use some() to check whether at least one item in the collection
+// Use any() to check whether at least one item in the collection
 // satisfies a condition.
-assert(teas.some(isDecaffeinated));
+assert(teas.any(isDecaffeinated));
 
 // Use every() to check whether all the items in a collection
 // satisfy a condition.
@@ -300,13 +307,13 @@ assert(!nobleGases.containsKey(54));</pre><p>You can retrieve all the values or 
 };
 
 // Get all the keys as an unordered collection (a list).
-var keys = hawaiianBeaches.getKeys();
+var keys = hawaiianBeaches.keys;
 
 assert(keys.length == 3);
 assert(new Set.from(keys).contains('oahu'));
 
 // Get all the values as an unordered collection (a list of lists).
-var values = hawaiianBeaches.getValues();
+var values = hawaiianBeaches.values;
 assert(values.length == 3);
 assert(values.some((v) =&gt; v.indexOf('waikiki') != -1));</pre><p>You can also iterate through the key-value pairs.</p><pre class="screen">// NOTE: Do not depend on iteration order.
 hawaiianBeaches.forEach((k,v) {
@@ -332,20 +339,20 @@ assert(teamAssignments['Catcher'] != null);</pre><p>Refer to the <a class="ulink
 var now = new Date.now();
 
 // Create a new Date with the local time zone.
-var y2k = new Date(2000, 1, 1, 0, 0, 0, 0);
+var y2k = new Date(2000);   // January 1, 2000
 
-// You can also use named parameters.
-y2k = new Date(2000, month: 1, day: 1, hour: 0, minute: 0, second: 0,
-               millisecond: 0);
+// Specify the month and day.
+y2k = new Date(2000, 1, 2); // January 2, 2000
 
-// Specify all the parts of a date as a UTC time.
-y2k = new Date(2000, 1, 1, 0, 0, 0, 0, isUtc: true);
+// Specify the date as a UTC time.
+y2k = new Date.utc(2000);   // January 1, 2000, UTC
 
-// Specify a UTC date and time in milliseconds since the Unix epoch.
+// Specify a date and time in milliseconds since the Unix epoch.
 y2k = new Date.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
 
 // Parse an ISO 8601 date.
-y2k = new Date.fromString('2000-01-01T00:00:00Z');</pre><p>The <code class="literal">millisecondsSinceEpoch</code>
+y2k = new Date.fromString('2000-01-01T00:00:00Z');
+</pre><p>The <code class="literal">millisecondsSinceEpoch</code>
       property of a date returns the number of milliseconds since the
       epoch.</p><pre class="screen">var y2k = new Date.fromString('2000-01-01T00:00:00Z');
 assert(y2k.millisecondsSinceEpoch == 946684800000);</pre><p>Use the Duration class to calculate the difference between two
@@ -383,7 +390,7 @@ main() {
   assert(short.compareTo(long) &lt; 0);
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-implementing-map-keys"></a>Implementing map keys</h4></div></div></div><p>Each object in Dart automatically provides an integer hash code,
         and thus can be used as a key in a map. However, you can override the
-        <code class="literal">hashCode()</code> method to generate a custom hash code.
+        <code class="literal">hashCode</code> getter to generate a custom hash code.
         If you do, be sure to override the <code class="literal">==</code> operator, as well. Objects that are equal
         (via <code class="literal">==</code>) must have identical hash
         codes. A hash code doesn’t have to be unique, but it should be well
@@ -396,10 +403,10 @@ main() {
   Person(this.firstName, this.lastName);
 
   // Override hashCode using strategy from Effective Java, Chapter 11.
-  int hashCode() {
+  int get hashCode {
     int result = 17;
-    result = 37 * result + firstName.hashCode();
-    result = 37 * result + lastName.hashCode();
+    result = 37 * result + firstName.hashCode;
+    result = 37 * result + lastName.hashCode;
     return result;
   }
 
@@ -413,7 +420,7 @@ main() {
 main() {
   var p1 = new Person('bob', 'smith');
   var p2 = new Person('bob', 'smith');
-  assert(p1.hashCode() == p2.hashCode());
+  assert(p1.hashCode == p2.hashCode);
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-iteration"></a>Iteration</h4></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/dart_core/Iterable.html" target="_top">Iterable</a>
         and <a class="ulink" href="http://api.dartlang.org/dart_core/Iterator.html" target="_top">Iterator</a>
         classes support for-in loops. Implement Iterable to signal that an
@@ -423,21 +430,15 @@ main() {
 }
 
 class ProcessIterator implements Iterator&lt;Process&gt; {
-  Process next() {
-    // Return the next process if possible; but if not:
-    throw new NoMoreElementsException();
-  }
-  bool hasNext() {
-    // True if calling next() would return a process
+  Process current;
+  bool moveNext() {
     return false;
   }
 }
 
 // A mythical class that lets you iterate through all processes.
-class Processes implements Iterable&lt;Process&gt; {
-  Iterator&lt;Process&gt; iterator() {
-    return new ProcessIterator();
-  }
+class Processes extends Iterable&lt;Process&gt; {
+  final Iterator&lt;Process&gt; iterator = new ProcessIterator();
 }
 
 main() {
@@ -448,8 +449,10 @@ main() {
 }</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-asynchronous-programming"></a>Asynchronous Programming</h3></div></div></div><p>Asynchronous programming often uses callback functions, but Dart
       provides an alternative: <a class="ulink" href="http://api.dartlang.org/dart_core/Future.html" target="_top">Future</a>
       objects. A Future is like a promise for a result to be provided sometime
-      in the future.</p><p>You have the option of using a <a class="ulink" href="http://api.dartlang.org/dart_core/Completer.html" target="_top">Completer</a>
-      to produce a Future and, later, to supply a value to the Future.</p><pre class="screen">Future&lt;bool&gt; longExpensiveSearch() {
+      in the future.</p><p>You have the option of using a <a class="ulink" href="http://api.dartlang.org/dart_async/Completer.html" target="_top">Completer</a>
+      to produce a Future and, later, to supply a value to the Future.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>The API for asynchronous programming is changing in M3 and has
+        moved to a new library: <a class="ulink" href="http://api.dartlang.org/dart_async.html" target="_top">dart:async.</a> This
+        discussion and the examples will be updated.</p></div><pre class="screen">Future&lt;bool&gt; longExpensiveSearch() {
   var completer = new Completer();
   // Perform exhaustive search.
   // ...
@@ -487,9 +490,8 @@ Futures.wait([deleteDone, copyDone, checksumDone]).then((List values) {
   print('Done with all the long steps');
 });</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-more-information-9"></a>More information</h4></div></div></div><p>For examples of using Future, see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-exceptions"></a>Exceptions</h3></div></div></div><p>The Dart core library defines many common exceptions and errors.
       Exceptions are considered conditions that you can plan ahead for and
-      catch. Errors are conditions that you don’t expect or plan for.</p><p>Some of the most common exceptions and errors include:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/NoSuchMethodError.html" target="_top">NoSuchMethodError</a></span></dt><dd><p>Thrown when a receiving object does not implement a
-            method.</p></dd><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/NullPointerException.html" target="_top">NullPointerException</a></span></dt><dd><p>Thrown when the program tries to call a method or access a
-            field of a null object.</p></dd><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/ArgumentError.html" target="_top">ArgumentError</a></span></dt><dd><p>Can be thrown by a method that encounters an unexpected
+      catch. Errors are conditions that you don’t expect or plan for.</p><p>A couple of the most common errors are:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/NoSuchMethodError.html" target="_top">NoSuchMethodError</a></span></dt><dd><p>Thrown when a receiving object (which might be null) does
+            not implement a method.</p></dd><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/ArgumentError.html" target="_top">ArgumentError</a></span></dt><dd><p>Can be thrown by a method that encounters an unexpected
             argument.</p></dd></dl></div><p>Throwing an application-specific exception is a common way to
       indicate that an error has occurred. You can define a custom exception
       by implementing the Exception interface.</p><pre class="screen">class FooException implements Exception {
@@ -722,7 +724,7 @@ import 'dart:json';
 import 'dart:uri';
 
 String encodeMap(Map data) {
-  return Strings.join(data.getKeys().map((k) {
+  return Strings.join(data.keys.mappedBy((k) {
     return '${encodeUriComponent(k)}=${encodeUriComponent(data[k])}';
   }), '&amp;');
 }
@@ -744,7 +746,7 @@ main() {
   var httpRequest = new HttpRequest();
   httpRequest.open('POST', dataUrl);
   httpRequest.setRequestHeader('Content-type', 
-                                       'application/x-www-form-urlencoded');
+                               'application/x-www-form-urlencoded');
   httpRequest.on.loadEnd.add((e) =&gt; loadEnd(httpRequest));
   httpRequest.send(encodedData);
 }</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-websockets"></a>Sending and Receiving Real-Time Data with WebSockets</h3></div></div></div><p>A WebSocket allows your web app to exchange data with a server

@@ -108,3 +108,12 @@ Example:
     make book BOOK_XML_DIR=~/Spot/dartbook/SVN
 
 Wait 4-5 minutes for results.
+
+VERY carefully check the diffs, paying special attention to the headers
+at the top. Rerun the `make book` command if you aren't sure of the
+changes.
+
+(Yes, different runs of `make book` can have different results, even
+when the .xml files haven't changed. The problem I've noticed has been
+misnaming files or skipping them in the navigation. Reported as
+dartbug.com/8128.)

@@ -12,9 +12,9 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
   project.</a> The text for this work is available there under the <a class="ulink" href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_top">Creative Commons
   Attribution-Noncommercial-No Derivative Works 3.0 United States
   License.</a> Source code files for this book’s samples are also there,
-  in the <a class="ulink" href="https://github.com/dart-lang/dart-up-and-running-book/tree/master/code" target="_top"><code class="literal">code/</code>
+  in the <a class="ulink" href="https://github.com/dart-lang/dart-up-and-running-book/tree/master/code" target="_top"><code class="literal">code/</code></a>
   subdirectory. Downloading the sample code from GitHub is much easier than
-  copying it from the book.</a></p><p>If you find an error in the sample code or text, please <a class="ulink" href="https://github.com/dart-lang/dart-up-and-running-book/issues/new" target="_top">create
+  copying it from the book.</p><p>If you find an error in the sample code or text, please <a class="ulink" href="https://github.com/dart-lang/dart-up-and-running-book/issues/new" target="_top">create
   an issue.</a></p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-conventions"></a>Conventions Used in This Book</h2></div></div></div><p>The following typographical conventions are used in this
     book:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="emphasis"><em>Italic</em></span></span></dt><dd><p>Indicates new terms, URLs, email addresses, filenames, and
           file extensions.</p></dd><dt><span class="term"><code class="literal">Constant width</code></span></dt><dd><p>Used for program listings, as well as within paragraphs to
@@ -60,13 +60,34 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
     and any additional information. You can access this page at <a class="ulink" href="http://oreil.ly/Dart_Up_and_Running" target="_top">http://oreil.ly/Dart_Up_and_Running</a>.</p><p>To comment or ask technical questions about this book, send email to
     <code class="email">&lt;<a class="email" href="mailto:bookquestions@oreilly.com">bookquestions@oreilly.com</a>&gt;</code>.</p><p>For more information about our books, courses, conferences, and
     news, see our website at <a class="ulink" href="http://www.oreilly.com" target="_top">http://www.oreilly.com</a>.</p><p>Find us on Facebook: <a class="ulink" href="http://facebook.com/oreilly" target="_top">http://facebook.com/oreilly</a></p><p>Follow us on Twitter: <a class="ulink" href="http://twitter.com/oreillymedia" target="_top">http://twitter.com/oreillymedia</a></p><p>Watch us on YouTube: <a class="ulink" href="http://www.youtube.com/oreillymedia" target="_top">http://www.youtube.com/oreillymedia</a></p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-updates"></a>Content Updates</h2></div></div></div><p>We’ve updated the content to reflect the following changes:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Using <code class="literal">part of</code> in additional library files is
-        now <span class="emphasis"><em>required</em></span>, not optional.</p></li><li class="listitem"><p>In the dart:html library, the <code class="literal">elements</code>
-        property of Element is now called <code class="literal">children</code>.</p></li><li class="listitem"><p>The <code class="literal">charCodes()</code> method of String is now a
-        getter, so we removed the parentheses from all references to
-        <code class="literal">charCodes</code>.</p></li><li class="listitem"><p>The <code class="literal">readAsText()</code> method of File is now called
-        <code class="literal">readAsString()</code>.</p></li><li class="listitem"><p>The recommended way for web apps to use
+        now <span class="emphasis"><em>required</em></span>, not optional.</p></li><li class="listitem"><p>Between M1 and M3, several APIs changed:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>In the dart:html library, the <code class="literal">elements</code>
+            property of Element is now called <code class="literal">children</code>.</p></li><li class="listitem"><p>The <code class="literal">charCodes()</code> method of String is now a
+            getter, so we removed the parentheses from all references to
+            <code class="literal">charCodes</code>.</p></li><li class="listitem"><p>The <code class="literal">readAsText()</code> method of File is now called
+            <code class="literal">readAsString()</code>.</p></li><li class="listitem"><p>Constructors for the Date class have changed.</p></li><li class="listitem"><p>NullPointerException no longer exists.</p></li><li class="listitem"><p>RegExp no longer has a const constructor.</p></li><li class="listitem"><p>The return type of StringBuffer's <code class="literal">add()</code>
+            method changed to void.
+            Code that used to chain calls to <code class="literal">add()</code>
+            should now use method cascades instead.</p></li></ul></div></li><li class="listitem"><p>The recommended way for web apps to use
         <code class="literal">dart.js</code> is now to have a local copy, preferably one
-        downloaded using the <code class="literal">browser</code> pub package.</p></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
+        downloaded using the <code class="literal">browser</code> pub package.</p></li><li class="listitem"><p>The core libraries were revised in M3. Changes include:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>Some methods have changed to fields or getters. This meant
+            we had to remove the <code class="literal">()</code> after
+            <code class="literal">hashCode</code>, <code class="literal">isEmpty</code> and
+            <code class="literal">isNan</code>. We also changed
+            <code class="literal">getKeys()</code> to <code class="literal">keys</code>, and
+            <code class="literal">getValues()</code> to <code class="literal">values</code>.
+            <em><span class="remark"> {PENDING: any more to add here?}</span></em></p></li><li class="listitem"><p>The Iterable class has been beefed up, affecting all
+            Collections such as Lists and Sets. The former Collection methods
+            <code class="literal">filter()</code> and <code class="literal">map()</code> are now
+            in Iterable and named <code class="literal">where()</code> and
+            <code class="literal">mappedBy()</code>. The <code class="literal">some()</code>
+            method is now named <code class="literal">any()</code>. Many values returned
+            by Iterables are now lazily filled Iterables; you can use
+            <code class="literal">toList()</code> or <code class="literal">toSet()</code> to force
+            evaluation. More details will be in an <a class="ulink" href="http://www.dartlang.org/articles/" target="_top">article</a>.
+            <em><span class="remark">{PENDING: update URL}</span></em></p></li><li class="listitem"><p>The Iterator interface has changed from
+            <code class="literal">next()</code> and <code class="literal">hasNext()</code> to
+            <code class="literal">current</code> and
+            <code class="literal">moveNext()</code>.</p></li></ul></div></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
     hope we haven’t forgotten anyone, but we probably have.</p><p>The following Dart engineers and managers gave us prompt, helpful
     reviews of the sections corresponding to their areas of responsibility:
     Mads Ager, Peter von der Ahé, Justin Fagnani, Dan Grove, Florian Loitsch,
