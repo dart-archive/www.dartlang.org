@@ -536,7 +536,7 @@ E:function(a){if(!(typeof a==="object"&&a!==null&&!!a.is$iD))return!1;return $.q
 get$iO:function(){var z=new $.ud();return z.call$2(this.Fi,z.call$2(this.ku,z.call$2(this.Br,z.call$2(this.tp,z.call$2(this.Ii,z.call$2(this.tP,z.call$2(this.Ka,1)))))))},
 is$iD:true}
 $$.Wj={"":"V;P,Yu,Z,I,Av=,X,R",
-Q:function(){var z,y,x;this.P=this.er();this.I=$.T(this.P);this.P.set$hf("    <div>\n    <button id=\"__e-0\">Click me</button>\n    <span id=\"__e-2\"></span>\n    </div>\n    ");this.Yu=this.P.q("#__e-0");this.I.No(this.Yu.get$qc().get$CA(),new $.Gd(this));this.Z=this.P.q("#__e-2");z=this.I.WZ(new $.PS(this));y=this.Z.get$U();x=[$.KH("(click count: "),z,$.KH(")")];$.X(y).FV(y,x);this.I.r()},
+Q:function(){var z,y,x;this.P=this.er();this.I=$.T(this.P);this.P.set$hf("    <button id=\"__e-0\">Click me</button>\n    <span id=\"__e-2\"></span>\n    ");this.Yu=this.P.q("#__e-0");this.I.No(this.Yu.get$qc().get$CA(),new $.Gd(this));this.Z=this.P.q("#__e-2");z=this.I.WZ(new $.PS(this));y=this.Z.get$U();x=[$.KH("(click count: "),z,$.KH(")")];$.X(y).FV(y,x);this.I.r()},
 J:function(){this.I.i()},
 Qi:function(){this.I.wg();this.I=null;this.Z=null;this.Yu=null},
 Y:function(){$.V.prototype.Y.call(this);var z=this.P;if(!(typeof z==="object"&&z!==null&&z.is$K()))this.P=this}}

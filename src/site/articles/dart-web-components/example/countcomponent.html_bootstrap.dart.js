@@ -510,7 +510,7 @@ v:function(a,b){var z,y,x,w,v;z=this.h;if(typeof z!=="string"&&(typeof z!=="obje
 a:function(a,b,c,d,e,f){switch(a){case 1:z=d;y=c;x=b;break;case 2:z=f;v=e;w=d;y=c;x=b;break}switch(a){case 0:z=this.h;case 1:a=0;w=$.j(z);v=w.get$e(z);case 2:var z,y,x,w,v,u,t,s,r;a=0;for(u=$.A(v),t=y===!0,s=0;$.t(s,v);++s){if(t){r=u.o(v,s);r=$.A(r).o(r,1)}else r=s;x.call$1(w.p(z,r))}}},
 l:function(a){return this.v(a,!1)}}
 $$.Wj={"":"O;P,Yu,m8,I,Av=,X,R",
-Q:function(){var z,y,x;this.P=this.er();this.I=$.T(this.P);this.P.set$hf("    <div>\n    <button id=\"__e-0\">Click me</button>\n    <span id=\"__e-2\"></span>\n    </div>\n    ");this.Yu=this.P.q("#__e-0");this.I.No(this.Yu.get$qc().get$CA(),new $.Gd(this));this.m8=this.P.q("#__e-2");z=this.I.WZ(new $.PS(this));y=this.m8.get$U();x=[$.KH("(click count: "),z,$.KH(")")];$.X(y).FV(y,x);this.I.r()},
+Q:function(){var z,y,x;this.P=this.er();this.I=$.T(this.P);this.P.set$hf("    <button id=\"__e-0\">Click me</button>\n    <span id=\"__e-2\"></span>\n    ");this.Yu=this.P.q("#__e-0");this.I.No(this.Yu.get$qc().get$CA(),new $.Gd(this));this.m8=this.P.q("#__e-2");z=this.I.WZ(new $.PS(this));y=this.m8.get$U();x=[$.KH("(click count: "),z,$.KH(")")];$.X(y).FV(y,x);this.I.r()},
 M:function(){this.I.i()},
 Qi:function(){this.I.J();this.I=null;this.m8=null;this.Yu=null},
 rN:function(){$.O.prototype.rN.call(this);var z=this.P;if(!(typeof z==="object"&&z!==null&&z.is$K()))this.P=this}}

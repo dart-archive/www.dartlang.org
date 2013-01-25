@@ -433,10 +433,8 @@ take the click-count example above and make it a component as follows:
 <html><body>
   <element name="x-click-counter" constructor="CounterComponent" extends="div">
     <template>
-      <div>
-        <button on-click="increment()">Click me</button>
-        <span>(click count: {{count}})</span>
-      </div>
+      <button on-click="increment()">Click me</button>
+      <span>(click count: {{count}})</span>
     </template>
     <script type="application/dart">
       import 'package:web_ui/web_ui.dart';
