@@ -571,7 +571,7 @@ and referred to in the CSS file and in Dart code with a period (.).
 Between the curly brackets of a CSS rule is
 a list of declarations,
 each of which ends in a semi-colon (;).
-Each declaration specifies an attribute and its value.
+Each declaration specifies a property and its value.
 Together the set of declarations define the _style sheet_
 for all matching elements.
 The style sheet is used to set the appearance
@@ -581,7 +581,7 @@ of the matching element(s) on the web page.
      alt="A declaration specifies an attribute and its value">
 
 The CSS rule for the RipVanWinkle paragraph
-specifies several attributes;
+specifies several properties;
 for example, it sets the text color to Yellow.
 
 <div class="row">

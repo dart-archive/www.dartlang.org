@@ -10,7 +10,7 @@ tutorial:
   id: tut-home
 article:
   written_on: 2012-10-01
-  updated_on: 2012-12-01
+  updated_on: 2013-01-01
   collection: everyday-dart
 ---
 
@@ -96,20 +96,33 @@ This target walks you through the steps to install one of those packages.
 Web components and templates
 are the next great ideas in web application development.
 Together they provide the building blocks to
-create richer and and more dynamic web applications.
+create richer and more dynamic web applications.
 With the Dart team's Web UI package,
-you can get started using templates and web components now.
+you can get started using web components and templates now.
 </div>
 
 
-<img src="web-ui-icon.png" width="48" height="48"> [ Target 6: Embed Live Data in HTML](web-ui/)
-: This target gets you started using the Web UI package
-and provides examples of using two key features of templates:
-data binding and template expressions.
+<img src="web-ui-icon.png" width="48" height="48"> [ Target 6: Get Started with Web UI](web-ui/)
+: This target starts with the logistics
+of installing the Web UI package and
+setting up Dart Editor to automate the build process.
+Then it shows you how to use one- and two- way data binding
+to embed mutable Dart data in your web page
+and describes the use of watchers to keep the UI
+in sync with the data.
+Finally, you learn about template expressions
+and declaratively attaching event handlers to UI elements.
 
 <hr>
 
-<img src="web-ui-icon.png" width="48" height="48"> [ Target 7: Define a Custom DOM Tag](custom-elements/)
+<img src="web-ui-icon.png" width="48" height="48"> [ Target 7: Use &lt;template&gt;](templates/)
+: This target shows how to use Web UI templates
+to conditionally activate UI elements.
+It also shows you how to use template loops to
+create a UI based on a collection of Dart objects.
+<hr>
+
+<img src="web-ui-icon.png" width="48" height="48"> [ Target 8: Define a Custom DOM Tag](custom-elements/)
 : Continuing your introduction to the Web UI package,
 this target shows you how to use custom elements to
 define a new DOM tag.
@@ -133,7 +146,7 @@ of the Web Components model proposed by the W3C consortium.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:xx-small">Version: Winter Solstice 2012</p>
+  <p style="font-size:xx-small">Version: 25 Jan 2013</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

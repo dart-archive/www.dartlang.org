@@ -268,7 +268,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/web-ui/" class="pull-right">Embed Live Data in HTML <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/web-ui/" class="pull-right">Get Started with Web UI <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

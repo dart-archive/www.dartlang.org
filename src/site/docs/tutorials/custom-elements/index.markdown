@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 7: Define a Custom DOM Tag"
+title: "Target 8: Define a Custom DOM Tag"
 description: "Define a custom DOM element tag with help from the Web UI package"
 has-permalinks: true
 tutorial:
@@ -40,9 +40,10 @@ that extends an existing tag.
 This target shows you how to define a custom element
 and how to create an instance of that element.
 Dart's implementation of custom elements is in the
-<a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>,
+<a href="http://pub.dartlang.org/packages/web_ui"
+   target="blank">Web UI package</a>,
 which is required to run the examples in this target.
-The previous target,
+A previous target,
 <a href="/docs/tutorials/web-ui/">Embed Live Data in HTML</a>,
 shows you how to install the Web UI package.
 
@@ -96,7 +97,7 @@ and puts the result in the opposite field.
 maintains a ratio of 1:2 between the two numbers.)
 
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:100px;width:400px;padding:5px"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/drseuss/web/out/drseuss.html">
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
 </iframe>
 
 First,
@@ -111,7 +112,7 @@ each with different labels and
 a different ratio.
 
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:225px;width:400px;padding:5px"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/convertthis/web/out/convertThis.html">
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
 </iframe>
 
 To create the three converter elements
@@ -285,8 +286,8 @@ have an event handler.
 <ul>
   <li>
     You can find the complete source code for the x-converter example at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07"
-   target="_blank">target07</a> on github.
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08"
+   target="_blank">target08</a> on github.
 
   </li>
   <li>
@@ -304,7 +305,7 @@ have an event handler.
 
 <div class="row">
   <div class="span3">
-  <a href="/docs/tutorials/web-ui/"><i class="icon-chevron-left"> </i> Embed Live Data in HTML</a>
+  <a href="/docs/tutorials/templates/"><i class="icon-chevron-left"> </i> Use &lt;template&gt;</a>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
