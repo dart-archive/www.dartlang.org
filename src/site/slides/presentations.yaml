@@ -168,14 +168,6 @@
   date: 2012-03-19
   slides: 2012/03/smalltalk-industry-conference/DARTtalk-20120319.pdf
 
-- title: Building Modern Web Apps with HTML5 and Dart
-  short: building-modern-web-apps
-  presenters:
-    - David Chandler
-  event: Atlanta Java User Group
-  date: 2011-12-20
-  slides: 2011/12/ajug/
-
 - title: Intro to Dart
   short: intro-to-dart-ladd-messick
   presenters:
@@ -193,14 +185,6 @@
   date: 2011-11-19
   slides: 2011/11/gdd-berlin/dart-presentation-to-gdd-berlin-2011.pdf
 
-- title: Building Modern Web Apps with HTML5 and Dart
-  short: building-modern-web-apps
-  presenters:
-    - David Chandler
-  event: Devoxx 2011
-  date: 2011-11-16
-  slides: 2011/11/devoxx/index.html
-
 - title: A Walk on the Dart Side
   short: walk-on-dart-side
   presenters:
@@ -210,22 +194,6 @@
   slides: 2011/11/stanford/dart-a-walk-on-the-dart-side.pdf
   video: http://www.youtube.com/watch?v=-IavVtOE_Fg
   blog: http://blog.sethladd.com/2011/11/transcription-of-quick-tour-of-dart-by.html
-
-- title: Building Modern Web Apps with HTML5 and Dart
-  short: building-modern-web-apps
-  presenters:
-    - David Chandler
-  event: SenchaCon 2011
-  date: 2011-10-25
-  slides: 2011/10/senchacon/index.html
-
-- title: A short intro to Dart
-  short: short-intro
-  presenters:
-    - Philip Rogers
-  event: Atlanta GTUG
-  date: 2011-10-25
-  slides: 2011/10/atlanta-gtug/short-intro-to-dart-atlanta-gtug-2010.pdf
 
 - title: "Dart: An Introduction"
   short: dart-an-intro
