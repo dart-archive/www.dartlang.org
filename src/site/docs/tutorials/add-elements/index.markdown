@@ -52,6 +52,7 @@ rather than on Node.
 * [About EventListener functions](#about-event-listeners)
 * [Adding an element to the DOM tree](#add-elem)
 * [Styling the page elements](#about-css)
+* [Moving elements within the DOM tree](#moving-elements)
 
 ##Copy and run the todo app {#copy-app}
 
@@ -60,6 +61,12 @@ that is a partial implementation of a todo list.
 This program dynamically changes the DOM,
 and therefore the web page,
 by adding elements to the DOM tree.
+
+Try it! Enter a few items into the input field:
+
+<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:250px;padding:5px"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/todo/todo.html">
+</iframe>
 
 Use the following links to
 copy the HTML, Dart, and CSS code
@@ -81,15 +88,6 @@ are the same as those listed here.
    target="_blank">todo.css</a>
  </li>
  </ul>
-
-Then run the app.
-Enter _dance_ into the input field.
-
-![todo app running in Dartium](images/type-dance.png)
-
-The todo app adds _dance_ to the page just below the input field.
-
-![todo app after dance is added to the list](images/adds-dance.png)
 
 This is the beginning of an app to manage a list of things to do.
 Right now, this app is for procrastinators only
@@ -153,7 +151,7 @@ For example:
 
 An Element maintains references to its child element in a List\<Element>,
 which your Dart code can refer to with the getter `children`.
-The List class has various functions and operators
+The List class has various methods and operators
 whereby you can refer to each child Element individually,
 iterate over the list, and add and remove elements.
 
@@ -232,7 +230,7 @@ This program uses three:
 When a user enters text into the input field,
 a _change_ event fires,
 indicating that the value in the input field has just changed.
-The todo app has a function, addToDoItem(),
+The todo app defines a function, addToDoItem(),
 that can handle these change events.
 The following code connects addToDoItem() to the input field:
 
@@ -251,7 +249,7 @@ or `keyDown` for when the user presses a key on the keyboard.
 
 ##About EventListener functions {#about-event-listeners}
 
-The argument passed to the add() function is a _callback function_
+The argument passed to the add() method is a _callback function_
 of type 
 <a href="http://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a>.
 EventListener is a typedef defined in the dart:html library as follows:
@@ -286,7 +284,7 @@ The change event handler has the following code:
 ![The addToDoItem() function explained](images/add-element-code.png)
 
 The final line of code is where the DOM gets changed.
-The add() function is defined in the List class in the dart:core library.
+The add() method is defined in the List class in the dart:core library.
 
 An Element keeps references to all of its children in a list called `children`.
 By adding and removing elements to and from this list,
@@ -315,6 +313,59 @@ which uses both an ID selector and an HTML selector.
 This rule matches all \<li> elements in the
 element with the ID to-do-list, thus styling
 each item in the to do list.
+
+##Moving elements within the DOM tree {#moving-elements}
+
+Here's an example that shows how to move an element within the DOM.
+Try it! Form a word by clicking the letter tiles.
+
+<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:400px;width:400px;padding:5px"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/anagram/web/anagram.html">
+</iframe>
+
+When the program starts,
+it creates one button element for each of seven
+randomly selected letters.
+The program adds each button to a DOM element&mdash;a simple
+&lt;div&gt; element identified by the CSS selector `letterpile`&mdash;with
+a call to letterpile.children.add().
+
+![Dart code populates the letter pile with buttons](images/anagram-newletters.png)
+
+Each button element in the letter pile
+has a mouse click handler called moveToWord()
+that moves the clicked button down to the end of the word.
+
+To move the button from the letter pile to the word,
+the code simply adds the button to a DOM element
+that is different from the button's current parent&mdash;the
+element identified with the ID `result`.
+Because an element can have only one parent,
+adding the button to a different parent
+automatically removes it from its previous parent.
+
+![The mouse click handler adds the button to the word, thus moving it](images/anagram-move.png)
+
+The last two lines of code in the moveToWord() function
+change the mouse click handler for the moved button.
+When a letter tile is in the letter pile,
+it has a mouse click handler that 
+moves it to the word.
+When a letter tile is in the word,
+it has a mouse click handler that 
+moves it back to the letter pile.
+
+The full source code for the anagram example is here:
+<ul>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/anagram/web/anagram.html"
+   target="_blank">anagram.html</a>
+  </li>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/anagram/web/anagram.dart"
+   target="_blank">anagram.dart</a>
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">
