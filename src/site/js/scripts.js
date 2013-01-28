@@ -5,4 +5,7 @@ $(document).ready(function() {
   };
 
   $.each(['h2','h3','h4'], function(n, h) { $('.has-permalinks ' + h).each(addPermalink); });
+
+  // Add syntax highlighting.
+  prettyPrint();
 });

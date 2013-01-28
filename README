@@ -47,6 +47,8 @@ DEVELOPMENT
 * Your web browser opens to http://localhost:8080
   * You may need to reload once.
 * Edit, create docs as normal.
+* If you're making changes to the Sass (SCSS) files, you can regenerate the CSS
+  by running `make compass` from the root of the repository on the command line.
 
 DEPLOYMENT
 
