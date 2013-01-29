@@ -21,7 +21,7 @@ description: "Read Chapter 5. Walkthrough: Dart Chat of Dart: Up and Running, 
         tab in Dartium. Right-click the tab, and choose <span class="bold"><strong>Duplicate</strong></span>.</p></li></ol></div><div class="figure-float"><div class="figure"><a name="DartChat-screenshot"></a><p class="title"><b>Figure 5.1. Multiple chat clients can use the chat server to talk</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0501.png" alt="Multiple chat clients can use the chat server to talk"></div></div></div><br class="figure-break"></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-how-it-works"></a>How Dart Chat Works</h2></div></div></div><p>The chat server and client are simple. The chat server is an HTTP
     server that provides a WebSocket. The chat client uses that WebSocket for
     a bi-directional communication channel with the server. The client sends
-    chat messages to the sever over the WebSocket, and the server relays those
+    chat messages to the server over the WebSocket, and the server relays those
     messages to all other connected clients.</p><p>As <a class="xref" href="ch05.html#web-socket-connections" title="Figure 5.2. Chat clients connect to a web socket created by the chat server">Figure 5.2, “Chat clients connect to a web socket created by the chat
       server”</a> shows, the server
     starts things off by listening for requests to <code class="literal">ws://127.0.0.1:1337/ws</code>. Chat clients then
@@ -132,12 +132,12 @@ messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput,
       JSON is an easy way to provide string message data to WebSockets. Using
       JSON also gives a bit of structure to the messages and leaves the door
       open to creating more detailed messages in the future.</p><p>The <code class="literal">stringify()</code> method converts a Dart object
-      to a JSON encoded string, and the <code class="literal">parse()</code> method
+      to a JSON-encoded string, and the <code class="literal">parse()</code> method
       converts a JSON string back into a Dart object. Here’s the JSON-related
-      code from the chat client:</p><pre class="programlisting">import 'dart:json';
+      code from the chat client:</p><pre class="programlisting">import 'dart:json' as json;
 
-var encoded = JSON.stringify({'f': from, 'm': message});
-Map message = JSON.parse(encodedMessage);</pre><p>See <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and Decoding Objects">the section called “dart:json - Encoding and Decoding Objects”</a> for more information.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-web-sockets"></a>Communicating with WebSockets</h3></div></div></div><p>The custom class ChatConnection takes care of the chat client’s
+var encoded = json.stringify({'f': from, 'm': message});
+Map message = json.parse(encodedMessage);</pre><p>See <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and Decoding Objects">the section called “dart:json - Encoding and Decoding Objects”</a> for more information.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-web-sockets"></a>Communicating with WebSockets</h3></div></div></div><p>The custom class ChatConnection takes care of the chat client’s
       WebSocket communication. First it connects to the WebSocket by calling
       the WebSocket constructor with the argument <code class="literal">'ws://127.0.0.1:1337/ws'</code>. Then ChatConnection
       adds event handlers for open, close, error, and message events, using
@@ -147,15 +147,15 @@ Map message = JSON.parse(encodedMessage);</pre><p>See <a class="xref" href="ch03
   _receivedEncodedMessage(e.data);
 });</pre><p>The <code class="literal">_receivedEncodedMessage()</code> method just
       parses the JSON data and displays it in the status area.</p><pre class="programlisting">_receivedEncodedMessage(String encodedMessage) {
-  Map message = JSON.parse(encodedMessage);
+  Map message = json.parse(encodedMessage);
   if (message['f'] != null) {
     chatWindow.displayMessage(message['m'], message['f']);
   }
 }</pre><p>To send a message on the WebSocket connection,
       <code class="literal">_sendEncodedMessage()</code> ensures the WebSocket
-      connection is ready and then sends the JSON encoded message.</p><pre class="programlisting">// In the ChatConnection class:
+      connection is ready and then sends the JSON-encoded message.</p><pre class="programlisting">// In the ChatConnection class:
 send(String from, String message) {
-  var encoded = JSON.stringify({'f': from, 'm': message});
+  var encoded = json.stringify({'f': from, 'm': message});
   _sendEncodedMessage(encoded);
 }
 

@@ -590,7 +590,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
     descend from <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object.</a></p><p>To create an object, you can use the <code class="literal">new</code> keyword with a
     <em class="firstterm">constructor</em> for a class. Constructor names can be
     either <span class="emphasis"><em><em class="replaceable"><code>ClassName</code></em></em></span> or
-    <em class="replaceable"><code>ClassName.identifier</code></em>.</p><pre class="programlisting">var jsonData = JSON.parse('{"x":1, "y":2}');
+    <em class="replaceable"><code>ClassName.identifier</code></em>.</p><pre class="programlisting">var jsonData = json.parse('{"x":1, "y":2}');
 
 var p1 = new Point(2,2);               // Create a Point using Point().
 var p2 = new Point.fromJson(jsonData); // Create a Point using Point.fromJson().</pre><p>Objects have <em class="firstterm">members</em> consisting of functions

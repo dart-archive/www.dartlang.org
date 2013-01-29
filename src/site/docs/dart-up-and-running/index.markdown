@@ -24,9 +24,12 @@ For purchase information, see the
 [O'Reilly book page](http://shop.oreilly.com/product/0636920025719.do).
 To find other books about Dart, see [Books on Dart](/books/).
 
+
 #### Contents
 
 1. [Foreword](contents/foreword.html)
+   (including [Content Updates](contents/preface.html#preface-updates)
+   since the book was published)
 1. [Preface](contents/preface.html)
 1. [Chapter 1. Quick Start](contents/ch01.html)
 1. [Chapter 2. A Tour of the Dart Language](contents/ch02.html)

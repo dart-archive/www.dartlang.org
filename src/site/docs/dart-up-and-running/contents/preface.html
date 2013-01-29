@@ -61,13 +61,14 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
     <code class="email">&lt;<a class="email" href="mailto:bookquestions@oreilly.com">bookquestions@oreilly.com</a>&gt;</code>.</p><p>For more information about our books, courses, conferences, and
     news, see our website at <a class="ulink" href="http://www.oreilly.com" target="_top">http://www.oreilly.com</a>.</p><p>Find us on Facebook: <a class="ulink" href="http://facebook.com/oreilly" target="_top">http://facebook.com/oreilly</a></p><p>Follow us on Twitter: <a class="ulink" href="http://twitter.com/oreillymedia" target="_top">http://twitter.com/oreillymedia</a></p><p>Watch us on YouTube: <a class="ulink" href="http://www.youtube.com/oreillymedia" target="_top">http://www.youtube.com/oreillymedia</a></p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-updates"></a>Content Updates</h2></div></div></div><p>We’ve updated the content to reflect the following changes:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Using <code class="literal">part of</code> in additional library files is
         now <span class="emphasis"><em>required</em></span>, not optional.</p></li><li class="listitem"><p>Between M1 and M3, several APIs changed:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>In the dart:html library, the <code class="literal">elements</code>
-            property of Element is now called <code class="literal">children</code>.</p></li><li class="listitem"><p>The <code class="literal">charCodes()</code> method of String is now a
+            property of Element is now called
+            <code class="literal">children</code>.</p></li><li class="listitem"><p>The <code class="literal">charCodes()</code> method of String is now a
             getter, so we removed the parentheses from all references to
-            <code class="literal">charCodes</code>.</p></li><li class="listitem"><p>The <code class="literal">readAsText()</code> method of File is now called
-            <code class="literal">readAsString()</code>.</p></li><li class="listitem"><p>Constructors for the Date class have changed.</p></li><li class="listitem"><p>NullPointerException no longer exists.</p></li><li class="listitem"><p>RegExp no longer has a const constructor.</p></li><li class="listitem"><p>The return type of StringBuffer's <code class="literal">add()</code>
-            method changed to void.
-            Code that used to chain calls to <code class="literal">add()</code>
-            should now use method cascades instead.</p></li></ul></div></li><li class="listitem"><p>The recommended way for web apps to use
+            <code class="literal">charCodes</code>.</p></li><li class="listitem"><p>The <code class="literal">readAsText()</code> method of File is now
+            called <code class="literal">readAsString()</code>.</p></li><li class="listitem"><p>Constructors for the Date class have changed.</p></li><li class="listitem"><p>NullPointerException no longer exists.</p></li><li class="listitem"><p>RegExp no longer has a const constructor.</p></li><li class="listitem"><p>The return type of StringBuffer's <code class="literal">add()</code>
+            method changed to void. Code that used to chain calls to
+            <code class="literal">add()</code> should now use method cascades
+            instead.</p></li></ul></div></li><li class="listitem"><p>The recommended way for web apps to use
         <code class="literal">dart.js</code> is now to have a local copy, preferably one
         downloaded using the <code class="literal">browser</code> pub package.</p></li><li class="listitem"><p>The core libraries were revised in M3. Changes include:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>Some methods have changed to fields or getters. This meant
             we had to remove the <code class="literal">()</code> after
@@ -87,7 +88,11 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
             <em><span class="remark">{PENDING: update URL}</span></em></p></li><li class="listitem"><p>The Iterator interface has changed from
             <code class="literal">next()</code> and <code class="literal">hasNext()</code> to
             <code class="literal">current</code> and
-            <code class="literal">moveNext()</code>.</p></li></ul></div></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
+            <code class="literal">moveNext()</code>.</p></li><li class="listitem"><p>The dart:json library no longer has a JSON class. Former
+            JSON static methods such as <code class="literal">parse()</code> and
+            <code class="literal">stringify()</code> are now top-level functions.</p></li><li class="listitem"><p>Date is now named DateTime, and the
+            <code class="literal">fromString()</code> constructor is now a static method
+            named <code class="literal">parse()</code>.</p></li></ul></div></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
     hope we haven’t forgotten anyone, but we probably have.</p><p>The following Dart engineers and managers gave us prompt, helpful
     reviews of the sections corresponding to their areas of responsibility:
     Mads Ager, Peter von der Ahé, Justin Fagnani, Dan Grove, Florian Loitsch,

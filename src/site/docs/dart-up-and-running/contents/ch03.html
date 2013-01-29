@@ -99,9 +99,10 @@ assert(greeting != greetingTemplate); // greetingTemplate didn't change.</pre></
         A StringBuffer doesn’t generate a new String object until
         <code class="literal">toString()</code> is called.</p><pre class="screen">var sb = new StringBuffer();
 
-sb.add('Use a StringBuffer ');
-sb.addAll(['for ', 'efficient ', 'string ', 'creation ']);
-sb.add('if you are ').add('building lots of strings.');
+sb..add('Use a StringBuffer ')
+  ..addAll(['for ', 'efficient ', 'string ', 'creation '])
+  ..add('if you are ')
+  ..add('building lots of strings.');
 
 var fullString = sb.toString();
 
@@ -245,10 +246,9 @@ assert(loudTeas.any((tea) =&gt; tea == 'GREEN'));</pre><div class="note" style="
           <span class="emphasis"><em>lazily evaluated</em></span>: your function isn’t called
           until you ask for an item from the returned object. To force the
           function to be called for every item in the collection, you can use
-          <code class="literal">toList()</code> or <code class="literal">toSet()</code>.</p></div><p>Use <code class="literal">where()</code> to
-        get all the items in a collection that match a condition.
-        Use <code class="literal">any()</code>
-        and <code class="literal">every()</code> to check whether some or all items in a
+          <code class="literal">toList()</code> or <code class="literal">toSet()</code>.</p></div><p>Use <code class="literal">where()</code> to get all the items in a
+        collection that match a condition. Use <code class="literal">any()</code> and
+        <code class="literal">every()</code> to check whether some or all items in a
         collection match a condition.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 // Chamomile is not caffeinated.
@@ -315,7 +315,7 @@ assert(new Set.from(keys).contains('oahu'));
 // Get all the values as an unordered collection (a list of lists).
 var values = hawaiianBeaches.values;
 assert(values.length == 3);
-assert(values.some((v) =&gt; v.indexOf('waikiki') != -1));</pre><p>You can also iterate through the key-value pairs.</p><pre class="screen">// NOTE: Do not depend on iteration order.
+assert(values.any((v) =&gt; v.indexOf('waikiki') != -1));</pre><p>You can also iterate through the key-value pairs.</p><pre class="screen">// NOTE: Do not depend on iteration order.
 hawaiianBeaches.forEach((k,v) {
   print('I want to visit $k and swim at $v');
   // I want to visit oahu and swim at [waikiki, kailua, waimanalo], etc.
@@ -334,29 +334,29 @@ assert(!hawaiianBeaches.containsKey('florida'));</pre><p>Use the <code class="li
         in a map. You must provide a function that returns the value.</p><pre class="screen">var teamAssignments = {};
 teamAssignments.putIfAbsent('Catcher', () =&gt; pickToughestKid());
 assert(teamAssignments['Catcher'] != null);</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Map.html" target="_top">Map API docs</a>
-        for a full list of methods.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A Date object is a point in time. The time zone is either UTC or
-      the local time zone.</p><p>You can create Date objects using several constructors.</p><pre class="screen">// Get the current date and time.
-var now = new Date.now();
+        for a full list of methods.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A DateTime object is a point in time. The time zone is either UTC
+      or the local time zone.</p><p>You can create DateTime objects using several constructors.</p><pre class="screen">// Get the current date and time.
+var now = new DateTime.now();
 
-// Create a new Date with the local time zone.
-var y2k = new Date(2000);   // January 1, 2000
+// Create a new DateTime with the local time zone.
+var y2k = new DateTime(2000);   // January 1, 2000
 
 // Specify the month and day.
-y2k = new Date(2000, 1, 2); // January 2, 2000
+y2k = new DateTime(2000, 1, 2); // January 2, 2000
 
 // Specify the date as a UTC time.
-y2k = new Date.utc(2000);   // January 1, 2000, UTC
+y2k = new DateTime.utc(2000);   // January 1, 2000, UTC
 
 // Specify a date and time in milliseconds since the Unix epoch.
-y2k = new Date.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
+y2k = new DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
 
 // Parse an ISO 8601 date.
-y2k = new Date.fromString('2000-01-01T00:00:00Z');
+y2k = DateTime.parse('2000-01-01T00:00:00Z');
 </pre><p>The <code class="literal">millisecondsSinceEpoch</code>
       property of a date returns the number of milliseconds since the
-      epoch.</p><pre class="screen">var y2k = new Date.fromString('2000-01-01T00:00:00Z');
+      epoch.</p><pre class="screen">var y2k = new DateTime.parse('2000-01-01T00:00:00Z');
 assert(y2k.millisecondsSinceEpoch == 946684800000);</pre><p>Use the Duration class to calculate the difference between two
-      dates and to shift a date’s time forward or backwards.</p><pre class="screen">var y2k = new Date.fromString('2000-01-01T00:00:00Z');
+      dates and to shift a date’s time forward or backwards.</p><pre class="screen">var y2k = new DateTime.parse('2000-01-01T00:00:00Z');
 
 // Add one year.
 var y2001 = y2k.add(const Duration(days: 366));
@@ -370,8 +370,8 @@ assert(december2000.month == 12);
 // Calculate the difference between two dates.
 // Returns a Duration object.
 var duration = y2001.difference(y2k);
-assert(duration.inDays == 366); // y2k was a leap year.</pre><p>Refer to the API docs for <a class="ulink" href="http://api.dartlang.org/dart_core/Date.html" target="_top">Date</a> and
-      <a class="ulink" href="http://api.dartlang.org/dart_core/Duration.html" target="_top">Duration</a>
+assert(duration.inDays == 366); // y2k was a leap year.</pre><p>Refer to the API docs for <a class="ulink" href="http://api.dartlang.org/dart_core/DateTime.html" target="_top">DateTime</a>
+      and <a class="ulink" href="http://api.dartlang.org/dart_core/Duration.html" target="_top">Duration</a>
       for a full list of methods.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utility-interfaces"></a>Utility Classes</h3></div></div></div><p>The core library contains various utility classes, useful for
       sorting, mapping values, and iterating.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-comparing-objects"></a>Comparing objects</h4></div></div></div><p>Implement the <a class="ulink" href="http://api.dartlang.org/dart_core/Comparable.html" target="_top">Comparable</a>
         interface to indicate that an object can be compared to another
@@ -390,14 +390,13 @@ main() {
   assert(short.compareTo(long) &lt; 0);
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-implementing-map-keys"></a>Implementing map keys</h4></div></div></div><p>Each object in Dart automatically provides an integer hash code,
         and thus can be used as a key in a map. However, you can override the
-        <code class="literal">hashCode</code> getter to generate a custom hash code.
-        If you do, be sure to override the <code class="literal">==</code> operator, as well. Objects that are equal
-        (via <code class="literal">==</code>) must have identical hash
-        codes. A hash code doesn’t have to be unique, but it should be well
+        <code class="literal">hashCode</code> getter to generate a custom hash code. If
+        you do, be sure to override the <code class="literal">==</code>
+        operator, as well. Objects that are equal (via <code class="literal">==</code>) must have identical hash codes. A hash
+        code doesn’t have to be unique, but it should be well
         distributed.</p><p class="remark"><em><span class="remark">Note: There’s disagreement over whether to include identical()
-        in the == implementation. Gilad says yes; Mads says no. It might
-        improve speed. They don’t do identical() automatically because, by
-        convention, NaN != NaN.</span></em></p><pre class="screen">class Person {
+        in the == implementation. It might improve speed. They don’t do
+        identical() automatically because, by convention, NaN != NaN.</span></em></p><pre class="screen">class Person {
   String firstName, lastName;
 
   Person(this.firstName, this.lastName);
@@ -672,10 +671,10 @@ query('#submitInfo').on.click.add((e) {
       server, you need to either use a technique called JSONP or enable CORS
       headers on the remote resources.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_getting_data_from_the_server"></a>Getting data from the server</h4></div></div></div><p>The <code class="literal">HttpRequest.get()</code>
         constructor is an easy way to get data from a web server.</p><pre class="screen">import 'dart:html';
-import 'dart:json';
+import 'dart:json' as json;
 
 onSuccess(HttpRequest request) {
-  Map response = JSON.parse(request.responseText);
+  Map response = json.parse(request.responseText);
   String name = response['name'];
   String license = response['license'];
   print('The $name project uses the $license license.');
@@ -693,7 +692,7 @@ main() {
         API to handle more interesting cases. For example, you can capture
         errors and set arbitrary headers.</p><p>The general flow for using the full API of HttpRequest is as
         follows:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Create the HttpRequest object.</p></li><li class="listitem"><p>Open the URL with either <code class="literal">GET</code> or <code class="literal">POST</code>.</p></li><li class="listitem"><p>Attach event handlers.</p></li><li class="listitem"><p>Send the request.</p></li></ol></div><p>A full example of handling errors follows:</p><pre class="screen">import 'dart:html';
-import 'dart:json';
+import 'dart:json' as json;
 
 loadEnd(HttpRequest request) {
   if (request.status != 200) {
@@ -701,7 +700,7 @@ loadEnd(HttpRequest request) {
     return;
   }
 
-  Map response = JSON.parse(request.responseText);
+  Map response = json.parse(request.responseText);
   String name = response['name'];
   String license = response['license'];
   print('The $name project uses the $license license.');
@@ -720,7 +719,7 @@ main() {
         name-value pairs as URI-encoded strings. (Information about the URI
         API is in <a class="xref" href="ch03.html#ch03-uri" title="dart:uri - Manipulating URIs">the section called “dart:uri - Manipulating URIs”</a>.) You must also set the <code class="literal">Content-type</code> header to <code class="literal">application/x-www-form-urlencode</code> if you wish
         to send data to a form handler.</p><pre class="screen">import 'dart:html';
-import 'dart:json';
+import 'dart:json' as json;
 import 'dart:uri';
 
 String encodeMap(Map data) {
@@ -770,7 +769,7 @@ main() {
         string sent on a WebSocket, where the JSON string has two fields,
         “from” and “content”.</p><pre class="screen">// Called from the message listener like this: receivedMessage(e.data)
 receivedMessage(String data) {
-  Map message = JSON.parse(data);
+  Map message = json.parse(data);
   if (message['from'] != null) {
     print('Message from ${message['from']}: ${message['content']}');
   }
@@ -1013,7 +1012,7 @@ main() {
 main() {
   var logFile = new File('log.txt');
   var out = logFile.openOutputStream(FileMode.WRITE);
-  out.writeString('FILE ACCESSED ${new Date.now()}');
+  out.writeString('FILE ACCESSED ${new DateTime.now()}');
   out.close();
 }</pre><p>To write binary data, use <code class="literal">write(List&lt;int&gt; buffer)</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-listing-files-in-a-directory"></a>Listing files in a directory</h4></div></div></div><p>Finding all files and subdirectories for a directory is an
         asynchronous operation. The <code class="literal">list()</code> method returns a
@@ -1095,7 +1094,7 @@ main() {
     JSON-formatted strings into Dart objects, and encodes objects into
     JSON-formatted strings.</p><p>The Dart JSON library works in both web apps and command-line apps.
     To use the JSON library, import <code class="literal">dart:json</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-json-decoding"></a>Decoding JSON</h3></div></div></div><p>Decode a JSON-encoded string into a Dart object with
-      <code class="literal">JSON.parse()</code>.</p><pre class="screen">import 'dart:json';
+      <code class="literal">json.parse()</code>.</p><pre class="screen">import 'dart:json' as json;
 
 main() {
   // NOTE: Be sure to use double quotes ("), not single quotes ('),
@@ -1107,20 +1106,20 @@ main() {
   ]
   ''';
 
-  var scores = JSON.parse(jsonString);
+  var scores = json.parse(jsonString);
   assert(scores is List);
 
   var firstScore = scores[0];
   assert(firstScore is Map);
   assert(firstScore['score'] == 40);
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-json-encoding"></a>Encoding JSON</h3></div></div></div><p>Encode a supported Dart object into a JSON-formatted string with
-      <code class="literal">JSON.stringify()</code>.</p><p>Only objects of type int, double, String, bool, null, List, or Map
+      <code class="literal">json.stringify()</code>.</p><p>Only objects of type int, double, String, bool, null, List, or Map
       can be encoded into JSON. List and Map objects are encoded
       recursively.</p><p>If any object that isn’t an int, double, String, bool, null, List,
       or Map is passed to <code class="literal">stringify()</code>, the object’s
       <code class="literal">toJson()</code> method is called. If
       <code class="literal">toJson()</code> returns an encodable value, that value is
-      encoded in the object’s place.</p><pre class="screen">import 'dart:json';
+      encoded in the object’s place.</p><pre class="screen">import 'dart:json' as json;
 
 main() {
   var scores = [
@@ -1129,7 +1128,7 @@ main() {
     {'score': 100, 'overtime': true, 'special_guest': null}
   ];
 
-  var jsonText = JSON.stringify(scores);
+  var jsonText = json.stringify(scores);
   assert(jsonText == '[{"score":40},{"score":80},'
                      '{"score":100,"overtime":true,'
                      '"special_guest":null}]');
