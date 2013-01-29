@@ -64,11 +64,7 @@ You define a custom element tag
 by using &lt;element&gt; and
 providing it with a name for the new tag
 and the name of the tag that it extends.
-
-For example,
-here's a code snippet that defines a custom tag,
-&lt;x-fancy-button&gt;,
-that extends the standard HTML &lt;button&gt; tag.
+This code snippet extends the standard HTML &lt;button&gt; tag.
 The name and extends attributes are both required.
 
 {% highlight html %}
@@ -77,49 +73,85 @@ The name and extends attributes are both required.
 
 To create an instance of a custom element,
 use the element name as you would a regular HTML tag.
-For example, to create an x-fancy-button element:
+For example, to create an instance of x-fancy-button:
 
 {% highlight html%}
 <x-fancy-button> ... </x-fancy-button>
 {% endhighlight %}
 
-For example,
-running below is a custom element, called `x-converter`,
-that extends the &lt;div&gt; tag.
-It has two input fields, two labels,
-and left- and right-facing arrows.
-Using a mash-up of HTML and Dart
-and supporting functionality in the Web UI package,
-x-converter processes change events on both fields,
-converts the value,
-and puts the result in the opposite field.
-(This particular instance of x-converter
-maintains a ratio of 1:2 between the two numbers.)
+You can also create a complex,
+reusable element by bundling elements together inside the custom element.
+Running below is an instance of a custom element, called `x-converter`,
+that extends the &lt;div&gt; tag
+and contains several elements within it.
+Everything within the yellow box is part of the x-converter element.
+Try it! Type a number into one of the fields and press return.
 
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:100px;width:400px;padding:5px"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
 </iframe>
 
-First,
-we'll look at the code that creates instances of the x-converter
-and then at the code that defines the &lt;x-converter&gt; tag.
+The two input fields, the two labels, the left- and right-facing arrows,
+and the Dart code that implements the arithmetic calculation
+work in concert to provide a single widget that converts one number to another.
+This custom extension of &lt;div&gt; wraps all
+of the necessary UI elements and their behavior together into a
+reusable, sharable piece of code.
+Using a mash-up of HTML and Dart
+and supporting functionality in the Web UI package,
+x-converter processes change events on both fields,
+converts the value,
+and puts the result in the opposite field.
+
+Instances of this custom element can be configured 
+with different labels and conversion ratios.
+This particular instance of x-converter
+maintains a ratio of 1:2 between the left and right numbers.
+
+These files implement the app:
+
+| File | Description|
+|---|---|
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/web/drseuss.html" target="_blank">drseuss.html</a> | Creates an instance of the x-converter |
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/web/converter-element.html" target="_blank">converter-element.html</a> | Defines the UI for the x-converter custom element |
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/web/convertercomponent.dart" target="_blank">convertercomponent.dart</a> | Defines the behavior of the x-converter custom element |
+{: .table}
+
+The remaining sections
+describe the code that creates instances of the x-converter,
+the HTML code that defines the &lt;x-converter&gt; tag,
+and the Dart code that implements the behavior.
 
 ##Instantiating a custom element
 
 The embedded app below contains
 three x-converter elements,
-each with different labels and
+each configured with different labels and
 a different ratio.
+Try it! Enter numbers into each of the fields.
 
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:225px;width:400px;padding:5px"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
 </iframe>
 
+This app uses the same code to define
+and implement the &lt;x-converter&gt; custom element as the previous app.
+It just creates three instances of the same element configured differently.
+
+| File | Description|
+|---|---|
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertThis.html" target="_blank">convertThis.html</a> | Creates three different instances of the x-converter |
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/converter-element.html" target="_blank">converter-element.html</a> | Defines the UI for the x-converter custom element |
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertercomponent.dart" target="_blank">convertercomponent.dart</a> | Defines the behavior of the x-converter custom element |
+{: .table}
+
+Let's check out the code.
+
 To create the three converter elements
 the converter example uses &lt;x-converter&gt;...&lt;/x-converter&gt;.
 It's just as easy as creating a new div or an input field.
 **Important:** You must close each custom element,
-using an closing tag such as &lt;/x-converter&gt;.
+using a closing tag such as &lt;/x-converter&gt;.
 
 ![HTML code to create three x-converter elements](images/html-create-converters.png)
 
@@ -285,21 +317,31 @@ have an event handler.
 
 <ul>
   <li>
-    You can find the complete source code for the x-converter example at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08"
-   target="_blank">target08</a> on github.
-
-  </li>
-  <li>
   Sigmund Cherem's article,
-  <a href="/articles/dart-web-components/">Web UI Package</a>,
+  <a href="/articles/dart-web-components/" target="_blank">Web UI Package</a>,
   contains several interactive examples on the page
   and the corresponding source code.
 </li>
 <li>
-  The Web UI package has several examples,
+  The Web UI package contains several examples,
   including a version of
-  <a href="https://github.com/dart-lang/web-ui/tree/master/example/todomvc">TodoMVC</a>.
+  <a href="https://github.com/dart-lang/web-ui/tree/master/example/todomvc"
+     target="_blank">TodoMVC</a>.
+</li>
+<li>
+  The Chat client/server project, originally built for a code lab in June 2012,
+  has been converted to use custom elements.
+  You can find the source code for both projects on github:
+  <ul>
+    <li>
+  <a href="https://github.com/dart-lang/io-2012-dart-code-lab.git"
+     target="_blank">Chat client/server</a>
+    </li>
+    <li>
+  <a href="https://github.com/dart-lang/web-ui-code-lab"
+     target="_blank">Chat client/server with Web UI</a>
+    </li>
+  </ul>
 </li>
 </ul>
 
