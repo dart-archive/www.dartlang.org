@@ -44,7 +44,7 @@ Component
 <a href="spec.html#declaration">tag name</a>
 declaration
 </td><td>
-{% highlight html %}<element name='x-foo-bar' ...>{% endhighlight %}
+{% prettify html %}<element name='x-foo-bar' ...>{% endprettify %}
 </td><td>
 Names a component, which lets you instantiate it as
 <code>&lt;x-<em>foo-bar</em>&gt;</code>. If the <code>constructor</code> attribute is not
@@ -57,7 +57,7 @@ Component
 <a href="spec.html#declaration">constructor</a>
 declaration
 </td><td>
-{% highlight html %}<element ... constructor='MyClass'>{% endhighlight %}
+{% prettify html %}<element ... constructor='MyClass'>{% endprettify %}
 </td><td>
 Associates the Dart class <em>MyClass</em> with the component's behavior. If
 omitted, the name of the Dart class is derived from the name of the element
@@ -67,7 +67,7 @@ omitted, the name of the Dart class is derived from the name of the element
 <tr><td>
 <a href="spec.html#declaration">Tag extension</a>
 </td><td>
-{% highlight html %}<element ... extends='span'>{% endhighlight %}
+{% prettify html %}<element ... extends='span'>{% endprettify %}
 </td><td>
 Specifies the base element that is being extended by a component. The base
 element can be an HTML element or another component.
@@ -76,8 +76,8 @@ element can be an HTML element or another component.
 <tr><td>
 <a href="spec.html#instantiation">Instantiation</a>
 </td><td>
-{% highlight html %}... <x-tag></x-tag>{% endhighlight %}
-{% highlight html %}... <span is='x-tag'></span>{% endhighlight %}
+{% prettify html %}... <x-tag></x-tag>{% endprettify %}
+{% prettify html %}... <span is='x-tag'></span>{% endprettify %}
 </td><td>
 Lets you use a component in your page or within another component.
 You can instantiate a component in two ways:
@@ -93,7 +93,7 @@ that the component directly or indirectly extends from
 <tr><td>
 <a href="spec.html#retrieval">Retrieval</a>
 </td><td>
-{% highlight dart %}document.query('x-foo').xtag{% endhighlight %}
+{% prettify dart %}document.query('x-foo').xtag{% endprettify %}
 </td><td>
 Retrieves a reference to a component previously instantiated in your page.
 <br>
@@ -106,10 +106,10 @@ Retrieves a reference to a component previously instantiated in your page.
 <tr><td>
 Element's <a href="spec.html#appearance">template</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <element name='x-foo'>
   <template> ... </template>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Specifies the markup of the component. The template portion of a web component
 is inert until the component is instantiated. The template may contain any of
@@ -120,11 +120,11 @@ and also the content redistribution available in web components.
 <tr><td>
 Element's <a href="spec.html#behavior">script</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <element name='x-foo'>
   ...
   <script type='application/dart'>...</script>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Specifies the behavior of a component. This script defines the class
 corresponding to the component.
@@ -133,11 +133,11 @@ corresponding to the component.
 <tr><td>
 Element's <a href="spec.html#appearance">style</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <element name='x-foo'>
   ...
   <style> ... </style>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Specifies scoped CSS rules that are only applicable in the context of the
 component's <code>&lt;template></code> body.
@@ -146,19 +146,19 @@ component's <code>&lt;template></code> body.
 <tr><td>
 <a href="spec.html#appearance">Content insertion</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <element name='x-foo'>
   <template>
     ...
     <content></content>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Allows components to have children. When a component has children, those
 children go where the <code>&lt;content></code> tags are.
 For example, consider this usage:
-{% highlight html %}
+{% prettify html %}
 <x-foo><div>hello</div></x-foo>
-{% endhighlight %}
+{% endprettify %}
 The <code>&lt;div&gt;hello&lt;/div&gt;</code> will be placed within the
 element's template where the content tag is specified.
 </td></tr>
@@ -166,20 +166,20 @@ element's template where the content tag is specified.
 <tr><td>
 Selector in <a href="spec.html#appearance">content insertion</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <element name='x-foo'>
   <template>
     ...
     <content select='div'></content>
     <content></content>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Specifies which subset of a component's children
 are distributed in a particular content tag.
 For example, consider this usage:
-{% highlight html %}
+{% prettify html %}
 <x-foo><span>one</span><div>two</div></x-foo>
-{% endhighlight %}
+{% endprettify %}
 The <code>&lt;div&gt;two&lt;/div&gt;</code> will be placed at the first
 <code>&lt;content&gt;</code> insertion point (where div tags are selected), and
 the <code>&lt;span&gt;</code> will be added at the insertion point
@@ -189,12 +189,12 @@ of the second content tag.
 <tr><td>
 <a href="spec.html#appearance">Base component insertion</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <element ... >
   <template>
     ...
     <shadow></shadow>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Embeds the content of a base component. When a component extends another
 component, The <code>&lt;shadow&gt;</code> tag is an insertion point where the
@@ -204,12 +204,12 @@ contents of the parent component are added.
 <tr><td>
 <a href="spec.html#loading-components">Components inclusion</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <html ...>
   <head>
   <link rel="components" href="...">
   </head>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Imports component definitions
 from the URL specified by <code>href</code>.
@@ -233,7 +233,7 @@ and within components that the current HTML page defines.
 <tr><td>
 <a href="spec.html#binding-in-content">Text node data binding</a>
 </td><td>
-{% highlight html %}<div>{{'{{'}}exp}}</div>{% endhighlight %}
+{% prettify html %}<div>{{'{{'}}exp}}</div>{% endprettify %}
 </td><td>
 Injects the value of evaluating <em>exp</em> in the document and watches for
 changes. Any time a change to <em>exp</em> is detected, the UI is updated.
@@ -250,7 +250,7 @@ the contents are injected directly as an HTML fragment.
 <tr><td>
 <a href="spec.html#binding-in-attributes">Attribute data binding</a>
 </td><td>
-{% highlight html %}<td colspan="{{'{{'}}exp}}"></td>{% endhighlight %}
+{% prettify html %}<td colspan="{{'{{'}}exp}}"></td>{% endprettify %}
 </td><td>
 Binds the value of <em>exp</em> to the value of the attribute. Similar to
 binding in text nodes, the expression is watched for changes
@@ -263,9 +263,9 @@ as an attribute value.
 <tr><td>
 <a href="spec.html#binding-in-attributes">Class attribute data binding</a>
 </td><td>
-{% highlight html %}<div class="{{'{{'}}Class1}} {{'{{'}}Class2}}"></div>{% endhighlight %}
-{% highlight html %}<div class="{{'{{'}}classesAsList}}"></div>{% endhighlight %}
-{% highlight html %}<div class="{{'{{'}}classesAsString}}"></div>{% endhighlight %}
+{% prettify html %}<div class="{{'{{'}}Class1}} {{'{{'}}Class2}}"></div>{% endprettify %}
+{% prettify html %}<div class="{{'{{'}}classesAsList}}"></div>{% endprettify %}
+{% prettify html %}<div class="{{'{{'}}classesAsString}}"></div>{% endprettify %}
 </td><td>
 Binds the values to a class attribute. Similar
 to attribute bindings, except that the system is smart enough
@@ -279,7 +279,7 @@ removed.
 <tr><td>
 <a href="spec.html#binding-in-attributes">Style attribute data binding</a>
 </td><td>
-{% highlight html %}<div class="{{'{{'}}exp}}"></div>{% endhighlight %}
+{% prettify html %}<div class="{{'{{'}}exp}}"></div>{% endprettify %}
 </td><td>
 Binds the value of <em>exp</em> to the value of a style attribute.
 Similar to attribute bindings,
@@ -293,12 +293,12 @@ in <em>exp</em> as CSS property-value pairs.
 <a href="spec.html#binding-interactive-elements">Two-way data binding</a>
 in interactive elements
 </td><td>
-{% highlight html %}<input type="text"
-       bind-value="assignableValue">{% endhighlight %}
-{% highlight html %}<textarea bind-value="assignableValue">
-</textarea>{% endhighlight %}
-{% highlight html %}<input type="checkbox"
-       bind-checked="assignableValue">{% endhighlight %}
+{% prettify html %}<input type="text"
+       bind-value="assignableValue">{% endprettify %}
+{% prettify html %}<textarea bind-value="assignableValue">
+</textarea>{% endprettify %}
+{% prettify html %}<input type="checkbox"
+       bind-checked="assignableValue">{% endprettify %}
 </td><td>
 Directly updates <em>assignableValue</em> with user input. Like data bindings in
 attributes, this displays the latest value of the <em>assignableValue</em>
@@ -310,13 +310,13 @@ interaction, the <em>assignableValue</em> is also updated and kept in sync.
 <tr><td>
 <a href="spec.html#conditional-template">Conditional template node</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <template instantiate="if exp">
 contents
 </template>
-{% endhighlight %}
+{% endprettify %}
 
-{% highlight html %}<template if="exp">contents</template>{% endhighlight %}
+{% prettify html %}<template if="exp">contents</template>{% endprettify %}
 </td><td>
 Conditionally adds <em>contents</em> if <em>exp</em> evaluates to true. The
 contents are added <em>after</em> the template tag
@@ -332,13 +332,13 @@ row or cell in a table, use conditional tag attributes instead.
 <tr><td>
 <a href="spec.html#conditional-attribute">Conditional tag attribute</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <div template instantiate="if exp">
 contents
 </div>
-{% endhighlight %}
-{% highlight html %}<div template if="exp">contents</div>{% endhighlight %}
-{% highlight html %}
+{% endprettify %}
+{% prettify html %}<div template if="exp">contents</div>{% endprettify %}
+{% prettify html %}
 <table><tbody>
 <tr>
   <td template instantiate="if showCell">
@@ -346,7 +346,7 @@ contents
   </td>
 </tr>
 </tbody></table>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Conditionally adds the element to the DOM tree if the expression is true. This
 can be used to make rows and cells conditionally visible.
@@ -359,11 +359,11 @@ can be used to make rows and cells conditionally visible.
 <tr><td>
 <a href="spec.html#iterate-template">Iterating template node</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <template iterate="x in exp">
 contents
 </template>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Inserts <em>contents</em> for each item in <em>exp</em>
 (an iterable collection).
@@ -375,7 +375,7 @@ use iterating tag attributes instead.
 <tr><td>
 <a href="spec.html#iterate-attribute">Iterating tag attribute</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <table>
 <tbody template iterate="x in exp">
@@ -386,7 +386,7 @@ use iterating tag attributes instead.
 </tbody>
 </table>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Expands <em>contents</em> under the element,
 once per item in the collection that <em>exp</em> evaluates to.
@@ -396,11 +396,11 @@ This can be used to create rows and cells in tables.
 <tr><td>
 <a href="spec.html#event-listeners">Inline event listener</a>
 </td><td>
-{% highlight html %}
+{% prettify html %}
 <div on-click="myHandler($event)">
 contents
 </div>
-{% endhighlight %}
+{% endprettify %}
 </td><td>
 Binds a UI event to a Dart expression. Whenever the event fires, the associated
 expression is executed and watchers are notified about possible changes. The

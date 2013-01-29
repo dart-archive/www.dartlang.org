@@ -21,9 +21,9 @@ or get it as part of the [Dart Editor package](/docs/editor/#download).
 
 Here's an example of compiling a Dart file to JavaScript:
 
-{% highlight bash %}
+{% prettify %}
 $DART_SDK/bin/dart2js test.dart
-{% endhighlight %}
+{% endprettify %}
 
 This command produces a `.js` file
 that contains the JavaScript equivalent of your Dart code.

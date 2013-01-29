@@ -91,17 +91,17 @@ to create classes that have *only* static members. Instead, those should be
 libraries. Most classes should represent things you can construct.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 num distance(num x1, num y1, num x2, num y2) => ...
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 class GeometryUtils {
   static num distance(num x1, num y1, num x2, num y2) => ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### AVOID defining a one-member abstract class when a simple function will do.
@@ -113,17 +113,17 @@ with a meaningless name like `call` or `invoke`, there is a good chance you
 just want a function.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 typedef bool Predicate(item);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 abstract class Predicate {
   bool test(item);
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 ## Members
@@ -137,19 +137,19 @@ languages, while still allowing the callsite to appear like a regular
 constructor invocation.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 new Point.zero();
 new DateTime.now();
 new Address.parse('123 Main St.');
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 Point.zero();
 DateTime.now();
 Address.parse('123 Main St.');
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use `;` instead of `{}` for empty constructor bodies.
@@ -159,21 +159,21 @@ semicolon. This is *required* for const constructors. For consistency and
 brevity, other constructors should also do this.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 class Point {
   int x, y;
   Point(this.x, this.y);
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 class Point {
   int x, y;
   Point(this.x, this.y) {}
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO place the `super()` call last in a constructor initialization list.
@@ -193,19 +193,19 @@ reinforces when the superclass's constructor body is run, and may help
 performance.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 View(Style style, List children)
     : _children = children,
       super(style) {
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 View(Style style, List children)
     : super(style),
       _children = children {
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use a getter for operations that conceptually access a property.
@@ -223,19 +223,19 @@ should use a getter instead of a method when it:
   * **Is fast.** Users expect expressions like `foo.bar` to execute quickly.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 rect.width
 collection.isEmpty
 button.visible
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 collection.sum // may be slow to calculate
 DateTime.now   // returns different value each call
 window.refresh // doesn't return a value
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use a setter for operations that conceptually change a property.
@@ -253,10 +253,10 @@ a setter. More specifically, use a setter instead of a method when it:
   * **Is fast.** Users expect expressions like `foo.bar = value` to execute quickly.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 rect.width = 3;
 button.visible = false;
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### AVOID wrapping fields in getters and setters just to be "safe".
@@ -273,15 +273,15 @@ indistinguishable. You can expose a field in a class and later wrap it in a
 getter and setter without having to touch any code that uses that field.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 class Box {
   var contents;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 class Box {
   var _contents;
   get contents => _contents;
@@ -289,7 +289,7 @@ class Box {
     _contents = value;
   }
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### PREFER using a public final field instead of a private field with a public getter.
@@ -299,20 +299,20 @@ If you have a field that outside code should be able to see but not assign to
 that works in many cases is to just mark it `final`.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 class Box {
   final contents;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 class Box {
   var _contents;
   get contents => _contents;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### CONSIDER using `=>` to define members whose body returns the result of a single expression.
@@ -322,11 +322,11 @@ members with them. They are a good fit for simple members that just calculate
 and return a value.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 get width => right - left;
 bool ready(num time) => minTime == null || minTime <= time;
 containsValue(String value) => getValues().some((v) => v == value);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 Members that don't fit on one line can still use `=>`, but if you find yourself
@@ -341,22 +341,22 @@ numbers are usually wrapped in named constants, but we usually just pass around
 clear what the boolean represents:
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 new Timer(true);
 new Timer(false);
 new ListBox(false, true, true);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 Instead, consider using named arguments, named constructors, or named constants
 to clarify what the call is doing.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 new Timer.oneShot();
 new Timer.repeating();
 new ListBox(scroll: scrollBoth, showScrollbars: true);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 ## Type annotations
@@ -375,22 +375,22 @@ For code internal to a library (either private, or things like nested functions)
 annotate where you feel it helps, but don't feel that you *must* provide them.
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 install(id, destPath) {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 Here, it's unclear what `id` is. A string? And what is `destPath`? A string or a
 `File` object? Is this method synchronous or asynchronous?
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 Future<bool> install(PackageId id, String destPath) {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 With types, all of this is clarified.
@@ -404,7 +404,7 @@ infer the type of local variables and still provide the auto-complete and
 tooling support you expect.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 Map<int, List<Person>> groupByZip(Iterable<Person> people) {
   var peopleByZip = new Map<int, List<Person>>();
   for (var person in people) {
@@ -413,11 +413,11 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
   }
   return peopleByZip;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 Map<int, List<Person>> groupByZip(Iterable<Person> people) {
   Map<int, List<Person>> peopleByZip = new Map<int, List<Person>>();
   for (Person person in people) {
@@ -426,7 +426,7 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
   }
   return peopleByZip;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### PREFER using `num` over `double` for parameter type annotations.
@@ -442,21 +442,21 @@ If a constructor parameter is using `this.` to initialize a field, then the type
 of the parameter is understood to be the same type as the field.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 class Point {
   int x, y;
   Point(this.x, this.y);
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 class Point {
   int x, y;
   Point(int this.x, int this.y);
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### AVOID annotating types on function expressions.
@@ -467,17 +467,17 @@ statement or a method. Conversely, if it is short enough to be an expression, it
 likely doesn't need types.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 var names = people.map((person) => person.name);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 var names = people.map(String _(Person person) {
   return person.name;
 });
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### AVOID annotating with `dynamic` when not required.
@@ -487,23 +487,23 @@ will automatically be `dynamic`. Thus, omitting the type annotation entirely is
 semantically equivalent but more terse.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 lookUpOrDefault(String name, Map map, defaultValue) {
   var value = map[name];
   if (value != null) return value;
   return defaultValue;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 dynamic lookUpOrDefault(String name, Map map, dynamic defaultValue) {
   var value = map[name];
   if (value != null) return value;
   return defaultValue;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO annotate with `Object` instead of `dynamic` to indicate any object is accepted.
@@ -520,7 +520,7 @@ objects you actually allow. (Or maybe one could, but you don't care to write
 it.)
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 // Accepts any object.
 log(Object object) {
   print(object.toString());
@@ -532,7 +532,7 @@ convertToBool(arg) {
   if (arg is String) return arg == 'true';
   throw 'Cannot convert $arg to a bool.';
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 ## Names
@@ -543,11 +543,11 @@ Classes and typedefs should capitalize the first letter of each word (including
 the first word), and use no separators.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 SliderMenu
 XmlHttpRequest
 typedef num Adder(num x, num y);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO name constants using `ALL_CAPS_WITH_UNDERSCORES`.
@@ -557,7 +557,7 @@ because they can be used in constant expressions, unlike `final` variables. To
 clarify this, they are given their own naming style.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 const PI = 3.14;
 const DEFAULT_TIMEOUT = 1000;
 final urlScheme = new RegExp('^([a-z]+):');
@@ -565,11 +565,11 @@ final urlScheme = new RegExp('^([a-z]+):');
 class Dice {
   static final numberGenerator = new Random();
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 const pi = 3.14;
 const kDefaultTimeout = 1000;
 final URL_SCHEME = new RegExp('^([a-z]+):');
@@ -577,7 +577,7 @@ final URL_SCHEME = new RegExp('^([a-z]+):');
 class Dice {
   static final NUMBER_GENERATOR = new Random();
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO name other identifiers using `lowerCamelCase`.
@@ -587,11 +587,11 @@ parameters should capitalize the first letter of each word *except* the first
 word, and use no separators.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 item
 xmlHttpRequest
 clearItems
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO name libraries and source files using `lowercase_with_underscores`.
@@ -603,19 +603,19 @@ a valid Dart identifier, which may be helpful if the language later supports
 symbolic imports.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 slider_menu
 file_system
 peg_parser
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 SliderMenu
 filesystem
 peg-parser
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO capitalize acronyms and abbreviations longer than two letters like words.
@@ -627,24 +627,24 @@ to tell if that's an HTTPS FTP connection or an HTTP SFTP one.
 To avoid this, acronyms are capitalized like regular words, except for two-letter ones.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 HttpConnection
 uiHandler
 IOStream
 xmlHttpRequest
 ID
 id
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 HTTPConnection
 UiHandler
 IoStream
 XMLHttpRequest
 Id
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 ## Comments
@@ -655,7 +655,7 @@ Dart supports two syntaxes of doc comments. Line doc comments start each line
 with `///`:
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 /// Parses a set of option strings. For each option:
 ///
 /// * If it is `null`, then it is ignored.
@@ -664,20 +664,20 @@ with `///`:
 void parse(List options) {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 Block doc comments start with `/**`, end with `*/` and can span multiple lines:
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 /**
  * Parses a set of option strings.
  */
 void parse(List options) {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 Within a doc comment, you can use [markdown][] for formatting.
@@ -687,21 +687,21 @@ Within a doc comment, you can use [markdown][] for formatting.
 #### DO use line comments for everything else.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 greet(name) {
   // Assume we have a valid name.
   print('Hi, $name!');
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 greet(name) {
   /* Assume we have a valid name. */
   print('Hi, $name!');
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO capitalize and punctuate comments like sentences.
@@ -710,15 +710,15 @@ This doesn't mean that the comment must always be a complete sentence, though it
 usually should. "Returns the number of items." is an acceptable comment.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 // Remove the last item from the collection.
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 // remove the last item from the collection
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use square brackets in doc comments for identifiers that are in scope.
@@ -728,12 +728,12 @@ then documentation generators can look up the name and cross-link the two
 together.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:math';
 // ...
 /** Rolls both [Dice] and returns the highest rolled value. */
 num greatestRoll(Dice a, Dice b) => max(a.roll(), b.roll());
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO describe method signatures in the prose of the documentation comment.
@@ -742,7 +742,7 @@ Other languages use verbose tags and sections to describe what the parameters
 and returns of a method are.
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 /**
  * Defines a flag with the given name and abbreviation.
  *
@@ -755,14 +755,14 @@ and returns of a method are.
 Flag addFlag(String name, String abbr) {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 The convention in Dart is to just integrate that into the description of the
 method and highlight parameters using square brackets.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 /**
  * Defines a flag. Throws an [IllegalArgumentException] if there is
  * already an option named [name] or there is already an option using
@@ -771,7 +771,7 @@ method and highlight parameters using square brackets.
 Flag addFlag(String name, String abbr) {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 ## Whitespace
@@ -809,29 +809,29 @@ There are valid arguments for both styles but most of our code seems to go this
 way, and consistency matters most.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 if (isDeepFried ||
     (hasPieCrust && !vegan) ||
     containsBacon) {
   print('Bob likes it.');
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 Note that this includes `=>` as well:
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 bobLikes() =>
     isDeepFried || (hasPieCrust && !vegan) || containsBacon;
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 bobLikes()
     => isDeepFried || (hasPieCrust && !vegan) || containsBacon;
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO place the `.` on the next line in a multi-line expression.
@@ -840,38 +840,38 @@ This supercedes the previous rule. Unlike other operators, if you split an
 expression on a `.`, then put that at the beginning of the second line.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 someVeryLongVariable.withAVeryLongProperty
     .aMethodOnThatObject();
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO indent block bodies two spaces.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 if (condition) {
   print('hi');
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO indent continued lines with at least four spaces.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 someLongObject.aReallyLongMethodName(longArg, anotherLongArg,
     wrappedToNextLine);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 You may indent more than four spaces to line things up if you like:
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 someLongObject.aReallyLongMethodName(longArg, anotherLongArg,
                                      wrappedToNextLine);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DON'T indent lines that are continued with a function expression.
@@ -880,25 +880,25 @@ The one exception to the above rule is function expressions used within larger
 expressions, like being passed to methods. These are formatted like so:
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 window.setTimeout(() {
   print('I am a callback');
 });
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 window.setTimeout(() {
       print('I am a callback');
     });
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO place the opening curly brace (`{`) on the same line as what it follows.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 class Foo {
   method() {
     if (true) {
@@ -908,7 +908,7 @@ class Foo {
     }
   }
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use curly braces for all flow control structures.
@@ -918,36 +918,36 @@ Doing so avoids the [dangling else][] problem.
 [dangling else]: http://en.wikipedia.org/wiki/Dangling_else
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 if (true) {
   print('sanity');
 } else {
   print('opposite day!');
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 if (true) print('sanity');
 else
   print('opposite day!');
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 There is one exception to this: short `if` statements with no `else` clause that
 fit on one line may omit the braces.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 if (arg == null) return defaultValue;
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO indent switch cases two spaces and case bodies four spaces.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 switch (fruit) {
   case 'apple':
     print('delish');
@@ -957,7 +957,7 @@ switch (fruit) {
     print('stinky');
     break;
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use spaces around binary and ternary operators, after commas, and not around unary operators.
@@ -968,30 +968,30 @@ binary operators. However, the `.` used to access members is not and should
 *not* have spaces around it.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 a = 1 + 2 / (3 * -b);
 c = !condition == a > b;
 d = a ? b : object.method(a, b, c);
 if (obj is! SomeType) print('not SomeType');
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 a=1+2/(3* - b);
 c= ! condition==a>b;
 d= a?b:object.method(a,b,c);
 if (obj is !SomeType) print('not SomeType');
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO place spaces around `in`, and after each `;` in a loop.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 for (var i = 0; i < 100; i++)
 for (final item in collection)
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use a space after flow-control keywords.
@@ -1000,7 +1000,7 @@ This is unlike function and method calls, which do *not* have a space between
 the name and the opening parenthesis.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 while (foo) {
   ...
 }
@@ -1008,7 +1008,7 @@ while (foo) {
 try {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DON'T use a space after `(`, `[`, and `{`, or before `)`, `]`, and `}`.
@@ -1016,9 +1016,9 @@ try {
 Also, do not use a space when using `<` and `>` for generic types.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 <int>[1, 2, (3 + 4)]
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO use a space before `{` in function and method bodies.
@@ -1028,32 +1028,32 @@ list in a function or method, there should be a space between it and the `)`
 ending the parameters.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 getEmptyFn(a) {
   return () {};
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 getEmptyFn(a){
   return (){};
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 #### DO format constructor initialization lists with each field on its own line.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 MyClass()
     : firstField("some value"),
       secondField("another"),
       thirdField("last") {
   ...
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 Note that the `:` should be wrapped to the next line and indented four spaces.
@@ -1063,16 +1063,16 @@ spaces).
 #### DO use a space around `=` in named parameters and after `:` for a named argument.
 
 <div class="good">
-{% highlight dart %}
+{% prettify dart %}
 new ListBox(showScrollbars: true);
 ListBox([this.showScrollbars = true]);
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 <div class="bad">
-{% highlight dart %}
+{% prettify dart %}
 new ListBox(showScrollbars:true);
 new ListBox(showScrollbars : true);
 ListBox([this.showScrollbars=true]);
-{% endhighlight %}
+{% endprettify %}
 </div>

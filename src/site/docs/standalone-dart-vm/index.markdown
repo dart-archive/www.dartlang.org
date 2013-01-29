@@ -22,9 +22,9 @@ or get it as part of the [Dart Editor package](/docs/editor/#download).
 
 Here's an example of running a Dart file on the command line:
 
-{% highlight bash %}
+{% prettify %}
 YOUR_DART_SDK_DIR/bin/dart test.dart
-{% endhighlight %}
+{% endprettify %}
 
 ## Enabling checked mode
 
@@ -46,14 +46,14 @@ Assertions do not run in production mode.
 
 You can run the VM in checked mode with a command-line flag:
 
-{% highlight bash %}
+{% prettify %}
 YOUR_DART_SDK_DIR/bin/dart --enable-checked-mode test.dart
-{% endhighlight %}
+{% endprettify %}
 
 ## Additional options
 
 Print all the command-line options with `--print-flags`:
 
-{% highlight bash %}
+{% prettify %}
 $DART_SDK/bin/dart --print-flags
-{% endhighlight %}
+{% endprettify %}

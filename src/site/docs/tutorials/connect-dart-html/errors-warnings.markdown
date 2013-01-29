@@ -30,12 +30,12 @@ They also show you how to use Dart Editor's code completion help.
 Follow along with the instructions as you transform
 the code for the default helloworld command-line app into this code:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:html';
 void main() {
   query('#RipVanWinkle').text = 'Wake up, sleepy head!';
 }
-{% endhighlight %}
+{% endprettify %}
 
 ##Errors
 Place the text cursor before the 'v' in void,

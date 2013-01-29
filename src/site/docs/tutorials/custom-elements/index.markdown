@@ -67,17 +67,17 @@ and the name of the tag that it extends.
 This code snippet extends the standard HTML &lt;button&gt; tag.
 The name and extends attributes are both required.
 
-{% highlight html %}
+{% prettify html %}
 <element name="x-fancy-button" extends="button"> ... </element>
-{% endhighlight %}
+{% endprettify %}
 
 To create an instance of a custom element,
 use the element name as you would a regular HTML tag.
 For example, to create an instance of x-fancy-button:
 
-{% highlight html%}
+{% prettify html %}
 <x-fancy-button> ... </x-fancy-button>
-{% endhighlight %}
+{% endprettify %}
 
 You can also create a complex,
 reusable element by bundling elements together inside the custom element.

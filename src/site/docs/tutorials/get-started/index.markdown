@@ -459,9 +459,9 @@ It usually appears between curly braces ({_code_}).
 If the body is a single expression, then you
 can skip the braces and use the => shorthand:
 
-{% highlight dart %}
+{% prettify dart %}
 double milesToKM(double miles) => miles/0.62;
-{% endhighlight %}
+{% endprettify %}
 
 The milesToKM() function performs a simple arithmetic calculation
 and returns the result.

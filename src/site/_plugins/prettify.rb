@@ -6,16 +6,32 @@ require 'cgi'
 
 module Prettify
 
-  # Renders a table with code and a running example side by side.
+  # Wraps code with tags for Prettify.
+  #
+  # Example usage:
+  # 
+  # { prettify dart }
+  # // dart code here
+  # { endprettify }
+  #
+  # The language name can be ommitted if it is not known.
   class Tag < Liquid::Block
 
-    def initialize(tag_name, lang, tokens)
+    Syntax = /\s*(\w+)\s*/o
+
+    def initialize(tag_name, markup, tokens)
       super
-      @lang = lang
+      if markup =~ Syntax
+        @lang = $1
+      end
     end
 
     def render(context)
-      '<pre class="prettyprint lang-' + @lang + '">' + CGI::escapeHTML(super.strip) + "</pre>"
+      out = '<pre class="prettyprint'
+      unless @lang.nil?
+        out += ' lang-' + @lang
+      end
+      out += '">' + CGI::escapeHTML(super.strip) + "</pre>"
     end
 
   end
