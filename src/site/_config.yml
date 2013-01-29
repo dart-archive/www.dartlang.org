@@ -5,7 +5,6 @@ server_port: 8080
 source: .
 destination: ../../build/static
 markdown: kramdown
-pygments: true
 permalink: /news/:year/:month/:day/:title.html
 custom:
   downloads:
