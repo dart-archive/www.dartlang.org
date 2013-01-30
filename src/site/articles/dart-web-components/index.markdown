@@ -31,7 +31,7 @@ blocks. The meaning of a block like this:
   \{\% sample 10 20 url \%\}
   \{\% endcodesample \%\}
 is that we'll create a table, the first column will have sample source code (in
-this case "text"). This code can have a \{\% highlight \%\} section, but other
+this case "text"). This code can have a \{\% prettify \%\} section, but other
 than that, no markdown is supported here :(. The column width is specified as
 the first argument of the codesample tag above it (in this example 80 means
 80%). The \{\% sample \%\} tag defines the width, height, and url for an iframe

@@ -162,17 +162,17 @@ The simplehangman program stores the incorrectly guessed
 letters in a list of strings called `wrongletters`.
 The program creates the empty list when it begins.
 
-{% highlight dart %}
+{% prettify dart %}
 List<String> wrongletters = new List();
-{% endhighlight %}
+{% endprettify %}
 
 The template loop 
 used to display the incorrectly guessed letters
 is written in the HTML file as follows:
 
-{% highlight html %}
+{% prettify html %}
 <p id="wrong"><template iterate="wrongchar in wrongletters"> {{wrongchar}} </template></p>
-{% endhighlight %}
+{% endprettify %}
 
 The &lt;template&gt; tag has an attribute called `iterate`,
 whose value is an expression that takes the form `identifier in collection`.
@@ -250,7 +250,7 @@ So each string represents a cell in the table.
 The top-level function setUpHangmanGrid() populates
 the list of lists with this code:
 
-{% highlight dart %}
+{% prettify dart %}
 List<List> hangmandisplay;
 
 void setUpHangmanGrid() {
@@ -266,7 +266,7 @@ void setUpHangmanGrid() {
     hangmandisplay[i] = row;
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 To create the table in HTML,
 one template loop iterates over of the hangmandisplay list of lists,
