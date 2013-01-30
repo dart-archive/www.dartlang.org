@@ -10,9 +10,9 @@ module Prettify
   #
   # Example usage:
   # 
-  # { prettify dart }
+  # {% prettify dart %}
   # // dart code here
-  # { endprettify }
+  # {% endprettify %}
   #
   # The language name can be ommitted if it is not known.
   class Tag < Liquid::Block
