@@ -58,7 +58,7 @@ pre.prettyprint {
     .kwd { color: #000; font-weight: bold }  /* a keyword */
     .com { color: #999988 }  /* a comment */
     .typ { color: #445588; font-weight: bold }  /* a type name */
-    .lit { color: #d14 }  /* a literal value */
+    .lit { color: #099 }  /* a literal value */
     /* punctuation, lisp open bracket, lisp close bracket */
     .pun, .opn, .clo { color: #000 }
     .tag { color: #000080 }  /* a markup tag name */
@@ -74,7 +74,7 @@ pre.prettyprint {
     .kwd { color: #000; font-weight: bold }
     .com { color: #666 }
     .typ { color: #445588; font-weight: bold }
-    .lit { color: #d14 }
+    .lit { color: #099 }
     .pun, .opn, .clo { color: #000 }
     .tag { color: #000080 }
     .atn { color: #008080 }
