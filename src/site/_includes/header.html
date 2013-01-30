@@ -19,7 +19,6 @@
 	{% if page.header and page.header.css %}{% for css in page.header.css %}<link href="{{ css }}" rel="stylesheet" type="text/css">{% endfor %}{% endif %}
 	{% for author in page.rel.author %}<link rel="author" href="/authors/{{ author }}.html">{% endfor %}
 	{% if page.rel.me %}<link rel="me" href="{{ page.rel.me }}">{% endif %}
-  <link rel="stylesheet" type="text/css" href="/css/prettify.css">
 	<link rel="alternate" type="application/atom+xml" href="http://news.dartlang.org/feeds/posts/default" title="Atom feed">
   <link href="https://plus.google.com/109866369054280216564" rel="publisher">
 

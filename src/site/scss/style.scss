@@ -89,6 +89,10 @@ ol.toc li {
 
 article.homepage {
 
+  pre.prettyprint {
+    font-size: 12px;
+  }
+
   h1 {
     font-family: $dartFont;
     text-transform: uppercase;
@@ -252,7 +256,7 @@ article .has-permalink {
     margin-top: -40px;
 }
 
-/* @import "syntax"; */
+@import "syntax";
 @import "tutorial";
 @import "dartisans_live";
 @import "up_and_running_book";
