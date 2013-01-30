@@ -2,11 +2,20 @@
 # See scripts/gen_dartisans_playlist.dart
 url-prefix: http://commondatastorage.googleapis.com/dartlang-podcast/
 episodes:
+- title: "Dartisans ep. 17: Continuous Integration with Drone.io"
+  subtitle: "Continuous Integration with Drone.io"
+#  file: unknown.mp3
+  pubdate: 2013-01-22
+  description: "Keep your Dart code running with continuous integration! Drone.io is a cloud service for automated builds, tests, and deploys. Drone.io works with Dart out of the box. Learn how easy it is to configure your Dart projects for continuous unit testing, browser testing, and even deployment to cloud hosting services.  Learn more about Dart at http://www.dartlang.org."
+#  length: 21815187
+  num: 17
+  youtubeid: 6vbYaWENwOY
+  thumbnail: http://i.ytimg.com/vi/6vbYaWENwOY/0.jpg
 - title: "Dartisans ep. 16: Dart and Web Components Reloaded"
   subtitle: "Dart and Web Components Reloaded"
 #  file: unknown.mp3
   pubdate: 2012-12-04
-  description: "In this episode of Dartisans, Dimitri Glazkov (one of the godfathers of Web Components) gives a presentation on Dart's Web UI library. Also, John Messerly and Siggi Cherem (who helped build the Web UI library) gives a presentation on using Web UI, web components, and data-driven templates with Dart. A lot of things have changed since our last episode focused on Web Components, and this was an awesome edition of Dartisans!  Learn more about Dart at http://www.dartlang.org."
+  description: "In this episode of Dartisans, Dimitri Glazkov (one of the godfathers of Web Components) gives a presentation on Dart's Web UI library. Also, John Messerly and Siggi Cherem (who helped build the Web UI library) give a presentation on using Web UI, web components, and data-driven templates with Dart. A lot of things have changed since our last episode focused on Web Components, and this was an awesome edition of Dartisans!  Learn more about Dart at http://www.dartlang.org."
 #  length: 21815187
   num: 16
   youtubeid: CqS4lnO_dqs
@@ -132,7 +141,7 @@ episodes:
   subtitle: "Chromium with Dart VM Announced!"
 #  file: unknown.mp3
   pubdate: 2012-02-15
-  description: "We announce that binary builds of Chromium with Dart VM are now available. Seth Ladd hosts with two guests from the Dart team, Vijay Menon and Anton Muhin. Download Dartium at http://www.dartlang.org/dartium/  Learn more about Dart at http://dartlang.org."
+  description: "We announce that binary builds of Chromium with Dart VM are now available. Seth Ladd hosts with two guests from the Dart team, Vijay Menon and Anton Muhin. Download Dartium at http://www.dartlang.org/dartium/.  Learn more about Dart at http://dartlang.org."
 #  length: 21815187
   num: 2
   youtubeid: 4EHKN1ywdb4
