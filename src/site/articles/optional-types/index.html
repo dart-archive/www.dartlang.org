@@ -109,7 +109,7 @@ to satisfy a narrow-minded type system.
 For example, consider:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 class Point {
   final num x, y;
   Point(this.x, this.y);
@@ -129,7 +129,7 @@ main() {
 
   print(n);
 }
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 This is clearly a problem.
@@ -151,10 +151,10 @@ and printing <code>x: 10, y: 10</code>.
 However, unlike a classic mandatory type system, code like this
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 Object lookup(String key) {...} // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 will not cause any complaints from the checker.
@@ -183,13 +183,13 @@ Using type <code>dynamic</code> makes the checker shut up.
 Occasionally, you may want to use <code>dynamic</code> explicitly.
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 Map<String, dynamic> m = {
     'one': new Partridge(),
     'two': new TurtleDove(),
     ...,
     'twelve': new Drummer()};
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 We could have used the type
@@ -203,9 +203,9 @@ we may prefer to use <code>dynamic</code>.
 If we try to call methods on the map's values, for example,
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 pearTree = m['one'].container();
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 we would get a warning if the contents were of type <code>Object</code>,
@@ -234,33 +234,33 @@ You can create instances of generic classes without providing type parameters.
 For example:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 new List();
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 works just fine. Of course, you can write
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 new List<String>();
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 if you want. 
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 new List();
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 is just a shorthand for 
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 new List<dynamic>();
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 In constructors, type parameters play a runtime role.
@@ -268,22 +268,22 @@ They are actually passed at run time,
 so that you can use them when you do dynamic type tests.
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 new List<String>() is List<Object>  // true: every string is an object 
 new List<Object>() is List<String>  // false: not all objects are strings
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 Generics in Dart conform to programmer intuition.
 Here are some more interesting cases:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 new List<String>() is List<int>     // false
 new List<String>() is List          // true
 new List<String>() is List<dynamic> // same as line above
 new List() is List<dynamic>         // true, these are exactly the same
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 In contrast, type annotations
@@ -293,9 +293,9 @@ play no runtime role and have no effect on program semantics.
 One last case worth studying:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 new List() is List<String>          // true as well!
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 You may be writing your program without types,
@@ -321,9 +321,9 @@ If the checks fail,
 execution will stop at that point with a clear error message. So, 
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 String s = new Object();
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 will stop the code in its tracks,
@@ -331,12 +331,12 @@ because <code>Object</code> is not a subtype of <code>String</code>.
 However
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 Object foo() {
   return "x";
 }
 String s = foo();
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 works just fine,
@@ -354,7 +354,7 @@ and so on.
 Some more examples:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 <int>[0,1, 1][2] = new Object(); // fails in checked mode
 
 bar(int n) {
@@ -362,7 +362,7 @@ bar(int n) {
 }
 ...
 bar(3.2); // returns 6.4 in production, but fails in checked mode
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 In checked mode , every time an argument is passed to a function,
@@ -371,7 +371,7 @@ if it is a subtype of the declared type of the formal parameter.
 We can correct this easily:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 bar(num n) {
   return n *2;
 }
@@ -388,7 +388,7 @@ int i_bar(num n) {
 
 i_bar(3.2); // fails in checked mode
             // because returned value is not an int
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 Notice the last line.
@@ -400,10 +400,10 @@ even if the result of the function is not assigned to anything.
 Let's return to our old friend Frankenstein.
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 Object lookup(String key) {...} // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 If we are correct in our assumption that the lookup returns a string,
@@ -424,14 +424,14 @@ Of course, if you don't use types at all,
 checked mode won't get in your way. 
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 my_add(s1, s2) {
   return s1 + s2;
 }
 
 my_add(3, 4); // 7
 my_add(new Point(3, 3), new Point(4, 4)); // Point(7, 7)
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 All these checks impose a considerable performance penalty,

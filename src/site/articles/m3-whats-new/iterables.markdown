@@ -133,12 +133,12 @@ They allocate a new list or set and store the iterable’s elements in it.
 In the following example this forces the evaluation of the filtering,
 but keeps the mapping lazy:
 
-{% highlight dart %}
+{% prettify dart %}
 return myList
   .where(someExpensivePredicate)
   .toList()
   .map(someCheapTransformation);  
-{% endhighlight %}
+{% endprettify %}
 
 <aside class="alert alert-info" markdown="1">
   <strong>Note:</strong>
@@ -182,13 +182,13 @@ separated by an (optional) separator.
 
 The interface of iterators has changed to the following:
 
-{% highlight dart %}
+{% prettify dart %}
 abstract class Iterator<E> {
   bool moveNext();  // Moves to the next (potentially first) element.
   E get current;    // Returns the element of the last successful
                     // moveNext(); null otherwise.
 }
-{% endhighlight %}
+{% endprettify %}
 
 An iterator starts by pointing to a position before the first element.
 Trying to get the current element simply returns null.
@@ -202,7 +202,7 @@ and sets current to null.
 
 Frequently Iterators are implemented as follows:
 
-{% highlight dart %}
+{% prettify dart %}
 class MyIterator<E> implements Iterator<E> {
   E _current;
   var _position = -1;  // Before the first element.
@@ -223,7 +223,7 @@ class MyIterator<E> implements Iterator<E> {
 
   E get current => _current;
 }
-{% endhighlight %}
+{% endprettify %}
 
 <aside class="alert alert-info" markdown="1">
   <strong>Note:</strong>

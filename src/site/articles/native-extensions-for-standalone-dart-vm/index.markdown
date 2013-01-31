@@ -91,7 +91,7 @@ API, show the native code, and show what happens when the extension is called.
 Here is the Dart part of the synchronous extension, called
 <b>sample_synchronous_extension.dart</b>:
 
-{% highlight dart %}
+{% prettify dart %}
 library sample_synchronous_extension;
 
 import 'dart-ext:sample_extension';
@@ -99,7 +99,7 @@ import 'dart-ext:sample_extension';
 // The simplest way to call native code: top-level functions.
 int systemRand() native "SystemRand";
 bool systemSrand(int seed) native "SystemSrand";
-{% endhighlight %}
+{% endprettify %}
 
 The code that implements a native extension executes at two different times.
 First, it runs when the native extension is loaded. Later, it runs when a
@@ -156,9 +156,9 @@ using them are in the unit test file
 A native function to be called from Dart must have the
 type **Dart\_NativeFunction**, which is defined in dart_api.h as:
 
-{% highlight cpp %}
+{% prettify cpp %}
 typedef void (*Dart_NativeFunction)(Dart_NativeArguments arguments);
-{% endhighlight %}
+{% endprettify %}
 
 So a Dart_NativeFunction is a pointer to a function taking a
 Dart_NativeArguments object, and returning no value. The arguments object is a
@@ -186,7 +186,7 @@ scope. Most handles and memory pointers returned by the Dart Embedding API are
 allocated in the current local scope, and will be invalid after the call to
 Dart_ExitScope(). For example:
 
-{% highlight cpp %}
+{% prettify cpp %}
 Dart_EnterScope();
 
 // create object in the heap and keep it alive with a handle
@@ -196,7 +196,7 @@ Dart_Handle str = Dart_NewString("asdf");
 Dart_ExitScope();
 
 // str is invalid and the string in the heap can be garbage collected
-{% endhighlight %}
+{% endprettify %}
 
 If the native function does not create a local scope, then most Dart Embedding
 API calls will leak handles, using up resources (and keeping Dart objects alive)
@@ -225,7 +225,7 @@ initialization function, then the native function implementations, and ending
 with the name resolution function. The two native functions implementing the
 asynchronous extension are shown later.
 
-{% highlight cpp %}
+{% prettify cpp %}
 #include "dart_api.h"
 // Forward declaration of ResolveName function.
 Dart_NativeFunction ResolveName(Dart_Handle name, int argc);
@@ -288,7 +288,7 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc) {
   Dart_ExitScope();
   return result;
 }
-{% endhighlight %}
+{% endprettify %}
 
 Here is the sequence of events that happens at runtime, when the function
 systemRand() (defined in sample_synchronous_extension.dart) is called for the
@@ -346,7 +346,7 @@ Here is an example of a C function that creates an array of random bytes,
 given a seed and a length.  It returns the data in a newly allocated array,
 which will be freed by the wrapper:
 
-{% highlight cpp %}
+{% prettify cpp %}
 uint8_t* random_array(int seed, int length) {
   if (length <= 0 || length > 10000000) return NULL;
 
@@ -359,7 +359,7 @@ uint8_t* random_array(int seed, int length) {
   }
   return values;
 }
-{% endhighlight %}
+{% endprettify %}
 
 To call this from Dart, we put it in a wrapper that unpacks the Dart_CObject
 containing seed and length, and that packs the result values into a
@@ -371,7 +371,7 @@ containing a union. Look in dart_api.h to see the fields and tags used to access
 the union's members. After the Dart_CObject is posted, it and all its resources
 can be freed, since they have been copied into Dart objects on the Dart heap.
 
-{% highlight cpp %}
+{% prettify cpp %}
 void wrappedRandomArray(Dart_Port dest_port_id,
                         Dart_Port reply_port_id,
                         Dart_CObject* message) {
@@ -404,7 +404,7 @@ void wrappedRandomArray(Dart_Port dest_port_id,
   result.type = Dart_CObject::kNull;
   Dart_PostCObject(reply_port_id, &result);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Dart_PostCObject() is the only Dart Embedding API function that should be called
 from the wrapper or the C function. Most of the API is illegal to call here,
@@ -419,7 +419,7 @@ by sending a message. We create a native port that calls this function, and
 return a send port connected to that port. The Dart library gets the port from
 this function, and forwards calls to the port.
 
-{% highlight cpp %}
+{% prettify cpp %}
 void randomArrayServicePort(Dart_NativeArguments arguments) {
   Dart_EnterScope();
   Dart_SetReturnValue(arguments, Dart_Null());
@@ -431,7 +431,7 @@ void randomArrayServicePort(Dart_NativeArguments arguments) {
   }
   Dart_ExitScope();
 }
-{% endhighlight %}
+{% endprettify %}
 
 ###Calling the native port from Dart
 
@@ -440,7 +440,7 @@ to it when a Dart asynchronous function with a callback is called. The Dart
 class gets the port the first time the function is called, caching it in the
 usual way. Here is the Dart library for the asynchronous extension:
 
-{% highlight dart %}
+{% prettify dart %}
 library sample_asynchronous_extension;
 
 import 'dart-ext:sample_extension';
@@ -471,7 +471,7 @@ class RandomArray {
 
   SendPort _newServicePort() native "RandomArray_ServicePort";
 }
-{% endhighlight %}
+{% endprettify %}
 
 ###Conclusion and further resources
 

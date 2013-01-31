@@ -174,7 +174,7 @@ must be a valid Dart library. In such a library you must define a class
 corresponding to the component. The name of this class must match the name
 specified by the `constructor` attribute. For example,
 
-{% highlight html %}
+{% prettify html %}
 <element name='x-my-friend' constructor='AName'>
  ...
  <script type='application/dart'>
@@ -183,12 +183,12 @@ specified by the `constructor` attribute. For example,
    class AName extends WebComponent { ... }
  </script>
 </element>
-{% endhighlight %}
+{% endprettify %}
 
 but if the constructor attribute was omitted, you must use the name inferred
 from the tag name, for example,
 
-{% highlight html %}
+{% prettify html %}
 <element name='x-my-friend'>
  ...
  <script type='application/dart'>
@@ -197,7 +197,7 @@ from the tag name, for example,
    class MyFriend extends WebComponent { ... }
  </script>
 </element>
-{% endhighlight %}
+{% endprettify %}
 
 Currently the component's Dart class must be a subclass of `WebComponent` from
 `package:web_ui/web_ui.dart`.
@@ -216,10 +216,10 @@ example <code>MyButton extends ButtonElement</code>.
 Components can be instantiated declaratively or programatically. Consider a
 component declared as:
 
-{% highlight html %}
+{% prettify html %}
 <element name="x-foo" extends="span" constructor="FooComponent">
  ...
-{% endhighlight %}
+{% endprettify %}
 
 You can instantiate such component in the following three ways:
 
@@ -302,7 +302,7 @@ expressions and symbols. In particular, template binding expressions will be
 interpreted as a lexical part of the component class definition. For instance,
 consider the following example:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example'>
  <template>{{foo}} {{bar}}</template>
@@ -315,7 +315,7 @@ consider the following example:
  </script>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 The expressions `{{'{{'}}foo}}` and `{{'{{'}}bar}}` are valid [Dart
 expressions][dart-expressions] and are evaluated as if you
@@ -413,7 +413,7 @@ by using expressions of the form
 `{{'{{'}}exp}}` as nodes in your HTML. For example, a component with the
 following template:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example2'>
  <template><span>one {{x}} tree</span></template>
@@ -424,7 +424,7 @@ following template:
  </script>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 will render as `<span>one two three</span>`. At runtime, `x` will be
 [watched](#watchers) for changes.
@@ -494,7 +494,7 @@ features available for class and style attributes.
   classes to attach to an element. You can bind a single class attribute by
   binding a getter to the property defining your class. For example,
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example2'>
  <template><span class="{{class1}}"></span></template>
@@ -505,7 +505,7 @@ features available for class and style attributes.
  </script>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
   In this example, if you update `class1` to null or an empty string, when the
   associated watcher detects this change it will remove the previous value
@@ -518,7 +518,7 @@ features available for class and style attributes.
   `class1` and `class2`, on an element. The tree alternatives would look as
   follows:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example2'>
  <template>
@@ -544,7 +544,7 @@ features available for class and style attributes.
  </script>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 
 * data-style attributes: you can pass a `Map<String, String>` as a binding to
@@ -599,7 +599,7 @@ flag, or you can bind all radio buttons in a group to a single Dart value. The
 following example illustrates how to do both. Note that in this example both
 groups behave exactly the same way.
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example2'>
  <template>
@@ -621,7 +621,7 @@ groups behave exactly the same way.
  </script>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
 <div class="alert alert-info">
@@ -695,14 +695,14 @@ deprecated in favor of the other.
 
 Consider this concrete example:
 
-{% highlight html %}
+{% prettify html %}
 Unconditional portion 1
 <!-- a template conditional -->
 <template instantiate="if exp">
  this <div>is sometimes <strong>shown</strong></div> here
 </template>
 Unconditional portion 2
-{% endhighlight %}
+{% endprettify %}
 
 If `exp` is `true`, then the contents of the tag will be displayed,
 otherwise, they will not be rendered altogether. In particular, if there were
@@ -718,16 +718,16 @@ The Web UI compiler uses a shallow clone of the original template node as the
 invisible placeholder. For example, this is how the tree looks when the
 condition is false in our example above:
 
-{% highlight html %}
+{% prettify html %}
 Unconditional portion 1
 <!-- the next tag is an invisible placeholder -->
 <template instantiate="if exp" style="display:none"></template>
 Unconditional portion 2
-{% endhighlight %}
+{% endprettify %}
 
 When the condition becomes true, the HTML tree will look as follows:
 
-{% highlight html %}
+{% prettify html %}
 Unconditional portion 1
 <!-- the next tag is an invisible placeholder -->
 <template instantiate="if exp" style="display:none"></template>
@@ -737,7 +737,7 @@ this
 </div>
 here
 Unconditional portion 2
-{% endhighlight %}
+{% endprettify %}
 
 Note that the contents of the initial template are not within the template
 tag anymore, they got added directly as siblings. This behavior is
@@ -747,24 +747,24 @@ as a declaration. This matches closely the semantics of [MDV][mdv] templates.
 A benefit of this semantics is that the resulting HTML is often closer to 
 what the developer intended to say. For example, a template of the form:
 
-{% highlight html %}
+{% prettify html %}
 <ul>
   <li> item 1
   <template instantiate="if showItem2">
     <li> item 2
   </template>
 </ul>
-{% endhighlight %}
+{% endprettify %}
 
 Will be rendered so that all `<li>` elements are direct children of the `<ul>`
 element:
-{% highlight html %}
+{% prettify html %}
 <ul>
   <li> item 1
   <template instantiate="if showItem2" style="display:none"></template>
   <li> item 2
 </ul>
-{% endhighlight %}
+{% endprettify %}
 
 As an app developer, you must know these rendering decisions because it may
 affect parts of the application logic, like CSS selectors. The current approach
@@ -778,7 +778,7 @@ used to declare the appearance of a component and it can be used to declare
 conditionals and loops. It is mandatory to use separate tags for each intended
 use. In particular, the first example below is valid, but the second is invalid:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example'>
  <template>
@@ -786,16 +786,16 @@ use. In particular, the first example below is valid, but the second is invalid:
  </template>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example'>
  <!-- invalid: we need an extra template here. -->
  <template instantiate="if true">this is invalid</template>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 #### The conditional attribute. {#conditional-attribute}
 
@@ -807,12 +807,12 @@ You can express a conditional by adding two attributes to any element, an empty
 `template` attribute, and a `instantiate="if ..."` attribute. For example, in
 the following code, `item 2` will only be visible if `showItem2` is true.
 
-{% highlight html %}
+{% prettify html %}
 <ul>
   <li> item 1
   <li template instantiate="if showItem2"> item 2
 </ul>
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
 <div class="alert alert-info">
@@ -829,24 +829,24 @@ the condition. When the condition is true, the actual element itself is added
 (with the template attribute removed). For instance, the following shows the
 rendered tree when the condition is true in the example above:
 
-{% highlight html %}
+{% prettify html %}
 <ul>
   <li> item 1
   <!-- the next tag is an invisible placeholder -->
   <li template instantiate="if showItem2" style="display:none"></li>
   <li> item 2
 </ul>
-{% endhighlight %}
+{% endprettify %}
 
 And the following shows the rendered tree when the condition is false:
 
-{% highlight html %}
+{% prettify html %}
 <ul>
   <li> item 1
   <!-- the next tag is an invisible placeholder -->
   <li template instantiate="if showItem2" style="display:none"></li>
 </ul>
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
 <div class="alert alert-info">
@@ -866,29 +866,29 @@ visible.
 This difference is especially noticeable when making plain text nodes
 conditionally visible. For example, the following template:
 
-{% highlight html %}
+{% prettify html %}
 <div> a <template instantiate="if exp">c</template> b </div>
-{% endhighlight %}
+{% endprettify %}
 
 will be rendered such that `c` is a direct child of `<div>`:
 
-{% highlight html %}
+{% prettify html %}
 <div> a <template style="display:none"></template> c b </div>
-{% endhighlight %}
+{% endprettify %}
 
 This cannot be expressed using conditional attributes. If you were to use
 conditional attributes, you would be forced to introduce a DOM node that will
 wrap `c`:
 
-{% highlight html %}
+{% prettify html %}
 <div> a <span instantiate="if exp">c</span> b </div>
-{% endhighlight %}
+{% endprettify %}
 
 which will render as:
 
-{% highlight html %}
+{% prettify html %}
 <div> a <span style="display:none"></span> <span>c</span> b </div>
-{% endhighlight %}
+{% endprettify %}
 
 Another subtle difference derives from the fact that templates are
 syntactically valid HTML. The HTML5 parsing algorithm has very strict rules
@@ -898,28 +898,28 @@ cannot occur within tables, and the parsing algorithm move these template nodes
 somewhere else. This also happens in the Web UI compiler, which uses an HTML5
 compliant parser. For example, if you write:
 
-{% highlight html %}
+{% prettify html %}
 <table><tbody>
 <template instantiate="if showRow"><tr><td> row </td></tr></template>
 </tbody></table>
-{% endhighlight %}
+{% endprettify %}
 
 This is transformed by HTML parsers as if you had written the template outside
 of the table:
-{% highlight html %}
+{% prettify html %}
 <template instantiate="if showRow"><tr><td> row </td></tr></template>
 <table><tbody>
 </tbody></table>
-{% endhighlight %}
+{% endprettify %}
 
 We can express our intent of conditionally hiding a row using conditional
 attributes as follows:
 
-{% highlight html %}
+{% prettify html %}
 <table><tbody>
 <tr instantiate="if showRow"><td> row </td></tr>
 </tbody></table>
-{% endhighlight %}
+{% endprettify %}
 
 ### Loops
 
@@ -938,7 +938,7 @@ of the form `iterate="identifier in expression"`, where `expression` evaluates
 to a collection, and `identifier` is a new variable that will be visible to the
 body of the iterate element. For instance, in the following example:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <ul>
   <li> header
@@ -950,7 +950,7 @@ body of the iterate element. For instance, in the following example:
   <li> footer
 </ul>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 the expression `list` is evaluated to a collection. For each element in the
 collection, there will be 2 `<li>` tags in the generated HTML.
@@ -964,7 +964,7 @@ after this placeholder node.
 For example, `list` is `['one', 'two', 'three']` then the rendered HTML will
 look as follows:
 
-{% highlight html %}
+{% prettify html %}
 <ul>
   <li> header
   <!-- invisible placeholder -->
@@ -977,7 +977,7 @@ look as follows:
   <li> three
   <li> footer
 </ul>
-{% endhighlight %}
+{% endprettify %}
 
 See the sections above on [conditionals](#conditionals) for more details on why
 children of the template node are appended directly as siblings of the
@@ -996,19 +996,19 @@ nodes. The placeholder node and the iteration element are basically the same.
 The node is always present, but its contents are modified depending on the
 values found in the collection. For example, the following template:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <ul template iterate="x in list">
   <li> before {{x}}
   <li> {{x}}
 </ul>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 will be rendered as follows when `list` has the following value `['one', 'two',
 'three']`:
 
-{% highlight html %}
+{% prettify html %}
 <ul>
   <li> before one
   <li> one
@@ -1017,7 +1017,7 @@ will be rendered as follows when `list` has the following value `['one', 'two',
   <li> before three
   <li> three
 </ul>
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
 <div class="alert alert-info">
@@ -1037,7 +1037,7 @@ the element containing the iterate attribute.
 This difference is especially noticeable when you want to create a list with a
 header and a footer. This is supported by template nodes as follows:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <ul>
   <li> header
@@ -1047,7 +1047,7 @@ header and a footer. This is supported by template nodes as follows:
   <li> footer
 </ul>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 but it cannot be expressed using iteration attributes.
 
@@ -1057,7 +1057,7 @@ Here again, similar to
 conditional attributes, iteration attributes can be used in this context. For
 example:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <table>
   <tbody iterate="row in rows">
@@ -1067,7 +1067,7 @@ example:
   </tbody>
 </table>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
 <div class="alert alert-info">
@@ -1089,7 +1089,7 @@ UI event. These can be expressed today using an attribute of the form
 events on the `div` element, on each click the function `handleClick` will be
 called:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <element name='x-example3'>
   <template><div on-click="handleClick($event)">click me</div></template>
@@ -1100,7 +1100,7 @@ called:
   </script>
 </element>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 The name for the `on-` attributes is the hyphenated version of the Dart name
 associated with the event in `dart:html`,
@@ -1136,14 +1136,14 @@ You can write many of these tags in a page,
 but only directly under the `<body>`
 element. For example,
 
-{% highlight html %}
+{% prettify html %}
 <html>
   ...
   <body>
   <element name='x-example1'>...</element>
   <element name='x-example2'>...</element>
   ...
-{% endhighlight %}
+{% endprettify %}
 
 You can then either use these components directly in your page
 or load this file
@@ -1155,13 +1155,13 @@ bundles web components.
 Web components defined in an external HTML file can be loaded with a `<link>`
 tag in the HTML header. For example,
 
-{% highlight html %}
+{% prettify html %}
 <html>
   <head>
     <link rel="components" href='otherfile.html'>
   </head>
 ...
-{% endhighlight %}
+{% endprettify %}
 
 Loading such file allows you to use the loaded components directly in the body
 of the page or within a component declaration.
@@ -1171,7 +1171,7 @@ of the page or within a component declaration.
 Like with other dart web apps, the main entry point of your app has top-level
 script (either inlined or sourced) which starts everything. For instance,
 
-{% highlight html %}
+{% prettify html %}
 <html>
   <body>
     ...
@@ -1182,7 +1182,7 @@ script (either inlined or sourced) which starts everything. For instance,
     </script>
   </body>
 </html>
-{% endhighlight %}
+{% endprettify %}
 
 Only one script tag loading Dart code is allowed in a single page. Similar to
 script tags in component declarations, this script tag is optional. If all the

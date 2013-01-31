@@ -168,14 +168,14 @@ Create a file called `build.dart` in the same directory as pubspec.yaml.
 In this case, that's the project's top-level directory.
 Replace the auto-generated code with the following:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:web_ui/component_build.dart';
 import 'dart:io';
 
 void main() {
   build(new Options().arguments, ['web/littleben.html']);
 }
-{% endhighlight %}
+{% endprettify %}
 
 build.dart refers to the application's primary HTML file `web/littleben.html`.
 The pathname is specified relative to the build.dart file.
@@ -461,9 +461,9 @@ specify the `bind-value` attribute on an element in the HTML code.
 For example, this is the code from the shout example that
 binds the value of the text field to the shoutThis string:
 
-{% highlight dart %}
+{% prettify dart %}
 <input type="text" bind-value="shoutThis" placeholder="Shout This!">
-{% endhighlight %}
+{% endprettify %}
 
 You can use `bind-value` with different kinds of input elements,
 text areas, and select elements (drop-down lists.)

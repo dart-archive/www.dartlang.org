@@ -57,9 +57,9 @@ and is for the most part synchronous.
 If you wish to experiment with reflection,
 you can import dart:mirrors.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:mirrors';
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
 <div class="alert alert-warning">
@@ -76,7 +76,7 @@ that you cannot deploy it to the browser.
 For the sake of illustration,
 we’ll assume you’ve defined the following class:
 
-{% highlight dart %}
+{% prettify dart %}
 class MyClass {
   int i, j;
   int sum() => i + j;
@@ -87,7 +87,7 @@ class MyClass {
 
   static var s;
 }
-{% endhighlight %}
+{% endprettify %}
 
 
 The easiest way to get a mirror is to call the top-level function
@@ -106,19 +106,19 @@ The reflect() method takes an object and returns an
 [InstanceMirror](http://api.dartlang.org/dart_mirrors/InstanceMirror.html)
 on it. 
 
-{% highlight dart %}
+{% prettify dart %}
 InstanceMirror im = reflect(new MyClass(3, 4));
-{% endhighlight %}
+{% endprettify %}
 
 InstanceMirror is a subclass of
 [Mirror](http://api.dartlang.org/dart_mirrors/Mirror.html),
 the root of the mirror hierarchy.
 An InstanceMirror allows one to invoke dynamically chosen code on an object. 
 
-{% highlight dart %}
+{% prettify dart %}
 Future<InstanceMirror> f = im.invoke('sum', []); 
 // Returns a Future for an InstanceMirror on 7.
-{% endhighlight %}
+{% endprettify %}
 
 Because the the object you are reflecting could in fact
 belong to another isolate, invoke() is asynchronous.
@@ -132,9 +132,9 @@ You’ll need a
 which as you’d expect reflects a class.
 One way to get a class mirror is from an instance mirror.
 
-{% highlight dart %}
+{% prettify dart %}
 ClassMirror cm = im.type; // Reflects MyClass
-{% endhighlight %}
+{% endprettify %}
 
 In this case, you get a class mirror back directly, rather than a Future.
 The mirror library ensures that once you get a mirror on an isolate,
@@ -145,9 +145,9 @@ you don’t need to make a whole series of asynchronous calls.
 Now we can print out the names of all members of the class
 reflected by `cm`.
 
-{% highlight dart %}
+{% prettify dart %}
 for (var m in cm.members.values) print(m.simpleName);
-{% endhighlight %}
+{% endprettify %}
 
 ClassMirror has a getter
 [members](http://api.dartlang.org/dart_mirrors/ClassMirror.html#members)
@@ -161,11 +161,11 @@ Obviously, we know what the members of MyClass are in this case;
 the point is that the `for` loop above works for any class mirror,
 and therefore we can use it to print the members of any class.
 
-{% highlight dart %}
+{% prettify dart %}
 printAllMembersOf(ClassMirror cm) {
   for (var m in cm.members.values) print(m.simpleName);
 }
-{% endhighlight %}
+{% endprettify %}
 
 A number of methods in the mirror API
 return maps in a similar fashion.
@@ -173,11 +173,11 @@ The maps allow you to look up members by name,
 to iterate over all the names, or to iterate over all the members.
 In fact, there is a simpler way to accomplish what we just did.
 
-{% highlight dart %}
+{% prettify dart %}
 printAllMembersOf(ClassMirror cm) {
   for (var k in cm.members.keys) print(k);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Again, note that no asynchrony is involved.
 Once we’ve brought reflective information about the code,
@@ -187,9 +187,9 @@ we don’t need to bounce back and forth.
 What if we want to invoke static code reflectively?
 We can call invoke() on a ClassMirror as well.
 
-{% highlight dart %}
+{% prettify dart %}
 cm.invoke('noise', []); // Returns a Future on an InstanceMirror on 42
-{% endhighlight %}
+{% endprettify %}
 
 In fact, invoke() is defined in class
 [ObjectMirror](http://api.dartlang.org/dart_mirrors/ObjectMirror.html),
@@ -199,7 +199,7 @@ such as regular instances, classes, libraries, and so on.
 
 Here is a complete example incorporating what we’ve done so far:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:mirrors';
 
 class MyClass {
@@ -236,11 +236,11 @@ main() {
   MyClassMirror.setField('s', 91);
   print(MyClass.s);
 }
-{% endhighlight %}
+{% endprettify %}
 
 And here’s the output:
 
-{% highlight text %}
+{% prettify %}
 sum = InstanceMirror on <7>
 noise = InstanceMirror on <42>
 methods:
@@ -255,7 +255,7 @@ my_method
 sum
 i
 91
-{% endhighlight %}
+{% endprettify %}
 
 At this point we’ve shown you enough to get started.
 Some more things you should be aware of follow.

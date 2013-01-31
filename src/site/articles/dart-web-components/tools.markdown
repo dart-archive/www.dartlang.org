@@ -110,14 +110,14 @@ easy to create a script that automatically calls our compiler. Create a file
 named `build.dart` in the same directory as your `pubspec.yaml` file with the
 following contents:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:web_ui/component_build.dart';
 import 'dart:io';
 
 void main() {
   build(new Options().arguments, ['web/app.html']);
 }
-{% endhighlight %}
+{% endprettify %}
 
 This script will invoke `dwc` on `web/app.html` every time the Dart Editor
 detects that you changed a file in your project.  When you want to launch your

@@ -36,20 +36,20 @@ that behave like functions.
 In the following example, we have an ordinary class `WannabeFunction` that
 happens to define a method named `call()`.
 
-{% highlight dart %}
+{% prettify dart %}
 class WannabeFunction {
   call(int a, int b) => a + b;
 }
-{% endhighlight %}
+{% endprettify %}
 
 The call() method is special, in that anyone who defines a call() method is
 presumed to dynamically emulate a function. This allows us to use instances of
 WannabeFunction as if they were functions that take two integer arguments:
 
-{% highlight dart %}
+{% prettify dart %}
 var wf = new WannabeFunction();
 wf(3, 4); // 7
-{% endhighlight %}
+{% endprettify %}
 
 The example above is rather trivial, and we would be better off writing a
 function directly. However, there are cases where this ability can be quite
@@ -78,11 +78,11 @@ a closure.
 The class Function defines the static method `apply()`
 with the following signature:
 
-{% highlight dart %}
+{% prettify dart %}
 external static apply(Function function,
                       List positionalArguments,
                       [Map<String, dynamic> namedArguments]);
-{% endhighlight %}
+{% endprettify %}
 
 The apply() function allows functions to be called in generic fashion.
 
@@ -93,11 +93,11 @@ An additional issue is how user-defined function classes relate to the type
 system.  To simulate functions properly, we want them to be members of the
 appropriate function type:
 
-{% highlight dart %}
+{% prettify dart %}
 typedef BinaryFunction(a,b);
 ...
 new WannabeFunction() is BinaryFunction; // true
-{% endhighlight %}
+{% endprettify %}
 
 Therefore, we decree that an object is a member of a function type if the
 object’s class has a call() method and that method is a member of the function
@@ -109,13 +109,13 @@ In Dart, you can customize how objects react to methods that are not explicitly
 defined in their class chain by overriding noSuchMethod(). Here's an example
 showing how you could use function emulation inside noSuchMethod():
 
-{% highlight dart %}
+{% prettify dart %}
 noSuchMethod(InvocationMirror msg) =>
     msg.memberName == 'foo' ? msg.invokeOn(bar())
                             : Function.apply(baz,
                                 msg.positionalArguments,
                                 msg.namedArguments);
-{% endhighlight %}
+{% endprettify %}
 
 In the second line, `invokeOn()` handles the common case where you want to
 forward the call to a particular object (in this case, the result of `bar()`).
@@ -127,7 +127,7 @@ then that code can instead be
 The only argument to noSuchMethod() is an `InvocationMirror`, which is
 currently defined as follows:
 
-{% highlight dart %}
+{% prettify dart %}
 abstract class InvocationMirror {
   String get memberName;
   List get positionalArguments;
@@ -139,7 +139,7 @@ abstract class InvocationMirror {
 
   invokeOn(Object receiver);
 }
-{% endhighlight %}
+{% endprettify %}
 
 The boolean properties of InvocationMirror identify the syntactic form of the
 method invocation, as the following table shows.

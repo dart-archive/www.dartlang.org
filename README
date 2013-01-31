@@ -30,8 +30,6 @@ CONFIGURING YOUR MAC SYSTEM
 * Open a new Terminal.
 * run 'sudo gem install bundler'
 * run 'sudo bundle install' from the root of your dartlang project
-* install Pygments
-  * sudo easy_install Pygments
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not
     * It will say, in the log "you're using 2.6"
@@ -47,6 +45,8 @@ DEVELOPMENT
 * Your web browser opens to http://localhost:8080
   * You may need to reload once.
 * Edit, create docs as normal.
+* If you're making changes to the Sass (SCSS) files, you can regenerate the CSS
+  by running `make compass` from the root of the repository on the command line.
 
 DEPLOYMENT
 
