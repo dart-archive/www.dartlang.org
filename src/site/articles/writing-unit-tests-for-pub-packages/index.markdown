@@ -39,17 +39,17 @@ the same name.
 
 `range()` has the following signature: 
 
-{% highlight dart %}
+{% prettify dart %}
 List<num> range(num start, num stop, [num step = 1]);
-{% endhighlight %}
+{% endprettify %}
 
 It returns a list of ints between `start` and `stop` separated by `step`
 steps. Here is some sample usage:
 
-{% highlight dart %}
+{% prettify dart %}
 range(0, 4);    // [0, 1, 2, 3]
 range(1, 6, 2); // [1, 3, 5]
-{% endhighlight %}
+{% endprettify %}
 
 Let's get started.
 
@@ -86,13 +86,13 @@ that makes it a package.
 Add a simple description for the package and specify its only dependency,
 the unittest package. Your `pubspec.yaml` should look like this:
 
-{% highlight dart %}
+{% prettify dart %}
 name: range
 description: An approximate implementation of the Python range() function.
     
 dependencies:
   unittest: { sdk: unittest }
-{% endhighlight %}
+{% endprettify %}
 
 Saving `pubspec.yaml` in Dart Editor automatically triggers a call to 
 `pub install`; this creates a `pubspec.lock` file and a bunch of symlinks
@@ -104,7 +104,7 @@ that are necessary for the plumbing to work correctly. Fortunately,
 Let's create a bare-bones implementation for `range()`. Your `lib/range.dart`
 should look like this:
     
-{% highlight dart %}
+{% prettify dart %}
 library range; 
 
 List<int> range(int start, int stop, [int step=1]) {
@@ -120,7 +120,7 @@ List<int> range(int start, int stop, [int step=1]) {
 
   return list;
 }
-{% endhighlight %}
+{% endprettify %}
     
 ## Write some tests
 
@@ -132,15 +132,15 @@ Before we can run our tests, `test/range_test.dart` needs access to the
 `unittest` package and the `range` library. At the top of `range_test.dart`, 
 add these import statements:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:unittest/unittest.dart';
 import 'package:range/range.dart';
-{% endhighlight %}
+{% endprettify %}
 
 Now add a couple of tests. (We'll need many more to really test `range()`, but
 these are a good start.) Your `range_test.dart` should look like this:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:unittest/unittest.dart';
 import 'package:range/range.dart';
 
@@ -153,7 +153,7 @@ void main() {
     expect(() => range(5, 2), throwsA(new isInstanceOf<ArgumentError>()));
   });      
 }
-{% endhighlight %}
+{% endprettify %}
 
 An individual test goes inside `test()`. The `expect()` function
 evaluates the equality
@@ -189,7 +189,7 @@ We've made good progress, but our test coverage is still pretty limited. Let's
 add a few more tests and group them in a way that makes our testing strategy
 clear. Change `range_test.dart` so it looks like this:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:unittest/unittest.dart';
 import 'package:range/range.dart';
 
@@ -224,7 +224,7 @@ void main() {
     });
   });
 }
-{% endhighlight %}
+{% endprettify %}
 
 Much better. We use nested calls to `group()` to organize our tests, and we pass
 descriptive string args to each `group()` call to indicate our intent. If

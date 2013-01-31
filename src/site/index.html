@@ -66,7 +66,7 @@ layout: homepage
         <a href="#structured-language">Learn more</a>
       </p>
 <div class="visible-desktop">
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:html';
 
 main() {
@@ -76,10 +76,10 @@ main() {
   btn.on.click.add((e) => msg.text = 'Dart!');
   document.body.nodes.add(btn);
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
 <div class="visible-tablet visible-phone">
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:html';
 
 main() {
@@ -91,7 +91,7 @@ main() {
   });
   document.body.nodes.add(btn);
 }
-{% endhighlight %}
+{% endprettify %}
 </div>
     </div>
 
@@ -203,7 +203,7 @@ main() {
           <div class="tab-pane active" id="lang-classes">
             <div class="row">
               <div class="span6">
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:math';
 
 class Point {
@@ -219,7 +219,7 @@ class Point {
     return sqrt(dx * dx + dy * dy);
   }
 }
-{% endhighlight %}
+{% endprettify %}
               </div>
               <div class="span6">
                 <h2>Classes</h2>
@@ -241,7 +241,7 @@ class Point {
           <div class="tab-pane" id="lang-lexical-closures">
             <div class="row">
               <div class="span6">
-{% highlight dart %}
+{% prettify dart %}
 makeAdder(num x) {
   return (num y) => x + y;
 }
@@ -250,7 +250,7 @@ main() {
   var add2 = makeAdder(2);
   assert(add2(3) == 5);
 }
-{% endhighlight %}
+{% endprettify %}
               </div>
               <div class="span6">
                 <h2>Lexical closures</h2>
@@ -268,7 +268,7 @@ main() {
           <div class="tab-pane" id="lang-libraries">
             <div class="row">
               <div class="span3">
-{% highlight dart %}
+{% prettify dart %}
 // In widget.dart
 
 library widget;
@@ -276,10 +276,10 @@ library widget;
 class Widget {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
               </div>
               <div class="span3">
-{% highlight dart %}
+{% prettify dart %}
 // In toolkit.dart
 
 library toolkit;
@@ -288,7 +288,7 @@ import 'widget.dart';
 class Window extends Widget {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
               </div>
               <div class="span6">
                 <h2>Libraries</h2>
@@ -304,7 +304,7 @@ class Window extends Widget {
           <div class="tab-pane" id="lang-optional-static-types">
             <div class="row">
               <div class="span6">
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:math';
 
 class Point {
@@ -321,7 +321,7 @@ class Point {
     return sqrt(dx * dx + dy * dy);
   }
 }
-{% endhighlight %}
+{% endprettify %}
               </div>
               <div class="span6">
                 <h2>Optional static types</h2>
@@ -344,7 +344,7 @@ class Point {
           <div class="tab-pane" id="lang-named-params">
             <div class="row">
               <div class="span6">
-{% highlight dart %}
+{% prettify dart %}
 flipFlags({bool on, bool up, bool hidden=false}) {
   // ...
 }
@@ -353,7 +353,7 @@ flipFlags(on: true, up: false, hidden: true);
 
 // Named params are also optional params
 flipFlags(on: true); // up == null, hidden == false
-{% endhighlight %}
+{% endprettify %}
               </div>
               <div class="span6">
                 <h2>Named parameters</h2>
@@ -371,7 +371,7 @@ flipFlags(on: true); // up == null, hidden == false
           <div class="tab-pane" id="lang-isolates">
             <div class="row">
               <div class="span6">
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:isolate';
 
 echo() {
@@ -384,7 +384,7 @@ main() {
   SendPort echoService = spawnFunction(echo);
   echoService.call("Hello!").then((answer) => print(answer));
 }
-{% endhighlight %}
+{% endprettify %}
               </div>
               <div class="span6">
                 <h2>Isolates</h2>

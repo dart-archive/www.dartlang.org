@@ -50,7 +50,7 @@ library.
 
 For those who want to jump right to it, let's start with an example. Let's say we are writing a quicksort algorithm in Dart and want to test it. Open the Dart editor, create a new application "quicksort", then change the "quicksort.dart" file to look as follows:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:/unittest/unittest.dart';
 
 // NOTE: This code purposely has errors to illustrate unittest further below.
@@ -93,19 +93,19 @@ void main() {
       orderedEquals([1, 2, 3, 4, 5]))
   );
 }
-{% endhighlight %}
+{% endprettify %}
 
 There are a couple of problems with this code that we will use unit tests to discover. To begin, we have just one test in `main()` which asserts that a 5-element array is properly sorted after calling `quickSort`. Note how the test is written: we wrap it in a call to `test()` with this form:
 
-{% highlight dart %}
+{% prettify dart %}
 test(String testName, functionToTest);
-{% endhighlight %}
+{% endprettify %}
 
 Within the function we are testing, we write assertions, using `expect()`:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(actualValue, expectedValueMatcher);
-{% endhighlight %}
+{% endprettify %}
 
 The second argument to expect is what we call a "matcher". It can be a scalar value, or a special matcher function, of which the library provides many; in our case we are using `orderedEquals()` which matches against an Iterable object in index order.
 
@@ -125,15 +125,15 @@ and has been omitted above.
 
 The problem here was this line:
 
-{% highlight dart %}
+{% prettify dart %}
 int pivotIndex = left + ((right-left) / 2);
-{% endhighlight %}
+{% endprettify %}
 
 The right hand side is a double, which we can't assign to int. We can fix this by changing the line to this:
 
-{% highlight dart %}
+{% prettify dart %}
 int pivotIndex = left + ((right-left) / 2).toInt();
-{% endhighlight %}
+{% endprettify %}
 
 Running the test again, we see:
 
@@ -147,7 +147,7 @@ This tells us that we have a bug, but doesn't help us find it. We need to dig de
 
 The partition part of quicksort is given a pivot index (which in turn maps to a pivot value), and is meant to move all values less than the pivot value to the left of the pivot, and all values greater to the right of the pivot, and then return the final position of the pivot value. So if we passed [3,2,1] and pivot index 1 (i.e. pivot value 2), after partitioning we should have [1,2,3] and the returned pivot index should still be 1. Let's test that, by adding a second test. Change `main()` by adding the code in bold below:
 
-{% highlight dart %}
+{% prettify dart %}
 void main() {
   test('QuickSort', () =>
     expect(quickSort([5, 4, 3, 2, 1]),
@@ -160,7 +160,7 @@ void main() {
     expect(array, orderedEquals([1, 2, 3]));
   });
 }
-{% endhighlight %}
+{% endprettify %}
 
 If we run this again, we still see the first test fail, but now we also see:
 
@@ -172,7 +172,7 @@ So there is a problem with partition. We did not get to the second `expect()`; t
 
 A bit of research shows the problem. The loop in `_partition` is meant to increment `storeIndex`:
 
-{% highlight dart %}
+{% prettify dart %}
 for (var i = left; i < right; i++) {
   if (array[i] < pivotValue) {
     var tmp = array[i];
@@ -180,7 +180,7 @@ for (var i = left; i < right; i++) {
     array[storeIndex++] = tmp;
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 After making that change and running the app again, we see happiness:
 
@@ -193,15 +193,15 @@ We can easily run this from the command line using the
 [standalone Dart virtual machine](http://www.dartlang.org/docs/standalone-dart-vm/).
 If you want to test the exit code from the standalone VM, add this import:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:unittest/vm_config.dart';
-{% endhighlight %}
+{% endprettify %}
 
 and add a line before the tests:
 
-{% highlight dart %}
+{% prettify dart %}
 useVmConfiguration();
-{% endhighlight %}
+{% endprettify %}
 
 This will result in a zero exit code if all tests pass or a 1 exit code upon test failure. See [Configuring the test environment](#configuring-the-test-environment) later for more details. You can run the test with the command:
 
@@ -209,15 +209,15 @@ This will result in a zero exit code if all tests pass or a 1 exit code upon tes
 
 If you prefer the Dart editor environment and want to run your tests in the browser, add this import:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:unittest/html_config.dart';
-{% endhighlight %}
+{% endprettify %}
 
 and add a line before the tests:
 
-{% highlight dart %}
+{% prettify dart %}
 useHtmlConfiguration();
-{% endhighlight %}
+{% endprettify %}
 
 Test results will be displayed in the Dartium window and exit codes are shown in the editor's Debugger tab.
 
@@ -229,34 +229,34 @@ Tests are created using the top level function `test()`. This function takes a n
 
 Here is a trivial example to illustrate the syntax of `test()`:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:unittest/unittest.dart';
 main() {
  test('An empty test', () {
    // a test with expectations and matchers
  });
 }
-{% endhighlight %}
+{% endprettify %}
 
 This test doesn't do anything useful and will always pass. Note that test functions takes no arguments and return no value; if a value is returned it is ignored.
 
 Of course, a real test will have some content in the body of the test function, and that body will usually be making assertions about the state of the system under test. To express such assertions we use `expect()`. `expect()` is typically called with two arguments: an actual value and a "matcher" that tests if the value satisfies some constraint. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 test('Addition test', () {
   expect(2 + 2, equals(4));
 });
-{% endhighlight %}
+{% endprettify %}
 
 If the matcher fails then an ExpectException is thrown, which will be caught and handled by the unit test framework as a test failure. Later we will see how this behavior of `expect()` can be customized to use it in other contexts.
 
 If you want to simply pass a predicate to `expect()`, you can use the `isTrue` matcher, as in:
 
-{% highlight dart %}
+{% prettify dart %}
 test('Addition test', () {
   expect(2 + 2 == 5, isTrue);
 });
-{% endhighlight %}
+{% endprettify %}
 
 However, if you use matchers with more granularity, `expect()` generates a useful descriptive message upon failure, which is passed as an argument to the ExpectException constructor. When using a predicate form like the above, `expect()` has no useful information to do this with. So in the second case, the description will simply be:
 
@@ -270,9 +270,9 @@ while in the first case it is the more descriptive:
 
 It is possible to pass an additional string argument to `expect()` (using either form) which will be appended to the output, and doing so is strongly encouraged if using the predicate form to improve the resulting output. The additional argument is a named argument called `reason`. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 test('Addition test', () => expect(2 + 2 == 5, isTrue, reason:'Two twos are not five'));
-{% endhighlight %}
+{% endprettify %}
 
 which results in:
 
@@ -281,15 +281,15 @@ which results in:
 
 There are circumstances when the simple predicate form is sufficient. For example, if you have code that should be unreachable, then you can use:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(false, isTrue, reason:'Unreachable');
-{% endhighlight %}
+{% endprettify %}
 
 Another case might be where you have a complex predicate that would be too tedious to write using composite matchers, or where the predicate is implemented by a function, and where a simpler text description is useful. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(isPrime(x), isTrue, reason:'${x} is not prime');
-{% endhighlight %}
+{% endprettify %}
 
 There are a large set of possible matchers that can be used with `expect()`, and it is possible to create custom ones. In fact, matchers can be composed to create more complex matchers. Matchers will be discussed in more detail later in this article.
 
@@ -302,12 +302,12 @@ Note that `test()` calls cannot be nested; each call to `test()` defines one and
 
 It can be helpful to group similar tests together, which can be done with `group()`. The `group()` function has a similar form to `test()`, taking a name and a function as arguments, with the function containing the tests in the group. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 group('My test group', () {
   test('Test 1', () => expect(0, equals(1));
   test('Test 2', () => expect(1, equals(0));
 });
-{% endhighlight %}
+{% endprettify %}
 
 Test names have their group names prepended; in this case, the first test has the name 'My test group Test 1' and the second test has the name 'My test group Test 2'. Test groups can be nested (with multiple group names prepended).
 
@@ -319,14 +319,14 @@ Inside a group body, in addition to calling test() you can call setUp() and/or t
 
 Usually you would set these up at the start of the group:
 
-{% highlight dart %}
+{% prettify dart %}
 group('foo', () {
   setUp(() {...});
   tearDown(() {...});
   test(description, () {...});
   ...
 });
-{% endhighlight %}
+{% endprettify %}
 
 However you can interlace them differently; each test() will use the most recently set values. 
 
@@ -338,16 +338,16 @@ The Dart unittest library provides a mechanism to quickly run just one unit test
 
 Another way of reducing the set of tests which are run is to call the `filterTests` function. This function can take a `RegExp` argument, or a `String` argument that is used to create a `RegExp`, which in turn is matched against each test description; only those tests that match will be run. To filter, you must disable the automatic execution of tests before any calls to `group()` or `test()` by setting `config.autorun` to false.  If you have not imported a unittest config library like `html_config.dart`, you will need to create a default configuration first; in this case use:
 
-{% highlight dart %}
+{% prettify dart %}
 ensureInitialized();
 config.autorun = false;
-{% endhighlight %}
+{% endprettify %}
 
 Then, after setting up all your tests with `test()` and `group()`, call `filterTests()` with an appropriate filter, and finally start running the tests with:
 
-{% highlight dart %}
+{% prettify dart %}
 runTests();
-{% endhighlight %}
+{% endprettify %}
 
 A third way of limiting the tests is to set or clear the `enabled` flag on a test case. Each call to `test()` creates a new test case in an array, which can be accessed with `testCases`. Look at the `html_interactive_config.dart` library for an example of how this is used; this library will run tests in the browser and allow you to select a subset of tests to rerun (and the tests can be edited in between executions, allowing for a quick edit/test cycle).
 
@@ -359,17 +359,17 @@ So far all of the tests shown have been synchronous; that is, the test function 
 
 Say we have this code in our application:
 
-{% highlight dart %}
+{% prettify dart %}
 window.setTimeout(checkProgress, 100);
-{% endhighlight %}
+{% endprettify %}
 
 and we want to test whether window.setTimeout calls the checkProgress function. If we just write:
 
-{% highlight dart %}
+{% prettify dart %}
 test('Window timeout test', () {
   window.setTimeout(checkProgress, 100); 
 });
-{% endhighlight %}
+{% endprettify %}
 
 the test will pass, but in fact is not doing what we want. There is no assertion or other check to tell that checkProgress was ever fired. We need to have the test understand that it is testing asynchronous code, and then either succeed if the callback is executed or fail after some time has elapsed and nothing has happened.
 
@@ -377,27 +377,27 @@ The unit test library provides expectAsyncN (where N is the number of arguments)
 
 Here is an example of expectAsync0:
 
-{% highlight dart %}
+{% prettify dart %}
 test('Window timeout test', () {
   window.setTimeout(expectAsync0(checkProgress), 100); 
 });
-{% endhighlight %}
+{% endprettify %}
 
 When this test starts to run, it calls `window.setTimeout` and passes a closure, created by `expectAsync0`, as the event handler. This closure will in turn call `checkProgress()`. If `checkProgress()` throws an exception the closure catches it and mark the test as failed. The test is not considered complete until either the closure is executed or the test framework times out and fails the test.
 
 `expectAsyncN()` can take an additional count argument to specify how many times the callback must be called before the test is considered complete. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 test('Double callback', () {
   var callback = expectAsync0(foo, count: 2);
   window.setTimeout(callback, 0);
   window.setTimeout(callback, 0);
 });
-{% endhighlight %}
+{% endprettify %}
 
 There are times when we have callbacks that we don't expect to be called. For example, consider a function that takes two callback arguments, and only one of them will be called (a common example would be onSuccess and onFailure handlers). Even though we don't expect some callback to be called, we still need to guard the code so that the test harness handles the failure case where it is called. We can do this with `expectAsyncN()` with a count parameter of zero. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 test('getDirectory', () {
   fs.root.getDirectory('nonexistent', flags:{},
     successCallback:
@@ -407,14 +407,14 @@ test('getDirectory', () {
         expectAsync1((e) =>
             expect(e.code, equals(FileError.NOT_FOUND_ERR)));
 });
-{% endhighlight %}
+{% endprettify %}
 
 An alternative is to use `guardAsync(fn)`, which executes the function `fn` within a try/catch block so that any exceptions are reported to the test library. For example we could have used:
 
-{% highlight dart %}
+{% prettify dart %}
 successCallback:
     (e) => guardAsync(() { expect(false, 'Should not be reached'); }),
-{% endhighlight %}
+{% endprettify %}
 
 We might have a callback that's called an undetermined number of times, where
 only a test can tell us when it's the last time. For these cases we can use `expectAsyncUntilN()` (where N is 0, 1 or 2). These functions take a second function argument which should return false if more callbacks are expected or true if all callbacks are done.
@@ -425,15 +425,15 @@ only a test can tell us when it's the last time. For these cases we can use `exp
 
 So far we have only looked at the `equals(v)` matcher. The Dart unittest library contains a large set of predefined matchers, which we will look at briefly now. The Dart SDK documentation contains details for each matcher. Note that a number of matchers can in turn take matchers as their arguments; in these cases simple values can be used too, and they will automatically be wrapped in `equals(v)` matchers. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(foo, hasLength(6));
-{% endhighlight %}
+{% endprettify %}
 
 is turned into:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(foo, hasLength(equals(6));
-{% endhighlight %}
+{% endprettify %}
 
 The following simple matchers take no arguments, and have mostly self-evident meanings:
 
@@ -452,16 +452,16 @@ The following simple matchers take no arguments, and have mostly self-evident me
 
 Be careful with `isTrue` and `isFalse`. These test for equality with the corresponding Boolean values. That means these would both fail:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(10, isTrue)
 expect(10, isFalse)
-{% endhighlight %}
+{% endprettify %}
 
 To test if something is not true, use:
 
-{% highlight dart %}
+{% prettify dart %}
 isNot(isTrue)
-{% endhighlight %}
+{% endprettify %}
 
 `isEmpty` works with Strings, Maps or Collections.
 
@@ -513,13 +513,13 @@ For type checking, we have:
 
 For example:
 
-{% highlight dart %}
+{% prettify dart %}
 
 test('Exception type', () {
     expect(()=> throw 'X',
     throwsA(new isInstanceOf<String>()));
 });
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
   <div class="alert alert-info">
@@ -546,13 +546,13 @@ As the usual case is to throw an exception, there are predefined matchers for a 
 
 So for example we can write:
 
-{% highlight dart %}
+{% prettify dart %}
 test('Range Error', () {
     expect(()=> throw new RangeError("out of range"),
     throwsRangeError);
 });
   
-{% endhighlight %}
+{% endprettify %}
 
 For matching the inner content of compound objects, we have a number of matchers, starting with the ubiquitous `equals()`:
 
@@ -562,12 +562,12 @@ This works with scalars, Maps and iterables (which should match in order). The d
 
 Here is an example, taken from the JSON parse tests:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(JSON.parse('{"x": {"a":3, "b": -4.5}, "y":[{}], '
                '"z":"hi","w":{"c":null,"d":true}, "v":null}'),
   equals({"x": {"a":3, "b": -4.5}, "y":[{}],
                "z":"hi","w":{"c":null,"d":true}, "v":null}));
-{% endhighlight %}
+{% endprettify %}
 
 For testing just a subpart of an object, we can use:
 
@@ -575,9 +575,9 @@ For testing just a subpart of an object, we can use:
 
 This works with Strings (matches substrings), Maps (matches if the Map has that key) or Collections (matches if some element in the collection is a match). In the latter case m can be a matcher, e.g.:
 
-{% highlight dart %}
+{% prettify dart %}
 expect([1, 2, 3, 4], contains(isNonZero));
-{% endhighlight %}
+{% endprettify %}
 
 The converse matcher to `contains()` is `isIn()`.
 
@@ -586,9 +586,9 @@ The converse matcher to `contains()` is `isIn()`.
 
 These work on collections. m can be a value or a matcher. E.g.:
 
-{% highlight dart %}
+{% prettify dart %}
 expect(foo, someElement(greaterThan(10)));
-{% endhighlight %}
+{% endprettify %}
 
 For any Iterable:
 
@@ -617,17 +617,17 @@ Finally, there is a `predicate` matcher, which allows you to use arbitrary funct
 This can be used to solve the problems with isInstance/throwsA in dart2js. For example:
 
 
-{% highlight dart %}
+{% prettify dart %}
 expect(() => throw 'X',
     throwsA(predicate((e) => e is String, 'is a String')));
-{% endhighlight %}
+{% endprettify %}
 
 
 ### Creating custom matchers
 
 Should the set of matchers provided by default be insufficient, it is possible to create your own. A matcher implements the `Matcher` interface:
 
-{% highlight dart %}
+{% prettify dart %}
 abstract class Matcher {
   /** This does the matching of the actual vs expected values. */
   bool matches(item, MatchState matchState);
@@ -637,11 +637,11 @@ abstract class Matcher {
   Description describeMismatch(item, Description mismatchDescription,
       MatchState matchState, bool verbose);
 }
-{% endhighlight %}
+{% endprettify %}
 
 In most cases rather than extending this interface you would implement a subclass of `BaseMatcher`, to reduce the number of necessary methods that must be implemented from 3 to 2:
 
-{% highlight dart %}
+{% prettify dart %}
 abstract class BaseMatcher implements Matcher {
   const BaseMatcher();
   bool matches(item, MatchState matchState);
@@ -650,11 +650,11 @@ abstract class BaseMatcher implements Matcher {
       MatchState matchState, bool verbose) =>
     mismatchDescription.add('was ').addDescriptionOf(item);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Here is an example of a custom matcher that matches string prefixes while ignoring whitespace runs:
 
-{% highlight dart %}
+{% prettify dart %}
 class PrefixMatcher extends BaseMatcher {
   final String _prefix;
   PrefixMatcher(prefix) : this._prefix = collapseWhitespace(prefix);
@@ -667,7 +667,7 @@ class PrefixMatcher extends BaseMatcher {
         addDescriptionOf(collapseWhitespace(_prefix)).
         add(' ignoring whitespace');
 }
-{% endhighlight %}
+{% endprettify %}
 
 There are three important parts to this:
 
@@ -724,15 +724,15 @@ There are two functions that can be used to customize the behavior of expect:
 
 The easiest way to customize the error handler is to create a class that inherits from `DefaultFailureHandler` and overrides this method:
 
-{% highlight dart %}
+{% prettify dart %}
 void fail(String reason) {
   throw new ExpectException(reason);
     }
-{% endhighlight %}
+{% endprettify %}
 
 For example, this failure handler just keeps a count of the number of failures:
 
-{% highlight dart %}
+{% prettify dart %}
 class MyFailureHandler extends DefaultFailureHandler {
   int errorCount;
   MyFailureHandler() {
@@ -744,7 +744,7 @@ class MyFailureHandler extends DefaultFailureHandler {
     ++errorCount;
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 Apart from the default failure handler, a reference to a failure handler can be explictly passed to an `expect()` call using the `failureHandler` named argument.
 

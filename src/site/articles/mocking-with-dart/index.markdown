@@ -44,7 +44,7 @@ significantly at test time to use mocking, you should build your code to support
 it upfront. This implies that you need a way to substitute classes. Let's say we 
 have a class `Game` that depends on class `Player`:
 
-{% highlight dart %}
+{% prettify dart %}
 class Game {
   Player player;
 
@@ -52,14 +52,14 @@ class Game {
     player = new Player();
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 Testing this code with a mock of `Player` is difficult. Instead, you should 
 write your code so that it is possible to substitute a subclass of `Player` for 
 player without changing the code of class `Game`. One way to do this is with 
 factory allocators:
 
-{% highlight dart %}
+{% prettify dart %}
 class Game {
   Player player;
 
@@ -67,16 +67,16 @@ class Game {
     player = playerFactory.CreatePlayer();
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 Another is by passing the `Player` instance in the constructor:
 
-{% highlight dart %}
+{% prettify dart %}
 class Game {
   Player player;
   Game(this.player);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Whichever approach you use, you should be cognizant that planning for mocking 
 early will save you pain later on.
@@ -89,7 +89,7 @@ of failed login attempts, and the ability to lock accounts (we will ignore
 unlocking for now). The credential store class is shown below (with the bodies 
 of the functions missing as the actual implementation is not relevant here):
 
-{% highlight dart %}
+{% prettify dart %}
 class CredentialStore {
   bool validate(String user, password) { … }
   void lockAccount(String user) { … }
@@ -97,11 +97,11 @@ class CredentialStore {
   int getFailures(String user) { … }
   void setFailures(String user) { … }
 }
-{% endhighlight %}
+{% endprettify %}
 
 The class we are testing is the controller class, part of which looks like this:
 
-{% highlight dart %}
+{% prettify dart %}
 class LoginController {
   CredentialStore _store;
 
@@ -125,7 +125,7 @@ class LoginController {
     return false;
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 The `login()` method is responsible for validating a login attempt, locking the 
 account if more than 3 failed consecutive logins have occurred, and clearing the 
@@ -134,9 +134,9 @@ count of failed logins on success.
 We are going to illustrate two types of mocking. First we will substitute a 
 simple mock class for the `CredentialStore`:
 
-{% highlight dart %}
+{% prettify dart %}
 class MockStore extends Mock implements CredentialStore {}
-{% endhighlight %}
+{% endprettify %}
 
 As you can see, for the dependency class that we want to mock, the code is very 
 simple - we just declare a new class that extends `Mock` and implements the 
@@ -147,7 +147,7 @@ special case of mocking where we still want the real object's behavior, but we
 want interactions with the object to be audited. Here is the code for the class, 
 which is a bit more involved than the store mock:
 
-{% highlight dart %}
+{% prettify dart %}
 class ControllerSpy extends Mock implements LoginController {
   LoginController _real;
 
@@ -156,15 +156,15 @@ class ControllerSpy extends Mock implements LoginController {
     when(callsTo('login')).alwaysCall(_real.login);
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 The spy class is a bit more interesting than the store mock: here we wrap an 
 instance of the real class, and in the constructor we add a dispatch rule for 
 the `login()` method to dispatch the call to the real object:
 
-{% highlight dart %}
+{% prettify dart %}
 when(callsTo('login')).alwaysCall(_real.login);
-{% endhighlight %}
+{% endprettify %}
 
 The benefit we get here is that all calls to mock object methods are logged and 
 can be inspected later, so we get an audit trail.
@@ -179,7 +179,7 @@ will not go through the spy, and  won't be audited.
 So now we have our mock classes, what can we do with them? Let's start by 
 testing a happy path, by adding this `main()`:
 
-{% highlight dart %}
+{% prettify dart %}
 void main() {
   // Create the objects.
   CredentialStore store = new MockStore();
@@ -196,7 +196,7 @@ void main() {
   print(controller.log);
   print(store.log);
 }
-{% endhighlight %}
+{% endprettify %}
 
 We're not using any assertions yet; we are simply printing the captured audit 
 trail which is kept in the log property of `Mock` objects. Later we will see how 
@@ -208,10 +208,10 @@ will be applied to method calls to determine the action to take. `callsTo()` can
 take multiple positional parameter restrictions too. This means we could, for 
 example, have specified that Alice could log in but Bob could not, as follows:
 
-{% highlight dart %}
+{% prettify dart %}
 store.when(callsTo('validate', 'Alice')).thenReturn(true);
 store.when(callsTo('validate', 'Bob')).thenReturn(false);
-{% endhighlight %}
+{% endprettify %}
 
 The parameter matchers need not be literal values; you can use any of the 
 matchers in the unit test library that work with `expect()`.
@@ -222,10 +222,10 @@ action we can use `alwaysReturn()` instead of `thenReturn()`. Alternatively we
 could specify that Alice logs in successfully once, and then fails forever 
 after, like this:
 
-{% highlight dart %}
+{% prettify dart %}
 store.when(callsTo('validate', 'Alice')).
   thenReturn(true).alwaysReturn(false);
-{% endhighlight %}
+{% endprettify %}
 
 Notice how we can chain multiple calls; each call to an action function returns 
 the same object so further calls are possible.
@@ -236,26 +236,26 @@ unambiguous. These are not ordered, so if a method call matches more than one
 `callsTo()` behavior the one that is used is unpredictable. For example, the 
 behavior here is unambiguous for Alice:
 
-{% highlight dart %}
+{% prettify dart %}
 store.when(callsTo('validate', 'Alice')).thenReturn(true);
 store.when(callsTo('validate', 'Alice')).thenReturn(false);
-{% endhighlight %}
+{% endprettify %}
 
 The above is equivalent to:
 
-{% highlight dart %}
+{% prettify dart %}
 store.when(callsTo('validate', 'Alice')).
   thenReturn(true).thenReturn(false);
-{% endhighlight %}
+{% endprettify %}
 
 because the arguments to `callsTo` are the same, and so these 'actions' are 
 added to the same 'behavior', and actions in a behavior are sequential. However, 
 the sequence below is ambiguous:
 
-{% highlight dart %}
+{% prettify dart %}
 store.when(callsTo('validate', 'Alice')).thenReturn(true);
 store.when(callsTo('validate')).thenReturn(false);
-{% endhighlight %}
+{% endprettify %}
 
 because this creates two separate 'behaviors' and there is no guaranteed order 
 of match testing of behaviors.
@@ -282,9 +282,9 @@ calling `login()`. We can use the `getLogs()` method to extract the subset of
 matching log entries, and the `verify()` method to make assertions about the log 
 entries:
 
-{% highlight dart %}
+{% prettify dart %}
 controller.getLogs(callsTo('setFailures')).verify(happenedOnce);
-{% endhighlight %}
+{% endprettify %}
 
 We will now take a more detailed look at the mocking API's features, and 
 periodically revisit the example above.
@@ -296,9 +296,9 @@ periodically revisit the example above.
 As shown in our example, if you want to create a mock for class T, you need to 
 create a new class:
 
-{% highlight dart %}
+{% prettify dart %}
 class MockT extends Mock implements T {};
-{% endhighlight %}
+{% endprettify %}
 
 This assumes that you have declared variables or parameters of type T and so 
 MockT must be substitutable for T. If on the other hand you always use untyped 
@@ -307,11 +307,11 @@ you do not need to create a new class.
 
 `Mock` has the following constructors:
 
-{% highlight dart %}
+{% prettify dart %}
 Mock() 
 Mock.custom([this.name = null, this.log = null,
     this.throwIfNoBehavior = false, this.logging = true]) 
-{% endhighlight %}
+{% endprettify %}
 
 The first is equivalent to `Mock.custom()`.
 
@@ -393,43 +393,43 @@ name and on the arguments. The constructor (wrapped by `callsTo()`) takes a
 method name and a number of parameter matchers. The parameter matchers 
 themselves can be `expect()`-style `Matcher`s, for example:
 
-{% highlight dart %}
+{% prettify dart %}
 m.when(callsTo('sqrt', isNegative)).
   alwaysThrow('No imaginary number support');
 m.when(callsTo('sqrt', isNonNegative)).alwaysCall((x) => math.sqrt(x));
-{% endhighlight %}
+{% endprettify %}
 
 You don't need to provide argument matchers in `callsTo()` for all arguments of a method, but you do need 
 to provide enough arguments for all matchers when calling the method. So this is allowed:
 
-{% highlight dart %}
+{% prettify dart %}
 m.when(callsTo('add')).alwaysReturn(0);
 m.add(1, 2);
-{% endhighlight %}
+{% endprettify %}
 
 And this is allowed, and will match all calls to 'add' where the first argument 
 is 1:
 
-{% highlight dart %}
+{% prettify dart %}
 m.when(callsTo('add', 1)).alwaysReturn(0);
 m.add(1, 2);
 m.add(1);
-{% endhighlight %}
+{% endprettify %}
 
 But this is not allowed and will throw an exception:
 
-{% highlight dart %}
+{% prettify dart %}
 m.when(callsTo('add', anything, anything)).alwaysReturn(0);
 m.add(1);
-{% endhighlight %}
+{% endprettify %}
 
 You can specify `CallMatcher`s for getters too. You just need to include 'get ' 
 in front of the property name. So for example, if you were mocking a container 
 class with a length property, you could use something like:
 
-{% highlight dart %}
+{% prettify dart %}
 m.when(callsTo('get length')).alwaysReturn(0); 
-{% endhighlight %} 
+{% endprettify %} 
 
 Finally, you can pass null for the method name argument, and in this case only 
 the arguments will be checked. In particular, these (equivalent) `CallMatcher`s 
@@ -455,7 +455,7 @@ accessing the log object we created (for mocks with shared logs) or the
 `Mock.log` property (for mocks with their own logs). The logs are stored in 
 `LogEntryList`s:
 
-{% highlight dart %}
+{% prettify dart %}
 class LogEntryList {
   final String filter;
   List<LogEntry> logs;
@@ -465,7 +465,7 @@ class LogEntryList {
                       Matcher actionMatcher,
                       bool destructive = false]);
 }
-{% endhighlight %}
+{% endprettify %}
 
 The filter property is only used for `LogEntryList`s that are returned from 
 `getMatchers` (which is called from `Mock.getLogs()`), and contains a 
@@ -473,7 +473,7 @@ human-friendly textual description of the filter.
 
 Each `LogEntry` has the form:
 
-{% highlight dart %}
+{% prettify dart %}
 class LogEntry {
   Date time; // The time of the event.
   final String mockName; // The mock object name, if any.
@@ -483,7 +483,7 @@ class LogEntry {
   final value; // The value that was returned (if no throw).
   …
 }
-{% endhighlight %}
+{% endprettify %}
 
 `LogEntry`s have a `toString()` method that will produce a textual 
 representation of the entry. This `toString()` method will normally format the 
@@ -495,13 +495,13 @@ If you want to examine or make assertions on a subset of the logs, you need to
 filter the logs, which you do by calling `LogEntryList.getMatches()` or 
 `Mock.getLogs`:
 
-{% highlight dart %}
+{% prettify dart %}
 class Mock {
 ...
   LogEntryList getLogs([CallMatcher logFilter, Matcher actionMatcher,
     bool destructive = false]);
 }
-{% endhighlight %}
+{% endprettify %}
 
 
 The `destructive` flag, if set, will cause the removal of the matching log 
@@ -551,23 +551,23 @@ The other group matches based on number of occurrences:
 having to write `expect()`. This means you can write assertions like the 
 following examples:
 
-{% highlight dart %}
+{% prettify dart %}
 m.getLogs(callsTo('bar')).verify(happenedExactly(2)).
     verify(sometimeReturned(6)).verify(neverReturned(5));
-{% endhighlight %}
+{% endprettify %}
 
 In English: verify that there were 2 calls to the 'bar' method, at least one of 
 which returned 6, and neither of which returned 5.
 
-{% highlight dart %}
+{% prettify dart %}
 m.getLogs(callsTo('bar'), returning(5)).verify(neverHappened);
-{% endhighlight %}
+{% endprettify %}
 
 In English: no calls to 'bar' ever returned 5, which is equivalent to:
 
-{% highlight dart %}
+{% prettify dart %}
 m.getLogs(callsTo('bar')).verify(neverReturned(5));
-{% endhighlight %}
+{% endprettify %}
 
 ### Shared logs
 
@@ -576,7 +576,7 @@ might want to do this is to verify the expected interleaving of behavior. In
 order to do this you need to create the log yourself, and then pass it as a 
 named `log` parameter to `Mock.custom`. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 var log = new LogEntryList();
 var m1 = new Mock.custom(name:'m1', log:log);
 var m2 = new Mock.custom(name:'m2', log:log);
@@ -584,7 +584,7 @@ m1.foo();
 m2.foo();
 m1.bar();
 m2.bar();
-{% endhighlight %}
+{% endprettify %}
 
 If we printed the result, we would see something like:
 
@@ -597,19 +597,19 @@ To access the shared log for verification, you can still use the
 `Mock.getLogs()` and `LogEntryList.getMatches()` methods. So the following are 
 equivalent, using our example above:
 
-{% highlight dart %}
+{% prettify dart %}
 m1.getLogs(callsTo('foo'));
 log.getMatches('m1', callsTo('foo'));
-{% endhighlight %}
+{% endprettify %}
 
 The advantage you get from using this method is that you can name Mocks with a 
 class name and treat them collectively. You can even pass `null` as the 
 `mockName` argument to match against the actions for all the mocks that shared 
 the log. Using our example above, this test would pass:
 
-{% highlight dart %}
+{% prettify dart %}
 log.getMatches(null, callsTo('foo')).verify(happenedExactly(2));
-{% endhighlight %}
+{% endprettify %}
 
 
 ## Temporal assertions
@@ -630,7 +630,7 @@ Our vending machine will be made up of two classes - a `VendingMachineDispenser`
 
 The dispenser class is very simple. All the dispenser does is take a command to dispense an item, and return success or failure depending on whether it has inventory, updating the inventory accordingly:
 
-{% highlight dart %}
+{% prettify dart %}
 class VendingMachineDispenser {
    
   List<int> inventory;
@@ -655,13 +655,13 @@ class VendingMachineDispenser {
     return false;
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 ### The cashier
 
 The cashier will tell the dispenser to dispense a selected item if enough money has been deposited, and will give the user change. Selecting an item can fail if the dispenser has no stock, insufficient money has been inserted, or the cashier cannot issue change. The cashier will accept nickels (5c) and dimes (10c), up to a maximum of 50c, after which further coins will be rejected.
 
-{% highlight dart %}
+{% prettify dart %}
 class VendingMachineCashier {
    
   const int MaxCapacity = 50;
@@ -735,7 +735,7 @@ class VendingMachineCashier {
   void dispenseNickel() { /* Instruct hardware to dispense nickel. */ }
   void dispenseDime() { /* Instruct hardware to dispense dime. */ }
 }
-{% endhighlight %}
+{% endprettify %}
 
 The external interface of the cashier consists of the nickel and dime deposit slots, the item select buttons, and the cancel button.  `selectItem()` is called when an item select button is pressed, and it returns a message that is displayed to the user, which can be 'Insert coin' (the initial message which is also displayed after a successful purchase), 'Item nnn out' if there is no inventory of an item that has just been selected, 'No change' if an item can’t be purchased because the machine cannot issue the correct change, or a total amount currently deposited.
 
@@ -743,7 +743,7 @@ The external interface of the cashier consists of the nickel and dime deposit sl
 
 In this example we are trying to validate the behavior of this system. We are not using mocks as stubs, but rather as spys (i.e. we are monitoring the behavior of a real class, not substituting for the class). We need a dispenser spy and a cashier spy:
 
-{% highlight dart %}
+{% prettify dart %}
 class DispenserSpy extends Mock implements VendingMachineDispenser {
   VendingMachineDispenser _real;
 
@@ -769,13 +769,13 @@ class CashierSpy extends Mock implements VendingMachineCashier {
     when(callsTo('get deposited')).alwaysCall(()=>_real.deposited);
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 ### Driving the system under test
 
 To generate test logs for verification, we can use random testing (if you are familiar with fuzz testing, this is similar, although the idea is much older). We will simply call the public interface of the system based on the results of a random number generator:
 
-{% highlight dart %}
+{% prettify dart %}
 void main() {
   var rand = new Random();
   LogEntryList log = new LogEntryList();
@@ -803,7 +803,7 @@ void main() {
     cashier.deposited; // useful for audit trail
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 The code is quite straightforward; the main oddities are the calls to cashier.deposited; we do this because it is useful for validation purposes to generate log messages at the start and after each action that have the current amount deposited in the cashier; most of our assertions will be assertions about this value.
 
@@ -824,7 +824,7 @@ We will break these down step by step. In the first case:
 
 We can assert this separately for each item, as follows:
 
-{% highlight dart %}
+{% prettify dart %}
 for (var item = 0; item < 3; item++) {
   int price = prices[item];
   // Get all calls to VendingMachineDispenser.dispenseItem that
@@ -839,7 +839,7 @@ for (var item = 0; item < 3; item++) {
   // Verify that the value returned was at least as high as item price.
   lastDeposits.verify(alwaysReturned(greaterThanOrEqualTo(price)));
 }
-{% endhighlight %}
+{% endprettify %}
 
 For the second example:
 
@@ -850,7 +850,7 @@ For the second example:
 
 In code:
 
-{% highlight dart %}
+{% prettify dart %}
 for (var item = 0; item < 3; item++) {
   // Get the calls to selectItem that did not return ‘Insert coin’,
   // ‘No change’, or ‘Item nnn out’.
@@ -864,7 +864,7 @@ for (var item = 0; item < 3; item++) {
   // Verify that the value returned was lower than the  item price.
   lastDeposits.verify(alwaysReturned(lessThan(prices[item])));
 }
-{% endhighlight %}
+{% endprettify %}
 
 For the third example:
 
@@ -874,7 +874,7 @@ For the third example:
 
 In code:
 
-{% highlight dart %}
+{% prettify dart %}
 for (var item = 0; item < 3; item++) {
   // We query the logs for selectItem calls twice so save the
   // CallMatcher for reuse.
@@ -889,11 +889,11 @@ for (var item = 0; item < 3; item++) {
   // Verify that none of those returned success.
   laterDispenses.verify(neverReturned('Insert coin'));
 }
-{% endhighlight %}
+{% endprettify %}
 
 An alternative way that would also work:
 
-{% highlight dart %}
+{% prettify dart %}
 for (var item = 0; item < 3; item++) {
   // Get the set of log entries where selectItem return no stock.
   LogEntryList noStockDispenses = log.getMatches('cashier',
@@ -905,11 +905,11 @@ for (var item = 0; item < 3; item++) {
   // Verify that none of those returned success.
   laterDispenses.verify(neverReturned(true));
 }
-{% endhighlight %}
+{% endprettify %}
 
 For the fourth example, we will use a stepwise validator function. We will get all calls to `depositDime`, and the closest preceding calls to the `deposited` getter, and then we will make assertions about each such pair:
 
-{% highlight dart %}
+{% prettify dart %}
 // Get all calls to depositDime.
 LogEntryList dd = log.getMatches('cashier', callsTo('depositDime'));
 // Get the closest preceding calls to get deposited, and include
@@ -922,7 +922,7 @@ pairs.stepwiseValidate((l, pos) =>
     (l[pos+1].value ==
      '${l[pos].value+(l[pos].value <= 40 ? 10 : 0)}c') ?
         2 : 0);
-{% endhighlight %}
+{% endprettify %}
 
 ## Reducing logging for regression tests
 
@@ -930,17 +930,17 @@ Once you have a system working and a collection of assertions that you want to u
 
 Logging is enabled both at the level of `Mock` objects, and `Behavior` objects. In each case the `logging` getter/setter can be used to turn logging on or off. Recall from the earlier that `Behavior` methods such as `alwaysReturn` return the `Behavior` itself, to support chaining of calls. Thus we could have specified the mock behavior for `depositNickel` and turned off logging for that behavior at the same time with a line such as:
 
-{% highlight dart %}
+{% prettify dart %}
 when(callsTo('depositNickel')).
     alwaysCall(_real.depositNickel).logging = false;
-{% endhighlight %}
+{% endprettify %}
 
 Note that that logging property applies to the `Behavior`, not the specific `Action` in the `Behavior`, so this is equivalent to:
 
-{% highlight dart %}
+{% prettify dart %}
 when(callsTo('depositNickel')).logging = false;
 when(callsTo(‘depositNickel’)).alwaysCall(_real.depositNickel);
-{% endhighlight %}
+{% endprettify %}
 
 ## Conclusion
 

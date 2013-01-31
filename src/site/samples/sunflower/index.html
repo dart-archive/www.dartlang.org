@@ -14,7 +14,7 @@ title: "Sunflower Code Walkthrough"
 Here is the HTML for the Sunflower sample, which includes heading text, the Canvas object, an 
 HTML5 range input (slider), and an image showing the equations used to render the sunflower.</p>
 
-{% highlight html %}
+{% prettify html %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -44,7 +44,7 @@ HTML5 range input (slider), and an image showing the equations used to render th
     <script src="dart.js"></script>
   </body>
 </html>
-{% endhighlight %}
+{% endprettify %}
 
 <p>Note that the script tag includes source of type application/dart. This allows you
 to run the script directly in a browser that supports Dart.
@@ -56,7 +56,7 @@ the DOM is ready (on DOMContentLoaded).</p>
 
 <p>Now let's look at the Dart code.</p>
 
-{% highlight dart %}
+{% prettify dart %}
 library sunflower;
 
 import 'dart:html';
@@ -91,7 +91,7 @@ main() {
 
   drawFrame(context);
 }
-{% endhighlight %}
+{% endprettify %}
   
 <p>By convention, source file names end with ".dart". Code execution begins
   with the main() method and does not require any arguments. Sunflower's
@@ -120,7 +120,7 @@ main() {
 
 <p>Finally, let's take a look at the methods that actually draw on the Canvas.</p>
 
-{% highlight dart %}
+{% prettify dart %}
 /**
  * Draw the complete figure for the current number of seeds.
  */
@@ -156,7 +156,7 @@ void drawSeed(CanvasRenderingContext2D context, num x, num y) {
 void displaySeedCount(num seedCount) {
   query("#notes").text = "${seedCount} seeds";
 }
-{% endhighlight %}
+{% endprettify %}
 
 <p>The drawFrame() method does all the calculations, and drawSeed() paints
   on the Canvas (actually, the CanvasRenderingContext2D). Dart generates

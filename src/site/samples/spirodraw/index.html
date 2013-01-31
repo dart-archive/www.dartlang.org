@@ -32,14 +32,14 @@ and illustrates a few more language features.</p>
 <h2 id="code_organization">Code organization</h2>
 <p>First, let's take a look at the Spirodraw declarations.</p>
 
-{% highlight dart %}
+{% prettify dart %}
 library spirodraw;
 
 import 'dart:html';
 import 'dart:math' as Math;
 
 part "ColorPicker.dart";
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 A Dart script belongs to a library declared with a name given by
@@ -57,7 +57,7 @@ library.</p>
 <p>Spirodraw uses <a href="http://www.html5rocks.com/en/tutorials/canvas/performance/#toc-raf">requestAnimationFrame</a>
 to improve rendering.</p>
 
-{% highlight dart %}
+{% prettify dart %}
 void start() {
   refresh();
   rad = 0.0;
@@ -76,7 +76,7 @@ void animate(int time) {
     stop();
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 <p>In the code excerpt above, line 5 invokes requestAnimationFrame with a
 closure containing the callback function, <code>animate()</code>. The
@@ -91,7 +91,7 @@ concatenation using the + operator.
 <h2 id="top_level_functions">Top-level functions</h2>
 <p>In Dart, a function does not have to be associated with a class.</p>
 
-{% highlight dart %}
+{% prettify dart %}
 ...
 void main() {
   new Spirodraw().go();
@@ -120,7 +120,7 @@ int gcf(int n, int d) {
       return i;
   return 1;
 }
-{% endhighlight %}
+{% endprettify %}
 
 <p>In this example, note that the <code>gcf()</code> function is defined outside the Spirodraw class and is
 invoked within the <code>calcTurns()</code> function. The <code>main()</code> function is likewise defined 
@@ -130,7 +130,7 @@ but not statements or expressions.</p>
 <h2 id="color_picker">ColorPicker sample</h2>
 <p>Now let's look at ColorPicker.dart.</p>
 
-{% highlight dart %}
+{% prettify dart %}
 part of spirodraw;
 
 typedef void PickerListener(String selectedColor);
@@ -245,7 +245,7 @@ class ColorPicker {
   }
   
 }
-{% endhighlight %}
+{% endprettify %}
 
 <h2 id="typedef">Function type aliases</h2>
 

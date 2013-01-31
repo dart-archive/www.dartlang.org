@@ -103,7 +103,7 @@ or binding them dynamically.
 
 Example 1:
 
-{% highlight dart %}
+{% prettify dart %}
 abstract class Collection<E> {
     Collection<E> newInstance();
     Collection<E> map(f) {
@@ -118,7 +118,7 @@ typedef DOMElementList<E> = abstract DOMList with Collection<E>;
 typedef DOMElementSet<E> = abstract DOMSet with Collection<E>;
 
 // ... 28 more variants
-{% endhighlight %}
+{% endprettify %}
 
 Here, Collection\<E> is a normal class that is used to declare a mixin.
 Both the classes DOMElementList and DOMElementSet are mixin applications.
@@ -157,7 +157,7 @@ to the superclass named in the extends clause,
 producing an anonymous superclass. 
 Taking the same examples again, we would have:
 
-{% highlight dart %}
+{% prettify dart %}
 class DOMElementList<E> extends DOMList with Collection<E> {
    DOMElementList<E> newInstance() => new DOMElementList<E>();
 }
@@ -165,7 +165,7 @@ class DOMElementList<E> extends DOMList with Collection<E> {
 class DOMElementSet<E> extends DOMSet with Collection<E> {
    DOMElementSet<E> newInstance() => new DOMElementSet<E>();
 }
-{% endhighlight %}
+{% endprettify %}
 
 Here, DOMElementList is not the application _Collection mixin |> DOMList._ 
 Instead, it is a new class whose superclass is such an application.
@@ -176,12 +176,12 @@ so these classes can be instantiated directly.
 
 Consider what happens if DOMList has a non-trivial constructor:
 
-{% highlight dart %}
+{% prettify dart %}
 class DOMElementList<E> extends DOMList with Collection<E> {
    DOMElementList<E> newInstance() => new DOMElementList<E>(0);
    DOMElementList(size): super(size);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Each mixin has its own constructor called independently,
 and so does the superclass.
@@ -201,7 +201,7 @@ that allows multiple mixins to be mixed into a class
 without the need to introduce multiple intermediate declarations. 
 For example:
 
-{% highlight dart %}
+{% prettify dart %}
 class Person {
   String name;
   Person(this.name);
@@ -210,7 +210,7 @@ class Person {
 class Maestro extends Person with Musical, Aggressive, Demented {
   Maestro(name):super(name);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Here, the superclass is the mixin application:
 
@@ -320,7 +320,7 @@ up the inheritance chain as part of the `with` clause
 A comprehensive approach to addressing the issue
 is illustrated below via a variation on our mad maestro example.
 
-{% highlight dart %}
+{% prettify dart %}
 class Musical {
    final Instrument instrument;
    Musical(this.instrument);
@@ -340,7 +340,7 @@ class Maestro extends Person with Musical, Aggressive, Demented {
   Maestro(name, disorder, degree, instrument) :
      Demented(disorder), Aggressive(degree), Musical(instrument), super(name);
 }
-{% endhighlight %}
+{% endprettify %}
 
 The constructor for Maestro explicitly channels the various parameters
 to the various mixins that are used to define its superclasses.  
@@ -434,10 +434,10 @@ superclass clause, potentially shadowing classes in the surrounding scope. The
 following code is therefore illegal and should cause a compile-time error:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 class T{}
 class G<T> extends T {} // Compilation error: Attempt to subclass a type parameter
-{% endhighlight %}
+{% endprettify %}
 </div>
 
 A class _S_ is _a superclass of_ a class _C_ iff either:

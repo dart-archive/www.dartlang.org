@@ -50,11 +50,11 @@ The library is implemented in the GitHub project
 To install the library's package using [pub](http://pub.dartlang.org/doc),
 put the following lines in your app's pubspec.yaml file:
 
-{% highlight yaml %}
+{% prettify yaml %}
 dependencies:
   js:
     hosted: js
-{% endhighlight %}
+{% endprettify %}
 
 Then use pub install:
 
@@ -71,9 +71,9 @@ A Dart program can import the js library if it is running on the UI thread of th
 
 To import the js library, use the following code:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:js/js.dart' as js;
-{% endhighlight %}
+{% endprettify %}
 
 
 ## Getting the top-level context
@@ -81,15 +81,15 @@ import 'package:js/js.dart' as js;
 To use the js library, you
 must get a proxy to the top-level JavaScript context of your app's page:
 
-{% highlight dart %}
+{% prettify dart %}
 var context = js.context;
-{% endhighlight %}
+{% endprettify %}
 
 References to the context are automatically forwarded to JavaScript.  For example, you can invoke the top-level alert function in JavaScript as follows:
 
-{% highlight dart %}
+{% prettify dart %}
 js.context.alert('Hello from Dart via JavaScript.');
-{% endhighlight %}
+{% endprettify %}
 
 Note:
 Parameters and return values are intuitively passed by value for primitives and by reference for non-primitives. In the latter case, the references are automatically wrapped and unwrapped as proxies by the library.
@@ -108,11 +108,11 @@ your Dart code can create JavaScript objects.
 For example, if the JavaScript Google Maps API is available,
 you can create a Map object like this:
 
-{% highlight dart %}
+{% prettify dart %}
 var canvas = query('#map_canvas');
 var googlemaps = js.context.google.maps;
 var googlemap = new js.Proxy(googlemaps.Map, canvas);
-{% endhighlight %}
+{% endprettify %}
 
 This code instantiates a JavaScript `google.maps.Map` object onto the given canvas and returns a proxy to Dart.  Note that `googlemaps.Map` is a proxy to the JavaScript constructor. The resulting `googlemap` is a proxy to the actual Google Map object in JavaScript.
 
@@ -123,11 +123,11 @@ Use the top-level `map()` and `array()` functions to create JavaScript maps and 
 For example, the following code
 creates a JavaScript map and returns a Dart proxy to it.
 
-{% highlight dart %}
+{% prettify dart %}
 var options = js.map({ 'zoom': 9,
                        'mapTypeId': googlemaps.MapTypeId.ROADMAP,
                        'center': new js.Proxy(googlemaps.LatLng, 47.6097, -122.3331) });
-{% endhighlight %}
+{% endprettify %}
 
 Elements of a list or map are converted recursively.
 For example, a Dart list of Dart lists is converted to a JavaScript list of JavaScript lists.
@@ -146,9 +146,9 @@ Converting lists and maps is especially useful for
 configuring JavaScript objects from Dart.
 For example:
 
-{% highlight dart %}
+{% prettify dart %}
 googlemap.setOptions(options);
-{% endhighlight %}
+{% endprettify %}
 
 
 ## Calling Dart from JavaScript
@@ -157,9 +157,9 @@ An important aspect of interoperating with existing JavaScript libraries is enab
 You can expose a Dart function to JavaScript by
 converting the function to a Callback object.  For example:
 
-{% highlight dart %}
+{% prettify dart %}
 js.context.handler = new js.Callback.once(display);
-{% endhighlight %}
+{% endprettify %}
 
 The preceding code defines a top-level handler function in JavaScript
 that forwards to the corresponding Dart callback.
@@ -170,12 +170,12 @@ Its argument is forwarded to the display() function.
 For example, the following Dart code makes a JSONP request to Twitter.
 The result is forwarded via the JavaScript handler to the Dart display() function.
 
-{% highlight dart %}
+{% prettify dart %}
 var script = new ScriptElement();
 script.src
  = 'http://search.twitter.com/search.json?q=dartlang&rpp=10&callback=handler';
 document.body.nodes.add(script);
-{% endhighlight %}
+{% endprettify %}
 
 
 ## Managing proxy lifetimes
@@ -193,11 +193,11 @@ may be later garbage collected).
 To execute Dart code within a scope,
 use `scoped()`:
 
-{% highlight dart %}
+{% prettify dart %}
 js.scoped(() {
   js.context.alert('Hello from Dart via JavaScript.');
 });
-{% endhighlight %}
+{% endprettify %}
 
 This example creates a proxy to the alert() function
 and then invokes it.
@@ -207,7 +207,7 @@ If a proxy must live beyond its local scope,
 you can explicitly retain it
 using `js.retain()`.
 
-{% highlight dart %}
+{% prettify dart %}
 var googlemap;
 js.scoped(() {
   var canvas = query('#map_canvas');
@@ -215,7 +215,7 @@ js.scoped(() {
   googlemap = new js.Proxy(googlemaps.Map, canvas);
   js.retain(googlemap);
 });
-{% endhighlight %}
+{% endprettify %}
 
 In the preceding example,
 only the `googlemap` proxy is valid once the scope is exited.
@@ -224,9 +224,9 @@ The underlying JavaScript map cannot be garbage collected
 until its proxy is explicitly released,
 using `js.release()`.
 
-{% highlight dart %}
+{% prettify dart %}
 js.release(googlemap);  // Allow googlemap to be garbage collected.
-{% endhighlight %}
+{% endprettify %}
 
 
 ## Managing callback lifetimes
@@ -237,9 +237,9 @@ so that the Dart functions can be garbage collected.
 In general, most callbacks are executed only once
 as in our Twitter-JSONP example from earlier:
 
-{% highlight dart %}
+{% prettify dart %}
 js.context.handler = new js.Callback.once(display);
-{% endhighlight %}
+{% endprettify %}
 
 The Callback.once() constructor conveniently handles this common case,
 in which callbacks are automatically disposed of after a single invocation.
@@ -247,16 +247,16 @@ in which callbacks are automatically disposed of after a single invocation.
 If your callback is executed multiple times,
 use the Callback.many() constructor instead.
 
-{% highlight dart %}
+{% prettify dart %}
 var callback = new js.Callback.many(display);
 js.context.handler = callback;
-{% endhighlight %}
+{% endprettify %}
 
 In this case, you can explicitly dispose of the callback:
 
-{% highlight dart %}
+{% prettify dart %}
 callback.dispose();  // Allow the callback function to be garbage collected.
-{% endhighlight %}
+{% endprettify %}
 
 If a callback is invoked from JavaScript after it's been disposed of,
 an exception is thrown

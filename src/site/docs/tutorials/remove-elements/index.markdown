@@ -103,13 +103,13 @@ that something will happen when the item is clicked.
 
 This behavior is coded in the todo_with_delete app's CSS file with this rule:
 
-{% highlight dart %}
+{% prettify dart %}
 #to-do-list li:hover {
   color: red;
   font-size: 18px;
   cursor:pointer;
 }
-{% endhighlight %}
+{% endprettify %}
 
 We've used this CSS trick
 instead of providing a familiar user interface,
@@ -160,9 +160,9 @@ that implements the **Delete All** button.
 The HTML code creates a button with the ID delete-all.
 (The CSS styles it.)
 
-{% highlight dart %}
+{% prettify dart %}
 <button id="delete-all" type="button" float:right> Delete All </button>
-{% endhighlight %}
+{% endprettify %}
 
 </li>
 
@@ -192,15 +192,15 @@ and it uses the => syntax to define the function concisely.
 
 It is equivalent to writing this:
 
-{% highlight dart %}
+{% prettify dart %}
 deleteAll.on.click.add((e) {
   toDoList.children.clear();
 });
-{% endhighlight %}
+{% endprettify %}
 
 or even this:
 
-{% highlight dart %}
+{% prettify dart %}
 ...
 void main() {
   ...
@@ -211,7 +211,7 @@ void deleteAllElements(Event e) {
   toDoList.children.clear();
 }
 ...
-{% endhighlight %}
+{% endprettify %}
 
 Function expressions are often used
 when registering event handlers on an element

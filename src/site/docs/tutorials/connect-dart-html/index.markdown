@@ -138,12 +138,12 @@ Use Dart Editor
 to modify the source code
 to look like this:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:html';
 void main() {
   query('#RipVanWinkle').text = 'Wake up, sleepy head!';
 }
-{% endhighlight %}
+{% endprettify %}
 
 <i class="icon-info-sign"> </i>
 <a href="errors-warnings.html">What is Dart Editor trying to tell me?</a>
@@ -286,7 +286,7 @@ There is more code than is necessary,
 so replace the default contents with the following,
 slightly simplified, HTML.
 
-{% highlight html %}
+{% prettify html %}
 <!DOCTYPE html>
 
 <html>
@@ -300,7 +300,7 @@ slightly simplified, HTML.
     <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
   </body>
 </html>
-{% endhighlight %}
+{% endprettify %}
 
 Finish your edits and save the file with **File > Save**.
 
@@ -481,7 +481,7 @@ Let's create a simple CSS file for the mini app.
 In Dart Editor, create a file named mini.css
 in the mini directory with the following text:
 
-{% highlight dart %}
+{% prettify dart %}
 #RipVanWinkle {
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
@@ -490,7 +490,7 @@ in the mini directory with the following text:
   background-color: SlateBlue;
   color: Yellow;  
 }
-{% endhighlight %}
+{% endprettify %}
 
 This defines a style
 for the page element
