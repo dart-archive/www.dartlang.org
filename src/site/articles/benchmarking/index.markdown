@@ -40,14 +40,14 @@ The harness is available as a pub package and is incredibly easy to use.
 
 1\. Add the following to your pubspec.yaml, and run `pub install`:
 
-{% highlight yaml %}
+{% prettify yaml %}
 dependencies:
   benchmark_harness: ">=1.0.0 <2.0.0"
-{% endhighlight %}
+{% endprettify %}
 
 2\. Copy the following template, which creates a class extending `BenchmarkBase`:
 
-{% highlight dart %}
+{% prettify dart %}
 // Import BenchmarkBase class.
 import 'package:benchmark_harness/benchmark_harness.dart';
 
@@ -75,7 +75,7 @@ main() {
   // Run TemplateBenchmark.
   TemplateBenchmark.main();
 }
-{% endhighlight %}
+{% endprettify %}
 
 ###Run in production mode with debugging disabled
 

@@ -65,13 +65,13 @@ As we get ready for mirrors to come online with Dart, one minor step along the
 way is adding support for first-class types. With this change, you can refer to
 a class by name in an expression:
 
-{% highlight dart %}
+{% prettify dart %}
 class SomeType {}
 
 main() {
   print(SomeType); // <- Refer to the class.
 }
-{% endhighlight %}
+{% endprettify %}
 
 When you refer to a class by name, you're given a reference to an instance of
 type `Type`. Until mirrors are here, you won't be able to do much with it, but
@@ -80,9 +80,9 @@ you can get its name, and compare instances with each other for equality.
 In addition, you can get the type of an object by accessing its `runtimeType`
 property:
 
-{% highlight dart %}
+{% prettify dart %}
 print('a string'.runtimeType == String); // true
-{% endhighlight %}
+{% endprettify %}
 
 ## No explicit interfaces
 
@@ -91,30 +91,30 @@ of an explicit interface syntax. Dart has always had *implicit* interfaces:
 every time you define a class, you also implicitly define an interface that
 describes the public signatures of the methods that class exposes. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 class Person {
   final _name;
   Person(this._name);
   void greet(who) => 'Hello $who, I am $_name.';
 }
-{% endhighlight %}
+{% endprettify %}
 
 Here we have a concrete Person class. It has a method and some state. We’ll use
 it in a function:
 
-{% highlight dart %}
+{% prettify dart %}
 greetBob(Person person) => person.greet('bob');
-{% endhighlight %}
+{% endprettify %}
 
 Now let’s say we want to make a new class, Imposter, that we can also pass to
 `greetBob()`. But we don’t want to actually inherit from Person: we don’t want
 its state or its methods. Implicit interfaces let us do that:
 
-{% highlight dart %}
+{% prettify dart %}
 class Imposter implements Person {
   void greet(who) => 'Hello $who, it is a pleasure to meet you.';
 }
-{% endhighlight %}
+{% endprettify %}
 
 Note that it says *implements*, not *extends*. We are not subclassing Person, we
 are just saying that Imposter supports all of the public methods Person defines
@@ -136,9 +136,9 @@ class.
 Dart no longer allows using the "+" operator on
 strings. So no more:
 
-{% highlight dart %}
+{% prettify dart %}
 print("Hi, " + yourName);
-{% endhighlight %}
+{% endprettify %}
 
 There seem to be as many reasons for (and against) this change as there are Dart
 team members, but the two motivators I see repeatedly are:
@@ -181,16 +181,16 @@ type without having to declare a type annotated local variable. Where before, if
 you wanted to indicate some extra knowledge about the types of objects in your
 code, you had to do:
 
-{% highlight dart %}
+{% prettify dart %}
 ButtonElement button = query('button');
 button.value = 1234;
-{% endhighlight %}
+{% endprettify %}
 
 Now you can do:
 
-{% highlight dart %}
+{% prettify dart %}
 (query('button') as ButtonElement).value = 1234;
-{% endhighlight %}
+{% endprettify %}
 
 At runtime, an `as` expression validates that the expression is of the expected
 type (much like `is`) and then returns the same value. But in static contexts
@@ -210,20 +210,20 @@ Many times, you find yourself calling a series of methods on the same object. If
 that object happens to be the result of some complex expression, that can lead
 to either a lot of redundancy:
 
-{% highlight dart %}
+{% prettify dart %}
 query('#my-form').query('button').classes.add('toggle');
 query('#my-form').query('button').text = 'Click Me!';
 query('#my-form').query('button').labels.add(toggleLabel);
-{% endhighlight %}
+{% endprettify %}
 
 or the tedium of having to define a local variable:
 
-{% highlight dart %}
+{% prettify dart %}
 var toggleButton = query('#my-form').query('button');
 toggleButton.classes.add('toggle');
 toggleButton.text = 'Click Me!';
 toggleButton.labels.add(toggleLabel);
-{% endhighlight %}
+{% endprettify %}
 
 Some APIs, like jQuery in JavaScript or StringBuffer in Java get around this by
 using "fluent interfaces": their methods return `this` so you can chain calls
@@ -235,12 +235,12 @@ To remedy that, Smalltalk pioneered something called "message cascades", which
 Dart has adopted. These let you sequence a series of method calls that all apply
 to the same receiver, like so:
 
-{% highlight dart %}
+{% prettify dart %}
 query('#my-form').query('button')
     ..classes.add('toggle')
     ..text = 'Click Me!'
     ..labels.add(toggleLabel);
-{% endhighlight %}
+{% endprettify %}
 
 Here, everything after `..` is called on the result of the expression before the
 first `..`. What’s nice is that cascades work with every API, not just ones
@@ -255,11 +255,11 @@ variables) be initialized with constant expressions. In other words, they could
 only be used to define compile-time constants. That significantly limits their
 use, preventing, for example, this field:
 
-{% highlight dart %}
+{% prettify dart %}
 class Stopwatch {
   static final startTime = new DateTime.now();
 }
-{% endhighlight %}
+{% endprettify %}
 
 We’ve decided to loosen that so that `static final` fields and `final` top-level
 variables can be initialized using *any* expression. These will then be lazily
@@ -276,11 +276,11 @@ initialized by non-const values.
 
 For example:
 
-{% highlight dart %}
+{% prettify dart %}
 class DeckOfCards {
   List<Card> cards = <Card>[];
 }
-{% endhighlight %}
+{% endprettify %}
 
 The field `cards` is initialized when the object is created. Specifically,
 the field is initialized before the constructor and its initializer list are
@@ -295,12 +295,12 @@ define a `static final` field or `final` top-level variable that *is* constant,
 and that can be used in constant expressions? With this looser behavior, you
 lose the ability to do:
 
-{% highlight dart %}
+{% prettify dart %}
 class SomeClass {
   static final someConstant = 123;
   static final aConstList = const [someConstant];
 }
-{% endhighlight %}
+{% endprettify %}
 
 Since `someConstant` doesn’t *have* to be constant now, it may not be, which
 means it can’t be used in a constant expression like `const [someConstant]`. To
@@ -308,13 +308,13 @@ fix that, Dart will also allow `const` as a modifier for variables. This way you
 can indicate which top-level `final` variables and `static final` fields are
 constant and which are lazily-initialized non-constant:
 
-{% highlight dart %}
+{% prettify dart %}
 class SomeClass {
   static const someConstant = 123; // OK
   static final startTime = new DateTime.now(); // OK too
   static const aConstList = const [someConstant]; // also OK
 }
-{% endhighlight %}
+{% endprettify %}
 
 ([Tracking issue #3549](http://dartbug.com/3549))
 
@@ -327,13 +327,13 @@ methods by name?" To simplify that, we will just use `==` and `-` to define
 those operators. We’ll disambiguate unary and binary minus by their arity
 (number of parameters).
 
-{% highlight dart %}
+{% prettify dart %}
 class MagicNumber {
   bool operator ==(other) => ...
   MagicNumber operator -() => ... // unary negate
   MagicNumber operator -(other) => ... // infix minus
 }
-{% endhighlight %}
+{% endprettify %}
 
 ([Tracking issue #3765](http://dartbug.com/3765))
 
@@ -348,12 +348,12 @@ change](http://code.google.com/p/dart/issues/detail?id=1285) better than I can:
 
 What he means here is consider you have this program:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'somelib.dart';
 
 foo() => print('foo!');
 main() => foo();
-{% endhighlight %}
+{% endprettify %}
 
 Later, you upgrade to the latest greatest version of "somelib" and discover to
 your dismay that they’ve added a `foo()` function to it. Currently, this breaks
@@ -383,7 +383,7 @@ In its original incarnation, Dart’s `switch` statement worked like JavaScript�
 and not Java’s. It was essentially syntactic sugar for a series of chained `if-
 else` statments. For example, this:
 
-{% highlight dart %}
+{% prettify dart %}
 switch (zzTop) {
 case billy:
 case dusty:
@@ -392,17 +392,17 @@ case dusty:
 default:
   hasBeard = false;
 }
-{% endhighlight %}
+{% endprettify %}
 
 was exactly semantically equivalent to:
 
-{% highlight dart %}
+{% prettify dart %}
 if ((zzTop == billy) || (zzTop == dusty)) {
   hasBeard = true;
 } else {
   hasBeard = false;
 }
-{% endhighlight %}
+{% endprettify %}
 
 Note that in the desugared `if-else` form, it ends up calling the equality
 (`==`) operator. This operator can be overloaded for your own types, so this has
@@ -434,17 +434,17 @@ entire library with a prefix.
 
 Now, you’ll be given finer grained control. If you do:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'somelib.dart' show foo, bar;
-{% endhighlight %}
+{% endprettify %}
 
 Then you will *only* import the names "foo" and "bar" from "somelib". This is
 good if you are only using a small part of a library and want to make that
 clear. Conversely:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'somelib.dart' hide foo, bar;
-{% endhighlight %}
+{% endprettify %}
 
 Here, you import every name except "foo" and "bar". This is good for excluding
 the one name that happens to cause a collision.
@@ -470,7 +470,7 @@ using *your* library that those names are coming directly from it. This lets you
 decouple the library where users get something from the library where it’s
 physically defined. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 // bar.dart
 someMethod() => print('hi!');
 anotherMethod() => print('hello!');
@@ -478,7 +478,7 @@ anotherMethod() => print('hello!');
 // foo.dart
 import 'bar.dart';
 export 'bar.dart';
-{% endhighlight %}
+{% endprettify %}
 
 Thanks to the `export 'bar.dart'` part here, any code that imports "foo.dart"
 will be able to access `someMethod()` and `anotherMethod()` as if they had been
@@ -488,10 +488,10 @@ You can use this in combination with `show` and `hide`
 to only re-export a subset of the names that an imported library
 defines. If we add an export in "foo.dart":
 
-{% highlight dart %}
+{% prettify dart %}
 import 'bar.dart';
 export 'bar.dart' show someMethod;
-{% endhighlight %}
+{% endprettify %}
 
 Then only `someMethod` will be re-exported.
 
@@ -507,7 +507,7 @@ Top level functions and static methods don’t have that problem. So, moving
 forward, Dart lets you treat references to those as constants and lets you use
 them in constant expressions.
 
-{% highlight dart %}
+{% prettify dart %}
 display(arg) => print(arg);
 
 class Logger {
@@ -517,7 +517,7 @@ class Logger {
   final logCallback;
   const Logger(this.logCallback(arg));
 }
-{% endhighlight %}
+{% endprettify %}
 
 ([Tracking issue #1652](http://dartbug.com/1652))
 
@@ -543,11 +543,11 @@ over *that.*
 Our fix is to not try to follow Java-style syntax for this at all. Instead,
 Dart does:
 
-{% highlight dart %}
+{% prettify dart %}
 try {
   ...
 } on SomeException catch(ex) { ... }
-{% endhighlight %}
+{% endprettify %}
 
 The `on SomeException` part defines the type of exception you want to catch.
 It can be omitted to catch all exceptions. The `catch(ex)` part defines the
@@ -561,9 +561,9 @@ the exception to a variable.
 We’ve slightly changed the syntax for defining getters. For getters, they no
 longer have an empty parameter list after the name (i.e. `()`):
 
-{% highlight dart %}
+{% prettify dart %}
 int get theAnswer => 42;
-{% endhighlight %}
+{% endprettify %}
 
 This makes the syntax for defining them closer to how they are invoked.
 (You can of course have a curly block body too in addition to the simple
@@ -580,7 +580,7 @@ key in a map. (Note, map literals still only use strings as keys.)
 
 Now you can do this:
 
-{% highlight dart %}
+{% prettify dart %}
 class Person {
   String firstName, lastName;
   Person(this.firstName, this.lastName);
@@ -596,7 +596,7 @@ main() {
   var petOwners = new Map();
   petOwners[alice] = spot;
 }
-{% endhighlight %}
+{% endprettify %}
 
 ([Tracking issue #3369](http://dartbug.com/3369))
 
@@ -605,14 +605,14 @@ main() {
 Sometimes you'd like to write a small dartdoc comment. Previously, even a one-
 line statement required three comment lines:
 
-{% highlight dart %}
+{% prettify dart %}
 /**
  * Don't forget to feed the [Llama].
  */
 feed() {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
 
 Three comment lines for a single statement? We can do better.
 
@@ -620,22 +620,22 @@ Now, there's even less excuse to not comment your code, thanks to the
 introduction of the line-style dartdoc comment. It's for those times when a single
 comment line captures everything you need to say.
 
-{% highlight dart %}
+{% prettify dart %}
 /// Don't forget to feed the [Llama].
 feed() {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
 
 The `///` style of comments works just fine with multi-line comments, if you
 prefer this style over `/** ... */`. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 /// Returns a random number between 0.0 and 1.0.
 ///
 /// The seed for the random number is...
 num generateRandom();
-{% endhighlight %}
+{% endprettify %}
 
 ## Raw strings marked with `r`
 
@@ -646,28 +646,28 @@ we need a new way to mark a raw string.
 
 Before M1, a raw string looked like:
 
-{% highlight dart %}
+{% prettify dart %}
 // Pre M1.
 var raw = @'This is a\nraw string';
-{% endhighlight %}
+{% endprettify %}
 
 However, the metadata proposal wants to use this:
 
-{% highlight dart %}
+{% prettify dart %}
 @42
 class MeaningOfLife {
   
 }
-{% endhighlight %}
+{% endprettify %}
 
 We decided to use `@` for metadata, as it's more familiar
 to developers, and use `r` to mark a raw string.
 
 Once implemented, a raw string will look like:
 
-{% highlight dart %}
+{% prettify dart %}
 var raw = r'steak\ntartare';
-{% endhighlight %}
+{% endprettify %}
 
 ([Tracking issue #931](http://dartbug.com/931))
 
@@ -678,9 +678,9 @@ places. In M1, `throw` has been converted to an expression.
 
 For example, now in M1, you can throw exceptions from one-line functions.
 
-{% highlight dart %}
+{% prettify dart %}
 String get prettyVersion => throw const NotImplementedException();
-{% endhighlight %}
+{% endprettify %}
 
 ([Tracking issue #587](http://dartbug.com/587))
 
@@ -691,7 +691,7 @@ parameters. This prevented you from expressing one without the other.
 
 In pre-M1 Dart:
 
-{% highlight dart %}
+{% prettify dart %}
 enableFlags([bool bold, bool hidden]) {
   // ...
 }
@@ -702,7 +702,7 @@ enableFlags(bold: true, hidden: false);
 // But they are also optional and positional, too.
 enableFlags();
 enableFlags(false);
-{% endhighlight %}
+{% endprettify %}
 
 As an API designer, I want to express that `bold` and `hidden` are named
 parameters, and make the name part of the exposed API.
@@ -714,21 +714,21 @@ but not both.
 To express named optional parameters, use the new `{ }` syntax. Note that
 a default value is set with `:`.
 
-{% highlight dart %}
+{% prettify dart %}
 enableFlags({bool bold, bool hidden: true}) {
   // ...
 }
 
 enableFlags(bold: true, hidden: false);
 enableFlags(hidden: true);
-{% endhighlight %}
+{% endprettify %}
 
 In the above example, `bold` defaults to `null` and
 `hidden` defaults to true.
 
 To express optional *positional* parameters, use the `[ ]` syntax:
 
-{% highlight dart %}
+{% prettify dart %}
 connectToServer(String authKey, [ip = '127.0.0.1', port = 8080]) {
   // ...
 }
@@ -737,7 +737,7 @@ connectToServer(String authKey, [ip = '127.0.0.1', port = 8080]) {
 connectToServer('secret');
 connectToServer('secret', '1.2.3.4');
 connectToServer('secret', '1.2.3.4', 9999);
-{% endhighlight %}
+{% endprettify %}
 
 To sum up, named and optional parameters were separated from each other in M1.
 You can use either optional named parameters or optional positional parameters,
@@ -751,18 +751,18 @@ explicitly passed `null` or simply omitted the parameter.
 
 To illustrate, let's use an example:
 
-{% highlight dart %}
+{% prettify dart %}
 authenticate(String username, [SignedKey key]) {
   if (key == null) {
     // Did the caller omit the parameter, or did they pass null?
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 In M1, you can use the ? operator to test whether an argument was explicitly
 provided.
 
-{% highlight dart %}
+{% prettify dart %}
 authenticate(String username, [SignedKey key]) {
   if (?key) {
     // The key was provided.
@@ -770,7 +770,7 @@ authenticate(String username, [SignedKey key]) {
     // The key was not provided.
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 You might be wondering why, with the existence of default values for optional
 parameters, this new syntax is required. For example, why not provide
@@ -794,7 +794,7 @@ default parameter value.
 Before M1, you could have a constructor and a method with the same name inside
 a class. For example:
 
-{% highlight dart %}
+{% prettify dart %}
 // Before M1, this worked.
 
 class Ball {
@@ -808,12 +808,12 @@ class Ball {
     // ...
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 In M1, we don't allow constructor names to collide with method names in a class.
 The fix is to rename either the method or the named constructor.
 
-{% highlight dart %}
+{% prettify dart %}
 // Now in M1...
 
 class Ball {
@@ -825,7 +825,7 @@ class Ball {
     // ...
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 ## Simpler equality
 
@@ -839,7 +839,7 @@ use `identical(a, b)`. The old `===` no longer exists.
 
 For example:
 
-{% highlight dart %}
+{% prettify dart %}
 class Person {
   String firstName, lastName;
   Person(this.firstName, this.lastName);
@@ -853,13 +853,13 @@ main() {
   print(identical(bob, robert));              // true
   print(identical(bob, roberto));             // false
 }
-{% endhighlight %}
+{% endprettify %}
 
 To define your own equality semantics for a class, implement the `==` operator.
 
 Here's an example:
 
-{% highlight dart %}
+{% prettify dart %}
 class Person {
   String firstName, lastName;
   Person(this.firstName, this.lastName);
@@ -880,7 +880,7 @@ main() {
   print(bob == robert);                       // true
   print(bob == roberto);                      // true
 }
-{% endhighlight %}
+{% endprettify %}
 
 Astute readers might wonder why the implementation of `operator ==` doesn't
 first check for null. Luckily, the new semantics of `==` take care of the null
@@ -907,7 +907,7 @@ which contains `override` and `deprecated`.
 Here is a usage example of a metadata annotation. Specifically,
 `superOldMethod` is marked with `@deprecated`.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:meta/meta.dart';
 
 @deprecated
@@ -918,7 +918,7 @@ superOldMethod() {
 main() {
   superOldMethod();
 }
-{% endhighlight %}
+{% endprettify %}
 
 Dart Editor applies a visual style to deprecated methods:
 
@@ -934,17 +934,17 @@ The change that affects the most code is that
 imports and library directives are now more succinct and look less like
 C. Instead of:
 
-{% highlight dart %}
+{% prettify dart %}
 #library('trading_cards');  // OLD SYNTAX; no longer works.
 #import('dart:html');       // OLD SYNTAX; no longer works.
-{% endhighlight %}
+{% endprettify %}
 
 You now use library and import like this:
 
-{% highlight dart %}
+{% prettify dart %}
 library trading_cards;
 import 'dart:html';
-{% endhighlight %}
+{% endprettify %}
 
 Notice how, in the above code, the `#` and parentheses are gone. Also, the
 library name is now an identifier (not a string literal).
@@ -952,9 +952,9 @@ library name is now an identifier (not a string literal).
 The syntax for importing a library with a namespace has also changed. Here
 is an example of the new format:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:svg' as svg;
-{% endhighlight %}
+{% endprettify %}
 
 ### Control the names imported by a library
 
@@ -965,26 +965,26 @@ otherwise occur.
 For example, consider the case of an app importing two libraries that implement
 a function with the same name.
 
-{% highlight dart %}
+{% prettify dart %}
 library computer;
 
 run(Program program) {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
 
-{% highlight dart %}
+{% prettify dart %}
 library exercise;
 
 run(Marathon marathon) {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
 
 Here is the main app that uses both libraries. This app does not compile
 because `run` is defined in both computer and exercise.
 
-{% highlight dart %}
+{% prettify dart %}
 library app;
 
 import 'computer.dart';
@@ -993,7 +993,7 @@ import 'exercise.dart';
 main() {
   run(thing);  // compile-time error, run is defined in two libraries!
 }
-{% endhighlight %}
+{% endprettify %}
 
 Luckily, you can now import libraries and control the names that are added to
 your namespace. Use `show` to pull in *only* the names specified, or `hide` to
@@ -1002,10 +1002,10 @@ pull in names *except* those specified.
 For example, you can hide the `run` identifier from the app and no
 collision will occur.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'computer.dart' hide run;
 import 'exercise.dart';
-{% endhighlight %}
+{% endprettify %}
 
 ### Re-export
 
@@ -1026,7 +1026,7 @@ libraries, while consumers of the framework need only import a single library.
 
 Here is an example:
 
-{% highlight dart %}
+{% prettify dart %}
 library ui_framework;
 import 'models.dart';
 import 'views.dart';
@@ -1035,9 +1035,9 @@ import 'controllers.dart';
 export 'models.dart';
 export 'views.dart';
 export 'controllers.dart';
-{% endhighlight %}
+{% endprettify %}
 
-{% highlight dart %}
+{% prettify dart %}
 library my_app;
 import 'ui_framework.dart';
 
@@ -1046,7 +1046,7 @@ main() {
   var view = new View();
   var controller = new Controller();
 }
-{% endhighlight %}
+{% endprettify %}
 
 
 
@@ -1059,26 +1059,26 @@ declarative.
 
 Instead of:
 
-{% highlight dart %}
+{% prettify dart %}
 #library('trading_cards');   // OLD SYNTAX; no longer works.
 #source('game_rules.dart');  // OLD SYNTAX; no longer works.
-{% endhighlight %}
+{% endprettify %}
 
 You now declare _parts_ of a library like:
 
-{% highlight dart %}
+{% prettify dart %}
 library trading_cards;
 part 'game_rules.dart';
-{% endhighlight %}
+{% endprettify %}
 
 And the part must declare that it is a _part of_ a library. Over in
 game_rules.dart:
 
-{% highlight dart %}
+{% prettify dart %}
 // Inside game_rules.dart
 
 part of trading_cards;
-{% endhighlight %}
+{% endprettify %}
 
 
 

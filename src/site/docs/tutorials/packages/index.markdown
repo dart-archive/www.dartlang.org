@@ -250,9 +250,9 @@ are identified with the special dart: prefix.
 For external libraries installed by pub,
 use the `package:` prefix.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'package:vector_math/vector_math_browser.dart';
-{% endhighlight %}
+{% endprettify %}
 
 Note that you specify the filename, not the library name.
 

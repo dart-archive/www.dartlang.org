@@ -266,7 +266,7 @@ implements the interface defined by Shape.
 The third class, Square, is a subclass of Rectangle.
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 abstract class Shape {
   num perimeter();
 }
@@ -280,7 +280,7 @@ class Rectangle implements Shape {
 class Square extends Rectangle {
   Square(num size) : super(size, size);
 }
-{% endhighlight %}
+{% endprettify %}
 
 </section> <!-- classes -->
 
@@ -301,22 +301,22 @@ types can be added to aid debugging and impose structure.
 For example, here is a sample of simple, untyped code in Dart.
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 recalculate(origin, offset, estimate) {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 Here is what this code looks like with a few types added
 to make the API clearer.
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 num recalculate(Point origin, num offset, {bool estimate:false}) {
   // ...
 }
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 Besides adding types, the second sample
@@ -337,7 +337,7 @@ including Dartium and eventually Chrome.
 Here's an example of an HTML file that loads Dart code:
 </p>
 
-{% highlight html %}
+{% prettify html %}
 <!DOCTYPE html>
 <html>
   <head> <title>Simple Dart Web App</title> </head>
@@ -351,7 +351,7 @@ Here's an example of an HTML file that loads Dart code:
 
   </body>
 </html>
-{% endhighlight %}
+{% endprettify %}
 
 <p>
   The first &lt;script> tag in this example
@@ -368,7 +368,7 @@ Here's an example of an HTML file that loads Dart code:
 Here is the code in app.dart:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:html';
 
 main() {
@@ -380,7 +380,7 @@ main() {
 respond(event) {
   query("#msg").text = "You clicked the button!";
 }
-{% endhighlight %}
+{% endprettify %}
 
 <p>
   The main() function's call to query()
@@ -403,7 +403,7 @@ respond(event) {
   here's an example of one-way data binding in an HTML file:
 </p>
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <!-- HTML code... -->
 <div>
@@ -411,7 +411,7 @@ respond(event) {
 </div>
 <!-- more HTML code... -->
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 In the rendered page,
@@ -420,7 +420,7 @@ the value of the top-level <code>currentTime</code> variable
 from the following Dart code:
 </p>
 
-{% highlight dart %}
+{% prettify dart %}
 String currentTime;
 
 void main() {
@@ -429,7 +429,7 @@ void main() {
 }
 
 // ...The formatTime() function and any other code goes here...
-{% endhighlight %}
+{% endprettify %}
 
 </section> <!-- browser -->
 

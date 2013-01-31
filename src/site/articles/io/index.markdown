@@ -75,14 +75,14 @@ Once that code executes to completion,
 no more pending operations are in the event queue
 and the VM terminates.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:isolate';
 
 main() {
   new Timer(1000, (Timer t) => print('timer'));
   print('end of main');
 }
-{% endhighlight %}
+{% endprettify %}
 
 Running this example at the command line, we get:
 
@@ -109,7 +109,7 @@ we use the
 [Options](http://api.dartlang.org/dart_core/Options.html) class
 from [dart:core](http://api.dartlang.org/dart_core.html).
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -118,7 +118,7 @@ main() {
   Future<String> finishedReading = file.readAsString(Encoding.ASCII);
   finishedReading.then((text) => print(text));
 }
-{% endhighlight %}
+{% endprettify %}
 
 Notice that the readAsString() method is asynchronous;
 it returns a [Future](http://api.dartlang.org/dart_core/Future.html)
@@ -140,7 +140,7 @@ Here is a version that opens the file for random access operations.
 The code opens the file for reading and then reads one byte at a time
 until it encounters the char code for ';'.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -162,7 +162,7 @@ main() {
     file.readByte().then(onByte);
   });
 }
-{% endhighlight %}
+{% endprettify %}
 
 When you see a use of `then()`, you are seeing a Future in action.
 Both the `open()` and `readByte()` methods return a Future object.
@@ -186,7 +186,7 @@ the handler is guaranteed to be called again.
 To prevent further calls,
 you can set the onData handler to null.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -203,7 +203,7 @@ main() {
     }
   };
 }
-{% endhighlight %}
+{% endprettify %}
 
 [InputStream](http://api.dartlang.org/io/InputStream.html)s
 are used in multiple places in dart:io:
@@ -223,7 +223,7 @@ to run a process
 and collect its output. Use `run()` when you don't
 need interactive control over the process.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -233,7 +233,7 @@ main() {
     print(results.stdout);
   });
 }
-{% endhighlight %}
+{% endprettify %}
 
 You can also start a process by creating a
 [Process](http://api.dartlang.org/io/Process.html) object
@@ -254,7 +254,7 @@ has an onLine handler that gets called
 whenever a full line of text has been decoded
 and is ready to be read using readLine.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -267,7 +267,7 @@ main() {
     };
   });
 }
-{% endhighlight %}
+{% endprettify %}
 
 Notice that the onExit handler can be called
 before all of the lines of output have been processed. Also note
@@ -281,7 +281,7 @@ Instead of printing the output to stdout,
 we can use the streaming classes
 to pipe the output of the process to a file.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -294,7 +294,7 @@ main() {
     };
    });
 }
-{% endhighlight %}
+{% endprettify %}
 
 </section>
 
@@ -311,7 +311,7 @@ and hook up a `defaultRequestHandler`.
 Here is a simple web server
 that just answers 'Hello, world' to any request.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -322,7 +322,7 @@ main() {
     response.outputStream.close();
   };
 }
-{% endhighlight %}
+{% endprettify %}
 
 Running this application
 and pointing your browser to 'http://127.0.0.1:8080'
@@ -338,7 +338,7 @@ If the file is not found we will respond with a '404 Not Found' status.
 We make use of the streaming interface
 to pipe all the data read from a file directly to the response output stream.
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:io';
 
 _send404(HttpResponse response) {
@@ -376,7 +376,7 @@ main() {
     startServer(d.path);
   });
 }
-{% endhighlight %}
+{% endprettify %}
 
 Writing HTTP clients is very similar to using the
 [HttpClient](http://api.dartlang.org/io/HttpClient.html) class.

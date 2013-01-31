@@ -254,9 +254,9 @@ of type
 <a href="http://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a>.
 EventListener is a typedef defined in the dart:html library as follows:
 
-{% highlight dart %}
+{% prettify dart %}
 typedef void EventListener(Event event)
-{% endhighlight %}
+{% endprettify %}
 
 As you can see, an EventListener returns no value (void) and takes an
 <a href="http://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a>
@@ -264,9 +264,9 @@ object as an argument.
 Any function with this signature is an EventListener.
 Based on its signature, the addToDoItem() function is an EventListener.
 
-{% highlight dart %}
+{% prettify dart %}
 void addToDoItem(Event e) { ... }
-{% endhighlight %}
+{% endprettify %}
 
 The Event object passed into an EventListener function
 carries information about the Event that occurred.

@@ -148,7 +148,7 @@ to link to your Dart source file.
 
 <p>Example:</p>
 
-{% highlight html %}
+{% prettify html %}
 <!DOCTYPE html>
 <html>
   <body>
@@ -157,7 +157,7 @@ to link to your Dart source file.
     <script src="packages/browser/dart.js"></script>
   </body>
 </html>
-{% endhighlight %}
+{% endprettify %}
 
 <aside>
   <div class="alert alert-info">
@@ -189,7 +189,7 @@ on the window.navigator object.
 For example:
 </p>
 
-{% highlight javascript %}
+{% prettify javascript %}
 if (!navigator.webkitStartDart) {
   // No native Dart support.
   window.addEventListener("DOMContentLoaded", function (e) {
@@ -201,7 +201,7 @@ if (!navigator.webkitStartDart) {
     document.body.innerHTML = 'This build has expired.  Please download a new Dartium at http://www.dartlang.org/dartium/index.html';
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 </section>
 
@@ -226,27 +226,27 @@ and assertion checks (--enable_asserts flag).
 On Linux, you can specify flags by starting Dartium as follows:
 </p>
 
-{% highlight bash %}
+{% prettify %}
 DART_FLAGS='--enable_type_checks --enable_asserts' PATH/chrome
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 On the Mac:
 </p>
 
-{% highlight bash %}
+{% prettify %}
 DART_FLAGS='--enable_type_checks --enable_asserts'              \
   PATH/Chromium.app/Contents/MacOS/Chromium
-{% endhighlight %}
+{% endprettify %}
 
 <p>
 Or (also on the Mac):
 </p>
 
-{% highlight bash %}
+{% prettify %}
 DART_FLAGS='--enable_type_checks --enable_asserts'               \
    open PATH/Chromium.app
-{% endhighlight %}
+{% endprettify %}
 
 <br>
 <aside>

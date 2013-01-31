@@ -47,7 +47,7 @@ compiled to JavaScript or when run in the Dart VM.
 Here is a minimal example, which works in all browsers (even if they don't
   support the Dart VM):
 
-{% highlight dart %}
+{% prettify dart %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -59,7 +59,7 @@ Here is a minimal example, which works in all browsers (even if they don't
     <script type="text/javascript" src="packages/browser/dart.js"></script>
   </body>
 </html>
-{% endhighlight %}
+{% endprettify %}
 
 Your Dart app's `main()` function is run after DOM content is loaded.
 
@@ -72,9 +72,9 @@ For Dart, this attribute has the value `application/dart`.
 
 Here is an example:
 
-{% highlight html %}
+{% prettify html %}
 <script type="application/dart" src="app.dart"></script>
-{% endhighlight %}
+{% endprettify %}
 
 Dart doesn't support inline scripts (scripts defined inside the HTML page).
 While an inline script technically works in Dartium (a build of Chromium
@@ -104,10 +104,10 @@ The dart.js script tag must come after the Dart script tag.
 
 For example:
 
-{% highlight html %}
+{% prettify html %}
 <script type="application/dart" src="awesome_app.dart"></script>
 <script type="text/javascript" src="packages/browser/dart.js"></script>
-{% endhighlight %}
+{% endprettify %}
 
 To get a copy of the dart.js file,
 you can use the [pub package manager](http://pub.dartlang.org).
@@ -161,9 +161,9 @@ is invoked after the page's DOM is loaded.
 
 We disallow inline event listeners of the form:
 
-{% highlight html %}
+{% prettify html %}
 <div onclick="foo()">Click this text.</div>
-{% endhighlight %}
+{% endprettify %}
 
 With JavaScript, programmers can embed inline event listener code
 directly onto HTML nodes.

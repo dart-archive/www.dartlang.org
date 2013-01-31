@@ -32,7 +32,6 @@ GEM
     maruku (0.6.1)
       syntax (>= 1.0.0)
     posix-spawn (0.3.6)
-    pygments.rb (0.3.2)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
     sass (3.2.3)
@@ -47,4 +46,3 @@ DEPENDENCIES
   compass_twitter_bootstrap!
   jekyll
   kramdown
-  pygments.rb

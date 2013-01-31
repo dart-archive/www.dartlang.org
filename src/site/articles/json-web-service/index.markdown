@@ -54,7 +54,7 @@ HTTP GET to the URL `/programming-languages/dart` by returning the following
 JSON string, which contains a string, a list, and a map that represent
 information about the Dart language:
 
-{% highlight json %}
+{% prettify json %}
 {
   "language": "dart",                                 // String
   "targets": ["dartium","javascript"],                // List
@@ -63,7 +63,7 @@ information about the Dart language:
     "api": "api.dartlang.org"
   }
 }
-{% endhighlight %}
+{% endprettify %}
 
 The same web service accepts data on the same URL with an HTTP POST.  The web
 service interprets a POST as a request to create a new object on the server,
@@ -82,18 +82,18 @@ Get objects from the server using HTTP GET.  HttpRequest provides a named
 constructor called <code>get</code> that takes a URL and a callback function
 that's invoked when the server responds.
 
-{% highlight dart %}
+{% prettify dart %}
 getLanguageData(String languageName, onSuccess(HttpRequest req)) {
   var url = "http://example.com/programming-languages/$languageName";
 
   // call the web server asynchronously
   var request = new HttpRequest.get(url, onSuccess);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Then elsewhere in your code, you can define an <code>onSuccess</code> 
 callback function and call the <code>getLanguageData</code> function:
-{% highlight dart %}
+{% prettify dart %}
 // print the raw json response text from the server
 onSuccess(HttpRequest req) {
    print(req.responseText); // print the received raw JSON text
@@ -102,7 +102,7 @@ onSuccess(HttpRequest req) {
 main() {
   getLanguageData("dart", onSuccess);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Note: HttpRequest.get() is a convenience constructor, and its name will change. The
 full HttpRequest API is still an option for HTTP GET, if you need more control
@@ -115,7 +115,7 @@ POST method.  Use the readyStateChange listener to be notified when the request
 is complete.  The example below calls an onSuccess function when the request is
 complete:
 
-{% highlight dart %}
+{% prettify dart %}
 saveLanguageData(String data, onSuccess(HttpRequest req)) {
   HttpRequest req = new HttpRequest(); // create a new XHR
 
@@ -140,7 +140,7 @@ onSuccess(HttpRequest req) {
 String jsonData = '{"language":"dart"}'; // etc...
 saveLanguageData(jsonData, onSuccess); // send the data to
                                          // the server
-{% endhighlight %}
+{% endprettify %}
 
 <h2 id="parsing-json">Parsing JSON</h2>
 
@@ -154,7 +154,7 @@ JSON.stringify().
 The parse() function converts a JSON string into a List of values or a Map of
 key-value pairs, depending upon the format of the JSON:
 
-{% highlight dart %}
+{% prettify dart %}
 String listAsJson = '["Dart",0.8]'; // input List of data
 List parsedList = JSON.parse(listAsJson);
 print(parsedList[0]); // Dart
@@ -163,7 +163,7 @@ print(parsedList[1]); // 0.8
 String mapAsJson = '{"language":"dart"}';  // input Map of data
 Map parsedMap = JSON.parse(mapAsJson);
 print(parsedMap["language"]); // dart
-{% endhighlight %}
+{% endprettify %}
 
 JSON also works for more complex data structures, such as nested maps inside
 of lists.
@@ -171,14 +171,14 @@ of lists.
 Use JSON.parse() to convert the HttpRequest's response from raw text to an
 actual Dart object:
 
-{% highlight dart %}
+{% prettify dart %}
 onSuccess(HttpRequest req) {
   Map data = JSON.parse(req.responseText); // parse response text
   print(data["language"]); // dart
   print(data["targets"][0]); // dartium
   print(data["website"]["homepage"]); // www.dartlang.org
 }
-{% endhighlight %}
+{% endprettify %}
 
 Using simple Maps with strings as keys has some unfortunate side effects.
 Making a typo in any of the string names will return a null value which could
@@ -196,14 +196,14 @@ Ideally, you want to access JSON data in a structured way, taking advantage of
 the tools to help you catch bugs early. The following example feels more like
 natural Dart code:
 
-{% highlight dart %}
+{% prettify dart %}
 Language data = // ... initialize data ...
 
 // property access is validated by tools
 print(data.language);
 print(data.targets[0]);
 print(data.website.homepage);
-{% endhighlight %}
+{% endprettify %}
 
 Fortunately, the ability to write code using this “dot notation” is built into
 Dart, through its support of classes. The solution, then, is to combine the
@@ -229,7 +229,7 @@ JsonObject intercepts the calls to noSuchMethod and accesses the underlying Map.
 
 Here is an example of using JsonObject instead of a raw Map:
 
-{% highlight dart %}
+{% prettify dart %}
 onSuccess(HttpRequest req) {
   // decode the JSON response text using JsonObject
   var data = new JsonObject.fromJsonString(req.responseText);
@@ -240,14 +240,14 @@ onSuccess(HttpRequest req) {
   print(data.targets[0]);       // Get a value in a list
   print(data.website.homepage); // Get a value from a child object
 };
-{% endhighlight %}
+{% endprettify %}
 
 You can also use this in your own classes. By extending JsonObject, and
 providing a suitable constructor, you can increase the readability of your code,
  and allow your classes to convert back and forth between a JSON string and
 JsonObjects internal map structure.
 
-{% highlight dart %}
+{% prettify dart %}
 class Language extends JsonObject {
   Language.fromJsonString(jsonString) : super.fromJsonString(jsonString);
 }
@@ -262,32 +262,32 @@ onSuccess(HttpRequest req) {
   print(data.targets[0]);       // Get a value in a list
   print(data.website.homepage); // Get a value from a child object
 };
-{% endhighlight %}
+{% endprettify %}
 
 
 JsonObject also allows you to create new, empty objects, without first
 converting from a JSON string, by using the default constructor:
 
-{% highlight dart %}
+{% prettify dart %}
   Language data = new JsonObject();
   data.language = "Dart";
   data.website = new JsonObject();
   data.website.homepage = "http://www.dartlang.org";
-{% endhighlight %}
+{% endprettify %}
 
 JsonObject also implements the Map interface, which means that you can use the
 standard map syntax:
 
-{% highlight dart %}
+{% prettify dart %}
 Language data = new JsonObject();
 data["language"] = "Dart"; // standard map syntax
-{% endhighlight %}
+{% endprettify %}
 
 Because JsonObject implements Map, you can pass a JsonObject into
 JSON.stringify(), which converts a Map into JSON for sending the data back to
 the server:
 
-{% highlight dart %}
+{% prettify dart %}
 Language data = new JsonObject.fromJsonString(req.responseText);
 
 // later...
@@ -298,23 +298,23 @@ String json = JSON.stringify(data);
 HttpRequest req = new HttpRequest();
 req.open("POST", url);
 req.send(json);
-{% endhighlight %}
+{% endprettify %}
 
 You can include JsonObject in your project by using the
 [pub](http://pub.dartlang.org) package manager.
 Simply specify the following dependency:
 
-{% highlight yaml %}
+{% prettify yaml %}
 dependencies:
   json_object:
     git: git://github.com/chrisbu/dartwatch-JsonObject.git
-{% endhighlight %}
+{% endprettify %}
 
 and import the package using the following import statement:
 
-{% highlight dart %}
+{% prettify dart %}
 import "package:json_object/json_object.dart";
-{% endhighlight %}
+{% endprettify %}
 
 
 <h3 id="note-on-jsonp">A note on JSONP and HttpRequest</h3>
@@ -335,7 +335,7 @@ callbacks.  The Dart - JavaScript interop
 libraries in the [js interop package](https://github.com/dart-lang/js-interop/)
 are suitable for JavaScript callbacks:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:html';
 import 'package:js/js.dart' as js;
 
@@ -354,7 +354,7 @@ void main() {
     document.body.elements.addLast(script); // add the script to the DOM
   });
 }
-{% endhighlight %}
+{% endprettify %}
 
 For more detailed information about JS Interop, see
 the [js package docs](http://dart-lang.github.com/js-interop/docs/js.html).

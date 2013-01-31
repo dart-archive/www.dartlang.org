@@ -31,7 +31,7 @@ blocks. The meaning of a block like this:
   \{\% sample 10 20 url \%\}
   \{\% endcodesample \%\}
 is that we'll create a table, the first column will have sample source code (in
-this case "text"). This code can have a \{\% highlight \%\} section, but other
+this case "text"). This code can have a \{\% prettify \%\} section, but other
 than that, no markdown is supported here :(. The column width is specified as
 the first argument of the codesample tag above it (in this example 80 means
 80%). The \{\% sample \%\} tag defines the width, height, and url for an iframe
@@ -134,7 +134,7 @@ top-level variable `dataValue` is injected in the page automatically. The right
 column shows the app generated from this code running in an iframe.
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <div>Hello {{dataValue}}!</div>
@@ -147,7 +147,7 @@ column shows the app generated from this code running in an iframe.
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source helloworld.html %}
 {% iframe 300px 200px helloworld.html %}
 {% endcodesample %}
@@ -162,7 +162,7 @@ code invokes [watchers.dispatch()][watcher.dispatch] to make a change visible to
 the UI.
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <div>Hello counter: {{count}}</div>
@@ -180,7 +180,7 @@ the UI.
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source counter.html %}
 {% iframe 300px 200px counter.html %}
 {% endcodesample %}
@@ -199,7 +199,7 @@ Dart variable. The following example creates a two-way binding between `str` and
 `bind-value="str"`.
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <div>
@@ -214,7 +214,7 @@ Dart variable. The following example creates a two-way binding between `str` and
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source twoway.html %}
 {% iframe 300px 200px twoway.html %}
 {% endcodesample %}
@@ -233,7 +233,7 @@ instance, the following example shows `They match!` only when both input boxes
 have the same text:
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <div>
@@ -250,7 +250,7 @@ have the same text:
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source matchstrings.html %}
 {% iframe 300px 200px matchstrings.html %}
 {% endcodesample %}
@@ -262,7 +262,7 @@ following example hides the columns of phone numbers when the checkbox is not
 selected:
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <input type="checkbox" bind-checked="show">Show phones<br>
@@ -287,7 +287,7 @@ selected:
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source tableif.html %}
 {% iframe 300px 200px tableif.html %}
 {% endcodesample %}
@@ -302,7 +302,7 @@ that has search as you type. It uses two-way data binding to store the
 using a looping construct.
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <div>
@@ -344,7 +344,7 @@ using a looping construct.
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source fruitsearch.html %}
 {% iframe 300px 600px fruitsearch.html %}
 {% endcodesample %}
@@ -355,7 +355,7 @@ HTML tables, this is the only way to use loops for table rows and cells.  For
 instance, this example creates a 3x3 table like in tic-tac-toe:
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <table>
@@ -371,7 +371,7 @@ instance, this example creates a 3x3 table like in tic-tac-toe:
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source tictactoe.html %}
 {% iframe 300px 200px tictactoe.html %}
 {% endcodesample %}
@@ -383,7 +383,7 @@ associate those events with Dart code: `on-event...` attributes. Here is an
 example that listens for click events:
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <div>
@@ -397,7 +397,7 @@ example that listens for click events:
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source clickcount.html %}
 {% iframe 300px 200px clickcount.html %}
 {% endcodesample %}
@@ -428,7 +428,7 @@ templates, while data and behavior are written directly in Dart.
 Web components are declared using a special `<element>` tag. For example, we can
 take the click-count example above and make it a component as follows:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <element name="x-click-counter" constructor="CounterComponent" extends="div">
@@ -448,7 +448,7 @@ take the click-count example above and make it a component as follows:
 <!-- more below... -->
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 The `<element>` tag defines a component whose visual appearance is declared under
 the child `<template>` tag, and whose behavior code is embedded or sourced by
@@ -477,7 +477,7 @@ attribute on the tag that the component extends from, as in the following
 example.  Note that using an end tag `</x-click-counter>` is required.
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <!-- ... element declared as above -->
@@ -487,7 +487,7 @@ example.  Note that using an end tag `</x-click-counter>` is required.
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source countcomponent.html %}
 {% iframe 300px 200px countcomponent.html %}
 {% endcodesample %}
@@ -503,7 +503,7 @@ above), but initializes the `count` field of the component to a different value
 each time.
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <!-- ... element declared as above -->
@@ -515,7 +515,7 @@ each time.
   </script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source countcomponent5.html %}
 {% iframe 300px 200px countcomponent5.html %}
 {% endcodesample %}
@@ -527,7 +527,7 @@ component can distribute child nodes provided when instantiating it. For
 instance, the following component wraps it's child nodes in a red frame:
 
 {% codesample 90 %}
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html><body>
   <element name="x-redbox" constructor="RedBox" extends="div">
@@ -544,7 +544,7 @@ instance, the following component wraps it's child nodes in a red frame:
   <script type="application/dart">main(){}</script>
 </body></html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 {% source redbox.html %}
 {% iframe 300px 200px redbox.html %}
 {% endcodesample %}
@@ -564,7 +564,7 @@ rel="components">` tags. For example, suppose we created a file
 `clickcounter.html` that contains the declaration of the click-counter component
 as we had above. Then the preceding example could be rewritten as follows:
 
-{% highlight html %}
+{% prettify html %}
 {% raw %}
 <html>
   <head>
@@ -580,7 +580,7 @@ as we had above. Then the preceding example could be rewritten as follows:
   </body>
 </html>
 {% endraw %}
-{% endhighlight %}
+{% endprettify %}
 
 ## Tools for using Web UI {#tools}
 
