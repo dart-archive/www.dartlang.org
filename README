@@ -40,6 +40,13 @@ CONFIGURING YOUR MAC SYSTEM
       which you downloaded from http://www.python.org/download/releases/2.7.3/
         * The full path is /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
 
+CONFIGURING YOUR WINDOWS SYSTEM
+
+* Essentially the same as MAC, above
+* You probably won't have MAKE available on the command line, so you can 
+run `jekyll` from the `src/site` folder.  Remember to type `chcp 65001` at the command prompt first 
+to change the codepage to UTF-8, otherwise jekyll will fail silently.
+
 DEVELOPMENT
 
 * Make sure you are in the root of this project.
