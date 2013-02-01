@@ -11,13 +11,15 @@ description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Run
     program.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-numbers"></a>Numbers</h3></div></div></div><p>The dart:core library defines the num, int, and double classes,
       which have some basic utilities for working with numbers.</p><p>You can convert a string into an integer or double with the
       <code class="literal">parse()</code> methods of int and double,
-      respectively.</p><pre class="screen">assert(int.parse('42') == 42);
+      respectively.</p><pre class="screen"><em><span class="remark">ch03/number-tests.dart
+</span></em>assert(int.parse('42') == 42);
 assert(double.parse('0.50') == 0.5);</pre><p>Use the toString() method (defined by <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>) to
       convert an int or double to a string. To specify the number of digits to
       the right of the decimal, use <code class="literal">toStringAsFixed()</code>
       (defined by num). To specify the number of significant digits in the
       string, use <code class="literal">toStringAsPrecision()</code> (also in
-      num).</p><pre class="screen">// Convert an int to a string.
+      num).</p><pre class="screen"><em><span class="remark">ch03/number-tests.dart
+</span></em>// Convert an int to a string.
 assert(42.toString() == '42');
 
 // Convert a double to a string.
@@ -38,7 +40,8 @@ assert(double.parse('1.2e+2') == 120.0);</pre><p>For more information, see the A
       <code class="literal">startsWith()</code>, <span class="keep-together"><code class="literal">endsWith()</code></span>, and
       more.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-searching-inside-a-string"></a>Searching inside a string</h4></div></div></div><p>You can find particular locations within a string, as well as
         check whether a string begins with or ends with a particular
-        pattern.</p><pre class="screen">// Check whether a string contains another string.
+        pattern.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>// Check whether a string contains another string.
 assert('Never odd or even'.contains('odd'));
 
 // Does a string start with another string?
@@ -50,7 +53,8 @@ assert('Never odd or even'.endsWith('even'));
 // Find the location of a string inside a string.
 assert('Never odd or even'.indexOf('odd') == 6);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-extracting-data-from-a-string"></a>Extracting data from a string</h4></div></div></div><p>You can get the individual characters or character codes from a
         string as Strings or ints, respectively.</p><p>You can also extract a substring or split a string into a list
-        of substrings.</p><pre class="screen">// Grab a substring.
+        of substrings.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>// Grab a substring.
 assert('Never odd or even'.substring(6, 9) == 'odd');
 
 // Split a string using a string pattern.
@@ -74,13 +78,15 @@ assert('Never odd or even'.charCodeAt(0) == 78);
 var charCodes = 'Never odd or even'.charCodes;
 assert(charCodes.length == 17);
 assert(charCodes[0] == 78);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-converting-to-uppercase-or-lowercase"></a>Converting to uppercase or lowercase</h4></div></div></div><p>You can easily convert strings to their uppercase and lowercase
-        variants.</p><pre class="screen">// Convert to uppercase.
+        variants.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>// Convert to uppercase.
 assert('structured web apps'.toUpperCase() == 'STRUCTURED WEB APPS');
 
 // Convert to lowercase.
 assert('STRUCTURED WEB APPS'.toLowerCase() == 'structured web apps');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-trimming-and-empty-strings"></a>Trimming and empty strings</h4></div></div></div><p>Remove all leading and trailing white space with
         <code class="literal">trim()</code>. To check whether a string is empty (length
-        is zero), use <code class="literal">isEmpty</code>.</p><pre class="screen">// Trim a string.
+        is zero), use <code class="literal">isEmpty</code>.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>// Trim a string.
 assert('  hello  '.trim() == 'hello');
 
 // Check whether a string is empty.
@@ -92,12 +98,14 @@ assert(!'  '.isEmpty);</pre></div><div class="sect3"><div class="titlepage"><div
         docs,</a> you’ll notice that none of the methods actually changes
         the state of a String. For example, the method
         <code class="literal">replaceAll()</code> returns a new String without changing
-        the original String.</p><pre class="screen">var greetingTemplate = 'Hello, NAME!';
+        the original String.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>var greetingTemplate = 'Hello, NAME!';
 var greeting = greetingTemplate.replaceAll(new RegExp('NAME'), 'Bob');
 
 assert(greeting != greetingTemplate); // greetingTemplate didn't change.</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_building_a_string"></a>Building a string</h4></div></div></div><p>To programmatically generate a string, you can use StringBuffer.
         A StringBuffer doesn’t generate a new String object until
-        <code class="literal">toString()</code> is called.</p><pre class="screen">var sb = new StringBuffer();
+        <code class="literal">toString()</code> is called.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>var sb = new StringBuffer();
 
 sb..add('Use a StringBuffer ')
   ..addAll(['for ', 'efficient ', 'string ', 'creation '])
@@ -113,7 +121,8 @@ assert(fullString ==
 sb.clear();  // All gone!
 assert(sb.toString() == '');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-regular-expressions"></a>Regular expressions</h4></div></div></div><p>The RegExp class provides the same capabilities as JavaScript
         regular expressions. Use regular expressions for efficient searching
-        and pattern matching of strings.</p><pre class="screen">// A regular expression for one or more digits
+        and pattern matching of strings.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>// A regular expression for one or more digits
 var numbers = new RegExp(r'\d+');
 
 var allCharacters = 'llamas live fifteen to twenty years';
@@ -126,7 +135,8 @@ assert(someDigits.contains(numbers));
 // Replace every match with another string.
 var exedOut = someDigits.replaceAll(numbers, 'XX');
 assert(exedOut == 'llamas live XX to XX years');</pre><p>You can work directly with the RegExp class, too. The Match
-        class provides access to a regular expression match.</p><pre class="screen">var numbers = new RegExp(r'\d+');
+        class provides access to a regular expression match.</p><pre class="screen"><em><span class="remark">ch03/string-tests.dart
+</span></em>var numbers = new RegExp(r'\d+');
 var someDigits = 'llamas live 15 to 20 years';
 
 // Check whether the reg exp has a match in a string.
@@ -144,7 +154,8 @@ for (var match in numbers.allMatches(someDigits)) {
       lists, sets, and maps.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-lists"></a>Lists</h4></div></div></div><p>As the language tour shows, you can use literals to create and
         initialize <a class="link" href="ch02.html#lists" title="Lists">lists</a>. Alternatively, use one
         of the List constructors. The List class also defines several methods
-        for adding items to and removing items from lists.</p><pre class="screen">// Use a List constructor.
+        for adding items to and removing items from lists.</p><pre class="screen"><em><span class="remark">ch03/list-tests.dart
+</span></em>// Use a List constructor.
 var vegetables = new List();
 
 // Or simply use a list literal.
@@ -167,7 +178,8 @@ assert(fruits.length == 4);
 // Remove all elements from a list.
 fruits.clear();
 assert(fruits.length == 0);</pre><p>Use <code class="literal">indexOf()</code> to find the index of an object
-        in a list.</p><pre class="screen">var fruits = ['apples', 'oranges'];
+        in a list.</p><pre class="screen"><em><span class="remark">ch03/list-tests.dart
+</span></em>var fruits = ['apples', 'oranges'];
 
 // Access a list item by index.
 assert(fruits[0] == 'apples');
@@ -179,12 +191,14 @@ assert(fruits.indexOf('apples') == 0);</pre><p>Sort a list using the <code class
         the <span class="emphasis"><em>same</em></span>, and &gt; 0 for
         <span class="emphasis"><em>bigger</em></span>. The following example uses
         <code class="literal">compareTo()</code>, which is defined by <a class="ulink" href="http://api.dartlang.org/dart_core/Comparable.html" target="_top">Comparable</a>
-        and implemented by String.</p><pre class="screen">var fruits = ['bananas', 'apples', 'oranges'];
+        and implemented by String.</p><pre class="screen"><em><span class="remark">ch03/list-tests.dart
+</span></em>var fruits = ['bananas', 'apples', 'oranges'];
 
 // Sort a list.
 fruits.sort((a, b) =&gt; a.compareTo(b));
 assert(fruits[0] == 'apples');</pre><p>Lists are parameterized types, so you can specify the type that
-        a list should contain.</p><pre class="screen">// This list should contain only strings.
+        a list should contain.</p><pre class="screen"><em><span class="remark">ch03/list-tests.dart
+</span></em>// This list should contain only strings.
 var fruits = new List&lt;String&gt;();
 
 fruits.add('apples');
@@ -195,7 +209,8 @@ assert(fruit is String);
 fruits.add(5);  // BAD: Throws exception in checked mode.</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/List.html" target="_top">List API
         docs</a> for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-sets"></a>Sets</h4></div></div></div><p>A set in Dart is an unordered collection of unique items.
         Because a set is unordered, you can’t get a set’s items by index
-        (position).</p><pre class="screen">var ingredients = new Set();
+        (position).</p><pre class="screen"><em><span class="remark">ch03/set-tests.dart
+</span></em>var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 assert(ingredients.length == 3);
 
@@ -207,7 +222,8 @@ assert(ingredients.length == 3);
 ingredients.remove('gold');
 assert(ingredients.length == 2);</pre><p>Use <code class="literal">contains()</code> and
         <code class="literal">containsAll()</code> to check whether one or more objects
-        are in a set.</p><pre class="screen">var ingredients = new Set();
+        are in a set.</p><pre class="screen"><em><span class="remark">ch03/set-tests.dart
+</span></em>var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
 // Check whether an item is in the set.
@@ -216,7 +232,8 @@ assert(ingredients.contains('titanium'));
 // Check whether all the items are in the set.
 assert(ingredients.containsAll(['titanium', 'xenon']));</pre><p>An intersection is a set whose items are in two other sets. A
         subset has all of its items included in another, potentially larger,
-        collection.</p><pre class="screen">var ingredients = new Set();
+        collection.</p><pre class="screen"><em><span class="remark">ch03/set-tests.dart
+</span></em>var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
 
 // Create the intersection of two sets.
@@ -233,11 +250,13 @@ assert(ingredients.isSubsetOf(allElements));</pre><p>Refer to the <a class="ulin
         for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-common-collection-methods"></a>Common collection methods</h4></div></div></div><p>Both List and Set extend the Collection class. As such, they
         share common functionality found in all collections. The following
         examples work with any object that implements Collection.</p><p>Use <code class="literal">isEmpty</code> to check whether a collection has
-        no items.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
+        no items.</p><pre class="screen"><em><span class="remark">ch03/collection-isEmpty.dart
+</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
 assert(!teas.isEmpty);</pre><p>To apply a function to each item in a collection, you can use
         <code class="literal">forEach()</code>. Or use
         <code class="literal">mappedBy().toList()</code> if you want an object that
-        contains the results.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
+        contains the results.</p><pre class="screen"><em><span class="remark">ch03/collection-isEmpty.dart
+</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 teas.forEach((tea) =&gt; print('I drink $tea'));
 
@@ -249,7 +268,8 @@ assert(loudTeas.any((tea) =&gt; tea == 'GREEN'));</pre><div class="note" style="
           <code class="literal">toList()</code> or <code class="literal">toSet()</code>.</p></div><p>Use <code class="literal">where()</code> to get all the items in a
         collection that match a condition. Use <code class="literal">any()</code> and
         <code class="literal">every()</code> to check whether some or all items in a
-        collection match a condition.</p><pre class="screen">var teas = ['green', 'black', 'chamomile', 'earl grey'];
+        collection match a condition.</p><pre class="screen"><em><span class="remark">ch03/collection-isEmpty.dart
+</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 // Chamomile is not caffeinated.
 bool isDecaffeinated(String teaName) =&gt; teaName == 'chamomile';
@@ -271,7 +291,8 @@ assert(!teas.every(isDecaffeinated));</pre><p>Refer to the <a class="ulink" href
         pairs. Maps associate a key to some value for easy retrieval. Unlike
         in JavaScript, Dart objects are not maps.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The Map class does not itself extend Collection. You can,
           however, get a collection of a map’s keys or its values.</p></div><p>You can declare a map using a terse literal syntax, or you can
-        use a traditional constructor.</p><pre class="screen">// Map literals use strings as keys.
+        use a traditional constructor.</p><pre class="screen"><em><span class="remark">ch03/map-1.dart
+</span></em>// Map literals use strings as keys.
 var hawaiianBeaches = {
   'oahu' : ['waikiki', 'kailua', 'waimanalo'],
   'big island' : ['wailea bay', 'pololu beach'],
@@ -285,7 +306,8 @@ var searchTerms = new Map();
 // the key and value should be.
 var nobleGases = new Map&lt;int, String&gt;();</pre><p>You add, get, and set map items using the bracket syntax. Use
         <code class="literal">remove()</code> to remove a key and its value from a
-        map.</p><pre class="screen">var nobleGases = new Map&lt;int, String&gt;();
+        map.</p><pre class="screen"><em><span class="remark">ch03/map-1.dart
+</span></em>var nobleGases = new Map&lt;int, String&gt;();
 
 // Maps from constructors can use any object as a key.
 // Integers and strings are common key types.
@@ -300,7 +322,8 @@ assert(nobleGases.containsKey(54));
 // Remove a key and its value.
 nobleGases.remove(54);
 assert(!nobleGases.containsKey(54));</pre><p>You can retrieve all the values or all the keys from a
-        map.</p><pre class="screen">var hawaiianBeaches = {
+        map.</p><pre class="screen"><em><span class="remark">ch03/map-1.dart
+</span></em>var hawaiianBeaches = {
   'oahu' : ['waikiki', 'kailua', 'waimanalo'],
   'big island' : ['wailea bay', 'pololu beach'],
   'kauai' : ['hanalei', 'poipu']
@@ -315,14 +338,16 @@ assert(new Set.from(keys).contains('oahu'));
 // Get all the values as an unordered collection (a list of lists).
 var values = hawaiianBeaches.values;
 assert(values.length == 3);
-assert(values.any((v) =&gt; v.indexOf('waikiki') != -1));</pre><p>You can also iterate through the key-value pairs.</p><pre class="screen">// NOTE: Do not depend on iteration order.
+assert(values.any((v) =&gt; v.indexOf('waikiki') != -1));</pre><p>You can also iterate through the key-value pairs.</p><pre class="screen"><em><span class="remark">ch03/map-1.dart
+</span></em>// NOTE: Do not depend on iteration order.
 hawaiianBeaches.forEach((k,v) {
   print('I want to visit $k and swim at $v');
   // I want to visit oahu and swim at [waikiki, kailua, waimanalo], etc.
 });</pre><p>To check whether a map contains a key, use
         <code class="literal">containsKey()</code>. Because map values can be null, you
         cannot rely on simply getting the value for the key and checking for
-        null to determine the existence of a key.</p><pre class="screen">var hawaiianBeaches = {
+        null to determine the existence of a key.</p><pre class="screen"><em><span class="remark">ch03/map-1.dart
+</span></em>var hawaiianBeaches = {
   'oahu' : ['waikiki', 'kailua', 'waimanalo'],
   'big island' : ['wailea bay', 'pololu beach'],
   'kauai' : ['hanalei', 'poipu']
@@ -331,11 +356,13 @@ hawaiianBeaches.forEach((k,v) {
 assert(hawaiianBeaches.containsKey('oahu'));
 assert(!hawaiianBeaches.containsKey('florida'));</pre><p>Use the <code class="literal">putIfAbsent()</code> method when you want to
         assign a value to a key if and only if the key does not already exist
-        in a map. You must provide a function that returns the value.</p><pre class="screen">var teamAssignments = {};
+        in a map. You must provide a function that returns the value.</p><pre class="screen"><em><span class="remark">ch03/map-1.dart
+</span></em>var teamAssignments = {};
 teamAssignments.putIfAbsent('Catcher', () =&gt; pickToughestKid());
 assert(teamAssignments['Catcher'] != null);</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Map.html" target="_top">Map API docs</a>
         for a full list of methods.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A DateTime object is a point in time. The time zone is either UTC
-      or the local time zone.</p><p>You can create DateTime objects using several constructors.</p><pre class="screen">// Get the current date and time.
+      or the local time zone.</p><p>You can create DateTime objects using several constructors.</p><pre class="screen"><em><span class="remark">ch03/date.dart
+</span></em>// Get the current date and time.
 var now = new DateTime.now();
 
 // Create a new DateTime with the local time zone.
@@ -353,10 +380,14 @@ y2k = new DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
 // Parse an ISO 8601 date.
 y2k = DateTime.parse('2000-01-01T00:00:00Z');
 </pre><p>The <code class="literal">millisecondsSinceEpoch</code>
-      property of a date returns the number of milliseconds since the
-      epoch.</p><pre class="screen">var y2k = new DateTime.parse('2000-01-01T00:00:00Z');
-assert(y2k.millisecondsSinceEpoch == 946684800000);</pre><p>Use the Duration class to calculate the difference between two
-      dates and to shift a date’s time forward or backwards.</p><pre class="screen">var y2k = new DateTime.parse('2000-01-01T00:00:00Z');
+      property of a date returns the number of milliseconds since the “Unix
+      epoch”—January 1, 1970, UTC.</p><pre class="screen"><em><span class="remark">ch03/date.dart
+</span></em>var y2k = new DateTime.utc(2000);           // 1/1/2000, UTC
+assert(y2k.millisecondsSinceEpoch == 946684800000);
+var unixEpoch = new DateTime.utc(1970); // 1/1/1970, UTC
+assert(unixEpoch.millisecondsSinceEpoch == 0);</pre><p>Use the Duration class to calculate the difference between two
+      dates and to shift a date’s time forward or backwards.</p><pre class="screen"><em><span class="remark">ch03/date.dart
+</span></em>var y2k = new DateTime.utc(2000);
 
 // Add one year.
 var y2001 = y2k.add(const Duration(days: 366));
@@ -378,7 +409,8 @@ assert(duration.inDays == 366); // y2k was a leap year.</pre><p>Refer to the API
         object, usually for sorting. The <code class="literal">compareTo()</code> method
         returns &lt; 0 for <span class="emphasis"><em>smaller</em></span>, 0 for the
         <span class="emphasis"><em>same</em></span>, and &gt; 0 for
-        <span class="emphasis"><em>bigger</em></span>.</p><pre class="screen">class Line implements Comparable {
+        <span class="emphasis"><em>bigger</em></span>.</p><pre class="screen"><em><span class="remark">ch03/comparable.dart
+</span></em>class Line implements Comparable {
   final length;
   const Line(this.length);
   int compareTo(Line other) =&gt; length - other.length;
@@ -396,7 +428,8 @@ main() {
         code doesn’t have to be unique, but it should be well
         distributed.</p><p class="remark"><em><span class="remark">Note: There’s disagreement over whether to include identical()
         in the == implementation. It might improve speed. They don’t do
-        identical() automatically because, by convention, NaN != NaN.</span></em></p><pre class="screen">class Person {
+        identical() automatically because, by convention, NaN != NaN.</span></em></p><pre class="screen"><em><span class="remark">ch03/map-keys.dart
+</span></em>class Person {
   String firstName, lastName;
 
   Person(this.firstName, this.lastName);
@@ -422,9 +455,11 @@ main() {
   assert(p1.hashCode == p2.hashCode);
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-iteration"></a>Iteration</h4></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/dart_core/Iterable.html" target="_top">Iterable</a>
         and <a class="ulink" href="http://api.dartlang.org/dart_core/Iterator.html" target="_top">Iterator</a>
-        classes support for-in loops. Implement Iterable to signal that an
-        object can provide an Iterator, and thus be used by for-in loops.
-        Implement Iterator to define the actual iteration ability.</p><pre class="screen">class Process {
+        classes support for-in loops. Extend (if possible) or implement
+        Iterable whenever you create a class that can provide Iterators for
+        use in for-in loops. Implement Iterator to define the actual iteration
+        ability.</p><pre class="screen"><em><span class="remark">ch03/iterator.dart
+</span></em>class Process {
   // Represents a process...
 }
 
@@ -441,7 +476,7 @@ class Processes extends Iterable&lt;Process&gt; {
 }
 
 main() {
-  // Objects that implement Iterable can be used with for-in.
+  // Iterable objects can be used with for-in.
   for (var process in new Processes()) {
     // Do something with the process.
   }
@@ -493,7 +528,8 @@ Futures.wait([deleteDone, copyDone, checksumDone]).then((List values) {
             not implement a method.</p></dd><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/ArgumentError.html" target="_top">ArgumentError</a></span></dt><dd><p>Can be thrown by a method that encounters an unexpected
             argument.</p></dd></dl></div><p>Throwing an application-specific exception is a common way to
       indicate that an error has occurred. You can define a custom exception
-      by implementing the Exception interface.</p><pre class="screen">class FooException implements Exception {
+      by implementing the Exception interface.</p><pre class="screen"><em><span class="remark">ch03/exceptions.dart
+</span></em>class FooException implements Exception {
   final String msg;
   const FooException([this.msg]);
   String toString() =&gt; msg == null ? 'FooException' : msg;
@@ -504,7 +540,9 @@ Futures.wait([deleteDone, copyDone, checksumDone]).then((List values) {
     and <span class="emphasis"><em>e</em></span>. Most of the functionality in the Math library
     is implemented as top-level functions.</p><p>To use the Math library in your app, import <code class="literal">dart:math</code>. The following examples use the prefix
     <code class="literal">math</code> to make clear which top-level
-    functions and constants are from the Math library.</p><pre class="screen">import 'dart:math' as math;</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-trigonometry"></a>Trigonometry</h3></div></div></div><p>The Math library provides basic trigonometric functions.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>These methods use radians, not degrees!</p></div><pre class="screen">// Cosine
+    functions and constants are from the Math library.</p><pre class="screen"><em><span class="remark">ch03/math-tests.dart
+</span></em>import 'dart:math' as math;</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-trigonometry"></a>Trigonometry</h3></div></div></div><p>The Math library provides basic trigonometric functions.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>These methods use radians, not degrees!</p></div><pre class="screen"><em><span class="remark">ch03/math-tests.dart
+</span></em>// Cosine
 assert(math.cos(math.PI) == -1.0);
 
 // Sine
@@ -515,16 +553,20 @@ var sinOf30degrees = math.sin(radians);
 
 // Truncate the decimal places to 2.
 assert(double.parse(sinOf30degrees.toStringAsPrecision(2)) == 0.5);</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-maximum-and-mininum"></a>Maximum and Mininum</h3></div></div></div><p>The Math library provides optimized <code class="literal">max()</code> and
-      <code class="literal">min()</code> methods.</p><pre class="screen">assert(math.max(1, 1000) == 1000);
+      <code class="literal">min()</code> methods.</p><pre class="screen"><em><span class="remark">ch03/math-tests.dart
+</span></em>assert(math.max(1, 1000) == 1000);
 assert(math.min(1, -1000) == -1000);</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-math-constants"></a>Math Constants</h3></div></div></div><p>Find your favorite constants—<span class="emphasis"><em>pi</em></span>,
-      <span class="emphasis"><em>e</em></span>, and more—in the Math library.</p><pre class="screen">// See the Math library for additional constants.
+      <span class="emphasis"><em>e</em></span>, and more—in the Math library.</p><pre class="screen"><em><span class="remark">ch03/math-tests.dart
+</span></em>// See the Math library for additional constants.
 print(math.E);     // 2.718281828459045
 print(math.PI);    // 3.141592653589793
 print(math.SQRT2); // 1.4142135623730951</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-random-numbers"></a>Random Numbers</h3></div></div></div><p>Generate random numbers with the <a class="ulink" href="http://api.dartlang.org/dart_math/Random.html" target="_top">Random</a>
       class. You can optionally provide a seed to the Random
-      constructor.</p><pre class="screen">var random = new math.Random();
+      constructor.</p><pre class="screen"><em><span class="remark">ch03/math-tests.dart
+</span></em>var random = new math.Random();
 random.nextDouble(); // Between 0.0 and 1.0: [0, 1)
-random.nextInt(10);  // Between 0 and 9.</pre><p>You can even generate random booleans.</p><pre class="screen">var random = new math.Random();
+random.nextInt(10);  // Between 0 and 9.</pre><p>You can even generate random booleans.</p><pre class="screen"><em><span class="remark">ch03/math-tests.dart
+</span></em>var random = new math.Random();
 random.nextBool();  // true or false</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-7"></a>More Information</h3></div></div></div><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_math/index.html" target="_top">Math API docs</a>
       for a full list of methods. Also see the API docs for<span class="keep-together"> <a class="ulink" href="http://api.dartlang.org/dart_core/num.html" target="_top">num,</a></span>
       <a class="ulink" href="http://api.dartlang.org/dart_core/int.html" target="_top">int,</a> and
@@ -536,7 +578,8 @@ random.nextBool();  // true or false</pre></div><div class="sect2"><div class="t
     (<span class="emphasis"><em>CSS</em></span>), getting data using HTTP requests, and
     exchanging data using <a class="link" href="ch03.html#ch03-websockets" title="Sending and Receiving Real-Time Data with WebSockets">WebSockets</a>.
     HTML5 (and dart:html) has many additional APIs that this section doesn’t
-    cover. Only web apps can use dart:html, not command-line apps.</p><p>To use the HTML library in your web app, import <code class="literal">dart:html</code>.</p><pre class="programlisting">import 'dart:html';</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-manipulating-the-dom"></a>Manipulating the DOM</h3></div></div></div><p>To use the DOM, you need to know about
+    cover. Only web apps can use dart:html, not command-line apps.</p><p>To use the HTML library in your web app, import <code class="literal">dart:html</code>.</p><pre class="programlisting"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>import 'dart:html';</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-manipulating-the-dom"></a>Manipulating the DOM</h3></div></div></div><p>To use the DOM, you need to know about
       <span class="emphasis"><em>windows</em></span>, <span class="emphasis"><em>documents</em></span>,
       <span class="emphasis"><em>elements</em></span>, and <span class="emphasis"><em>nodes</em></span>.</p><p>A <a class="ulink" href="http://api.dartlang.org/html/Window.html" target="_top">Window</a> object
       represents the actual window of the web browser. Each Window has a
@@ -557,44 +600,45 @@ random.nextBool();  // true or false</pre></div><div class="sect2"><div class="t
         guide</a> defines the formats of the selectors such as using a #
         prefix to specify IDs and a period (.) for classes.</p><p>The query() function returns the first element that matches the
         selector, while <span class="keep-together"><code class="literal">queryAll()</code> </span>returns a
-        collection of elements that match the selector.</p><pre class="screen">Element elem1 = query('#an-id');           // Find an element by id (an-id).
+        collection of elements that match the selector.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>Element elem1 = query('#an-id');           // Find an element by id (an-id).
 Element elem2 = query('.a-class');         // Find an element by class (a-class).
 List&lt;Element&gt; elems1 = queryAll('div');    // Find all elements by tag (&lt;div&gt;).
 List&lt;Element&gt; elems2 = queryAll('input[type="text"]'); // Find all text inputs.
 
 // Find all elements with the CSS class 'class' inside of a &lt;p&gt;
 // that is inside an element with the ID 'id'.
-List&lt;Element&gt; elems3 = queryAll('#id p .class');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-elements"></a>Manipulating elements</h4></div></div></div><p>You can use properties to change the state of an element. Node
+List&lt;Element&gt; elems3 = queryAll('#id p.class');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-elements"></a>Manipulating elements</h4></div></div></div><p>You can use properties to change the state of an element. Node
         and its subtype Element define the properties that all elements have.
         For example, all elements have <code class="literal">classes</code>, <code class="literal">hidden</code>, <code class="literal">id</code>, <code class="literal">innerHTML</code>, <code class="literal">style</code>, <code class="literal">text</code>, and <code class="literal">title</code> properties. Subclasses of Element
         define additional properties, such as the <code class="literal">href</code> property of <a class="ulink" href="http://api.dartlang.org/html/AnchorElement.html" target="_top">AnchorElement.</a></p><p>Consider this example of specifying an anchor element in
-        HTML:</p><pre class="screen">&lt;a id='example' href='http://example.com'&gt;linktext&lt;/a&gt;</pre><p>This &lt;a&gt; tag specifies an element with an <code class="literal">href</code> attribute and a text node (accessible
+        HTML:</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>&lt;a id="example" href="http://example.com"&gt;link text&lt;/a&gt;</pre><p>This &lt;a&gt; tag specifies an element with an <code class="literal">href</code> attribute and a text node (accessible
         via a <code class="literal">text</code> property) that contains
         the string “linktext”. To change the URL that the link goes to, you
         can use AnchorElement’s <code class="literal">href</code>
-        property:</p><pre class="screen">query('#example').href = 'http://dartlang.org';</pre><p>Often you need to set properties on multiple elements. For
+        property:</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>query('#example').href = 'http://dartlang.org';</pre><p>Often you need to set properties on multiple elements. For
         example, the following code sets the <code class="literal">hidden</code> property of all elements that have a
         class of “mac”, “win”, or “linux”. Setting the <code class="literal">hidden</code> property to true has the same effect
         as adding <code class="literal">display:none</code> to the
-        CSS.</p><pre class="screen">&lt;!-- Some HTML --&gt;
+        CSS.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>&lt;!-- In HTML: --&gt;
 &lt;p&gt;
-  &lt;a href="/downloads/linux" class="os linux"&gt;Download for Linux&lt;/a&gt;
-  &lt;a href="/downloads/mac" class="os mac"&gt;Download for Mac&lt;/a&gt;
-  &lt;a href="/downloads/win" class="os win"&gt;Download for Windows&lt;/a&gt;
+  &lt;span class="os linux"&gt;Words for Linux&lt;/span&gt;
+  &lt;span class="os mac"&gt;Words for Mac&lt;/span&gt;
+  &lt;span class="os win"&gt;Words for Windows&lt;/span&gt;
 &lt;/p&gt;
-
-// Some Dart.
-
+<em><span class="remark">
+</span></em>// In Dart:
 final osList = ['mac', 'win', 'linux'];
 
-main() {
-  var userOs = determineUserOs();
+var userOs = 'linux'; // In real code you'd programmatically determine this.
 
-  for (var os in osList) {            // For each possible OS...
-    bool shouldShow = (os == userOs); // Does this OS match the user's OS?
-    for (var elem in queryAll('.$os')) { // Find all elements for this OS.
-      elem.hidden = !shouldShow;      // Show or hide each element.
-    }
+for (var os in osList) {            // For each possible OS...
+  bool shouldShow = (os == userOs); // Does this OS match the user's OS?
+  for (var elem in queryAll('.$os')) { // Find all elements for this OS.
+    elem.hidden = !shouldShow;      // Show or hide each element.
   }
 }</pre><p>When the right property isn’t available or convenient, you can
         use Element’s <code class="literal">attributes</code> property.
@@ -604,17 +648,19 @@ main() {
         converts to strings. For a list of attribute names and their meanings,
         see the <a class="ulink" href="https://developer.mozilla.org/en/HTML/Attributes" target="_top">
         MDN Attributes page.</a> Here’s an example of setting an
-        attribute’s value.</p><pre class="screen">elem.attributes['someAttribute'] = 'someValue';</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-creating-elements"></a>Creating elements</h4></div></div></div><p>You can add to existing HTML pages by creating new elements and
+        attribute’s value.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>elem.attributes['someAttribute'] = 'someValue';</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-creating-elements"></a>Creating elements</h4></div></div></div><p>You can add to existing HTML pages by creating new elements and
         attaching them to the DOM. Here’s an example of creating a paragraph
-        (&lt;p&gt;) element:</p><pre class="screen">var elem = new ParagraphElement();
+        (&lt;p&gt;) element:</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>var elem = new ParagraphElement();
 elem.text = 'Creating is easy!';</pre><p>You can also create an element by parsing HTML text. Any child
-        elements are also parsed and created.</p><pre class="screen">var elem = new Element.html('&lt;p&gt;Creating &lt;em&gt;is&lt;/em&gt; easy!&lt;/p&gt;');</pre><p>Note that elem is a ParagraphElement in the above
+        elements are also parsed and created.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>var elem2 = new Element.html('&lt;p&gt;Creating &lt;em&gt;is&lt;/em&gt; easy!&lt;/p&gt;');</pre><p>Note that elem is a ParagraphElement in the above
         example.</p><p>Attach the newly created element to the document by assigning a
         parent to the element. You can add an element to any existing
         element’s children. In the following example, <code class="literal">body</code> is an element, and its child elements
-        are accessible (as a List&lt;Element&gt;) from the <code class="literal">children</code> property.</p><pre class="screen">var elem = new ParagraphElement();
-elem.text = "Don't forget to feed the llamas!";
-document.body.children.add(elem);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-adding-replacing-and-removing-nodes"></a>Adding, replacing, and removing nodes</h4></div></div></div><p>Recall that elements are just a kind of node. You can find all
+        are accessible (as a List&lt;Element&gt;) from the <code class="literal">children</code> property.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>document.body.children.add(elem2);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-adding-replacing-and-removing-nodes"></a>Adding, replacing, and removing nodes</h4></div></div></div><p>Recall that elements are just a kind of node. You can find all
         the children of a node using the <code class="literal">nodes</code> property of Node, which returns a
         List&lt;Node&gt;. Once you have this list, you can use the usual List
         methods and operators to manipulate the children of the node.</p><p>To add a node as the last child of its parent, use the List

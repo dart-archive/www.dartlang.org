@@ -84,8 +84,9 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
             method is now named <code class="literal">any()</code>. Many values returned
             by Iterables are now lazily filled Iterables; you can use
             <code class="literal">toList()</code> or <code class="literal">toSet()</code> to force
-            evaluation. More details will be in an <a class="ulink" href="http://www.dartlang.org/articles/" target="_top">article</a>.
-            <em><span class="remark">{PENDING: update URL}</span></em></p></li><li class="listitem"><p>The Iterator interface has changed from
+            evaluation. We recommend <span class="emphasis"><em>extending</em></span> Iterable
+            rather than just implementing it, so you can take advantage of
+            added functionality. More details are in an article, <a class="ulink" href="http://www.dartlang.org/articles/m3-whats-new/iterables.html" target="_top">Iterables</a>.</p></li><li class="listitem"><p>The Iterator interface has changed from
             <code class="literal">next()</code> and <code class="literal">hasNext()</code> to
             <code class="literal">current</code> and
             <code class="literal">moveNext()</code>.</p></li><li class="listitem"><p>The dart:json library no longer has a JSON class. Former
