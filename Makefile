@@ -16,7 +16,7 @@ add_version:
 	ruby -p -i -e '$$_.gsub!(/CHANGEME/, "$(CURRENT_BRANCH)")' ./build/app.yaml
 
 deploy: build
-	cd ./build && appcfg.py update .
+	cd ./build && appcfg.py --oauth2 update .
 	@echo "Visit http://$(CURRENT_BRANCH).dart-lang.appspot.com"
 
 server:
