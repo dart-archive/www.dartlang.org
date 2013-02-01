@@ -80,7 +80,7 @@ row03:
   title: Pop Pop Win
   name: poppopwin
   alt: Gameboard for Pop Pop Win.
-  source_url: https://github.com/dart-lang/dart-html5-samples
+  source_url: https://github.com/dart-lang/pop-pop-win
   live_url: http://dart-lang.github.com/pop-pop-win/
   desc: Pop balloons but avoid the bombs in this fun game.
   features:
