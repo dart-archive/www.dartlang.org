@@ -41,9 +41,10 @@ CONFIGURING YOUR MAC SYSTEM
 CONFIGURING YOUR WINDOWS SYSTEM
 
 * Essentially the same as MAC, above
-* You probably won't have MAKE available on the command line, so you can 
-run `jekyll` from the `src/site` folder.  Remember to type `chcp 65001` at the command prompt first 
-to change the codepage to UTF-8, otherwise jekyll will fail silently.
+  * Install Python and Ruby using windows installers
+  * Install ruby dev kit for windows
+* Run 'gem install bundler'
+* Run 'bundle install' from the root of your dartlang project
 
 DEVELOPMENT
 
@@ -54,6 +55,16 @@ DEVELOPMENT
 * Edit, create docs as normal.
 * If you're making changes to the Sass (SCSS) files, you can regenerate the CSS
   by running `make compass` from the root of the repository on the command line.
+
+DEVELOPMENT (windows specific tips)
+
+* You probably won't have MAKE available on the command line by default.  
+  * To just get up and running, run `jekyll` from the `src/site` folder.  
+  * This starts up the jekyll webserver and generates into build/static
+  * If jekyll does not generate output, you need to type `chcp 65001` at the 
+    command prompt to change the code page to UTF-8 (jekyll fails silently 
+    if this is not done).
+  * To CLEAN, simply delete the contents of build/static and restart jekyll
 
 DEPLOYMENT
 
