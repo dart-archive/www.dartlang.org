@@ -38,6 +38,14 @@ CONFIGURING YOUR MAC SYSTEM
       which you downloaded from http://www.python.org/download/releases/2.7.3/
         * The full path is /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
 
+CONFIGURING YOUR WINDOWS SYSTEM
+
+* Essentially the same as MAC, above
+  * Install Python and Ruby using windows installers
+  * Install ruby dev kit for windows
+* Run 'gem install bundler'
+* Run 'bundle install' from the root of your dartlang project
+
 DEVELOPMENT
 
 * Make sure you are in the root of this project.
@@ -47,6 +55,16 @@ DEVELOPMENT
 * Edit, create docs as normal.
 * If you're making changes to the Sass (SCSS) files, you can regenerate the CSS
   by running `make compass` from the root of the repository on the command line.
+
+DEVELOPMENT (windows specific tips)
+
+* You probably won't have MAKE available on the command line by default.  
+  * To just get up and running, run `jekyll` from the `src/site` folder.  
+  * This starts up the jekyll webserver and generates into build/static
+  * If jekyll does not generate output, you need to type `chcp 65001` at the 
+    command prompt to change the code page to UTF-8 (jekyll fails silently 
+    if this is not done).
+  * To CLEAN, simply delete the contents of build/static and restart jekyll
 
 DEPLOYMENT
 
