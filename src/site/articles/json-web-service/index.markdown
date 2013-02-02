@@ -7,23 +7,24 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-04-01
-  updated_on: 2012-11-01
+  updated_on: 2013-02-02
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 
 _Written by Chris Buckett<br>
-April 2012 (updated November 2012)_
+April 2012 (updated February 2013)_
 
 Most client-side Dart apps need a way to communicate with a server, and sending
 JSON via [XMLHttpRequest](https://developer.mozilla.org/en/XMLHttpRequest) is
 the preferred way to do this. This article discusses communicating with a
-server using the [HttpRequest API](http://api.dartlang.org/html/HttpRequest.html)
-from the [dart:html](http://api.dartlang.org/html.html) library and parsing JSON
-data using the [dart:json](http://api.dartlang.org/json.html) library. It then
-goes on to show how to provide dot-notation access to JSON data through the
-use of JsonObject.
+server using the 
+[HttpRequest API](http://api.dartlang.org/html/HttpRequest.html)
+from the [dart:html](http://api.dartlang.org/html.html) library and 
+parsing JSON data using the [dart:json](http://api.dartlang.org/json.html) 
+library. It then goes on to show how to provide dot-notation access to JSON 
+data through the use of JsonObject.
 
 #### Contents
 
@@ -38,7 +39,7 @@ use of JsonObject.
   <li><a href="#parsing-json">Parsing JSON</a>
     <ol>
       <li><a href="#jsonobject">Introducing JsonObject</a></li>
-      <li><a href="#note-on-jsonp">A note on JSONP and HttpRequest</a></li>
+      <li><a href="#note-on-cors">A note on CORS and HttpRequest</a></li>
     </ol>
   </li>
   <li><a href="#summary">Summary</a></li>
@@ -50,9 +51,9 @@ use of JsonObject.
 
 Many modern web apps are powered by RESTful web services that send and receive
 data encoded as JSON. This article features a web service that responds to an
-HTTP GET to the URL `/programming-languages/dart` by returning the following
-JSON string, which contains a string, a list, and a map that represent
-information about the Dart language:
+HTTP GET request to the URL `/programming-languages/dart` by returning the 
+following JSON string, which contains a string, a list, and a map that 
+represents information about the Dart language:
 
 {% prettify json %}
 {
@@ -69,12 +70,21 @@ The same web service accepts data on the same URL with an HTTP POST.  The web
 service interprets a POST as a request to create a new object on the server,
 like an SQL INSERT.  The POSTed JSON data is sent in the HTTP body.
 
+<aside class="alert alert-info" markdown="1">
+  <strong>Note:</strong>
+  The source code for the examples in this article, and a simple dart 
+  web server that responds to these GET and POST requests is 
+  [available on github](https://github.com/chrisbu/dartlang_json_webservice_article_code).  
+  Full instructions for use are contained in the 
+  [README file](https://github.com/chrisbu/dartlang_json_webservice_article_code/blob/master/README.md).
+</aside>
+
 <h2 id="connecting-to-server">Connecting to the server</h2>
 
-When communicating with a web service, use the HttpRequest API from the
-dart:html library.
-HttpRequest is a standard way to programmatically send and receive data to
-and from web servers.
+When communicating with a web service, use the <code>HttpRequest</code> 
+API from the dart:html library. HttpRequest is a standard way to 
+programmatically send and receive data to and from web servers.  This is 
+Dart's equivalent to XMLHttpRequest in JavaScript.
 
 <h3 id="getting-data">Getting data from the server</h3>
 
@@ -83,64 +93,72 @@ constructor called <code>get</code> that takes a URL and a callback function
 that's invoked when the server responds.
 
 {% prettify dart %}
-getLanguageData(String languageName, onSuccess(HttpRequest req)) {
-  var url = "http://example.com/programming-languages/$languageName";
+void loadData() {
+  var url = "http://127.0.0.1:8080/programming-languages";
 
   // call the web server asynchronously
-  var request = new HttpRequest.get(url, onSuccess);
+  var request = new HttpRequest.get(url, onDataLoaded);
 }
 {% endprettify %}
 
-Then elsewhere in your code, you can define an <code>onSuccess</code> 
-callback function and call the <code>getLanguageData</code> function:
+Then elsewhere in your code, you can define an <code>onDataLoaded</code> 
+callback function and call the <code>loadData()</code> function:
+
 {% prettify dart %}
 // print the raw json response text from the server
-onSuccess(HttpRequest req) {
-   print(req.responseText); // print the received raw JSON text
-}
+void onDataLoaded(HttpRequest req) {
+  var jsonString = req.responseText;
+  print(jsonString);
+};
 
 main() {
-  getLanguageData("dart", onSuccess);
+  loadData();
 }
 {% endprettify %}
 
-Note: HttpRequest.get() is a convenience constructor, and its name will change. The
-full HttpRequest API is still an option for HTTP GET, if you need more control
-over the API.
+<aside class="alert alert-info" markdown="1">
+  <strong>Note:</strong>
+  <code>HttpRequest.get()</code> is a convenience constructor that wraps the
+full HttpRequest API.  The full HttpRequest API is still available if you need finer-grained control over the API.
+</aside>
 
 <h3 id="saving-object">Saving objects on the server</h3>
 
-To create a new object on the server, use the raw HttpRequest API with the HTTP
-POST method.  Use the readyStateChange listener to be notified when the request
-is complete.  The example below calls an onSuccess function when the request is
-complete:
+To create a new object on the server, use the full HttpRequest API with the 
+HTTP POST method.  Use the readyStateChange listener to be notified when the 
+request is complete.  The example below calls an onSuccess function when the 
+request is complete:
 
 {% prettify dart %}
-saveLanguageData(String data, onSuccess(HttpRequest req)) {
+void saveData() {
   HttpRequest req = new HttpRequest(); // create a new XHR
-
+  
   // add an event handler that is called when the request finishes
-  req.on.readyStateChange.add((Event e) {
-    if (req.readyState == HttpRequest.DONE &&
-        (req.status == 200 || req.status == 0)) {
-      onSuccess(req); // called when the POST successfully completes
+  request.onReadyStateChange.listen((_) {
+    if (request.readyState == HttpRequest.DONE &&
+        (request.status == 200 || request.status == 0)) {
+      // data saved OK.
+      print(request.responseText); // output the response from the server
     }
   });
 
-  var url = "http://example.com/programming-languages/";
-  req.open("POST", url); // Use POST http method to send data in the next call
-  req.send(data); // kick off the request to the server
-}
+  // POST the data to the server
+  var url = "http://127.0.0.1:8080/programming-languages";
+  request.open("POST", url, false);
 
-// print the raw json response text from the server
-onSuccess(HttpRequest req) {
-   print(req.responseText); // print the received raw JSON text
+  String jsonData = '{"language":"dart"}'; // etc...
+  request.send(jsonData); // perform the async POST
 }
-
-String jsonData = '{"language":"dart"}'; // etc...
-saveLanguageData(jsonData, onSuccess); // send the data to
-                                         // the server
 {% endprettify %}
+
+<aside>
+  <div class="alert alert-warning">
+  <strong>Warning:</strong>
+If you are trying this out for yourself against a real server, you may receive 
+errors referring to <code>Access-Control-Allow-Origin</code>.  See the section 
+"<a href="#note-on-cors">A note on CORS and HttpRequest</a>" below. 
+  </div>
+</aside>
 
 <h2 id="parsing-json">Parsing JSON</h2>
 
@@ -148,42 +166,69 @@ Now that you have seen how HttpRequest GETs data from the server back to the
 client, and POSTs data from the client to the server, the next step is to make
 use of the JSON data in the client application.
 
-The dart:json library provides two static functions, JSON.parse() and
-JSON.stringify().
+The [dart:json](http://api.dartlang.org/dart_json.html) library provides two 
+top-level functions, <code>parse()</code> and <code>stringify()</code>.
 
-The parse() function converts a JSON string into a List of values or a Map of
-key-value pairs, depending upon the format of the JSON:
+<aside class="alert alert-info" markdown="1">
+  <strong>Tip:</strong>
+  A previous version of this library had these functions as static methods on 
+a <code>JSON</code> class.  To avoid breaking changes with older code, you can import the JSON library with a library prefix, such as: <code>import 'dart:json' as JSON</code>.  This will allow using syntax such as <code>JSON.parse()</code> and <code>JSON.stringify()</code>.
+</aside>
+
+The <code>parse()</code> function converts a string containing JSON formatted 
+text into a List of values or a Map of key-value pairs, depending upon the 
+content of the JSON:
 
 {% prettify dart %}
-String listAsJson = '["Dart",0.8]'; // input List of data
-List parsedList = JSON.parse(listAsJson);
-print(parsedList[0]); // Dart
-print(parsedList[1]); // 0.8
+import 'dart:json';
 
-String mapAsJson = '{"language":"dart"}';  // input Map of data
-Map parsedMap = JSON.parse(mapAsJson);
-print(parsedMap["language"]); // dart
+main() {
+  String listAsJson = '["Dart",0.8]'; // input List of data
+  List parsedList = parse(listAsJson);
+  print(parsedList[0]); // Dart
+  print(parsedList[1]); // 0.8
+
+  String mapAsJson = '{"language":"dart"}';  // input Map of data
+  Map parsedMap = parse(mapAsJson);
+  print(parsedMap["language"]); // dart
+}
 {% endprettify %}
 
 JSON also works for more complex data structures, such as nested maps inside
 of lists.
 
-Use JSON.parse() to convert the HttpRequest's response from raw text to an
-actual Dart object:
+Use <code>parse()</code> to convert the HttpRequest's response from raw text to an actual Dart Map object:
 
 {% prettify dart %}
-onSuccess(HttpRequest req) {
-  Map data = JSON.parse(req.responseText); // parse response text
+void onDataLoaded(HttpRequest req) {
+  Map data = parse(req.responseText); // parse response text
   print(data["language"]); // dart
   print(data["targets"][0]); // dartium
   print(data["website"]["homepage"]); // www.dartlang.org
+};
+{% endprettify %}
+
+The <code>stringify()</code> function works the same as <code>parse</code> but in reverse.
+
+{% prettify dart %}
+void saveData()
+  
+  // snip setting up HttpRequest
+
+  var mapData = new Map();
+  mapData["language"] = "dart";
+  mapData["targets"] = new List();
+  mapData["targets"].add("dartium");
+
+  String jsonData = stringify(mapData); // convert map to String
+  request.send(jsonData); // perform the async POST
 }
 {% endprettify %}
 
 Using simple Maps with strings as keys has some unfortunate side effects.
 Making a typo in any of the string names will return a null value which could
-then go on to cause a NullPointerException.  Accessing the values from the map
-cannot be validated, before run-time.
+then go on to cause a NoSuchMethodError.  Accessing the values from the map
+cannot be validated before run-time.
 
 One of the benefits of using Dart is support for optional static types. Static
 types help you catch bugs early by allowing tools to detect type mismatches
@@ -197,12 +242,12 @@ the tools to help you catch bugs early. The following example feels more like
 natural Dart code:
 
 {% prettify dart %}
-Language data = // ... initialize data ...
+var data = // ... initialize data ...
 
 // property access is validated by tools
 print(data.language);
 print(data.targets[0]);
-print(data.website.homepage);
+data.website.foreach((key, value) => print("$key=$value"));
 {% endprettify %}
 
 Fortunately, the ability to write code using this “dot notation” is built into
@@ -211,11 +256,11 @@ flexibility of a Map with the structure of a class.
 
 <h3 id="jsonobject">Introducing JsonObject</h3>
 
-This flexibility of JSON and Maps combined with the structure of classes is made
- possible with JsonObject, which is a third-party open source library.
-JsonObject uses JSON.parse() to extract the JSON data into a map, and then it
-uses the noSuchMethod feature of Dart classes to provide a way to access values
-in the parsed map by using dot notation.
+This flexibility of JSON and Maps combined with the structure of classes is 
+made possible with JsonObject, which is a third-party open source library.
+JsonObject uses the dart:json parse() function to extract the JSON data into 
+a map, and then it uses the noSuchMethod feature of Dart classes to provide a 
+way to access values in the parsed map by using dot notation.
 
 To learn more about JsonObject and download its code, go to the [project on
 GitHub](https://github.com/chrisbu/dartwatch-JsonObject).
@@ -225,74 +270,99 @@ intercept unknown method calls.  For example, if you invoke a getter such as
 data.language, where data is a JsonObject, then behind the scenes
 `noSuchMethod("get:language", null)` is called.  Likewise, when you try to set
 a value on a JsonObject, `noSuchMethod("set:language", ["Dart"])` is called.
-JsonObject intercepts the calls to noSuchMethod and accesses the underlying Map.
+JsonObject intercepts the calls to noSuchMethod and accesses the underlying 
+Map.  Data contained within a JsonObject is still Map data, and so the dart:json parse() and stringify() methods still work on JsonObjects.
 
 Here is an example of using JsonObject instead of a raw Map:
 
 {% prettify dart %}
-onSuccess(HttpRequest req) {
+void onDataLoaded(HttpRequest req) {
   // decode the JSON response text using JsonObject
-  var data = new JsonObject.fromJsonString(req.responseText);
+  JsonObject data = new JsonObject.fromJsonString(req.responseText);
 
   // dot notation property access
   print(data.language);         // Get a simple value
   data.language = "Dart";       // Set a simple value
   print(data.targets[0]);       // Get a value in a list
-  print(data.website.homepage); // Get a value from a child object
+  // iterate the website map
+  data.website.foreach((key, value) => print("$key=$value")); 
 };
 {% endprettify %}
 
-You can also use this in your own classes. By extending JsonObject, and
-providing a suitable constructor, you can increase the readability of your code,
- and allow your classes to convert back and forth between a JSON string and
-JsonObjects internal map structure.
+You can also use this in conjunction with your own classes. By extending 
+JsonObject, providing a factory constructor and implementing a suitable 
+interface, you can increase the readability of your code, allow the tools
+to help with type checking, and allow your classes to convert back and forth between a JSON string and JsonObject's internal map structure.  
+
+If factory constructors and implementing interfaces sounds like hard work, the following example shows that it really isn't.
 
 {% prettify dart %}
-class Language extends JsonObject {
-  Language.fromJsonString(jsonString) : super.fromJsonString(jsonString);
+// Abstract class defines the interface of our JSON data structure
+abstract class Language {
+  String language;
+  List targets;
+  Map website;
 }
 
-onSuccess(HttpRequest req) {
-  // decode the JSON response text using JsonObject
-  Language data = new Language.fromJsonString(req.responseText);
+/** Implementation class extends JsonObject, and uses the structure
+ *  defined by implementing the Language abstract class. 
+ *  JsonObject's noSuchMethod() function provides the actual underlying
+ *  implementation.
+ */
+class LanguageImpl extends JsonObject implements Language {
+  LanguageImpl(); 
+  
+  factory LanguageImpl.fromJsonString(string) {
+    return new JsonObject.fromJsonString(string, new LanguageImpl());
+  }
+}
+{% endprettify %}
+
+Elsewhere in your code, you can use this structure to get strong typing of your JSON data. 
+
+{% prettify dart %}
+void onDataLoaded(HttpRequest req) {
+  // Decode the JSON response text using LanguageImpl
+  // The Language interface provides structure 
+  Language data = new LanguageImpl.fromJsonString(req.responseText);
 
   // dot notation property access
   print(data.language);         // Get a simple value
   data.language = "Dart";       // Set a simple value
   print(data.targets[0]);       // Get a value in a list
-  print(data.website.homepage); // Get a value from a child object
+  // iterate the website map
+  data.website.foreach((key, value) => print("$key=$value")); 
 };
 {% endprettify %}
-
 
 JsonObject also allows you to create new, empty objects, without first
 converting from a JSON string, by using the default constructor:
 
 {% prettify dart %}
-  Language data = new JsonObject();
+  var data = new JsonObject();
   data.language = "Dart";
-  data.website = new JsonObject();
-  data.website.homepage = "http://www.dartlang.org";
+  data.targets = new List();
+  data.targets.add("Dartium");
 {% endprettify %}
 
 JsonObject also implements the Map interface, which means that you can use the
 standard map syntax:
 
 {% prettify dart %}
-Language data = new JsonObject();
+var data = new JsonObject();
 data["language"] = "Dart"; // standard map syntax
 {% endprettify %}
 
 Because JsonObject implements Map, you can pass a JsonObject into
-JSON.stringify(), which converts a Map into JSON for sending the data back to
+stringify(), which converts a Map into JSON for sending the data back to
 the server:
 
 {% prettify dart %}
-Language data = new JsonObject.fromJsonString(req.responseText);
+var data = new JsonObject.fromJsonString(req.responseText);
 
 // later...
 // convert the JsonObject data back to a string
-String json = JSON.stringify(data);
+String json = stringify(data);
 
 // and POST it back to the server
 HttpRequest req = new HttpRequest();
@@ -306,8 +376,7 @@ Simply specify the following dependency:
 
 {% prettify yaml %}
 dependencies:
-  json_object:
-    git: git://github.com/chrisbu/dartwatch-JsonObject.git
+  json_object: any
 {% endprettify %}
 
 and import the package using the following import statement:
@@ -316,23 +385,28 @@ and import the package using the following import statement:
 import "package:json_object/json_object.dart";
 {% endprettify %}
 
-
-<h3 id="note-on-jsonp">A note on JSONP and HttpRequest</h3>
+<h3 id="note-on-cors">A note on CORS and HttpRequest</h3>
 
 One caveat: Make sure your app is served from the same origin (domain name,
 port, and application layer protocol) as the web service you are trying to
 access with HttpRequest. Otherwise your app will hit the
-Access-Control-Allow-Origin restriction.  This is a security restriction to
-prevent loading data from a different server than the one serving the client
-app.
+<code>Access-Control-Allow-Origin</code> restriction build into your web
+browser.  This is a security restriction to prevent loading data from a 
+different server than the one serving the client app.
 
 You can get around this restriction in a couple of ways.  The first is to use
 an emerging technology known as
 [Cross-Origin Resource Sharing](https://developer.mozilla.org/en/http_access_control)
-(CORS), which is starting to become implemented by web servers. The second,
-older way is to use a workaround called JSONP, which makes use of JavaScript
-callbacks.  The Dart - JavaScript interop
-libraries in the [js interop package](https://github.com/dart-lang/js-interop/)
+(CORS), which is starting to become implemented by web servers. In [the code 
+that accompanies this article](https://github.com/chrisbu/dartlang_json_webservice_article_code), 
+you can find [simpleserver.dart](https://github.com/chrisbu/dartlang_json_webservice_article_code/blob/master/simpleserver/simpleserver.dart) that serves example JSON data for this article.
+This makes use of CORS headers to allow access from a different URL, such as 
+the automatically generated URL of apps launched from the Dart editor.
+
+The second, older way, that only works for GET requests is to use a workaround 
+called JSONP, which makes use of JavaScript callbacks.  
+The Dart - JavaScript interop libraries in the [js 
+interop package](http://pub.dartlang.org/packages/js) available on pub
 are suitable for JavaScript callbacks:
 
 {% prettify dart %}
@@ -369,10 +443,11 @@ dart:json library by letting you use dot notation to access data fields.
 
 <h2 id="resources">Resources</h2>
 
-* [dart:json](http://api.dartlang.org/json/JSON.html)
+* [dart:json](http://api.dartlang.org/dart_json.html)
 * [HttpRequest](http://api.dartlang.org/html/HttpRequest.html)
 * [JsonObject](https://github.com/chrisbu/dartwatch-JsonObject)
 * [Using JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html)
+* [Dart JS Interop Library](http://dart-lang.github.com/js-interop/docs/js.html)
 * [About access-control restrictions](https://developer.mozilla.org/en/http_access_control)
 
 <h3 id="about-author">About the author</h3>
@@ -383,7 +458,7 @@ alt="Chris Buckett head shot" align="left" style="margin-right: 10px">
 Chris Buckett is a Technical Manager for
 [Entity Group Ltd](http://www.entity.co.uk/), responsible for building and
 delivering enterprise client-server webapps, mostly with GWT, Java and .Net.
-He runs the [dartwatch.com blog](http://blog.dartwatch.com/), and is currently
-writing the book _Dart in Action_, which is available
+He runs the [dartwatch.com blog](http://blog.dartwatch.com/), and has written
+the writing the book _Dart in Action_, which is available
 at [manning.com](http://www.manning.com/buckett).
 
