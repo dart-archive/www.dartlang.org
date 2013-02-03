@@ -73,7 +73,7 @@ main() {
   var msg = query('#msg');
   var btn = new ButtonElement();
   btn.text = 'Click me!';
-  btn.on.click.add((e) => msg.text = 'Dart!');
+  btn.onClick.listen((e) => msg.text = 'Dart!');
   document.body.nodes.add(btn);
 }
 {% endprettify %}
@@ -86,7 +86,7 @@ main() {
   var msg = query('#msg');
   var btn = new ButtonElement();
   btn.text = 'Click me!';
-  btn.on.click.add((e) {
+  btn.onClick.listen((e) {
     msg.text = 'Dart!';
   });
   document.body.nodes.add(btn);
