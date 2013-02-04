@@ -6,7 +6,7 @@ description: "Dart is optionally typed, so variables can have type annotations. 
 
 # Variables - Dart Tips, Ep 3
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/_td6qXi_GmA?list=PLndbWGuLoHeaPgfKYlwJvDDxCrRdDbga3" frameborder="0" allowfullscreen></iframe>
+<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/_td6qXi_GmA" frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 

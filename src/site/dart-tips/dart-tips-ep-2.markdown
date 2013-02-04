@@ -6,7 +6,7 @@ description: "Dart runs fast in production mode, and runs with type assertions i
 
 # Runtime Modes - Dart Tips, Ep 2
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/CfRFixQTJWA?list=PLndbWGuLoHeaPgfKYlwJvDDxCrRdDbga3" frameborder="0" allowfullscreen></iframe>
+<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/CfRFixQTJWA" frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 

@@ -8,7 +8,7 @@ comfortable with reading Dart code."
 
 # A Simple Dart Script - Dart Tips, Ep 1
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/g09UVKyYfIs?list=PLndbWGuLoHeaPgfKYlwJvDDxCrRdDbga3" frameborder="0" allowfullscreen></iframe>
+<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/g09UVKyYfIs" frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 
