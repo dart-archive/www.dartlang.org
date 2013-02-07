@@ -171,7 +171,7 @@ used to display the incorrectly guessed letters
 is written in the HTML file as follows:
 
 {% prettify html %}
-<p id="wrong"><template iterate="wrongchar in wrongletters"> {{wrongchar}} </template></p>
+<p id="wrong"><template iterate="wrongchar in wrongletters"> {% raw  %}{{wrongchar}}{% endraw %} </template></p>
 {% endprettify %}
 
 The &lt;template&gt; tag has an attribute called `iterate`,
