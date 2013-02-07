@@ -171,7 +171,7 @@ used to display the incorrectly guessed letters
 is written in the HTML file as follows:
 
 {% prettify html %}
-<p id="wrong"><template iterate="wrongchar in wrongletters"> {{wrongchar}} </template></p>
+<p id="wrong"><template iterate="wrongchar in wrongletters"> {% raw  %}{{wrongchar}}{% endraw %} </template></p>
 {% endprettify %}
 
 The &lt;template&gt; tag has an attribute called `iterate`,
@@ -182,16 +182,16 @@ whose value is an expression that takes the form `identifier in collection`.
 object.
 The template iterates over the collection assigning each value to `identifier`,
 a new variable that is in scope for the body of the iterate element.
-In our example, the collection is wrongletters&mdash;a list of strings.
+In our example, the collection is `wrongletters`&mdash;a list of strings.
 The identifier `wrongchar` is used as part of the text in the body
 of a simple paragraph element.
 
-The wrongletters list of strings is populated based on input from the user.
+The `wrongletters` list of strings is populated based on input from the user.
 The input field has a change event handler function, checkit(),
 that is called for each letter the user types into the input field.
 The checkit() function determines whether or not the letter is correct.
 If it is not,
-the String containing the letter is added to the wrongletters list.
+the String containing the letter is added to the `wrongletters` list.
 
 This diagram shows you the connections between the HTML code,
 the Dart code, and the user interface.
@@ -201,7 +201,7 @@ the Dart code, and the user interface.
 As the user continues to guess incorrect letters,
 the UI is kept up-to-date with the list by the Web UI package
 through its binding mechanism
-because the template is bound to the Dart list wrongletters.
+because the template is bound to the Dart list `wrongletters`.
 
 The template loop that manages
 the display of hyphens and correctly guessed letters is similar
