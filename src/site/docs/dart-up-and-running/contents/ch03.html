@@ -253,15 +253,14 @@ assert(ingredients.isSubsetOf(allElements));</pre><p>Refer to the <a class="ulin
         no items.</p><pre class="screen"><em><span class="remark">ch03/collection-isEmpty.dart
 </span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
 assert(!teas.isEmpty);</pre><p>To apply a function to each item in a collection, you can use
-        <code class="literal">forEach()</code>. Or use
-        <code class="literal">mappedBy().toList()</code> if you want an object that
-        contains the results.</p><pre class="screen"><em><span class="remark">ch03/collection-isEmpty.dart
+        <code class="literal">forEach()</code>. Or use <code class="literal">map().toList()</code>
+        if you want an object that contains the results.</p><pre class="screen"><em><span class="remark">ch03/collection-isEmpty.dart
 </span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 teas.forEach((tea) =&gt; print('I drink $tea'));
 
-var loudTeas = teas.mappedBy((tea) =&gt; tea.toUpperCase()).toList();
-assert(loudTeas.any((tea) =&gt; tea == 'GREEN'));</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The object returned by <code class="literal">mappedBy()</code> is
+var loudTeas = teas.map((tea) =&gt; tea.toUpperCase()).toList();
+assert(loudTeas.any((tea) =&gt; tea == 'GREEN'));</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The object returned by <code class="literal">map()</code> is
           <span class="emphasis"><em>lazily evaluated</em></span>: your function isn’t called
           until you ask for an item from the returned object. To force the
           function to be called for every item in the collection, you can use
@@ -664,43 +663,52 @@ elem.text = 'Creating is easy!';</pre><p>You can also create an element by parsi
         the children of a node using the <code class="literal">nodes</code> property of Node, which returns a
         List&lt;Node&gt;. Once you have this list, you can use the usual List
         methods and operators to manipulate the children of the node.</p><p>To add a node as the last child of its parent, use the List
-        <code class="literal">add()</code> method.</p><pre class="screen">// Find the parent by ID, and add elem as its last child.
+        <code class="literal">add()</code> method.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>// Find the parent by ID, and add elem as its last child.
 query('#inputs').nodes.add(elem);</pre><p>To replace a node, use the Node <code class="literal">replaceWith()</code>
-        method.</p><pre class="screen">// Find a node by ID, and replace it in the DOM.
+        method.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>// Find a node by ID, and replace it in the DOM.
 query('#status').replaceWith(elem);</pre><p>To remove a node, use the Node <code class="literal">remove()</code>
-        method.</p><pre class="screen">// Find a node by ID, and remove it from the DOM.
-query('#example').remove();</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-styles"></a>Manipulating CSS styles</h4></div></div></div><p>CSS, or <span class="emphasis"><em>cascading style sheets</em></span>, is used to
+        method.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>// Find a node by ID, and remove it from the DOM.
+query('#expendable').remove();</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-styles"></a>Manipulating CSS styles</h4></div></div></div><p>CSS, or <span class="emphasis"><em>cascading style sheets</em></span>, is used to
         define the presentation styles of DOM elements. You can change the
         appearance of an element by attaching ID and class attributes to
         it.</p><p>Each element has a <code class="literal">classes</code>
         field, which is a list. Add and remove CSS classes simply by adding
         and removing strings from this collection. For example, the following
         sample adds the <code class="literal">warning</code> class to an
-        element.</p><pre class="screen">var element = query('#message');
+        element.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>var element = query('#message');
 element.classes.add('warning');</pre><p>It’s often very efficient to find an element by ID. You can
-        dynamically set an element ID with the <code class="literal">id</code> property.</p><pre class="screen">var message = new DivElement();
-message.id = 'message';
+        dynamically set an element ID with the <code class="literal">id</code> property.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>var message = new DivElement();
+message.id = 'message2';
 message.text = 'Please subscribe to the Dart mailing list.';</pre><p>You can reduce the redundant text in this example by using
-        method cascades:</p><pre class="screen">var message = new DivElement()
-    ..id = 'message'
+        method cascades:</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>var message = new DivElement()
+    ..id = 'message2'
     ..text = 'Please subscribe to the Dart mailing list.';</pre><p>While using IDs and classes to associate an element with a set
         of styles is best practice, sometimes you want to attach a specific
-        style directly to the element.</p><pre class="screen">message.style
+        style directly to the element.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>message.style
     ..fontWeight = 'bold'
     ..fontSize = '3em';</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-events"></a>Handling events</h4></div></div></div><p>To respond to external events such as clicks, changes of focus,
         and selections, add an event listener. You can add an event listener
         to any element on the page. Event dispatch and propagation is a
         complicated subject; <a class="ulink" href="http://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture" target="_top">research
-        the details</a> if you’re new to web programming.</p><p>Add an event handler using <code class="literal">element.on.<em class="replaceable"><code>event</code></em>.add(<em class="replaceable"><code>function</code></em>)</code>,
-        where <code class="literal"><em class="replaceable"><code>event</code></em></code> is the
+        the details</a> if you’re new to web programming.</p><p>Add an event handler using <code class="literal">element.on<em class="replaceable"><code>Event</code></em>.listen(<em class="replaceable"><code>function</code></em>)</code>,
+        where <code class="literal"><em class="replaceable"><code>Event</code></em></code> is the
         event name and <code class="literal"><em class="replaceable"><code>function</code></em></code> is the
         event handler.</p><p>For example, here’s how you can handle clicks on a
-        button.</p><pre class="screen">// Find a button by ID and add an event handler.
-query('#submitInfo').on.click.add((e) {
+        button.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>// Find a button by ID and add an event handler.
+query('#submitInfo').onClick.listen((e) {
   // When the button is clicked, it runs this code.
   submitData();
 });</pre><p>Events can propagate up and down through the DOM tree. To
-        discover which element originally fired the event, use <code class="literal">e.target</code>.</p><pre class="screen">document.body.on.click.add((e) {
+        discover which element originally fired the event, use <code class="literal">e.target</code>.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>document.body.onClick.listen((e) {
   var clickedElem = e.target;
   print('You clicked the ${clickedElem.id} element.');
 });</pre><p>To see all the events for which you can register an event
@@ -715,69 +723,91 @@ query('#submitInfo').on.click.add((e) {
       resources that are hosted on an origin that is different from the origin
       of the app. If you need to access resources that live on a different web
       server, you need to either use a technique called JSONP or enable CORS
-      headers on the remote resources.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_getting_data_from_the_server"></a>Getting data from the server</h4></div></div></div><p>The <code class="literal">HttpRequest.get()</code>
-        constructor is an easy way to get data from a web server.</p><pre class="screen">import 'dart:html';
-import 'dart:json' as json;
+      headers on the remote resources.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_getting_data_from_the_server"></a>Getting data from the server</h4></div></div></div><p>The HttpRequest static method <code class="literal">getString()</code> is
+        an easy way to get data from a web server. Use
+        <code class="literal">then()</code> after <code class="literal">getString()</code> to
+        specify the function that handles the string data.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_2_html.dart
+</span></em>import 'dart:html';
+import 'dart:async';
 
-onSuccess(HttpRequest request) {
-  Map response = json.parse(request.responseText);
-  String name = response['name'];
-  String license = response['license'];
-  print('The $name project uses the $license license.');
-}
+// A JSON-formatted file in the same location as this page.
+var uri = 'data.json';
 
 main() {
-  // Request the data at 'data.json', a file in the same location as this page.
-  var httpRequest = new HttpRequest.get('data.json', onSuccess);
-}</pre><p>The <code class="literal">onSuccess()</code> function runs when the data
-        at the specified URI is successfully retrieved. In this case, we are
-        dynamically loading a JSON file, whose contents are delivered in
-        <code class="literal">request.responseText</code>. Information
-        about the JSON API is in <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and Decoding Objects">the section called “dart:json - Encoding and Decoding Objects”</a>.</p><p>The <code class="literal">HttpRequest.get()</code>
-        constructor is great for simple cases, but you can also use the full
-        API to handle more interesting cases. For example, you can capture
-        errors and set arbitrary headers.</p><p>The general flow for using the full API of HttpRequest is as
-        follows:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Create the HttpRequest object.</p></li><li class="listitem"><p>Open the URL with either <code class="literal">GET</code> or <code class="literal">POST</code>.</p></li><li class="listitem"><p>Attach event handlers.</p></li><li class="listitem"><p>Send the request.</p></li></ol></div><p>A full example of handling errors follows:</p><pre class="screen">import 'dart:html';
-import 'dart:json' as json;
+  // Read a JSON file.
+  HttpRequest.getString(uri).then(processString);
+}
 
-loadEnd(HttpRequest request) {
-  if (request.status != 200) {
-    print('Uh oh, there was an error of ${request.status}');
-    return;
+processString(String jsonText) {
+  parseText(jsonText);
+}</pre><p>The function you specify (in the example,
+        <code class="literal">processString()</code>) runs when the data at the
+        specified URI is successfully retrieved. In this case, we are
+        dynamically loading a JSON file. Information about the JSON API is in
+        <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and Decoding Objects">the section called “dart:json - Encoding and Decoding Objects”</a>.</p><p>Add <code class="literal">.catchError()</code> after the call to
+        <code class="literal">.then()</code> to specify an error handler.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_2_html.dart
+</span></em>...
+HttpRequest.getString(uri)
+    .then(processString)
+    .catchError(handleError);
+...
+handleError(AsyncError error) {
+  print('Uh oh, there was an error.');
+  print(error.toString());
+}</pre><p>If you need access to the HttpRequest, not just the text data it
+        retrieves, you can use the <code class="literal">request()</code> static method
+        instead of <code class="literal">getString()</code>. Here’s an example of
+        reading XML data.</p><pre class="screen"><em><span class="remark">ch03_html/ch03_2_html.dart
+</span></em>import 'dart:html';
+import 'dart:async';
+
+// An XML-formatted file in the same location as this page.
+var xmlUri = 'data.xml';
+
+main() {
+  // Read an XML file.
+  HttpRequest.request(uri)
+      .then(processRequest)
+      .catchError(handleError);
+}
+
+processRequest(HttpRequest request) {
+  var xmlDoc = request.responseXml;
+  try {
+    var license = xmlDoc.query('license').text;
+    print('License: $license');
+  } catch(e) {
+    print('$xmlUri doesn\'t have correct XML formatting.');
   }
-
-  Map response = json.parse(request.responseText);
-  String name = response['name'];
-  String license = response['license'];
-  print('The $name project uses the $license license.');
 }
-
-main() {
-  var dataUrl = 'data.json';
-  var httpRequest = new HttpRequest();
-  httpRequest.open('GET', dataUrl);
-  httpRequest.on.loadEnd.add((e) =&gt; loadEnd(httpRequest));
-  httpRequest.send();
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_sending_data_to_the_server"></a>Sending data to the server</h4></div></div></div><p>HttpRequest can also send data to the server, using the HTTP
-        method POST. For example, you might want to dynamically submit data to
-        a form handler. Sending JSON data to a RESTful web service is another
-        common example.</p><p>Submitting data to a form handler requires you to provide
+...</pre><p>You can also use the full API to handle more interesting cases.
+        For example, you can set arbitrary headers.</p><p>The general flow for using the full API of HttpRequest is as
+        follows:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Create the HttpRequest object.</p></li><li class="listitem"><p>Open the URL with either <code class="literal">GET</code> or <code class="literal">POST</code>.</p></li><li class="listitem"><p>Attach event handlers.</p></li><li class="listitem"><p>Send the request.</p></li></ol></div><p>For example:</p><pre class="screen"><em><span class="remark">tutorial/servers/web/client.dart
+</span></em>import 'dart:html';
+...
+var httpRequest = new HttpRequest();
+httpRequest.open('POST', dataUrl);
+httpRequest.onLoadEnd.listen((e) =&gt; loadEnd(httpRequest));
+httpRequest.send(encodedData);
+</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_sending_data_to_the_server"></a>Sending data to the server</h4></div></div></div><p>HttpRequest can send data to the server using the HTTP method
+        POST. For example, you might want to dynamically submit data to a form
+        handler. Sending JSON data to a RESTful web service is another common
+        example.</p><p>Submitting data to a form handler requires you to provide
         name-value pairs as URI-encoded strings. (Information about the URI
         API is in <a class="xref" href="ch03.html#ch03-uri" title="dart:uri - Manipulating URIs">the section called “dart:uri - Manipulating URIs”</a>.) You must also set the <code class="literal">Content-type</code> header to <code class="literal">application/x-www-form-urlencode</code> if you wish
-        to send data to a form handler.</p><pre class="screen">import 'dart:html';
-import 'dart:json' as json;
+        to send data to a form handler.</p><pre class="screen"><em><span class="remark">tutorial/servers/web/client.dart (and original book sample… no real test file yet)
+</span></em>import 'dart:html';
 import 'dart:uri';
-
+...
 String encodeMap(Map data) {
-  return Strings.join(data.keys.mappedBy((k) {
+  return data.keys.map((k) {
     return '${encodeUriComponent(k)}=${encodeUriComponent(data[k])}';
-  }), '&amp;');
+  }).join('&amp;');
 }
 
 loadEnd(HttpRequest request) {
   if (request.status != 200) {
     print('Uh oh, there was an error of ${request.status}');
-    return;
   } else {
     print('Data has been posted');
   }
@@ -792,7 +822,7 @@ main() {
   httpRequest.open('POST', dataUrl);
   httpRequest.setRequestHeader('Content-type', 
                                'application/x-www-form-urlencoded');
-  httpRequest.on.loadEnd.add((e) =&gt; loadEnd(httpRequest));
+  httpRequest.onLoadEnd.listen((e) =&gt; loadEnd(httpRequest));
   httpRequest.send(encodedData);
 }</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-websockets"></a>Sending and Receiving Real-Time Data with WebSockets</h3></div></div></div><p>A WebSocket allows your web app to exchange data with a server
       interactively—no polling necessary. A server creates the WebSocket and

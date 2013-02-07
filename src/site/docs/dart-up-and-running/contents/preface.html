@@ -75,14 +75,17 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
             <code class="literal">hashCode</code>, <code class="literal">isEmpty</code> and
             <code class="literal">isNan</code>. We also changed
             <code class="literal">getKeys()</code> to <code class="literal">keys</code>, and
-            <code class="literal">getValues()</code> to <code class="literal">values</code>.
-            <em><span class="remark"> {PENDING: any more to add here?}</span></em></p></li><li class="listitem"><p>The Iterable class has been beefed up, affecting all
+            <code class="literal">getValues()</code> to
+            <code class="literal">values</code>.</p></li><li class="listitem"><p>The Iterable class has been beefed up, affecting all
             Collections such as Lists and Sets. The former Collection methods
             <code class="literal">filter()</code> and <code class="literal">map()</code> are now
-            in Iterable and named <code class="literal">where()</code> and
-            <code class="literal">mappedBy()</code>. The <code class="literal">some()</code>
-            method is now named <code class="literal">any()</code>. Many values returned
-            by Iterables are now lazily filled Iterables; you can use
+            in Iterable, and the name of <code class="literal">filter()</code> has
+            changed to <code class="literal">where()</code>. (<code class="literal">map()</code>
+            was briefly renamed to <code class="literal">mappedBy()</code>, but due to
+            public feedback that decision was reversed.) The
+            <code class="literal">some()</code> method is now named
+            <code class="literal">any()</code>. Many values returned by Iterables are
+            now lazily filled Iterables; you can use
             <code class="literal">toList()</code> or <code class="literal">toSet()</code> to force
             evaluation. We recommend <span class="emphasis"><em>extending</em></span> Iterable
             rather than just implementing it, so you can take advantage of
@@ -93,7 +96,14 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
             JSON static methods such as <code class="literal">parse()</code> and
             <code class="literal">stringify()</code> are now top-level functions.</p></li><li class="listitem"><p>Date is now named DateTime, and the
             <code class="literal">fromString()</code> constructor is now a static method
-            named <code class="literal">parse()</code>.</p></li></ul></div></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
+            named <code class="literal">parse()</code>.</p></li><li class="listitem"><p>Event handler registration used to be
+            <code class="literal">.on.<em class="replaceable"><code>event</code></em>.add()</code>; now
+            it’s
+            <code class="literal">.on<em class="replaceable"><code>Event</code></em>.listen()</code>.</p></li><li class="listitem"><p>The dart:html HttpRequest <code class="literal">get()</code> method
+            has been replaced by <code class="literal">getString()</code> and
+            <code class="literal">request()</code>, which return
+            <code class="literal">Future&lt;String&gt;</code> and
+            <code class="literal">Future&lt;HttpRequest&gt;</code>, respectively.</p></li></ul></div></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
     hope we haven’t forgotten anyone, but we probably have.</p><p>The following Dart engineers and managers gave us prompt, helpful
     reviews of the sections corresponding to their areas of responsibility:
     Mads Ager, Peter von der Ahé, Justin Fagnani, Dan Grove, Florian Loitsch,

@@ -28,9 +28,9 @@ To find other books about Dart, see [Books on Dart](/books/).
 #### Contents
 
 1. [Foreword](contents/foreword.html)
+1. [Preface](contents/preface.html)
    (including [Content Updates](contents/preface.html#preface-updates)
    since the book was published)
-1. [Preface](contents/preface.html)
 1. [Chapter 1. Quick Start](contents/ch01.html)
 1. [Chapter 2. A Tour of the Dart Language](contents/ch02.html)
 1. [Chapter 3. A Tour of the Dart Libraries](contents/ch03.html)
