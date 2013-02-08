@@ -97,7 +97,7 @@ void loadData() {
   var url = "http://127.0.0.1:8080/programming-languages";
 
   // call the web server asynchronously
-  var request = new HttpRequest.get(url, onDataLoaded);
+  var request = HttpRequest.getString(url).then(onDataLoaded);
 }
 {% endprettify %}
 
@@ -106,8 +106,8 @@ callback function and call the <code>loadData()</code> function:
 
 {% prettify dart %}
 // print the raw json response text from the server
-void onDataLoaded(HttpRequest req) {
-  var jsonString = req.responseText;
+void onDataLoaded(String responseText) {
+  var jsonString = responseText;
   print(jsonString);
 };
 
@@ -118,7 +118,7 @@ main() {
 
 <aside class="alert alert-info" markdown="1">
   <strong>Note:</strong>
-  <code>HttpRequest.get()</code> is a convenience constructor that wraps the
+  <code>HttpRequest.getString()</code> is a convenience static method that wraps the
 full HttpRequest API.  The full HttpRequest API is still available if you need finer-grained control over the API.
 </aside>
 
@@ -443,6 +443,7 @@ dart:json library by letting you use dot notation to access data fields.
 
 <h2 id="resources">Resources</h2>
 
+* [Source code examples from this article](https://github.com/chrisbu/dartlang_json_webservice_article_code)
 * [dart:json](http://api.dartlang.org/dart_json.html)
 * [HttpRequest](http://api.dartlang.org/html/HttpRequest.html)
 * [JsonObject](https://github.com/chrisbu/dartwatch-JsonObject)
