@@ -198,7 +198,7 @@ if (!navigator.webkitStartDart) {
   }, false);
 } else {
   if (!navigator.webkitStartDart()) {
-    document.body.innerHTML = 'This build has expired.  Please download a new Dartium at http://www.dartlang.org/dartium/index.html';
+    document.body.innerHtml = 'This build has expired.  Please download a new Dartium at http://www.dartlang.org/dartium/index.html';
   }
 }
 {% endprettify %}

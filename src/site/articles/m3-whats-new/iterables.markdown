@@ -264,11 +264,9 @@ For example:
 
 <aside class="alert alert-info" markdown="1">
   <strong>Note:</strong>
-  As the screenshot shows,
-  the last January release of Dart Editor
-  changes `map()` to `mappedBy()`.
-  The first February release of Dart Editor
-  should no longer make that change.
+  This screenshot is from the brief period when
+  `map()` was named `mappedBy()`.
+  Dart Editor no longer suggests that change.
 </aside>
 
 We are excited about these improvements to Iterable
