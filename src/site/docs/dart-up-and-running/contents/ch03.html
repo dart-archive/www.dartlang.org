@@ -609,7 +609,7 @@ List&lt;Element&gt; elems2 = queryAll('input[type="text"]'); // Find all text in
 // that is inside an element with the ID 'id'.
 List&lt;Element&gt; elems3 = queryAll('#id p.class');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-elements"></a>Manipulating elements</h4></div></div></div><p>You can use properties to change the state of an element. Node
         and its subtype Element define the properties that all elements have.
-        For example, all elements have <code class="literal">classes</code>, <code class="literal">hidden</code>, <code class="literal">id</code>, <code class="literal">innerHTML</code>, <code class="literal">style</code>, <code class="literal">text</code>, and <code class="literal">title</code> properties. Subclasses of Element
+        For example, all elements have <code class="literal">classes</code>, <code class="literal">hidden</code>, <code class="literal">id</code>, <code class="literal">innerHtml</code>, <code class="literal">style</code>, <code class="literal">text</code>, and <code class="literal">title</code> properties. Subclasses of Element
         define additional properties, such as the <code class="literal">href</code> property of <a class="ulink" href="http://api.dartlang.org/html/AnchorElement.html" target="_top">AnchorElement.</a></p><p>Consider this example of specifying an anchor element in
         HTML:</p><pre class="screen"><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>&lt;a id="example" href="http://example.com"&gt;link text&lt;/a&gt;</pre><p>This &lt;a&gt; tag specifies an element with an <code class="literal">href</code> attribute and a text node (accessible
