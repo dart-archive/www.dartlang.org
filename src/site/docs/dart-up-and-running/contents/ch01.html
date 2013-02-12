@@ -39,7 +39,8 @@ description: "Read Chapter 1. Quick Start of Dart: Up and Running, published b
         and packages helps you work with other developers and easily reuse
         code from other projects. Types can make APIs clearer and easier to
         use. Tools help you refactor, navigate, and debug code.</p></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch01-quick-look"></a>A Quick Look at the Dart Language</h2></div></div></div><p>It’s hard to talk about a language without seeing it. Here’s a peek
-    at a small Dart program:</p><pre class="programlisting">import 'dart:math';
+    at a small Dart program:</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em>import 'dart:math';
 
 class Point {
   num x, y;
@@ -56,7 +57,8 @@ main() {
   var q = new Point(3, 4);
   print('distance from p to q = ${p.distanceTo(q)}');
 }</pre><p>Of course, Dart’s main use case is building modern web apps.
-    Programming the browser is easy:</p><pre class="programlisting">import 'dart:html';
+    Programming the browser is easy:</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em>import 'dart:html';
 
 main() {
   var button = new ButtonElement();

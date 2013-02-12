@@ -27,7 +27,8 @@ description: "Read Dartium: Chromium with the Dart VM of Dart: Up and Running, p
         flag.</a></p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-bug"></a>Filing Bugs</h3></div></div></div><p>If you find a bug in Dartium, create an issue in the Dart project
       and use the <a class="ulink" href="http://code.google.com/p/dart/issues/entry?template=Defect%20report%20for%20Dartium" target="_top">Dartium
       bug template.</a></p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-linking"></a>Linking to Dart Source</h3></div></div></div><p>Use a script tag with a type <code class="literal">application/dart</code> to link to your Dart source
-      file. Example:</p><pre class="programlisting">&lt;!DOCTYPE html&gt;
+      file. Example:</p><pre class="programlisting"><em><span class="remark">lang-html
+</span></em>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;body&gt;
     &lt;script type="application/dart" src="app.dart"&gt;&lt;/script&gt;
@@ -40,7 +41,8 @@ description: "Read Dartium: Chromium with the Dart VM of Dart: Up and Running, p
       turning on the Dart VM, as well as compatibility with non-Dart browsers.
       Instead of using the <code class="literal">dart.js</code> script,
       you can manually include the necessary JavaScript code.</p><p>To start the Dart VM, use the JavaScript function <code class="literal">navigator.webkitStartDart()</code>. For
-      example:</p><pre class="programlisting">// In JavaScript code:
+      example:</p><pre class="programlisting"><em><span class="remark">lang-js
+</span></em>// In JavaScript code:
 if (!navigator.webkitStartDart) {
   // No native Dart support.
   window.addEventListener("DOMContentLoaded", function (e) {
@@ -56,7 +58,10 @@ if (!navigator.webkitStartDart) {
       VM to perform as many checks as possible. To achieve that, you can
       enable checked mode (the VM’s --enable-type-checks flag) and assertion
       checks (--enable-asserts flag).</p><p>On Linux, you can specify flags by starting Dartium as
-      follows:</p><pre class="screen">DART_FLAGS='--enable-type-checks --enable-asserts' <em class="replaceable"><code>path</code></em>/chrome</pre><p>On Mac:</p><pre class="screen">DART_FLAGS='--enable-type-checks --enable-asserts'              \
-  <em class="replaceable"><code>path</code></em>/Chromium.app/Contents/MacOS/Chromium</pre><p>Or (also on Mac):</p><pre class="screen">DART_FLAGS='--enable-type-checks --enable-asserts'              \
+      follows:</p><pre class="screen"><em><span class="remark">lang-sh
+</span></em>DART_FLAGS='--enable-type-checks --enable-asserts' <em class="replaceable"><code>path</code></em>/chrome</pre><p>On Mac:</p><pre class="screen"><em><span class="remark">lang-sh
+</span></em>DART_FLAGS='--enable-type-checks --enable-asserts'              \
+  <em class="replaceable"><code>path</code></em>/Chromium.app/Contents/MacOS/Chromium</pre><p>Or (also on Mac):</p><pre class="screen"><em><span class="remark">lang-sh
+</span></em>DART_FLAGS='--enable-type-checks --enable-asserts'              \
    open <em class="replaceable"><code>path</code></em>/Chromium.app</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>You can see the command-line flags and executable path of your
         current Chromium-based browser by going to <code class="literal">chrome://version</code>.</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04-tools-editor.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ch04-tools-dart2js.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Dart Editor </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> dart2js: The Dart-to-JavaScript Compiler</td></tr></table></div>

@@ -19,7 +19,8 @@ description: "Read pub: The Dart Package Manager of Dart: Up and Running, publis
       the top directory of your application.</p><p>Here is an example of a pubspec that specifies the locations of
       two packages. First, it points to the js package that’s hosted on
       pub.dartlang.org, and then it points to the intl package in the Dart
-      SDK.</p><pre class="programlisting">name: my_app
+      SDK.</p><pre class="programlisting"><em><span class="remark">lang-js
+</span></em>name: my_app
 dependencies:
   js:
     hosted: js
@@ -27,7 +28,8 @@ dependencies:
     sdk: intl</pre><p>For details, see the <a class="ulink" href="http://pub.dartlang.org/doc/pubspec.html" target="_top">pubspec
       documentation</a> and the documentation for the packages you’re
       interested in using.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-install"></a>Installing Packages</h3></div></div></div><p>Once you have a pubspec, you can run <code class="literal">pub
-      install</code> from the top directory of your application.</p><pre class="screen">cd <em class="replaceable"><code>my/app</code></em>
+      install</code> from the top directory of your application.</p><pre class="screen"><em><span class="remark">lang-sh
+</span></em>cd <em class="replaceable"><code>my/app</code></em>
 <em class="replaceable"><code>$DART_SDK</code></em>/bin/pub install</pre><p>This command determines which packages your app depends on, and
       puts them in a central cache. For git dependencies, pub clones the git
       repository. For hosted dependencies, pub downloads the package from
@@ -35,7 +37,8 @@ dependencies:
       example, if the js package is dependent on the unittest package, the pub
       tool grabs both the js package and the unittest package.</p><p>Finally, pub creates a <code class="literal">packages</code>
       directory (under your app’s top directory) that has links to the
-      packages that your app depends on.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-import"></a>Importing Libraries from Packages</h3></div></div></div><p>To import libraries found in packages, use the <code class="literal">package:</code> prefix.</p><pre class="programlisting">import 'package:js/js.dart' as js;
+      packages that your app depends on.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-import"></a>Importing Libraries from Packages</h3></div></div></div><p>To import libraries found in packages, use the <code class="literal">package:</code> prefix.</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em>import 'package:js/js.dart' as js;
 import 'package:intl/intl.dart';</pre><p>The Dart runtime takes everything after <code class="literal">package:</code> and looks it up within the <code class="literal">packages</code> directory for your app.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-pub-more-options"></a>More Information</h3></div></div></div><p>Run <code class="literal"><em class="replaceable"><code>$DART_SDK</code></em>/bin/pub
       --help</code> for a list of commands. For more information about pub,
       see the <a class="ulink" href="http://pub.dartlang.org/doc" target="_top">pub
