@@ -2,9 +2,12 @@
 layout: default
 title: "Runtime Modes - Dart Tips, Ep 2"
 description: "Dart runs fast in production mode, and runs with type assertions in checked mode. Learn about Dart's two runtime modes and when to use each of them for maximum developer feedback and speed."
+snippet_img: http://i.ytimg.com/vi/CfRFixQTJWA/0.jpg
+rel:
+  author: seth-ladd
 ---
 
-# Runtime Modes - Dart Tips, Ep 2
+# {{ page.title }}
 
 <iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/CfRFixQTJWA" frameborder="0" allowfullscreen></iframe>
 
@@ -22,17 +25,17 @@ So, what are type annotations?
 
 This is an example of an untyped dynamic variable:
 
-{% highlight dart %}
+{% prettify dart %}
 var answer = 42;
-{% endhighlight %}
+{% endprettify %}
 
 Notice how I used var to denote a dynamic variable. Obviously the object pointed to by the variable is an instance of a specific class (in this case, an int) but the variable itself simply has the dynamic type.
 
 In contrast, this is the same variable with a static type annotation:
 
-{% highlight dart %}
+{% prettify dart %}
 int answer = 42;
-{% endhighlight %}
+{% endprettify %}
 
 Type annotations in Dart precede the variable name. In this case, the answer variable is of type int.
 
@@ -42,15 +45,15 @@ In the default runtime mode of Dart, also known as production mode, these two li
 
 This means that, in production mode, this line of code compiles and runs. I know it looks strange, and I don't recommend ever writing code like this.
 
-{% highlight dart %}
+{% prettify dart %}
 String result = 1 + 2;
-{% endhighlight %}
+{% endprettify %}
 
 In production mode, type annotations are ignored, and the compiler treats the code like this, which of course works just fine.
 
-{% highlight dart %}
+{% prettify dart %}
 var result = 1 + 2;
-{% endhighlight %}
+{% endprettify %}
 
 Remember, Dart is, at its core, a dynamic scripting language. Types are optional and thus the VM must, in production mode, execute the code as if all static type annotations did not exist. Production mode actually gets a speed boost by ignoring static types, because it can avoid many type checks.
 
@@ -62,15 +65,15 @@ In this second mode, named checked mode, the VM inserts dynamic type assertions.
 
 Going back to our line of code that looks so very strange, it's clear that the expression 1 + 2 evaluates into an integer and not a String.
 
-{% highlight dart %}
+{% prettify dart %}
 String result = 1 + 2;
-{% endhighlight %}
+{% endprettify %}
 
 Here the type of the variable does not match the type of the right-hand side expression. In checked mode, this mismatch is caught at runtime and surfaced as an exception.
 
 In checked mode, when the program is compiled, type assertions are dynamically inserted into the code. The VM adds something like this approximation:
 
-{% highlight dart %}
+{% prettify dart %}
 String result;
 var tempResult = 1 + 2;
 if (tempResult is! String) {
@@ -78,7 +81,7 @@ if (tempResult is! String) {
 } else {
   result = tempResult;
 }
-{% endhighlight %}
+{% endprettify %}
 
 Notice how the type of tempResult's value is compared to result's static type. If they don't match, an exception is thrown. Otherwise, result's value is set and the program continues. Getting this kind of feedback in the event of a type mismatch is really helpful when developing and debugging your app.
 

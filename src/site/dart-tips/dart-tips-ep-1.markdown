@@ -4,9 +4,12 @@ title: "A Simple Dart Script - Dart Tips, Ep 1"
 description: "Welcome to Dart Tips, the video series that teaches you all
 about Dart. In our first episode, we show you a simple Dart script and get you
 comfortable with reading Dart code."
+snippet_img: http://i.ytimg.com/vi/g09UVKyYfIs/0.jpg
+rel:
+  author: seth-ladd
 ---
 
-# A Simple Dart Script - Dart Tips, Ep 1
+# {{ page.title }}
 
 <iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/g09UVKyYfIs" frameborder="0" allowfullscreen></iframe>
 
@@ -22,7 +25,7 @@ The designers of Dart built a scripting language that is generally free of cerem
 
 This philosophy is evident in this very simple Dart program:
 
-{% highlight dart %}
+{% prettify dart %}
 printNumber(num aNumber) {
   print('The number is $aNumber.');
 }
@@ -31,19 +34,19 @@ main() {
   var answer = 42;          // The meaning of life.
   printNumber(answer);
 }
-{% endhighlight %}
+{% endprettify %}
 
 All Dart scripts starts with main(). Knowing exactly where the program starts is the first step to understanding the complete program structure, which in turn makes it easier for minimizers or other code-size reduction utilities to do a good job.
 
 Dart is an optionally typed language, which means variables can be typed or untyped. Here we use var to declare that answer is an untyped variable with an initial value of 42 (an integer literal). The object that answer points is an int, but the variable itself is dynamic or untyped. Tools like Dart Editor can infer that the variable answer is an integer, but you can be even more clear by using type annotations.
 
 
-{% highlight dart %}
+{% prettify dart %}
 main() {
   int answer = 42;
   printNumber(number);
 }
-{% endhighlight %}
+{% endprettify %}
 
 Here we have typed the answer variable as an int. Sometimes developers want to be more explicit, which is especially helpful when writing code that other developers will use. Dart's optional static types are an important topic, and we will cover them in more detail in a future episode. For now, just think of static types as inline documentation or type annotations that convey your intention to tools and fellow developers. Both versions of the script have the same runtime semantics, because type annotations are optional and the program runs as if you used var everywhere.
 

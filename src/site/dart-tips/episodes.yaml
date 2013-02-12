@@ -34,5 +34,12 @@ episodes:
   pubdate: 2013-01-24
   description: "Dart comes with lists, queues, maps, and sets out of the box. Watch this episode to learn how to pick the right collection class for the job. Fun tip: did you know that the Dart language spec doesn't use the word 'array'?  "
   num: 5
-  youtubeid: Mdlnx4cl014
-  thumbnail: http://i.ytimg.com/vi/Mdlnx4cl014/0.jpg
+  youtubeid: fh1Cztaw9tI
+  thumbnail: http://i.ytimg.com/vi/fh1Cztaw9tI/0.jpg
+- title: "Functions Are Fun, Pt 1 - Dart Tips, Ep 6"
+  subtitle: "Functions Are Fun, Pt 1"
+  pubdate: 2013-02-01
+  description: "Functions are the basic building blocks for any app. Dart supports top-level functions, optional parameters, default parameter values, and more. Watch this episode to learn about the basics of functions in Dart.  "
+  num: 6
+  youtubeid: DWtvhdJkiRE
+  thumbnail: http://i.ytimg.com/vi/DWtvhdJkiRE/0.jpg
