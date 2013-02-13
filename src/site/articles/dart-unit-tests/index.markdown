@@ -3,7 +3,8 @@ layout: default
 title: "Unit Testing with Dart"
 rel:
   author: graham-wheeler
-description: "Using Dart's unit test library for synchronous and asynchronous tests."
+description: "Using Dart's unit test library for synchronous and
+asynchronous tests."
 has-permalinks: true
 article:
   written_on: 2012-06-01
@@ -13,10 +14,13 @@ article:
 
 # {{ page.title }}
 _Written by Graham Wheeler <br />
-June 2012 (updated November 2012)_
+June 2012 (updated February 2013)_
 
 
-Dart includes a unit test library that is easy to use, adaptable, and supports both synchronous and asynchronous tests. This article describes how to write and run tests, and how testing fits into the overall Dart ecosystem.
+Dart includes a unit test library that is easy to use, adaptable, and
+supports both synchronous and asynchronous tests. This article describes
+how to write and run tests, and how testing fits into the overall Dart
+ecosystem.
 
 ## Contents
 
@@ -34,7 +38,9 @@ Dart includes a unit test library that is easy to use, adaptable, and supports b
 
 ## Differences from the earlier library
 
-The unit test library is not new, but has undergone some changes. If you have been using the library or the Expect class in dart:core, here are the main changes to bear in mind:
+The unit test library is not new, but has undergone some changes. If you
+have been using the library or the Expect class in dart:core, here are the
+main changes to bear in mind:
 
 * `asyncTest` is deprecated and will soon go away; instead write your async tests with `test()` and use `expectAsync` and/or guardAsync for callbacks
 * the syntax of `expect()` has changed, and a large set of matchers is now available for use with `expect()`
@@ -330,7 +336,9 @@ group('foo', () {
 
 However you can interlace them differently; each test() will use the most recently set values. 
 
-Whenever a new group is started, these functions are reset. This applies for nested groups too. Nested groups do not inherit these functions or augment them; they get their own. This is the most flexible approach as chaining can always be done explicitly.
+Whenever a new group is started, these functions are reset. This applies for nested groups too. Nested groups do not inherit these functions or augment them; they get their own. This is the most flexible approach as chaining can always be done explicitly if that is what you want.
+
+If your setUp/tearDown functions need to perform asynchronous operations, you can do that by having them return a Future. Execution of tests will be paused until the Future is complete. If a setUp or tearDown fails, that will be considered a test error. Note that if a setUp fails, tearDown will still be called.
 
 ## Running a limited set of tests
 
@@ -418,6 +426,8 @@ successCallback:
 
 We might have a callback that's called an undetermined number of times, where
 only a test can tell us when it's the last time. For these cases we can use `expectAsyncUntilN()` (where N is 0, 1 or 2). These functions take a second function argument which should return false if more callbacks are expected or true if all callbacks are done.
+
+These functions can all take a named 'id' argument that will be used in error messages to identify the callback. This is particularly useful for anonymous closures; for named functions or methods the framework will use the function or method name as the default id.
 
 
 ## Matchers
@@ -536,12 +546,10 @@ As the usual case is to throw an exception, there are predefined matchers for a 
     throwsException
     throwsFormatException
     throwsArgumentError
-    throwsIllegalJSRegExpException
     throwsRangeError
-    throwsIndexOutOfRangeException
     throwsNoSuchMethodError
     throwsUnimplementedError
-    throwsNullPointerException
+    throwsStateError
     throwsUnsupportedError
 
 So for example we can write:
