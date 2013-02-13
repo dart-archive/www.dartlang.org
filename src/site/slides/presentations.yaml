@@ -1,3 +1,11 @@
+- title: "Web Components Now"
+  short: web-components-now
+  presenters:
+    - Seth Ladd
+  date: 2013-03-05
+  slides: "http://sethladd.github.com/preso-dart-web-components/#1"
+  event: JFokus 2013
+
 - title: "Esto Es Dart"
   short: esto-es-dart
   presenters:
