@@ -43,3 +43,10 @@ episodes:
   num: 6
   youtubeid: DWtvhdJkiRE
   thumbnail: http://i.ytimg.com/vi/DWtvhdJkiRE/0.jpg
+- title: "Functions Are Fun, Pt 2 - Dart Tips, Ep 7"
+  subtitle: "Functions Are Fun, Pt 2"
+  pubdate: 2013-02-08
+  description: "Functions are true objects in Dart. Watch this video to learn more about nested functions, functions as arguments, and lexical closures. Get ready for more FUNctional tips in Dart!  "
+  num: 7
+  youtubeid: RJujzs2ts4s
+  thumbnail: http://i.ytimg.com/vi/RJujzs2ts4s/0.jpg
