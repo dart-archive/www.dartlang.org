@@ -17,13 +17,13 @@ _Written by Shailen Tuli, February 2013_
 ## Contents
 
 1. [Introduction](#introduction)
-1. [What is a Future](#what-is-a-future)
+1. [What is a Future?](#what-is-a-future)
 1. [Using a Future](#using-a-future)
 1. [Sequence of events during code execution](#sequence-of-events-during-code-execution)
 1. [Handling errors when dealing with Futures](#handling-errors-when-dealing-with-futures)
 1. [Calling multiple functions that return Futures](#calling-multiple-functions-that-return-futures)
-    1. [Chaining functions calls using then()](#chaining-function-calls-using-then)
-    1. [Waiting on multiple Futures to complet using Future.wait()](#waiting-on-multiple-futures-to-complete-using-futurewait)
+    1. [Chaining function calls using then()](#chaining-function-calls-using-then)
+    1. [Waiting on multiple Futures to complete using Future.wait()](#waiting-on-multiple-futures-to-complete-using-futurewait)
 {:.toc}
 
 ## Introduction
@@ -119,7 +119,7 @@ The preceding code executes in three steps:
 queues up the file reading task.  After calling the remaining print functions,
 `main()` exits, but the program continues.
 1. The work scheduled by `readAsString()` is performed, and the contents of the
-file are read into memory. When the entire file is read, the future completes
+file are read into memory. When the entire file is read, the Future completes
 with the file contents.
 1. The callback registered within `then()` fires and prints the contents
 of the news file.
@@ -130,7 +130,7 @@ chained (we'll see examples of this later).
 
 ## Handling errors when dealing with Futures
 
-If a future-returning function completes with an error, the future returned by
+If a Future-returning function completes with an error, the Future returned by
 `then()` also completes with an error. We can capture that error using
 `catchError()`:
 
@@ -144,12 +144,12 @@ void printDailyNewsDigest() {
 }
 {% endprettify %}
 
-If `dailyNewsDigest.txt` does not exist, or if it is unavailable for reading,
+If `dailyNewsDigest.txt` doesn't exist or isn't available for reading,
 the code above executes as follows:
 
-1. `readAsString()`'s future completes with an error.
-1. `then()`'s future completes with an error.
-1.  `catchError()`'s callback handles the error, `catchError()`'s future
+1. `readAsString()`'s Future completes with an error.
+1. `then()`'s Future completes with an error.
+1.  `catchError()`'s callback handles the error, `catchError()`'s Future
 completes normally, and the error does not propagate.
 
 <aside class="alert alert-info" markdown="1">
@@ -173,7 +173,7 @@ is fluid enough to deal with both use cases.
 
 ### Chaining function calls using then()
 
-When future-returning functions need to be run in order, you should use
+When Future-returning functions need to run in order, use
 chained `then()` calls:
 
 {% prettify dart %}
@@ -191,8 +191,8 @@ you can use `Future.wait()` to handle multiple Future objects
 without having to explicitly chain function calls.
 
 The functions get triggered in quick succession; when all of them
-complete with a value, `Future.wait()` returns a new future.
-This future completes with a list containing the values produced by
+complete with a value, `Future.wait()` returns a new Future.
+This Future completes with a list containing the values produced by
 each function.
 
 {% prettify dart %}
@@ -201,6 +201,6 @@ Future.wait([expensiveA(), expensiveB(), expensiveC()])
       .catchError((e) => handleError(e));
 {% endprettify %}
 
-If any of the invoked functions completes with an error, the future returned
+If any of the invoked functions completes with an error, the Future returned
 by `Future.wait()` also completes with an error. Use `catchError()` to handle
 the error.
