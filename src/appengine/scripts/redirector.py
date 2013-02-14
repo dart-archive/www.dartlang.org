@@ -83,6 +83,9 @@ class BookRedirect(RequestHandler):
   def head(self, *args, **kwargs):
     self.redirect('/docs/dart-up-and-running/contents/ch0' + kwargs['num'] + '.html', permanent=True)
 
+def trailing_slash(handler, *args, **kwargs):
+  return '/' + kwargs['path'] + '/'
+
 application = WSGIApplication(
    [('/docs/api/.*', ApiRedirectPage),
     ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
@@ -103,8 +106,6 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch03.html'}),
     Route('/editor<:/?>', RedirectHandler,
       defaults={'_uri': '/docs/editor/'}),
-    Route('/performance', RedirectHandler,
-      defaults={'_uri': '/performance/'}),
     Route('/docs/getting-started/editor/', RedirectHandler,
       defaults={'_uri': '/docs/editor/getting-started/'}),
     Route('/docs/getting-started/sdk/', RedirectHandler,
@@ -118,5 +119,7 @@ application = WSGIApplication(
     Route('/+', RedirectHandler,
       defaults={'_uri': 'https://google.com/+dartlang'}),
     Route('/mailing-list', RedirectHandler,
-      defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!forum/misc'})],
+      defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!forum/misc'}),
+    Route('/<path:[^.]*[^/]$>', RedirectHandler,
+      defaults={'_uri': trailing_slash})],
    debug=True)

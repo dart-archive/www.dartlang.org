@@ -53,9 +53,6 @@ handlers:
 - url: /editor.*
   script: scripts.redirector.application
 
-- url: /performance
-  script: scripts.redirector.application
-
 - url: /news.*
   script: scripts.redirector.application
 
@@ -117,5 +114,9 @@ handlers:
   static_files: static\1/index.html
   upload: static/index.html
 
-- url: /
-  static_dir: static
+- url: (.*\..*)
+  static_files: static\1
+  upload: static
+
+- url: .*
+  script: scripts.redirector.application
