@@ -225,6 +225,13 @@ and add a line before the tests:
 useHtmlConfiguration();
 {% endprettify %}
 
+<aside class="alert alert-warning" markdown="1">
+**Important:**
+Import and use **only one configuration.**
+If you import multiple configuration files,
+your tests won't run.
+</aside>
+
 Test results will be displayed in the Dartium window and exit codes are shown in the editor's Debugger tab.
 
 The rest of this article dives deeper into the unit test library.
