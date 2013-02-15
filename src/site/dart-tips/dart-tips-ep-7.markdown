@@ -54,14 +54,14 @@ Now that you know you can treat functions as objects, you can start to do some e
 [0, 1, 2, 3].where((n) => n.isEven).forEach((n) => print(n));
 {% endprettify %}
 
-We can simplify this code, by simply passing the print function to forEach.
+We can simplify this code, by simply passing print to forEach.
 
 {% prettify dart %}
 [0, 1, 2, 3].where((n) => n.isEven).forEach(print);
   // 0, 2
 {% endprettify %}
 
-This works because forEach wants to be passed a single function that takes a single argument. Print just so happens to be a function that takes a single argument. Ta da!
+This works because forEach() wants to be passed a single function that takes a single argument. The print function just so happens to be a function that takes a single argument. Ta da!
 
 Building on this example, let's say you need to filter on a complicated condition. You could write the code this way:
 
@@ -97,7 +97,7 @@ main() {
 }
 {% endprettify %}
 
-Ahh, much better. Notice how we created a new, named function inside of main(), which is itself a function. The complicatedCheck function is a nested function. The where - forEach chain is now much easier to read.
+Ahh, much better. Notice how we created a new, named function inside of main(), which is itself a function. The complicatedCheck function is a nested function. The where-forEach chain is now much easier to read.
 
 You can define your own functions that take functions as parameters. Here is an example:
 
@@ -149,11 +149,11 @@ main() {
 }
 {% endprettify %}
 
-Notice how nestedFunction can access variables at every level, all the way up to the top level. Dart's scoping rules are very easy to reason about, it's very much  "what you see is what you get". Dart's lexical scope even works with "this", but we'll cover that more in an episode about classes.
+Notice how nestedFunction can reach variables at every level, all the way up to the top level. Dart's scoping rules are very easy to reason about, it's very much  "what you see is what you get". Dart's lexical scope even works with "this", but we'll cover that more in an episode about classes.
 
 Now that we've looked at lexical scope, let's take a look at functions as closures. A closure is a function object that has access to variables in its lexical scope, even when the function is used outside of its original scope. Closures are popular in other scripting languages, like JavaScript, and Dart is no stranger to lexical closures.
 
-Here is an example of a function that "closes around" it's variable.
+Here is an example of a function that "closes around" its variable.
 
 {% prettify dart %}
 makeAdder(int addBy) {
