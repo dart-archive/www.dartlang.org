@@ -35,7 +35,6 @@ for removing all items from the list.
 * [Removing an element from the DOM tree](#remove-elem)
 * [Removing all child elements from an element](#remove-all-elem)
 * [About function expressions and =>](#about-function-expressions)
-* [About Dart's event-related classes](#about-event-classes)
 
 ##Copy and run the todo_with_delete app {#copy-app}
 
@@ -47,15 +46,15 @@ are the same as those listed here.
 
 <ul>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/todo_with_delete.dart"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/web/todo_with_delete.dart"
    target="_blank">todo_with_delete.dart</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/todo_with_delete.html"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/web/todo_with_delete.html"
    target="_blank">todo_with_delete.html</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/todo_with_delete.css"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/web/todo_with_delete.css"
    target="_blank">todo_with_delete.css</a>
  </li>
  </ul>
@@ -193,7 +192,7 @@ and it uses the => syntax to define the function concisely.
 It is equivalent to writing this:
 
 {% prettify dart %}
-deleteAll.on.click.add((e) {
+deleteAll.onClick.listen((e) {
   toDoList.children.clear();
 });
 {% endprettify %}
@@ -204,7 +203,7 @@ or even this:
 ...
 void main() {
   ...
-  deleteAll.on.click.add(deleteAllElements);
+  deleteAll.onClick.listen(deleteAllElements);
 }
 
 void deleteAllElements(Event e) {
@@ -220,42 +219,6 @@ When registering event handlers,
 the function must be an EventListener.
 That is,
 it returns no value and takes an Event object as a parameter.
-
-##About Dart's event-related classes {#about-event-classes}
-
-A Dart element can generate various kinds of events.
-For each event type, an element maintains a list of event listeners.
-Note that many listeners can be registered for each event type.
-
-![Event listeners](images/listeners.png)
-
-Various Dart classes, all defined in the dart:html library,
-are involved in registering an event handler.
-The following diagram shows a line of code from the todo_with_delete
-app that registers a mouse click event listener on an element.
-
-![Dart classes involved in event listener registration](images/event-classes.png)
-
-The first identifier, newToDo, is a reference to the element in question.
-It is followed by `on`, which is a reference to an EventElements object.
-The
-<a href="http://api.dartlang.org/dart_html/ElementEvents.html" target="_blank"> ElementEvents</a>
-class defines the events common to all Dart Elements
-and is defined in the dart:html library.
-(InputElement has a larger set of events as defined in
-<a href="http://api.dartlang.org/dart_html/InputElementEvents.html" target="_blank"> InputElementEvents</a>.)
-`click` is a list of event listeners
-(more specifically, an EventListenerList)
-that can handle mouse click events.
-
-| Dart type | Purpose |
-|---|---|
-| <a href="http://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | Represents an element in the DOM |
-| <a href="http://api.dartlang.org/dart_html/ElementEvents.html" target="_blank">ElementEvents</a>| Defines the event types common to all Elements |
-| <a href="http://api.dartlang.org/dart_html/EventListenerList.html" target="_blank">EventListenerList</a> | A list of listeners for a particular event type |
-| <a href="http://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a> | An object that carries information about the event that occurred |
-| <a href="http://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a> | A function that can handle events |
-{: .table}
 
 <div class="row">
   <div class="span3">

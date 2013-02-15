@@ -10,7 +10,7 @@ tutorial:
   id: tut-home
 article:
   written_on: 2012-10-01
-  updated_on: 2013-01-01
+  updated_on: 2013-02-14
   collection: everyday-dart
 ---
 
@@ -91,7 +91,7 @@ This target walks you through the steps to install one of those packages.
 
 <hr>
 
-<div id="under-construction" markdown="1">
+<div id="target-group" markdown="1">
 <h3> <i class="icon-magic"> </i> Dart's Web UI package</h3>
 Web components and templates
 are the next great ideas in web application development.
@@ -99,8 +99,8 @@ Together they provide the building blocks to
 create richer and more dynamic web applications.
 With the Dart team's Web UI package,
 you can get started using web components and templates now.
-</div>
 
+<hr>
 
 <img src="web-ui-icon.png" width="48" height="48"> [ Target 6: Get Started with Web UI](web-ui/)
 : This target starts with the logistics
@@ -129,6 +129,15 @@ define a new DOM tag.
 Custom elements are one feature
 of the Web Components model proposed by the W3C consortium.
 
+</div>
+<hr>
+
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 9: Fetch Data Dynamically](fetchdata/)
+: Your Dart web app can load data dynamically,
+either from a static file or from a server.
+Web data are often formatted using JSON (JavaScript Object Notation)&mdash;a
+text based, human friendly data format.
+
 <div>
   <hr>
   <div class="row">
@@ -146,7 +155,7 @@ of the Web Components model proposed by the W3C consortium.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:xx-small">Version: 25 Jan 2013</p>
+  <p style="font-size:xx-small">Version: 14 Feb 2013</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

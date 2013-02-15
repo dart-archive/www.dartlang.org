@@ -65,7 +65,7 @@ by adding elements to the DOM tree.
 Try it! Enter a few items into the input field:
 
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:250px;padding:5px"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/todo/todo.html">
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/todo/web/todo.html">
 </iframe>
 
 Use the following links to
@@ -76,15 +76,15 @@ are the same as those listed here.
 
 <ul>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/todo.dart"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/web/todo.dart"
    target="_blank">todo.dart</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/todo.html"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/web/todo.html"
    target="_blank">todo.html</a>
  </li>
   <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/todo.css"
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/web/todo.css"
    target="_blank">todo.css</a>
  </li>
  </ul>
@@ -187,11 +187,11 @@ The following diagram shows a partial DOM tree for the todo app.
 
 Of interest are the two page elements that have IDs:
 `to-do-input` and `to-do-list`.
-The first identifies the \<input> element into which the user types.
-The second identifies the \<ul> (unordered list) element
+The first identifies the &lt;input&gt; element into which the user types.
+The second identifies the &lt;ul&gt; (unordered list) element
 containing the task items.
 Dart code adds elements to this list
-whenver the user enters text into the input element.
+whenever the user enters text into the input element.
 
 ##Getting an element from the DOM {#dart-code}
 
@@ -333,27 +333,20 @@ a call to letterpile.children.add().
 ![Dart code populates the letter pile with buttons](images/anagram-newletters.png)
 
 Each button element in the letter pile
-has a mouse click handler called moveToWord()
-that moves the clicked button down to the end of the word.
+has a mouse click handler called moveLetter().
+If the button is in the letterpile,
+the mouse click handler moves the button to the end of the word.
+If the button is in the word,
+the mouse click handler moves the button back to the letter pile.
 
-To move the button from the letter pile to the word,
+To move the button from the letter pile to the word or back,
 the code simply adds the button to a DOM element
-that is different from the button's current parent&mdash;the
-element identified with the ID `result`.
+that is different from the button's current parent.
 Because an element can have only one parent,
 adding the button to a different parent
 automatically removes it from its previous parent.
 
 ![The mouse click handler adds the button to the word, thus moving it](images/anagram-move.png)
-
-The last two lines of code in the moveToWord() function
-change the mouse click handler for the moved button.
-When a letter tile is in the letter pile,
-it has a mouse click handler that 
-moves it to the word.
-When a letter tile is in the word,
-it has a mouse click handler that 
-moves it back to the letter pile.
 
 The full source code for the anagram example is here:
 <ul>

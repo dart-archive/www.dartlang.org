@@ -17,20 +17,6 @@ tutorial:
 
 {% capture content %}
 
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
-</div>
-
 The Web UI package implements the &lt;template&gt; tag,
 which you can use directly in your HTML.
 Templates define UI elements that are instantiated

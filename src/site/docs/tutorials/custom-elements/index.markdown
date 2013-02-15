@@ -18,20 +18,6 @@ tutorial:
 
 {% capture content %}
 
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft and is incomplete.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
-</div>
-
 Custom elements are one kind of web component
 defined in the Web Components model.
 Using templates and scripts,
@@ -357,7 +343,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/fetchdata/" class="pull-right">Fetch Data Dynamically <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

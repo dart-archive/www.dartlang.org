@@ -36,7 +36,7 @@ create and run two small applications.
 * [Run a web app in Dartium](#run-web-app)
 * [About the HTML, CSS, and Dart triumvirate](#source-files)
 * [About main() and other top-level functions](#top-level-functions)
-* [About file naming Conventions](#file-names)
+* [About file naming conventions](#file-names)
 
 ##Download the Dart software bundle {#download-dart}
 
@@ -166,6 +166,16 @@ Alternatively, you can use the
 or the **Create a new application** button
 on the Welcome page.
 
+Editor pane
+: Provides the basic editing functionality you'd expect,
+plus features such as Dart code completion,
+API browsing, and support for refactoring.
+The first time you use Dart Editor,
+it shows the Welcome Page in the Editor pane,
+which provides quick access to Dart resources
+and some nifty samples.
+The Welcome Page is also available under the **Tools** menu.
+
 Files view
 : Shows a hierarchical view of your Dart applications
 and their associated files.
@@ -176,15 +186,6 @@ the file is selected,
 but not necessarily displayed in the **Editor pane**.
 You must double-click the file.
 
-Editor pane
-: Provides the basic editing functionality you'd expect,
-plus features such as Dart code completion,
-API browsing, and support for refactoring.
-The first time you use Dart Editor,
-it shows the Welcome Page in the Editor pane,
-which provides quick access to Dart resources
-and some nifty samples.
-The Welcome Page is also available under the **Tools** menu.
 
 ##About Dart applications {#what-is-app}
 
@@ -266,7 +267,7 @@ and then a web application.
 ##Create a command-line app {#create-cmd-line}
 
 In Dart Editor, click the New Application button
-<img src="images/newapp.png" width="15" height="16" alt="New App button"/>.
+<img src="images/newapp.png" width="17" height="16" alt="New App button"/>.
 A dialog appears.
 
 Follow these steps to create a command-line application:
@@ -283,19 +284,20 @@ and the basename for the files it creates.
 
 <li markdown="1">
 Type or browse to the directory where you want to save the files.
-By default, Dart Editor creates a new directory named dart
+By default, Dart Editor creates a new directory named `dart`
 in your home directory.
 </li>
 
 <li markdown="1">
-A command-line application does not need
-the extra HTML and CSS files required by a web app,
-so unselect **Generate content for a basic web app**.
+Select **Generate sample content**.
+Dart Editor will generate sample code
+appropriate for the type of application you are creating.
+For a command-line application,
+the sample code implements the standard 'Hello World' program.
 </li>
 
 <li markdown="1">
-We are not working with public packages in this example,
-so unselect **Add Pub support**.
+Select **Command-line application** from the list.
 </li>
 
 <li markdown="1">
@@ -303,19 +305,27 @@ Click **Finish**.
 </li>
 </ol>
 
-Dart Editor creates a new command-line app.
-That is, it creates a new directory and a Dart source file
-containing the top-level main () function.
+Dart Editor creates a directory called `helloworld`
+that contains boilerplate files and directories for a
+simple command-line app.
+The main source file is named after the application and
+is in a directory called `bin`.
+The rest of the files and directories
+are there for pub support; 
+they come into play if your application needs to use extra libraries.
+You can ignore these files for now.
+
+The main Dart source file for the app
+contains the top-level main() function
+and is named after the app itself.
+In this case, `helloworld.dart`.
 The file hierarchy is displayed in the **Files view**.
-The command-line app directory is called helloworld and
-the source file is named helloworld.dart.
 
 <img src="images/helloworld-files.png"
      alt="Dart Editor with new command-line app files"/>
 
 The contents of helloworld.dart is shown in the **Editor pane**.
 You might recognize it as the canonical Hello World program.
-
 This program prints
 `Hello, World!` to the standard output stream
 using the print() function,
@@ -343,9 +353,9 @@ and displays the output of the helloworld app.
 Now let's create a web application.
 As you did when creating a command-line application,
 click the **New Application** button
-<img src="images/newapp.png" width="15" height="16" alt="New App button"/>.
+<img src="images/newapp.png" width="17" height="16" alt="New App button"/>.
 This time you are creating a web app,
-so select **Generate content for a basic web app**.
+so select **Web application** from the list.
 
 <img src="images/new-click-me.png"
      alt="Create a new web application"/>
@@ -358,7 +368,7 @@ for a boilerplate web application.
 
 As before, the directory is named after your application.
 So is the Dart source file that contains the main() function.
-In addition, Dart Editor creates an HTML file and a CSS file.
+In addition, Dart Editor creates an HTML file that hosts the app.
 
 The main() function in the clickme app
 contains Dart code 

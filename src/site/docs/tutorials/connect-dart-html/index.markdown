@@ -48,11 +48,11 @@ for more interesting and useful web apps.
 * [Create a new Dart app](#create-dart-app)
 * [Edit Dart source code](#dart-editor-happiness)
 * [About the Dart source code](#about-dart-code)
-* [Create the HTML file](#create-html)
+* [Edit the HTML file](#create-html)
 * [About the HTML source code](#about-html-code)
-* [Run mini app](#run-mini)
+* [Run the mini web app](#run-mini)
 * [Create a JavaScript launch](#mini-with-js)
-* [Create a CSS file](#add-css)
+* [Give the app some style with CSS](#add-css)
 * [About CSS selectors](#about-css-selectors)
 
 ##About the DOM {#dom-intro}
@@ -88,7 +88,7 @@ For example, the tree has page elements,
 text nodes, and attribute nodes.
 Here is the DOM tree for the simple HTML file above.
 
-<img src="images/simple-dom-tree.svg" alt="The DOM tree for a simple HTML file">
+<img src="images/simple-dom-tree.png" alt="The DOM tree for a simple HTML file">
 
 Notice that some tags, such as the \<p> paragraph tag,
 are represented by multiple nodes.
@@ -117,20 +117,40 @@ or even insert an entire sub-tree of nodes.
 
 ## Create a new Dart app {#create-dart-app}
 
+The application you write in this target will be a web application.
+Web applications use code from the browser package to run inside of a browser,
+so you need to start with the supporting files and packages
+even for the smallest web app.
+
 In Dart Editor, create a new application called mini.
-Unselect **Generate content for a basic web app**.
-You will be building the files you need from scratch.
-Make sure that **Add Pub support** is also unselected.
+Select **Generate sample content**
+and **Web application**.
 
 <img src="images/new-app-mini.png"
      alt="New Application dialog window">
 
 Dart Editor creates a directory called mini and, within it,
-a Dart source file named mini.dart
-that contains the Dart code for a default command-line application.
+the files and directories needed for a web application.
 
 <img src="images/new-app-files.png"
      alt="After new application created">
+
+* The top-level directory is named after the application.
+
+* The pubspec.yaml file is used by applications
+that rely on external packages of Dart code.
+[Target 5: Install Shared Packages]("/docs/tutorials/packages/")
+provides more information.
+Web applications use a package called `browser`.
+This dependency is declared in the pubspec.yaml file.
+
+* The web directory contains the Dart, HTML, and CSS code for the web app.
+
+* The main source file, mini.dart in this sample,
+contains boilerplate code for the clickme app
+you saw in the previous target.
+You will edit the code in this file and
+in mini.html to create a bare-bones app.
 
 ##Edit Dart source code {#dart-editor-happiness}
 
@@ -257,34 +277,18 @@ This causes the browser to immediately re-render
 the browser page containing this app
 dynamically displaying the text on the browser page.
 
-## Create the HTML file {#create-html}
+##Edit the HTML file {#create-html}
 
-Now, let's create an HTML file to host the little app you just created.
-In Dart Editor, select **File > New File**.
-A dialog window appears.
+When Dart Editor created the application,
+it created boilerplate HTML code that worked with the clickme app.
+Now that you've modified the Dart code,
+you will need to change the HTML code
+so that it contains the expected RipVanWinkle paragraph.
 
-<img src="images/new-html-file.png"
-     alt="Create new HTML file">
-
-<ol>
-<li markdown="1">
-Browse to the mini directory and select it.
-</li>
-<li markdown="1">
-Type mini.html in the file name text box.
-This follows convention: the basename is
-the same as the application name
-and it uses .html suffix.
-</li>
-<li markdown="1">
-Click **Finish**.
-</li>
-</ol>
-
-The Dart Editor auto-fills the file with some default HTML code.
-There is more code than is necessary,
-so replace the default contents with the following,
-slightly simplified, HTML.
+In Dart Editor, double click `mini.html`.
+The code appears in the editor pane.
+Replace the default contents with the following,
+simplified HTML.
 
 {% prettify html %}
 <!DOCTYPE html>
@@ -293,11 +297,11 @@ slightly simplified, HTML.
   <head>
     <title>A Minimalist App</title>
   </head>
-
+  
   <body>
     <p id="RipVanWinkle"></p>
     <script type="application/dart" src="mini.dart"></script>
-    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+    <script src="packages/browser/dart.js"></script>
   </body>
 </html>
 {% endprettify %}
@@ -340,7 +344,7 @@ between `mini.dart` and `mini.html`.
 <img src="images/dart-html-connect.png"
      alt="The connection between the HTML file and the Dart file">
 
-## Run the mini web app {#run-mini}
+##Run the mini web app {#run-mini}
 
 In Dart Editor,
 make sure that one of `mini`'s files or the directory is selected,
@@ -387,7 +391,7 @@ A menu appears:
 
 You have been unwittingly using launches when running
 the samples so far.
-The menu item mini.html is a launch that Dart Editor
+The menu item `mini.html from mini` is a launch that Dart Editor
 automatically created
 when you ran the application for the first time
 in the previous section.
@@ -396,35 +400,22 @@ in the previous section.
 <li markdown="1">
 Select **Manage launches** from the menu
 to bring up the **Manage Launches** dialog.
-</li>
+Using the small icons,
+you can create launches for different purposes:
 
-<li markdown="1">
-Now, click the new launch button
-<img src="images/new-launch-button.png" width="28" height="22"
-     alt="New launch button">.
-A menu appears that gives you three options:
+<img src="images/new-launch-menu.png" alt="Launch options">
 
-<img src="images/new-launch-menu.png"
-     alt="New launch menu with three options">
-
-A command-line launch runs in Dart Editor in
-the **Output view**.
-If your app is a command-line app (a `.dart` file with no `.html` file)
-Dart Editor automatically creates a command-line launch
-with the name of the `.dart` file that contains the main() function.
-
-A Dartium launch runs in a Chromium window invoked by Dart Editor.
-If your app is a web app,
-Dart Editor automatically creates a Dartium launch
-with the name of the `.html` file that includes the Dart app.
-
+By default,
+Dart Editor automatically creates a Dartium launch for web apps.
 You must explicitly create a Dart JavaScript launch
 to create a runtime configuration that compiles
 your web app to JavaScript and then runs it in a browser.
 </li>
 
 <li markdown="1">
-Select **Dart JavaScript launch**.
+Click the JavaScript launch icon
+<img src="images/dart2js-icon.png" width="18" height="17"
+     alt="JavaScript launch icon">.
 The dialog window adjusts to present the appropriate options
 for your selection.
 </li>
@@ -472,14 +463,15 @@ The output should look the same.
 
 </ol>
 
-##Create a CSS file {#add-css}
+##Give the app some style with CSS {#add-css}
 
-Most HTML uses cascading style sheets to define _styles_
+Most HTML uses cascading style sheets (CSS) to define _styles_
 that control the appearance of page elements.
-Let's create a simple CSS file for the mini app.
+Let's customize the CSS for the mini app.
 
-In Dart Editor, create a file named mini.css
-in the mini directory with the following text:
+In Dart Editor, edit the file named mini.css
+and replace the contents of the file with
+the following CSS code:
 
 {% prettify dart %}
 #RipVanWinkle {

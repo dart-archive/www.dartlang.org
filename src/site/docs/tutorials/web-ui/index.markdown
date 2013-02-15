@@ -20,20 +20,6 @@ tutorial:
 
 {% capture content %}
 
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
-</div>
-
 The
 <a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>
 provides the tools and Dart code
@@ -108,15 +94,24 @@ of installing packages.
 In Dart Editor:
 
 * Create a new project using **File > New Application**
-and select both **Generate content for a basic web app** and
-**Add Pub support**. Call the project `littleben`.
+and select both **Generate sample content** and
+**Web application**. Call the project `littleben`.
 
 * Open the pubspec.yaml file, which is
 in the top-level directory of your project.
+By default,
+Dart Editor displays the Overview panel,
+which provides a handy UI for viewing and modifying the pubspec file.
+You can use the **Source**
+tab at the bottom of the window to view
+the pubspec.yaml source code.
 
-* Edit the dependencies list in pubspec.yaml 
+* Add the Web UI package to the list of dependencies
 by adding the Web UI package name,
 `web_ui`, to the list.
+Click the **Add...** in the Overview panel,
+or add the package name
+to the dependencies list directly in the pubspec.yaml source.
 YAML is whitespace-sensitive
 so take care to indent the package name as shown:
 
@@ -181,13 +176,6 @@ build.dart refers to the application's primary HTML file `web/littleben.html`.
 The pathname is specified relative to the build.dart file.
 
 ![build.dart file names the project's main HTML file](images/build-dart-file.png)
-</li>
-
-<li markdown="1">
-Modify littleben.html to include `type=text/javascript` as
-an attribute to the second script tag:
-
-![Add type attribute to script tag in littleben.html](images/add-type-attribute.png)
 </li>
 
 <li markdown="1">

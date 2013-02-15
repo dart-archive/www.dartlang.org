@@ -35,48 +35,43 @@ just change the package name when you get to that step.
 This target also describes some of the resources you can expect to find
 in a well-built package.
 
-* [Create a new application within a package](#new-app-with-pkg)
-* [... Or, put an existing application into a package](#old-app-in-pkg)
+* [About the pubspec.yaml file](#about-pubspec)
 * [Name the package dependencies](#name-dependencies)
 * [Install the package dependencies](#install-dependencies)
 * [What did you get (and not get)?](#about-packages)
 * [Import libraries from a package](#use-package)
 
-##Create a new application within a package {#new-app-with-pkg}
+##About the pubspec.yaml file {#about-pubspec}
 
 To use an external package,
 your application must itself be a package.
-You can create an application and its package together
-from the New Application window in Dart Editor.
+Any application with a valid pubspec.yaml file in its top-level directory
+is a package and can therefore use external packages.
+When you create an application using Dart Editor,
+Dart Editor automatically creates a `pubspec.yaml` file.
 
-Start Dart Editor and bring up the **New Application** window.
-Use vector_victor for the application name.
-Select **Add Pub support** to make Dart Editor
-generate basic package support.
-Click **Finish**.
-
-![Select **Add pub support** to use packages](images/create-victor.png)
-
-Dart Editor creates a new directory with boilerplate files.
-Notice that the directory contains a new kind of file:
-the `pubspec.yaml` file.
+Start Dart Editor and create a new application with the name `vector_victor`.
 Double click pubspec.yaml to view its contents.
 
 ![Dart Editor with pubspec.yaml file](images/victor-files.png)
 
-The pubspec.yaml file is what makes the vector_victor directory a package.
-This file contains the package specification written in YAML
+The pubspec.yaml file contains the package specification written in YAML
 (visit <a href="http://pub.dartlang.org/doc/pubspec.html">Pubspec Format</a>
 for in-depth coverage).
-At minimum, the pubspec provides a name for the package.
-It also can provide a description and identify packages on
-which this package depends.
+Dart Editor provides a user interface for editing the pubspec.yaml file
+so that you don't have to worry about the YAML format.
+Or you can click the **Source** tab at the bottom of the Editor pane
+to edit the YAML code directly.
+Below is the pubspec.yaml file that was
+created for the vector_victor application.
 
 ![The default pubspec.yaml file specifies name and description](images/pubspec.png)
 
-Any application with a valid pubspec.yaml file in its top-level directory
-is a package and can therefore use external packages.
+The package name is required.
+All web applications are dependent on the browser package
+provided at pub.dartlang.org.
 
+{% comment %}
 ##...Or put an existing application into a package {#old-app-in-pkg}
 
 If you already have an application
@@ -98,26 +93,34 @@ Ignore the message,
 add the required name field,
 and save the pubspec.yaml file.
 </aside>
+{% endcomment %}
 
 ##Name the package dependencies {#name-dependencies}
 
 To use an external library package,
-include it in a list of _dependencies_
-in your application's pubspec.yaml file.
+you need to add the package to your
+application's list of _dependencies_
+in the pubspec.yaml file.
 Each item in the dependencies list
 specifies the name, and sometimes the version,
 of a package that your application uses.
 
-To specify that vector_victor depends on
-the vector_math package,
-modify the pubspec.yaml file as shown below.
-Be sure to remove the hash marks (#) so that
-the dependencies list is not commented out.
-Also, YAML is whitespace sensitive;
-it's important to indent the package name.
+Let's make the vector_victor application have a dependency 
+on the vector_math package,
+which is available at pub.dartlang.org.
+Click the **Add** button in Dart Editor.
 
-![A pubspec with dependency on the vector_math package](images/pubspec-vectormath.png)
+![Click the add button to add a package dependency](images/dependencies-ui.png)
 
+Enter the name of the package in the popup window.
+
+![Enter the package name](images/add-dependency-window.png)
+
+Dart Editor adds the package name to the list.
+
+![The application is now dependent on vector_math](images/after-add.png)
+
+Notice the **Version** field.
 `any` means that this application can use
 any version of the vector_math package.
 You could instead specify a particular version of the package.
@@ -126,6 +129,10 @@ check out
 <a href="http://pub.dartlang.org/doc/versioning.html">
 Pub's Versioning Philosophy
 </a>.
+
+Here's the new pubspec.yaml file:
+
+![Pubspec.yaml file with vector_math dependency](images/pubspec-vectormath.png)
 
 <a href="http://pub.dartlang.org/">pub.dartlang.org</a>
 is the primary public repository for Dart packages.
