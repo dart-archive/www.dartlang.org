@@ -63,8 +63,7 @@ description: "Read Chapter 5. Walkthrough: Dart Chat of Dart: Up and Running, 
 </span></em>&lt;!-- Inserted by dart.js for non-Dartium browsers --&gt;
 &lt;script src="chat-client.dart.js"&gt;&lt;/script&gt;</pre><p>The script contents run when the browser has loaded the HTML and
     constructed its DOM (document object model).</p><p>You can get dart.js with the <a class="ulink" href="http://pub.dartlang.org/packages/browser" target="_top">browser package from
-    pub,</a> or you can get it <a class="ulink" href="http://dart.googlecode.com/svn/trunk/dart/client/dart.js" target="_top">directly
-    from the Dart project.</a> See <a class="xref" href="ch04-tools-dart2js.html" title="dart2js: The Dart-to-JavaScript Compiler">the section called “dart2js: The Dart-to-JavaScript Compiler”</a>
+    pub</a>. See <a class="xref" href="ch04-tools-dart2js.html" title="dart2js: The Dart-to-JavaScript Compiler">the section called “dart2js: The Dart-to-JavaScript Compiler”</a>
     for more information about compiling Dart code into its JavaScript
     equivalent.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-client-dart-code"></a>The Client’s Dart Code</h2></div></div></div><p>Dart code (client/chat-client.dart) provides the client’s logic,
     using the DOM to interact with UI elements. For example, the client’s Dart
@@ -91,7 +90,7 @@ messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput,
   UsernameInput(InputElement elem) : super(elem);
 
   bind() { // Called by the View constructor.
-    elem.on.change.add((e) =&gt; _onUsernameChange());
+    elem.onChange.listen((e) =&gt; _onUsernameChange());
   }
 
   _onUsernameChange() {
@@ -113,8 +112,8 @@ messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput,
       bugs or improve code completion.</p><p>Wrapping elements is a technique you can use as you develop a
       simple app that might evolve into a larger app. As the app grows, you
       might change it to use a real <a class="ulink" href="http://en.wikipedia.org/wiki/Model-view-controller" target="_top">model-view-controller
-      (MVC) architecture.</a></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>We expect the Dart project to provide an MVC-type framework for
-        clients.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-update-element"></a>Updating DOM Elements</h3></div></div></div><p>The <code class="literal">bind()</code> method sets up the event handlers,
+      (MVC) architecture.</a></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For more structure, see the <a class="ulink" href="http://www.dartlang.org/articles/dart-web-components/" target="_top">Web UI</a>
+          project for declarative widgets and dynamic, data-driven views.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-update-element"></a>Updating DOM Elements</h3></div></div></div><p>The <code class="literal">bind()</code> method sets up the event handlers,
       which bind events from the DOM to logic in the Dart objects. For
       example, in UsernameInput, the <code class="literal">_onUsernameChange()</code>
       method is called any time the text in the input element changes.</p><p>To display messages in the chat window, the ChatWindow class adds
@@ -152,7 +151,7 @@ Map message = json.parse(encodedMessage);</pre><p>See <a class="xref" href="ch03
       adds event handlers for open, close, error, and message events, using
       the WebSocketEvents object it gets from <code class="literal">webSocket.on</code>.
       For example, here’s the code that responds to message events:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>webSocket.on.message.add((MessageEvent e) {
+</span></em>webSocket.onMessage.listen((MessageEvent e) {
   print('received message ${e.data}');
   _receivedEncodedMessage(e.data);
 });</pre><p>The <code class="literal">_receivedEncodedMessage()</code> method just
@@ -192,13 +191,14 @@ _sendEncodedMessage(String encodedMessage) {
   scheduleReconnect() {
     chatWindow.displayNotice('socket closed, retrying in $retrySeconds seconds');
     if (!encounteredError) {
-      window.setTimeout(() =&gt; _init(retrySeconds*2), 1000*retrySeconds);
+      new Timer(new Duration(seconds:retrySeconds),
+          () =&gt; _init(retrySeconds*2));
     }
     encounteredError = true;
   } 
   //...
-  webSocket.on.close.add((e) =&gt; scheduleReconnect());
-  webSocket.on.error.add((e) =&gt; scheduleReconnect());</pre><p>The reconnect logic uses <code class="literal">setTimeout()</code> to
+  webSocket.onClose.listen((e) =&gt; scheduleReconnect());
+  webSocket.onError.listen((e) =&gt; scheduleReconnect());</pre><p>The reconnect logic uses <code class="literal">new Timer()</code> to
       schedule a retry using an exponential backoff algorithm.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-server"></a>The Server’s Code</h2></div></div></div><p>The chat-server.dart file contains most of the code used in the chat
     server. It is responsible for serving static files and managing WebSocket
     connections. The chat server also logs the chat messages to a file.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-server-static-files"></a>Serving Static Files</h3></div></div></div><p>The chat server uses dart:io’s HttpServer to implement a web
@@ -298,7 +298,7 @@ onRequest(HttpRequest request, HttpResponse response) {
       out = logFile.openOutputStream(FileMode.APPEND);
     } else {
       time('write to file', () {
-        out.writeString('${new Date.now()} : $msg\n');
+        out.writeString('${new DateTime.now()} : $msg\n');
       });
     }
   });

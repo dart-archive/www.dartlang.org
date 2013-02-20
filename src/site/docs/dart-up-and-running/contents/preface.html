@@ -103,9 +103,13 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
             it’s
             <code class="literal">.on<em class="replaceable"><code>Event</code></em>.listen()</code>.</p></li><li class="listitem"><p>The dart:html HttpRequest <code class="literal">get()</code> method
             has been replaced by <code class="literal">getString()</code> and
-            <code class="literal">request()</code>, which return
-            <code class="literal">Future&lt;String&gt;</code> and
-            <code class="literal">Future&lt;HttpRequest&gt;</code>, respectively.</p></li></ul></div></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
+            <code class="literal">request()</code>, which return Future&lt;String&gt;
+            and Future&lt;HttpRequest&gt;, respectively.</p></li><li class="listitem"><p>The dart:html Window <code class="literal">setTimeout()</code> method
+            is gone; instead, use a Timer.</p></li><li class="listitem"><p>Timer and Completer have moved from dart:isolate to a new
+            library called dart:async.</p></li><li class="listitem"><p>The Future <code class="literal">chain()</code> and
+            <code class="literal">handleException()</code> methods are gone, replaced by
+            <code class="literal">then()</code> and
+            <code class="literal">catchError()</code>.</p></li></ul></div></li></ul></div><p>We’ve also added discussions for a few pre-existing features:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Lexical scope (see <a class="xref" href="ch02.html#ch02-lexical-scope" title="Lexical Scope">the section called “Lexical Scope”</a>)</p></li><li class="listitem"><p>… <em><span class="remark">[PENDING: more?]</span></em></p></li></ul></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
     hope we haven’t forgotten anyone, but we probably have.</p><p>The following Dart engineers and managers gave us prompt, helpful
     reviews of the sections corresponding to their areas of responsibility:
     Mads Ager, Peter von der Ahé, Justin Fagnani, Dan Grove, Florian Loitsch,

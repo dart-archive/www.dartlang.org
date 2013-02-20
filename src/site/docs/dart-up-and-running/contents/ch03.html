@@ -905,8 +905,8 @@ main() {
   }
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-receiving-data"></a>Receiving data</h4></div></div></div><p>To receive data on the WebSocket, register a listener for
         message events.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>webSocket.on.message.add((e) {
-  receivedMessage((e as MessageEvent).data);
+</span></em>webSocket.onMessage.listen((MessageEvent e) {
+  receivedMessage(e.data);
 });</pre><p>The message event handler receives a <a class="ulink" href="http://api.dartlang.org/html/MessageEvent.html" target="_top">MessageEvent</a>
         object. This object’s <code class="literal">data</code> field
         has the data from the server. Here’s an example of decoding a JSON
@@ -930,20 +930,20 @@ receivedMessage(String data) {
   scheduleReconnect() {
     print('web socket closed, retrying in $retrySeconds seconds');
     if (!reconnectScheduled) {
-      window.setTimeout(() =&gt; connectToWebSocket(retrySeconds*2),
-                                           1000*retrySeconds);
+      new Timer(new Duration(seconds:retrySeconds),
+        () =&gt; connectToWebSocket(retrySeconds*2));
     }
     reconnectScheduled = true;
   }
   
-  webSocket.on.open.add((e) {
+  webSocket.onOpen.listen((e) {
     print('Connected');
   });
   
-  webSocket.on.close.add((e) =&gt; scheduleReconnect());
-  webSocket.on.error.add((e) =&gt; scheduleReconnect());
+  webSocket.onClose.listen((e) =&gt; scheduleReconnect());
+  webSocket.onError.listen((e) =&gt; scheduleReconnect());
   
-  webSocket.on.message.add((MessageEvent e) {
+  webSocket.onMessage.listen((MessageEvent e) {
     _receivedEncodedMessage(e.data);
   });
 }</pre><p>For an example of using WebSockets, see <a lang="" class="xref" href="ch05.html" title="Chapter 5. Walkthrough: Dart Chat">Chapter 5, <i>Walkthrough: Dart Chat</i></a>.</p></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartisolate---concurrency-with-isolates"></a>dart:isolate - Concurrency with Isolates</h2></div></div></div><p>Dart has no shared-memory threads. Instead, all Dart code runs in
@@ -1126,20 +1126,17 @@ main() {
   });
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-errors"></a>Handling errors</h4></div></div></div><p>Errors are thrown as exceptions if you do not register an
         explicit handler. If you want to capture an error, you can register a
-        <code class="literal">handleException</code> handler with the
+        <code class="literal">catchError</code> handler with the
         Future object.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em>import 'dart:io';
 
 main() {
   var config = new File('config.txt');
-  Future readFile = config.readAsString();
-  readFile.handleException((e) {
+  file.readAsString().then((String contents) {
+    print(contents);
+  }).catchError((e) {
     print(e);
-    // ...Other error handling goes here...
-    return true; // We've handled the exception; no need to propagate it.
-  });
-  readFile.then((text) =&gt; print(text));
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-streaming-file-contents"></a>Streaming file contents</h4></div></div></div><p>Use an InputStream to read a file, a little at a time. The
+  });</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-streaming-file-contents"></a>Streaming file contents</h4></div></div></div><p>Use an InputStream to read a file, a little at a time. The
         <code class="literal">onData</code> callback runs when data is
         ready to be read. When the InputStream is finished reading the file,
         the <code class="literal">onClosed</code> callback
