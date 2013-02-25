@@ -41,7 +41,6 @@ row02:
   name: sunflower
   alt: Sunflower in a browser.
   source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%sunflower
-  live_url: http://www.dartlang.org/samples/sunflower/sunflower.html
   desc: Canvas 2D app with HTML5 range input and event handler.
   walkthrough: true
   features:
@@ -54,7 +53,6 @@ row02:
   name: spirodraw
   alt: A spirodraw game in a browser.
   source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%spirodraw
-  live_url: http://www.dartlang.org/samples/spirodraw/app/spirodraw.html
   desc: Fun and interactive animation using canvas 2D.
   walkthrough: true
   features:

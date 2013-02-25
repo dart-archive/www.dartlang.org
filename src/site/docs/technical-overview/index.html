@@ -374,7 +374,7 @@ import 'dart:html';
 main() {
   query('#button-text')
     ..text = "Click me!"
-    ..on.click.add(respond);
+    ..onClick.listen(respond);
 }
 
 respond(event) {
@@ -424,7 +424,7 @@ from the following Dart code:
 String currentTime;
 
 void main() {
-  Date today = new Date.now();
+  var today = new DateTime.now();
   currentTime = formatTime(today.hour, today.minute, today.second);
 }
 

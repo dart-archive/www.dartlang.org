@@ -7,13 +7,13 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-03-01
-  updated_on: 2012-09-01
+  updated_on: 2013-02-01
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 _Written by Mads Ager <br />
-March 2012 (updated October 2012)_
+March 2012 (updated February 2013)_
 
 <section markdown="1">
 The [dart:io](http://api.dartlang.org/io.html) library
@@ -76,10 +76,10 @@ no more pending operations are in the event queue
 and the VM terminates.
 
 {% prettify dart %}
-import 'dart:isolate';
+import 'dart:async';
 
 main() {
-  new Timer(1000, (Timer t) => print('timer'));
+  new Timer(new Duration(seconds:1), () => print('timer'));
   print('end of main');
 }
 {% endprettify %}

@@ -16,7 +16,7 @@ and \{\% codesample \%\}.
 # {{ page.title }}
 
 _Written by Sigmund Cherem<br />
-November 2012 (Updated December 2012)_
+November 2012 (Updated February 2013)_
 
 The Web UI package (Web UI for short) provides web components and templating to
 help you write web applications at scale. This article contains a detailed
@@ -1105,10 +1105,9 @@ called:
 The name for the `on-` attributes is the hyphenated version of the Dart name
 associated with the event in `dart:html`,
 which is what you would normally write
-in calls of the form `elem.on.event.add(eventListener)`. For example, the
+in calls of the form `elem.onSomeEvent.listen(eventListener)`. For example, the
 attribute for the `doubleClick` event is `on-double-click`. See the API docs for
-[ElementEvents][elemevents] and [InputElementEvents][inputevents] for a complete
-list of event names.
+[Element][elemevents] for a complete list of event names.
 
 The action written in the attribute value can be any valid Dart expression, but
 typically is a method invocation. This expression is evaluated using lexical
@@ -1205,7 +1204,7 @@ The initialization of web components is done after `main` is executed, but
 before the end of the event loop. If you query in `main` for the element
 associated with a component, its `xtag` will be null. To [retrieve a component
 instance](#retrieval) you need to defer queries until the end of the event loop,
-for example using a `setTimeout(f, 0)`.
+for example using a `new Timer.run(f)`.
 
 ### Top-level templates
 
@@ -1228,5 +1227,4 @@ are evaluated in the top-level context of the main script.
 [wcappendix]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html#appendix-b-html-elements
 [tostring]: http://api.dartlang.org/docs/bleeding_edge/dart_core/Object.html#toString
 [safehtml]: https://github.com/dart-lang/web-ui/blob/master/lib/safe_html.dart
-[elemevents]: http://api.dartlang.org/docs/bleeding_edge/dart_html/ElementEvents.html
-[inputevents]: http://api.dartlang.org/docs/bleeding_edge/dart_html/InputElementEvents.html
+[elemevents]: http://api.dartlang.org/docs/releases/latest/dart_html/Element.html

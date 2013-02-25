@@ -8,7 +8,7 @@ asynchronous tests."
 has-permalinks: true
 article:
   written_on: 2012-06-01
-  updated_on: 2012-11-01
+  updated_on: 2013-02-01
   collection: libraries-and-apis
 ---
 
@@ -375,14 +375,14 @@ So far all of the tests shown have been synchronous; that is, the test function 
 Say we have this code in our application:
 
 {% prettify dart %}
-window.setTimeout(checkProgress, 100);
+new Timer(new Duration(milliseconds:100), checkProgress);
 {% endprettify %}
 
-and we want to test whether window.setTimeout calls the checkProgress function. If we just write:
+and we want to test whether Timer calls the checkProgress function. If we just write:
 
 {% prettify dart %}
-test('Window timeout test', () {
-  window.setTimeout(checkProgress, 100); 
+test('Timer test', () {
+  new Timer(new Duration(milliseconds:100), checkProgress); 
 });
 {% endprettify %}
 
@@ -394,19 +394,19 @@ Here is an example of expectAsync0:
 
 {% prettify dart %}
 test('Window timeout test', () {
-  window.setTimeout(expectAsync0(checkProgress), 100); 
+  new Timer(new Duration(milliseconds:100), expectAsync0(checkProgress)); 
 });
 {% endprettify %}
 
-When this test starts to run, it calls `window.setTimeout` and passes a closure, created by `expectAsync0`, as the event handler. This closure will in turn call `checkProgress()`. If `checkProgress()` throws an exception the closure catches it and mark the test as failed. The test is not considered complete until either the closure is executed or the test framework times out and fails the test.
+When this test starts to run, it calls `new Timer` and passes a closure, created by `expectAsync0`, as the event handler. This closure will in turn call `checkProgress()`. If `checkProgress()` throws an exception the closure catches it and mark the test as failed. The test is not considered complete until either the closure is executed or the test framework times out and fails the test.
 
 `expectAsyncN()` can take an additional count argument to specify how many times the callback must be called before the test is considered complete. For example:
 
 {% prettify dart %}
 test('Double callback', () {
   var callback = expectAsync0(foo, count: 2);
-  window.setTimeout(callback, 0);
-  window.setTimeout(callback, 0);
+  new Timer(new Duration(milliseconds:100), callback);
+  new Timer(new Duration(milliseconds:100), callback);
 });
 {% endprettify %}
 

@@ -28,7 +28,7 @@ void filterPlatformText() {
 /** Allows the user to choose the OS. */
 void registerHandlers() {
   osList.forEach((os) {
-    document.query('#$os').on.click.add((e) {
+    document.query('#$os').onClick.listen((e) {
       osName = os;
       filterPlatformText();
     });

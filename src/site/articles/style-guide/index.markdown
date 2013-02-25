@@ -7,14 +7,14 @@ description: "Follow these guidelines for consistent, readable Dart code."
 has-permalinks: true
 article:
   written_on: 2011-10-01
-  updated_on: 2012-11-01
+  updated_on: 2013-02-01
   collection: everyday-dart
 ---
 
 # {{ page.title }}
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
-(updated November 2012)
+(updated February 2013)
 </em>
 
 As we build up an ecosystem of Dart code, it's helpful if it follows a
@@ -342,8 +342,8 @@ clear what the boolean represents:
 
 <div class="bad">
 {% prettify dart %}
-new Timer(true);
-new Timer(false);
+new Task(true);
+new Task(false);
 new ListBox(false, true, true);
 {% endprettify %}
 </div>
@@ -353,8 +353,8 @@ to clarify what the call is doing.
 
 <div class="good">
 {% prettify dart %}
-new Timer.oneShot();
-new Timer.repeating();
+new Task.oneShot();
+new Task.repeating();
 new ListBox(scroll: scrollBoth, showScrollbars: true);
 {% endprettify %}
 </div>
@@ -881,7 +881,7 @@ expressions, like being passed to methods. These are formatted like so:
 
 <div class="good">
 {% prettify dart %}
-window.setTimeout(() {
+new Timer.run(() {
   print('I am a callback');
 });
 {% endprettify %}
@@ -889,7 +889,7 @@ window.setTimeout(() {
 
 <div class="bad">
 {% prettify dart %}
-window.setTimeout(() {
+new Timer.run(() {
       print('I am a callback');
     });
 {% endprettify %}

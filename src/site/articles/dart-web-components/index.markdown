@@ -8,7 +8,7 @@ description: "Use web components and templates today with Dart. This brief
 has-permalinks: true
 article:
   written_on: 2012-10-01
-  updated_on: 2012-12-01
+  updated_on: 2013-02-01
   collection: libraries-and-apis
 ---
 {% comment %}
@@ -47,7 +47,7 @@ that will contain the running version of the code sample.
 # {{ page.title }}
 
 _Written by Sigmund Cherem<br />
-October 2012 (Updated December 2012)_
+October 2012 (Updated February 2013)_
 
 <div>
 <img src="dart_logo.png" width="69" height="70" alt="dart logo">
@@ -141,7 +141,7 @@ column shows the app generated from this code running in an iframe.
   <script type="application/dart">
     String dataValue;
     main() {
-      var today = new Date.now();
+      var today = new DateTime.now();
       dataValue = 'world ${today.year}-${today.month}-${today.day}';
     }
   </script>
