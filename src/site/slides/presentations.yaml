@@ -1,9 +1,19 @@
+- title: "Dart Crash Course"
+  short: dart-crash-course
+  presenters:
+    - Filip Hráček
+  date: 2013-02-15
+  slides: "https://docs.google.com/presentation/d/1CTF6c7qXzE0Dj8ZlpqnOiPqU_icuJ7kn2tMJ0fhpG1Y/pub#slide=id.p"
+  video: http://www.ustream.tv/recorded/29325494
+  event: MLOC 2013
+
 - title: "Web Components Now"
   short: web-components-now
   presenters:
     - Seth Ladd
-  date: 2013-03-05
+  date: 2013-02-05
   slides: "http://sethladd.github.com/preso-dart-web-components/#1"
+  video: http://www.youtube.com/watch?v=rdDoc3fLaII
   event: JFokus 2013
 
 - title: "Esto Es Dart"
