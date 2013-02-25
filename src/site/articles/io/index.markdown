@@ -342,7 +342,7 @@ _send404(HttpResponse response) {
 }
 
 startServer(String basePath) {
-  HttpServer.bind('127.0.0.1', 8082).then((server) {
+  HttpServer.bind('127.0.0.1', 8080).then((server) {
     server.listen((HttpRequest request) {
       final String path =
           request.uri.path == '/' ? '/index.html' : request.uri.path;
