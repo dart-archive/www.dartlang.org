@@ -160,7 +160,7 @@ The HTML code creates a button with the ID delete-all.
 (The CSS styles it.)
 
 {% prettify dart %}
-<button id="delete-all" type="button" float:right> Delete All </button>
+<button id="delete-all" type="button" style="float:right"> Delete All </button>
 {% endprettify %}
 
 </li>
@@ -182,7 +182,7 @@ Here is all of the Dart code related to the **Delete All** button.
 The todo_with_delete app uses
 some interesting Dart syntax
 when adding an event listener to the **Delete All** button.
-The argument passed into the add() function
+The argument passed into the listen() function
 is an example of a _function expression_,
 which is a shorthand way of defining functions
 and it uses the => syntax to define the function concisely.

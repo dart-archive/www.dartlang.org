@@ -249,7 +249,7 @@ or `keyDown` for when the user presses a key on the keyboard.
 
 ##About EventListener functions {#about-event-listeners}
 
-The argument passed to the add() method is a _callback function_
+The argument passed to the listen() method is a _callback function_
 of type 
 <a href="http://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a>.
 EventListener is a typedef defined in the dart:html library as follows:
@@ -357,6 +357,10 @@ The full source code for the anagram example is here:
   <li>
 <a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/anagram/web/anagram.dart"
    target="_blank">anagram.dart</a>
+  </li>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/anagram/web/anagram.css"
+   target="_blank">anagram.css</a>
   </li>
 </ul>
 

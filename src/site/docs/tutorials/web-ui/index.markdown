@@ -253,7 +253,7 @@ formatted in a standard way.
 
 On the Dart side,
 littleben's main() function gets the current time using the
-<a href="http://api.dartlang.org/dart_core/Date.html" target="_blank">Date</a>
+<a href="http://api.dartlang.org/dart_core/DateTime.html" target="_blank">DateTime</a>
 class from the dart:core library.
 The littleben.dart file contains
 a top-level function called formatTime(),
@@ -335,23 +335,24 @@ The next section discusses the code for the app running above.
 
 You can find the code for a version of the littleben app
 that updates the display of the current time every second in
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/littleben_clock/web/littleben_clock.dart">littleben_clock.dart</a>.
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/littleben_clock/web/littleben_clock.dart"
+   target="_blank">littleben_clock.dart</a>.
 The diagram below highlights the differences
 between the original, static version and the new, dynamic version:
 
 ![littleben_clock.dart with explicit call to dispatch watchers](images/littleben-with-watcher.png)
 
 1. Add two import directives,
-one to import dart:html (for the
-<a href="http://api.dartlang.org/dart_html/Window.html" target="_blank">Window</a>
+one to import dart:async (for the
+<a href="http://api.dartlang.org/dart_async/Timer.html" target="_blank">Timer</a>
 class) and one to import
 the watcher library from the web_ui package
 (more about the `as` clause below).
 1. Change the code within the main() function.
 1. Add the updateTime() function.
 
-The main() function sets a timer using window.setInterval().
-The timer calls the updateTime() function every second (1000 milliseconds).
+The main() function sets a timer using a repeating Timer object.
+The timer calls the updateTime() function every second.
 The updateTime() function is similar to the
 main() function in the previous version;
 it gets the current time, formats it,
@@ -362,7 +363,7 @@ New is the call to watchers.dispatch().
 
 This program must dispatch watchers explicitly
 because the Web UI layer does not
-automatically dispatch watchers for window interval events.
+automatically dispatch watchers for timer events.
 If you comment out the watchers.dispatch() call,
 the currentTime string changes in the Dart code every second,
 but the UI is not updated.
