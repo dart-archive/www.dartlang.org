@@ -50,3 +50,10 @@ episodes:
   num: 7
   youtubeid: RJujzs2ts4s
   thumbnail: http://i.ytimg.com/vi/RJujzs2ts4s/0.jpg
+- title: "Control Flow Statements - Dart Tips, Ep 8"
+  subtitle: "Control Flow Statements"
+  pubdate: 2013-02-15
+  description: "Take back control and learn more about Dart's control flow statements. All the greatest hits are here, if, while, for, and switch. Plus, this video shows you a helpful tweak that should make web developers quite happy.  "
+  num: 8
+  youtubeid: XdqZdsdzD2A
+  thumbnail: http://i.ytimg.com/vi/XdqZdsdzD2A/0.jpg

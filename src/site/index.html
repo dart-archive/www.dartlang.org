@@ -74,7 +74,7 @@ main() {
   var btn = new ButtonElement();
   btn.text = 'Click me!';
   btn.onClick.listen((e) => msg.text = 'Dart!');
-  document.body.nodes.add(btn);
+  document.body.children.add(btn);
 }
 {% endprettify %}
 </div>
@@ -89,7 +89,7 @@ main() {
   btn.onClick.listen((e) {
     msg.text = 'Dart!';
   });
-  document.body.nodes.add(btn);
+  document.body.children.add(btn);
 }
 {% endprettify %}
 </div>
@@ -345,7 +345,7 @@ class Point {
             <div class="row">
               <div class="span6">
 {% prettify dart %}
-flipFlags({bool on, bool up, bool hidden=false}) {
+flipFlags({bool on, bool up, bool hidden: false}) {
   // ...
 }
 
