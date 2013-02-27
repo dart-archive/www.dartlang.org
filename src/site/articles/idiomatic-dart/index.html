@@ -7,7 +7,7 @@ description: 'Learn how to write code that looks and feels like Dart.'
 has-permalinks: true
 article:
   written_on: 2011-10-01
-  updated_on: 2013-02-04
+  updated_on: 2013-02-27
   collection: everyday-dart
 ---
 
@@ -30,6 +30,7 @@ October 2011
   <li><a href="#operators">Operators</a></li>
   <li><a href="#equality">Equality</a></li>
   <li><a href="#numbers">Numbers</a></li>
+  <li><a href="#futures">Futures</a></li>
 </ol>
 
 <p>Dart was designed to look and feel familiar if you're coming from other languages, in particular Java and JavaScript. If you try hard enough, you can use Dart just like it was one of those languages. If you try <em>really</em> hard, you may even be able to turn it into Fortran, but you'll be missing out on what's unique and fun about Dart.</p>
@@ -381,3 +382,52 @@ Instead, it has a top-level function called <code>identical()</code>.
 a floating point and <i>cannot</i> be an integer, which is what double expresses.</p>
 
 <p>Idiomatic Dart numbers are annotated with either <code>int</code> or <code>num</code>, rarely <code>double</code>.</p>
+
+<h2 id="futures">Futures</h2>
+
+<p>A Future is a promise for a value to be
+  returned, well, in the future.</p>
+
+<p>Methods that work with a Future should always return the Future. This helps
+  consumers of the method to properly handle errors that might occur.
+  It also lets consumers know when the operation is complete.</p>
+
+{% prettify dart %}
+Future doLengthyComputation() {
+  return lengthyComp().then((value) => print(value))
+                      .catchError((e) => print(e));
+}
+{% endprettify %}
+
+<p>Always chain the <code>catchError()</code> call off of the call to
+  <code>then()</code>, otherwise you will lose exceptions thrown from within
+  <code>then()</code>.</p>
+
+<p>Here is an example of what not to do:</p>
+
+{% prettify dart %}
+// WARNING: This code contains an anti-pattern.
+Future doLengthyComputation() {
+  Future future = lengthComp();
+  future.then((value) => print(value));
+
+  // BAD! You'll only get errors from future, not from then().
+  // BAD! Your caller never sees any errors that occur.
+  future.catchError((e) => print(e));
+  return future;
+}
+{% endprettify %}
+
+<p>If you want to run a function "in the future", it's tempting to use
+  <code>Timer.run</code>. <b>Don't!</b> Unfortunately, exceptions thrown
+  from within run's callback are more-or-less uncatchable.</p>
+
+<p>Luckily, Future has a constructor that can help. Use
+  <code>Future.delayed</code> to run a function in a future event loop tick
+  without losing exceptions that might be thrown.</p>
+
+{% prettify dart %}
+Future doLengthyComputation() {
+  return new Future.delayed(0, () => doTheThingThatMightFail());
+}
+{% endprettify %}
