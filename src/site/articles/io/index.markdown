@@ -175,9 +175,8 @@ seeking to a given position, truncating, and so on.
 Let's implement a version using a stream.
 The following code opens the file for reading presenting the content
 as a stream of lists of bytes. Like all streams in Dart you listen on
-this stream and the data will be given in chunks. If you want to stop
-getting more data before the whole file has been read you just cancel
-the subscription.
+this stream and the data is given in chunks. If you can always stop
+reading more from the file by cancelling the subscription.
 
 {% prettify dart %}
 import 'dart:io';
@@ -244,10 +243,10 @@ the exit code of the process.
 The following example runs 'ls -l' in a separate process
 and prints the output and the exit code for the process to stdout.
 Since we are interested in getting lines,
-we are transforming the stdout stream of the process to lines using a
-[StringDecoder](http://api.dartlang.org/docs/continuous/dart_io/StringDecoder.html)
+we use a
+[StringDecoder](http://api.dartlang.org/docs/continuous/dart_io/StringDecoder.html),
 which decodes chunks of bytes into strings followed by a
-[LineTransformer](http://api.dartlang.org/docs/continuous/dart_io/LineTransformer.html)
+[LineTransformer](http://api.dartlang.org/docs/continuous/dart_io/LineTransformer.html),
 which splits the strings at line boundaries.
 
 {% prettify dart %}
