@@ -7,13 +7,13 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-03-01
-  updated_on: 2013-02-01
+  updated_on: 2013-02-28
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 _Written by Mads Ager <br />
-March 2012 (updated February 2013)_
+March 2012 (updated October 2012 and February 2013)_
 
 <section markdown="1">
 The [dart:io](http://api.dartlang.org/io.html) library
@@ -76,10 +76,10 @@ no more pending operations are in the event queue
 and the VM terminates.
 
 {% prettify dart %}
-import 'dart:async';
+import 'dart:isolate';
 
 main() {
-  new Timer(new Duration(seconds:1), () => print('timer'));
+  new Timer(1000, (Timer t) => print('timer'));
   print('end of main');
 }
 {% endprettify %}
@@ -172,19 +172,11 @@ a very simple use of random-access operations.
 Operations are available for writing,
 seeking to a given position, truncating, and so on.
 
-Let's implement a version using an input stream.
-The following code opens an InputStream object for the file.
-InputStreams are active objects that start reading data
-when they are created.
-Whenever data is available,
-the onData handler is called and the data can be read out from the stream
-using the `read()` method.
-The onData handler will continue to be called as long as
-data can be read from the stream.
-If all data is not read from the stream in the onData handler,
-the handler is guaranteed to be called again.
-To prevent further calls,
-you can set the onData handler to null.
+Let's implement a version using a stream.
+The following code opens the file for reading presenting the content
+as a stream of lists of bytes. Like all streams in Dart you listen on
+this stream and the data is given in chunks. You can always stop
+reading more from the file by cancelling the subscription.
 
 {% prettify dart %}
 import 'dart:io';
@@ -193,22 +185,25 @@ main() {
   Options options = new Options();
   List result = [];
 
-  InputStream stream = new File(options.script).openInputStream();
+  Stream<List<int>> stream = new File(options.script).openRead();
   int semicolon = ';'.charCodeAt(0);
-  stream.onData = () {
-    result.addAll(stream.read(1));
-    if (result.last() == semicolon) {
-      print(new String.fromCharCodes(result));
-      stream.close();
+  StreamSubscription subscription;
+  subscription = stream.listen((data) {
+    for (int i = 0; i < data.length; i++) {
+      result.add(data[i]);
+      if (data[i] == semicolon) {
+        print(new String.fromCharCodes(result));
+        subscription.cancel();
+        return;
+      }
     }
-  };
+  });
 }
 {% endprettify %}
 
-[InputStream](http://api.dartlang.org/io/InputStream.html)s
-are used in multiple places in dart:io:
+[Stream<List<int>>] is used in multiple places in dart:io:
 when working with stdin, files, sockets, HTTP connections, and so on.
-Similarly, [OutputStream](http://api.dartlang.org/io/OutputStream.html)s
+Similarly, [IOSink](http://api.dartlang.org/docs/release/dart_io/IOSink.html)s
 are used to stream data to
 stdout, files, sockets, HTTP connections, and so on.
 </section>
@@ -218,7 +213,7 @@ stdout, files, sockets, HTTP connections, and so on.
 ##Interacting with processes
 
 For the simple case, use
-[Process.run()](http://api.dartlang.org/docs/continuous/dart_io/Process.html#run)
+[Process.run()](http://api.dartlang.org/docs/release/dart_io/Process.html#run)
 to run a process
 and collect its output. Use `run()` when you don't
 need interactive control over the process.
@@ -236,46 +231,45 @@ main() {
 {% endprettify %}
 
 You can also start a process by creating a
-[Process](http://api.dartlang.org/io/Process.html) object
+[Process](http://api.dartlang.org/docs/release/dart_io/Process.html) object
 using the Process.start() constructor.
 Once you have a Process object you can interact with the process
-by writing data to its stdin stream,
+by writing data to its stdin sink,
 reading data from its stderr and stdout streams,
 and killing the process.
-When the process exits the onExit handler is called with
+When the process exits the exitCode future completes with
 the exit code of the process.
 
 The following example runs 'ls -l' in a separate process
 and prints the output and the exit code for the process to stdout.
 Since we are interested in getting lines,
-we are wrapping the stdout stream of the process in a StringInputStream.
-A [StringInputStream](http://api.dartlang.org/io/StringInputStream.html)
-has an onLine handler that gets called
-whenever a full line of text has been decoded
-and is ready to be read using readLine.
+we use a
+[StringDecoder](http://api.dartlang.org/docs/release/dart_io/StringDecoder.html),
+which decodes chunks of bytes into strings followed by a
+[LineTransformer](http://api.dartlang.org/docs/release/dart_io/LineTransformer.html),
+which splits the strings at line boundaries.
 
 {% prettify dart %}
 import 'dart:io';
 
 main() {
   Process.start('ls', ['-l']).then((process) {
-    var stdoutStream = new StringInputStream(process.stdout);
-    stdoutStream.onLine = () => print(stdoutStream.readLine());
-    process.stderr.onData = process.stderr.read;
-    process.onExit = (exitCode) {
+    process.stdout.transform(new StringDecoder())
+                  .transform(new LineTransformer())
+                  .listen((String line) => print(line));
+    process.stderr.listen((data) { });
+    process.exitCode.then((exitCode) {
       print('exit code: $exitCode');
-    };
+    });
   });
 }
 {% endprettify %}
 
-Notice that the onExit handler can be called
-before all of the lines of output have been processed. Also note
-that we do not explicitly close the process. In order to 
-not leak resources we have to drain both the stderr and the stdout 
-streams. To do that we set the `onData` handler which will make sure 
-to drain the stderr stream as well as the stdout stream once all data 
-has been read.
+Notice that exitCode can complete before all of the lines of output
+have been processed. Also note
+that we do not explicitly close the process. In order to
+not leak resources we have to drain both the stderr and the stdout
+streams. To do that we set a listener to drain the stderr stream.
 
 Instead of printing the output to stdout,
 we can use the streaming classes
@@ -285,14 +279,14 @@ to pipe the output of the process to a file.
 import 'dart:io';
 
 main() {
-  var output = new File('output.txt').openOutputStream();
+  var output = new File('output.txt').openWrite();
   Process.start('ls', ['-l']).then((process) {
     process.stdout.pipe(output);
-    process.stderr.pipe(output);
-    process.onExit = (exitCode) {
-      print('exit code: $exitCode');
-    };
-   });
+    process.stderr.listen((data) { });
+    process.exitCode.then((exitCode) {
+        print('exit code: $exitCode');
+    });
+  });
 }
 {% endprettify %}
 
@@ -305,8 +299,8 @@ main() {
 dart:io makes it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
-[HttpServer](http://api.dartlang.org/io/HttpServer.html)
-and hook up a `defaultRequestHandler`.
+[HttpServer](http://api.dartlang.org/docs/release/dart_io/HttpServer.html)
+and hook up a listener to its stream of `HttpRequest`s.
 
 Here is a simple web server
 that just answers 'Hello, world' to any request.
@@ -315,12 +309,12 @@ that just answers 'Hello, world' to any request.
 import 'dart:io';
 
 main() {
-  var server = new HttpServer();
-  server.listen('127.0.0.1', 8080);
-  server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
-    response.outputStream.write('Hello, world'.charCodes);
-    response.outputStream.close();
-  };
+  HttpServer.bind('127.0.0.1', 8080).then((server) {
+    server.listen((HttpRequest request) {
+      request.response.addString('Hello, world');
+      request.response.close();
+    });
+  });
 }
 {% endprettify %}
 
@@ -336,36 +330,39 @@ For a request with a path,
 we will attempt to find the file and serve it.
 If the file is not found we will respond with a '404 Not Found' status.
 We make use of the streaming interface
-to pipe all the data read from a file directly to the response output stream.
+to pipe all the data read from a file directly to the response stream.
 
 {% prettify dart %}
 import 'dart:io';
 
-_send404(HttpResponse response) {
+_sendNotFound(HttpResponse response) {
   response.statusCode = HttpStatus.NOT_FOUND;
-  response.outputStream.close();
+  response.close();
 }
 
 startServer(String basePath) {
-  var server = new HttpServer();
-  server.listen('127.0.0.1', 8080);
-  server.defaultRequestHandler = (HttpRequest request, HttpResponse response) {
-    final String path = request.path == '/' ? '/index.html' : request.path;
-    final File file = new File('${basePath}${path}');
-    file.exists().then((bool found) {
-      if (found) {
-        file.fullPath().then((String fullPath) {
-          if (!fullPath.startsWith(basePath)) {
-            _send404(response);
-          } else {
-            file.openInputStream().pipe(response.outputStream);
-          }
-        });
-      } else {
-        _send404(response);
-      }
+  HttpServer.bind('127.0.0.1', 8080).then((server) {
+    server.listen((HttpRequest request) {
+      final String path =
+          request.uri.path == '/' ? '/index.html' : request.uri.path;
+      final File file = new File('${basePath}${path}');
+      file.exists().then((bool found) {
+        if (found) {
+          file.fullPath().then((String fullPath) {
+            if (!fullPath.startsWith(basePath)) {
+              _sendNotFound(request.response);
+            } else {
+              file.openRead()
+                  .pipe(request.response)
+                  .catchError((e) { });
+            }
+          });
+        } else {
+          _sendNotFound(request.response);
+        }
+      });
     });
-  };
+  });
 }
 
 main() {
@@ -379,7 +376,8 @@ main() {
 {% endprettify %}
 
 Writing HTTP clients is very similar to using the
-[HttpClient](http://api.dartlang.org/io/HttpClient.html) class.
+[HttpClient](http://api.dartlang.org/docs/release/dart_io/HttpClient.html)
+class.
 
 </section>
 
@@ -401,6 +399,3 @@ use the Area-IO label in the issue tracker at
 [dartbug.com](http://dartbug.com).
 
 </section>
-
-
-
