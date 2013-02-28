@@ -121,7 +121,7 @@ main() {
 {% endprettify %}
 
 Notice that the readAsString() method is asynchronous;
-it returns a [Future](http://api.dartlang.org/dart_core/Future.html)
+it returns a [Future](http://api.dartlang.org/dart_async/Future.html)
 that will return the contents of the file
 once the file has been read from the underlying system.
 This asynchronicity allows the Dart thread to perform other work
