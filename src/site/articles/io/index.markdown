@@ -175,7 +175,7 @@ seeking to a given position, truncating, and so on.
 Let's implement a version using a stream.
 The following code opens the file for reading presenting the content
 as a stream of lists of bytes. Like all streams in Dart you listen on
-this stream and the data is given in chunks. If you can always stop
+this stream and the data is given in chunks. You can always stop
 reading more from the file by cancelling the subscription.
 
 {% prettify dart %}
@@ -203,7 +203,7 @@ main() {
 
 [Stream<List<int>>] is used in multiple places in dart:io:
 when working with stdin, files, sockets, HTTP connections, and so on.
-Similarly, [IOSink](http://api.dartlang.org/docs/continuous/dart_io/IOSink.html)s
+Similarly, [IOSink](http://api.dartlang.org/docs/release/dart_io/IOSink.html)s
 are used to stream data to
 stdout, files, sockets, HTTP connections, and so on.
 </section>
@@ -213,7 +213,7 @@ stdout, files, sockets, HTTP connections, and so on.
 ##Interacting with processes
 
 For the simple case, use
-[Process.run()](http://api.dartlang.org/docs/continuous/dart_io/Process.html#run)
+[Process.run()](http://api.dartlang.org/docs/release/dart_io/Process.html#run)
 to run a process
 and collect its output. Use `run()` when you don't
 need interactive control over the process.
@@ -231,7 +231,7 @@ main() {
 {% endprettify %}
 
 You can also start a process by creating a
-[Process](http://api.dartlang.org/docs/continuous/dart_io/Process.html) object
+[Process](http://api.dartlang.org/docs/release/dart_io/Process.html) object
 using the Process.start() constructor.
 Once you have a Process object you can interact with the process
 by writing data to its stdin sink,
@@ -244,9 +244,9 @@ The following example runs 'ls -l' in a separate process
 and prints the output and the exit code for the process to stdout.
 Since we are interested in getting lines,
 we use a
-[StringDecoder](http://api.dartlang.org/docs/continuous/dart_io/StringDecoder.html),
+[StringDecoder](http://api.dartlang.org/docs/release/dart_io/StringDecoder.html),
 which decodes chunks of bytes into strings followed by a
-[LineTransformer](http://api.dartlang.org/docs/continuous/dart_io/LineTransformer.html),
+[LineTransformer](http://api.dartlang.org/docs/release/dart_io/LineTransformer.html),
 which splits the strings at line boundaries.
 
 {% prettify dart %}
@@ -299,7 +299,7 @@ main() {
 dart:io makes it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
-[HttpServer](http://api.dartlang.org/docs/continuous/dart_io/HttpServer.html)
+[HttpServer](http://api.dartlang.org/docs/release/dart_io/HttpServer.html)
 and hook up a listener to its stream of `HttpRequest`s.
 
 Here is a simple web server
@@ -335,7 +335,7 @@ to pipe all the data read from a file directly to the response stream.
 {% prettify dart %}
 import 'dart:io';
 
-_send404(HttpResponse response) {
+_sendNotFound(HttpResponse response) {
   response.statusCode = HttpStatus.NOT_FOUND;
   response.close();
 }
@@ -350,13 +350,15 @@ startServer(String basePath) {
         if (found) {
           file.fullPath().then((String fullPath) {
             if (!fullPath.startsWith(basePath)) {
-              _send404(request.response);
+              _sendNotFound(request.response);
             } else {
-              file.openRead().pipe(request.response);
+              file.openRead()
+                  .pipe(request.response)
+                  .catchError((e) { });
             }
           });
         } else {
-          _send404(request.response);
+          _sendNotFound(request.response);
         }
       });
     });
@@ -374,7 +376,7 @@ main() {
 {% endprettify %}
 
 Writing HTTP clients is very similar to using the
-[HttpClient](http://api.dartlang.org/docs/bleeding_edge/dart_io/HttpClient.html)
+[HttpClient](http://api.dartlang.org/docs/release/dart_io/HttpClient.html)
 class.
 
 </section>
