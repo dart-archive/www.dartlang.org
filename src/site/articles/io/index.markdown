@@ -76,10 +76,10 @@ no more pending operations are in the event queue
 and the VM terminates.
 
 {% prettify dart %}
-import 'dart:isolate';
+import 'dart:async';
 
 main() {
-  new Timer(1000, (Timer t) => print('timer'));
+  new Timer(new Duration(seconds:1), () => print('timer'));
   print('end of main');
 }
 {% endprettify %}
