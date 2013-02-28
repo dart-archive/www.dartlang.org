@@ -3,7 +3,7 @@ layout: book
 title: "Chapter 3. A Tour of the Dart Libraries from Dart: Up and Running"
 description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Running, published by O'Reilly."
 ---
-<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-asynchronous-programming">Asynchronous Programming</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-mininum">Maximum and Mininum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-using-isolates">Using Isolates</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-json">dart:json - Encoding and Decoding Objects</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json-decoding">Decoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-json-encoding">Encoding JSON</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-uri">dart:uri - Manipulating URIs</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-uri-fully-qualified">Encoding and Decoding Fully Qualified URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-components">Encoding and Decoding URI Components</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-parsing">Parsing URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-building">Building URIs</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-utf">dart:utf - Strings and Unicode</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-utf-decode-utf8">Decoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-encode-utf8">Encoding Strings to UTF-8 Bytes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-crypto">dart:crypto - Hash Codes and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-crypto-hash">Generating Cryptographic Hashes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-crypto-authentication">Generating Message Authentication Codes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-crypto-base64">Generating Base64 Strings</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
+<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-asynchronous-programming">Asynchronous Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-future-error-handling">Error handling with Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-chaining-multiple-async-methods">Chaining multiple asynchronous methods</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-waiting-for-multiple-futures">Waiting for multiple futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-9">More information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-mininum">Maximum and Mininum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-using-isolates">Using Isolates</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-json">dart:json - Encoding and Decoding Objects</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json-decoding">Decoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-json-encoding">Encoding JSON</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-uri">dart:uri - Manipulating URIs</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-uri-fully-qualified">Encoding and Decoding Fully Qualified URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-components">Encoding and Decoding URI Components</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-parsing">Parsing URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-building">Building URIs</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-utf">dart:utf - Strings and Unicode</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-utf-decode-utf8">Decoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-encode-utf8">Encoding Strings to UTF-8 Bytes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-crypto">dart:crypto - Hash Codes and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-crypto-hash">Generating Cryptographic Hashes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-crypto-authentication">Generating Message Authentication Codes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-crypto-base64">Generating Base64 Strings</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
   libraries. It’s just an overview, and by no means comprehensive. Whenever
   you need more details about a class, consult the <a class="ulink" href="http://api.dartlang.org/" target="_top">Dart API reference. </a> Expect major
   changes to the Dart libraries before Dart’s first production release.</p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartcore---strings-collections-and-more"></a>dart:core - Numbers, Collections, Strings, and More</h2></div></div></div><p>The Dart core library provides a small but critical set of built-in
@@ -54,8 +54,8 @@ assert('Never odd or even'.startsWith('Never'));
 assert('Never odd or even'.endsWith('even'));
 
 // Find the location of a string inside a string.
-assert('Never odd or even'.indexOf('odd') == 6);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-extracting-data-from-a-string"></a>Extracting data from a string</h4></div></div></div><p>You can get the individual characters or character codes from a
-        string as Strings or ints, respectively.</p><p>You can also extract a substring or split a string into a list
+assert('Never odd or even'.indexOf('odd') == 6);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-extracting-data-from-a-string"></a>Extracting data from a string</h4></div></div></div><p>You can get the individual characters or UTF-16 code units from
+        a string as Strings or ints, respectively.</p><p>You can also extract a substring or split a string into a list
         of substrings.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/string-tests.dart
 </span></em>// Grab a substring.
@@ -66,22 +66,19 @@ var parts = 'structured web apps'.split(' ');
 assert(parts.length == 3);
 assert(parts[0] == 'structured');
 
-// Get the character (as a string) by index.
+// Get a character (as a string) by index.
 assert('Never odd or even'[0] == 'N');
 
-// Use splitChars() to get a list of all characters (as Strings);
-// good for iterating.
-for (var char in 'hello'.splitChars()) {
+// Use split() with an empty string parameter to get a list of
+// all characters (as Strings); good for iterating.
+for (var char in 'hello'.split('')) {
   print(char);
 }
 
-// Get the char code at an index.
-assert('Never odd or even'.charCodeAt(0) == 78);
-
-// Get all the char codes as a list of integers.
-var charCodes = 'Never odd or even'.charCodes;
-assert(charCodes.length == 17);
-assert(charCodes[0] == 78);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-converting-to-uppercase-or-lowercase"></a>Converting to uppercase or lowercase</h4></div></div></div><p>You can easily convert strings to their uppercase and lowercase
+// Get all the characters in the string as a list of UTF-16 code units.
+// Some characters might require two code units.
+var codeUnitList = 'Never odd or even'.codeUnits.toList();
+assert(codeUnitList[0] == 78);</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-converting-to-uppercase-or-lowercase"></a>Converting to uppercase or lowercase</h4></div></div></div><p>You can easily convert strings to their uppercase and lowercase
         variants.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/string-tests.dart
 </span></em>// Convert to uppercase.
@@ -115,19 +112,14 @@ assert(greeting != greetingTemplate); // greetingTemplate didn't change.</pre></
 </span></em><em><span class="remark">ch03/string-tests.dart
 </span></em>var sb = new StringBuffer();
 
-sb..add('Use a StringBuffer ')
-  ..addAll(['for ', 'efficient ', 'string ', 'creation '])
-  ..add('if you are ')
-  ..add('building lots of strings.');
+sb..write('Use a StringBuffer ')
+  ..writeAll(['for ', 'efficient ', 'string ', 'creation'])
+  ..write('.');
 
 var fullString = sb.toString();
 
 assert(fullString ==
-    'Use a StringBuffer for efficient string creation '
-    'if you are building lots of strings.');
-
-sb.clear();  // All gone!
-assert(sb.toString() == '');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-regular-expressions"></a>Regular expressions</h4></div></div></div><p>The RegExp class provides the same capabilities as JavaScript
+    'Use a StringBuffer for efficient string creation.');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-regular-expressions"></a>Regular expressions</h4></div></div></div><p>The RegExp class provides the same capabilities as JavaScript
         regular expressions. Use regular expressions for efficient searching
         and pattern matching of strings.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/string-tests.dart
@@ -511,52 +503,7 @@ main() {
   for (var process in new Processes()) {
     // Do something with the process.
   }
-}</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-asynchronous-programming"></a>Asynchronous Programming</h3></div></div></div><p>Asynchronous programming often uses callback functions, but Dart
-      provides an alternative: <a class="ulink" href="http://api.dartlang.org/dart_core/Future.html" target="_top">Future</a>
-      objects. A Future is like a promise for a result to be provided sometime
-      in the future.</p><p>You have the option of using a <a class="ulink" href="http://api.dartlang.org/dart_async/Completer.html" target="_top">Completer</a>
-      to produce a Future and, later, to supply a value to the Future.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>The API for asynchronous programming is changing in M3 and has
-        moved to a new library: <a class="ulink" href="http://api.dartlang.org/dart_async.html" target="_top">dart:async.</a> This
-        discussion and the examples will be updated.</p></div><pre class="screen"><em><span class="remark">lang-dart
-</span></em>Future&lt;bool&gt; longExpensiveSearch() {
-  var completer = new Completer();
-  // Perform exhaustive search.
-  // ...
-  // Sometime later,
-  // found it!!
-  completer.complete(true);
-  return completer.future;
-}
-
-main() {
-  var result = longExpensiveSearch(); // Returns immediately.
-
-  // result.then() returns immediately.
-  result.then((success) {
-    // The following code executes when the operation is complete.
-    print('The item was found: $success');
-  });
-}</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-chaining-multiple-async-methods"></a>Chaining multiple asynchronous methods</h4></div></div></div><p>The Future class specifies a <code class="literal">chain()</code> method,
-        which is a useful way to specify that multiple asynchronous methods
-        run in a certain order.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>Future result = costlyQuery();
-result.handleException((exception) =&gt; print('DOH!'));
-
-result.chain((value) =&gt; expensiveWork())
-      .chain((value) =&gt; lengthyComputation())
-      .then((value)  =&gt; print('done!'));</pre><p>In the above example, the methods run in the following
-        order:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><code class="literal">costlyQuery()</code></p></li><li class="listitem"><p><code class="literal">expensiveWork()</code></p></li><li class="listitem"><p><code class="literal">lengthyComputation()</code></p></li></ol></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-waiting-for-multiple-futures"></a>Waiting for multiple futures</h4></div></div></div><p>Sometimes your algorithm needs to initiate many asynchronous
-        methods and wait for each one to complete before continuing. Use the
-        <a class="ulink" href="http://api.dartlang.org/dart_core/Futures.html" target="_top">Futures</a>
-        class to manage multiple Futures and wait for them all to
-        complete.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>Future deleteDone = deleteLotsOfFiles();
-Future copyDone = copyLotsOfFiles();
-Future checksumDone = checksumLotsOfOtherFiles();
-
-Futures.wait([deleteDone, copyDone, checksumDone]).then((List values) {
-  print('Done with all the long steps');
-});</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-more-information-9"></a>More information</h4></div></div></div><p>For examples of using Future, see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-exceptions"></a>Exceptions</h3></div></div></div><p>The Dart core library defines many common exceptions and errors.
+}</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-exceptions"></a>Exceptions</h3></div></div></div><p>The Dart core library defines many common exceptions and errors.
       Exceptions are considered conditions that you can plan ahead for and
       catch. Errors are conditions that you don’t expect or plan for.</p><p>A couple of the most common errors are:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/NoSuchMethodError.html" target="_top">NoSuchMethodError</a></span></dt><dd><p>Thrown when a receiving object (which might be null) does
             not implement a method.</p></dd><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/ArgumentError.html" target="_top">ArgumentError</a></span></dt><dd><p>Can be thrown by a method that encounters an unexpected
@@ -570,7 +517,83 @@ Futures.wait([deleteDone, copyDone, checksumDone]).then((List values) {
   String toString() =&gt; msg == null ? 'FooException' : msg;
 }</pre><p>For more information, see <a class="xref" href="ch02.html#exceptions" title="Exceptions">the section called “Exceptions”</a> and the
       <a class="ulink" href="http://api.dartlang.org/dart_core/Exception.html" target="_top">Exception
-      API docs.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-math"></a>dart:math - Math and Random</h2></div></div></div><p>The Math library provides common functionality such as sine and
+      API docs.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-asynchronous-programming"></a>Asynchronous Programming</h2></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This section is incomplete. More information on the
+        <code class="literal">dart:async</code> library will be added.</p></div><p>Asynchronous programming often uses callback functions, but Dart
+    provides an alternative: <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html" target="_top">Future</a>
+    objects. A Future is like a promise for a result to be provided sometime
+    in the future.</p><p>You have the option of using a <a class="ulink" href="http://api.dartlang.org/dart_async/Completer.html" target="_top">Completer</a>
+    to produce a Future and, later, to supply a value to the Future.</p><p>Completer, Future, and more can be found in the
+      <a class="ulink" href="http://api.dartlang.org/dart_async.html" target="_top">dart:async</a>
+      library.</p><p>In the following example, the
+    <code class="literal">longExpensiveSearch()</code>
+    function schedules a query and immediately returns a Future object.
+    Later, when
+    the query finishes in some future event loop iteration, the completer
+    completes with the results. The completion signals that the Future has a
+    value, which runs the callback registered in Future's
+    <code class="literal">then()</code>.</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/futures.dart</span></em>Future longExpensiveSearch() {
+var completer = new Completer();
+
+// Perform exhaustive search.
+dbQuery('select * from table', onSuccess: (results) {
+  // Sometime later,
+  // found it!!
+  completer.complete(results);
+});
+
+return completer.future;
+}
+
+Future doSearch() {
+var future = longExpensiveSearch(); // Returns immediately.
+
+return future.then((results) {
+  // The following code executes when the operation is complete.
+  print('Here are the results: $results');
+});
+}</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-future-error-handling"></a>Error handling with Futures</h3></div></div></div><p>If an error or exception is thrown from within a Future,
+        you can catch it with <code class="literal">catchError()</code>.
+        Be sure to invoke <code class="literal">catchError()</code> on the result of
+        <code class="literal">then()</code>—not on the result of the
+        original Future.</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/futures.dart</span></em>Future runSearch() {
+var future = longExpensiveSearch(); // Returns immediately.
+
+return future.then((results) {
+  print('Here are the results: $results');
+}).catchError((e) {
+  print("Oops! Encountered $e");
+});
+}</pre><p>The <code class="literal">then().catchError()</code> pattern is
+      the asynchronous version of
+      <code class="literal">try</code>-<code class="literal">catch</code>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-chaining-multiple-async-methods"></a>Chaining multiple asynchronous methods</h3></div></div></div><p>The <code class="literal">then()</code> method returns a Future,
+      which is a useful way to chain multiple asynchronous methods
+      to run in a certain order. If the callback registered with
+      <code class="literal">then()</code> returns a Future, then it is simply
+      returned as-is by <code class="literal">then()</code>. If the callback returns
+      a value of any other type, a new Future instance is created and is
+      completed with the value.</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/futures.dart</span></em>Future runQuery() {
+Future result = costlyQuery();
+
+return result.then((value) =&gt; expensiveWork())
+             .then((value) =&gt; lengthyComputation())
+             .then((value) =&gt; print('done!'))
+             .catchError((exception) =&gt; print('DOH!'));
+}</pre><p>In the above example, the methods run in the following
+      order:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><code class="literal">costlyQuery()</code></p></li><li class="listitem"><p><code class="literal">expensiveWork()</code></p></li><li class="listitem"><p><code class="literal">lengthyComputation()</code></p></li></ol></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-waiting-for-multiple-futures"></a>Waiting for multiple futures</h3></div></div></div><p>Sometimes your algorithm needs to initiate many asynchronous
+      methods and wait for each one to complete before continuing. Use the
+      <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html#wait" target="_top">Future.wait</a>
+      static method to manage multiple Futures and wait for them all to
+      complete.</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em>Future deleteDone = deleteLotsOfFiles();
+Future copyDone = copyLotsOfFiles();
+Future checksumDone = checksumLotsOfOtherFiles();
+
+new Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
+print('Done with all the long steps');
+});</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-9"></a>More information</h3></div></div></div><p>For examples of using Future, see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-math"></a>dart:math - Math and Random</h2></div></div></div><p>The Math library provides common functionality such as sine and
     cosine, maximum and minimum, and constants such as <span class="emphasis"><em>pi</em></span>
     and <span class="emphasis"><em>e</em></span>. Most of the functionality in the Math library
     is implemented as top-level functions.</p><p>To use the Math library in your app, import <code class="literal">dart:math</code>. The following examples use the prefix
@@ -1126,8 +1149,8 @@ main() {
   });
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-errors"></a>Handling errors</h4></div></div></div><p>Errors are thrown as exceptions if you do not register an
         explicit handler. If you want to capture an error, you can register a
-        <code class="literal">catchError</code> handler with the
-        Future object.</p><pre class="screen"><em><span class="remark">lang-dart
+        <code class="literal">catchError</code> handler with the Future
+        object.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em>import 'dart:io';
 
 main() {
@@ -1397,7 +1420,7 @@ main() {
 
 main() {
   var sha256 = new SHA256();
-  var digest = sha256.update('message'.charCodes).digest();
+  var digest = sha256.update('message'.codeUnits).digest();
   var hexString = CryptoUtils.bytesToHex(digest);
   assert(hexString ==
       'ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d');
@@ -1406,8 +1429,8 @@ main() {
       cryptographic hash function with a secret key.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em>import 'dart:crypto';
 main() {
-  var hmac = new HMAC(new SHA256(), 'secretkey'.charCodes);
-  var hmacDigest = hmac.update('message'.charCodes).digest();
+  var hmac = new HMAC(new SHA256(), 'secretkey'.codeUnits);
+  var hmacDigest = hmac.update('message'.codeUnits).digest();
   var hmacHex = CryptoUtils.bytesToHex(hmacDigest);
   assert(hmacHex ==
       '5c3e2f56de9411068f675ef32ffa12735210b9cbfee2ba521367a3955334a343');

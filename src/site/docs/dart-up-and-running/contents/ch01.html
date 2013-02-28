@@ -9,8 +9,8 @@ description: "Read Chapter 1. Quick Start of Dart: Up and Running, published b
   Dart app.</p><p>Dart provides not only a new language, but libraries, an editor, a
   virtual machine (VM), a browser that can run Dart apps natively, and a
   compiler to JavaScript. Dart aims to be a more productive way to build the
-  high-performance, modern apps that users demand.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>Dart is still changing! This book reflects the Milestone 1 release
-    (October 2012), which aims to finalize the language but not the libraries.
+  high-performance, modern apps that users demand.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>Dart is still changing! This book reflects the Milestone 3 release
+    (February 2013), which means the language is stable but not the libraries.
     Wherever possible, this book tells you what we expect to change.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch01-why-dart"></a>Why Google Created Dart</h2></div></div></div><p>Google cares a lot about helping to make the web great. We write a
     lot of web apps, many of them quite sophisticated—think Gmail, Google
     Calendar, Google+, and more. We want web apps to load quickly, run
@@ -18,10 +18,12 @@ description: "Read Chapter 1. Quick Start of Dart: Up and Running, published b
     developers of all backgrounds to be able to build great experiences for
     the browser.</p><p>As an example of Google’s commitment to the web, consider the Google
     Chrome browser. Google created it to spur competition at a time when the
-    web platform seemed to be stagnating. It worked. As <a class="xref" href="ch01.html#BrowserChart" title="Figure 1.1. Browser speed">Figure 1.1, “Browser speed”</a> shows, browser speed has increased immensely
+    web platform seemed to be stagnating. It worked. As <a class="xref" href="ch01.html#BrowserChart" title="Figure 1.1. Browser speed (V8 benchmark suite v7; higher numbers are better)">Figure 1.1, “Browser speed (V8 benchmark suite v7; higher numbers are
+      better)”</a> shows, browser speed has increased immensely
     since Chrome’s introduction in 2008.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The JavaScript engine known as <em class="firstterm">V8</em> is
       responsible for much of Chrome’s speed. Many of the V8 engineers are now
-      working on the Dart project.</p></div><div class="figure"><a name="BrowserChart"></a><p class="title"><b>Figure 1.1. Browser speed</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0101.png" alt="Browser speed"></div></div></div><br class="figure-break"><p>The number of new features in browsers has also increased, with APIs
+      working on the Dart project.</p></div><div class="figure"><a name="BrowserChart"></a><p class="title"><b>Figure 1.1. Browser speed (V8 benchmark suite v7; higher numbers are
+      better)</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0101.png" alt="Browser speed (V8 benchmark suite v7; higher numbers are better)"></div></div></div><br class="figure-break"><p>The number of new features in browsers has also increased, with APIs
     such as WebGL, FileSystem, Web workers, and WebSockets. Browsers now have
     automatic update capabilities, frequently delivering new features and
     fixes directly to the user. Mobile devices such as tablets and phones also
@@ -65,7 +67,7 @@ main() {
   button..id = 'confirm'
         ..text = 'Click to Confirm'
         ..classes.add('important')
-        ..on.click.add((e) =&gt; window.alert('Confirmed!'));
+        ..onClick.listen((e) =&gt; window.alert('Confirmed!'));
   query('#registration').children.add(button);
 }</pre><p>You’ll learn about the Dart language and libraries in Chapters <a class="xref" href="ch02.html" title="Chapter 2. A Tour of the Dart Language">2</a> and <a class="xref" href="ch03.html" title="Chapter 3. A Tour of the Dart Libraries">3</a> respectively.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch01-whats-cool"></a>What’s Cool About Dart</h2></div></div></div><p>Dart may look familiar, but don’t let that fool you. Dart has lots
     of cool features to help give you a productive and fun experience building
@@ -131,7 +133,7 @@ main() {
       runtime environment. (To avoid having to modify the PATH environment
       variable, you can install the JRE under your Dart installation
       directory, in a subdirectory named <code class="code">jre</code>.)</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Download the Dart Editor ZIP file for your platform from
-          <a class="ulink" href="http://www.dartlang.org/downloads.html" target="_top">http://www.dartlang.org/downloads.html</a>.</p></li><li class="listitem"><p>Unzip the file. The resulting directory, which we’ll call your
+          <a class="ulink" href="http://dartlang.org/editor" target="_top">http://dartlang.org/editor</a>.</p></li><li class="listitem"><p>Unzip the file. The resulting directory, which we’ll call your
           <span class="emphasis"><em>Dart installation directory</em></span>, contains the
           <code class="code">DartEditor</code> executable file and several subdirectories,
           including a <code class="code">samples</code> directory.</p></li><li class="listitem"><p>If you don’t already have a Java runtime, download and install
@@ -142,12 +144,13 @@ main() {
       This step walks you through creating and running a command-line
       app.</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Click the New Application button <span class="inlinemediaobject"><img src="figs/web/newapp.png" width="11"></span> (at the upper left of Dart Editor).
           Alternatively, choose <span class="bold"><strong>File &gt; New
-          Application...</strong></span> from the Dart Editor menu. A dialog
-          appears (see <a class="xref" href="ch01.html#DartEditor-newapp" title="Figure 1.3. Create command-line or web apps with Dart Editor">Figure 1.3, “Create command-line or web apps with Dart Editor”</a>).</p></li><li class="listitem"><p>Type in a name for your application—for example,
-          <code class="code">HelloWorld</code>. If you don’t like the default directory,
-          type in a new location or browse to choose the location.</p></li><li class="listitem"><p>Unselect <span class="bold"><strong>Generate content for a basic
-          web app</strong></span> and <span class="bold"><strong>Add Pub
-          support</strong></span> if they’re selected. Then click <span class="bold"><strong>Finish</strong></span> to create the initial files for the
+          Application...</strong></span> from the Dart Editor menu, or click the
+          <span class="bold"><strong>Create an Application…</strong></span> button in
+          the Welcome page. A dialog appears (see <a class="xref" href="ch01.html#DartEditor-newapp" title="Figure 1.3. Create command-line or web apps with Dart Editor">Figure 1.3, “Create command-line or web apps with Dart Editor”</a>).</p></li><li class="listitem"><p>Type in a name for your application—for example,
+          <code class="code">hello_world</code>. If you don’t like the default directory,
+          type in a new location or browse to choose the location.</p></li><li class="listitem"><p>Make sure <span class="bold"><strong>Generate sample
+          content</strong></span> and <span class="bold"><strong>Command-line
+          application</strong></span> are selected. Then click <span class="bold"><strong>Finish</strong></span> to create the initial files for the
           app.</p><div class="figure"><a name="DartEditor-newapp"></a><p class="title"><b>Figure 1.3. Create command-line or web apps with Dart Editor</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0103.png" alt="Create command-line or web apps with Dart Editor"></div></div></div><br class="figure-break"><p>A default Dart file appears in the Edit view, and its
           directory appears in the Files view. Your Dart Editor window should
           look something like <a class="xref" href="ch01.html#DartEditor-helloworld" title="Figure 1.4. Dart Editor displaying a new app’s files">Figure 1.4, “Dart Editor displaying a new app’s files”</a>.</p><div class="figure"><a name="DartEditor-helloworld"></a><p class="title"><b>Figure 1.4. Dart Editor displaying a new app’s files</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0104.png" alt="Dart Editor displaying a new app’s files"></div></div></div><br class="figure-break"></li><li class="listitem"><p>Click the Run button <span class="inlinemediaobject"><img src="figs/web/run.png" width="11"></span> to run your new app.</p><p>For command-line apps, the output of
@@ -155,17 +158,17 @@ main() {
           next to the Problems tab.</p></li></ol></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch01-editor-sample"></a>Step 4: Open and Run a Sample</h3></div></div></div><p>The Dart Editor bundle comes with several samples. In this step,
       you’ll open a sample web app and run it in Dartium.</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Click the <span class="bold"><strong>Welcome</strong></span> tab. Or
           choose <span class="bold"><strong>Welcome Page</strong></span> from the
-          <span class="bold"><strong>Tools</strong></span> menu.</p></li><li class="listitem"><p>In the Welcome tab, click the image labeled <span class="bold"><strong>Sunflower</strong></span>. The Editor view now displays the
-          contents of <code class="code">sunflower.dart</code>, and the Files view lists
-          the files in the Sunflower app’s directory.</p></li><li class="listitem"><p>Click the Run button <span class="inlinemediaobject"><img src="figs/web/run.png" width="11"></span>. Dart Editor launches Dartium, which displays
+          <span class="bold"><strong>Tools</strong></span> menu.</p></li><li class="listitem"><p>In the Welcome tab, click the image labeled <span class="bold"><strong>Sunflower</strong></span>. Dart Editor creates a copy of the
+          <a class="ulink" href="http://code.google.com/p/dart/source/browse/trunk/dart/samples/sunflower/" target="_top">Sunflower
+          app’s directory</a>, and the Editor view displays the contents
+          of <code class="code">web/sunflower.html</code>.</p></li><li class="listitem"><p>Click the Run button <span class="inlinemediaobject"><img src="figs/web/run.png" width="11"></span>. Dart Editor launches Dartium, which displays
           sunflower.html.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>Dartium is a technical preview, and it might have security
             and stability issues.<span class="emphasis"><em> Do not use Dartium as your primary
-            browser!</em></span></p></div></li><li class="listitem"><p>Move the slider to display the sunflower, as shown in <a class="xref" href="ch01.html#sunflower" title="Figure 1.5. The Sunflower sample running in Dartium">Figure 1.5, “The Sunflower sample running in Dartium”</a>. For details about the Sunflower example,
-          read the <a class="ulink" href="http://www.dartlang.org/samples/sunflower/" target="_top">Sunflower Code
-          Walkthrough.</a></p><div class="figure-float"><div class="figure"><a name="sunflower"></a><p class="title"><b>Figure 1.5. The Sunflower sample running in Dartium</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0105.png" alt="The Sunflower sample running in Dartium"></div></div></div><br class="figure-break"></div></li></ol></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch01-editor-next"></a>What Next?</h3></div></div></div><p>Now that you know the basics, you can learn more about Dart Editor
-      and help improve it.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch01-editor-learn-more"></a>Become a power user</h4></div></div></div><p>See the <a class="ulink" href="http://www.dartlang.org/editor/" target="_top">Dart Editor
-        homepage</a> for help on using Dart Editor’s expanding feature
-        set.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch01-editor-feedback"></a>Send feedback!</h4></div></div></div><p>Click the <span class="bold"><strong>SEND FEEDBACK</strong></span> link
+            browser!</em></span></p></div></li><li class="listitem"><p>Move the slider to display the sunflower, as shown in <a class="xref" href="ch01.html#sunflower" title="Figure 1.5. The Sunflower sample running in Dartium">Figure 1.5, “The Sunflower sample running in Dartium”</a>.</p><div class="figure-float"><div class="figure"><a name="sunflower"></a><p class="title"><b>Figure 1.5. The Sunflower sample running in Dartium</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0105.png" alt="The Sunflower sample running in Dartium"></div></div></div><br class="figure-break"></div></li></ol></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch01-editor-next"></a>What Next?</h3></div></div></div><p>Now that you know the basics, you can learn more about Dart Editor
+      and help improve it.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch01-editor-tutorial"></a>Follow a tutorial</h4></div></div></div><p>Try the Dart web programming tutorials at <a class="ulink" href="http://www.dartlang.org/docs/tutorials/" target="_top">A Game of Darts</a>,
+        which feature Dart Editor.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch01-editor-learn-more"></a>Become a power user</h4></div></div></div><p>Visit the <a class="ulink" href="http://www.dartlang.org/editor/" target="_top">Dart
+        Editor homepage</a> for help on using Dart Editor’s expanding
+        feature set.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch01-editor-feedback"></a>Send feedback</h4></div></div></div><p>Click the <span class="bold"><strong>SEND FEEDBACK</strong></span> link
         (at the upper right of the Dart Editor window) whenever you notice a
         problem or have an idea for improving Dart Editor. We’ll open a new
         issue for you, if appropriate, without disclosing your sensitive or
