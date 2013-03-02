@@ -9,17 +9,22 @@ description: "Read dart2js: The Dart-to-JavaScript Compiler of Dart: Up and Runn
     JavaScript. This section tells you how to use dart2js on the command line.
     It also give tips on debugging the JavaScript that dart2js
     generates.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-basic-usage"></a>Basic Usage</h3></div></div></div><p>Here’s an example of compiling a Dart file to JavaScript:</p><pre class="screen"><em><span class="remark">lang-sh
-</span></em><em class="replaceable"><code>$DART_SDK</code></em>/bin/dart2js <em class="replaceable"><code>test.dart</code></em></pre><p>This command produces a file named <code class="literal">out.js</code> file that contains the JavaScript
+</span></em><em class="replaceable"><code>$DART_SDK</code></em>/bin/dart2js --out=test.js <em class="replaceable"><code>test.dart</code></em></pre><p>This command produces a file that contains the JavaScript
       equivalent of your Dart code. It also produces a source map, which can
-      help you debug the JavaScript version of the app more easily.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-options"></a>Options</h3></div></div></div><p>Common command-line options for dart2js include:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
+      help you debug the JavaScript version of the app more easily. </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-options"></a>Options</h3></div></div></div><p>Common command-line options for dart2js include:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
           -o<em class="replaceable"><code>&lt;file&gt;</code></em></code><span class="emphasis"><em> or
           </em></span><code class="literal">--out=<em class="replaceable"><code>&lt;file&gt;</code></em></code></span></dt><dd><p>Generate the output into
-            <em class="replaceable"><code>&lt;file&gt;</code></em>.</p></dd><dt><span class="term"><code class="literal"> -c</code><span class="emphasis"><em>
+            <em class="replaceable"><code>&lt;file&gt;</code></em>. If not specified, the
+            output goes in a file named <code class="literal">out.js</code>.</p></dd><dt><span class="term"><code class="literal"> -c</code><span class="emphasis"><em>
           or </em></span><code class="literal">--checked</code></span></dt><dd><p>Insert runtime type checks, and enable assertions (checked
-            mode).</p></dd><dt><span class="term"><code class="literal"> -h</code><span class="emphasis"><em>
+            mode).</p></dd><dt><span class="term"><code class="literal">
+          --minify</code></span></dt><dd><p>Generate minified output.</p></dd><dt><span class="term"><code class="literal">
+          --disallow-unsafe-eval</code></span></dt><dd><p>Disable dynamic generation of code in the output. Use this
+            option when you want the generated JavaScript to satisfy CSP
+            restrictions. For more information, see <a class="ulink" href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/" target="_top">An
+            Introduction to Content Security Policy.</a></p></dd><dt><span class="term"><code class="literal"> -h</code><span class="emphasis"><em>
           or </em></span><code class="literal">--help</code></span></dt><dd><p>Display help. (Use <code class="literal">-vh</code>
-            for information about all options.)</p></dd><dt><span class="term"><code class="literal">
-          --minify</code></span></dt><dd><p>Generate minified output.</p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tools-dart2js-debugging"></a>Debugging</h3></div></div></div><p>This section gives tips for debugging dart2js-produced code in
+            for information about all options.)</p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tools-dart2js-debugging"></a>Debugging</h3></div></div></div><p>This section gives tips for debugging dart2js-produced code in
       Chrome, Firefox, and Safari. Debugging the JavaScript produced by
       dart2js is easiest in browsers such as Chrome that support source
       maps.</p><p>Whichever browser you use, you should enable pausing on at least
