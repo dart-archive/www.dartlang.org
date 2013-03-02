@@ -91,7 +91,7 @@ name: range
 description: An approximate implementation of the Python range() function.
     
 dependencies:
-  unittest: { sdk: unittest }
+  unittest: any
 {% endprettify %}
 
 Saving `pubspec.yaml` in Dart Editor automatically triggers a call to 
