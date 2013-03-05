@@ -53,7 +53,7 @@ description: "Read Chapter 5. Walkthrough: Dart Chat of Dart: Up and Running, 
     tags tell the browser to execute the client’s Dart or JavaScript
     code:</p><pre class="programlisting"><em><span class="remark">lang-html
 </span></em>&lt;script type="application/dart" src="chat-client.dart"&gt;&lt;/script&gt;
-&lt;script src="dart.js"&gt;&lt;/script&gt;</pre><p>The first line works in browsers that have an embedded Dart VM and
+&lt;script src="packages/browser/dart.js"&gt;&lt;/script&gt;</pre><p>The first line works in browsers that have an embedded Dart VM and
     so can execute Dart code; currently, only Dartium qualifies. The second
     line is important for every other browser. It executes dart.js, which is a
     standard script that converts all Dart &lt;script&gt; tags to use
@@ -63,8 +63,8 @@ description: "Read Chapter 5. Walkthrough: Dart Chat of Dart: Up and Running, 
 </span></em>&lt;!-- Inserted by dart.js for non-Dartium browsers --&gt;
 &lt;script src="chat-client.dart.js"&gt;&lt;/script&gt;</pre><p>The script contents run when the browser has loaded the HTML and
     constructed its DOM (document object model).</p><p>You can get dart.js with the <a class="ulink" href="http://pub.dartlang.org/packages/browser" target="_top">browser package from
-    pub</a>. See <a class="xref" href="ch04-tools-dart2js.html" title="dart2js: The Dart-to-JavaScript Compiler">the section called “dart2js: The Dart-to-JavaScript Compiler”</a>
-    for more information about compiling Dart code into its JavaScript
+    pub</a>. See <a class="xref" href="ch04-tools-dart2js.html" title="dart2js: The Dart-to-JavaScript Compiler">the section called “dart2js: The Dart-to-JavaScript Compiler”</a> for more
+    information about compiling Dart code into its JavaScript
     equivalent.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-client-dart-code"></a>The Client’s Dart Code</h2></div></div></div><p>Dart code (client/chat-client.dart) provides the client’s logic,
     using the DOM to interact with UI elements. For example, the client’s Dart
     code uses the DOM to find the text area where the client displays
@@ -111,9 +111,9 @@ messageInput = new MessageInput(messageElem);</pre><p>ChatWindow, UsernameInput,
       Expressing this gives tools information that they can use to identify
       bugs or improve code completion.</p><p>Wrapping elements is a technique you can use as you develop a
       simple app that might evolve into a larger app. As the app grows, you
-      might change it to use a real <a class="ulink" href="http://en.wikipedia.org/wiki/Model-view-controller" target="_top">model-view-controller
-      (MVC) architecture.</a></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For more structure, see the <a class="ulink" href="http://www.dartlang.org/articles/dart-web-components/" target="_top">Web UI</a>
-          project for declarative widgets and dynamic, data-driven views.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-update-element"></a>Updating DOM Elements</h3></div></div></div><p>The <code class="literal">bind()</code> method sets up the event handlers,
+      might change it to use <a class="ulink" href="http://www.dartlang.org/articles/dart-web-components/" target="_top">Web
+      UI</a>, a library for declarative widgets and dynamic, data-driven
+      views.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-update-element"></a>Updating DOM Elements</h3></div></div></div><p>The <code class="literal">bind()</code> method sets up the event handlers,
       which bind events from the DOM to logic in the Dart objects. For
       example, in UsernameInput, the <code class="literal">_onUsernameChange()</code>
       method is called any time the text in the input element changes.</p><p>To display messages in the chat window, the ChatWindow class adds
@@ -148,9 +148,8 @@ var encoded = json.stringify({'f': from, 'm': message});
 Map message = json.parse(encodedMessage);</pre><p>See <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and Decoding Objects">the section called “dart:json - Encoding and Decoding Objects”</a> for more information.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-web-sockets"></a>Communicating with WebSockets</h3></div></div></div><p>The custom class ChatConnection takes care of the chat client’s
       WebSocket communication. First it connects to the WebSocket by calling
       the WebSocket constructor with the argument <code class="literal">'ws://127.0.0.1:1337/ws'</code>. Then ChatConnection
-      adds event handlers for open, close, error, and message events, using
-      the WebSocketEvents object it gets from <code class="literal">webSocket.on</code>.
-      For example, here’s the code that responds to message events:</p><pre class="programlisting"><em><span class="remark">lang-dart
+      adds event handlers for open, close, error, and message events. For
+      example, here’s the code that responds to message events:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>webSocket.onMessage.listen((MessageEvent e) {
   print('received message ${e.data}');
   _receivedEncodedMessage(e.data);
@@ -205,20 +204,28 @@ _sendEncodedMessage(String encodedMessage) {
       server. The default request handler is configured to serve static files
       from a specific directory on the file system.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>runServer(String basePath, int port) {
-  HttpServer server = new HttpServer();  
-  server.defaultRequestHandler = new StaticFileHandler(basePath).onRequest;
-  //...
-  server.onError = (error) =&gt; print(error);
-  server.listen('127.0.0.1', 1337);
-  print('listening for connections on $port');
-}
+  ChatHandler chatHandler = new ChatHandler(basePath);
+  StaticFileHandler fileHandler = new StaticFileHandler(basePath);
+  
+  HttpServer.bind('127.0.0.1', port)
+    .then((HttpServer server) {
+      print('listening for connections on $port');
+      
+      var sc = new StreamController();
+      sc.stream.transform(new WebSocketTransformer()).listen(chatHandler.onConnection);
 
-main() {
-  var script = new File(new Options().script);
-  var directory = script.directorySync();
-  runServer('${directory.path}/client', 1337);
+      server.listen((HttpRequest request) {
+        if (request.uri.path == '/ws') {
+          sc.add(request);
+        } else {
+          fileHandler.onRequest(request);
+        }
+      });
+    },
+    onError: (error) =&gt; print("Error starting HTTP server: $error"));
 }</pre><p>The StaticFileHandler first gets the file contents using File and
-      InputStream, and then sends the contents using OutputStream.</p><p>Because I/O can cause delays, due to variable network or disk
+      Stream. It then sends those contents using the HttpResponse object from
+      the request.</p><p>Because I/O can cause delays, due to variable network or disk
       bandwidth conditions, the chat server uses asynchronous I/O to handle
       HTTP requests while still being responsive to other requests. Each I/O
       request returns a Future, allowing the server to continue executing
@@ -228,48 +235,59 @@ main() {
       doesn’t), the function specified to <code class="literal">then()</code>
       executes.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>// Respond to HTTP requests for static files.
-onRequest(HttpRequest request, HttpResponse response) {
-  //...
-  file.exists().then((found) {
+onRequest(HttpRequest request) {
+  final String path =
+      request.uri.path == '/' ? '/index.html' : request.uri.path;
+  final File file = new File('${basePath}${path}');
+  file.exists().then((bool found) {
     if (found) {
-      // ...Respond with the file’s contents...
+      file.fullPath().then((String fullPath) {
+        if (!fullPath.startsWith(basePath)) {
+          _send404(request.response);
+        } else {
+          file.openRead().pipe(request.response)
+            .catchError((e) =&gt; print(e));
+        }
+      });
     } else {
-      // ...Send a 404 response...
+      _send404(request.response);
     }
-  });</pre><p>See <a class="xref" href="ch03.html#ch03-asynchronous-programming" title="dart:async - Asynchronous Programming">the section called “dart:async - Asynchronous Programming”</a> for more
+  });
+}</pre><p>See <a class="xref" href="ch03.html#ch03-asynchronous-programming" title="dart:async - Asynchronous Programming">the section called “dart:async - Asynchronous Programming”</a> for more
       information about using Future, and <a class="xref" href="ch03.html#ch03-files-and-directories" title="Files and Directories">the section called “Files and Directories”</a> for details on file and
       directory I/O.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-server-web-sockets"></a>Managing WebSocket Connections</h3></div></div></div><p>In addition to serving static files, the chat server manages
       WebSocket connections, routing chat messages between clients. The
-      dart:io WebSocketHandler class accepts HTTP connections, converts them
-      into WebSocket connections, and then passes them to ChatHandler.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      dart:io WebSocketTransformer class accepts HTTP connections, converts
+      them into WebSocket connections, and then passes them to
+      ChatHandler.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>runServer(String basePath, int port) {
   //...
-  WebSocketHandler wsHandler = new WebSocketHandler();
-  wsHandler.onOpen = new ChatHandler(basePath).onOpen;
+  var sc = new StreamController();
+  sc.stream.transform(new WebSocketTransformer())
+      .listen(chatHandler.onConnection);
 }</pre><p>ChatHandler is a custom class that takes care of all WebSocket
       communication for the chat server. Here is its implementation.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>class ChatHandler {
   Set&lt;WebSocketConnection&gt; connections;
   //...
-  onOpen(WebSocketConnection conn) {
-    connections.add(conn);
-
-    conn.onClosed = (int status, String reason) {
-      connections.remove(conn);
-    };
-
-    conn.onMessage = (message) {
-      connections.forEach((connection) {
+  onConnection(WebSocket conn) {
+    void onMessage(message) {
+      print('new ws msg: $message');
+      webSocketConnections.forEach((connection) {
         if (conn != connection) {
-          //...
-          connection.send(message));
+          print('queued msg to be sent');
+          queue(() =&gt; connection.send(message));
         }
       });
-    };
-
-    conn.onError = (e) {
-      connections.remove(conn);
-    };
+      time('send to isolate', () =&gt; log.log(message));
+    }
+    
+    print('new ws conn');
+    webSocketConnections.add(conn);
+    conn.listen(onMessage,
+      onDone: () =&gt; webSocketConnections.remove(conn),
+      onError: (e) =&gt; webSocketConnections.remove(conn)
+    );
   }
 }</pre><p>When a client connects, the server adds the client’s WebSocket
       connection to a collection. When the client disconnects (either through
@@ -290,15 +308,15 @@ onRequest(HttpRequest request, HttpResponse response) {
 </span></em>startLogging() {
   print('started logger');
   File logFile;
-  OutputStream out;
+  IOSink out;
   port.receive((msg, replyTo) {
     if (logFile == null) {
       print('Opening file $msg');
       logFile = new File(msg);
-      out = logFile.openOutputStream(FileMode.APPEND);
+      out = logFile.openWrite(FileMode.APPEND);
     } else {
       time('write to file', () {
-        out.writeString('${new DateTime.now()} : $msg\n');
+        out.addString('${new DateTime.now()} : $msg\n');
       });
     }
   });

@@ -233,10 +233,12 @@ assert(list[1] == 2);</pre><p>The List type and its supertype, <a class="ulink" 
   'fifth'  : 'golden rings'
 };</pre><p>In map literals, each <span class="emphasis"><em>key</em></span> must be a string.
       If you use a Map constructor, any object can be a key.</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>var map = new Map();                  // use a map constructor.
-map[1] = 'partridge';                 // key is 1; value is 'partridge'.
-map[2] = 'turtledoves';               // key is 2; value is 'turtledoves'.
-map[5] = 'golden rings';              // key is 5; value is 'golden rings'.</pre><p>A map <span class="emphasis"><em>value</em></span> can be any object, including
+</span></em><em><span class="remark">ch02/map_constructor.dart
+</span></em>var map = new Map();                  // Use a map constructor.
+map[1] = 'partridge';                 // Key is 1; value is 'partridge'.
+map[2] = 'turtledoves';               // Key is 2; value is 'turtledoves'.
+map[5] = 'golden rings';              // Key is 5; value is 'golden rings'.
+</pre><p>A map <span class="emphasis"><em>value</em></span> can be any object, including
       null.</p><p>You add a new key-value pair to an existing map just as you would
       in JavaScript:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var gifts = { 'first': 'partridge' };
@@ -298,7 +300,7 @@ enableFlags({bool bold: false, bool hidden: false}) {
   // ...
 }
 
-enableFlags(bold: true); // bold will be true; hidden will be false.</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The preceding two examples use <a class="link" href="ch02.html#comments-doc" title="Documentation Comments">documentation comments</a>.</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="functions-optional-positional-parameters"></a>Optional positional parameters</h4></div></div></div><p>Wrapping a set of function parameters in <code class="literal">[]</code> marks them as optional positional
+enableFlags(bold: true); // bold will be true; hidden will be false.</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="functions-optional-positional-parameters"></a>Optional positional parameters</h4></div></div></div><p>Wrapping a set of function parameters in <code class="literal">[]</code> marks them as optional positional
         parameters.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>String say(String from, String msg, [String device]) {
   var result = '$from says $msg';
@@ -446,16 +448,16 @@ if (n % i == 0 &amp;&amp; d % i == 0)     // Harder to read, but equivalent.</pr
       determines which version of the operator is used. For example, if you
       have a Vector object and a Point object, <code class="literal">aVector + aPoint</code> uses the Vector version of
       +.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-arithmetic"></a>Arithmetic Operators</h3></div></div></div><p>Dart supports the usual arithmetic operators.</p><div class="table"><a name="arithmetic_operator_table"></a><p class="title"><b>Table 2.3. Arithmetic operators</b></p><div class="table-contents"><table summary="Arithmetic operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>+</td><td>Add</td></tr><tr><td>–</td><td>Subtract</td></tr><tr><td>-<em class="replaceable"><code>expr</code></em></td><td>Unary minus, also known as negation (reverse the sign of
-              the expression)</td></tr><tr><td>*</td><td>Multiply</td></tr><tr><td>/</td><td>Divide</td></tr><tr><td>~/</td><td>Divide, returning an integer result</td></tr><tr><td>%</td><td>Get the remainder of an integer division (modulo)</td></tr></tbody></table></div></div><br class="table-break"><p>Example:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>var a = 2;
-var b = 3;
+              the expression)</td></tr><tr><td>*</td><td>Multiply</td></tr><tr><td>/</td><td>Divide</td></tr><tr><td>~/</td><td>Divide, returning an integer result</td></tr><tr><td>%</td><td>Get the remainder of an integer division (modulo)</td></tr></tbody></table></div></div><br class="table-break"><p>Example:</p><pre class="programlisting"><em><span class="remark">lang-dart</span></em><em><span class="remark">
+ch02/arithmetic_operators.dart
+</span></em>assert(2 + 3 == 5);
+assert(2 - 3 == -1);
+assert(2 * 3 == 6);
+assert(5 / 2 == 2.5);   // Result is a double
+assert(5 ~/ 2 == 2);    // Result is an integer
+assert(5 % 2 == 1);     // Remainder
 
-assert(a + b == 5);
-assert(a - b == -1);
-assert(a * b == 6);
-assert( a / b &gt; 0.6 &amp;&amp; a / b &lt; 0.7);
-assert(a ~/ b == 0);  // Quotient
-assert(a % b == 2);   // Remainder</pre><p>Dart also supports both prefix and postfix increment and decrement
+print('5/2 = ${5~/2} remainder ${5%2}'); // 5/2 = 2 remainder 1</pre><p>Dart also supports both prefix and postfix increment and decrement
       operators.</p><div class="table"><a name="pfix_operator_table"></a><p class="title"><b>Table 2.4. Increment and decrement operators</b></p><div class="table-contents"><table summary="Increment and decrement operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>++<em class="replaceable"><code>var</code></em></td><td><em class="replaceable"><code>var</code></em> =
               <em class="replaceable"><code>var</code></em> + 1 (expression value is
               <em class="replaceable"><code>var</code></em> + 1)</td></tr><tr><td><em class="replaceable"><code>var</code></em>++</td><td><em class="replaceable"><code>var</code></em> =
@@ -488,16 +490,14 @@ assert(a != b) ; // -1 != 0</pre></div><div class="sect2"><div class="titlepage"
           (That’s right, operators such as <code class="literal">==</code> are methods that are invoked on their
           first operand. You can even override many operators, including
           <code class="literal">==</code>, as you’ll see in <a class="xref" href="ch02.html#classes-operators" title="Overridable Operators">the section called “Overridable Operators”</a>.)</p></li></ol></div><p>Here’s an example of using each of the equality and relational
-      operators:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>var a = 2;
-var b = 3;
-
-assert(a == 2);       // 2 and 2 are equal.
-assert(a != b);       // 2 and 3 aren't equal.
-assert(b &gt; a);        // 3 is more than 2.
-assert(a &lt; b);        // 2 is less then 3.
-assert(b &gt;= b);       // 3 is greater than or equal to 3.
-assert(a &lt;= b);       // 2 is less than or equal to 3.</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-op-type-test"></a>Type Test Operators</h3></div></div></div><p>The <code class="literal">as</code>, <code class="literal">is</code>, and <code class="literal">is!</code>
+      operators:</p><pre class="programlisting"><em><span class="remark">lang-dart</span></em><em><span class="remark">
+ch02/op_equality.dart
+</span></em>assert(2 == 2);
+assert(2 != 3);
+assert(3 &gt; 2);
+assert(2 &lt; 3);
+assert(3 &gt;= 3);
+assert(2 &lt;= 3);</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-op-type-test"></a>Type Test Operators</h3></div></div></div><p>The <code class="literal">as</code>, <code class="literal">is</code>, and <code class="literal">is!</code>
       operators are handy for checking types at runtime.</p><div class="table"><a name="type_test_operator_table"></a><p class="title"><b>Table 2.6. Type test operators</b></p><div class="table-contents"><table summary="Type test operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>as</td><td>Typecast</td></tr><tr><td>is</td><td>True if the object has the specified type</td></tr><tr><td>is!</td><td>False if the object has the specified type</td></tr></tbody></table></div></div><br class="table-break"><p>The result of <code class="literal">obj is T</code> is true
       if <code class="literal">obj</code> implements the interface
       specified by <code class="literal">T</code>. For example, <code class="literal">obj is Object</code> is always true.</p><p>Use the <code class="literal">as</code> operator to cast an

@@ -14,7 +14,7 @@ description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Run
       respectively.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/number-tests.dart
 </span></em>assert(int.parse('42') == 42);
-assert(double.parse('0.50') == 0.5);</pre><p>Use the toString() method (defined by <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>) to
+assert(double.parse('0.50') == 0.5);</pre><p>Use the <code class="literal">toString()</code> method (defined by <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>) to
       convert an int or double to a string. To specify the number of digits to
       the right of the decimal, use <code class="literal">toStringAsFixed()</code>
       (defined by num). To specify the number of significant digits in the
@@ -529,7 +529,7 @@ main() {
       immediately returns a Future object. Later, when the query finishes in
       some future event loop iteration, the completer completes with the
       results. The completion signals that the Future has a value, which runs
-      the callback registered in Future's <code class="literal">then()</code>.</p><pre class="screen"><em><span class="remark">lang-dart
+      the callback registered in Future’s <code class="literal">then()</code>.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/futures.dart</span></em>Future longExpensiveSearch() {
 var completer = new Completer();
 
@@ -581,7 +581,7 @@ return result.then((value) =&gt; expensiveWork())
 }</pre><p>In the above example, the methods run in the following
       order:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><code class="literal">costlyQuery()</code></p></li><li class="listitem"><p><code class="literal">expensiveWork()</code></p></li><li class="listitem"><p><code class="literal">lengthyComputation()</code></p></li></ol></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-waiting-for-multiple-futures"></a>Waiting for Multiple Futures</h3></div></div></div><p>Sometimes your algorithm needs to initiate many asynchronous
       methods and wait for each one to complete before continuing. Use the
-      <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html#wait" target="_top">Future.wait()</a>
+      <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html#wait" target="_top"><code class="literal">Future.wait()</code></a>
       static method to manage multiple Futures and wait for them all to
       complete.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em>Future deleteDone = deleteLotsOfFiles();
@@ -589,7 +589,7 @@ Future copyDone = copyLotsOfFiles();
 Future checksumDone = checksumLotsOfOtherFiles();
 
 new Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
-print('Done with all the long steps');
+  print('Done with all the long steps');
 });</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-9"></a>More Information</h3></div></div></div><p>For examples of using Future, see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-math"></a>dart:math - Math and Random</h2></div></div></div><p>The Math library provides common functionality such as sine and
     cosine, maximum and minimum, and constants such as <span class="emphasis"><em>pi</em></span>
     and <span class="emphasis"><em>e</em></span>. Most of the functionality in the Math library
@@ -1187,10 +1187,10 @@ main() {
       },
       onDone: () { print('file is now closed'); },
       onError: (e) { print(e.toString()); });
-}</pre><p>To decode an input stream from bytes into characters, wrap the
-        InputStream with a <a class="ulink" href="http://api.dartlang.org/dart_io/StringDecoder.html" target="_top">StringDecoder.</a>
+}</pre><p>To decode from bytes into characters, wrap the stream with a
+        <a class="ulink" href="http://api.dartlang.org/dart_io/StringDecoder.html" target="_top">StringDecoder.</a>
         You can read the strings either as data becomes available or a line at
-        a time.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-writing-file-contents"></a>Writing file contents</h4></div></div></div><p>You can use a <a class="ulink" href="http://api.dartlang.org/dart_io/IOSink.html" target="_top">IOSink</a> to
+        a time.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-writing-file-contents"></a>Writing file contents</h4></div></div></div><p>You can use an <a class="ulink" href="http://api.dartlang.org/dart_io/IOSink.html" target="_top">IOSink</a> to
         write data to a file. Use the File <code class="literal">openWrite()</code>
         method to declare a mode and get an IOSink that you can write to. Use
         <code class="literal">FileMode.WRITE</code> to completely
@@ -1394,8 +1394,8 @@ main() {
                      path: '/foo/bar', fragment: 'frag');
   assert(uri.toString() == 'http://example.org/foo/bar#frag');
 }</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-utf"></a>dart:utf - Strings and Unicode</h2></div></div></div><p>The UTF library helps bridge the gap between strings and
-    UTF-8/UTF-16/UTF-32 encodings.</p><p>The UTF library works in both web apps and command-line apps. To use
-    the UTF library, import <code class="literal">dart:utf</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-decode-utf8"></a>Decoding UTF-8 Characters</h3></div></div></div><p>Use <code class="literal">decodeUtf8()</code> to decode UTF8-encoded bytes
+    UTF-8/UTF-16/UTF-32 encodings.</p><p>This library works in both web apps and command-line apps. To use
+    it, import <code class="literal">dart:utf</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-decode-utf8"></a>Decoding UTF-8 Characters</h3></div></div></div><p>Use <code class="literal">decodeUtf8()</code> to decode UTF8-encoded bytes
       to a Dart string.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em>import 'dart:utf';
 
