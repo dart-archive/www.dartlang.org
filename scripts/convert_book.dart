@@ -63,7 +63,9 @@ main() {
   checkDir(inputDir);
   checkDir(outputDir);
 
-  dirContents(inputDir)
-    .then((filenames) => filenames.where((f) => f.endsWith(".html")))
-    .then((htmlFilenames) => htmlFilenames.forEach((f) => convertFile(f)));
+  List<FileSystemEntity> filenames = inputDir.listSync();
+  filenames
+      .map((f) => f.name)
+      .where((name) => name.endsWith(".html"))
+      .forEach((name) => convertFile(name));
 }
