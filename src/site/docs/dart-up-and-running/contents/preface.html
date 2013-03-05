@@ -72,8 +72,11 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
             <code class="literal">add()</code> should now use method cascades
             instead.</p></li></ul></div></li><li class="listitem"><p>The recommended way for web apps to use
         <code class="literal">dart.js</code> is now to have a local copy, preferably one
-        downloaded using the <code class="literal">browser</code> pub package.</p></li><li class="listitem"><p>Metadata support was added to the language. See <a class="xref" href="ch02.html#ch02-metadata" title="Metadata">the section called “Metadata”</a>.</p></li><li class="listitem"><p>In M3, mixins were added to the language, enabling code re-use
-        between classes.</p></li><li class="listitem"><p>The core libraries were revised in M3. Changes include:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>Some methods have changed to fields or getters. This meant
+        downloaded using the <code class="literal">browser</code> pub package.</p></li><li class="listitem"><p>Metadata support was added to the language. See <a class="xref" href="ch02.html#ch02-metadata" title="Metadata">the section called “Metadata”</a>.</p></li><li class="listitem"><p>We added references to the <a class="ulink" href="http://www.dartlang.org/articles/dart-web-components/" target="_top">Web UI
+        package</a>, which provides a higher level, scalable approach to
+        creating UIs for web apps.</p></li><li class="listitem"><p>In M3, mixins were added to the language, enabling code re-use
+        between classes.</p></li><li class="listitem"><p>The core libraries were greatly revised in M3 or shortly
+        afterward. Changes include:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>Some methods have changed to fields or getters. This meant
             we had to remove the <code class="literal">()</code> after
             <code class="literal">hashCode</code>, <code class="literal">isEmpty</code> and
             <code class="literal">isNan</code>. We also changed
@@ -121,17 +124,29 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
             <code class="literal">write()</code> and <code class="literal">writeAll()</code>,
             respectively. StringBuffer no longer has a
             <code class="literal">clear()</code> method; just create a new StringBuffer
-            instead.</p></li></ul></div></li></ul></div><p>We corrected or clarified some text, such as:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Bitwise operators are implemented in <span class="bold"><strong>int</strong></span>, not num.</p></li><li class="listitem"><p>The <code class="literal">is</code> and <code class="literal">as</code> examples (in
+            instead.</p></li><li class="listitem"><p>The dart:io library has changed significantly since M3, as
+            has all I/O in Dart. I/O now centers around the dart:async
+            library's Stream and Future classes, instead of callbacks. The
+            changes are too numerous to list here, but at a high level, the
+            InputStream and OutputStream classes have been replaced with
+            classes implementing <a class="ulink" href="http://api.dartlang.org/docs/releases/latest/dart_async/Stream.html" target="_top">Stream</a>
+            and the <a class="ulink" href="http://api.dartlang.org/dart_io/IOSink.html" target="_top">IOSink</a>
+            helper class. A new <a class="ulink" href="http://api.dartlang.org/dart_io/FileSystemEntity.html" target="_top">FileSystemEntity</a>
+            class is the superclass of File and Directory. To create a new
+            HttpServer, you now use the static <code class="literal">bind()</code>
+            method. For more information, see the <a class="ulink" href="http://news.dartlang.org/2013/02/io-library-now-uses-streams.html" target="_top">announcement.</a></p></li><li class="listitem"><p>The most used dart:crypto methods for hashes have changed
+            from <code class="literal">update()</code> and <code class="literal">digest()</code>
+            to <code class="literal">add()</code> and <code class="literal">close()</code>.</p></li></ul></div></li></ul></div><p>We corrected or clarified some text, such as:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Bitwise operators are implemented in <span class="bold"><strong>int</strong></span>, not num.</p></li><li class="listitem"><p>The <code class="literal">is</code> and <code class="literal">as</code> examples (in
         <a class="xref" href="ch02.html#ch02-op-type-test" title="Type Test Operators">the section called “Type Test Operators”</a>) aren’t completely
-        equivalent.</p></li></ul></div><p>We’ve also added discussions for a few pre-existing features:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Lexical scope (see <a class="xref" href="ch02.html#ch02-lexical-scope" title="Lexical Scope">the section called “Lexical Scope”</a>)</p></li><li class="listitem"><p>Function equality (see <a class="xref" href="ch02.html#ch02-function-equality" title="Testing for Equality">the section called “Testing for Equality”</a>)</p></li></ul></div><p>Finally, <a class="xref" href="ch01.html#BrowserChart" title="Figure 1.1. Browser speed (V8 benchmark suite v7; higher numbers are better)">Figure 1.1, “Browser speed (V8 benchmark suite v7; higher numbers are
-      better)”</a> was updated to use a more
-    recent benchmark and have the latest numbers.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
+        equivalent.</p></li></ul></div><p>We’ve also added sections for some pre-existing features:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Keywords (see <a class="xref" href="ch02.html#ch02-keywords" title="Keywords">the section called “Keywords”</a>)</p></li><li class="listitem"><p>Lexical scope (see <a class="xref" href="ch02.html#ch02-lexical-scope" title="Lexical Scope">the section called “Lexical Scope”</a>)</p></li><li class="listitem"><p>Function equality (see <a class="xref" href="ch02.html#ch02-function-equality" title="Testing for Equality">the section called “Testing for Equality”</a>)</p></li><li class="listitem"><p>The dart_analyzer tool (see <a class="xref" href="ch04-tools-dart_analyzer.html" title="dart_analyzer: The Static Analyzer">the section called “dart_analyzer: The Static Analyzer”</a>)</p></li><li class="listitem"><p>The dartdoc tool (see <a class="xref" href="ch04-tools-dartdoc.html" title="dartdoc: The API Documentation Generator">the section called “dartdoc: The API Documentation Generator”</a>)</p></li></ul></div><p>Finally, <a class="xref" href="ch01.html#BrowserChart" title="Figure 1.1. Browser speed (V8 benchmark suite v7; higher numbers are better)">Figure 1.1, “Browser speed (V8 benchmark suite v7; higher numbers are
+      better)”</a> now uses a more recent
+    benchmark and has the latest numbers.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="preface-acknowledgments"></a>Acknowledgments</h2></div></div></div><p>We’d like to thank the many people who contributed to this book. We
     hope we haven’t forgotten anyone, but we probably have.</p><p>The following Dart engineers and managers gave us prompt, helpful
     reviews and information for the sections corresponding to their areas of
     responsibility: Mads Ager, Peter von der Ahé, Justin Fagnani, Dan Grove,
     Florian Loitsch, Sam McCall, Vijay Menon, John Messerly, Anton Muhin,
     Lasse R.H. Nielsen, Bob Nystrom, Ivan Posva, Jaime Wren, Matthias Hausner,
-    and Keerti Parthasarathy.</p><p>We’d especially like to thank the people who reviewed even bigger
+    Keerti Parthasarathy, and Konstantin Scheglov.</p><p>We’d especially like to thank the people who reviewed even bigger
     swaths of the book or contributed in other, large ways:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>JJ Behrens, whose careful look at the first draft of the book
         helped us catch errors and inconsistencies, as well as rework Chapter
         5 to be more interesting, and less of a laundry list. He also created
@@ -144,10 +159,10 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
         gave us guidance and encouragement.</p></li><li class="listitem"><p>Kasper Lund, whose review caught issues that only someone with
         his expert, comprehensive knowledge of the Dart language and libraries
         could have found.</p></li><li class="listitem"><p>Gilad Bracha, the language spec writer whose reviews of the
-        language chapter (our longest one) were invaluable for getting
-        language details right. We couldn’t cover everything, so we look
-        forward to his future work on making all the corners of the language
-        understandable to all Dart programmers.</p></li></ul></div><p>Other Googlers helped, as well. Vivian Li, the head of Chrome
+        language chapter were invaluable for getting language details right.
+        We couldn’t cover everything, so we look forward to his future work on
+        making all the corners of the language understandable to all Dart
+        programmers.</p></li></ul></div><p>Other Googlers helped, as well. Vivian Li, the head of Chrome
     Developer Relations, supported our work on this book. Andres Ferrate, the
     Google Press liaison to O’Reilly, helped simplify the process of getting
     the book published. Myisha Harris gave us excellent legal advice.</p><p>The people at O’Reilly were extremely helpful. Meghan Blanchette,

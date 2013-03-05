@@ -42,15 +42,6 @@ checkDir(Directory dir) {
   }
 }
 
-Future<List<String>> dirContents(Directory dir) {
-  var filenames = <String>[];
-  var completer = new Completer();
-  var lister = dir.list();
-  lister.onFile = (filename) => filenames.add(filename);
-  lister.onDone = (_) => completer.complete(filenames);
-  return completer.future;
-}
-
 main() {
   var args = new Options().arguments;
   if (args.length != 2) {
@@ -65,7 +56,7 @@ main() {
 
   List<FileSystemEntity> filenames = inputDir.listSync();
   filenames
-      .map((f) => f.name)
+      .map((f) => f.path)
       .where((name) => name.endsWith(".html"))
       .forEach((name) => convertFile(name));
 }
