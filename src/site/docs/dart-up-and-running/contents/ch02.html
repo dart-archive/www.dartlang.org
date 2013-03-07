@@ -1091,8 +1091,18 @@ class SmartTelevision extends Television {
     _upgradeApps();
   }
   ...
-}</pre><p>Subclasses can override instance methods, getters, and
-      setters.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-vars-and-methods"></a>Class Variables and Methods</h3></div></div></div><p>Use the <code class="literal">static</code> keyword to
+}</pre><p>Subclasses can override instance methods, getters, and setters.
+      Here’s an example of overriding the Object class’s
+      <code class="literal">noSuchMethod()</code> method, which is called whenever code
+      attempts to use a non-existent method or instance variable:</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch02/no_such_method.dart
+</span></em>class A {
+  // Unless you override noSuchMethod, using a non-existent member
+  // results in a NoSuchMethodError.
+  void noSuchMethod(InvocationMirror mirror) {
+    print('You tried to use a non-existent member: ${mirror.memberName}');
+  }
+}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-vars-and-methods"></a>Class Variables and Methods</h3></div></div></div><p>Use the <code class="literal">static</code> keyword to
       implement class-wide variables and methods.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-static-variables"></a>Static variables</h4></div></div></div><p>Static variables (class variables) are useful for class-wide
         state and constants.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/color.dart
