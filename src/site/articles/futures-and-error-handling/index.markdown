@@ -182,12 +182,12 @@ how you can use `test` to do that:
 
 {% prettify dart %}
 void main() {
-  handleAuthResponse({'username': 'johncage', 'age': 92)
+  handleAuthResponse({'username': 'johncage', 'age': 92})
     .then((_) => ...)
     .catchError(handleFormatException,
-                test((e) => e is FormatException)
+                test: (e) => e is FormatException)
     .catchError(handleAuthorizationException,
-                test((e) => e is AuthorizationException);
+                test: (e) => e is AuthorizationException);
 }
 {% endprettify %}
 
