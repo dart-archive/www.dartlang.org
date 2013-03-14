@@ -17,7 +17,7 @@ _Written by Shailen Tuli, March 2013_
 This article covers the subject of error handling when dealing with Futures.
 If you are unfamiliar with the general concepts behind Futures, we
 recommend you first read
-[Using Future Based APIs](http://www.dartlang.org/articles/using-future-based-apis/).
+[Using Future Based APIs](/articles/using-future-based-apis/).
 
 #### Contents
 
@@ -272,9 +272,9 @@ void main() {
   Future future = funcThatThrows();
   
   // BAD. Too late to handle funcThatThrows() exception.
-  new Future.delayed(500, () {
+  new Future.delayed(const Duration(milliseconds: 500), () {
     future.then(...)        
-          .catchError((...);
+          .catchError(...);
   });
 }
 {% endprettify %}
@@ -287,7 +287,7 @@ The problem goes away if `funcThatThrows()` is called within the
 
 {% prettify dart %}
 void main() {
-  new Future.delayed(500, () {
+  new Future.delayed(const Duration(milliseconds: 500), () {
     funcThatThrows().then(processValue))
                     .catchError(handleError)); // We get here.
   });
