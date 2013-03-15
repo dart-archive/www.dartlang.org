@@ -53,6 +53,12 @@ handlers:
 - url: /editor.*
   script: scripts.redirector.application
 
+- url: /docs/dart2js/
+  script: scripts.redirector.application
+
+- url: /docs/standalone-dart-vm/
+  script: scripts.redirector.application
+
 - url: /news.*
   script: scripts.redirector.application
 
@@ -72,6 +78,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /articles/profiling/
+  script: scripts.redirector.application
+
+- url: /articles/dart-web-components/.*
   script: scripts.redirector.application
 
 - url: /dartisans/podcast-feed

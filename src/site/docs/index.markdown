@@ -75,9 +75,9 @@ dart2js, pub, and more.
 [Pub package manager (pub.dartlang.org)](http://pub.dartlang.org)
 : Browse hosted packages, and learn how to use pub to reuse Dart code.
 
-[Dart2js compiler](/docs/dart2js/)
+[Dart2js compiler](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html)
 : Learn how to use the dart2js tool to compile Dart code to JavaScript.
 
-[Dart VM](/docs/standalone-dart-vm/)
+[Dart VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html)
 : Learn how to use the dart tool (bin/dart) to run Dart command-line apps
 such as server-side scripts, programs, and servers.

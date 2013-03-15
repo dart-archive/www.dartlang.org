@@ -165,7 +165,7 @@ connect to HTTPS resources.
 With the language spec stabilized, the VM team has focused on performance.
 Initial measurements show a 50% improvement over V8 on some benchmarks. Much
 more work needs to be done here, but check out
-[dartlang.org/performance/](http://www.dartlang.org/performance/) for charts
+[dartlang.org/performance/](/performance/) for charts
 and details.
 
 Prompted by performance work while integrating Dart VM into Chromium, the VM and

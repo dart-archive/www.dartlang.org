@@ -83,6 +83,14 @@ class BookRedirect(RequestHandler):
   def head(self, *args, **kwargs):
     self.redirect('/docs/dart-up-and-running/contents/ch0' + kwargs['num'] + '.html', permanent=True)
 
+class WebUiRedirect(RequestHandler):
+  def get(self):
+    filename = self.request.path.split('/articles/dart-web-components/')[1]
+    if filename == '' or filename == 'index.html':
+        self.redirect('/articles/web-ui/', permanent=True)
+    else:
+        self.redirect('/articles/web-ui/' + filename, permanent=True)
+
 def trailing_slash(handler, *args, **kwargs):
   return '/' + kwargs['path'] + '/'
 
@@ -92,6 +100,7 @@ application = WSGIApplication(
     ('/news.*', NewsRedirectPage),
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
+    ('/articles/dart-web-components/.*', WebUiRedirect),
     Route('/editor/update<path:.*>', EditorUpdateRedirect),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
     Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
@@ -114,6 +123,10 @@ application = WSGIApplication(
       defaults={'_uri': '/community/'}),
     Route('/articles/profiling/', RedirectHandler,
       defaults={'_uri': '/articles/benchmarking/'}),
+    Route('/docs/dart2js/', RedirectHandler,
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart2js.html'}),
+    Route('/docs/standalone-dart-vm/', RedirectHandler,
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html'}),
     Route('/atom.xml', RedirectHandler,
       defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
     Route('/+', RedirectHandler,

@@ -23,13 +23,14 @@
   {% assign empty_list = true %}
   {% for article in site.pages %}
     {% if article.rel and article.rel.author == page.author.key %}
+      {% assign article_url = article.url | remove:'index.html' %}
       {% if empty_list %}
         {% assign empty_list = false %}
   <section class="author-articles">
     <h2>On this site</h2>
     <ul>
       {% endif %}
-      <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+      <li><a href="{{ article_url }}">{{ article.title }}</a></li>
     {% endif %}
   {% endfor %}
   {% if empty_list == false %}

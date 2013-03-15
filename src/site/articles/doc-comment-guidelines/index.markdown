@@ -151,7 +151,7 @@ and **links** to documents that provide more information.
 
 Format your text using the markup
 specified in section 15.1.2 of the
-[Dart Language Specification](http://www.dartlang.org/docs/spec/).
+[Dart Language Specification](/docs/spec/).
 Although dartdoc currently recognizes some additional markdown
 (as noted below),
 it might not always.
@@ -290,7 +290,7 @@ Here's an example of a warning:
 
 ## Resources
 
-* [Comments](http://www.dartlang.org/articles/style-guide/#comments)
+* [Comments](/articles/style-guide/#comments)
   section of the Dart Style Guide
 * dart:math API doc 
   ([generated doc](http://api.dartlang.org/dart_math.html),

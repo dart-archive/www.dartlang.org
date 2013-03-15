@@ -9,8 +9,8 @@ js:
 
 # {{ page.title }}
 
-Tracking [Dart VM](/docs/standalone-dart-vm/) and
-[dart2js](/docs/dart2js/) performance. Read more about
+Tracking [Dart VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html) and
+[dart2js](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html) performance. Read more about
 [benchmarking Dart](/articles/benchmarking/).
 
 <ul class="nav nav-tabs" id="performance-charts-nav">
@@ -65,8 +65,8 @@ Is it fair to use typed versions of the benchmarks for Dart? Shouldn't they be u
   no impact on
   runtime performance in the VM's default mode (production). For more details,
   read more about Dart's
-  [optional static types](http://www.dartlang.org/articles/optional-types/) and
-  [why they are optional](http://www.dartlang.org/articles/why-dart-types/).
+  [optional static types](/articles/optional-types/) and
+  [why they are optional](/articles/why-dart-types/).
   _Credit to [olliej on HN](http://news.ycombinator.com/item?id=4903435)._
 
 Where are the other benchmarks?

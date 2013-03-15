@@ -12,7 +12,7 @@ October 2012 (Updated December 2012)_
 
 The Web UI package (Web UI for short) provides web components and templates to
 help you write web applications at scale. You can learn about this package in
-our [explainer article](index.html). This article describes tools that will help
+our [explainer article](/articles/web-ui/). This article describes tools that will help
 you create and deploy projects that use Web UI.
 
 
@@ -153,8 +153,8 @@ and the extension will take care of everything else.
 
 [dwc]: https://github.com/dart-lang/web-ui/
 [extension]: http://dart-lang.github.com/web-ui/extension/web_ui.crx
-[dartium]: http://www.dartlang.org/dartium/
-[editor]: http://www.dartlang.org/docs/editor/
-[dart2js]: http://www.dartlang.org/docs/dart2js/
-[mb]: http://www.dartlang.org/support/faq.html#what-browsers-supported
+[dartium]: /dartium/
+[editor]: /docs/editor/
+[dart2js]: /docs/dart-up-and-running/contents/ch04-tools-dart2js.html
+[mb]: /support/faq.html#what-browsers-supported
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html

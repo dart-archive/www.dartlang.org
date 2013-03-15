@@ -248,7 +248,7 @@ to put on pub.dartlang.org, and wrote a few tests.  This is a good start, of cou
 we have only scratched the surface of how we should test our packages. For a
 very thorough explanation of how the unittest framework works in Dart, I 
 highly recommend a careful reading of 
-[Unit Testing with Dart](http://www.dartlang.org/articles/dart-unit-tests/) by 
+[Unit Testing with Dart](/articles/dart-unit-tests/) by 
 Graham Wheeler. He goes into considerable detail about writing tests, defining
 `setUp()` and `tearDown()`, running asynchronous tests, using and creating
 matchers, and configuring your test environment.

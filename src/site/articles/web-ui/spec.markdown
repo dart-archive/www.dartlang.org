@@ -22,7 +22,8 @@ The Web UI package (Web UI for short) provides web components and templating to
 help you write web applications at scale. This article contains a detailed
 specification of Web UI's features. For a quick reference table of
 these features, please refer to our [summary article](summary.html); for a
-high-level introduction and examples, see our [explainer article](index.html).
+high-level introduction and examples, see our
+[explainer article](/articles/web-ui/).
 
 
 #### Contents
