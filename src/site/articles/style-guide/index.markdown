@@ -1076,3 +1076,21 @@ new ListBox(showScrollbars : true);
 ListBox([this.showScrollbars=true]);
 {% endprettify %}
 </div>
+
+#### DO use four spaces for method cascades
+
+<div class="good">
+{% prettify dart %}
+var list = new List()
+    ..addAll([1,2,3])
+    ..addAll([4,5,6]);
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+var list = new List()
+  ..addAll([1,2,3])
+  ..addAll([4,5,6]);
+{% endprettify %}
+</div>
