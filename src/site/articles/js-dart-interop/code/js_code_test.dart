@@ -1,4 +1,7 @@
+import 'dart:html';
 import 'package:js/js.dart' as js;
+
+var display;
 
 a() {
 var context = js.context;
@@ -8,14 +11,16 @@ js.context.alert('Hello from Dart via JavaScript.');
 var canvas = query('#map_canvas');
 var googlemaps = js.context.google.maps;
 var googlemap = new js.Proxy(googlemaps.Map, canvas);	
+}
 
-var options = js.map({ 'zoom': 9,
-                       'mapTypeId': googlemaps.MapTypeId.ROADMAP,
-                       'center': new js.Proxy(googlemaps.LatLng, 47.6097, -122.3331) });	
-
+b() {
 var canvas = query('#map_canvas');
 var googlemaps = js.context.google.maps;
 var googlemap = new js.Proxy(googlemaps.Map, canvas);	
+
+var options = js.map({ 'zoom': 9,
+  'mapTypeId': googlemaps.MapTypeId.ROADMAP,
+  'center': new js.Proxy(googlemaps.LatLng, 47.6097, -122.3331) });  
 
 googlemap.setOptions(options);	
 
@@ -32,7 +37,7 @@ js.scoped(() {
 
 }
 
-b() {
+c() {
 var googlemap;
 js.scoped(() {
   var canvas = query('#map_canvas');

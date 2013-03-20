@@ -1,0 +1,6 @@
+name:  js_code_sample
+description:  A sample application
+
+dependencies:
+  js: any
+#  unittest: any
