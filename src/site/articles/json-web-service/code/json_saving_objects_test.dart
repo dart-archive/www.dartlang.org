@@ -1,3 +1,6 @@
+import 'dart:html';
+HttpRequest request;
+
 void saveData() {
   HttpRequest req = new HttpRequest(); // create a new XHR
   
@@ -12,7 +15,7 @@ void saveData() {
 
   // POST the data to the server
   var url = "http://127.0.0.1:8080/programming-languages";
-  request.open("POST", url, false);
+  request.open("POST", url, async: false);
 
   String jsonData = '{"language":"dart"}'; // etc...
   request.send(jsonData); // perform the async POST

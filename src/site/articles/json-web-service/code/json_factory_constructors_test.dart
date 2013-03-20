@@ -1,4 +1,6 @@
 import "package:json_object/json_object.dart";
+import "dart:json";
+import "dart:html";
 
 // Abstract class defines the interface of our JSON data structure
 abstract class Language {
@@ -30,8 +32,8 @@ void onDataLoaded(HttpRequest req) {
   data.language = "Dart";       // Set a simple value
   print(data.targets[0]);       // Get a value in a list
   // iterate the website map
-  data.website.foreach((key, value) => print("$key=$value")); 
-};
+  data.website.forEach((key, value) => print("$key=$value")); 
+}
 
 void a() {
 var data = new JsonObject();
@@ -46,15 +48,29 @@ data["language"] = "Dart"; // standard map syntax
 }
 
 void c() {
+// and POST it back to the server
+HttpRequest req = new HttpRequest();  
+  
+var data = new JsonObject.fromJsonString(req.responseText);
+
+// later...
+// convert the JsonObject data back to a string
+String json = stringify(data);
+}
+
+void d() {
+String url;
+
+// and POST it back to the server
+HttpRequest req = new HttpRequest();
+
 var data = new JsonObject.fromJsonString(req.responseText);
 
 // later...
 // convert the JsonObject data back to a string
 String json = stringify(data);
 
-// and POST it back to the server
-HttpRequest req = new HttpRequest();
 req.open("POST", url);
-req.send(json);	
+req.send(json);   
 }
 

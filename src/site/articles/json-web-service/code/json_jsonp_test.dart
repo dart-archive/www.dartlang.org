@@ -13,6 +13,6 @@ void main() {
     ScriptElement script = new Element.tag("script");
     // add the callback function name to the URL
     script.src = "http://example.com/some/api?callback=myJsonpCallback";
-    document.body.elements.addLast(script); // add the script to the DOM
+    document.body.children.add(script); // add the script to the DOM
   });
 }

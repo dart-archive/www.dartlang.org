@@ -1,3 +1,7 @@
+import "package:json_object/json_object.dart";
+import "dart:json";
+import "dart:html";
+
 void onDataLoaded(HttpRequest req) {
   // decode the JSON response text using JsonObject
   JsonObject data = new JsonObject.fromJsonString(req.responseText);
@@ -7,5 +11,5 @@ void onDataLoaded(HttpRequest req) {
   data.language = "Dart";       // Set a simple value
   print(data.targets[0]);       // Get a value in a list
   // iterate the website map
-  data.website.foreach((key, value) => print("$key=$value")); 
-};
+  data.website.forEach((key, value) => print("$key=$value")); 
+}

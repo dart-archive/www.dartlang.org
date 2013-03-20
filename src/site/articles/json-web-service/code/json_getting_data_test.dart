@@ -1,3 +1,6 @@
+import "dart:json";
+import "dart:html";
+
 void loadData() {
   var url = "http://127.0.0.1:8080/programming-languages";
 
@@ -9,7 +12,7 @@ void loadData() {
 void onDataLoaded(String responseText) {
   var jsonString = responseText;
   print(jsonString);
-};
+}
 
 main() {
   loadData();
