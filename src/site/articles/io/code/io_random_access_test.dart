@@ -2,7 +2,7 @@ import 'dart:io';
 
 main() {
   var options = new Options();
-  var semicolon = ';'.charCodeAt(0);
+  var semicolon = ';'.codeUnitAt(0);
   var result = [];
 
   new File(options.script).open(FileMode.READ).then((RandomAccessFile file) {
