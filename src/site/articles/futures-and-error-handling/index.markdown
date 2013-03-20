@@ -1,4 +1,4 @@
---- 
+---
 layout: default
 title: "Futures and Error Handling"
 description: "Everything you wanted to know about handling errors and
@@ -63,7 +63,7 @@ completes with an error, `then()`'s callback does not fire, and
 
 Chained `then()` and `catchError()` invocations are a common pattern when
 dealing with Futures, and can be thought of as the rough equivalent of
-try-catch blocks. 
+try-catch blocks.
 
 The next few sections give examples of this pattern.
 
@@ -96,11 +96,11 @@ Regardless of whether the error originated within `myFunc()` or within
 ### Error handling within then()
 
 For more granular error handling, you can register a second (`onError`)
-callback within `then()` to handle Futures completed with errors. Here is 
+callback within `then()` to handle Futures completed with errors. Here is
 `then()`'s signature:
 
 {% prettify dart %}
-abstract Future then(onValue(T value), {onError(AsyncError asyncError)}) 
+abstract Future then(onValue(T value), {onError(AsyncError asyncError)})
 {% endprettify %}
 
 Register the optional onError callback only if you want to differentiate
@@ -117,7 +117,7 @@ funcThatThrows()
 {% endprettify %}
 
 In the example above, `funcThatThrows()`'s Future's error is handled with the
-`onError` callback; `anotherFuncThatThrows()` causes `then()`'s Future to 
+`onError` callback; `anotherFuncThatThrows()` causes `then()`'s Future to
 complete with an error; this error is handled by `catchError()`.
 
 In general, implementing two different error handling strategies is not
@@ -135,14 +135,14 @@ Future<String> two()   => new Future.immediateError("error from two");
 Future<String> three() => new Future.immediate("from three");
 Future<String> four()  => new Future.immediate("from four");
 
-void main() {  
+void main() {
   one()                                   // Future completes with "from one".
     .then((_) => two())                   // Future completes with two()'s error.
     .then((_) => three())                 // Future completes with two()'s error.
     .then((_) => four())                  // Future completes with two()'s error.
     .then((value) => processValue(value)) // Future completes with two()'s error.
     .catchError((e) {
-      print("Got error: ${e.error}");     // Finally, callback fires. 
+      print("Got error: ${e.error}");     // Finally, callback fires.
       return 42;                          // Future completes with 42.
     })
     .then((value) {
@@ -155,7 +155,7 @@ void main() {
 //   The value is 42
 {% endprettify %}
 
-In the code above, `one()`'s Future completes with a value, but `two()`'s 
+In the code above, `one()`'s Future completes with a value, but `two()`'s
 Future completes with an error. When `then()` is invoked on a Future that
 completes with an error, `then()`'s callback does not fire. Instead,
 `then()`'s Future completes with the error of its receiver. In our example,
@@ -165,7 +165,7 @@ handled within `catchError()`.
 
 ### Handling specific errors
 
-What if we want to catch a specific error? Or catch more than one error?  
+What if we want to catch a specific error? Or catch more than one error?
 
 `catchError()` takes an optional named argument, `test`, that
 allows us to query the kind of error thrown.
@@ -222,10 +222,10 @@ In the code below, `then()`'s Future completes with an error, so
 {% prettify dart %}
 void main() {
   funcThatThrows()
-    .then((_) => ...)        // Future completes with an error.
-    .whenComplete(() => ...) // Future completes with the same error.
-    .then((_) => ...)        // Future completes with the same error.
-    .catchError(handleError) // Error is handled here.
+    .then((_) => print("Won't reach here..."))   // Future completes with an error.
+    .whenComplete(() => print("... or here...")) // Future completes with the same error.
+    .then((_) => print("... nor here."))         // Future completes with the same error.
+    .catchError(handleError)                     // Error is handled here.
 }
 {% endprettify %}
 
@@ -240,9 +240,9 @@ void main() {
     .catchError((e) {
       handleError(e);
       printErrorMessage();
-      return someObject; 
-    })                        // Future completes with someObject.
-    .whenComplete(() => ...); // Future completes with someObject.
+      return someObject;
+    })                                   // Future completes with someObject.
+    .whenComplete(() => print("Done!")); // Future completes with someObject.
 }
 {% endprettify %}
 
@@ -270,10 +270,10 @@ this code:
 {% prettify dart %}
 void main() {
   Future future = funcThatThrows();
-  
+
   // BAD. Too late to handle funcThatThrows() exception.
   new Future.delayed(const Duration(milliseconds: 500), () {
-    future.then(...)        
+    future.then(...)
           .catchError(...);
   });
 }
@@ -288,7 +288,7 @@ The problem goes away if `funcThatThrows()` is called within the
 {% prettify dart %}
 void main() {
   new Future.delayed(const Duration(milliseconds: 500), () {
-    funcThatThrows().then(processValue))
+    funcThatThrows().then(processValue)
                     .catchError(handleError)); // We get here.
   });
 }
@@ -303,7 +303,7 @@ errors from leaking out. Consider this code:
 
 {% prettify dart %}
 Future<int> parseAndRead(data) {
-  var filename = obtainFileName(data);         // Could throw. 
+  var filename = obtainFileName(data);         // Could throw.
   File file = new File(filename);
   return file.readAsString().then((contents) {
     return parseFileData(contents);            // Could throw.
@@ -336,7 +336,7 @@ void main() {
 //   ...
 {% endprettify %}
 
-Because using `catchError()` does not capture the error, a client of 
+Because using `catchError()` does not capture the error, a client of
 `parseAndRead()` would implement a separate error-handling strategy for this
 error.
 
@@ -349,7 +349,7 @@ callback:
 {% prettify dart %}
 Future<int> parseAndRead(data) {
   return new Future.of(() {
-    var filename = obtainFileName(data);         // Could throw. 
+    var filename = obtainFileName(data);         // Could throw.
     File file = new File(filename);
     return file.readAsString().then((contents) {
       return parseFileData(contents);            // Could throw.
@@ -381,17 +381,17 @@ void main() {
 
 `Future.of()` makes your code resilient against uncaught exceptions. If your
 function has a lot of code packed into it, chances are that you could be doing
-something dangerous without realizing it: 
+something dangerous without realizing it:
 
 {% prettify dart %}
 Future myFunc() {
   return new Future.of(() {
     var x = someFunc();     // Unexpectedly throws in some rare cases.
-    var y = 10 / x;         // x should not equal 0. 
+    var y = 10 / x;         // x should not equal 0.
     ...
   });
 }
 {% endprettify %}
 
 `Future.of()` not only allows you to handle errors you know might occur, but
-also prevents errors from *accidentally* leaking out of your function. 
+also prevents errors from *accidentally* leaking out of your function.
