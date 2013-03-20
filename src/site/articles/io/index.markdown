@@ -111,6 +111,7 @@ from [dart:core](http://api.dartlang.org/dart_core.html).
 
 {% prettify dart %}
 import 'dart:io';
+import 'dart:async';
 
 main() {
   var options = new Options();
@@ -145,7 +146,7 @@ import 'dart:io';
 
 main() {
   var options = new Options();
-  var semicolon = ';'.charCodeAt(0);
+  var semicolon = ';'.codeUnitAt(0);
   var result = [];
 
   new File(options.script).open(FileMode.READ).then((RandomAccessFile file) {
@@ -180,13 +181,14 @@ reading more from the file by cancelling the subscription.
 
 {% prettify dart %}
 import 'dart:io';
+import 'dart:async';
 
 main() {
   Options options = new Options();
   List result = [];
 
   Stream<List<int>> stream = new File(options.script).openRead();
-  int semicolon = ';'.charCodeAt(0);
+  int semicolon = ';'.codeUnitAt(0);
   StreamSubscription subscription;
   subscription = stream.listen((data) {
     for (int i = 0; i < data.length; i++) {
@@ -311,7 +313,7 @@ import 'dart:io';
 main() {
   HttpServer.bind('127.0.0.1', 8080).then((server) {
     server.listen((HttpRequest request) {
-      request.response.addString('Hello, world');
+      request.response.write('Hello, world');
       request.response.close();
     });
   });
