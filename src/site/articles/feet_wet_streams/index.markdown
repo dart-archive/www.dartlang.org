@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Getting your feet wet with Streams"
+title: "Getting Your Feet Wet With Streams"
 description: 
   Learn how to consume single subscriber and broadcast streams, 
   with real-world uses.
@@ -16,30 +16,6 @@ article:
 _Written by Chris Buckett <br />
 March 2013_
 
-## Contents
-
-1. [Introduction](#introduction)
-1. [Background reading: futures?](#background-reading-futures)
-1. [What are streams for?](#what-are-streams-for)
-1. [Consuming a Stream](#consuming-a-stream)
-1. [Common Stream Methods](#common-stream-methods)
-    1. [Subsets of stream data](#subsets-of-stream-data)
-    1. [Transforming stream data](#transforming-stream-data)
-    1. [Validating stream data](#validating-stream-data)
-1. [Single value streams](#single-value-streams)
-1. [Error handling in streams and futures](#error-handling-in-streams-and-futures)
-    1. [Error handling with StreamSubscription](#error-handling-with-streamsubscription)
-1. [Unsubscribing from the stream](#unsubscribing-from-the-stream)
-1. [Streams are generic](#streams-are-generic)
-1. [Some real world examples of consuming a stream](#some-real-world-examples-of-consuming-a-stream)
-    1. [Button clicks in dart:html](#button-clicks-in-darthtml)
-    1. [Reading a file in dart:io](#reading-a-file-in-dartio)
-1. [Conclusion](#conclusion)
-{:.toc}
-
-
-## Introduction
-
 Over the last few months you can't help but notice that Streams have appeared 
 in Dart in a big way.  
 
@@ -49,6 +25,25 @@ a unified interface to anything that might send out a repeating series of data.
 
 This article explains how to consume streams using this unified interface.
 
+#### Contents
+
+1. [Background reading: futures?](#background-reading-futures)
+1. [What are streams for?](#what-are-streams-for)
+1. [Consuming a stream](#consuming-a-stream)
+1. [Common Stream methods](#common-stream-methods)
+    1. [Subsets of stream data](#subsets-of-stream-data)
+    1. [Transforming stream data](#transforming-stream-data)
+    1. [Validating stream data](#validating-stream-data)
+1. [Single value streams](#single-value-streams)
+1. [Error handling in streams and futures](#error-handling-in-streams-and-futures)
+    1. [Error handling with StreamSubscription](#error-handling-with-streamsubscription)
+1. [Unsubscribing from a stream](#unsubscribing-from-a-stream)
+1. [Streams are generic](#streams-are-generic)
+1. [Some real world examples of consuming a stream](#some-real-world-examples-of-consuming-a-stream)
+    1. [Button clicks in dart:html](#button-clicks-in-darthtml)
+    1. [Reading a file in dart:io](#reading-a-file-in-dartio)
+1. [Conclusion](#conclusion)
+{:.toc}
 
 ## Background Reading: Futures
 
@@ -83,7 +78,7 @@ HttpRequest.getString(url).then( (String result) {
 {% endprettify %}
 
 This pattern is used by streams to retrieve or manipulate data that the 
-stream is sending out to its consumers.>
+stream is sending out to its consumers.
 
 There is more detail about futures in the [Using Future Based APIs](http://www.dartlang.org/articles/using-future-based-apis/)
  article.
@@ -108,7 +103,7 @@ We'll look at the **consuming** a stream in this article as you're more likely
 to come across streams as a consumer from existing APIs within Dart.  Populating
 a stream will be covered in a future article.
 
-## Consuming a Stream
+## Consuming a stream
 
 Lets take a look at some simple stream code.  For simplicity we're going to 
 create a stream from a fixed, literal list at the moment by using the 
@@ -193,7 +188,7 @@ Now that the stream allows multiple subscribers, you can add multiple
 listeners. You can check whether a stream is a broadcast stream by checking 
 the <code>stream.isBroadcast</code> property.
 
-## Common Stream Methods
+## Common Stream methods
 
 There are lots of methods available on the stream class, be sure to check out 
 the [API docs](http://api.dartlang.org/Stream.html) for the complete list.  In 
@@ -361,7 +356,7 @@ function creates a <code>StreamSubscription</code> instance, which is the
 return value of the <code>listen()</code> function. 
 
 A StreamSubscription has a number of handlers, namely: <code>onData</code>, 
-<code>onError</code> and <code>onDone</code<.  Each of these can be assigned 
+<code>onError</code> and <code>onDone</code>.  Each of these can be assigned 
 via the <code>listen()</code> function, or later, via the returned 
 <code>StreamSubscription</code> object.  Note the <code>onError</code> handler, 
 which you can use to catch errors output from the stream:
@@ -396,12 +391,12 @@ These two both print the same output:
 One of the benefits of using the form 
 <code>var subscription = stream.listen(null)</code> and then setting up the 
 <code>onData</code> handler separately means that you can use the 
-<code>subscription<code> object in the data handler itself.
+<code>subscription</code> object in the data handler itself.
 
 The <code>onDone</code> handler is called when there is no more data, and the 
 underlying stream is closed.
 
-## Unsubscribing from the stream
+## Unsubscribing from a stream
 
 You can also use the <code>StreamSubscription</code> object to unsubscribe 
 from the stream, by using its <code>cancel()</code> method.  For example, 
@@ -426,7 +421,7 @@ typed data in the handlers.  For example, if you create a
 expecting a <code>String</code>, as shown by the following code:
 
 {% prettify dart %}
-var data = [1,2,3,4,5]; // int's, valid
+var data = [1,2,3,4,5]; // ints, valid
 // var data = ["1","2","3","4","5"]; // strings, not valid
 var stream = new Stream<int>.fromIterable(data); // Stream<int>
 stream.listen((value) { // value must be an int
@@ -443,7 +438,7 @@ file.
 ### Button clicks in dart:html
 
 Buttons have a number of <code>onSomeEvent</code> streams defined, and the 
-<code>onClick</code> stream is defined as <code>Stream<MouseEvent></code> - 
+<code>onClick</code> stream is defined as <code>Stream&lt;MouseEvent&gt;</code> - 
 this means that the data that you receive when you listen to the 
 <code>onClick</code> stream is all going to be a <code>MouseEvent</code> 
 datatype.
@@ -505,8 +500,8 @@ void main() {
 ## Conclusion
 
 Streams are unified across Dart's async APIs and they provide a powerful 
-method for dealing streams of data, whether that data is event objects,  
-bytes, or your own custom classes.
+method for dealing streams of data, whether that data is event 
+objects, bytes, or your own custom classes.
 
 ## About the author
 
