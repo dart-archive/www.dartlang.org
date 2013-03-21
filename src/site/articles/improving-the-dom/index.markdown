@@ -202,7 +202,7 @@ elem.appendChild(child);
 
 {% prettify dart %}
 // New:
-elem.nodes.isEmpty();
+elem.nodes.isEmpty;
 elem.nodes[0];
 elem.nodes.add(child);
 {% endprettify %}
@@ -242,7 +242,7 @@ new DivElement();
 Most of the HTML elements have constructors. For example:
 
 * `new ButtonElement()`
-* `new InputElement()` or `new InputElement('checkbox')`
+* `new InputElement()` or `new InputElement(type: 'checkbox')`
 * `new TableElement()`
 * `new StyleElement()`
 * Many more
@@ -470,8 +470,8 @@ window.navigator.getUserMedia(audio:true, video: true)
   .then((stream) {
     var video = new VideoElement()
       ..autoplay = true
-      ..src = Url.createObjectUrl(stream);
-      ..onLoadedMetadata.listen((e) => /* ... */)
+      ..src = Url.createObjectUrl(stream)
+      ..onLoadedMetadata.listen((e) => /* ... */);
     document.body.append(video);
   })
   .catchError(reportIssue);
@@ -525,7 +525,7 @@ window.indexedDB.open(dbName, version: version,
     }
   })
   .then((db) {
-    var txn = db.transaction("customers");
+    var txn = db.transaction("customers", "readwrite");
     var store = txn.objectStore("customers");
     return store.getObject("444-44-4444");
   })
