@@ -1,33 +1,34 @@
 #!/bin/bash
 
 #####
-# Flagrantly copied from dart-up-and-running-book/runtests.sh.
-# See that file for more inspiration.
-#####
-
-#####
 # Type Analysis
 
-ANA="dart_analyzer --enable_type_checks --fatal-type-errors --extended-exit-code --type-checks-for-inferred-types"
+ANA="dart_analyzer --enable_type_checks --fatal-type-errors --extended-exit-code --type-checks-for-inferred-types --incremental"
 
 echo
 echo "Type Analysis, running dart_analyzer..."
 
-EXITSTATUS=0
-
-####
-# test files one at a time
-#
-for file in src/site/articles/*/code/*.dart
+for dir in src/site/articles/*/code/
 do
-  results=`$ANA $file 2>&1`
-  if [ -n "$results" ]; then
-    EXITSTATUS=1
-    echo "$results"
-    echo "$file: FAILURE."
+  # Run pub if there is a pubspec in this code directory.
+  if [ -a "$dir/pubspec.yaml" ]; then
+    pub_result=`pushd $dir && pub install && popd`
+    cmd="$ANA --package-root $dir/packages"
   else
-    echo "$file: Passed analysis."
+    cmd="$ANA"
   fi
-done
 
-exit $EXITSTATUS
+  # Loop through each Dart file in this code directory.
+  files="$dir*.dart"
+  for file in $files
+  do
+    results=`$cmd $file 2>&1`
+    if [ -n "$results" ]; then
+      EXITSTATUS=1
+      echo "$results"
+      echo "$file: FAILURE."
+    else
+      echo "$file: Passed analysis."
+    fi
+  done
+done
