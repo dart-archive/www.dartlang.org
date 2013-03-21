@@ -92,14 +92,22 @@ libraries. Most classes should represent things you can construct.
 
 <div class="good">
 {% prettify dart %}
-num distance(num x1, num y1, num x2, num y2) => ...
+library utils;
+
+num distance(num x1, num y1, num x2, num y2) {
+  /* ... */
+}
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
+library utils;
+
 class GeometryUtils {
-  static num distance(num x1, num y1, num x2, num y2) => ...
+  static num distance(num x1, num y1, num x2, num y2) {
+    /* ... */
+  }
 }
 {% endprettify %}
 </div>
@@ -138,17 +146,21 @@ constructor invocation.
 
 <div class="good">
 {% prettify dart %}
-new Point.zero();
-new DateTime.now();
-new Address.parse('123 Main St.');
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  Point.zero() : x = 0, y = 0;
+}
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-Point.zero();
-DateTime.now();
-Address.parse('123 Main St.');
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  static Point zero() => new Point(0, 0);
+}
 {% endprettify %}
 </div>
 
@@ -224,17 +236,17 @@ should use a getter instead of a method when it:
 
 <div class="good">
 {% prettify dart %}
-rect.width
-collection.isEmpty
-button.visible
+num width = rect.width;
+bool allGone = collection.isEmpty;
+bool canSee = button.visible;
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-collection.sum // may be slow to calculate
-DateTime.now   // returns different value each call
-window.refresh // doesn't return a value
+num amount = accounts.sum;           // may be slow to calculate
+DateTime timeStamp = DateTime.now;   // returns different value each call
+window.refresh;                      // doesn't return a value
 {% endprettify %}
 </div>
 
@@ -301,7 +313,7 @@ that works in many cases is to just mark it `final`.
 <div class="good">
 {% prettify dart %}
 class Box {
-  final contents;
+  final contents = [];
 }
 {% endprettify %}
 </div>
@@ -325,7 +337,7 @@ and return a value.
 {% prettify dart %}
 get width => right - left;
 bool ready(num time) => minTime == null || minTime <= time;
-containsValue(String value) => getValues().some((v) => v == value);
+containsValue(String value) => getValues().contains(value);
 {% endprettify %}
 </div>
 
@@ -355,7 +367,7 @@ to clarify what the call is doing.
 {% prettify dart %}
 new Task.oneShot();
 new Task.repeating();
-new ListBox(scroll: scrollBoth, showScrollbars: true);
+new ListBox(scroll: true, showScrollbars: true);
 {% endprettify %}
 </div>
 
@@ -377,7 +389,7 @@ annotate where you feel it helps, but don't feel that you *must* provide them.
 <div class="bad">
 {% prettify dart %}
 install(id, destPath) {
-  ...
+  /* ... */
 }
 {% endprettify %}
 </div>
@@ -388,7 +400,7 @@ Here, it's unclear what `id` is. A string? And what is `destPath`? A string or a
 <div class="good">
 {% prettify dart %}
 Future<bool> install(PackageId id, String destPath) {
-  ...
+  /* ... */
 }
 {% endprettify %}
 </div>
@@ -474,7 +486,7 @@ var names = people.map((person) => person.name);
 
 <div class="bad">
 {% prettify dart %}
-var names = people.map(String _(Person person) {
+var names = people.map((Person person) {
   return person.name;
 });
 {% endprettify %}
@@ -542,10 +554,16 @@ convertToBool(arg) {
 Classes and typedefs should capitalize the first letter of each word (including
 the first word), and use no separators.
 
-<div class="good">
+<div class="good" markdown="1">
 {% prettify dart %}
-SliderMenu
-XmlHttpRequest
+class SliderMenu {
+  // ...
+}
+
+class HttpRequest {
+  // ...
+}
+
 typedef num Adder(num x, num y);
 {% endprettify %}
 </div>
@@ -588,9 +606,13 @@ word, and use no separators.
 
 <div class="good">
 {% prettify dart %}
-item
-xmlHttpRequest
-clearItems
+var item;
+
+HttpRequest httpRequest;
+
+align(clearItems) {
+  // ...
+}
 {% endprettify %}
 </div>
 
@@ -602,20 +624,20 @@ in that form. Using underscores as the separator ensures that the name is still
 a valid Dart identifier, which may be helpful if the language later supports
 symbolic imports.
 
-<div class="good">
-{% prettify dart %}
-slider_menu
-file_system
-peg_parser
-{% endprettify %}
+<div class="good" markdown="1">
+Good:
+
+* `slider_menu.dart`
+* `file_system.dart`
+* `library peg_parser;`
 </div>
 
-<div class="bad">
-{% prettify dart %}
-SliderMenu
-filesystem
-peg-parser
-{% endprettify %}
+<div class="bad" markdown="1">
+Bad:
+
+* `SliderMenu.dart`
+* `filesystem.dart`
+* `library peg-parser;`
 </div>
 
 #### DO capitalize acronyms and abbreviations longer than two letters like words.
@@ -624,14 +646,15 @@ Capitalized acronyms can be harder to read, and are ambiguous when you have
 multiple adjacent acronyms. Given the name `HTTPSFTPConnection`, there's no way
 to tell if that's an HTTPS FTP connection or an HTTP SFTP one.
 
-To avoid this, acronyms are capitalized like regular words, except for two-letter ones.
+To avoid this, acronyms are capitalized like regular words, except for
+two-letter ones.
 
 <div class="good">
 {% prettify dart %}
 HttpConnection
 uiHandler
 IOStream
-xmlHttpRequest
+HttpRequest
 ID
 id
 {% endprettify %}
@@ -642,7 +665,7 @@ id
 HTTPConnection
 UiHandler
 IoStream
-XMLHttpRequest
+HttpRequest
 Id
 {% endprettify %}
 </div>
@@ -662,7 +685,7 @@ with `///`:
 /// * If it is a string, then [validate] is called on it.
 /// * If it is any other type, it is *not* validated.
 void parse(List options) {
-  ...
+  // ...
 }
 {% endprettify %}
 </div>
@@ -675,7 +698,7 @@ Block doc comments start with `/**`, end with `*/` and can span multiple lines:
  * Parses a set of option strings.
  */
 void parse(List options) {
-  ...
+  // ...
 }
 {% endprettify %}
 </div>
@@ -730,8 +753,8 @@ together.
 <div class="good">
 {% prettify dart %}
 import 'dart:math';
-// ...
-/** Rolls both [Dice] and returns the highest rolled value. */
+
+/// Rolls both [Dice] and returns the highest rolled value.
 num greatestRoll(Dice a, Dice b) => max(a.roll(), b.roll());
 {% endprettify %}
 </div>
@@ -753,7 +776,7 @@ and returns of a method are.
  *     the given name or abbreviation.
  */
 Flag addFlag(String name, String abbr) {
-  ...
+  // ...
 }
 {% endprettify %}
 </div>
@@ -769,7 +792,7 @@ method and highlight parameters using square brackets.
  * abbreviation [abbr]. Returns the new flag.
  */
 Flag addFlag(String name, String abbr) {
-  ...
+  // ...
 }
 {% endprettify %}
 </div>
@@ -881,7 +904,7 @@ expressions, like being passed to methods. These are formatted like so:
 
 <div class="good">
 {% prettify dart %}
-new Timer.run(() {
+new Future.delayed(const Duration(seconds:1), () {
   print('I am a callback');
 });
 {% endprettify %}
@@ -889,7 +912,7 @@ new Timer.run(() {
 
 <div class="bad">
 {% prettify dart %}
-new Timer.run(() {
+new Future.delayed(const Duration(seconds:1), () {
       print('I am a callback');
     });
 {% endprettify %}
@@ -902,9 +925,9 @@ new Timer.run(() {
 class Foo {
   method() {
     if (true) {
-      ...
+      // ...
     } else {
-      ...
+      // ...
     }
   }
 }
@@ -971,7 +994,7 @@ binary operators. However, the `.` used to access members is not and should
 {% prettify dart %}
 a = 1 + 2 / (3 * -b);
 c = !condition == a > b;
-d = a ? b : object.method(a, b, c);
+d = condition ? b : object.method(a, b, c);
 if (obj is! SomeType) print('not SomeType');
 {% endprettify %}
 </div>
@@ -980,7 +1003,7 @@ if (obj is! SomeType) print('not SomeType');
 {% prettify dart %}
 a=1+2/(3* - b);
 c= ! condition==a>b;
-d= a?b:object.method(a,b,c);
+d= condition?b:object.method(a,b,c);
 if (obj is !SomeType) print('not SomeType');
 {% endprettify %}
 </div>
@@ -989,8 +1012,13 @@ if (obj is !SomeType) print('not SomeType');
 
 <div class="good">
 {% prettify dart %}
-for (var i = 0; i < 100; i++)
-for (final item in collection)
+for (var i = 0; i < 100; i++) {
+  // ...
+}
+
+for (final item in collection) {
+  // ...
+}
 {% endprettify %}
 </div>
 
@@ -1002,11 +1030,13 @@ the name and the opening parenthesis.
 <div class="good">
 {% prettify dart %}
 while (foo) {
-  ...
+  // ...
 }
 
 try {
-  ...
+  // ...
+} catch (e) {
+  // ...
 }
 {% endprettify %}
 </div>
@@ -1017,7 +1047,7 @@ Also, do not use a space when using `<` and `>` for generic types.
 
 <div class="good">
 {% prettify dart %}
-<int>[1, 2, (3 + 4)]
+var numbers = <int>[1, 2, (3 + 4)];
 {% endprettify %}
 </div>
 
@@ -1048,10 +1078,10 @@ getEmptyFn(a){
 <div class="good">
 {% prettify dart %}
 MyClass()
-    : firstField("some value"),
-      secondField("another"),
-      thirdField("last") {
-  ...
+    : firstField = "some value",
+      secondField = "another",
+      thirdField = "last" {
+  // ...
 }
 {% endprettify %}
 </div>
@@ -1060,12 +1090,19 @@ Note that the `:` should be wrapped to the next line and indented four spaces.
 Fields should all line up (so all but the first field end up indented six
 spaces).
 
-#### DO use a space around `=` in named parameters and after `:` for a named argument.
+#### DO use a space around `:` in named parameters and after `:`  for a named argument.
 
 <div class="good">
 {% prettify dart %}
-new ListBox(showScrollbars: true);
-ListBox([this.showScrollbars = true]);
+class ListBox {
+  bool showScrollbars;
+
+  ListBox({this.showScrollbars: false});
+}
+
+main() {
+  new ListBox(showScrollbars: true);
+}
 {% endprettify %}
 </div>
 
@@ -1073,7 +1110,30 @@ ListBox([this.showScrollbars = true]);
 {% prettify dart %}
 new ListBox(showScrollbars:true);
 new ListBox(showScrollbars : true);
-ListBox([this.showScrollbars=true]);
+{% endprettify %}
+</div>
+
+#### DO use a spaces around `=` in optional positional parameters.
+
+<div class="good">
+{% prettify dart %}
+class HttpServer {
+  static Future<HttpServer> listen([int port = 80]) {
+    // ...
+  }
+}
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+import 'dart:async';
+
+class HttpServer {
+  static Future<HttpServer> listen([int port=80]) {
+    // ...
+  }
+}
 {% endprettify %}
 </div>
 
