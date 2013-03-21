@@ -152,7 +152,7 @@ However, unlike a classic mandatory type system, code like this
 </p>
 
 {% prettify dart %}
-Object lookup(String key) {...} // a lookup method in a heterogenous table
+Object lookup(String key) { /* ... */ } // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
 {% endprettify %}
 
@@ -187,7 +187,7 @@ Occasionally, you may want to use <code>dynamic</code> explicitly.
 Map<String, dynamic> m = {
     'one': new Partridge(),
     'two': new TurtleDove(),
-    ...,
+    /* ..., */
     'twelve': new Drummer()};
 {% endprettify %}
 
@@ -401,7 +401,7 @@ Let's return to our old friend Frankenstein.
 </p>
 
 {% prettify dart %}
-Object lookup(String key) {...} // a lookup method in a heterogenous table
+Object lookup(String key) { /* ... */ } // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
 {% endprettify %}
 
