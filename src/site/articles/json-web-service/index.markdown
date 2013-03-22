@@ -109,7 +109,7 @@ callback function and call the <code>loadData()</code> function:
 void onDataLoaded(String responseText) {
   var jsonString = responseText;
   print(jsonString);
-};
+}
 
 main() {
   loadData();
@@ -144,7 +144,7 @@ void saveData() {
 
   // POST the data to the server
   var url = "http://127.0.0.1:8080/programming-languages";
-  request.open("POST", url, false);
+  request.open("POST", url, async: false);
 
   String jsonData = '{"language":"dart"}'; // etc...
   request.send(jsonData); // perform the async POST
@@ -205,14 +205,14 @@ void onDataLoaded(HttpRequest req) {
   print(data["language"]); // dart
   print(data["targets"][0]); // dartium
   print(data["website"]["homepage"]); // www.dartlang.org
-};
+}
 {% endprettify %}
 
 The <code>stringify()</code> function works the same as <code>parse</code> but in reverse.
 
 {% prettify dart %}
-void saveData()
-  
+void saveData() {
+
   // snip setting up HttpRequest
 
   var mapData = new Map();
@@ -247,7 +247,7 @@ var data = // ... initialize data ...
 // property access is validated by tools
 print(data.language);
 print(data.targets[0]);
-data.website.foreach((key, value) => print("$key=$value"));
+data.website.forEach((key, value) => print("$key=$value"));
 {% endprettify %}
 
 Fortunately, the ability to write code using this “dot notation” is built into
@@ -285,8 +285,8 @@ void onDataLoaded(HttpRequest req) {
   data.language = "Dart";       // Set a simple value
   print(data.targets[0]);       // Get a value in a list
   // iterate the website map
-  data.website.foreach((key, value) => print("$key=$value")); 
-};
+  data.website.forEach((key, value) => print("$key=$value")); 
+}
 {% endprettify %}
 
 You can also use this in conjunction with your own classes. By extending 
@@ -331,8 +331,8 @@ void onDataLoaded(HttpRequest req) {
   data.language = "Dart";       // Set a simple value
   print(data.targets[0]);       // Get a value in a list
   // iterate the website map
-  data.website.foreach((key, value) => print("$key=$value")); 
-};
+  data.website.forEach((key, value) => print("$key=$value")); 
+}
 {% endprettify %}
 
 JsonObject also allows you to create new, empty objects, without first
@@ -425,7 +425,7 @@ void main() {
     ScriptElement script = new Element.tag("script");
     // add the callback function name to the URL
     script.src = "http://example.com/some/api?callback=myJsonpCallback";
-    document.body.elements.addLast(script); // add the script to the DOM
+    document.body.children.add(script); // add the script to the DOM
   });
 }
 {% endprettify %}
