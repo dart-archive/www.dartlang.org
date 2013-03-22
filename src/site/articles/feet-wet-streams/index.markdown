@@ -72,7 +72,7 @@ function specified as an argument to then():
 
 {% prettify dart %}
 var url = "http://example.com/userCount";
-HttpRequest.getString(url).then( (String result) { //
+HttpRequest.getString(url).then((String result) { //
   print("User count: $result");                    // callback function
 });                                                //
 {% endprettify %}
