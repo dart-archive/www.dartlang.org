@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Getting Your Feet Wet With Streams"
+title: "Getting Your Feet Wet with Streams"
 description: 
-  Learn how to consume single subscriber and broadcast streams, 
+  Learn how to consume single-subscriber and broadcast streams, 
   with real-world uses.
 rel:
   author: chris-buckett
@@ -19,7 +19,7 @@ March 2013_
 Over the last few months you can't help but notice that Streams have appeared 
 in Dart in a big way.  
 
-Whether running in the browser as part of the various html events, such as 
+Whether running in the browser as part of the various HTML events, such as 
 button.onClick, or on the server as part of the dart:io changes, Streams form 
 a unified interface to anything that might send out a repeating series of data.
 
@@ -47,17 +47,17 @@ This article explains how to consume streams using this unified interface.
 
 ## Background Reading: Futures
 
-Before we get started, though, it is important to note that Streams are part 
-of the [dart:async](http://api.dartlang.org/dart_async.html) library, and 
-share a close relationship with Dart's async staple: <code>Future</code> 
-due to their asynchronous nature 
-(you can't block code until a user clicks a button!).
+Before we get started, it is important to note that Streams are part 
+of the [dart:async](http://api.dartlang.org/dart_async.html) library.
+They share a close relationship with Dart's async staple, <code>Future</code>,
+due to their asynchronous nature.
+(You can't block code until a user clicks a button!)
 
 
-The Future class is used for async communication within various Dart. A 
+The Future class is used for async communication within various Dart APIs. A 
 common example is a browser <code>HttpRequest</code> (or AJAX request).  
 You have some code running in the browser that wants to get a value from 
-the server, let's say, the current number of logged on users.  
+the server, let's say, the current number of logged on users.
 If your client-side code called the server and then waited (blocking) for 
 the server to respond, the UI would freeze up until the server responded 
 (due to code execution being halted).
@@ -68,13 +68,13 @@ value wrapped up in a callback exposed by the <code>then()</code>
 function.
 
 The following snippet shows how this might work, with the callback 
-function in bold italics:
+function specified as an argument to then():
 
 {% prettify dart %}
 var url = "http://example.com/userCount";
-HttpRequest.getString(url).then( (String result) {
- print("User count: $result");
-});
+HttpRequest.getString(url).then( (String result) { //
+  print("User count: $result");                    // callback function
+});                                                //
 {% endprettify %}
 
 This pattern is used by streams to retrieve or manipulate data that the 
@@ -87,17 +87,17 @@ There is more detail about futures in the [Using Future Based APIs](http://www.d
 
 Imagine you are writing a chat application.  On a single client, you will be 
 receiving messages and displaying them to the user.  You can't simply write a 
-while loop, because that will block execution, so you need to use async 
-callbacks.  This is an ideal use case for streams - you have one part of your 
+while loop because that will block execution, so you need to use async 
+callbacks.  This is an ideal use case for streams: you have one part of your 
 code pushing data into the stream, and another part of your code listening to 
 the stream.  
 
-### Key concepts:
+### Key concepts
 
 - **Consuming a stream**: Data is sent out of a stream to a 
 <code>StreamSubscriber</code> (or possibly multiple subscribers).
 - **Populating a stream**: Data gets into a stream from a 
-<code>StreamController</code>
+<code>StreamController</code>.
 
 We'll look at the **consuming** a stream in this article as you're more likely 
 to come across streams as a consumer from existing APIs within Dart.  Populating
@@ -105,7 +105,7 @@ a stream will be covered in a future article.
 
 ## Consuming a stream
 
-Lets take a look at some simple stream code.  For simplicity we're going to 
+Let's take a look at some simple stream code.  For simplicity we're going to 
 create a stream from a fixed, literal list at the moment by using the 
 stream's <code>fromIterable()</code> constructor, rather than by dynamically 
 populating it with a <code>StreamController</code>.
@@ -148,8 +148,8 @@ the data elements, so the output of running this code is as expected:
     Received: 5
 
 There are other ways to consume data from the stream, using properties such 
-as <code>first</code>, <code>last</code>, <code>length</code>, 
-<code>isEmpty</code>.  Each of these properties return a future: for example:
+as <code>first</code>, <code>last</code>, <code>length</code>, and
+<code>isEmpty</code>.  Each of these properties returns a future. For example:
 
 {% prettify dart%}
 stream.first.then((value) => print("stream.first: $value"));  // 1
@@ -160,12 +160,13 @@ stream.first.then((value) => print("stream.first: $value"));  // 1
 
 You'll notice that some of the lines are commented out.  This is for an 
 important reason.  Streams comes in two flavours: **single** or **multiple** 
-(also known as **broadcast**) subscriber.   By default, our stream is a single 
-subscriber.  This means that if you try to listen to the stream more than 
+(also known as **broadcast**) subscriber.   By default, our stream is a
+single-subscriber stream.
+This means that if you try to listen to the stream more than 
 once, you will get an exception, and using any of the callback functions or 
 future properties counts as listening.
 
-You can convert the single subscriber stream into a  broadcast stream by using 
+You can convert the single-subscriber stream into a broadcast stream by using 
 the <code>asBroadcastStream()</code> method, as shown below:
 
 {% prettify dart %}
@@ -190,21 +191,24 @@ the <code>stream.isBroadcast</code> property.
 
 ## Common Stream methods
 
-There are lots of methods available on the stream class, be sure to check out 
-the [API docs](http://api.dartlang.org/Stream.html) for the complete list.  In 
-the following section, I'll describe some of the more common methods.
+Lots of methods are available on the Stream class.
+In the following section, I'll describe some of the more common ones.
+Be sure to check out 
+the [API docs](http://api.dartlang.org/dart_async/Stream.html)
+for the complete list.
 
 ### Subsets of stream data
 
-Streams also have some useful methods for extracting parts of the data being 
+Streams have some useful methods for extracting parts of the data being 
 sent out from the stream.  The <code>take()</code>, <code>skip()</code>, 
-<code>takeWhile()</code> and <code>skipWhile()</code> and <code>where()<code> 
+<code>takeWhile()</code>, <code>skipWhile()</code>, and <code>where()</code> 
+methods
 allow you to take a subset of data, as shown by the following example.  Each 
 outputs its own stream that you can listen to.
 
 {% prettify dart %}
 broadcastStream
-      .where((value) => value % 2 == 0) // divisble by 2
+      .where((value) => value % 2 == 0) // divisible by 2
       .listen((value) => print("where: $value")); // where: 2
                                                   // where: 4
   
@@ -235,13 +239,13 @@ broadcastStream
 Another useful method is the <code>transform()</code> method, which takes a 
 <code>StreamTransformer</code> instance.  This allows you to modify the 
 contents of the stream.  The <code>StreamTransformer</code> constructor takes 
-a <code>handleData</code> function, that is called for each value passed from 
+a <code>handleData</code> function, which is called for each value passed from 
 the stream.  You can modify the value as you wish, and add it back to the 
 <code>StreamSink</code>, which results in the modified values being output on 
 the <code>transform()</code> method's own stream.  The example below takes our 
 data <code>[1,2,3,4,5]</code> and converts each item into two new 
-<code>String</code> values <code>"Message n"</code> and 
-<code>"Body n"</code>.  Each of these are placed onto the new stream.
+<code>String</code> values, <code>"Message n"</code> and 
+<code>"Body n"</code>. Each string is placed onto the new stream.
 
 {% prettify dart %}
 // define a stream transformer
@@ -271,7 +275,7 @@ Running this produces the following output:
 
 Perhaps the most common transform you will use is transforming a 
 List&lt;int&gt; into a String by using a <code>StringDecoder</code>, such as 
-when reading data from a file or http request, as in the following example.
+when reading data from a file or HTTP request, as in the following example.
 
 {% prettify dart %}
 File file = new File(r"c:\work\test.txt");
@@ -286,9 +290,9 @@ file.openRead()
 ### Validating stream data
 
 Sometimes, you want to validate that the data returned from a stream meets 
-certain conditions.  A number of functions are provided which return 
-<code>Future<bool></code> values: <code>any()</code>, <code>every()</code>, 
-<code>contains()</code>:
+certain conditions.  A following functions return 
+<code>Future&lt;bool></code> values: <code>any()</code>, <code>every()</code>, 
+and <code>contains()</code>.
 
 {% prettify dart %}
 broadcastStream
@@ -306,8 +310,10 @@ broadcastStream
 
 ## Single value streams
 Some streams are designed to return only a single value, and you want to 
-ensure that you only retrieve a  single value from them.  The  single getter 
-and singleMatching() method both return a future containing the single value, 
+ensure that you only retrieve a  single value from them.
+The <code>single</code> getter 
+and <code>singleWhere()</code> method
+both return a future containing the single value, 
 or raise an error if they don't.  For example, with our data set containing 5 
 values: <code>[1,2,3,4,5]</code>, the following will return the value 1:
 
@@ -318,7 +324,7 @@ broadcastStream
     // outputs: single value: 1
 {% endprettify %}
 
-whereas, the following will raise an error and halt the application (because 
+However, the following raises an error and halts the application (because 
 the error is unhandled): 
 
 {% prettify dart %}
@@ -333,9 +339,9 @@ This brings us neatly on to...
 
 There is already an [excellent article about handling errors with future 
 based APIs](http://www.dartlang.org/articles/futures-and-error-handling/), 
-so I'll not repeat that here.  It's useful to note, though, that we could 
+so I'll not repeat that here.  It's useful to note, though, that we can 
 rewrite our previous snippet to include some error handling so that we can 
-detect that the <code>single()</code> call has failed.  A Future's 
+detect that the <code>single</code> call has failed.  A Future's 
 <code>then()</code> function returns a future, and you can use its 
 <code>catchError()</code> handler.  This <code>catchError</code> handler 
 will catch any errors thrown within the <code>then()<code> callback:
@@ -398,10 +404,11 @@ underlying stream is closed.
 
 ## Unsubscribing from a stream
 
-You can also use the <code>StreamSubscription</code> object to unsubscribe 
-from the stream, by using its <code>cancel()</code> method.  For example, 
-this unsubscribes from the stream after the value 2 is received, so never 
-gets receives the <code>onDone</code> message:
+You can use the <code>StreamSubscription</code> object to unsubscribe 
+from the stream, using the <code>cancel()</code> method.  For example, 
+the listener in the following code unsubscribes from the stream
+after receiving the value 2, so it never 
+receives the <code>onDone</code> message:
 
 {% prettify dart %}
 var subscription = stream.listen(null);
@@ -438,13 +445,13 @@ file.
 ### Button clicks in dart:html
 
 Buttons have a number of <code>onSomeEvent</code> streams defined, and the 
-<code>onClick</code> stream is defined as <code>Stream&lt;MouseEvent&gt;</code> - 
-this means that the data that you receive when you listen to the 
-<code>onClick</code> stream is all going to be a <code>MouseEvent</code> 
-datatype.
+<code>onClick</code> stream is defined as <code>Stream&lt;MouseEvent&gt;</code>.
+This type means that the data that you receive when you listen to the 
+<code>onClick</code> stream is all going to be MouseEvents.
 
-We'll set up a button, and a couple of event handlers.  One that will remain 
-registered, and one that will unregister itself after the third button click.
+The following code sets up a button and a couple of event handlers.
+One event handler remains
+registered, and the other unregisters itself after the third button click.
 
 {% prettify dart %}
 import 'dart:html';
@@ -471,14 +478,14 @@ void main() {
 }
 {% endprettify %}
 
-When the button is clicked, the click counter is incremented, and on the third 
-click, the second subscription is unsubscribed.
+When the button is clicked, the click counter is incremented. On the third 
+click, the second event handler unsubscribes itself.
 
 ### Reading a file in dart:io
 
 The second real-world example shows how to read some data from a file on the 
 filesystem.  The <code>file.openRead()</code> returns a stream containing the 
-file's contents.  The stream (which contains a <code>List&lt;int%gt;</code>) 
+file's contents.  The stream (which contains a <code>List&lt;int></code>) 
 is decoded using a <code>StringDecoder</code> class to allow for UTF-8 
 conversion.
 
@@ -499,8 +506,8 @@ void main() {
 
 ## Conclusion
 
-Streams are unified across Dart's async APIs and they provide a powerful 
-method for dealing streams of data, whether that data is event 
+Streams are unified across Dart's asynchronous APIs, providing a powerful 
+way to deal with streams of data, whether that data is event 
 objects, bytes, or your own custom classes.
 
 ## About the author
