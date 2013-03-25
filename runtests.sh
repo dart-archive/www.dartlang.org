@@ -9,6 +9,7 @@ echo
 echo "Type Analysis, running dart_analyzer..."
 
 EXITSTATUS=0
+shopt -s nullglob
 
 for dir in src/site/articles/*/code/
 do
