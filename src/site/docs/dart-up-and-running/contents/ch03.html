@@ -238,9 +238,8 @@ ingredients.addAll(['gold', 'titanium', 'xenon']);
 assert(ingredients.contains('titanium'));
 
 // Check whether all the items are in the set.
-assert(ingredients.containsAll(['titanium', 'xenon']));</pre><p>An intersection is a set whose items are in two other sets. A
-        subset has all of its items included in another, potentially larger,
-        collection.</p><pre class="screen"><em><span class="remark">lang-dart
+assert(ingredients.containsAll(['titanium', 'xenon']));</pre><p>An intersection is a set whose items are in two other
+        sets.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/set-tests.dart
 </span></em>var ingredients = new Set();
 ingredients.addAll(['gold', 'titanium', 'xenon']);
@@ -249,13 +248,7 @@ ingredients.addAll(['gold', 'titanium', 'xenon']);
 var nobleGases = new Set.from(['xenon', 'argon']);
 var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
-assert(intersection.contains('xenon'));
-
-// Check whether this set is a subset of another collection.
-// That is, does another collection contains all the items of this set?
-var allElements = ['hydrogen', 'helium', 'lithium', 'beryllium',
-                   'gold', 'titanium', 'xenon' /* all the rest */];
-assert(ingredients.isSubsetOf(allElements));</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Set.html" target="_top">Set API docs</a>
+assert(intersection.contains('xenon'));</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Set.html" target="_top">Set API docs</a>
         for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-common-collection-methods"></a>Common collection methods</h4></div></div></div><p>Both List and Set extend the Collection class. As such, they
         share common functionality found in all collections. The following
         examples work with any object that implements Collection.</p><p>Use <code class="literal">isEmpty</code> to check whether a collection has
@@ -1192,18 +1185,18 @@ main() {
         You can read the strings either as data becomes available or a line at
         a time.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-writing-file-contents"></a>Writing file contents</h4></div></div></div><p>You can use an <a class="ulink" href="http://api.dartlang.org/dart_io/IOSink.html" target="_top">IOSink</a> to
         write data to a file. Use the File <code class="literal">openWrite()</code>
-        method to declare a mode and get an IOSink that you can write to. Use
-        <code class="literal">FileMode.WRITE</code> to completely
-        overwrite existing data in the file, and <code class="literal">FileMode.APPEND</code> to add to the end.</p><pre class="screen"><em><span class="remark">lang-dart
+        method to declare a mode and get an IOSink that you can write to. The
+        default mode, <code class="literal">FileMode.WRITE</code>,
+        completely overwrites existing data in the file.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/writeFile.dart
-</span></em>import 'dart:io';
-
-main() {
-  var logFile = new File('log.txt');
-  var sink = logFile.openWrite(FileMode.WRITE);
-  sink.addString('FILE ACCESSED ${new DateTime.now()}');
-  sink.close();
-}</pre><p>To write binary data, use <code class="literal">add(List&lt;int&gt; buffer)</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-listing-files-in-a-directory"></a>Listing files in a directory</h4></div></div></div><p>Finding all files and subdirectories for a directory is an
+</span></em>var logFile = new File('log.txt');
+var sink = logFile.openWrite();
+sink.write('FILE ACCESSED ${new DateTime.now()}\n');
+sink.close();</pre><p>To add to the end of the file, use the optional
+        <code class="literal">mode</code> parameter to specify
+        <code class="literal">FileMode.APPEND</code>:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/writeFile.dart
+</span></em>var sink = logFile.openWrite(mode: FileMode.APPEND); </pre><p>To write binary data, use <code class="literal">writeBytes(List&lt;int&gt; buffer)</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-listing-files-in-a-directory"></a>Listing files in a directory</h4></div></div></div><p>Finding all files and subdirectories for a directory is an
         asynchronous operation. The <code class="literal">list()</code> method returns a
         Stream on which you can register handlers (using
         <code class="literal">listen()</code>) to be notified when a file or directory
@@ -1251,7 +1244,7 @@ main() {
 main() {
   dartHandler(HttpRequest request) {
     print('New request');
-    request.response.addString('Dart is optionally typed');
+    request.response.write('Dart is optionally typed');
     request.response.close();
   };
 
@@ -1261,7 +1254,7 @@ main() {
       if (request.uri.path == '/languages/dart') {
         dartHandler(request);
       } else {
-        request.response.addString('Not found');
+        request.response.write('Not found');
         request.response.statusCode = HttpStatus.NOT_FOUND;
         request.response.close();
       }
