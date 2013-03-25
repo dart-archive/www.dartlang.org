@@ -8,6 +8,8 @@ ANA="dart_analyzer --enable_type_checks --fatal-type-errors --extended-exit-code
 echo
 echo "Type Analysis, running dart_analyzer..."
 
+EXITSTATUS=0
+
 for dir in src/site/articles/*/code/
 do
   # Run pub if there is a pubspec in this code directory.
@@ -32,3 +34,5 @@ do
     fi
   done
 done
+
+exit $EXITSTATUS
