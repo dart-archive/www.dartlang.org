@@ -8,14 +8,14 @@ description: "A brief introduction to some of the language changes planned
 has-permalinks: true
 article:
   written_on: 2012-07-01
-  updated_on: 2012-12-01
+  updated_on: 2013-03-25
   collection: language-details
 ---
 
 # {{ page.title }}
 _Written by Bob Nystrom <br />
 July 2012
-(updated December 2012)_
+(updated March 2013)_
 
 Right now as we near our "Milestone 1" release, we are making a slew of fun
 language changes. There are tracking bugs in the repo for all of them, but I
@@ -26,7 +26,7 @@ where I can.
 
 1. [First-class types](#first-class-types)
 1. [No explicit interfaces](#no-explicit-interfaces)
-1. [No "+" on String](#no--on-string)
+1. <s><a href="#no--on-string">No "+" on String</a></s>
 1. [No throwing `null`](#no-throwing-null)
 1. [The "as" cast operator](#the-as-cast-operator)
 1. [Cascades](#cascades)
@@ -131,8 +131,15 @@ members for example. It also simplifies designing an API: you no longer have
 think about whether you should define something as an interface or an abstract
 class.
 
-## No "+" on String
+## <s>No "+" on String</s> - It's back!
+{: #no--on-string}
 
+<aside class="alert alert-success" markdown="1">
+  **Update**
+  Dart added `+` back to string.
+</aside>
+
+<div markdown="1" style="text-decoration: line-through;">
 Dart no longer allows using the "+" operator on
 strings. So no more:
 
@@ -157,6 +164,8 @@ wasted allocations.
 So, without `+`, what should you do when you need to staple a couple of strings
 to each other? Fortunately, [Seth has your back
 here](http://news.dartlang.org/2012/06/vm-to-remove-support-for-string.html).
+
+</div>
 
 ([Tracking issue #3707](http://dartbug.com/3707))
 
