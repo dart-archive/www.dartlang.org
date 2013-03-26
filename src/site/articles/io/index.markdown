@@ -116,7 +116,7 @@ import 'dart:async';
 main() {
   var options = new Options();
   var file = new File(options.script);
-  Future<String> finishedReading = file.readAsString(Encoding.ASCII);
+  Future<String> finishedReading = file.readAsString(encoding: Encoding.ASCII);
   finishedReading.then((text) => print(text));
 }
 {% endprettify %}
@@ -149,7 +149,7 @@ main() {
   var semicolon = ';'.codeUnitAt(0);
   var result = [];
 
-  new File(options.script).open(FileMode.READ).then((RandomAccessFile file) {
+  new File(options.script).open(mode: FileMode.READ).then((RandomAccessFile file) {
     // Callback to deal with each byte.
     void onByte(int byte) {
       result.add(byte);
