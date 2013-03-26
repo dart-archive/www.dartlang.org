@@ -105,11 +105,11 @@ Example 1:
 
 {% prettify dart %}
 abstract class Collection<E> {
-    Collection<E> newInstance();
-    Collection<E> map(f) {
-     var result = newInstance();
-     forEach((E e){result.add(f(e));})
-     return result;
+  Collection<E> newInstance();
+  Collection<E> map((f) {
+    var result = newInstance();
+    forEach((E e) { result.add(f(e)); });
+    return result;
   }
 }
 
@@ -163,7 +163,7 @@ class DOMElementList<E> extends DOMList with Collection<E> {
 }
 
 class DOMElementSet<E> extends DOMSet with Collection<E> {
-   DOMElementSet<E> newInstance() => new DOMElementSet<E>();
+  DOMElementSet<E> newInstance() => new DOMElementSet<E>();
 }
 {% endprettify %}
 
@@ -178,8 +178,8 @@ Consider what happens if DOMList has a non-trivial constructor:
 
 {% prettify dart %}
 class DOMElementList<E> extends DOMList with Collection<E> {
-   DOMElementList<E> newInstance() => new DOMElementList<E>(0);
-   DOMElementList(size): super(size);
+  DOMElementList<E> newInstance() => new DOMElementList<E>(0);
+  DOMElementList(size): super(size);
 }
 {% endprettify %}
 
@@ -322,8 +322,8 @@ is illustrated below via a variation on our mad maestro example.
 
 {% prettify dart %}
 class Musical {
-   final Instrument instrument;
-   Musical(this.instrument);
+  final Instrument instrument;
+  Musical(this.instrument);
 }
 
 class Aggressive {
@@ -332,8 +332,8 @@ class Aggressive {
 }
 
 class Demented {
- final disorder;
- Demented(this.disorder);
+  final disorder;
+  Demented(this.disorder);
 }
 
 class Maestro extends Person with Musical, Aggressive, Demented {
