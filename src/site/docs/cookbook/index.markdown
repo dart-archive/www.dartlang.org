@@ -31,6 +31,16 @@ has-permalinks: true
     1. [Creating a list and initializing it with default values](#creating-a-list-and-initializing-it-with-default-values)
     1. [Copying a list](#copying-a-list)
     1. [Appending items to a list](#appending-items-to-a-list)
+1. [Numbers](#numbers)
+    1. [Converting a string to a number](#converting-a-string-to-a-number)
+    1. [Converting a number to a string](#converting-a-number-to-a-string)
+1. [Json](#json)
+    1. [Encoding JSON](#encoding-json)
+    1. [Decoding JSON](#decoding-json)
+1. [URIs](#uris)
+    1. [Encoding and Decoding fully qualified URIs](#encoding-and-decoding-fully-qualified-uris)
+    1. [Parsing URIs](#parsing-uris)
+    1. [Building URIs](#building-uris)
 1. [Testing](#testing)
     1. [Running only a single test](#running-only-a-single-test)
     1. [Filtering which tests are run](#filtering-which-tests-are-run)
@@ -38,7 +48,6 @@ has-permalinks: true
     1. [Testing synchronous exceptions](#testing-synchronous-exceptions)
     1. [Testing for double equality](#testing-for-double-equality)
 {:.toc}
-
 
 
 ## Strings
@@ -1151,8 +1160,421 @@ Appending items to a list by increasing the list length first is generally more
 efficient than using `add()` or `addAll()`.
 
 
-## Testing
+## Numbers
 
+### Converting a string to a number
+
+#### Problem
+
+You want to parse a string and convert it to a number.
+
+#### Solution
+
+Use `int.parse` to convert a string to an int:
+
+{% prettify dart %}
+print(int.parse('231')); // 231
+{% endprettify %}
+
+The strings can be prefixed with a '+' or a '-':
+
+{% prettify dart %}
+print(int.parse('+231')); // 231
+print(int.parse('-231')); // -231
+{% endprettify %}
+    
+You can pass in the radix as a second argument:
+
+{% prettify dart %}
+print(int.parse('231', radix: 16));  // 561
+print(int.parse('F34A', radix: 16)); // 62282
+{% endprettify %}
+    
+Strings starting with '0x', '-0x' or '+0x' are assumed to have a radix of 16:
+
+{% prettify dart %}
+print(int.parse('0x231')); // 561
+{% endprettify %}
+
+Use `double.parse` to convert a string to a double:
+
+{% prettify dart %}
+print(double.parse('3.14')); // 3.14
+{% endprettify %}
+    
+The method accepts exponential notation:
+
+{% prettify dart %}
+print(double.parse('3.14e5')); // 314000.0
+{% endprettify %}
+
+Both `int.parse` and `double.parse` throw a FormatException if they are passed
+invalid arguments.
+
+
+### Converting a number to a string
+
+#### Problem
+
+You want to convert a number to a string.
+
+#### Solution
+
+Use `toString()` for a no-frills number to string conversion:
+
+{% prettify dart %}
+1234.toString();   // '1234'
+3.1519.toString(); // '3.1519'
+{% endprettify %}
+
+To specify the number of signficant digits, use the `toStringAsPrecision()`
+method: 
+
+{% prettify dart %}
+1234.toStringAsPrecision(5);   // '1234.0'
+3.1519.toStringAsPrecision(8); // '3.1519000'
+{% endprettify %}
+  
+To specify the number of digits after the decimal, use `toStringAsFixed()`:
+
+{% prettify dart %}
+1234.toStringAsFixed(2);   // '1234.00'
+3.1519.toStringAsFixed(2); // '3.15'
+{% endprettify %}
+
+To convert the number to decimal exponential notation, use the
+`toStringAsExponential()` method: 
+
+{% prettify dart %}
+1234.toStringAsExponential();   // '1.234e+3'
+{% endprettify %}
+
+You can specify the radix when converting an integer to a string:
+
+{% prettify dart %}
+64.toRadixString(2);  // '1000000'
+64.toRadixString(8);  // '100'
+64.toRadixString(16); // '40'
+{% endprettify %}
+
+
+## JSON
+
+### Encoding JSON
+
+#### Problem
+
+You want to convert a Dart object into JSON.
+
+#### Solution
+
+Use `json.stringify()` to encode a Dart object into a JSON-formatted string.
+
+The following Dart objects are automatically encoded into JSON by
+`json.stringify()`:
+
+* int
+* double
+* String
+* bool
+* null
+* List
+* Map
+
+{% prettify dart %}
+var person = {'name': 'joe', 
+              'born':  2002,
+              'into': {'films' : ['crime', 'noir']},
+              'aliases': null
+             };
+
+json.stringify(person);
+// '{"name":"joe","born":2002,"into":{"films":["crime","noir"]},"aliases":null}'
+{% endprettify %}
+
+Note that `json.stringify()` encodes List and Map objects recursively.
+
+If an object of a type not in the list above is passed to `json.stringify()`,
+it calls that objects `toJson()` method:
+
+{% prettify dart %}
+class Person {
+  String name;
+  num age;
+  
+  Person(this.name, this.age);
+ 
+  String toJson() => json.stringify({"name": name, "age": age});
+}
+
+var person = new Person('john', 32);
+json.stringify(person); // '"{\"name\":\"john\",\"age\":32}"'
+{% endprettify %}
+
+If the `toJson()` method is not defined, `json.stringify()` throws an exception:
+
+{% prettify dart %}
+class Book {
+  String title;
+  num numPages;
+ 
+  Book(this.title, this.numPages);
+}
+
+var book = new Book('War and Peace', 1089);
+json.stringify(book); // json.JsonUnsupportedObjectError
+{% endprettify %}
+
+It is possible that `json.stringify()` calls `toJson()` on several objects,
+and if any one of those objects lacks a `toJson()`, an exception gets thrown.
+Use `JsonUnsupportedObjectError`'s `cause` property to see which object
+triggered the exception:
+
+{% prettify dart %}
+var person = new Person('john', 32);          // Has a toJson().
+var book = new Book('War and Peace', 1089);   // Lacks a toJson().
+var object = {'person': person, 'reads' : book};
+
+try {
+  json.stringify(object);
+} catch(e) {
+  print(e.cause.toString());
+  // "Class 'Book' has no instance method 'toJson'..."
+}
+{% endprettify %}
+
+
+### Decoding JSON
+
+#### Problem
+
+You want to convert a JSON string into a Dart object.
+
+#### Solution
+
+Use `json.parse()` to decode a JSON-encoded string into a Dart object:
+
+{% prettify dart %}
+var jsonPerson = '{"name" : "joe", "date" : [2013, 3, 10]}';
+  
+var person = json.parse(jsonPerson);
+
+person['name'];         // 'joe'
+person['date'];         // [2013, 3, 10]
+person['date'] is List; // true
+{% endprettify %}
+    
+Sometimes you want to transform the data parsed by `json.parse`. For
+example, you may prefer to express a date field as a DateTime object, and not
+as a list of numbers representing the year, month and day. Specify a 'reviver'
+function as a second argument to `json.parse`. 
+
+This function is called once for each object or list property parsed, and the 
+return value of the reviver function is used instead of the parsed value:
+
+{% prettify dart %}
+var jsonPerson = '{"name" : "joe", "date" : [2013, 3, 10]}';
+
+var person = json.parse(jsonPerson, (k, v) {
+  if (k == "date") {
+    return new DateTime(2012, 10, 3);
+  }
+  return v;
+});
+      
+person['name'];             // 'joe'
+person['date'] is DateTime; // true
+{% endprettify %}
+
+
+## URIs
+
+Note: all examples require that you load 'dart:uri':
+
+{% prettify dart %}
+import 'dart:uri';
+{% endprettify %}
+
+
+### Encoding and Decoding fully qualified URIs
+
+#### Problem
+
+You want to encode and decode URIs so that you can escape URI characters
+correctly.
+
+#### Solution
+
+Use `encodeUri()` to encode a fully qualified URI:
+
+{% prettify dart %}
+encodeURI('http://www.example.com/file with spaces.html');
+// 'http://www.example.com/file+with+spaces.html'
+{% endprettify %}
+
+Characters that have special meaning in the URI (such as #;,/?:@&=$) are not
+escaped:
+
+{% prettify dart %}
+encodeUri('http://example.com/?x=10&y=20#last');
+// 'http://example.com/?x=10&y=20#last'
+
+encodeUri('mailto:bob@example.com'); // 'mailto:bob@example.com'
+{% endprettify %}
+
+Call `encodeUriComponent()` to encode any user-provided parameters that are
+passed to the server as part of a URI:
+
+{% prettify dart %}
+var params = encodeUriComponent('?param1=10&param2=20');
+print(params); // '%3Fparam1%3D10%26param2%3D20'
+
+encodeUri('http://www.example.com/') + params;
+// 'http://www.example.com/%3Fparam1%3D10%26param2%3D20'));
+{% endprettify %}
+      
+Don't call `encodeUriComponent()` on the complete URI. It escapes characters
+like : and / and renders the URI unusable:
+
+{% prettify dart %}
+encodeUriComponent('http://www.example.com/'); 
+// 'http%3A%2F%2Fwww.example.com%2F'
+{% endprettify %}
+
+To decode a URI previously encoded using `encodeUri()`, use `decodeUri()`:
+
+{% prettify dart %}
+var uri = 'http://www.example.com/file with spaces.html';
+var encodedUri = encodeUri(uri);
+decodeUri(encodedUri) == uri; // true
+{% endprettify %}
+
+To decode a URI component previously encoded using `encodeUriComponent()`, use
+`decodeUriComponent()`: 
+
+{% prettify dart %}
+var params = encodeUriComponent('?param1=10&param2=20');
+var encodedParams = encodeUriComponent(params);
+decodeUriComponent(encodedParams) == params; // true
+{% endprettify %}
+
+
+### Parsing URIs
+
+#### Problem
+
+You want to access the parts of a URI.
+
+#### Solution
+
+The properties of a URI created using the `Uri()` constructor can be directly
+accessed in the following manner: 
+
+{% prettify dart %}
+var uri = new Uri('http://example.org:8080/content/a.html#intro');
+
+uri.scheme;     // 'http'
+uri.userInfo;   // ''
+uri.port        // ''
+uri.domain;     // 'example.org'
+uri.path;       // '/content/a.html'
+uri.fragment;   // 'intro'
+{% endprettify %}
+
+Get the query parameters using the URI's `query` property:
+
+{% prettify dart %}
+var params = 'name=john&age=32';
+var uri = new Uri('http://example.org/?name=john&age=32');
+uri.query; // 'name=john&age=32'
+{% endprettify %}
+
+For http/https schemes, you can access the `origin` property:
+
+{% prettify dart %}
+var uri = new Uri('http://example.org:8080/content/a.html#intro');
+uri.origin;     // 'http://example.org:8080'
+{% endprettify %}
+
+#### Discussion
+
+The Uri class treats all URs that do not explicitly begin with a scheme as
+relative:
+
+{% prettify dart %}
+new Uri('//example.org:8080/content/').isAbsolute; // false
+new Uri('example.org:8080/content/').isAbsolute;   // false
+{% endprettify %}
+
+URIs that begin with a scheme, but that contain a fragment, are also considered
+relative:
+
+{% prettify dart %}
+new Uri('http//example.org:8080/content/#intro').isAbsolute; // false
+{% endprettify %}
+    
+The `scheme` and `domain` properties for  relative URIs are empty. Instead, a 
+relative URI starts with the path component:
+
+{% prettify dart %}
+var uri = new Uri('example.org/content/a.html#intro');
+      
+uri.isAbsolute; // false
+uri.scheme;     // ''
+uri.domain;     // ''
+uri.path;       // 'example.org/content/a.html'
+{% endprettify %}
+
+Accessing the `origin` property of a relative URI throws an exception:
+
+{% prettify dart %}
+var uri = new Uri('example.org/content/a.html#intro');
+uri.isAbsolute; // false
+
+try {
+  var origin = uri.origin;
+} catch(e) {
+  print(e); // 'Illegal argument(s): Cannot use origin without a scheme'
+}
+{% endprettify %}
+      
+
+### Building URIs
+
+#### Problem
+
+You want to build URIs from individual parts.
+
+#### Solution
+
+Use the `Uri.fromComponents()` constructor to build up a URI from individual
+parts:
+
+{% prettify dart %}
+var uri = new Uri.fromComponents(
+  scheme: 'http',
+  domain: 'example.org',
+  path: '/content/a.html',
+  query: 'name=john');
+
+uri.isAbsolute;        // true
+print(uri.toString()); // 'http://example.org/content/a.html?name=john'
+{% endprettify %}
+
+If you do not pass in the scheme as an argument, `Uri.fromComponents()` creates
+a relative URI, and prefixes the URI with leading '//`:
+
+{% prettify dart %}
+var uri = new Uri.fromComponents(domain: '/content/a.html');
+         
+uri.isAbsolute;       // false
+print(uri.toString(); // '//content/a.html'
+{% endprettify %}
+ 
+You should remove the leading '//' before using the URI.
+
+
+## Testing
 
 ### Running only a single test
 
@@ -1161,7 +1583,7 @@ efficient than using `add()` or `addAll()`.
 You want to run just a single test.  Maybe it is the test you are
 currently working on and want to make that pass before running all your tests.
 Or, perhaps it is a failing test that you want to explore in the debugger,
-without dealing with the noise from other tests.
+without dealing with the noise from other tests. 
 
 #### Solution
 
@@ -1511,7 +1933,7 @@ To test that code runs without generating an exception, use the
 {% prettify dart %}
 expect(() => 10 ~/ 1, returnsNormally);
 {% endprettify %}
-
+  
 You can test the error type:
 
 {% prettify dart %}
@@ -1541,7 +1963,7 @@ false:
 expect(() => 10 ~/ 0, 
   throwsA(predicate((e) => e is IntegerDivisionByZeroException)));
 {% endprettify %}
-
+  
 You can test the error message:
 
 {% prettify dart %}
@@ -1550,7 +1972,7 @@ expect(() => throw new ArgumentError('bad argument'),
 {% endprettify %}
 
 You can test the error type and the error message together:
-
+  
 {% prettify dart %}
 expect(() => throw new RangeError('out of range'), 
   throwsA(predicate((e) => (e is RangeError && e.message == 'out of range'))));
@@ -1588,7 +2010,6 @@ Here's how you can test for approximate equality:
 {% prettify dart %}
 expect(point1.distanceTo(point2)), closeTo(7.28, .001)); 
 {% endprettify %}
-
 
 
 
