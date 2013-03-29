@@ -124,22 +124,8 @@ another function. If you know `baz` doesn't take any named arguments,
 then that code can instead be
 `Function.apply(baz, msg.positionalArguments)`.
 
-The only argument to noSuchMethod() is an `InvocationMirror`, which is
-currently defined as follows:
-
-{% prettify dart %}
-abstract class InvocationMirror {
-  String get memberName;
-  List get positionalArguments;
-  Map<String, dynamic> get namedArguments;
-  bool get isMethod;
-  bool get isGetter;
-  bool get isSetter;
-  bool get isAccessor => isGetter || isSetter;
-
-  invokeOn(Object receiver);
-}
-{% endprettify %}
+The only argument to noSuchMethod() is an `InvocationMirror`. You can find the
+documentation for this class [here](http://api.dartlang.org/docs/releases/latest/dart_core/InvocationMirror.html).
 
 The boolean properties of InvocationMirror identify the syntactic form of the
 method invocation, as the following table shows.
