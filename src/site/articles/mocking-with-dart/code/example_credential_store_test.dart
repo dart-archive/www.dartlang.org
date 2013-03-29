@@ -1,4 +1,4 @@
-#!/usr/bin/env dart_analyzer --enable_type_checks --extended-exit-code --type-checks-for-inferred-types
+// #!/usr/bin/env dart_analyzer --enable_type_checks --extended-exit-code --type-checks-for-inferred-types
 
 import 'package:unittest/unittest.dart';
 import 'package:unittest/mock.dart';
@@ -61,4 +61,23 @@ void main() {
   // View the results.
   print(controller.log);
   print(store.log);
+  
+  
+  store.when(callsTo('validate', 'Alice')).thenReturn(true);
+  store.when(callsTo('validate', 'Bob')).thenReturn(false);
+
+  
+  store.when(callsTo('validate', 'Alice')).
+  thenReturn(true).alwaysReturn(false);
+  
+  store.when(callsTo('validate', 'Alice')).thenReturn(true);
+  store.when(callsTo('validate', 'Alice')).thenReturn(false);
+  
+  store.when(callsTo('validate', 'Alice')).
+  thenReturn(true).thenReturn(false);
+  
+  store.when(callsTo('validate', 'Alice')).thenReturn(true);
+  store.when(callsTo('validate')).thenReturn(false);
+  
+  controller.getLogs(callsTo('setFailures')).verify(happenedOnce);
 }
