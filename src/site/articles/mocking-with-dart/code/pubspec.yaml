@@ -1,0 +1,5 @@
+name:  mocking_with_dart
+description:  A sample application
+
+dependencies:
+  unittest: 0.4.3+1

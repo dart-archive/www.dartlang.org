@@ -95,7 +95,7 @@ class CredentialStore {
   void lockAccount(String user) { … }
   bool isLocked(String user) { … }
   int getFailures(String user) { … }
-  void setFailures(String user) { … }
+  void setFailures(String user, int failures) { … }
 }
 {% endprettify %}
 
