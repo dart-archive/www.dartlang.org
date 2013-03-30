@@ -7,12 +7,14 @@ description: "Using Dart's unit test library for mocking and spying."
 has-permalinks: true
 article:
   written_on: 2012-07-01
+  updated_on: 2013-03-29
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 _Written by Graham Wheeler <br />
-July 2012_
+July 2012 
+(updated March 2013)_
 
 
 The Dart unit test library now supports testing with mocks. The 
