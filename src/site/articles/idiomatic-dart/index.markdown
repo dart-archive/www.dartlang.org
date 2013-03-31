@@ -229,7 +229,7 @@ It looks like a named function, but without a name or return type.
 Here is an example:
 
 {% prettify dart %}
-var shouts = messages.where((m) {
+var shouts2 = messages.where((m) {
   return (m.toUpperCase() == m);
 }).toList();
 {% endprettify %}
@@ -238,7 +238,7 @@ Finally, if you need a really lightweight function that just evaluates
 and returns a single expression, there's `=>`:
 
 {% prettify dart %}
-var shouts = messages.where((m) => m.toUpperCase() == m).toList();
+var shouts3 = messages.where((m) => m.toUpperCase() == m).toList();
 {% endprettify %}
 
 A parenthesized argument list followed by `=>` and a single expression
@@ -291,14 +291,14 @@ As a reminder, Dart allows you to pass a function as an argument to another
 function. Here is an example:
 
 {% prettify dart %}
-List<num> filterNumbers(List<num> numbers, num filter(num x)) {
+List<num> filterNumbers(List<num> numbers, bool filter(num x)) {
   return numbers.where(filter).toList();
 }
 {% endprettify %}
 
 While the above code works, it would be nice to extract extra type information
 about `filter`. As it is written, you can't ask what kind of function
-filter is. That is, you can't say `if (filter is num filter(num x))`.
+filter is. That is, you can't say `if (filter is bool filter(num x))`.
 Also, the syntax is a bit noisy in the signature for `filterNumbers`.
 
 To help clean up function signatures, and to provide a bit more type
@@ -306,7 +306,7 @@ information about functions, you can use a _typedef_.
 A typedef essentially provides an alias for a function signature.
 
 {% prettify dart %}
-typedef num Filter(num x);
+typedef bool Filter(num x);
 
 List<num> filterNumbers(List<num> numbers, Filter filter) {
   return numbers.where(filter).toList();
@@ -501,7 +501,7 @@ num abs(num value) => value < 0 ? -value : value;
 final TWO_PI = PI * 2.0;
 
 int get today {
-  final date = new Date.now();
+  final date = new DateTime.now();
   return date.day;
 }
 
@@ -565,18 +565,18 @@ Dart has a few kinds of string literals. You can use single or double quotes,
 and you can use triple-quoted multiline strings:
 
 {% prettify dart %}
-'I am a "string"'
-"I'm one too"
+var s1 = 'I am a "string"'
+"I'm one too";
 
-'''I'm
+var s2 = '''I'm
 on multiple lines
-'''
+''';
 
-"""
+var s3 = """
 As
 am
 I
-"""
+""";
 {% endprettify %}
 
 While there is a plus (+) operator on String, it's often cleaner and faster to
@@ -707,7 +707,7 @@ Here is an example of what **not to do**:
 {% prettify dart %}
 // WARNING: This code contains an anti-pattern.
 Future doLengthyComputation() {
-  Future future = lengthComp();
+  Future future = lengthyComp();
   future.then((value) => print(value));
 
   // BAD! You'll only get errors from future, not from then().
@@ -728,7 +728,8 @@ without losing exceptions that might be thrown.
 
 {% prettify dart %}
 Future doLengthyComputation() {
-  return new Future.delayed(0, () => doTheThingThatMightFail());
+  return new Future.delayed(const Duration(seconds: 0),
+      () => doTheThingThatMightFail());
 }
 {% endprettify %}
 
