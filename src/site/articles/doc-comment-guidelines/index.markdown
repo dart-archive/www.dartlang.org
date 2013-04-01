@@ -73,8 +73,10 @@ num min(num a, num b) {/*...*/}
 And one for a variable or property:
 
 <pre>
+<!-- BEGIN(PI) -->
 /// The PI constant.
 const double PI = 3.1415926535897932;
+<!-- END(PI) -->
 </pre>
 
 For an example of a class description with example code, see Completer
