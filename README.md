@@ -63,7 +63,6 @@ Fork and submit patches here: https://github.com/dart-lang/dartlang.org
 * If you're making changes to the Sass (SCSS) files, you can regenerate the CSS
   by running `make compass` from the root of the repository on the command line.
 * To run tests, run `./runtests.sh`.
-* Running `./runtests.sh` also runs `doc_code_verify.dart`. This will compare the code samples in each of the articles to their respective code directories.
 
 ### Windows development tips
 
@@ -146,3 +145,61 @@ changes.
 when the .xml files haven't changed. The problem I've noticed has been
 misnaming files or skipping them in the navigation. Reported as
 dartbug.com/8128.)
+
+## Running doc-code-verify
+
+doc-code-verify (https://github.com/dart-lang/doc-code-verify) is a tool to
+verify source code samples embedded within the documentation. It checks that
+all code snippets in the documentation are also in the code source thus
+ensuring that the documentation is always up to date. Running `./runtests.sh`
+also runs `doc_code_verify.dart`.
+
+Each article is treated separately. Hence, the code samples in each article
+are checked against that article's respective code directory. I figured this
+was the easiest approach.
+
+Here's an example of how to use doc-code-verify. In the article, it looks
+like:
+
+    <pre>
+    <!-- BEGIN(min) -->
+    /**
+     * Returns the lesser of two numbers.
+     *
+     * Returns NaN if either argument is NaN.
+     * The lesser of -0.0 and 0.0 is -0.0.
+     * If the arguments are otherwise equal (including int and doubles with the
+     * same mathematical value) then it is unspecified which of the two arguments
+     * is returned.
+     *
+     *     return min(100, value);
+     */
+    num min(num a, num b) {/*...*/}
+    <!-- END(min) -->
+    </pre>
+
+Notice that I added an HTML comment with `<!-- BEGIN(min) -->` and 
+`<!-- END(min) -->` in order to wrap the example.
+
+In the code, it looks like this:
+
+    // BEGIN(min)
+    /**
+     * Returns the lesser of two numbers.
+     *
+     * Returns NaN if either argument is NaN.
+     * The lesser of -0.0 and 0.0 is -0.0.
+     * If the arguments are otherwise equal (including int and doubles with the
+     * same mathematical value) then it is unspecified which of the two arguments
+     * is returned.
+     *
+     *     return min(100, value);
+     */
+    num min(num a, num b) {/*...*/}
+    // END(min)
+
+Notice I added two comments, `// BEGIN(min)` and `// END(min)`.
+
+Now, whenever `runtests.sh` is run, doc-code-verify will check to make sure
+that the source code in the documentation matches the source code in the code
+directory.
