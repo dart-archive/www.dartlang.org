@@ -53,7 +53,7 @@ If you have suggestions for improving the conventions,
 
 Here's a typical comment for a function or method:
 
-<pre>
+<!-- BEGIN(min) -->{% prettify dart %}
 /**
  * Returns the lesser of two numbers.
  *
@@ -65,15 +65,15 @@ Here's a typical comment for a function or method:
  *
  *     return min(100, value);
  */
-num min(num a, num b) {...}
-</pre>
+num min(num a, num b) {/*...*/}
+{% endprettify %}<!-- END(min) -->
 
 And one for a variable or property:
 
-<pre>
+<!-- BEGIN(PI) -->{% prettify dart %}
 /// The PI constant.
 const double PI = 3.1415926535897932;
-</pre>
+{% endprettify %}<!-- END(PI) -->
 
 For an example of a class description with example code, see Completer
 ([generated doc](http://api.dartlang.org/docs/bleeding_edge/dart_core/Completer.html),
@@ -201,7 +201,8 @@ which means **five spaces** after the * or /
 (since they're always followed by a space).
 Example:
 
-<pre>/**
+{% prettify dart %}
+/**
  * ...
  * For example:
  *
@@ -209,9 +210,9 @@ Example:
  *     future.then((value) {
  *       print("I received the number $value");
  *     });
- *
  * ...
- */ </pre>
+ */
+{% endprettify %}
 
 #### Header
 
@@ -267,12 +268,14 @@ and it's possible that a single asterisk will mean boldface.
 
 Here's an example of a warning:
 
-<pre>
- *
+{% prettify dart %}
+/**
+ * ...
  * **Warning:** This feature is not yet supported in all modern browsers.
  * See <http://caniuse.com/flexbox> for current status.
+ * ...
  */
-</pre>
+{% endprettify %}
 
 
 ## Word choice, punctuation, and so on
