@@ -1,5 +1,7 @@
 #!/bin/bash
 
+shopt -s nullglob
+
 #####
 # Type Analysis
 
@@ -9,7 +11,9 @@ echo
 echo "Type Analysis, running dart_analyzer..."
 
 EXITSTATUS=0
-shopt -s nullglob
+PASSING=0
+WARNINGS=0
+FAILURES=0
 
 for dir in src/site/articles/*/code/
 do
@@ -26,14 +30,31 @@ do
   for file in $files
   do
     results=`$cmd $file 2>&1`
-    if [ -n "$results" ]; then
+    exit_code=$?
+    if [ $exit_code -eq 2 ]; then
+      let FAILURES++
       EXITSTATUS=1
       echo "$results"
       echo "$file: FAILURE."
-    else
+    elif [ $exit_code -eq 1 ]; then
+      let WARNINGS++
+      echo "$results"
+      echo "$file: FAILURE."
+    elif [ $exit_code -eq 0 ]; then
+      let PASSING++
+      echo "$results"
       echo "$file: Passed analysis."
+    else
+      echo "$file: Unknown exit code: $exit_code."
     fi
   done
 done
 
+echo
+echo "####################################################"
+echo "PASSING = $PASSING"
+echo "WARNINGS = $WARNINGS"
+echo "FAILURES = $FAILURES"
+echo "####################################################"
+echo 
 exit $EXITSTATUS
