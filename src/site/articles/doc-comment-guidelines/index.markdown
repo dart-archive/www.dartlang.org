@@ -54,6 +54,7 @@ If you have suggestions for improving the conventions,
 Here's a typical comment for a function or method:
 
 <pre>
+<!-- BEGIN(min) -->
 /**
  * Returns the lesser of two numbers.
  *
@@ -65,7 +66,8 @@ Here's a typical comment for a function or method:
  *
  *     return min(100, value);
  */
-num min(num a, num b) {...}
+num min(num a, num b) {/*...*/}
+<!-- END(min) -->
 </pre>
 
 And one for a variable or property:

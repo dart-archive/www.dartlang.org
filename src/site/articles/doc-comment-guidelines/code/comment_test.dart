@@ -1,3 +1,4 @@
+// BEGIN(min)
 /**
  * Returns the lesser of two numbers.
  *
@@ -10,6 +11,7 @@
  *     return min(100, value);
  */
 num min(num a, num b) {/*...*/}
+// END(min)
 
 /**
  * The PI constant. This doc doesn't seem to be generated,
