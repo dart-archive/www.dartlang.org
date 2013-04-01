@@ -7,12 +7,14 @@ description: "Using Dart's unit test library for mocking and spying."
 has-permalinks: true
 article:
   written_on: 2012-07-01
+  updated_on: 2013-03-29
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 _Written by Graham Wheeler <br />
-July 2012_
+July 2012 
+(updated March 2013)_
 
 
 The Dart unit test library now supports testing with mocks. The 
@@ -95,7 +97,7 @@ class CredentialStore {
   void lockAccount(String user) { … }
   bool isLocked(String user) { … }
   int getFailures(String user) { … }
-  void setFailures(String user) { … }
+  void setFailures(String user, int failures) { … }
 }
 {% endprettify %}
 
@@ -297,7 +299,7 @@ As shown in our example, if you want to create a mock for class T, you need to
 create a new class:
 
 {% prettify dart %}
-class MockT extends Mock implements T {};
+class MockT extends Mock implements T {}
 {% endprettify %}
 
 This assumes that you have declared variables or parameters of type T and so 
@@ -309,8 +311,10 @@ you do not need to create a new class.
 
 {% prettify dart %}
 Mock() 
-Mock.custom([this.name = null, this.log = null,
-    this.throwIfNoBehavior = false, this.logging = true]) 
+Mock.custom({this.name,
+               this.log,
+               throwIfNoBehavior: false,
+               enableLogging: true}) 
 {% endprettify %}
 
 The first is equivalent to `Mock.custom()`.
@@ -460,7 +464,7 @@ class LogEntryList {
   final String filter;
   List<LogEntry> logs;
   …
-  LogEntryList getMatches([String mockName,
+  LogEntryList getMatches([String mockNameFilter,
                       CallMatcher logFilter,
                       Matcher actionMatcher,
                       bool destructive = false]);
@@ -479,7 +483,7 @@ class LogEntry {
   final String mockName; // The mock object name, if any.
   final String methodName; // The method name.
   final List args; // The parameters.
-  final int action; // The behavior that resulted.
+  final Action action; // The behavior that resulted.
   final value; // The value that was returned (if no throw).
   …
 }
@@ -671,7 +675,7 @@ class VendingMachineCashier {
   int _deposited = 0;
   int numNickels = 0, numDimes = 0;
 
-  int get deposited() => _deposited;
+  int get deposited => _deposited;
 
   VendingMachineCashier(VendingMachineDispenser dispenser,
       List<int> prices)
@@ -748,7 +752,7 @@ class DispenserSpy extends Mock implements VendingMachineDispenser {
   VendingMachineDispenser _real;
 
   DispenserSpy(LogEntryList log, int numItems, int level)
-      : super.custom('dispenser', log),
+      : super.custom(name: 'dispenser', log: log),
         _real = new VendingMachineDispenser(numItems, level) {
     when(callsTo('dispenseItem')).alwaysCall(_real.dispenseItem);
   }
@@ -757,9 +761,9 @@ class DispenserSpy extends Mock implements VendingMachineDispenser {
 class CashierSpy extends Mock implements VendingMachineCashier {
   VendingMachineCashier _real;
 
-  MockCashier(LogEntryList log, VendingMachineDispenser d,
+  CashierSpy(LogEntryList log, VendingMachineDispenser d,
       List<int>  prices)
-      : super.custom('cashier', log),
+      : super.custom(name: 'cashier', log: log),
         _real = new VendingMachineCashier(d, prices) {
     when(callsTo('depositNickel')).alwaysCall(_real.depositNickel);
     when(callsTo('depositDime')).alwaysCall(_real.depositDime);
@@ -834,7 +838,7 @@ for (var item = 0; item < 3; item++) {
 
   // Find the closest preceding calls to VendingMachineCashier.deposited.
   LogEntryList lastDeposits = log.preceding(dispenses,
-            'cashier', callsTo('get deposited'));
+            mockNameFilter: 'cashier', logFilter: callsTo('get deposited'));
 
   // Verify that the value returned was at least as high as item price.
   lastDeposits.verify(alwaysReturned(greaterThanOrEqualTo(price)));
@@ -860,7 +864,7 @@ for (var item = 0; item < 3; item++) {
          isNot(anyOf('Insert coin', 'No change', startsWith('Item')))));
   // Get the closest preceding calls to VendingMachineCashier.deposited.
   LogEntryList lastDeposits = log.preceding(failedDispenses,
-                'cashier', callsTo('get deposited'));
+                mockNameFilter: 'cashier', logFilter: callsTo('get deposited'));
   // Verify that the value returned was lower than the  item price.
   lastDeposits.verify(alwaysReturned(lessThan(prices[item])));
 }
@@ -914,8 +918,8 @@ For the fourth example, we will use a stepwise validator function. We will get a
 LogEntryList dd = log.getMatches('cashier', callsTo('depositDime'));
 // Get the closest preceding calls to get deposited, and include
 // the calls to depositDime in the result.
-LogEntryList pairs = log.preceding(dd, 'cashier',
-    callsTo('get deposited'), includeKeys: true);
+LogEntryList pairs = log.preceding(dd, mockNameFilter: 'cashier',
+      logFilter: callsTo('get deposited'), includeKeys: true);
 // Our validator will operate on each pair, and return 0 upon failure or
 // 2 upon success (so we advance the position by 2 for the next call).
 pairs.stepwiseValidate((l, pos) =>
