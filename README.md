@@ -161,8 +161,7 @@ was the easiest approach.
 Here's an example of how to use doc-code-verify. In the article, it looks
 like:
 
-    <pre>
-    <!-- BEGIN(min) -->
+    <!-- BEGIN(min) -->{% prettify dart %}
     /**
      * Returns the lesser of two numbers.
      *
@@ -175,11 +174,11 @@ like:
      *     return min(100, value);
      */
     num min(num a, num b) {/*...*/}
-    <!-- END(min) -->
-    </pre>
+    {% endprettify %}<!-- END(min) -->
 
 Notice that I added an HTML comment with `<!-- BEGIN(min) -->` and 
-`<!-- END(min) -->` in order to wrap the example.
+`<!-- END(min) -->` in order to wrap the example. For Markdown, use
+a triple dash: `<!--- BEGIN(min) -->`.
 
 In the code, it looks like this:
 
