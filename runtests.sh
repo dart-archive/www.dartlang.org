@@ -5,7 +5,7 @@ shopt -s nullglob
 #####
 # Type Analysis
 
-ANA="dart_analyzer --enable_type_checks --fatal-type-errors --extended-exit-code --type-checks-for-inferred-types --incremental"
+ANA="dart_analyzer --enable_type_checks --extended-exit-code --type-checks-for-inferred-types --incremental"
 
 echo
 echo "Type Analysis, running dart_analyzer..."
@@ -39,7 +39,7 @@ do
     elif [ $exit_code -eq 1 ]; then
       let WARNINGS++
       echo "$results"
-      echo "$file: FAILURE."
+      echo "$file: WARNING."
     elif [ $exit_code -eq 0 ]; then
       let PASSING++
       echo "$results"
@@ -47,6 +47,9 @@ do
     else
       echo "$file: Unknown exit code: $exit_code."
     fi
+    # Remove the output directory so that subsequent test runs will still see
+    # the warnings and errors.
+    rm -rf out/
   done
 done
 
