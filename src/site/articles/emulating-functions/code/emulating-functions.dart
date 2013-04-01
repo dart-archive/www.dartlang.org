@@ -39,6 +39,6 @@ void main() {
   Function.apply(f, ['hello', 'world'], {'arg3': '!!'});
 
   NsmTester nsm = new NsmTester();
-  nsm.foo();
-  nsm.bleh();
+  nsm.foo(); // Produces warning.
+  nsm.bleh(); // Produces warning.
 }
