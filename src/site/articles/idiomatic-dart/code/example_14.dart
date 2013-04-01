@@ -1,6 +1,10 @@
 import 'dart:async';
 
-class Connection { }
+class Connection {
+  Future query(String sql, [List args]) {
+    return null;
+  }
+}
 class DatabaseConnection extends Connection { }
 
 typedef Connection ConnectionFactory();
