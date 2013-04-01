@@ -177,8 +177,18 @@ like:
     {% endprettify %}<!-- END(min) -->
 
 Notice that I added an HTML comment with `<!-- BEGIN(min) -->` and 
-`<!-- END(min) -->` in order to wrap the example. For Markdown, use
-a triple dash: `<!--- BEGIN(min) -->`.
+`<!-- END(min) -->` in order to wrap the example.
+
+For Markdown, use a triple dash for the HTML comments.
+
+    <!--- BEGIN(then_callback) -->{% prettify dart %}
+    var url = "http://example.com/userCount";
+    HttpRequest.getString(url).then((String result) {  //
+      print("User count: $result");                    // callback function
+    });                                                //
+    {% endprettify %}<!--- END(then_callback) -->
+
+That's safe to do for HTML documents as well.
 
 In the code, it looks like this:
 
