@@ -2,6 +2,34 @@
 
 shopt -s nullglob
 
+EXITSTATUS=0
+PASSING=0
+WARNINGS=0
+FAILURES=0
+
+#####
+# Run doc_code_verify.dart. You need to have it in your PATH:
+#
+#     git clone https://github.com/dart-lang/doc-code-verify.git
+#     export PATH=$PATH:doc-code-verify/bin
+# 
+# I'm doing this first because it's very fast.
+
+echo
+echo "Running doc_code_verify.dart..."
+for dir in src/site/articles/*
+do
+  if [ -d "$dir/code" ]; then
+    doc_code_verify.dart "$dir" "$dir/code"
+    exit_code=$?
+    if [ $exit_code -ne "0" ]; then
+      let WARNINGS++
+    else
+      let PASSING++
+    fi
+  fi
+done    
+
 #####
 # Type Analysis
 
@@ -9,11 +37,6 @@ ANA="dart_analyzer --enable_type_checks --extended-exit-code --type-checks-for-i
 
 echo
 echo "Type Analysis, running dart_analyzer..."
-
-EXITSTATUS=0
-PASSING=0
-WARNINGS=0
-FAILURES=0
 
 for dir in src/site/articles/*/code/
 do

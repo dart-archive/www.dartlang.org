@@ -43,6 +43,7 @@ Fork and submit patches here: https://github.com/dart-lang/dartlang.org
       * Go to Preferences, and enter the direct path to the Python 2.7 binary,
       which you downloaded from http://www.python.org/download/releases/2.7.3/.
         * The full path is `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7`.
+* Run `git clone https://github.com/dart-lang/doc-code-verify`, move it somewhere sensible on your system, and put `doc-code-verify/bin` in your PATH.
 
 ### Tips for Windows
 
@@ -61,6 +62,7 @@ Fork and submit patches here: https://github.com/dart-lang/dartlang.org
 * Edit, create docs as normal.
 * If you're making changes to the Sass (SCSS) files, you can regenerate the CSS
   by running `make compass` from the root of the repository on the command line.
+* To run tests, run `./runtests.sh`.
 
 ### Windows development tips
 
@@ -143,3 +145,60 @@ changes.
 when the .xml files haven't changed. The problem I've noticed has been
 misnaming files or skipping them in the navigation. Reported as
 dartbug.com/8128.)
+
+## Running doc-code-verify
+
+doc-code-verify (https://github.com/dart-lang/doc-code-verify) is a tool to
+verify source code samples embedded within the documentation. It checks that
+all code snippets in the documentation are also in the code source thus
+ensuring that the documentation is always up to date. Running `./runtests.sh`
+also runs `doc_code_verify.dart`.
+
+Each article is treated separately. Hence, the code samples in each article
+are checked against that article's respective code directory. I figured this
+was the easiest approach.
+
+Here's an example of how to use doc-code-verify. In the article, it looks
+like:
+
+    <!-- BEGIN(min) -->{% prettify dart %}
+    /**
+     * Returns the lesser of two numbers.
+     *
+     * Returns NaN if either argument is NaN.
+     * The lesser of -0.0 and 0.0 is -0.0.
+     * If the arguments are otherwise equal (including int and doubles with the
+     * same mathematical value) then it is unspecified which of the two arguments
+     * is returned.
+     *
+     *     return min(100, value);
+     */
+    num min(num a, num b) {/*...*/}
+    {% endprettify %}<!-- END(min) -->
+
+Notice that I added an HTML comment with `<!-- BEGIN(min) -->` and 
+`<!-- END(min) -->` in order to wrap the example. For Markdown, use
+a triple dash: `<!--- BEGIN(min) -->`.
+
+In the code, it looks like this:
+
+    // BEGIN(min)
+    /**
+     * Returns the lesser of two numbers.
+     *
+     * Returns NaN if either argument is NaN.
+     * The lesser of -0.0 and 0.0 is -0.0.
+     * If the arguments are otherwise equal (including int and doubles with the
+     * same mathematical value) then it is unspecified which of the two arguments
+     * is returned.
+     *
+     *     return min(100, value);
+     */
+    num min(num a, num b) {/*...*/}
+    // END(min)
+
+Notice I added two comments, `// BEGIN(min)` and `// END(min)`.
+
+Now, whenever `runtests.sh` is run, doc-code-verify will check to make sure
+that the source code in the documentation matches the source code in the code
+directory.

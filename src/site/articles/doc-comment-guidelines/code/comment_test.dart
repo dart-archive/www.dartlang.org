@@ -1,3 +1,4 @@
+// BEGIN(min)
 /**
  * Returns the lesser of two numbers.
  *
@@ -10,12 +11,14 @@
  *     return min(100, value);
  */
 num min(num a, num b) {/*...*/}
+// END(min)
 
-/**
- * The PI constant. This doc doesn't seem to be generated,
- * no matter whether I use a triple-/ or the other kind of doc comment.
- */
+// This doc doesn't seem to be generated, no matter whether
+// I use a triple-/ or the other kind of doc comment.
+// BEGIN(PI)
+/// The PI constant.
 const double PI = 3.1415926535897932;
+// END(PI)
 
 /**
  * ...
