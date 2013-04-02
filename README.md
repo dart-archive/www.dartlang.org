@@ -188,7 +188,8 @@ For Markdown, use a triple dash for the HTML comments.
     });                                                //
     {% endprettify %}<!--- END(then_callback) -->
 
-That's safe to do for HTML documents as well.
+That's safe to do for HTML documents as well. See the feet-wet-streams article
+for more examples of using doc-code-verify with Markdown.
 
 In the code, it looks like this:
 

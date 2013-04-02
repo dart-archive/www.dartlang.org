@@ -70,12 +70,12 @@ function.
 The following snippet shows how this might work, with the callback 
 function specified as an argument to then():
 
-{% prettify dart %}
+<!--- BEGIN(http_request) -->{% prettify dart %}
 var url = "http://example.com/userCount";
-HttpRequest.getString(url).then((String result) { //
-  print("User count: $result");                    // callback function
-});                                                //
-{% endprettify %}
+HttpRequest.getString(url).then((String result) {  // callback function
+  print("User count: $result");
+});
+{% endprettify %}<!--- END(http_request) -->
 
 This pattern is used by streams to retrieve or manipulate data that the 
 stream is sending out to its consumers.
@@ -110,10 +110,10 @@ create a stream from a fixed, literal list at the moment by using the
 stream's <code>fromIterable()</code> constructor, rather than by dynamically 
 populating it with a <code>StreamController</code>.
 
-{% prettify dart %}
+<!--- BEGIN(simple_stream_code) -->{% prettify dart %}
 var data = [1,2,3,4,5]; // some sample data
 var stream = new Stream.fromIterable(data); // create the stream
-{% endprettify %}  
+{% endprettify %}<!--- END(simple_stream_code) -->
 
 Now that we have a stream that is ready to send out some data, we can use 
 that stream to listen to some data.
@@ -123,7 +123,7 @@ subscribe to the stream.  This has a number of optional parameters, and
 one mandatory parameter, which is the <code>onData</code> handler callback 
 function:
 
-{% prettify dart%}
+<!--- BEGIN(consuming_a_stream) -->{% prettify dart%}
 import 'dart:async';
 
 main() {
@@ -131,11 +131,11 @@ main() {
   var stream = new Stream.fromIterable(data);  // create the stream
 
   // subscribe to the streams events
-  stream.listen( (value) {     // 
-    print("Received: $value"); // onData handler
-  });                          // 
+  stream.listen((value) {
+    print("Received: $value");  // onData handler
+  });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(consuming_a_stream) -->
 
 The <code>listen()</code> method is fired every time some data is received. 
 In in our stream, the <code>listen()</code> callback is called for each of 
@@ -151,12 +151,19 @@ There are other ways to consume data from the stream, using properties such
 as <code>first</code>, <code>last</code>, <code>length</code>, and
 <code>isEmpty</code>.  Each of these properties returns a future. For example:
 
-{% prettify dart%}
+<!--- BEGIN(stream_properties) -->{% prettify dart%}
+stream = new Stream.fromIterable([1,2,3,4,5]);
 stream.first.then((value) => print("stream.first: $value"));  // 1
-// stream.last.then((value) => print("stream.last: $value")); // 5
-// stream.isEmpty.then((value) => print("stream.isEmpty: $value")); // false
-// stream.length.then((value) => print("stream.length: $value")); // 5
-{% endprettify %}
+
+stream = new Stream.fromIterable([1,2,3,4,5]);
+stream.last.then((value) => print("stream.last: $value"));  // 5  
+
+stream = new Stream.fromIterable([1,2,3,4,5]);
+stream.isEmpty.then((value) => print("stream.isEmpty: $value"));  // false
+
+stream = new Stream.fromIterable([1,2,3,4,5]);
+stream.length.then((value) => print("stream.length: $value"));  // 5
+{% endprettify %}<!--- END(stream_properties) -->
 
 You'll notice that some of the lines are commented out.  This is for an 
 important reason.  Streams comes in two flavours: **single** or **multiple** 
@@ -169,21 +176,17 @@ future properties counts as listening.
 You can convert the single-subscriber stream into a broadcast stream by using 
 the <code>asBroadcastStream()</code> method, as shown below:
 
-{% prettify dart %}
-import 'dart:async';
+<!--- BEGIN(as_broadcast_stream) -->{% prettify dart %}
+var data = [1,2,3,4,5];
+var stream = new Stream.fromIterable(data);
+var broadcastStream = stream.asBroadcastStream();
 
-void main() {
-  var data = [1,2,3,4,5];
-  var stream = new Stream.fromIterable(data);
-  var broadcastStream = stream.asBroadcastStream();
-  
-  broadcastStream.listen((value) => print("stream.listen: $value")); 
-  broadcastStream.first.then((value) => print("stream.first: $value")); // 1 
-  broadcastStream.last.then((value) => print("stream.last: $value")); // 5
-  broadcastStream.isEmpty.then((value) => print("stream.isEmpty: $value")); // false
-  broadcastStream.length.then((value) => print("stream.length: $value")); // 5
-}
-{% endprettify %}
+broadcastStream.listen((value) => print("stream.listen: $value")); 
+broadcastStream.first.then((value) => print("stream.first: $value")); // 1 
+broadcastStream.last.then((value) => print("stream.last: $value")); // 5
+broadcastStream.isEmpty.then((value) => print("stream.isEmpty: $value")); // false
+broadcastStream.length.then((value) => print("stream.length: $value")); // 5
+{% endprettify %}<!--- END(as_broadcast_stream) -->
 
 Now that the stream allows multiple subscribers, you can add multiple 
 listeners. You can check whether a stream is a broadcast stream by checking 
@@ -206,8 +209,8 @@ methods
 allow you to take a subset of data, as shown by the following example.  Each 
 outputs its own stream that you can listen to.
 
-{% prettify dart %}
-broadcastStream
+<!--- BEGIN(stream_subsets) -->{% prettify dart %}
+  broadcastStream
       .where((value) => value % 2 == 0) // divisible by 2
       .listen((value) => print("where: $value")); // where: 2
                                                   // where: 4
@@ -232,7 +235,7 @@ broadcastStream
       .skipWhile((value) => value < 3) // skip while true
       .listen((value) => print("skipWhile: $value")); // skipWhile: 4
                                                       // skipWhile: 5
-{% endprettify %}
+{% endprettify %}<!--- END(stream_subsets) -->
 
 ### Transforming stream data
 
@@ -247,7 +250,7 @@ data <code>[1,2,3,4,5]</code> and converts each item into two new
 <code>String</code> values, <code>"Message n"</code> and 
 <code>"Body n"</code>. Each string is placed onto the new stream.
 
-{% prettify dart %}
+<!--- BEGIN(stream_transformer) -->{% prettify dart %}
 // define a stream transformer
 var transformer = new StreamTransformer(handleData: (value, sink) {
   // create two new values from the original value
@@ -257,7 +260,7 @@ var transformer = new StreamTransformer(handleData: (value, sink) {
   
 // transform the stream and listen to its output
 stream.transform(transformer).listen((value) => print("listen: $value"));
-{% endprettify %}
+{% endprettify %}<!--- END(stream_transformer) -->
 
 Running this produces the following output:
 
@@ -277,14 +280,14 @@ Perhaps the most common transform you will use is transforming a
 List&lt;int&gt; into a String by using a <code>StringDecoder</code>, such as 
 when reading data from a file or HTTP request, as in the following example.
 
-{% prettify dart %}
-File file = new File(r"c:\work\test.txt");
+<!--- BEGIN(string_decoder) -->{% prettify dart %}
+File file = new File("some_file.txt");
 file.openRead()
     .transform(new StringDecoder()) // use a StringDecoder
-    .listen((String data) print(data)), // output the data
-    onError: (error) => print("Error, could not open file"),
-    onDone: () => print("Finished reading data"));
-{% endprettify %} 
+    .listen((String data) => print(data), // output the data
+        onError: (error) => print("Error, could not open file"),
+        onDone: () => print("Finished reading data"));
+{% endprettify %}<!--- END(string_decoder) --> 
 
 
 ### Validating stream data
@@ -294,7 +297,7 @@ certain conditions.  A following functions return
 <code>Future&lt;bool></code> values: <code>any()</code>, <code>every()</code>, 
 and <code>contains()</code>.
 
-{% prettify dart %}
+<!--- BEGIN(validating_stream_data) -->{% prettify dart %}
 broadcastStream
     .any((value) => value < 5)
     .then((result) => print("Any less than 5?: $result")); // true
@@ -306,7 +309,7 @@ broadcastStream
 broadcastStream
     .contains(4)
     .then((result) => print("Contains 4?: $result")); // true
-{% endprettify %}
+{% endprettify %}<!--- END(validating_stream_data) -->
 
 ## Single value streams
 Some streams are designed to return only a single value, and you want to 
@@ -317,21 +320,21 @@ both return a future containing the single value,
 or raise an error if they don't.  For example, with our data set containing 5 
 values: <code>[1,2,3,4,5]</code>, the following will return the value 1:
 
-{% prettify dart %}
+<!--- BEGIN(single_where) -->{% prettify dart %}
 broadcastStream
     .singleWhere((value) => value < 2)  // there is only one value less than 2
     .then((value) => print("single value: $value")); 
     // outputs: single value: 1
-{% endprettify %}
+{% endprettify %}<!--- END(single_where) -->
 
 However, the following raises an error and halts the application (because 
-the error is unhandled): 
+the error is unhandled):
 
-{% prettify dart %}
+<!--- BEGIN(failure_using_single) -->{% prettify dart %}
 broadcastStream
-    .single // will fail - there is more than one value in the stream
-    .then((value) => print("single value: $value"));
-{% endprettify %}
+    .single  // will fail - there is more than one value in the stream
+    .then((value) => print("single value: $value"))
+{% endprettify %}<!--- END(failure_using_single) -->
 
 This brings us neatly on to...
 
@@ -346,13 +349,13 @@ detect that the <code>single</code> call has failed.  A Future's
 <code>catchError()</code> handler.  This <code>catchError</code> handler 
 will catch any errors thrown within the <code>then()<code> callback:
 
-{% prettify dart %}
+<!--- BEGIN(catch_error) -->{% prettify dart %}
 broadcastStream
-    .single
+    .single  // will fail - there is more than one value in the stream
     .then((value) => print("single value: $value")) 
-    .catchError((err) => print(err)); // catch any error in the then()
-// output: Bad State: More than one element
-{% endprettify %}
+    .catchError((err) => print("Expected Error: $err")); // catch any error in the then()
+    // output: Bad State: More than one element
+{% endprettify %}<!--- END(catch_error) -->
 
 ### Error handling with StreamSubscription
 
@@ -367,23 +370,23 @@ via the <code>listen()</code> function, or later, via the returned
 <code>StreamSubscription</code> object.  Note the <code>onError</code> handler, 
 which you can use to catch errors output from the stream:
 
-{% prettify dart %}
+<!--- BEGIN(subscription_handler_methods) -->{% prettify dart %}
 // setup the handlers through the subscription's handler methods
 var subscription = stream.listen(null);
 subscription.onData((value) => print("listen: $value"));
 subscription.onError((err) => print("error: $err"));
 subscription.onDone(() => print("done"));
-{% endprettify %}
+{% endprettify %}<!--- END(subscription_handler_methods) -->
 
 and:
 
-{% prettify dart %}
+<!--- BEGIN(arguments_to_listen) -->{% prettify dart %}
 // setup the handlers as arguments to the listen() function
 var subscription = stream.listen(
     (value) => print("listen: $value"),
     onError: (err) => print("error: $err"),
     onDone: () => print("done"));
-{% endprettify %}
+{% endprettify %}<!--- END(arguments_to_listen) -->
 
 These two both print the same output:
 
@@ -410,7 +413,7 @@ the listener in the following code unsubscribes from the stream
 after receiving the value 2, so it never 
 receives the <code>onDone</code> message:
 
-{% prettify dart %}
+<!--- BEGIN(cancelling_a_stream) -->{% prettify dart %}
 var subscription = stream.listen(null);
 subscription.onData((value) {
   print("listen: $value");
@@ -418,7 +421,7 @@ subscription.onData((value) {
 });
 subscription.onError((err) => print("error: $err"));
 subscription.onDone(() => print("done"));
-{% endprettify %}
+{% endprettify %}<!--- END(cancelling_a_stream) -->
 
 ## Streams are generic
 
@@ -427,14 +430,14 @@ typed data in the handlers.  For example, if you create a
 <code>Stream&lt;String&gt;</code>, then all the handler functions will also be 
 expecting a <code>String</code>, as shown by the following code:
 
-{% prettify dart %}
+<!--- BEGIN(stream_generics) -->{% prettify dart %}
 var data = [1,2,3,4,5]; // ints, valid
 // var data = ["1","2","3","4","5"]; // strings, not valid
 var stream = new Stream<int>.fromIterable(data); // Stream<int>
 stream.listen((value) { // value must be an int
   print("listen: $value");
 });
-{% endprettify %}
+{% endprettify %}<!--- END(stream_generics) -->
 
 ## Some real world examples of consuming a stream
 
@@ -453,7 +456,7 @@ The following code sets up a button and a couple of event handlers.
 One event handler remains
 registered, and the other unregisters itself after the third button click.
 
-{% prettify dart %}
+<!--- BEGIN(html_streams) -->{% prettify dart %}
 import 'dart:html';
 
 void main() {
@@ -476,7 +479,7 @@ void main() {
     }
   });  
 }
-{% endprettify %}
+{% endprettify %}<!--- END(html_streams) -->
 
 When the button is clicked, the click counter is incremented. On the third 
 click, the second event handler unsubscribes itself.
@@ -489,20 +492,18 @@ file's contents.  The stream (which contains a <code>List&lt;int></code>)
 is decoded using a <code>StringDecoder</code> class to allow for UTF-8 
 conversion.
 
-{% prettify dart %}
+<!--- BEGIN(reading_a_file) -->{% prettify dart %}
 import 'dart:io';
 
-void main() {
-  File file = new File(r"c:\work\test.txt");
+main() {
+  File file = new File("some_file.txt");
   file.openRead()
       .transform(new StringDecoder()) // use a StringDecoder
-      .listen((String data) {
-          print(data); // output the data
-        }, 
+      .listen((String data) => print(data), // output the data
         onError: (error) => print("Error, could not open file"),
         onDone: () => print("Finished reading data"));
 } 
-{% endprettify %}
+{% endprettify %}<!--- END(reading_a_file) -->
 
 ## Conclusion
 
