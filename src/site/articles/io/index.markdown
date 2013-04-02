@@ -90,7 +90,7 @@ Running this example at the command line, we get:
     end of main
     timer
 
-Had we made the timer repeating by using the Timer.repeating() constructor,
+Had we made the timer repeating by using the Timer.periodic() constructor,
 the VM would not terminate
 and would continue to print out 'timer' every second.
 </section>
