@@ -210,31 +210,31 @@ allow you to take a subset of data, as shown by the following example.  Each
 outputs its own stream that you can listen to.
 
 <!--- BEGIN(stream_subsets) -->{% prettify dart %}
-  broadcastStream
-      .where((value) => value % 2 == 0) // divisible by 2
-      .listen((value) => print("where: $value")); // where: 2
-                                                  // where: 4
-  
-  broadcastStream
-      .take(3) // takes only the first three elements
-      .listen((value) => print("take: $value")); // take: 1
-                                                 // take: 2
-                                                 // take: 3
-  
-  broadcastStream
-      .skip(3)  // skips the first three elements
-      .listen((value) => print("skip: $value")); // skip: 4
-                                                 // skip: 5
-  
-  broadcastStream
-      .takeWhile((value) => value < 3) // take while true
-      .listen((value) => print("takeWhile: $value")); // takeWhile: 1
-                                                      // takeWhile: 2
+broadcastStream
+    .where((value) => value % 2 == 0) // divisible by 2
+    .listen((value) => print("where: $value")); // where: 2
+                                                // where: 4
 
-  broadcastStream
-      .skipWhile((value) => value < 3) // skip while true
-      .listen((value) => print("skipWhile: $value")); // skipWhile: 4
-                                                      // skipWhile: 5
+broadcastStream
+    .take(3) // takes only the first three elements
+    .listen((value) => print("take: $value")); // take: 1
+                                               // take: 2
+                                               // take: 3
+
+broadcastStream
+    .skip(3)  // skips the first three elements
+    .listen((value) => print("skip: $value")); // skip: 4
+                                               // skip: 5
+
+broadcastStream
+    .takeWhile((value) => value < 3) // take while true
+    .listen((value) => print("takeWhile: $value")); // takeWhile: 1
+                                                    // takeWhile: 2
+
+broadcastStream
+    .skipWhile((value) => value < 3) // skip while true
+    .listen((value) => print("skipWhile: $value")); // skipWhile: 4
+                                                    // skipWhile: 5
 {% endprettify %}<!--- END(stream_subsets) -->
 
 ### Transforming stream data
