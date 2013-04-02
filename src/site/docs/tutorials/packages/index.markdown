@@ -248,8 +248,10 @@ Open the vector_math directory by clicking the little arrow.
 
 ![Finally, the vector_math library files](images/the-vectormath-library.png)
 
-The directory contains two Dart files,
-each of which defines a different library.
+The directory contains a Dart file,
+which you import into your Dart application,
+and a `src` directory,
+which contains all of the source code for the library.
 As with the SDK libraries,
 use the import directive to use code from an installed library.
 The Dart SDK libraries are built-in and
@@ -258,7 +260,7 @@ For external libraries installed by pub,
 use the `package:` prefix.
 
 {% prettify dart %}
-import 'package:vector_math/vector_math_browser.dart';
+import 'package:vector_math/vector_math.dart';
 {% endprettify %}
 
 Note that you specify the filename, not the library name.

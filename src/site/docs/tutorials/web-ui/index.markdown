@@ -351,7 +351,7 @@ the watcher library from the web_ui package
 1. Change the code within the main() function.
 1. Add the updateTime() function.
 
-The main() function sets a timer using a repeating Timer object.
+The main() function sets a timer using a periodic Timer object.
 The timer calls the updateTime() function every second.
 The updateTime() function is similar to the
 main() function in the previous version;
@@ -414,6 +414,10 @@ Use these links to find the source code:
   <li>
 <a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/shout/web/shout.dart"
    target="_blank">shout.dart</a>
+  </li>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/shout/build.dart"
+   target="_blank">build.dart</a> (For building the app with Web UI)
   </li>
 </ul>
 
@@ -524,11 +528,8 @@ Other common events
 are double-click events (`on-double-click`)
 and change events on input fields (`on-change`).
 See the API docs for 
-<a href="http://api.dartlang.org/dart_html/ElementEvents.html"
-   target="_blank">ElementEvents</a>
-and
-<a href="http://api.dartlang.org/dart_html/InputElementEvents.html"
-   target="_blank">InputElementEvents</a>
+<a href="http://api.dartlang.org/dart_html/Element.html"
+   target="_blank">Element</a>
 for a complete list of event names.
 {% comment %}
 Events classes are planned to change
@@ -561,6 +562,10 @@ and thus the code for all of the mouse click handlers, here:
   <li>
 <a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/stopwatch/web/stopwatch.dart"
    target="_blank">stopwatch.dart</a>
+  </li>
+  <li>
+<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/stopwatch/build.dart"
+   target="_blank">build.dart</a> (For building the app with Web UI)
   </li>
 </ul>
 
