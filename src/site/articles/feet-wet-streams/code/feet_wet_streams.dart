@@ -47,9 +47,9 @@ singleStream() {
   // END(simple_stream_code)
 
   // subscribe to the streams events
-  stream.listen((value) {
+  stream.listen((value) {       //
     print("Received: $value");  // onData handler
-  });   
+  });                           //
 }
 // END(consuming_a_stream) 
 

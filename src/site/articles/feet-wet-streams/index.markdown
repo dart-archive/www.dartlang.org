@@ -131,9 +131,9 @@ main() {
   var stream = new Stream.fromIterable(data);  // create the stream
 
   // subscribe to the streams events
-  stream.listen((value) {
+  stream.listen((value) {       //
     print("Received: $value");  // onData handler
-  });
+  });                           //
 }
 {% endprettify %}<!--- END(consuming_a_stream) -->
 
