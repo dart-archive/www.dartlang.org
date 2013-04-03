@@ -189,11 +189,12 @@ singleError() {
   var broadcastStream = stream.asBroadcastStream(); 
 
   Future inner() {
-    // BEGIN(failure_using_single)
-    broadcastStream
-        .single  // will fail - there is more than one value in the stream
-        .then((value) => print("single value: $value"));
-        // END(failure_using_single)
+    return
+        // BEGIN(failure_using_single)
+        broadcastStream
+            .single  // will fail - there is more than one value in the stream
+            .then((value) => print("single value: $value"));
+            // END(failure_using_single)
   }
   
   inner().catchError((err) => print("Expected Error: $err"));
