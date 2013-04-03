@@ -165,8 +165,7 @@ stream = new Stream.fromIterable([1,2,3,4,5]);
 stream.length.then((value) => print("stream.length: $value"));  // 5
 {% endprettify %}<!--- END(stream_properties) -->
 
-You'll notice that some of the lines are commented out.  This is for an 
-important reason.  Streams comes in two flavours: **single** or **multiple** 
+Streams comes in two flavours: **single** or **multiple** 
 (also known as **broadcast**) subscriber.   By default, our stream is a
 single-subscriber stream.
 This means that if you try to listen to the stream more than 
