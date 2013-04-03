@@ -28,6 +28,7 @@ main() {
   
   singleWhere();
   singleError();
+  singleErrorWithCatch();
   
   streamSubscription_handlersOnSubscription();
   streamSubscription_handlerFunctionArgs();
@@ -186,13 +187,28 @@ singleError() {
   var stream = new Stream.fromIterable(data);
   // get the stream as a broadcast stream
   var broadcastStream = stream.asBroadcastStream(); 
+
+  Future inner() {
+    // BEGIN(failure_using_single)
+    broadcastStream
+        .single  // will fail - there is more than one value in the stream
+        .then((value) => print("single value: $value"));
+        // END(failure_using_single)
+  }
   
-  // BEGIN(failure_using_single)
+  inner().catchError((err) => print("Expected Error: $err"));
+}
+
+singleErrorWithCatch() {
+  var data = [1,2,3,4,5];
+  var stream = new Stream.fromIterable(data);
+  // get the stream as a broadcast stream
+  var broadcastStream = stream.asBroadcastStream(); 
+  
   // BEGIN(catch_error)
   broadcastStream
       .single  // will fail - there is more than one value in the stream
       .then((value) => print("single value: $value"))
-      // END(failure_using_single)
       .catchError((err) => print("Expected Error: $err")); // catch any error in the then()
       // output: Bad State: More than one element
       // END(catch_error)

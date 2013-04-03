@@ -332,7 +332,7 @@ the error is unhandled):
 <!--- BEGIN(failure_using_single) -->{% prettify dart %}
 broadcastStream
     .single  // will fail - there is more than one value in the stream
-    .then((value) => print("single value: $value"))
+    .then((value) => print("single value: $value"));
 {% endprettify %}<!--- END(failure_using_single) -->
 
 This brings us neatly on to...
