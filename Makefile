@@ -31,6 +31,9 @@ o2:
 dartisansplaylist:
 	dart scripts/gen_dartisans_playlist.dart
 
+darttips:
+	cd scripts &&	dart gen_dart_tips.dart
+
 convert-docbook-to-html:
 ifndef BOOK_XML_DIR
 	@echo "You must specify the location of the .xml files. Example: \n  make book BOOK_XML_DIR=~/Spot/dartbook/SVN \nSkipping docbook-to-html conversion."

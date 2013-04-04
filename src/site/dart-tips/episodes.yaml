@@ -57,3 +57,17 @@ episodes:
   num: 8
   youtubeid: XdqZdsdzD2A
   thumbnail: http://i.ytimg.com/vi/XdqZdsdzD2A/0.jpg
+- title: "Exceptions - Dart Tips, Ep 9"
+  subtitle: "Exceptions"
+  pubdate: 2013-03-07
+  description: "Learn how to gracefully handle exceptions and errors in Dart. Don't get caught off guard the next time you run into an error, learn more about try, catch, finally, and throw.  "
+  num: 9
+  youtubeid: J94I70uqr6w
+  thumbnail: http://i.ytimg.com/vi/J94I70uqr6w/0.jpg
+- title: "Classes: Setters & Getters - Dart Tips, Ep 10"
+  subtitle: "Classes: Setters & Getters"
+  pubdate: 2013-03-07
+  description: "Dart is a pure class-based object oriented language. In this first video covering classes in Dart, learn more about how getters and setters help you scale Dart code from simple fields to richer encapsulation.  "
+  num: 10
+  youtubeid: 2woBWdBQ4Ro
+  thumbnail: http://i.ytimg.com/vi/2woBWdBQ4Ro/0.jpg
