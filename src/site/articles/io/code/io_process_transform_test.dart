@@ -1,3 +1,4 @@
+// BEGIN(io_process_transform)
 import 'dart:io';
 
 main() {
@@ -11,3 +12,4 @@ main() {
     });
   });
 }
+// END(io_process_transform)

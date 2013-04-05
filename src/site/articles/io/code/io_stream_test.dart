@@ -1,3 +1,4 @@
+// BEGIN(io_stream)
 import 'dart:io';
 import 'dart:async';
 
@@ -19,3 +20,4 @@ main() {
     }
   });
 }
+// END(io_stream)

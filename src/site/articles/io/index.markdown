@@ -75,14 +75,14 @@ Once that code executes to completion,
 no more pending operations are in the event queue
 and the VM terminates.
 
-{% prettify dart %}
+<!--- BEGIN(io_timer) -->{% prettify dart %}
 import 'dart:async';
 
 main() {
   new Timer(new Duration(seconds:1), () => print('timer'));
   print('end of main');
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_timer) -->
 
 Running this example at the command line, we get:
 
@@ -109,7 +109,7 @@ we use the
 [Options](http://api.dartlang.org/dart_core/Options.html) class
 from [dart:core](http://api.dartlang.org/dart_core.html).
 
-{% prettify dart %}
+<!--- BEGIN(io_file_system) -->{% prettify dart %}
 import 'dart:io';
 import 'dart:async';
 
@@ -119,7 +119,7 @@ main() {
   Future<String> finishedReading = file.readAsString(encoding: Encoding.ASCII);
   finishedReading.then((text) => print(text));
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_file_system) -->
 
 Notice that the readAsString() method is asynchronous;
 it returns a [Future](http://api.dartlang.org/dart_async/Future.html)
@@ -141,7 +141,7 @@ Here is a version that opens the file for random access operations.
 The code opens the file for reading and then reads one byte at a time
 until it encounters the char code for ';'.
 
-{% prettify dart %}
+<!--- BEGIN(io_random_access) -->{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -163,7 +163,7 @@ main() {
     file.readByte().then(onByte);
   });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_random_access) -->
 
 When you see a use of `then()`, you are seeing a Future in action.
 Both the `open()` and `readByte()` methods return a Future object.
@@ -179,7 +179,7 @@ as a stream of lists of bytes. Like all streams in Dart you listen on
 this stream and the data is given in chunks. You can always stop
 reading more from the file by cancelling the subscription.
 
-{% prettify dart %}
+<!--- BEGIN(io_stream) -->{% prettify dart %}
 import 'dart:io';
 import 'dart:async';
 
@@ -201,7 +201,7 @@ main() {
     }
   });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_stream) -->
 
 [Stream<List<int>>] is used in multiple places in dart:io:
 when working with stdin, files, sockets, HTTP connections, and so on.
@@ -220,7 +220,7 @@ to run a process
 and collect its output. Use `run()` when you don't
 need interactive control over the process.
 
-{% prettify dart %}
+<!--- BEGIN(io_process) -->{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -230,7 +230,7 @@ main() {
     print(results.stdout);
   });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_process) -->
 
 You can also start a process by creating a
 [Process](http://api.dartlang.org/docs/release/dart_io/Process.html) object
@@ -251,7 +251,7 @@ which decodes chunks of bytes into strings followed by a
 [LineTransformer](http://api.dartlang.org/docs/release/dart_io/LineTransformer.html),
 which splits the strings at line boundaries.
 
-{% prettify dart %}
+<!--- BEGIN(io_process_transform) -->{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -265,7 +265,7 @@ main() {
     });
   });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_process_transform) -->
 
 Notice that exitCode can complete before all of the lines of output
 have been processed. Also note
@@ -277,7 +277,7 @@ Instead of printing the output to stdout,
 we can use the streaming classes
 to pipe the output of the process to a file.
 
-{% prettify dart %}
+<!--- BEGIN(io_process_stdio) -->{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -290,7 +290,7 @@ main() {
     });
   });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_process_stdio) -->
 
 </section>
 
@@ -307,7 +307,7 @@ and hook up a listener to its stream of `HttpRequest`s.
 Here is a simple web server
 that just answers 'Hello, world' to any request.
 
-{% prettify dart %}
+<!--- BEGIN(io_http_server) -->{% prettify dart %}
 import 'dart:io';
 
 main() {
@@ -318,7 +318,7 @@ main() {
     });
   });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_http_server) -->
 
 Running this application
 and pointing your browser to 'http://127.0.0.1:8080'
@@ -334,7 +334,7 @@ If the file is not found we will respond with a '404 Not Found' status.
 We make use of the streaming interface
 to pipe all the data read from a file directly to the response stream.
 
-{% prettify dart %}
+<!--- BEGIN(io_http_server_file) -->{% prettify dart %}
 import 'dart:io';
 
 _sendNotFound(HttpResponse response) {
@@ -375,7 +375,7 @@ main() {
     startServer(d.path);
   });
 }
-{% endprettify %}
+{% endprettify %}<!--- END(io_http_server_file) -->
 
 Writing HTTP clients is very similar to using the
 [HttpClient](http://api.dartlang.org/docs/release/dart_io/HttpClient.html)
