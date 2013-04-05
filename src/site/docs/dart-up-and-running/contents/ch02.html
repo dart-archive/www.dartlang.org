@@ -692,7 +692,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
 </span></em>throw 'Out of llamas!';</pre><p>Because throwing an exception is an expression, you can throw
       exceptions in =&gt; statements, as well as anywhere else that allows
       expressions:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>num distanceTo(Point other) =&gt; throw const NotImplementedException();</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-catch"></a>Catch</h3></div></div></div><p>Catching, or capturing, an exception stops the exception from
+</span></em>distanceTo(Point other) =&gt; throw new UnimplementedError();</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-catch"></a>Catch</h3></div></div></div><p>Catching, or capturing, an exception stops the exception from
       propagating. Catching an exception gives you a chance to handle
       it.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>try {
