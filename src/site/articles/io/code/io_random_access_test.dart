@@ -1,3 +1,4 @@
+// BEGIN(io_random_access)
 import 'dart:io';
 
 main() {
@@ -19,3 +20,4 @@ main() {
     file.readByte().then(onByte);
   });
 }
+// END(io_random_access)

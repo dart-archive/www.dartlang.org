@@ -1,3 +1,4 @@
+// BEGIN(io_process)
 import 'dart:io';
 
 main() {
@@ -7,3 +8,4 @@ main() {
     print(results.stdout);
   });
 }
+// END(io_process)
