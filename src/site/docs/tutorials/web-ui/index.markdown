@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Target 6: Get Started with Web UI"
-description: "Web UI provides an MDV framework and web components."
+description: "Web UI provides web components, templates, data binding, and encapsulation."
 has-permalinks: true
 tutorial:
   id: get-started-web-ui
@@ -10,7 +10,8 @@ tutorial:
 {% capture whats_the_point %}
 
 * Web UI is an open-source package.
-* Web UI combines the ideas from web components and MDV.
+* Web UI provides web components for Dart apps.
+* Other features support separation of data and presentation.
 * Compile Web UI apps automatically in Dart Editor.
 * Use data binding to sync Dart variables and UI elements.
 * Attach event handlers to UI elements in HTML.

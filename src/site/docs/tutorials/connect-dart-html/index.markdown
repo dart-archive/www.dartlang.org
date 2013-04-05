@@ -139,7 +139,7 @@ the files and directories needed for a web application.
 
 * The pubspec.yaml file is used by applications
 that rely on external packages of Dart code.
-[Target 5: Install Shared Packages]("/docs/tutorials/packages/")
+[Target 5: Install Shared Packages](/docs/tutorials/packages/)
 provides more information.
 Web applications use a package called `browser`.
 This dependency is declared in the pubspec.yaml file.
