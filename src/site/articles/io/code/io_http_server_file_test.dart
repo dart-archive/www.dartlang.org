@@ -1,3 +1,4 @@
+// BEGIN(io_http_server_file)
 import 'dart:io';
 
 _sendNotFound(HttpResponse response) {
@@ -38,3 +39,4 @@ main() {
     startServer(d.path);
   });
 }
+// END(io_http_server_file)
