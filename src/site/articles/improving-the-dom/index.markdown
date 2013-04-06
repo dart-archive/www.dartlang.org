@@ -112,7 +112,7 @@ elem.querySelectorAll('.foo .bar');
   </div>
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_query) -->{% prettify dart %}
 // New:
 elem.query('#foo');
 elem.queryAll('div');
@@ -120,7 +120,7 @@ elem.queryAll('[name="foo"]');
 elem.queryAll('.foo');
 elem.query('.foo .bar');
 elem.queryAll('.foo .bar');
-{% endprettify %}
+{% endprettify %}<!--- END(element_query) -->
 
   </div>
 </div>
@@ -171,13 +171,13 @@ elem.removeAttribute('name');
 
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_attributes) -->{% prettify dart %}
 // New:
 elem.attributes.containsKey('name');
 elem.attributes['name'];
 elem.attributes['name'] = 'value';
 elem.attributes.remove('name');
-{% endprettify %}
+{% endprettify %}<!--- END(element_attributes) -->
 
   </div>
 </div>
@@ -200,12 +200,12 @@ elem.appendChild(child);
 
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_nodes) -->{% prettify dart %}
 // New:
 elem.nodes.isEmpty;
 elem.nodes[0];
 elem.nodes.add(child);
-{% endprettify %}
+{% endprettify %}<!--- END(element_nodes) -->
 
   </div>
 </div>
@@ -231,10 +231,15 @@ document.createElement('div');
 
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_constructors) -->{% prettify dart %}
 // New:
 new DivElement();
-{% endprettify %}
+new ButtonElement();
+new InputElement(); 
+new InputElement(type: 'checkbox');
+new TableElement();
+new StyleElement();
+{% endprettify %}<!--- END(element_constructors) -->
 
   </div>
 </div>
@@ -250,10 +255,10 @@ Most of the HTML elements have constructors. For example:
 You can even construct an element, and its children,
 from an HTML snippet. Here's an example:
 
-{% prettify dart %}
+<!--- BEGIN(element_table) -->{% prettify dart %}
 TableElement table = new Element.html(
     '<table><tr><td>Hello <em>Dart!</em></table>');
-{% endprettify %}
+{% endprettify %}<!--- END(element_table) -->
 
 Dart's [named constructors](/docs/dart-up-and-running/contents/ch02.html#ch02-constructors-named)
 make it easier to conjure up DOM objects in a
@@ -298,13 +303,13 @@ elem.removeEventListener(
   </div>
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_listen) -->{% prettify dart %}
 // New:
 var subscription = elem.onClick.listen(
     (event) => print('click!'));
 
 subscription.cancel();
-{% endprettify %}
+{% endprettify %}<!--- END(element_listen) -->
 
   </div>
 </div>
@@ -313,12 +318,12 @@ If you know you're going to handle one-and-only-one event, you can
 use `onEvent.first.then()`, which converts a Stream into a single event
 that returns a Future.
 
-{% prettify dart %}
+<!--- BEGIN(handleMouseDown) -->{% prettify dart %}
 void handleMouseDown(e) {
   // Gets the first mouse up event, then automatically unregisters!
   elem.onMouseUp.first.then((event) => doCoolStuff());
 }
-{% endprettify %}
+{% endprettify %}<!--- END(handleMouseDown) -->
 
 On the off chance that you _do_ want to register a dynamically-named
 event, or work with events generically, we also put a subscript operator on
@@ -338,11 +343,11 @@ elem.addEventListener(
   </div>
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_listen_dynamic) -->{% prettify dart %}
 // New:
 elem.on['dynamiceventname'].listen(
     (event) => print('dynamic!'));
-{% endprettify %}
+{% endprettify %}<!--- END(element_listen_dynamic) -->
 
   </div>
 </div>
@@ -464,18 +469,18 @@ navigator.getMedia (
   </div>
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_get_user_media) -->{% prettify dart %}
 // With Dart:
 window.navigator.getUserMedia(audio:true, video: true)
   .then((stream) {
     var video = new VideoElement()
       ..autoplay = true
       ..src = Url.createObjectUrl(stream)
-      ..onLoadedMetadata.listen((e) => /* ... */);
+      ..onLoadedMetadata.listen((e) => print(e));
     document.body.append(video);
   })
   .catchError(reportIssue);
-{% endprettify %}
+{% endprettify %}<!--- END(element_get_user_media) -->
 
   </div>
 </div>
@@ -515,7 +520,7 @@ db.transaction("customers")
   </div>
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_indexdb) -->{% prettify dart %}
 // With Dart:
 window.indexedDB.open(dbName, version: version,
   onUpgradeNeeded: (e) {
@@ -531,7 +536,7 @@ window.indexedDB.open(dbName, version: version,
   })
   .then((obj) => displayObject(obj))
   .catchError((e) => reportError(e));
-{% endprettify %}
+{% endprettify %}<!--- END(element_indexdb) -->
 
   </div>
 </div>
@@ -606,14 +611,14 @@ button.onClick.listen((e) => registerAccount());
   </div>
   <div class="span6">
 
-{% prettify dart %}
+<!--- BEGIN(element_cascades) -->{% prettify dart %}
 // With cascades:
 var button = new ButtonElement()
   ..id = 'register'
   ..classes.add('important')
   ..text = 'Click to Register'
   ..onClick.listen((e) => registerAccount());
-{% endprettify %}
+{% endprettify %}<!--- END(element_cascades) -->
 
   </div>
 </div>
