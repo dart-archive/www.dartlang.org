@@ -1,11 +1,25 @@
 ---
 layout: default
-title: "Dart Cookbook"
+title: "Dart Cookbook (Beta)"
 description: "Recipes and prescriptions for using Dart."
+rel:
+    author: shailen-tuli
 has-permalinks: true
 ---
 
-# Dart Cookbook
+# {{ page.title }}
+
+_Author: Shailen Tuli_
+
+Welcome to the online version of _Dart Cookbook_, a work in progress. The
+source of this work is the [dart-lang/cookbook GitHub
+project](https://github.com/dart-lang/cookbook), which Shailen Tuli
+maintains. O'Reilly plans to publish a paperback version of _Dart Cookbook_
+later this year.
+
+To report a bug, suggest an improvement, or request a recipe, please use
+the [issue tracker](https://github.com/dart-lang/cookbook/issues).
+
 
 ## Contents
 
@@ -34,7 +48,7 @@ has-permalinks: true
 1. [Numbers](#numbers)
     1. [Converting a string to a number](#converting-a-string-to-a-number)
     1. [Converting a number to a string](#converting-a-number-to-a-string)
-1. [Json](#json)
+1. [JSON](#json)
     1. [Encoding JSON](#encoding-json)
     1. [Decoding JSON](#decoding-json)
 1. [URIs](#uris)
