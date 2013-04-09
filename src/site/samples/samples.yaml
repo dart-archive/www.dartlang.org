@@ -42,7 +42,6 @@ row02:
   alt: Sunflower in a browser.
   source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%sunflower
   desc: Canvas 2D app with HTML5 range input and event handler.
-  walkthrough: true
   features:
     - HTML5 canvas
     - Event handling
@@ -54,7 +53,6 @@ row02:
   alt: A spirodraw game in a browser.
   source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%spirodraw
   desc: Fun and interactive animation using canvas 2D.
-  walkthrough: true
   features:
     - HTML5 canvas
     - User input

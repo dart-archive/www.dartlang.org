@@ -24,9 +24,6 @@ experimentation.
       <h3>{{ sample.title }}</h3>
       <p>
         {{ sample.desc }}
-        {% if sample.walkthrough %}
-        <a href="{{ sample.name }}/index.html">Code walkthrough.</a>
-        {% endif %}
       </p>
       <p>
         <a href="{{ sample.source_url }}">View the source.</a>
@@ -54,9 +51,6 @@ experimentation.
       <h3>{{ sample.title }}</h3>
       <p>
         {{ sample.desc }}
-        {% if sample.walkthrough %}
-        <a href="{{ sample.name }}/index.html">Code walkthrough.</a>
-        {% endif %}
       </p>
       <p>
         <a href="{{ sample.source_url }}">View the source.</a>
@@ -84,9 +78,6 @@ experimentation.
       <h3>{{ sample.title }}</h3>
       <p>
         {{ sample.desc }}
-        {% if sample.walkthrough %}
-        <a href="{{ sample.name }}/index.html">Code walkthrough.</a>
-        {% endif %}
       </p>
       <p>
         <a href="{{ sample.source_url }}">View the source.</a>
