@@ -208,8 +208,8 @@ bool isShouting(String message) {
 }
 {% endprettify %}
 
-The above example looks like a regular function definition in C or
-a method in Java or JavaScript. You can call functions in the usual way:
+The above example looks similar to functions or methods
+found in C or Java. You can call functions in the usual way:
 
 {% prettify dart %}
 print(isShouting("I'M JUST VERY EXCITED")); // true
