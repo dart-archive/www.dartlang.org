@@ -3,35 +3,17 @@ layout: default
 title: "Search Dart Sites"
 ---
 
-<section>
-<div id="cse" style="width: 100%;">Loading</div>
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-<script type="text/javascript"> 
-  function parseQueryFromUrl () {
-    var queryParamName = "q";
-    var search = window.location.search.substr(1);
-    var parts = search.split('&');
-    for (var i = 0; i < parts.length; i++) {
-      var keyvaluepair = parts[i].split('=');
-      if (decodeURIComponent(keyvaluepair[0]) == queryParamName) {
-        return decodeURIComponent(keyvaluepair[1].replace(/\+/g, ' '));
-      }
-    }
-    return '';
-  }
-
-  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
-  google.setOnLoadCallback(function() {
-    var customSearchOptions = {};
-    var customSearchControl = new google.search.CustomSearchControl(
-      '011220921317074318178:i4mscbaxtru', customSearchOptions);
-    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-    customSearchControl.draw('cse');
-    var queryFromUrl = parseQueryFromUrl();
-    if (queryFromUrl) {
-      customSearchControl.execute(queryFromUrl);
-    }
-  }, true);
+<script>
+  (function() {
+    var cx = '011220921317074318178:i4mscbaxtru';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
 </script>
+<gcse:search></gcse:search>
  
-</section>
