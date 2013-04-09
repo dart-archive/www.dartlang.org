@@ -8,6 +8,8 @@ Directory outputDir;
 String frontMatter(title) {
   final yaml = """
 ---
+# WARNING: GENERATED FILE. DO NOT EDIT.
+# WANT TO CONTRIBUTE? SEE https://github.com/dart-lang/dart-up-and-running-book
 layout: book
 title: "${title} from Dart: Up and Running"
 description: "Read ${title} of Dart: Up and Running, published by O'Reilly."
