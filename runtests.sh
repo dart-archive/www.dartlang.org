@@ -33,7 +33,7 @@ done
 #####
 # Type Analysis
 
-ANA="dart_analyzer --enable_type_checks --extended-exit-code --type-checks-for-inferred-types --incremental"
+ANA="dart_analyzer --extended-exit-code"
 
 echo
 echo "Type Analysis, running dart_analyzer..."
