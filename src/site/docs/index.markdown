@@ -26,10 +26,6 @@ You don't need to know JavaScript or web programming to use these tutorials.
 : Learn about the Dart language, see Dart code, and
 learn how to participate in the Dart project.
 
-[Getting Started with Dart Editor](/docs/editor/getting-started/)
-: Follow this tutorial to install and use Dart Editor, the
-lightweight editor for Dart development.
-
 ## Language
 
 [Language Tour](/docs/dart-up-and-running/contents/ch02.html)
@@ -42,15 +38,15 @@ know how to program in another language.
 
 ## Libraries
 
-[API Reference](http://api.dartlang.org)
-: Browse the full API reference docs for the Dart libraries.
-
 [Library Tour](/docs/dart-up-and-running/contents/ch03.html)
 : Learn how to use the major features in each library that comes with Dart.
 
+[API Reference](http://api.dartlang.org)
+: Browse the full API reference docs for the Dart libraries.
+
 ## Usage
 
-[Articles and Tutorials](/articles/)
+[Articles](/articles/)
 : Read these articles for insight into Dart programming topics,
 such as the [Dart Style Guide](/articles/style-guide/),
 [Optional Types in Dart](/articles/optional-types/), and more.
@@ -60,24 +56,18 @@ such as the [Dart Style Guide](/articles/style-guide/),
 
 ## Tools
 
-[Dart Editor](/docs/editor/)
+[Tools for Dart](/tools/)
+: Find links to editors, IDEs, command-line tools, and more.
+
+[Dart Editor](/tools/editor/)
 : Get detailed instructions for using Dart Editor, a lightweight, open-source editor.
 A few of the covered topics are enabling production mode, compiling to JavaScript, and specifying a browser.
 
-[Chromium with the Dart VM](/dartium/)
+[Chromium with the Dart VM](/tools/dartium/)
 : Learn how to get and use a Chromium-based browser (nicknamed Dartium) that
 includes the Dart virtual machine (VM).
 
-[Dart SDK](/docs/sdk/)
-: Learn how to download and use the Dart SDK, which includes binaries of the VM,
-dart2js, pub, and more.
-
-[Pub package manager (pub.dartlang.org)](http://pub.dartlang.org)
-: Browse hosted packages, and learn how to use pub to reuse Dart code.
-
-[Dart2js compiler](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html)
-: Learn how to use the dart2js tool to compile Dart code to JavaScript.
-
-[Dart VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html)
-: Learn how to use the dart tool (bin/dart) to run Dart command-line apps
-such as server-side scripts, programs, and servers.
+[Dart SDK](/tools/sdk/)
+: Learn how to download and use the Dart SDK,
+which includes the Dart VM (dart), dart2js, pub, {PENDING: expand list here}
+and more.

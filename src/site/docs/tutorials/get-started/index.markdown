@@ -23,7 +23,7 @@ tutorial:
 This target gets you ready
 to begin writing web apps in Dart.
 Here you will download the Dart software,
-and use the Dart Editor to
+and use Dart Editor to
 create and run two small applications.
 
 * [Download the Dart software bundle](#download-dart)
@@ -40,11 +40,9 @@ create and run two small applications.
 
 ##Download the Dart software bundle {#download-dart}
 
-Go to the
-[Downloads and Source](/downloads.html)
-page and download the Dart software for your computer.
-Be sure to download the package under **Everything you need**
-because you will be using Dart Editor
+Go to the [Dart Editor](/tools/editor/) page
+and download Dart Editor.
+You'll be using it
 throughout this tutorial.
 
 ##What did you get? {#what-did-you-get}

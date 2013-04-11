@@ -153,8 +153,8 @@ and the extension will take care of everything else.
 
 [dwc]: https://github.com/dart-lang/web-ui/
 [extension]: http://dart-lang.github.com/web-ui/extension/web_ui.crx
-[dartium]: /dartium/
-[editor]: /docs/editor/
+[dartium]: /tools/dartium/
+[editor]: /tools/editor/
 [dart2js]: /docs/dart-up-and-running/contents/ch04-tools-dart2js.html
 [mb]: /support/faq.html#what-browsers-supported
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html

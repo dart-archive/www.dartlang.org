@@ -14,10 +14,9 @@ js:
 <section>
 <p>
 This page has troubleshooting tips for
-<a href="/docs/editor/">Dart Editor</a>,
-and in particular for the tutorial
-<a href="getting-started/">Getting Started
-  with Dart Editor</a>.
+<a href="/tools/editor/">Dart Editor</a>,
+and in particular for the getting started instructions in
+<a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Up and Running</a>.
 </p>
 
 <p>
@@ -34,6 +33,7 @@ If we missed something, please
   <li> <a href="#launch-dart-editor">Launching Dart Editor</a> </li>
   <li> <a href="#dartium">Launching Dartium</a> </li>
   <li> <a href="#eclipse">Using Eclipse</a> </li>
+  <li> <a href="#clear">Clearing all settings</a> </li>
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
 
@@ -54,15 +54,10 @@ If we missed something, please
 
   <div class="macos">
     <p>
-    Although almost all Mac OS X systems have a 64-bit OS,
-    we currently recommend using the 32-bit Dart Editor,
-    due to 10.8 launch issues.
-    </p>
-
-    <p>
-    However, you are free to download and install the
-    <a class="download-link" data-bits="64" data-os="macos" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-macos-64.zip">
-    64-bit version of Dart Editor</a>.
+    Almost all Mac OS X systems have a 64-bit OS,
+    so we recommend using the 64-bit Dart Editor.
+    If you encounter problems,
+    try the 32-bit version.
     </p>
   </div>
 
@@ -95,7 +90,7 @@ Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\clie
 
     <p>
     You can find the bit width of your default Java version using the command
-    `java -version`.
+    <code>java -version</code>.
     </p>
 </div>
 
@@ -323,12 +318,12 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
     </p>
 
     <p>
-    The fix: <a href="/docs/editor/#download">Download</a> and install a new version of
+    The fix: <a href="/tools/editor/#download">Download</a> and install a new version of
     <b>Dart Editor</b>.
     You'll get an updated version of Dartium, plus the
     <a href="http://news.dartlang.org/search/label/editor">latest improvements to Dart Editor</a>.
     Alternatively, download a new version of
-    <a href="/dartium/">Dartium</a>
+    <a href="/tools/dartium/">Dartium</a>
     and substitute it for the copy that's in your
     Dart installation directory.
 </section>
@@ -351,6 +346,39 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   </p>
 </section>
 
+<section id="clear">
+  <h2> Clearing all settings </h2>
+
+  <p>
+  Dart Editor settings are in a platform-dependent directory,
+  so you don't lose them when you update Dart Editor.
+  If your settings become corrupted
+  or you want to see the new user experience,
+  delete the settings directory.
+  </p>
+
+  <p>
+    The following table shows where Dart Editor settings are saved.
+  </p>
+
+  <table>
+    <tr>
+      <th> Platform </th> <th> Location of settings </th>
+    </tr>
+    <tr>
+      <td> Windows&nbsp;&nbsp;&nbsp; </td>
+      <td> <code><em>&lt;user's home directory&gt;</em>\DartEditor</code> </td>
+    </tr>
+    <tr>
+      <td> Linux </td>
+      <td> <code>$HOME/.dartEditor</code> </td>
+    </tr>
+    <tr>
+      <td> Mac </td>
+      <td> <code>$HOME/Library/Application Support/DartEditor</code> </td>
+    </tr>
+  </table>
+</section>
 
 <section id="bugs">
   <h2> Other known issues </h2>

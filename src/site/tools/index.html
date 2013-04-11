@@ -1,0 +1,139 @@
+---
+layout: default
+title: "Tools for Dart"
+description: "Lots of tools to help you write your Dart apps."
+has-permalinks: false
+js:
+- url: /js/os-switcher.js
+  defer: true
+- url: /js/editor-downloads-analytics.js
+  defer: true
+- url: /js/editor-version.js
+  defer: true
+---
+{% include platform-specific-text/_noscript.html %}
+
+<div class="hero-unit">
+  <div class="row-fluid">
+    <div class="span6">
+      <h1> {{page.title}} </h1>
+      <p>
+        Download editors, IDE plugins, command-line tools, and more
+      </p>
+    </div>
+    <div class="span6">
+      <img src="images/dart-editor.png"
+           style="border:1px gray solid">
+    </div>
+  </div>
+</div>
+
+
+<p>
+  Not sure where to start?
+  Get <a href="/tools/editor/">Dart Editor</a>,
+  which has everything you need
+  to edit, run, and debug Dart apps.
+  Then follow a <a href="/docs/tutorials/">tutorial</a>.
+</p>
+
+<div align="center">
+  {% include downloads/_dart-editor.html %}
+</div>
+
+<div class="row">
+  <div class="span4">
+    <h2> More editors and IDEs </h2>
+
+    <p>
+      You aren't limited to Dart Editor.
+      Here are some of the Dart plugins you can use:
+    </p>
+
+    <table>
+      <tr>
+        <td> <img src="images/eclipse.png" align="left" width="48"
+                  alt="Eclipse logo" > </td>
+        <td> <a href="/tools/eclipse-plugin/"><b>Eclipse</b></a> </td>
+      </tr>
+      <tr>
+        <td> <img src="images/IntellIJ-IDEA.png" width="48"
+                  alt="IntelliJ logo" > </td>
+        <td> <a href="http://plugins.intellij.net/plugin/?idea&amp;id=6351"><b>IntelliJ IDEA and WebStorm</b></a> </td>
+      </tr>
+      <tr>
+        <td> <img src="images/sublime.png" width="48"
+                  alt="Sublime logo" > </td>
+        <td> <a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><b>Sublime Text 2</b></a> </td>
+      </tr>
+      <tr>
+        <td> <img src="images/vim.svg" width="48"
+                  alt="Vim logo" > </td>
+        <td> <a href="https://github.com/dart-lang/dart-vim-plugin"><b>Vim</b></a> </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div class="span4">
+    <h2> Other tools </h2>
+    <p> The following tools are included with
+      <a href="/tools/editor/">Dart Editor</a>,
+      but you can also download them separately. </p>
+    
+    <dl>
+      <dt> <a href="/tools/dartium/">Dartium</a> </dt>
+        <dd>Chromium with the Dart VM </dd>
+      <dt> <a href="/tools/sdk/">SDK</a>
+        <dd>
+          Includes these command-line tools:
+          <ul>
+            <li> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html">dart</a>:
+              The standalone VM </li>
+            <li> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart2js.html">dart2js</a>:
+              The Dart-to-JavaScript compiler </li>
+            <li> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html">dart_analyzer</a>:
+              The static analyzer </li>
+            <li> <a href="/docs/dart-up-and-running/contents/ch04-tools-dartdoc.html">dartdoc</a>:
+              The API documentation generator </li>
+            <li> <a href="http://pub.dartlang.org">pub</a>:
+              The Dart package manager </li>
+          </ul>
+        </dd>
+      </dt>
+    </dl>
+
+  </div>
+
+  <div class="span4">
+    <h2> Tips </h2>
+
+    <p> Get pointers for using Dart tools
+      during your development process.
+    </p>
+
+    <dl>
+      <dt> <a href="/tools/private-files.html">What not to commit</a> </dt>
+        <dd> Dart tools generate some files
+          that should be local only.
+          Here's some advice on what <em>not</em> to put
+          into your source repository. </dd>
+      <dt> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart2js.html#tools-dart2js-debugging">Debugging code produced by dart2js</a> </dt>
+        <dd> Dart web apps are easiest to debug
+          with Dart Editor and Dartium.
+          So how do you debug the app
+          once it's been compiled to JavaScript?
+          Here are a few tips for specific browsers. </dd>
+    </ul>
+  </div>
+</div>
+
+<p>
+  Dart Editor, Dartium, and the SDK tools
+  work in recent versions of
+  {% include os-choices.html %}
+</p>
+
+<aside class="alert alert-info">
+  <b>Note:</b> The Dart development tools <b>do not support Windows XP</b>.
+</aside>

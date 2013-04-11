@@ -1,14 +1,22 @@
 <div class="downloads">
   {% for sdk in site.custom.downloads.binaries %}
-  <span class="{{ sdk.os }}">
-    <a class="download-link btn btn-primary" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
-    	<i class="icon-download-alt"></i>
-    	64-bit Dart SDK ({{ sdk.name }})
-   	</a>
-    <a class="download-link btn btn-primary" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-32.{{ sdk.ext }}">
+
+  <div class="{{ sdk.os }} downloads">
+  {% if sdk.os == 'macos' %}
+    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
       <i class="icon-download-alt"></i>
-      32-bit Dart SDK ({{ sdk.name }})
+      Dart SDK ({{ sdk.name }})
     </a>
-  </span>
+  {% else %}
+    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
+    	<i class="icon-download-alt"></i>
+    	Dart SDK (64-bit {{ sdk.name }})
+   	</a>
+    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-32.{{ sdk.ext }}">
+      <i class="icon-download-alt"></i>
+      Dart SDK (32-bit {{ sdk.name }})
+    </a>
+  {% endif %}
+  </div>
   {% endfor %}
 </div>

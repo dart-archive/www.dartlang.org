@@ -1,0 +1,166 @@
+---
+layout: default
+title: "Dart SDK"
+description: "Dart libraries and command-line tools."
+has-permalinks: false
+js:
+- url: /js/os-switcher.js
+  defer: true
+---
+
+{% include platform-specific-text/_noscript.html %}
+
+
+<div class="hero-unit">
+  <div class="row-fluid">
+    <div class="span6">
+      <h1> {{page.title}} </h1>
+      <p>
+        Tools and libraries for Dart development
+      </p>
+    </div>
+    <div class="span6">
+      <img src="images/dev-flow.png"
+           alt="Diagram showing how a Dart app can run in either the Dart VM or (after conversion to JavaScript by dart2js) a browser's JavaScript engine">
+    </div>
+  </div>
+</div>
+
+<p>
+The Dart SDK is available for
+{% include os-choices.html %}
+It has the libraries and command-line tools
+that you need to develop Dart applications.
+To learn about other tools you can use for Dart development,
+see <a href="/tools/">Tools for Dart</a>.
+</p>
+
+<h2 id="download"> Getting the SDK </h2>
+
+<p>
+If you have an up-to-date version of
+<a href="/tools/editor/">Dart Editor</a>,
+you already have the SDK.
+It's in the <code>dart-sdk</code> subdirectory
+of the Dart Editor directory.
+</p>
+
+<p>
+If you don't want Dart Editor,
+you can download just the SDK:
+</p>
+
+<p>
+  {% include downloads/_sdk.html %}
+</p>
+
+<p>
+Or live dangerously: download the
+{% for sdk in site.custom.downloads.binaries %}
+
+<span class="{{ sdk.os }}">
+  latest, <b>untested</b> build of the
+  <a href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
+    {{ sdk.name }} 64-bit SDK</a>
+  or the
+  <a href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/dartsdk-{{ sdk.os }}-32.{{ sdk.ext }}">
+    {{ sdk.name }} 32-bit SDK</a>.
+</span>
+
+{% endfor %}
+</p>
+
+<section>
+<h2 id="contents"> What's in the SDK </h2>
+
+<p>
+The SDK directory includes a <code>lib</code> directory for the
+<a href="/docs/dart-up-and-running/contents/ch03.html">Dart libraries</a>
+and a <code>bin</code> directory that has these command-line tools:
+</p>
+
+<section>
+<div class="row-fluid">
+  <div class="span4">
+    <dt> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html">dart</a> </dt>
+      <dd>The standalone VM </dd>
+    <dt> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart2js.html">dart2js</a> </dt>
+      <dd>The Dart-to-JavaScript compiler </dd>
+  </div>
+  <div class="span4">
+    <dt> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html">dart_analyzer</a> </dt>
+      <dd>The static analyzer </dd>
+    <dt> <a href="/docs/dart-up-and-running/contents/ch04-tools-dartdoc.html">dartdoc</a> </dt>
+      <dd>The API documentation generator </dd>
+  </div>
+  <div class="span4">
+    <dt> <a href="http://pub.dartlang.org">pub</a> </dt>
+      <dd>The Dart package manager </dd>
+  </div>
+</div>
+</section>
+
+<p>
+For more information about the SDK, see its
+<a href="https://raw.github.com/dart-lang/bleeding_edge/master/dart/README.dart-sdk">README file</a>.
+</p>
+</section>
+
+<h2 id="install"> Installing the SDK </h2>
+
+<p>
+  Unzip the SDK download file.
+  You probably also should set a couple of environment variables,
+  so that using the tools is as easy as possible.
+</p>
+
+<h3 id="dart_sdk"> Setting environment variables </h2>
+
+<p>
+Some scripts depend on
+having the DART_SDK environment variable set.
+Also, you'll probably want to put the
+SDK <code>bin</code> directory in your path.
+</p>
+
+<p>
+How you set the DART_SDK and PATH environment variables
+depends on your platform.
+Here's an example for the Bash shell on Mac or Linux:
+</p>
+
+<pre>
+DART_SDK=<em>/path/to/</em>dart-sdk
+PATH=$PATH:$DART_SDK/bin
+</pre>
+
+
+
+<h2 id="bugs"> Filing bugs and feature requests </h2>
+
+<p>
+  To see existing issues or create a new one,
+  go to <a href="http://dartbug.com">dartbug.com</a>.
+  Here are some handy searches:
+</p>
+
+<ul>
+  <li> <a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-VM">
+    dart (VM) issues
+  </a> </li>
+  <li> <a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Dart2JS">
+    dart2js issues
+  </a> </li>
+  <li> <a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Analyzer">
+    dart_analyzer issues
+  </a> </li>
+  <li> <a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-DartDoc">
+    dartdoc issues
+  </a> </li>
+  <li> <a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Pub">
+    pub issues
+  </a> </li>
+  <li> <a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-SDK">
+    issues for the SDK as a whole
+  </a> </li>
+</ul>

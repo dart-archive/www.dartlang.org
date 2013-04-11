@@ -41,6 +41,9 @@ handlers:
 - url: /docs/getting-started/editor/.*
   script: scripts.redirector.application
 
+- url: /downloads.html
+  script: scripts.redirector.application
+
 - url: /docs/language-tour.*
   script: scripts.redirector.application
 
@@ -51,6 +54,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /editor.*
+  script: scripts.redirector.application
+
+- url: /docs/editor/getting-started/
   script: scripts.redirector.application
 
 - url: /docs/dart2js/
@@ -66,6 +72,18 @@ handlers:
   script: scripts.redirector.application
 
 - url: /docs/api/.*
+  script: scripts.redirector.application
+
+- url: /eclipse/
+  script: scripts.redirector.application
+
+- url: /dartium/.*
+  script: scripts.redirector.application
+
+- url: /docs/editor/.*
+  script: scripts.redirector.application
+
+- url: /docs/sdk/.*
   script: scripts.redirector.application
 
 - url: /language-tour/.*
