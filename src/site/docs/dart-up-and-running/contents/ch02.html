@@ -1,4 +1,6 @@
 ---
+# WARNING: GENERATED FILE. DO NOT EDIT.
+# WANT TO CONTRIBUTE? SEE https://github.com/dart-lang/dart-up-and-running-book
 layout: book
 title: "Chapter 2. A Tour of the Dart Language from Dart: Up and Running"
 description: "Read Chapter 2. A Tour of the Dart Language of Dart: Up and Running, published by O'Reilly."
@@ -8,7 +10,7 @@ description: "Read Chapter 2. A Tour of the Dart Language of Dart: Up and Runn
   you already know how to program in another language.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>To play with each feature, create a command-line application project
     in Dart Editor, as described in <a class="xref" href="ch01.html#ch01-editor" title="Up and Running">the section called “Up and Running”</a>.</p></div><p>Consult the <a class="ulink" href="http://www.dartlang.org/docs/spec/" target="_top">Dart
   Language Specification</a> whenever you want more details about a
-  language feature.</p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="main-print"></a>A Basic Dart Program</h2></div></div></div><p>The following code uses many of Dart’s most basic features.</p><pre class="programlisting"><em><span class="remark">lang-dart
+  language feature.</p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="main-print"></a>A Basic Dart Program</h2></div></div></div><p>The following code uses many of Dart’s most basic features:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>// Define a function.
 printNumber(num aNumber) {
   print('The number is $aNumber.'); // Print to the console.
@@ -60,7 +62,7 @@ main() {
         executes.</p></li><li class="listitem"><p>Dart has two <em class="firstterm">runtime modes</em>: production
         and checked. Production is faster, but checked is helpful at
         development.</p></li></ul></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-keywords"></a>Keywords</h3></div></div></div><p><a class="xref" href="ch02.html#keyword_table" title="Table 2.1. Dart keywords">Table 2.1, “Dart keywords”</a> lists the words that the Dart
-      language reserves.</p><div class="table"><a name="keyword_table"></a><p class="title"><b>Table 2.1. Dart keywords</b></p><div class="table-contents"><table summary="Dart keywords" border="1"><colgroup><col><col><col><col><col></colgroup><tbody><tr><td>abstract</td><td>do</td><td>finally</td><td>new</td><td>this</td></tr><tr><td>as</td><td>dynamic</td><td>for</td><td>null</td><td>throw</td></tr><tr><td>assert</td><td>else</td><td>get</td><td>operator</td><td>true</td></tr><tr><td>break</td><td>export</td><td>if</td><td>part</td><td>try</td></tr><tr><td>case</td><td>external</td><td>implements</td><td>return</td><td>typedef</td></tr><tr><td>catch</td><td>extends</td><td>import</td><td>set</td><td>var</td></tr><tr><td>class</td><td>factory</td><td>in</td><td>static</td><td>void</td></tr><tr><td>const</td><td>false</td><td>is</td><td>super</td><td>while</td></tr><tr><td>continue</td><td>final</td><td>library</td><td>switch</td><td>with</td></tr><tr><td>default</td><td class="auto-generated"> </td><td class="auto-generated"> </td><td class="auto-generated"> </td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-runtime-modes"></a>Runtime Modes</h3></div></div></div><p>We recommend that you develop and debug in checked mode, and
+      language reserves.</p><div class="table"><a name="keyword_table"></a><p class="title"><b>Table 2.1. Dart keywords</b></p><div class="table-contents"><table summary="Dart keywords" border="1"><colgroup><col><col><col><col><col><col></colgroup><tbody><tr><td>abstract</td><td>continue</td><td>factory</td><td>import</td><td>return</td><td>try</td></tr><tr><td>as</td><td>default</td><td>false</td><td>in</td><td>set</td><td>typedef</td></tr><tr><td>assert</td><td>do</td><td>final</td><td>is</td><td>static</td><td>var</td></tr><tr><td>break</td><td>dynamic</td><td>finally</td><td>library</td><td>super</td><td>void</td></tr><tr><td>case</td><td>else</td><td>for</td><td>new</td><td>switch</td><td>while</td></tr><tr><td>catch</td><td>export</td><td>get</td><td>null</td><td>this</td><td>with</td></tr><tr><td>class</td><td>external</td><td>if</td><td>operator</td><td>throw</td><td> </td></tr><tr><td>const</td><td>extends</td><td>implements</td><td>part</td><td>true</td><td> </td></tr></tbody></table></div></div><p><br class="table-break"></p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-runtime-modes"></a>Runtime Modes</h3></div></div></div><p>We recommend that you develop and debug in checked mode, and
       deploy to production mode.</p><p><span class="emphasis"><em>Production mode</em></span> is the default runtime mode
       of a Dart program, optimized for speed. Production mode ignores <a class="link" href="ch02.html#assert" title="Assert">assert statements</a> and static types.</p><p><span class="emphasis"><em>Checked mode</em></span> is a developer-friendly mode
       that helps you catch some type errors during runtime. For example, if
@@ -79,19 +81,19 @@ assert(lineCount == null);
       declarations:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>String name = 'Bob';</pre><p>Adding types is a way to clearly express your intent. Tools such
       as compilers and editors can use these types to help you, by providing
-      early warnings for bugs and code completion.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This chapter follows the <a class="ulink" href="http://www.dartlang.org/articles/style-guide/#type-annotations" target="_top">style
+      early warnings for bugs and code <span class="keep-together">completion</span>.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This chapter follows the <a class="ulink" href="http://www.dartlang.org/articles/style-guide/#type-annotations" target="_top">style
         guide recommendation</a> of using <code class="literal">var</code>, rather than type annotations, for local
         variables.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-final-const"></a>Final and Const</h3></div></div></div><p>If you never intend to change a variable, use <code class="literal">final</code> or <code class="literal">const</code>, either instead of <code class="literal">var</code> or in addition to a type. A final variable
       can be set only once; a const variable is a compile-time
       constant.</p><p>A local, top-level, or class variable that’s declared as <code class="literal">final</code> is initialized the first time it’s
-      used.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      used:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>final name = 'Bob';   // Or: final String name = 'Bob';
 // name = 'Alice';    // Uncommenting this results in an error</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Lazy initialization of final variables helps apps start up
         faster.</p></div><p>Use <code class="literal">const</code> for variables that
       you want to be compile-time constants. Where you declare the variable,
       set the value to a compile-time constant such as a literal, a const
       variable, or the result of an arithmetic operation on constant
-      numbers.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      numbers:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>const bar = 1000000;       // Unit of pressure (in dynes/cm2)
 const atm = 1.01325 * bar; // Standard atmosphere</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="built-in-types"></a>Built-in Types</h2></div></div></div><p>The Dart language has special support for the following
     types:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>numbers</p></li><li class="listitem"><p>strings</p></li><li class="listitem"><p>booleans</p></li><li class="listitem"><p>lists (also known as <span class="emphasis"><em>arrays</em></span>)</p></li><li class="listitem"><p>maps</p></li></ul></div><p>You can initialize an object of any of these special types using a
@@ -144,9 +146,10 @@ assert((3 | 4)  == 7);  // 0011 | 0100 == 0111</pre></div><div class="sect2"><di
 var s2 = "Double quotes work just as well.";
 var s3 = 'It\'s easy to escape the string delimiter.';
 var s4 = "It's even easier to just use the other string delimiter.";</pre><p>You can put the value of an expression inside a string by using
-      ${<span class="emphasis"><em>expression</em></span>}. If the expression is an identifier,
-      you can skip the {}. To get the string corresponding to an object, Dart
-      calls the object’s <code class="literal">toString()</code> method.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      <code class="literal">${</code><span class="emphasis"><em><code class="literal">expression</code></em></span><code class="literal">}</code>.
+      If the expression is an identifier, you can skip the {}. To get the
+      string corresponding to an object, Dart calls the object’s
+      <code class="literal">toString()</code> method.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var s = 'string interpolation';
 
 assert('Dart has $s, which is very handy.' ==
@@ -158,7 +161,7 @@ assert('That deserves all caps. ${s.toUpperCase()} is very handy!' ==
 </span></em>var s = 'String ' 'concatenation'
         " works even over line breaks.";
 assert(s == 'String concatenation works even over line breaks.');</pre><p>Another way to create a multi-line string: use a triple quote with
-      either single or double quotation marks.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      either single or double quotation marks:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var s1 = '''
 You can create
 multi-line strings like this one.
@@ -166,8 +169,8 @@ multi-line strings like this one.
 
 var s2 = """This is also a
 multi-line string.""";</pre><p>You can create a <span class="quote">“<span class="quote">raw</span>”</span> string by prefixing it with
-      <code class="literal">r</code>.</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>var s = r"In a raw string, even \n isn't special.";</pre><p>You can use Unicode escapes inside of strings.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      <code class="literal">r</code>:</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em>var s = r"In a raw string, even \n isn't special.";</pre><p>You can use Unicode escapes inside of strings:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/quoting.dart
 </span></em>print('Unicode escapes work: \u2665'); // Unicode escapes work: [heart]</pre><p>For more information on using strings, see <a class="xref" href="ch03.html#ch03-strings-and-regular-expressions" title="Strings and Regular Expressions">the section called “Strings and Regular Expressions”</a>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="booleans"></a>Booleans</h3></div></div></div><p>To represent boolean values, Dart has a type named <code class="literal">bool</code>. Only two objects have type bool: the
       boolean literals, <code class="literal">true</code> and <code class="literal">false</code>.</p><p>When Dart expects a boolean value, only the value <code class="literal">true</code> is treated as true. All other values are
@@ -187,9 +190,7 @@ if (name) {
   print('JavaScript prints this line because it thinks 1 is true.');
 } else {
   print('Dart in production mode prints this line.');
-
-  // However, in checked mode, if (1) throws an exception
-  // because 1 is not boolean.
+  // However, in checked mode, if (1) throws an exception.
 }</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The previous two samples work only in production mode, not
         checked mode. In checked mode, an exception is thrown if a non-boolean
         is used when a boolean value is expected.</p></div><p>Dart’s treatment of booleans is designed to avoid the strange
@@ -246,7 +247,7 @@ gifts['fourth'] = 'calling birds';    // Add a key-value pair</pre><p>You retrie
       JavaScript:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var gifts = { 'first': 'partridge' };
 assert(gifts['first'] == 'partridge');</pre><p>If you look for a key that isn’t in a map, you get a null in
-      return.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      return:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var gifts = { 'first': 'partridge' };
 assert(gifts['fifth'] == null);</pre><p>Use <code class="literal">.length</code> to get the number
       of key-value pairs in the map:</p><pre class="programlisting"><em><span class="remark">lang-dart
@@ -268,9 +269,11 @@ assert(gifts.length == 2);</pre><p>For more information about maps, see <a class
     <em class="replaceable"><code>expr</code></em>;}</code>. In the
     <code class="literal">printNumber()</code> function above, the expression is the
     call to the top-level <code class="literal">print()</code> function.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Only an <span class="emphasis"><em>expression</em></span>—not a
-      <span class="emphasis"><em>statement</em></span>—can appear between the arrow (=&gt;) and
-      the semicolon (;). For example, you can’t put an <a class="link" href="ch02.html#if-else" title="If and Else">if statement</a> there, but you can use a <a class="link" href="ch02.html#op-other" title="Other Operators">conditional (?:) expression</a>.</p></div><p>You can use types with =&gt;, although the convention is not to do
-    so.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      <span class="emphasis"><em>statement</em></span>—can appear between the <span class="keep-together">arrow (=&gt;)</span> and the semicolon (;). For
+      example, you can’t put an <a class="link" href="ch02.html#if-else" title="If and Else"><span class="keep-together">if statement</span></a> there, but you can use
+      a <a class="link" href="ch02.html#op-other" title="Other Operators">conditional (<code class="literal">?:</code>)
+      expression</a>.</p></div><p>You can use types with =&gt;, although the convention is not to do
+    so:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>printNumber(num number) =&gt; print('The number is $number.'); // Types are OK.</pre><p>Here’s an example of calling a function:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>printNumber(123);</pre><p>A function can have two types of parameters: required and optional.
     The required parameters are listed first, followed by any optional
@@ -278,7 +281,7 @@ assert(gifts.length == 2);</pre><p>For more information about maps, see <a class
       both.</p><p>Both kinds of optional parameter can have default values. The
       default values must be compile-time constants such as literals. If no
       default value is provided, the value is <code class="literal">null</code>.</p><p>If you need to know whether the caller passed in a value for an
-      optional parameter, use the syntax <code class="literal">?<em class="replaceable"><code>param</code></em></code>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      optional parameter, use the syntax <code class="literal">?<em class="replaceable"><code>param</code></em></code>:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>if (?device) {    // Returns true if the caller specified the parameter.
   // ...The user set the value. Do something with it...
 }</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="functions-optional-named-parameters"></a>Optional named parameters</h4></div></div></div><p>When calling a function, you can specify named parameters using
@@ -286,12 +289,12 @@ assert(gifts.length == 2);</pre><p>For more information about maps, see <a class
         <em class="replaceable"><code>value</code></em></code>. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>enableFlags(bold: true, hidden: false);</pre><p>When defining a function, use <code class="literal">{<em class="replaceable"><code>param1</code></em>,
         <em class="replaceable"><code>param2</code></em>, …}</code> to specify named
-        parameters.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        parameters:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>/// Sets the [bold] and [hidden] flags to the values you specify.
 enableFlags({bool bold, bool hidden}) {
   // ...
 }</pre><p>Use a colon (<code class="literal">:</code>) to specify
-        default values.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        default values:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>/**
  * Sets the [bold] and [hidden] flags to the values you specify,
  * defaulting to false.
@@ -300,8 +303,7 @@ enableFlags({bool bold: false, bool hidden: false}) {
   // ...
 }
 
-enableFlags(bold: true); // bold will be true; hidden will be false.</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="functions-optional-positional-parameters"></a>Optional positional parameters</h4></div></div></div><p>Wrapping a set of function parameters in <code class="literal">[]</code> marks them as optional positional
-        parameters.</p><pre class="programlisting"><em><span class="remark">lang-dart
+enableFlags(bold: true); // bold will be true; hidden will be false.</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="functions-optional-positional-parameters"></a>Optional positional parameters</h4></div></div></div><p>Wrapping a set of function parameters in <code class="literal">[]</code> marks them as optional positional <span class="keep-together">parameters</span>:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>String say(String from, String msg, [String device]) {
   var result = '$from says $msg';
   if (device != null) {
@@ -314,7 +316,7 @@ enableFlags(bold: true); // bold will be true; hidden will be false.</pre></div>
         parameter:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>assert(say('Bob', 'Howdy', 'smoke signal') ==
   'Bob says Howdy with a smoke signal');</pre><p>Use <code class="literal">=</code> to specify default
-        values.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        values:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>String say(String from, String msg,
   [String device='carrier pigeon', String mood]) {
   var result = '$from says $msg';
@@ -340,9 +342,8 @@ assert(loudify('hello') == '!!! HELLO !!!');</pre></div><div class="sect2"><div 
       variables is determined statically, simply by the layout of the code.
       You can “follow the curly braces outwards” to see if a variable is in
       scope.</p><p>Here is an example of nested functions with variables at each
-      scope level.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      scope level:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var topLevel = true;
-
 main() {
     var insideMain = true;
     
@@ -351,14 +352,12 @@ main() {
       
       nestedFunction() {
         var insideNestedFunction = true;
-        
         assert(topLevel);
         assert(insideMain);
         assert(insideFunction);
         assert(insideNestedFunction);
       }
     }
-
 }</pre><p>Notice how <code class="literal">nestedFunction()</code> can use variables
       from every level, all the way up to the top level.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-functions-lexical-closures"></a>Lexical Closures</h3></div></div></div><p>A <span class="emphasis"><em>closure</em></span> is a function object that has
       access to variables in its lexical scope, even when the function is used
@@ -397,8 +396,8 @@ assert(splitClosure1 != splitClosure2);
       the closure:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/function_equality.dart
 </span></em>splitClosure2 = splitClosure1;
-assert(splitClosure1 == splitClosure2);</pre><p>Top-level and static methods are different: you can compare them
-      by name.</p><pre class="programlisting"><em><span class="remark">lang-dart
+assert(splitClosure1 == splitClosure2);</pre><p>Top-level and static methods are different—you can compare them by
+      name:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/function_equality_2.dart
 </span></em>foo() {}
 
@@ -447,7 +446,7 @@ a is T</pre><p>In <a class="xref" href="ch02.html#operator_table" title="Table 
 if (n % i == 0 &amp;&amp; d % i == 0)     // Harder to read, but equivalent.</pre><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>For operators that work on two operands, the leftmost operand
       determines which version of the operator is used. For example, if you
       have a Vector object and a Point object, <code class="literal">aVector + aPoint</code> uses the Vector version of
-      +.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-arithmetic"></a>Arithmetic Operators</h3></div></div></div><p>Dart supports the usual arithmetic operators.</p><div class="table"><a name="arithmetic_operator_table"></a><p class="title"><b>Table 2.3. Arithmetic operators</b></p><div class="table-contents"><table summary="Arithmetic operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>+</td><td>Add</td></tr><tr><td>–</td><td>Subtract</td></tr><tr><td>-<em class="replaceable"><code>expr</code></em></td><td>Unary minus, also known as negation (reverse the sign of
+      +.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-arithmetic"></a>Arithmetic Operators</h3></div></div></div><p>Dart supports the usual arithmetic operators, as shown in <a class="xref" href="ch02.html#arithmetic_operator_table" title="Table 2.3. Arithmetic operators">Table 2.3, “Arithmetic operators”</a>.</p><div class="table"><a name="arithmetic_operator_table"></a><p class="title"><b>Table 2.3. Arithmetic operators</b></p><div class="table-contents"><table summary="Arithmetic operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>+</td><td>Add</td></tr><tr><td>–</td><td>Subtract</td></tr><tr><td>-<em class="replaceable"><code>expr</code></em></td><td>Unary minus, also known as negation (reverse the sign of
               the expression)</td></tr><tr><td>*</td><td>Multiply</td></tr><tr><td>/</td><td>Divide</td></tr><tr><td>~/</td><td>Divide, returning an integer result</td></tr><tr><td>%</td><td>Get the remainder of an integer division (modulo)</td></tr></tbody></table></div></div><br class="table-break"><p>Example:</p><pre class="programlisting"><em><span class="remark">lang-dart</span></em><em><span class="remark">
 ch02/arithmetic_operators.dart
 </span></em>assert(2 + 3 == 5);
@@ -510,10 +509,9 @@ assert(2 &lt;= 3);</pre></div><div class="sect2"><div class="titlepage"><div><di
 }</pre><p>You can make the code shorter using the <code class="literal">as</code> operator:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>(person as Person).firstName = 'Bob';</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The code isn’t equivalent. If <code class="literal">person</code> is null
         or not a Person, the first example (with <code class="literal">is</code>) does
-        nothing; the second (with <code class="literal">as</code>) throws an
-        exception.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-assign"></a>Assignment Operators</h3></div></div></div><p>As you’ve already seen, you assign values using the <code class="literal">=</code> operator. You can also use compound
+        nothing; the second (with <code class="literal">as</code>) throws an <span class="keep-together">exception</span>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-assign"></a>Assignment Operators</h3></div></div></div><p>As you’ve already seen, you assign values using the <code class="literal">=</code> operator. You can also use compound
       assignment operators such as <code class="literal">+=</code>,
-      which combine an operation with an assignment.</p><div class="table"><a name="assignment_operator_table"></a><p class="title"><b>Table 2.7. Assignment operators</b></p><div class="table-contents"><table summary="Assignment operators" border="1"><colgroup><col><col><col><col></colgroup><tbody><tr><td>=</td><td>*=</td><td>%=</td><td>&amp;=</td></tr><tr><td>+=</td><td>/=</td><td>&lt;&lt;=</td><td>^=</td></tr><tr><td>–=</td><td>~/=</td><td>&gt;&gt;=</td><td>|=</td></tr></tbody></table></div></div><br class="table-break"><p>Here’s how compound assignment operators work:</p><div class="informaltable"><a name="assignment_operator_concepts_table"></a><table border="1"><colgroup><col><col><col></colgroup><thead><tr><th> </th><th>Compound assignment</th><th>Equivalent expression</th></tr></thead><tbody><tr><td><span class="bold"><strong>For an operator
+      which combine an operation with an <span class="keep-together">assignment</span>.</p><div class="table"><a name="assignment_operator_table"></a><p class="title"><b>Table 2.7. Assignment operators</b></p><div class="table-contents"><table summary="Assignment operators" border="1"><colgroup><col><col><col><col><col><col></colgroup><tbody><tr><td>=</td><td>–=</td><td>/=</td><td>%=</td><td>&gt;&gt;=</td><td>^=</td></tr><tr><td>+=</td><td>*=</td><td>~/=</td><td>&lt;&lt;=</td><td>&amp;=</td><td>|=</td></tr></tbody></table></div></div><br class="table-break"><p>Here’s how compound assignment operators work:</p><div class="informaltable"><a name="assignment_operator_concepts_table"></a><table border="1"><colgroup><col><col><col></colgroup><thead><tr><th> </th><th>Compound assignment</th><th>Equivalent expression</th></tr></thead><tbody><tr><td><span class="bold"><strong>For an operator
               <em class="replaceable"><code>op</code></em>:</strong></span></td><td><code class="literal">a <em class="replaceable"><code>op</code></em>=
               b</code></td><td><code class="literal">a = a
               <em class="replaceable"><code>op</code></em> b</code></td></tr><tr><td><span class="bold"><strong>Example: </strong></span></td><td><code class="literal">a += b</code></td><td><code class="literal">a = a + b</code></td></tr></tbody></table></div><p>The following example uses both assignment and compound assignment
@@ -522,13 +520,13 @@ assert(2 &lt;= 3);</pre></div><div class="sect2"><div class="titlepage"><div><di
 a *= 3;              // Assign and multiply: a = a * 3
 assert(a == 6);</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-logical"></a>Logical Operators</h3></div></div></div><p>You can invert or combine boolean expressions using the logical
       operators.</p><div class="table"><a name="logical_operator_table"></a><p class="title"><b>Table 2.8. Logical operators</b></p><div class="table-contents"><table summary="Logical operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>!<em class="replaceable"><code>expr</code></em></td><td>inverts the following expression (changes false to true,
-              and vice versa)</td></tr><tr><td>||</td><td>logical OR</td></tr><tr><td>&amp;&amp;</td><td>logical AND</td></tr></tbody></table></div></div><br class="table-break"><p>Here’s an example of using the logical operators.</p><pre class="programlisting"><em><span class="remark">lang-dart
+              and vice versa)</td></tr><tr><td>||</td><td>logical OR</td></tr><tr><td>&amp;&amp;</td><td>logical AND</td></tr></tbody></table></div></div><br class="table-break"><p>Here’s an example of using the logical operators:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>if (!done &amp;&amp; (col == 0 || col == 3)) {
   // ...Do something...
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-bit"></a>Bitwise and Shift Operators</h3></div></div></div><p>You can manipulate the individual bits of numbers in Dart.
-      Usually, you’d use these bitwise and shift operators with
-      integers.</p><div class="table"><a name="bit_operator_table"></a><p class="title"><b>Table 2.9. Bitwise and shift operators</b></p><div class="table-contents"><table summary="Bitwise and shift operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>&amp;</td><td>AND</td></tr><tr><td>|</td><td>OR</td></tr><tr><td>^</td><td>XOR</td></tr><tr><td>~<em class="replaceable"><code>expr</code></em></td><td>Unary bitwise complement (0s become 1s; 1s become
-              0s)</td></tr><tr><td>&lt;&lt;</td><td>Shift left</td></tr><tr><td>&gt;&gt;</td><td>Shift right</td></tr></tbody></table></div></div><br class="table-break"><p>Here’s an example of using bitwise and shift operators.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      Usually, you’d use these bitwise and shift operators with integers, as
+      shown in <a class="xref" href="ch02.html#bit_operator_table" title="Table 2.9. Bitwise and shift operators">Table 2.9, “Bitwise and shift operators”</a>.</p><div class="table"><a name="bit_operator_table"></a><p class="title"><b>Table 2.9. Bitwise and shift operators</b></p><div class="table-contents"><table summary="Bitwise and shift operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>&amp;</td><td>AND</td></tr><tr><td>|</td><td>OR</td></tr><tr><td>^</td><td>XOR</td></tr><tr><td>~<em class="replaceable"><code>expr</code></em></td><td>Unary bitwise complement (0s become 1s; 1s become
+              0s)</td></tr><tr><td>&lt;&lt;</td><td>Shift left</td></tr><tr><td>&gt;&gt;</td><td>Shift right</td></tr></tbody></table></div></div><br class="table-break"><p>Here’s an example of using bitwise and shift operators:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>final value = 0x22;
 final bitmask = 0x0f;
 
@@ -546,8 +544,9 @@ assert((value &gt;&gt; 4)       == 0x02);  // Shift right</pre></div><div class=
               described in <a class="xref" href="ch02.html#functions-optional-parameters" title="Optional Parameters">the section called “Optional Parameters”</a></td></tr></tbody></table></div></div><br class="table-break"></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="control-flow-statements"></a>Control Flow Statements</h2></div></div></div><p>You can control the flow of your Dart code using any of the
     following:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><code class="literal">if</code> and <code class="literal">else</code></p></li><li class="listitem"><p><code class="literal">for</code> loops</p></li><li class="listitem"><p><code class="literal">while</code> and <code class="literal">do</code>-<code class="literal">while</code>
         loops</p></li><li class="listitem"><p><code class="literal">break</code> and <code class="literal">continue</code></p></li><li class="listitem"><p><code class="literal">switch</code> and <code class="literal">case</code></p></li><li class="listitem"><p><code class="literal">assert</code></p></li></ul></div><p>You can also affect the control flow using <code class="literal">try-catch</code> and <code class="literal">throw</code>, as explained in <a class="xref" href="ch02.html#exceptions" title="Exceptions">the section called “Exceptions”</a>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="if-else"></a>If and Else</h3></div></div></div><p>Dart supports <code class="literal">if</code> statements
-      with optional <code class="literal">else</code> statements. Also
-      see conditional expressions (?:), covered in <a class="xref" href="ch02.html#op-other" title="Other Operators">the section called “Other Operators”</a>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      with optional <code class="literal">else</code> statements, as the
+      next sample shows. Also see conditional expressions (?:), which are
+      covered in <a class="xref" href="ch02.html#op-other" title="Other Operators">the section called “Other Operators”</a>.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>if (isRaining()) {
   you.bringRainCoat();
 } else if (isSnowing()) {
@@ -556,7 +555,7 @@ assert((value &gt;&gt; 4)       == 0x02);  // Shift right</pre></div><div class=
   car.putTopDown();
 }</pre><p>Remember, unlike JavaScript, Dart treats all values other than
       <code class="literal">true</code> as <code class="literal">false</code>. See <a class="xref" href="ch02.html#booleans" title="Booleans">the section called “Booleans”</a> for
-      more information.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="for-loops"></a>For Loops</h3></div></div></div><p>You can iterate with the standard <code class="literal">for</code> loop.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      more information.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="for-loops"></a>For Loops</h3></div></div></div><p>You can iterate with the standard <code class="literal">for</code> loop. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/flow_for_loops.dart
 </span></em>var message = new StringBuffer("Dart is fun");
 for (var i = 0; i &lt; 5; i++) {
@@ -575,36 +574,36 @@ callbacks.forEach((c) =&gt; c());</pre><p>The output is <code class="literal">0<
       <code class="literal">2</code> in JavaScript.</p><p>If the object that you are iterating over is a Collection, you can
       use the <code class="literal"><a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html#forEach" target="_top">forEach()</a></code>
       method. Using <code class="literal">forEach()</code> is a good option if you don’t
-      need to know the current iteration counter.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      need to know the current iteration counter:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/flow_for_loops.dart
-</span></em>candidates.forEach((candidate) =&gt; candidate.interview());</pre><p>Collections also support the <code class="literal">for-in</code> form of iteration, as described in
-      <a class="xref" href="ch03.html#ch03-iteration" title="Iteration">the section called “Iteration”</a>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em>candidates.forEach((candidate) =&gt; candidate.interview());</pre><p>Collections also support the <code class="literal">for-in</code> form of iteration, which is described
+      <span lang="" class="phrase">in <a class="xref" href="ch03.html#ch03-iteration" title="Iteration">the section called “Iteration”</a>:</span></p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/flow_for_loops.dart
 </span></em>var collection = [0, 1, 2];
 for (var x in collection) {
   print(x);
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="while"></a>While and Do-While</h3></div></div></div><p>A <code class="literal">while</code> loop evaluates the
-      condition before the loop.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      condition before the loop:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>while(!isDone()) {
   doSomething();
 }</pre><p>A <code class="literal">do</code>-<code class="literal">while</code> loop evaluates the condition
-      <span class="emphasis"><em>after</em></span> the loop.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      <span class="emphasis"><em>after</em></span> the loop:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>do {
   printLine();
 } while (!atEndOfPage());</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="break"></a>Break and Continue</h3></div></div></div><p>Use <code class="literal">break</code> to stop
-      looping.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      looping:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>while (true) {
   if (shutDownRequested()) break;
   processIncomingRequests();
 }</pre><p>Use <code class="literal">continue</code> to skip to the
-      next loop iteration.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      next loop iteration:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>for (int i = 0; i &lt; candidates.length; i++) {
   var candidate = candidates[i];
   if (candidate.yearsExperience &lt; 5) {
     continue;
   }
   candidate.interview();
-}</pre><p>You might write that example differently if you’re using a <a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html" target="_top">Collection.</a></p><pre class="programlisting"><em><span class="remark">lang-dart
+}</pre><p>You might write that example differently if you’re using a <a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html" target="_top">Collection</a>:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>candidates.where((c) =&gt; c.yearsExperience &gt;= 5)
           .forEach((c) =&gt; c.interview());</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="switch"></a>Switch and Case</h3></div></div></div><p>Switch statements in Dart compare integer, string, or compile-time
       constants using <code class="literal">==</code>. The compared
@@ -613,7 +612,7 @@ for (var x in collection) {
       with a <code class="literal">break</code> statement, as a rule.
       Other valid ways to end a non-empty <code class="literal">case</code> clause are a <code class="literal">continue</code>, <code class="literal">throw</code>, or <code class="literal">return</code> statement.</p><p>Use a <code class="literal">default</code> clause to execute
       code when no <code class="literal">case</code> clause
-      matches.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      matches:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var command = 'OPEN';
 switch (command) {
   case 'CLOSED':
@@ -644,7 +643,7 @@ switch (command) {
     executeClosed();
     break;
 }</pre><p>However, Dart does support empty <code class="literal">case</code> clauses, allowing a form of
-      fall-through.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      fall-through:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var command = 'CLOSED';
 switch (command) {
   case 'CLOSED':     // Empty case falls through.
@@ -652,7 +651,7 @@ switch (command) {
     // Runs for both CLOSED and NOW_CLOSED.
     executeNowClosed();
     break;
-}</pre><p>If you really want fall-through, you can use a <code class="literal">continue</code> statement and a label.</p><pre class="programlisting"><em><span class="remark">lang-dart
+}</pre><p>If you really want fall-through, you can use a <code class="literal">continue</code> statement and a label:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var command = 'CLOSED';
 switch (command) {
   case 'CLOSED':
@@ -682,19 +681,19 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
     caught, the isolate that raised the exception is suspended, and typically
     the isolate and its program are terminated.</p><p>In contrast to Java, all of Dart’s exceptions are unchecked
     exceptions. Methods do not declare which exceptions they might throw, and
-    you are not required to catch any exceptions.</p><p>Dart provides <a class="ulink" href="http://api.dartlang.org/dart_core/Exception.html" target="_top">Exception</a>
+    you are not required to catch any <span class="keep-together">exceptions</span>.</p><p>Dart provides <a class="ulink" href="http://api.dartlang.org/dart_core/Exception.html" target="_top">Exception</a>
     and <a class="ulink" href="http://api.dartlang.org/docs/continuous/dart_core/Error.html" target="_top">Error</a>
     types, as well as numerous predefined subtypes. You can, of course, define
     your own exceptions. However, Dart programs can throw any non-null
     object—not just Exception and Error objects—as an exception.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-throw"></a>Throw</h3></div></div></div><p>Here’s an example of throwing, or <span class="emphasis"><em>raising</em></span>, an
-      exception.</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>throw new ExpectException('Value must be greater than zero');</pre><p>You can also throw arbitrary objects.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      exception:</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em>throw new ExpectException('Value must be greater than zero');</pre><p>You can also throw arbitrary objects:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>throw 'Out of llamas!';</pre><p>Because throwing an exception is an expression, you can throw
       exceptions in =&gt; statements, as well as anywhere else that allows
       expressions:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>distanceTo(Point other) =&gt; throw new UnimplementedError();</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-catch"></a>Catch</h3></div></div></div><p>Catching, or capturing, an exception stops the exception from
       propagating. Catching an exception gives you a chance to handle
-      it.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      it:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>try {
   breedMoreLlamas();
 } on OutOfLlamasException {
@@ -703,7 +702,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
       can specify multiple catch clauses. The first catch clause that matches
       the thrown object’s type handles the exception. If the catch clause does
       not specify a type, that clause can handle any type of thrown
-      object.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      object:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>try {
   breedMoreLlamas();
 } on OutOfLlamasException {           // A specific exception
@@ -717,13 +716,14 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
       specify the exception type. Use <code class="literal">catch</code>
       when your exception handler needs the exception object.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-finally"></a>Finally</h3></div></div></div><p>To ensure that some code runs whether or not an exception is
       thrown, use a <code class="literal">finally</code> clause. If no
-      catch clause matches the exception, the exception is propagated after
-      the finally clause runs.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      <code class="literal">catch</code> clause matches the exception, the exception is
+      propagated after the <code class="literal">finally</code> clause runs:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>try {
   breedMoreLlamas();
 } finally {
   cleanLlamaStalls();  // Always clean up, even if an exception is thrown.
-}</pre><p>The finally clause runs after any matching catch clauses.</p><pre class="programlisting"><em><span class="remark">lang-dart
+}</pre><p>The <code class="literal">finally</code> clause runs after any matching
+      <code class="literal">catch</code> clauses:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>try {
   breedMoreLlamas();
 } catch(e) {
@@ -735,7 +735,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
     descend from <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object.</a></p><p>To create an object, you can use the <code class="literal">new</code> keyword with a
     <em class="firstterm">constructor</em> for a class. Constructor names can be
     either <span class="emphasis"><em><em class="replaceable"><code>ClassName</code></em></em></span> or
-    <em class="replaceable"><code>ClassName.identifier</code></em>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+    <em class="replaceable"><code>ClassName.identifier</code></em>. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var jsonData = json.parse('{"x":1, "y":2}');
 
 var p1 = new Point(2,2);               // Create a Point using Point().
@@ -743,21 +743,21 @@ var p2 = new Point.fromJson(jsonData); // Create a Point using Point.fromJson().
     and data (<em class="firstterm">methods</em> and <em class="firstterm">instance
     variables</em>, respectively). When you call a method, you
     <span class="emphasis"><em>invoke</em></span> it on an object: the method has access to that
-    object’s functions and data.</p><p>Use a dot (.) to refer to an instance variable or method.</p><pre class="programlisting"><em><span class="remark">lang-dart
+    object’s functions and data.</p><p>Use a dot (.) to refer to an instance variable or method:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var p = new Point(2,2);
 
 p.y = 3;             // Set the value of the instance variable y.
 assert(p.y == 3);    // Get the value of y.
 
 num distance = p.distanceTo(new Point(4,4)); // Invoke distanceTo() on p.</pre><p>Use the cascade operator (..) when you want to perform a series of
-    operations on the members of a single object.</p><pre class="programlisting"><em><span class="remark">lang-dart
+    operations on the members of a single object:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>query('#button')
     ..text = 'Click to Confirm'                        // Get an object. Use its
     ..classes.add('important')                         // instance variables
     ..onClick.listen((e) =&gt; window.alert('Confirmed!')); // and methods.</pre><p>Some classes provide constant constructors. To create a compile-time
-    constant using a constant constructor, use <code class="literal">const</code> instead of <code class="literal">new</code>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+    constant using a constant constructor, use <code class="literal">const</code> instead of <code class="literal">new</code>:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var p = const ImmutablePoint(2,2);</pre><p>Constructing two identical compile-time constants results in a
-    single, canonical instance.</p><pre class="programlisting"><em><span class="remark">lang-dart
+    single, canonical <span class="keep-together">instance:</span></p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var a = const ImmutablePoint(1, 1);
 var b = const ImmutablePoint(1, 1);
 
@@ -789,7 +789,7 @@ main() {
       its class (plus, optionally, an additional identifier as described in
       <a class="xref" href="ch02.html#ch02-constructors-named" title="Named constructors">the section called “Named constructors”</a>). The most common form of
       constructor, the generative constructor, creates a new instance of a
-      class.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      class:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/constructor_long_way.dart
 </span></em>class Point {
   num x;
@@ -803,7 +803,7 @@ main() {
 }</pre><p>The <code class="literal">this</code> keyword refers to the
       current instance.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Use <code class="literal">this</code> only when there is a
         name conflict. Otherwise, Dart style omits the <code class="literal">this</code>.</p></div><p>The pattern of assigning a constructor argument to an instance
-      variable is so common, Dart has syntactic sugar to make it easy.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      variable is so common, Dart has syntactic sugar to make it easy:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>class Point {
   num x;
   num y;
@@ -812,10 +812,10 @@ main() {
   Point(this.x, this.y);
 }</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructors-default"></a>Default constructors</h4></div></div></div><p>If you don’t declare a constructor, a default constructor is
         provided for you. The default constructor has no arguments and invokes
-        the no-argument constructor in the superclass.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructors-not-inherited"></a>Constructors aren’t inherited</h4></div></div></div><p>Subclasses don’t inherit constructors from their superclass. A
+        the no-argument constructor in the <span class="keep-together">superclass</span>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructors-not-inherited"></a>Constructors aren’t inherited</h4></div></div></div><p>Subclasses don’t inherit constructors from their superclass. A
         subclass that declares no constructors has only the default (no
         argument, no name) constructor.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructors-named"></a>Named constructors</h4></div></div></div><p>Use a named constructor to implement multiple constructors for a
-        class or to provide extra clarity.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        class or to provide extra clarity:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/named_constructor.dart
 </span></em>class Point {
   num x;
@@ -835,8 +835,9 @@ main() {
         subclass.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructor-non-default-superclass"></a>Invoking a non-default superclass constructor</h4></div></div></div><p>By default, a constructor in a subclass calls the superclass’s
         unnamed, no-argument constructor. If the superclass doesn’t have such
         a constructor, then you must manually call one of the constructors in
-        the superclass. Specify the superclass constructor after a colon (:),
-        just before the constructor body (if any).</p><pre class="programlisting"><em><span class="remark">lang-dart
+        the superclass. Specify the superclass constructor after a colon
+        (<code class="literal">:</code>), just before the constructor body (if
+        any).</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/op_as.dart
 </span></em>class Person {
   Person.fromJson(Map data) {
@@ -874,8 +875,10 @@ main() {
   }
 }</pre><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>The right-hand side of an initializer does not have access to
           <code class="literal">this</code>.</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructor-redirecting"></a>Redirecting constructors</h4></div></div></div><p>Sometimes a constructor’s only purpose is to redirect to another
-        constructor in the same class. A redirecting constructor’s body is
-        empty, with the constructor call appearing after a colon (:).</p><pre class="programlisting"><em><span class="remark">lang-dart
+        constructor in <span class="keep-together">the same class.</span> A
+        redirecting constructor’s body is empty, with the constructor call
+        <span class="keep-together">appearing after a colon
+        (:).</span></p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/along_x_axis.dart
 </span></em>class Point {
   num x;
@@ -898,7 +901,7 @@ main() {
         of its class. For example, a factory constructor might return an
         instance from a cache, or it might return an instance of a
         subtype.</p><p>The following example demonstrates a factory constructor
-        returning objects from a cache.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        returning objects from a cache:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/factory_constructor.dart
 </span></em>class Logger {
   final String name;
@@ -930,7 +933,7 @@ main() {
 logger.log('Button clicked');</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-methods"></a>Methods</h3></div></div></div><p>Methods are functions that provide behavior for an object.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-methods-instance"></a>Instance methods</h4></div></div></div><p>Instance methods on objects can access instance variables and
         <code class="literal">this</code>. The
         <code class="literal">distanceTo()</code> method in the following sample is an
-        example of an instance method.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        example of an instance method:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/distance_to.dart
 </span></em>import 'dart:math';
 
@@ -948,7 +951,7 @@ class Point {
         write access to an object’s properties. Recall that each instance
         variable has an implicit getter, plus a setter if appropriate. You can
         create additional properties by implementing getters and setters,
-        using the <code class="literal">get</code> and <code class="literal">set</code> keywords.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        using the <code class="literal">get</code> and <code class="literal">set</code> keywords:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/rectangle.dart
 </span></em>class Rectangle {
   num left;
@@ -978,7 +981,7 @@ main() {
             once, saving its value in a temporary variable.</p></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-method-abstract"></a>Abstract methods</h4></div></div></div><p>Instance, getter, and setter methods can be abstract, defining
         an interface but leaving its implementation up to other classes. To
         make a method abstract, use a semicolon (;) instead of a method
-        body.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        body:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/doer.dart
 </span></em>abstract class Doer {
   // ...Define instance variables and methods...
@@ -993,7 +996,7 @@ class EffectiveDoer extends Doer {
 }</pre><p>Calling an abstract method results in a run-time error.</p><p>Also see <a class="xref" href="ch02.html#ch02-class-abstract" title="Abstract Classes">the section called “Abstract Classes”</a>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="classes-operators"></a>Overridable Operators</h4></div></div></div><p>You can override the operators shown in <a class="xref" href="ch02.html#overridden_operator_table" title="Table 2.11. Operators that can be overridden">Table 2.11, “Operators that can be overridden”</a>. For example, if you define a
         Vector class, you might define a <code class="literal">+</code> method to add
         two vectors.</p><div class="table"><a name="overridden_operator_table"></a><p class="title"><b>Table 2.11. Operators that can be overridden</b></p><div class="table-contents"><table summary="Operators that can be overridden" border="1"><colgroup><col><col><col><col></colgroup><tbody><tr><td>&lt;</td><td>+</td><td>|</td><td>[]</td></tr><tr><td>&gt;</td><td>/</td><td>^</td><td>[]=</td></tr><tr><td>&lt;=</td><td>~/</td><td>&amp;</td><td>~</td></tr><tr><td>&gt;=</td><td>*</td><td>&lt;&lt;</td><td>==</td></tr><tr><td>–</td><td>%</td><td>&gt;&gt;</td><td class="auto-generated"> </td></tr></tbody></table></div></div><br class="table-break"><p>Here’s an example of a class that overrides the <code class="literal">+</code> and <code class="literal">-</code>
-        operators.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        operators:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/vector.dart
 </span></em>class Vector {
   final int x;
@@ -1022,7 +1025,7 @@ main() {
       with some implementation. If you want your abstract class to appear to
       be instantiable, define a <a class="link" href="ch02.html#ch02-constructor-factory" title="Factory constructors">factory constructor</a>.</p><p>Abstract classes often have <a class="link" href="ch02.html#ch02-method-abstract" title="Abstract methods">abstract methods</a>. Here’s an
       example of declaring an abstract class that has an abstract
-      method.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      method:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/abstract.dart
 </span></em>// This class is declared abstract and thus can't be instantiated.
 abstract class AbstractContainer {
@@ -1030,7 +1033,7 @@ abstract class AbstractContainer {
 
   void updateChildren(); // Abstract method.
 }</pre><p>The following class isn’t abstract, and thus can be instantiated
-      even though it defines an abstract method.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      even though it defines an abstract method:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/abstract.dart
 </span></em>class SpecializedContainer extends AbstractContainer {
   // ...Define more constructors, fields, methods...
@@ -1073,7 +1076,7 @@ main() {
   // ...
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-extend"></a>Extending a Class</h3></div></div></div><p>Use <code class="literal">extends</code> to create a
       subclass, and <code class="literal">super</code> to refer to the
-      superclass.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      superclass:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">smart_tv.dart
 </span></em>class Television {
   void turnOn() {
@@ -1104,7 +1107,7 @@ class SmartTelevision extends Television {
   }
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-vars-and-methods"></a>Class Variables and Methods</h3></div></div></div><p>Use the <code class="literal">static</code> keyword to
       implement class-wide variables and methods.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-static-variables"></a>Static variables</h4></div></div></div><p>Static variables (class variables) are useful for class-wide
-        state and constants.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        state and constants:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/color.dart
 </span></em>class Color {
   static const RED = const Color('red'); // A constant static variable.
@@ -1115,7 +1118,7 @@ class SmartTelevision extends Television {
 main() {
   assert(Color.RED.name == 'red');
 }</pre><p>Static variables aren’t initialized until they’re used.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-static-methods"></a>Static methods</h4></div></div></div><p>Static methods (class methods) do not operate on an instance,
-        and thus do not have access to <code class="literal">this</code>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        and thus do not have access to <code class="literal">this</code>. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/point.dart
 </span></em>import 'dart:math';
 
@@ -1154,7 +1157,7 @@ main() {
       (read that as <span class="quote">“<span class="quote">list of string</span>”</span>). That way you, your fellow
       programmers, and your tools (such as Dart Editor and the Dart VM in
       checked mode) can detect that assigning a non-string to the list is
-      probably a mistake.</p><pre class="programlisting"><em><span class="remark">lang-dart</span></em><em><span class="remark">
+      probably a mistake. Here’s an example:</p><pre class="programlisting"><em><span class="remark">lang-dart</span></em><em><span class="remark">
 ch02/generics.dart
 </span></em>var names = new List&lt;String&gt;();
 names.addAll(['Seth', 'Kathy', 'Lars']);
@@ -1193,8 +1196,8 @@ var pages = &lt;String, String&gt;{
     'index.html':'Homepage',
     'robots.txt':'Hints for web robots',
     'humans.txt':'We are people, not machines' };</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Map literals always have string <span class="emphasis"><em>keys</em></span>, so
-        their type is always <code class="literal">&lt;String,
-        <em class="replaceable"><code>SomeType</code></em>&gt;</code>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="generics-constructors"></a>Using Constructors</h3></div></div></div><p>To specify one or more types when using a constructor, put the
+        their type is always <span class="keep-together"><code class="literal">&lt;String,
+        <em class="replaceable"><code>SomeType</code></em>&gt;</code>.</span></p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="generics-constructors"></a>Using Constructors</h3></div></div></div><p>To specify one or more types when using a constructor, put the
       types in angle brackets (<code class="literal">&lt;...&gt;</code>)
       just after the class name. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var names = new List&lt;String&gt;();
@@ -1208,12 +1211,13 @@ var nameSet = new Set&lt;String&gt;.from(names);</pre><p>The following code crea
 names.addAll(['Seth', 'Kathy', 'Lars']);
 print(names is List&lt;String&gt;); // true</pre><p>However, the <code class="literal">is</code> expression
       checks the type of the <span class="emphasis"><em>collection</em></span> only—not of the
-      objects inside it. In production mode, a List&lt;String&gt; might have
-      some non-string items in it. The solution is to either check each item’s
-      type or wrap item-manipulation code in an exception handler (see <a class="xref" href="ch02.html#exceptions" title="Exceptions">the section called “Exceptions”</a>).</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>In contrast, generics in Java use <span class="emphasis"><em>erasure</em></span>,
+      objects inside it. In production mode, a
+      <code class="literal">List&lt;String&gt;</code> might have some non-string items
+      in it. The solution is to either check each item’s type or wrap
+      item-manipulation code in an exception handler (see <a class="xref" href="ch02.html#exceptions" title="Exceptions">the section called “Exceptions”</a>).</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>In contrast, generics in Java use <span class="emphasis"><em>erasure</em></span>,
         which means that generic type parameters are removed at runtime. In
         Java, you can test whether an object is a List, but you can’t test
-        whether it’s a List&lt;String&gt;.</p></div><p>For more information about generics, see <a class="ulink" href="http://www.dartlang.org/articles/optional-types/" target="_top">Optional Types in
+        whether it’s a <code class="literal">List&lt;String&gt;</code>.</p></div><p>For more information about generics, see <a class="ulink" href="http://www.dartlang.org/articles/optional-types/" target="_top">Optional Types in
       Dart.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="libraries"></a>Libraries and Visibility</h2></div></div></div><p>The <code class="literal">import</code>, <code class="literal">part</code>, and <code class="literal">library</code> directives can help you create a modular
     and shareable code base. Libraries not only provide APIs, but are a unit
     of privacy: identifiers that start with an underscore (_) are visible only
@@ -1318,7 +1322,7 @@ void main() {
     objects. A <span class="emphasis"><em>typedef</em></span>, or <span class="emphasis"><em>function-type
     alias</em></span>, gives a function type a name that you can use when
     declaring fields and return types. A typedef retains type information when
-    a function type is assigned to a variable.</p><p>Consider the following code, which does not use a typedef.</p><pre class="programlisting"><em><span class="remark">lang-dart
+    a function type is assigned to a variable.</p><p>Consider the following code, which does not use a typedef:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/sorted_collection.dart
 </span></em>class SortedCollection {
   Function compare;
@@ -1336,11 +1340,11 @@ main() {
   // All we know is that compare is a function, but what type of function?
   assert(collection.compare is Function);
 }</pre><p>Type information is lost when assigning <code class="literal">f</code> to <code class="literal">compare</code>.
-    The type of <code class="literal">f</code> is <code class="literal">(Object, Object)</code> <span class="unicode">→</span> <code class="literal">int</code> (where
-    <span class="unicode">→</span> means returns), yet the type of <code class="literal">compare</code> is Function. If we change the code to
+    The type of <code class="literal">f</code> is <code class="literal">(Object, </code><span class="keep-together"><code class="literal">Object)</code> <span class="unicode">→</span>
+    <code class="literal">int</code></span> (where <span class="unicode">→</span> means returns), yet the type of <code class="literal">compare</code> is Function. If we change the code to
     use explicit names and retain type information, both developers and tools
     can use that information.</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em><span class="bold"><strong>typedef int Compare(Object a, Object b);</strong></span>
+</span></em><span class="emphasis">typedef int Compare(Object a, Object b);</span>
 
 class SortedCollection {
   Compare compare;
@@ -1365,11 +1369,11 @@ main() {
   assert(sort is Compare);  // True!
 }</pre></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch02-metadata"></a>Metadata</h2></div></div></div><p>Use metadata to give additional information about your code. A
     metadata annotation begins with the character <code class="literal">@</code>,
-    followed by either a reference to compile-time constant (such as
+    followed by either a reference to a compile-time constant (such as
     <code class="literal">deprecated</code>) or a call to a constant constructor.</p><p>The <a class="ulink" href="http://pub.dartlang.org/packages/meta" target="_top">meta
     package</a> defines the API for two common annotations:
     <code class="literal">@deprecated</code> and <code class="literal">@overrides</code>. Here’s
-    an example of using the <code class="literal">@deprecated</code> annotation.</p><pre class="programlisting"><em><span class="remark">lang-dart
+    an example of using the <code class="literal">@deprecated</code> annotation:</p><pre class="programlisting"><em><span class="remark">lang-dart
 ch02/metadata.dart
 </span></em>import 'package:meta/meta.dart'; // Defines deprecated.
 
@@ -1415,7 +1419,7 @@ void doSomething() {
     parameter, constructor, factory, function, field, parameter, or variable
     declaration and before an import or export directive. In the future,
     you’ll be able to retrieve metadata at runtime using reflection.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="comments"></a>Comments</h2></div></div></div><p>Dart supports single-line comments, multi-line comments, and
-    documentation comments.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-comments-single-line"></a>Single-Line Comments</h3></div></div></div><p>A single-line comment begins with <code class="literal">//</code>. Everything between <code class="literal">//</code> and the end of line is ignored by the Dart
+    documentation <span class="keep-together">comments.</span></p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-comments-single-line"></a>Single-Line Comments</h3></div></div></div><p>A single-line comment begins with <code class="literal">//</code>. Everything between <code class="literal">//</code> and the end of line is ignored by the Dart
       compiler.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>main() {
   // TODO: refactor into an AbstractLlamaGreetingFactory?
@@ -1468,7 +1472,7 @@ class Llama {
       Food class.</p><p>To parse Dart code and generate HTML documentation, you can use
       Dart Editor, which in turn uses the SDK’s dartdoc package. For an
       example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org" target="_top">Dart API documentation.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch02-summary"></a>Summary</h2></div></div></div><p>This chapter summarized the commonly used features in the Dart
-    language. More features are being implemented, such as <a class="ulink" href="http://www.dartlang.org/articles/mixins/" target="_top">mixins</a>, but we
+    language. More features are being implemented, such as <a class="ulink" href="http://www.dartlang.org/articles/mixins/" target="_top">mixins,</a> but we
     expect that they won’t break existing code. For more information, see the
     <a class="ulink" href="http://www.dartlang.org/docs/spec/" target="_top">Dart Language
     Specification</a> and <a class="ulink" href="http://www.dartlang.org/articles/" target="_top">articles</a> such as <a class="ulink" href="http://www.dartlang.org/articles/idiomatic-dart/" target="_top">Idiomatic Dart.</a></p></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.ch02-footnote-1" class="footnote"><p><a href="#ch02-footnote-1" class="para"><sup class="para">[1] </sup></a>URI stands for <em class="firstterm">uniform resource

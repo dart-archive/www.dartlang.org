@@ -1,4 +1,6 @@
 ---
+# WARNING: GENERATED FILE. DO NOT EDIT.
+# WANT TO CONTRIBUTE? SEE https://github.com/dart-lang/dart-up-and-running-book
 layout: book
 title: "Dartium: Chromium with the Dart VM from Dart: Up and Running"
 description: "Read Dartium: Chromium with the Dart VM of Dart: Up and Running, published by O'Reilly."
@@ -23,10 +25,10 @@ description: "Read Dartium: Chromium with the Dart VM of Dart: Up and Running, p
       described in <a class="xref" href="ch04-tools-dartium.html#ch04-dartium-command" title="Launching from the Command Line">the section called “Launching from the Command Line”</a>.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p><span class="emphasis"><em>If you already use Chromium:</em></span> If another
         version of Chromium is open, then you could have a profile conflict.
         To avoid this, you can open Dartium or Chromium from the command line
-        with the <a class="ulink" href="http://www.chromium.org/user-experience/user-data-directory" target="_top">--user-data-dir
-        flag.</a></p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-bug"></a>Filing Bugs</h3></div></div></div><p>If you find a bug in Dartium, create an issue in the Dart project
-      and use the <a class="ulink" href="http://code.google.com/p/dart/issues/entry?template=Defect%20report%20for%20Dartium" target="_top">Dartium
-      bug template.</a></p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-linking"></a>Linking to Dart Source</h3></div></div></div><p>Use a script tag with a type <code class="literal">application/dart</code> to link to your Dart source
+        with the <span class="keep-together"><a class="ulink" href="http://www.chromium.org/user-experience/user-data-directory" target="_top">--user-data-dir
+        flag.</a></span></p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-bug"></a>Filing Bugs</h3></div></div></div><p>If you find a bug in Dartium, create an issue in the Dart project
+      and use the <a class="ulink" href="http://bit.ly/WO0U32" target="_top">Dartium bug
+      template.</a></p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-linking"></a>Linking to Dart Source</h3></div></div></div><p>Use a script tag with a type <code class="literal">application/dart</code> to link to your Dart source
       file. Example:</p><pre class="programlisting"><em><span class="remark">lang-html
 </span></em>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -37,7 +39,8 @@ description: "Read Dartium: Chromium with the Dart VM of Dart: Up and Running, p
     &lt;script src="packages/browser/dart.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Dart Editor automatically adds both the <code class="literal">application/dart</code> script tag and the
-        bootstrap JavaScript tag into the project’s main HTML file.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-detect"></a>Detecting Dart Support</h3></div></div></div><p>The above example uses a bootstrap script that takes care of
+        <code class="literal">bootstrap JavaScript</code> tag into the project’s main
+        HTML file.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-dartium-detect"></a>Detecting Dart Support</h3></div></div></div><p>The above example uses a bootstrap script that takes care of
       turning on the Dart VM, as well as compatibility with non-Dart browsers.
       Instead of using the <code class="literal">dart.js</code> script,
       you can manually include the necessary JavaScript code.</p><p>To start the Dart VM, use the JavaScript function <code class="literal">navigator.webkitStartDart()</code>. For
@@ -56,8 +59,9 @@ if (!navigator.webkitStartDart) {
       Dart-specific flags so that you can tweak the embedded Dart VM’s
       behavior. For example, while developing your web app, you might want the
       VM to perform as many checks as possible. To achieve that, you can
-      enable checked mode (the VM’s --enable-type-checks flag) and assertion
-      checks (--enable-asserts flag).</p><p>On Linux, you can specify flags by starting Dartium as
+      enable checked mode (the VM’s <code class="literal">--enable-type-checks</code>
+      flag) and assertion checks (<code class="literal">--enable-asserts</code>
+      flag).</p><p>On Linux, you can specify flags by starting Dartium as
       follows:</p><pre class="screen"><em><span class="remark">lang-sh
 </span></em>DART_FLAGS='--enable-type-checks --enable-asserts' <em class="replaceable"><code>path</code></em>/chrome</pre><p>On Mac:</p><pre class="screen"><em><span class="remark">lang-sh
 </span></em>DART_FLAGS='--enable-type-checks --enable-asserts'              \

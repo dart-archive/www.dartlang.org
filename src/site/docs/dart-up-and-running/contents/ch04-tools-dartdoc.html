@@ -1,4 +1,6 @@
 ---
+# WARNING: GENERATED FILE. DO NOT EDIT.
+# WANT TO CONTRIBUTE? SEE https://github.com/dart-lang/dart-up-and-running-book
 layout: book
 title: "dartdoc: The API Documentation Generator from Dart: Up and Running"
 description: "Read dartdoc: The API Documentation Generator of Dart: Up and Running, published by O'Reilly."
@@ -7,7 +9,7 @@ description: "Read dartdoc: The API Documentation Generator of Dart: Up and Runn
     Dart code. By default, dartdoc parses and creates documentation for the
     .dart files that you pass to it, plus the libraries they import.</p><p>To improve dartdoc’s output, provide documentation comments as
     described in <a class="xref" href="ch02.html#comments-doc" title="Documentation Comments">the section called “Documentation Comments”</a>. Also see the article <a class="ulink" href="http://www.dartlang.org/articles/doc-comment-guidelines/" target="_top">Guidelines
-    for Dart Doc Comments.</a></p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dartdoc-basic-usage"></a>Basic Usage</h3></div></div></div><p>Here’s an example of generating documentation from a Dart
+    for Dart Doc <span class="keep-together">Comments</span>.</a></p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dartdoc-basic-usage"></a>Basic Usage</h3></div></div></div><p>Here’s an example of generating documentation from a Dart
       file.</p><pre class="screen"><em><span class="remark">lang-sh
 </span></em><em class="replaceable"><code>$DART_SDK</code></em>/bin/dartdoc --out=/docs/mylib <em class="replaceable"><code>mylib.dart</code></em></pre><p>By default, the generated documentation appears in a directory
       named <code class="literal">docs/</code>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dartdoc-options"></a>Options</h3></div></div></div><p>Common command-line options for dartdoc include:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
@@ -15,9 +17,9 @@ description: "Read dartdoc: The API Documentation Generator of Dart: Up and Runn
             directory doesn’t already exist, it’s created.</p></dd></dl></div><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
           </code><code class="literal">--no-code</code></span></dt><dd><p>Don’t include source code in the generated
             documentation.</p></dd></dl></div><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
-          </code><code class="literal">--exclude-lib=<em class="replaceable"><code>&lt;identifier&gt;</code></em></code></span></dt><dd><p>Don’t generate documentation for the specified library.
-            <span class="emphasis"><em>Example:</em></span>
-            <code class="literal">--exclude-lib=metadata</code></p></dd></dl></div><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
+          </code><code class="literal">--exclude-lib=<em class="replaceable"><code>&lt;identifier&gt;</code></em></code></span></dt><dd><p>Don’t generate documentation for the specified
+            library.</p><p><span class="keep-together"><span class="emphasis"><em>Example:</em></span>
+            <code class="literal">--exclude-lib=metadata</code></span></p></dd></dl></div><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
           </code><code class="literal">--omit-generation-time</code></span></dt><dd><p>Don’t put a timestamp at the bottom of every page.</p></dd></dl></div><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
           </code><code class="literal">--mode=static</code></span></dt><dd><p>Use static HTML navigation. The resulting files can be much
             larger than the default, but previewing docs locally is
