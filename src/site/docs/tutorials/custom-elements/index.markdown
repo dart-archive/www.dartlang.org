@@ -30,7 +30,7 @@ Dart's implementation of custom elements is in the
    target="blank">Web UI package</a>,
 which is required to run the examples in this target.
 A previous target,
-<a href="/docs/tutorials/web-ui/">Embed Live Data in HTML</a>,
+<a href="/docs/tutorials/web-ui/">Get Started with Web UI</a>,
 shows you how to install the Web UI package.
 
 * [About custom elements](#about-custom-elements)
@@ -94,7 +94,19 @@ with different labels and conversion ratios.
 This particular instance of x-converter
 maintains a ratio of 1:2 between the left and right numbers.
 
-These files implement the app:
+You can find the complete source code for this sample at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/littleben" target="_blank">drseuss</a>.
+This repository includes the
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/pubspec.yaml" target="_blank">pubspec.yaml</a>
+and
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/build.dart" target="_blank">build.dart</a>
+files necessary to install the Web UI package and build the app.
+Refer to
+<a href="/docs/tutorials/web-ui/">Get Started with Web UI</a>
+for instructions.
+
+Within the `web` directory in the repository,
+you will find these files that implement the app:
 
 | File | Description|
 |---|---|
@@ -130,6 +142,12 @@ It just creates three instances of the same element configured differently.
 | <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/converter-element.html" target="_blank">converter-element.html</a> | Defines the UI for the x-converter custom element |
 | <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertercomponent.dart" target="_blank">convertercomponent.dart</a> | Defines the behavior of the x-converter custom element |
 {: .table}
+
+Remember, you also need the
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/pubspec.yaml" target="_blank">pubspec.yaml</a>
+and
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/build.dart" target="_blank">build.dart</a>
+files.
 
 Let's check out the code.
 

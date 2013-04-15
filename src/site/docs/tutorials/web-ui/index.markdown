@@ -103,7 +103,7 @@ select **Generate sample content** and
 in the list beneath it,
 select
 **Web application (using the web_ui library)**.
-Call the project `webui-click-counter`.
+Call the project `webui_click_counter`.
 
 ![Create a new application using the Web UI library](images/create-with-web-ui.png)
 </li>
@@ -521,7 +521,7 @@ binds the value of the text field to the shoutThis string:
 You can use `bind-value` with different kinds of input elements,
 text areas, and select elements (drop-down lists.)
 Also, you can use `bind-checked` with radio button elements and checkboxes.
-And you can use `bind-selectedIndex` with select element.
+And you can use `bind-selected-index` with select element.
 
 To show that the shoutThis string changes in concert with the input field,
 the shout example uses several *template expressions* in the HTML code,
