@@ -52,8 +52,7 @@ put the following lines in your app's pubspec.yaml file:
 
 {% prettify yaml %}
 dependencies:
-  js:
-    hosted: js
+  js: any
 {% endprettify %}
 
 Then use pub install:
@@ -139,7 +138,7 @@ it is unwrapped to the underlying JavaScript object.
 In the example above, `options` is a proxy to
 a JavaScript map with three keys&mdash;"zoom", "mapTypeId", and "center".
 The "mapTypeId" key is mapped to
-the JavaScript constant `googlemaps.MapTypeIdROADMAP`,
+the JavaScript constant `googlemaps.MapTypeId.ROADMAP`,
 and the "center" key is mapped to a JavaScript `googlemaps.LatLng` object.
 
 Converting lists and maps is especially useful for
@@ -228,6 +227,9 @@ using `js.release()`.
 js.release(googlemap);  // Allow googlemap to be garbage collected.
 {% endprettify %}
 
+Starting from version _0.0.19_ `scoped()` can be avoid.
+All proxies created will be scoped and automatically released at the end of the current event loop.
+`retain` and `release` are still required for proxies that span multiple events.
 
 ## Managing callback lifetimes
 
@@ -241,11 +243,11 @@ as in our Twitter-JSONP example from earlier:
 js.context.handler = new js.Callback.once(display);
 {% endprettify %}
 
-The Callback.once() constructor conveniently handles this common case,
+The `Callback.once()` constructor conveniently handles this common case,
 in which callbacks are automatically disposed of after a single invocation.
 
 If your callback is executed multiple times,
-use the Callback.many() constructor instead.
+use the `Callback.many()` constructor instead.
 
 {% prettify dart %}
 var callback = new js.Callback.many(display);
@@ -265,7 +267,7 @@ because the backing closure may have been garbage collected.
 
 ## Examples
 
-The examples at http://dart-lang.github.com/js-interop/example/
+The examples at [http://dart-lang.github.com/js-interop/example/](http://dart-lang.github.com/js-interop/example/)
 use publicly available JavaScript APIs
 from Dart via the js library.
 The Dart version is usually a port of an existing JavaScript sample.
