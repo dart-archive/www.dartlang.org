@@ -222,8 +222,8 @@ assert(iMeantToDoThis.isNaN);</pre></div><div class="sect2"><div class="titlepag
       elements just as you would in JavaScript:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var list = [1,2,3];
 assert(list.length == 3);
-assert(list[1] == 2);</pre><p>The List type and its supertype, <a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html" target="_top">Collection,</a>
-      have many handy methods for manipulating lists. For more information
+assert(list[1] == 2);</pre><p>The List type has many handy methods for manipulating lists.
+      For more information
       about lists, see <a class="xref" href="ch02.html#generics" title="Generics">the section called “Generics”</a> and <a class="xref" href="ch03.html#ch03-collections" title="Collections">the section called “Collections”</a>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="maps"></a>Maps</h3></div></div></div><p>In general, a map is an object that associates keys and values.
       Dart support for maps is provided by map literals and the <a class="ulink" href="http://api.dartlang.org/dart_core/Map.html" target="_top">Map</a>
       type.</p><p>Here’s a simple Dart map:</p><pre class="programlisting"><em><span class="remark">lang-dart
@@ -571,12 +571,12 @@ for (var i = 0; i &lt; 2; i++) {
 callbacks.forEach((c) =&gt; c());</pre><p>The output is <code class="literal">0</code> and then
       <code class="literal">1</code>, as expected. In contrast, the
       example would print <code class="literal">2</code> and then
-      <code class="literal">2</code> in JavaScript.</p><p>If the object that you are iterating over is a Collection, you can
-      use the <code class="literal"><a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html#forEach" target="_top">forEach()</a></code>
+      <code class="literal">2</code> in JavaScript.</p><p>If the object that you are iterating over is an Iterable, you can
+      use the <code class="literal"><a class="ulink" href="http://api.dartlang.org/dart_core/Iterable.html#forEach" target="_top">forEach()</a></code>
       method. Using <code class="literal">forEach()</code> is a good option if you don’t
       need to know the current iteration counter:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/flow_for_loops.dart
-</span></em>candidates.forEach((candidate) =&gt; candidate.interview());</pre><p>Collections also support the <code class="literal">for-in</code> form of iteration, which is described
+</span></em>candidates.forEach((candidate) =&gt; candidate.interview());</pre><p>Iterable classes such as List and Set also support the <code class="literal">for-in</code> form of iteration, which is described
       <span lang="" class="phrase">in <a class="xref" href="ch03.html#ch03-iteration" title="Iteration">the section called “Iteration”</a>:</span></p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/flow_for_loops.dart
 </span></em>var collection = [0, 1, 2];
@@ -603,7 +603,8 @@ for (var x in collection) {
     continue;
   }
   candidate.interview();
-}</pre><p>You might write that example differently if you’re using a <a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html" target="_top">Collection</a>:</p><pre class="programlisting"><em><span class="remark">lang-dart
+}</pre><p>You might write that example differently if you’re using a <a class="ulink" href="http://api.dartlang.org/dart_core/Iterable.html" target="_top">Iterable</a>
+      such as a list or set:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>candidates.where((c) =&gt; c.yearsExperience &gt;= 5)
           .forEach((c) =&gt; c.interview());</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="switch"></a>Switch and Case</h3></div></div></div><p>Switch statements in Dart compare integer, string, or compile-time
       constants using <code class="literal">==</code>. The compared

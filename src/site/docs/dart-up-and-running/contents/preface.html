@@ -67,12 +67,18 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
       changes:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>File’s <code class="literal">openWrite()</code> method now has no
           required parameters but two optional named parameters. The
           <code class="literal">mode</code> parameter has a default value of
-          <code class="literal">FileMode.WRITE</code>.</p></li><li class="listitem"><p>IOSink’s methods for writing data have changed. To write
+          <code class="literal">FileMode.WRITE</code>.</p></li><li class="listitem"><p>File’s <code class="literal">readAsString()</code> and
+          <code class="literal">readAsLines()</code> methods no longer require a
+          parameter. Instead, they have an optional named parameter
+          (<code class="literal">encoding</code>), with a default value of
+          <code class="literal">Encoding.UTF_8</code>.</p></li><li class="listitem"><p>IOSink’s methods for writing data have changed. To write
           string data, instead of <code class="literal">addString()</code> use
           <code class="literal">write()</code>. To write binary data, instead of
           <code class="literal">add()</code> use <code class="literal">writeBytes()</code>.</p></li><li class="listitem"><p>Set’s <code class="literal">isSubsetOf()</code> method is gone. Instead,
           use the Set <code class="literal">containsAll()</code> method. You can convert
-          any Iterable to a Set using <code class="literal">toSet()</code>.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="preface-updates-v2"></a>Changes in the Second Printing: March 29, 2013</h3></div></div></div><p>We’ve updated the content to reflect the following changes since
+          any Iterable to a Set using <code class="literal">toSet()</code>.</p></li><li class="listitem"><p>The Collection class is gone, so we’ve changed the way we
+          talked about sets, lists, and maps in <a class="xref" href="ch03.html#ch03-collections" title="Collections">the section called “Collections”</a>, and we talk more about
+          Iterable.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="preface-updates-v2"></a>Changes in the Second Printing: March 29, 2013</h3></div></div></div><p>We’ve updated the content to reflect the following changes since
       the first printing:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Using <code class="literal">part of</code> in additional library files
           is now <span class="emphasis"><em>required</em></span>, not optional.</p></li><li class="listitem"><p>In M2, several APIs changed:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>In the dart:html library, the <code class="literal">elements</code>
               property of Element changed to

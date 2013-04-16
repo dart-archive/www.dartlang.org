@@ -251,53 +251,10 @@ var nobleGases = new Set.from(['xenon', 'argon']);
 var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
 assert(intersection.contains('xenon'));</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Set.html" target="_top">Set API docs</a>
-        for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-common-collection-methods"></a>Common collection methods</h4></div></div></div><p>Both List and Set extend the Collection class. As such, they
-        share common functionality found in all collections. The following
-        examples work with any object that implements Collection.</p><p>Use <code class="literal">isEmpty</code> to check whether a collection has
-        no items:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/collection-isEmpty.dart
-</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
-assert(!teas.isEmpty);</pre><p>To apply a function to each item in a collection, you can use
-        <code class="literal">forEach()</code>. Or use <code class="literal">map().toList()</code>
-        if you want an object that contains the results.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/collection-isEmpty.dart
-</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
-
-teas.forEach((tea) =&gt; print('I drink $tea'));
-
-var loudTeas = teas.map((tea) =&gt; tea.toUpperCase()).toList();
-assert(loudTeas.any((tea) =&gt; tea == 'GREEN'));</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The object returned by <code class="literal">map()</code> is
-          <span class="emphasis"><em>lazily evaluated</em></span>: your function isn’t called
-          until you ask for an item from the returned object. To force the
-          function to be called for every item in the collection, you can use
-          <span class="keep-together"><code class="literal">toList()</code> or
-          <code class="literal">toSet()</code></span>.</p></div><p>Use <code class="literal">where()</code> to get all the items in a
-        collection that match a condition. Use <code class="literal">any()</code> and
-        <code class="literal">every()</code> to check whether some or all items in a
-        collection match a condition.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/collection-isEmpty.dart
-</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
-
-// Chamomile is not caffeinated.
-bool isDecaffeinated(String teaName) =&gt; teaName == 'chamomile';
-
-// Use where() to find only the items that return true
-// from the provided function.
-var decaffeinatedTeas = teas.where((tea) =&gt; isDecaffeinated(tea));
-// or teas.where(isDecaffeinated)
-
-// Use any() to check whether at least one item in the collection
-// satisfies a condition.
-assert(teas.any(isDecaffeinated));
-
-// Use every() to check whether all the items in a collection
-// satisfy a condition.
-assert(!teas.every(isDecaffeinated));</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Collection.html" target="_top">Collection API
-        docs</a> for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-maps-aka-dictionaries-or-hashes"></a>Maps</h4></div></div></div><p>A map, commonly known as a <span class="emphasis"><em>dictionary</em></span> or
+        for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-maps-aka-dictionaries-or-hashes"></a>Maps</h4></div></div></div><p>A map, commonly known as a <span class="emphasis"><em>dictionary</em></span> or
         <span class="emphasis"><em>hash</em></span>, is an unordered collection of key-value
         pairs. Maps associate a key to some value for easy retrieval. Unlike
-        in JavaScript, Dart objects are not maps.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The Map class does not itself extend Collection. You can,
-          however, get a collection of a map’s keys or its values.</p></div><p><span class="keep-together">You can declare a map using a terse
+        in JavaScript, Dart objects are not maps.</p><p><span class="keep-together">You can declare a map using a terse
         literal syntax, or you can use a traditional
         constructor:</span></p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/map-1.dart
@@ -315,7 +272,8 @@ var searchTerms = new Map();
 // the key and value should be.
 var nobleGases = new Map&lt;int, String&gt;();</pre><p>You add, get, and set map items using the bracket syntax. Use
         <code class="literal">remove()</code> to remove a key and its value from a
-        map.</p><pre class="screen"><em><span class="remark">lang-dart
+        map.<em><span class="remark"> [PENDING: It’s questionable that this example uses
+        containsKey before containsKey is discussed.]</span></em></p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/map-1.dart
 </span></em>var nobleGases = new Map&lt;int, String&gt;();
 
@@ -340,22 +298,16 @@ assert(!nobleGases.containsKey(54));</pre><p>You can retrieve all the values or 
   'kauai' : ['hanalei', 'poipu']
 };
 
-// Get all the keys as an unordered collection (a list).
+// Get all the keys as an unordered collection (an Iterable).
 var keys = hawaiianBeaches.keys;
 
 assert(keys.length == 3);
 assert(new Set.from(keys).contains('oahu'));
 
-// Get all the values as an unordered collection (a list of lists).
+// Get all the values as an unordered collection (an Iterable of Iterables).
 var values = hawaiianBeaches.values;
 assert(values.length == 3);
-assert(values.any((v) =&gt; v.indexOf('waikiki') != -1));</pre><p>You can also iterate through the key-value pairs:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/map-1.dart
-</span></em>// NOTE: Do not depend on iteration order.
-hawaiianBeaches.forEach((k,v) {
-  print('I want to visit $k and swim at $v');
-  // I want to visit oahu and swim at [waikiki, kailua, waimanalo], etc.
-});</pre><p>To check whether a map contains a key, use
+assert(values.any((v) =&gt; v.indexOf('waikiki') != -1));</pre><p>To check whether a map contains a key, use
         <code class="literal">containsKey()</code>. Because map values can be null, you
         cannot rely on simply getting the value for the key and checking for
         null to determine the existence of a key.</p><pre class="screen"><em><span class="remark">lang-dart
@@ -374,7 +326,61 @@ assert(!hawaiianBeaches.containsKey('florida'));</pre><p>Use the <code class="li
 </span></em>var teamAssignments = {};
 teamAssignments.putIfAbsent('Catcher', () =&gt; pickToughestKid());
 assert(teamAssignments['Catcher'] != null);</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Map.html" target="_top">Map API docs</a>
-        for a full list of methods.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A DateTime object is a point in time. The time zone is either UTC
+        for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-common-collection-methods"></a>Common collection methods</h4></div></div></div><p>List, Set, and Map share common functionality found in many
+        collections. Some of this common functionality is defined by the
+        Iterable class, which List and Set implement. </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Although Map doesn’t implement Iterable, you can get Iterables
+          from it using the Map <code class="literal">keys</code> and
+          <code class="literal">values</code> properties.</p></div><p>Use <code class="literal">isEmpty</code> to check whether a list, set, or
+        map has no items:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/collection-isEmpty.dart
+</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
+assert(!teas.isEmpty);</pre><p>To apply a function to each item in a list, set, or map, you can
+        use <code class="literal">forEach()</code>:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/collection-apply-function.dart
+</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
+
+teas.forEach((tea) =&gt; print('I drink $tea'));</pre><p>When you invoke <code class="literal">forEach()</code> on a map, your
+        function must take two arguments (the key and value):</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/map-1.dart
+</span></em>// NOTE: Do not depend on iteration order.
+hawaiianBeaches.forEach((k,v) {
+  print('I want to visit $k and swim at $v');
+  // I want to visit oahu and swim at [waikiki, kailua, waimanalo], etc.
+});</pre><p>An alternative for Iterables is the <code class="literal">map()</code>
+        method, which gives you all the results in a single object:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/collection-apply-function.dart
+</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
+
+var loudTeas = teas.map((tea) =&gt; tea.toUpperCase());
+loudTeas.forEach(print);</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The object returned by <code class="literal">map()</code> is an Iterable
+          that’s <span class="emphasis"><em>lazily evaluated</em></span>: your function isn’t
+          called until you ask for an item from the returned object.</p></div><p>To force your function to be called immediately on each item,
+        use <code class="literal">map().toList()</code> or
+        <code class="literal">map().toSet()</code>:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/collection-apply-function.dart
+</span></em>var loudTeaList = teas.map((tea) =&gt; tea.toUpperCase()).toList();</pre><p>Use Iterable’s <code class="literal">where()</code> method to get all the
+        items that match a condition. Use Iterable’s <code class="literal">any()</code>
+        and <code class="literal">every()</code> methods to check whether some or all
+        items match a condition.</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/collection-any-every.dart
+</span></em>var teas = ['green', 'black', 'chamomile', 'earl grey'];
+
+// Chamomile is not caffeinated.
+bool isDecaffeinated(String teaName) =&gt; teaName == 'chamomile';
+
+// Use where() to find only the items that return true
+// from the provided function.
+var decaffeinatedTeas = teas.where((tea) =&gt; isDecaffeinated(tea));
+// or teas.where(isDecaffeinated)
+
+// Use any() to check whether at least one item in the collection
+// satisfies a condition.
+assert(teas.any(isDecaffeinated));
+
+// Use every() to check whether all the items in a collection
+// satisfy a condition.
+assert(!teas.every(isDecaffeinated));</pre><p>For a full list of methods, refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Iterable.html" target="_top">Iterable API
+        docs,</a> as well as those for List, Set, and Map.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A DateTime object is a point in time. The time zone is either UTC
       or the local time zone.</p><p>You can create DateTime objects using several constructors:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/date.dart
 </span></em>// Get the current date and time.
