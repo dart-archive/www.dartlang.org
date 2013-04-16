@@ -264,6 +264,11 @@ If a callback is invoked from JavaScript after it's been disposed of,
 an exception is thrown
 because the backing closure may have been garbage collected.
 
+## Working with CSP restricted pages
+
+To work with CSP pages (for example, when writing a Chrome App), you need to explicitly add
+the script `packages/js/dart-interop.js` to your html file. The JS-interop code
+normally adds it for you at runtime, but CSP does not allow runtime script injection.
 
 ## Examples
 
