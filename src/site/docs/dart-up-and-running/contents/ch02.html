@@ -1103,7 +1103,7 @@ class SmartTelevision extends Television {
 </span></em>class A {
   // Unless you override noSuchMethod, using a non-existent member
   // results in a NoSuchMethodError.
-  void noSuchMethod(InvocationMirror mirror) {
+  void noSuchMethod(Invocation mirror) {
     print('You tried to use a non-existent member: ${mirror.memberName}');
   }
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-vars-and-methods"></a>Class Variables and Methods</h3></div></div></div><p>Use the <code class="literal">static</code> keyword to

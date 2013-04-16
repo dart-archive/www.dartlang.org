@@ -328,7 +328,7 @@ teamAssignments.putIfAbsent('Catcher', () =&gt; pickToughestKid());
 assert(teamAssignments['Catcher'] != null);</pre><p>Refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Map.html" target="_top">Map API docs</a>
         for a full list of methods.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-common-collection-methods"></a>Common collection methods</h4></div></div></div><p>List, Set, and Map share common functionality found in many
         collections. Some of this common functionality is defined by the
-        Iterable class, which List and Set implement. </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Although Map doesn’t implement Iterable, you can get Iterables
+        Iterable class, which List and Set implement.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Although Map doesn’t implement Iterable, you can get Iterables
           from it using the Map <code class="literal">keys</code> and
           <code class="literal">values</code> properties.</p></div><p>Use <code class="literal">isEmpty</code> to check whether a list, set, or
         map has no items:</p><pre class="screen"><em><span class="remark">lang-dart
@@ -497,7 +497,8 @@ class ProcessIterator implements Iterator&lt;Process&gt; {
 }
 
 // A mythical class that lets you iterate through all processes.
-class Processes extends Iterable&lt;Process&gt; {
+// Extends an Iterable subclass.
+class Processes extends DoubleLinkedQueue&lt;Process&gt; {
   final Iterator&lt;Process&gt; iterator = new ProcessIterator();
 }
 
@@ -837,7 +838,7 @@ HttpRequest.getString(uri)
     .then(processString)
     .catchError(handleError);
 ...
-handleError(AsyncError error) {
+handleError(error) {
   print('Uh oh, there was an error.');
   print(error.toString());
 }</pre><p>If you need access to the HttpRequest, not just the text data it
@@ -1204,7 +1205,7 @@ sink.close();</pre><p>To add to the end of the file, use the optional
         <code class="literal">mode</code> parameter to specify
         <code class="literal">FileMode.APPEND</code>:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/writeFile.dart
-</span></em>var sink = logFile.openWrite(mode: FileMode.APPEND); </pre><p>To write binary data, use <code class="literal">writeBytes(List&lt;int&gt; buffer)</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-listing-files-in-a-directory"></a>Listing files in a directory</h4></div></div></div><p>Finding all files and subdirectories for a directory is an
+</span></em>var sink = logFile.openWrite(mode: FileMode.APPEND); </pre><p>To write binary data, use <code class="literal">add(List&lt;int&gt; buffer)</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-listing-files-in-a-directory"></a>Listing files in a directory</h4></div></div></div><p>Finding all files and subdirectories for a directory is an
         asynchronous operation. The <code class="literal">list()</code> method returns a
         Stream on which you can register handlers (using
         <code class="literal">listen()</code>) to be notified when a file or directory
