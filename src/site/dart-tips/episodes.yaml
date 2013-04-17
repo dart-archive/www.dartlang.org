@@ -71,3 +71,10 @@ episodes:
   num: 10
   youtubeid: 2woBWdBQ4Ro
   thumbnail: http://i.ytimg.com/vi/2woBWdBQ4Ro/0.jpg
+- title: "Classes: Constructors - Dart Tips, Ep 11"
+  subtitle: "Classes: Constructors"
+  pubdate: 2013-03-22
+  description: "Dart offers many types of constructors, including an implementation of the factory pattern. Learn more about constructors, field initialization, named constructors, and factory constructors in Dart.  "
+  num: 11
+  youtubeid: k2R_HwZzogQ
+  thumbnail: http://i.ytimg.com/vi/k2R_HwZzogQ/0.jpg
