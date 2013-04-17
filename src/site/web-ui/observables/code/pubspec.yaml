@@ -1,0 +1,3 @@
+name: observable_examples
+dependencies:
+  web_ui: any

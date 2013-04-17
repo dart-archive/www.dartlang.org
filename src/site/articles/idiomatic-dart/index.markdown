@@ -30,21 +30,8 @@ There are places in the language where we still aren't sure what the best
 practice is yet. (Maybe you can help us.) But here are some pointers that will
 hopefully kick your brain out of Java or JavaScript mode, and into Dart.
 
-#### Contents
+{% include toc.html %}
 
-1. [Constructors](#constructors)
-1. [Functions](#functions)
-1. [Type annotations](#type-annotations)
-1. [Fields, getters, and setters](#fields-getters-and-setters)
-1. [Top-level definitions](#top-level-definitions)
-1. [Dependency injection](#dependency-injection)
-1. [Strings and interpolation](#strings-and-interpolation)
-1. [Operators](#operators)
-1. [Equality](#equality)
-1. [Numbers](#numbers)
-1. [Futures](#futures)
-1. [Comments](#comments)
-{: .toc}
 
 <aside class="alert alert-info" markdown="1">
   **Note**:

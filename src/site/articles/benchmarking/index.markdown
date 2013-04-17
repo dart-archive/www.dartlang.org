@@ -12,6 +12,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by John McCutchan <br>
 October 2012 (updated November 2012)_
 
@@ -20,6 +21,8 @@ larger application. The point of the benchmark is to have an easy to run,
 reproducible stress test of the performance-sensitive algorithm.
 The benchmark verifies that changes to the algorithm are indeed
 improvements, and not regressions.
+
+{% include toc.html %}
 
 ##Benchmarking Dart
 

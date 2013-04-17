@@ -26,28 +26,10 @@ parsing JSON data using the [dart:json](http://api.dartlang.org/json.html)
 library. It then goes on to show how to provide dot-notation access to JSON 
 data through the use of JsonObject.
 
-#### Contents
+{% include toc.html %}
 
-<ol class="toc">
-  <li><a href="#json-web-service">A JSON web service</a></li>
-  <li><a href="#connecting-to-server">Connecting to a server</a>
-    <ol>
-      <li><a href="#getting-data">Getting data from the server</a></li>
-      <li><a href="#saving-object">Saving objects on the server</a></li>
-    </ol>
-  </li>
-  <li><a href="#parsing-json">Parsing JSON</a>
-    <ol>
-      <li><a href="#jsonobject">Introducing JsonObject</a></li>
-      <li><a href="#note-on-cors">A note on CORS and HttpRequest</a></li>
-    </ol>
-  </li>
-  <li><a href="#summary">Summary</a></li>
-  <li><a href="#resources">Resources</a></li>
-  <li><a href="#about-author">About the author</a></li>
-</ol>
 
-<h2 id="json-web-service">A JSON web service</h2>
+## A JSON web service
 
 Many modern web apps are powered by RESTful web services that send and receive
 data encoded as JSON. This article features a web service that responds to an
@@ -79,14 +61,14 @@ like an SQL INSERT.  The POSTed JSON data is sent in the HTTP body.
   [README file](https://github.com/chrisbu/dartlang_json_webservice_article_code/blob/master/README.md).
 </aside>
 
-<h2 id="connecting-to-server">Connecting to the server</h2>
+## Connecting to the server
 
 When communicating with a web service, use the <code>HttpRequest</code> 
 API from the dart:html library. HttpRequest is a standard way to 
 programmatically send and receive data to and from web servers.  This is 
 Dart's equivalent to XMLHttpRequest in JavaScript.
 
-<h3 id="getting-data">Getting data from the server</h3>
+### Getting data from the server
 
 Get objects from the server using HTTP GET.  HttpRequest provides a named
 constructor called <code>get</code> that takes a URL and a callback function
@@ -122,7 +104,7 @@ main() {
 full HttpRequest API.  The full HttpRequest API is still available if you need finer-grained control over the API.
 </aside>
 
-<h3 id="saving-object">Saving objects on the server</h3>
+### Saving objects on the server
 
 To create a new object on the server, use the full HttpRequest API with the 
 HTTP POST method.  Use the readyStateChange listener to be notified when the 
@@ -160,7 +142,7 @@ errors referring to <code>Access-Control-Allow-Origin</code>.  See the section
   </div>
 </aside>
 
-<h2 id="parsing-json">Parsing JSON</h2>
+## Parsing JSON
 
 Now that you have seen how HttpRequest GETs data from the server back to the
 client, and POSTs data from the client to the server, the next step is to make
@@ -254,7 +236,7 @@ Fortunately, the ability to write code using this “dot notation” is built in
 Dart, through its support of classes. The solution, then, is to combine the
 flexibility of a Map with the structure of a class.
 
-<h3 id="jsonobject">Introducing JsonObject</h3>
+### Introducing JsonObject
 
 This flexibility of JSON and Maps combined with the structure of classes is 
 made possible with JsonObject, which is a third-party open source library.
@@ -385,7 +367,7 @@ and import the package using the following import statement:
 import "package:json_object/json_object.dart";
 {% endprettify %}
 
-<h3 id="note-on-cors">A note on CORS and HttpRequest</h3>
+### A note on CORS and HttpRequest
 
 One caveat: Make sure your app is served from the same origin (domain name,
 port, and application layer protocol) as the web service you are trying to
@@ -433,7 +415,7 @@ void main() {
 For more detailed information about JS Interop, see
 the [js package docs](http://dart-lang.github.com/js-interop/docs/js.html).
 
-<h2 id="summary">Summary</h2>
+## Summary
 
 This article showed how a client-side Dart application communicates with a
 JSON-based web service via HTTP GET and POST.  JSON data is parsed using the
@@ -441,7 +423,7 @@ dart:json library, which converts JSON strings into maps and lists.  Using
 JsonObject with the JSON data allows you to extend the functionality of the
 dart:json library by letting you use dot notation to access data fields.
 
-<h2 id="resources">Resources</h2>
+## Resources
 
 * [Source code examples from this article](https://github.com/chrisbu/dartlang_json_webservice_article_code)
 * [dart:json](http://api.dartlang.org/dart_json.html)
@@ -451,7 +433,7 @@ dart:json library by letting you use dot notation to access data fields.
 * [Dart JS Interop Library](http://dart-lang.github.com/js-interop/docs/js.html)
 * [About access-control restrictions](https://developer.mozilla.org/en/http_access_control)
 
-<h3 id="about-author">About the author</h3>
+### About the author
 
 <img src="chris-buckett.png" width="95" height="115"
 alt="Chris Buckett head shot" align="left" style="margin-right: 10px">

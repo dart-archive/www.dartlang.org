@@ -13,23 +13,16 @@ article:
 
 # {{ page.title }}
 
-<p>
+
 <em>Written by Gilad Bracha <br>
 January 2012
 (updated November 2012)</em>
-</p>
 
 This document describes how to define Dart classes
 that behave like functions.
 
-#### Contents
+{% include toc.html %}
 
-1. [The call() method](#the-call-method)
-1. [Function types](#function-types)
-1. [The apply() method](#the-apply-method)
-1. [Interactions with noSuchMethod()](#interactions-with-nosuchmethod)
-1. [Summary](#summary)
-{: .toc}
 
 ## The call() method
 

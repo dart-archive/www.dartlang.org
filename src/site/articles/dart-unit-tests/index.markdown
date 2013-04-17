@@ -13,6 +13,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Graham Wheeler <br />
 June 2012 (updated February 2013)_
 
@@ -22,19 +23,8 @@ supports both synchronous and asynchronous tests. This article describes
 how to write and run tests, and how testing fits into the overall Dart
 ecosystem.
 
-## Contents
+{% include toc.html %}
 
-1. [Differences from the earlier library](#differences-from-the-earlier-library)
-1. [A simple unit test example](#a-simple-unit-test-example)
-1. [Basic synchronous tests](#basic-synchronous-tests)
-1. [Grouping tests](#grouping-tests)
-1. [Setup and teardown](#setup-and-teardown)
-1. [Running a limited set of tests](#running-a-limited-set-of-tests)
-1. [Asynchronous tests](#asynchronous-tests)
-1. [Matchers](#matchers)
-1. [Configuring the test environment](#configuring-the-test-environment)
-1. [Using expect() in other contexts](#using-expect-in-other-contexts)
-{:.toc}
 
 ## Differences from the earlier library
 

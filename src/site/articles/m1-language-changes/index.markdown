@@ -13,6 +13,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Bob Nystrom <br />
 July 2012
 (updated March 2013)_
@@ -22,38 +23,8 @@ language changes. There are tracking bugs in the repo for all of them, but I
 wanted to run through them here and try to provide some context and rationale
 where I can.
 
-## Contents
+{% include toc.html %}
 
-1. [First-class types](#first-class-types)
-1. [No explicit interfaces](#no-explicit-interfaces)
-1. <s><a href="#no--on-string">No "+" on String</a></s>
-1. [No throwing `null`](#no-throwing-null)
-1. [The "as" cast operator](#the-as-cast-operator)
-1. [Cascades](#cascades)
-1. [Lazy static initialization](#lazy-static-initialization)
-1. [Field initialization with non-const objects](#field-initialization-with-non-const-objects)
-1. [Support "const" modifier for variables](#support-const-modifier-for-variables)
-1. [Syntax for defining operators](#syntax-for-defining-operators)
-1. [Split library scope and import scope](#split-library-scope-and-import-scope)
-1. [Revised switch](#revised-switch)
-1. [Selective imports](#selective-imports)
-1. [Re-export](#re-export)
-1. [Static methods are constants](#static-methods-are-constants)
-1. [New catch syntax](#new-catch-syntax)
-1. [Getter definition syntax](#getter-definition-syntax)
-1. [All objects hashable](#all-objects-hashable)
-1. [One-line dartdoc comments](#one-line-dartdoc-comments)
-1. [Raw strings marked with r](#raw-strings-marked-with-r)
-1. [Throw is an expression](#throw-is-an-expression)
-1. [Named optional params and positional optional params are specified differently](#named-optional-params-and-positional-optional-params-are-specified-differently)
-1. [Test optional argument with "?"](#test-optional-argument)
-1. [Constructor names are now unique names in a class](#constructor-names-unique)
-1. [Simpler equality](#simpler-equality)
-1. [Metadata](#metadata)
-1. [Import and library syntax changes](#import-and-library-syntax-changes)
-1. [Strings are UTF-16](#strings-are-utf-16)
-1. [Conclusion](#conclusion)
-{:.toc}
 
 {::comment}
 1. [Callable objects](#callable-objects)

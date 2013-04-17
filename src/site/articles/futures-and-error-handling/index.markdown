@@ -12,6 +12,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Shailen Tuli, March 2013_
 
 This article covers the subject of error handling when dealing with Futures.
@@ -19,21 +20,8 @@ If you are unfamiliar with the general concepts behind Futures, we
 recommend you first read
 [Using Future Based APIs](/articles/using-future-based-apis/).
 
-#### Contents
+{% include toc.html %}
 
-1. [Introduction](#introduction)
-1. [Examples of using then() with catchError()](#examples-of-using-then-with-catcherror)
-    1. [catchError() as a comprehensive error handler](#catcherror-as-a-comprehensive-error-handler)
-    1. [Error handling within then()](#error-handling-within-then)
-    1. [Errors in the middle of a long chain](#errors-in-the-middle-of-a-long-chain)
-    1. [Handling specific errors](#handling-specific-errors)
-1. [Async try-catch-finally using whenComplete()](#async-try-catch-finally-using-whencomplete)
-    1. [Completing the Future returned by whenComplete()](#completing-the-future-returned-by-whencomplete)
-    1. [Errors originating within whenComplete()](#errors-originating-within-whencomplete)
-1. [Potential problem: failing to register error handlers early](#potential-problem-failing-to-register-error-handlers-early)
-1. [Potential problem: accidentally mixing synchronous and asynchronous errors](#potential-problem-accidentally-mixing-synchronous-and-asynchronous-errors)
-    1. [Solution: Using Future.of() to wrap your code](#solution-using-futureof-to-wrap-your-code)
-{:.toc}
 
 ## Introduction
 

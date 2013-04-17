@@ -91,24 +91,7 @@ for details on using Dart Editor and command-line scripts
 to compile code that uses Web UI.
 </aside>
 
-#### Contents
-
-1. [MDV templates in Dart](#templates)
-    1. [One-way data binding](#one-way-binding)
-    1. [Two-way data binding](#two-way-binding)
-    1. [Conditionals](#conditionals)
-    1. [Loops](#loops)
-    1. [Event listeners](#events)
-    1. [Summary of templates](#template-summary)
-1. [Web components in Dart](#components)
-    1. [Declaring a component](#component-declaration)
-    1. [Instantiating a component](#component-instantiation)
-    1. [Passing data to a component](#pass-data-to-component)
-    1. [Passing child nodes to a component](#composition)
-    1. [Importing a component](#import-components)
-1. [Tools for using Web UI](#tools)
-1. [More information](#more-info)
-{:.toc}
+{% include toc.html %}
 
 ## MDV templates in Dart {#templates}
 

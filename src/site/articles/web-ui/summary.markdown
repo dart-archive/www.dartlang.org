@@ -24,10 +24,7 @@ features supported by Web UI. Read the [reference specification](spec.html) for
 more details, or refer to our [explainer article](index.html) for a high-level
 introduction and examples.
 
-#### Contents
-1. [Web components features](#web-components-features)
-1. [Templating features](#templating-features)
-{: .toc}
+{% include toc.html %}
 
 ## Web components features
 

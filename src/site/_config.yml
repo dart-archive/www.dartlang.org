@@ -23,3 +23,5 @@ custom:
         name: Linux
         ext: tar.gz
         editor-ext: zip
+kramdown:
+  toc_levels: [2,3]

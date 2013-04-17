@@ -12,6 +12,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Seth Ladd <br>
 December 2012_
 
@@ -23,19 +24,8 @@ Editor, the Web UI package, and much more.
 
 While not an exhaustive list, here are some of the highlights from M2.
 
-#### Contents
+{% include toc.html %}
 
-1. [dart2js shrinks generated code size, gets a startup boost](#dart2js-shrinks-output)
-1. [Library refactorings](#library-refactorings)
-1. [dart:html simplifications](#dart-html-simplifications)
-1. [Dart VM gets SSL and performance improvements](#dart-vm-gets-ssl)
-1. [Documentation for new web developers and game developers](#new-docs)
-1. [Pub lets authors publish their own libraries](#pub-uploads)
-1. [Dart Editor helps developers manage more code](#dart-editor)
-1. [Web UI builds on Web Components](#web-ui)
-1. [New http, oauth2, and serialization packages](#new-packages)
-1. [Conclusion](#conclusion)
-{:.toc}
 
 ## dart2js shrinks generated code size, gets a startup boost
 {:#dart2js-shrinks-output}

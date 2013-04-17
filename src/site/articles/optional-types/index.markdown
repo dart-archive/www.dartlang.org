@@ -11,103 +11,79 @@ article:
   collection: language-details
 ---
 
-<h1>{{ page.title }}</h1>
-<p>
+# {{ page.title }}
+
 <em>Written by Gilad Bracha<br />
 October 2011 (updated September 2012)</em>
-</p>
 
-<section>
-<p>
+
 One of the Dart programming language's most innovative features
 is the use of optional types.
 This document seeks to explain how optional types work.
-</p>
-
-<h4> Contents </h4>
-
-<ol class="toc">
-  <li> <a href="#overview">Overview</a> </li>
-  <li> <a href="#static-checker">The static checker</a> </li>
-  <li> <a href="#type-dynamic">Type dynamic</a> </li>
-  <li> <a href="#generics">Generics</a> </li>
-  <li> <a href="#checked-mode">Checked mode</a> </li>
-  <li> <a href="#using-types">Using types</a> </li>
-</ol>
-</section>
 
 
-<section>
-<h2 id="overview"> Overview </h2>
+{% include toc.html %}
 
-<p>
-The Dart language is dynamically typed.
-You can write programs that have no type annotations whatsoever,
-and run them,
-much as you would in JavaScript.
-</p>
 
-<p>
+## Overview
+
+
+The Dart language is dynamically typed. You can write programs that have no type
+annotations whatsoever, and run them, much as you would in JavaScript.
+
 You may choose to add type annotations to your program:
-</p>
 
-<ul>
-  <li> Adding types will <b>not</b> prevent your program from
+
+* Adding types will *not* prevent your program from
   	compiling and running&mdash;even if
-  	your annotations are incomplete or plain wrong. </li>
-  <li> Your program will have exactly the same semantics
-    no matter what type annotations you add. </li>
-</ul>
+  	your annotations are incomplete or plain wrong.
+* Your program will have exactly the same semantics
+    no matter what type annotations you add.
 
-<p>
+
 You can nevertheless profit from adding type annotations to your code.
 Types provide the following benefits:
-</p>
 
-<ul>
-  <li> Documentation for humans.
+
+* Documentation for humans.
     It is much easier for people to read your code
-    if it has judiciously placed type annotations. </li>
-  <li> Documentation for machines.
+    if it has judiciously placed type annotations. 
+* Documentation for machines.
     Tools can leverage type annotations in various ways.
     In particular, they can help provide nice features such as
-    name completion and improved navigation in IDEs. </li>
-  <li> Early error detection.
+    name completion and improved navigation in IDEs. 
+* Early error detection.
     Dart provides a static checker that can warn you about potential problems,
     without getting in your way.
     In addition, in developer mode,
     Dart automatically converts type annotations to runtime assertion checks
-    as a debugging aid. </li>
-  <li> Sometimes, types can help improve performance
+    as a debugging aid. 
+* Sometimes, types can help improve performance
     when compiling to JavaScript.
-    We'll say more about this later. </li>
-</ul>
-</section>
+    We'll say more about this later. 
+
+## The static checker
 
 
-<section>
-<h2 id="static-checker"> The static checker </h2>
-
-<p>
 The static checker acts a lot like lint in C.
 It warns you about potential problems at compile-time.
 Many of these warnings are related to types.
-The static checker does <b>not</b> produce errors&mdash;you
+The static checker does *not* produce errors&mdash;you
 can always compile and run your code, no matter what the checker says.
-</p>
 
-<p>
+
+
 The checker does not scream about every possible type violation.
 It is not a typechecker,
 because Dart doesn't use types the way a classic type system does.
 The checker complains about things that are very likely to be real problems,
 rather than forcing you to jump through hoops
 to satisfy a narrow-minded type system.
-</p>
 
-<p>
+
+
 For example, consider:
-</p>
+
 
 {% prettify dart %}
 class Point {
@@ -131,32 +107,32 @@ main() {
 }
 {% endprettify %}
 
-<p>
+
 This is clearly a problem.
 The static checker will issue a warning in this case.
-</p>
 
-<p>
+
+
 <img src="imgs/static-warning.png" width="665" height="363"
      alt="Static warning in Dart Editor"
      style="border: 1px solid gray; box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.25);">
-</p>
+
 
 Note that the code still runs,
 setting <code>n</code> to an instance of Point
 and printing <code>x: 10, y: 10</code>. 
-</p>
 
-<p>
+
+
 However, unlike a classic mandatory type system, code like this
-</p>
+
 
 {% prettify dart %}
 Object lookup(String key) { /* ... */ } // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
 {% endprettify %}
 
-<p>
+
 will not cause any complaints from the checker.
 That's because there is a very good chance that the code is correct,
 despite the lack of type information.
@@ -164,24 +140,21 @@ You, the programmer, often have semantic knowledge
 that a typechecker does not.
 You know that the value stored in the table under 'Frankenstein' is a string,
 even though the lookup method is declared to return <code>Object</code>.
-</p>
-</section>
 
 
-<section>
-<h2 id="type-dynamic"> Type dynamic </h2>
+## Type dynamic
 
-<p>
+
 How does Dart avoid complaints when no types are provided?
 The key to this is the type <code>dynamic</code>,
 which is the default type given when no type
 is explicitly given by the programmer.
 Using type <code>dynamic</code> makes the checker shut up.
-</p>
 
-<p>
+
+
 Occasionally, you may want to use <code>dynamic</code> explicitly.
-</p>
+
 
 {% prettify dart %}
 Map<String, dynamic> m = {
@@ -191,7 +164,7 @@ Map<String, dynamic> m = {
     'twelve': new Drummer()};
 {% endprettify %}
 
-<p>
+
 We could have used the type
 <code>Map&lt;String, Object></code> for <code>m</code>,
 but then, when we extracted the contents,
@@ -201,82 +174,79 @@ Since the contents of the map have no common superinterface
 other than <code>Object</code>,
 we may prefer to use <code>dynamic</code>.
 If we try to call methods on the map's values, for example,
-</p>
+
 
 {% prettify dart %}
 pearTree = m['one'].container();
 {% endprettify %}
 
-<p>
+
 we would get a warning if the contents were of type <code>Object</code>,
 because <code>Object</code> does not support container.
 If we use type <code>dynamic</code>, no warning is issued. 
-</p>
-</section>
 
 
-<section>
-<h2 id="generics"> Generics </h2>
+## Generics
 
-<p>
+
 Dart supports reified generics.
 That is, objects of generic type carry
 their type arguments with them at run time.
 Passing type arguments to a constructor of a generic type
 is a runtime operation.
 How does this square with the claim that types are optional?
-</p>
 
-<p>
+
+
 Well, if you don't want to ever think about types,
 generics won't force you to.
 You can create instances of generic classes without providing type parameters.
 For example:
-</p>
+
 
 {% prettify dart %}
 new List();
 {% endprettify %}
 
-<p>
+
 works just fine. Of course, you can write
-</p>
+
 
 {% prettify dart %}
 new List<String>();
 {% endprettify %}
 
-<p>
+
 if you want. 
-</p>
+
 
 {% prettify dart %}
 new List();
 {% endprettify %}
 
-<p>
+
 is just a shorthand for 
-</p>
+
 
 {% prettify dart %}
 new List<dynamic>();
 {% endprettify %}
 
-<p>
+
 In constructors, type parameters play a runtime role.
 They are actually passed at run time,
 so that you can use them when you do dynamic type tests.
-</p>
+
 
 {% prettify dart %}
 new List<String>() is List<Object>  // true: every string is an object 
 new List<Object>() is List<String>  // false: not all objects are strings
 {% endprettify %}
 
-<p>
+
 Generics in Dart conform to programmer intuition.
 Here are some more interesting cases:
-</p>
+
 
 {% prettify dart %}
 new List<String>() is List<int>     // false
@@ -285,32 +255,29 @@ new List<String>() is List<dynamic> // same as line above
 new List() is List<dynamic>         // true, these are exactly the same
 {% endprettify %}
 
-<p>
+
 In contrast, type annotations
 (for example, types added to the declarations of variables,
 or as return types of functions and methods)
 play no runtime role and have no effect on program semantics.
 One last case worth studying:
-</p>
+
 
 {% prettify dart %}
 new List() is List<String>          // true as well!
 {% endprettify %}
 
-<p>
+
 You may be writing your program without types,
 but you will frequently be passing data into typed libraries.
 To prevent types getting in your way,
 generic types without type parameters are considered substitutable
 (subtypes of) for any other version of that generic.
-</p>
-</section>
 
 
-<section>
-<h2 id="checked-mode"> Checked mode </h2>
+## Checked mode
 
-<p>
+
 Dart programs can be run in checked mode during development.
 If you run a program in checked mode,
 the system will automatically execute certain type checks
@@ -319,17 +286,17 @@ when returning results,
 and when executing assignments.
 If the checks fail,
 execution will stop at that point with a clear error message. So, 
-</p>
+
 
 {% prettify dart %}
 String s = new Object();
 {% endprettify %}
 
-<p>
+
 will stop the code in its tracks,
 because <code>Object</code> is not a subtype of <code>String</code>.
 However
-</p>
+
 
 {% prettify dart %}
 Object foo() {
@@ -338,21 +305,21 @@ Object foo() {
 String s = foo();
 {% endprettify %}
 
-<p>
+
 works just fine,
 because the actual object returned by foo at run time is a <code>String</code>,
 even though the type signature says foo returns an <code>Object</code>.
 When an object is assigned to a variable,
 Dart checks that the runtime type of the object
 is a subtype of the declared (static) type of the variable.
-</p>
 
-<p>
+
+
 Essentially, checked mode is like running your program under the debugger
 with watchpoints that run a subtype check on every assignment, return,
 and so on.
 Some more examples:
-</p>
+
 
 {% prettify dart %}
 <int>[0,1, 1][2] = new Object(); // fails in checked mode
@@ -364,12 +331,12 @@ bar(int n) {
 bar(3.2); // returns 6.4 in production, but fails in checked mode
 {% endprettify %}
 
-<p>
+
 In checked mode , every time an argument is passed to a function,
 the runtime type of the argument is tested to see
 if it is a subtype of the declared type of the formal parameter.
 We can correct this easily:
-</p>
+
 
 {% prettify dart %}
 bar(num n) {
@@ -390,22 +357,22 @@ i_bar(3.2); // fails in checked mode
             // because returned value is not an int
 {% endprettify %}
 
-<p>
+
 Notice the last line.
 The check happens on returned values,
 even if the result of the function is not assigned to anything.   
-</p>
 
-<p>
+
+
 Let's return to our old friend Frankenstein.
-</p>
+
 
 {% prettify dart %}
 Object lookup(String key) { /* ... */ } // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
 {% endprettify %}
 
-<p>
+
 If we are correct in our assumption that the lookup returns a string,
 checked mode will execute smoothly.
 If we're wrong, it will catch our mistake for us.
@@ -417,12 +384,12 @@ In no case will Dart do a magical coercion into a string.
 If it did, that would mean the type annotation
 was modifying the behavior of our program,
 and types would not be optional anymore.
-</p>
 
-<p>
+
+
 Of course, if you don't use types at all,
 checked mode won't get in your way. 
-</p>
+
 
 {% prettify dart %}
 my_add(s1, s2) {
@@ -433,7 +400,7 @@ my_add(3, 4); // 7
 my_add(new Point(3, 3), new Point(4, 4)); // Point(7, 7)
 {% endprettify %}
 
-<p>
+
 All these checks impose a considerable performance penalty,
 so one cannot usually afford to run them in production.
 The benefit of such checks is that they
@@ -441,14 +408,11 @@ can trap dynamic type errors at their source,
 making it easier to debug problems.
 Most such problems are detected during testing anyway,
 but checked mode helps localize them.
-</p>
-</section>
 
 
-<section>
-<h2 id="using-types"> Using types </h2>
+## Using types
 
-<p>
+
 How you use types is up to you.
 If you hate types, you need not use them at all.
 You won't get any type warnings,
@@ -459,9 +423,9 @@ because the Dart libraries have type signatures
 that tell you what they expect and what they return.
 If you run in checked mode, and pass bad arguments to the library,
 checked mode will detect that at the point where you made the mistake.
-</p>
 
-<p>
+
+
 If you love types, you may use them everywhere,
 much like in a statically typed language.
 However, even then you won't get the same level of static checking.
@@ -469,9 +433,9 @@ Dart's rules are much less rigid.
 We anticipate providing additional tools
 that might interpret type annotations more strictly
 for those who like that sort of thing.
-</p>
 
-<p>
+
+
 We don't recommend either of these extremes.
 Use types where they make sense.
 The most valuable thing you can do is add types
@@ -484,16 +448,16 @@ In both cases, you don't necessarily have to
 add types to the bodies of methods or functions.
 Users of the library get value from type signatures,
 even if they are not 100% accurate.
-</p>
 
-<p>
+
+
 Within the bodies of functions,
 it may not always pay to annotate declarations.
 Sometimes the code is simple enough that it doesn't really matter,
 and types might just create clutter.
-</p>
 
-<p>
+
+
 Usually, you should design your code
 without letting type considerations influence your design.
 In some cases, there are alternate designs,
@@ -504,8 +468,3 @@ if you can pass a function instead,
 your code will be both more efficient and easier to typecheck.
 Dart discourages gratuitous use of reflection by other means as well.
 However, you should not hesitate to use reflection when it truly makes sense.
-</p>
-
-</section>
-
-

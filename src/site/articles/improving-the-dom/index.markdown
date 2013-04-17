@@ -21,20 +21,8 @@ define a cleaner set of APIs for users. When it comes to coding in a browser,
 that API is the DOM. The DOM API that JavaScripters suffer is creaking under the
 weight of history and technological ballast such as XML.
 
-#### Contents
+{% include toc.html %}
 
-1. [Simpler names](#simpler-names)
-1. [Better querying](#better-querying)
-1. [Real collections](#real-collections)
-1. [Constructors](#Constructors)
-1. [Events](#events)
-1. [No more vendor prefixes](#no-more-vendor-prefixes)
-1. [Future-based APIs](#future-based-apis)
-1. [More granular libraries](#more-granular-libraries)
-1. [Cross-browser consistency in HTML APIs](#cross-browser-consistency)
-1. [Cascaded DOM construction](#cascades)
-1. [Want to know more?](#know-more)
-{: .toc}
 
 ## Simpler names
 

@@ -12,10 +12,10 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Mads Ager <br />
 March 2012 (updated October 2012 and February 2013)_
 
-<section markdown="1">
 The [dart:io](http://api.dartlang.org/io.html) library
 is aimed at server-side code
 that runs on the standalone Dart VM.
@@ -32,24 +32,10 @@ dart:io uses an asynchronous programming model inspired by
 [node.js](http://nodejs.org),
 [EventMachine](https://github.com/eventmachine/eventmachine/wiki), and
 [Twisted](http://twistedmatrix.com/trac/).
-</section>
+
+{% include toc.html %}
 
 
-<section id="toc" markdown="1">
-
-#### Contents
-
-<ol class="toc">
-  <li> <a href="#vm">The Dart VM and the event loop</a> </li>
-  <li> <a href="#file-system">File system access</a> </li>
-  <li> <a href="#processes">Interacting with processes</a> </li>
-  <li> <a href="#web-servers">Writing web servers</a> </li>
-  <li> <a href="#feedback">Feature requests welcome</a> </li>
-</ol>
-</section>
-
-
-<section id="vm" markdown="1">
 ## The Dart VM and the event loop
 
 Before we dive into asynchronous I/O operations,
@@ -93,10 +79,7 @@ Running this example at the command line, we get:
 Had we made the timer repeating by using the Timer.periodic() constructor,
 the VM would not terminate
 and would continue to print out 'timer' every second.
-</section>
 
-
-<section id="file-system" markdown="1">
 ## File system access
 
 The dart:io library provides access to files and directories through the
@@ -208,10 +191,7 @@ when working with stdin, files, sockets, HTTP connections, and so on.
 Similarly, [IOSink](http://api.dartlang.org/docs/release/dart_io/IOSink.html)s
 are used to stream data to
 stdout, files, sockets, HTTP connections, and so on.
-</section>
 
-
-<section id="processes" markdown="1">
 ##Interacting with processes
 
 For the simple case, use
@@ -292,10 +272,7 @@ main() {
 }
 {% endprettify %}<!--- END(io_process_stdio) -->
 
-</section>
 
-
-<section id="web-servers" markdown="1">
 ##Writing web servers
 
 dart:io makes it easy to write HTTP servers and clients.
@@ -381,10 +358,7 @@ Writing HTTP clients is very similar to using the
 [HttpClient](http://api.dartlang.org/docs/release/dart_io/HttpClient.html)
 class.
 
-</section>
 
-
-<section id="feedback" markdown="1">
 ## Feature requests welcome
 
 The dart:io library is already capable of performing a lot of tasks.
@@ -399,5 +373,3 @@ Feature requests are very welcome!
 When you file a bug or feature request,
 use the Area-IO label in the issue tracker at
 [dartbug.com](http://dartbug.com).
-
-</section>

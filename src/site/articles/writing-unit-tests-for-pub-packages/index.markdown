@@ -11,17 +11,13 @@ article:
 ---
 
 # {{ page.title }}
-_Written by Shailen Tuli, November 2012_
 
-## Contents
 
-1. [Introduction](#introduction)
-1. [Create a simple package](#create-a-simple-package)
-1. [Add the unittest package to your library](#add-the-unittest-package-to-your-library)
-1. [Write some code](#write-some-code)
-1. [Write some tests](#write-some-tests)
-1. [Summary](#summary)
-{:.toc}
+<em>Written by Shailen Tuli<br>
+<time pubdate date="2012-11-01">November 2012</time>
+</em>
+
+{% include toc.html %}
 
 ## Introduction
 

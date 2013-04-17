@@ -11,6 +11,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Gilad Bracha <br>
 December 2012_
 
@@ -22,17 +23,8 @@ This restricted version already provides considerable value.
 
 The intent is to incorporate mixins into Dart in M3.
 
-#### Contents
+{% include toc.html %}
 
-1. [Basic concepts](#basic-concepts)
-1. [Syntax and semantics](#syntax-and-semantics)
-1. [Possible issues](#possible-issues)
-   1. [Privacy](#privacy)
-   1. [Statics](#statics)
-   1. [Types](#types)
-1. [Extensions](#extensions)
-1. [Spec changes](#spec-changes)
-{:.toc}
 
 ## Basic concepts
 

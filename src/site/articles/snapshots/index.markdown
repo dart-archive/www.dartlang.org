@@ -11,6 +11,7 @@ article:
 ---
 
 # {{ page.title }}
+
 <em>Written by Siva Annamalai <br />
 <time pubdate date="2013-02-13">February 2013</time>
 </em>
@@ -29,14 +30,7 @@ the browser can retrieve the snapshot from the browser cache
 and use it to start your app faster.
 
 
-#### Contents
-
-1. [What is a snapshot?](#what-is-a-snapshot)
-1. [How the browser can use snapshots](#how-the-browser-can-use-snapshots)
-1. [How to generate and use script snapshots](#how-to-generate-and-use-script-snapshots)
-1. [How to generate full snapshots](#how-to-generate-full-snapshots)
-1. [Summary](#summary)
-{: .toc}
+{% include toc.html %}
 
 
 ## What is a snapshot?

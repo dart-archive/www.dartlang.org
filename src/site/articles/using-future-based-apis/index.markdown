@@ -12,19 +12,10 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Shailen Tuli, February 2013_
 
-## Contents
-
-1. [Introduction](#introduction)
-1. [What is a Future?](#what-is-a-future)
-1. [Using a Future](#using-a-future)
-1. [Sequence of events during code execution](#sequence-of-events-during-code-execution)
-1. [Handling errors when dealing with Futures](#handling-errors-when-dealing-with-futures)
-1. [Calling multiple functions that return Futures](#calling-multiple-functions-that-return-futures)
-    1. [Chaining function calls using then()](#chaining-function-calls-using-then)
-    1. [Waiting on multiple Futures to complete using Future.wait()](#waiting-on-multiple-futures-to-complete-using-futurewait)
-{:.toc}
+{% include toc.html %}
 
 ## Introduction
 

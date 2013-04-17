@@ -12,6 +12,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Gilad Bracha <br />
 November 2012_
 

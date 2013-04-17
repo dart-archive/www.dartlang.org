@@ -14,6 +14,7 @@ and \{\% codesample \%\}.
 {% endcomment %}
 
 # {{ page.title }}
+{: .no_toc}
 
 _Written by Sigmund Cherem<br />
 November 2012 (Updated February 2013)_
@@ -26,33 +27,7 @@ high-level introduction and examples, see our
 [explainer article](/articles/web-ui/).
 
 
-#### Contents
-
-1. [Components](#components)
-    1. [Declaration](#declaration)
-        1. [Appearance](#appearance)
-        2. [Behavior](#behavior)
-    2. [Instantiation](#instantiation)
-    3. [Retrieval](#retrieval)
-    4. [Template lexical scope](#template-scope)
-    5. [Class members](#class-members)
-        1. [Lifecycle methods](#lifecycle-methods)
-        2. [Implied fields](#implied-fields)
-2. [Template Syntax](#template-syntax)
-    1. [Data binding](#data-binding)
-        1. [Binding in content](#binding-in-content)
-        2. [Binding in attributes](#binding-in-attributes)
-        3. [Binding interactive elements](#binding-interactive-elements)
-        4. [Watchers](#watchers)
-    2. [Conditionals](#conditionals)
-    3. [Loops](#loops)
-    4. [Event listeners](#event-listeners)
-3. [Web Apps](#web-apps)
-    1. [Declaring components](#declaring-components)
-    2. [Loading components](#loading-components)
-    3. [Main script](#main-script)
-    4. [Top-level templates](#top-level-templates)
-{:.toc}
+{% include toc.html %}
 
 - - -
 

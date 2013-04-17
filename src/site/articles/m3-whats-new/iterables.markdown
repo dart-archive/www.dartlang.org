@@ -10,12 +10,10 @@ article:
   collection: libraries-and-apis
 ---
 
-# Iterables
+# {{ page.title }}
 
-<p>
 <em>Written by Florian Loitsch <br>
 January 2013</em>
-</p>
 
 With our recent big merge from experimental to the bleeding edge branch,
 we added a lot of functionality to Iterable.
@@ -28,13 +26,7 @@ that are now available in Iterable.
 You might also want to refer to the
 [Iterable API documentation](http://api.dartlang.org/dart_core/Iterable.html).
 
-#### Contents
-1. [Methods that return new Iterables](#methods-that-return-new-iterables)
-1. [Getters](#getters)
-1. [Convenience methods](#convenience-methods)
-1. [Iterator](#iterator)
-1. [Porting your code](#porting-your-code)
-{: .toc}
+{% include toc.html %}
 
 
 ## Methods that return new Iterables

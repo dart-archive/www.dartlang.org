@@ -13,6 +13,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Chris Buckett <br />
 March 2013_
 
@@ -25,27 +26,10 @@ a unified interface to anything that might send out a repeating series of data.
 
 This article explains how to consume streams using this unified interface.
 
-#### Contents
+{% include toc.html %}
 
-1. [Background reading: futures?](#background-reading-futures)
-1. [What are streams for?](#what-are-streams-for)
-1. [Consuming a stream](#consuming-a-stream)
-1. [Common Stream methods](#common-stream-methods)
-    1. [Subsets of stream data](#subsets-of-stream-data)
-    1. [Transforming stream data](#transforming-stream-data)
-    1. [Validating stream data](#validating-stream-data)
-1. [Single value streams](#single-value-streams)
-1. [Error handling in streams and futures](#error-handling-in-streams-and-futures)
-    1. [Error handling with StreamSubscription](#error-handling-with-streamsubscription)
-1. [Unsubscribing from a stream](#unsubscribing-from-a-stream)
-1. [Streams are generic](#streams-are-generic)
-1. [Some real world examples of consuming a stream](#some-real-world-examples-of-consuming-a-stream)
-    1. [Button clicks in dart:html](#button-clicks-in-darthtml)
-    1. [Reading a file in dart:io](#reading-a-file-in-dartio)
-1. [Conclusion](#conclusion)
-{:.toc}
 
-## Background Reading: Futures
+## Background reading: futures
 
 Before we get started, it is important to note that Streams are part 
 of the [dart:async](http://api.dartlang.org/dart_async.html) library.

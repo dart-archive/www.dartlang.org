@@ -5,7 +5,9 @@ description: "Tools for creating a project with Web UI"
 rel:
   author: sigmund-cherem
 ---
+
 # {{ page.title}}
+
 _Written by Sigmund Cherem<br />
 October 2012 (Updated December 2012)_
 
@@ -14,6 +16,8 @@ The Web UI package (Web UI for short) provides web components and templates to
 help you write web applications at scale. You can learn about this package in
 our [explainer article](/articles/web-ui/). This article describes tools that will help
 you create and deploy projects that use Web UI.
+
+{% include toc.html %}
 
 
 ## The overall approach: a compiler in disguise
@@ -125,30 +129,6 @@ app, you can directly launch the input HTML file `web/app.html` and the editor
 will automatically redirect to run the generated file. You can also find the
 generated file under `web/out/app.html`, and request the editor to launch it
 directly.
-
-## Dartium on-demand compilation
-
-If you use Dartium and your own editor, you can install a browser extension that
-will invoke the compiler on demand. This on-demand approach is equivalent to
-what *polyfill* scripts do today for web components in JavaScript.  The
-extension creates the illusion that Dart web components are supported natively
-in Dartium.
-
-You can install the extension as follows:
-
-  * [Download the extension][extension].
-  * Open the `chrome://extensions` tab in Dartium
-  * Drag and drop the extension file into this tab (tip: if you downloaded the
-    extension within Dartium, you can start dragging directly from the
-    _download icon_ on the bottom of the page):
-
-<img style="position:relative;left:100px" width="600" height="401"
-     src="drag_and_drop.png">
-
-  * Finally click to accept the extension.
-
-Once you installed the extension, you can open `app.html` directly in Dartium,
-and the extension will take care of everything else.
 
 
 [dwc]: https://github.com/dart-lang/web-ui/

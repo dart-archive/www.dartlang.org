@@ -15,6 +15,7 @@ article:
 </style>
 
 # {{ page.title }}
+
 <em>Written by Lasse Nielsen <br />
 <time pubdate date="2013-04-08">April 2013</time>
 </em>
@@ -42,16 +43,7 @@ and gives tips to help you implement your stream correctly.
 For help on using streams, see
 [Getting Your Feet Wet with Streams](/articles/feet-wet-streams/).
 
-#### Contents
-
-1. [Transforming an existing stream](#transforming-an-existing-stream)
-1. [Using a StreamController](#using-a-streamcontroller)
-   1. [Waiting for a subscription](#waiting-for-a-subscription)
-   1. [Honoring the pause state](#honoring-the-pause-state)
-1. [Extending EventTransformStream](#extending-eventtransformstream)
-1. [Extending Stream](#extending-stream)
-1. [Final hints](#final-hints)
-{: .toc}
+{% include toc.html %}
 
 ## Transforming an existing stream
 

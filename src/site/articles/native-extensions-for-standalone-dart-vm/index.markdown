@@ -11,6 +11,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by William Hesse <br />
 May 2012_
 
@@ -25,6 +26,9 @@ by the Dart VM. A _synchronous extension_ uses the Dart virtual machine
 library's C API (the Dart Embedding API) directly and runs on the same thread as
 the Dart isolate. An asynchronous function is called by sending a message to a
 Dart port, receiving the response on a reply port.
+
+{% include toc.html %}
+
 
 ###Anatomy of a native extension
 

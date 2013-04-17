@@ -12,6 +12,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Vijay Menon <br />
 September 2012_
 
@@ -27,23 +28,8 @@ The library is implemented in the GitHub project
 [dart-lang/js-interop](https://github.com/dart-lang/js-interop).
 
 
-#### Contents
+{% include toc.html %}
 
-1. [Installing the library's package](#installing-the-librarys-package)
-1. [Importing the library](#importing-the-library)
-1. [Getting the top-level context](#getting-the-top-level-context)
-1. [Creating JavaScript objects from Dart](#creating-javascript-objects-from-dart)
-   1. [Instantiating classes](#instantiating-classes)
-   1. [Creating maps and arrays](#creating-maps-and-arrays)
-1. [Calling Dart from JavaScript](#calling-dart-from-javascript)
-1. [Managing proxy lifetimes](#managing-proxy-lifetimes)
-1. [Managing callback lifetimes](#managing-callback-lifetimes)
-1. [Examples](#examples)
-   1. [Google Maps](#google-maps)
-   1. [Google Charts](#google-charts)
-   1. [Twitter](#twitter)
-1. [For more information](#for-more-information)
-{:.toc}
 
 ## Installing the library's package
 

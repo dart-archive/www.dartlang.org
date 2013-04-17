@@ -11,6 +11,7 @@ article:
 ---
 
 # {{ page.title }}
+
 <em>Written by Kathy Walrath<br />
 <time pubdate date="2012-11-21">November 2012</time>
 </em>
@@ -20,34 +21,7 @@ has agreed upon for documentation comments.
 If you have suggestions for improving the conventions,
 [let us know](http://groups.google.com/a/dartlang.org).
 
-#### Contents
-
-1. [Examples](#examples)
-1. [Content](#content)
-   1. [First paragraph: a "one-sentence" description](#first-paragraph-a-one-sentence-description)
-      1. [Functions and methods](#functions-and-methods)
-      1. [Variables, getters, and setters](#variables-getters-and-setters)
-      1. [Classes](#classes)
-   1. [The rest of the doc comment](#the-rest-of-the-doc-comment)
-1. [Markup](#markup)
-   1. [Links](#links)
-      1. [Identifier](#identifier)
-      1. [Constructor](#constructor)
-      1. [Hyperlink](#hyperlink)
-   1. [Block styles](#block-styles)
-      1. [Paragraph](#paragraph)
-      1. [Code block](#code-block)
-      1. [Header](#header)
-      1. [Bulleted (unordered) list item](#bulleted-unordered-list-item)
-      1. [Numbered (ordered) list item](#numbered-ordered-list-item)
-   1. [Inline styles](#inline-styles)
-      1. [Code font](#code-font)
-      1. [Italics](#italics)
-      1. [Boldface](#boldface)
-1. [Word choice, punctuation, and so on](#word-choice-punctuation-and-so-on)
-1. [Resources](#resources)
-{: .toc}
-
+{% include toc.html %}
 
 ## Examples
 

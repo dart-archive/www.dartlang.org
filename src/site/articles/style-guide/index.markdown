@@ -12,6 +12,7 @@ article:
 ---
 
 # {{ page.title }}
+
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
 (updated February 2013)
@@ -33,16 +34,7 @@ follow the latest style, or places where the style guide is ambiguous or
 open-ended. Bear with us and it will get better as the language and its
 libraries settle down.
 
-#### Contents
-
-1. [How to read this](#how-to-read-this)
-1. [Types](#types)
-1. [Members](#members)
-1. [Type annotations](#type-annotations)
-1. [Names](#names)
-1. [Comments](#comments)
-1. [Whitespace](#whitespace)
-{: .toc}
+{% include toc.html %}
 
 ## How to read this
 
@@ -138,6 +130,7 @@ abstract class Predicate {
 
 #### DO use constructors instead of static methods to create instances.
 
+
 Constructors are invoked using `new` or `const` which communicates clearly at
 the callsite that an object is being created. Named constructors and factory
 constructors in Dart give you all of the flexibility of static methods in other
@@ -166,6 +159,7 @@ class Point {
 
 #### DO use `;` instead of `{}` for empty constructor bodies.
 
+
 In Dart, a constructor with an empty body can be terminated with just a
 semicolon. This is *required* for const constructors. For consistency and
 brevity, other constructors should also do this.
@@ -189,6 +183,7 @@ class Point {
 </div>
 
 #### DO place the `super()` call last in a constructor initialization list.
+
 
 Field initializers are evaluated in the order that they appear in the
 constructor initialization list. If you place a `super()` call in the middle of
@@ -222,6 +217,7 @@ View(Style style, List children)
 
 #### DO use a getter for operations that conceptually access a property.
 
+
 If the name of the method starts with `get` or is an adjective like `visible` or
 `empty` that's a sign you're better off using a getter. More specifically, you
 should use a getter instead of a method when it:
@@ -252,6 +248,7 @@ window.refresh;                      // doesn't return a value
 
 #### DO use a setter for operations that conceptually change a property.
 
+
 If the name of the method starts with `set` that's often a sign that it could be
 a setter. More specifically, use a setter instead of a method when it:
 
@@ -272,6 +269,7 @@ button.visible = false;
 </div>
 
 #### AVOID wrapping fields in getters and setters just to be "safe".
+
 
 In Java and C#, it's common to hide all fields behind getters and setters (or
 properties in C#), even if the implementation just forwards to the field. That
@@ -306,6 +304,7 @@ class Box {
 
 #### PREFER using a public final field instead of a private field with a public getter.
 
+
 If you have a field that outside code should be able to see but not assign to
 (and you don't need to set it outside of the constructor), a simple solution
 that works in many cases is to just mark it `final`.
@@ -329,6 +328,7 @@ class Box {
 
 #### CONSIDER using `=>` to define members whose body returns the result of a single expression.
 
+
 In addition to using `=>` for function expressions, Dart also lets you define
 members with them. They are a good fit for simple members that just calculate
 and return a value.
@@ -346,6 +346,7 @@ cramming a single expression into several continued lines, it is probably
 cleaner to just use a curly body with an explicit `return`.
 
 #### AVOID boolean arguments unless their meaning is completely obvious.
+
 
 Unlike other types, booleans are usually used in literal form. Things like
 numbers are usually wrapped in named constants, but we usually just pass around
@@ -374,6 +375,7 @@ new ListBox(scroll: true, showScrollbars: true);
 ## Type annotations
 
 #### PREFER providing type annotations on public APIs.
+
 
 Type annotations are important documentation for how a library should be used.
 Annotating the parameter and return types of public methods and functions helps
@@ -409,6 +411,7 @@ With types, all of this is clarified.
 
 #### PREFER using `var` without a type annotation for local variables.
 
+
 Method bodies in modern code tend to be short, and the types of local variables
 are almost always trivially inferrable from the initializing expression, so
 explicit type annotations are usually just visual noise. Decent editors can
@@ -443,12 +446,14 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
 
 #### PREFER using `num` over `double` for parameter type annotations.
 
+
 Annotating a parameter as type `double` means not only that it *can* accept a
 floating-point value, but that it *must*. It's a type error to pass an `int` to
 it. Almost all code that can handle floating-point numbers works correctly with
 integers, so the type you usually want is `num`.
 
 #### DON'T type annotate initializing formals.
+
 
 If a constructor parameter is using `this.` to initialize a field, then the type
 of the parameter is understood to be the same type as the field.
@@ -473,6 +478,7 @@ class Point {
 
 #### AVOID annotating types on function expressions.
 
+
 The value of function expressions is their brevity. If a function is complex
 enough that types are needed to understand it, it should probably be a function
 statement or a method. Conversely, if it is short enough to be an expression, it
@@ -493,6 +499,7 @@ var names = people.map((Person person) {
 </div>
 
 #### AVOID annotating with `dynamic` when not required.
+
 
 In most places in Dart, a type annotation can be omitted, in which case the type
 will automatically be `dynamic`. Thus, omitting the type annotation entirely is
@@ -519,6 +526,7 @@ dynamic lookUpOrDefault(String name, Map map, dynamic defaultValue) {
 </div>
 
 #### DO annotate with `Object` instead of `dynamic` to indicate any object is accepted.
+
 
 Some operations will work with any possible object. For example, a log method
 could take any object and call `toString()` on it. Two types in Dart permit all
@@ -551,6 +559,7 @@ convertToBool(arg) {
 
 #### DO name types using `UpperCamelCase`.
 
+
 Classes and typedefs should capitalize the first letter of each word (including
 the first word), and use no separators.
 
@@ -569,6 +578,7 @@ typedef num Adder(num x, num y);
 </div>
 
 #### DO name constants using `ALL_CAPS_WITH_UNDERSCORES`.
+
 
 Constants&mdash;variables declared using `const`&mdash;are special in Dart
 because they can be used in constant expressions, unlike `final` variables. To
@@ -600,6 +610,7 @@ class Dice {
 
 #### DO name other identifiers using `lowerCamelCase`.
 
+
 Class members, top-level definitions, variables, parameters, and named
 parameters should capitalize the first letter of each word *except* the first
 word, and use no separators.
@@ -617,6 +628,7 @@ align(clearItems) {
 </div>
 
 #### DO name libraries and source files using `lowercase_with_underscores`.
+
 
 Some file systems are not case-sensitive, so many projects require filenames to
 be all lowercase. Using a separate character allows names to still be readable
@@ -641,6 +653,7 @@ Bad:
 </div>
 
 #### DO capitalize acronyms and abbreviations longer than two letters like words.
+
 
 Capitalized acronyms can be harder to read, and are ambiguous when you have
 multiple adjacent acronyms. Given the name `HTTPSFTPConnection`, there's no way
@@ -673,6 +686,7 @@ Id
 ## Comments
 
 #### DO comment members and types using doc-style comments.
+
 
 Dart supports two syntaxes of doc comments. Line doc comments start each line
 with `///`:
@@ -709,6 +723,7 @@ Within a doc comment, you can use [markdown][] for formatting.
 
 #### DO use line comments for everything else.
 
+
 <div class="good">
 {% prettify dart %}
 greet(name) {
@@ -729,6 +744,7 @@ greet(name) {
 
 #### DO capitalize and punctuate comments like sentences.
 
+
 This doesn't mean that the comment must always be a complete sentence, though it
 usually should. "Returns the number of items." is an acceptable comment.
 
@@ -746,6 +762,7 @@ usually should. "Returns the number of items." is an acceptable comment.
 
 #### DO use square brackets in doc comments for identifiers that are in scope.
 
+
 If you surround things like variable, method or type names in square brackets,
 then documentation generators can look up the name and cross-link the two
 together.
@@ -760,6 +777,8 @@ num greatestRoll(Dice a, Dice b) => max(a.roll(), b.roll());
 </div>
 
 #### DO describe method signatures in the prose of the documentation comment.
+
+
 
 Other languages use verbose tags and sections to describe what the parameters
 and returns of a method are.
@@ -805,6 +824,7 @@ way the compiler does.
 
 #### DON'T use tabs.
 
+
 Using spaces for formatting ensures the code looks the same in everyone's
 editor. It also makes sure it looks the same when posted to blogs, or on code
 sites like [Google Code][] or [GitHub][].
@@ -817,6 +837,7 @@ the easy editing of tabs and the consistency of spaces.
 
 #### AVOID lines longer than 80 characters.
 
+
 Readability studies show that long lines of text are harder to read because your
 eye has to travel farther when moving to the beginning of the next line. This is
 why newspapers and magazines use multiple columns of text.
@@ -827,6 +848,7 @@ compact. Do you really need to call that class
 `AbstractWidgetFactoryManagerBuilder`?
 
 #### DO place the operator on the preceding line in a multi-line expression.
+
 
 There are valid arguments for both styles but most of our code seems to go this
 way, and consistency matters most.
@@ -859,6 +881,7 @@ bobLikes()
 
 #### DO place the `.` on the next line in a multi-line expression.
 
+
 This supercedes the previous rule. Unlike other operators, if you split an
 expression on a `.`, then put that at the beginning of the second line.
 
@@ -871,6 +894,7 @@ someVeryLongVariable.withAVeryLongProperty
 
 #### DO indent block bodies two spaces.
 
+
 <div class="good">
 {% prettify dart %}
 if (condition) {
@@ -880,6 +904,7 @@ if (condition) {
 </div>
 
 #### DO indent continued lines with at least four spaces.
+
 
 <div class="good">
 {% prettify dart %}
@@ -898,6 +923,7 @@ someLongObject.aReallyLongMethodName(longArg, anotherLongArg,
 </div>
 
 #### DON'T indent lines that are continued with a function expression.
+
 
 The one exception to the above rule is function expressions used within larger
 expressions, like being passed to methods. These are formatted like so:
@@ -920,6 +946,7 @@ new Future.delayed(const Duration(seconds:1), () {
 
 #### DO place the opening curly brace (`{`) on the same line as what it follows.
 
+
 <div class="good">
 {% prettify dart %}
 class Foo {
@@ -935,6 +962,7 @@ class Foo {
 </div>
 
 #### DO use curly braces for all flow control structures.
+
 
 Doing so avoids the [dangling else][] problem.
 
@@ -969,6 +997,7 @@ if (arg == null) return defaultValue;
 
 #### DO indent switch cases two spaces and case bodies four spaces.
 
+
 <div class="good">
 {% prettify dart %}
 switch (fruit) {
@@ -984,6 +1013,8 @@ switch (fruit) {
 </div>
 
 #### DO use spaces around binary and ternary operators, after commas, and not around unary operators.
+
+
 
 Note that `<` and `>` are considered binary operators when used as expressions,
 but not for specifying generic types. Both `is` and `is!` are considered single
@@ -1010,6 +1041,7 @@ if (obj is !SomeType) print('not SomeType');
 
 #### DO place spaces around `in`, and after each `;` in a loop.
 
+
 <div class="good">
 {% prettify dart %}
 for (var i = 0; i < 100; i++) {
@@ -1023,6 +1055,7 @@ for (final item in collection) {
 </div>
 
 #### DO use a space after flow-control keywords.
+
 
 This is unlike function and method calls, which do *not* have a space between
 the name and the opening parenthesis.
@@ -1043,6 +1076,7 @@ try {
 
 #### DON'T use a space after `(`, `[`, and `{`, or before `)`, `]`, and `}`.
 
+
 Also, do not use a space when using `<` and `>` for generic types.
 
 <div class="good">
@@ -1052,6 +1086,7 @@ var numbers = <int>[1, 2, (3 + 4)];
 </div>
 
 #### DO use a space before `{` in function and method bodies.
+
 
 This is an exception to the above rule. When a `{` is used after a parameter
 list in a function or method, there should be a space between it and the `)`
@@ -1075,6 +1110,7 @@ getEmptyFn(a){
 
 #### DO format constructor initialization lists with each field on its own line.
 
+
 <div class="good">
 {% prettify dart %}
 MyClass()
@@ -1091,6 +1127,7 @@ Fields should all line up (so all but the first field end up indented six
 spaces).
 
 #### DO use a space around `:` in named parameters and after `:`  for a named argument.
+
 
 <div class="good">
 {% prettify dart %}
@@ -1115,6 +1152,7 @@ new ListBox(showScrollbars : true);
 
 #### DO use a spaces around `=` in optional positional parameters.
 
+
 <div class="good">
 {% prettify dart %}
 class HttpServer {
@@ -1138,6 +1176,7 @@ class HttpServer {
 </div>
 
 #### DO use four spaces for method cascades
+
 
 <div class="good">
 {% prettify dart %}

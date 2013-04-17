@@ -12,6 +12,7 @@ article:
 ---
 
 # {{ page.title }}
+
 _Written by Graham Wheeler <br />
 July 2012 
 (updated March 2013)_
@@ -35,6 +36,9 @@ parameters.
 Note that this article assumes you are familiar with the unit test library; in 
 particular with `expect()` and the `Matcher`s. If not, you should first read 
 [Unit Testing with Dart](/articles/dart-unit-tests/).
+
+{% include toc.html %}
+
 
 ## Getting ready for mocking
 

@@ -14,13 +14,11 @@ article:
   collection: libraries-and-apis
 ---
 
-# Embedding Dart in HTML
+# {{ page.title }}
 
-<p>
 <em>Written by Sigmund Cherem, Vijay Menon, and Seth Ladd <br>
 October 2011
 (updated November 2012)</em>
-</p>
 
 Dart apps compile to JavaScript to run across modern desktop and mobile
 browsers. Dart apps can also run inside a Dart virtual machine (VM), which can be
@@ -29,13 +27,8 @@ embedded into web browsers.
 This article covers how to integrate Dart apps into web pages, when first
 compiled to JavaScript or when run in the Dart VM.
 
-#### Contents
+{% include toc.html %}
 
-1. [Quick start](#quick-start)
-1. [Dart MIME type and the &lt;script&gt; tag](#dart-mime-type)
-1. [The dart.js script](#dartjs-script)
-1. [Fundamental differences from JavaScript](#fundamental-differences-from-javascript)
-{: .toc}
 
 ## Quick start
 
