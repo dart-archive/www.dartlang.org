@@ -28,8 +28,8 @@ Stream<int> timedCounter(Duration interval, [int maxCount]) {
     }
   }
   controller = new StreamController<int>(
-      onPauseStateChange: updatePauseState,
-      onSubscriptionStateChange: updatePauseState);
+      onPause: updatePauseState,
+      onListen: updatePauseState);
   return controller.stream;
 }
 

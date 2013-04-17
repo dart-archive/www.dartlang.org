@@ -12,7 +12,7 @@ class BlockBreaker extends StreamEventTransformer<String, String> {
     }
     carry = data;
   }
-  void handleError(AsyncError error, EventSink<String> output) {
+  void handleError(Error error, EventSink<String> output) {
     output.addError(error);
   }
   void handleDone(EventSink<String> output) {

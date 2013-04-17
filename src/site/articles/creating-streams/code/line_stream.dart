@@ -21,25 +21,25 @@ class LineStream extends Stream<String> {
   /** Creates a stream of lines from a stream of string parts. */
   LineStream(Stream<String> source) : _source = source {
     _controller = new StreamController<String>(
-      onPauseStateChange: _pauseStateChange,
-      onSubscriptionStateChange: _subscriptionStateChange);
+      onPause: _pauseStateChange,
+      onListen: _subscriptionStateChange);
   }
 
   /** The number of lines that have been output by this stream. */
   int get lineCount => _lineCount;
-
+  
   StreamSubscription<String> listen(void onData(String line),
-                                    { void onError(AsyncError error),
+                                    { void onError(Error error),
                                       void onDone(),
-                                      bool unsubscribeOnError }) {
+                                      bool cancelOnError }) {
     return _controller.stream.listen(onData,
                                      onError: onError,
                                      onDone: onDone,
-                                     unsubscribeOnError: unsubscribeOnError);
+                                     cancelOnError: cancelOnError);
   }
 
   void _subscriptionStateChange() {
-    if (_controller.hasSubscribers) {
+    if (_controller.hasListener) {
       _subscription = _source.listen(_onData,
                                      onError: _controller.addError,
                                      onDone: _onDone);
