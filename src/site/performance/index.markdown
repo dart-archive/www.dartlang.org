@@ -31,17 +31,33 @@ What does the benchmark score mean?
   bigger is better.
 
 What benchmarks are you tracking?
-: For a start, we are showing charts for the
-  [Octane](https://developers.google.com/octane/) benchmarks Richards and
-  DeltaBlue.
-  [Richards](https://github.com/dart-lang/benchmark_harness/blob/master/example/Richards.dart)
-  is an OS kernel simulation benchmark, originally written
-  in BCPL by Martin Richards. The main focus in Richards is on property
-  access and calling functions and methods.
-  [DeltaBlue](https://github.com/dart-lang/benchmark_harness/blob/master/example/DeltaBlue.dart)
+: We are currently showing charts for the
+  [Octane](https://developers.google.com/octane/)-based benchmarks
+  DeltaBlue, Richards, and Tracer.
+
+  * [DeltaBlue](https://github.com/dart-lang/benchmark_harness/blob/master/example/DeltaBlue.dart)
   is a one-way constraint solver, originally written in Smalltalk by
   John Maloney and Mario Wolczko. The main focus in DeltaBlue is on
   polymorphism and object-oriented programming.
+
+  * [Richards](https://github.com/dart-lang/benchmark_harness/blob/master/example/Richards.dart)
+  is an OS kernel simulation benchmark, originally written
+  in BCPL by Martin Richards. The main focus in Richards is on property
+  access and calling functions and methods.
+
+  * [Tracer](https://github.com/dart-lang/benchmark_harness/tree/master/example/Tracer/dart)
+  is a ray tracer benchmark,
+  originally written in JavaScript by Adam Burmister.
+  Both Adam’s and the Octane version in JavaScript use
+  the class emulation pattern from the prototype.js library.
+  Because Dart has a native class system,
+  it's unfair to do a direct performance comparison with the Octane version.
+  We therefore compare Dart performance with
+  an improved JavaScript version called Tracer.
+  The improved version uses only constructors and prototypes
+  without any abstraction layers in between;
+  it runs 50% faster than the original
+  Raytrace JavaScript benchmark in Octane.
 
 How do you generate numbers for the Dart VM, dart2js, and V8?
 : The Dart VM numbers are generated using the Dart
