@@ -2,7 +2,7 @@
 layout: default
 title: "Classes: Constructors - Dart Tips, Ep 11"
 description: "Dart offers many types of constructors, including an implementation of the factory pattern. Learn more about constructors, field initialization, named constructors, and factory constructors in Dart."
-snippet_img: http://i.ytimg.com/vi/k2R_HwZzogQ/0.jpg
+snippet_img: //i.ytimg.com/vi/k2R_HwZzogQ/0.jpg
 rel:
   author: seth-ladd
 ---
@@ -10,7 +10,7 @@ rel:
 # {{ page.title }}
 
 <iframe style="margin: 25px 0 25px 0" width="560" height="315"
-src="http://www.youtube.com/embed/k2R_HwZzogQ" frameborder="0"
+src="//www.youtube.com/embed/k2R_HwZzogQ" frameborder="0"
 allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).

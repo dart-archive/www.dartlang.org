@@ -2,7 +2,7 @@
 layout: default
 title: "Classes: Setters & Getters - Dart Tips, Ep 10"
 description: "Dart is a pure class-based object oriented language. In this first video covering classes in Dart, learn more about how getters and setters help you scale Dart code from simple fields to richer encapsulation."
-snippet_img: http://i.ytimg.com/vi/2woBWdBQ4Ro/0.jpg
+snippet_img: //i.ytimg.com/vi/2woBWdBQ4Ro/0.jpg
 rel:
   author: seth-ladd
 ---
@@ -10,7 +10,7 @@ rel:
 # {{ page.title }}
 
 <iframe style="margin: 25px 0 25px 0" width="560" height="315"
-src="http://www.youtube.com/embed/2woBWdBQ4Ro" frameborder="0"
+src="//www.youtube.com/embed/2woBWdBQ4Ro" frameborder="0"
 allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).

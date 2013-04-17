@@ -2,14 +2,14 @@
 layout: default
 title: "Strings, Numbers, Booleans, Oh My! - Dart Tips, Ep 4"
 description: "The trifecta of built-in types is strings, numbers, and booleans. Watch this episode to learn how to initialize them with literals, the difference between ints and doubles, and what is truthy and falsely in Dart."
-snippet_img: http://i.ytimg.com/vi/-LmD0hghGjo/0.jpg
+snippet_img: //i.ytimg.com/vi/-LmD0hghGjo/0.jpg
 rel:
   author: seth-ladd
 ---
 
 # {{ page.title }}
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/-LmD0hghGjo" frameborder="0" allowfullscreen></iframe>
+<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="//www.youtube.com/embed/-LmD0hghGjo" frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 

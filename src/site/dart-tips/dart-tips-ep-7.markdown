@@ -2,14 +2,14 @@
 layout: default
 title: "Functions Are Fun, Pt 2 - Dart Tips, Ep 7"
 description: "Functions are true objects in Dart. Watch this video to learn more about nested functions, functions as arguments, and lexical closures. Get ready for more FUNctional tips in Dart!"
-snippet_img: http://i.ytimg.com/vi/RJujzs2ts4s/0.jpg
+snippet_img: //i.ytimg.com/vi/RJujzs2ts4s/0.jpg
 rel:
   author: seth-ladd
 ---
 
 # {{ page.title }}
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/RJujzs2ts4s" frameborder="0" allowfullscreen></iframe>
+<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="//www.youtube.com/embed/RJujzs2ts4s" frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 

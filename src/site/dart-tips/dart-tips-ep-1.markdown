@@ -4,14 +4,14 @@ title: "A Simple Dart Script - Dart Tips, Ep 1"
 description: "Welcome to Dart Tips, the video series that teaches you all
 about Dart. In our first episode, we show you a simple Dart script and get you
 comfortable with reading Dart code."
-snippet_img: http://i.ytimg.com/vi/g09UVKyYfIs/0.jpg
+snippet_img: //i.ytimg.com/vi/g09UVKyYfIs/0.jpg
 rel:
   author: seth-ladd
 ---
 
 # {{ page.title }}
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/g09UVKyYfIs" frameborder="0" allowfullscreen></iframe>
+<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="//www.youtube.com/embed/g09UVKyYfIs" frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 

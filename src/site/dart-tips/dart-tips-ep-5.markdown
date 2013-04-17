@@ -2,14 +2,14 @@
 layout: default
 title: "Collections In Dart - Dart Tips, Ep 5"
 description: "Dart comes with lists, queues, maps, and sets out of the box. Watch this episode to learn how to pick the right collection class for the job. Fun tip: did you know that the Dart language spec doesn't use the word 'array'?"
-snippet_img: http://i.ytimg.com/vi/fh1Cztaw9tI/0.jpg
+snippet_img: //i.ytimg.com/vi/fh1Cztaw9tI/0.jpg
 rel:
   author: seth-ladd
 ---
 
 # {{ page.title }}
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="http://www.youtube.com/embed/fh1Cztaw9tI" frameborder="0" allowfullscreen></iframe>
+<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="//www.youtube.com/embed/fh1Cztaw9tI" frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 

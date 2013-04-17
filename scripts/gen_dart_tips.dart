@@ -37,7 +37,7 @@ writeEntry(IOSink out, Map entry, int epNum) {
   } else {
     subtitle = match[1];
   }
-  String thumbnail = entry[r'media$group'][r'media$thumbnail'][0]['url'];
+  String thumbnail = entry[r'media$group'][r'media$thumbnail'][0]['url'].replaceFirst('http:', '');
   String recorded;
   if (entry[r'yt$recorded'] == null) {
     print("No explicit recorded date for $title. Please set.");
