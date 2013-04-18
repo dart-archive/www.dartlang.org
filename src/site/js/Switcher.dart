@@ -1,3 +1,5 @@
+// XXX: This file isn't used right now
+
 import 'dart:html';
 
 final List<String> osList = const <String>['macos', 'win32', 'linux'];  // all supported OSs

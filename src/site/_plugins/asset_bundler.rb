@@ -194,7 +194,7 @@ END
           ret_config['dev'] = context.registers[:site].config["dev"] ? true : false
         end
 
-        if context.registers[:site].config['server']
+        if context.registers[:site].config['serving']
           ret_config['dev'] = true
         end
 
