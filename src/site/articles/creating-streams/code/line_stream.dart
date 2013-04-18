@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:collection';
 
 /** Combines incoming strings into a single stream and outputs its lines. */
 class LineStream extends Stream<String> {
@@ -21,8 +20,10 @@ class LineStream extends Stream<String> {
   /** Creates a stream of lines from a stream of string parts. */
   LineStream(Stream<String> source) : _source = source {
     _controller = new StreamController<String>(
+      onListen: _subscriptionStateChange,
       onPause: _pauseStateChange,
-      onListen: _subscriptionStateChange);
+      onResume: _pauseStateChange,
+      onCancel: _subscriptionStateChange);
   }
 
   /** The number of lines that have been output by this stream. */

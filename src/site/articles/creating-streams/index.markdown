@@ -108,7 +108,7 @@ class BlockBreaker extends StreamEventTransformer<String, String> {
     }
     carry = data;
   }
-  void handleError(Error error, EventSink<String> output) {
+  void handleError(Object error, EventSink<String> output) {
     output.addError(error);
   }
   void handleDone(EventSink<String> output) {
@@ -187,7 +187,7 @@ a couple of problems:
 
 As the next sections show,
 you can fix both of these problems by specifying
-`onListen` and `onPause` callbacks
+callbacks such as `onListen` and `onPause`
 when creating the StreamController.
 
 
@@ -220,8 +220,9 @@ since they were buffered by the StreamController.
 To be notified of subscriptions, specify an
 `onListen` argument when you create the StreamController.
 The onListen callback is called
-when the stream gets its first subscriber
-or loses its last subscriber.
+when the stream gets its first subscriber.
+If you specify an `onCancel` callback,
+it's called when the controller loses its last subscriber.
 In the preceding example,
 `new Timer.periodic()`
 should move to an onListen handler,
@@ -265,8 +266,11 @@ and it then empties its buffer when the stream becomes unpaused.
 The following version of timedCounter()
 (from [stream_controller.dart](code/stream_controller.dart))
 implements pause by using the
-`onPause` and `onListen` callbacks
+`onListen`, `onPause`, `onResume`, and `onCancel` callbacks
 on the StreamController.
+{% comment %}
+PENDING: check whether onCancel is really needed.
+{% endcomment %}
 
 {% prettify dart %}
 import 'dart:async';
@@ -299,8 +303,10 @@ Stream<int> timedCounter(Duration interval, [int maxCount]) {
     }
   }
   controller = new StreamController<int>(
+      onListen: updatePauseState,
       onPause: updatePauseState,
-      onListen: updatePauseState);
+      onResume: updatePauseState,
+      onCancel: updatePauseState);
   return controller.stream;
 }
 {% endprettify %}
@@ -309,12 +315,12 @@ Run this code with the main() method above.
 You'll see that it stops counting while paused,
 and it resumes nicely afterwards.
 
-You must use both
-`onListen` and `onPause`
-to be notified of changes in pause state.
+You must use all of the listeners—`onListen`,
+`onCancel`, `onPause`, and `onResume`—to be
+notified of changes in pause state.
 The reason is that if the
 subscription and pause states both change at the same time,
-only the onListen callback is called.
+only the onListen or onCancel callback is called.
 
 ## Extending EventTransformStream
 
@@ -382,7 +388,6 @@ that extends Stream\<String\>:
 
 {% prettify dart %}
 import 'dart:async';
-import 'dart:collection';
 
 class LineStream extends Stream<String> {
   Stream<String> _source;
@@ -393,14 +398,16 @@ class LineStream extends Stream<String> {
 
   LineStream(Stream<String> source) : _source = source {
     _controller = new StreamController<String>(
+      onListen: _subscriptionStateChange,
       onPause: _pauseStateChange,
-      onListen: _subscriptionStateChange);
+      onResume: _pauseStateChange,
+      onCancel: _subscriptionStateChange);
   }
 
   int get lineCount => _lineCount;
 
   StreamSubscription<String> listen(void onData(String line),
-                                    { void onError(Error error),
+                                    { void onError(Object error),
                                       void onDone(),
                                       bool cancelOnError }) {
     return _controller.stream.listen(onData,
@@ -481,8 +488,7 @@ keep these tips in mind:
 subscription = stream.listen(handler);
 {% endprettify %}
 
-* The `onPause`
-  and `onListen`
+* The `onListen`, `onPause`, `onResume`, and `onCancel`
   callbacks defined by StreamController are
   called by the stream when the stream's state changes,
   but never during the firing of an event
