@@ -1,11 +1,10 @@
 safe: false
-auto: true
-server: true
 server_port: 8080
 source: .
 destination: ../../build/static
 markdown: kramdown
 permalink: /news/:year/:month/:day/:title.html
+pygments: false
 custom:
   downloads:
     editor-url-prefix: "https://storage.googleapis.com/dart-editor-archive"
