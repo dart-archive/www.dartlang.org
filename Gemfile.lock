@@ -1,4 +1,19 @@
 GIT
+  remote: git://github.com/mojombo/jekyll.git
+  revision: ba64a9fe306eb629df3765a15bd995444b0ed2c1
+  specs:
+    jekyll (1.0.0.rc1)
+      classifier (~> 1.3)
+      colorator (~> 0.1)
+      commander (~> 4.1.3)
+      directory_watcher (~> 1.4.1)
+      kramdown (~> 0.14)
+      liquid (~> 2.3)
+      maruku (~> 0.5)
+      pygments.rb (~> 0.4.2)
+      safe_yaml (~> 0.7.0)
+
+GIT
   remote: git://github.com/toao/compass-twitter-bootstrap.git
   revision: adaa7e3a0cd176df0d15e163877420667f763311
   specs:
@@ -8,32 +23,30 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    chunky_png (1.2.6)
+    chunky_png (1.2.8)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
+    colorator (0.1)
+    commander (4.1.3)
+      highline (~> 1.6.11)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    directory_watcher (1.5.1)
+    directory_watcher (1.4.1)
     fast-stemmer (1.0.2)
-    fssm (0.2.9)
-    jekyll (0.12.1)
-      classifier (~> 1.3)
-      directory_watcher (~> 1.1)
-      kramdown (~> 0.14)
-      liquid (~> 2.3)
-      maruku (~> 0.5)
-      pygments.rb (~> 0.3.2)
+    fssm (0.2.10)
+    highline (1.6.18)
     kramdown (0.14.0)
     liquid (2.5.0)
     maruku (0.6.1)
       syntax (>= 1.0.0)
     posix-spawn (0.3.6)
-    pygments.rb (0.3.7)
+    pygments.rb (0.4.2)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    sass (3.2.3)
+    safe_yaml (0.7.1)
+    sass (3.2.7)
     syntax (1.0.0)
     yajl-ruby (1.1.0)
 
@@ -43,5 +56,5 @@ PLATFORMS
 DEPENDENCIES
   compass (= 0.12.2)
   compass_twitter_bootstrap!
-  jekyll (= 0.12.1)
+  jekyll!
   kramdown (= 0.14.0)
