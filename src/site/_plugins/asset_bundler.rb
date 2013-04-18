@@ -3,6 +3,7 @@
 #
 # Author : Colin Kennedy
 # Repo   : http://github.com/moshen/jekyll-asset_bundler
+# Version: 0.09
 # License: MIT, see LICENSE file
 #
 
@@ -14,8 +15,6 @@ require 'uri'
 module Jekyll
 
   class BundleTag < Liquid::Block
-    @@supported_types = ['js', 'css']
-
     def initialize(tag_name, text, tokens)
       super
       @text = text 
@@ -26,7 +25,9 @@ module Jekyll
       src = context.registers[:site].source
       raw_markup = super(context)
       begin
-        @assets = YAML::load(raw_markup)
+        # Some ugliness to work around the Block returning an array
+        #   in liquid <2.4.0
+        @assets = YAML::load(raw_markup.class == Array ? raw_markup[0] : raw_markup)
       rescue
         puts <<-END
 Asset Bundler - Error: Problem parsing a YAML bundle
@@ -66,7 +67,7 @@ END
     def add_file_by_type(file)
       if file =~ /\.([^\.]+)$/
         type = $1.downcase()
-        return if @@supported_types.index(type).nil?
+        return if Bundle.supported_types.index(type).nil?
         if !@files.key?(type)
           @files[type] = []
         end
@@ -112,9 +113,22 @@ END
       'compile'        => { 'coffee' => false, 'less' => false },
       'compress'       => { 'js'     => false, 'css'  => false },
       'base_path'      => '/bundles/',
+      'server_url'     => '',
       'remove_bundled' => false,
-      'dev'            => false
+      'dev'            => false,
+      'markup_templates' => {
+        'js'     =>
+          Liquid::Template.parse("<script type='text/javascript' src='{{url}}'></script>\n"),
+        'coffee' =>
+          Liquid::Template.parse("<script type='text/coffeescript' src='{{url}}'></script>\n"),
+        'css'    =>
+          Liquid::Template.parse("<link rel='stylesheet' type='text/css' href='{{url}}' />\n"),
+        'less'   =>
+          Liquid::Template.parse("<link rel='stylesheet/less' type='text/css' href='{{url}}' />\n")
+      }
     }
+    @@current_config = nil
+    @@supported_types = ['js', 'css']
     attr_reader :content, :hash, :filename, :base
 
     def initialize(files, type, context)
@@ -138,22 +152,60 @@ END
     end
 
     def self.config(context)
-      ret_config = nil
-      if context.registers[:site].config.key?("asset_bundler")
-        ret_config = @@default_config.deep_merge(context.registers[:site].config["asset_bundler"])
-      else
-        ret_config = @@default_config
+      if @@current_config.nil?
+        ret_config = nil
+        if context.registers[:site].config.key?("asset_bundler")
+          ret_config = @@default_config.deep_merge(context.registers[:site].config["asset_bundler"])
+
+          ret_config['markup_templates'].keys.each {|k|
+            if ret_config['markup_templates'][k].class != Liquid::Template
+              if ret_config['markup_templates'][k].class == String
+                ret_config['markup_templates'][k] =
+                  Liquid::Template.parse(ret_config['markup_templates'][k]);
+              else
+                puts <<-END
+Asset Bundler - Error: Problem parsing _config.yml
+
+The value for configuration option:
+  asset_bundler => markup_templates => #{k}
+
+Is not recognized as a String for use as a valid template.
+Reverting to the default template.
+END
+                ret_config['markup_templates'][k] = @@default_config['markup_templates'][k];
+              end
+            end
+          }
+
+          if context.registers[:site].config['asset_bundler'].key?('cdn') and ret_config['server_url'].empty?
+            ret_config['server_url'] = context.registers[:site].config['asset_bundler']['cdn']
+          end
+        else
+          ret_config = @@default_config
+        end
+
+        # Check to make sure the base_path begins with a slash
+        #   This is to make sure that the path works with a potential base CDN url
+        if ret_config['base_path'] !~ /^\//
+          ret_config['base_path'].insert(0,'/')
+        end
+
+        if context.registers[:site].config.key?("dev")
+          ret_config['dev'] = context.registers[:site].config["dev"] ? true : false
+        end
+
+        if context.registers[:site].config['server']
+          ret_config['dev'] = true
+        end
+
+        @@current_config = ret_config
       end
 
-      if context.registers[:site].config.key?("dev")
-        ret_config['dev'] = context.registers[:site].config["dev"] ? true : false
-      end
+      @@current_config
+    end
 
-      if context.registers[:site].config['server']
-        ret_config['dev'] = true
-      end
-
-      ret_config
+    def self.supported_types
+      @@supported_types
     end
 
     def load_content()
@@ -196,8 +248,14 @@ END
     end
 
     def cache_dir()
-      cache_dir = File.expand_path( "../_asset_bundler_cache",
-                                    @context.registers[:site].plugins )
+      plugin_conf = @context.registers[:site].plugins
+      # Hack for jekyll versions before 0.12.0
+      if plugin_conf.kind_of?(Array)
+        plugin_dir = plugin_conf.first
+      else
+        plugin_dir = plugin_conf
+      end
+      cache_dir = File.expand_path( "../_asset_bundler_cache", plugin_dir)
       if( !File.directory?(cache_dir) )
         FileUtils.mkdir_p(cache_dir)
       end
@@ -289,7 +347,12 @@ END
             i.puts(@content)
             i.close_write()
           end
-          @content = i.gets() if !outfile
+          if !outfile
+            @content = ""
+            i.each {|line|
+              @content << line
+            }
+          end
         }
       end
 
@@ -322,31 +385,18 @@ END
 
     def markup()
       return dev_markup() if @config['dev']
-      case @type
-        when 'js'
-          "<script type='text/javascript' src='#{@base}#{@filename}'></script>\n"
-        when 'coffee'
-          "<script type='text/coffeescript' src='#{@base}#{@filename}'></script>\n"
-        when 'css'
-          "<link rel='stylesheet' type='text/css' href='#{@base}#{@filename}' />\n"
-        when 'less'
-          "<link rel='stylesheet/less' type='text/css' href='#{@base}#{@filename}' />\n"
-      end
+
+      @config['markup_templates'][@type].render(
+        'url' => "#{@config['server_url']}#{@base}#{@filename}"
+      )
     end
 
     def dev_markup()
       output = ''
       @files.each {|f|
-        case @type
-          when 'js'
-            output.concat("<script type='text/javascript' src='#{f}'></script>\n")
-          when 'coffee'
-            output.concat("<script type='text/coffeescript' src='#{f}'></script>\n")
-          when 'css'
-            output.concat("<link rel='stylesheet' type='text/css' href='#{f}' />\n")
-          when 'less'
-            output.concat("<link rel='stylesheet/less' type='text/css' href='#{f}' />\n")
-        end
+        output.concat(
+          @config['markup_templates'][@type].render('url' => "#{f}")
+        )
       }
 
       return output

@@ -1,3 +1,11 @@
+- title: "Dart on FLOSS Weekly"
+  short: floss
+  presenters:
+    - Seth Ladd
+  date: 2013-03-20
+  video: http://twit.tv/show/floss-weekly/245
+  event: FLOSS Weekly
+
 - title: "Bringing SIMD to the Web via Dart"
   short: simd
   presenters:
@@ -5,7 +13,7 @@
   date: 2013-02-28
   slides: 2013/02/Bringing-SIMD-to-the-Web-via-Dart.pdf
   video: http://www.youtube.com/watch?v=CKh7UOELpPo
-  event: MLOC 2013
+  event: SFHTML5
 
 - title: "Dart Crash Course"
   short: dart-crash-course
