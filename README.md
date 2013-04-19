@@ -7,7 +7,11 @@ and hosted on App Engine.
 
 File issues and bugs here: http://dartbug.com/new
 
-Fork and submit patches here: https://github.com/dart-lang/dartlang.org
+Contributions welcome!
+(Just sign our [CLA](https://developers.google.com/open-source/cla/individual).)
+Details on processes, formatting, and style are in
+[Writing for dartlang.org](https://github.com/dart-lang/dartlang.org/wiki/Writing-for-dartlang.org).
+You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 
 ## Orientation
 
