@@ -211,7 +211,7 @@ singleErrorWithCatch() {
       .single  // will fail - there is more than one value in the stream
       .then((value) => print("single value: $value"))
       .catchError((err) => print("Expected Error: $err")); // catch any error in the then()
-      // output: Bad State: More than one element
+      // output: Expected Error: Bad State: More than one element
       // END(catch_error)
 }
 
