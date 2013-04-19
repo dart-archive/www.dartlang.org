@@ -26,7 +26,19 @@ description: "Read dart2js: The Dart-to-JavaScript Compiler of Dart: Up and Runn
             restrictions. For more information, see <a class="ulink" href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/" target="_top">An
             Introduction to Content Security Policy.</a></p></dd><dt><span class="term"><code class="literal"> -h</code><span class="emphasis"><em>
           or </em></span><code class="literal">--help</code></span></dt><dd><p>Display help. (Use <code class="literal">-vh</code>
-            for information about all options.)</p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tools-dart2js-debugging"></a>Debugging</h3></div></div></div><p>This section gives tips for debugging dart2js-produced code in
+            for information about all options.)</p></dd><dt><span class="term"><code class="literal">
+          --output-type=dart</code></span></dt><dd><p>Output Dart code instead of JavaScript. This option is
+            useful when deploying your app, because it generates a single file
+            containing everything the app needs.</p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-generating-efficient-code"></a>Helping dart2js Generate Better Code</h3></div></div></div><p>You can do a couple of things to improve the code that dart2js
+      generates:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Write your code in a way that makes type inference
+          easier.</p></li><li class="listitem"><p>Once you’re ready to deploy your app, use the dart2js --minify
+          option to reduce code size.</p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Don’t worry about the size of your app’s included libraries.
+        Thanks to a feature called <span class="emphasis"><em>tree shaking,</em></span> dart2js
+        omits unused classes, functions, methods, and so on. Just import the
+        libraries you need, and let dart2js get rid of what you don’t
+        need.</p></div><p>Follow these practices to help dart2js do better type inference,
+      so it can generate smaller and faster JavaScript code:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Avoid setting variables to null.</p></li><li class="listitem"><p>Use const or final variables wherever possible.</p></li><li class="listitem"><p>Be consistent with the types of arguments you pass into each
+          function or method.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tools-dart2js-debugging"></a>Debugging</h3></div></div></div><p>This section gives tips for debugging dart2js-produced code in
       Chrome, Firefox, and Safari. Debugging the JavaScript produced by
       dart2js is easiest in browsers such as Chrome that support source
       maps.</p><p>Whichever browser you use, you should enable pausing on at least
