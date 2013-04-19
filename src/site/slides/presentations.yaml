@@ -1,3 +1,11 @@
+- title: "Compiling Dart to Efficient Machine Code"
+  short: compiling-efficient-machine-code
+  presenters:
+    - Florian Schneider
+  date: 2013-04-19
+  slides: 2013/04/compiling-dart-to-efficient-machine-code.pdf
+  event: Lecture at ETH
+
 - title: "Dart on FLOSS Weekly"
   short: floss
   presenters:
