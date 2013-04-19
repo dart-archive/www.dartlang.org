@@ -52,7 +52,7 @@ ol.toc li {
 }
 
 .btn-primary {
-  @include bootstrap-buttonBackground($blue-dark, $blue-light);
+  @include ctb-buttonBackground($blue-dark, $blue-light);
 }
 
 .thumbnail {
@@ -74,11 +74,6 @@ ol.toc li {
     a {
       padding: 0;
     }
-}
-
-.navbar .nav > li > a{
-  opacity: 1;
-  color: white;
 }
 
 .navbar .nav li.dropdown .dropdown-toggle .caret, .navbar .nav li.dropdown.open .caret {
@@ -253,11 +248,6 @@ footer {
   }
 
 
-}
-
-article .has-permalink {
-    padding-top: 40px;
-    margin-top: -40px;
 }
 
 @import "syntax";

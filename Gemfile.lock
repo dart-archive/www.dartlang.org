@@ -14,10 +14,10 @@ GIT
       safe_yaml (~> 0.7.0)
 
 GIT
-  remote: git://github.com/toao/compass-twitter-bootstrap.git
-  revision: adaa7e3a0cd176df0d15e163877420667f763311
+  remote: git://github.com/vwall/compass-twitter-bootstrap.git
+  revision: 41f5acdc1667303abeeb80214e058b191d0d9a46
   specs:
-    compass_twitter_bootstrap (2.0.3)
+    compass_twitter_bootstrap (2.3.1)
       compass
 
 GEM
