@@ -1,25 +1,11 @@
 ---
 layout: default
-title: "Dart Cookbook (Beta)"
+title: "Dart Cookbook"
 description: "Recipes and prescriptions for using Dart."
-rel:
-    author: shailen-tuli
 has-permalinks: true
 ---
 
-# {{ page.title }}
-
-_Author: Shailen Tuli_
-
-Welcome to the online version of _Dart Cookbook_, a work in progress. The
-source of this work is the [dart-lang/cookbook GitHub
-project](https://github.com/dart-lang/cookbook), which Shailen Tuli
-maintains. O'Reilly plans to publish a paperback version of _Dart Cookbook_
-later this year.
-
-To report a bug, suggest an improvement, or request a recipe, please use
-the [issue tracker](https://github.com/dart-lang/cookbook/issues).
-
+# Dart Cookbook
 
 ## Contents
 
@@ -52,7 +38,7 @@ the [issue tracker](https://github.com/dart-lang/cookbook/issues).
     1. [Encoding JSON](#encoding-json)
     1. [Decoding JSON](#decoding-json)
 1. [URIs](#uris)
-    1. [Encoding and Decoding fully qualified URIs](#encoding-and-decoding-fully-qualified-uris)
+    1. [Encoding and decoding fully qualified URIs](#encoding-and-decoding-fully-qualified-uris)
     1. [Parsing URIs](#parsing-uris)
     1. [Building URIs](#building-uris)
 1. [Testing](#testing)
@@ -61,7 +47,15 @@ the [issue tracker](https://github.com/dart-lang/cookbook/issues).
     1. [Running code before and after each test](#running-code-before-and-after-each-test)
     1. [Testing synchronous exceptions](#testing-synchronous-exceptions)
     1. [Testing for double equality](#testing-for-double-equality)
+1. [Web UI](#web-ui)
+    1. [Using a Dart expression inside HTML](#using-a-dart-expression-inside-html)
+    1. [Observing a Dart variable for changes](#observing-a-dart-variable-for-changes)
+    1. [Creating a bidirectional binding using text elements](#creating-a-bidirectional-binding-using-text-elements)
+    1. [Creating a binding using radio buttons](#creating-a-binding-using-radio-buttons)
+    1. [Creating bindings for booleans using checkboxes](#creating-bindings-for-booleans-using-checkboxes)
+    1. [Selecting multiple items from a list of checkboxes using data binding](#selecting-multiple-items-from-a-list-of-checkboxes-using-data-binding)
 {:.toc}
+
 
 
 ## Strings
@@ -77,7 +71,7 @@ You want to concatenate strings in Dart.
 Use the `+` operator:
 
 {% prettify dart %}
-var fact = 'Dart' + 'is' + ' fun!'; // 'Dart is fun!'
+var fact = 'Dart ' + 'is ' + 'fun!'; // 'Dart is fun!'
 {% endprettify %}
 
 You can use the `+` operator to concatenate single-line and multi-line
@@ -94,14 +88,14 @@ Howe'''; // 'Dewey Cheatem and\n Howe'
 You can also use adjacent string literals:
 
 {% prettify dart %}
-var fact = 'Dart'  'is'  ' fun!'; // 'Dart is fun!'
+var fact = 'Dart '  'is '  'fun!'; // 'Dart is fun!'
 {% endprettify %}
 
 Adjacent literals work over multiple lines:
 
 {% prettify dart %}
-var fact = 'Dart'
-'is'
+var fact = 'Dart '
+'is '
 'fun!'; // 'Dart is fun!'
 {% endprettify %}
 
@@ -110,7 +104,7 @@ If the string fragments you wish to concatenate are already in a list, use
 `join()`:
 
 {% prettify dart %}
-var film = ['The', 'Big', 'Lebowski']).join(' '); // 'The Big Lebowski'
+var film = ['The', 'Big', 'Lebowski'].join(' '); // 'The Big Lebowski'
 {% endprettify %}
 
 If you want to incrementally build a longish string from its parts, a
@@ -241,6 +235,19 @@ If you escape a non-special character, the `\` is ignored:
 {% prettify dart %}
 print('Wile \E Coyote'); // 'Wile E Coyote'
 {% endprettify %}
+
+##### Raw strings
+
+You can turn off string interpolation by using raw strings. Prefix the starting
+quote of a string with `r` to make a regular string into a raw string:
+
+{% prettify dart %}
+print(r'Wile \E Coyote');               // 'Wile \E Coyote'
+print(r'$superGenius and Road Runner'); // '$superGenius and Road Runner'
+{% endprettify %}
+
+Special characters and the `$` symbol are stripped of any special meaning in raw
+strings.
 
 
 ### Incrementally building a string using a StringBuffer
@@ -873,6 +880,8 @@ print(newString); // 'I like IKE but I ♡ LUCY'
 {% endprettify %}
 
 
+
+
 ## Lists
 
 ### Creating a fixed length list
@@ -1174,6 +1183,7 @@ Appending items to a list by increasing the list length first is generally more
 efficient than using `add()` or `addAll()`.
 
 
+
 ## Numbers
 
 ### Converting a string to a number
@@ -1196,14 +1206,14 @@ The strings can be prefixed with a '+' or a '-':
 print(int.parse('+231')); // 231
 print(int.parse('-231')); // -231
 {% endprettify %}
-    
+
 You can pass in the radix as a second argument:
 
 {% prettify dart %}
 print(int.parse('231', radix: 16));  // 561
 print(int.parse('F34A', radix: 16)); // 62282
 {% endprettify %}
-    
+
 Strings starting with '0x', '-0x' or '+0x' are assumed to have a radix of 16:
 
 {% prettify dart %}
@@ -1215,7 +1225,7 @@ Use `double.parse` to convert a string to a double:
 {% prettify dart %}
 print(double.parse('3.14')); // 3.14
 {% endprettify %}
-    
+
 The method accepts exponential notation:
 
 {% prettify dart %}
@@ -1248,7 +1258,7 @@ method:
 1234.toStringAsPrecision(5);   // '1234.0'
 3.1519.toStringAsPrecision(8); // '3.1519000'
 {% endprettify %}
-  
+
 To specify the number of digits after the decimal, use `toStringAsFixed()`:
 
 {% prettify dart %}
@@ -1274,6 +1284,28 @@ You can specify the radix when converting an integer to a string:
 
 ## JSON
 
+JSON (JavaScript Object Notation) is a text-based format for representing
+objects and collections. You can use the 'dart:json' library to decode JSON
+strings into Dart objects, and encode Dart objects into JSON strings.
+
+To use the examples in this chapter, you need to import the `dart:json`
+library. We prefer to declare our import of the libary in a manner that
+provides helpful namespacing for top level functions:
+
+{% prettify dart %}
+import 'dart:json' as json;
+
+void main() {
+  json.stringify( ... );
+  json.parse( ... );
+  ...
+}
+{% endprettify %}
+
+You can read the API documentation for the dart:json library at
+http://api.dartlang.org/docs/releases/latest/dart_json.html.
+
+
 ### Encoding JSON
 
 #### Problem
@@ -1282,10 +1314,11 @@ You want to convert a Dart object into JSON.
 
 #### Solution
 
-Use `json.stringify()` to encode a Dart object into a JSON-formatted string.
+Use the `stringify()` function to encode a Dart object into a JSON-formatted
+string.
 
 The following Dart objects are automatically encoded into JSON by
-`json.stringify()`:
+`stringify()`:
 
 * int
 * double
@@ -1296,38 +1329,47 @@ The following Dart objects are automatically encoded into JSON by
 * Map
 
 {% prettify dart %}
-var person = {'name': 'joe', 
-              'born':  2002,
-              'into': {'films' : ['crime', 'noir']},
-              'aliases': null
-             };
+import 'dart:json' as json;
 
-json.stringify(person);
-// '{"name":"joe","born":2002,"into":{"films":["crime","noir"]},"aliases":null}'
+void main() {
+  var person = {'name': 'joe', 
+                'born':  2002,
+                'into': {'films' : ['crime', 'noir']},
+                'aliases': []};
+  
+  json.stringify(person);
+  // '{"name":"joe","born":2002,"into":{"films":["crime","noir"]},"aliases":[]}'
+}
 {% endprettify %}
 
-Note that `json.stringify()` encodes List and Map objects recursively.
+Note that `stringify()` encodes List and Map objects recursively.
 
-If an object of a type not in the list above is passed to `json.stringify()`,
-it calls that objects `toJson()` method:
+If an object of a type not in the list above is passed to `stringify()` as an
+argument, `stringify()` calls that object's `toJson()` method:
 
 {% prettify dart %}
+import 'dart:json' as json;
+
 class Person {
   String name;
   num age;
   
   Person(this.name, this.age);
- 
-  String toJson() => json.stringify({"name": name, "age": age});
+  dynamic toJson() => {"name": name, "age": age};
 }
 
-var person = new Person('john', 32);
-json.stringify(person); // '"{\"name\":\"john\",\"age\":32}"'
+void main() {
+  var person = new Person('john', 32);
+  json.stringify(person); // '"{\"name\":\"john\",\"age\":32}"'
+}
 {% endprettify %}
 
-If the `toJson()` method is not defined, `json.stringify()` throws an exception:
+If the `toJson()` method is not defined on an object that `stringify()`
+doesn't know how to handle, `stringify()` throws an exception:
 
 {% prettify dart %}
+import 'dart:json' as json;
+
 class Book {
   String title;
   num numPages;
@@ -1335,28 +1377,31 @@ class Book {
   Book(this.title, this.numPages);
 }
 
-var book = new Book('War and Peace', 1089);
-json.stringify(book); // json.JsonUnsupportedObjectError
-{% endprettify %}
-
-It is possible that `json.stringify()` calls `toJson()` on several objects,
-and if any one of those objects lacks a `toJson()`, an exception gets thrown.
-Use `JsonUnsupportedObjectError`'s `cause` property to see which object
-triggered the exception:
-
-{% prettify dart %}
-var person = new Person('john', 32);          // Has a toJson().
-var book = new Book('War and Peace', 1089);   // Lacks a toJson().
-var object = {'person': person, 'reads' : book};
-
-try {
-  json.stringify(object);
-} catch(e) {
-  print(e.cause.toString());
-  // "Class 'Book' has no instance method 'toJson'..."
+void main() {
+  var book = new Book('War and Peace', 1089);
+  json.stringify(book); // json.JsonUnsupportedObjectError
 }
 {% endprettify %}
 
+It is possible that `stringify()` calls `toJson()` on several objects in your
+code, and throws an exception if any one of those objects lacks a `toJson()`.
+Use `JsonUnsupportedObjectError`'s `cause` property to see which
+object triggered the exception:
+
+{% prettify dart %}
+void main() {
+  var person = new Person('john', 32);              // toJson() defined.
+  var book = new Book('War and Peace', 1089);       // toJson() not defined.
+  var object = {'person': person, 'reads' : book};
+
+  try {
+    json.stringify(object);
+  } catch(e) {
+    print(e.cause.toString());
+    // "Class 'Book' has no instance method 'toJson'..."
+  }
+}
+{% endprettify %}
 
 ### Decoding JSON
 
@@ -1366,38 +1411,46 @@ You want to convert a JSON string into a Dart object.
 
 #### Solution
 
-Use `json.parse()` to decode a JSON-encoded string into a Dart object:
+Use `parse()` to decode a JSON-encoded string into a Dart object:
 
 {% prettify dart %}
-var jsonPerson = '{"name" : "joe", "date" : [2013, 3, 10]}';
-  
-var person = json.parse(jsonPerson);
+import 'dart:json' as json;
 
-person['name'];         // 'joe'
-person['date'];         // [2013, 3, 10]
-person['date'] is List; // true
-{% endprettify %}
+void main() {
+  var jsonPerson = '{"name" : "joe", "date" : [2013, 3, 10]}';
     
-Sometimes you want to transform the data parsed by `json.parse`. For
+  var person = json.parse(jsonPerson);
+  
+  person['name'];         // 'joe'
+  person['date'];         // [2013, 3, 10]
+  person['date'] is List; // true
+}
+{% endprettify %}
+
+Sometimes you want to transform the data parsed by `parse`. For
 example, you may prefer to express a date field as a DateTime object, and not
 as a list of numbers representing the year, month and day. Specify a 'reviver'
-function as a second argument to `json.parse`. 
+function as a second argument to `parse`. 
 
 This function is called once for each object or list property parsed, and the 
 return value of the reviver function is used instead of the parsed value:
 
 {% prettify dart %}
-var jsonPerson = '{"name" : "joe", "date" : [2013, 3, 10]}';
+import 'dart:json' as json;
 
-var person = json.parse(jsonPerson, (k, v) {
-  if (k == "date") {
-    return new DateTime(2012, 10, 3);
-  }
-  return v;
-});
-      
-person['name'];             // 'joe'
-person['date'] is DateTime; // true
+void main() {
+  var jsonPerson = '{"name" : "joe", "date" : [2013, 10, 3]}';
+
+  var person = json.parse(jsonPerson, (key, value) {
+    if (key == "date") {
+      return new DateTime(value[0], value[1], value[2]);
+    }
+    return value;
+  });
+
+  person['name'];             // 'joe'
+  person['date'] is DateTime; // true
+}
 {% endprettify %}
 
 
@@ -1410,19 +1463,13 @@ import 'dart:uri';
 {% endprettify %}
 
 
-### Encoding and Decoding fully qualified URIs
+### Encoding and decoding fully qualified URIs
 
-#### Problem
-
-You want to encode and decode URIs so that you can escape URI characters
-correctly.
-
-#### Solution
 
 Use `encodeUri()` to encode a fully qualified URI:
 
 {% prettify dart %}
-encodeURI('http://www.example.com/file with spaces.html');
+encodeUri('http://www.example.com/file with spaces.html')
 // 'http://www.example.com/file+with+spaces.html'
 {% endprettify %}
 
@@ -1446,7 +1493,7 @@ print(params); // '%3Fparam1%3D10%26param2%3D20'
 encodeUri('http://www.example.com/') + params;
 // 'http://www.example.com/%3Fparam1%3D10%26param2%3D20'));
 {% endprettify %}
-      
+
 Don't call `encodeUriComponent()` on the complete URI. It escapes characters
 like : and / and renders the URI unusable:
 
@@ -1526,7 +1573,7 @@ relative:
 {% prettify dart %}
 new Uri('http//example.org:8080/content/#intro').isAbsolute; // false
 {% endprettify %}
-    
+
 The `scheme` and `domain` properties for  relative URIs are empty. Instead, a 
 relative URI starts with the path component:
 
@@ -1551,7 +1598,7 @@ try {
   print(e); // 'Illegal argument(s): Cannot use origin without a scheme'
 }
 {% endprettify %}
-      
+
 
 ### Building URIs
 
@@ -1584,7 +1631,7 @@ var uri = new Uri.fromComponents(domain: '/content/a.html');
 uri.isAbsolute;       // false
 print(uri.toString(); // '//content/a.html'
 {% endprettify %}
- 
+
 You should remove the leading '//' before using the URI.
 
 
@@ -1618,7 +1665,7 @@ All 1 tests passed.
 unittest-suite-success
 {% endprettify %}
 
-Do not have multiple `only_test()`s:
+Do not have multiple `solo_test()`s:
 
 {% prettify dart %}
 solo_test('if y == 0', () => expect(() => ...));
@@ -1641,22 +1688,21 @@ unittest-suite-success
 
 #### Problem
 
-You want to run just a subset of all your tests. Maybe you've divided up
-your tests carefully using `group()` and want to run the tests for one or more
-group. Or perhaps you carefully placed certain keywords in your test
-descriptions, and want to run only tests whose desciption contains a
-specific keyword.
+You want to run just a subset of all your tests. Maybe you've divided up your
+tests into `group()`s and want to run the tests for one or more group. Or
+perhaps you carefully placed certain keywords in your test descriptions, and
+want to run only tests whose desciption contains a specific keyword.
 
 #### Solution
 
-Use `filterTests()`. This function takes a String or RegExp argument and
-matches it against each test description.  If the description matches, the
-test runs, otherwise, it doesn’t.
+Use the `filterTests()` function provided by the Unittest library. This
+function takes a String or RegExp argument and matches it against each test
+description.  If the description matches, the test runs, otherwise, it doesn’t.
 
-By default, the Unittest library is configured to run _all_ tests defined in a
-file when that file executes. You want to override this behavior. Do that by
-subclassing the default Configuration class, and creating a custom
-configuration:
+By default, the Unittest library is configured to run _all_ tests called
+within `main()`. You want to override this behavior. Subclass the default
+Configuration class to create a custom configuration, and disable the
+auto-running of all tests:
 
 {% prettify dart %}
 class CustomConfiguration extends Configuration {
@@ -1664,26 +1710,13 @@ class CustomConfiguration extends Configuration {
 }
 {% endprettify %}
 
-Then, tell the test runner to use the new configuration:
-
-{% prettify dart %}
-configure(new CustomConfiguration());
-{% endprettify %}
-
-And then, initialize the test library (you need to explicitly do this when using
-a custom configuration): 
-
-{% prettify dart %}
-ensureInitialized();
-{% endprettify %}
-
-After this is done, you can define groups and tests, call `filteredTests()`,
-and run your tests using `runTests()`:
+Then, after telling the test runner to use the new configuration, you can
+define groups and tests, call `filteredTests()`, and run your tests using
+`runTests()`:
 
 {% prettify dart %}
 void main() {
-  configure(new CustomConfiguration());
-  ensureInitialized();
+  unittestConfiguration = new CustomConfiguration();
   
   // Your tests go here.
 
@@ -1712,8 +1745,7 @@ class CustomConfiguration extends Configuration {
 }
 
 void main() {
-  configure(new CustomConfiguration());
-  ensureInitialized();  
+  unittestConfiguration = new CustomConfiguration();
   
   // Get the args from the command line.
   ArgParser argParser = new ArgParser();
@@ -1721,19 +1753,19 @@ void main() {
   ArgResults results = argParser.parse(options.arguments);
   List<String> args = results.rest;
 
-  test('one test', () => ... ); 
-  test('crucial test', () => ... );
-  test('another crucial test', =>  ...);
+  test('a test',     () => expect(1 + 0, equals(1))); 
+  test('crucial test', () => expect('crucial'.length, 7));
+  test('another crucial test',  () => expect('crucial'.startsWith('c'),
+    isTrue));
 
   group('case change', () {
-    test('to upper', () => ... );
-    test('to lower', () => ... );
+    test('to upper', () => expect('this'.toUpperCase(), equals('THIS'))); 
+    test('to lower', () => expect('THAT'.toLowerCase(), equals('that')));
   });
 
   if (!args.isEmpty) {
     filterTests(args[0]);
   }
-
   runTests();
 }
 {% endprettify %}
@@ -1772,19 +1804,7 @@ All 2 tests passed.
 unittest-suite-success
 {% endprettify %}
 
-The keyword argument is optional. If you omit it, all tests in the file run:
-
-{% prettify dart %}
-unittest-suite-wait-for-done
-PASS: a test
-PASS: crucial test
-PASS: another crucial test
-PASS: case change to upper
-PASS: case change to lower
-
-All 5 tests passed.
-unittest-suite-success
-{% endprettify %}
+The keyword argument is optional. If you omit it, all tests in the file run.
 
 
 ### Running code before and after each test
@@ -1929,11 +1949,14 @@ and `tearDown()`.
 
 #### Problem
 
-You want to test exceptions in your code. You want to know if some code
-returns normally, or if it throws. Or, you want to test that a specific error is
-raised, and that the error message is correct. 
+You want to test exceptions in your code. You want to know if some code returns
+normally, or if it throws. Or, you want to test that a specific error is raised,
+and that the error message is correct. 
 
 #### Solution
+
+The Matcher library, bundled together with the Unittest package, provides
+several handy assertion shortcuts that you can use in your tests. 
 
 To test whether code throws, use the `throws` matcher: 
 
@@ -1946,13 +1969,6 @@ To test that code runs without generating an exception, use the
 
 {% prettify dart %}
 expect(() => 10 ~/ 1, returnsNormally);
-{% endprettify %}
-  
-You can test the error type:
-
-{% prettify dart %}
-expect(() => throw new StateError('functions called in the wrong order'), 
-    throwsStateError);
 {% endprettify %}
 
 The Unittest library provides matchers for commonly occuring exceptions and
@@ -1969,24 +1985,42 @@ throwsStateError
 throwsUnsupportedError
 {% endprettify %}
 
-You can also use `throwsA` with a `predicate()` to test the exception type.
-A `predicate()` returns a matcher using a function that returns true or
-false:
+You can use one of these matchers to test the type of the error thrown by your
+code:
 
 {% prettify dart %}
-expect(() => 10 ~/ 0, 
-  throwsA(predicate((e) => e is IntegerDivisionByZeroException)));
+expect(() => throw new StateError('functions called in the wrong order'), 
+    throwsStateError);
 {% endprettify %}
-  
-You can test the error message:
+
+You can also use the `throwsA()` and `predicate()` functions for more granular
+testing of exceptions.
+
+The `predicate()` function returns a Matcher based on an assertion about the
+error object:
+
+{% prettify dart %}
+Matcher isIntegerDivisionByZeroException =
+  predicate((e) => e is IntegerDivisionByZeroException);
+{% endprettify %}
+
+The `throwsA()` function takes the Matcher returned by `predicate()` and
+matches the exception thrown by the code under test against it:
+
+{% prettify dart %}
+expect(() => 10 ~/ 0, throwsA(isIntegerDivisionByZeroException));
+{% endprettify %}
+
+You can test the error message using a combination of `throwsA()` and
+`predicate()`:
 
 {% prettify dart %}
 expect(() => throw new ArgumentError('bad argument'), 
   throwsA(predicate((e) => e.message == 'bad argument')));
 {% endprettify %}
 
-You can test the error type and the error message together:
-  
+You can also test the error type and the error message together:
+
 {% prettify dart %}
 expect(() => throw new RangeError('out of range'), 
   throwsA(predicate((e) => (e is RangeError && e.message == 'out of range'))));
@@ -2025,5 +2059,719 @@ Here's how you can test for approximate equality:
 expect(point1.distanceTo(point2)), closeTo(7.28, .001)); 
 {% endprettify %}
 
+
+## Web UI
+
+The Web UI package provides web components and templates to help you write web
+applications at scale.
+
+The examples in this chapter can be compiled and run. The instructions below
+for how this can be done assume you are using Dart Editor. For information 
+on how to compile Web UI apps from the command line (and to read more about the
+Web UI compile process), see http://www.dartlang.org/articles/web-ui/tools.html.
+
+#### Pub dependency 
+
+The Web UI package is available from Pub, Dart's package manager.  In a Dart
+application that you have opened in the Editor, add the dependency to the Web
+UI package:
+
+{% prettify dart %}
+dependencies:
+  web_ui: any
+{% endprettify %}
+
+This is what a sample `pubspec.yaml` file looks like:
+
+{% prettify dart %}
+name: sample
+description: A sample web application
+dependencies:
+  browser: any
+  web_ui: any
+{% endprettify %}
+
+Run `pub install` from the Editor's Tools menu to install the web_ui package.
+
+#### Example file
+
+Copy any example from this chapter in a new file in the top level `web/`
+directory (create that directory if it does not exist). Call the new file
+`main.html`.
+
+#### Build file
+
+Create a top level `build.dart` file with the following contents:
+
+{% prettify dart %}
+import 'package:web_ui/component_build.dart';
+import 'dart:io';
+
+void main() {
+  build(new Options().arguments, ['web/main.html']);
+}
+{% endprettify %}
+
+This assumes that you called your example file `main.html`. Modify the filename
+in `build.dart` if you picked a different name for your example file.
+
+#### Compiling the example
+
+Right-click the `build.dart` file, and choose `Run` from the drop down menu.
+
+This runs the Web UI compile script (`packages/web_ui/dwc.dart`) and generates
+an `out` directory containing the compiled files. 
+
+Right-click on `web/main.html`, and select either the `Run in Dartium` or
+"Run as JavaScript" option to run the example.
+
+#### Making changes
+
+You need to go through the manual compile process only once. After the intial
+compilation is done, Dart Editor detects changes you make to the example file,
+and automatically invokes the `dwc.dart` compiler script. You can directly run
+the example file (`web/main.html`) and Dart Editor automatically runs the
+compiled file.
+
+
+### Using a Dart expression inside HTML
+
+#### Problem
+
+You want to inject the value of a Dart expression in your markup.
+
+#### Solution
+
+Place the Dart expression within `{{'{{'}} }}`. At runtime, the Web UI framework
+evaluates the expression, and injects the result into the HTML.  Commonly used
+Dart expressions include identifiers, method and function calls, getters, string
+interpolation, and raw strings:
+
+{% prettify dart %}
+{% raw %}
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <ul>
+      <li>Using identifiers: var x = {{x}} and var y = {{y}}</li>
+      <li>Calling a method: {{x}} in hex is {{x.toRadixString(16)}}</li>
+      <li>Calling functions: (x ~/ y) = {{intDivision()}} and (x / y) = 
+        {{doubleDivision().toStringAsPrecision(4)}}</li>
+      <li>Using a getter: {{cityNameAsChars}}</li>
+      <li>Using string interpolation: {{'city = ${city.toUpperCase()}'}}</li>
+      <li>Using a raw string: {{r'$city'}}</li>
+    </ul>
+
+    <script type="application/dart">
+      import 'package:web_ui/web_ui.dart';
+
+      num x = 32;
+      num y = 3;
+      String city = 'Boston';
+      
+      int intDivision() => x ~/ y;
+      double doubleDivision() => x / y;
+      
+      List<String> get cityNameAsChars => city.split(''); 
+
+      void main() {}
+    </script>
+  </body>
+</html>
+{% endraw %}
+{% endprettify %}
+
+Building and running the above code displays the following in the browser:
+
+{% prettify dart %}
+Using identifiers: var x = 32 and var y = 3
+Calling a method: 32 in hex is 20
+Calling functions: (x ~/ y) = 10 and (x / y) = 10.67
+Using a getter: [B, o, s, t, o, n]
+Using string interpolation: city = BOSTON
+Using a raw string: $city
+{% endprettify %}
+
+The expression interpolation shown in the code above creates a _static_ binding
+between a Dart variable and its representation in the UI. When the page loads,
+all expressions inside `{{'{{'}} }}` are evaluated. If the evaluated variable's value
+changes later on, the UI does not automatically update.
+
+We will look at how we can make the binding between Dart variables and the UI
+live in other recipes in this chapter.
+
+
+### Observing a Dart variable for changes
+
+#### Problem
+
+You want to sync a variable and its display. Every time the variable's value
+changes, you want its display to automatically change. You want this to happen
+without a page refresh, and without having to do any manual DOM manipulation.
+
+#### Solution
+
+Add an `@observable` declaration right before you define the variable:
+
+{% prettify dart %}
+@observable 
+var myVar;
+{% endprettify %}
+
+Then, put that variable within `{{'{{'}} }}` in the HTML:
+
+{% prettify dart %}
+{% raw %}
+<li>The value is {{myVar}}</li>
+{% endraw %}
+{% endprettify %}
+
+This creates a dynamic binding between that variable and its display in the UI.
+If the variable's value changes, the UI updates automatically.
+
+#### Example
+
+Imagine you have a collection of movie quotes, and you want to display them on
+a web page one by one in slideshow fashion.
+
+Begin by creating a collection of quotes. Then, define a variable to store the
+current quote, and make that variable observable:
+
+{% prettify dart %}
+class Quote {
+  final String quote, saidBy; 
+  Quote(this.quote, this.saidBy);
+}
+
+List<Quote> quotes = [ ... ];
+
+@observable 
+Quote currentQuote;
+{% endprettify %}
+
+Wrap the observable variable inside `{{'{{'}} }}` in the UI to get its value:
+
+{% prettify dart %}
+{% raw %}
+<div><em>{{currentQuote.quote}}</em> - {{currentQuote.saidBy}}</div>
+{% endraw %}
+{% endprettify %}
+
+Now, cycle through the collection of quotes, picking a new quote every few
+seconds:
+
+{% prettify dart %}
+var i = 0;
+currentQuote = quotes[i];
+
+new Timer.periodic(new Duration(seconds: 2), (_) {
+  i = (i == quotes.length - 1) ? 0 : i + 1;
+  currentQuote = quotes[i];
+});
+{% endprettify %}
+
+The quote displayed on the page changes as the observable variable's value
+changes. The rest of the page remains the same, and you don't have to modify
+the page's markup!
+
+Here is the entire script:
+
+{% prettify dart %}
+{% raw %}
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <div><em>{{currentQuote.quote}}</em> - {{currentQuote.saidBy}}</div>
+  
+    <script type="application/dart">
+      
+      import 'dart:async';
+      import 'package:web_ui/web_ui.dart';
+      
+      class Quote {
+        final String quote, saidBy; 
+        Quote(this.quote, this.saidBy);
+      }
+      
+      @observable 
+      Quote currentQuote;
+        
+      void main() {
+        List<Quote> quotes = [
+          new Quote('This agression will not stand, man.', 'The Dude'),
+          new Quote('You are entering a world of pain', 'Walter'),
+          new Quote('The rug really tied the room together.', 'The Dude'),
+          new Quote('Sometimes you get the bar, sometimes the bar gets you.',
+          'The Stranger'),
+          new Quote('Mark it zero, dude', 'Walter')
+        ];
+            
+        var i = 0;
+        currentQuote = quotes[i];
+         
+        new Timer.periodic(new Duration(seconds: 2), (_) {
+          i = (i == quotes.length - 1) ? 0 : i + 1;
+          currentQuote = quotes[i];
+        });
+      }   
+    </script>
+  </body>
+</html>
+{% endraw %}
+{% endprettify %}
+
+
+### Creating a bidirectional binding using text elements
+
+#### Problem
+
+You are using a text field (text input or textarea) to set the value of a Dart
+variable. You want that variable to be modified in real time, without a page
+refresh.
+
+#### Solution
+
+First, make the variable observable:
+
+{% prettify dart %}
+{% raw %}
+@observable
+var myVar = value;
+{% endraw %}
+{% endprettify %}
+
+Then, bind a text input or a textarea to that variable. Use 'bind-value='
+syntax:
+
+{% prettify dart %}
+<input type='text' bind-value='myVar'>
+<textarea bind-value='myVar'></textarea>
+{% endprettify %}
+
+This creates a bidirectional binding: changing the variable's value updates 
+the UI, and changing the UI updates the variable's value.
+
+#### Example
+
+You've started micro-blogging. You have a webpage where you display one of your
+posts, along with a simple textarea to edit that post. You're restricting
+yourself to 140 characters, and want the UI to tell you how many characters
+you have remaining when you type.
+
+To enable real-time editing of a post, make the post variable observable:
+
+{% prettify dart %}
+@observable
+var post = 'This is my very first post about Dart, and the' + 
+           ' only thing I have to say is ...it is awesome!!!';
+{% endprettify %}
+
+Use `{{'{{'}} }}` syntax for displaying the post and its length:
+
+{% prettify dart %}
+{% raw %}
+<p>{{post}}</p>
+<p><em>Post Length:</em>  {{post.length}}</p>
+{% endraw %}
+{% endprettify %}
+
+Then, create the binding in the textarea for editing the post, along with a
+tracker that tells you how many characters you have remaining:
+
+{% prettify dart %}
+{% raw %}
+<textarea rows='4' cols='40' bind-value="post"></textarea>
+<p><em>Chars remaining:</em> {{MAXLENGTH - post.length}}</p> 
+{% endraw %}
+{% endprettify %}
+
+That's it, you're done!
+
+By sprinkling a few declarative statements in your code, you get to enjoy all
+the functionality that bidirectional binding gives you:
+
+* You need to do nothing to make the textarea sticky: it automatically contains
+the post text.
+* Modifying the post in the textarea changes the post object in real
+time. There is no DOM manipulation required.
+* By observing the post object, you get to observe its attributes (in this
+case, the `length` property) for free.
+
+Here is the entire script:
+
+{% prettify dart %}
+{% raw %}
+<!DOCTYPE html>
+
+<html>
+<body>
+  <h3>Post</h3>
+  <p>{{post}}</p>
+  <p><em>Post Length:</em>  {{post.length}}</p>
+
+  <p>
+    <em>Edit Post:</em><br>
+    <textarea rows='4' cols='40' bind-value="post"></textarea>
+  </p>
+  <p><em>Chars remaining:</em> {{MAXLENGTH - post.length}}</p>
+
+  <script type="application/dart">
+    import 'package:web_ui/web_ui.dart';
+
+    @observable
+    var post = 'This is my very first post about Dart, and the' + 
+               ' only thing I have to say is ...it is awesome!!!';
+    const num MAXLENGTH = 140;
+
+    main() {}
+
+  </script>
+</body>
+</html>
+{% endraw %}
+{% endprettify %}
+
+
+### Creating a binding using radio buttons
+
+#### Problem
+
+You want to use radio buttons to allow a user to select a single value from a
+set of choices. You want to bind the value of the selected radio button to a
+Dart variable.
+
+#### Solution
+
+First, make the Dart variable used to store the value of the radio button
+observable:
+
+{% prettify dart %}
+@observable
+var myVar = '';
+{% endprettify %}
+
+Then, use 'bind-value=' syntax to bind the value of a radio button to that
+variable:
+
+{% prettify dart %}
+<input type='radio' name='someName' value='someValue' bind-value='myVar' />
+{% endprettify %}
+
+As the user selects a button, its value is automatically stored in the
+observable variable. The display of the observable variable is updated as its
+value changes if it is placed within `{{'{{'}} }}` in the HTML.
+
+To bind multiple radio buttons to the same variable, assign the same value to
+each radio button's name attribute. See the example below.
+
+#### Example
+
+Here is a simple example of how you can create a bidirectional binding when
+using radio buttons. Giving the observable variable a value selects the
+radio button with that value:
+
+{% prettify dart %}
+{% raw %}
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <div>
+      <input type='radio' name='veggies' value='kale' bind-value='veg'>
+        Kale<br>
+      <input type='radio' name='veggies' value='spinach' bind-value='veg'>
+        Spinach<br>
+      <input type='radio' name='veggies' value='carrots' bind-value='veg'>
+        Carrots
+    </div>
+    
+    <p>veg = {{veg}}</p>
+     
+    <script type='application/dart'>
+      
+      import 'package:web_ui/web_ui.dart';
+
+      @observable
+      String veg = 'spinach'; // Sets an initial value. Button with 
+                              // value == 'spinach' is auto-selected.
+
+      void main() {}
+      
+    </script>
+  </body>
+</html>
+{% endraw %}
+{% endprettify %}
+
+
+### Creating bindings for booleans using checkboxes
+
+#### Problem
+
+You want to use a checkbox to store the value of a boolean object. And because
+you have parts of your UI dependent on that boolean object, you want its value
+to update automatically as a user checks or unchecks the checkbox.
+
+#### Solution
+
+Make the boolean observable:
+
+{% prettify dart %}
+@observable
+bool someBool = false;
+{% endprettify %}
+
+Bind the checkbox to a boolean using `bind-checked=` syntax:
+
+{% prettify dart %}
+<input type='checkbox' bind-checked='someBool'>
+{% endprettify %}
+
+Checking the checkbox sets the boolean value to true, and unchecking it sets
+the value to false:
+
+{% prettify dart %}
+{% raw %}
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type='checkbox' bind-checked='someBool'>Check or uncheck<br>
+
+    <p>The checkbox is {{someBool ? 'checked' : 'unchecked'}}</p>
+ 
+ 
+    <script type='application/dart'>
+      import 'package:web_ui/web_ui.dart';
+       
+      @observable
+      bool someBool = true;
+      
+      void main() {}
+   
+    </script>
+    <script src='packages/browser/dart.js'></script>
+  </body>
+</html>
+{% endraw %}
+{% endprettify %}
+
+
+#### Example
+
+The code below demonstrates the use of checkboxes to toggle the boolean
+attributes of an object:
+
+{% prettify dart %}
+{% raw %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      th, td {border: 1px solid black; padding: 20px}  
+    </style>
+  </head>
+  <body>
+    <div>
+      Edit record for student <em>{{student.studentId}}:</em><br>
+      <input type='checkbox' bind-checked='student.isGraduating' />
+          Graduating?<br>
+      <input type='checkbox' bind-checked='student.isHonorStudent' />
+          Honor Student?<br>
+    </div> 
+    
+    <br>
+    
+    <table>
+      <tr><th>Student Id</th><th>Graduating?</th><th>Honor Student?</th></tr>
+      <tr>
+        <td>{{student.studentId}}</td>
+        <td>{{student.isGraduating ?   'Yes' : 'No'}}</td>
+        <td>{{student.isHonorStudent ? 'Yes' : 'No'}}</td>
+      </tr>
+    </table>  
+    
+    <script type='application/dart'>
+      import 'package:web_ui/web_ui.dart';
+
+      class Student {
+        final String studentId;
+        
+        @observable
+        bool isGraduating;
+        
+        @observable
+        bool isHonorStudent;
+        
+        Student(this.studentId, this.isGraduating, this.isHonorStudent);
+      }
+      
+      Student student;
+      
+      void main() {
+        student = new Student('12345678', false, true);
+      }
+      
+    </script>
+
+    <script src='packages/browser/dart.js'></script>
+  </body>
+</html>
+{% endraw %}
+{% endprettify %}
+
+Note that we mark the boolean instance variables of the `Student` class as
+@observable:
+
+{% prettify dart %}
+{% raw %}
+class Student {
+  final String studentId;
+  
+  @observable
+  bool isGraduating;
+  
+  @observable
+  bool isHonorStudent;
+  
+  Student(this.studentId, this.isGraduating, this.isHonorStudent);
+}
+{% endraw %}
+{% endprettify %}
+
+This creates a one-way binding between the values stored within the observable
+attributes of any `Student` object and the UI:
+
+{% prettify dart %}
+{% raw %}
+<td>{{student.isGraduating ?   'Yes' : 'No'}}</td>
+<td>{{student.isHonorStudent ? 'Yes' : 'No'}}</td>
+{% endraw %}
+{% endprettify %}
+
+We make the binding bidirectional using `bind-checked=` syntax. This allows us
+to modify the observable instance variables using the bound checkboxes:
+
+{% prettify dart %}
+{% raw %}
+Edit record for student <em>{{student.studentId}}:</em><br>
+<input type='checkbox' bind-checked='student.isGraduating' />
+    Graduating?<br>
+<input type='checkbox' bind-checked='student.isHonorStudent' />
+    Honor Student?<br>
+{% endraw %}
+{% endprettify %}
+
+Note that setting one of the instance variables to `true` automatically checks
+the corresponding checkbox when the page loads:
+
+{% prettify dart %}
+new Student('12345678', false, true);
+{% endprettify %}
+
+
+### Selecting multiple items from a list of checkboxes using data binding
+
+#### Problem
+
+You want to use checkboxes to allow a user to select multiple values from a
+set of choices. You want to keep track of the checkboxes that are checked
+by the user, and want live updates in the UI every time the user checks or
+unchecks a checkbox.
+
+#### Solution
+
+Create a map to keep track of the checked state of the checkboxes. Make the
+checkbox values the map keys, and assign each key a boolean value. Assign `true`
+for a checked checkbox, and `false` for an unchecked one. 
+
+Now, sync the checkboxes and the map by creating a bidirectional binding
+between them.
+
+First, make the map observable. You can do this by using the top-level
+`toObservable()` function:
+
+{% prettify dart %}
+Map<String, bool> myMap = toObservable({'value1': true, 'value2': false});
+{% endprettify %}
+
+Then, bind each checkbox to the corresponding map key using `bind-checked=`
+syntax:
+
+{% prettify dart %}
+{% raw %}
+<input type='checkbox' bind-checked='myMap["value1"]'>{{value1}}
+<input type='checkbox' bind-checked='myMap["value2"]'>{{value2}}
+{% endraw %}
+{% endprettify %}
+
+When the page loads, checkboxes corresponding to map keys with `true` values
+are checked.  As the user checks and unchecks checkboxes, the map values update
+accordingly.
+
+To know which checkboxes were checked by the user, select the map keys with
+`true` values.
+
+#### Example
+
+Here is a short example that you can build and run:
+
+{% prettify dart %}
+{% raw %}
+<!DOCTYPE html>
+<html>
+  <body>
+    Pick your favorite colors:<br>
+
+    <template repeat ='key in colors.keys'>
+      <input type='checkbox' bind-checked='colors[key]'>{{key}}<br>
+    </template>
+
+    <template if='!selectedColors.isEmpty'>
+      <br>
+      You picked:
+      <ul>
+        <li template repeat='color in selectedColors'>{{color}}</li>
+      </ul>
+    </template> 
+ 
+    <script type='application/dart'>
+      import 'package:web_ui/web_ui.dart';
+       
+      final Map<String, bool> colors = toObservable(
+        {'red': false, 'blue': false, 'green': false}
+      );
+      
+      List<String> get selectedColors {
+        return colors.keys.where((c) => colors[c]).toList();
+      }
+      
+      void main() {}
+   
+    </script>
+    <script src='packages/browser/dart.js'></script>
+  </body>
+</html>
+{% endraw %}
+{% endprettify %}
+
+We bind the checkbox values to a map as described earlier in this recipes. We
+implement a getter to keep track of the checked values. 
+
+Note that getters and setters do not have to be marked as observable: you just
+need to make sure that all fields they depend on are observable. In our example,
+the `selectedColors` getter relies only on the `colors` map. Since we have
+made `colors` observable, `selectedColors` executes when the values in
+`colors` change. As a result, the parts of the UI responsible for displaying
+the values of the checked checkboxes gets updated in real time:
+
+{% prettify dart %}
+{% raw %}
+<ul>
+  <li template repeat='color in selectedColors'>{{color}}</li>
+</ul>
+{% endraw %}
+{% endprettify %}
 
 
