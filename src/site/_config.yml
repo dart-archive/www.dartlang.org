@@ -8,7 +8,6 @@ pygments: false
 custom:
   downloads:
     editor-url-prefix: "https://storage.googleapis.com/dart-editor-archive"
-    dartium-url-prefix: "https://storage.googleapis.com/dartium-archive"
     binaries:
       - os: win32
         name: Windows
