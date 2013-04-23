@@ -25,11 +25,14 @@ To navigate the chart, drag to pan and shift-drag to zoom.
 
 ## Frequently asked questions 
 
+<div markdown="1">
 What does the benchmark score mean?
 : The score is essentially runs/second: the number of times
   you can run the benchmark in one second. For all scores,
   bigger is better.
+</div>
 
+<div markdown="1">
 What benchmarks are you tracking?
 : We are currently showing charts for the
   [Octane](https://developers.google.com/octane/)-based benchmarks
@@ -58,7 +61,9 @@ What benchmarks are you tracking?
   without any abstraction layers in between;
   it runs 50% faster than the original
   Raytrace JavaScript benchmark in Octane.
+</div>
 
+<div markdown="1">
 How do you generate numbers for the Dart VM, dart2js, and V8?
 : The Dart VM numbers are generated using the Dart
   [benchmark harness](https://github.com/dart-lang/benchmark_harness) on the
@@ -67,15 +72,21 @@ How do you generate numbers for the Dart VM, dart2js, and V8?
   and then running the generated code in V8.
   Finally, the V8 numbers are generated using the same benchmarks written in
   JavaScript and with exactly the same harness rewritten in JavaScript.
+</div>
 
+<div markdown="1">
 What system setup are you running the benchmarks on?
 : The benchmarks are run on an Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz
   processor running the Ubuntu 12.04 LTS x64 operating system.
+</div>
 
+<div markdown="1">
 Are the results 32-bit or 64-bit?
 : They are 32-bit. While the code runs on a 64-bit operating system, we’re
   running the 32-bit version of both the V8 and Dart VMs.
+</div>
 
+<div markdown="1">
 Is it fair to use typed versions of the benchmarks for Dart? Shouldn't they be untyped to make the comparison with JavaScript fair? 
 : Yes, it is fair. Type annotations in Dart have &mdash; by design &mdash;
   no impact on
@@ -84,9 +95,12 @@ Is it fair to use typed versions of the benchmarks for Dart? Shouldn't they be u
   [optional static types](/articles/optional-types/) and
   [why they are optional](/articles/why-dart-types/).
   _Credit to [olliej on HN](http://news.ycombinator.com/item?id=4903435)._
+</div>
 
+<div markdown="1">
 Where are the other benchmarks?
 : Porting benchmarks correctly takes time. As more benchmarks become ready,
   we will publish more charts.
+</div>
 
 </section>
