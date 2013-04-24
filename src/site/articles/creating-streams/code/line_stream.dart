@@ -4,31 +4,31 @@ import 'dart:async';
 class LineStream extends Stream<String> {
   /** Input stream. */
   Stream<String> _source;
-  
+
   /** Subscription on [source] while subscribed. */
   StreamSubscription<String> _subscription;
-  
+
   /** Controller for output stream. */
   StreamController<String> _controller;
-  
+
   /** Count of lines sent out so far. */
   int _lineCount = 0;
-  
+
   /** The part of a string seen so far that didn't end with a newline. */
   String _remainder = '';
 
   /** Creates a stream of lines from a stream of string parts. */
   LineStream(Stream<String> source) : _source = source {
     _controller = new StreamController<String>(
-      onListen: _subscriptionStateChange,
-      onPause: _pauseStateChange,
-      onResume: _pauseStateChange,
-      onCancel: _subscriptionStateChange);
+      onListen: _onListen,
+      onPause: _onPause,
+      onResume: _onResume,
+      onCancel: _onCancel);
   }
 
   /** The number of lines that have been output by this stream. */
   int get lineCount => _lineCount;
-  
+
   StreamSubscription<String> listen(void onData(String line),
                                     { void onError(Error error),
                                       void onDone(),
@@ -39,25 +39,23 @@ class LineStream extends Stream<String> {
                                      cancelOnError: cancelOnError);
   }
 
-  void _subscriptionStateChange() {
-    if (_controller.hasListener) {
-      _subscription = _source.listen(_onData,
-                                     onError: _controller.addError,
-                                     onDone: _onDone);
-    } else {
-      if (_subscription != null) _subscription.cancel();
-      _subscription = null;
-    }
+  void _onListen() {
+    _subscription = _source.listen(_onData,
+                                   onError: _controller.addError,
+                                   onDone: _onDone);
   }
 
-  void _pauseStateChange() {
-    if (_subscription != null) {
-      if (_controller.isPaused) {
-        _subscription.pause();
-      } else {
-        _subscription.resume();
-      }
-    }
+  void _onCancel() {
+    _subscription.cancel();
+    _subscription = null;
+  }
+
+  void _onPause() {
+    _subscription.pause();
+  }
+
+  void _onResume() {
+    _subscription.resume();
   }
 
   void _onData(String input) {

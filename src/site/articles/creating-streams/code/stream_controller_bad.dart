@@ -31,7 +31,7 @@ showBasicUsage() {
 showPreSubscribeProblem() {
   var counterStream = timedCounter(const Duration(seconds: 1), 15);
 
-  // After 5 seconds, add a listener. 
+  // After 5 seconds, add a listener.
   new Timer(const Duration(seconds: 5), () => counterStream.listen(print));
 }
 

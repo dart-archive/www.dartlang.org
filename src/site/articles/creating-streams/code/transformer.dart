@@ -4,15 +4,15 @@ import 'dart:async';
 class BlockBreaker extends StreamEventTransformer<String, String> {
   String carry = '';
   void handleData(String data, EventSink<String> output) {
+    data = data.replaceAll('\n', ' '); // Remove newlines.
     data = carry + data;
-    data = data.replaceAll(new RegExp('\n'), ' '); // Remove newlines.
     while (data.length >= 80) {
       output.add(data.substring(0, 80));
       data = data.substring(80);
     }
     carry = data;
   }
-  void handleError(Object error, EventSink<String> output) {
+  void handleError(Error error, EventSink<String> output) {
     output.addError(error);
   }
   void handleDone(EventSink<String> output) {

@@ -101,14 +101,14 @@ class BlockBreaker extends StreamEventTransformer<String, String> {
   String carry = '';
   void handleData(String data, EventSink<String> output) {
     data = carry + data;
-    data = data.replaceAll(new RegExp('\n'), ' '); // Remove newlines.
+    data = data.replaceAll('\n', ' '); // Remove newlines.
     while (data.length >= 80) {
       output.add(data.substring(0, 80));
       data = data.substring(80);
     }
     carry = data;
   }
-  void handleError(Object error, EventSink<String> output) {
+  void handleError(Error error, EventSink<String> output) {
     output.addError(error);
   }
   void handleDone(EventSink<String> output) {
@@ -289,24 +289,23 @@ Stream<int> timedCounter(Duration interval, [int maxCount]) {
     }
   }
   
-  // Respond to pause or subscription state change.
-  void updatePauseState() {
-    if (controller.isPaused) {
-      // Stop the timer while paused.
-      if (timer != null) {
-        timer.cancel();
-        timer = null;
-      }
-    } else if (timer == null) {
-      // Restart timer.
-      timer = new Timer.periodic(interval, tick);
+  void startTimer() {
+    timer = new Timer.periodic(interval, tick);
+  }
+
+  void stopTimer() {
+    if (timer != null) {
+      timer.cancel();
+      timer = null;
     }
   }
+
   controller = new StreamController<int>(
-      onListen: updatePauseState,
-      onPause: updatePauseState,
-      onResume: updatePauseState,
-      onCancel: updatePauseState);
+      onListen: startTimer,
+      onPause: stopTimer,
+      onResume: startTimer,
+      onCancel: stopTimer);
+
   return controller.stream;
 }
 {% endprettify %}
@@ -398,16 +397,16 @@ class LineStream extends Stream<String> {
 
   LineStream(Stream<String> source) : _source = source {
     _controller = new StreamController<String>(
-      onListen: _subscriptionStateChange,
-      onPause: _pauseStateChange,
-      onResume: _pauseStateChange,
-      onCancel: _subscriptionStateChange);
+      onListen: _onListen,
+      onPause: _onPause,
+      onResume: _onResume,
+      onCancel: _onCancel);
   }
 
   int get lineCount => _lineCount;
 
   StreamSubscription<String> listen(void onData(String line),
-                                    { void onError(Object error),
+                                    { void onError(Error error),
                                       void onDone(),
                                       bool cancelOnError }) {
     return _controller.stream.listen(onData,
@@ -416,25 +415,23 @@ class LineStream extends Stream<String> {
                                      cancelOnError: cancelOnError);
   }
 
-  void _subscriptionStateChange() {
-    if (_controller.hasSubscribers) {
-      _subscription = _source.listen(_onData,
-                                     onError: _controller.addError,
-                                     onDone: _onDone);
-    } else {
-      if (_subscription != null) _subscription.cancel();
-      _subscription = null;
-    }
+  void _onListen() {
+    _subscription = _source.listen(_onData,
+                                   onError: _controller.addError,
+                                   onDone: _onDone);
   }
 
-  void _pauseStateChange() {
-    if (_subscription != null) {
-      if (_controller.isPaused) {
-        _subscription.pause();
-      } else {
-        _subscription.resume();
-      }
-    }
+  void _onCancel() {
+    _subscription.cancel();
+    _subscription = null;
+  }
+
+  void _onPause() {
+    _subscription.pause();
+  }
+
+  void _onResume() {
+    _subscription.resume();
   }
 
   void _onData(String input) {
