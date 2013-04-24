@@ -15,7 +15,6 @@ tutorial:
 * Compile Web UI apps automatically in Dart Editor.
 * Use data binding to sync Dart variables and UI elements.
 * Attach event handlers to UI elements in HTML.
-* Learn how watchers keep the UI and data in sync.
 
 {% endcapture %}
 
@@ -33,7 +32,11 @@ To streamline the development process,
 you can use Dart Editor to help set up your project,
 install the package, and automate the build process.
 
-This target begins by showing you how to set up a project to use Web UI.
+This target begins by showing you how to set up a project to use Web UI,
+including how to install the package.
+(If you are unfamiliar with packages, the previous target,
+<a href="/docs/tutorials/packages/">Install Shared Packages</a>,
+has details.)
 Then this target describes how to use two features of the Web UI package.
 Specifically, you will learn 
 how to use data binding to embed mutable Dart data in your HTML page
@@ -50,9 +53,6 @@ describe other features of the Web UI package.
 * [Install the Web UI package in an existing web application](#install-web-ui)
 * [Set up background compilation in Dart Editor](#set-up)
 * [Embedding data in a web page with one-way data binding](#one-way-data-binding)
-* [About watchers](#about-watchers)
-* [Dispatching watchers](#watching)
-* [Importing the watcher library](#import-library)
 * [Binding the value of an element to a Dart variable](#two-way-data-binding)
 * [About template expressions](#template-expressions)
 * [Binding event handlers](#binding-event-handlers)
@@ -114,6 +114,7 @@ and the source files for your project.
 Dart Editor also automatically runs `pub install`
 to resolve the package dependencies
 and install all of the necessary packages including the Web UI package.
+
 Finally, Dart Editor builds the project&mdash;that is,
 it compiles the application code
 together with the Web UI library code&mdash;
@@ -167,7 +168,7 @@ data binding&mdash;a feature necessary to web components and templates.
 Open the pubspec.yaml file, which is
 in the top-level directory of your project.
 By default,
-Dart Editor displays the Overview panel,
+Dart Editor displays the **Overview** panel,
 which provides a handy UI for viewing and modifying the pubspec file.
 You can use the **Source**
 tab at the bottom of the window to view
@@ -178,7 +179,7 @@ the pubspec.yaml source code.
 Add the Web UI package to the list of dependencies
 by adding the Web UI package name,
 `web_ui`, to the list.
-Click the **Add...** in the Overview panel,
+Click **Add...** in the **Overview** panel,
 or add the package name
 to the dependencies list directly in the pubspec.yaml source.
 YAML is whitespace-sensitive
@@ -192,7 +193,7 @@ If you include a version constraint,
 instead of using `any`,
 your code will be less likely to break
 because of new releases of the package.
-For example: `web_ui:  >=0.2.9 < 0.2.10`.
+For example: `web_ui: >=0.4.1 <0.4.2`.
 You can proactively upgrade to new versions when you are ready.
 Check the Web UI package
 <a href="https://github.com/dart-lang/web-ui/blob/master/CHANGELOG.md">
@@ -213,7 +214,7 @@ after the package installation:
 ![The littleben application with web_ui installed](images/app-with-pkgs.png)
 </li>
 
-<li>
+<li markdown="1">
 In the `littleben` sample,
 the application files are in a directory called `web`.
 To run the app, select the main host HTML file,
@@ -293,199 +294,61 @@ Do not modify the files in web/out because the compiler will overwrite them.
 
 ##Embedding data in a web page with one-way data binding {#one-way-data-binding}
 
-Get the source files for the littleben sample.
-<ul>
-  <li>
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/littleben" target="_blank">littleben</a>
-  </li>
-</ul>
+The web app running below uses one-way data binding.
+The Dart code computes the current time and
+formats it into a String.
+The HTML code embeds the value of that Dart String
+into the HTML using the data binding feature provided by the Web UI package.
+Use one-way data binding
+when the value of the bound expression (here, a Dart string)
+can change only in the Dart code.
 
-Run the app; it displays the current time:
+<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:100px;padding:5px"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/littleben_clock/web/out/littleben_clock.html">
+</iframe>
 
-![Little Ben shows the current time](images/little-ben-running.png)
-
-The littleben application uses a feature from
-the Web UI package called one-way data binding
-to embed the value of a Dart variable into the HTML page.
-In this case,
-the Dart variable is a String containing the current time
-formatted in a standard way.
-
-On the Dart side,
-littleben's main() function gets the current time using the
-<a href="http://api.dartlang.org/dart_core/DateTime.html" target="_blank">DateTime</a>
-class from the dart:core library.
-The littleben.dart file contains
-a top-level function called formatTime(),
-which formats the hours, minutes, and seconds
-into a top-level String variable called currentTime.
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/littleben" target="_blank">littleben</a>.
 
 On the HTML side, the code uses a _template expression_
-to embed the value of the String currentTime into the page.
+to embed the value of the String `currentTime` into the page.
 In this example,
 the expression is simply the name of a Dart variable
 and it appears as part of an element's text property.
-The following diagram shows the HTML code, the Dart code,
-and a screenshot of the running app.
-
-![One-way data binding in the littleben app](images/little-ben-dart.png)
-
 A template expression is specified
 with a double pair of curly brackets,
 which enclose the expression to be evaluated:
 <code>&#123;&#123;expression&#125;&#125;</code>.
 Notice that it looks like a natural part of the HTML code.
 
-This is called one-way data binding because
-the data can only change on the Dart side.
-When the data changes in the Dart program,
-the UI updates to reflect the change.
-The Web UI code uses a system of _watchers_ to sync the UI with the data.
-When watchers are dispatched,
-the template expressions are evaluated
-and the UI gets updated.
+![One-way data binding in the littleben app](images/little-ben-dart.png)
 
-##About watchers {#about-watchers}
+On the Dart side,
+the String `currentTime` is marked with `@observable`.
+This marker causes the Web UI compiler to generate
+the code needed to keep the HTML page in sync with this variable.
+To use `@observable`,
+the Dart code must import the Web UI package.
 
-The Web UI code attaches a watcher to every template expression.
-A watcher's job is to update the UI when the value of
-its template expression changes.
-But watchers are passive;
-rather like teenagers,
-they do their job only when reminded.
-So either your code or the Web UI code
-must dispatch watchers to check for changes to the Dart data.
-
-Normally, you don't have to worry about dispatching watchers
-because the Web UI code dispatches them automatically
-for common situations when Dart data is likely to have changed.
-For example, after mouse clicks, after changes to an input field,
-and for certain window events, like window-refresh.
-
-One of the situations in which the Web UI code dispatches watchers
-is when an app's main() function completes.
-This comes to play in the littleben app,
-whose main() function executes straight through and then stops.
-That means the &#123;&#123;currentTime&#125;&#125; expression
-is evaluated and rendered once.
-
-{% comment %}
-[XX: there should be a diagram in all of this webUI/watcher bizness,
-but I have not figured out what it should be]
-{% endcomment %}
-
-1. The littleben app sets the string currentTime in its main() function.
-1. The main() function completes its execution.
-1. The Web UI code dispatches watchers.
-1. The watcher of the currentTime data recognizes the data change...
-1. ...evaluates the expression...
-1. ...and fires an event that updates the UI.
-1. The current time appears on the page.
-
-The littleben app displays the current time when it starts up.
-It would be more interesting if the time continually updated like a clock:
-
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:100px;padding:5px"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/littleben_clock/web/out/littleben_clock.html">
-</iframe>
-
-The next section discusses the code for the app running above.
-
-##Dispatching watchers {#watching}
-
-You can find the code for a version of the littleben app
-that updates the display of the current time every second in
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/littleben_clock/web/littleben_clock.dart"
-   target="_blank">littleben_clock.dart</a>.
-The diagram below highlights the differences
-between the original, static version and the new, dynamic version:
-
-![littleben_clock.dart with explicit call to dispatch watchers](images/littleben-with-watcher.png)
-
-1. Add two import directives,
-one to import dart:async (for the
+The value of `currentTime` changes every second
+thanks to a periodic
 <a href="http://api.dartlang.org/dart_async/Timer.html" target="_blank">Timer</a>
-class) and one to import
-the watcher library from the web_ui package
-(more about the `as` clause below).
-1. Change the code within the main() function.
-1. Add the updateTime() function.
+object.
+When the string changes,
+the HTML page gets updated automatically.
 
-The main() function sets a timer using a periodic Timer object.
-The timer calls the updateTime() function every second.
-The updateTime() function is similar to the
-main() function in the previous version;
-it gets the current time, formats it,
-and sets the currentTime string to that value.
-New is the call to watchers.dispatch().
-
-![littleben.dart with watchers added](images/updatetime.png)
-
-This program must dispatch watchers explicitly
-because the Web UI layer does not
-automatically dispatch watchers for timer events.
-If you comment out the watchers.dispatch() call,
-the currentTime string changes in the Dart code every second,
-but the UI is not updated.
-In this case, to see the time change,
-you can refresh the page&mdash;watchers are dispatched
-for window refresh events.
-
-The Web UI code dispatches watchers in many scenarios,
-so often you don't have to worry about doing so explicitly in your code.
-But if your code is not working as you expected,
-try adding a call to watchers.dispatch().
-
-##Importing the watcher library {#import-library}
-
-The watcher library is part of the Web UI package.
-It provides functions and classes
-that watch template expressions and help keep the UI in sync.
-The dispatch() function is a top-level function in the
-watcher library that activates all watchers
-attached to template expressions in an application.
-You can use it explicitly in your programs when necessary
-as you saw in the littleben app.
-
-Notice the import directive used by the littleben app
-to import the watcher library:
-
-![Importing a library with a prefix](images/import-with-prefix.png)
-
-The `as` clause helps to avoid name collisions
-by specifying a prefix for the library.
-You use the library prefix to qualify names in your program.
-For example, by importing the watcher library
-with the prefix `watchers`,
-the code calls watchers.dispatch()
-instead of simply dispatch().
-
-![Calling a function with a library prefix](images/function-with-prefix.png)
+This sample also uses the
+<a href="http://api.dartlang.org/dart_core/DateTime.html" target="_blank">DateTime</a>
+class to get the current time.
 
 ##Binding the value of an element to a Dart variable {#two-way-data-binding}
 
-This section discusses a sample app called shout.
-Use these links to find the source code:
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/shout/web/shout.html"
-   target="_blank">shout.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/shout/web/shout.dart"
-   target="_blank">shout.dart</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/shout/build.dart"
-   target="_blank">build.dart</a> (For building the app with Web UI)
-  </li>
-</ul>
-
 Using the Web UI package's two-way data binding feature,
-you can bind the value of an element to the value of a Dart variable.
+you can bind the value of an element,
+typically an &lt;input&gt; element,
+to the value of a Dart variable.
+
 Try it! Type in the input field in the example running below.
-The value of the field is bound to a Dart string.
-As you type, the string changes and the UI changes in response.
 
 <div>
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:230px;padding:5px"
@@ -493,19 +356,24 @@ As you type, the string changes and the UI changes in response.
 </iframe>
 </div>
 
-In the shout example,
-the value of the text field is bound to a Dart string called `shoutThis`.
-The string is declared in the Dart code
-and bound to the input field in the HTML code.
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/shout" target="_blank">shout</a>.
+
+The value of the text field is bound to a Dart string called `shoutThis`.
+The string is declared
+and marked with `@observable`
+in the Dart code.
+The string is bound to the input field in the HTML code
+using the `bind-value` attribute.
+As you type, the value of the string in the Dart program changes.
+To demonstrate the change,
+the UI displays variations of the string using several
+one-way bound template expressions.
+
 This is called two-way binding because the string can be changed
 on the HTML-side when the user types,
-or programmatically by the Dart code (although you must be careful doing this.)
-Watchers keep them in sync.
-When you type in the input field,
-the Web UI code,
-which intercedes in the event handling mechanism,
-automatically dispatches watchers to evaluate the expression
-and update the UI.
+or programmatically by the Dart code
+(although you must be careful doing this.)
 
 ![An input field using two-way data binding](images/shoutthis.png)
 
@@ -523,10 +391,6 @@ text areas, and select elements (drop-down lists.)
 Also, you can use `bind-checked` with radio button elements and checkboxes.
 And you can use `bind-selected-index` with select element.
 
-To show that the shoutThis string changes in concert with the input field,
-the shout example uses several *template expressions* in the HTML code,
-each of which displays some variation of the string.
-
 ##About template expressions {#template-expressions}
 
 A template expression can be any valid Dart expression
@@ -536,25 +400,20 @@ These are the template expressions used by the shout example:
 
 ![Examples of valid template expressions](images/expressions.png)
 
-* &#123;&#123;shoutThis.length&#125;&#125; gets the length of the string.
-The returned value is an integer that gets converted to a string.
-* &#123;&#123;shoutThis.toUpperCase()&#125;&#125;
-calls a string function that converts the string to upper case letters.
-Note that toUpperCase() returns a new string;
-it does NOT change the value of shoutThis.
-* The third expression uses the conditional ternary operator;
-if the entered value is longer than 5 characters,
-a substring is displayed.
-* The last expression calls a top-level
-function named palindrome(), which is defined in shout.dart,
-that creates a palindrome from the entered value.
+| Expression | Description |
+|---|---|
+| &#123;&#123;shoutThis.length&#125;&#125; | Gets the length of the string. The returned value is an integer that gets converted to a string. |
+| &#123;&#123;shoutThis.toUpperCase()&#125;&#125; | Calls a string function that converts the string to upper case letters. Note that toUpperCase() returns a new string; it does NOT change the value of shoutThis. |
+| &#123;&#123;(... ? ... : ... )&#125;&#125; | Uses the conditional ternary operator; if the entered value is longer than 5 characters, a substring is displayed. |
+| &#123;&#123;palindrome()&#125;&#125; | Calls a top-level function named palindrome(), defined in shout.dart, that creates a palindrome from the entered value. |
+{: .table}
 
 ![Palindrome() function uses but does NOT modify shoutThis](images/palindrome-func.png)
 
 The palindrome() function does NOT modify shoutThis.
 If it did, it would create a situation in which an infinite loop is possible.
 The Web UI system has a protection against infinite loops;
-it detects if watchers don't converge
+it detects if the values don't converge
 and stops the loop after several iterations.
 However, this is simply a protection and not a feature you should rely on.
 
@@ -570,9 +429,14 @@ has an event handler for responding to mouse clicks.
 The event handlers are bound to the button in the HTML code
 and implemented in Dart.
 
+Try it! Click the buttons to start, stop, and reset the stop watch.
+
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:175px;padding:5px"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/stopwatch/web/out/stopwatch.html">
 </iframe>
+
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/stopwatch" target="_blank">stopwatch</a>.
 
 Here's the code that sets the mouse click handler for the **Start** button.
 
@@ -606,28 +470,6 @@ it could accept an Event argument.
 The event handler binding
 in that case would be written `on-click="startwatch($event)"`.
 The function would be declared `void startwatch(Event e)`.
-
-After the handler completes,
-watchers are dispatched
-so they can sync the UI with any data that has changed.
-
-You can find the complete code for the stopwatch example,
-and thus the code for all of the mouse click handlers, here:
-
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/stopwatch/web/stopwatch.html"
-   target="_blank">stopwatch.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/stopwatch/web/stopwatch.dart"
-   target="_blank">stopwatch.dart</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target06/stopwatch/build.dart"
-   target="_blank">build.dart</a> (For building the app with Web UI)
-  </li>
-</ul>
 
 ##Further examples
 

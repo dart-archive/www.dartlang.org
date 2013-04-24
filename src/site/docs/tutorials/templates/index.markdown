@@ -29,11 +29,13 @@ This target covers
 template conditionals and loops,
 both of which provide a declarative way
 to add and remove UI elements.
-The next target covers custom elements
-and using templates to define their structure.
+The next target,
+<a href="/docs/tutorials/custom-elements/">Target 8: Define a Custom DOM Tag</a>,
+covers custom elements
+and how to use templates to define their structure.
 
 * [Using conditional instantiation](#using-conditional-instantiation)
-* [Using template iteration](#using-template-iteration)
+* [Using iteration with templates](#using-iteration-with-templates)
 * [Using iteration with other elements](#as-attributes)
 * [Further examples](#further-examples)
 
@@ -49,75 +51,55 @@ After you've entered all six items, delete one. The paragraph disappears.
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/adlibitum/web/out/adlibitum.html">
 </iframe>
 
-The sample uses template conditionals to display the paragraphs
-under the input fields.
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07/adlibitum" target="_blank">adlibitum</a>.
+
+The sample uses a template conditional
+to display the paragraphs under the input fields.
 
 ![Paragraph elements are conditionally instantiated](images/template-conditional.png)
 
-The value of each input field is bound to a Dart String
+The value of each input field is bound to an observable Dart String
 using two-way data binding as described in the
 <a href="/docs/tutorials/web-ui/">previous target</a>.
-The Web UI system keeps
-the Dart Strings in sync with the value of the input field
-as the user types.
+The binding keeps the value of each input field in sync with
+the value of a Dart string as the user types.
 
 ![Two-way data binding in adlibitum sample](images/adlib-databinding.png)
 
-Each input field uses the same Dart function,
-called verify(),
-to handle change events that occur when the user types in it.
-If all input fields have a value,
-the event handler sets a Dart boolean variable called `show` to true.
-
-![Set show to true when all input fields completed](images/show-results.png)
-
-The HTML code uses the value of `show` to determine
-whether to instantiate the paragraph elements defined within the template
-or to remove the elements if they were previously instantiated.
+The paragraph underneath the six input fields appears
+if all input fields have a value.
+Together, a template conditional in the HTML code
+and an observable boolean getter in the Dart code
+determine when to display the paragraph.
+The Dart code contains a getter called `show`
+that returns true if all of the fields have a value
+or false if one or more is empty.
+Observables determine that `show` depends on the six strings,
+and notify a change on `show` if any strings change.
 
 ![HTML code for a conditionally instantiated template](images/html-ifcode.png)
 
 The template is declared with the &lt;template&gt; tag.
 The template tag has an `instantiate` attribute,
 which contains the expression
-that determines the condition under which the template
-is activated or deactivated.
-In this example, it's a simple boolean value, but it could be any
-valid Dart expression that evaluates to true or false.
-
-In this example,
-the template contains simple paragraph elements
-in which some of the text is bound to the values in input fields.
+that determines whether the template should be activated or deactivated.
 
 The instantiate attribute takes the form `if exp`,
 where `exp` is a valid Dart expression
 that evaluates to either true or false.
+In this example,
+the expression is a call to a top-level getter.
 When the expression is true,
 the contents of the template are instantiated.
 Otherwise, any elements that were previously instantiated
 are removed from the DOM.
 
-The expression is evaluated every time the watchers are dispatched.
-The watchers are dispatched after each change event
-fired by any of the six input fields.
-Note that all of the watchers are dispatched for all events,
-not just the watcher related
-to the specific input field that fired the event.
+In this example,
+the conditional template just contains simple paragraph elements
+in which some of the text is bound to the values in input fields.
 
-You can find the complete source code to the adlibitum example here:
-
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target07/adlibitum/web/adlibitum.html"
-   target="_blank">adlibitum.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target07/adlibitum/web/adlibitum.dart"
-   target="_blank">adlibitum.dart</a>
-  </li>
-</ul>
-
-##Using template iteration
+##Using iteration with templates
 
 The sample running below
 is a simplified version of the children's hangman game.
@@ -127,82 +109,66 @@ Try it! Type letters in the field to guess the word.
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/simplehangman/web/out/simplehangman.html">
 </iframe>
 
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07/simplehangman" target="_blank">simplehangman</a>.
+
 The hangman example uses template iteration in two places:
-to display the hyphenated version of the hidden word
+to reveal the correctly guessed letters in the
+hyphenated version of the hidden word
 and to display the list of incorrectly guessed letters.
 
 ![Two uses of template iteration](images/template-loop.png)
 
-In each case,
-the set of letters (or hyphens) is contained in a List of Strings
-in the Dart program,
-where each string contains a single letter (or hyphen).
-By iterating over Dart 
-<a href="http://api.dartlang.org/dart_core/Iterable.html"
-   target="_blank">Iterable</a>
-objects like these lists of strings,
-template loops allow you to declaratively
-repeat UI elements based on that data.
-
-The simplehangman program stores the incorrectly guessed
-letters in a list of strings called `wrongletters`.
-The program creates the empty list when it begins.
+The Dart code creates two lists,
+one for the hyphenated word and one for the incorrectly guessed letters.
+Each list contains strings.
+Each string contains a single hyphen or letter.
+The program calls `toObservable()` on each list
+to make Web UI track changes to the list.
 
 {% prettify dart %}
-List<String> wrongletters = new List();
+List<String> hyphens      = toObservable(answerHyphenated.split(''));
+List<String> wrongletters = toObservable(new List());
 {% endprettify %}
 
-The template loop 
-used to display the incorrectly guessed letters
-is written in the HTML file as follows:
+In the HTML code,
+a template loop iterates over the list named `hyphens`
+to reveal each letter of the word when it is correctly guessed.
+Another template loop iterates over the list named `wrongletters`
+to display the incorrectly guessed letters.
 
 {% prettify html %}
-<p id="wrong"><template iterate="wrongchar in wrongletters"> {% raw  %}{{wrongchar}}{% endraw %} </template></p>
+<template iterate="character in hyphens"> {% raw %}{{character}}{% endraw %} </template>
+...
+<template iterate="wrongchar in wrongletters"> {% raw  %}{{wrongchar}}{% endraw %} </template>
 {% endprettify %}
 
-The &lt;template&gt; tag has an attribute called `iterate`,
-whose value is an expression that takes the form `identifier in collection`.
-`collection` is an expression that evaluates to a Dart
-<a href="http://api.dartlang.org/dart_core/Collection.html"
-   target="_blank">Collection</a>
-object.
-The template iterates over the collection assigning each value to `identifier`,
-a new variable that is in scope for the body of the iterate element.
-In our example, the collection is `wrongletters`&mdash;a list of strings.
-The identifier `wrongchar` is used as part of the text in the body
-of a simple paragraph element.
-
-The `wrongletters` list of strings is populated based on input from the user.
-The input field has a change event handler function, checkit(),
-that is called for each letter the user types into the input field.
-The checkit() function determines whether or not the letter is correct.
-If it is not,
-the String containing the letter is added to the `wrongletters` list.
-
-This diagram shows you the connections between the HTML code,
-the Dart code, and the user interface.
+When the user types a character,
+the event handler for the input field either adds a letter to `wrongletters`
+or reveals a letter in `hyphens`.
+Because these lists are observable,
+a change causes the associated template loop
+to re-evaluate and to update the UI.
+The following diagram shows the relationship between
+the Dart code, the HTML code, and the UI
+that manages the list of incorrectly guessed letters.
 
 ![Using template loops to display a list of strings](images/wrongletters-detail.png)
 
-As the user continues to guess incorrect letters,
-the UI is kept up-to-date with the list by the Web UI package
-through its binding mechanism
-because the template is bound to the Dart list `wrongletters`.
-
-The template loop that manages
-the display of hyphens and correctly guessed letters is similar
-and can be found in the complete source files for this sample:
-
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target07/simplehangman/web/simplehangman.html"
-   target="_blank">simplehangman.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target07/simplehangman/web/simplehangman.dart"
-   target="_blank">simplehangman.dart</a>
-  </li>
-</ul>
+The &lt;template&gt; tag has an attribute called `iterate`.
+The value of this attribute takes the form 
+<code><em>loopvar</em> in <em>iterable</em></code>,
+where _iterable_ is a Dart expression that evaluates to an
+<a href="http://api.dartlang.org/dart_core/Iterable.html"
+   target="_blank">Iterable</a>
+object.
+The template iterates over the iterable object
+and assigns each value to _loopvar_,
+a new variable that is in scope for the body of the template iterate element.
+The HTML code for this example
+uses one-way data binding to embed
+the value of `wrongchar` in the page,
+thus displaying a list of characters.
 
 ##Using iteration with other elements {#as-attributes}
 
@@ -220,6 +186,9 @@ Try it! Guess the word.
 <iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:250px;width:350px;padding:5px"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/hangman/web/out/hangman.html">
 </iframe>
+
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07/hangman" target="_blank">hangman</a>.
 
 The gallows is displayed using a table.
 The table uses `template iterate` as an attribute on
@@ -245,7 +214,7 @@ void setUpHangmanGrid() {
                   '\|      ',
                   '\|      ',
                   '\|      ' ];
-  hangmandisplay = new List(gallows.length);
+  hangmandisplay = toObservable(new List(gallows.length));
   
   for (int i = 0; i < gallows.length; i++) {
     List<String> row = gallows[i].split("");
@@ -274,21 +243,8 @@ the change event handler is called.
 If the guess is incorrect,
 the contents of the hangmandisplay are modified.
 As a result of the change event,
-the watchers are dispatched and the gallows UI is updated.
-
-You can find the complete source code for this version
-of the hangman sample here:
-
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target07/hangman/web/hangman.html"
-   target="_blank">hangman.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target07/hangman/web/hangman.dart"
-   target="_blank">hangman.dart</a>
-  </li>
-</ul>
+the observables are re-evaluated and
+the gallows UI is updated.
 
 ##Further examples {#further-examples}
 

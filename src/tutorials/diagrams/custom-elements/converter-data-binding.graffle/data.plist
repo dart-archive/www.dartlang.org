@@ -105,7 +105,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -173,8 +173,8 @@
 			<integer>34152</integer>
 			<key>Points</key>
 			<array>
-				<string>{356, 200.73778343200678}</string>
-				<string>{201, 142.06792068481445}</string>
+				<string>{356, 206.92267529169709}</string>
+				<string>{201, 143.070876121521}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -217,7 +217,7 @@
 			<integer>34153</integer>
 			<key>Points</key>
 			<array>
-				<string>{438.99999539149911, 227.16217041015625}</string>
+				<string>{438.99999539149911, 253}</string>
 				<string>{438.99999539149911, 325.69970703125}</string>
 			</array>
 			<key>Style</key>
@@ -261,8 +261,8 @@
 			<integer>34165</integer>
 			<key>Points</key>
 			<array>
-				<string>{241.78955580549567, 332.5750732421875}</string>
-				<string>{425.21044418009319, 227.16217041015625}</string>
+				<string>{244.57674335480704, 332.5750732421875}</string>
+				<string>{411.02567176607988, 253}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -305,8 +305,8 @@
 			<integer>34164</integer>
 			<key>Points</key>
 			<array>
-				<string>{192.97212088164886, 263}</string>
-				<string>{356, 205.84162453172934}</string>
+				<string>{195.34603671501691, 263}</string>
+				<string>{356, 212.02728353651597}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -435,7 +435,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -550,7 +550,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Light;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -565,7 +565,7 @@ initial value = 0}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{341, 124.46246337890625}, {343, 144}}</string>
+			<string>{{341, 124.46246337890625}, {343, 172}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -608,7 +608,7 @@ initial value = 0}</string>
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -618,8 +618,10 @@ initial value = 0}</string>
 \
 class ConverterComponent extends WebComponent \{\
   \
-  num ratio = 0.5;\
+  @observable num ratio = 0.5;\
+  @observable\
   String thing_one = '0';\
+  @observable\
   String thing_two = '0';\
 \
   ...\
@@ -757,7 +759,7 @@ class ConverterComponent extends WebComponent \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{522, 187}, {15, 43}}</string>
+			<string>{{519, 179}, {26, 80}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -767,9 +769,9 @@ class ConverterComponent extends WebComponent \{\
 			<key>FontInfo</key>
 			<dict>
 				<key>Font</key>
-				<string>HelveticaNeue-Light</string>
+				<string>HelveticaNeue-UltraLight</string>
 				<key>Size</key>
-				<real>32</real>
+				<real>64</real>
 			</dict>
 			<key>ID</key>
 			<integer>34162</integer>
@@ -800,12 +802,12 @@ class ConverterComponent extends WebComponent \{\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
-\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Light;}
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue-UltraLight;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
-\f0\fs64 \cf0 \}}</string>
+\f0\fs128 \cf0 \}}</string>
 				<key>VerticalPad</key>
 				<integer>2</integer>
 			</dict>
@@ -824,8 +826,8 @@ class ConverterComponent extends WebComponent \{\
 			<integer>34161</integer>
 			<key>Points</key>
 			<array>
-				<string>{570, 208.50000731593855}</string>
-				<string>{537, 208.50000731593855}</string>
+				<string>{570, 215.32806486984668}</string>
+				<string>{545, 217.76665946622052}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -922,7 +924,7 @@ class ConverterComponent extends WebComponent \{\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -979,7 +981,7 @@ class ConverterComponent extends WebComponent \{\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -1034,7 +1036,7 @@ class ConverterComponent extends WebComponent \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{356, 211.31231689453125}, {166, 15.849853515625}}</string>
+			<string>{{356, 226.31231689453125}, {166, 26.68768310546875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1112,7 +1114,7 @@ class ConverterComponent extends WebComponent \{\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -1165,7 +1167,7 @@ class ConverterComponent extends WebComponent \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{356, 195.46246337890625}, {166, 15.849853515625}}</string>
+			<string>{{356, 196.46246337890625}, {166, 26.68768310546875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1288,7 +1290,7 @@ class ConverterComponent extends WebComponent \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-01-07 21:58:04 +0000</string>
+	<string>2013-04-22 17:57:43 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

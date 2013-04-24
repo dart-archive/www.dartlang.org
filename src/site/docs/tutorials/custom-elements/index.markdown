@@ -77,6 +77,14 @@ Try it! Type a number into one of the fields and press return.
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
 </iframe>
 
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss" target="_blank">drseuss</a>.
+This repository includes the pubspec.yaml and build.dart
+files necessary to install the Web UI package and build the app.
+Refer to
+<a href="/docs/tutorials/web-ui/">Get Started with Web UI</a>
+for instructions.
+
 The two input fields, the two labels, the left- and right-facing arrows,
 and the Dart code that implements the arithmetic calculation
 work in concert to provide a single widget that converts one number to another.
@@ -93,27 +101,6 @@ Instances of this custom element can be configured
 with different labels and conversion ratios.
 This particular instance of x-converter
 maintains a ratio of 1:2 between the left and right numbers.
-
-You can find the complete source code for this sample at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/littleben" target="_blank">drseuss</a>.
-This repository includes the
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/pubspec.yaml" target="_blank">pubspec.yaml</a>
-and
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/build.dart" target="_blank">build.dart</a>
-files necessary to install the Web UI package and build the app.
-Refer to
-<a href="/docs/tutorials/web-ui/">Get Started with Web UI</a>
-for instructions.
-
-Within the `web` directory in the repository,
-you will find these files that implement the app:
-
-| File | Description|
-|---|---|
-| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/web/drseuss.html" target="_blank">drseuss.html</a> | Creates an instance of the x-converter |
-| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/web/converter-element.html" target="_blank">converter-element.html</a> | Defines the UI for the x-converter custom element |
-| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss/web/convertercomponent.dart" target="_blank">convertercomponent.dart</a> | Defines the behavior of the x-converter custom element |
-{: .table}
 
 The remaining sections
 describe the code that creates instances of the x-converter,
@@ -132,6 +119,9 @@ Try it! Enter numbers into each of the fields.
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
 </iframe>
 
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis" target="_blank">convertthis</a>.
+
 This app uses the same code to define
 and implement the &lt;x-converter&gt; custom element as the previous app.
 It just creates three instances of the same element configured differently.
@@ -143,18 +133,12 @@ It just creates three instances of the same element configured differently.
 | <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertercomponent.dart" target="_blank">convertercomponent.dart</a> | Defines the behavior of the x-converter custom element |
 {: .table}
 
-Remember, you also need the
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/pubspec.yaml" target="_blank">pubspec.yaml</a>
-and
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/build.dart" target="_blank">build.dart</a>
-files.
-
 Let's check out the code.
 
 To create the three converter elements
 the converter example uses &lt;x-converter&gt;...&lt;/x-converter&gt;.
 It's just as easy as creating a new div or an input field.
-**Important:** You must close each custom element,
+**Important:** You _must_ close each custom element,
 using a closing tag such as &lt;/x-converter&gt;.
 
 ![HTML code to create three x-converter elements](images/html-create-converters.png)
@@ -244,7 +228,7 @@ a custom element definition contains two parts: a template and a script.
 
 To specify a script for a custom element,
 use the HTML &lt;script&gt; tag within the element definition.
-Identify it as Dart with the type="application/dart" attribute.
+Identify it as Dart with the `type="application/dart"` attribute.
 
 The Dart script must contain a class that is a subclass of WebComponent.
 Usually the name of the Dart class
@@ -299,11 +283,11 @@ captures all of the instance's children.
 
 ##Using two-way data binding
 
-The <a href="/docs/tutorials/web-ui/">previous target</a>
+A <a href="/docs/tutorials/web-ui/">previous target</a>
 described the Web UI package's two-way data binding feature.
 The x-converter element uses two-way data binding
 to connect the value of each input field to a Dart string variable.
-The Web UI's system of watchers keeps the value of the bound Dart string
+With observables the Web UI's system keeps the value of the bound Dart string
 in sync with the value of the input field.
 
 ![The value of the two input fields are bound to Dart strings](images/converter-data-binding.png)
