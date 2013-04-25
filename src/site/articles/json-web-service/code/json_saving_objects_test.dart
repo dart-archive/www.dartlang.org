@@ -1,5 +1,4 @@
 import 'dart:html';
-HttpRequest request;
 
 void saveData() {
   HttpRequest request = new HttpRequest(); // create a new XHR
