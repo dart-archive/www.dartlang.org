@@ -2,7 +2,7 @@ import 'dart:html';
 HttpRequest request;
 
 void saveData() {
-  HttpRequest req = new HttpRequest(); // create a new XHR
+  HttpRequest request = new HttpRequest(); // create a new XHR
   
   // add an event handler that is called when the request finishes
   request.onReadyStateChange.listen((_) {
