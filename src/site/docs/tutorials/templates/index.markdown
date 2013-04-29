@@ -15,6 +15,28 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the samples featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07/adlibitum"
+       target="_blank">adlibitum</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07/simplehangman"
+       target="_blank">simplehangman</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07/hangman"
+       target="_blank">hangman</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
 The Web UI package implements the &lt;template&gt; tag,
@@ -47,7 +69,8 @@ Try it! Type six items into the input fields.
 The results appear only after you have entered a value for all six items.
 After you've entered all six items, delete one. The paragraph disappears.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:300px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:300px;width:300px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/adlibitum/web/out/adlibitum.html">
 </iframe>
 
@@ -105,7 +128,8 @@ The sample running below
 is a simplified version of the children's hangman game.
 Try it! Type letters in the field to guess the word.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:250px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:250px;width:300px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/simplehangman/web/out/simplehangman.html">
 </iframe>
 
@@ -183,7 +207,8 @@ on elements as well as on templates.
 Here's a new version of the hangman example.
 Try it! Guess the word.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:250px;width:350px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:250px;width:350px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/hangman/web/out/hangman.html">
 </iframe>
 
@@ -250,18 +275,22 @@ the gallows UI is updated.
 
 <ul>
   <li>
-    Sigmund Cherem's article,
-    <a href="/articles/dart-web-components/">Web UI Package</a>,
-    contains several interactive examples on the page
-    and the corresponding source code.
-  </li>
-  <li>
     Another use of the &lt;template&gt; tag
     is to define the contents of a custom element.
     The next target,
     <a href="/docs/tutorials/custom-elements/">Define a Custom DOM Tag</a>,
     provides an example that converts numbers based on a simple ratio.
-</li>
+  </li>
+  <li>
+    The Dart Cookbook has many useful
+    <a href="/docs/cookbook/#web-ui">Web UI recipes</a>.
+  </li>
+  <li>
+    Sigmund Cherem's article,
+    <a href="/articles/dart-web-components/">Web UI Package</a>,
+    contains several interactive examples on the page
+    and the corresponding source code.
+  </li>
 </ul>
 
 <div class="row">

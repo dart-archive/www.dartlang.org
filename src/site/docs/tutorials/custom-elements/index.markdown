@@ -16,6 +16,24 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the samples featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss"
+       target="_blank">drseuss</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis"
+       target="_blank">convertthis</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
 Custom elements are one kind of web component
@@ -73,7 +91,8 @@ and contains several elements within it.
 Everything within the yellow box is part of the x-converter element.
 Try it! Type a number into one of the fields and press return.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:100px;width:400px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:100px;width:400px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
 </iframe>
 
@@ -115,7 +134,8 @@ each configured with different labels and
 a different ratio.
 Try it! Enter numbers into each of the fields.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:225px;width:400px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:225px;width:400px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
 </iframe>
 
@@ -304,6 +324,10 @@ have an event handler.
 ##Further examples
 
 <ul>
+  <li>
+    The Dart Cookbook has many useful
+    <a href="/docs/cookbook/#web-ui">Web UI recipes</a>.
+  </li>
   <li>
   Sigmund Cherem's article,
   <a href="/articles/dart-web-components/" target="_blank">Web UI Package</a>,

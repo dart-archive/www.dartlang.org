@@ -19,6 +19,24 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the samples featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target02/mini"
+       target="_blank">mini</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target02/mini_with_style"
+       target="_blank">mini_with_style</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
 To write a Dart web app,
@@ -351,12 +369,15 @@ make sure that one of `mini`'s files or the directory is selected,
 and then click the Run button
 <img src="images/run.png" width="16" height="16"
      alt="Run button">.
-
 Dart Editor invokes Dartium
 and loads `mini.html` in it.
+Below is mini app running in a frame.
+The app just displays a line of text.
 
-<img src="images/mini-output.png"
-     alt="Mini app running in Dartium">
+<iframe class="running-app-frame"
+        style="height:150px;width:300px;"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target02/mini/web/mini.html">
+</iframe>
 
 The Dart web app changed
 the text in the browser window dynamically at runtime.
@@ -495,8 +516,14 @@ edit mini.html and add the line shown in bold below:
 
 Save your files and run the app again.
 
-<img src="images/mini-output-with-css.png"
-     alt="Mini app running in Dartium with CSS styles in effect">
+Below is the revised mini app,
+which is slightly more colorful
+but still neither interactive nor interesting.
+
+<iframe class="running-app-frame"
+        style="height:150px;width:300px;"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target02/mini_with_style/web/mini_with_style.html">
+</iframe>
 
 ##About CSS selectors {#about-css-selectors}
 

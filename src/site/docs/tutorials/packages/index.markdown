@@ -15,6 +15,20 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the vector_math package and many others from:</p>
+
+<ul>
+  <li>
+    <a href="http://pub.dartlang.org/"
+       target="_blank">pub.dartlang.org</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
 Now that you're able to create and run a Dart application

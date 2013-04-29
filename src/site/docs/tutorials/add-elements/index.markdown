@@ -17,6 +17,24 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the samples featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/todo"
+       target="_blank">todo</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/anagram"
+       target="_blank">anagram</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
 As you learned in the previous target,
@@ -62,32 +80,18 @@ This program dynamically changes the DOM,
 and therefore the web page,
 by adding elements to the DOM tree.
 
-Try it! Enter a few items into the input field:
+**Try it!** Type in the text field and press return.
+The app adds an item to the list.
+Enter a few items into the input field:
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:250px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:250px;width:300px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/todo/web/todo.html">
 </iframe>
 
-Use the following links to
-copy the HTML, Dart, and CSS code
-into a new web app in Dart Editor.
-Name the app todo and make sure the filenames
-are the same as those listed here.
-
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/web/todo.dart"
-   target="_blank">todo.dart</a>
- </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/web/todo.html"
-   target="_blank">todo.html</a>
- </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/todo/web/todo.css"
-   target="_blank">todo.css</a>
- </li>
- </ul>
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/todo"
+target="_blank">todo</a>.
 
 This is the beginning of an app to manage a list of things to do.
 Right now, this app is for procrastinators only
@@ -317,11 +321,16 @@ each item in the to do list.
 ##Moving elements within the DOM tree {#moving-elements}
 
 Here's an example that shows how to move an element within the DOM.
-Try it! Form a word by clicking the letter tiles.
+**Try it!** Form a word by clicking the letter tiles.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:400px;width:400px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:400px;width:400px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/anagram/web/anagram.html">
 </iframe>
+
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/anagram"
+target="_blank">anagram</a>.
 
 When the program starts,
 it creates one button element for each of seven
@@ -347,22 +356,6 @@ adding the button to a different parent
 automatically removes it from its previous parent.
 
 ![The mouse click handler adds the button to the word, thus moving it](images/anagram-move.png)
-
-The full source code for the anagram example is here:
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/anagram/web/anagram.html"
-   target="_blank">anagram.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/anagram/web/anagram.dart"
-   target="_blank">anagram.dart</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target03/anagram/web/anagram.css"
-   target="_blank">anagram.css</a>
-  </li>
-</ul>
 
 <div class="row">
   <div class="span3">

@@ -16,21 +16,29 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the samples featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/its_all_about_you"
+       target="_blank">its_all_about_you</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux_simple"
+       target="_blank">portmanteaux_simple</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux"
+       target="_blank">portmanteaux</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
-
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft under construction.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
-</div>
 
 Web applications often use
 <a href="http://www.json.org" target="_blank">JSON</a> (JavaScript Object Notation)
@@ -55,6 +63,7 @@ and thus are subject to the browser's security restrictions.
 * [About URIs and HTTP requests](#about-uris)
 * [Using the getString() function to load a file](#using-getString-function)
 * [Using an HttpRequest object to load a file](#making-a-get-request)
+* [Further resources](#further-resources)
 
 ##About JSON
 
@@ -64,18 +73,19 @@ With JSON, various data types
 and simple data structures such as lists and maps
 can be serialized and represented by strings.
 
-Try it! 
+**Try it!**
 The app running below, `its_all_about_you`,
 displays the JSON string for data of various types.
 Change the values of the input elements
 and check out the JSON format for each data type.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:500px;width:700px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:500px;width:700px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target09/its_all_about_you/web/out/its_all_about_you.html">
 </iframe>
 
 The complete source code is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/its_all_about_you/web"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/its_all_about_you"
    target="_blank">its_all_about_you</a>.
 Because this application uses the Web UI package,
 you need to compile as described in
@@ -143,8 +153,8 @@ The values in the map vary in type but they are all JSON-parsable.
 
 Use the parse() function from the dart:json library to
 create Dart objects from a JSON string.
-The example above initially populates the form from this
-JSON string:
+The example above initially populates the values in the form
+from this JSON string:
 
 {% highlight dart %}
 String jsonDataAsString = '''
@@ -266,11 +276,16 @@ When you click the button,
 the app makes a GET request of the server
 and loads the file.
 
-Try it! Click the button.
+**Try it!** Click the button.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:400px;width:300px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:400px;width:300px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target09/portmanteaux_simple/web/portmanteaux_simple.html">
 </iframe>
+
+You can find the complete source code for this sample on github at
+<a href="http://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux_simple/"
+   target="_blank">portmanteaux_simple</a>.
 
 This program uses a convenience method,
 `getString()`,
@@ -290,27 +305,6 @@ The URI used for the GET request specifies just the name of
 the portmanteaux_simple.json data file.
 Let's take a look at how that works.
 
-Download and save all of the source files for this program.
-All of the files should be together in a single directory.
-
-<ul>
- <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux_simple/web/portmanteaux_simple.dart"
-   target="_blank">portmanteaux_simple.dart</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux_simple/web/portmanteaux_simple.html"
-   target="_blank">portmanteaux_simple.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux_simple/web/portmanteaux_simple.css"
-   target="_blank">portmanteaux_simple.css</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux_simple/web/portmanteaux_simple.json"
-   target="_blank">portmanteaux_simple.json</a>
-  </li>
-</ul>
 
 Open the application directory in Dart Editor,
 select the portmanteaux_simple.html file, and run the program.
@@ -366,27 +360,15 @@ For different cases,
 you need to create an HttpRequest object,
 configure its header and other information,
 and use the `send()` method to make the request.
-Here is the portmanteaux sample rewritten
-to use an explicitly constructed HttpRequest object.
 
-<ul>
- <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux/web/portmanteaux.dart"
-   target="_blank">portmanteaux.dart</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux/web/portmanteaux.html"
-   target="_blank">portmanteaux.html</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux/web/portmanteaux.css"
-   target="_blank">portmanteaux.css</a>
-  </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux/web/portmanteaux.json"
-   target="_blank">portmanteaux.json</a>
-  </li>
-</ul>
+This section looks at a new
+version of the portmanteaux example
+that has been rewritten
+to use an explicitly constructed HttpRequest object.
+You can find the complete source code for the modified version
+on github at
+<a href="http://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux/"
+   target="_blank">portmanteaux</a>.
 
 ###Setting up the HttpRequest object
 
@@ -466,6 +448,14 @@ and uses the parse() function from the dart:json library
 to create the String objects specified by the JSON string.
 
 ![Parse a JSON formatted list of strings](images/json-parse.png)
+
+##Further resources
+
+Check out Chris Buckett's article,
+<a href="/articles/json-web-service/"
+   target="_blank">Using Dart with JSON Web Services</a>,
+for more information and an example with source code for both
+client and server programs.
 
 <div class="row">
   <div class="span3">

@@ -18,77 +18,65 @@ expression.
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the sample featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target04/todo_with_delete"
+       target="_blank">todo_with_delete</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
-This target focuses on a modified version of the todo app
-that allows the user to delete items from the list.
-When the user points the mouse cursor at an item,
-the item changes its appearance.
-When the user clicks the item,
-the Dart program removes the item from the list
-(by removing it from the DOM).
-Also, the program has a **Delete All** button
-for removing all items from the list.
+This target shows you how to delete elements from the DOM.
+A new and improved version of the todo app from
+[the previous target](/docs/tutorials/add-elements/)
+now allows the user to delete items from the list
+either one at a time, or all at once.
 
-* [Copy and run the todo_with_delete app](#copy-app)
+* [Try the app](#try-app)
 * [Changing the appearance when cursor is over an element](#css-hover)
 * [Removing an element from the DOM tree](#remove-elem)
 * [Removing all child elements from an element](#remove-all-elem)
 * [About function expressions and =>](#about-function-expressions)
 
-##Copy and run the todo_with_delete app {#copy-app}
+##Try the app {#try-app}
 
-Use the following links to
-copy the HTML, Dart, and CSS code
-into a new web app in Dart Editor.
-Name the app todo_with_delete and make sure the filenames
-are the same as those listed here.
+Below is a revised version
+of the todo app from the previous target
+that allows you to delete items.
+Stop procrastinating and remove items from your todo list.
 
-<ul>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/web/todo_with_delete.dart"
-   target="_blank">todo_with_delete.dart</a>
- </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/web/todo_with_delete.html"
-   target="_blank">todo_with_delete.html</a>
- </li>
-  <li>
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target04/todo_with_delete/web/todo_with_delete.css"
-   target="_blank">todo_with_delete.css</a>
- </li>
- </ul>
-
-Then run the app.
-Enter a few items into the input field.
-The following diagram shows the app after
-_dance_, _sing_, _walk the dog_, and _laugh_ have all been entered.
-
-![Entering items into the todo_with_delete app](images/enter-items.png)
-
-Point the mouse cursor at one of the items in the list.
-Its appearance changes;
-the text is now red and the font is slightly larger.
-Also, the cursor changes to a pointer or a hand shape.
-These visual clues signal to the user that something irreversible
-will happen when they click on it.
-
-Click the red item
-and it disappears from the list.
-The event handling and DOM manipulation is controlled on the Dart side.
-
-![Point the cursor at an item, then click to delete it](images/remove-an-item.png)
-
+**Try it!**
+Type in the input field and press the return key;
+a new item appears in the list.
+Enter a few more items.
+Point the mouse cursor at one of the items in the list;
+the item turns red and gets slightly larger.
+Click it and it disappears from the list.
 Use the **Delete All** button in the lower right corner of the app
 to remove all of the items in the list at once.
 
-![Click the Delete All button to remove all the todo items](images/remove-all.png)
+<iframe class="running-app-frame"
+        style="height:250px;width:300px;"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target04/todo_with_delete/web/todo_with_delete.html">
+</iframe>
+
+You can find the complete source code for this sample on github at
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target04/todo_with_delete"
+target="_blank">todo_with_delete</a>.
 
 The remaining sections describe
 key aspects of the code 
 added to the todo app for this target.
 Specifically, they look at
-the Dart code that removes elements from the DOM
+the Dart code that removes one or more elements from the DOM
 and the CSS code that makes the text red and larger.
 
 ##Changing the appearance when cursor is over an element {#css-hover}

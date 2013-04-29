@@ -18,6 +18,24 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the samples featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target01/helloworld"
+       target="_blank">helloworld</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target01/clickme"
+       target="_blank">clickme</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
 This target gets you ready
@@ -184,6 +202,10 @@ the file is selected,
 but not necessarily displayed in the **Editor pane**.
 You must double-click the file.
 
+<aside class="alert alert-info">
+<b> Problems? </b>
+See <a href="/tools/editor/troubleshoot.html">Troubleshooting Dart Editor</a>.
+</aside>
 
 ##About Dart applications {#what-is-app}
 
@@ -389,14 +411,17 @@ is selected,
 then click the Run button
 <img src="images/run.png" width="16" height="16"
      alt="Run button">.
-
-Dart Editor invokes Dartium, which loads the clickme app's HTML file,
+Dart Editor invokes Dartium,
+which loads the clickme app's HTML file,
 and thus, loads the app.
 
-<img src="images/click-me-app.png"
-     alt="clickme app running in Dartium"/>
+Here is the clickme app running in a frame.
+**Try it!** Click the text.
 
-When you click the text, it reverses itself.
+<iframe class="running-app-frame"
+        style="height:510px;width:500px;"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target01/clickme/web/clickme.html">
+</iframe>
 
 You can run Dart web applications in other browsers
 by compiling to JavaScript.

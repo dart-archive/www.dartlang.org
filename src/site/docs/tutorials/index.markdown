@@ -10,7 +10,7 @@ tutorial:
   id: tut-home
 article:
   written_on: 2012-10-01
-  updated_on: 2013-02-14
+  updated_on: 2013-04-30
   collection: everyday-dart
 ---
 
@@ -19,6 +19,24 @@ article:
 * This blue box shows page highlights.
 * Learn Dart here: No web experience required.
 * Dart is an open-source platform for building structured HTML5 web apps.
+
+{% endcapture %}
+
+{% capture sample_links %}
+
+<ul>
+  <li>
+    Get the source code for all the tutorial examples from
+    <a href="https://github.com/dart-lang/dart-tutorials-samples"
+       target="_blank">github</a>.
+  </li>
+
+  <li>
+    Run the examples from the
+    <a href="http://dart-lang.github.com/dart-tutorials-samples/"
+       target="_blank">index</a>.
+  </li>
+</ul>
 
 {% endcapture %}
 
@@ -155,7 +173,7 @@ text based, human friendly data format.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:xx-small">Version: 14 Feb 2013</p>
+  <p style="font-size:xx-small">Version: 30 Apr 2013</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

@@ -15,7 +15,27 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+This section provides links to sources on github.
+
+{% endcapture %}
+
 {% capture content %}
+
+<div id="under-construction" markdown="1">
+<h3> <i class="icon-wrench"> </i> Under construction </h3>
+
+This is a draft under construction.
+Your kindly worded
+<a
+ href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+comments and suggestions
+</a>
+are appreciated.
+Thank you for your patience.
+</div>
 
 This is the page's content
 

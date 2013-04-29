@@ -18,6 +18,28 @@ tutorial:
 
 {% endcapture %}
 
+{% capture sample_links %}
+
+<p>
+Get the source code for the samples featured in this target:</p>
+
+<ul>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/littleben"
+       target="_blank">littleben</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/shout"
+       target="_blank">shout</a>
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/stopwatch"
+       target="_blank">stopwatch</a>
+  </li>
+</ul>
+
+{% endcapture %}
+
 {% capture content %}
 
 The
@@ -303,8 +325,9 @@ Use one-way data binding
 when the value of the bound expression (here, a Dart string)
 can change only in the Dart code.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:100px;padding:5px"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/littleben_clock/web/out/littleben_clock.html">
+<iframe class="running-app-frame"
+        style="height:100px;width:300px;"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/littleben/web/out/littleben.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -350,11 +373,10 @@ to the value of a Dart variable.
 
 Try it! Type in the input field in the example running below.
 
-<div>
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:230px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:230px;width:300px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/shout/web/out/shout.html">
 </iframe>
-</div>
 
 You can find the complete source code for this sample on github at
 <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06/shout" target="_blank">shout</a>.
@@ -431,7 +453,8 @@ and implemented in Dart.
 
 Try it! Click the buttons to start, stop, and reset the stop watch.
 
-<iframe style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;height:175px;padding:5px"
+<iframe class="running-app-frame"
+        style="height:175px;width:205px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/stopwatch/web/out/stopwatch.html">
 </iframe>
 
@@ -473,10 +496,18 @@ The function would be declared `void startwatch(Event e)`.
 
 ##Further examples
 
-Sigmund Cherem's article,
-<a href="/articles/dart-web-components/">Web UI Package</a>,
-contains several interactive examples on the page
-and the corresponding source code.
+<ul>
+  <li>
+    The Dart Cookbook has many useful
+    <a href="/docs/cookbook/#web-ui">Web UI recipes</a>.
+  </li>
+  <li>
+    Sigmund Cherem's article,
+    <a href="/articles/dart-web-components/">Web UI Package</a>,
+    contains several interactive examples on the page
+    and the corresponding source code.
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">
