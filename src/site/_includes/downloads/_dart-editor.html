@@ -5,16 +5,16 @@
   <div class="{{ editor.os }} downloads">
     {% if editor.os == 'macos' %}
     <a class="download-link btn btn-primary btn-large" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">
-      <i class="icon-download-alt"></i>
+      <i class="icon-download-alt"> </i>
       Dart Editor ({{ editor.name }})
     </a>
     {% else %}
     <a class="download-link btn btn-primary btn-large" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">
-      <i class="icon-download-alt"></i>
+      <i class="icon-download-alt"> </i>
       Dart Editor (64-bit {{ editor.name }})
     </a>
     <a class="download-link btn btn-primary btn-large" data-bits="32" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/darteditor-{{ editor.os }}-32.{{ editor.editor-ext }}">
-      <i class="icon-download-alt"></i>
+      <i class="icon-download-alt"> </i>
       Dart Editor (32-bit {{ editor.name }})
     </a>
     {% endif %}
