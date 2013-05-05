@@ -1180,7 +1180,7 @@ The initialization of web components is done after `main` is executed, but
 before the end of the event loop. If you query in `main` for the element
 associated with a component, its `xtag` will be null. To [retrieve a component
 instance](#retrieval) you need to defer queries until the end of the event loop,
-for example using a `new Timer.run(f)`.
+for example using a `Timer.run(f)`.
 
 ### Top-level templates
 
