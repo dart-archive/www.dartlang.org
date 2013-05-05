@@ -557,7 +557,7 @@ two-way bindings supported by Web UI:
 | | `<input type="checkbox">`    |  | `checked`      |  | Whether the checkbox is checked            |  | `change` |
 | | `<input type="radio">`       |  | `checked`      |  | Whether a radio button is checked          |  | `change` |
 | | `<input name="group" type="radio" value="option">`       |  | `value`        |  | Whether a value matches the radio button's value |  | `change` |
-| | `<select>`                   |  | `selectedIndex`|  | Selected option index on the dropdown list |  | `change` |
+| | `<select>`                   |  | `selected-index`|  | Selected option index on the dropdown list |  | `change` |
 | | `<select>`                   |  | `value`        |  | Selected option value on the dropdown list |  | `change` |
 |=| ===============              |= | =========      |= | ========                                   |= | == |
 
