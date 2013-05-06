@@ -543,7 +543,7 @@ useful to create reusable components that you embed in several places of your
 application or even across several applications.
 
 Web components allows us to import other components using `<link
-rel="components">` tags. For example, suppose we created a file
+rel="import">` tags. For example, suppose we created a file
 `clickcounter.html` that contains the declaration of the click-counter component
 as we had above. Then the preceding example could be rewritten as follows:
 
@@ -551,7 +551,7 @@ as we had above. Then the preceding example could be rewritten as follows:
 {% raw %}
 <html>
   <head>
-    <link rel="components" href="clickcounter.html">
+    <link rel="import" href="clickcounter.html">
   </head>
   <body>
     <div is="x-click-counter" count="{{myNumber}}"></div>

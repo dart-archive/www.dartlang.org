@@ -204,7 +204,7 @@ contents of the parent component are added.
 {% prettify html %}
 <html ...>
   <head>
-  <link rel="components" href="...">
+  <link rel="import" href="...">
   </head>
 {% endprettify %}
 </td><td>
