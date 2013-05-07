@@ -133,10 +133,10 @@ dart --generate-script-snapshot=dart2js.snapshot \
 {% endprettify %}
 
 To execute a script from its snapshot,
-use the dart command with the `--use-script-snapshot` option.
+specify the snapshot file on the command line:
 
 <pre>
-dart --use-script-snapshot=<em>snapshot-file</em> <em>args</em>
+dart <em>snapshot-file</em> <em>args</em>
 </pre>
 
 Any _args_ you specify are passed to the script.
@@ -144,7 +144,7 @@ For example, you can run dart2js like this,
 passing `myscript.dart -oout.js` as command-line arguments to dart2js:
 
 {% prettify sh %}
-dart --use-script-snapshot=dart2js.snapshot myscript.dart -oout.js
+dart dart2js.snapshot myscript.dart -oout.js
 {% endprettify %}
 
 ## How to generate full snapshots
