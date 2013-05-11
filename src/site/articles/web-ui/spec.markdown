@@ -708,6 +708,7 @@ what the developer intended to say. For example, a template of the form:
 
 Will be rendered so that all `<li>` elements are direct children of the `<ul>`
 element:
+
 {% prettify html %}
 <ul>
   <li> item 1
@@ -856,6 +857,7 @@ compliant parser. For example, if you write:
 
 This is transformed by HTML parsers as if you had written the template outside
 of the table:
+
 {% prettify html %}
 <template instantiate="if showRow"><tr><td> row </td></tr></template>
 <table><tbody>
