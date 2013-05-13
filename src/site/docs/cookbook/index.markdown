@@ -47,6 +47,18 @@ has-permalinks: true
     1. [Running code before and after each test](#running-code-before-and-after-each-test)
     1. [Testing synchronous exceptions](#testing-synchronous-exceptions)
     1. [Testing for double equality](#testing-for-double-equality)
+1. [HTML DOM](#html-dom)
+    1. [Using CSS selectors to find DOM elements](#using-css-selectors-to-find-dom-elements)
+    1. [Using CSS selectors within a limited scope](#using-css-selectors-within-a-limited-scope)
+    1. [Traversing the DOM starting from a particular element](#traversing-the-dom-starting-from-a-particular-element)
+    1. [Creating DOM elements](#creating-dom-elements)
+    1. [Inserting child elements inside an existing DOM element](#inserting-child-elements-inside-an-existing-dom-element)
+    1. [Inserting elements before or after an existing DOM element](#inserting-elements-before-or-after-an-existing-dom-element)
+    1. [Cloning DOM elements](#cloning-dom-elements)
+    1. [Replacing DOM elements](#replacing-dom-elements)
+    1. [Removing an element from the DOM](#removing-an-element-from-the-dom)
+    1. [Getting and setting DOM element attributes](#getting-and-setting-dom-element-attributes)
+    1. [Getting and setting element style properties](#getting-and-setting-element-style-properties)
 1. [Web UI](#web-ui)
     1. [Using a Dart expression inside HTML](#using-a-dart-expression-inside-html)
     1. [Observing a Dart variable for changes](#observing-a-dart-variable-for-changes)
@@ -2059,6 +2071,1142 @@ Here's how you can test for approximate equality:
 expect(point1.distanceTo(point2)), closeTo(7.28, .001)); 
 {% endprettify %}
 
+## HTML DOM
+
+### Using CSS selectors to find DOM elements
+
+#### Problem
+
+You want to find DOM elements on a web page.
+
+#### Solution
+
+Use the top-level `query()` and `queryAll()` functions provided by the
+`dart:html` library. Both functions take CSS selectors as arguments. The
+`query()` function returns the first matching element, and the `queryAll()`
+function returns all matching elements.
+
+#### Example
+
+Here are a few examples of the using `query()` and `queryAll()` with CSS
+selectors to find DOM elements:
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <h1>Breakfast</h1> 
+    <ul>
+      <li id='first' class='must-have'>Milk</li>
+      <li class='must-have'>Cereal
+        <ul>
+          <li>Bran Flakes</li>
+          <li><a href='https://en.wikipedia.org/wiki/Nut_(fruit)'>Nuts</a></li>
+        </ul>
+      </li>
+      <li>Juice</li>
+    </ul>    
+    
+    <script type="application/dart">
+      import 'dart:html';
+      
+      void main() {
+    
+        // Find by ID.
+        Element element = query('#first');
+        print(element.id);                 // 'first'
+        print(element.text);               // 'Milk'
+        
+        // Find by class.
+        List<Element> elements = queryAll('.must-have');
+        print(elements.length);            // 2
+        
+        // Find by ID or class.
+        elements = queryAll('#first, .must-have');
+        print(elements.length);            // 2
+        
+        // Find by tag.
+        elements = queryAll('li');
+        print(elements.length);            // 5
+        
+        // Use hierarchical selectors.
+        elements = queryAll('li > ul > li');
+        print(elements.first.text);        // 'Bran Flakes'
+        
+        // Use pseudo-elements.
+        element = query('li:nth-child(1)');
+        print(element.text);               // 'Milk'
+        
+        // Find by attribute.
+        elements = queryAll('[href *= Nut]');
+        print(elements.length);            // 1
+      
+      }
+    </script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
+
+For a comprehensive list of selectors that you can use for querying, see
+http://www.w3.org/TR/css3-selectors/[The CSS Selector Specification guide].
+
+#### Discussion
+
+Calling `queryAll()` returns a list of DOM elements:
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <body>   
+    <ol>
+      <li>Google</li>
+      <li>StackOverflow</li>
+      <li>Reddit</li>
+      <li>Github</li>
+    </ol>
+     
+    <script type="application/dart">
+      import 'dart:html';
+      
+      void main() {
+        List<Element> elements = queryAll('li');
+      }
+    </script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
+
+Use the `[]` operator to access individual elements. You can also use the
+`first` and `last` getters:
+
+{% prettify dart %}
+print(elements[2].text);    // 'Reddit'
+print(elements.first.text); // 'Google'
+print(elements.last.text);  // 'Github'
+{% endprettify %}
+
+You can iterate over the list, map list elements to a new list, and filter list
+contents:
+
+{% prettify dart %}
+for (var element in elements) {
+   doSomethingWith(element);
+}
+
+Iterable sites = elements.map((site) => site.text);
+print(sites.join(', ')); // "Google, StackOverflow, Reddit, Github"
+
+sites = elements.where((site) => site.text.length != 6);
+print(sites.first.text); // "StackOverflow"
+{% endprettify %}
+
+You can slice the list to obtain a sublist:
+        
+{% prettify dart %}
+var sublist = elements.sublist(1, 3); // Get the elements at positions 1 and 2.
+print(sublist.first.text);            // 'StackOverflow'
+print(sublist.last.text);             // 'Reddit'
+{% endprettify %}
+
+Since the list returned by `queryAll()` is read only, you cannot add, modify,
+or remove list elements. Attempting to change the list in any way generates an
+error:
+
+{% prettify dart %}
+elements.length = 2; // Error message: 'Cannot resize immutable List.'
+{% endprettify %}
+
+Other recipes in this chapter show how you can create elements and insert them
+into the DOM, and how to modify existing DOM elements.
+
+
+### Using CSS selectors within a limited scope
+
+#### Problem
+
+You want to find elements that are contained by a particular element.
+
+#### Solution
+
+Call the `query()` or `queryAll()` methods on a DOM element. Invoking one of
+these methods on an element restricts the scope of the query to that
+element's descendants:
+
+{% prettify dart %}
+containerElement.query(cssSelector);
+containerElement.queryAll(cssSelector);
+{% endprettify %}
+
+#### Examples
+
+Consider the following table of user records:
+
+{% prettify dart %}
+<table>
+  <tr><td>Jose</td><td class='status'>Accepted</td></tr>
+  <tr><td>Marie</td><td class='status'>Accepted</td></tr>
+  <tr><td>Kwame</td><td class='status'>Accepted</td></tr>
+  <tr><td>Rohan</td><td class='status'>Accepted</td></tr>
+</table>
+{% endprettify %}
+
+The following code attaches an event handler to each <tr>. When a <tr> is
+clicked, the text within the matching descendant <td> toggles:
+
+{% prettify dart %}
+queryAll('tr').forEach((element) {
+  element.onClick.listen((event) {
+    var record = event.currentTarget.query('.status');
+    record.innerHtml = record.innerHtml == 'Accepted' ? 'Declined' : 'Accepted';
+  });
+});
+{% endprettify %}
+
+Because the query is scoped to the just-clicked row, cells with the 'status'
+class in other rows are not affected.
+
+Note the use of `queryAll()` as a top-level function in the code above. Used
+in this manner, `queryAll()` is scoped to the entire document.
+
+
+### Traversing the DOM starting from a particular element
+
+#### Problem
+
+You have a reference to a DOM element and want to locate its ancestor,
+sibling, and descendant elements within the DOM structure.
+
+#### Solution
+
+The dart:html API provides methods for DOM traversal based on your current
+position in the DOM.
+
+Consider the example below:
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <ol>
+    <li>Head</li>
+    <li>Shoulders</li>
+    <li>Knees</li>
+    <li>Toes</li>
+  </ol>
+    
+  <body>   
+    <script type="application/dart">
+      import 'dart:html';
+
+      void main() {
+        LIElement knees = query('ol > li:nth-child(3)');       
+        print(knees.text); // 'Knees'
+      }
+    </script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+
+{% endprettify %}
+
+Using the top level `query()` function, you obtain a reference to an <li>
+element. This is your starting point within the DOM structure.
+
+Use the `nextElementSibling` and `previousElementSibling` properties to locate
+an element's immediate siblings:
+
+{% prettify dart %}
+print(knees.nextElementSibling.text);     // 'Toes'
+print(knees.previousElementSibling.text); // 'Shoulders'
+{% endprettify %}
+        
+Use the `parent` property to locate an element's immediate ancestor:
+
+{% prettify dart %}
+print(knees.parent.tagName);              // 'OL'
+print(knees.parent.parent.tagName);       // 'BODY'
+{% endprettify %}
+
+Use the `children` property to locate an element's immediate descendants:
+
+{% prettify dart %}
+print(knees.parent.children.length);      // 4
+{% endprettify %}
+
+Invoking the `children` property on an element returns a list, and you can
+define functions to filter that list:
+
+{% prettify dart %}
+List<Element> previousSiblings(item) {
+  return item.parent.children.takeWhile(
+      (element) => element != item).toList();
+}
+
+List<Element> nextSiblings(item) {
+  Element nextElement = item.nextElementSibling;
+  return item.parent.children.skipWhile(
+      (element) => element != nextElement).toList();
+}
+{% endprettify %}
+
+The `knees` element has two previous siblings, and a single next sibling:
+
+{% prettify dart %}
+List<Element> previousSiblings = previousSiblings(knees);
+print(previousSiblings.first.text);    // 'Head'
+print(previousSiblings.last.text);     // 'Shoulders'
+
+print(nextSiblings(knees).first.text); // 'Toes'
+{% endprettify %}
+
+
+### Creating DOM elements
+
+#### Problem
+
+You want to create new DOM elements.
+
+#### Solution
+
+The dart:html library provides several ways to create new DOM elements.
+
+You can use constructors provided by specialized element classes:
+
+{% prettify dart %}
+var item = new LIElement();
+{% endprettify %}
+
+These classes inherit from Element. Here are a few examples of specialized
+properties that these classes provide:
+
+{% prettify dart %}
+var anchor = new AnchorElement();
+anchor.href = 'http://dartlang.org';
+print(anchor.outerHtml); // '<a href="http://dartlang.org"></a>'
+
+var label = new LabelElement();
+label.htmlFor = 'color';
+label.text = 'Color';
+print(label.outerHtml); // '<label for="color">Color</label>'
+
+var form = new FormElement();
+form.method = 'PUT';
+print(form.outerHtml); // '<form method="PUT"></form>'
+{% endprettify %}
+
+You can also use constructors provided by the Element class.
+
+Use the `Element.tag()` constructor to create an element with a specified tag:
+
+{% prettify dart %}
+LIElement item = new Element.tag('li');
+print(item.tagName); // 'LI'
+{% endprettify %}
+        
+You can then assign content to the element using the element's text property:
+
+{% prettify dart %}
+item.text = 'learn Dart';
+print(item.outerHtml); //  '<li>learn Dart</li>'
+{% endprettify %}
+
+An invalid HTML tag passed to `Element.tag()` creates an UnknownElement object:
+
+{% prettify dart %}
+var newElement = new Element.tag('bogusTag');
+print(newElement is UnknownElement); // true
+{% endprettify %}
+
+You can use the 'isTagSupported' static method provided by the Element class
+to test whether a tag is valid:
+
+{% prettify dart %}
+print(Element.isTagSupported('bogusTag')); // false
+{% endprettify %}
+        
+Another way of creating elements is through the use of the `Element.html()`
+constructor. This constuctor takes a String argument representing a valid HTML
+fragment:
+
+{% prettify dart %}
+DivElement div = new Element.html('<div>I love Strawberries.</div>');
+{% endprettify %}
+
+Note that creating an element does not insert it into the DOM. Other recipes
+in this chapter discuss different ways in which you can add elements to the DOM.
+
+
+### Inserting child elements inside an existing DOM element
+
+#### Problem
+
+You want to insert one or more elements inside an existing DOM element.
+
+#### Solution
+
+Get the list of the DOM element's children, and add new child elements to that
+list.                                                                            
+
+Consider this sparse web page with an empty <ul>. You want to use Dart code to 
+dynamically add <li> elements to the <ul>:
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <ul></ul>
+    
+    <script type="application/dart" src='main.dart'></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
+
+In the corresponding Dart file, begin by getting a reference to the parent
+element:
+
+{% prettify dart %}
+import 'dart:html';
+
+void main() {
+  var ul = query('ul');
+  // Code for inserting elements goes here.
+}
+{% endprettify %}
+
+Use `add()` to append a new element to the parent's children:
+
+{% prettify dart %}
+var li = new LIElement();
+li.text = 'One banana';
+ul.children.add(li);
+
+print(ul.children.last.outerHtml); '<li>One banana</li>'
+{% endprettify %}
+
+The code for creating a new <li> and adding it to the <ul> can be more
+succinctly written using the cascade operator, and we will use this synax for
+subsequent examples:
+
+{% prettify dart %}
+items.add(new LIElement()..text = 'Three banana');                                       
+{% endprettify %}
+
+Use `addAll()` to add several elements to the list:
+
+{% prettify dart %}
+List<LIElement> items = [];                                                      
+items.add(new LIElement()..text = 'Three banana');                                       
+items.add(new LIElement()..text = 'Four banana');
+ul.children.addAll(items);  
+{% endprettify %}
+                
+This is what the list looks like:
+
+{% prettify dart %}
+One banana
+Three banana
+Four banana
+{% endprettify %}
+
+Looks like we skipped an item. Use `insert()` to place the missing item in the
+list:
+
+{% prettify dart %}
+ul.children.insert(1, new LIElement()..text = 'Two banana');
+{% endprettify %}
+
+This adds the new <li>  after the second item. The list now looks like this:
+
+{% prettify dart %}
+One banana
+Two banana
+Three banana
+Four banana
+{% endprettify %}
+
+You can use `insert()` to prepend to a list:
+
+{% prettify dart %}
+ul.children.insert(0, new LIElement()..text = 'Zero banana');
+print(ul.children.first.outerHtml == '<li>Zero banana</li>');
+{% endprettify %}
+
+The Element class defines a couple of helpful methods that provide additional
+ways of adding child elements to a parent element.
+
+Use `append()` to add a single element to a parent:
+
+{% prettify dart %}
+ul.append(new LIElement()..text = 'Five banana');
+{% endprettify %}
+
+Or, you can use the `appendHtml()` method. This method parses the String
+argument passed to it as HTML and adds the resulting node as the last child of
+the parent:
+
+{% prettify dart %}
+ul.appendHtml('<li>Six banana</li>');
+{% endprettify %}
+
+Here is the final version of the list:
+
+{% prettify dart %}
+Zero banana
+One banana
+Two banana
+Three banana
+Four banana
+Five banana
+Six banana
+{% endprettify %}
+
+### Inserting elements adjacent to an existing DOM element
+
+#### Problem
+
+You want to insert an element before or after another element.
+
+#### Solution
+
+Use an element's `insertAdjacentElement()` method to insert another element
+immediately before or immediately after it. Or, use the `insertBefore()` method.
+Examples of both are shown below.
+
+#### Examples
+
+Consider this HTML file. You want to insert two new <li> elements into the <ul>,
+one before the <li> with the 'target' ID, and one after it:
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <body>   
+    <ul>
+      <li>First item</li>
+      <li id='target'>Target item</li>
+      <li>Last item</li>
+    </ul>
+    
+    <script type='application/dart' src='main.dart'></script>
+    
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
+
+In the accompanying Dart file, get a reference to the target <li>.  Then,
+invoke the `insertAdjacentElement()` method on that <li> to insert new
+elements next to it:
+
+{% prettify dart %}
+import 'dart:html';
+
+void main() {
+  var targetItem = query('#target');
+
+  var li = new LIElement();
+  li.text = 'Added before target';
+  targetItem.insertAdjacentElement('beforeBegin', li);
+  
+  li = new LIElement();
+  li.text = 'Added after target';
+  targetItem.insertAdjacentElement('afterEnd', li);
+}
+
+{% endprettify %}
+
+The first argument to `insertAdjacentElement()` indicates where the new
+element is inserted. If it is 'beforeBegin', the new element is inserted
+immediately before the target element. If it is 'afterEnd', the new element is
+inserted immediately after the target element.
+
+The list looks like this after the new elements have been inserted:
+
+{% prettify dart %}
+First item
+Added before target
+Target item
+Added after target
+Last item
+{% endprettify %}
+
+You can also use the `insertBefore()` method to insert an element into the
+DOM. Call `insertBefore()` on the target element's parent node:
+
+{% prettify dart %}
+import 'dart:html';
+      
+void main() {
+  var targetItem = query('#target');
+
+  var li = new LIElement();
+  li.text = 'Added before target';
+  targetItem.parent.insertBefore(li, targetItem);
+  
+  li = new LIElement();
+  li.text = 'Added after target';
+  // Insert after the target element.
+  targetItem.parent.insertBefore(li, targetItem.nextElementSibling);
+}
+{% endprettify %}
+
+
+### Cloning DOM elements
+
+#### Problem
+
+You want to duplicate a DOM element.
+
+#### Solution
+
+Call the `clone()` method on the element.
+
+Assume you have the following HTML, and want to clone the <ul>:
+
+{% prettify dart %}
+<ul>
+  <li>Sam</li>
+  <li>Green Eggs</li>
+  <li>Ham</li>
+</ul>
+{% endprettify %}
+
+First, obtain a reference to the original element:
+
+{% prettify dart %}
+UListElement ul = query('ul');
+{% endprettify %}
+
+Then, call `clone()` with a boolean argument. This argument determines whether
+you create a deep or a shallow copy. 
+
+If the argument to `clone()` is `true`, a deep copy is created, and the entire
+subtree of the original node is cloned:
+
+{% prettify dart %}
+UListElement deepCopy = ul.clone(true);
+print(deepCopy.children.length); // 3
+{% endprettify %}
+
+If the argument to `clone()` is `false`, a shallow copy is created, and the
+original element's child nodes are not copied:
+
+{% prettify dart %}
+UListElement shallowCopy = ul.clone(false);
+print(shallowCopy.children.length); // 0
+{% endprettify %}
+
+Cloning a node copies all of the node's attributes, as well as the values of 
+those attributes.
+
+Assume a page contains the following HTML:
+
+{% prettify dart %}
+<input type="text" name="username" maxlength="10">
+{% endprettify %}
+
+The clone of the \<input\> element contains the same attributes as the original:
+
+{% prettify dart %}
+import 'dart:html';
+
+void main() {
+  var original = query('input');
+  var clone = original.clone(true);
+
+  print(original.attributes['type'] == original.attributes['type']); // true
+  print(original.attributes['name'] == original.attributes['name']); // true
+  print(original.attributes['size'] == original.attributes['size']); // true
+}
+{% endprettify %}
+
+
+#### Example
+
+We want to display to create a new page that displays some fun [Google
+Doodles](www.google.com/doodles), but don't want to load up all the images when
+the page loads. We provide a link that the user can click to see the logos.
+
+We use a \<template\> element to store the barebones structure for displaying each
+logo and the accompanying caption. The \<template\> element allows us to declare
+fragments of markup. These fragments are not rendered when the page loads, but
+they can be activated at runtime.
+
+The \<template\> element is new and not supported by every modern browser. For
+an excellent introduction to this new element, see
+[HTML's New Template Tag](http://www.html5rocks.com/en/tutorials/webcomponents/template/).
+
+The \<template\> in the HTML below contains \<img\>, <div> and <hr> tags. The
+\<img\>
+tag has no src and alt properties, and the <div> element contains no text. These
+tags are placeholders.
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <body>   
+    <template id='myTemplate'>
+      <img width='150px'>
+      <div class='caption'></div>
+      <hr>
+    </template> 
+    
+    <div><a href=''>Click to see Google Doodles</a></div>
+      
+    <script type='application/dart' src='main.dart'></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+
+{% endprettify %}
+
+Once the user clicks the link to see the logos, we fill in the missing fields
+using hard-coded data. Then, we clone the template contents, and we insert them
+into the document:
+
+{% prettify dart %}
+import 'dart:html';
+
+void main() {
+  
+  var data = [
+    {'src': 'http://www.google.com/logos/2013/parents_day_2013-1508005-hp.jpg', 
+      'alt': "Parent's Day",
+      'caption': "Parent's Day"},
+    {'src': 'http://www.google.com/logos/2013/new_years_day_2013-983008-hp.jpg',
+     'alt': "New Year's Day",
+     'caption': "New Year's Day"},
+    {'src': 'http://www.google.com/logos/2013/zamboni-1005006-hp.jpg',
+     'alt': 'Zamboni',
+     'caption': 'Zamboni'}
+  ];
+
+  AnchorElement link = query('a');
+  
+  link.onClick.listen((event) { 
+    event.preventDefault();
+
+    var content = document.query('#myTemplate').content;
+    ImageElement img = content.query('img');
+    DivElement div = content.query('div');
+
+    for (Map item in data) {
+      img.src = item['src'];
+      img.alt = item['alt'];
+      div.text = item['caption'];
+
+      document.body.append(content.clone(true));
+    }
+    event.target.remove();
+  });
+}
+{% endprettify %}
+
+We get the template contents using the template element's `content` property.
+
+{% prettify dart %}
+var content = document.query('#myTemplate').content;
+{% endprettify %}
+
+We get references to the \<img\> and <div> elements using scoped queries:
+
+{% prettify dart %}
+ImageElement img = content.query('img');
+DivElement div = content.query('div');
+{% endprettify %}
+
+Cloning the template contents activates the \<template\> element's inert HTML, and
+inserting it into the DOM makes the logos visible to the user:
+
+{% prettify dart %}
+document.body.append(content.clone(true));
+{% endprettify %}
+
+
+### Replacing DOM elements
+
+#### Problem
+
+You want to replace one or more DOM elements with other elements.
+
+#### Solution
+
+Call the `replaceWith()` method on a DOM element and pass to it the new
+element as an argument.
+
+#### Example
+
+The following example allows the user to edit a snippet of text. The text is
+displayed within a <span> element. A text \<input\> replaces the <span> when the
+user wants to edit the text. When the user is done editing, the <span> replaces
+the \<input\>:
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <body> 
+    <span>You can edit this.&nbsp;</span><a href='#'>Edit</a>
+       
+    <script type="application/dart">
+      
+      import 'dart:html';
+      
+      void main() {
+      
+        var span = query('span');
+        var link = query('a');
+        
+        // Create input but don't insert into DOM.
+        var input = new Element.html(
+            "<input type='text' value='${span.innerHtml}' />");  
+
+        bool editing = false;
+        
+        // Add event-listener to replace a span with an input, and vice-versa.
+        link.onClick.listen((event) {
+          editing = !editing; 
+          if (editing) {
+            span.replaceWith(input);
+            link.innerHtml = 'Done';
+          } else {
+            input.replaceWith(span);
+            link.innerHtml = 'Edit';
+          }
+          event.preventDefault();
+        });     
+      }
+    </script>
+
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
+
+
+### Removing an element from the DOM
+
+#### Problem
+
+You want to find an element and remove it from the DOM structure. 
+
+#### Solution
+
+Call the `remove()` method on the element. Doing so removes it from the DOM.
+
+#### Example
+
+The following example shows a list of exotic fruits, some of which are out of
+stock.  The application allows the user to click a link to stop displaying the out
+of stock items. Clicking the link triggers a callback that removes the items from
+the DOM. Here is the HTML file:
+
+{% prettify dart %}
+<!DOCTYPE html>
+<head>
+  <style> .out-of-stock {color: #aaa}; </style>  
+</head>
+<html>
+  <body>
+    <ul>
+      <li>Rambutan</li>
+      <li>Jackfruit</li>
+      <li class='out-of-stock'>Passion Fruit</li> 
+      <li>Lychee</li>
+      <li class='out-of-stock'>Kumquat</li>           
+    </ul>
+  
+    <p><a href='#'>Show only in-stock</a></p>
+   
+    <script type="application/dart" src='main.dart'></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
+
+And here is the Dart code that handles the element removal:
+
+{% prettify dart %}
+import 'dart:html';
+      
+void main() {
+  
+  query('a').onClick.listen((event) {
+  
+    // Find all out of stock items and remove them from the DOM.
+    queryAll('.out-of-stock').forEach((item) {
+      item.remove();
+    });
+    
+    event.preventDefault();
+    
+    // Remove the link from the DOM.
+    event.target.remove();
+  });
+}
+{% endprettify %}
+
+#### Discussion
+
+Using `remove()` works well if you have a reference to the DOM element you
+want to remove. But sometimes, you have a reference to the element's
+parent, not to the element itself. For example, you may want to remove an <li>, 
+but you only have a reference to the <ul> or <ol> that contains the <li>. 
+
+In such cases, get a list of the parent element's children. Removing elements
+from this list removes them from the DOM.
+
+Use `removeAt()` to remove a child by its index position:
+
+{% prettify dart %}
+element.children.removeAt(1); // Removes the second child.
+{% endprettify %}
+
+Remove the last child using `removeLast()`: 
+
+{% prettify dart %}
+element.children.removeLast();
+{% endprettify %}
+
+You can query the collection of children and remove a matching child using
+`remove()`. The code below finds the first child with the class `largest`,
+and removes it from the DOM:
+
+{% prettify dart %}
+element.children.remove(element.query('.largest'));
+{% endprettify %}
+
+You can remove all of an element's children using the `clear()` method:
+
+{% prettify dart %}
+element.children.clear();
+{% endprettify %}
+
+
+### Getting and setting DOM element attributes
+
+#### Problem
+
+You have a DOM element and want to get or set the value of its attributes.
+
+#### Solution
+
+Most attributes have a corresponding property that you can use to get or set
+the attribute value. You can also use the an element's `attributes` map. In
+general, using properties is more Darty, since properties allow tools to check
+the attribute name and type.
+
+#### Examples
+
+Consider the following element:
+
+{% prettify dart %}
+<input type='text' name='fname' id='fname' data-purpose='informational' />
+{% endprettify %}
+
+The Element class defines several properties, such as `id` and `classes`, that
+correspond to element attributes. Here are some examples:
+
+{% prettify dart %}
+print(element.id);                 // 'fname'
+
+element.classes.add('first-name');
+print(element.classes.first);      // 'first-name'
+{% endprettify %}
+
+Subclasses of Element define additional properties, such as the href property of
+AnchorElement, or the size and maxLength properties of InputElement:
+
+{% prettify dart %}
+element.size = 30;
+element.maxLength = 10;
+{% endprettify %}
+
+When an element attribute does not have a corresponding property, or when
+using a property is not convenient, you can use an element's attributes map:
+
+{% prettify dart %}
+print(element.attributes['id']);                   // 'fname'
+print(element.attributes['name']);                 // 'fname'
+{% endprettify %}
+
+Use the attributes map to access an element's data-* attributes:
+
+{% prettify dart %}
+print(element.attributes['data-purpose']); // 'informational'
+{% endprettify %}
+        
+If you want to get or set _only_ the data-* attributes, use the `dataset`
+property:
+
+{% prettify dart %}
+print(element.dataset.length);     // 1
+
+// The key is 'purpose', not 'data-purpose'.
+print(element.dataset.keys.first); // 'purpose'
+print(element.dataset['purpose']); // 'informational'
+
+element.dataset['purpose'] = 'biographical';
+print(element.dataset['purpose']); // 'biographical'
+{% endprettify %}
+
+Both the `attributes` and the `dataset` properties return Map objects. Any
+modifications to an element's attributes map automatically apply to the
+element:
+
+{% prettify dart %}
+// Change attribute value.
+element.attributes['id'] = 'first-name';
+print(element.attributes['id']);        // 'first-name'
+
+// Create a new attribute.
+element.attributes['maxLength'] = 10;
+print(element.attributes['maxLength']); // '30'
+
+// Remove an attribute.
+element.attributes.remove('id');
+print(element.attributes['id']);       // null
+{% endprettify %}
+
+
+### Getting and setting element style properties
+
+#### Problem
+
+You want to get and set an element's CSS style properties.
+
+#### Solution
+
+You have three options:
+ 
+* To get an element's style properties, use the `getComputedStyle()` method.
+ 
+* To get or set the classes associated with an element, use the `classes`
+field.
+
+* To assign style properties directly to an element, use the `style` field.
+To get an element's style properties, use the `getComputedStyle()` method.
+
+
+#### Examples
+ 
+The examples below assume the following HTML:
+
+{% prettify dart %}
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>manipulating_styles</title>
+    <link rel='stylesheet' type='text/css' href='main.css'>
+  </head>
+  <body>
+    <div class='bold'>Dart Cookbook</div>
+    
+    <script type='application/dart' src='main.dart'></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
+
+Here are the associated style declarations:
+
+{% prettify dart %}
+// main.css
+
+body {font-family: sans-serif;}
+div:after {content: ' rocks!';}
+.bold {font-weight: bold;}
+.underlined {text-decoration: underline;}
+{% endprettify %}
+
+##### Getting an element's CSS styles
+
+Use the `getComputedStyle()` method to get a collection of all CSS styles
+applied to an element:
+
+{% prettify dart %}
+// main.dart
+
+import 'dart:html';
+
+void main() {
+  DivElement element = query('div');
+
+  print(element.getComputedStyle().fontFamily); // 'sans-serif'
+
+  // Inherited style.
+  print(element.getComputedStyle().fontWeight); // 'bold'
+}
+{% endprettify %}
+
+The `getComputedStyle()` method gets the style information for pseudo-elements.
+Just pass in the pseudo-element as an argument:
+
+{% prettify dart %}
+print(element.getComputedStyle(':after').content); // "' rocks!'"
+{% endprettify %}
+
+##### Accessing the classes associated with an element
+
+Use the `classes` field to get a set of an element's CSS classes:
+
+{% prettify dart %}
+print(element.classes.first); // 'bold'
+{% endprettify %}
+
+You can associate a new class with an element. Doing this applies the class
+styles to the element:
+
+{% prettify dart %}
+element.classes.add('underlined');
+print(element.classes.contains('underlined'));    // true
+print(element.getComputedStyle().textDecoration); // 'underline'
+{% endprettify %}
+
+You can remove a class associated with an element. Doing this removes the
+class styles from the element:
+
+{% prettify dart %}
+element.classes.remove('underlined');
+print(element.getComputedStyle().textDecoration); // 'none'
+{% endprettify %}
+
+You can use the class list's `toggle()` method to toggle a class:
+
+{% prettify dart %}
+element.classes.toggle('underlined');
+print(element.classes.contains('underlined')); // true
+
+element.classes.toggle('underlined');
+print(element.classes.contains('underlined')); // false
+{% endprettify %}
+
+##### Directly applying a style property
+
+While using classes is a common way of associating an element with a set of
+styles, you can also attach a style property directly to the element:
+
+{% prettify dart %}
+element.style.color = 'rgb(120, 120, 120)';
+element.style.border = '1px solid rgb(0, 0, 0)';
+{% endprettify %}
+
+It is idiomatic Dart to write the above code using the cascade operator (..):
+
+{% prettify dart %}
+element.style
+  ..color =  'rgb(120, 120, 120)';
+  ..border = '1px solid rgb(0, 0, 0)';
+{% endprettify %}
 
 ## Web UI
 
@@ -2773,5 +3921,3 @@ the values of the checked checkboxes gets updated in real time:
 </ul>
 {% endraw %}
 {% endprettify %}
-
-
