@@ -1,73 +1,240 @@
 ---
 layout: default
-title: "Documentation"
+title: "Programmer's Guide"
 description: "Documentation, references, and more about the Dart language, libraries, and tools."
 has-permalinks: true
 ---
 
-# Documentation
+<div class="row-fluid" markdown="1">
+<div class="span3" id="toc-side" markdown="1">
+{% include guide_toc.html %}
+</div>
 
-The Dart project has the following kinds of documentation:
+<div class="span9 offset3" markdown="1">
 
-* [Getting started](#getting-started)
-* [Language](#language)
-* [Libraries](#libraries)
-* [Usage](#usage)
-* [Tools](#tools)
+# {{ page.title }}
 
+This overview of Dart development
+points you to docs, articles, and other resources
+to help you as you create, test, and deploy Dart code.
 
 ## Getting started
 
+Read these,
+or just [download Dart](/#get-started)
+and start playing with Dart Editor.
+
+[Quick Start (_Dart: Up and Running_, Chapter 1)](/docs/dart-up-and-running/contents/ch01.html)
+: A brief intro to Dart's history and features,
+followed by instructions to help you get started with Dart Editor.
+
+[Language Tour (_Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/contents/ch02.html)
+: Shows each major Dart language feature, from variables to
+operators to classes and libraries.
+
 [A Game of Darts—Tutorials](/docs/tutorials/)
-: A guide to building web apps using Dart.
-You don't need to know JavaScript or web programming to use these tutorials.
+: Your step-by-step guide to building web apps using Dart.
 
-[Technical Overview](/docs/technical-overview/)
-: Learn about the Dart language, see Dart code, and
-learn how to participate in the Dart project.
+## Tools
 
-## Language
+Thanks to Dart's tool friendliness,
+you have many choices for editors, IDEs, and other tools.
 
-[Language Tour](/docs/dart-up-and-running/contents/ch02.html)
-: Learn how to use each major Dart language feature, from variables to
-operators to classes and libraries, with the assumption that you already
-know how to program in another language.
 
-[Language Spec](/docs/spec/)
-: Read the full Dart language specification.
+When you [download Dart](/#get-started),
+you get not only [Dart Editor](/tools/editor/), but also
+[Dartium](/tools/dartium/) (a browser with built-in Dart support)
+and the [Dart SDK](/tools/sdk/).
+The SDK includes command-line tools such as
+the Dart VM (dart), a Dart-to-JavaScript compiler (dart2js),
+and a package manager (pub).
 
-## Libraries
+[Dart Editor](/tools/editor/)
+: The easiest way to start writing Dart programs.
 
-[Library Tour](/docs/dart-up-and-running/contents/ch03.html)
+[Tools for Dart](/tools/)
+: Information about tools,
+plus links to downloads.
+
+
+## Concepts
+
+You don't need to follow all of these links right now,
+but remember them for the future.
+
+
+### Libraries
+
+The Dart download includes several libraries.
+You can also define your own libraries
+and get many more using the
+[pub package manager](http://pub.dartlang.org).
+
+[Libraries and Visibility (a section of _Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/contents/ch02.html#libraries)
+: Learn how to use and create libraries. 
+
+[Library Tour (_Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html)
 : Learn how to use the major features in each library that comes with Dart.
+
+[Articles](/articles/)
+: Look in the "Libraries and APIs" section
+for help using individual packages, libraries, and APIs such as
+[Web UI](/articles/web-ui/),
+[unittest](/articles/dart-unit-tests/),
+and [Futures](/articles/using-future-based-apis/).
 
 [API Reference](http://api.dartlang.org)
 : Browse the full API reference docs for the Dart libraries.
 
-## Usage
 
-[Articles](/articles/)
-: Read these articles for insight into Dart programming topics,
-such as the [Dart Style Guide](/articles/style-guide/),
-[Optional Types in Dart](/articles/optional-types/), and more.
+### Fundamental classes
 
-[FAQ](/support/faq.html)
-: This FAQ answers many of the questions we've been asked about Dart.
+Many Dart methods return Iterable, Future, or Stream objects.
 
-## Tools
 
-[Tools for Dart](/tools/)
-: Find links to editors, IDEs, command-line tools, and more.
+#### Iterable
 
-[Dart Editor](/tools/editor/)
-: Get detailed instructions for using Dart Editor, a lightweight, open-source editor.
-A few of the covered topics are enabling production mode, compiling to JavaScript, and specifying a browser.
+An Iterable object is a collection of objects,
+such as a list or set.
+Closely tied to the Dart language,
+the Iterable class provides the interface used by for-in loops.
+Learn more:
 
-[Chromium with the Dart VM](/tools/dartium/)
-: Learn how to get and use a Chromium-based browser (nicknamed Dartium) that
-includes the Dart virtual machine (VM).
+* [Collections (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html#ch03-collections)
+* [Iteration (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html#ch03-iteration)
+* [Iterables (an article for the M3 update to the Iterable API)](/articles/m3-whats-new/iterables.html)
+* [Iterable API documentation](http://api.dartlang.org/dart_core/Iterable.html)
 
-[Dart SDK](/tools/sdk/)
-: Learn how to download and use the Dart SDK,
-which includes the Dart VM (dart), dart2js, pub, {PENDING: expand list here}
-and more.
+
+#### Future
+
+A Future object represents a value to be delivered in the future.
+For example, the dart:io File class's readAsString() method
+returns a Future<String>,
+which you can use to get the file's entire contents as a string.
+Learn more:
+
+* [Using Future Based APIs](/articles/using-future-based-apis/)
+* [Futures and Error Handling](/articles/futures-and-error-handling/)
+* [Future API documentation](http://api.dartlang.org/dart_async/Future.html)
+
+
+#### Stream
+
+A Stream object represents a sequence of data
+to be delivered in the future.
+One example of a stream is the onClick stream of events
+for a dart:html button.
+Another example is the file content stream returned by
+the dart:io File class's openRead() method.
+Learn more:
+
+* [Getting Your Feet Wet with Streams](/articles/creating-streams/)
+* [Creating Streams in Dart](/articles/feet-wet-streams/)
+* [Stream API documentation](http://api.dartlang.org/dart_async/Stream.html)
+
+
+## Creating web apps
+
+While you're developing your web app,
+you can run it in Dartium.
+Later, you can compile your app to JavaScript
+and run it in other browsers.
+
+Two libraries are important for creating web apps:
+dart:html and the Web UI package's web_ui library.
+You don't need to use Web UI,
+but it's a great way to simplify your UI code.
+
+
+### dart:html
+
+A basic, yet Darty, interface to the browser.
+
+* [Connect Dart &amp; HTML](/docs/tutorials/connect-dart-html/)
+  (part of the Dart tutorials)
+* [Improving the DOM](/articles/improving-the-dom/)
+* [dart:html API documentation](http://api.dartlang.org/dart_html.html)
+
+### Web UI
+
+A package that lets you use tomorrow's web APIs today.
+
+* [Get Started with Web UI](/docs/tutorials/web-ui/)
+  (part of the Dart tutorials)
+* [Web UI Package](/articles/web-ui/)
+* [pub.dartlang.org/packages/web_ui](http://pub.dartlang.org/packages/web_ui)
+
+### Dart and JavaScript
+
+You aren't limited to Dart libraries.
+With the js package,
+you can use JavaScript libraries in your Dart app.
+
+* [Using JavaScript from Dart: The js Library](/articles/js-dart-interop/)
+* [pub.dartlang.org/packages/js](http://pub.dartlang.org/packages/js)
+
+
+## Creating command-line apps
+
+You can use Dart for anything from scripts to web servers.
+Thanks to Heroku's support for third-party runtimes,
+you can run your server-side Dart app on Heroku's cloud. 
+
+* [dart: The Standalone VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html)
+* [Heroku cloud application platform](http://www.heroku.com) 
+
+## Testing
+
+A static analyzer and unit testing library
+provide support for testing your web or command-line app.
+If your code is open source,
+try drone.io for continuous testing.
+
+* [dart_analyzer: The Static Analyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html)
+* [Unit Testing with Dart](/articles/dart-unit-tests/)
+* [drone.io](http://drone.io)
+
+## Other resources
+
+When you have a question or find a problem,
+try these resources.
+
+
+### Programming questions
+
+Two great resources for all kinds of programming questions:
+
+* [Dart Cookbook](/docs/cookbook/)
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/dart)
+
+Or try a <a href="/support/">mailing list</a>.
+
+
+### Style
+
+Whenever possible, follow the practices
+recommended in these documents:
+
+* [Idiomatic Dart](/articles/idiomatic-dart/)
+* [Dart Style Guide](/articles/style-guide/)
+* [Guidelines for Dart Doc Comments](/articles/doc-comment-guidelines/)
+
+### Issues and feature requests
+
+If you think you've found a bug,
+check the list of Dart issues to see whether
+the problem has already been reported
+and has a workaround.
+Most Dart projects use the main Dart issue list,
+but a few, such as Web UI, use a separate list.
+
+To request a feature, you can create an issue
+or start a discussion on the appropriate
+[mailing list](/support/).
+
+* [Dart issues](http://code.google.com/p/dart/issues/list)
+* [Web UI issues](https://github.com/dart-lang/web-ui/issues)
+
+</div>
+</div>

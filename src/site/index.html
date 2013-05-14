@@ -1,577 +1,277 @@
 ---
 layout: homepage
+googleapi: true
+js:
+- url: /js/display-news.js
+- url: /js/os-switcher.js
+  defer: true
+- url: /js/editor-downloads-analytics.js
+  defer: true
+- url: /js/editor-version.js
+  defer: true
 ---
 
 <article class="homepage">
 
 <section>
-
   <div class="row" id="top-mast">
     <div class="span12 contents">
-      <div class="row">
+    <img class="logo" src="/imgs/dart-logo.png" width="286" height="116" alt="Dart">
+    <p style="padding: 0 20px 0 20px">
+      A new language, with tools and libraries,
+      for structured web app engineering
+    </p>
+    <p>
+      <a href="#get-started" class="btn btn-primary btn-large">
+        <i class="icon-play"></i>
+        Get started
+      </a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="row-fluid" id="facts">
+    <div class="span8">
+      <p>
+        Dart has all the pieces you need to write modern web apps:
+      </p>
+      <div class="row-fluid">
         <div class="span6">
-          <img class="logo" src="/imgs/dart-logo.png" width="286" height="116" alt="Dart">
-          <p style="padding: 0 20px 0 20px">
-            Dart brings structure to web app engineering
-            with a new language, libraries, and tools.
-            <a style="font-weight: bold" href="/docs/tutorials/">Learn
-              Dart with our tutorials!</a>
-            <!--
-            <a style="font-weight: bold"
-            href="http://news.dartlang.org/2013/04/core-libraries-stabilize-with-darts-new.html">Read
-            about our new M4 release!</a>
-            -->
-          </p>
+          <div class="media">
+            <a class="pull-left" href="/docs/dart-up-and-running/contents/ch02.html">
+              <i class="icon-align-left icon-large media-object"></i>
+            </a>
+            <div class="media-body">
+              The <b><a href="/docs/dart-up-and-running/contents/ch02.html">Dart language</a></b> is familiar and easy to learn.
+              It's class based and object oriented,
+              without being dogmatic.
+            </div>
+          </div>
         </div>
         <div class="span6">
-          <iframe width="400" height="225" src="https://www.youtube.com/embed/5KlnlCq2M5Q?vq=hd720" frameborder="0" allowfullscreen></iframe>
+          <div class="media">
+            <a class="pull-left" href="#">
+              <i class="icon-cloud-download icon-large media-object"></i>
+            </a>
+            <div class="media-body">
+              The <b><a href="http://pub.dartlang.org">Pub package manager</a></b>
+              makes getting and sharing libraries easy.
+            </div>
+          </div>
         </div>
       </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <div class="media">
+            <a class="pull-left" href="/docs/dart-up-and-running/contents/ch03.html">
+              <i class="icon-folder-close icon-large media-object"></i>
+            </a>
+            <div class="media-body">
+              <b><a href="/docs/dart-up-and-running/contents/ch03.html">Core libraries</a></b>
+              provide all the basics,
+              including support for asynchronous programming
+              with <a href="/articles/using-future-based-apis/">Futures</a>.
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="media">
+            <a class="pull-left" href="/performance/">
+              <i class="icon-bolt icon-large media-object"></i>
+            </a>
+            <div class="media-body">
+              <b><a href="/performance/">Performance</a></b>
+              is good and getting better.
+              Dart apps are fastest in the Dart VM,
+              but they can be speedy even after compilation to JavaScript.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <div class="media">
+            <a class="pull-left" href="/articles/web-ui/">
+              <i class="icon-road icon-large media-object"></i>
+            </a>
+            <div class="media-body">
+              <b><a href="/articles/web-ui/">Web UI</a></b>
+              lets you use future web APIs today,
+              with support for proposed standards
+              such as web components, MDV, and shadow DOM.
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="media">
+            <a class="pull-left" href="#">
+              <i class="icon-globe icon-large media-object"></i>
+            </a>
+            <div class="media-body">
+              <b>All modern browsers</b>
+              (both desktop and mobile)
+              can run Dart web apps,
+              thanks to our Dart-to-JavaScript compiler.
+              <br>
+              <img src="imgs/homepage/modern-browsers.png"
+                style="vertical-align:top"
+                alt="Chrome, Firefox, Safari, IE logos">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <div>
-        <ul class="buttons">
-          <li>
-            <a href="/tools/" class="btn btn-primary btn-large">
-              <i class="icon-download-alt"></i>
-              Get Dart
-            </a>
-          </li>
-          <li>
-            <a id="gplus-circle" href="https://plus.google.com/109866369054280216564?prsrc=3" class="btn btn-large">
-              <img src="https://ssl.gstatic.com/images/icons/gplus-16.png" width="16" height="16" alt="Google+"
-                    style="vertical-align:-10%">
-              Circle +Dart
-            </a>
-          </li>
-          <li>
-            <a href="http://news.dartlang.org/feeds/posts/default" class="btn btn-large">
-              <i class="icon-rss"></i>
-              Subscribe
-            </a>
-          </li>
-          <li class="twitter">
-            <a href="https://twitter.com/dart_lang" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @dart_lang</a>
-          </li>
-        </ul>
+    <div class="span4">
+      <div id="news"
+           style="border-style:solid;border-width:1px;border-radius:7px;background-color:WhiteSmoke;padding:5px;">
+        <h5>
+          Headlines from
+          <a href="http://news.dartlang.org/">news.dartlang.org</a>
+        </h5>
+        <div id="feed-posts">
+        </div>
       </div>
     </div>
   </div>
+</section>
+
+<section id="code">
+  <h1> Code </h1>
+
+  <p>
+    Experiment with Dart right in your browser:
+    <a href="http://try.dartlang.org">try.dartlang.org</a>
+  </p>
+
+  <p>
+    Here's some code from a Dart web app that uses Web UI.
+    To learn about web programming with Dart, try our
+    <a href="/docs/tutorials/">Dart tutorials</a>.
+  </p>
+
+  <div class="row-fluid">
+    <div class="span6" id="dart-code">
+{% prettify dart %}
+// Dart code:
+import 'package:web_ui/web_ui.dart';
+
+@observable String myString = '';
+
+String get shouted => myString.toUpperCase();
+
+String get palindrome =>
+    myString + myString.split('').reversed.join();
+{% endprettify %}
+    </div>
+  <div class="span6" id="html-code">
+{% prettify html %}
+<!-- HTML code: -->
+<input type="text" bind-value="myString"
+       placeholder="Type here">
+  
+<div> Shouted: {{'{{'}}shouted}} </div>
+<div> Palindromic: {{'{{'}}palindrome}} </div>
+    
+<script type="application/dart" src="little.dart"></script>
+<script src="packages/browser/dart.js"></script>
+{% endprettify %}
+      {% comment %}
+      Beginning double curlies are processed by liquid,
+      so you have to surround them in single quotes,
+      surrounded by double curlies. Yup.
+      {% endcomment %}
+      </div>
+    </div> <!-- code -->
 
 </section>
 
-<section>
-  <div class="row callouts">
-    <div class="span4">
-      <h2><i class="icon-ok"></i> Familiar</h2>
-      <p>
-        Dart is a <strong>class-based, object-oriented language</strong>
-        with lexical scoping, closures, and optional static typing.
-        Dart helps you build structured modern web apps
-        and is <strong>easy to learn</strong> for a wide range of developers.
-        <a href="#structured-language">Learn more</a>
-      </p>
-<div class="visible-desktop">
-{% prettify dart %}
-import 'dart:html';
 
-main() {
-  var msg = query('#msg');
-  var btn = new ButtonElement();
-  btn.text = 'Click me!';
-  btn.onClick.listen((e) => msg.text = 'Dart!');
-  document.body.children.add(btn);
-}
-{% endprettify %}
-</div>
-<div class="visible-tablet visible-phone">
-{% prettify dart %}
-import 'dart:html';
+<section id="get-started">
 
-main() {
-  var msg = query('#msg');
-  var btn = new ButtonElement();
-  btn.text = 'Click me!';
-  btn.onClick.listen((e) {
-    msg.text = 'Dart!';
-  });
-  document.body.children.add(btn);
-}
-{% endprettify %}
-</div>
-    </div>
+<h1> Get started </h1>
 
-    <div class="span4">
-      <h2><i class="icon-cogs"></i> Productive</h2>
-      <p>
-        Dart Editor and the SDK provide
-        an <strong>integrated development and debugging</strong> experience. The editor
-        supports refactoring, breakpoints, code completion, code
-        navigation, and more. The SDK contains the stand-alone virtual
-        machine, a package manager, and Chromium with an embedded
-        Dart VM.
-        <a href="#productive-tools">Learn more</a>
-      </p>
-      <p class="img">
-        <img src="/imgs/homepage/editor-full.png">
-      </p>
-    </div>
+<p>
+  Getting started with Dart is easy.
+  Just download Dart,
+  and you'll get <a href="/tools/editor/">Dart Editor</a>,
+  a full-featured editing environment
+  that comes with samples
+  and app templates.
+  Then, for a gentle introduction to web programming,
+  follow the <a href="/docs/tutorials/">Dart tutorials</a>.
+  When you have a question
+  that the documentation doesn't answer, check
+  <a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a>.
+</p>
 
-    <div class="span4">
-      <h2><i class="icon-globe"></i> Ubiquitous</h2>
-      <p>
-        Dart can be <strong>compiled to JavaScript</strong>,
-        so you can use it for web apps in all modern desktop and mobile browsers.
-        Our JavaScript compiler generates minimal code thanks to tree-shaking.
-        Dart apps can also <strong>run on the server</strong>, in a stand-alone
-        Dart VM.
-      </p>
-      <p class="img">
-        <img src="/imgs/homepage/server-desktop-phone.png">
-      </p>
-    </div>
-  </div> <!-- /.row -->
+<div class="row-fluid callouts">
+  <div class="span4">
+    <h2> <i class="icon-download-alt"></i> Get Dart </h2>
 
-</section>
+    <p>
+      Download Dart to get
+      and everything you need
+      to edit, run, and debug Dart apps.
+    </p>
 
-<section>
+    {% include downloads/_dart-editor.html %}
 
-  <div class="row callouts">
-    <div class="span4">
-      <h2><i class="icon-play"></i> Start</h2>
+    <p>
+      Also see:
+      <a href="/tools/">Tools&nbsp;for&nbsp;Dart</a>
+    </p>
+  </div>
+
+  <div class="span4">
+    <h2><i class="icon-book"></i> Learn</h2>
+
+    <ul>
+      <li><a href="/docs/tutorials/">Follow the Dart tutorials</a></li>
+      <li><a href="/docs/technical-overview/">Read the technical overview</a></li>
+      <li><a href="/samples/">Tour the samples</a></li>
+      <li><a href="/dart-tips/">Watch a 5-minute video</a></li>
+      <li> <a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Play
+      with Dart Editor</a></li>
+    </ul>
+
+    <p>
+      Also see:
+      <a href="/docs/">Programmer's&nbsp;Guide</a>,
+      <a href="/docs/cookbook/">Dart&nbsp;Cookbook</a>
+    </p>
+  </div>
+
+  <div class="span4">
+    <h2><i class="icon-comments"></i> Join In </h2>
       <ul>
-        <li><a href="/docs/tutorials/">Follow the Dart tutorials</a></li>
-        <li><a href="/tools/editor/">Get the editor and SDK</a></li>
-        <li><a href="/docs/technical-overview/">Read the technical overview</a></li>
-        <li><a href="/samples/">Tour the samples</a></li>
-        <li><a href="http://www.youtube.com/watch?v=vT1KmTQ-1Os"
-          title="Introduction to Dart">Watch an intro video</a></li>
-      </ul>
-    </div>
-
-    <div class="span4">
-      <h2><i class="icon-book"></i> Learn</h2>
-      <ul>
-        <li><a href="/docs/dart-up-and-running/contents/ch02.html">Take the language tour</a></li>
-        <li><a href="/docs/dart-up-and-running/contents/ch03.html">Take the library tour</a></li>
-        <li><a href="http://synonym.dartlang.org/">See equivalents to JavaScript</a></li>
-        <li><a href="http://shop.oreilly.com/product/0636920025887.do">Read a free eBook</a></li>
-        <li><a href="/slides/2012/06/io12/Bullseye-Your-first-Dart-app-Codelab-GoogleIO2012.pdf">Practice a codelab</a></li>
-      </ul>
-    </div>
-
-    <div class="span4">
-      <h2><i class="icon-comments"></i> Participate</h2>
-      <ul>
-        <li><a href="/mailing-list">Send feedback to the mailing list</a></li>
-        <li><a href="https://plus.google.com/109866369054280216564/posts">Follow on G+</a>
-          and <a href="http://twitter.com/dart_lang">Twitter</a></li>
+        <li><a href="/support/">Join mailing lists</a></li>
         <li><a href="http://stackoverflow.com/questions/tagged/dart">Get answers at Stack Overflow</a></li>
+        <li><a href="https://plus.google.com/109866369054280216564/posts">Follow on G+</a>
+          or <a href="http://twitter.com/dart_lang">Twitter</a></li>
+        <li><a href="https://plus.google.com/communities/114566943291919232850">Join the G+ Dartisans community</a>
         <li><a href="http://dartbug.com/new">File feature requests and bugs</a></li>
         <li><a href="http://code.google.com/p/dart/wiki/Contributing">Submit a patch</a></li>
       </ul>
-    </div>
+
+    <p>
+      Also see:
+      <a href="/support/">Contact Us</a>,
+      <a href="/community/">Community Resources</a>
+    </p>
   </div>
-
-</section>
-
-<div class="overview-transition">
-  <hr>
-  <h1>Overview</h1>
 </div>
 
-<section id="structured-language">
+<aside class="alert alert-info">
+  <b>Note:</b>
+  You can write Dart apps using any recent version of
+  {% include os-choices.html %}
+  The Dart development tools <b>do not&nbsp;support Windows XP</b>.
+  Dart Editor requires Java version 6 or higher.
+</aside>
 
-  <div class="page-header">
-    <h1>A structured language <small>that's flexible and familiar</small></h1>
-  </div>
-
-  <div class="row" id="language-features">
-    <div class="span12">
-      <p>
-        Dart addresses issues with traditional web development languages
-        while remaining easy to learn. Thanks to optional static types, Dart
-        scales from simple scripts to large apps. Learn more with the
-        <a href="/docs/dart-up-and-running/contents/ch02.html" title="Dart Language Tour">language tour</a>, or read the
-        <a href="/docs/spec/" title="Dart Language Specification">language spec</a>.
-      </p>
-
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#lang-classes" data-toggle="tab">Classes</a></li>
-        <li><a href="#lang-lexical-closures" data-toggle="tab">Lexical closures</a></li>
-        <li><a href="#lang-libraries" data-toggle="tab">Libraries</a></li>
-        <li><a href="#lang-optional-static-types" data-toggle="tab">Optional static types</a></li>
-        <li><a href="#lang-named-params" data-toggle="tab">Named parameters</a></li>
-        <li><a href="#lang-isolates" data-toggle="tab">Isolates</a></li>
-        <li><a href="#lang-more" data-toggle="tab">More</a></li>
-      </ul>
-
-      <div class="tab-content">
-          <div class="tab-pane active" id="lang-classes">
-            <div class="row">
-              <div class="span6">
-{% prettify dart %}
-import 'dart:math';
-
-class Point {
-  final num x, y;
-
-  Point(this.x, this.y);
-  Point.zero() : x = 0, y = 0;  // Named constructor
-                                // with an initializer list.
-
-  num distanceTo(Point other) {
-    var dx = x - other.x;
-    var dy = y - other.y;
-    return sqrt(dx * dx + dy * dy);
-  }
-}
-{% endprettify %}
-              </div>
-              <div class="span6">
-                <h2>Classes</h2>
-                <p>
-                  Dart supports classes as a fundamental structural
-                  building block for libraries and apps. Classes define
-                  the structure of an object, and you can extend them to create
-                  more specialized definitions. New features
-                  such as <a href="/articles/m1-language-changes/#no-explicit-interfaces">implicit interfaces</a> and
-                  <a href="/docs/dart-up-and-running/contents/ch02.html#ch02-constructors-named">named constructors</a>
-                  make it easier to
-                  say more while typing less.
-                  Learn more about <a href="/docs/dart-up-and-running/contents/ch02.html#classes">classes in Dart</a>.
-                </p>
-              </div>
-            </div>
-          </div> <!-- /.tab-pane -->
-
-          <div class="tab-pane" id="lang-lexical-closures">
-            <div class="row">
-              <div class="span6">
-{% prettify dart %}
-makeAdder(num x) {
-  return (num y) => x + y;
-}
-
-main() {
-  var add2 = makeAdder(2);
-  assert(add2(3) == 5);
-}
-{% endprettify %}
-              </div>
-              <div class="span6">
-                <h2>Lexical closures</h2>
-                <p>
-                  Dart has lexical scoping and a convenient closure
-                  mechanism. The <code>makeAdder</code> function returns a
-                  new function that closes around <code>x</code>.
-                  The <code>=&gt;</code> syntax is syntactic
-                  sugar for a one-line function with a return value.
-                </p>
-              </div>
-            </div>
-          </div> <!-- /.tab-pane -->
-
-          <div class="tab-pane" id="lang-libraries">
-            <div class="row">
-              <div class="span3">
-{% prettify dart %}
-// In widget.dart
-
-library widget;
-
-class Widget {
-  // ...
-}
-{% endprettify %}
-              </div>
-              <div class="span3">
-{% prettify dart %}
-// In toolkit.dart
-
-library toolkit;
-import 'widget.dart';
-
-class Window extends Widget {
-  // ...
-}
-{% endprettify %}
-              </div>
-              <div class="span6">
-                <h2>Libraries</h2>
-                <p>
-                  Use libraries to create reusable modules of functionality.
-                  Libraries can import other libraries, making it easy to
-                  publish and share code.
-                </p>
-              </div>
-            </div>
-          </div> <!-- /.tab-pane -->
-
-          <div class="tab-pane" id="lang-optional-static-types">
-            <div class="row">
-              <div class="span6">
-{% prettify dart %}
-import 'dart:math';
-
-class Point {
-  final num x, y;
-  Point(this.x, this.y);
-
-  // Use static types for
-  // the "surface area" of your code.
-  num distanceTo(Point other) {
-    // var declares an
-    // untyped dynamic variable
-    var dx = x - other.x;
-    var dy = y - other.y;
-    return sqrt(dx * dx + dy * dy);
-  }
-}
-{% endprettify %}
-              </div>
-              <div class="span6">
-                <h2>Optional static types</h2>
-                <p>
-                  Think of Dart's static types as annotations and documentation
-                  that help clearly indicate your intent, without getting in
-                  your way. Use types when you want more help from your tools,
-                  or if you want to make it easier to understand how to use your
-                  code. Omit the type annotations if you're just scripting around or
-                  if you're trying to express something that is challenging to
-                  express with a single type annotation.
-                  Type annotations don't affect the runtime semantics. Learn more about
-                  <a href="/articles/optional-types/">optional
-                    types in Dart</a>.
-                </p>
-              </div>
-            </div>
-          </div> <!-- /.tab-pane -->
-
-          <div class="tab-pane" id="lang-named-params">
-            <div class="row">
-              <div class="span6">
-{% prettify dart %}
-flipFlags({bool on, bool up, bool hidden: false}) {
-  // ...
-}
-
-flipFlags(on: true, up: false, hidden: true);
-
-// Named params are also optional params
-flipFlags(on: true); // up == null, hidden == false
-{% endprettify %}
-              </div>
-              <div class="span6">
-                <h2>Named parameters</h2>
-                <p>
-                  The meaning of <code>true</code>
-                  or <code>false</code> is hard to decipher without context.
-                  Using named parameters, you can write code that is easier
-                  to understand.
-                  As a bonus, named parameters are also optional parameters.
-                </p>
-              </div>
-            </div>
-          </div> <!-- /.tab-pane -->
-
-          <div class="tab-pane" id="lang-isolates">
-            <div class="row">
-              <div class="span6">
-{% prettify dart %}
-import 'dart:isolate';
-
-echo() {
-  port.receive((msg, SendPort replyTo) {
-    replyTo.send("Echo: $msg");
-  });
-}
-
-main() {
-  SendPort echoService = spawnFunction(echo);
-  echoService.call("Hello!").then((answer) => print(answer));
-}
-{% endprettify %}
-              </div>
-              <div class="span6">
-                <h2>Isolates</h2>
-                <p>
-                  Create isolates for concurrent programming and to
-                  run third-party code more securely. Communicate between
-                  isolates by passing messages that are copied before
-                  received to ensure no state is ever shared. Dart uses
-                  isolates instead of shared-state threads for safer
-                  parallel programming.
-                </p>
-                <p>
-                  The <code>echo()</code> function is run in an isolate,
-                  which is created with <code>spawnFunction</code>.
-                  A message is sent by <code>call</code> and an answer
-                  is printed.
-                </p>
-              </div>
-            </div>
-          </div> <!-- /.tab-pane -->
-
-          <div class="tab-pane" id="lang-more">
-            <p>
-              The Dart language contains many more useful and productive
-              features.
-              Check out a sample:
-            </p>
-            <ul>
-              <li>better asynchronous programming with
-              <a href="/docs/dart-up-and-running/contents/ch03.html#ch03-asynchronous-programming">Futures</a></li>
-              <li>more explicit collections with <a href="/docs/dart-up-and-running/contents/ch02.html#generics">generics</a></li>
-              <li>better <a href="/docs/dart-up-and-running/contents/ch02.html#for-loops">for loops</a></li>
-              <li>error handling with <a href="/docs/dart-up-and-running/contents/ch02.html#exceptions">exceptions</a></li>
-            </ul>
-
-            <p>
-              Learn more about the Dart language by taking
-              a <a href="/docs/dart-up-and-running/contents/ch02.html">Language Tour</a>,
-              or reading the <a href="/docs/spec/">Dart Language Spec</a>.
-            </p>
-          </div> <!-- /.tab-pane -->
-
-        </div> <!-- /.tab-content -->
-    </div> <!-- /.span12 -->
-  </div> <!-- /#language-features -->
-
-</section>
-
-<section id="productive-tools">
-
-  <div class="page-header">
-    <h1>Productive and integrated tools <small>for faster development</small></h1>
-  </div>
-
-  <p>
-    Gone are the days of building web apps with plain text editors.
-    <a href="/tools/editor/">Dart Editor</a>, its static analysis engine,
-    and direct integration with Chromium+DartVM
-    helps you develop, debug, and maintain your apps.
-  </p>
-
-  <p>
-    Dart also ships a stand-alone
-    <a href="/tools/sdk/">Dart SDK</a> that contains the
-    <a href="/docs/dart-up-and-running/contents/ch04-tools-dart2js.html">dart2js compiler</a>,
-    the <a href="/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html">Dart VM</a>
-    for running command-line apps, and the
-    <a href="http://pub.dartlang.org">pub</a> package manager.
-  </p>
-
-  <div class="row">
-    <div class="span12">
-      <ul class="thumbnails">
-        <li class="span6">
-          <div class="thumbnail">
-            <img src="/imgs/homepage/editor-code-completion.png" alt="Code completion in Dart Editor">
-            <h5>Code completion</h5>
-            <p>
-              Explore the methods and fields
-              available to the object you're working on.
-            </p>
-          </div>
-        </li>
-
-        <li class="span6">
-          <div class="thumbnail">
-            <img src="/imgs/homepage/editor-refactor.png" alt="Refactoring in Dart Editor">
-            <h5>Refactoring</h5>
-            <p>
-              Change your code structure
-              without changing the behavior.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span12">
-      <ul class="thumbnails">
-        <li class="span6">
-          <div class="thumbnail">
-            <img src="/imgs/homepage/editor-outline.png" alt="Code completion in Dart Editor">
-            <h5>Outline view</h5>
-            <p>
-              List the classes,
-              methods, and functions
-              in a simple tree display.
-            </p>
-          </div>
-        </li>
-
-        <li class="span6">
-          <div class="thumbnail">
-            <img src="/imgs/homepage/editor-debug.png" alt="Debugging in Dart Editor">
-            <h5>Debugger</h5>
-            <p>
-              Set breakpoints, inspect variables,
-              and step over, into, and out of code.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span12">
-      <ul class="thumbnails">
-
-        <li class="span6">
-          <div class="thumbnail">
-            <img src="/imgs/homepage/editor-warnings.png" alt="Static analysis warnings in Dart Editor">
-            <h5>Static analysis</h5>
-            <p>
-              See warnings when inconsistencies and potential problems are detected.
-            </p>
-          </div>
-        </li>
-
-        <li class="span6">
-          <div class="thumbnail">
-            <img src="/imgs/homepage/editor-callers.png" alt="Find callers for methods in Dart Editor">
-            <h5>Find callers</h5>
-            <p>
-              Quickly find all callers for a method, and easily jump to those locations.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-</section>
-
-<section id="get-started-now">
-  <div class="page-header">
-    <h1>Get Started Now</h1>
-  </div>
-
-  <ul class="buttons">
-    <li>
-      <a href="/tools/editor/" class="btn btn-large">
-        <i class="icon-cogs"></i>
-        Get Dart Editor
-      </a>
-    </li>
-    <li>
-      <a href="/docs/tutorials/" class="btn btn-large">
-        <i class="icon-book"></i>
-        Read the Dart tutorials
-      </a>
-    </li>
-    <li>
-      <a href="/mailing-list" class="btn btn-large">
-        <i class="icon-comments-alt"></i>
-        Join the mailing list
-      </a>
-    </li>
-  </ul>
 </section>
 
 </article> <!-- /.homepage -->
+

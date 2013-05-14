@@ -36,6 +36,26 @@ table {
   margin-bottom: 1em;
 }
 
+.btn {
+  a:after {
+    content:"";
+  }
+}
+
+/* a[href^="http"]:not([href*="www.dartlang.com"]):after { */
+a[href^="http"]:not(.btn):after {
+  content: "\f08e";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  padding-left: 0.25em;
+  vertical-align: super;
+  font-size: 67%;
+  line-height: 1;
+}
+
 .alert {
   a {
     color: $linkColorHover;
@@ -82,6 +102,15 @@ ol.toc li {
   opacity: 1;
 }
 
+.callouts {
+  h2 {
+    color: $blue-light;
+    -webkit-text-stroke: 0.5px; /* fixes horrible font rendering on windows, see https://code.google.com/p/chromium/issues/detail?id=137692 */
+    text-transform: uppercase;
+    font-family: $dartFont;
+  }
+}
+
 article.homepage {
 
   pre.prettyprint {
@@ -103,11 +132,6 @@ article.homepage {
     margin-bottom: 60px;
 
     .callouts {
-      h2 {
-        text-transform: uppercase;
-        font-family: $dartFont;
-      }
-
       p.img {
         text-align: center;
       }
@@ -130,7 +154,6 @@ article.homepage {
     .logo {
       margin-bottom: 36px;
       position: relative;
-      left: -28px;
     }
 
     .contents {
@@ -246,9 +269,55 @@ footer {
     padding-top: 30px;
     text-align: center;
   }
-
-
 }
+
+.download-link {
+  margin-bottom: 0.2em;
+}
+
+a:hover i {
+  text-decoration:none
+}
+
+#facts {
+  .media:first-child {
+    margin-top: 15px;
+  }
+}
+
+#toc-side {
+  width: 250px;
+  position: fixed;
+  top: 85px;
+
+  font-size: 9pt;
+
+  padding: 10px;
+  background-color: #DDD;
+  border-radius: 10px;
+
+  > ol {
+    margin: 0px;
+  }
+
+  li {
+    line-height: 120%;
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  #toc-side {
+    width: 180px;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { #toc-side {position: static; width:100%;} }
+
+/* Landscape phones and down */
+@media (max-width: 480px) { #toc-side {position: static; width:100%;} }
+
 
 @import "syntax";
 @import "tutorial";

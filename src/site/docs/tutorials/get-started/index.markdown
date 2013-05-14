@@ -5,6 +5,13 @@ description: "Get Dart and run two Dart applications"
 has-permalinks: true
 tutorial:
   id: get-started
+js:
+- url: /js/os-switcher.js
+  defer: true
+- url: /js/editor-downloads-analytics.js
+  defer: true
+- url: /js/editor-version.js
+  defer: true
 ---
 
 {% capture whats_the_point %}
@@ -58,10 +65,25 @@ create and run two small applications.
 
 ##Download the Dart software bundle {#download-dart}
 
-Go to the [Dart Editor](/tools/editor/) page
-and download Dart Editor.
-You'll be using it
+Get Dart.
+The Dart download includes Dart Editor,
+which you'll be using
 throughout this tutorial.
+
+<div align="center">
+  {% include downloads/_dart-editor.html %}
+</div>
+
+<p>
+  The Dart tools
+  work in recent versions of
+  {% include os-choices.html %}
+</p>
+
+<aside class="alert alert-info">
+  <b>Note:</b> The Dart tools <b>do not support Windows XP</b>.
+</aside>
+
 
 ##What did you get? {#what-did-you-get}
 
@@ -135,7 +157,7 @@ contains the following:
          width="81" height="71" alt="more directories"/>
     </div>
     <div class="span7">
-    You might notice there are some other directories
+    You might notice some other directories
     in the Dart installation directory.
     You can ignore them for now. 
     </div>

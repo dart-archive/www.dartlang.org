@@ -29,7 +29,10 @@
 
   {% include analytics.html %}
 
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script>
+  {% if page.googleapi %} google.load("feeds", "1"); {% endif %}
+
 	window.___gcfg = {lang: 'en'};
 	(function()
 	{var po = document.createElement("script");
@@ -58,12 +61,27 @@
           </a>
           <ul class="nav">
             <li>
-              <form class="navbar-search pull-right" action="/search.html" id="cse-search-box">
+              <form class="navbar-search pull-left" action="/search.html" id="cse-search-box">
                 <input type="hidden" name="cx" value="011220921317074318178:i4mscbaxtru" />
                 <input type="hidden" name="ie" value="UTF-8" />
                 <input type="hidden" name="hl" value="en" />
-                <input type="search" name="q" class="search-query" id="q" autocomplete="off" placeholder="Search"/>
+                <input type="search" name="q"
+                  class="search-query placeholder-position-fix"
+                  id="q" autocomplete="off" placeholder="Search"/>
               </form>
+            </li>
+            <li class="dropdown">
+              <a href="#"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown">
+                    Get Started
+                    <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/#get-started">Get Dart</a></li>
+                <li><a href="/docs/tutorials/">Dart Tutorials</a></li>
+                <li><a href="/docs/technical-overview/">Technical Overview</a></li>
+              </ul>
             </li>
             <li class="dropdown">
               <a href="#"
@@ -73,18 +91,16 @@
                     <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="/docs/technical-overview/">Technical Overview</a></li>
-                <li><a href="/docs/dart-up-and-running/">Dart Book</a></li>
+                <li><a href="/docs/">Programmer's Guide</a></li>
+                <li><a href="http://api.dartlang.org">API Reference</a></li>
+
+                <li class="divider"></li>
                 <li><a href="/docs/cookbook/">Dart Cookbook (Beta)</a></li>
-                <li class="nav-header">Language</li>
-                <li><a href="/docs/dart-up-and-running/contents/ch02.html">Language Tour</a></li>
-                <li><a href="/docs/spec/">Language Spec</a></li>
-                <li class="nav-header">Libraries</li>
-                <li><a href="/docs/dart-up-and-running/contents/ch03.html">Library Tour</a></li>
-                <li><a href="http://api.dartlang.org" title="Dart API docs">API Reference</a></li>
-                <li class="nav-header">Usage</li>
+                <li><a href="/docs/dart-up-and-running/">Dart: Up and Running</a></li>
+                <li><a href="/books/">More Books</a></li>
+
+                <li class="divider"></li>
                 <li><a href="/articles/">Articles</a></li>
-                <li><a href="/docs/tutorials/">Tutorials</a></li>
                 <li><a href="/support/faq.html">FAQ</a></li>
               </ul>
             </li>
@@ -96,53 +112,50 @@
                     <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="/tools/">Get Tools</a></li>
-
-                <li class="nav-header">Docs for Tools</li>
                 <li><a href="/tools/editor/">Dart Editor</a></li>
-                <li><a href="/tools/dartium/">Chromium + Dart VM</a></li>
-                <li><a href="/tools/sdk/">SDK</a></li>
-
-                <li class="nav-header">Package Management</li>
-                <li><a href="http://pub.dartlang.org">pub.dartlang.org</a></li>
+                <li><a href="http://pub.dartlang.org/">Pub Package Manager</a></li>
+                <li><a href="/tools/">More Tools</a></li>
               </ul>
             </li>
             <li class="dropdown">
-                <a href="#"
-                      class="dropdown-toggle"
-                      data-toggle="dropdown">
-                      Resources
-                      <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="http://api.dartlang.org" title="Dart API docs">API Reference</a></li>
-                  <li><a href="/samples/">Code Samples</a></li>
-                  <li><a href="http://synonym.dartlang.org/">Translations from JavaScript</a></li>
-                  <li><a href="/slides/">Presentations</a></li>
-                  <li><a href="/dart-tips/">Dart Tips Videos</a></li>
-                  <li><a href="/books/">Books</a></li>
-                  <li><a href="/dartisans/">Dartisans Videos and Podcast</a></li>
-                  <li><a href="/community/">Community</a></li>
-                  <li><a href="/performance/">Performance</a></li>
-                </ul>
+              <a href="#"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown">
+                    Resources
+                    <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/samples/">Code Samples</a></li>
+                <li><a href="http://synonym.dartlang.org/">Translations from Dart</a></li>
+                <li><a href="http://try.dartlang.org/">Try Dart!</a></li>
+
+                <li class="divider"></li>
+                <li><a href="/slides/">Presentations</a></li>
+                <li><a href="/dartisans/">Dartisans Videos and Podcast</a></li>
+                <li><a href="/dart-tips/">Dart Tips Videos</a></li>
+
+                <li class="divider"></li>
+                <li><a href="http://code.google.com/p/dart/issues/list">Bugs and Feature Requests</a></li>
+              </ul>
             </li>
-              <li class="dropdown">
-                  <a href="#"
-                        class="dropdown-toggle"
-                        data-toggle="dropdown">
-                        Development
-                        <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="http://code.google.com/p/dart/issues/list">Bugs and Feature Requests</a></li>
-                    <li><a href="http://www.dartlang.org/mailing-list">Mailing List</a></li>
-                    <li><a href="https://code.google.com/p/dart/wiki/GettingTheSource?tm=4">Source Code</a></li>
-                    <li><a href="http://code.google.com/p/dart/wiki/Contributing">Submitting Patches</a></li>
-                  </ul>
-              </li>
-              <li><a href="http://news.dartlang.org/" target="_blank" title="The latest news about Dart">News</a></li>
-              <li class="share-button gplus"><div class="g-plusone" data-size="medium" data-callback="gplus_pressed" data-annotation="none"></div></li>
-              <li class="share-button twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-hashtags="dartlang">Tweet</a></li>
+            <li class="dropdown">
+              <a href="#"
+                    class="dropdown-toggle"
+                    data-toggle="dropdown">
+                    Community
+                    <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/support/">Contact Us</a></li>
+                <li><a href="http://code.google.com/p/dart/wiki/Contributing">Contributor's Guide</a></li>
+                <li><a href="/community/">More Resources</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="pull-right">
+            <ul class="nav">
+               <li class="share-button gplus"><div class="g-plusone" data-size="medium" data-callback="gplus_pressed" data-annotation="none"></div></li>
+               <li class="share-button twitter"><a href="https://twitter.com/share" class="twitter-share-button external-link" data-count="none" data-hashtags="dartlang">Tweet</a></li>
             </ul>
         </div>
       </div>

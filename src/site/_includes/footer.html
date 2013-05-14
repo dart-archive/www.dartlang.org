@@ -2,58 +2,48 @@
 
 	<footer>
     <div class="container">
-  		<div class="row no-print">
-  			<div class="span3">
-  				<h4>Dart Docs</h4>
-  				<ul>
-            <li><a href="/docs/technical-overview/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Technical Overview</a></li>
-            <li><a href="/docs/dart-up-and-running/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Dart Book</a></li>
-            <li><a href="/docs/cookbook/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Dart Cookbook (Beta)</a></li>
-            <li><a href="/docs/dart-up-and-running/contents/ch02.html?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Language Tour</a></li>
-            <li><a href="/docs/spec/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Language Spec</a></li>
-            <li><a href="/docs/dart-up-and-running/contents/ch03.html?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Library Tour</a></li>
-            <li><a href="http://api.dartlang.org?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage" title="Dart API docs">API Reference</a></li>
-            <li><a href="/articles/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Articles</a></li>
-            <li><a href="/docs/tutorials/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Tutorials</a></li>
-            <li><a href="/support/faq.html?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">FAQ</a></li>
-  				</ul>
-  			</div>
-  			<div class="span3">
-  				<h4>Dart Tools</h4>
-  				<ul>
-            <li><a href="/tools/">Get Tools</a></li>
-            <li><a href="/tools/editor/">Dart Editor</a></li>
-            <li><a href="/tools/dartium/">Chromium + Dart VM</a></li>
-            <li><a href="/tools/sdk/">SDK</a>
-            <li><a href="http://pub.dartlang.org">pub.dartlang.org</a></li>
-  				</ul>
-  			</div>
-  			<div class="span3">
-  				<h4>Dart Resources</h4>
-  				<ul>
-            <li><a href="http://api.dartlang.org" title="Dart API docs">API Reference</a></li>
-            <li><a href="/samples/">Code Samples</a></li>
-            <li><a href="http://synonym.dartlang.org/">Translations from JavaScript</a></li>
-            <li><a href="/slides/">Presentations</a></li>
-            <li><a href="/dart-tips/">Dart Tips Videos</a></li>
-            <li><a href="/books/">Books</a></li>
-            <li><a href="/dartisans/">Dartisans Videos and Podcast</a></li>
-            <li><a href="/community/">Community</a></li>
+      <div class="row no-print">
+        <div class="span4">
+          <h4>Popular on this site</h4>
+          <ul>
+            <li><a href="/articles/web-ui/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Web UI</a></li>
             <li><a href="/performance/">Performance</a></li>
-  				</ul>
-  			</div>
-  			<div class="span3">
-  				<h4>Dart Development</h4>
-  				<ul>
-            <li><a href="http://code.google.com/p/dart/issues/list">Bugs and Feature Requests</a></li>
-            <li><a href="http://www.dartlang.org/mailing-list">Mailing List</a></li>
-            <li><a href="https://code.google.com/p/dart/wiki/GettingTheSource?tm=4">Source Code</a></li>
-            <li><a href="http://code.google.com/p/dart/wiki/Contributing">Submitting Patches</a></li>
-  				</ul>
-  			</div>
-  		</div>
+            <li><a href="/docs/dart-up-and-running/contents/ch02.html?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Language tour</a> &amp;
+            <a href="/docs/dart-up-and-running/contents/ch03.html?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">library tour</a></li>
+            <li><a href="/samples/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Code samples</a></li>
+            <li><a href="/docs/tutorials/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Tutorials</a></li>
+            <li><a href="/docs/cookbook/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Cookbook</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+          <h4>More resources</h4>
+          <ul>
+            <li><a href="http://try.dartlang.org/">Try Dart!</a></li>
+            <li><a href="http://synonym.dartlang.org/">Translations from Dart</a></li>
+            <li><a href="http://code.google.com/p/dart/issues/list">Dart bugs and feature requests</a></li>
+            <li><a href="http://pub.dartlang.org">Pub packages</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="/support/">Mailing lists</a></li>
+            <li><a href="https://plus.google.com/communities/114566943291919232850">G+ community</a></li>
+            <li><a href="https://plus.google.com/109866369054280216564/posts">G+ announcement group</a></li>
+            <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
+          </ul>
+        </div>
+      </div>
+
   		<div class="row copyright">
   			<div class="span8 offset2">
+          <div class="no-print">
+            <p>
+              Dart is an
+              <a href="https://code.google.com/p/dart/">open-source project</a>
+              with contributors from Google and elsewhere.
+            </p>
+          </div>
   				<p>
             {% if license %}
             {{ license }}
@@ -61,10 +51,13 @@
             Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.
             {% endif %}
   				</p>
-  				<p>
-  					<a href="/tos.html">Terms of Service</a> &mdash;
-  					<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
-  				</p>
+
+          <div class="no-print">
+    				<p>
+    					<a href="/tos.html">Terms of Service</a> &mdash;
+    					<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
+    				</p>
+          </div>
   			</div>
   		</div>
     </div>
