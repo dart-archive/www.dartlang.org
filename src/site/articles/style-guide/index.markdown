@@ -444,13 +444,19 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
 {% endprettify %}
 </div>
 
-#### PREFER using `num` over `double` for parameter type annotations.
+#### PREFER using `double` or `int` instead of `num` for parameter type
+annotations in performance sensitive code.
 
+Monomorphic call sites (sites that have stable input types)
+can be optimized much easier than polymorphic call sites (sites that have
+varying input types).
 
-Annotating a parameter as type `double` means not only that it *can* accept a
-floating-point value, but that it *must*. It's a type error to pass an `int` to
-it. Almost all code that can handle floating-point numbers works correctly with
-integers, so the type you usually want is `num`.
+Whenever you can, pick a specific number type for your type annotation.
+Explicitly say `double` or `int` to help your users pass in a consistent type
+to your function or method.
+
+When you use `num` as a type annotation, you are saying "either an int or
+a double can go here." This ambiguity it harder for Dart runtimes to optimize.
 
 #### DON'T type annotate initializing formals.
 
