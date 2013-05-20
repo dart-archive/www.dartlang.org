@@ -107,6 +107,9 @@ handlers:
 - url: /hangouts.*
   script: scripts.redirector.application
 
+- url: /codelab
+  script: scripts.redirector.application
+
 - url: /eclipse/update.*
   script: scripts.redirector.application
 
