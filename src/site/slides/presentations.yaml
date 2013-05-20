@@ -109,15 +109,6 @@
   video: http://www.youtube.com/watch?v=9RCuW6K1afs
   event: OSCON 2012
 
-- title: "Bullseye: Your first Dart app - Codelab"
-  short: bullseye
-  presenters:
-    - Seth Ladd
-    - Jaime Wren
-  date: 2012-06-28
-  event: Google I/O 2012
-  slides: 2012/06/io12/Bullseye-Your-first-Dart-app-Codelab-GoogleIO2012.pdf
-
 - title: Dart - A Modern Web Language
   short: modern-web-language
   presenters:
