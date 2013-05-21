@@ -276,7 +276,7 @@ removed.
 <tr><td>
 <a href="spec.html#binding-in-attributes">Style attribute data binding</a>
 </td><td>
-{% prettify html %}<div class="{{'{{'}}exp}}"></div>{% endprettify %}
+{% prettify html %}<div style="{{'{{'}}exp}}"></div>{% endprettify %}
 </td><td>
 Binds the value of <em>exp</em> to the value of a style attribute.
 Similar to attribute bindings,

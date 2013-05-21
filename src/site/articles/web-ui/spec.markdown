@@ -497,17 +497,9 @@ features available for class and style attributes.
 {% endprettify %}
 
 
-* data-style attributes: you can pass a `Map<String, String>` as a binding to
-  a special `data-style` attribute. When changes to the map are detected, the
-  actual style of the element will be updated.
-
-<aside>
-<div class="alert alert-info">
-<strong>Open issues:</strong> We might want to remove `data-style` attributes
-and possibly merge this feature directly in `style` attributes. This would be
-similar to how class attributes are smart to accept lists or strings.
-</div>
-</aside>
+* style attributes: you can pass either a `String` or a `Map<String, String>` as
+  a binding to `style` attributes. When using a map, we track changes to
+  the map keys and values and update actual style of the element accordingly.
 
 #### Binding interactive elements
 
