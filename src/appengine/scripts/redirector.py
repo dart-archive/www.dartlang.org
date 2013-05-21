@@ -117,6 +117,8 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch03.html'}),
     Route('/eclipse/', RedirectHandler,
       defaults={'_uri': '/tools/eclipse-plugin/'}),
+    Route('/docs/editor/troubleshoot.html', RedirectHandler,
+      defaults={'_uri': '/tools/editor/troubleshoot.html'}),
     Route('/docs/editor<:/?>', RedirectHandler,
       defaults={'_uri': '/tools/editor/'}),
     Route('/docs/sdk<:/?>', RedirectHandler,
