@@ -1,4 +1,4 @@
-library observe_collections;
+library observe_list;
 
 import 'package:web_ui/web_ui.dart';
 
@@ -8,7 +8,7 @@ void addTimestamp() {
   timestamps.add(new DateTime.now());
 }
 
-clear() {
+void clear() {
   timestamps.clear();
 }
 

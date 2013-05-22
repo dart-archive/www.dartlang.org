@@ -22,6 +22,9 @@ pagespeed:
     - CollapseWhitespace
     - RemoveComments
     - InlineJs
+  url_blacklist:
+    - http://*/code/out/*
+    - https://*/code/out/*
 
 #default_expiration: "1d"
 

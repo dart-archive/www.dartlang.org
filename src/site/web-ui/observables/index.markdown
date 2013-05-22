@@ -59,50 +59,23 @@ Here is a simple example of data binding between a top-level Dart variable and
 inline HTML text. This example also includes declarative event binding.
 
 {% prettify html %}
-<body>
-  <h1>Hello Web UI</h1>
-  
-  <p>Web UI is {{ superlative }}</p>
-  
-  <button id="change-it" on-click="changeIt()">Change</button>
-  
-  <script type="application/dart" src="HelloWorld.dart"></script>
-  <script type="text/javascript" src="packages/browser/dart.js"></script>
-</body>
+{% insert code/hello_world.html %}
 {% endprettify %}
 
-A variable wrapped with {% raw %}`{{` and `}}`{% endraw %} is observed, and its object is converted to a
-string and inserted into the DOM. Any time the variable is changed, the HTML is
-updated.
+A variable wrapped with {% raw %}`{{` and `}}`{% endraw %} is observed, and its
+object is converted to a string and inserted into the DOM. Any time the variable
+is changed, the HTML is updated.
 
 Here is the Dart code that supports this simple app:
 
 {% prettify dart %}
-library hello_world;
-
-import 'package:web_ui/web_ui.dart';
-
-@observable
-String superlative = 'awesome';
-
-const List<String> alternatives =
-    const <String>['wicked cool', 'sweet', 'fantastic', 'wonderful'];
-
-int _alternativeCount = 0;
-
-String get nextAlternative => alternatives[_alternativeCount++ % alternatives.length];
-
-changeIt() {
-  superlative = nextAlternative;
-}
-
-main() { }
+{% insert code/hello_world.dart %}
 {% endprettify %}
 
 
 The superlative top-level variable is the same variable that is observed in the
-HTML page with {% raw %}`{{ superlative }}`{% endraw %}. The `@observable` metadata tells Web UI to
-observe this variable for changes.
+HTML page with {% raw %}`{{ superlative }}`{% endraw %}. The `@observable`
+metadata tells Web UI to observe this variable for changes.
 
 Every time the button is clicked, the `changeIt()` function is run and the
 superlative variable is pointed to a different string. Because superlative
@@ -111,7 +84,7 @@ changed, the HTML page changes, too. This is data binding in action!
 ### Live example
 {: .no_toc}
 
-<iframe width="500" height="150" src="apps/HelloWorld.html"></iframe>
+<iframe width="500" height="150" src="code/out/hello_world.html"></iframe>
 
 You don't have to write code to deal with propagating changes, finding HTML
 elements, or updating HTML elements. All the of the mechanics for observing
@@ -132,40 +105,14 @@ Consider this example, which include a Person class. Here is a one-way binding
 between the expression `person.name` and HTML:
 
 {% prettify html %}
-<p>Hello {{ person.name }}!</p>
-
-<p><button on-click="newName()">Change Name</button></p>
+{% insert code/observe_object.html 9 11 %}
 {% endprettify %}
 
 Here is the corresponding Dart code:
 
 {% prettify dart %}
-library observe_object;
-
-import 'package:web_ui/web_ui.dart';
-
-@observable
-class Person {
-  String name;
-  
-  Person(this.name);
-}
-
-final Person person = new Person('Bob');
-
-const List<String> names = const <String>['Sally', 'Alice', 'Steph'];
-
-int _nextCounter = 0;
-
-String get nextName => names[_nextCounter++ % names.length];
-
-newName() {
-  person.name = nextName;
-}
-
-main() {}
+{% insert code/observe_object.dart %}
 {% endprettify %}
-
 
 We don't need to observe the variable person because it always refers to the
 same object (it is marked as final). We need to observe the Person class because
@@ -179,7 +126,7 @@ setters, or the entire class.
 ### Live example
 {: .no_toc}
 
-<iframe width="500" height="100" src="apps/observe_object.html"></iframe>
+<iframe width="500" height="100" src="code/out/observe_object.html"></iframe>
 
 ## Observing collections
 
@@ -192,34 +139,13 @@ Here is an example of an observable list. In the HTML, a template is rendered
 with the contents from the timestamps list.
 
 {% prettify html %}
-<p>
-  <button on-click="addTimestamp()">Add Timestamp</button>
-  <button on-click="clear()">Clear</button>
-</p>
-
-<ul>
-  <li template repeat="ts in timestamps">{{ ts }}</li>
-</ul> 
+{% insert code/observe_list.html 10 17 %}
 {% endprettify %}
 
 Here is the corresponding Dart code:
 
 {% prettify dart %}
-library observe_collections;
-
-import 'package:web_ui/web_ui.dart';
-
-final List<DateTime> timestamps = toObservable([]);
-
-void addTimestamp() {
-  timestamps.add(new DateTime.now());
-}
-
-clear() {
-  timestamps.clear();
-}
-
-main() {}
+{% insert code/observe_list.dart %}
 {% endprettify %}
 
 Notice how timestamps is really a wrapped observable list. Any change to the
@@ -234,7 +160,7 @@ stored in the list.
 ### Live example
 {: .no_toc}
 
-<iframe width="500" height="100" src="apps/observable_list.html"></iframe>
+<iframe width="500" height="100" src="code/out/observe_list.html"></iframe>
 
 ## Observing nested objects
 
@@ -245,65 +171,19 @@ observable.
 Here is the Dart code:
 
 {% prettify dart %}
-import 'package:web_ui/web_ui.dart';
-
-@observable
-class Person {
-  String name;
-  Address address;
-}
-
-<code class="nocode highlight">@observable</code>
-class Address {
-  String city;
-}
-
-@observable
-Person person;
-
-main() {
-  person = new Person()
-    ..name = 'Clark Kent'
-    ..address = (
-        new Address()
-          ..city = 'Metropolis'
-    );
-}
+{% insert code/observe_nested.dart %}
 {% endprettify %}
 
 And here is the HTML:
 
 {% prettify html %}
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <title>observe_nested</title>
-  </head>
- 
-  <body>
-
-    <p>
-      Name: <input type="text" bind-value="person.name">
-    </p>
-    <p>
-      City: <input type="text" bind-value="person.address.city">
-    </p>
-    
-    <p>Person's name: {{ person.name }}</p>
-    <p>Person's Address's city: {{ person.address.city }}</p>
-    
-    <script type="application/dart" src="observe_nested.dart"></script>
-    <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
-    <script src="packages/browser/dart.js"></script>
-  </body>
-</html>
+{% insert code/observe_nested.html 10 18 %}
 {% endprettify %}
 
 ### Live example
 {: .no_toc}
 
-<iframe width="500" height="200" src="apps/observe_nested.html"></iframe>
+<iframe width="500" height="200" src="code/out/observe_nested.html"></iframe>
 
 ## Expression Observers
 
@@ -318,41 +198,23 @@ expressions). We don't recommend that you manually recreate the functionality of
 bindings, but you can create your own observers when you need some code to
 respond to changes.
 
-To illustrate how observers work, let's manually recreate what the dwc 
+To illustrate how observers work, let's manually recreate some of what the dwc 
 does for you.
 
 Here is some HTML with a placeholder span element that gets updated when a
 button is clicked.
 
 {% prettify html %}
-<p>Time is <span id="msg"></span></p>
-
-<p><button on-click="updateMsg()">Update</button></p>
+{% insert code/manual_observe.html 9 11 %}
 {% endprettify %}
 
 Here is the corresponding Dart code.
 
 {% prettify dart %}
-library manual_watching;
-
-import 'dart:html';
-import 'package:web_ui/web_ui.dart';
-
-@observable
-String msg;
-
-updateMsg() {
-  msg = new DateTime.now().toString();
-}
-
-main() {
-  observe(() => msg, (ChangeNotification e) {
-    query('#msg').text = msg;
-  });
-}
+{% insert code/manual_observe.dart %}
 {% endprettify %}
 
-A new observer is created to watch the msg expression. When msg changes, a
+A new observer is created to watch the msg object. When msg changes, a
 callback is run to update the span with a new message.
 
 When a new observer is created, it first runs the expression to be observed. It
@@ -364,7 +226,7 @@ observables are so efficient.
 ### Live example
 {: .no_toc}
 
-<iframe width="500" height="100" src="apps/manual_watching.html"></iframe>
+<iframe width="500" height="100" src="code/out/manual_observe.html"></iframe>
 
 
 ## What happens with @observable
@@ -383,36 +245,13 @@ variables, etc.
 For example, here is a class Person that has @observable metadata:
 
 {% prettify dart %}
-@observable
-class Person {
-  String name;
-  
-  Person(this.name);
-}
+{% insert code/observable_object.dart 4 9 %}
 {% endprettify %}
 
 Here is the generated Person class:
 
 {% prettify dart %}
-@observable
-class Person  extends Observable {
-  String __$name;
-  String get name {
-    if (__observe.observeReads) {
-      __observe.notifyRead(this, __observe.ChangeRecord.FIELD, 'name');
-    }
-    return __$name;
-  }
-  set name(String value) {
-    if (__observe.hasObservers(this)) {
-      __observe.notifyChange(this, __observe.ChangeRecord.FIELD, 'name',
-          __$name, value);
-    }
-    __$name = value;
-  }
-  
-  Person(name) : __$name = name;
-}
+{% insert code/generated_01.dart %}
 {% endprettify %}
 
 Notice how the original name field is converted into setters and getters that
@@ -426,42 +265,19 @@ it changed. Getters and setters look like regular fields in Dart. Here is an
 example:
 
 {% prettify dart %}
-main() {
-  var person = new Person('Bob');
-  person.name = 'Alice';  // goes through the setter, which records the change
-}
+{% insert code/observable_object.dart 11 14 %}
 {% endprettify %}
 
 As another example, here is an example of @observable with a top-level variable.
 
 {% prettify dart %}
-library foo;
-
-@observable
-String superlative;
+{% insert code/top_level_observable.dart %}
 {% endprettify %}
 
 Here is the generated code:
 
 {% prettify dart %}
-// ...
-
-String __$superlative = 'awesome';
-String get superlative {
-  if (__observe.observeReads) {
-    __observe.notifyRead(__changes, __observe.ChangeRecord.FIELD, 'superlative');
-  }
-  return __$superlative;
-}
-set superlative(String value) {
-  if (__observe.hasObservers(__changes)) {
-    __observe.notifyChange(__changes, __observe.ChangeRecord.FIELD, 'superlative',
-        __$superlative, value);
-  }
-  __$superlative = value;
-}
-
-// ...
+{% insert code/generated_02.dart %}
 {% endprettify %}
 
 Notice how you can have top-level getters and setters, too. Cool!

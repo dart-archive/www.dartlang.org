@@ -11,7 +11,7 @@ updateMsg() {
 }
 
 main() {
-  observe(() => msg, (ChangeNotification e) {
+  observe(() => msg, (_) {
     query('#msg').text = msg;
   });
 }

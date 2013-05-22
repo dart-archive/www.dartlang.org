@@ -1,7 +1,7 @@
 library bootstrap;
 
 import 'package:web_ui/watcher.dart' as watcher;
-import 'manual_watching.dart' as userMain;
+import 'manual_observe.dart' as userMain;
 
 main() {
   watcher.useObservers = true;

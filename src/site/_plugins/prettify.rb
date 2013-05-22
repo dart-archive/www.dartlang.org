@@ -31,7 +31,7 @@ module Prettify
       unless @lang.nil?
         out += ' lang-' + @lang
       end
-      out += '">' + CGI::escapeHTML(super.strip) + "</pre>"
+      out += '">' + CGI::escapeHTML(super) + "</pre>"
     end
 
   end
