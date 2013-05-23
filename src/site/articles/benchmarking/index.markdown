@@ -8,7 +8,7 @@ has-permalinks: true
 article:
   written_on: 2012-10-01
   updated_on: 2012-11-01
-  collection: everyday-dart
+  collection: performance
 ---
 
 # {{ page.title }}
