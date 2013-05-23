@@ -7,14 +7,15 @@ description: "An introduction to reflection in Dart,
               which is based on the concept of mirrors."
 has-permalinks: true
 article:
-  written_on: 2013-05-22
+  written_on: 2012-11-30
+  updated_on: 2013-05-22
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 
 _Written by Gilad Bracha <br />
-May 2013_
+November 2012 (Updated May 2013)_
 
 
 Reflection in Dart is based on the concept of _mirrors_,
@@ -130,7 +131,7 @@ The method name must be encoded as a Symbol object.
 Symbol has a constructor that takes a string. Calling the constructor with
 const rather than new allows dart2js to minify all identifiers in the program, 
 keeping the
-generated Javascript small. A fuller explanation of why we use Symbol appears
+generated JavaScript small. A fuller explanation of why we use Symbol appears
 toward the end of this article.
 
 Suppose you want to print out all the members of a class.
@@ -167,7 +168,7 @@ and therefore we can use it to print the members of any class.
 
 {% prettify dart %}
 printAllMembersOf(ClassMirror cm) {
-  for (var m in cm.members.values) print(m.simpleName);
+  for (var m in cm.members.values) print(MirrorSystem.getName(m.simpleName));
 }
 {% endprettify %}
 
@@ -188,7 +189,8 @@ What if we want to invoke static code reflectively?
 We can call invoke() on a ClassMirror as well.
 
 {% prettify dart %}
-MyClassMirror.invoke(const Symbol('noise'), []); // Returns an InstanceMirror on 42
+InstanceMirror v = MyClassMirror.invoke(const Symbol('noise'), []);
+// Returns an InstanceMirror on 42.
 {% endprettify %}
 
 In fact, invoke() is defined in class
@@ -216,22 +218,22 @@ class MyClass {
 }
 
 main() {
-
-  MyClass myClass = new MyClass(3, 4);
-
-  InstanceMirror myClassInstanceMirror = reflect(myClass);
-  ClassMirror MyClassMirror = myClassInstanceMirror.type;
+  InstanceMirror myClassInstanceMirror = reflect(new MyClass(3, 4));
+  ClassMirror MyClassMirror = myClassInstanceMirror.type; // Reflects MyClass
+  
   InstanceMirror res = myClassInstanceMirror.invoke(const Symbol('sum'), []);
-  print('sum = ${res.reflectee}'));
-  
+  // Returns an InstanceMirror on 7.
+  print('sum = ${res.reflectee}');
+    
   InstanceMirror v = MyClassMirror.invoke(const Symbol('noise'), []);
-  print('noise = ${v.reflectee}'));
+  // Returns an InstanceMirror on 42.
+  print('noise = ${v.reflectee}');
   
-  print('methods:');
+  print('\nmethods:');
   Map<Symbol, MethodMirror> map = MyClassMirror.methods;
   map.values.forEach((MethodMirror mm) {print(MirrorSystem.getName(mm.simpleName));});
   
-  print('members:');
+  print('\nmembers:');
   for (var k in MyClassMirror.members.keys) print(MirrorSystem.getName(k));
   MyClassMirror.setField(const Symbol('s'), 91);
   print(MyClass.s);
@@ -243,10 +245,12 @@ And here’s the output:
 {% prettify %}
 sum = 7
 noise = 42
+
 methods:
 my_method
 noise
 sum
+
 members:
 noise
 my_method
