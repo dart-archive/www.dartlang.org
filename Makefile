@@ -59,3 +59,8 @@ else
 endif
 
 book: copy-book-images convert-book-html-to-jekyll
+
+compile-sample-apps: observables-samples
+
+observables-samples:
+	cd src/site/web-ui/observables/code && pub install && dart build.dart

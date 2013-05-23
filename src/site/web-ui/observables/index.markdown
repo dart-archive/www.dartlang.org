@@ -17,6 +17,13 @@ This article covers Web UI's observables and how to use them with interactive
 web apps. To learn more about Web UI, try our [tutorials][tutorial],
 [cookbook], or [articles][web ui].
 
+<aside class="alert alert-info">
+<b>Head's up!</b> The observable system described in this article is intended
+to replace the watchers system. Both systems work with Web UI today, but we
+recommend migrating to observables as soon as possible. The watchers system
+will be removed from Web UI in the future.
+</aside>
+
 {% include toc.html %}
 
 ## Overview of data binding in Web UI
