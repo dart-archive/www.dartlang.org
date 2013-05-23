@@ -22,7 +22,7 @@ web apps. To learn more about Web UI, try our [tutorials][tutorial],
 ## Overview of data binding in Web UI
 {: #data-binding-overview}
 
-Web UI helps you efficiently bind application data to HTML, and visa versa, with
+Web UI helps you efficiently bind application data to HTML, and vice versa, with
 observables and observers. Observables are variables, fields, or collections
 that can be observed for changes. Observers are functions that run when an
 observable changes.
