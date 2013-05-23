@@ -23,8 +23,8 @@ pagespeed:
     - RemoveComments
     - InlineJs
   url_blacklist:
-    - http://*/code/out/*
-    - https://*/code/out/*
+    - http://www.dartlang.org/*/code/out/*
+    - https://www.dartlang.org/*/code/out/*
 
 #default_expiration: "1d"
 
