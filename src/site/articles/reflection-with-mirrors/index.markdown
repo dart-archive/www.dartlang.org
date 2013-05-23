@@ -7,14 +7,14 @@ description: "An introduction to reflection in Dart,
               which is based on the concept of mirrors."
 has-permalinks: true
 article:
-  written_on: 2012-11-30
+  written_on: 2013-05-22
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 
 _Written by Gilad Bracha <br />
-November 2012_
+May 2013_
 
 
 Reflection in Dart is based on the concept of _mirrors_,
@@ -44,8 +44,7 @@ At this time, only part of the planned API has been realized.
 The part that exists deals with _introspection_,
 the ability of a program to discover and use its own structure.
 The introspection API has been largely implemented on the Dart VM.
-In dart2js, we’ve only taken the first baby steps
-toward a similar implementation.  
+The dart2js version is in progress and will be ready soon.  
 
 There is also a closely related source mirror API
 that is designed for compile-time reflection,
@@ -67,8 +66,10 @@ import 'dart:mirrors';
 <strong>Caveat 2:</strong>
 Since the API described here works only on the Dart VM,
 you will get a warning from Dart Editor
-when you import the mirror library.
-We don’t want you to spend time and effort developing code
+when you import the mirror library. This warning will go away 
+once the dart2js implementation is complete.
+In the meantime, we don’t want you to spend time and effort 
+developing code
 that relies on mirrors only to discover
 that you cannot deploy it to the browser. 
 </div>
@@ -108,7 +109,7 @@ The reflect() method takes an object and returns an
 on it. 
 
 {% prettify dart %}
-InstanceMirror im = reflect(new MyClass(3, 4));
+InstanceMirror myClassInstanceMirror = reflect(new MyClass(3, 4));
 {% endprettify %}
 
 InstanceMirror is a subclass of
@@ -117,15 +118,20 @@ the root of the mirror hierarchy.
 An InstanceMirror allows one to invoke dynamically chosen code on an object. 
 
 {% prettify dart %}
-Future<InstanceMirror> f = im.invoke('sum', []); 
-// Returns a Future for an InstanceMirror on 7.
+InstanceMirror res = myClassInstanceMirror.invoke(const Symbol('sum'), []); 
+// Returns an InstanceMirror on 7.
 {% endprettify %}
 
-Because the the object you are reflecting could in fact
-belong to another isolate, invoke() is asynchronous.
-The invoke() method takes a string representing the method name,
+The invoke() method takes the method name,
 a list of positional arguments,
 and (optionally) a map describing named arguments.
+
+The method name must be encoded as a Symbol object.
+Symbol has a constructor that takes a string. Calling the constructor with
+const rather than new allows dart2js to minify all identifiers in the program, 
+keeping the
+generated Javascript small. A fuller explanation of why we use Symbol appears
+toward the end of this article.
 
 Suppose you want to print out all the members of a class.
 You’ll need a
@@ -134,20 +140,14 @@ which as you’d expect reflects a class.
 One way to get a class mirror is from an instance mirror.
 
 {% prettify dart %}
-ClassMirror cm = im.type; // Reflects MyClass
+ClassMirror MyClassMirror = myClassInstanceMirror.type; // Reflects MyClass
 {% endprettify %}
 
-In this case, you get a class mirror back directly, rather than a Future.
-The mirror library ensures that once you get a mirror on an isolate,
-all the requisite code you might need to reflect upon
-is copied over immediately so that
-you don’t need to make a whole series of asynchronous calls.
-
 Now we can print out the names of all members of the class
-reflected by `cm`.
+reflected by `MyClassMirror`.
 
 {% prettify dart %}
-for (var m in cm.members.values) print(m.simpleName);
+for (var m in MyClassMirror.members.values) print(MirrorSystem.getName(m.simpleName));
 {% endprettify %}
 
 ClassMirror has a getter
@@ -155,8 +155,11 @@ ClassMirror has a getter
 that returns a map from the names of the reflected class’ members
 to mirrors on those members.
 We extract the values from the map;
-each of these will be a mirror on one of the members of MyClass,
-and will support the getter `simpleName` that returns the name of the member.
+each of these will be a mirror on one of 
+the members of MyClass. Each such mirror has a getter `simpleName`
+that returns the name of the corresponding member. 
+Since names are represented by symbols, we use the utility function
+MirrorSystem.getName() which converts symbols back into strings.
 
 Obviously, we know what the members of MyClass are in this case;
 the point is that the `for` loop above works for any class mirror,
@@ -176,20 +179,16 @@ In fact, there is a simpler way to accomplish what we just did.
 
 {% prettify dart %}
 printAllMembersOf(ClassMirror cm) {
-  for (var k in cm.members.keys) print(k);
+  for (var k in cm.members.keys) print(MirrorSystem.getName(k));
 }
 {% endprettify %}
 
-Again, note that no asynchrony is involved.
-Once we’ve brought reflective information about the code,
-even from a remote isolate,
-we don’t need to bounce back and forth.
 
 What if we want to invoke static code reflectively?
 We can call invoke() on a ClassMirror as well.
 
 {% prettify dart %}
-cm.invoke('noise', []); // Returns a Future on an InstanceMirror on 42
+MyClassMirror.invoke(const Symbol('noise'), []); // Returns an InstanceMirror on 42
 {% endprettify %}
 
 In fact, invoke() is defined in class
@@ -222,19 +221,19 @@ main() {
 
   InstanceMirror myClassInstanceMirror = reflect(myClass);
   ClassMirror MyClassMirror = myClassInstanceMirror.type;
-  Future<InstanceMirror> f = myClassInstanceMirror.invoke('sum', []);
-  f.then((v) => print('sum = $v'));
+  InstanceMirror res = myClassInstanceMirror.invoke(const Symbol('sum'), []);
+  print('sum = ${res.reflectee}'));
   
-  f = MyClassMirror.invoke('noise', []);
-  f.then((v) => print('noise = $v'));
+  InstanceMirror v = MyClassMirror.invoke(const Symbol('noise'), []);
+  print('noise = ${v.reflectee}'));
   
   print('methods:');
-  Map<String, MethodMirror> map = MyClassMirror.methods;
-  map.values.forEach((MethodMirror mm) {print(mm.simpleName);});
+  Map<Symbol, MethodMirror> map = MyClassMirror.methods;
+  map.values.forEach((MethodMirror mm) {print(MirrorSystem.getName(mm.simpleName));});
   
   print('members:');
-  for (var k in MyClassMirror.members.keys) print(k);
-  MyClassMirror.setField('s', 91);
+  for (var k in MyClassMirror.members.keys) print(MirrorSystem.getName(k));
+  MyClassMirror.setField(const Symbol('s'), 91);
   print(MyClass.s);
 }
 {% endprettify %}
@@ -242,19 +241,19 @@ main() {
 And here’s the output:
 
 {% prettify %}
-sum = InstanceMirror on <7>
-noise = InstanceMirror on <42>
+sum = 7
+noise = 42
 methods:
 my_method
-sum
 noise
+sum
 members:
-s
-j
 noise
 my_method
-sum
 i
+j
+s
+sum
 91
 {% endprettify %}
 
@@ -275,7 +274,6 @@ deployed Dart applications may be subject to tree shaking and minification.
 _Tree shaking_ refers to the elimination of source code that isn’t called;
 _minification_ refers to the compaction of the code,
 which may include replacing symbols used in the original source.
-Both of these steps cannot generally detect reflective uses of code.
 
 Such optimizations are a fact of life in Dart,
 because of the need to deploy to JavaScript.
@@ -312,6 +310,17 @@ We intend provide a reliable, portable, and straightforward mechanism
 for programmers to specify that certain code
 may not be eliminated by tree shaking.
 The planned approach is to use metadata.
+
+Minification also poses a challenge, which Dart's mirror system addresses
+by using instances of Symbol to describe names used in the program. If we
+simply used strings to refer to, say, the members of a class, the minified 
+code would no longer use those same names, and reflection would fail to find
+the members when used in minified code. However, class Symbol encodes strings
+using the same minification scheme used by dart2js for program identifiers,
+so reflection works under minification. To help dart2js optimize away the
+strings, we recommend using constant Symbols as much as possible, as shown
+in the code above.
+
 
 The above should be enough to get you started using mirrors.
 There is a good deal more to the introspection API;
