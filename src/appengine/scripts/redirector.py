@@ -143,6 +143,8 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html'}),
     Route('/codelab', RedirectHandler,
       defaults={'_uri': '/codelabs/web-ui-writer/codelab.pdf'}),
+    Route('/tools/analyzer', RedirectHandler,
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html'}),
     Route('/atom.xml', RedirectHandler,
       defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
     Route('/+', RedirectHandler,

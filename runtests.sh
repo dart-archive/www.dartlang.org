@@ -8,35 +8,12 @@ WARNINGS=0
 FAILURES=0
 
 #####
-# Run doc_code_verify.dart. You need to have it in your PATH:
-#
-#     git clone https://github.com/dart-lang/doc-code-verify.git
-#     export PATH=$PATH:doc-code-verify/bin
-# 
-# I'm doing this first because it's very fast.
-
-echo
-echo "Running doc_code_verify.dart..."
-for dir in src/site/articles/*
-do
-  if [ -d "$dir/code" ]; then
-    doc_code_verify.dart "$dir" "$dir/code"
-    exit_code=$?
-    if [ $exit_code -ne "0" ]; then
-      let WARNINGS++
-    else
-      let PASSING++
-    fi
-  fi
-done    
-
-#####
 # Type Analysis
 
-ANA="dart_analyzer --extended-exit-code"
+ANA="dartanalyzer"
 
 echo
-echo "Type Analysis, running dart_analyzer..."
+echo "Type Analysis, running dartanalyzer..."
 
 for dir in src/site/articles/*/code/
 do
@@ -52,6 +29,7 @@ do
   files="$dir*.dart"
   for file in $files
   do
+    echo ""
     results=`$cmd $file 2>&1`
     exit_code=$?
     if [ $exit_code -eq 2 ]; then
