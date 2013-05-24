@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 3: Add an Element to the DOM"
+title: "Target 3: Add Elements to the DOM"
 description: "You have an Element object, now what?"
 has-permalinks: true
 tutorial:

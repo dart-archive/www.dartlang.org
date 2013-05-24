@@ -10,7 +10,7 @@ tutorial:
   id: tut-home
 article:
   written_on: 2012-10-01
-  updated_on: 2013-04-30
+  updated_on: 2013-05-25
   collection: everyday-dart
 ---
 
@@ -63,6 +63,15 @@ You don't need to know JavaScript or the DOM
 The DOM is key to web programming
 and you will learn about it here,
 starting with the basic concepts in Target 2.
+
+<hr>
+
+<div id="target-group" markdown="1">
+<i class="icon-star"> Check out the newest target on forms,
+inputs, and client-server interaction:
+[ Target 10: Get input from a form](forms/).
+This target puts together the concepts from the first 9 targets.
+</div>
 
 <hr>
 
@@ -125,9 +134,7 @@ you can get started using web components and templates now.
 of installing the Web UI package and
 setting up Dart Editor to automate the build process.
 Then it shows you how to use one- and two- way data binding
-to embed mutable Dart data in your web page
-and describes the use of watchers to keep the UI
-in sync with the data.
+to synchronize Dart data with UI elements.
 Finally, you learn about template expressions
 and declaratively attaching event handlers to UI elements.
 
@@ -137,15 +144,13 @@ and declaratively attaching event handlers to UI elements.
 : This target shows how to use Web UI templates
 to conditionally activate UI elements.
 It also shows you how to use template loops to
-create a UI based on a collection of Dart objects.
+create a UI based on an Iterable Dart object, such as a list or map.
 <hr>
 
 <img src="web-ui-icon.png" width="48" height="48"> [ Target 8: Define a Custom DOM Tag](custom-elements/)
 : Continuing your introduction to the Web UI package,
 this target shows you how to use custom elements to
 define a new DOM tag.
-Custom elements are one feature
-of the Web Components model proposed by the W3C consortium.
 
 </div>
 <hr>
@@ -155,6 +160,19 @@ of the Web Components model proposed by the W3C consortium.
 either from a static file or from a server.
 Web data are often formatted using JSON (JavaScript Object Notation)&mdash;a
 text based, human friendly data format.
+
+<hr>
+
+<img src="new-icon.png" width="48" height="48" alt="Dart"> [ Target 10: Get input from a form](forms/)
+: Most Web apps use forms and input elements to 
+gather data from the user and submit that data to a server.
+The example in this target has a client-server pair
+that shows how to use forms and input elements,
+and how clients and servers use the classes
+in the Dart libraries to communicate.
+This target brings together a lot of the information you learned in
+the other targets, including the use of Web UI to sync
+the data in the form with Dart data.
 
 <div>
   <hr>
@@ -173,7 +191,7 @@ text based, human friendly data format.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:xx-small">Version: 30 Apr 2013</p>
+  <p style="font-size:xx-small">Version: 25 May 2013 (Happy Birthday, Sophie!)</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

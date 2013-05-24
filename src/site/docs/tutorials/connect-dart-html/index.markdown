@@ -615,7 +615,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/add-elements/" class="pull-right">Add an Element to the DOM <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/add-elements/" class="pull-right">Add Elements to the DOM <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

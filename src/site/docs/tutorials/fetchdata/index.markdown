@@ -469,7 +469,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/forms/" class="pull-right">Get input from a form <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

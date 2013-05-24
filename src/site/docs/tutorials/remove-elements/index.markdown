@@ -210,7 +210,7 @@ it returns no value and takes an Event object as a parameter.
 
 <div class="row">
   <div class="span3">
-  <a href="/docs/tutorials/add-elements/"><i class="icon-chevron-left"> </i> Add an Element to the DOM</a>
+  <a href="/docs/tutorials/add-elements/"><i class="icon-chevron-left"> </i> Add Elements to the DOM</a>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
