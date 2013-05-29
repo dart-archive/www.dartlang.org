@@ -191,7 +191,7 @@ provide support for testing your web or command-line app.
 If your code is open source,
 try drone.io for continuous testing.
 
-* [dart_analyzer: The Static Analyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html)
+* [dartanalyzer: The Static Analyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html)
 * [Unit Testing with Dart](/articles/dart-unit-tests/)
 * [drone.io](http://drone.io)
 
