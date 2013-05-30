@@ -222,9 +222,8 @@ assert(iMeantToDoThis.isNaN);</pre></div><div class="sect2"><div class="titlepag
       elements just as you would in JavaScript:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var list = [1,2,3];
 assert(list.length == 3);
-assert(list[1] == 2);</pre><p>The List type has many handy methods for manipulating lists.
-      For more information
-      about lists, see <a class="xref" href="ch02.html#generics" title="Generics">the section called “Generics”</a> and <a class="xref" href="ch03.html#ch03-collections" title="Collections">the section called “Collections”</a>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="maps"></a>Maps</h3></div></div></div><p>In general, a map is an object that associates keys and values.
+assert(list[1] == 2);</pre><p>The List type has many handy methods for manipulating lists. For
+      more information about lists, see <a class="xref" href="ch02.html#generics" title="Generics">the section called “Generics”</a> and <a class="xref" href="ch03.html#ch03-collections" title="Collections">the section called “Collections”</a>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="maps"></a>Maps</h3></div></div></div><p>In general, a map is an object that associates keys and values.
       Dart support for maps is provided by map literals and the <a class="ulink" href="http://api.dartlang.org/dart_core/Map.html" target="_top">Map</a>
       type.</p><p>Here’s a simple Dart map:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var gifts = {                         // A map literal
@@ -280,11 +279,7 @@ assert(gifts.length == 2);</pre><p>For more information about maps, see <a class
     parameters.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="functions-optional-parameters"></a>Optional Parameters</h3></div></div></div><p>Optional parameters can be either positional or named, but not
       both.</p><p>Both kinds of optional parameter can have default values. The
       default values must be compile-time constants such as literals. If no
-      default value is provided, the value is <code class="literal">null</code>.</p><p>If you need to know whether the caller passed in a value for an
-      optional parameter, use the syntax <code class="literal">?<em class="replaceable"><code>param</code></em></code>:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>if (?device) {    // Returns true if the caller specified the parameter.
-  // ...The user set the value. Do something with it...
-}</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="functions-optional-named-parameters"></a>Optional named parameters</h4></div></div></div><p>When calling a function, you can specify named parameters using
+      default value is provided, the value is <code class="literal">null</code>.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="functions-optional-named-parameters"></a>Optional named parameters</h4></div></div></div><p>When calling a function, you can specify named parameters using
         <code class="literal"><em class="replaceable"><code>paramName</code></em>:
         <em class="replaceable"><code>value</code></em></code>. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>enableFlags(bold: true, hidden: false);</pre><p>When defining a function, use <code class="literal">{<em class="replaceable"><code>param1</code></em>,
@@ -411,10 +406,9 @@ main() {
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-functions-return-values"></a>Return Values</h3></div></div></div><p>All functions return a value. If no return value is specified, the
       statement <code class="literal">return null;</code> is implicitly
       appended to the function body.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="operators"></a>Operators</h2></div></div></div><p>Dart defines the operators shown in <a class="xref" href="ch02.html#operator_table" title="Table 2.2. Operators and their precedence">Table 2.2, “Operators and their precedence”</a>. You can override many of these operators, as
-    described in <a class="xref" href="ch02.html#classes-operators" title="Overridable Operators">the section called “Overridable Operators”</a>.</p><div class="table"><a name="operator_table"></a><p class="title"><b>Table 2.2. Operators and their precedence</b></p><div class="table-contents"><table summary="Operators and their precedence" border="1"><colgroup><col><col></colgroup><thead><tr><th>Description</th><th>Operator</th></tr></thead><tbody><tr><td>unary postfix and argument definition test</td><td><em class="replaceable"><code>expr</code></em>++
+    described in <a class="xref" href="ch02.html#classes-operators" title="Overridable Operators">the section called “Overridable Operators”</a>.</p><div class="table"><a name="operator_table"></a><p class="title"><b>Table 2.2. Operators and their precedence</b></p><div class="table-contents"><table summary="Operators and their precedence" border="1"><colgroup><col><col></colgroup><thead><tr><th>Description</th><th>Operator</th></tr></thead><tbody><tr><td>unary postfix</td><td><em class="replaceable"><code>expr</code></em>++
                <em class="replaceable"><code>expr</code></em>--    ()
-               []    .   
-            ?<em class="replaceable"><code>identifier</code></em></td></tr><tr><td>unary prefix</td><td>-<em class="replaceable"><code>expr</code></em>
+               []    .</td></tr><tr><td>unary prefix</td><td>-<em class="replaceable"><code>expr</code></em>
                !<em class="replaceable"><code>expr</code></em>   
             ~<em class="replaceable"><code>expr</code></em>   
             ++<em class="replaceable"><code>expr</code></em>   
@@ -483,12 +477,11 @@ assert(a == b);  // -1 == -1
 a = 0;
 b = a--;         // Decrement a AFTER b gets its value.
 assert(a != b) ; // -1 != 0</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="op-equality"></a>Equality and Relational Operators</h3></div></div></div><div class="table"><a name="equality_operator_table"></a><p class="title"><b>Table 2.5. Equality and relational operators</b></p><div class="table-contents"><table summary="Equality and relational operators" border="1"><colgroup><col><col></colgroup><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td>==</td><td>Equal; see discussion below</td></tr><tr><td>!=</td><td>Not equal</td></tr><tr><td>&gt;</td><td>Greater than</td></tr><tr><td>&lt;</td><td>Less than</td></tr><tr><td>&gt;=</td><td>Greater than or equal to</td></tr><tr><td>&lt;=</td><td>Less than or equal to</td></tr></tbody></table></div></div><br class="table-break"><p>To test whether two objects <em class="replaceable"><code>x</code></em> and
-      <em class="replaceable"><code>y</code></em> represent the same thing, use the <code class="literal">==</code> operator.
-      (In the rare case
-      where you need to know whether two objects are the exact same object,
-      use the <code class="literal"><a class="ulink" href="http://api.dartlang.org/dart_core.html#identical" target="_top">identical()</a></code>
-      function instead.)
-      Here’s how the <code class="literal">==</code> operator works:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>If <em class="replaceable"><code>x</code></em> or
+      <em class="replaceable"><code>y</code></em> represent the same thing, use the <code class="literal">==</code> operator. (In the rare case where you need
+      to know whether two objects are the exact same object, use the
+      <code class="literal"><a class="ulink" href="http://api.dartlang.org/dart_core.html#identical" target="_top">identical()</a></code>
+      function instead.) Here’s how the <code class="literal">==</code>
+      operator works:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>If <em class="replaceable"><code>x</code></em> or
           <em class="replaceable"><code>y</code></em> is null, return true if both are null,
           and false if only one is null.</p></li><li class="listitem"><p>Return the result of the method invocation <code class="literal"><em class="replaceable"><code>x</code></em>.==(<em class="replaceable"><code>y</code></em>)</code>.
           (That’s right, operators such as <code class="literal">==</code> are methods that are invoked on their
@@ -545,8 +538,7 @@ assert((value &gt;&gt; 4)       == 0x02);  // Shift right</pre></div><div class=
               list</td></tr><tr><td><em class="replaceable"><code>expr1</code></em> ? <em class="replaceable"><code>expr2</code></em> : <em class="replaceable"><code>expr3</code></em></td><td>Conditional</td><td>If <em class="replaceable"><code>expr1</code></em> is true, executes
               <em class="replaceable"><code>expr2</code></em>; otherwise, executes
               <em class="replaceable"><code>expr3</code></em></td></tr><tr><td>.</td><td>Member access</td><td>Refers to a property of an expression; example: <code class="literal">foo.bar</code> selects property <code class="literal">bar</code> from expression <code class="literal">foo</code></td></tr><tr><td>..</td><td>Cascade</td><td>Allows you to perform multiple
-              operations on the members of a single object; described in <a class="xref" href="ch02.html#classes" title="Classes">the section called “Classes”</a></td></tr><tr><td>?<em class="replaceable"><code>identifier</code></em></td><td>Argument definition test</td><td>Tests whether the caller specified an optional parameter;
-              described in <a class="xref" href="ch02.html#functions-optional-parameters" title="Optional Parameters">the section called “Optional Parameters”</a></td></tr></tbody></table></div></div><br class="table-break"></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="control-flow-statements"></a>Control Flow Statements</h2></div></div></div><p>You can control the flow of your Dart code using any of the
+              operations on the members of a single object; described in <a class="xref" href="ch02.html#classes" title="Classes">the section called “Classes”</a></td></tr></tbody></table></div></div><br class="table-break"></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="control-flow-statements"></a>Control Flow Statements</h2></div></div></div><p>You can control the flow of your Dart code using any of the
     following:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><code class="literal">if</code> and <code class="literal">else</code></p></li><li class="listitem"><p><code class="literal">for</code> loops</p></li><li class="listitem"><p><code class="literal">while</code> and <code class="literal">do</code>-<code class="literal">while</code>
         loops</p></li><li class="listitem"><p><code class="literal">break</code> and <code class="literal">continue</code></p></li><li class="listitem"><p><code class="literal">switch</code> and <code class="literal">case</code></p></li><li class="listitem"><p><code class="literal">assert</code></p></li></ul></div><p>You can also affect the control flow using <code class="literal">try-catch</code> and <code class="literal">throw</code>, as explained in <a class="xref" href="ch02.html#exceptions" title="Exceptions">the section called “Exceptions”</a>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="if-else"></a>If and Else</h3></div></div></div><p>Dart supports <code class="literal">if</code> statements
       with optional <code class="literal">else</code> statements, as the
