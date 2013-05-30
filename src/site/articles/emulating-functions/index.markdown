@@ -74,10 +74,31 @@ with the following signature:
 {% prettify dart %}
 external static apply(Function function,
                       List positionalArguments,
-                      [Map<String, dynamic> namedArguments]);
+                      [Map<Symbol, dynamic> namedArguments]);
 {% endprettify %}
 
-The apply() function allows functions to be called in generic fashion.
+The apply() function allows functions to be called in generic fashion. The
+last argument is potional, and is only needed if the function we mean to
+call takes named arguments.  These are provided via map from argument names to
+their values. One thing to pay attention to is that names are described
+via instances of class [Symbol](http://api.dartlang.org/docs/releases/latest/dart_core/Symbol.html).
+
+
+## Symbols
+
+You can create symbols from strings, as in
+
+{% prettify dart %}
+new Symbol('myFavoriteMethodName');
+{% endprettify %}
+
+If possible, it's best to create constant symbol objects
+
+{% prettify dart %}
+const Symbol('myFavoriteMethodName');
+{% endprettify %}
+
+this helps dart2js minfy your code.
 
 
 ## Function types
@@ -96,31 +117,39 @@ Therefore, we decree that an object is a member of a function type if the
 object’s class has a call() method and that method is a member of the function
 type.
 
-## Interactions with noSuchMethod()
+## Interactions with mirrors and noSuchMethod()
 
 In Dart, you can customize how objects react to methods that are not explicitly
 defined in their class chain by overriding noSuchMethod(). Here's an example
 showing how you could use function emulation inside noSuchMethod():
 
 {% prettify dart %}
-noSuchMethod(InvocationMirror msg) =>
-    msg.memberName == 'foo' ? msg.invokeOn(bar())
+noSuchMethod(Invocation msg) =>
+    msg.memberName == const Symbol('foo') ?
+                            reflect(bar()).delegate(msg)
                             : Function.apply(baz,
                                 msg.positionalArguments,
                                 msg.namedArguments);
 {% endprettify %}
 
-In the second line, `invokeOn()` handles the common case where you want to
+In the third line, we handles the common case where you want to
 forward the call to a particular object (in this case, the result of `bar()`).
+We obtain an 
+[InstanceMirror](http://api.dartlang.org/docs/releases/latest/dart_mirrors/InstanceMirror.html) 
+on the object using the `reflect()` function
+of [dart:mirrors])(http://api.dartlang.org/docs/releases/latest/dart_mirrors.html).
+Then we forward the call described by [msg] using the `delegate()` method of 
+[InstanceMirror](http://api.dartlang.org/docs/releases/latest/dart_mirrors/InstanceMirror.html).
+
 The remaining lines handle the case where you want to forward just the parameters to
 another function. If you know `baz` doesn't take any named arguments,
 then that code can instead be
 `Function.apply(baz, msg.positionalArguments)`.
 
 The only argument to noSuchMethod() is an
-[InvocationMirror](http://api.dartlang.org/dart_core/InvocationMirror.html).
+[Invocation](http://api.dartlang.org/docs/releases/latest/dart_core/Invocation.html).
 
-The boolean properties of InvocationMirror identify the syntactic form of the
+The boolean properties of Invocation identify the syntactic form of the
 method invocation, as the following table shows.
 
 <!-- TODO: move this to stylesheet -->
