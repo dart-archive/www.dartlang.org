@@ -1,3 +1,5 @@
+import 'dart:mirrors';
+
 typedef BinaryFunction(a,b);
 
 class WannabeFunction {
@@ -30,16 +32,18 @@ class NsmTester {
 
 void main() {
   var wf = new WannabeFunction();
-  wf(3, 4); // 7
+  assert(wf(3, 4) == 7);
 
   assert(new WannabeFunction() is BinaryFunction);
 
   // We describe the signature of apply() in the article. These lines check to
   // make sure that that signature hasn't changed.
   var f = (String arg1, String arg2, {String arg3: '!'}) {};
-  Function.apply(f, ['hello', 'world'], {const Symbol('arg3'): '!!'});
+  var namedArgs = new Map<Symbol, String>();
+  namedArgs[const Symbol('arg3')] = '!!';
+  Function.apply(f, ['hello', 'world'], namedArgs);
 
   NsmTester nsm = new NsmTester();
-  nsm.foo(); // Produces warning.
+  nsm.foo();  // Produces warning.
   nsm.bleh(); // Produces warning.
 }

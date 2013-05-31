@@ -7,7 +7,7 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-01-01
-  updated_on: 2012-11-01
+  updated_on: 2013-05-30
   collection: language-details
 ---
 
@@ -16,7 +16,7 @@ article:
 
 <em>Written by Gilad Bracha <br>
 January 2012
-(updated November 2012)</em>
+(updated May 2013)</em>
 
 This document describes how to define Dart classes
 that behave like functions.
@@ -78,7 +78,7 @@ external static apply(Function function,
 {% endprettify %}
 
 The apply() function allows functions to be called in generic fashion. The
-last argument is potional, and is only needed if the function we mean to
+last argument is positional, and is only needed if the function we mean to
 call takes named arguments.  These are provided via map from argument names to
 their values. One thing to pay attention to is that names are described
 via instances of class [Symbol](http://api.dartlang.org/docs/releases/latest/dart_core/Symbol.html).
@@ -86,19 +86,19 @@ via instances of class [Symbol](http://api.dartlang.org/docs/releases/latest/dar
 
 ## Symbols
 
-You can create symbols from strings, as in
+You can create symbols from strings:
 
 {% prettify dart %}
 new Symbol('myFavoriteMethodName');
 {% endprettify %}
 
-If possible, it's best to create constant symbol objects
+If possible, create constant symbol objects:
 
 {% prettify dart %}
 const Symbol('myFavoriteMethodName');
 {% endprettify %}
 
-this helps dart2js minfy your code.
+Using constant symbols helps dart2js minify your code.
 
 
 ## Function types
@@ -132,7 +132,7 @@ noSuchMethod(Invocation msg) =>
                                 msg.namedArguments);
 {% endprettify %}
 
-In the third line, we handles the common case where you want to
+The third line handles the common case where you want to
 forward the call to a particular object (in this case, the result of `bar()`).
 We obtain an 
 [InstanceMirror](http://api.dartlang.org/docs/releases/latest/dart_mirrors/InstanceMirror.html) 
@@ -148,7 +148,6 @@ then that code can instead be
 
 The only argument to noSuchMethod() is an
 [Invocation](http://api.dartlang.org/docs/releases/latest/dart_core/Invocation.html).
-
 The boolean properties of Invocation identify the syntactic form of the
 method invocation, as the following table shows.
 
@@ -202,11 +201,8 @@ was present, it would be closurized and returned.
 
 ## Summary
 
-This document describes how to define Dart classes that behave like functions.
-This functionality will be supported in Dart starting with the M2 release.
-
-Here is what you'll need to know in order to
-implement your own function type in Dart once the feature is implemented:
+Here is what you need to know to
+implement your own function type in Dart:
 
 1.  Define a class with a method named **call**.
 1.  Implement the call() method to define
