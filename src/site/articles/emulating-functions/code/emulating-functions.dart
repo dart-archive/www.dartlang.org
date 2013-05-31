@@ -20,8 +20,9 @@ class NsmTester {
     print('baz: not foo');
   }
 
-  noSuchMethod(InvocationMirror msg) =>
-    msg.memberName == 'foo' ? msg.invokeOn(bar())
+  noSuchMethod(Invocation msg) =>
+    msg.memberName == const Symbol('foo') ? 
+                            reflect(bar()).delegate(msg)
                             : Function.apply(baz,
                                 msg.positionalArguments,
                                 msg.namedArguments);
@@ -36,7 +37,7 @@ void main() {
   // We describe the signature of apply() in the article. These lines check to
   // make sure that that signature hasn't changed.
   var f = (String arg1, String arg2, {String arg3: '!'}) {};
-  Function.apply(f, ['hello', 'world'], {'arg3': '!!'});
+  Function.apply(f, ['hello', 'world'], {const Symbol('arg3'): '!!'});
 
   NsmTester nsm = new NsmTester();
   nsm.foo(); // Produces warning.
