@@ -8,12 +8,15 @@ rel:
 has-permalinks: true
 article:
   written_on: 2013-03-07
+  updated_on: 2013-05-30
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 
-_Written by Shailen Tuli, March 2013_
+_Written by Shailen Tuli
+<br>
+March 2013 (updated May 2013)_
 
 This article covers the subject of error handling when dealing with Futures.
 If you are unfamiliar with the general concepts behind Futures, we
@@ -118,10 +121,10 @@ It is common to have a succession of `then()` calls, and catch errors
 generated from any part of the chain using `catchError()`:
 
 {% prettify dart %}
-Future<String> one()   => new Future.immediate("from one");
-Future<String> two()   => new Future.immediateError("error from two");
-Future<String> three() => new Future.immediate("from three");
-Future<String> four()  => new Future.immediate("from four");
+Future<String> one()   => new Future.value("from one");
+Future<String> two()   => new Future.error("error from two");
+Future<String> three() => new Future.value("from three");
+Future<String> four()  => new Future.value("from four");
 
 void main() {
   one()                                   // Future completes with "from one".
@@ -328,15 +331,15 @@ Because using `catchError()` does not capture the error, a client of
 `parseAndRead()` would implement a separate error-handling strategy for this
 error.
 
-### Solution: Using Future.of() to wrap your code
+### Solution: Using Future.sync() to wrap your code
 
 A common pattern for ensuring that no synchronous error is accidentally
-thrown from a function is to wrap the function body inside a `new Future.of()`
+thrown from a function is to wrap the function body inside a `new Future.sync()`
 callback:
 
 {% prettify dart %}
 Future<int> parseAndRead(data) {
-  return new Future.of(() {
+  return new Future.sync(() {
     var filename = obtainFileName(data);         // Could throw.
     File file = new File(filename);
     return file.readAsString().then((contents) {
@@ -346,13 +349,13 @@ Future<int> parseAndRead(data) {
 }
 {% endprettify %}
 
-If the callback returns a non-Future value, `Future.of()`'s Future completes
+If the callback returns a non-Future value, `Future.sync()`'s Future completes
 with that value. If the callback throws (as it does in the example
 above), the Future completes with an error. If the callback itself returns a
-Future, the value or the error of that Future completes `Future.of()`'s
+Future, the value or the error of that Future completes `Future.sync()`'s
 Future.
 
-With code wrapped within `Future.of()`, `catchError()` can handle all errors:
+With code wrapped within `Future.sync()`, `catchError()` can handle all errors:
 
 {% prettify dart %}
 void main() {
@@ -367,13 +370,13 @@ void main() {
 //   <error from obtainFileName>
 {% endprettify %}
 
-`Future.of()` makes your code resilient against uncaught exceptions. If your
+`Future.sync()` makes your code resilient against uncaught exceptions. If your
 function has a lot of code packed into it, chances are that you could be doing
 something dangerous without realizing it:
 
 {% prettify dart %}
 Future myFunc() {
-  return new Future.of(() {
+  return new Future.sync(() {
     var x = someFunc();     // Unexpectedly throws in some rare cases.
     var y = 10 / x;         // x should not equal 0.
     ...
@@ -381,5 +384,5 @@ Future myFunc() {
 }
 {% endprettify %}
 
-`Future.of()` not only allows you to handle errors you know might occur, but
+`Future.sync()` not only allows you to handle errors you know might occur, but
 also prevents errors from *accidentally* leaking out of your function.

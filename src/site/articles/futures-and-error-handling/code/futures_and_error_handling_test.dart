@@ -3,11 +3,11 @@ library future_and_error_handling_test;
 import 'dart:async';
 import 'dart:io';
 
-Future myFunc() => new Future.of(() => print('I am a future. Beep boop.'));
-Future funcThatThrows() => new Future.of(() => throw "Error!");
-Future anotherFuncThatThrows() => new Future.of(() => throw "Error!");
+Future myFunc() => new Future.sync(() => print('I am a future. Beep boop.'));
+Future funcThatThrows() => new Future.sync(() => throw "Error!");
+Future anotherFuncThatThrows() => new Future.sync(() => throw "Error!");
+Future handleAuthResponse(v) => new Future.sync(() => print(v));
 successCallback(v) => print(v);
-handleAuthResponse(v) => print(v);
 processValue(v) => print(v);
 doSomethingWith(v) => print(v);
 handleError(e) => print(e);
@@ -26,8 +26,6 @@ void wrapEverything() {
   myFunc().then(processValue)
           .catchError(handleError);
 
-
-
   myFunc()
     .then((value) {
       doSomethingWith(value);
@@ -39,7 +37,6 @@ void wrapEverything() {
 // TODO: Remove this once this is no longer code in the article.
 // abstract Future then(onValue(T value), {onError(AsyncError asyncError)})
 
-
   funcThatThrows()
     .then(successCallback, onError: (e) {
       handleError(e);          // Original error.
@@ -48,10 +45,10 @@ void wrapEverything() {
     .catchError(handleError);  // Error from within then() handled.
 
 
-  Future<String> one()   => new Future.immediate("from one");
-  Future<String> two()   => new Future.immediateError("error from two");
-  Future<String> three() => new Future.immediate("from three");
-  Future<String> four()  => new Future.immediate("from four");
+  Future<String> one()   => new Future.value("from one");
+  Future<String> two()   => new Future.error("error from two");
+  Future<String> three() => new Future.value("from three");
+  Future<String> four()  => new Future.value("from four");
 
   void main1() {
   //  void main() {
@@ -79,9 +76,10 @@ void wrapEverything() {
 
 
   void main2() {
-  //  void main() {
+//  void main() {
+    print('main');  
     handleAuthResponse({'username': 'johncage', 'age': 92})
-//      .then((_) => ...)
+      .then((_) => print('handled'))
       .catchError(handleFormatException,
                   test: (e) => e is FormatException)
       .catchError(handleAuthorizationException,
@@ -180,7 +178,7 @@ void wrapEverything() {
 
 //  Future<int> parseAndRead(data) {
   Future<int> parseAndRead2(data) {
-    return new Future.of(() {
+    return new Future.sync(() {
       var filename = obtainFileName(data);         // Could throw.
       File file = new File(filename);
       return file.readAsString().then((contents) {
@@ -191,7 +189,7 @@ void wrapEverything() {
 
 
   void main9() {
-  //  void main() {
+//    void main() {
     parseAndRead(data).catchError((e) {
       print("inside catchError");
       print(e.error);
@@ -204,7 +202,7 @@ void wrapEverything() {
 
 
   Future myFunc() {
-    return new Future.of(() {
+    return new Future.sync(() {
       var x = someFunc();     // Unexpectedly throws in some rare cases.
       var y = 10 / x;         // x should not equal 0.
 //      ...
