@@ -7,9 +7,9 @@ void main() {
         .catchError((e) => handleError(e));
 }
 
-Future expensiveA() => new Future.immediate('from expensiveA');
-Future expensiveB() => new Future.immediate('from expensiveB');
-Future expensiveC() => new Future.immediate('from expensiveC');
+Future expensiveA() => new Future.value('from expensiveA');
+Future expensiveB() => new Future.value('from expensiveB');
+Future expensiveC() => new Future.value('from expensiveC');
 
 doSomethingWith(value) {
   print(value);
