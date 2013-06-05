@@ -5,7 +5,7 @@ layout: book
 title: "Chapter 3. A Tour of the Dart Libraries from Dart: Up and Running"
 description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Running, published by O'Reilly."
 ---
-<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-asynchronous-programming">dart:async - Asynchronous Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-future-example">Using Future and Completer</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-future-error-handling">Error Handling with Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-chaining-multiple-async-methods">Chaining Multiple Asynchronous Methods</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-waiting-for-multiple-futures">Waiting for Multiple Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-9">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-minimum">Maximum and Minimum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-html">More information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-using-isolates">Using Isolates</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-json">dart:json - Encoding and Decoding Objects</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json-decoding">Decoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-json-encoding">Encoding JSON</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-uri">dart:uri - Manipulating URIs</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-uri-fully-qualified">Encoding and Decoding Fully Qualified URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-components">Encoding and Decoding URI Components</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-parsing">Parsing URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri-building">Building URIs</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-utf">dart:utf - Strings and Unicode</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-utf-decode-utf8">Decoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-encode-utf8">Encoding Strings to UTF-8 Bytes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-crypto">dart:crypto - Hash Codes and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-crypto-hash">Generating Cryptographic Hashes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-crypto-authentication">Generating Message Authentication Codes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-crypto-base64">Generating Base64 Strings</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
+<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri">URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-asynchronous-programming">dart:async - Asynchronous Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-future-example">Using Future and Completer</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-future-error-handling">Error Handling with Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-chaining-multiple-async-methods">Chaining Multiple Asynchronous Methods</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-waiting-for-multiple-futures">Waiting for Multiple Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-9">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-minimum">Maximum and Minimum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-html">More information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-using-isolates">Using Isolates</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-json">dart:json - Encoding and Decoding Objects</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json-decoding">Decoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-json-encoding">Encoding JSON</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-utf">dart:utf - Strings and Unicode</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-utf-decode-utf8">Decoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-encode-utf8">Encoding Strings to UTF-8 Bytes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
   libraries. It’s just an overview, and by no means comprehensive. Whenever
   you need more details about a class, consult the <a class="ulink" href="http://api.dartlang.org/" target="_top">Dart API reference. </a> Expect major
   changes to the Dart libraries before Dart’s first production release.</p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartcore---strings-collections-and-more"></a>dart:core - Numbers, Collections, Strings, and More</h2></div></div></div><p>The Dart core library provides a small but critical set of built-in
@@ -380,7 +380,58 @@ assert(teas.any(isDecaffeinated));
 // Use every() to check whether all the items in a collection
 // satisfy a condition.
 assert(!teas.every(isDecaffeinated));</pre><p>For a full list of methods, refer to the <a class="ulink" href="http://api.dartlang.org/dart_core/Iterable.html" target="_top">Iterable API
-        docs,</a> as well as those for List, Set, and Map.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A DateTime object is a point in time. The time zone is either UTC
+        docs,</a> as well as those for List, Set, and Map.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-uri"></a>URIs</h3></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/dart_core/Uri.html" target="_top">Uri
+      class</a> provides functions to encode and decode strings for use in
+      URIs (which you might know as <span class="emphasis"><em>URLs</em></span>). These
+      functions handle characters that are special for URIs, such as <code class="literal">&amp;</code> and <code class="literal">=</code>. The Uri class also parses and exposes the
+      components of a URI—host, port, scheme, and so on.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-uri-fully-qualified"></a>Encoding and Decoding Fully Qualified URIs</h4></div></div></div><p>To encode and decode characters <span class="emphasis"><em>except</em></span>
+        those with special meaning in a URI (such as <code class="literal">/</code>, <code class="literal">:</code>,
+        <code class="literal">&amp;</code>, <code class="literal">#</code>), use the <code class="literal">encodeFull()</code>
+        and <code class="literal">decodeFull()</code> methods. These <span class="keep-together">methods are good</span> for encoding or
+        decoding a fully qualified URI, leaving intact <span class="keep-together">special URI characters.</span></p><pre class="screen"><em><span class="remark">lang-dart
+code/ch03/encodeUri.dart
+</span></em>main() {
+  var uri = 'http://example.org/api?foo=some message';
+  var encoded = Uri.encodeFull(uri);
+  assert(encoded == 'http://example.org/api?foo=some%20message');
+
+  var decoded = Uri.decodeFull(encoded);
+  assert(uri == decoded);
+}</pre><p>Notice how only the space between <code class="literal">some</code> and <code class="literal">message</code> was encoded.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-uri-components"></a>Encoding and Decoding URI Components</h4></div></div></div><p>To encode and decode all of a string’s characters that have
+        special meaning in a URI, including (but not limited to) <code class="literal">/</code>, <code class="literal">&amp;</code>,
+        and <code class="literal">:</code>, use the
+        <code class="literal">encodeComponent()</code> and
+        <code class="literal">decodeComponent()</code> methods.</p><pre class="screen"><em><span class="remark">lang-dart
+code/ch03/encodeUriComponents.dart
+</span></em>main() {
+  var uri = 'http://example.org/api?foo=some message';
+  var encoded = Uri.encodeComponent(uri);
+  assert(encoded == 'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
+
+  var decoded = Uri.decodeComponent(encoded);
+  assert(uri == decoded);
+}</pre><p>Notice how every special character is encoded. For example,
+        <code class="literal">/</code> is encoded to <code class="literal">%2F</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-uri-parsing"></a>Parsing URIs</h4></div></div></div><p>If you have a Uri object or a URI string, you can get its parts
+        using Uri fields such as <code class="literal">path</code>. To create a Uri from
+        a string, use the <code class="literal">parse()</code> static method:</p><pre class="screen"><em><span class="remark">lang-dart
+code/ch03/parseUri.dart
+</span></em>main() {
+  var uri = Uri.parse('http://example.org:8080/foo/bar#frag');
+
+  assert(uri.scheme   == 'http');
+  assert(uri.host     == 'example.org');
+  assert(uri.path     == '/foo/bar');
+  assert(uri.fragment == 'frag');
+  assert(uri.origin   == 'http://example.org:8080');
+}</pre><p>See the <a class="ulink" href="http://api.dartlang.org/dart_core/Uri.html" target="_top">Uri API docs</a>
+        for more URI components that you can get.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-uri-building"></a>Building URIs</h4></div></div></div><p>You can build up a URI from individual parts using the
+        <code class="literal">Uri()</code> <span class="keep-together">constructor</span>:</p><pre class="programlisting"><em><span class="remark">lang-dart
+code/ch03/uriFromComponents.dart
+</span></em>main() {
+  var uri = new Uri(scheme: 'http', host: 'example.org', 
+                    path: '/foo/bar', fragment: 'frag');
+  assert(uri.toString() == 'http://example.org/foo/bar#frag');
+}</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A DateTime object is a point in time. The time zone is either UTC
       or the local time zone.</p><p>You can create DateTime objects using several constructors:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/date.dart
 </span></em>// Get the current date and time.
@@ -883,15 +934,15 @@ httpRequest.send(encodedData);
         handler. Sending JSON data to a RESTful web service is another common
         example.</p><p>Submitting data to a form handler requires you to provide
         name-value pairs as URI-encoded strings. (Information about the URI
-        API is in <a class="xref" href="ch03.html#ch03-uri" title="dart:uri - Manipulating URIs">the section called “dart:uri - Manipulating URIs”</a>.) You must also set the <code class="literal">Content-type</code> header to <code class="literal">application/x-www-form-urlencode</code> if you wish
+        class is in <a class="xref" href="ch03.html#ch03-uri" title="URIs">the section called “URIs”</a>.) You must also set the
+        <code class="literal">Content-type</code> header to <code class="literal">application/x-www-form-urlencode</code> if you wish
         to send data to a form handler.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/ch03_3_html/*
+</span></em><em><span class="remark">ch03/ch03/ch03_3_html/json-send-to-server.dart
 </span></em>import 'dart:html';
-import 'dart:uri';
-...
+
 String encodeMap(Map data) {
   return data.keys.map((k) {
-    return '${encodeUriComponent(k)}=${encodeUriComponent(data[k])}';
+    return '${Uri.encodeComponent(k)}=${Uri.encodeComponent(data[k])}';
   }).join('&amp;');
 }
 
@@ -1277,10 +1328,9 @@ main() {
         of using HttpClient:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/httpClient.dart
 </span></em>import 'dart:io';
-import 'dart:uri';
 
 main() {
-  var url = new Uri('http://127.0.0.1:8888/languages/dart');
+  var url = Uri.parse('http://127.0.0.1:8888/languages/dart');
   var httpClient = new HttpClient();
   httpClient.getUrl(url)
     .then((HttpClientRequest request) {
@@ -1340,64 +1390,6 @@ main() {
   assert(jsonText == '[{"score":40},{"score":80},'
                      '{"score":100,"overtime":true,'
                      '"special_guest":null}]');
-}</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-uri"></a>dart:uri - Manipulating URIs</h2></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/uri.html" target="_top">URI
-    library</a> provides functions to encode and decode strings for use in
-    URIs (which you might know as <span class="emphasis"><em>URLs</em></span>). These functions
-    handle characters that are special for URIs, such as <code class="literal">&amp;</code> and <code class="literal">=</code>.</p><p>Another part of the URI library is the Uri class, which parses and
-    exposes the components of a URI—domain, port, scheme, and so on.</p><p>The URI library works in both web apps and command-line apps. To use
-    it, import <code class="literal">dart:uri</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-uri-fully-qualified"></a>Encoding and Decoding Fully Qualified URIs</h3></div></div></div><p>To encode and decode characters <span class="emphasis"><em>except</em></span> those
-      with special meaning in a URI (such as <code class="literal">/</code>, <code class="literal">:</code>,
-      <code class="literal">&amp;</code>, <code class="literal">#</code>), use the top-level
-      <code class="literal">encodeUri()</code> and <code class="literal">decodeUri()</code>
-      functions. These <span class="keep-together">functions are
-      good</span> for encoding or decoding a fully qualified URI, leaving
-      intact <span class="keep-together">special URI
-      characters.</span></p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:uri';
-
-main() {
-  var uri = 'http://example.org/api?foo=some message';
-  var encoded = encodeUri(uri);
-  assert(encoded == 'http://example.org/api?foo=some%20message');
-
-  var decoded = decodeUri(encoded);
-  assert(uri == decoded);
-}</pre><p>Notice how only the space between <code class="literal">some</code> and <code class="literal">message</code> was encoded.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-uri-components"></a>Encoding and Decoding URI Components</h3></div></div></div><p>To encode and decode all of a string’s characters that have
-      special meaning in a URI, including (but not limited to) <code class="literal">/</code>, <code class="literal">&amp;</code>,
-      and <code class="literal">:</code>, use the top-level
-      <code class="literal">encodeUriComponent()</code> and
-      <code class="literal">decodeUriComponent()</code> functions.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:uri';
-
-main() {
-  var uri = 'http://example.org/api?foo=some message';
-  var encoded = encodeUriComponent(uri);
-  assert(encoded == 'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
-
-  var decoded = decodeUriComponent(encoded);
-  assert(uri == decoded);
-}</pre><p>Notice how every special character is encoded. For example,
-      <code class="literal">/</code> is encoded to <code class="literal">%2F</code>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-uri-parsing"></a>Parsing URIs</h3></div></div></div><p>You can parse a URI into its parts with the
-      <code class="literal">Uri()</code> constructor:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:uri';
-
-main() {
-  var uri = new Uri('http://example.org:8080/foo/bar#frag');
-
-  assert(uri.scheme == 'http');
-  assert(uri.domain == 'example.org');
-  assert(uri.path == '/foo/bar');
-  assert(uri.fragment == 'frag');
-  assert(uri.origin == 'http://example.org:8080');
-}</pre><p>See the <a class="ulink" href="http://api.dartlang.org/uri/Uri.html" target="_top">Uri API
-      docs</a> for more URI components that you can get.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-uri-building"></a>Building URIs</h3></div></div></div><p>You can build up a URI from individual parts using the
-      <code class="literal">Uri.fromComponents()</code> <span class="keep-together">constructor</span>:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>import 'dart:uri';
-
-main() {
-  var uri = new Uri.fromComponents(scheme: 'http', domain: 'example.org', 
-                     path: '/foo/bar', fragment: 'frag');
-  assert(uri.toString() == 'http://example.org/foo/bar#frag');
 }</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-utf"></a>dart:utf - Strings and Unicode</h2></div></div></div><p>The UTF library helps bridge the gap between strings and
     UTF-8/UTF-16/UTF-32 encodings.</p><p>This library works in both web apps and command-line apps. To use
     it, import <code class="literal">dart:utf</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-decode-utf8"></a>Decoding UTF-8 Characters</h3></div></div></div><p>Use <code class="literal">decodeUtf8()</code> to decode UTF8-encoded bytes
@@ -1434,51 +1426,7 @@ main() {
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-other"></a>Other Functionality</h3></div></div></div><p>The UTF library can decode and encode UTF-16 and UTF-32 bytes. The
       library can also convert directly to and from Unicode code points and
       UTF8-encoded bytes. For details, see the <a class="ulink" href="http://api.dartlang.org/utf.html" target="_top">API docs for the UTF
-      library.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-crypto"></a>dart:crypto - Hash Codes and More</h2></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/crypto.html" target="_top">Dart crypto
-    library</a> contains functions useful for cryptographic applications,
-    such as creating cryptographic hashes and generating hash-based message
-    authentication codes.</p><p>The crypto library works in both web apps and command-line apps. To
-    use the crypto library, import <code class="literal">dart:crypto</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-crypto-hash"></a>Generating Cryptographic Hashes</h3></div></div></div><p>With the crypto library, you can use <a class="ulink" href="http://api.dartlang.org/crypto/SHA256.html" target="_top">SHA256,</a> <a class="ulink" href="http://api.dartlang.org/crypto/SHA1.html" target="_top">SHA1,</a> or <a class="ulink" href="http://api.dartlang.org/crypto/MD5.html" target="_top">MD5</a> objects to
-      generate hashes (also known as <span class="emphasis"><em>digests</em></span> or
-      <span class="emphasis"><em>message digests</em></span>). We recommend using SHA256, but we
-      have included SHA1 and MD5 for compatibility with older systems. All
-      these <span class="keep-together">types implement</span> <a class="ulink" href="http://api.dartlang.org/crypto/Hash.html" target="_top">Hash,</a> which
-      defines the Dart interface for <a class="ulink" href="http://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_top">cryptographic
-      hash <span class="keep-together">functions</span>.</a></p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/sha256.dart
-</span></em>import 'dart:crypto';
-
-main() {
-  var sha256 = new SHA256();
-  sha256.add('message'.codeUnits);
-  var hexString = CryptoUtils.bytesToHex(sha256.close());
-  assert(hexString ==
-      'ab530a13e45914982b79f9b7e3fba994cfd1f3fb22f71cea1afbf02b460c6d1d');
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-crypto-authentication"></a>Generating Message Authentication Codes</h3></div></div></div><p>Use a hash-based message authentication code (<a class="ulink" href="http://en.wikipedia.org/wiki/HMAC" target="_top">HMAC</a>) to combine a
-      cryptographic hash function with a secret key:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/hmac.dart
-</span></em>import 'dart:crypto';
-main() {
-  var hmac = new HMAC(new SHA256(), 'secretkey'.codeUnits);
-  hmac.add('message'.codeUnits);
-  var hmacHex = CryptoUtils.bytesToHex(hmac.close());
-  assert(hmacHex ==
-      '5c3e2f56de9411068f675ef32ffa12735210b9cbfee2ba521367a3955334a343');
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-crypto-base64"></a>Generating Base64 Strings</h3></div></div></div><p>You can represent binary data as a character string by using the
-      <a class="ulink" href="http://en.wikipedia.org/wiki/Base64" target="_top">Base64</a> encoding
-      scheme. Use the <code class="literal">CryptoUtils.bytesToBase64()</code> utility
-      method to convert a list of bytes into a Base64-encoded string:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:crypto';
-import 'dart:io';
-
-main() {
-  var file = new File('icon.ico');
-  var bytes = file.readAsBytesSync();
-  var base64 = CryptoUtils.bytesToBase64(bytes);
-  assert(base64 ==
-    'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38G'
-    'IAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
-}</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-summary"></a>Summary</h2></div></div></div><p>This chapter introduced you to the most commonly used functionality
+      library.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-summary"></a>Summary</h2></div></div></div><p>This chapter introduced you to the most commonly used functionality
     in many of Dart’s built-in libraries. It didn’t cover all the built-in
     libraries, however. Other libraries you might want to look into include
     <a class="ulink" href="http://api.dartlang.org/dart_collection.html" target="_top">dart:collection,</a>
