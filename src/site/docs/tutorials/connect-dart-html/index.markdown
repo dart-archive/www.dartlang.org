@@ -72,6 +72,7 @@ for more interesting and useful web apps.
 * [Create a JavaScript launch](#mini-with-js)
 * [Give the app some style with CSS](#add-css)
 * [About CSS selectors](#about-css-selectors)
+* [Other resources](#other-resources)
 
 ##About the DOM {#dom-intro}
 
@@ -602,6 +603,34 @@ of the matching element(s) on the web page.
 The CSS rule for the RipVanWinkle paragraph
 specifies several properties;
 for example, it sets the text color to Yellow.
+
+##Other resources
+
+<ul>
+  <li>
+    <a href="/docs/dart-up-and-running/">Dart Up and Running</a>
+    provides thorough coverage of the Dart language, libraries, and tools.
+    If a topic is not covered explicitly here,
+    you can find the information you need there.
+  </li>
+  <li>
+    <a href="/docs/dart-up-and-running/contents/ch04-tools-editor.html">Dart Editor</a>,
+    an excerpt from <em>Dart Up and Running</em>,
+    provides details about using Dart Editor.
+    The excerpt includes, for example,
+    how to use Dart Editor's power features such as autocompletion and refactoring,
+    how to set up different run-time environments, and so on.
+  </li>
+  <li>
+    Also, check out
+    <a href="/docs/cookbook/">
+    <i class="icon-food"> </i> Dart Cookbook</a>,
+    where you'll find many recipes about
+    manipulating the DOM and using CSS.
+    The cookbook also has recipes about basic Dart data types,
+    such strings, lists, maps, and numbers.
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">

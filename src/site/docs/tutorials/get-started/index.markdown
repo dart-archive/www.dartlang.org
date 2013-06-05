@@ -62,6 +62,7 @@ create and run two small applications.
 * [About the HTML, CSS, and Dart triumvirate](#source-files)
 * [About main() and other top-level functions](#top-level-functions)
 * [About file naming conventions](#file-names)
+* [Other resources](#other-resources)
 
 ##Download the Dart software bundle {#download-dart}
 
@@ -543,6 +544,27 @@ Dart Editor uses the application name for:
 
 You should also follow these conventions
 when creating applications outside of Dart Editor.
+
+##Other resources
+
+<ul>
+  <li>
+    <a href="/docs/dart-up-and-running/contents/ch04-tools-editor.html">Dart Editor</a>,
+    an excerpt from
+    <a href="/docs/dart-up-and-running/">Dart Up and Running</a>,
+    provides details about using Dart Editor.
+    The excerpt includes, for example,
+    how to set up run-time environments,
+    how to use power features such as autocompletion and refactoring,
+    and so on.
+  </li>
+  <li>
+    The <a href="/docs/">Programmer's Guide</a>
+    points you to docs, articles,
+    and other resources to help you as you create,
+    test, and deploy Dart code.
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">

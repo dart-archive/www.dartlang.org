@@ -53,6 +53,36 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
+			<string>{{216, 70}, {429, 28}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>34257</integer>
+			<key>ImageID</key>
+			<integer>3</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
 			<string>{{27, 321.96902084350586}, {150, 22}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
@@ -301,7 +331,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{176.51632236700948, 163.7726908326149}, {145, 20}}</string>
+			<string>{{176.5089770790741, 163.7726908326149}, {145, 20}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -384,8 +414,8 @@
 			<integer>34261</integer>
 			<key>Points</key>
 			<array>
-				<string>{175.02813786213204, 108}</string>
-				<string>{306.07984618822633, 224.5}</string>
+				<string>{175.0267923656524, 108}</string>
+				<string>{306.06787355005997, 224.5}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -417,8 +447,8 @@
 			<integer>34259</integer>
 			<key>Points</key>
 			<array>
-				<string>{216, 90.503817911530021}</string>
-				<string>{184, 91.474084453110251}</string>
+				<string>{216, 90.987933348989145}</string>
+				<string>{184, 92.030422240213639}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -450,8 +480,8 @@
 			<integer>34258</integer>
 			<key>Points</key>
 			<array>
-				<string>{352.30800245036403, 224.5}</string>
-				<string>{422.72481372203862, 98}</string>
+				<string>{352.30511188905069, 224.5}</string>
+				<string>{422.70862657868395, 98}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -469,36 +499,6 @@
 			<dict>
 				<key>ID</key>
 				<integer>34218</integer>
-			</dict>
-		</dict>
-		<dict>
-			<key>Bounds</key>
-			<string>{{216, 70}, {429, 28}}</string>
-			<key>Class</key>
-			<string>ShapedGraphic</string>
-			<key>ID</key>
-			<integer>34257</integer>
-			<key>ImageID</key>
-			<integer>3</integer>
-			<key>Shape</key>
-			<string>Rectangle</string>
-			<key>Style</key>
-			<dict>
-				<key>fill</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-				<key>shadow</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-				<key>stroke</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -840,7 +840,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-05-23 22:48:41 +0000</string>
+	<string>2013-05-30 18:03:39 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

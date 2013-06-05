@@ -59,7 +59,7 @@ and how to use templates to define their structure.
 * [Using conditional instantiation](#using-conditional-instantiation)
 * [Using iteration with templates](#using-iteration-with-templates)
 * [Using iteration with other elements](#as-attributes)
-* [Further examples](#further-examples)
+* [Other resources](#other-resources)
 
 ##Using conditional instantiation
 
@@ -271,7 +271,7 @@ As a result of the change event,
 the observables are re-evaluated and
 the gallows UI is updated.
 
-##Further examples {#further-examples}
+##Other resources
 
 <ul>
   <li>
@@ -281,8 +281,10 @@ the gallows UI is updated.
     <a href="/docs/tutorials/custom-elements/">Define a Custom DOM Tag</a>,
     provides an example that converts numbers based on a simple ratio.
   </li>
-  <li>
-    The Dart Cookbook has many useful
+  <li> Check out
+       <a href="/docs/cookbook/">
+       <i class="icon-food"> </i> Dart Cookbook</a>.
+       You'll find several
     <a href="/docs/cookbook/#web-ui">Web UI recipes</a>.
   </li>
   <li>

@@ -63,7 +63,7 @@ and thus are subject to the browser's security restrictions.
 * [About URIs and HTTP requests](#about-uris)
 * [Using the getString() function to load a file](#using-getString-function)
 * [Using an HttpRequest object to load a file](#making-a-get-request)
-* [Further resources](#further-resources)
+* [Other resources](#other-resources)
 
 ##About JSON
 
@@ -449,13 +449,23 @@ to create the String objects specified by the JSON string.
 
 ![Parse a JSON formatted list of strings](images/json-parse.png)
 
-##Further resources
+##Other resources
 
-Check out Chris Buckett's article,
-<a href="/articles/json-web-service/"
+<ul>
+  <li> Check out
+       <a href="/docs/cookbook/">
+       <i class="icon-food"> </i> Dart Cookbook</a>.
+       You'll find many recipes related to topics in this Target,
+       including Web UI, JSON, and URIs.
+  </li>
+  <li>
+  Chris Buckett's article,
+  <a href="/articles/json-web-service/"
    target="_blank">Using Dart with JSON Web Services</a>,
-for more information and an example with source code for both
-client and server programs.
+  contains more information and an example with source code for both
+  client and server programs.
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">

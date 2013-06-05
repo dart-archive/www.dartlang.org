@@ -78,7 +78,7 @@ describe other features of the Web UI package.
 * [Binding the value of an element to a Dart variable](#two-way-data-binding)
 * [About template expressions](#template-expressions)
 * [Binding event handlers](#binding-event-handlers)
-* [Further examples](#further-examples)
+* [Other resources](#other-resources)
 
 ##About using the Web UI package {#about-web-ui}
 
@@ -353,6 +353,16 @@ the code needed to keep the HTML page in sync with this variable.
 To use `@observable`,
 the Dart code must import the Web UI package.
 
+{% comment %}
+@observable marks the variable as observable.
+If the variable points to a different object,
+you'll know thanks to @observable.
+However, if the internal value of the variable changes
+(like, list contents), @observable doesn't help you.
+You'll need to also say
+"I want to observe list contents" with toObservable().
+{% endcomment %}
+
 The value of `currentTime` changes every second
 thanks to a periodic
 <a href="http://api.dartlang.org/dart_async/Timer.html" target="_blank">Timer</a>
@@ -494,11 +504,13 @@ The event handler binding
 in that case would be written `on-click="startwatch($event)"`.
 The function would be declared `void startwatch(Event e)`.
 
-##Further examples
+##Other resources
 
 <ul>
-  <li>
-    The Dart Cookbook has many useful
+  <li> Check out
+       <a href="/docs/cookbook/">
+       <i class="icon-food"> </i> Dart Cookbook</a>.
+       You'll find several
     <a href="/docs/cookbook/#web-ui">Web UI recipes</a>.
   </li>
   <li>

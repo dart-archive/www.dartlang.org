@@ -70,7 +70,7 @@ starting with the basic concepts in Target 2.
 <i class="icon-star"> Check out the newest target on forms,
 inputs, and client-server interaction:
 [ Target 10: Get input from a form](forms/).
-This target puts together the concepts from the first 9 targets.
+This target puts together concepts from the first 9 targets.
 </div>
 
 <hr>

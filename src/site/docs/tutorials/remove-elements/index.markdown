@@ -45,6 +45,7 @@ either one at a time, or all at once.
 * [Removing an element from the DOM tree](#remove-elem)
 * [Removing all child elements from an element](#remove-all-elem)
 * [About function expressions and =>](#about-function-expressions)
+* [Other resources](#other-resources)
 
 ##Try the app {#try-app}
 
@@ -207,6 +208,27 @@ When registering event handlers,
 the function must be an EventListener.
 That is,
 it returns no value and takes an Event object as a parameter.
+
+##Other resources
+
+<ul>
+  <li>
+    Check out
+    <a href="/docs/cookbook/">
+    <i class="icon-food"> </i> Dart Cookbook</a>,
+    where you'll find many recipes about manipulating the DOM
+    and using CSS.
+    The cookbook also has recipes about basic Dart data types,
+    such strings, lists, maps, and numbers.
+  </li>
+
+  <li>
+    You can find more information about the DOM and CSS in
+    <a href="/docs/dart-up-and-running/">Dart Up and Running</a>,
+    which also provides thorough coverage of the Dart language, 
+    libraries, and tools.
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">

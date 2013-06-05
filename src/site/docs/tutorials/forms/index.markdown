@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 10: Get input from a form"
+title: "Target 10: Get Input from a Form"
 description: "Using HTML forms and input elements to send data to a server"
 has-permalinks: true
 tutorial:
@@ -10,12 +10,12 @@ tutorial:
 {% capture whats_the_point %}
 
 * Use forms with inputs to gather data from a user.
-* Use Web UI binding to sync form data and Dart data.
 * Send data to the server, declaratively or programmatically.
 * Get the response from the server with HttpRequest.
 * Handle communication asynchronously with Futures.
 * Use HttpServer to set up a server to listen on a port and host.
 * Use CORS headers to set access permissions for each request.
+* Use Web UI binding to sync form data and Dart data.
 
 {% endcapture %}
 
@@ -70,8 +70,9 @@ as email and password fields,
 color pickers, date and time widgets, and range elements.
 
 The main example in this target contains a client and a server.
-The client uses the Web UI package to present its user interface,
-which displays a form with many different kinds of input elements.
+The client uses the Web UI package to present its user interface
+(a form with many kinds of input elements),
+and keep the interface in sync with Dart data.
 The client and server communicate using
 several classes from the core Dart library,
 including streams, Futures, HttpRequest, and so on.
@@ -88,7 +89,6 @@ in particular.
 
 * [About forms, generally](#about-forms)
 * [About the slambook example, specifically](#about-the-slambook-example)
-* [Binding data to different kinds of inputs](#binding-data)
 * [Submitting a form](#submitting-a-form)
 * [Resetting a form](#resetting-a-form)
 * [Creating a server and listening on a port](#creating-a-server)
@@ -96,7 +96,8 @@ in particular.
 * [Setting CORS headers](#setting-cors-headers)
 * [Handling POST requests](#handling-post-requests)
 * [Recipe for client-server web apps](#recipe)
-* [Further resources](#further-resources)
+* [Binding data to different kinds of inputs](#binding-data)
+* [Other resources](#other-resources)
 
 ##About forms, generally {#about-forms}
 
@@ -123,7 +124,7 @@ for "Cookbook",
 another useful resource for learning about Dart.
 
 <iframe class="running-app-frame"
-        style="height:150px;width:500px;"
+        style="height:100px;width:500px;"
         src="http://dart-lang.github.com/dart-tutorials-samples/web/target10/search_form/web/search_form.html">
 </iframe>
 
@@ -149,19 +150,22 @@ Of interest are the `action` and `method` attributes.
 | method | How to send the request. In general, you should use GET to request data from a resource and POST to submit data to a server. |
 {: .table}
 
-Below is the HTML code that puts three input elements&mdash;a text field,
+And here is the HTML code that puts three input elements&mdash;a text field,
 a submit button, and a checkbox&mdash;into the form:
 
 {% prettify html %}
-<form action="http://www.google.com/search"
-      method="GET"
-      target="_blank">
-  <input type="text"     name="q" value="Cookbook">
-  <input type="submit"   value="Google Search">
+<input   type="text"     name="q"
+                         value="Cookbook" size="31" maxlength="255">
+<input   type="submit"   value="Google Search">
+<label>
   <input type="checkbox" name="sitesearch"
-         value="dartlang.org" checked> Search dartlang.org<br> 
-</form>
+                         value="dartlang.org" checked> Search dartlang.org<br>
+</label>
 {% endprettify %}
+
+The checkbox is wrapped in a label
+so that you can click either the checkbox
+or the label to change the selection.
 
 This HTML code provides some automatic behaviors.
 
@@ -175,7 +179,8 @@ This HTML code provides some automatic behaviors.
   </dd>
   <dt> name="q" </dt>
   <dt> name="sitesearch" </dt>
-  <dd markdown="1"> Specifies the name of the text field and the name of the checkbox.
+  <dd markdown="1"> Specifies the name of the text field
+       and the name of the checkbox.
 
   Within a form,
   the input elements that have names provide the data for the form.
@@ -191,6 +196,7 @@ This HTML code provides some automatic behaviors.
 http://www.google.com/search?q=Cookbook&sitesearch=dartlang.org
 {% endprettify %}
   </dd>
+
 </dl>
 
 The example is purely declarative with no Dart or JavaScript code.
@@ -284,9 +290,11 @@ The rest of this target explains the code for both the client and the server.
 
 On the client side, you learn about
 
-* Using Web UI to bind the form data to variables in the Dart program
 * Submitting the form
 * Resetting the form
+* Using Web UI to bind the form data to variables in the Dart program
+  (You've seen some data binding in previous targets. We'll talk about
+  using Web UI with HTML5 widgets at the end of this target.)
 
 On the server side, the sections cover
 
@@ -294,140 +302,9 @@ On the server side, the sections cover
 * Handling OPTIONS requests
 * Handling POST requests
 
-##Binding data to different kinds of inputs {#binding-data}
-
-The slambook sample uses the Web UI package to
-bind the values of input elements to Dart variables.
-If the user changes the value in an input element,
-the bound variable in the Dart code automatically changes.
-Or if the Dart code changes the value of the bound variable,
-the UI automatically updates.
-[Target 6: Get Started with Web UI](/docs/tutorials/web-ui/)
-provides introductory details
-about data binding with Web UI.
-
-With this example,
-you can see two-way data binding used with a variety of input elements,
-including new HTML5 elements.
-This table summarizes the two-way data binding attributes
-you can use with Web UI:
-
-| Attribute | Dart type | Input element |
-|---|---|
-| bind-value | String | any <br>with special considerations for elements <br> that allow multiple selection,<br> such as a group of radio buttons and &lt;select&gt; elements |
-| bind-selected-index | integer | a &lt;select&gt; element in which only one choice is allowed |
-| bind-checked | bool | individual radio buttons or checkboxes |
-{: .table .nowraptable}
-
-###Using bind-value with any input element
-
-The `bind-value` attribute works with any input element
-and binds the value to a Dart string.
-This example uses `bind-value` with a text field, a text area,
-a color picker, a date chooser, and a range element.
-
-![Two-way data binding with bind-value and strings](images/bind-value.png)
-
-(Note that some surrounding code has been removed for readability.)
-
-A map called `theData` in the Dart code contains the data for the form.
-The code marks the map object with `@observable` and calls `toObservable()`
-to make the bindings.
-
-The map contains a key-value pair for each input element,
-where the key is a string.
-The values in the map can be of any type
-but the values for elements bound with `bind-value` are all strings.
-The HTML refers to the items in the map
-using their Dart names (identifiers).
-For example, the value of the color picker is bound to
-`theData['favoriteColor']`.
-
-####Special case: Using bind-value with a group of radio buttons
-
-The slambook form contains three radio buttons,
-which together make a group
-because they all have the same name, `catOrDog`.
-All of the radio buttons are bound to the same string.
-Because only one radio button in a group can be selected at a time
-and each radio button has a different value,
-the bound string reflects the value of the entire group.
-
-![bind-value with a group of radio buttons](images/radio-bindings.png)
-
-####Special case: Not using bind-value with a multiple select element
-
-By default a &lt;select&gt; element allows
-only one option to be selected at a time.
-For a single selection &lt;select&gt; element,
-use bind-selected-index (explained below)
-to get the index of the selected option.
-If you want to allow the user to select multiple options,
-use the `multiple` attribute.
-
-You can't bind the value of multiple &lt;select&gt; element to a string
-because it has more than one value.
-You can't bind the &lt;select&gt; element to a map,
-and you can't use bind-checked with the &lt;option&gt; elements.
-You *can*, however,
-use a change event handler on the &lt;select&gt; element
-and manage the change of selection in your Dart code.
-
-The slambook form doesn't have an example of a multi-select element.
-Instead, you can look at a different example,
-`multiselect`.
-
-**Try it!**
-
-* Click to select one option.
-* Shift-click to select options in series.
-* Command-click to make a discontiguous selection.
-
-<iframe class="running-app-frame"
-        style="height:400px;width:500px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target10/multiselect/web/out/multiselect.html">
-</iframe>
-
-The source code for this example is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/multiselect"
-   target="_blank">multiselect</a>.
-
-Again, key-value pairs in a map contain the data.
-The keys are strings and the values are boolean.
-When the program starts,
-the Dart code selects some options
-based on the initial values in the map.
-The change handler for the select element
-updates the map whenever the user changes the selection.
-The option elements and the items in the unnumbered list
-are created declaratively using Web UI's `template repeat`
-feature.
-
-###Using bind-selected-index with a pull-down menu
-
-A &lt;select&gt; element contains one or more &lt;option&gt; elements,
-only one of which, by default, can be selected at a time.
-A single-select element is usually implemented as a pull-down menu.
-You can use the `bind-selected-index` attribute
-to bind a Dart integer to a pull-down menu.
-The integer indicates the index of the selected item.
-Indices begin at 0.
-
-![bind-selected-index with a single-selection pull-down menu](images/bind-selected.png)
-
-###Using bind-checked with checkboxes
-
-You can use the `bind-checked` attribute
-to bind a Dart boolean to a single checkbox.
-Here each checkbox is bound to a separate boolean value within a map.
-
-![bind-checked with individual checkboxes](images/bind-checked.png)
-
 ##Submitting a form
 
-Now that you've seen how the values of the input elements
-are connected to variables in the Dart program,
-let's take a look at how that data is submitted to the server.
+Let's first take a look at how that data is submitted to the server.
 
 Recall that the search_form example relies on the `action` and
 `method` attributes to set the destination and method for the form request.
@@ -892,7 +769,186 @@ and one in dart:io (for servers).
 | <a href="http://pub.dartlang.org/packages/web_ui" target="_blank">Web UI package</a> | web_ui | Data binding, templates, and custom elements |
 {: .table}
 
-##Further resources {#further-resources}
+##Binding data to different kinds of inputs {#binding-data}
+
+The slambook sample uses the Web UI package to
+bind the values of input elements to Dart variables.
+If the user changes the value in an input element,
+the bound variable in the Dart code automatically changes.
+Or if the Dart code changes the value of the bound variable,
+the UI automatically updates.
+[Target 6: Get Started with Web UI](/docs/tutorials/web-ui/)
+provides introductory details
+about data binding with Web UI.
+
+With this example,
+you can see two-way data binding used with a variety of input elements,
+including new HTML5 elements.
+This table summarizes the two-way data binding attributes
+you can use with Web UI:
+
+| Attribute | Dart type | Input element |
+|---|---|
+| bind-value | String | any <br>with special considerations for elements <br> that allow multiple selection,<br> such as a group of radio buttons and &lt;select&gt; elements |
+| bind-selected-index | integer | a &lt;select&gt; element in which only one choice is allowed |
+| bind-checked | bool | individual radio buttons or checkboxes |
+{: .table .nowraptable}
+
+###Using bind-value with any input element
+
+The `bind-value` attribute works with any input element
+and binds the value to a Dart string.
+This example uses `bind-value` with a text field, a text area,
+a color picker, a date chooser, and a range element.
+
+![Two-way data binding with bind-value and strings](images/bind-value.png)
+
+(Note that some surrounding code,
+such as that for the labels,
+has been removed for readability.)
+
+A map called `theData` in the Dart code contains the data for the form.
+The code marks the map object with `@observable` and calls `toObservable()`
+to make the bindings.
+
+The map contains a key-value pair for each input element,
+where the key is a string.
+The values in the map can be of any type
+but the values for elements bound with `bind-value` are all strings.
+The HTML refers to the items in the map
+using their Dart names (identifiers).
+For example, the value of the color picker is bound to
+`theData['favoriteColor']`.
+
+####Special case: Using bind-value with a group of radio buttons
+
+The slambook form contains three radio buttons,
+which together make a group
+because they all have the same name, `catOrDog`.
+All of the radio buttons are bound to the same string.
+Because only one radio button in a group can be selected at a time
+and each radio button has a different value,
+the bound string reflects the value of the entire group.
+
+![bind-value with a group of radio buttons](images/radio-bindings.png)
+
+####Special case: Not using bind-value with a multiple select element
+
+By default a &lt;select&gt; element allows
+only one option to be selected at a time.
+For a single selection &lt;select&gt; element,
+use bind-selected-index (explained below)
+to get the index of the selected option.
+If you want to allow the user to select multiple options,
+use the `multiple` attribute.
+
+You can't bind the value of multiple &lt;select&gt; element to a string
+because it can have more than one value at a time.
+You can't bind the &lt;select&gt; element to a map.
+And you can't use bind-checked with the &lt;option&gt; elements.
+You *can*, however,
+use a change event handler on the &lt;select&gt; element
+and manage the change of selection in your Dart code.
+
+The slambook form doesn't have an example of a multi-select element.
+Instead, you can look at a different example,
+`multiselect`.
+
+**Try it!**
+
+* Click to select one option.
+* Shift-click to select options in series.
+* Command-click to make a discontiguous selection.
+
+<iframe class="running-app-frame"
+        style="height:400px;width:500px;"
+        src="http://dart-lang.github.com/dart-tutorials-samples/web/target10/multiselect/web/out/multiselect.html">
+</iframe>
+
+The source code for this example is available on github:
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/multiselect"
+   target="_blank">multiselect</a>.
+
+Key-value pairs in a map called `books` contain the data
+for the &lt;select&gt; element.
+The keys are strings and the values are boolean.
+
+{% prettify dart %}
+final Map<String, bool> books = toObservable(
+    { 'The Cat in the Hat': true, 'War and Peace': false,
+      'Pride and Prejudice': true, 'On the Road': true,
+      'The Hunger Games': true, 'The Java Tutorial':  false,
+      'The Joy of Cooking': false, 'Goodnight Moon': true }
+);
+{% endprettify %}
+
+Using `template repeat` from Web UI,
+the HTML code puts &lt;option&gt; elements in the 
+&lt;select&gt; element based on the Dart map.
+Instead of binding the values of the &lt;option&gt; elements
+to the `books` map,
+the HTML code specifies a change event handler
+for the &lt;select&gt; element.
+
+{% prettify html %}
+<select multiple
+        on-change="changeselected($event)"
+        id="bookselector">
+    <option template repeat="key in books.keys" value="{{key}}">{{key}}</option>
+</select>
+{% endprettify %}
+
+The change handler for the select element
+updates the map whenever the user changes the selection.
+
+{% prettify dart %}
+void changeselected(Event e) {
+  // Get the selected elements.
+  List<OptionElement> options =
+      (query('#bookselector') as SelectElement).selectedOptions;
+  // Set everything in books map to false temporarily.
+  books.forEach((k, v) => books[k] = false);
+  // Set true in books map for selected items.
+  options.forEach((e) => books[e.value] = true);
+}
+{% endprettify %}
+
+Using `template repeat`,
+the page displays the list of selected books in
+an unnumbered list element at the bottom of the window.
+This iterative template specifies
+a Dart getter, called `booksselected`,
+that dynamically creates a List object containing the keys
+to the selected books.
+
+![Display list of selected option elements](images/multiselect1.png)
+
+The `booksselected` getter has an implied dependency on
+the `books` map, because the getter uses the map.
+When `books` changes, the UI updates the unnumbered list of selected books.
+
+###Using bind-selected-index with a pull-down menu
+
+A &lt;select&gt; element contains one or more &lt;option&gt; elements,
+only one of which, by default, can be selected at a time.
+A single-select element is usually implemented as a pull-down menu.
+You can use the `bind-selected-index` attribute
+to bind a Dart integer to a pull-down menu.
+The integer indicates the index of the selected item.
+Indices begin at 0.
+
+![bind-selected-index with a single-selection pull-down menu](images/bind-selected.png)
+
+###Using bind-checked with checkboxes
+
+You can use the `bind-checked` attribute
+to bind a Dart boolean to a single checkbox.
+Here each checkbox is bound to a separate boolean value within a map.
+
+![bind-checked with individual checkboxes](images/bind-checked.png)
+
+
+##Other resources
 
 <ul>
   <li> The code that handles the communication between the
@@ -900,17 +956,26 @@ and one in dart:io (for servers).
        by Chris Buckett in
        <a href="/articles/json-web-service/">Using Dart with JSON Web Services</a>.
   </li>
+  <li> Check out
+       <a href="/docs/cookbook/">
+       <i class="icon-food"> </i> Dart Cookbook</a>.
+       You'll find many recipes related to topics in this Target,
+       including Web UI, JSON, and URIs.
+  </li>
   <li> The previous target,
        <a href="/docs/tutorials/fetchdata/">Fetch Data Dynamically</a>,
        contains a more basic client program that relies on the server
        within Dart Editor (port 3030 on localhost),
        to serve the contents of a JSON file.
   </li>
-  <li> The three Web UI targets contain several examples of using Web UI
-       for data binding, click handler binding,
-       and conditionally creating DOM elements.
-  </li>
 </ul>
+
+###What next?
+
+Try our
+<a href="/codelabs/web-ui-writer/codelab.pdf" target="_blank"><i class="icon-beaker"> </i>Codelab</a>.
+In this step-by-step guide, you’ll build a simple,
+single­-page, modern web app for desktop and mobile.
 
 <div class="row">
   <div class="span3">

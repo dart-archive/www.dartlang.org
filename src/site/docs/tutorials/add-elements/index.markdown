@@ -71,6 +71,7 @@ rather than on Node.
 * [Adding an element to the DOM tree](#add-elem)
 * [Styling the page elements](#about-css)
 * [Moving elements within the DOM tree](#moving-elements)
+* [Other resources](#other-resources)
 
 ##Copy and run the todo app {#copy-app}
 
@@ -356,6 +357,27 @@ adding the button to a different parent
 automatically removes it from its previous parent.
 
 ![The mouse click handler adds the button to the word, thus moving it](images/anagram-move.png)
+
+##Other resources
+
+<ul>
+  <li>
+    Check out
+    <a href="/docs/cookbook/">
+    <i class="icon-food"> </i> Dart Cookbook</a>,
+    where you'll find many recipes about manipulating the DOM
+    and using CSS.
+    The cookbook also has recipes about basic Dart data types,
+    such strings, lists, maps, and numbers.
+  </li>
+
+  <li>
+    You can find more information about the DOM and CSS in
+    <a href="/docs/dart-up-and-running/">Dart Up and Running</a>,
+    which also provides thorough coverage of the Dart language, 
+    libraries, and tools.
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">

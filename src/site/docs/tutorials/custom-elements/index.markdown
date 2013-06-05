@@ -52,13 +52,14 @@ A previous target,
 shows you how to install the Web UI package.
 
 * [About custom elements](#about-custom-elements)
+* [Connecting the files](#connecting-the-files)
 * [Instantiating a custom element](#instantiating-a-custom-element)
 * [Defining a custom element](#defining-a-custom-element)
 * [Providing a Dart script](#providing-a-dart-script)
 * [Capturing content from the HTML page](#capturing-content-from-the-html-page)
 * [Using two-way data binding](#using-two-way-data-binding)
 * [Handling events](#handling-events)
-* [Further examples](#further-examples)
+* [Other resources](#other-resources)
 
 ##About custom elements
 
@@ -98,6 +99,7 @@ Try it! Type a number into one of the fields and press return.
 
 You can find the complete source code for this sample on github at
 <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/drseuss" target="_blank">drseuss</a>.
+
 This repository includes the pubspec.yaml and build.dart
 files necessary to install the Web UI package and build the app.
 Refer to
@@ -126,9 +128,9 @@ describe the code that creates instances of the x-converter,
 the HTML code that defines the &lt;x-converter&gt; tag,
 and the Dart code that implements the behavior.
 
-##Instantiating a custom element
+##Connecting the files
 
-The embedded app below contains
+The embedded app just below contains
 three x-converter elements,
 each configured with different labels and
 a different ratio.
@@ -142,18 +144,51 @@ Try it! Enter numbers into each of the fields.
 You can find the complete source code for this sample on github at
 <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis" target="_blank">convertthis</a>.
 
-This app uses the same code to define
-and implement the &lt;x-converter&gt; custom element as the previous app.
-It just creates three instances of the same element configured differently.
+This app is implemented with these Dart and HTML files:
 
 | File | Description|
 |---|---|
-| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertThis.html" target="_blank">convertThis.html</a> | Creates three different instances of the x-converter |
 | <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/converter-element.html" target="_blank">converter-element.html</a> | Defines the UI for the x-converter custom element |
 | <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertercomponent.dart" target="_blank">convertercomponent.dart</a> | Defines the behavior of the x-converter custom element |
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertThis.html" target="_blank">convertThis.html</a> | Creates three different instances of the x-converter |
+| <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08/convertthis/web/convertthis.dart" target="_blank">convertthis.dart</a> | Contains the Dart main() function, which in this program does nothing |
 {: .table}
 
-Let's check out the code.
+HTML code in `converter-element.html`
+implements the look of the x-converter custom component.
+Dart code in `convertercomponent.dart`
+implements the behavior.
+To connect the Dart code to the HTML code use the &lt;script&gt; tag
+within the &lt;element&gt; tag that defines the custom element:
+
+{% prettify html %}
+<element name="x-converter" ...>
+  ...
+  <script type="application/dart" src="convertercomponent.dart"> </script>
+</element>
+{% endprettify %}
+
+The  `convertThis.html` file defines the main HTML page
+and uses the x-converter element.
+The main HTML file must include `converter-element.html` to use it.
+You do this by importing the file with the &lt;link&gt; tag
+in the header.
+
+{% prettify html %}
+<html
+  <head>
+  ...
+  <link rel="import" href="converter-element.html">
+  </head>
+  ...
+</html>
+{% endprettify %}
+
+This diagram summarizes the relationships between the files:
+
+![Connecting Dart and HTML files](images/files-relationship.png)
+
+##Instantiating a custom element
 
 To create the three converter elements
 the converter example uses &lt;x-converter&gt;...&lt;/x-converter&gt;.
@@ -321,11 +356,13 @@ have an event handler.
 
 ![Dart event handlers are attached to the two input fields](images/converter-events.png)
 
-##Further examples
+##Other resources
 
 <ul>
-  <li>
-    The Dart Cookbook has many useful
+  <li> Check out
+       <a href="/docs/cookbook/">
+       <i class="icon-food"> </i> Dart Cookbook</a>.
+       You'll find several
     <a href="/docs/cookbook/#web-ui">Web UI recipes</a>.
   </li>
   <li>
@@ -339,21 +376,6 @@ have an event handler.
   including a version of
   <a href="https://github.com/dart-lang/web-ui/tree/master/example/todomvc"
      target="_blank">TodoMVC</a>.
-</li>
-<li>
-  The Chat client/server project, originally built for a code lab in June 2012,
-  has been converted to use custom elements.
-  You can find the source code for both projects on github:
-  <ul>
-    <li>
-  <a href="https://github.com/dart-lang/io-2012-dart-code-lab.git"
-     target="_blank">Chat client/server</a>
-    </li>
-    <li>
-  <a href="https://github.com/dart-lang/web-ui-code-lab"
-     target="_blank">Chat client/server with Web UI</a>
-    </li>
-  </ul>
 </li>
 </ul>
 

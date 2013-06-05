@@ -54,6 +54,7 @@ in a well-built package.
 * [Install the package dependencies](#install-dependencies)
 * [What did you get (and not get)?](#about-packages)
 * [Import libraries from a package](#use-package)
+* [Other resources](#other-resources)
 
 ##About the pubspec.yaml file {#about-pubspec}
 
@@ -174,17 +175,10 @@ which links to the Dart libraries from the vector_math package.
 
 ![Pub Install finds and installs required packages](images/run-pub-install.png)
 
-In addition,
-you will notice the unittest directory;
-unittest is another package in the repository.
-vector_math depends on unittest
-(unittest is listed in vector_math's dependencies list)
-so pub installs it as well.
-Pub install works recursively and installs
-all of the required packages
-of your application and its dependencies.
+Pub install works recursively;
+if the included package has dependencies, those packages are installed as well.
 
-Pub install also creates a file called pubspec.lock,
+Pub install creates a file called pubspec.lock,
 which identifies the specific versions of the packages that were installed.
 This helps to provide a stable development environment.
 Later you can modify the version constraints and use `pub update`
@@ -200,7 +194,7 @@ you got and where it came from.
 
 To see the contents of the vector_math package,
 visit the
-<a href="https://github.com/johnmccutchan/DartVectorMath" target="_blank">
+<a href="https://github.com/johnmccutchan/vector_math" target="_blank">
 Dart vector math repository
 </a>
 at GitHub.
@@ -278,6 +272,27 @@ import 'package:vector_math/vector_math.dart';
 {% endprettify %}
 
 Note that you specify the filename, not the library name.
+
+##Other resources
+
+<ul>
+  <li>
+    Dart developers share packages at
+    <a href="http://pub.dartlang.org/">pub.dartlang.org</a>.
+    Look there for packages that might be useful to you,
+    or share your own Dart packages.
+    See the <a href="http://pub.dartlang.org/doc/">pub documentation</a>
+    to get started using and sharing packages.
+  </li>
+  <li>
+    One important package that you will find there
+    is
+    <a href="http://pub.dartlang.org/packages/web_ui">web_ui</a>&mdash;a package
+    created by the Dart team that lets you use Web components and templating.
+    The
+    <a href="/docs/tutorials/web-ui/">next target</a> covers Web UI.
+  </li>
+</ul>
 
 <div class="row">
   <div class="span3">
