@@ -599,7 +599,7 @@ us on the [Web UI discussion group][group] (web-ui AT dartlang.org).
 
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
 [wc]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/explainer/index.html
-[mdv]: http://code.google.com/p/mdv/
+[mdv]: https://github.com/Polymer/mdv#readme
 [pubpackage]: http://pub.dartlang.org/packages/web_ui
 [project]: https://github.com/dart-lang/web-ui/
 [bugs]: https://github.com/dart-lang/web-ui/issues
