@@ -79,7 +79,24 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
           use the Set <code class="literal">containsAll()</code> method. You can convert
           any Iterable to a Set using <code class="literal">toSet()</code>.</p></li><li class="listitem"><p>The Collection class is gone, so we’ve changed the way we
           talked about sets, lists, and maps in <a class="xref" href="ch03.html#ch03-collections" title="Collections">the section called “Collections”</a>, and we talk more about
-          Iterable.</p></li><li class="listitem"><p>The AsyncError class has been removed.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="preface-updates-v2"></a>Changes in the Second Printing: March 29, 2013</h3></div></div></div><p>We’ve updated the content to reflect the following changes since
+          Iterable.</p></li><li class="listitem"><p>The AsyncError class has been removed.</p></li></ul></div><p>We’ve updated the content to reflect the following M5
+      changes:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The dart_analyzer tool has been replaced by
+          dartanalyzer.</p></li><li class="listitem"><p>The ? operator for testing whether an optional parameter has
+          been set is no longer in the language.</p></li><li class="listitem"><p>The dart:crypto library has moved out of the SDK (to <a class="ulink" href="http://pub.dartlang.org/packages/crypto" target="_top">http://pub.dartlang.org/packages/crypto</a>).</p></li><li class="listitem"><p>The dart:uri library is gone, its functionality folded into a
+          new Uri class in dart:core. The top-level functions
+          <code class="literal">encodeUri()</code>,
+          <code class="literal">encodeUriComponent()</code>,
+          <code class="literal">decodeUri()</code>, and
+          <code class="literal">decodeUriComponent()</code> are now static methods in
+          Uri named (respectively) <code class="literal">encodeFull()</code>,
+          <code class="literal">encodeComponent()</code>,
+          <code class="literal">decodeFull()</code>, and
+          <code class="literal">decodeComponent()</code>. To create a Uri from a string,
+          you now use the static <code class="literal">parse()</code> method. Uri now
+          has a single constructor, which takes the arguments that the
+          <code class="literal">Uri.fromComponents()</code> constructor used to take.
+          Finally, the <code class="literal">domain</code> field is now named
+          <code class="literal">host</code>.</p></li></ul></div><p>We also tweaked existing coverage:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Fleshed out dart2js docs.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="preface-updates-v2"></a>Changes in the Second Printing: March 29, 2013</h3></div></div></div><p>We’ve updated the content to reflect the following changes since
       the first printing:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Using <code class="literal">part of</code> in additional library files
           is now <span class="emphasis"><em>required</em></span>, not optional.</p></li><li class="listitem"><p>In M2, several APIs changed:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>In the dart:html library, the <code class="literal">elements</code>
               property of Element changed to
