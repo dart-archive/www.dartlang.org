@@ -80,7 +80,7 @@ main() {
 }
 {% endprettify %}
 
-###Run in production mode with debugging disabled
+###Run in production mode
 
 The Dart VM can run in two modes: checked and production mode. Checked mode is
 slower because the VM is checking types at runtime. Before benchmarking make
@@ -92,8 +92,7 @@ to get an accurate measurement of real world performance.
 When executing from the command line checked mode is off by default and can be
 turned on by passing the `--checked` command line flag. The editor has checked
 mode on by default but can be turned off by going to the ‘Manage Launches’
-window. It's important to **disable debugging** as well because that also has an
-impact on run-time performance.
+window.
 
 <div style="display:block; margin-left:auto; margin-right:auto"><img src="checkedmode.png" /></div>
 
@@ -103,7 +102,7 @@ When benchmarking your application be sure to follow these three rules:
 
 1. Use the official benchmarking harness.
 1. Ensure the code does not raise any errors when run in checked mode.
-1. Run your benchmark in production mode with debugging disabled.
+1. Run your benchmark in production mode.
 
 If you follow these rules you will be able to accurately measure how fast your
 code runs. Once you've sped up your application, share your secrets on the
