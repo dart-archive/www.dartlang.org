@@ -32,7 +32,7 @@ class VendingMachineDispenser {
 
 class VendingMachineCashier {
   
-  const int MaxCapacity = 50;
+  static const int MaxCapacity = 50;
    
   VendingMachineDispenser _dispenser;
   List<int> _prices;

@@ -672,7 +672,7 @@ The cashier will tell the dispenser to dispense a selected item if enough money 
 {% prettify dart %}
 class VendingMachineCashier {
    
-  const int MaxCapacity = 50;
+  static const int MaxCapacity = 50;
    
   VendingMachineDispenser _dispenser;
   List<int> _prices;
