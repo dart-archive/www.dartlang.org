@@ -26,6 +26,99 @@ see <a href="/tools/">Tools for Dart</a>.
 {% include toc.html %}
 
 
+## Getting Dart Editor {#download}
+
+<p>
+Dart Editor is in the Dart download for
+{% include os-choices.html %}
+See <a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Up and Running</a>
+for help with downloading and launching Dart Editor.
+</p>
+
+<p>
+  {% include downloads/_dart-editor.html %}
+</p>
+
+<aside class="alert alert-info">
+  <b> Problems? </b>
+  See <a href="troubleshoot.html">Troubleshooting Dart Editor</a>.
+</aside>
+
+<p>
+  {% include downloads/_dart-editor-continuous.html %}
+</p>
+
+<p>
+The default version of Dart Editor
+is the <em>integration build</em>.
+It's automatically updated about once per week.
+The
+<a target="_blank"
+  href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/changelog.html">change log</a>
+has a list of release dates and features.
+The <em>continuous build</em>, on the other hand, is the
+latest, <b>untested</b> version of Dart Editor.
+If you use the continuous build, please get new builds frequently,
+and send feedback about new features and bugs that you encounter.
+</p>
+
+
+### Updating {#update}
+
+<p>
+  Dart Editor can automatically update itself,
+  along with the SDK and Dartium,
+  whenever a new integration build is available.
+  To enable automatic updates,
+  go to <b>Preferences</b>, choose <b>Update</b>, and
+  select <b>Download updates automatically</b>.
+</p>
+
+<p>
+  If you'd rather choose when to update,
+  make sure <b>Download updates automatically</b> is not selected.
+  Then when you're ready to update,
+  use the <b>About Dart Editor</b> dialog
+  to download and apply updates.
+</p>
+
+
+## Installing Dart Editor {#install}
+
+<p>
+  Unzip the file you downloaded. You're done!
+</p>
+
+<p>
+  Want to use command-line tools, as well?
+  You already have them, thanks to the Dart download including the SDK.
+  However, you might want to set environment variables,
+  as described in the <a href="/tools/sdk/">SDK page</a>.
+</p>
+
+
+## Using Dart Editor {#using}
+
+To get started with Dart Editor,
+read these:
+
+[Target 1: Get Started](http://www.dartlang.org/docs/tutorials/get-started/) (the first tutorial in _A Game of Darts_)
+: Gently introduces you to Dart Editor,
+  from downloading it to creating and running apps.
+
+[Up and Running](/docs/dart-up-and-running/contents/ch01.html#ch01-editor) (a section from Chapter 1 of _Dart Up and Running_)
+: Quickly leads you through downloading Dart Editor,
+  running a sample,
+  and creating an app.
+
+For details on _using_ Dart Editor,
+read this:
+
+[Dart Editor](/docs/dart-up-and-running/contents/ch04-tools-editor.html) (a section from Chapter 4 of _Dart Up and Running_)
+: Teaches how to use Dart Editor—for example,
+  how to set up launches for different browsers.
+
+
 ## Features {#features}
 
   <p>
@@ -118,100 +211,6 @@ see <a href="/tools/">Tools for Dart</a>.
       </ul>
     </div>
   </div>
-
-
-## Getting Dart Editor {#download}
-
-<p>
-Dart Editor is in the Dart download for
-{% include os-choices.html %}
-See <a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Up and Running</a>
-for help with downloading and launching Dart Editor.
-</p>
-
-<p>
-  {% include downloads/_dart-editor.html %}
-</p>
-
-<aside class="alert alert-info">
-  <b> Problems? </b>
-  See <a href="troubleshoot.html">Troubleshooting Dart Editor</a>.
-</aside>
-
-<p>
-  {% include downloads/_dart-editor-continuous.html %}
-</p>
-
-<p>
-The default version of Dart Editor
-is the <em>integration build</em>.
-It's automatically updated about once per week.
-The
-<a target="_blank"
-  href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/changelog.html">change log</a>
-has a list of release dates and features.
-The <em>continuous build</em>, on the other hand, is the
-latest, <b>untested</b> version of Dart Editor.
-If you use the continuous build, please get new builds frequently,
-and send feedback about new features and bugs that you encounter.
-</p>
-
-
-
-### Updating {#update}
-
-<p>
-  Dart Editor can automatically update itself,
-  along with the SDK and Dartium,
-  whenever a new integration build is available.
-  To enable automatic updates,
-  go to <b>Preferences</b>, choose <b>Update</b>, and
-  select <b>Download updates automatically</b>.
-</p>
-
-<p>
-  If you'd rather choose when to update,
-  make sure <b>Download updates automatically</b> is not selected.
-  Then when you're ready to update,
-  use the <b>About Dart Editor</b> dialog
-  to download and apply updates.
-</p>
-
-
-## Installing Dart Editor {#install}
-
-<p>
-  Unzip the file you downloaded. You're done!
-</p>
-
-<p>
-  Want to use command-line tools, as well?
-  You already have them, thanks to the Dart download including the SDK.
-  However, you might want to set environment variables,
-  as described in the <a href="/tools/sdk/">SDK page</a>.
-</p>
-
-
-## Using Dart Editor {#using}
-
-To get started with Dart Editor,
-read these:
-
-[Target 1: Get Started](http://www.dartlang.org/docs/tutorials/get-started/) (the first tutorial in _A Game of Darts_)
-: Gently introduces you to Dart Editor,
-  from downloading it to creating and running apps.
-
-[Up and Running](/docs/dart-up-and-running/contents/ch01.html#ch01-editor) (a section from Chapter 1 of _Dart Up and Running_)
-: Quickly leads you through downloading Dart Editor,
-  running a sample,
-  and creating an app.
-
-For details on _using_ Dart Editor,
-read this:
-
-[Dart Editor](/docs/dart-up-and-running/contents/ch04-tools-editor.html) (a section from Chapter 4 of _Dart Up and Running_)
-: Teaches how to use Dart Editor—for example,
-  how to set up launches for different browsers.
 
 
 ## Filing bugs and feature requests {#bugs}
