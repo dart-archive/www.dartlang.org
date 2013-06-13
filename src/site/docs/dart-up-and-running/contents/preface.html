@@ -79,10 +79,11 @@ description: "Read Preface of Dart: Up and Running, published by O'Reilly."
           use the Set <code class="literal">containsAll()</code> method. You can convert
           any Iterable to a Set using <code class="literal">toSet()</code>.</p></li><li class="listitem"><p>The Collection class is gone, so we’ve changed the way we
           talked about sets, lists, and maps in <a class="xref" href="ch03.html#ch03-collections" title="Collections">the section called “Collections”</a>, and we talk more about
-          Iterable.</p></li><li class="listitem"><p>The AsyncError class has been removed.</p></li></ul></div><p>We’ve updated the content to reflect the following M5
-      changes:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The dart_analyzer tool has been replaced by
-          dartanalyzer.</p></li><li class="listitem"><p>The ? operator for testing whether an optional parameter has
-          been set is no longer in the language.</p></li><li class="listitem"><p>The dart:crypto library has moved out of the SDK (to <a class="ulink" href="http://pub.dartlang.org/packages/crypto" target="_top">http://pub.dartlang.org/packages/crypto</a>).</p></li><li class="listitem"><p>The dart:uri library is gone, its functionality folded into a
+          Iterable.</p></li><li class="listitem"><p>The AsyncError class has been removed.</p></li></ul></div><p>M5 introduced additional changes, which our updates
+      reflect:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The dart_analyzer tool has been replaced by
+          dartanalyzer.</p></li><li class="listitem"><p>Instance variables can no longer be <code class="literal">const</code>.
+          Use <code class="literal">static const</code> variables instead.</p></li><li class="listitem"><p>The <code class="literal">?</code> operator for testing whether an
+          optional parameter has been set is no longer in the language.</p></li><li class="listitem"><p>The dart:crypto library has moved out of the SDK (to <a class="ulink" href="http://pub.dartlang.org/packages/crypto" target="_top">http://pub.dartlang.org/packages/crypto</a>).</p></li><li class="listitem"><p>The dart:uri library is gone, its functionality folded into a
           new Uri class in dart:core. The top-level functions
           <code class="literal">encodeUri()</code>,
           <code class="literal">encodeUriComponent()</code>,

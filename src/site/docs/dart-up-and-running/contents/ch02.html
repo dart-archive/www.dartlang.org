@@ -90,10 +90,11 @@ assert(lineCount == null);
 </span></em>final name = 'Bob';   // Or: final String name = 'Bob';
 // name = 'Alice';    // Uncommenting this results in an error</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Lazy initialization of final variables helps apps start up
         faster.</p></div><p>Use <code class="literal">const</code> for variables that
-      you want to be compile-time constants. Where you declare the variable,
-      set the value to a compile-time constant such as a literal, a const
-      variable, or the result of an arithmetic operation on constant
-      numbers:</p><pre class="programlisting"><em><span class="remark">lang-dart
+      you want to be compile-time constants. If the const variable is at the
+      class level, mark it <code class="literal">static const</code>. (Instance
+      variables can’t be const.) Where you declare the variable, set the value
+      to a compile-time constant such as a literal, a const variable, or the
+      result of an arithmetic operation on constant numbers:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>const bar = 1000000;       // Unit of pressure (in dynes/cm2)
 const atm = 1.01325 * bar; // Standard atmosphere</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="built-in-types"></a>Built-in Types</h2></div></div></div><p>The Dart language has special support for the following
     types:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>numbers</p></li><li class="listitem"><p>strings</p></li><li class="listitem"><p>booleans</p></li><li class="listitem"><p>lists (also known as <span class="emphasis"><em>arrays</em></span>)</p></li><li class="listitem"><p>maps</p></li></ul></div><p>You can initialize an object of any of these special types using a
@@ -766,9 +767,9 @@ assert(identical(a,b)); // They are the same instance!</pre><p>The following sec
   num y;      // Declare y, initially null.
   num z = 0;  // Declare z, initially 0.
 }</pre><p>All uninitialized instance variables have the value <code class="literal">null</code>.</p><p>All instance variables generate an implicit
-      <em class="firstterm">getter</em> method. Non-final, non-const instance
-      variables also generate an implicit <em class="firstterm">setter</em>
-      method. For details, see <a class="xref" href="ch02.html#classes-getters-and-setters" title="Getters and setters">the section called “Getters and setters”</a>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+      <em class="firstterm">getter</em> method. Non-final instance variables also
+      generate an implicit <em class="firstterm">setter</em> method. For details,
+      see <a class="xref" href="ch02.html#classes-getters-and-setters" title="Getters and setters">the section called “Getters and setters”</a>.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/instance_variables.dart
 </span></em>class Point {
   num x;
@@ -886,8 +887,7 @@ main() {
   Point.alongXAxis(num x) : this(x, 0); // Delegates to the main constructor.
 }</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch02-constructor-constant"></a>Constant constructors</h4></div></div></div><p>If your class produces objects that never change, you can make
         these objects compile-time constants. To do this, define a <code class="literal">const</code> constructor and make sure that all
-        instance variables are <code class="literal">final</code> or
-        <code class="literal">const</code>.</p><pre class="programlisting"><em><span class="remark">lang-dart
+        instance variables are <code class="literal">final</code>.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/immutable_point.dart
 </span></em>class ImmutablePoint {
   final num x;
