@@ -89,8 +89,8 @@ The dart:io library provides access to files and directories through the
 The following example prints its own source code.
 To determine the location of the source code being executed,
 we use the
-[Options](http://api.dartlang.org/dart_core/Options.html) class
-from [dart:core](http://api.dartlang.org/dart_core.html).
+[Options](http://api.dartlang.org/docs/releases/latest/dart_io/Options.html)
+class.
 
 <!--- BEGIN(io_file_system) -->{% prettify dart %}
 import 'dart:io';
