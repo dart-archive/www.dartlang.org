@@ -973,7 +973,7 @@ Here each checkbox is bound to a separate boolean value within a map.
 ###What next?
 
 Try our
-<a href="/codelabs/web-ui-writer/codelab.pdf" target="_blank"><i class="icon-beaker"> </i>Codelab</a>.
+<a href="/codelabs/web-ui-writer/index.html" target="_blank"><i class="icon-beaker"> </i>Codelab</a>.
 In this step-by-step guide, you’ll build a simple,
 single­-page, modern web app for desktop and mobile.
 
