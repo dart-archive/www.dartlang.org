@@ -119,6 +119,17 @@ read this:
   how to set up launches for different browsers.
 
 
+## Customizing the build {#build}
+
+You can add behavior to the Dart Editor build process
+by creating a build.dart file.
+For example,
+Web UI uses a build.dart file to run custom tools over Dart and HTML files
+and to map from the original files to the generated files.
+See [Build.dart and the Dart Editor Build System](build.html)
+for details on implementing your own build.dart file.
+
+
 ## Features {#features}
 
   <p>

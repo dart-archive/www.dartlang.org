@@ -108,7 +108,7 @@ We can make the Dart Editor compile your code every time a project file
 is modified, so when you are ready to test your app, the compiled code will be
 ready to go.
 
-The Dart Editor provides a hook that let's you execute a script whenever changes
+The Dart Editor provides a hook that lets you execute a script whenever changes
 are detected on a project's files. We provide a library that makes it really
 easy to create a script that automatically calls our compiler. Create a file
 named `build.dart` in the same directory as your `pubspec.yaml` file with the
@@ -129,6 +129,9 @@ app, you can directly launch the input HTML file `web/app.html` and the editor
 will automatically redirect to run the generated file. You can also find the
 generated file under `web/out/app.html`, and request the editor to launch it
 directly.
+
+For more information about hooking into the Dart Editor build, see
+[Build.dart and the Dart Editor Build System](/tools/editor/build.html).
 
 
 [dwc]: https://github.com/dart-lang/web-ui/
