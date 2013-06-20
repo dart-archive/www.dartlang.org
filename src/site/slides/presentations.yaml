@@ -1,3 +1,76 @@
+- title: "Modern Web Development with Dart"
+  short: dart-smalltalk-industry-conference
+  presenters:
+    - Alan Knight
+  date: 2013-06-09
+  slides: 2013/06/dart-smalltalk-industry-conference.pdf
+  video: http://www.youtube.com/watch?v=NE0Cc4NzG1E
+  event: Smalltalk Industry Conference 2013
+
+- title: "Asynchronous Programming in Dart - Streams are the Future"
+  short: streams-are-the-future
+  presenters:
+    - Florian Loitsch
+  date: 2013-06-03
+  slides: 2013/06/dart-streams-are-the-future.pdf
+  event: European Lisp Symposium 2013
+
+- title: "The Founders of Dart - Google Developers Live"
+  short: founders-of-dart
+  presenters:
+    - Lars Bak
+    - Kasper Lund
+    - Seth Ladd
+  date: 2013-05-16
+  video: http://www.youtube.com/watch?v=_Gsrvya_T2Y
+  event: Google I/O 2013
+
+- title: "Web Languages and VMs: Fast Code is Always in Fashion"
+  short: fast-code-is-in-fashion
+  presenters:
+    - Lars Bak
+    - Kasper Lund
+  date: 2013-05-16
+  slides: http://commondatastorage.googleapis.com/io-2013/presentations/209%20-%20fast-code-is-always-in-fashion.pdf
+  video: http://www.youtube.com/watch?v=huawCRlo9H4
+  event: Google I/O 2013
+
+- title: "What's New in Dart: Your First-class Upgrade to Web Development"
+  short: whats-new-in-dart
+  presenters:
+    - Justin Fagnani
+    - Seth Ladd
+  date: 2013-05-16
+  slides: http://commondatastorage.googleapis.com/io-2013/presentations/255-%20What's%20new%20in%20Dart%20-%20Google%20IO%202013.pdf
+  video: https://www.youtube.com/watch?v=kvZTOCAG_-0
+  event: Google I/O 2013
+
+- title: "Dart: HTML of the Future, Today!"
+  short: html-of-the-future-today
+  presenters:
+    - Emily Fortuna
+    - Sigmund Cherem
+  date: 2013-05-16
+  slides: http://commondatastorage.googleapis.com/io-2013/presentations/219_dart_html_of_the_future_today.pdf
+  video: https://www.youtube.com/watch?v=euCNWhs7ivQ
+  event: Google I/O 2013
+
+- title: "Dart - JavaScript Interop Tutorial"
+  short: dart-js-interop-tutorial
+  presenters:
+    - Vijay Menon
+  date: 2013-05-09
+  video: http://www.youtube.com/watch?v=QFuCFUd2Zsw
+  event: Google I/O 2013
+
+- title: "The Dart Toolchain - Batteries Included"
+  short: dart-toolchain-batteries-included
+  presenters:
+    - Andrei Mouravski
+  date: 2013-05-07
+  video: http://www.youtube.com/watch?v=P5YodNSX4jk
+  event: Google I/O 2013
+
 - title: "Compiling Dart to Efficient Machine Code"
   short: compiling-efficient-machine-code
   presenters:
