@@ -8,13 +8,14 @@ description: "An introduction to Dart-JavaScript interoperatibility
 has-permalinks: true
 article:
   written_on: 2012-09-01
+  updated_on: 2013-06-01
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 
 _Written by Vijay Menon <br />
-September 2012_
+September 2012 (Updated June 2013)_
 
 This article describes how to use the js Dart library,
 which allows Dart web apps
@@ -30,8 +31,22 @@ The library is implemented in the GitHub project
 
 {% include toc.html %}
 
+## Video tutorial
 
-## Installing the library's package
+Dart engineer Vijay Menon takes you on a tour of Dart-JS interop in this video.
+
+<iframe width="640" height="360"
+src="https://www.youtube.com/embed/QFuCFUd2Zsw" frameborder="0"
+allowfullscreen></iframe>
+
+## Bootstrapping
+
+To install and configure the js library,
+you need to install the js package,
+import the library, and
+add support scripts to your HTML page.
+
+### Installing the library's package
 
 To install the library's package using [pub](http://pub.dartlang.org/doc),
 put the following lines in your app's pubspec.yaml file:
@@ -43,16 +58,18 @@ dependencies:
 
 Then use pub install:
 
-    $ pub install
-    Dependencies installed!
+{% prettify bash %}
+$ pub install
+Dependencies installed!
+{% endprettify %}
 
 For details about using pub, see the
 [pub documentation](http://pub.dartlang.org/doc).
 
+### Importing the library
 
-## Importing the library
-
-A Dart program can import the js library if it is running on the UI thread of the browser&mdash;that is, if the program imports dart:html.
+A Dart program can import the js library if it is running on the UI thread of
+the browser&mdash;that is, if the program imports dart:html.
 
 To import the js library, use the following code:
 
@@ -60,6 +77,15 @@ To import the js library, use the following code:
 import 'package:js/js.dart' as js;
 {% endprettify %}
 
+### Adding the support scripts
+
+Add the following scripts to your HTML page:
+
+{% prettify html %}
+<script src="myapp.dart" type="application/dart"></script>
+<script src="packages/browser/dart.js"></script>
+<script src="packages/browser/interop.js"></script>
+{% endprettify %}
 
 ## Getting the top-level context
 
