@@ -437,12 +437,12 @@ These are the template expressions used by the shout example:
 | &#123;&#123;shoutThis.length&#125;&#125; | Gets the length of the string. The returned value is an integer that gets converted to a string. |
 | &#123;&#123;shoutThis.toUpperCase()&#125;&#125; | Calls a string function that converts the string to upper case letters. Note that toUpperCase() returns a new string; it does NOT change the value of shoutThis. |
 | &#123;&#123;(... ? ... : ... )&#125;&#125; | Uses the conditional ternary operator; if the entered value is longer than 5 characters, a substring is displayed. |
-| &#123;&#123;palindrome&#125;&#125; | Calls a top-level function named palindrome(), defined in shout.dart, that creates a palindrome from the entered value. |
+| &#123;&#123;palindrome&#125;&#125; | Calls a top-level getter named palindrome, defined in shout.dart, that creates a palindrome from the entered value. |
 {: .table}
 
-![Palindrome function uses but does NOT modify shoutThis](images/palindrome-func.png)
+![Palindrome getter uses but does NOT modify shoutThis](images/palindrome-func.png)
 
-The palindrome function does NOT modify shoutThis.
+The palindrome getter does NOT modify shoutThis.
 If it did, it would create a situation in which an infinite loop is possible.
 The Web UI system has a protection against infinite loops;
 it detects if the values don't converge
