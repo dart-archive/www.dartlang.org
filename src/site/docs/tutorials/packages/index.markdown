@@ -294,6 +294,8 @@ Note that you specify the filename, not the library name.
   </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/remove-elements/"><i class="icon-chevron-left"> </i> Remove DOM Elements</a>

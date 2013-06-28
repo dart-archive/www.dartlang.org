@@ -295,6 +295,8 @@ the gallows UI is updated.
   </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/web-ui/"><i class="icon-chevron-left"> </i> Get Started with Web UI</a>

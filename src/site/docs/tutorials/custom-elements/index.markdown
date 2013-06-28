@@ -379,6 +379,8 @@ have an event handler.
 </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/templates/"><i class="icon-chevron-left"> </i> Use &lt;template&gt;</a>

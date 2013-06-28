@@ -521,6 +521,8 @@ The function would be declared `void startwatch(Event e)`.
   </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/packages/"><i class="icon-chevron-left"> </i> Install Shared Packages</a>

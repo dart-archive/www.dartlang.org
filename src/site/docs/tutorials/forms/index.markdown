@@ -977,6 +977,8 @@ Try our
 In this step-by-step guide, you’ll build a simple,
 single­-page, modern web app for desktop and mobile.
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/fetchdata/"><i class="icon-chevron-left"> </i> Fetch Data Dynamically</a>
@@ -989,7 +991,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/indexeddb/" class="pull-right">Use IndexedDB <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

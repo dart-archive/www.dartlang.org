@@ -10,7 +10,7 @@ tutorial:
   id: tut-home
 article:
   written_on: 2012-10-01
-  updated_on: 2013-05-25
+  updated_on: 2013-07-01
   collection: everyday-dart
 ---
 
@@ -67,10 +67,10 @@ starting with the basic concepts in Target 2.
 <hr>
 
 <div id="target-group" markdown="1">
-<i class="icon-star"> Check out the newest target on forms,
-inputs, and client-server interaction:
-[ Target 10: Get input from a form](forms/).
-This target puts together concepts from the first 9 targets.
+<i class="icon-star"> Check out the newest target on IndexedDB.
+This target shows you how to give your app persistence
+and offline capability by saving data on the client side.
+[Target 11: Use IndexedDB](indexeddb/).
 </div>
 
 <hr>
@@ -163,7 +163,7 @@ text based, human friendly data format.
 
 <hr>
 
-<img src="new-icon.png" width="48" height="48" alt="Dart"> [ Target 10: Get input from a form](forms/)
+<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 10: Get input from a form](forms/)
 : Most Web apps use forms and input elements to 
 gather data from the user and submit that data to a server.
 The example in this target has a client-server pair
@@ -173,6 +173,11 @@ in the Dart libraries to communicate.
 This target brings together a lot of the information you learned in
 the other targets, including the use of Web UI to sync
 the data in the form with Dart data.
+
+<hr>
+
+<img src="new-icon.png" width="48" height="48" alt="Dart"> [ Target 11: Use IndexedDB](indexeddb/)
+: Learn about IndexedDB here!
 
 <div>
   <hr>
@@ -191,7 +196,7 @@ the data in the form with Dart data.
 
 <div class="row">
   <div class="span3">
-  <p style="font-size:xx-small">Version: 25 May 2013 (Happy Birthday, Sophie!)</p>
+  <p style="font-size:xx-small">Version: 1 July 2013</p>
   </div>
   <div class="span3">
 <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"

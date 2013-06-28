@@ -379,6 +379,8 @@ automatically removes it from its previous parent.
   </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/connect-dart-html/"><i class="icon-chevron-left"> </i> Connect Dart &amp; HTML</a>

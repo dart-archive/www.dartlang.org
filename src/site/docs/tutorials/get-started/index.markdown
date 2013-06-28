@@ -566,6 +566,8 @@ when creating applications outside of Dart Editor.
   </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/"><i class="icon-chevron-left"> </i> Home</a>

@@ -63,7 +63,7 @@ and thus are subject to the browser's security restrictions.
 * [About URIs and HTTP requests](#about-uris)
 * [Using the getString() function to load a file](#using-getString-function)
 * [Using an HttpRequest object to load a file](#making-a-get-request)
-* [Other resources](#other-resources)
+* [Further resources](#further-resources)
 
 ##About JSON
 
@@ -449,23 +449,15 @@ to create the String objects specified by the JSON string.
 
 ![Parse a JSON formatted list of strings](images/json-parse.png)
 
-##Other resources
+##Further resources
 
-<ul>
-  <li> Check out
-       <a href="/docs/cookbook/">
-       <i class="icon-food"> </i> Dart Cookbook</a>.
-       You'll find many recipes related to topics in this Target,
-       including Web UI, JSON, and URIs.
-  </li>
-  <li>
-  Chris Buckett's article,
-  <a href="/articles/json-web-service/"
+Check out Chris Buckett's article,
+<a href="/articles/json-web-service/"
    target="_blank">Using Dart with JSON Web Services</a>,
-  contains more information and an example with source code for both
-  client and server programs.
-  </li>
-</ul>
+for more information and an example with source code for both
+client and server programs.
+
+<hr>
 
 <div class="row">
   <div class="span3">
@@ -479,7 +471,7 @@ Send feedback
 </a>
   </div>
   <div class="span3">
-  <a href="/docs/tutorials/forms/" class="pull-right">Get input from a form <i class="icon-chevron-right"> </i> </a>
+  <a href="/docs/tutorials/forms/" class="pull-right">Get Input from a Form <i class="icon-chevron-right"> </i> </a>
   </div>
 </div>
 

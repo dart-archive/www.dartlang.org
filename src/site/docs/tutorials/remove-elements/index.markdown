@@ -230,6 +230,8 @@ it returns no value and takes an Event object as a parameter.
   </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/add-elements/"><i class="icon-chevron-left"> </i> Add Elements to the DOM</a>

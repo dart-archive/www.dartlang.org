@@ -54,6 +54,26 @@ Questions and problems:
 * some artwork: Dartboard logo, Dartboard Targets, darts for what's the point.
 * each page has a unique id ... how best to make use of this?
 
+
+<!-- footers with links -->
+<hr>
+
+<div class="row">
+  <div class="span3">
+  <a href="/docs/tutorials/forms/"><i class="icon-chevron-left"> </i> Get input from a form</a>
+  </div>
+  <div class="span3">
+<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ target="_blank">
+<i class="icon-comment"> </i>
+Send feedback
+</a>
+  </div>
+  <div class="span3">
+  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
+  </div>
+</div>
+
 {% endcapture %}
 
 {% include tutorial.html %}

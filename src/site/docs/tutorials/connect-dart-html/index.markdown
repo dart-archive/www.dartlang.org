@@ -632,6 +632,8 @@ for example, it sets the text color to Yellow.
   </li>
 </ul>
 
+<hr>
+
 <div class="row">
   <div class="span3">
   <a href="/docs/tutorials/get-started/"><i class="icon-chevron-left"> </i> Get Started</a>
