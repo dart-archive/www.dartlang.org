@@ -346,7 +346,8 @@ To create an asynchronous native extension, we do three things:
 
 ###Wrapping the C function
 
-Here is an example of a C function that creates an array of random bytes,
+Here is an example of a C function (actually, a C++ function, due to the use of
+reinterpret_cast) that creates an array of random bytes,
 given a seed and a length.  It returns the data in a newly allocated array,
 which will be freed by the wrapper:
 
@@ -428,7 +429,7 @@ void randomArrayServicePort(Dart_NativeArguments arguments) {
   Dart_EnterScope();
   Dart_SetReturnValue(arguments, Dart_Null());
   Dart_Port service_port =
-      Dart_NewNativePort("RandomArrayService", RandomArrayService, true);
+      Dart_NewNativePort("RandomArrayService", wrappedRandomArray, true);
   if (service_port != kIllegalPort) {
     Dart_Handle send_port = Dart_NewSendPort(service_port);
     Dart_SetReturnValue(arguments, send_port);
