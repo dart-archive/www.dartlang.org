@@ -196,7 +196,7 @@ import 'package:unittest/vm_config.dart';
 and add a line before the tests:
 
 {% prettify dart %}
-useVmConfiguration();
+useVMConfiguration();
 {% endprettify %}
 
 This will result in a zero exit code if all tests pass or a 1 exit code upon test failure. See [Configuring the test environment](#configuring-the-test-environment) later for more details. You can run the test with the command:
@@ -711,12 +711,12 @@ Depending on whether you are running tests from the command line, within the edi
 You don't need to create your own `Configuration` classes; the library has several built-in which should be adequate for most purposes. These are:
 
 * the default `Configuration`, which prints test results to standard output;
-* `VmConfiguration`, which exits the process with a return value of 1 upon failure; useful in particular for driving tests from other programs or scripts where the return code of the process is useful to detect success or failure; call `useVmConfiguration()` to use this, and import `vm_config.dart`;
+* `VMConfiguration`, which exits the process with a return value of 1 upon failure; useful in particular for driving tests from other programs or scripts where the return code of the process is useful to detect success or failure; call `useVMConfiguration()` to use this, and import `vm_config.dart`;
 * `HtmlConfiguration`, which puts test results in an HTML table and sets the browser document body to be this table; call `useHtmlConfiguration()` to use this, and import `html_config.dart`;
 * `HtmlEnhancedConfiguration`, which is similar to `HtmlConfiguration` but provides a richer layout; call `useHtmlEnhancedConfiguration()` to use this, and import `html_enhanced_config.dart`.
 * `HtmlInteractiveConfiguration`, which provides a rich in-browser layout with the ability to enable/disable tests and rerun tests; call `useHtmlInteractiveConfiguration()` to use this, and import `html_enhanced_config.dart`.
 
-For running tests in a continuous integration environment, the default or VmConfigurations are most useful. 
+For running tests in a continuous integration environment, the default or VMConfigurations are most useful.
 
 ## Using `expect()` in other contexts
 
