@@ -57,6 +57,17 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Run `bundle install` from the root of your dartlang project.
 
 
+### Contributing via Chromium Code Review
+
+On a Mac:
+* Make sure you have Xcode (contains git)
+* Install depot_tools:
+  $ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+* Add depot_tools to your PATH:
+  $ export PATH="$PATH":`pwd`/depot_tools
+  NOTE: You may want to add this to your .bashrc file or your shell's equivalent so that you don’t need to reset your $PATH manually each time you open a new shell.
+
+
 ## Development
 
 * Make sure you are in the root of this project.

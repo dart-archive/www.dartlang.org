@@ -170,7 +170,7 @@ and implements the app's business logic,
 which manages the information exchange between the Model and the View.
 
 * The **View** provides the user interface for the app.
-Two custom complements implement the View in the count_down app:
+Two custom components implement the View in the count_down app:
 CountDownComponent describes the user interface for the app as a whole,
 and MilestoneComponent describes the UI for an individual milestone.
 These components inform the View-model of UI events.
@@ -402,7 +402,7 @@ void _initializeDatabase(VersionChangeEvent e) {
   
   var objectStore = db.createObjectStore(MILESTONE_STORE,
       autoIncrement: true);
-  var index = objectStore.createIndex(NAME_INDEX, 'name',
+  var index = objectStore.createIndex(NAME_INDEX, 'milestoneName',
       unique: true);
 }
 {% endprettify %}
