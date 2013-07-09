@@ -9,17 +9,20 @@ _sendNotFound(HttpResponse response) {
 startServer(String basePath) {
   HttpServer.bind('127.0.0.1', 8080).then((server) {
     server.listen((HttpRequest request) {
-      final String path =
-          request.uri.path == '/' ? '/index.html' : request.uri.path;
-      final File file = new File('${basePath}${path}');
+      final Path path = new Path(request.uri.path).canonicalize();
+      if (!path.isAbsolute) {
+        _sendNotFound(request.response);
+        return;
+      }
+      // PENDING: Do more security checks here?
+      final String stringPath =
+          path.toString() == '/' ? '/index.html' : path.toString();
+      final File file = new File('${basePath}${stringPath}');
       file.exists().then((bool found) {
         if (found) {
-          // PENDING: Do more security checks here?
-          file.fullPath().then((String fullPath) {
-            file.openRead()
-                .pipe(request.response)
-                .catchError((e) { });
-          });
+          file.openRead()
+              .pipe(request.response)
+              .catchError((e) { });
         } else {
           _sendNotFound(request.response);
         }
