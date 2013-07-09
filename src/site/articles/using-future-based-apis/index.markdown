@@ -154,6 +154,10 @@ completes normally, and the error does not propagate.
 Like `then()`, `catchError()` returns a new Future that completes with
 the return value of its callback.
 
+For more details and examples, read
+[Futures and Error Handling](/articles/futures-and-error-handling/).
+
+
 ## Calling multiple functions that return Futures
 
 Consider three functions,  `expensiveA()`, `expensiveB()`, and `expensiveC()`,
