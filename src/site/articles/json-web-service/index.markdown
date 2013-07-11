@@ -137,8 +137,8 @@ void saveData() {
   <div class="alert alert-warning">
   <strong>Warning:</strong>
 If you are trying this out for yourself against a real server, you may receive 
-errors referring to <code>Access-Control-Allow-Origin</code>.  See the section 
-"<a href="#note-on-cors">A note on CORS and HttpRequest</a>" below. 
+errors referring to <code>Access-Control-Allow-Origin</code>.  For details and workarounds, see the section
+<a href="#a-note-on-cors-and-httprequest">A note on CORS and HttpRequest</a>. 
   </div>
 </aside>
 
