@@ -42,6 +42,38 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
+<hr>
+
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+
+  The Dart Web UI team recently
+  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k">announced</a>
+  a port of the Polymer project:
+  <a href="http://pub.dartlang.org/packages/polymer">polymer.dart</a>.
+
+  Here are a few samples that we've converted to Polymer so far:
+  <ul>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/littleben"
+         target="_blank">littleben</a>
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/shout"
+         target="_blank">shout</a>
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/stopwatch"
+         target="_blank">stopwatch</a>
+    </li>
+  </ul>
+</aside>
+
+<hr>
+
+
 The
 <a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>
 provides the tools and Dart code
