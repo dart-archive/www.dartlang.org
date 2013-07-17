@@ -40,6 +40,7 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Open a new Terminal.
 * Run `sudo gem install bundler`.
 * Run `sudo bundle install` from the root of your dartlang project.
+* Run `gem install compass` (from the root?).
 * Run `sudo gem install jekyll`.
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not.
