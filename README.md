@@ -40,8 +40,7 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Open a new Terminal.
 * Run `sudo gem install bundler`.
 * Run `sudo bundle install` from the root of your dartlang project.
-* Run `gem install compass` (from the root?).
-* Run `sudo gem install jekyll`.
+* Run `sudo gem install jekyll`?
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not.
     * It will say, in the log "you're using 2.6".
@@ -49,7 +48,6 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
       * Go to Preferences, and enter the direct path to the Python 2.7 binary,
       which you downloaded from http://www.python.org/download/releases/2.7.3/.
         * The full path is `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7`.
-* Run `git clone https://github.com/dart-lang/doc-code-verify`, move it somewhere sensible on your system, and put `doc-code-verify/bin` in your PATH.
 
 ### Tips for Windows
 
