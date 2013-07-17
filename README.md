@@ -33,8 +33,8 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 
 ## Configuring your system
 
-* Ensure you have Ruby 1.9.3 or greater.
-  * You can use **brew** (if you're on a Mac).
+* Ensure you have Ruby 1.9.3.
+  * You can use **brew** (if you're on a Mac), but it installs Ruby 2 by default.
 * Ensure you have Python 2.7.
   * On a Mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
