@@ -136,6 +136,11 @@ Learn more:
 
 ## Creating web apps
 
+If you're new to web apps,
+start with <a href="/docs/tutorials/">A Game of Darts—Tutorials</a>.
+It's a set of tutorials that teach you how to use Dart to write web apps,
+assuming no previous experience with either Dart or web apps.
+
 While you're developing your web app,
 you can run it in Dartium.
 Later, you can compile your app to JavaScript
@@ -144,7 +149,7 @@ and run it in other browsers.
 Two libraries are important for creating web apps:
 dart:html and the Web UI package's web_ui library.
 You don't need to use Web UI,
-but it's a great way to simplify your UI code.
+but it's a great way to simplify your code.
 
 
 ### dart:html
@@ -155,6 +160,8 @@ A basic, yet Darty, interface to the browser.
   (part of the Dart tutorials)
 * [Improving the DOM](/articles/improving-the-dom/)
 * [dart:html API documentation](http://api.dartlang.org/dart_html.html)
+* [HTML DOM](/docs/cookbook/#html-dom)
+  (recipes in the Dart Cookbook)
 
 ### Web UI
 
@@ -164,6 +171,8 @@ A package that lets you use tomorrow's web APIs today.
   (part of the Dart tutorials)
 * [Web UI Package](/articles/web-ui/)
 * [pub.dartlang.org/packages/web_ui](http://pub.dartlang.org/packages/web_ui)
+* [Web UI](/docs/cookbook/#web-ui)
+  (recipes in the Dart Cookbook)
 
 ### Dart and JavaScript
 
@@ -192,7 +201,10 @@ If your code is open source,
 try drone.io for continuous testing.
 
 * [dartanalyzer: The Static Analyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html)
+* [Writing Unit Tests for Pub Packages](/articles/writing-unit-tests-for-pub-packages/)
 * [Unit Testing with Dart](/articles/dart-unit-tests/)
+* [Testing](/docs/cookbook/#testing)
+  (recipes in the Dart Cookbook)
 * [drone.io](http://drone.io)
 
 ## Other resources
