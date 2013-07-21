@@ -287,8 +287,8 @@ Dart_NativeFunction ResolveName(Dart_Handle name, int argc) {
   const char* cname;
   HandleError(Dart_StringToCString(name, &cname));
 
-  if (strcmp("SystemRand, cname) == 0) result = SystemRand;
-  if (strcmp("SystemSrand, cname) == 0) result = SystemSrand;
+  if (strcmp("SystemRand", cname) == 0) result = SystemRand;
+  if (strcmp("SystemSrand", cname) == 0) result = SystemSrand;
   Dart_ExitScope();
   return result;
 }
