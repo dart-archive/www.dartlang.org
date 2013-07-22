@@ -27,7 +27,11 @@ Get the source code for the example featured in this target:</p>
 <ul>
   <li>
     <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down"
-       target="_blank">count_down</a>
+       target="_blank">count_down</a> (web_ui)
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down"
+       target="_blank">count_down</a> (polymer)
   </li>
 </ul>
 

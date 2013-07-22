@@ -36,6 +36,29 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
+<hr>
+
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+
+  The Dart Web UI team recently
+  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k">announced</a>
+  a port of the Polymer project:
+  <a href="http://pub.dartlang.org/packages/polymer">polymer.dart</a>.
+
+  We've converted most of the tutorial Web UI examples and compiled some
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
+  along the way.
+  Check out source code for the polymer version of the
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08-polymer/drseuss"
+     target="_blank">drseuss</a>
+  example.
+</aside>
+
+<hr>
+
 Custom elements are one kind of web component
 defined in the Web Components model.
 Using templates and scripts,

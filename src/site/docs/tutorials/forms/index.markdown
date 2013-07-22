@@ -31,7 +31,11 @@ Get the source code for the samples featured in this target:</p>
   </li>
   <li>
     <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/slambook"
-       target="_blank">slambook</a>
+       target="_blank">slambook</a> (web_ui)
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10-polymer/slambook"
+       target="_blank">slambook</a> (polymer)
   </li>
   <li>
     <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/multiselect"

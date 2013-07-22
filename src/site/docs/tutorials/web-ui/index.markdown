@@ -54,11 +54,18 @@ Get the source code for the samples featured in this target:</p>
   a port of the Polymer project:
   <a href="http://pub.dartlang.org/packages/polymer">polymer.dart</a>.
 
-  Here are a few samples that we've converted to Polymer so far:
+  We've converted most of the tutorial Web UI examples and compiled some
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
+  along the way.
+  Here is the source code for the polymer versions of the three examples from this target:
   <ul>
     <li>
-      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/littleben"
-         target="_blank">littleben</a>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/littleben_element"
+         target="_blank">littleben_element</a>: version of littleben using a custom element
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/littleben_model"
+         target="_blank">littleben_model</a>: version of littleben with a bound model
     </li>
     <li>
       <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/shout"

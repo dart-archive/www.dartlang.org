@@ -24,7 +24,11 @@ Get the source code for the samples featured in this target:</p>
 <ul>
   <li>
     <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/its_all_about_you"
-       target="_blank">its_all_about_you</a>
+       target="_blank">its_all_about_you</a> (web_ui)
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09-polymer/its_all_about_you"
+       target="_blank">its_all_about_you</a> (polymer)
   </li>
   <li>
     <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux_simple"

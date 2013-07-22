@@ -39,6 +39,40 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
+<hr>
+
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+
+  The Dart Web UI team recently
+  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k">announced</a>
+  a port of the Polymer project:
+  <a href="http://pub.dartlang.org/packages/polymer">polymer.dart</a>.
+
+  We've converted most of the tutorial Web UI examples and compiled some
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
+  along the way.
+  Here is source code for the polymer versions of the three examples from this target:
+  <ul>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/adlibitum"
+         target="_blank">adlibitum</a>
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/simplehangman"
+         target="_blank">simplehangman</a>
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/hangman"
+         target="_blank">hangman</a>
+    </li>
+  </ul>
+</aside>
+
+<hr>
+
 The Web UI package implements the &lt;template&gt; tag,
 which you can use directly in your HTML.
 Templates define UI elements that are instantiated
