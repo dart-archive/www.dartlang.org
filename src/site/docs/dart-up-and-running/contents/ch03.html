@@ -643,7 +643,7 @@ return result.then((value) =&gt; expensiveWork())
 Future copyDone = copyLotsOfFiles();
 Future checksumDone = checksumLotsOfOtherFiles();
 
-new Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
+Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
   print('Done with all the long steps');
 });</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-9"></a>More Information</h3></div></div></div><p>For examples of using Future, see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-math"></a>dart:math - Math and Random</h2></div></div></div><p>The Math library provides common functionality such as sine and
     cosine, maximum and minimum, and constants such as <span class="emphasis"><em>pi</em></span>
