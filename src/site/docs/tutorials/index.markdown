@@ -12,6 +12,8 @@ article:
   written_on: 2012-10-01
   updated_on: 2013-07-01
   collection: everyday-dart
+next: get-started
+next-title: "Get Started"
 ---
 
 {% capture whats_the_point %}
@@ -191,25 +193,8 @@ the data in the form with Dart data.
 ...more targets coming...
     </div>
   </div>
-<hr>
-</div>
-
-<div class="row">
-  <div class="span3">
-  <p style="font-size:xx-small">Version: 1 July 2013</p>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/get-started/" class="pull-right">Get Started <i class="icon-chevron-right"> </i></a>
-  </div>
 </div>
 
 {% endcapture %}
 
-{% include tutorial.html %}
+{% include tutorial-main-page.html %}

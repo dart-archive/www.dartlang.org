@@ -5,6 +5,10 @@ description: "You have an Element object, now what?"
 has-permalinks: true
 tutorial:
   id: add-elements
+next: remove-elements
+next-title: "Remove DOM Elements"
+prev: connect-dart-html
+prev-title: "Connect Dart & HTML"
 ---
 
 {% capture whats_the_point %}
@@ -378,24 +382,6 @@ automatically removes it from its previous parent.
     libraries, and tools.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/connect-dart-html/"><i class="icon-chevron-left"> </i> Connect Dart &amp; HTML</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/remove-elements/" class="pull-right">Remove DOM Elements <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

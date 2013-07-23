@@ -12,6 +12,10 @@ js:
   defer: true
 - url: /js/editor-version.js
   defer: true
+next: connect-dart-html
+next-title: "Connect Dart & HTML"
+prev: index.html
+prev-title: "Home"
 ---
 
 {% capture whats_the_point %}
@@ -565,24 +569,6 @@ when creating applications outside of Dart Editor.
     test, and deploy Dart code.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/"><i class="icon-chevron-left"> </i> Home</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/connect-dart-html/" class="pull-right">Connect Dart &amp; HTML <i class="icon-chevron-right"> </i></a>
-  </div>
-</div>
 
 {% endcapture %}
 

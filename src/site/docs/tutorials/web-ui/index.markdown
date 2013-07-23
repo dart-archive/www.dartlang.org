@@ -5,6 +5,10 @@ description: "Web UI provides web components, templates, data binding, and encap
 has-permalinks: true
 tutorial:
   id: get-started-web-ui
+next: templates
+next-title: "Use &lt;template&gt;"
+prev: packages
+prev-title: "Install Shared Packages"
 ---
 
 {% capture whats_the_point %}
@@ -559,24 +563,6 @@ The function would be declared `void startwatch(Event e)`.
     and the corresponding source code.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/packages/"><i class="icon-chevron-left"> </i> Install Shared Packages</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/templates/" class="pull-right">Use &lt;template&gt; <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

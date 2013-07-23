@@ -5,6 +5,10 @@ description: "Use IndexedDB for persistence and offline capability for your app.
 has-permalinks: true
 tutorial:
   id: indexeddb
+next: index.html
+next-title: "Home"
+prev: forms
+prev-title: "Get Input from a Form"
 ---
 
 {% capture whats_the_point %}
@@ -734,24 +738,6 @@ Check out our
 <a href="/codelabs/web-ui-writer/index.html" target="_blank"><i class="icon-beaker"> </i>Codelab</a>;
 it uses LocalStorage instead of IndexedDB to store data in the client.
 Try converting it to use IndexedDB.
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/forms/"><i class="icon-chevron-left"> </i> Get Input from a Form</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

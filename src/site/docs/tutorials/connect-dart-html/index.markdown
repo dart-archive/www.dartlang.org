@@ -5,6 +5,10 @@ description: "Shows basic scaffolding of a Dart web app"
 has-permalinks: true
 tutorial:
   id: connect-dart-html
+next: add-elements
+next-title: "Add Elements to the DOM"
+prev: get-started
+prev-title: "Get Started"
 ---
 
 {% capture whats_the_point %}
@@ -631,24 +635,6 @@ for example, it sets the text color to Yellow.
     such strings, lists, maps, and numbers.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/get-started/"><i class="icon-chevron-left"> </i> Get Started</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/add-elements/" class="pull-right">Add Elements to the DOM <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

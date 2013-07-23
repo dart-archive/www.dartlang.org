@@ -5,6 +5,10 @@ description: "Packages are bundles of source code, tools, and resources that hel
 has-permalinks: true
 tutorial:
   id: packages
+next: web-ui
+next-title: "Get Started with Web UI"
+prev: remove-elements
+prev-title: "Remove DOM Elements"
 ---
 
 {% capture whats_the_point %}
@@ -293,24 +297,6 @@ Note that you specify the filename, not the library name.
     <a href="/docs/tutorials/web-ui/">next target</a> covers Web UI.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/remove-elements/"><i class="icon-chevron-left"> </i> Remove DOM Elements</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/web-ui/" class="pull-right">Get Started with Web UI <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

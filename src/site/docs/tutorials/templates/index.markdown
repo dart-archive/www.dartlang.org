@@ -5,6 +5,10 @@ description: "Use template loops and conditionals for declarative UI creation."
 has-permalinks: true
 tutorial:
   id: web-ui-templates
+next: custom-elements
+next-title: "Define a Custom DOM Tag"
+prev: web-ui
+prev-title: "Get Started with Web UI"
 ---
 
 {% capture whats_the_point %}
@@ -328,25 +332,6 @@ the gallows UI is updated.
     and the corresponding source code.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/web-ui/"><i class="icon-chevron-left"> </i> Get Started with Web UI</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/custom-elements/" class="pull-right">Define a Custom DOM Tag <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
-
 
 {% endcapture %}
 

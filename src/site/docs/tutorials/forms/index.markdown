@@ -5,6 +5,10 @@ description: "Using HTML forms and input elements to send data to a server"
 has-permalinks: true
 tutorial:
   id: forms
+next: indexeddb
+next-title: "Use IndexedDB"
+prev: fetchdata
+prev-title: "Fetch Data Dynamically"
 ---
 
 {% capture whats_the_point %}
@@ -980,24 +984,6 @@ Try our
 <a href="/codelabs/web-ui-writer/index.html" target="_blank"><i class="icon-beaker"> </i>Codelab</a>.
 In this step-by-step guide, you’ll build a simple,
 single­-page, modern web app for desktop and mobile.
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/fetchdata/"><i class="icon-chevron-left"> </i> Fetch Data Dynamically</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/indexeddb/" class="pull-right">Use IndexedDB <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

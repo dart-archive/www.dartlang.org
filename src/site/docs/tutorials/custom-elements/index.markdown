@@ -5,6 +5,10 @@ description: "Define a custom DOM element tag with help from the Web UI package"
 has-permalinks: true
 tutorial:
   id: web-components
+next: fetchdata
+next-title: "Fetch Data Dynamically"
+prev: templates
+prev-title: "Use &lt;template&gt;"
 ---
 
 {% capture whats_the_point %}
@@ -401,24 +405,6 @@ have an event handler.
      target="_blank">TodoMVC</a>.
 </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/templates/"><i class="icon-chevron-left"> </i> Use &lt;template&gt;</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/fetchdata/" class="pull-right">Fetch Data Dynamically <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

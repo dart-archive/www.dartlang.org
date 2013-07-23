@@ -5,6 +5,10 @@ description: "Remove a child element from the DOM"
 has-permalinks: true
 tutorial:
   id: remove-elements
+next: packages
+next-title: "Install Shared Packages"
+prev: add-elements
+prev-title: "Add Elements to the DOM"
 ---
 
 {% capture whats_the_point %}
@@ -229,24 +233,6 @@ it returns no value and takes an Event object as a parameter.
     libraries, and tools.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/add-elements/"><i class="icon-chevron-left"> </i> Add Elements to the DOM</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/packages/" class="pull-right">Install Shared Packages <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

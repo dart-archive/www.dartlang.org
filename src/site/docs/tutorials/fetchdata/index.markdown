@@ -5,6 +5,10 @@ description: "Use HttpRequest to fetch data from a file or a server."
 has-permalinks: true
 tutorial:
   id: fetchdata
+next: forms
+next-title: "Get Input from a Form"
+prev: custom-elements
+prev-title: "Define a Custom DOM Tag"
 ---
 
 {% capture whats_the_point %}
@@ -67,7 +71,7 @@ and thus are subject to the browser's security restrictions.
 * [About URIs and HTTP requests](#about-uris)
 * [Using the getString() function to load a file](#using-getString-function)
 * [Using an HttpRequest object to load a file](#making-a-get-request)
-* [Further resources](#further-resources)
+* [Other resources](#other-resources)
 
 ##About JSON
 
@@ -453,31 +457,13 @@ to create the String objects specified by the JSON string.
 
 ![Parse a JSON formatted list of strings](images/json-parse.png)
 
-##Further resources
+##Other resources
 
 Check out Chris Buckett's article,
 <a href="/articles/json-web-service/"
    target="_blank">Using Dart with JSON Web Services</a>,
 for more information and an example with source code for both
 client and server programs.
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/custom-elements/"><i class="icon-chevron-left"> </i> Define a Custom DOM Tag</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/forms/" class="pull-right">Get Input from a Form <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 
