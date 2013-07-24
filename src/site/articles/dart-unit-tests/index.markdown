@@ -356,7 +356,7 @@ test('Addition test', () {
 
 However, if you use matchers with more granularity,
 `expect()` generates a useful descriptive message upon failure,
-which is passed as an argument to the ExpectException constructor.
+which is passed as an argument to the TestFailure constructor.
 When using a predicate form like the above,
 `expect()` has no useful information to do this with.
 So in the second case, the description will simply be:
@@ -781,7 +781,7 @@ For testing whether functions throw exceptions, we have:
 `throwsA` takes a matcher argument which will be matched against the exception;
 an example is shown in the next paragraph.
 `returnsNormally` will swallow any thrown exception
-and throw an `ExpectException` instead
+and throw a `TestFailure` instead
 with details of the inner exception including the stack trace.
 
 For type checking, we have:
