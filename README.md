@@ -5,7 +5,8 @@
 The www.dartlang.org site. Built with Jekyll (https://github.com/mojombo/jekyll)
 and hosted on App Engine.
 
-File issues and bugs here: http://dartbug.com/new
+To give us feedback, please
+[file issues with the Dart project](https://code.google.com/p/dart/issues/entry?template=Documentation%20issue/feedback).
 
 Contributions welcome!
 (Just sign our [CLA](https://developers.google.com/open-source/cla/individual).)
