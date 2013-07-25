@@ -128,7 +128,7 @@ using the Dart language, tools, and APIs.
         <!-- Packages -->
         <div class="span6" style="border-right:1px solid Lavender">
           <section>
-          <h4><a href="packages/"><img src="images/target.png" height="20" width="20">&nbsp;Install Shared Packages</a></h4>
+          <h4><a href="shared-pkgs/"><img src="images/target.png" height="20" width="20">&nbsp;Install Shared Packages</a></h4>
           <p>Organize and share code at <a href="http://pub.dartlang.org/">pub.dartlang.org</a>.</p>
           <img src="images/add-packages-screenshot.png" width="300">
           </section>
