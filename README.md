@@ -2,7 +2,7 @@
 
 [![Build Status](https://drone.io/github.com/dart-lang/dartlang.org/status.png)](https://drone.io/github.com/dart-lang/dartlang.org/latest)
 
-The www.dartlang.org site. Built with Jekyll (https://github.com/mojombo/jekyll)
+The www.dartlang.org site. Built with [Jekyll](https://github.com/mojombo/jekyll)
 and hosted on App Engine.
 
 To give us feedback, please
