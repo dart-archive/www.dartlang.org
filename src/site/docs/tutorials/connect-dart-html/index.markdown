@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 2: Connect Dart &amp; HTML"
+title: "Connect Dart &amp; HTML"
 description: "Shows basic scaffolding of a Dart web app"
 has-permalinks: true
 tutorial:
@@ -42,6 +42,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Write a mini Dart app.</h3>
+</div>
 
 To write a Dart web app,
 you need to have basic understanding of

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 9: Fetch Data Dynamically"
+title: "Fetch Data Dynamically"
 description: "Use HttpRequest to fetch data from a file or a server."
 has-permalinks: true
 tutorial:
@@ -47,6 +47,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Get data from a file or server.</h3>
+</div>
 
 Web applications often use
 <a href="http://www.json.org" target="_blank">JSON</a> (JavaScript Object Notation)

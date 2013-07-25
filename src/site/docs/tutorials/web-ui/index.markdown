@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "Target 6: Get Started with Web UI"
+title: "Get Started with Web UI"
 description: "Web UI provides web components, templates, data binding, and encapsulation."
 has-permalinks: true
 tutorial:
   id: get-started-web-ui
 next: templates
-next-title: "Use &lt;template&gt;"
-prev: packages
+next-title: "Use Templates"
+prev: shared-pkgs
 prev-title: "Install Shared Packages"
 ---
 
@@ -45,6 +45,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Declaratively create dynamic user interfaces.</h3>
+</div>
 
 <hr>
 

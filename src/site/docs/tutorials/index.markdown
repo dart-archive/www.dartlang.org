@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "A Game of Darts&mdash;Tutorials"
 description: "A beginner's guide to building web apps with Dart."
 has-permalinks: true
 rel:
@@ -16,185 +15,268 @@ next: get-started
 next-title: "Get Started"
 ---
 
-{% capture whats_the_point %}
-
-* This blue box shows page highlights.
-* Learn Dart here: No web experience required.
-* Dart is an open-source platform for building structured HTML5 web apps.
-
-{% endcapture %}
-
-{% capture sample_links %}
-
-<ul>
-  <li>
-    Get the source code for all the tutorial examples from
-    <a href="https://github.com/dart-lang/dart-tutorials-samples"
-       target="_blank">github</a>.
-  </li>
-
-  <li>
-    Run the examples from the
-    <a href="http://dart-lang.github.com/dart-tutorials-samples/"
-       target="_blank">index</a>.
-  </li>
-</ul>
-
-{% endcapture %}
-
 {% capture content %}
 
-Welcome to 
-your guide to building great web apps using Dart.
+<img src="images/banner.png">
 
-*A Game of Darts* is a collection of tutorials, _targets_,
-that teaches you how to build web programs
+**A Game of Darts**
+is a collection of tutorials, _targets_,
+that teaches you how to build mobile web applications
 using the Dart language, tools, and APIs.
-You can either follow the targets in order,
-building your knowledge of Dart and web programming
-from the ground up,
-or customize your learning experience by
-choosing just the targets you need.
 
-You should already know how to program in a structured language
-like C or Java.
-It helps to be familiar with object-oriented programming.
+<strong>Who are you?</strong>
+<ul>
+<li> You already know how to program in a structured language like C or Java.</li>
+<li> You are familiar with object-oriented programming.</li>
+<li> You might not know how to program the browser through the DOM (Document Object Model).</li>
+</ul>
 
-You don't need to know JavaScript or the DOM
-(Document Object Model) to use these tutorials.
-The DOM is key to web programming
-and you will learn about it here,
-starting with the basic concepts in Target 2.
+<strong>Let's go!</strong> Follow the targets in order from left to right...or choose just the ones you need.
 
-<hr>
+<div class="tute-tabs">
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#basics" data-toggle="tab">Basics</a></li>
+    <li><a href="#dom" data-toggle="tab">Browser</a></li>
+    <li><a href="#packages" data-toggle="tab">Packages</a></li>
+    <li><a href="#webui" data-toggle="tab">Web UI</a></li>
+    <!--<li><a href="#polymer" data-toggle="tab">Polymer</a></li>-->
+    <li><a href="#forms" data-toggle="tab">Forms & Data</a></li>
+    <!--<li><a href="#mobile" data-toggle="tab">Mobile</a></li>-->
+  </ul>
 
-<div id="target-group" markdown="1">
-<i class="icon-star"> Check out the newest target on IndexedDB.
-This target shows you how to give your app persistence
-and offline capability by saving data on the client side.
-[Target 11: Use IndexedDB](indexeddb/).
-</div>
+  <div class="tab-content">
 
-<hr>
+  <!-- BASICS TAB -->
+    <div class="tab-pane active" id="basics">
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 1: Get Started](get-started/)
-: Download the Dart software bundle,
-discover which tools and libraries come with the Dart software,
-and use Dart Editor to run two apps.
+      These two targets give a gentle introduction to writing Dart apps.
+      Download the software and
+      discover which tools and libraries you get with the bundle.
+      Run two sample apps.
+      Learn how to embed Dart code in an HTML web page,
+      to provide it with an interactive user interface and dynamic functionality.
 
-<hr>
+      <div class="row-fluid">
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 2: Connect Dart &amp; HTML](connect-dart-html/)
-: Use Dart Editor to create
-a stripped-down Dart program
-that simply puts text on a browser page.
-Though simple,
-this tiny program
-shows you how to host a Dart program on a web page
-and one way to manipulate the DOM.
-You will also begin learning about the Dart language,
-Dart Editor, HTML, and CSS.
+        <!-- Getting Started -->
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="get-started/"><img src="images/target.png" height="20" width="20">&nbsp;Get Started</a></h4>
+            <p>Get Dart. Run two apps.
+            </p>
+          <img src="images/clickme-screenshot.png" width="300">
+          </section>
+        </div>
 
-<hr>
+        <!-- Connect Dart & HTML -->
+        <div class="span6">
+          <section>
+          <h4><a href="connect-dart-html/"><img src="images/target.png" height="20" width="20">&nbsp;Connect Dart &amp; HTML</a></h4>
+            <p>Embed Dart in a web page.
+            </p>
+          <img src="images/miniapp-screenshot.png" width="300">
+          </section>
+        </div>
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 3: Add an Element to the DOM](add-elements/)
-: The small app in this target
-responds to a user-generated event
-by adding an Element to the DOM.
+      </div> <!-- end row-fluid -->
+    </div> <!-- end Getting Started tab -->
 
-<hr>
+  <!-- DOM TAB -->
+    <div class="tab-pane" id="dom">
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 4: Remove DOM Elements](remove-elements/)
-: In this target,
-you will modify the little todo app from Target 3
-to remove elements from the DOM.
+      Web pages are programmed in HTML and represented
+      within the browser as a tree structure
+      called the DOM (Document Object Model).
+      Dart apps can modify the DOM programmatically,
+      thus dynamically changing the web page
+      and responding to user input.
+      Learn how to add, move, and remove DOM elements
+      in these two targets.
 
-<hr>
+      <div class="row-fluid">
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 5: Install Shared Packages](packages/)
-: Packages help programmers to organize and share code.
-Many open-source Dart packages are hosted at the
-<a href="http://pub.dartlang.org/">pub.dartlang.org</a>
-repository.
-This target walks you through the steps to install one of those packages.
+        <!-- Add Elements -->
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="add-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Add Elements to the DOM</a></h4>
+          <p>Add elements to the web page, move them...</p>
+          <img src="images/todo-screenshot.png" width="300">
+          </section>
+        </div>
 
-<hr>
+        <!-- Remove Elements -->
+        <div class="span6">
+          <section>
+          <h4><a href="remove-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Remove DOM Elements</a></h4>
+          <p>... and delete them.</p>
+          <img src="images/todo-with-delete-screenshot.png" width="300">
+          </section>
+        </div>
 
-<div id="target-group" markdown="1">
-<h3> <i class="icon-magic"> </i> Dart's Web UI package</h3>
-Web components and templates
-are the next great ideas in web application development.
-Together they provide the building blocks to
-create richer and more dynamic web applications.
-With the Dart team's Web UI package,
-you can get started using web components and templates now.
+      </div> <!-- end row-fluid -->
+    </div> <!-- end DOM tab -->
 
-<hr>
+  <!-- PACKAGES TAB -->
+    <div class="tab-pane" id="packages">
 
-<img src="web-ui-icon.png" width="48" height="48"> [ Target 6: Get Started with Web UI](web-ui/)
-: This target starts with the logistics
-of installing the Web UI package and
-setting up Dart Editor to automate the build process.
-Then it shows you how to use one- and two- way data binding
-to synchronize Dart data with UI elements.
-Finally, you learn about template expressions
-and declaratively attaching event handlers to UI elements.
+      Dart developers have been busy creating code libraries that can help you be more productive.
+      Leverage that code or put your code out in the world to share with others.
 
-<hr>
+      <div class="row-fluid">
 
-<img src="web-ui-icon.png" width="48" height="48"> [ Target 7: Use &lt;template&gt;](templates/)
-: This target shows how to use Web UI templates
-to conditionally activate UI elements.
-It also shows you how to use template loops to
-create a UI based on an Iterable Dart object, such as a list or map.
-<hr>
+        <!-- Packages -->
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="packages/"><img src="images/target.png" height="20" width="20">&nbsp;Install Shared Packages</a></h4>
+          <p>Organize and share code at <a href="http://pub.dartlang.org/">pub.dartlang.org</a>.</p>
+          <img src="images/add-packages-screenshot.png" width="300">
+          </section>
+        </div>
+        <div class="span6">
 
-<img src="web-ui-icon.png" width="48" height="48"> [ Target 8: Define a Custom DOM Tag](custom-elements/)
-: Continuing your introduction to the Web UI package,
-this target shows you how to use custom elements to
-define a new DOM tag.
+        </div>
+      </div>
+    </div> <!-- end Packages tab -->
 
-</div>
-<hr>
+  <!-- WEB UI TAB -->
+    <div class="tab-pane" id="webui">
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 9: Fetch Data Dynamically](fetchdata/)
-: Your Dart web app can load data dynamically,
-either from a static file or from a server.
-Web data are often formatted using JSON (JavaScript Object Notation)&mdash;a
-text based, human friendly data format.
+      Web components and templates are the next great ideas in web application development.
+      Together they provide the building blocks to create richer and more dynamic web applications.
+      With the Dart team’s <a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>,
+      you can get started using web components and templates now.
 
-<hr>
+<!--
+      <aside class="alert">
+        <strong>To be deprecated.</strong> <i>Use the new polymer packages instead.</i>
+        Learn all about it in the <a href="polymer/">Polymer target</a>.<br>
+      </aside>
+-->
 
-<img src="/imgs/Dart_Logo_21.png" width="21" height="21" alt="Dart"> [ Target 10: Get input from a form](forms/)
-: Most Web apps use forms and input elements to 
-gather data from the user and submit that data to a server.
-The example in this target has a client-server pair
-that shows how to use forms and input elements,
-and how clients and servers use the classes
-in the Dart libraries to communicate.
-This target brings together a lot of the information you learned in
-the other targets, including the use of Web UI to sync
-the data in the form with Dart data.
+      <div class="row-fluid">
 
-<hr>
+        <!-- Get Started Web UI -->
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="web-ui/"><img src="images/target.png" height="20" width="20">&nbsp;Get Started with Web UI</a></h4>
+          <p>Bind Dart variables to UI elements.</p>
+          <img src="images/shout-screenshot.png" width="300">
+          </section>
+        </div>
 
-<img src="new-icon.png" width="48" height="48" alt="Dart"> [ Target 11: Use IndexedDB](indexeddb/)
-: Learn about IndexedDB here!
+        <!-- Templates -->
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="templates/"><img src="images/target.png" height="20" width="20">&nbsp;Use Templates</a></h4>
+          <p>Activate UI elements with loops and conditionals.</p>
+          <img src="images/hangman-screenshot.png" width="300">
+          </section>
+        </div>
+      </div> <!-- end row-fluid -->
 
-<div>
-  <hr>
-  <div class="row">
-    <div class="span1">
-    <font size="24">
-    <i class="icon-bullhorn"> </i>
-    </font>
+      <div class="row-fluid">
+        <!-- Custom Elements -->
+        <div class="span6">
+          <section>
+          <h4><a href="custom-elements"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom DOM Tag</a></h4>
+          <p>Create new HTML tags with custom elements.</p>
+          <img src="images/convert-screenshot.png" width="300">
+          </section>
+        </div>
+        <div class="span6">
+        </div>
+      </div> <!-- end row-fluid -->
+    </div> <!-- end WEB UI tab -->
+
+  <!-- POLYMER TAB -->
+  <!--
+    <div class="tab-pane" id="polymer">
+      <div class="row-fluid">
+
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="polymer"><img src="images/target.png" height="20" width="20">&nbsp;Polymer</a></h4>
+          <p>Polymer - a shiny new package!</p>
+          <img src="images/countdown-screenshot.png" width="300">
+          </section>
+        </div>
+
+        <div class="span6">
+        </div>
+
+      </div>
     </div>
-    <div class="span8">
-...more targets coming...
+  -->
+    
+  <!-- FORMS TAB -->
+    <div class="tab-pane" id="forms">
+
+      Various classes in the Dart libraries help you get, send and receive,
+      and save user data.
+      You can use input elements within forms to get data from users.
+      You can use JSON to format data and HttpRequest to send requests and receive responses.
+      And, finally, you can save data on the client with IndexedDB.
+
+      <div class="row-fluid">
+
+        <!-- Fetch Data -->
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="fetchdata"><img src="images/target.png" height="20" width="20">&nbsp;Fetch Data Dynamically</a></h4>
+          <p>Load data from a static file or from a server.</p>
+          <img src="images/allaboutyou-screenshot.png" width="300">
+          </section>
+        </div>
+
+        <!-- Forms -->
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="forms/"><img src="images/target.png" height="20" width="20">&nbsp;Get Input from a Form</a></h4>
+          <p>Use forms and input elements to get data.</p>
+          <img src="images/slambook-screenshot.png" width="300">
+          </section>
+        </div>
+      </div> <!-- end row-fluid -->
+
+      <div class="row-fluid">
+        <!-- IndexedDB -->
+        <div class="span6">
+          <section>
+          <h4><a href="indexeddb/"><img src="images/target.png" height="20" width="20">&nbsp;Use IndexedDB</a></h4>
+          <p>Save data on the client with IndexedDB!</p>
+          <img src="images/countdown-screenshot.png" width="300">
+          </section>
+        </div>
+        <div class="span6">
+        </div>
+      </div> <!-- end row-fluid -->
+    </div> <!-- end FORMS tab -->
+
+  <!-- MOBILE TAB -->
+  <!--
+    <div class="tab-pane" id="mobile">
+      <div class="row-fluid">
+
+        <div class="span6" style="border-right:1px solid Lavender">
+          <section>
+          <h4><a href="mobile"><img src="images/target.png" height="20" width="20">&nbsp;Write for Mobile Devices</a></h4>
+          <p>Mobile devices are taking over the world!</p>
+          <img src="images/countdown-screenshot.png" width="300">
+          </section>
+        </div>
+
+        <div class="span6">
+        </div>
+
+      </div>
     </div>
-  </div>
-</div>
+  -->
+
+  </div> <!-- end tab content-->
+</div> <!--end tabbable -->
+</div> <!-- end of tute-tabs -->
 
 {% endcapture %}
 
-{% include tutorial-main-page.html %}
+{% include tutorial_main_page.html %}

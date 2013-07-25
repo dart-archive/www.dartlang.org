@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 10: Get Input from a Form"
+title: "Get Input from a Form"
 description: "Using HTML forms and input elements to send data to a server"
 has-permalinks: true
 tutorial:
@@ -51,18 +51,9 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft under construction.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Use forms to get data from users.</h3>
 </div>
 
 Many web applications rely on forms to collect data

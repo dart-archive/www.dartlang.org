@@ -1,12 +1,12 @@
 ---
 layout: default
-title: "Target 11: Use IndexedDB"
+title: "Use IndexedDB"
 description: "Use IndexedDB for persistence and offline capability for your app."
 has-permalinks: true
 tutorial:
   id: indexeddb
 next: index.html
-next-title: "Home"
+next-title: "A Game of Darts"
 prev: forms
 prev-title: "Get Input from a Form"
 ---
@@ -43,18 +43,9 @@ Get the source code for the example featured in this target:</p>
 
 {% capture content %}
 
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft under construction.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Save data on the client.</h3>
 </div>
 
 Browsers provide several ways for your apps to store data on the client side.

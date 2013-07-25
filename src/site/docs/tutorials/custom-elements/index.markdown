@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 8: Define a Custom DOM Tag"
+title: "Define a Custom DOM Tag"
 description: "Define a custom DOM element tag with help from the Web UI package"
 has-permalinks: true
 tutorial:
@@ -8,7 +8,7 @@ tutorial:
 next: fetchdata
 next-title: "Fetch Data Dynamically"
 prev: templates
-prev-title: "Use &lt;template&gt;"
+prev-title: "Use Templates"
 ---
 
 {% capture whats_the_point %}
@@ -39,6 +39,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Create your own, customized DOM elements.</h3>
+</div>
 
 <hr>
 

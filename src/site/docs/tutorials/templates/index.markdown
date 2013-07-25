@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 7: Use &lt;template&gt;"
+title: "Use Templates"
 description: "Use template loops and conditionals for declarative UI creation."
 has-permalinks: true
 tutorial:
@@ -42,6 +42,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Create dynamic elements declaratively.</h3>
+</div>
 
 <hr>
 

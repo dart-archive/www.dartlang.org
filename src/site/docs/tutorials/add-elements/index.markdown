@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 3: Add Elements to the DOM"
+title: "Add Elements to the DOM"
 description: "You have an Element object, now what?"
 has-permalinks: true
 tutorial:
@@ -40,6 +40,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Dynamically add items to the browser page.</h3>
+</div>
 
 As you learned in the previous target,
 the DOM represents the structure

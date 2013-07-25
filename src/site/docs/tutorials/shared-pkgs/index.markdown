@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 5: Install Shared Packages"
+title: "Install Shared Packages"
 description: "Packages are bundles of source code, tools, and resources that help you to organize and share code"
 has-permalinks: true
 tutorial:
@@ -34,6 +34,11 @@ Get the vector_math package and many others from:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Borrow and share code.</h3>
+</div>
 
 Now that you're able to create and run a Dart application
 and have a basic understanding of DOM programming,

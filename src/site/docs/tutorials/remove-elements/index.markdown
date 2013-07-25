@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Target 4: Remove DOM Elements"
+title: "Remove DOM Elements"
 description: "Remove a child element from the DOM"
 has-permalinks: true
 tutorial:
   id: remove-elements
-next: packages
+next: shared-pkgs
 next-title: "Install Shared Packages"
 prev: add-elements
 prev-title: "Add Elements to the DOM"
@@ -37,6 +37,11 @@ Get the source code for the sample featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Dynamically delete items from the browser page.</h3>
+</div>
 
 This target shows you how to delete elements from the DOM.
 A new and improved version of the todo app from

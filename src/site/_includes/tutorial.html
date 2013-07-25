@@ -1,59 +1,34 @@
+<!-- NAVI LINKS -->
+<div class="row">
+  <div class="span12">
+    <div class="row">
+      <div class="span3">
+        <a href="/docs/tutorials/"><img src="/docs/tutorials/images/tute-home.png" width="36"></a>
+      </div>
+      <div class="span3">
+        <a href="/docs/tutorials/{{page.prev}}"><i class="icon-chevron-left"> </i> {{page.prev-title}}</a>
+      </div>
+      <div class="span3">
+      </div>
+      <div class="span3">
+        <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}} <i class="icon-chevron-right"> </i> </a>
+      </div>
+    </div> 
+    <hr>
+  </div> 
+</div> 
+
+<!-- PAGE -->
 <div class="row">
 
-  <div class="span9 offset3">
-    <h1>{{ page.title }}</h1>
-  </div>
-
+  <!-- LEFT SIDE BAR -->
   <div class="span3">
 
     <div id="tutorial-side">
-
-      <div id="tutorial-toc">
-        <h4 id="contents">Contents</h4>
-        <ul>
-          <li>
-             <a href="/docs/tutorials/">A Game of Darts: Home</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/get-started/">1: Get Started</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/connect-dart-html/">2: Connect Dart &amp; HTML</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/add-elements/">3: Add Elements to the DOM</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/remove-elements/">4: Remove DOM Elements</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/packages/">5: Install Shared Packages</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/web-ui/">6: Get Started with Web UI</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/templates/">7: Use &lt;template&gt;</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/custom-elements/">8: Define a Custom DOM Tag</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/fetchdata/">9: Fetch Data Dynamically</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/forms/">10: Get Input from a Form</a>
-          </li>
-          <li>
-             <a href="/docs/tutorials/indexeddb/">11: Use IndexedDB</a>
-          </li>
-        </ul>
-      </div> <!-- end tutorial-toc -->
-
       <div id="whats-the-point">
         <h4 id="page-highlights">What's the point?</h4>
         {{ whats_the_point | markdownify }}
-      </div> <!-- end whats-the-point -->
+      </div> <!-- whats-the-point -->
 
       <div id="code-links">
         <h4 id="examples">Examples</h4>
@@ -66,40 +41,42 @@
         </a>
       </div> <!-- end code-links -->
 
-    </div> <!-- end tutorial-side -->
+      <div id="tutorial-toc">
+        <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+         target="_blank">
+        <i class="icon-comment"> </i>
+        Send feedback
+        </a>
+      </div> <!-- tutorial-toc -->
       
-    <div>&nbsp;</div>
+    </div> <!-- tutorial-side -->
 
   </div> <!-- end div span3 -->
 
+  <!-- CONTENT-->
   <article class="span9 tutorial-content">
 
     {{ content | markdownify }}
 
+  </article>
+</div>
+
+<!-- NAVI LINKS -->
+<div class="row">
+  <div class="span12">
+    <hr>
     <div class="row">
       <div class="span3">
+        <a href="/docs/tutorials/"><img src="/docs/tutorials/images/tute-home.png" width="36"></a>
       </div>
-      <div class="span9">
-        <hr>
-          <div class="row">
-            <div class="span3">
-              <a href="/docs/tutorials/{{page.prev}}"><i class="icon-chevron-left"> </i>&nbsp;{{page.prev-title}}</a>
-            </div>
-            <div class="span3">
-              <a href="https://code.google.com/p/dart/issues/entry?template=Documentation%20issue/feedback"
-                 target="_blank">
-              <i class="icon-comment"> </i>
-              Send feedback
-              </a>
-            </div>
-            <div class="span3">
-              <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}}&nbsp;<i class="icon-chevron-right"> </i> </a>
-            </div>
-          </div> <!-- row -->
-        <!-- hr -->
-      </div> <!-- span9 -->
-    </div> <!-- row -->
-
-  </article>
-
-</div>
+      <div class="span3">
+        <a href="/docs/tutorials/{{page.prev}}"><i class="icon-chevron-left"> </i> {{page.prev-title}}</a>
+      </div>
+      <div class="span3">
+      </div>
+      <div class="span3">
+        <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}} <i class="icon-chevron-right"> </i> </a>
+      </div>
+    </div> 
+  </div> 
+</div> 

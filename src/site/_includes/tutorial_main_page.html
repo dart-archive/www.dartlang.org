@@ -1,0 +1,37 @@
+<div class="row">
+
+  <div class="span12">
+    <h1>{{ page.title }}</h1>
+  </div>
+
+
+  <article class="span12 tutorial-content">
+
+    {{ content | markdownify }}
+
+  </article>
+
+  <!-- TUTE NAVI BAR AS FOOTER -->
+  <div class="row">
+    <div class="span12">
+      <hr>
+        <div class="row">
+          <div class="span4">
+            <p style="font-size:xx-small">Version: 28 July 2013</p>
+          </div>
+          <div class="span4">
+            <a href="https://code.google.com/p/dart/issues/entry?template=Documentation%20issue/feedback"
+               target="_blank">
+            <i class="icon-comment"> </i>
+            Send feedback
+            </a>
+          </div>
+          <div class="span4">
+            <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}} <i class="icon-chevron-right"> </i> </a>
+          </div>
+        </div> <!-- row -->
+      <!-- hr -->
+    </div> <!-- span9 -->
+  </div> <!-- row -->
+
+</div>

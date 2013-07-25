@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 1: Get Started"
+title: "Get Started"
 description: "Get Dart and run two Dart applications"
 has-permalinks: true
 tutorial:
@@ -15,7 +15,7 @@ js:
 next: connect-dart-html
 next-title: "Connect Dart & HTML"
 prev: index.html
-prev-title: "Home"
+prev-title: "A Game of Darts"
 ---
 
 {% capture whats_the_point %}
@@ -48,6 +48,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Get Dart. Run two apps.</h3>
+</div>
 
 This target gets you ready
 to begin writing web apps in Dart.
