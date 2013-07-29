@@ -116,6 +116,9 @@ handlers:
 - url: /codelab
   script: scripts.redirector.application
 
+- url: /codelabs/web-ui-writer/codelab.pdf
+  script: scripts.redirector.application
+
 - url: /eclipse/update.*
   script: scripts.redirector.application
 
