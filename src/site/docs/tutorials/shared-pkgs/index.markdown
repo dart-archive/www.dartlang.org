@@ -5,9 +5,9 @@ description: "Packages are bundles of source code, tools, and resources that hel
 has-permalinks: true
 tutorial:
   id: packages
-next: web-ui
+next: web-ui/
 next-title: "Get Started with Web UI"
-prev: remove-elements
+prev: remove-elements/
 prev-title: "Remove DOM Elements"
 ---
 
@@ -26,7 +26,7 @@ Get the vector_math package and many others from:</p>
 
 <ul>
   <li>
-    <a href="http://pub.dartlang.org/"
+    <a href="https://pub.dartlang.org/"
        target="_blank">pub.dartlang.org</a>
   </li>
 </ul>
@@ -45,7 +45,7 @@ and have a basic understanding of DOM programming,
 you are ready to leverage code written by other programmers.
 Many interesting and useful packages of reusable Dart code
 are available at the
-<a href="http://pub.dartlang.org/">pub.dartlang.org</a>
+<a href="https://pub.dartlang.org/">pub.dartlang.org</a>
 repository.
 
 This target shows you how to use `pub`&mdash;a package manager
@@ -53,7 +53,7 @@ that comes with Dart&mdash;to
 install one of the packages in the repository,
 the vector_math package.
 You can follow these same steps to install any package hosted at
-<a href="http://pub.dartlang.org/">pub.dartlang.org</a>;
+<a href="https://pub.dartlang.org/">pub.dartlang.org</a>;
 just change the package name when you get to that step.
 This target also describes some of the resources you can expect to find
 in a well-built package.
@@ -80,7 +80,7 @@ Double click pubspec.yaml to view its contents.
 ![Dart Editor with pubspec.yaml file](images/victor-files.png)
 
 The pubspec.yaml file contains the package specification written in YAML
-(visit <a href="http://pub.dartlang.org/doc/pubspec.html">Pubspec Format</a>
+(visit <a href="https://pub.dartlang.org/doc/pubspec.html">Pubspec Format</a>
 for in-depth coverage).
 Dart Editor provides a user interface for editing the pubspec.yaml file
 so that you don't have to worry about the YAML format.
@@ -150,7 +150,7 @@ any version of the vector_math package.
 You could instead specify a particular version of the package.
 When versioning becomes important to your project,
 check out
-<a href="http://pub.dartlang.org/doc/versioning.html">
+<a href="https://pub.dartlang.org/doc/versioning.html">
 Pub's Versioning Philosophy
 </a>.
 
@@ -158,7 +158,7 @@ Here's the new pubspec.yaml file:
 
 ![Pubspec.yaml file with vector_math dependency](images/pubspec-vectormath.png)
 
-<a href="http://pub.dartlang.org/">pub.dartlang.org</a>
+<a href="https://pub.dartlang.org/">pub.dartlang.org</a>
 is the primary public repository for Dart packages.
 `pub` automatically checks that
 website when resolving package dependencies.
@@ -171,7 +171,7 @@ as we have done here.
 In Dart Editor, save pubspec.yaml with **File > Save**.
 When you save the file,
 Dart Editor automatically runs
-<a href="http://pub.dartlang.org/doc/pub-install.html">pub install</a>,
+<a href="https://pub.dartlang.org/doc/pub-install.html">pub install</a>,
 which recursively installs the Dart libraries
 from the packages in the dependencies list.
 You can also select **Pub Install** from the **Tools** menu in Dart Editor.
@@ -206,7 +206,7 @@ visit the
 <a href="https://github.com/johnmccutchan/vector_math" target="_blank">
 Dart vector math repository
 </a>
-at GitHub.
+at github.
 Although many files and directories are in the repository,
 only one, `lib`, was installed when you ran pub install.
 
@@ -253,7 +253,7 @@ only one, `lib`, was installed when you ran pub install.
       such as example code, tests, scripts, and documentation.
       If a package contains these resources,
       they should be in the directories as specified in the pub
-<a href="http://pub.dartlang.org/doc/package-layout.html">conventions</a>.
+<a href="https://pub.dartlang.org/doc/package-layout.html">conventions</a>.
     </div>
   </div>
   <hr>
@@ -287,16 +287,16 @@ Note that you specify the filename, not the library name.
 <ul>
   <li>
     Dart developers share packages at
-    <a href="http://pub.dartlang.org/">pub.dartlang.org</a>.
+    <a href="https://pub.dartlang.org/">pub.dartlang.org</a>.
     Look there for packages that might be useful to you,
     or share your own Dart packages.
-    See the <a href="http://pub.dartlang.org/doc/">pub documentation</a>
+    See the <a href="https://pub.dartlang.org/doc/">pub documentation</a>
     to get started using and sharing packages.
   </li>
   <li>
     One important package that you will find there
     is
-    <a href="http://pub.dartlang.org/packages/web_ui">web_ui</a>&mdash;a package
+    <a href="https://pub.dartlang.org/packages/web_ui">web_ui</a>&mdash;a package
     created by the Dart team that lets you use Web components and templating.
     The
     <a href="/docs/tutorials/web-ui/">next target</a> covers Web UI.

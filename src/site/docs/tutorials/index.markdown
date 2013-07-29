@@ -11,7 +11,7 @@ article:
   written_on: 2012-10-01
   updated_on: 2013-07-01
   collection: everyday-dart
-next: get-started
+next: get-started/
 next-title: "Get Started"
 ---
 
@@ -179,7 +179,7 @@ using the Dart language, tools, and APIs.
         <!-- Custom Elements -->
         <div class="span6">
           <section>
-          <h4><a href="custom-elements"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom DOM Tag</a></h4>
+          <h4><a href="custom-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom DOM Tag</a></h4>
           <p>Create new HTML tags with custom elements.</p>
           <img src="images/convert-screenshot.png" width="300">
           </section>
@@ -196,7 +196,7 @@ using the Dart language, tools, and APIs.
 
         <div class="span6" style="border-right:1px solid Lavender">
           <section>
-          <h4><a href="polymer"><img src="images/target.png" height="20" width="20">&nbsp;Polymer</a></h4>
+          <h4><a href="polymer/"><img src="images/target.png" height="20" width="20">&nbsp;Polymer</a></h4>
           <p>Polymer - a shiny new package!</p>
           <img src="images/countdown-screenshot.png" width="300">
           </section>
@@ -223,7 +223,7 @@ using the Dart language, tools, and APIs.
         <!-- Fetch Data -->
         <div class="span6" style="border-right:1px solid Lavender">
           <section>
-          <h4><a href="fetchdata"><img src="images/target.png" height="20" width="20">&nbsp;Fetch Data Dynamically</a></h4>
+          <h4><a href="fetchdata/"><img src="images/target.png" height="20" width="20">&nbsp;Fetch Data Dynamically</a></h4>
           <p>Load data from a static file or from a server.</p>
           <img src="images/allaboutyou-screenshot.png" width="300">
           </section>
@@ -260,7 +260,7 @@ using the Dart language, tools, and APIs.
 
         <div class="span6" style="border-right:1px solid Lavender">
           <section>
-          <h4><a href="mobile"><img src="images/target.png" height="20" width="20">&nbsp;Write for Mobile Devices</a></h4>
+          <h4><a href="mobile/"><img src="images/target.png" height="20" width="20">&nbsp;Write for Mobile Devices</a></h4>
           <p>Mobile devices are taking over the world!</p>
           <img src="images/countdown-screenshot.png" width="300">
           </section>

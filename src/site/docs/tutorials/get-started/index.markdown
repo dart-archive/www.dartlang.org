@@ -12,9 +12,9 @@ js:
   defer: true
 - url: /js/editor-version.js
   defer: true
-next: connect-dart-html
+next: connect-dart-html/
 next-title: "Connect Dart & HTML"
-prev: index.html
+prev: /docs/tutorials/
 prev-title: "A Game of Darts"
 ---
 
@@ -452,7 +452,7 @@ Here is the clickme app running in a frame.
 
 <iframe class="running-app-frame"
         style="height:510px;width:500px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target01/clickme/web/clickme.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target01/clickme/web/clickme.html">
 </iframe>
 
 You can run Dart web applications in other browsers

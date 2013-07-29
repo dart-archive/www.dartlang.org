@@ -5,9 +5,9 @@ description: "Remove a child element from the DOM"
 has-permalinks: true
 tutorial:
   id: remove-elements
-next: shared-pkgs
+next: shared-pkgs/
 next-title: "Install Shared Packages"
-prev: add-elements
+prev: add-elements/
 prev-title: "Add Elements to the DOM"
 ---
 
@@ -75,7 +75,7 @@ to remove all of the items in the list at once.
 
 <iframe class="running-app-frame"
         style="height:250px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target04/todo_with_delete/web/todo_with_delete.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target04/todo_with_delete/web/todo_with_delete.html">
 </iframe>
 
 You can find the complete source code for this sample on github at

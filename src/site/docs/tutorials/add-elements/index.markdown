@@ -5,9 +5,9 @@ description: "You have an Element object, now what?"
 has-permalinks: true
 tutorial:
   id: add-elements
-next: remove-elements
+next: remove-elements/
 next-title: "Remove DOM Elements"
-prev: connect-dart-html
+prev: connect-dart-html/
 prev-title: "Connect Dart & HTML"
 ---
 
@@ -53,7 +53,7 @@ Each node in the tree represents an item on the page.
 Each node in the tree keeps track of both
 its parent and its children.
 In Dart, the
-<a href="http://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a>
+<a href="https://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a>
 class contains the methods and properties
 that implement a node's tree functionality.
 
@@ -65,7 +65,7 @@ button elements, and so on.
 
 In Dart,
 elements are implemented by the
-<a href="http://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a>
+<a href="https://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a>
 class, which is a subclass of Node.
 Because the nodes you care about most are usually elements,
 this target focuses on Element,
@@ -96,7 +96,7 @@ Enter a few items into the input field:
 
 <iframe class="running-app-frame"
         style="height:250px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/todo/web/todo.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target03/todo/web/todo.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -234,9 +234,9 @@ This program uses three:
 
 | HTML tag | Dart class |
 |---|---|
-| \<input> | <a href="http://api.dartlang.org/dart_html/InputElement.html" target="_blank">InputElement</a> |
-| \<ul> | <a href="http://api.dartlang.org/dart_html/UListElement.html" target="_blank">UListElement</a> |
-| \<li> | <a href="http://api.dartlang.org/dart_html/LIElement.html" target="_blank">LIElement</a> |
+| \<input> | <a href="https://api.dartlang.org/dart_html/InputElement.html" target="_blank">InputElement</a> |
+| \<ul> | <a href="https://api.dartlang.org/dart_html/UListElement.html" target="_blank">UListElement</a> |
+| \<li> | <a href="https://api.dartlang.org/dart_html/LIElement.html" target="_blank">LIElement</a> |
 {: .table}
 
 ## Registering an event handler {#event-handler}
@@ -265,7 +265,7 @@ or `keyDown` for when the user presses a key on the keyboard.
 
 The argument passed to the listen() method is a _callback function_
 of type 
-<a href="http://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a>.
+<a href="https://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a>.
 EventListener is a typedef defined in the dart:html library as follows:
 
 {% prettify dart %}
@@ -273,7 +273,7 @@ typedef void EventListener(Event event)
 {% endprettify %}
 
 As you can see, an EventListener returns no value (void) and takes an
-<a href="http://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a>
+<a href="https://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a>
 object as an argument.
 Any function with this signature is an EventListener.
 Based on its signature, the addToDoItem() function is an EventListener.
@@ -335,7 +335,7 @@ Here's an example that shows how to move an element within the DOM.
 
 <iframe class="running-app-frame"
         style="height:400px;width:400px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target03/anagram/web/anagram.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target03/anagram/web/anagram.html">
 </iframe>
 
 You can find the complete source code for this sample on github at

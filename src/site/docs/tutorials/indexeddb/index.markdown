@@ -5,9 +5,9 @@ description: "Use IndexedDB for persistence and offline capability for your app.
 has-permalinks: true
 tutorial:
   id: indexeddb
-next: index.html
+next: /docs/tutorials/
 next-title: "A Game of Darts"
-prev: forms
+prev: forms/
 prev-title: "Get Input from a Form"
 ---
 
@@ -85,7 +85,7 @@ and adjust accordingly.
 </aside>
 
 This target shows you how to use
-<a href="http://api.dartlang.org/dart_indexed_db.html"
+<a href="https://api.dartlang.org/dart_indexed_db.html"
    target="_blank">dart:indexed_db</a>
 to store data to and retrieve data from the browser's IndexedDB.
 
@@ -128,7 +128,7 @@ Use the **Clear** button to delete all the milestones.
 
 <iframe class="running-app-frame"
         style="height:400px;width:600px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target11/count_down/web/out/count_down.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target11/count_down/web/out/count_down.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -190,10 +190,10 @@ The count_down app uses the following libraries:
 
 | Library | Description |
 |---|---|
-| <a href="http://api.dartlang.org/dart_indexed_db.html" target="_blank">dart:indexed_db</a> | Save data into an indexed database for persistence and offline capability |
-| <a href="http://api.dartlang.org/dart_async.html" target="_blank">dart:async</a> | Perform tasks asynchronously |
-| <a href="http://api.dartlang.org/dart_core.html" target="_blank">dart:core</a> | Use DateTime and Duration to manage time-related tasks |
-| <a href="http://pub.dartlang.org/packages/web_ui" target="_blank">package:web_ui</a> | Create UIs with data-binding and web components. |
+| <a href="https://api.dartlang.org/dart_indexed_db.html" target="_blank">dart:indexed_db</a> | Save data into an indexed database for persistence and offline capability |
+| <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a> | Perform tasks asynchronously |
+| <a href="https://api.dartlang.org/dart_core.html" target="_blank">dart:core</a> | Use DateTime and Duration to manage time-related tasks |
+| <a href="https://pub.dartlang.org/packages/web_ui" target="_blank">package:web_ui</a> | Create UIs with data-binding and web components. |
 {: .table }
 
 This target explains the Dart API for IndexedDB used by the count_down app.
@@ -213,9 +213,9 @@ check out the relevant recipes in the
 <a href="/docs/cookbook/">
        <i class="icon-food"> </i> Dart Cookbook</a>
 or read the Web UI tutorials in
-Targets <a href="/docs/tutorials/web-ui">6</a>,
-<a href="/docs/tutorials/templates">7</a>,
-<a href="/docs/tutorials/custom-elements">8</a>.
+Targets <a href="/docs/tutorials/web-ui/">6</a>,
+<a href="/docs/tutorials/templates/">7</a>,
+<a href="/docs/tutorials/custom-elements/">8</a>.
 
 </aside>
 
@@ -424,7 +424,7 @@ which saves you the trouble of doing so.
 
 Finally, `_initializeDatabase` creates an index.
 
-##Using an index
+##Using a name index
 
 An index provides a lookup table.
 You can associate a primary key with a field in the stored objects.
@@ -464,7 +464,7 @@ it is this index that causes the add() to fail.
 
 All database operations must be performed
 within a
-<a href="http://api.dartlang.org/dart_indexedDb/Transaction.html" target="_blank">Transaction</a>.
+<a href="https://api.dartlang.org/dart_indexedDb/Transaction.html" target="_blank">Transaction</a>.
 
 <aside class="alert" markdown="1">
 <strong>Important: About the life-cycle of a transaction</strong>
@@ -664,7 +664,7 @@ Because getting records does not modify the database,
 this transaction is readonly.
 
 You can use a
-<a href="http://api.dartlang.org/dart_indexedDb/Cursor.html" target="_blank">Cursor</a>
+<a href="https://api.dartlang.org/dart_indexedDb/Cursor.html" target="_blank">Cursor</a>
 object to step through the records in the database one by one,
 creating a Milestone object for each.
 The object store uses a stream to fire an event for each record
@@ -696,7 +696,7 @@ and for a final count of records retrieved.
 For each record retrieved from the database,
 an event fires and the callback function is called.
 A
-<a href="http://api.dartlang.org/dart_indexedDb/CursorWithValue.html" target="_blank">CursorWithValue</a>
+<a href="https://api.dartlang.org/dart_indexedDb/CursorWithValue.html" target="_blank">CursorWithValue</a>
 object, named `cursor` in this example,
 is passed to the callback function.
 Use `cursor.key` to get the key for the record just retrieved.

@@ -5,9 +5,9 @@ description: "Define a custom DOM element tag with help from the Web UI package"
 has-permalinks: true
 tutorial:
   id: web-components
-next: fetchdata
+next: fetchdata/
 next-title: "Fetch Data Dynamically"
-prev: templates
+prev: templates/
 prev-title: "Use Templates"
 ---
 
@@ -53,9 +53,9 @@ Get the source code for the samples featured in this target:</p>
   </font>
 
   The Dart Web UI team recently
-  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k">announced</a>
+  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k" target="_blank">announced</a>
   a port of the Polymer project:
-  <a href="http://pub.dartlang.org/packages/polymer">polymer.dart</a>.
+  <a href="https://pub.dartlang.org/packages/polymer" target="_blank">polymer.dart</a>.
 
   We've converted most of the tutorial Web UI examples and compiled some
   <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
@@ -76,7 +76,7 @@ that extends an existing tag.
 This target shows you how to define a custom element
 and how to create an instance of that element.
 Dart's implementation of custom elements is in the
-<a href="http://pub.dartlang.org/packages/web_ui"
+<a href="https://pub.dartlang.org/packages/web_ui"
    target="blank">Web UI package</a>,
 which is required to run the examples in this target.
 A previous target,
@@ -126,7 +126,7 @@ Try it! Type a number into one of the fields and press return.
 
 <iframe class="running-app-frame"
         style="height:100px;width:400px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -170,7 +170,7 @@ Try it! Enter numbers into each of the fields.
 
 <iframe class="running-app-frame"
         style="height:225px;width:400px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
 </iframe>
 
 You can find the complete source code for this sample on github at

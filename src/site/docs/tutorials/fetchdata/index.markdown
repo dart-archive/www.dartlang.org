@@ -5,9 +5,9 @@ description: "Use HttpRequest to fetch data from a file or a server."
 has-permalinks: true
 tutorial:
   id: fetchdata
-next: forms
+next: forms/
 next-title: "Get Input from a Form"
-prev: custom-elements
+prev: custom-elements/
 prev-title: "Define a Custom DOM Tag"
 ---
 
@@ -54,13 +54,13 @@ Get the source code for the samples featured in this target:</p>
 </div>
 
 Web applications often use
-<a href="http://www.json.org" target="_blank">JSON</a> (JavaScript Object Notation)
+<a href="http://www.json.org/" target="_blank">JSON</a> (JavaScript Object Notation)
 to pass data between clients and servers.
 Data can be _serialized_ into a JSON string,
 which is then passed between a client and server,
 and revived as an object at its destination.
 This target shows you how to use functions in the
-<a href="http://api.dartlang.org/dart_json.html"
+<a href="https://api.dartlang.org/dart_json.html"
    target="_blank">dart:json</a>
 library to produce and consume JSON data.
 Because JSON data is typically loaded dynamically,
@@ -94,7 +94,7 @@ and check out the JSON format for each data type.
 
 <iframe class="running-app-frame"
         style="height:500px;width:700px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target09/its_all_about_you/web/out/its_all_about_you.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target09/its_all_about_you/web/out/its_all_about_you.html">
 </iframe>
 
 The complete source code is available on github:
@@ -102,15 +102,15 @@ The complete source code is available on github:
    target="_blank">its_all_about_you</a>.
 Because this application uses the Web UI package,
 you need to compile as described in
-<a href="/docs/tutorials/web_ui/">Target 6: Get Started with Web UI</a>.
+<a href="/docs/tutorials/web-ui/">Target 6: Get Started with Web UI</a>.
 
 The dart:json library contains two top-level functions
 for working with JSON strings:
 
 | dart:json function | Description |
 |---|---|
-| <a href="http://api.dartlang.org/dart_json.html" target="_blank">parse()</a> | Builds Dart objects from a string containing JSON data. |
-| <a href="http://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> |  Serializes a Dart object into a JSON string. |
+| <a href="https://api.dartlang.org/dart_json.html" target="_blank">parse()</a> | Builds Dart objects from a string containing JSON data. |
+| <a href="https://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> |  Serializes a Dart object into a JSON string. |
 {: .table}
 
 The parse() and stringify() functions can handle these Dart types automatically:
@@ -273,9 +273,9 @@ formulating URIs and making HTTP requests:
 
 | Dart code | Library | Description |
 |---|---|
-| <a href="http://api.dartlang.org/dart_uri/Uri.html" target="_blank">Uri</a> | dart:uri | An object representing a URI. |
-| <a href="http://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
-| <a href="http://api.dartlang.org/dart_io/HttpRequest.html" target="_blank">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
+| <a href="https://api.dartlang.org/dart_uri/Uri.html" target="_blank">Uri</a> | dart:uri | An object representing a URI. |
+| <a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
+| <a href="https://api.dartlang.org/dart_io/HttpRequest.html" target="_blank">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
 {: .table}
 
 ##Using the getString() function to load a file {#using-getString-function}
@@ -293,11 +293,11 @@ and loads the file.
 
 <iframe class="running-app-frame"
         style="height:400px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target09/portmanteaux_simple/web/portmanteaux_simple.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target09/portmanteaux_simple/web/portmanteaux_simple.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
-<a href="http://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux_simple/"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux_simple/"
    target="_blank">portmanteaux_simple</a>.
 
 This program uses a convenience method,
@@ -380,7 +380,7 @@ that has been rewritten
 to use an explicitly constructed HttpRequest object.
 You can find the complete source code for the modified version
 on github at
-<a href="http://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux/"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux/"
    target="_blank">portmanteaux</a>.
 
 ###Setting up the HttpRequest object
@@ -440,7 +440,7 @@ and adds it to the &lt;ul&gt; element on the page.
 ###Populating the UI from JSON
 
 The data file in the portmanteaux example,
-<a href="http://raw.github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux/web/portmanteaux.json"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux/web/portmanteaux.json"
    target="_blank">portmanteaux.json</a>,
 contains a JSON-formatted list of strings.
 
