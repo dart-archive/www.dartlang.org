@@ -5,7 +5,7 @@ layout: book
 title: "Chapter 3. A Tour of the Dart Libraries from Dart: Up and Running"
 description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Running, published by O'Reilly."
 ---
-<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri">URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-asynchronous-programming">dart:async - Asynchronous Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-future-example">Using Future and Completer</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-future-error-handling">Error Handling with Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-chaining-multiple-async-methods">Chaining Multiple Asynchronous Methods</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-waiting-for-multiple-futures">Waiting for Multiple Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-9">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-minimum">Maximum and Minimum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-html">More information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-using-isolates">Using Isolates</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-json">dart:json - Encoding and Decoding Objects</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json-decoding">Decoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-json-encoding">Encoding JSON</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-utf">dart:utf - Strings and Unicode</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-utf-decode-utf8">Decoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-encode-utf8">Encoding Strings to UTF-8 Bytes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
+<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri">URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-asynchronous-programming">dart:async - Asynchronous Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-future-example">Using Future and Completer</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-future-error-handling">Error Handling with Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-chaining-multiple-async-methods">Chaining Multiple Asynchronous Methods</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-waiting-for-multiple-futures">Waiting for Multiple Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-9">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-minimum">Maximum and Minimum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-html">More information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-using-isolates">Using Isolates</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-json">dart:json - Encoding and Decoding Objects</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json-decoding">Decoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-json-encoding">Encoding JSON</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-utf">dart:utf - Strings and Unicode</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-utf-decode-utf8">Decoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-encode-utf8">Encoding Strings to UTF-8 Bytes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-mirrors">dart:mirrors - Reflection</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-symbols">Symbols</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-introspection">Introspection</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-invocation">Invocation</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
   libraries. It’s just an overview, and by no means comprehensive. Whenever
   you need more details about a class, consult the <a class="ulink" href="http://api.dartlang.org/" target="_top">Dart API reference. </a> Expect major
   changes to the Dart libraries before Dart’s first production release.</p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartcore---strings-collections-and-more"></a>dart:core - Numbers, Collections, Strings, and More</h2></div></div></div><p>The Dart core library provides a small but critical set of built-in
@@ -1426,12 +1426,116 @@ main() {
 }</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-other"></a>Other Functionality</h3></div></div></div><p>The UTF library can decode and encode UTF-16 and UTF-32 bytes. The
       library can also convert directly to and from Unicode code points and
       UTF8-encoded bytes. For details, see the <a class="ulink" href="http://api.dartlang.org/utf.html" target="_top">API docs for the UTF
-      library.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-summary"></a>Summary</h2></div></div></div><p>This chapter introduced you to the most commonly used functionality
+      library.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-mirrors"></a>dart:mirrors - Reflection</h2></div></div></div><p>The mirrors library provides basic reflection abilities to Dart. Use mirrors
+      to query the structure of your program, and to dynamically invoke functions or
+      methods at runtime.</p><p>Mirrors can give you information about objects and classes inside the
+      current isolate, as well as in other (possibly remote) isolates. Therefore,
+      the mirrors library often has two versions of each method:
+      synchronous (for working inside the current isolate) and asynchronous
+      (for working with another isolate).
+      This section covers mirrors only as they apply to the
+      current isolate.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p> Mirrors can also work on static source code.
+            For example, the dartdoc tool
+            (which generates HTML docs from Dart source code)
+            uses source-code mirrors.
+          </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-symbols"></a>Symbols</h3></div></div></div><p>The mirror system represents the names of Dart declarations
+        (classes, fields, and so on) by instances of the class
+        <a class="ulink" href="http://api.dartlang.org/dart_core/Symbol.html" target="_top">Symbol</a>.
+        Symbols help compilers like dart2js produce efficient output,
+        even when minified.</p><p>When you know the name of the symbol ahead of time,
+        use Symbol's const constructor.
+        This way, repeated uses of the same symbol can use the same
+        canonicalized instance.
+        If the name of the symbol is determined dynamically at runtime,
+        use the factory constructor.</p><pre class="screen"><em><span class="remark">lang-dart
+      </span></em>// If the symbol name is known at compile time.
+const className = const Symbol('MyClass');
+
+// If the symbol name is dynamically determined.
+var userInput = askUserForNameOfFunction();
+var functionName = new Symbol(userInput);</pre><p>During minification, a compiler might replace a Symbol name
+        with a different (often smaller) name.
+        To convert from a symbol back to a string, use
+        <code class="literal">MirrorSystem.getName()</code>. This function returns
+        the correct name, even if the code was minified.</p><pre class="screen"><em><span class="remark">lang-dart
+      </span></em>import 'dart:mirrors';
+
+main() {
+  const name = const Symbol('MyClass');
+
+  assert('MyClass' == MirrorSystem.getName(name));
+}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-introspection"></a>Introspection</h3></div></div></div><p>Use mirrors to introspect the running program's structure. You can
+        inspect classes, libraries, instances, and more.</p><p>The examples in this section use the following Person class:</p><pre class="screen"><em><span class="remark">lang-dart
+      </span></em>class Person {
+  String firstName;
+  String lastName;
+  int age;
+  
+  Person(this.firstName, this.lastName, this.age);
+
+  String get fullName =&gt; '$firstName $lastName';
+
+  void greet(String other) {
+    print('Hello there, $other!');
+  }
+}</pre><p>To begin, you
+        need to <span class="emphasis"><em>reflect</em></span> on a class or object to
+        get its <span class="emphasis"><em>mirror</em></span>.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-mirrors-class-inspect"></a>Class Mirrors</h4></div></div></div><p>Reflect on a Type to get its ClassMirror.</p><pre class="screen"><em><span class="remark">lang-dart
+        </span></em>ClassMirror mirror = reflectClass(Person);
+
+assert('Person' == MirrorSystem.getName(mirror.simpleName));</pre><p>You can also call <code class="literal">runtimeType</code>
+          to get a Type from an instance.</p><pre class="screen"><em><span class="remark">lang-dart
+        </span></em>var bob = new Person('Bob', 'Smith', 33);
+ClassMirror mirror = reflectClass(bob.runtimeType);
+
+assert('Person' == MirrorSystem.getName(mirror.simpleName));</pre><p>Once you have a ClassMirror, you can get a class's
+          constructors, fields, and more. Here is an example of listing
+          the constructors of a class.</p><pre class="screen"><em><span class="remark">lang-dart
+        </span></em>showConstructors(ClassMirror mirror) {
+  Map&lt;Symbol, MethodMirror&gt; constructors = mirror.constructors;
+
+  constructors.forEach((s, m) {
+    print('The constructor $s has ${m.parameters.length} parameters.');
+  });
+}</pre><p>Here is an example of listing all of the fields declared by a
+          class.</p><pre class="screen"><em><span class="remark">lang-dart
+        </span></em>showFields(ClassMirror mirror) {
+  Map&lt;Symbol, VariableMirror&gt; fields = mirror.variables;
+
+  fields.forEach((s, v) {
+    var finalStatus = v.isFinal ? 'final' : 'not final';
+    var privateStatus = v.isPrivate ? 'private' : 'not private';
+    var typeAnnotation = v.type.simpleName;
+
+    print('The field $s is $privateStatus and $finalStatus and is annotated '
+          'as $typeAnnotation');
+  });
+}</pre><p>For a full list of methods,
+          consult the <a class="ulink" href="http://api.dartlang.org/dart_mirrors/ClassMirror.html" target="_top">API docs
+          for ClassMirror</a>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-mirrors-instance-inspect"></a>Instance Mirrors</h4></div></div></div><p>Reflect on an object to get an InstanceMirror.</p><pre class="screen"><em><span class="remark">lang-dart
+        </span></em>reflectOnInstance() {
+  var p = new Person('Bob', 'Smith', int);
+  InstanceMirror mirror = reflect(p);
+}</pre><p>If you have an InstanceMirror and you want to get the object
+          that it reflects, use <code class="literal">reflectee</code>.
+          This works only if the current isolate knows about the type
+          of the reflectee. Remember, mirrors work across isolates, and one
+          isolate might contain a class that is not in the current
+          isolate.</p><pre class="screen"><em><span class="remark">lang-dart
+        </span></em>  var person = mirror.reflectee;
+  assert(identical(p, person));</pre><p>Once you have an InstanceMirror, you can invoke methods and
+          call getters and setters.
+          For a full list of methods,
+          consult the <a class="ulink" href="http://api.dartlang.org/dart_mirrors/InstanceMirror.html" target="_top">API docs
+          for InstanceMirror</a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-invocation"></a>Invocation</h3></div></div></div><p>
+        {To be written}
+      </p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17910288"></a>get and set fields</h4></div></div></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17911056"></a>invoke</h4></div></div></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17911824"></a>delegate</h4></div></div></div></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-summary"></a>Summary</h2></div></div></div><p>This chapter introduced you to the most commonly used functionality
     in many of Dart’s built-in libraries. It didn’t cover all the built-in
     libraries, however. Other libraries you might want to look into include
     <a class="ulink" href="http://api.dartlang.org/dart_collection.html" target="_top">dart:collection,</a>
-    <a class="ulink" href="http://api.dartlang.org/dart_mirrors.html" target="_top">dart:mirrors,</a>
-    <a class="ulink" href="http://api.dartlang.org/logging.html" target="_top">logging,</a> <a class="ulink" href="http://api.dartlang.org/mock.html" target="_top">mock,</a> and <a class="ulink" href="http://api.dartlang.org/unittest.html" target="_top"><span class="keep-together">unittest</span>.</a> You can use the pub tool,
+    <a class="ulink" href="http://api.dartlang.org/dart_convert.html" target="_top">dart:convert,</a>
+    <a class="ulink" href="http://api.dartlang.org/logging.html" target="_top">logging,</a> and
+    <a class="ulink" href="http://api.dartlang.org/unittest.html" target="_top"><span class="keep-together">unittest</span>.</a> You can use the pub tool,
     discussed in the next chapter, to install additional Dart <span class="keep-together">libraries</span>.</p></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.ch03-isolate-footnote-1" class="footnote"><p><a href="#ch03-isolate-footnote-1" class="para"><sup class="para">[2] </sup></a>The dart2js compiler and the Dart VM do not yet support
             static methods as isolate entry points. For details, see <a class="ulink" href="http://dartbug.com/3011" target="_top">http://dartbug.com/3011</a>.</p></div><div id="ftn.ch03-isolate-footnote-2" class="footnote"><p><a href="#ch03-isolate-footnote-2" class="para"><sup class="para">[3] </sup></a>Support for sending an arbitrary object to an isolate is not
             yet available when compiling to JavaScript.</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. A Tour of the Dart Language </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 4. Tools</td></tr></table></div>
