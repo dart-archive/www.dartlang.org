@@ -32,11 +32,10 @@ If your primary compile target is JavaScript, see the section
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-This article does not cover the new SIMD types available in Dart.
-An article focusing on SIMD will be published soon.
-In the meantime, you can
-[watch my SIMD talk](http://www.youtube.com/watch?v=CKh7UOELpPo) or
-[read the slides](/slides/2013/02/Bringing-SIMD-to-the-Web-via-Dart.pdf).
+This article does not cover the SIMD types available in Dart,
+which enable operating on four floating-point numbers in parallel.
+To learn more, read
+[Using SIMD in Dart](/articles/simd/).
 </aside>
 
 {% include toc.html %}

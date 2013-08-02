@@ -1,7 +1,7 @@
 --- 
 layout: default
 title: "Using SIMD in Dart"
-description: "Get more out of your CPU: operate on four numbers in parallel, using the *x4 classes from the dart:typed_data library."
+description: "Get more out of your CPU: operate on four numbers in parallel, using the Float32x4 class from the dart:typed_data library."
 rel:
     author: john-mccutchan
 has-permalinks: true
@@ -480,3 +480,11 @@ For more details, check out these resources:
   * [vector_math](https://github.com/johnmccutchan/vector_math),
     a library for 2D and 3D applications
     that relies on Float32x4 and Float32x4List
+* My [SIMD talk](http://www.youtube.com/watch?v=CKh7UOELpPo) and
+  [slides](/slides/2013/02/Bringing-SIMD-to-the-Web-via-Dart.pdf)
+  from the February 2013
+  [SFHTML5 meetup](http://www.meetup.com/sfhtml5/)
+* [Numeric Computation](/articles/numeric-computation/),
+  an article about number representations in Dart
+  and how they affect performance
+
