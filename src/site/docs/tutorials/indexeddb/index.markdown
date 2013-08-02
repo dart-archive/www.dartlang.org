@@ -5,7 +5,7 @@ description: "Use IndexedDB for persistence and offline capability for your app.
 has-permalinks: true
 tutorial:
   id: indexeddb
-next: /docs/tutorials/
+next: 
 next-title: "A Game of Darts"
 prev: forms/
 prev-title: "Get Input from a Form"

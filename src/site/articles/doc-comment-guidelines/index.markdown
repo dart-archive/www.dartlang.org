@@ -109,6 +109,18 @@ Examples:
 * Possible description for [List](http://api.dartlang.org/dart_core/List.html): <br>`An indexable collection with a length, also known as an array.`
 
 * Possible description for [String](http://api.dartlang.org/dart_core/String.html): <br>`A basic string, implemented as an immutable sequence of UTF-16 code units.`  
+
+
+#### Libraries
+
+Library descriptions are **noun phrases**.
+
+Examples:
+
+* Possible description for [dart:core](http://api.dartlang.org/dart_core.html): <br>`Core functionality that's automatically imported into every Dart program.`
+
+* Possible description for [dart:collection](http://api.dartlang.org/dart_collection.html): <br>`Data structures for managing collections of objects.`
+        
         
 
 ### The rest of the doc comment

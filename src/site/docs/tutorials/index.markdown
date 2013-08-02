@@ -1,6 +1,7 @@
 ---
 layout: default
-description: "A beginner's guide to building web apps with Dart."
+title: "Dart Tutorials"
+description: "A Game of Darts&mdash;Your guide to building great web apps."
 has-permalinks: true
 rel:
   author:

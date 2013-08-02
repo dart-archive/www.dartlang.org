@@ -14,7 +14,7 @@ js:
   defer: true
 next: connect-dart-html/
 next-title: "Connect Dart & HTML"
-prev: /docs/tutorials/
+prev: 
 prev-title: "A Game of Darts"
 ---
 
