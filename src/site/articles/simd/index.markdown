@@ -79,7 +79,7 @@ the analogous scalar code.
 |                 | IA32/X64 | ARM             | JavaScript |
 |---|---|---|---|
 | **Supported**   | Yes      | Yes             | Yes |
-| **Accelerated** | Yes      | If NEON present | Pending |
+| **Accelerated** | Yes      | If NEON present | [Pending](http://www.slideshare.net/BrendanEich/value-objects) |
 {: .table}
 
 
