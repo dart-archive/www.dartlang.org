@@ -140,51 +140,203 @@ js:
 <section id="code">
   <h1> Code </h1>
 
-  <p>
-    Experiment with Dart right in your browser:
-    <a href="http://try.dartlang.org">try.dartlang.org</a>
+   <p> 
+    You can find code examples in Dart Editor's welcome page,
+    in the <a href="/samples/">Samples page</a>,
+    and below.
+    You can also experiment with Dart right in your browser:
+    <a href="http://try.dartlang.org" target="_blank">try.dartlang.org</a>
   </p>
 
-  <p>
-    Here's some code from a Dart web app that uses Web UI.
-    To learn about web programming with Dart, try our
-    <a href="/docs/tutorials/">Dart tutorials</a>.
-  </p>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#syntax" data-toggle="tab">Syntax</a></li>
+    <li><a                href="#types"    data-toggle="tab">Optional types</a></li>
+    <li><a                href="#classes"  data-toggle="tab">Classes</a></li>
+    <li><a                href="#futures"  data-toggle="tab">Futures</a></li>
+    <li><a                href="#webui"    data-toggle="tab">Web UI</a></li>
+  </ul>
 
-  <div class="row-fluid">
-    <div class="span6" id="dart-code">
+  <div class="tab-content">
+    <div class="tab-pane active" id="syntax">
+      <p>
+        Dart aims to be unsurprising,
+        but it does add a few language features
+        to keep your code succinct yet understandable.
+        Read all about Dart syntax in the
+        <a href="/docs/dart-up-and-running/contents/ch02.html">Dart language tour</a>.
+      </p>
+
+      <div class="row-fluid">
+        <div class="span10 offset1">
+{% prettify dart %}
+import 'dart:math';                   // Import a library.
+
+// Functions and variables can be inside or outside of classes.
+var shapes = new List();              // A global variable.
+addShape(shape) [[highlight]]=>[[/highlight]] shapes.add(shape); // Function shorthand syntax.
+
+// Every app has a main() function, where execution starts.
+[[highlight]]main()[[/highlight]] {  
+  // The cascade operator (..) saves you from repetitive typing.
+  addShape(new Ellipse(10, 20)[[highlight]]..[[/highlight]]rotation = 45*PI/180
+                              [[highlight]]..[[/highlight]]color = 'rgb(0,129,198)'
+                              [[highlight]]..[[/highlight]]outlineWidth = 0);
+  
+  // You can easily insert expression values into strings.
+  print('Area of the first shape: [[highlight]]${shapes[0].area}[[/highlight]]');
+}
+{% endprettify %}
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="types">
+      <p>
+      Declaring types is optional in Dart.
+      These types don't affect the runtime behavior,
+      but you can use them to clarify APIs
+      and get better help from tools—for example,
+      better code completion, easier navigation, and earlier error detection.
+      For details, see
+      <a href="/articles/optional-types/">Optional Types in Dart</a>.
+      </p>
+
+      <div class="row-fluid">
+        <div class="span6" id="without-types">
+{% prettify dart %}
+// Without types.
+recalculate(origin, offset, estimate) {
+  // ...
+}
+{% endprettify %}
+        </div>
+        <div class="span6" id="with-types">
+{% prettify dart %}
+// With types (and an optional parameter).
+[[highlight]]num[[/highlight]] recalculate([[highlight]]Point[[/highlight]] origin,
+                [[highlight]]num[[/highlight]] offset,
+                {[[highlight]]bool[[/highlight]] estimate:false}) {
+  // ...
+}
+{% endprettify %}
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="classes">
+      <p>
+      Dart is object oriented, with full support for classes.
+      Each class has a single <em>superclass</em>,
+      but classes can implement any number of <em>interfaces</em>.
+      For details, see
+      <a href="/docs/dart-up-and-running/contents/ch02.html#classes">Classes</a> in the language tour.
+      </p>
+
+      <div class="row-fluid">
+        <div class="span10 offset1">
+{% prettify dart%}
+import 'dart:math';
+
+[[highlight]]class[[/highlight]] Ellipse extends Shape {              // Declare a class.
+  num majorAxis = 0;                        // An instance variable (property).
+  num minorAxis = 0;
+  static const num C = PI/4;              // A constant.
+  num get area => C*majorAxis*minorAxis;   // A property implemented with a getter.
+
+  Ellipse([[highlight]]this.majorAxis[[/highlight]], [[highlight]]this.minorAxis[[/highlight]]); // Compact constructor syntax.
+  Ellipse.circle(num diameter) {           // A named constructor.
+    minorAxis = majorAxis = diameter;
+  }
+}
+
+[[highlight]]abstract[[/highlight]] class Shape {                     // Declare a class that can't be instantiated.
+  num get area;
+  num rotation = 0;
+  num outlineWidth = 1;
+  String color = 'black';
+}
+{% endprettify %}
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="futures">
+      <p>
+        Functions that do potentially expensive work return Futures.
+        To specify what happens when the function's work is done,
+        invoke <code>then()</code> on the Future.
+        To handle errors, invoke <code>catchError()</code>.
+        Learn more by reading
+        <a href="/articles/using-future-based-apis/">Using Future Based APIs</a>.
+      </p>
+
+      <div class="row-fluid">
+        <div class="span10 offset1">
+
+{% prettify dart %}
+import 'dart:io';
+import 'dart:async';
+
+void printDailyNewsDigest() {
+  File file = new File("dailyNewsDigest.txt");
+  [[highlight]]file.readAsString()[[/highlight]]                  // readAsString() returns a Future.
+    [[highlight]].then[[/highlight]]((content) => print(content)) // Handle successful completion.
+    [[highlight]].catchError[[/highlight]]((error) =>             // Handle failure.
+        print("Sorry, no news today. Here's why:\n$error"));
+}
+{% endprettify %}
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="webui">
+      <p>
+        Here's an example of implementing a web app using the Web UI package.
+        To learn about web programming with Dart, try our
+        <a href="/docs/tutorials/">Dart tutorials</a>.
+      </p>
+
+      <div class="row-fluid">
+        <div class="span6" id="dart-code">
 {% prettify dart %}
 // Dart code:
 import 'package:web_ui/web_ui.dart';
 
-@observable String myString = '';
+@observable
+var [[highlight]]shout[[/highlight]] = new Shout();
 
-String get shouted => myString.toUpperCase();
-
-String get palindrome =>
-    myString + myString.split('').reversed.join();
+@observable 
+class Shout {
+  String [[highlight]]myString[[/highlight]] = '';
+  String get [[highlight]]shouted[[/highlight]] => myString.toUpperCase();
+  String get [[highlight]]palindrome[[/highlight]] =>
+      myString + myString.split('').reversed.join();
+}
 {% endprettify %}
-    </div>
-  <div class="span6" id="html-code">
+        </div>
+      <div class="span6" id="html-code">
 {% prettify html %}
 <!-- HTML code: -->
-<input type="text" bind-value="myString"
-       placeholder="Type here">
-  
-<div> Shouted: {{'{{'}}shouted}} </div>
-<div> Palindromic: {{'{{'}}palindrome}} </div>
+<template id="stringManipulation"
+          instantiate="if [[highlight]]shout[[/highlight]] != null">
+  <input type="text"
+         bind-value="shout.[[highlight]]myString[[/highlight]]"
+         placeholder="Type here">
     
-<script type="application/dart" src="little.dart"></script>
-<script src="packages/browser/dart.js"></script>
+  <div>     Shouted: {{'{{'}}shout.[[highlight]]shouted[[/highlight]]}} </div>
+  <div> Palindromic: {{'{{'}}shout.[[highlight]]palindrome[[/highlight]]}} </div>
+</template>
 {% endprettify %}
       {% comment %}
       Beginning double curlies are processed by liquid,
       so you have to surround them in single quotes,
       surrounded by double curlies. Yup.
       {% endcomment %}
-      </div>
-    </div> <!-- code -->
-
+        </div>
+      </div> <!-- code -->
+    </div>
+  </div>
+</div>
 </section>
 
 

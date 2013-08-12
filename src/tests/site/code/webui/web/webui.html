@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample app</title>
+  </head>
+  
+  <body>
+    <template id="stringManipulation"
+              instantiate="if shout != null">
+      <input type="text"
+             bind-value="shout.myString"
+             placeholder="Type here">
+        
+      <div>     Shouted: {{shout.shouted}} </div>
+      <div> Palindromic: {{shout.palindrome}} </div>
+    </template>
+
+    <script type="application/dart" src="webui.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
