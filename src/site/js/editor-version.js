@@ -12,7 +12,7 @@ $(document).ready(function() {
   var fetchEditorVersion = function(buildType) {
     $.ajax({
       type: "GET",
-      url: 'http://dart-editor-archive-' + buildType + '.commondatastorage.googleapis.com/latest/VERSION',
+      url: 'https://dart-editor-archive-' + buildType + '.commondatastorage.googleapis.com/latest/VERSION',
       dataType: "json",
       success: function(data) {
         updatePlaceholders(buildType, data['revision']);
