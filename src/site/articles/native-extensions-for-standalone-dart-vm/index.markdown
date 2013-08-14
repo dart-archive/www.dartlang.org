@@ -184,28 +184,14 @@ when they're no longer used. Until a handle is freed, the VM's garbage collector
 cannot collect the object it points to, even if there are no other references to
 it.
 
-The Dart Embedding API provides Dart_EnterScope() and Dart_ExitScope() to manage
-the lifetime of handles.  A call to Dart_EnterScope() creates a local handle
-scope. Most handles and memory pointers returned by the Dart Embedding API are
-allocated in the current local scope, and will be invalid after the call to
-Dart_ExitScope(). For example:
-
-{% prettify cpp %}
-Dart_EnterScope();
-
-// create object in the heap and keep it alive with a handle
-Dart_Handle str = Dart_NewString("asdf");
-
-// str is valid and the string in the heap is reachable
-Dart_ExitScope();
-
-// str is invalid and the string in the heap can be garbage collected
-{% endprettify %}
-
-If the native function does not create a local scope, then most Dart Embedding
-API calls will leak handles, using up resources (and keeping Dart objects alive)
-until Dart_ExitScope() is called on the enclosing scope at some unknown future
-time. If the extension wants to keep a pointer to a Dart object for a long time,
+The Dart Embedding API automatically creates a new scope to manage
+the lifetime of handles in a native function.  A local handle
+scope is created when the native function is entered, and is deleted when
+the function is exited.  The scope is deleted if the function exits with
+PropagateError, as well as if it returns normally. Most handles and memory
+pointers returned by the Dart Embedding API are
+allocated in the current local scope, and will be invalid after the function
+returns. If the extension wants to keep a pointer to a Dart object for a long time,
 it should use a _persistent handle_ (see Dart_NewPersistentHandle() and
 Dart_NewWeakPersistentHandle()), which remains valid after a local scope ends.
 
@@ -218,9 +204,7 @@ Dart_NativeFunction&mdash;have no return value and must pass the error up to the
 proper handler in another way. They call Dart_PropagateError to pass errors and
 control flow to where the error should be handled. The sample uses a helper
 function, called HandleError(), to make this convenient.  A call to
-Dart_PropagateError() never returns. It's assumed to take care of ending the
-local handle scope, so the function doesn't need to call Dart_ExitScope() on a
-path that calls Dart_PropagateError().
+Dart_PropagateError() never returns.
 
 ###The native code: sample_extension.cc
 
@@ -254,14 +238,11 @@ Dart_Handle HandleError(Dart_Handle handle) {
 // Native functions get their arguments in a Dart_NativeArguments structure
 // and return their results with Dart_SetReturnValue.
 void SystemRand(Dart_NativeArguments arguments) {
-  Dart_EnterScope();
   Dart_Handle result = HandleError(Dart_NewInteger(rand()));
   Dart_SetReturnValue(arguments, result);
-  Dart_ExitScope();
 }
 
 void SystemSrand(Dart_NativeArguments arguments) {
-  Dart_EnterScope();
   bool success = false;
   Dart_Handle seed_object =
       HandleError(Dart_GetNativeArgument(arguments, 0));
@@ -276,20 +257,17 @@ void SystemSrand(Dart_NativeArguments arguments) {
     }
   }
   Dart_SetReturnValue(arguments, HandleError(Dart_NewBoolean(success)));
-  Dart_ExitScope();
 }
 
 Dart_NativeFunction ResolveName(Dart_Handle name, int argc) {
   // If we fail, we return NULL, and Dart throws an exception.
   if (!Dart_IsString8(name)) return NULL;
   Dart_NativeFunction result = NULL;
-  Dart_EnterScope();
   const char* cname;
   HandleError(Dart_StringToCString(name, &cname));
 
   if (strcmp("SystemRand", cname) == 0) result = SystemRand;
   if (strcmp("SystemSrand", cname) == 0) result = SystemSrand;
-  Dart_ExitScope();
   return result;
 }
 {% endprettify %}
@@ -426,7 +404,6 @@ this function, and forwards calls to the port.
 
 {% prettify cpp %}
 void randomArrayServicePort(Dart_NativeArguments arguments) {
-  Dart_EnterScope();
   Dart_SetReturnValue(arguments, Dart_Null());
   Dart_Port service_port =
       Dart_NewNativePort("RandomArrayService", wrappedRandomArray, true);
@@ -434,7 +411,6 @@ void randomArrayServicePort(Dart_NativeArguments arguments) {
     Dart_Handle send_port = Dart_NewSendPort(service_port);
     Dart_SetReturnValue(arguments, send_port);
   }
-  Dart_ExitScope();
 }
 {% endprettify %}
 
