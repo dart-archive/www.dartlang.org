@@ -31,7 +31,14 @@ module Prettify
       unless @lang.nil?
         out += ' lang-' + @lang
       end
-      out += '">' + CGI::escapeHTML(super) + "</pre>"
+      out += '">'
+
+      contents = super.strip
+      contents = CGI::escapeHTML(contents)
+      contents.gsub!('[[highlight]]', '<code class="nocode highlight">')
+      contents.gsub!('[[/highlight]]', '</code>')
+
+      out += contents + "</pre>"
     end
 
   end

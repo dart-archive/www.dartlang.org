@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "Target 6: Get Started with Web UI"
+title: "Get Started with Web UI"
 description: "Web UI provides web components, templates, data binding, and encapsulation."
 has-permalinks: true
 tutorial:
   id: get-started-web-ui
+next: templates/
+next-title: "Use Templates"
+prev: shared-pkgs/
+prev-title: "Install Shared Packages"
 ---
 
 {% capture whats_the_point %}
@@ -42,8 +46,52 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Declaratively create dynamic user interfaces.</h3>
+</div>
+
+<hr>
+
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+
+  The Dart Web UI team recently
+  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k" target="_blank">announced</a>
+  a port of the Polymer project:
+  <a href="https://pub.dartlang.org/packages/polymer" target="_blank">polymer.dart</a>.
+
+  We've converted most of the tutorial Web UI examples and compiled some
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
+  along the way.
+  Here is the source code for the polymer versions of the three examples from this target:
+  <ul>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/littleben_element"
+         target="_blank">littleben_element</a>: version of littleben using a custom element
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/littleben_model"
+         target="_blank">littleben_model</a>: version of littleben with a bound model
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/shout"
+         target="_blank">shout</a>
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target06-polymer/stopwatch"
+         target="_blank">stopwatch</a>
+    </li>
+  </ul>
+</aside>
+
+<hr>
+
+
 The
-<a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>
+<a href="https://pub.dartlang.org/packages/web_ui" target="_blank">Web UI package</a>
 provides the tools and Dart code
 that implement data binding, web components,
 templates, and encapsulation.
@@ -57,7 +105,7 @@ install the package, and automate the build process.
 This target begins by showing you how to set up a project to use Web UI,
 including how to install the package.
 (If you are unfamiliar with packages, the previous target,
-<a href="/docs/tutorials/packages/">Install Shared Packages</a>,
+<a href="/docs/tutorials/shared-pkgs/">Install Shared Packages</a>,
 has details.)
 Then this target describes how to use two features of the Web UI package.
 Specifically, you will learn 
@@ -166,7 +214,7 @@ you need to set up the package dependencies
 and install the Web UI package libraries into your project.
 This section assumes that you have read
 the previous target,
-<a href="/docs/tutorials/packages/">Install Shared Packages</a>,
+<a href="/docs/tutorials/shared-pkgs/">Install Shared Packages</a>,
 and are familiar with the process
 of installing packages.
 
@@ -218,7 +266,7 @@ because of new releases of the package.
 For example: `web_ui: >=0.4.1 <0.4.2`.
 You can proactively upgrade to new versions when you are ready.
 Check the Web UI package
-<a href="https://github.com/dart-lang/web-ui/blob/master/CHANGELOG.md">
+<a href="https://github.com/dart-lang/web-ui/blob/master/CHANGELOG.md" target="_blank">
 CHANGELOG</a>
 to see what version of the package
 works with the version of the SDK you are running.
@@ -327,7 +375,7 @@ can change only in the Dart code.
 
 <iframe class="running-app-frame"
         style="height:100px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/littleben/web/out/littleben.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target06/littleben/web/out/littleben.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -365,13 +413,13 @@ You'll need to also say
 
 The value of `currentTime` changes every second
 thanks to a periodic
-<a href="http://api.dartlang.org/dart_async/Timer.html" target="_blank">Timer</a>
+<a href="https://api.dartlang.org/dart_async/Timer.html" target="_blank">Timer</a>
 object.
 When the string changes,
 the HTML page gets updated automatically.
 
 This sample also uses the
-<a href="http://api.dartlang.org/dart_core/DateTime.html" target="_blank">DateTime</a>
+<a href="https://api.dartlang.org/dart_core/DateTime.html" target="_blank">DateTime</a>
 class to get the current time.
 
 ##Binding the value of an element to a Dart variable {#two-way-data-binding}
@@ -385,7 +433,7 @@ Try it! Type in the input field in the example running below.
 
 <iframe class="running-app-frame"
         style="height:230px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/shout/web/out/shout.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target06/shout/web/out/shout.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -465,7 +513,7 @@ Try it! Click the buttons to start, stop, and reset the stop watch.
 
 <iframe class="running-app-frame"
         style="height:175px;width:205px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target06/stopwatch/web/out/stopwatch.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target06/stopwatch/web/out/stopwatch.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -485,7 +533,7 @@ Other common events
 are double-click events (`on-double-click`)
 and change events on input fields (`on-change`).
 See the API docs for 
-<a href="http://api.dartlang.org/dart_html/Element.html"
+<a href="https://api.dartlang.org/dart_html/Element.html"
    target="_blank">Element</a>
 for a complete list of event names.
 {% comment %}
@@ -520,24 +568,6 @@ The function would be declared `void startwatch(Event e)`.
     and the corresponding source code.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/packages/"><i class="icon-chevron-left"> </i> Install Shared Packages</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/templates/" class="pull-right">Use &lt;template&gt; <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

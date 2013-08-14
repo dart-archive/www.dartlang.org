@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "Target 8: Define a Custom DOM Tag"
+title: "Define a Custom DOM Tag"
 description: "Define a custom DOM element tag with help from the Web UI package"
 has-permalinks: true
 tutorial:
   id: web-components
+next: fetchdata/
+next-title: "Fetch Data Dynamically"
+prev: templates/
+prev-title: "Use Templates"
 ---
 
 {% capture whats_the_point %}
@@ -36,6 +40,34 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Create your own, customized DOM elements.</h3>
+</div>
+
+<hr>
+
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+
+  The Dart Web UI team recently
+  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k" target="_blank">announced</a>
+  a port of the Polymer project:
+  <a href="https://pub.dartlang.org/packages/polymer" target="_blank">polymer.dart</a>.
+
+  We've converted most of the tutorial Web UI examples and compiled some
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
+  along the way.
+  Check out source code for the polymer version of the
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target08-polymer/drseuss"
+     target="_blank">drseuss</a>
+  example.
+</aside>
+
+<hr>
+
 Custom elements are one kind of web component
 defined in the Web Components model.
 Using templates and scripts,
@@ -44,7 +76,7 @@ that extends an existing tag.
 This target shows you how to define a custom element
 and how to create an instance of that element.
 Dart's implementation of custom elements is in the
-<a href="http://pub.dartlang.org/packages/web_ui"
+<a href="https://pub.dartlang.org/packages/web_ui"
    target="blank">Web UI package</a>,
 which is required to run the examples in this target.
 A previous target,
@@ -94,7 +126,7 @@ Try it! Type a number into one of the fields and press return.
 
 <iframe class="running-app-frame"
         style="height:100px;width:400px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target08/drseuss/web/out/drseuss.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -138,7 +170,7 @@ Try it! Enter numbers into each of the fields.
 
 <iframe class="running-app-frame"
         style="height:225px;width:400px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target08/convertthis/web/out/convertThis.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -378,24 +410,6 @@ have an event handler.
      target="_blank">TodoMVC</a>.
 </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/templates/"><i class="icon-chevron-left"> </i> Use &lt;template&gt;</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/fetchdata/" class="pull-right">Fetch Data Dynamically <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

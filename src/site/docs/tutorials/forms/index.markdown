@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "Target 10: Get Input from a Form"
+title: "Get Input from a Form"
 description: "Using HTML forms and input elements to send data to a server"
 has-permalinks: true
 tutorial:
   id: forms
+next: indexeddb/
+next-title: "Use IndexedDB"
+prev: fetchdata/
+prev-title: "Fetch Data Dynamically"
 ---
 
 {% capture whats_the_point %}
@@ -31,7 +35,11 @@ Get the source code for the samples featured in this target:</p>
   </li>
   <li>
     <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/slambook"
-       target="_blank">slambook</a>
+       target="_blank">slambook</a> (web_ui)
+  </li>
+  <li>
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10-polymer/slambook"
+       target="_blank">slambook</a> (polymer)
   </li>
   <li>
     <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/multiselect"
@@ -43,18 +51,9 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
-<div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
-
-This is a draft under construction.
-Your kindly worded
-<a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-comments and suggestions
-</a>
-are appreciated.
-Thank you for your patience.
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Use forms to get data from users.</h3>
 </div>
 
 Many web applications rely on forms to collect data
@@ -125,7 +124,7 @@ another useful resource for learning about Dart.
 
 <iframe class="running-app-frame"
         style="height:100px;width:500px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target10/search_form/web/search_form.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target10/search_form/web/search_form.html">
 </iframe>
 
 The source code for this example is available on github:
@@ -247,7 +246,7 @@ Enter some data and push the **Submit** button.
 
 <iframe class="running-app-frame"
         style="height:500px;width:525px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target10/slambook/web/out/slambook.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target10/slambook/web/out/slambook.html">
 </iframe>
 
 The complete source code for both the client and the
@@ -372,7 +371,7 @@ void submitForm(Event e) {
 ###Setting up and making the POST request
 
 Next, the code creates an
-<a href="http://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a>
+<a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a>
 object.
 This code uses `new` to create an HttpRequest object,
 which needs to be configured to make a POST request.
@@ -510,7 +509,7 @@ Let's take a look at the code.
 
 Below is the entire main() function for slambookserver.
 Using the
-<a href="http://api.dartlang.org/dart_io/HttpServer.html"
+<a href="https://api.dartlang.org/dart_io/HttpServer.html"
    target="_blank">HttpServer</a>
 class,
 slambookserver starts listening on port 4040 on the local host
@@ -565,7 +564,7 @@ Let's take a brief look at Futures before we check out the code
 for handling OPTIONS and POST requests.
 
 A
-<a href="http://api.dartlang.org/dart_async/Future.html"
+<a href="https://api.dartlang.org/dart_async/Future.html"
    target="_blank">Future</a>
 represents a way to get a value sometime in the Future.
 You use Futures to avoid blocking the program
@@ -601,7 +600,7 @@ and other forms of I/O asynchronously with Futures.
 ##Handling OPTIONS requests
 
 With help from the
-<a href="http://api.dartlang.org/dart_html/HttpRequest.html"
+<a href="https://api.dartlang.org/dart_html/HttpRequest.html"
    target="_blank">HttpRequest</a>
 class, the slambook client makes a POST request
 when the user clicks the submit button.
@@ -632,7 +631,7 @@ void handleOptions(HttpRequest req) {
 The code is straightforward:
 
 * Get the
-<a href="http://api.dartlang.org/dart_io/HttpResponse.html"
+<a href="https://api.dartlang.org/dart_io/HttpResponse.html"
    target="_blank">HttpResponse</a>
 object,
 which carries the server's response to the client.
@@ -650,7 +649,7 @@ The server uses the following function
 to add CORS headers to its response to both OPTIONS and POST requests.
 The function adds three Access-Control headers to the
 server's response (contained in an
-<a href="http://api.dartlang.org/dart_html/HttpRequest.html"
+<a href="https://api.dartlang.org/dart_html/HttpRequest.html"
    target="_blank">HttpResponse</a>
 object).
 
@@ -672,7 +671,7 @@ by specifying the headers that it allows.
 
 For more information about CORS refer to:
 
-* <a href="http://www.html5rocks.com/en/tutorials/cors/">Using CORS</a>
+* <a href="https://www.html5rocks.com/en/tutorials/cors/">Using CORS</a>
 
 ##Handling POST requests
 
@@ -759,14 +758,14 @@ and one in dart:io (for servers).
 
 | Resource | Library | Description |
 |---|---|
-| <a href="http://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a> | dart:html | Client-side HTTP request |
-| <a href="http://api.dartlang.org/dart_io/HttpRequest.html" target="_blank">HttpRequest</a> | dart:io | Server-side HTTP request |
-| <a href="http://api.dartlang.org/dart_io/HttpServer.html" target="_blank">HttpServer</a> | dart:io | Server-side object to handle HTTP communication with clients |
-| <a href="http://api.dartlang.org/dart_io/HttpResponse.html" target="_blank">HttpResponse</a> | dart:io | Server-side object to carry response to client requests |
-| <a href="http://api.dartlang.org/dart_async/Stream.html" target="_blank">Streams</a> | dart:async | A stream of data |
-| <a href="http://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a> | dart:async | A way to get a value asynchronously |
-| <a href="http://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> | dart:json | How you format an object into a JSON string |
-| <a href="http://pub.dartlang.org/packages/web_ui" target="_blank">Web UI package</a> | web_ui | Data binding, templates, and custom elements |
+| <a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a> | dart:html | Client-side HTTP request |
+| <a href="https://api.dartlang.org/dart_io/HttpRequest.html" target="_blank">HttpRequest</a> | dart:io | Server-side HTTP request |
+| <a href="https://api.dartlang.org/dart_io/HttpServer.html" target="_blank">HttpServer</a> | dart:io | Server-side object to handle HTTP communication with clients |
+| <a href="https://api.dartlang.org/dart_io/HttpResponse.html" target="_blank">HttpResponse</a> | dart:io | Server-side object to carry response to client requests |
+| <a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Streams</a> | dart:async | A stream of data |
+| <a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a> | dart:async | A way to get a value asynchronously |
+| <a href="https://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> | dart:json | How you format an object into a JSON string |
+| <a href="https://pub.dartlang.org/packages/web_ui" target="_blank">Web UI package</a> | web_ui | Data binding, templates, and custom elements |
 {: .table}
 
 ##Binding data to different kinds of inputs {#binding-data}
@@ -862,7 +861,7 @@ Instead, you can look at a different example,
 
 <iframe class="running-app-frame"
         style="height:400px;width:500px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target10/multiselect/web/out/multiselect.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target10/multiselect/web/out/multiselect.html">
 </iframe>
 
 The source code for this example is available on github:
@@ -976,24 +975,6 @@ Try our
 <a href="/codelabs/web-ui-writer/index.html" target="_blank"><i class="icon-beaker"> </i>Codelab</a>.
 In this step-by-step guide, you’ll build a simple,
 single­-page, modern web app for desktop and mobile.
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/fetchdata/"><i class="icon-chevron-left"> </i> Fetch Data Dynamically</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/indexeddb/" class="pull-right">Use IndexedDB <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

@@ -154,6 +154,10 @@ completes normally, and the error does not propagate.
 Like `then()`, `catchError()` returns a new Future that completes with
 the return value of its callback.
 
+For more details and examples, read
+[Futures and Error Handling](/articles/futures-and-error-handling/).
+
+
 ## Calling multiple functions that return Futures
 
 Consider three functions,  `expensiveA()`, `expensiveB()`, and `expensiveC()`,
@@ -195,3 +199,12 @@ Future.wait([expensiveA(), expensiveB(), expensiveC()])
 If any of the invoked functions completes with an error, the Future returned
 by `Future.wait()` also completes with an error. Use `catchError()` to handle
 the error.
+
+## More information
+
+Read the following documentation for more details on using Futures:
+
+* [Futures and Error Handling](/articles/futures-and-error-handling/),
+  an article that starts where this one ends
+* [Future API reference](http://api.dartlang.org/dart_async/Future.html)
+

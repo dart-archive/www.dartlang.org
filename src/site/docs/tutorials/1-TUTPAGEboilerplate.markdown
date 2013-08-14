@@ -5,6 +5,10 @@ description: "This should be exciting! Attention grabbing! Life changing!"
 has-permalinks: true
 tutorial:
   id: this-should-be-unique
+next: path-to-next-target
+next-title: "Title of next target"
+prev: path-to-prev-target
+prev-title: "Title of previous target"
 ---
 
 {% capture whats_the_point %}
@@ -39,40 +43,22 @@ Thank you for your patience.
 
 This is the page's content
 
-Questions and problems:
 
-* how to CSSify the "What's the point?" list
-* figure out the TOC to the left.
-  - it should be linked
-  - it would be nice if it were also auto-generated
-    and the page titles were variables that were set in
-    one place and then used in other places 
-  - also, maybe the pages have long names
-    for the actual page titles and short names for the TOC?
-* a path indicator at the top might be nice. like:
-   Dartboard-> Get Started-> Run Command Line App
-* some artwork: Dartboard logo, Dartboard Targets, darts for what's the point.
-* each page has a unique id ... how best to make use of this?
-
-
-<!-- footers with links -->
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/forms/"><i class="icon-chevron-left"> </i> Get input from a form</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/" class="pull-right">Home <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
+Target Order
+-----------------------
+Get Started
+Connect Dart & HTML
+Add Elements to the DOM
+Remove DOM Elements
+Install Shared Packages
+Get Started with Web UI
+Use Templates
+Define a Custom DOM Tag
+**Polymer
+Fetch Data Dynamically
+Get Input from a Form
+Use IndexedDB
+**Write for Mobie Devices
 
 {% endcapture %}
 

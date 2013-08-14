@@ -3,7 +3,7 @@
 #tutorial-side {
   width: 200px;
   position: fixed;
-  top: 85px;
+  top: 129px;
 }
 
 /* Large desktop */
@@ -28,12 +28,13 @@
 
 
 
+/* DELETE ME: I think this isn't used anymore */
 #tutorial-toc {
   list-style-type: square;
   font-size: 9pt;
 
   padding: 10px;
-  background-color: #DDFFDD;
+  background-color: #e6E6FA;
   border-radius: 10px;
 
   margin: 0px 0px 15px 0px;
@@ -88,7 +89,7 @@
   font-size: 9pt;
 
   padding: 10px;
-  background-color: #FFE4E1;
+  background-color: #DDFFDD;
   border-radius: 10px;
   line-height: 120%;
 
@@ -137,6 +138,7 @@
   }
 }
 
+/* DELETE ME: this was used on front page to group Web UI targets */
 #target-group {
   background-color: #F5E2FF;
   border-radius: 10px;
@@ -160,4 +162,33 @@
   border-radius:7px;
   background-color:WhiteSmoke;
   padding:5px;
+}
+
+.tute-tabs {
+  margin-top: 40px;
+  h4 {
+    margin-top: 20px;
+  }
+}
+
+.tute-target-title {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  background-color: #D8ECFD; /* fallback color if gradients are not supported */
+  background-image: -webkit-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For Chrome and Safari */
+  background-image:    -moz-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For old Fx (3.6 to 15) */
+  background-image:     -ms-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For pre-releases of IE 10*/
+  background-image:      -o-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For old Opera (11.1 to 12.0) */ 
+  background-image:         linear-gradient(to right, #D8ECFD, #DDFFDD, #e6E6FA); /* Standard syntax; must be last */
+
+  h1 {
+    font-size: 56px;
+  }
+
+  h3 {
+    padding-top: 15px;
+    font-size: 28px;
+  }
 }

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Target 1: Get Started"
+title: "Get Started"
 description: "Get Dart and run two Dart applications"
 has-permalinks: true
 tutorial:
@@ -12,6 +12,10 @@ js:
   defer: true
 - url: /js/editor-version.js
   defer: true
+next: connect-dart-html/
+next-title: "Connect Dart & HTML"
+prev: 
+prev-title: "A Game of Darts"
 ---
 
 {% capture whats_the_point %}
@@ -44,6 +48,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Get Dart. Run two apps.</h3>
+</div>
 
 This target gets you ready
 to begin writing web apps in Dart.
@@ -443,7 +452,7 @@ Here is the clickme app running in a frame.
 
 <iframe class="running-app-frame"
         style="height:510px;width:500px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target01/clickme/web/clickme.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target01/clickme/web/clickme.html">
 </iframe>
 
 You can run Dart web applications in other browsers
@@ -565,24 +574,6 @@ when creating applications outside of Dart Editor.
     test, and deploy Dart code.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/"><i class="icon-chevron-left"> </i> Home</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/connect-dart-html/" class="pull-right">Connect Dart &amp; HTML <i class="icon-chevron-right"> </i></a>
-  </div>
-</div>
 
 {% endcapture %}
 

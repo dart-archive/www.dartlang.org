@@ -2,10 +2,11 @@
 
 [![Build Status](https://drone.io/github.com/dart-lang/dartlang.org/status.png)](https://drone.io/github.com/dart-lang/dartlang.org/latest)
 
-The www.dartlang.org site. Built with Jekyll (https://github.com/mojombo/jekyll)
+The www.dartlang.org site. Built with [Jekyll](https://github.com/mojombo/jekyll)
 and hosted on App Engine.
 
-File issues and bugs here: http://dartbug.com/new
+To give us feedback, please
+[file issues with the Dart project](https://code.google.com/p/dart/issues/entry?template=Documentation%20issue/feedback).
 
 Contributions welcome!
 (Just sign our [CLA](https://developers.google.com/open-source/cla/individual).)
@@ -33,13 +34,14 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 
 ## Configuring your system
 
-* Ensure you have Ruby 1.9.3 or greater.
-  * You can use **brew** (if you're on a Mac).
+* Ensure you have Ruby 1.9.3.
+  * You can use **brew** (if you're on a Mac), but it installs Ruby 2 by default.
 * Ensure you have Python 2.7.
   * On a Mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
 * Run `sudo gem install bundler`.
 * Run `sudo bundle install` from the root of your dartlang project.
+* Run `sudo gem install jekyll`?
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not.
     * It will say, in the log "you're using 2.6".
@@ -47,7 +49,6 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
       * Go to Preferences, and enter the direct path to the Python 2.7 binary,
       which you downloaded from http://www.python.org/download/releases/2.7.3/.
         * The full path is `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7`.
-* Run `git clone https://github.com/dart-lang/doc-code-verify`, move it somewhere sensible on your system, and put `doc-code-verify/bin` in your PATH.
 
 ### Tips for Windows
 
@@ -55,6 +56,17 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Install ruby dev kit for Windows.
 * Run `gem install bundler`.
 * Run `bundle install` from the root of your dartlang project.
+
+
+### Contributing via Chromium Code Review
+
+On a Mac:
+* Make sure you have Xcode (contains git)
+* Install depot_tools:
+  $ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+* Add depot_tools to your PATH:
+  $ export PATH="$PATH":`pwd`/depot_tools
+  NOTE: You may want to add this to your .bashrc file or your shell's equivalent so that you don’t need to reset your $PATH manually each time you open a new shell.
 
 
 ## Development

@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "Target 2: Connect Dart &amp; HTML"
+title: "Connect Dart &amp; HTML"
 description: "Shows basic scaffolding of a Dart web app"
 has-permalinks: true
 tutorial:
   id: connect-dart-html
+next: add-elements/
+next-title: "Add Elements to the DOM"
+prev: get-started/
+prev-title: "Get Started"
 ---
 
 {% capture whats_the_point %}
@@ -38,6 +42,11 @@ Get the source code for the samples featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Write a mini Dart app.</h3>
+</div>
 
 To write a Dart web app,
 you need to have basic understanding of
@@ -158,7 +167,7 @@ the files and directories needed for a web application.
 
 * The pubspec.yaml file is used by applications
 that rely on external packages of Dart code.
-[Target 5: Install Shared Packages](/docs/tutorials/packages/)
+[Target 5: Install Shared Packages](/docs/tutorials/shared-pkgs/)
 provides more information.
 Web applications use a package called `browser`.
 This dependency is declared in the pubspec.yaml file.
@@ -208,13 +217,13 @@ Key classes include:
 
 | Dart class | Description |
 |---|---|
-| <a href="http://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a> | Implements a Dart Node. |
-| <a href="http://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | A subclass of Node, implements a web page element. |
-| <a href="http://api.dartlang.org/dart_html/Document.html" target="_blank">Document</a> | Another subclass of Node. Implements the document object. |
+| <a href="https://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a> | Implements a Dart Node. |
+| <a href="https://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | A subclass of Node, implements a web page element. |
+| <a href="https://api.dartlang.org/dart_html/Document.html" target="_blank">Document</a> | Another subclass of Node. Implements the document object. |
 {: .table}
 
 The Dart core library contains another useful class,
-<a href="http://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
+<a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
 a parameterized class that can specify the type of its members.
 The Element class keeps its list of child Elements
 in a List\<Element>, a list that can contain only Element objects.
@@ -377,7 +386,7 @@ The app just displays a line of text.
 
 <iframe class="running-app-frame"
         style="height:150px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target02/mini/web/mini.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target02/mini/web/mini.html">
 </iframe>
 
 The Dart web app changed
@@ -523,7 +532,7 @@ but still neither interactive nor interesting.
 
 <iframe class="running-app-frame"
         style="height:150px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target02/mini_with_style/web/mini_with_style.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target02/mini_with_style/web/mini_with_style.html">
 </iframe>
 
 ##About CSS selectors {#about-css-selectors}
@@ -631,24 +640,6 @@ for example, it sets the text color to Yellow.
     such strings, lists, maps, and numbers.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/get-started/"><i class="icon-chevron-left"> </i> Get Started</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/add-elements/" class="pull-right">Add Elements to the DOM <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 

@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "Target 7: Use &lt;template&gt;"
+title: "Use Templates"
 description: "Use template loops and conditionals for declarative UI creation."
 has-permalinks: true
 tutorial:
   id: web-ui-templates
+next: custom-elements/
+next-title: "Define a Custom DOM Tag"
+prev: web-ui/
+prev-title: "Get Started with Web UI"
 ---
 
 {% capture whats_the_point %}
@@ -39,6 +43,45 @@ Get the source code for the samples featured in this target:</p>
 
 {% capture content %}
 
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Create dynamic elements declaratively.</h3>
+</div>
+
+<hr>
+
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+
+  The Dart Web UI team recently
+  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k" target="_blank">announced</a>
+  a port of the Polymer project:
+  <a href="https://pub.dartlang.org/packages/polymer" target="_blank">polymer.dart</a>.
+
+  We've converted most of the tutorial Web UI examples and compiled some
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
+  along the way.
+  Here is source code for the polymer versions of the three examples from this target:
+  <ul>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/adlibitum"
+         target="_blank">adlibitum</a>
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/simplehangman"
+         target="_blank">simplehangman</a>
+    </li>
+    <li>
+      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/hangman"
+         target="_blank">hangman</a>
+    </li>
+  </ul>
+</aside>
+
+<hr>
+
 The Web UI package implements the &lt;template&gt; tag,
 which you can use directly in your HTML.
 Templates define UI elements that are instantiated
@@ -71,7 +114,7 @@ After you've entered all six items, delete one. The paragraph disappears.
 
 <iframe class="running-app-frame"
         style="height:300px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/adlibitum/web/out/adlibitum.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target07/adlibitum/web/out/adlibitum.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -130,7 +173,7 @@ Try it! Type letters in the field to guess the word.
 
 <iframe class="running-app-frame"
         style="height:250px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/simplehangman/web/out/simplehangman.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target07/simplehangman/web/out/simplehangman.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -183,7 +226,7 @@ The &lt;template&gt; tag has an attribute called `iterate`.
 The value of this attribute takes the form 
 <code><em>loopvar</em> in <em>iterable</em></code>,
 where _iterable_ is a Dart expression that evaluates to an
-<a href="http://api.dartlang.org/dart_core/Iterable.html"
+<a href="https://api.dartlang.org/dart_core/Iterable.html"
    target="_blank">Iterable</a>
 object.
 The template iterates over the iterable object
@@ -209,7 +252,7 @@ Try it! Guess the word.
 
 <iframe class="running-app-frame"
         style="height:250px;width:350px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target07/hangman/web/out/hangman.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target07/hangman/web/out/hangman.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -294,25 +337,6 @@ the gallows UI is updated.
     and the corresponding source code.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/web-ui/"><i class="icon-chevron-left"> </i> Get Started with Web UI</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/custom-elements/" class="pull-right">Define a Custom DOM Tag <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
-
 
 {% endcapture %}
 

@@ -684,7 +684,7 @@ id
 HTTPConnection
 UiHandler
 IoStream
-HttpRequest
+HTTPRequest
 Id
 {% endprettify %}
 </div>

@@ -1,10 +1,14 @@
 ---
 layout: default
-title: "Target 4: Remove DOM Elements"
+title: "Remove DOM Elements"
 description: "Remove a child element from the DOM"
 has-permalinks: true
 tutorial:
   id: remove-elements
+next: shared-pkgs/
+next-title: "Install Shared Packages"
+prev: add-elements/
+prev-title: "Add Elements to the DOM"
 ---
 
 {% capture whats_the_point %}
@@ -33,6 +37,11 @@ Get the source code for the sample featured in this target:</p>
 {% endcapture %}
 
 {% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Dynamically delete items from the browser page.</h3>
+</div>
 
 This target shows you how to delete elements from the DOM.
 A new and improved version of the todo app from
@@ -66,7 +75,7 @@ to remove all of the items in the list at once.
 
 <iframe class="running-app-frame"
         style="height:250px;width:300px;"
-        src="http://dart-lang.github.com/dart-tutorials-samples/web/target04/todo_with_delete/web/todo_with_delete.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/target04/todo_with_delete/web/todo_with_delete.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
@@ -229,24 +238,6 @@ it returns no value and takes an Event object as a parameter.
     libraries, and tools.
   </li>
 </ul>
-
-<hr>
-
-<div class="row">
-  <div class="span3">
-  <a href="/docs/tutorials/add-elements/"><i class="icon-chevron-left"> </i> Add Elements to the DOM</a>
-  </div>
-  <div class="span3">
-<a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
- target="_blank">
-<i class="icon-comment"> </i>
-Send feedback
-</a>
-  </div>
-  <div class="span3">
-  <a href="/docs/tutorials/packages/" class="pull-right">Install Shared Packages <i class="icon-chevron-right"> </i> </a>
-  </div>
-</div>
 
 {% endcapture %}
 
