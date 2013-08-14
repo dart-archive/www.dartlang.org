@@ -151,14 +151,15 @@ the UI.
   <div>Hello counter: {{count}}</div>
   <script type="application/dart">
     import 'dart:html';
+    import 'dart:async';
     import 'package:web_ui/watcher.dart' as watchers;
     int count;
     main() {
       count = 0;
-      window.setInterval(() {
+      new Timer.periodic(const Duration(seconds: 1), (_) {
         count++;
         watchers.dispatch();
-      }, 1000);
+      });
     }
   </script>
 </body></html>
