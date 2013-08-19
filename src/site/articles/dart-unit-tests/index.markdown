@@ -135,9 +135,9 @@ we see output similar to this:
       quicksort.dart 32:13  quickSort
       quicksort.dart 38:21  main.<fn>
       dart:async             _createTimer.<fn>
-  
+
     0 PASSED, 0 FAILED, 1 ERRORS
-    
+
 Following this is a line:
 
     Uncaught Error: Exception: Some tests failed.
@@ -178,13 +178,13 @@ Running the test again, we see:
       Expected: equals [1, 2, 3, 4, 5] ordered
         Actual: [3, 5, 2, 4, 1]
          Which: was <3> instead of <1> at location [0]
-    
+
 (We are omitting the initial line, stack dump,
 and summary details here for brevity).
 
 This tells us that we have a bug (in this case a failed expectation),
 but doesn't help us find it.
-We need to dig deeper. 
+We need to dig deeper.
 
 The partition part of quicksort is given a pivot index
 (which in turn maps to a pivot value),
@@ -409,7 +409,7 @@ In fact, matchers can be composed to create more complex matchers.
 Matchers will be discussed in more detail later in this article.
 
 Note that `test()` calls cannot be nested;
-each call to `test()` defines one and only one test. 
+each call to `test()` defines one and only one test.
 
 `expect` can take two other optional named arguments:
 `failureHandler` and `verbose`.
@@ -468,7 +468,7 @@ group('foo', () {
 {% endprettify %}
 
 However you can interlace them differently;
-each test function will use the most recently set values. 
+each test function will use the most recently set values.
 
 Whenever a new group is started, these functions are reset.
 This applies for nested groups too.
@@ -751,7 +751,7 @@ For numeric inequality, we have:
     inExclusiveRange(low, high) // low < actual < high
     inOpenClosedRange(low, high) // low < actual <= high
     inClosedOpenRange(low, high) // low <= actual < high
- 
+
 For string matching, we have:
 
     equalsIgnoringCase(v)
@@ -759,7 +759,7 @@ For string matching, we have:
     startsWith(prefix)
     endsWith(suffix)
     stringContainsInOrder(List<String> substrings)
-    matches(regexp)  
+    matches(regexp)
 
 `equalsIgnoringWhitespace(v)` normalizes whitespace runs to single spaces
 first and trims off leading and trailing whitespace.
@@ -842,7 +842,7 @@ test('Range Error', () {
     expect(()=> throw new RangeError("out of range"),
         throwsRangeError);
 });
-  
+
 {% endprettify %}
 
 For matching the inner content of compound objects,
@@ -1012,7 +1012,7 @@ We can create a custom matcher for widget prices as follows:
 
 {% prettify dart %}
 class _Price extends CustomMatcher {
-  const _Price(matcher) : super('Widget with price that is', 'price', matcher);
+  _Price(matcher) : super('Widget with price that is', 'price', matcher);
   featureValueOf(actual) => actual.price;
 }
 Matcher price(m) => new _Price(wrapMatcher(m));
@@ -1030,7 +1030,7 @@ expect(widget, price(greaterThan(0)));
 var isFree = price(0);
 expect(special, isFree);
 {% endprettify %}
-    
+
 Other simple ways of making custom matchers are by using
 the TypeMatcher class as described earlier for type matchers,
 or the predicate function.
@@ -1042,7 +1042,7 @@ we could use:
 {% prettify dart %}
 var hasCorrectArea = predicate((rect) => rect.area == rect.length * rect.width,
     "has correct area");
-        
+
 expect(myRect, hasCorrectArea);
 {% endprettify %}
 
