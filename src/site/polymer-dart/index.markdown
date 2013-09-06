@@ -286,6 +286,16 @@ the Dart package manager.
 
 <hr>
 
+### Sample code
+
+Lots and lots of snippets and
+[sample code for polymer.dart](https://github.com/sethladd/dart-polymer-dart-examples).
+Learn how to
+[bind to a checkbox](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/bind_to_checkbox),
+[nest templates](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/nested_templates),
+[call a method on a custom element](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/call_method_on_custom_element),
+and much more. Please [let us know](https://github.com/sethladd/dart-polymer-dart-examples/issues?state=open) if you have a request for a sample.
+
 ## Installation
 
 Get polymer.dart from [pub](http://pub.dartlang.org),
@@ -374,7 +384,7 @@ that have not yet been implemented in polymer.dart:
 One of our goals is to make all of Polymer available
 to Dart developers.
 
-| Feature | Dart port parity
+| Feature | Parity with Polymer
 |--
 | Custom Elements | Tracking
 | Shadow DOM | Tracking
