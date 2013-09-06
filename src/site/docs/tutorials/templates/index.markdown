@@ -54,30 +54,16 @@ Get the source code for the samples featured in this target:</p>
   <font size="24">
   <i class="icon-bullhorn"> </i>
   </font>
-
-  The Dart Web UI team recently
-  <a href="https://groups.google.com/a/dartlang.org/forum/#!topic/web-ui/6laXXxRtA7k" target="_blank">announced</a>
-  a port of the Polymer project:
-  <a href="https://pub.dartlang.org/packages/polymer" target="_blank">polymer.dart</a>.
-
-  We've converted most of the tutorial Web UI examples and compiled some
-  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/to-polymer-notes.txt" target="_blank">notes</a>
-  along the way.
-  Here is source code for the polymer versions of the three examples from this target:
-  <ul>
-    <li>
-      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/adlibitum"
-         target="_blank">adlibitum</a>
-    </li>
-    <li>
-      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/simplehangman"
-         target="_blank">simplehangman</a>
-    </li>
-    <li>
-      <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target07-polymer/hangman"
-         target="_blank">hangman</a>
-    </li>
-  </ul>
+  Web UI is being upgraded to polymer.dart.
+  For more information about polymer.dart,
+  including tips on porting Web UI apps to polymer.dart
+  and the current status of the project,
+  check out the <a href="/polymer-dart/" target="_blank">polymer.dart</a>
+  home page.
+  For polymer.dart versions of the tutorial's Web UI apps,
+  check out the tutorial's
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/"
+         target="_blank">code repo</a> on github.
 </aside>
 
 <hr>

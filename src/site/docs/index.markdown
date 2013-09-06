@@ -79,7 +79,7 @@ and get many more using the
 [Articles](/articles/)
 : Look in the "Libraries and APIs" section
 for help using individual packages, libraries, and APIs such as
-[Web UI](/articles/web-ui/),
+[polymer.dart](/polymer-dart/),
 [unittest](/articles/dart-unit-tests/),
 and [Futures](/articles/using-future-based-apis/).
 
@@ -147,8 +147,8 @@ Later, you can compile your app to JavaScript
 and run it in other browsers.
 
 Two libraries are important for creating web apps:
-dart:html and the Web UI package's web_ui library.
-You don't need to use Web UI,
+dart:html and the polymer.dart package.
+You don't need to use polymer.dart,
 but it's a great way to simplify your code.
 
 
@@ -163,16 +163,13 @@ A basic, yet Darty, interface to the browser.
 * [HTML DOM](/docs/cookbook/#html-dom)
   (recipes in the Dart Cookbook)
 
-### Web UI
+### polymer.dart
 
 A package that lets you use tomorrow's web APIs today.
 
-* [Get Started with Web UI](/docs/tutorials/web-ui/)
-  (part of the Dart tutorials)
-* [Web UI Package](/articles/web-ui/)
-* [pub.dartlang.org/packages/web_ui](http://pub.dartlang.org/packages/web_ui)
-* [Web UI](/docs/cookbook/#web-ui)
-  (recipes in the Dart Cookbook)
+* [polymer.dart](/polymer-dart/)
+* [pub.dartlang.org/packages/polymer](http://pub.dartlang.org/packages/polymer)
+* [Upgrading to polymer.dart from Web UI](/polymer-dart/upgrading-to-polymer-from-web-ui.html)
 
 ### Dart and JavaScript
 
@@ -238,15 +235,12 @@ If you think you've found a bug,
 check the list of Dart issues to see whether
 the problem has already been reported
 and has a workaround.
-Most Dart projects use the main Dart issue list,
-but a few, such as Web UI, use a separate list.
 
 To request a feature, you can create an issue
 or start a discussion on the appropriate
 [mailing list](/support/).
 
 * [Dart issues](http://code.google.com/p/dart/issues/list)
-* [Web UI issues](https://github.com/dart-lang/web-ui/issues)
 
 </div>
 </div>

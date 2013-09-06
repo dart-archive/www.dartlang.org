@@ -148,12 +148,21 @@ using the Dart language, tools, and APIs.
       With the Dart team’s <a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>,
       you can get started using web components and templates now.
 
-<!--
-      <aside class="alert">
-        <strong>To be deprecated.</strong> <i>Use the new polymer packages instead.</i>
-        Learn all about it in the <a href="polymer/">Polymer target</a>.<br>
-      </aside>
--->
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+  Web UI is being upgraded to polymer.dart.
+  For more information about polymer.dart,
+  including tips on porting Web UI apps to polymer.dart
+  and the current status of the project,
+  check out the <a href="/polymer-dart/" target="_blank">polymer.dart</a>
+  home page.
+  For polymer.dart versions of the tutorial's Web UI apps,
+  check out the tutorial's
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/"
+         target="_blank">code repo</a> on github.
+</aside>
 
       <div class="row-fluid">
 

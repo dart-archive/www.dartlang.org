@@ -98,10 +98,10 @@ js:
               <i class="icon-road icon-large media-object"></i>
             </a>
             <div class="media-body">
-              <b><a href="/articles/web-ui/">Web UI</a></b>
+              <b><a href="/polymer-dart/">Polymer.dart</a></b>
               lets you use future web APIs today,
-              with support for proposed standards
-              such as web components, MDV, and shadow DOM.
+              with support for web components, custom elements,
+              data binding, and more.
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ js:
     <li><a                href="#types"    data-toggle="tab">Optional types</a></li>
     <li><a                href="#classes"  data-toggle="tab">Classes</a></li>
     <li><a                href="#futures"  data-toggle="tab">Futures</a></li>
-    <li><a                href="#webui"    data-toggle="tab">Web UI</a></li>
+    <li><a                href="#polymer"    data-toggle="tab">Polymer.dart</a></li>
   </ul>
 
   <div class="tab-content">
@@ -289,49 +289,48 @@ void printDailyNewsDigest() {
         </div>
       </div>
     </div>
-    <div class="tab-pane" id="webui">
+    <div class="tab-pane" id="polymer">
       <p>
-        Here's an example of implementing a web app using the Web UI package.
-        To learn about web programming with Dart, try our
-        <a href="/docs/tutorials/">Dart tutorials</a>.
+        Here's an example of implementing a web app using the
+        <a href="/polymer-dart/">polymer.dart</a>
+        package.
       </p>
 
       <div class="row-fluid">
         <div class="span6" id="dart-code">
 {% prettify dart %}
-// Dart code:
-import 'package:web_ui/web_ui.dart';
+<head>
+  <link rel="import" href="[[highlight]]click_counter.html[[/highlight]]">
+  <script src="packages/polymer/boot.js"></script>
+</head>
 
-@observable
-var [[highlight]]shout[[/highlight]] = new Shout();
-
-@observable 
-class Shout {
-  String [[highlight]]myString[[/highlight]] = '';
-  String get [[highlight]]shouted[[/highlight]] => myString.toUpperCase();
-  String get [[highlight]]palindrome[[/highlight]] =>
-      myString + myString.split('').reversed.join();
-}
+<body>   
+  [[highlight]]<click-counter></click-counter>[[/highlight]]
+</body>
 {% endprettify %}
         </div>
       <div class="span6" id="html-code">
-{% prettify html %}
-<!-- HTML code: -->
-<template id="stringManipulation"
-          instantiate="if [[highlight]]shout[[/highlight]] != null">
-  <input type="text"
-         bind-value="shout.[[highlight]]myString[[/highlight]]"
-         placeholder="Type here">
-    
-  <div>     Shouted: {{'{{'}}shout.[[highlight]]shouted[[/highlight]]}} </div>
-  <div> Palindromic: {{'{{'}}shout.[[highlight]]palindrome[[/highlight]]}} </div>
-</template>
-{% endprettify %}
-      {% comment %}
-      Beginning double curlies are processed by liquid,
-      so you have to surround them in single quotes,
-      surrounded by double curlies. Yup.
-      {% endcomment %}
+{% prettify html %}{% raw %}
+<polymer-element name="[[highlight]]click-counter[[/highlight]]">
+  <template>
+    <button on-click="increment">Click Me</button>
+    <p>You clicked the button {{count}} times.</p>
+  </template>
+  <script type="application/dart">
+    import 'package:polymer/polymer.dart';
+    import 'dart:html';
+
+    @CustomTag('click-counter')
+    class ClickCounterElement extends PolymerElement with ObservableMixin {
+      @observable int count = 0;
+      
+      void increment(Event e, var detail, Node target) {
+        count += 1;
+      }
+    }
+  </script>
+</polymer-element>
+{% endraw %}{% endprettify %}
         </div>
       </div> <!-- code -->
     </div>

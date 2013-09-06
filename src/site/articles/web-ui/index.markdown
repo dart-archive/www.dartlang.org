@@ -44,7 +44,24 @@ that will contain the running version of the code sample.
 {% iframeprefix example/ %}
 {% endcodesampleSetup %}
 
+<div class="hero-unit">
+      <h1> Introducing Polymer.dart </h1>
+      <p markdown="1">
+        [Polymer.dart](/polymer-dart/), the next evolution of Web UI, has
+        better debugging,
+        faster development, and closer spec alignment.
+      </p>
+</div>
+
 # {{ page.title }}
+
+<aside class="alert alert-danger" markdown="1">
+<strong>Web UI is now Polymer.dart.</strong>
+Web UI has evolved to
+[Polymer.dart](/polymer-dart/), which provides many fixes and improvements.
+We encourage Web UI users to upgrade to Polymer.dart.
+The information on this page apply only to Web UI, which is now deprecated.
+</aside>
 
 _Written by Sigmund Cherem<br />
 October 2012 (Updated February 2013)_

@@ -1,21 +1,22 @@
 GIT
   remote: git://github.com/mojombo/jekyll.git
-  revision: 24aabbe05f0ceb97a9fc496f843a640f4c8b3e9b
+  revision: 2cc5dc3704984c465b4e0b1183b37dfafc07b5e4
   specs:
-    jekyll (1.0.0.rc1)
+    jekyll (1.1.2)
       classifier (~> 1.3)
       colorator (~> 0.1)
       commander (~> 4.1.3)
       directory_watcher (~> 1.4.1)
-      kramdown (~> 0.14)
-      liquid (~> 2.3)
+      kramdown (~> 1.0.2)
+      liquid (~> 2.5.1)
       maruku (~> 0.5)
-      pygments.rb (~> 0.4.2)
+      pygments.rb (~> 0.5.0)
+      redcarpet (~> 2.2.2)
       safe_yaml (~> 0.7.0)
 
 GIT
   remote: git://github.com/vwall/compass-twitter-bootstrap.git
-  revision: 41f5acdc1667303abeeb80214e058b191d0d9a46
+  revision: c101702ce82506be67c6cd97db7ee82ad0bbcb1e
   specs:
     compass_twitter_bootstrap (2.3.1)
       compass
@@ -27,7 +28,7 @@ GEM
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
     colorator (0.1)
-    commander (4.1.3)
+    commander (4.1.5)
       highline (~> 1.6.11)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -36,17 +37,18 @@ GEM
     directory_watcher (1.4.1)
     fast-stemmer (1.0.2)
     fssm (0.2.10)
-    highline (1.6.18)
-    kramdown (0.14.0)
-    liquid (2.5.0)
+    highline (1.6.19)
+    kramdown (1.0.2)
+    liquid (2.5.2)
     maruku (0.6.1)
       syntax (>= 1.0.0)
     posix-spawn (0.3.6)
-    pygments.rb (0.4.2)
+    pygments.rb (0.5.2)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
+    redcarpet (2.2.2)
     safe_yaml (0.7.1)
-    sass (3.2.7)
+    sass (3.2.10)
     syntax (1.0.0)
     yajl-ruby (1.1.0)
 
@@ -57,4 +59,4 @@ DEPENDENCIES
   compass (= 0.12.2)
   compass_twitter_bootstrap!
   jekyll!
-  kramdown (= 0.14.0)
+  kramdown (= 1.0.2)

@@ -1,5 +1,8 @@
 $(document).ready(function() {
   var addPermalink = function() {
+    if ($(this).hasClass('no-permalink')) {
+      return;
+    }
   	$(this).addClass('has-permalink');
   	$(this).append($('<a class="permalink" title="Permalink" href="#' + $(this).attr('id') + '">#</a>'));
   };
