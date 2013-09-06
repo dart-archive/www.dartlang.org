@@ -6,10 +6,6 @@ rel:
 description: "Use web components and templates today with Dart. This brief
      introduction shows you how to use the features of tomorrow, today."
 has-permalinks: true
-article:
-  written_on: 2012-10-01
-  updated_on: 2013-02-01
-  collection: libraries-and-apis
 ---
 {% comment %}
 
