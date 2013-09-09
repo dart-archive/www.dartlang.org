@@ -73,7 +73,7 @@ On a Mac:
 
 * Make sure you are in the root of this project.
 * Run the server: `make server`
-* Your web browser opens to http://localhost:8080.
+* Your web browser opens to http://localhost:8081.
   * You may need to reload once.
 * Edit, create docs as normal.
 * If you're making changes to the Sass (SCSS) files, you can regenerate the CSS

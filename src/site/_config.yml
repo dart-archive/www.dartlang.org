@@ -1,5 +1,5 @@
 safe: false
-server_port: 8080
+port: 8081
 source: .
 destination: ../../build/static
 markdown: kramdown
