@@ -453,8 +453,8 @@ to instantiate document fragments with identical contents.
 
 [polymer]: http://www.polymer-project.org
 [so]: http://stackoverflow.com/tags/dart
-[web-ui-list]: http://example.com/tbd
-[polymer-dev-list]: http://example.com/tbd
+[web-ui-list]: https://groups.google.com/a/dartlang.org/forum/#!forum/web-ui
+[polymer-dev-list]: https://groups.google.com/forum/?fromgroups=#!forum/polymer-dev
 [dartbug]: http://dartbug.com/new
 [custom-elements-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/custom/index.html
 [shadow-dom-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
