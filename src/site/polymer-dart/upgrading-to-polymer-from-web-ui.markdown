@@ -93,6 +93,10 @@ registerPolymerElement('my-element', () => new PolymerElement())
        // ...
     }
 
+* Declarative event handing only works inside of a custom element.
+  Also, instead of `on-click="doFoo()"`, drop the parens and use
+  'on-click="doFoo"'.
+
 ### Data Binding
 
 * Objects **must** be Observable to have changes detected. See the
