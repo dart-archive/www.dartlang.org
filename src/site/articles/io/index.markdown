@@ -226,18 +226,19 @@ The following example runs 'ls -l' in a separate process
 and prints the output and the exit code for the process to stdout.
 Since we are interested in getting lines,
 we use a
-[StringDecoder](http://api.dartlang.org/docs/release/dart_io/StringDecoder.html),
+[Utf8Decoder](http://api.dartlang.org/dart_convert/Utf8Decoder.html),
 which decodes chunks of bytes into strings followed by a
-[LineTransformer](http://api.dartlang.org/docs/release/dart_io/LineTransformer.html),
+[LineSplitter](http://api.dartlang.org/dart_convert/LineSplitter.html),
 which splits the strings at line boundaries.
 
 <!--- BEGIN(io_process_transform) -->{% prettify dart %}
 import 'dart:io';
+import 'dart:convert';
 
 main() {
   Process.start('ls', ['-l']).then((process) {
-    process.stdout.transform(new StringDecoder())
-                  .transform(new LineTransformer())
+    process.stdout.transform(new Utf8Decoder())
+                  .transform(new LineSplitter())
                   .listen((String line) => print(line));
     process.stderr.listen((data) { });
     process.exitCode.then((exitCode) {
