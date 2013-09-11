@@ -548,15 +548,15 @@ it.)
 <div class="good">
 {% prettify dart %}
 // Accepts any object.
-log(Object object) {
+void log(Object object) {
   print(object.toString());
 }
 
 // Only accepts bool or String, which can't be expressed in a type annotation.
-convertToBool(arg) {
+bool convertToBool(arg) {
   if (arg is bool) return arg;
   if (arg is String) return arg == 'true';
-  throw 'Cannot convert $arg to a bool.';
+  throw new ArgumentError('Cannot convert $arg to a bool.');
 }
 {% endprettify %}
 </div>
