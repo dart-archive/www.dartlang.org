@@ -188,14 +188,14 @@ main() {
 
 [Stream<List<int>>] is used in multiple places in dart:io:
 when working with stdin, files, sockets, HTTP connections, and so on.
-Similarly, [IOSink](http://api.dartlang.org/docs/release/dart_io/IOSink.html)s
+Similarly, [IOSink](http://api.dartlang.org/dart_io/IOSink.html)s
 are used to stream data to
 stdout, files, sockets, HTTP connections, and so on.
 
 ##Interacting with processes
 
 For the simple case, use
-[Process.run()](http://api.dartlang.org/docs/release/dart_io/Process.html#run)
+[Process.run()](http://api.dartlang.org/dart_io/Process.html#run)
 to run a process
 and collect its output. Use `run()` when you don't
 need interactive control over the process.
@@ -213,7 +213,7 @@ main() {
 {% endprettify %}<!--- END(io_process) -->
 
 You can also start a process by creating a
-[Process](http://api.dartlang.org/docs/release/dart_io/Process.html) object
+[Process](http://api.dartlang.org/dart_io/Process.html) object
 using the Process.start() constructor.
 Once you have a Process object you can interact with the process
 by writing data to its stdin sink,
@@ -279,7 +279,7 @@ main() {
 dart:io makes it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
-[HttpServer](http://api.dartlang.org/docs/release/dart_io/HttpServer.html)
+[HttpServer](http://api.dartlang.org/dart_io/HttpServer.html)
 and hook up a listener to its stream of `HttpRequest`s.
 
 Here is a simple web server
@@ -354,7 +354,7 @@ main() {
 {% endprettify %}<!--- END(io_http_server_file) -->
 
 Writing HTTP clients is very similar to using the
-[HttpClient](http://api.dartlang.org/docs/release/dart_io/HttpClient.html)
+[HttpClient](http://api.dartlang.org/dart_io/HttpClient.html)
 class.
 
 
