@@ -21,18 +21,15 @@ Dart is an open source project, and we look forward to hearing from you.
 How-to questions
 : [StackOverflow](http://stackoverflow.com/tags/dart)
 
-Web UI
+Polymer.dart, dart:html, and Web UI
 : Discussion: [web-ui@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/web-ui)
 : How-to questions: [StackOverflow](http://stackoverflow.com/tags/dart-webui)
-: Bugs: <https://github.com/dart-lang/web-ui/issues>
+: Bugs in Web UI: <https://github.com/dart-lang/web-ui/issues>
+: Bugs in Polymer.dart and dart:html: <http://dartbug.com/new>
 
 Dart Editor
 : Questions: [editor@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/editor)
 : Feedback: use the (anonymous) "SEND FEEDBACK" button in Dart Editor
-: Bugs: <http://dartbug.com/new>
-
-dart:html
-: Development: [html-dev@dartlang.org](http://groups.google.com/a/dartlang.org/group/html-dev)
 : Bugs: <http://dartbug.com/new>
 
 Dart VM
