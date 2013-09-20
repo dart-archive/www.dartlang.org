@@ -8,10 +8,6 @@ rel:
     - mary-campione
 tutorial:
   id: tut-home
-article:
-  written_on: 2012-10-01
-  updated_on: 2013-07-01
-  collection: everyday-dart
 next: get-started/
 next-title: "Get Started"
 ---
