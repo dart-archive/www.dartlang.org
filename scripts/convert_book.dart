@@ -1,7 +1,7 @@
 #!/usr/bin/env dart
 
 import 'dart:io';
-import 'dart:async';
+import 'package:path/path.dart' as path;
 
 Directory outputDir;
 
@@ -26,7 +26,7 @@ convertFile(String fileName) {
   var start = contents.indexOf(r'<div class="navheader">');
   var end = contents.lastIndexOf(r'</body></html>');
   var body = contents.substring(start, end);
-  var filenameOnly = new Path(fileName).filename;
+  var filenameOnly = path.basename(fileName);
 
   writeFile(filenameOnly, title, body);
 }
@@ -34,7 +34,7 @@ convertFile(String fileName) {
 writeFile(String fileName, String title, String body) {
   var out = new File('${outputDir.path}/${fileName}');
   out.writeAsStringSync(frontMatter(title));
-  out.writeAsStringSync(body, mode: FileMode.APPEND, encoding: Encoding.UTF_8);
+  out.writeAsStringSync(body, mode: FileMode.APPEND);
 }
 
 checkDir(Directory dir) {
