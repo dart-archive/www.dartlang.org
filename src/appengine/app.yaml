@@ -95,6 +95,9 @@ handlers:
 - url: /language-tour/.*
   script: scripts.redirector.application
 
+- url: /docs/technical-overview.*
+  script: scripts.redirector.application
+
 - url: /docs/getting-started/sdk/.*
   script: scripts.redirector.application
 

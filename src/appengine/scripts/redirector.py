@@ -109,6 +109,8 @@ application = WSGIApplication(
                 '_code': 302}),
     Route('/language-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html'}),
+    Route('/docs/technical-overview/', RedirectHandler,
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html'}),
     Route('/downloads.html', RedirectHandler,
       defaults={'_uri': '/tools/'}),
     Route('/docs/language-tour/', RedirectHandler,
