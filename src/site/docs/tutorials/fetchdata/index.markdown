@@ -7,8 +7,8 @@ tutorial:
   id: fetchdata
 next: forms/
 next-title: "Get Input from a Form"
-prev: custom-elements/
-prev-title: "Define a Custom DOM Tag"
+prev: polymer-intro/
+prev-title: "Define a Custom Element"
 ---
 
 {% capture whats_the_point %}

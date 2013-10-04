@@ -5,8 +5,8 @@ description: "Define a custom DOM element tag with help from the Web UI package"
 has-permalinks: true
 tutorial:
   id: web-components
-next: fetchdata/
-next-title: "Fetch Data Dynamically"
+next: polymer-intro/
+next-title: "Polymer"
 prev: templates/
 prev-title: "Use Templates"
 ---

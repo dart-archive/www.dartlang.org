@@ -18,7 +18,7 @@ next-title: "Get Started"
 
 **A Game of Darts**
 is a collection of tutorials, _targets_,
-that teaches you how to build mobile web applications
+that teaches you how to build web applications
 using the Dart language, tools, and APIs.
 
 <strong>Who are you?</strong>
@@ -36,8 +36,7 @@ using the Dart language, tools, and APIs.
     <li class="active"><a href="#basics" data-toggle="tab">Basics</a></li>
     <li><a href="#dom" data-toggle="tab">Browser</a></li>
     <li><a href="#packages" data-toggle="tab">Packages</a></li>
-    <li><a href="#webui" data-toggle="tab">Web UI</a></li>
-    <!--<li><a href="#polymer" data-toggle="tab">Polymer</a></li>-->
+    <li><a href="#polymer" data-toggle="tab">Polymer</a></li>
     <li><a href="#forms" data-toggle="tab">Forms & Data</a></li>
     <!--<li><a href="#mobile" data-toggle="tab">Mobile</a></li>-->
   </ul>
@@ -136,33 +135,32 @@ using the Dart language, tools, and APIs.
       </div>
     </div> <!-- end Packages tab -->
 
-  <!-- WEB UI TAB -->
+  <!-- DEPRECATED: WEB UI TAB -->
+  <!--
     <div class="tab-pane" id="webui">
+
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+  Web UI is being upgraded to
+  <a href="/polymer-dart/" target="_blank">Polymer.dart</a>.
+  We've just added a tutorial about
+  <a href="/docs/tutorials/polymer/">Polymer Elements</a>,
+  one key feature of Polymer.
+  We've also provided Polymer.dart versions of the tutorial's Web UI apps.
+  Check out the
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/"
+         target="_blank">tutorials's code repo</a> on github.
+</aside>
 
       Web components and templates are the next great ideas in web application development.
       Together they provide the building blocks to create richer and more dynamic web applications.
       With the Dart team’s <a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>,
       you can get started using web components and templates now.
 
-<aside class="alert" style="background-color:Lavender;color:SlateBlue">
-  <font size="24">
-  <i class="icon-bullhorn"> </i>
-  </font>
-  Web UI is being upgraded to polymer.dart.
-  For more information about polymer.dart,
-  including tips on porting Web UI apps to polymer.dart
-  and the current status of the project,
-  check out the <a href="/polymer-dart/" target="_blank">polymer.dart</a>
-  home page.
-  For polymer.dart versions of the tutorial's Web UI apps,
-  check out the tutorial's
-  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/"
-         target="_blank">code repo</a> on github.
-</aside>
-
       <div class="row-fluid">
 
-        <!-- Get Started Web UI -->
         <div class="span6" style="border-right:1px solid Lavender">
           <section>
           <h4><a href="web-ui/"><img src="images/target.png" height="20" width="20">&nbsp;Get Started with Web UI</a></h4>
@@ -171,7 +169,6 @@ using the Dart language, tools, and APIs.
           </section>
         </div>
 
-        <!-- Templates -->
         <div class="span6" style="border-right:1px solid Lavender">
           <section>
           <h4><a href="templates/"><img src="images/target.png" height="20" width="20">&nbsp;Use Templates</a></h4>
@@ -179,10 +176,9 @@ using the Dart language, tools, and APIs.
           <img src="images/hangman-screenshot.png" width="300">
           </section>
         </div>
-      </div> <!-- end row-fluid -->
+      </div> 
 
       <div class="row-fluid">
-        <!-- Custom Elements -->
         <div class="span6">
           <section>
           <h4><a href="custom-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom DOM Tag</a></h4>
@@ -192,19 +188,34 @@ using the Dart language, tools, and APIs.
         </div>
         <div class="span6">
         </div>
-      </div> <!-- end row-fluid -->
-    </div> <!-- end WEB UI tab -->
+      </div>
+    </div>
+  -->
 
   <!-- POLYMER TAB -->
-  <!--
     <div class="tab-pane" id="polymer">
+<!--
+<aside class="alert" style="background-color:Lavender;color:SlateBlue">
+  <font size="24">
+  <i class="icon-bullhorn"> </i>
+  </font>
+  <a href="/polymer-dart/" target="_blank">Polymer.dart</a>.
+  supersedes Web UI.
+  <a href="/docs/tutorials/polymer/">Polymer Elements</a>,
+  a new tutorial, covers one key feature of Polymer.dart.
+  We've also provided Polymer.dart versions of the tutorial's Web UI apps.
+  Check out the
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/"
+         target="_blank">tutorials's code repo</a> on github.
+</aside>
+-->
       <div class="row-fluid">
 
         <div class="span6" style="border-right:1px solid Lavender">
           <section>
-          <h4><a href="polymer/"><img src="images/target.png" height="20" width="20">&nbsp;Polymer</a></h4>
-          <p>Polymer - a shiny new package!</p>
-          <img src="images/countdown-screenshot.png" width="300">
+          <h4><a href="polymer-intro/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom Element</a></h4>
+          <p>Create a custom HTML element using Polymer.</p>
+          <img src="images/stopwatch-screenshot.png" width="200">
           </section>
         </div>
 
@@ -213,8 +224,7 @@ using the Dart language, tools, and APIs.
 
       </div>
     </div>
-  -->
-    
+
   <!-- FORMS TAB -->
     <div class="tab-pane" id="forms">
 

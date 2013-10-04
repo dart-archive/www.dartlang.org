@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<polymer-element name="tute-stopwatch">
+ 
+  <template>
+    <style>
+      @host {
+        :scope {
+          background-color: LemonChiffon;
+          text-align: center;
+          display: inline-block;
+          border: solid 1px;
+          padding: 10px 10px 10px 10px;
+        }
+      }
+    </style>
+    <div>
+      <div>
+        {{counter}}
+      </div>
+      <div>
+        <button on-click="start" id="startButton">Start</button>
+        <button on-click="stop"  id="stopButton">Stop</button>
+        <button on-click="reset" id="resetButton">Reset</button>
+      </div>
+    </div>
+  </template>
+
+  <script type="application/dart" src="tute_stopwatch.dart">
+  </script>
+
+</polymer-element>

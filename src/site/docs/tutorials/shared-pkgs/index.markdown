@@ -5,8 +5,8 @@ description: "Packages are bundles of source code, tools, and resources that hel
 has-permalinks: true
 tutorial:
   id: packages
-next: web-ui/
-next-title: "Get Started with Web UI"
+next: polymer-intro/
+next-title: "Define a Custom Element"
 prev: remove-elements/
 prev-title: "Remove DOM Elements"
 ---
