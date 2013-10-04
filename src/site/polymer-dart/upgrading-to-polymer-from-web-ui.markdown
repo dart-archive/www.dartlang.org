@@ -144,3 +144,6 @@ registerPolymerElement('my-element', () => new PolymerElement())
   template `if` and `repeat`.
   - Old Web UI: `template instantiate="some boolean"`.
   - New Polymer.dart: `template if="{{some boolean}}"`.
+
+* You no longer need `bind-` when binding to an input field. Instead, do this:
+  `<input type="text" value="{{foo}}">`.
