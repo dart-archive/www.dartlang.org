@@ -9,3 +9,4 @@ scripts/packages
 .buildlog
 pubspec.lock
 packages/
+!src/site/docs/tutorials/polymer-intro/examples/stopwatch/out/web/packages/
