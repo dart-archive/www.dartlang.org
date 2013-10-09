@@ -397,7 +397,7 @@ to Dart developers.
 | Pointer events | Not started
 | Web animations | Not started
 | [Polymer base elements](https://github.com/Polymer/polymer-elements) | Not started
-| [Polymer UI elements](https://github.com/Polymer/polymer-elements) | Not started
+| [Polymer UI elements](https://github.com/Polymer/polymer-ui-elements) | Not started
 {: .table}
 
 <hr>
