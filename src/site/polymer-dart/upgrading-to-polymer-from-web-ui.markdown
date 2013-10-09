@@ -58,18 +58,8 @@ Thanks in advance!
 
 * The `constructor` attribute on polymer-element is no longer used.
 
-* Polymer.dart does **not** support polymer.js's `noscript` attribute on
-  polymer-element. All custom elements must have a Dart class (see the
-  next item).
-
-* Every custom element must have a Dart class. Use an empty Dart class
-  if necessary.
-  See [issue 12254](https://code.google.com/p/dart/issues/detail?id=12254).
-  If you really don't want to create an empty class, use:
-
-{% prettify dart %}
-registerPolymerElement('my-element', () => new PolymerElement())
-{% endprettify %}
+* If your custom element does not have a corresponding Dart class,
+  put a `noscript` attribute on `<polymer-element>`.
 
 * The Dart class for the custom element must _registered_.
   An easy way to register your class is to use the
@@ -82,6 +72,8 @@ registerPolymerElement('my-element', () => new PolymerElement())
   are inheriting from another custom element.
 
 * Go through `shadowRoot` to find nodes inside of your custom element.
+  If the node has an ID, you can use "automatic node finding" like
+  this: `$['the-id']` (which returns the element).
 
 * The `apply-author-styles` attribute (which used to be on the
   `<polymer-element>` tag)
@@ -109,7 +101,7 @@ registerPolymerElement('my-element', () => new PolymerElement())
   language which offers null safety and convenient filterting operations.
 
 * Getters are no longer observable. Instead, use
-  [bindProperty](http://api.dartlang.org/docs/releases/latest/observe.html#bindProperty) and
+  [onPropertyChange](http://api.dartlang.org/docs/releases/latest/observe.html#onPropertyChange) and
   [notifyProperty](http://api.dartlang.org/docs/releases/latest/observe.html#notifyProperty)
   in the `created` callback to let the system know that the computed getter has
   changed whenever its dependencies have changed. You can use other helpers from

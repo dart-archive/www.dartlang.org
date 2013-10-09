@@ -124,7 +124,8 @@ available to you today.
 Extend the lexicon of HTML with your own custom elements.
 
 Below is a simple custom element. More advanced custom elements
-can contain their own styles, custom behavior, data binding, and more.  
+can contain their own styles, custom behavior, attributes,
+data binding, and more.  
 
 {% prettify html %}
 <head>
@@ -138,21 +139,12 @@ can contain their own styles, custom behavior, data binding, and more.
 {% endprettify %}
 
 {% prettify html %}{% raw %}
-<polymer-element name="[[highlight]]hello-world[[/highlight]]">
+<polymer-element name="[[highlight]]hello-world[[/highlight]]" noscript>
   <template>
     <p>Hello from inside a custom element!<p>
   </template>
-  <script type="application/dart" src="hello_world.dart"></script>
 </polymer-element>
 {% endraw %}{% endprettify %}
-
-{% prettify dart %}
-import 'package:polymer/polymer.dart';
-
-@CustomTag('hello-world')
-class HelloWorldElement extends PolymerElement {
-}
-{% endprettify %}
 
 <hr>
 
@@ -180,13 +172,50 @@ import 'package:polymer/polymer.dart';
 import 'dart:html';
 
 @CustomTag('click-counter')
-class ClickCounterElement extends PolymerElement with ObservableMixin {
+class ClickCounterElement extends PolymerElement {
   [[highlight]]@observable int count[[/highlight]] = 0;
   
   void increment(Event e, var detail, Node target) {
     count += 1;
   }
 }
+{% endprettify %}
+
+<hr>
+
+### Custom attributes
+
+Use attributes to configure the custom element.
+
+In this sample, the `count` field of `ClickCounterElement` is
+bound to the `{% raw %}{{count}}{% endraw %}` placeholder in the custom
+element's `<template>`. When the `count` field changes, the text also
+changes.
+
+{% prettify html %}{% raw %}
+<polymer-element name="volume-nob">
+  <template>
+    <p>You turned the volume to {{volume}}.</p>
+  </template>
+  <script type="application/dart" src="volume_nob.dart"></script>
+</polymer-element>
+{% endraw %}{% endprettify %}
+
+{% prettify dart %}
+import 'package:polymer/polymer.dart';
+import 'dart:html';
+
+@CustomTag('volume-nob')
+class VolumeNobElement extends PolymerElement {
+  // @published means 'this is an attribute', and it is observable.
+  [[highlight]]@published int volume[[/highlight]] = 0;
+}
+{% endprettify %}
+
+Crank the volume like this:
+
+{% prettify html %}
+<volume-nob volume="11"></volume-nob>
 {% endprettify %}
 
 <hr>
@@ -218,7 +247,7 @@ import 'package:polymer/polymer.dart';
 import 'dart:html';
 
 @CustomTag('click-counter')
-class ClickCounterElement extends PolymerElement with ObservableMixin {
+class ClickCounterElement extends PolymerElement {
   @observable int count = 0;
   
   void increment(Event e, var detail, Node target) {
@@ -257,7 +286,7 @@ updated.
 import 'package:polymer/polymer.dart';
 
 @CustomTag('fav-fruits')
-class FavFruitsElement extends PolymerElement with ObservableMixin {
+class FavFruitsElement extends PolymerElement {
   final List [[highlight]]fruits = toObservable[[/highlight]](['apples', 'pears', 'bananas']);
 }
 {% endprettify %}
@@ -314,11 +343,25 @@ to learn more.
 
 ## Tools
 
-Polymer.dart offers a validator that reports syntax or usage warnings.
-The validator can be connected to Dart Editor to display warnings directly
+Polymer.dart offers a linter that reports syntax or usage warnings.
+The linter can be connected to Dart Editor to display warnings directly
 at the source.
 
-More information to come.
+Create a `build.dart` file at the root of your project:
+
+{% prettify dart %}
+import 'package:polymer/builder.dart';
+
+void main() {
+  // Runs the linter, and optionally builds the project for deployment.
+  build(entryPoints: ['web/index.html]);
+}
+{% endprettify %}
+
+Dart Editor runs `build.dart` after a file is saved, and
+displays warnings from the linter.
+
+<img src="polymer-warning-in-editor.png">
 
 <hr>
 
@@ -372,12 +415,11 @@ Polymer.dart is a work in progress, just like Polymer.
 
 ### Web UI parity
 
-Web UI is the precursor to polymer.dart. Polymer.dart is not quite
+Web UI is the precursor to polymer.dart. Polymer.dart is almost
 at feature parity with Web UI. Below is a list of Web UI features
 that have not yet been implemented in polymer.dart:
 
 * Value of index variable available inside of loops
-* Initialization of custom attributes with literal values
 
 ### Polymer parity
 
@@ -393,7 +435,7 @@ to Dart developers.
 | Template Binding | Tracking
 | HTML imports | Tracking
 | Polymer Expressions | Tracking
-| [Polymer Core](https://github.com/Polymer/polymer) | Ramping up
+| [Polymer Core](https://github.com/Polymer/polymer) | Tracking
 | Pointer events | Not started
 | Web animations | Not started
 | [Polymer base elements](https://github.com/Polymer/polymer-elements) | Not started
