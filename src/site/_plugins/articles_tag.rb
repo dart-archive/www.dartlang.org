@@ -6,7 +6,7 @@ module Jekyll
     attr_accessor :name
 
     def full_path
-      File.join(@dir, self.url).sub(/index\.html$/, '')
+      self.url.sub(/index\.html$/, '')
     end
   end
 
