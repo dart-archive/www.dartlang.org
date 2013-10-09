@@ -110,7 +110,7 @@ Learn more:
 
 A Future object represents a value to be delivered in the future.
 For example, the dart:io File class's readAsString() method
-returns a Future<String>,
+returns a Future&lt;String>,
 which you can use to get the file's entire contents as a string.
 Learn more:
 

@@ -15,7 +15,7 @@ row01:
   title: Solar System
   name: solar
   alt: Solar system in a browser.
-  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%solar
+  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fsolar
   desc: A solar system simulation.
   features:
     - HTML5 canvas
@@ -40,7 +40,7 @@ row02:
   title: Sunflower
   name: sunflower
   alt: Sunflower in a browser.
-  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%sunflower
+  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fsunflower
   desc: Canvas 2D app with HTML5 range input and event handler.
   features:
     - HTML5 canvas
@@ -51,7 +51,7 @@ row02:
   title: Spirodraw
   name: spirodraw
   alt: A spirodraw game in a browser.
-  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%spirodraw
+  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fspirodraw
   desc: Fun and interactive animation using canvas 2D.
   features:
     - HTML5 canvas
