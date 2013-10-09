@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+  <body>   
+  
+  <polymer-element name="x-slambook-form" extends="form">
+    <template>
+    <style>
+      #slambookform {
+        width: 500px;
+      }
+      
+      .entry {
+        float: left;
+        padding: 3px 3px 3px 3px;
+        width: 100%;
+      }
+      
+      .entry label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        vertical-align: middle;
+      }
+      
+      label.andrews {
+        width:auto;
+      }
+      
+      .submitarea {
+        padding: 10px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: SlateBlue;
+        clear: left;
+      }
+      
+      .responsetext {
+        padding: 5px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+        clear: left;
+        background-color: WhiteSmoke;
+        width: 90%;
+        height: 70px;
+        resize: none;
+      }
+    </style>
+      <div id="slambookform">
+        <div class="entry">
+          <label>First name?</label>
+          <input type="text" value="{{theData['firstName']}}">
+        </div>
+        <div class="entry">
+          <label>Favorite quote?</label>
+          <!--<textarea value="{{theData['favoriteQuote']}}"></textarea>-->
+          <input type="text" value="{{theData['favoriteQuote']}}">
+        </div> 
+        <div class="entry">
+          <label>Favorite color?</label>
+          <input type="color" value="{{theData['favoriteColor']}}">
+        </div>
+        <div class="entry">
+          <label>Birthday?</label>
+          <input type="date" value="{{theData['birthday']}}">
+        </div>
+        <div class="entry">
+          <label>Favorite volume?</label>
+          <input type="range" value="{{theData['volume']}}" min="0" max="11">  
+        </div>
+        <div class="entry">
+          <label>Cat or dog?</label>
+          <input on-change="catOrDog" name="catOrDog" type="radio" value="cat">Cat
+          <input on-change="catOrDog" name="catOrDog" type="radio" value="dog" checked>Dog
+          <input on-change="catOrDog" name="catOrDog" type="radio" value="iguana">Iguana
+        </div>
+        <div>
+          <label>Favorite type of music?</label>
+          <select selectedIndex="{{theData['music']}}">
+            <option>Classical</option>
+            <option>Country</option>
+            <option>Rock</option>
+            <option>Silence</option>
+          </select>
+        </div>
+        <div class="entry">
+          <label for="zombies">Check for zombies. </label>
+          <input type="checkbox" checked="{{theData['zombies']}}" id="zombies">
+        </div>
+        <div class="entry">
+          <label>Favorite things?</label>
+          <input type="checkbox" checked="{{favoriteThings['kittens']}}" id="kittens">
+            <label for="kittens" class="andrews">Kittens</label>
+          <input type="checkbox" checked="{{favoriteThings['raindrops']}}" id="raindrops">
+            <label for="raindrops" class="andrews">Raindrops</label>
+          <input type="checkbox" checked="{{favoriteThings['mittens']}}" id="mittens">
+            <label for="mittens" class="andrews">Mittens</label>
+          <input type="checkbox" checked="{{favoriteThings['kettles']}}" id="kettles">
+            <label for="kettles" class="andrews">Kettles</label>
+        </div>
+  
+        <div class="submitarea">
+          <input type="submit" value="Submit" on-click="submitForm">
+          <input type="reset"  value="Clear"  on-click="resetForm"> <br>    
+          <textarea disabled class="responsetext" value="{{serverResponse}}"></textarea>
+          <!--<p class="responsetext"> {{serverResponse}} </p>-->
+        </div>
+      </div>
+    </template>
+      
+    <script type="application/dart" src="xslambookform.dart">
+    </script>
+  </polymer-element>
+
+  </body>
+</html>

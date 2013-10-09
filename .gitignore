@@ -10,3 +10,9 @@ scripts/packages
 pubspec.lock
 packages/
 !src/site/docs/tutorials/polymer-intro/examples/stopwatch/out/web/packages/
+!src/site/docs/tutorials/get-started/examples/clickme/packages/
+!src/site/docs/tutorials/connect-dart-html/examples/mini/packages/
+!src/site/docs/tutorials/connect-dart-html/examples/mini_with_style/packages/
+!src/site/docs/tutorials/add-elements/examples/todo/packages/
+!src/site/docs/tutorials/add-elements/examples/anagram/packages/
+!src/site/docs/tutorials/remove-elements/examples/todo_with_delete/packages/

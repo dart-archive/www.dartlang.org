@@ -26,16 +26,12 @@ and other advantages.
 {% capture sample_links %}
 
 <p>
-Get the source code for the example featured in this target:</p>
+Get the source code for the example featured in this tutorial:</p>
 
 <ul>
   <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down"
-       target="_blank">count_down</a> (web_ui)
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down"
-       target="_blank">count_down</a> (polymer)
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/indexeddb/count_down"
+       target="_blank">count_down</a>
   </li>
 </ul>
 
@@ -84,7 +80,7 @@ if the current platform supports IndexedDB
 and adjust accordingly.
 </aside>
 
-This target shows you how to use
+This tutorial shows you how to use
 <a href="https://api.dartlang.org/dart_indexed_db.html"
    target="_blank">dart:indexed_db</a>
 to store data to and retrieve data from the browser's IndexedDB.
@@ -128,11 +124,11 @@ Use the **Clear** button to delete all the milestones.
 
 <iframe class="running-app-frame"
         style="height:400px;width:600px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target11/count_down/web/out/count_down.html">
+        src="examples/count_down/out/web/count_down.html">
 </iframe>
 
 You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down" target="_blank">count_down</a>.
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/indexeddb/count_down" target="_blank">count_down</a>.
 
 ###Using developer tools to look at the database
 
@@ -181,7 +177,7 @@ manages a list of Milestone objects in memory
 and keeps an IndexedDB in sync with the list,
 saving the milestone data persistently.
 The View-model queries the Model upon initialization
-and uses Web UI data-bindings to keep the View in sync.
+and uses Polymer data-bindings to keep the View in sync.
 Also, it uses Timer events to trigger updates in the Model.
 
 ###The libraries used by the count_down app 
@@ -193,29 +189,23 @@ The count_down app uses the following libraries:
 | <a href="https://api.dartlang.org/dart_indexed_db.html" target="_blank">dart:indexed_db</a> | Save data into an indexed database for persistence and offline capability |
 | <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a> | Perform tasks asynchronously |
 | <a href="https://api.dartlang.org/dart_core.html" target="_blank">dart:core</a> | Use DateTime and Duration to manage time-related tasks |
-| <a href="https://pub.dartlang.org/packages/web_ui" target="_blank">package:web_ui</a> | Create UIs with data-binding and web components. |
+| <a href="https://api.dartlang.org/polymer.html" target="_blank">Polymer</a> | Create UIs with custom elements and data binding. |
 {: .table }
 
-This target explains the Dart API for IndexedDB used by the count_down app.
-In addition, this target covers some interesting
+This tutorial explains the Dart API for IndexedDB used by the count_down app.
+In addition, this tutorial covers some interesting
 API related to dates, times, and timers.
 
 <aside class="alert" markdown="1">
 <strong>Note:</strong>
-This target does not cover Futures or Web UI.
+This tutorial does not cover Futures or Polymer.
 For information about Futures,
 see
 <a href="/articles/using-future-based-apis/">Using Future Based APIs</a>
 and 
 <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
-For information about Web UI,
-check out the relevant recipes in the
-<a href="/docs/cookbook/">
-       <i class="icon-food"> </i> Dart Cookbook</a>
-or read the Web UI tutorials in
-Targets <a href="/docs/tutorials/web-ui/">6</a>,
-<a href="/docs/tutorials/templates/">7</a>,
-<a href="/docs/tutorials/custom-elements/">8</a>.
+For information about Polymer,
+refer to <a href="/docs/tutorials/polymer-intro/">Define a Custom Element</a>.
 
 </aside>
 
@@ -713,13 +703,8 @@ The _loadFromDB method returns a Future that returns the length of the stream.
   <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
   </li>
   <li>
-  For information about Web UI,
-  check out the relevant recipes in the
-  <a href="/docs/cookbook/">
-         <i class="icon-food"> </i> Dart Cookbook</a>
-  or read Targets <a href="/docs/tutorials/web-ui">6</a>,
-  <a href="/docs/tutorials/templates">7</a>, and
-  <a href="/docs/tutorials/custom-elements">8</a>.
+  For information about Polymer,
+  read <a href="/docs/tutorials/polymer-intro">Define a Custom Element</a>.
   </li>
 </ul>
 

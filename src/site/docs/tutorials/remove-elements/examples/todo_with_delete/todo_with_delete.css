@@ -1,0 +1,43 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: WhiteSmoke;
+  margin: 15px;
+}
+
+#to-do-input {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 5px 0px 5px 5px;
+  width: 100%;
+  border: 1px solid Silver;
+  background-color: White;
+}
+
+#to-do-list {
+  padding:0px;
+  margin:0px;
+  list-style-position:inside;
+}
+
+#to-do-list li {
+  padding:5px 0px 5px 5px;
+  border-bottom: 1px dotted Silver;
+}
+
+#to-do-list li:hover {
+  color: red;
+  font-size: 18px;
+  cursor:pointer;
+}
+
+#delete-all {
+  background-color: #F8F8F8;
+  border: 1px dotted #ccc;
+  border-radius: 1em;
+  float: right;
+}
+
+#delete-all:hover {
+  background-color: #ddd;
+}

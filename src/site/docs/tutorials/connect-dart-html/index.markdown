@@ -8,7 +8,7 @@ tutorial:
 next: add-elements/
 next-title: "Add Elements to the DOM"
 prev: get-started/
-prev-title: "Get Started"
+prev-title: "Get started"
 ---
 
 {% capture whats_the_point %}
@@ -16,7 +16,6 @@ prev-title: "Get Started"
 * The DOM models a browser page in a tree/node structure.
 * An HTML file hosts your Dart code in a browser page.
 * Use query() with an ID to get an element from the DOM.
-* Control run-time configurations in Dart Editor with named launches.
 * Compile to JavaScript to run in any modern browser.
 * CSS selectors are patterns used to select matching elements in the DOM.
 * Use CSS rules to style elements.
@@ -26,15 +25,15 @@ prev-title: "Get Started"
 {% capture sample_links %}
 
 <p>
-Get the source code for the samples featured in this target:</p>
+Get the source code for the samples featured in this tutorial:</p>
 
 <ul>
   <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target02/mini"
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/connect-dart-html/mini"
        target="_blank">mini</a>
   </li>
   <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target02/mini_with_style"
+    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/connect-dart-html/mini_with_style"
        target="_blank">mini_with_style</a>
   </li>
 </ul>
@@ -73,15 +72,16 @@ for more interesting and useful web apps.
 
 * [About the DOM](#dom-intro)
 * [Create a new Dart app](#create-dart-app)
-* [Edit Dart source code](#dart-editor-happiness)
-* [About the Dart source code](#about-dart-code)
 * [Edit the HTML file](#create-html)
 * [About the HTML source code](#about-html-code)
+* [Edit Dart source code](#dart-editor-happiness)
+* [About the Dart source code](#about-dart-code)
+* [Summary of HTML and Dart connections](#summary)
 * [Run the mini web app](#run-mini)
-* [Create a JavaScript launch](#mini-with-js)
 * [Give the app some style with CSS](#add-css)
 * [About CSS selectors](#about-css-selectors)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##About the DOM {#dom-intro}
 
@@ -145,45 +145,87 @@ or even insert an entire sub-tree of nodes.
 
 ## Create a new Dart app {#create-dart-app}
 
-The application you write in this target will be a web application.
-Web applications use code from the browser package to run inside of a browser,
+The application you write in this tutorial is a web application.
+Web applications use code from the `browser` package
+to run inside of a browser,
 so you need to start with the supporting files and packages
 even for the smallest web app.
 
-In Dart Editor, create a new application called mini.
-Select **Generate sample content**
-and **Web application**.
+In Dart Editor, create a new web application
+like you did in the previous tutorial,
+[Get Started](/docs/tutorials/get-started/).
+Name the app `mini`.
 
 <img src="images/new-app-mini.png"
      alt="New Application dialog window">
 
-Dart Editor creates a directory called mini and, within it,
-the files and directories needed for a web application.
+##Edit the HTML file {#create-html}
 
-<img src="images/new-app-files.png"
-     alt="After new application created">
+When Dart Editor created the application,
+it created boilerplate HTML code.
+Double click `mini.html` to open it.
+Then replace the code with the following,
+simplied HTML.
 
-* The top-level directory is named after the application.
+{% prettify html %}
+<!DOCTYPE html>
 
-* The pubspec.yaml file is used by applications
-that rely on external packages of Dart code.
-[Target 5: Install Shared Packages](/docs/tutorials/shared-pkgs/)
-provides more information.
-Web applications use a package called `browser`.
-This dependency is declared in the pubspec.yaml file.
+<html>
+  <head>
+    <title>A Minimalist App</title>
+  </head>
+  
+  <body>
+    <p id="RipVanWinkle">
+      RipVanWinkle paragraph.
+    </p>
+    <script type="application/dart" src="mini.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
 
-* The web directory contains the Dart, HTML, and CSS code for the web app.
+Finish your edits and save the file with **File > Save**.
 
-* The main source file, mini.dart in this sample,
-contains boilerplate code for the clickme app
-you saw in the previous target.
-You will edit the code in this file and
-in mini.html to create a bare-bones app.
+##About the HTML source code {#about-html-code}
+
+This HTML code is similar to the simple HTML code in the
+various diagrams earlier in this tutorial.
+Again, you can see the use of the \<head>, \<title>, \<body>,
+and \<p> tags.
+And there, in the paragraph tag,
+is an identifier "RipVanWinkle".
+The Dart code you create in the next step uses this ID
+to get the paragraph element.
+
+<img src="images/html-id.png"
+     alt="Using an ID in HTML">
+
+Notice the use of the `script` tag.
+The source for a script is provided by a client-side file.
+The HTML code above has two scripts.
+
+<img src="images/script-tags.png"
+     alt="Including Dart apps in HTML">
+
+The first script includes your mini app.
+The `type` attribute specifies that the script has
+the type `application/dart`,
+which is a new type created by the Dart team.
+Currently, only the Dartium build of Chromium supports
+`application/dart`.
+The `src` attribute provides the URL to the source file of the script.
+In this case, it is the Dart source file `mini.dart`,
+which you provide in the next step.
+The Dart file should be in the same directory as its host HTML file.
+
+The second `script` tag is
+a bootstrap script that takes care of turning on the Dart VM,
+as well as compatibility with non-Dart browsers.
 
 ##Edit Dart source code {#dart-editor-happiness}
 
-Use Dart Editor
-to modify the source code
+Open `mini.dart` and modify the source code
 to look like this:
 
 {% prettify dart %}
@@ -192,9 +234,6 @@ void main() {
   query('#RipVanWinkle').text = 'Wake up, sleepy head!';
 }
 {% endprettify %}
-
-<i class="icon-info-sign"> </i>
-<a href="errors-warnings.html">What is Dart Editor trying to tell me?</a>
 
 ##About the Dart source code {#about-dart-code}
 
@@ -211,8 +250,7 @@ available to your program.
      alt="Import Dart HTML library">
 
 This program imports Dart's HTML library,
-which contains the classes and functions for programming the DOM.
-Generally speaking, all Dart web apps need the Dart HTML library.
+which contains key classes and functions for programming the DOM.
 Key classes include:
 
 | Dart class | Description |
@@ -225,8 +263,8 @@ Key classes include:
 The Dart core library contains another useful class,
 <a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
 a parameterized class that can specify the type of its members.
-The Element class keeps its list of child Elements
-in a List\<Element>, a list that can contain only Element objects.
+An instance of Element keeps its list of child Elements
+in a List\<Element>.
 
 ###Using the query() function
 
@@ -287,12 +325,8 @@ that walks the subtree of nodes for you and extracts their text.
 However, if the text node has styles (and thus a subtree),
 getting text and then setting it immediately is likely
 to change the DOM, as a result of losing subtree information.
-
 Often, as with our RipVanWinkle example,
 this simplification has no adverse effects.
-Do know, however, that with more complex situations
-getting text and then setting it immediately
-will likely change the text.
 
 The assignment operator (=) sets the text
 of the Element returned by the query() function
@@ -302,71 +336,12 @@ to the string "Wake up, sleepy head!".
      alt="Set the text node, thereby changing the text on the page">
 
 This causes the browser to immediately re-render
-the browser page containing this app
+the browser page containing this app, thus
 dynamically displaying the text on the browser page.
 
-##Edit the HTML file {#create-html}
+##Summary of HTML and Dart connections {#summary}
 
-When Dart Editor created the application,
-it created boilerplate HTML code that worked with the clickme app.
-Now that you've modified the Dart code,
-you will need to change the HTML code
-so that it contains the expected RipVanWinkle paragraph.
-
-In Dart Editor, double click `mini.html`.
-The code appears in the editor pane.
-Replace the default contents with the following,
-simplified HTML.
-
-{% prettify html %}
-<!DOCTYPE html>
-
-<html>
-  <head>
-    <title>A Minimalist App</title>
-  </head>
-  
-  <body>
-    <p id="RipVanWinkle"></p>
-    <script type="application/dart" src="mini.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
-</html>
-{% endprettify %}
-
-Finish your edits and save the file with **File > Save**.
-
-##About the HTML source code {#about-html-code}
-
-This HTML code is similar to the simple HTML code in the
-various diagrams earlier in this target.
-Again, you can see the use of the \<head>, \<title>, \<body>,
-and \<p> tags.
-And there, in the paragraph tag,
-is the identifier "RipVanWinkle"
-that the Dart code you created in the previous step uses
-as an argument to query() to get the paragraph element.
-
-New here is the use of the `script` tag.
-A script's content is defined by a client-side script.
-The HTML code above has two scripts.
-
-<img src="images/script-tags.png"
-     alt="Including Dart apps in HTML">
-
-The first includes your mini app.
-It uses two attributes: `type` indicates the type of the script.
-`application/dart` is a new type created by the Dart team,
-which is currently supported by Dartium.
-The `src` attribute provides the URL to the source file of the script.
-In this case, it is the Dart source file `mini.dart` that you created earlier.
-The Dart file should be in the same directory as its host HTML file.
-
-The second `script` tag is
-a bootstrap script that takes care of turning on the Dart VM,
-as well as compatibility with non-Dart browsers.
-
-This diagram summarizes the connection
+This diagram summarizes the connections
 between `mini.dart` and `mini.html`.
 
 <img src="images/dart-html-connect.png"
@@ -375,124 +350,28 @@ between `mini.dart` and `mini.html`.
 ##Run the mini web app {#run-mini}
 
 In Dart Editor,
-make sure that one of `mini`'s files or the directory is selected,
-and then click the Run button
+select `mini.html` and then click the Run button
 <img src="images/run.png" width="16" height="16"
      alt="Run button">.
 Dart Editor invokes Dartium
 and loads `mini.html` in it.
 Below is mini app running in a frame.
-The app just displays a line of text.
+The app displays the text provided by Dart code,
+namely "Wake up, sleepy head!",
+not the text provided in the HTML file.
 
 <iframe class="running-app-frame"
         style="height:150px;width:300px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target02/mini/web/mini.html">
+        src="examples/mini/mini.html">
 </iframe>
 
 The Dart web app changed
 the text in the browser window dynamically at runtime.
-Of course, placing static text on a browser page
+Of course, placing text on a browser page
 and doing nothing else
 could be accomplished with straight HTML.
 This little app only shows you how to make a connection
 from a Dart app to a browser page.
-
-##Create a JavaScript launch {#mini-with-js}
-
-You can create various runtime scenarios for your Dart app
-using *launches* in Dart Editor.
-A launch specifies a runtime configuration,
-such as whether to compile to JavaScript
-or what browser to use.
-
-In this section,
-you will create a launch for mini that first compiles the app to
-JavaScript and then runs it in the default system browser.
-
-<ol>
-<li markdown="1">
-In Dart Editor,
-click the wee arrow to the right of the run button
-<img src="images/run.png" width="16" height="16"
-     alt="Run button">.
-A menu appears:
-
-<img src="images/manage-launches-menu.png"
-     alt="Manage launches menu">
-
-You have been unwittingly using launches when running
-the samples so far.
-The menu item `mini.html from mini` is a launch that Dart Editor
-automatically created
-when you ran the application for the first time
-in the previous section.
-</li>
-
-<li markdown="1">
-Select **Manage launches** from the menu
-to bring up the **Manage Launches** dialog.
-Using the small icons,
-you can create launches for different purposes:
-
-<img src="images/new-launch-menu.png" alt="Launch options">
-
-By default,
-Dart Editor automatically creates a Dartium launch for web apps.
-You must explicitly create a Dart JavaScript launch
-to create a runtime configuration that compiles
-your web app to JavaScript and then runs it in a browser.
-</li>
-
-<li markdown="1">
-Click the JavaScript launch icon
-<img src="images/dart2js-icon.png" width="18" height="17"
-     alt="JavaScript launch icon">.
-The dialog window adjusts to present the appropriate options
-for your selection.
-</li>
-
-<li markdown="1">
-Name the launch by typing `mini-with-js` in the first text box.
-
-<img src="images/new-js-launch.png"
-     alt="Create a launch that compiles to JavaScript">
-
-It is recommended that the launch name reflect
-the important aspects of its configuration.
-In this case, the launch name specifies the app name
-and that it's a JavaScript launch.
-If the launch specified a browser, such as FireFox,
-you might name the launch `mini-with-js-in-firefox`.
-</li>
-
-<li markdown="1">
-The launch target is the HTML file `mini.html`.
-Browse to the file.
-</li>
-
-<li markdown="1">
-Click **Apply**.
-The named launch should now appear
-in the list to the left of the window.
-
-<img src="images/mini-with-js-item.png"
-     alt="New named launch in the list of launches">
-
-</li>
-
-<li markdown="1">
-To run the launch,
-click the Run button at the bottom right of the window.
-Or select it from the Run menu on the main Dart Editor window.
-
-This time, Dart Editor
-creates a JavaScript file,
-invokes the default system browser
-and loads the JavaScript file into it.
-The output should look the same.
-</li>
-
-</ol>
 
 ##Give the app some style with CSS {#add-css}
 
@@ -500,7 +379,7 @@ Most HTML uses cascading style sheets (CSS) to define _styles_
 that control the appearance of page elements.
 Let's customize the CSS for the mini app.
 
-In Dart Editor, edit the file named mini.css
+In Dart Editor, edit the file named `mini.css`
 and replace the contents of the file with
 the following CSS code:
 
@@ -519,7 +398,7 @@ This defines a style
 for the page element
 with the ID RipVanWinkle.
 To use this style sheet,
-edit mini.html and add the line shown in bold below:
+edit `mini.html` and add the line shown in bold below:
 
 <img src="images/html-with-css.png"
      alt="HTML with CSS">
@@ -532,7 +411,7 @@ but still neither interactive nor interesting.
 
 <iframe class="running-app-frame"
         style="height:150px;width:300px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target02/mini_with_style/web/mini_with_style.html">
+        src="examples/mini_with_style/mini_with_style.html">
 </iframe>
 
 ##About CSS selectors {#about-css-selectors}
@@ -563,7 +442,7 @@ Here are some examples of CSS selectors:
 | HTML element | p | Matches all paragraphs |
 | HTML element | h1 | Matches all level-one headers |
 | Class | _.classname_ | Matches all items with the class _classname_  |
-| Asterisk | * | Using the asterisk matches all elements |
+| Asterisk | * | Matches all elements |
 | Attribute | input[type="button"] | Matches all button input elements |
 {: .table}
 
@@ -617,14 +496,14 @@ for example, it sets the text color to Yellow.
 
 <ul>
   <li>
-    <a href="/docs/dart-up-and-running/">Dart Up and Running</a>
+    <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>
     provides thorough coverage of the Dart language, libraries, and tools.
     If a topic is not covered explicitly here,
     you can find the information you need there.
   </li>
   <li>
     <a href="/docs/dart-up-and-running/contents/ch04-tools-editor.html">Dart Editor</a>,
-    an excerpt from <em>Dart Up and Running</em>,
+    an excerpt from <em>Dart: Up and Running</em>,
     provides details about using Dart Editor.
     The excerpt includes, for example,
     how to use Dart Editor's power features such as autocompletion and refactoring,
@@ -640,6 +519,12 @@ for example, it sets the text color to Yellow.
     such strings, lists, maps, and numbers.
   </li>
 </ul>
+
+##What next?
+
+The next tutorial, [Add Elements to the DOM](/docs/tutorials/add-elements/),
+shows you how to dynamically change the HTML page
+by adding elements to the DOM.
 
 {% endcapture %}
 

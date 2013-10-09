@@ -119,72 +119,6 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{25.5, 336.5}, {221, 22}}</string>
-			<key>Class</key>
-			<string>ShapedGraphic</string>
-			<key>FitText</key>
-			<string>YES</string>
-			<key>Flow</key>
-			<string>Resize</string>
-			<key>FontInfo</key>
-			<dict>
-				<key>Color</key>
-				<dict>
-					<key>b</key>
-					<string>0</string>
-					<key>g</key>
-					<string>0</string>
-					<key>r</key>
-					<string>0.501961</string>
-				</dict>
-				<key>Font</key>
-				<string>HelveticaNeue-BoldItalic</string>
-				<key>Size</key>
-				<real>14</real>
-			</dict>
-			<key>ID</key>
-			<integer>64</integer>
-			<key>Shape</key>
-			<string>Rectangle</string>
-			<key>Style</key>
-			<dict>
-				<key>fill</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-				<key>shadow</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-				<key>stroke</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-			</dict>
-			<key>Text</key>
-			<dict>
-				<key>Align</key>
-				<integer>0</integer>
-				<key>Pad</key>
-				<integer>2</integer>
-				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
-\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
-
-\f0\i\b\fs28 \cf2 Uses stopwatch-screenshot.png}</string>
-				<key>VerticalPad</key>
-				<integer>2</integer>
-			</dict>
-			<key>Wrap</key>
-			<string>NO</string>
-		</dict>
-		<dict>
-			<key>Bounds</key>
 			<string>{{25.5, 17.5}, {444, 22}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
@@ -386,7 +320,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{302.63395253102459, 143.51284617185593}, {119, 24}}</string>
+			<string>{{302.63395253127021, 143.51284617185593}, {119, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -512,8 +446,8 @@
 			<integer>34202</integer>
 			<key>Points</key>
 			<array>
-				<string>{416, 509.15742136099891}</string>
-				<string>{459, 509.19759417122413}</string>
+				<string>{416, 509.15794458208853}</string>
+				<string>{459, 509.19825091460967}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -897,8 +831,8 @@ class TuteStopwatch extends PolymerElement with ObservableMixin \{\
 			<integer>34215</integer>
 			<key>Points</key>
 			<array>
-				<string>{327.62831858404024, 106}</string>
-				<string>{396.62168141546647, 205}</string>
+				<string>{327.62831858407066, 106}</string>
+				<string>{396.62168141592718, 205}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1250,7 +1184,7 @@ class TuteStopwatch extends PolymerElement with ObservableMixin \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-09-30 20:36:56 +0000</string>
+	<string>2013-10-09 20:43:51 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

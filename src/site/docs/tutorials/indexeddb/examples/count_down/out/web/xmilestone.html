@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<html>
+  <body>   
+    <polymer-element name="x-milestone" attributes="milestone">
+      <template>
+        <span>{{milestone.timeRemainingAsString}}</span> <button on-click="removeMilestone">-</button>
+      </template>
+      <script type="application/dart" src="xmilestone.dart"></script>
+    </polymer-element>
+  </body>
+</html>

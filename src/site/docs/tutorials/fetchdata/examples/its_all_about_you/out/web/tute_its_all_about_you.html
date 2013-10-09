@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>It's All About You</title>
+    <link rel="stylesheet" href="its_all_about_you.css">
+  </head>
+  <body>
+    <h1>Tell me about yourself</h1>
+    
+    <polymer-element name="tute-its-all-about-you">
+ 
+      <template>
+
+        <style>
+          #sample_container_id {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            border: 1px solid #ccc;
+            background-color: #fff;
+          }
+          
+          .givemespace {
+            margin-top: 15px;
+          }
+          
+          table {
+            text-align: left;
+            border-spacing: 5px 15px
+          }
+          
+          .result {
+            background-color: Ivory;
+            padding: 5px 5px 5px 5px;
+            border: 1px solid black;
+          }
+          
+          input {
+            display: block;
+          }
+          
+          input[type="radio"] {
+            display: inline;
+          }
+          
+          #mapasjson {
+            background-color: Ivory;
+            padding: 5px 5px 5px 5px;
+            margin-top: 15px;
+            border: 1px solid black;
+            width: 500px;
+            height: 50px;
+            font-size:14px;
+          }
+          
+          label {
+            font-weight: bold;
+          }
+        </style>
+
+        <table>
+          <thead>
+          <tr>
+            <th> </th>
+            <th>Enter value</th>
+            <th>Data type</th>
+            <th>JSON string</th>
+          </tr>
+          </thead>
+        
+          <tbody>
+          <tr>
+            <td align="right">Favorite number:</td>
+            <td><input type="text" value="{{favoriteNumber}}" on-input="showJson"></td>
+            <td>integer</td>
+            <td><span class="result"> {{intAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">Do you know pi?</td>
+            <td><input type="text" value="{{valueOfPi}}" on-input="showJson"></td>
+            <td>double</td>
+            <td><span class="result"> {{doubleAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">What's your sign?</td>
+            <td><input type="text" value="{{horrorScope}}" on-input="showJson"></td>
+            <td>String</td>
+            <td><span class="result"> {{stringAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">A few of your favorite things?</td>
+            <td>
+              <input type="text" value="{{favOne}}" on-input="showJson">
+              <input type="text" value="{{favTwo}}" on-input="showJson">
+              <input type="text" value="{{favThree}}" on-input="showJson">
+            </td>
+            <td>List&lt;String&gt;</td>
+            <td><span class="result"> {{listAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">I love chocolate!</td>
+            <td><input type="radio" on-change="showJson" name="chocolate" class="true" checked>True
+                <input type="radio" on-change="showJson" name="chocolate" class="false">False
+            </td>
+            <td>bool</td>
+            <td><span class="result"> {{boolAsJson}} </span></td>
+          </tr>
+          </tbody>
+        </table>
+    
+        <div class="givemespace">
+          <label>All data together as a map</label><br>
+          <textarea id="mapasjson" readonly>{{mapAsJson}}</textarea> 
+        </div>
+      </template>
+      <script type="application/dart" src="tute_its_all_about_you.dart">
+      </script>
+    </polymer-element>
+</html>
