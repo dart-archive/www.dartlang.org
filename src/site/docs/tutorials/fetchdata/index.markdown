@@ -22,23 +22,16 @@ prev-title: "Define a Custom Element"
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this tutorial:</p>
+<p> This tutorial features these examples:</p>
+* its_all_about_you
+* portmanteaux_simple
+* portmanteaux
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/its_all_about_you"
-       target="_blank">its_all_about_you</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/portmanteaux_simple"
-       target="_blank">portmanteaux_simple</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/portmanteaux"
-       target="_blank">portmanteaux</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -93,10 +86,6 @@ and check out the JSON format for each data type.
         style="height:500px;width:700px;"
         src="examples/its_all_about_you/out/web/index.html">
 </iframe>
-
-The complete source code is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/its_all_about_you"
-   target="_blank">its_all_about_you</a>.
 
 The dart:convert library contains two convenient functions
 for working with JSON strings:
@@ -289,10 +278,6 @@ and loads the file.
         src="examples/portmanteaux_simple/portmanteaux_simple.html">
 </iframe>
 
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/portmanteaux_simple/"
-   target="_blank">portmanteaux_simple</a>.
-
 This program uses a convenience method,
 `getString()`,
 provided by the HttpRequest class
@@ -368,13 +353,10 @@ configure its header and other information,
 and use the `send()` method to make the request.
 
 This section looks at a new
-version of the portmanteaux example
+version of the portmanteaux example,
+called portmanteaux,
 that has been rewritten
 to use an explicitly constructed HttpRequest object.
-You can find the complete source code for the modified version
-on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/portmanteaux/"
-   target="_blank">portmanteaux</a>.
 
 ###Setting up the HttpRequest object
 
@@ -433,8 +415,7 @@ and adds it to the &lt;ul&gt; element on the page.
 ###Populating the UI from JSON
 
 The data file in the portmanteaux example,
-<a href="https://github.com/dart-lang/dart-tutorials-samples/master/web/fetchdata/portmanteaux/web/portmanteaux.json"
-   target="_blank">portmanteaux.json</a>,
+portmanteaux.json,
 contains a JSON-formatted list of strings.
 
 {% highlight dart %}

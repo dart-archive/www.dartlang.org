@@ -25,18 +25,15 @@ prev-title: "Get started"
 {% capture sample_links %}
 
 <p>
-Get the source code for the samples featured in this tutorial:</p>
+This tutorial features these examples:</p>
+* mini
+* mini_with_style
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/connect-dart-html/mini"
-       target="_blank">mini</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/connect-dart-html/mini_with_style"
-       target="_blank">mini_with_style</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 

@@ -25,15 +25,15 @@ and other advantages.
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the example featured in this tutorial:</p>
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/indexeddb/count_down"
-       target="_blank">count_down</a>
-  </li>
-</ul>
+<p> This tutorial features this example:</p>
+* count_down
+
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -126,9 +126,6 @@ Use the **Clear** button to delete all the milestones.
         style="height:400px;width:600px;"
         src="examples/count_down/out/web/count_down.html">
 </iframe>
-
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/indexeddb/count_down" target="_blank">count_down</a>.
 
 ###Using developer tools to look at the database
 

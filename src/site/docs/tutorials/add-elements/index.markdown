@@ -23,19 +23,15 @@ prev-title: "Connect Dart & HTML"
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this tutorial:</p>
+<p> This tutorial features these examples:</p>
+* todo
+* anagram
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/add-elements/todo"
-       target="_blank">todo</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/add-elements/anagram"
-       target="_blank">anagram</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 

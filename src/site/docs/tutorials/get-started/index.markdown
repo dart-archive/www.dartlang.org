@@ -31,19 +31,11 @@ prev-title: "Home"
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this tutorial:</p>
+This tutorial features two examples
+provided by Dart Editor:
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/get-started/helloworld"
-       target="_blank">helloworld</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/get-started/clickme"
-       target="_blank">clickme</a>
-  </li>
-</ul>
+* helloworld
+* clickme
 
 {% endcapture %}
 
@@ -603,8 +595,13 @@ when creating applications outside of Dart Editor.
 
 ##What next?
 
-The next tutorial, [Connect Dart & HTML](/docs/tutorials/connect-dart-html/),
-steps you through writing a tiny web app from scratch.
+* Get the code for all of the Dart tutorials samples.
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download the ZIP file</a>, unzip it,
+  and open `dart-tutorials-samples` in Dart Editor.
+
+* Go to the next tutorial, [Connect Dart & HTML](/docs/tutorials/connect-dart-html/),
+which steps you through writing a tiny web app from scratch.
 
 {% endcapture %}
 

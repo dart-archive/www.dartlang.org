@@ -25,19 +25,16 @@ prev-title: "Fetch Data Dynamically"
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this tutorial:</p>
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/search_form"
-       target="_blank">search_form</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/slambook"
-       target="_blank">slambook</a>
-  </li>
-</ul>
+<p> This tutorial features these examples:</p>
+* search_form
+* slambook
+
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -118,10 +115,6 @@ a useful resource for learning about Dart.
         style="height:100px;width:500px;"
         src="examples/search_form/web/search_form.html">
 </iframe>
-
-The source code for this example is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/search_form"
-   target="_blank">search_form</a>.
 
 Here is the HTML code that creates the form:
 
@@ -241,20 +234,19 @@ Enter some data and push the **Submit** button.
         src="examples/slambook/out/web/slambook.html">
 </iframe>
 
-The complete source code for both the client and the
-server is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/slambook" target="_blank">slambook</a>
-
 The request gives you an innocent stare and displays "No server"
 because you are not running the server on your machine.
 Let's fix that.
 
 ###Run the server
 
-Download or copy the source code for the basic server program
-from the github repository:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/slambook/bin/slambookserver.dart"
-   target="_blank">slambookserver.dart</a>
+Get the source code for the basic server program,
+slambookserver.dart,
+from the
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+ tutorials samples
+</a>
+download.
 
 Run the server program from the command line:
 
@@ -856,10 +848,6 @@ Instead, you can look at a different example,
         style="height:400px;width:500px;"
         src="http://dart-lang.github.io/dart-tutorials-samples/web/forms/multiselect/web/out/multiselect.html">
 </iframe>
-
-The source code for this example is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/multiselect"
-   target="_blank">multiselect</a>.
 
 Key-value pairs in a map called `books` contain the data
 for the &lt;select&gt; element.

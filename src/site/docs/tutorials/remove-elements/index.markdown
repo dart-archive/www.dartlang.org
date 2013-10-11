@@ -23,15 +23,14 @@ expression.
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the sample featured in this tutorial:</p>
+<p> This tutorial features this example:</p>
+* todo_with_delete
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/remove-elements/todo_with_delete"
-       target="_blank">todo_with_delete</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -77,10 +76,6 @@ to remove all of the items in the list at once.
         style="height:250px;width:300px;"
         src="examples/todo_with_delete/todo_with_delete.html">
 </iframe>
-
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/remove-elements/todo_with_delete"
-target="_blank">todo_with_delete</a>.
 
 The remaining sections describe
 key aspects of the code 

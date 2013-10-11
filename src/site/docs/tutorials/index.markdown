@@ -61,6 +61,32 @@ from left to right...or choose just the ones you need.
           <img src="images/clickme-screenshot.png" width="300">
           </section>
         </div>
+        <div class="span6">
+          <section>
+            <h4>Get the sample code</h4>
+            Before moving on,
+            get the code for all the tutorials' samples.
+            <ol>
+              <li><a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+                    Download the ZIP file.
+                  </a>
+              </li>
+              <li>
+                Unzip it.
+              </li>
+              <li>
+                Open the dart-tutorials-samples directory in Dart Editor.
+              </li>
+              <li>
+                Go to the next tutorial,
+                <a href="/docs/tutorials/connect-dart-html">
+                  Connect Dart & HTML
+                </a>.
+              </li>
+            </ol>
+            </a>
+          </section>
+        </div>
 
       </div> <!-- end row-fluid -->
     </div> <!-- end Getting Started tab -->
@@ -138,21 +164,6 @@ from left to right...or choose just the ones you need.
 
   <!-- POLYMER TAB -->
     <div class="tab-pane" id="polymer">
-<!--
-<aside class="alert" style="background-color:Lavender;color:SlateBlue">
-  <font size="24">
-  <i class="icon-bullhorn"> </i>
-  </font>
-  <a href="/polymer-dart/" target="_blank">Polymer.dart</a>.
-  supersedes Web UI.
-  <a href="/docs/tutorials/polymer/">Polymer Elements</a>,
-  a new tutorial, covers one key feature of Polymer.dart.
-  We've also provided Polymer.dart versions of the tutorial's Web UI apps.
-  Check out the
-  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/"
-         target="_blank">tutorials's code repo</a> on github.
-</aside>
--->
       <div class="row-fluid">
 
         <div class="span6">

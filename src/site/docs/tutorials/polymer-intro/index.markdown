@@ -24,15 +24,14 @@ prev-title: "Install Shared Packages"
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this target:</p>
+<p> This tutorial features this example:</p>
+* stopwatch
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/polymer-intro/stopwatch"
-       target="_blank">stopwatch</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -118,20 +117,20 @@ Three main source files implement the Stopwatch example:
 
 <dl>
   <dt>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/polymer-intro/stopwatch/web/index.html" target="_blank">index.html</a>
+    index.html
   </dt>
   <dd>
     The primary HTML file for the app.
     Includes the Polymer bootstrap script and instantiates the custom element.
   </dd>
   <dt>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/polymer-intro/stopwatch/web/tute_stopwatch.html" target="_blank">tute_stopwatch.html</a>
+    tute_stopwatch.html
   </dt>
   <dd>
     The HTML code that defines the custom element.
   </dd>
   <dt>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/polymer-intro/stopwatch/web/tute_stopwatch.dart" target="_blank">tute_stopwatch.dart</a>
+    tute_stopwatch.dart
   </dt>
   <dd>
     The Dart class that implements the custom element.
@@ -206,8 +205,7 @@ Use `link [rel="import"]` to import the HTML definition file as shown.
 ##Defining a custom element {#define-element} 
 
 The definition for the &lt;tute-stopwatch&gt; element is
-in
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/polymer-intro/stopwatch/web/tute_stopwatch.html" target="_blank">tute_stopwatch.html</a>.
+in tute_stopwatch.html.
 A custom element definition should be in its own
 source file so that it can be included by other files.
 An HTML file that contains the definition for a custom element
@@ -263,8 +261,7 @@ A custom element with a template and no script is purely visual.
     The class typically overrides some
     life-cycle methods and provides event handlers
     that join the UI with its programmatic behavior.
-    In this example, the script is in
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/polymer-intro/stopwatch/web/tute_stopwatch.dart" target="_blank">tute_stopwatch.dart</a>.
+    In this example, the script is in tute_stopwatch.dart.
   </dd>
 </dl>
 
@@ -484,12 +481,6 @@ refer to
 
 Use these other resources to learn more about Polymer:
 
-* The tutorial
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web"
-   target="_blank">github repo</a>
-   contains many examples that use Polymer,
-   including samples that have been converted from Web UI.
-
 * The
 <a href="http://www.dartlang.org/polymer-dart/"
    target="_blank">Polymer.dart</a> homepage provides information
@@ -509,12 +500,9 @@ and so on.
 
 Check out these other tutorial examples that use Polymer:
 
-* <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/its_all_about_you"
-    target="_blank">its_all_about_you</a>
-* <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/slambook"
-    target="_blank">slambook</a>
-* <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/indexeddb/count_down"
-    target="_blank">count_down</a>
+* its_all_about_you
+* slambook
+* count_down
 
 The next tutorial,
 [Fetch Data Dynamically](/docs/tutorials/fetchdata/),
