@@ -208,7 +208,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{23, 219}, {551, 66}}</string>
+			<string>{{23, 219}, {515, 66}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -255,17 +255,17 @@
 \deftab720
 \pard\pardeftab720
 
-\f0\fs24 \cf0 &lt;input type="checkbox" bind-checked="favoriteThings['kittens']"&gt;Kittens\
-&lt;input type="checkbox" bind-checked="favoriteThings['raindrops']"&gt;Raindrops\
-&lt;input type="checkbox" bind-checked="favoriteThings['mittens']"&gt;Mittens\
-&lt;input type="checkbox" bind-checked="favoriteThings['kettles']"&gt;Kettles}</string>
+\f0\fs24 \cf0 &lt;input type="checkbox" checked="favoriteThings['kittens']"&gt;Kittens\
+&lt;input type="checkbox" checked="favoriteThings['raindrops']"&gt;Raindrops\
+&lt;input type="checkbox" checked="favoriteThings['mittens']"&gt;Mittens\
+&lt;input type="checkbox" checked="favoriteThings['kettles']"&gt;Kettles}</string>
 			</dict>
 			<key>Wrap</key>
 			<string>NO</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{176.50881943714717, 163.7726908326149}, {145, 20}}</string>
+			<string>{{166.8770169775816, 163.7726908326149}, {145, 20}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -348,8 +348,8 @@
 			<integer>34261</integer>
 			<key>Points</key>
 			<array>
-				<string>{175.02676348909102, 108}</string>
-				<string>{306.06761659760724, 224.5}</string>
+				<string>{173.26242743909594, 108}</string>
+				<string>{290.36801615273566, 224.5}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -381,8 +381,8 @@
 			<integer>34259</integer>
 			<key>Points</key>
 			<array>
-				<string>{216, 91.175018565257943}</string>
-				<string>{184, 92.245417605296424}</string>
+				<string>{216, 91.247317185459025}</string>
+				<string>{184, 92.328502033639396}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -414,8 +414,8 @@
 			<integer>34258</integer>
 			<key>Points</key>
 			<array>
-				<string>{352.30506045557536, 224.5}</string>
-				<string>{422.70833855122214, 98}</string>
+				<string>{336.41531336341001, 224.5}</string>
+				<string>{421.12575483509602, 98}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -609,7 +609,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{191, 224.5}, {292, 55}}</string>
+			<string>{{191, 224.5}, {254, 55}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -662,7 +662,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{477, 237}, {20, 16}}</string>
+			<string>{{441, 237}, {20, 16}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -774,7 +774,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 20:41:57 +0000</string>
+	<string>2013-10-10 17:42:41 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

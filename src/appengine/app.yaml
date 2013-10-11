@@ -32,6 +32,15 @@ handlers:
 - url: /\+
   script: scripts.redirector.application
 
+- url: /docs/tutorials/web-ui/
+  script: scripts.redirector.application
+
+- url: /docs/tutorials/templates/
+  script: scripts.redirector.application
+
+- url: /docs/tutorials/custom-elements/
+  script: scripts.redirector.application
+
 - url: /docs/dart-up-and-running/ch0\d.html
   script: scripts.redirector.application
 

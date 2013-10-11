@@ -47,7 +47,7 @@ A custom element is an HTML element you can define yourself,
 encapsulating appearance and/or behavior
 within semantically meaningful HTML.
 
-<aside  class="alert">
+<aside class="alert alert-info">
   Custom elements are one feature of
 <a href="http://www.polymer-project.org/"
    target="_blank">Polymer</a>,
@@ -68,9 +68,9 @@ is the Dart implementation of Polymer.
 * [Overiding life-cycle methods](#life-cycle-methods)
 * [Using data binding](#data-binding) 
 * [Setting up event handlers declaratively](#event-handlers) 
-* [Querying the Shadow DOM](#in-the-shadows) 
 * [Styling a custom element](#scoped-css)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##An example
 
@@ -284,7 +284,7 @@ is normal HTML, with two exceptions:
 
 |---|---|
 | `{``{``counter}}` | Uses a Polymer syntax to [bind Dart data](#data-binding) to the HTML page. The double curly braces are commonly known as a "double mustache". |
-| `on-click` | Uses Polymer [declarative event mapping](#event-handlers), which allows you to set up event handlers for a UI element. `on-click` sets up an event handler for mouse clicks. Polymer has mappings for other event types, such as `on-change` for input change events. |
+| `on-click` | Uses Polymer [declarative event mapping](#event-handlers), which allows you to set up event handlers for a UI element. `on-click` sets up an event handler for mouse clicks. Polymer has mappings for other event types, such as `on-input` for changes to text fields. |
 {: .table}
 
 Let's take a look at the structure of the Dart code
@@ -304,11 +304,9 @@ This diagram gives an overview of the TuteStopwatch class:
 ![The script code for the tute-stopwatch element](images/dart-script-code.png)
 
 Any Dart class that backs a Polymer element must subclass PolymerElement.
-If you want to use data binding, the class must also use ObservableMixin.
 
 {% comment %}
 [xx: more about PolymerElement]
-[xx: more about ObservableMixin]
 {% endcomment %}
 
 The class can respond to life-cycle milestones
@@ -343,20 +341,23 @@ so that it can enable and disable them.
 When a tute-stopwatch custom element is inserted into the DOM
 the buttons have been created, so the references to them
 will be available when the inserted() method is called.
-You'll notice that it gets the buttons by 
-[querying the custom element's shadow root](#in-the-shadows).
 
 {% prettify dart %}
 void inserted() {
   super.inserted();
-  startButton = getShadowRoot('tute-stopwatch').query('#startButton');
-  stopButton = getShadowRoot('tute-stopwatch').query('#stopButton');
-  resetButton = getShadowRoot('tute-stopwatch').query('#resetButton');
+  startButton = $['startButton'];
+  stopButton = $['stopButton'];
+  resetButton = $['resetButton'];
       
   stopButton.disabled = true;
   resetButton.disabled = true;
 }
 {% endprettify %}
+
+The code uses _automatic node finding_, a Polymer feature,
+to get a reference to each button.
+Every node in a custom element that is tagged with an `id` attribute
+can be referenced by its ID using the syntax: `$['ID']`.
 
 ##Using data binding {#data-binding}
 
@@ -380,6 +381,10 @@ because the data can change only on the Dart side.
 Polymer also supports two-way data binding.
 In two-way data binding, when data changes on the HTML side&mdash;for example
 with an input element&mdash;the value in the Dart code changes to match.
+For more information about two-way binding,
+plus examples of using it with a variety of
+HTML5 widgets, check out the Forms tutorial section
+[Two-way data binding using Polymer](/docs/tutorials/forms/#binding-data).
 
 You can use expressions within the double curly brackets.
 <a href="http://pub.dartlang.org/packages/polymer_expressions"
@@ -419,13 +424,14 @@ such as its type and when it occurred.
 that fired the event&mdash;the **Start** button in this case.
 
 You can attach event handlers for other kinds of events.
-For example, you can use `on-change` to handle events for input text elements
-when the text changes.
+For example, you can use `on-input` to handle events
+for input text elements when the text changes.
 
 Refer to
 [Declarative event mapping](http://www.polymer-project.org/polymer.html#declarative-event-mapping)
 for further details.
 
+{% comment %}
 ##Querying the shadow root {#in-the-shadows}
 
 The Shadow DOM is key to encapsulation.
@@ -453,6 +459,7 @@ Note that this code uses `query()` to get each button by ID.
 By querying the shadow root object rather than the DOM,
 you are guaranteed to get the objects from within the custom element,
 not from anywhere else on the page.
+{% endcomment %}
 
 ##Styling a custom element {#scoped-css} 
 
@@ -464,7 +471,8 @@ that apply only to the contents of the custom element.
 The `@host` rule allows you to target and style an element internally,
 from within its definition.
 The `:scope` pseudo-class refers to the custom element itself.
-The only selectors that work in `@host` are those targeting the host element itself.
+The only selectors that work within `@host` are those contained
+in the host element itself.
 So you don't need to worry about naming conflicts on the page.
 Any CSS selectors within the template need to be unique only within the template.
 
@@ -491,6 +499,28 @@ Use these other resources to learn more about Polymer:
 <a href="http://www.polymer-project.org/"
    target="_blank">polymer-project.org</a>
    contains information about the Polymer project as a whole.
+
+##What next?
+
+[Two-way data binding with Polymer](/docs/tutorials/forms/#binding-data)
+in the tutorial about forms shows how to use two-way data binding
+with various types of input elements such as text fields, color pickers,
+and so on.
+
+Check out these other tutorial examples that use Polymer:
+
+* <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/its_all_about_you"
+    target="_blank">its_all_about_you</a>
+* <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/forms/slambook"
+    target="_blank">slambook</a>
+* <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/indexeddb/count_down"
+    target="_blank">count_down</a>
+
+The next tutorial,
+[Fetch Data Dynamically](/docs/tutorials/fetchdata/),
+shows you how to fetch data
+and use JSON to encode and decode
+that data.
 
 {% endcapture %}
 

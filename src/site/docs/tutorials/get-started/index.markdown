@@ -15,7 +15,7 @@ js:
 next: connect-dart-html/
 next-title: "Connect Dart & HTML"
 prev: 
-prev-title: "A Game of Darts"
+prev-title: "Home"
 ---
 
 {% capture whats_the_point %}

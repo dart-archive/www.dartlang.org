@@ -147,7 +147,6 @@ class MilestoneStore {
     var transaction = _db.transaction(MILESTONE_STORE, 'readwrite');
     var objectStore = transaction.objectStore(MILESTONE_STORE);
     
-    
     objectStore.add(milestoneAsMap).then((addedKey) {
       // NOTE! The key cannot be used until the transaction completes.
       milestone.dbKey = addedKey;

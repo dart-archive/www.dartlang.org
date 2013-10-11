@@ -15,7 +15,7 @@ prev-title: "Define a Custom Element"
 
 * Data on the web is often formatted in JSON.
 * JSON is text based and human readable.
-* The dart:json library provides support for JSON.
+* The dart:convert library provides support for JSON.
 * Use HttpRequest to dynamically load data.
 
 {% endcapture %}
@@ -56,8 +56,8 @@ Data can be _serialized_ into a JSON string,
 which is then passed between a client and server,
 and revived as an object at its destination.
 This tutorial shows you how to use functions in the
-<a href="https://api.dartlang.org/dart_json.html"
-   target="_blank">dart:json</a>
+<a href="https://api.dartlang.org/dart_convert.html"
+   target="_blank">dart:convert</a>
 library to produce and consume JSON data.
 Because JSON data is typically loaded dynamically,
 this tutorial also shows how a web app
@@ -73,6 +73,7 @@ and thus are subject to the browser's security restrictions.
 * [Using the getString() function to load a file](#using-getString-function)
 * [Using an HttpRequest object to load a file](#making-a-get-request)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##About JSON
 
@@ -97,16 +98,23 @@ The complete source code is available on github:
 <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/fetchdata/its_all_about_you"
    target="_blank">its_all_about_you</a>.
 
-The dart:json library contains two top-level functions
+The dart:convert library contains two convenient functions
 for working with JSON strings:
 
-| dart:json function | Description |
+| dart:convert function | Description |
 |---|---|
-| <a href="https://api.dartlang.org/dart_json.html" target="_blank">parse()</a> | Builds Dart objects from a string containing JSON data. |
-| <a href="https://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> |  Serializes a Dart object into a JSON string. |
+| <a href="https://api.dartlang.org/dart_convert.html" target="_blank">JSON.decode()</a> | Builds Dart objects from a string containing JSON data. |
+| <a href="https://api.dartlang.org/dart_convert.html" target="_blank">JSON.encode()</a> |  Serializes a Dart object into a JSON string. |
 {: .table}
 
-The parse() and stringify() functions can handle these Dart types automatically:
+To use these functions,
+you need to import dart:convert into your Dart code:
+
+{% highlight dart %}
+import 'dart:convert';
+{% endhighlight %}
+
+The JSON.encode() and JSON.decode() functions can handle these Dart types automatically:
 <ul>
 <li> num</li>
 <li> String</li>
@@ -116,21 +124,13 @@ The parse() and stringify() functions can handle these Dart types automatically:
 <li> Map</li>
 </ul>
 
-Import dart:json using the `as` clause
-to give your code clarity
-and to avoid naming conflicts.
-
-{% highlight dart %}
-import 'dart:json' as json;
-{% endhighlight %}
-
 ##Serializing data into JSON
 
-Use the stringify() function to serialize an object that supports JSON.
-Here's the function from the previous example that
+Use the JSON.encode() function to serialize an object that supports JSON.
+Here's the function, `showJson`, from the its_all_about_you example that
 converts all of the data to JSON strings.
 
-![Use stringify() to convert objects into JSON](images/stringify.png)
+![Use JSON.encode() to convert objects into JSON](images/stringify.png)
 
 Below is the JSON string that results from the code
 using the original values from the its_all_about_you app.
@@ -157,9 +157,9 @@ The values in the map vary in type but they are all JSON-parsable.
 
 ##Parsing JSON data
 
-Use the parse() function from the dart:json library to
+Use the JSON.decode() function from the dart:convert library to
 create Dart objects from a JSON string.
-The example above initially populates the values in the form
+The its_all_about_you example initially populates the values in the form
 from this JSON string:
 
 {% highlight dart %}
@@ -174,10 +174,10 @@ String jsonDataAsString = '''
 }
 ''';
 
-Map jsonData = json.parse(jsonDataAsString);
+Map jsonData = JSON.decode(jsonDataAsString);
 {% endhighlight %}
 
-This code calls the parse() function with a properly formatted JSON string.
+This code calls the JSON.decode() function with a properly formatted JSON string.
 <strong>Note that Dart strings can use either single or double quotes to denote strings.
 JSON requires double quotes.</strong>
 
@@ -187,10 +187,10 @@ or read from a static file or received from a server.
 An example later on this page shows how to dynamically fetch
 JSON data from a file that is co-located with the code for the app.
 
-The parse() function reads the string and
+The JSON.decode() function reads the string and
 builds Dart objects from it.
 In this example, 
-the parse() function creates a Map object based on
+the JSON.decode() function creates a Map object based on
 the information in the JSON string.
 The Map contains objects of various types
 including an integer, a double, a boolean value, a regular string,
@@ -422,7 +422,7 @@ If the status code is 200,
 the file was found and loaded successfully,
 The contents of the requested file, `portmanteaux.json`, are
 returned in the `responseText` property of an HttpRequest object.
-Using the `parse()` function from the dart:json library,
+Using the `JSON.decode()` function from the dart:convert library,
 the code easily converts the JSON-formatted list of words
 to a Dart list of strings,
 creates a new LIElement for each one,
@@ -450,10 +450,10 @@ Upon request, the server reads this data from the file
 and sends it as a single string
 to the client program.
 The client program receives the JSON string
-and uses the parse() function from the dart:json library
+and uses JSON.decode() 
 to create the String objects specified by the JSON string.
 
-![Parse a JSON formatted list of strings](images/json-parse.png)
+![Decode a JSON formatted list of strings](images/json-parse.png)
 
 ##Other resources
 
@@ -462,6 +462,15 @@ Check out Chris Buckett's article,
    target="_blank">Using Dart with JSON Web Services</a>,
 for more information and an example with source code for both
 client and server programs.
+
+##What Next?
+
+The next tutorial,
+[Get Input from a Form](/docs/tutorials/forms/),
+contains a client/server example that
+shows you how to use a form to get data from the user,
+and using JSON, send that form to a server,
+and handle the server's response.
 
 {% endcapture %}
 

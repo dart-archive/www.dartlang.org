@@ -320,7 +320,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{302.63395253127021, 143.51284617185593}, {119, 24}}</string>
+			<string>{{302.63395253127129, 143.51284617185593}, {119, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -446,8 +446,8 @@
 			<integer>34202</integer>
 			<key>Points</key>
 			<array>
-				<string>{416, 509.15794458208853}</string>
-				<string>{459, 509.19825091460967}</string>
+				<string>{416, 509.15817758785062}</string>
+				<string>{459, 509.19854338178283}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -708,7 +708,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{177, 87}, {479, 66}}</string>
+			<string>{{177, 87}, {327, 66}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -756,7 +756,7 @@
 \pard\pardeftab720
 
 \f0\fs24 \cf0 @CustomTag('tute-stopwatch')\
-class TuteStopwatch extends PolymerElement with ObservableMixin \{\
+class TuteStopwatch extends PolymerElement \{\
 ...\
 \}}</string>
 			</dict>
@@ -831,8 +831,8 @@ class TuteStopwatch extends PolymerElement with ObservableMixin \{\
 			<integer>34215</integer>
 			<key>Points</key>
 			<array>
-				<string>{327.62831858407066, 106}</string>
-				<string>{396.62168141592718, 205}</string>
+				<string>{327.62831858407083, 106}</string>
+				<string>{396.62168141592917, 205}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1184,7 +1184,7 @@ class TuteStopwatch extends PolymerElement with ObservableMixin \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 20:43:51 +0000</string>
+	<string>2013-10-09 23:48:03 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

@@ -1,5 +1,5 @@
 import 'dart:html';
-import 'dart:json' as json;
+import 'dart:convert';
 import 'dart:async';
 
 var wordList;
@@ -17,7 +17,7 @@ void makeRequest(Event e) {
 }
 
 processString(String jsonString) {
-  List<String> portmanteaux = json.parse(jsonString);
+  List<String> portmanteaux = JSON.decode(jsonString);
   for (int i = 0; i < portmanteaux.length; i++) {
     wordList.children.add(new LIElement()..text = portmanteaux[i]);
   }

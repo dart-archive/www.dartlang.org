@@ -136,63 +136,6 @@ from left to right...or choose just the ones you need.
       </div>
     </div> <!-- end Packages tab -->
 
-  <!-- DEPRECATED: WEB UI TAB -->
-  <!--
-    <div class="tab-pane" id="webui">
-
-<aside class="alert" style="background-color:Lavender;color:SlateBlue">
-  <font size="24">
-  <i class="icon-bullhorn"> </i>
-  </font>
-  Web UI is being upgraded to
-  <a href="/polymer-dart/" target="_blank">Polymer.dart</a>.
-  We've just added a tutorial about
-  <a href="/docs/tutorials/polymer/">Polymer Elements</a>,
-  one key feature of Polymer.
-  We've also provided Polymer.dart versions of the tutorial's Web UI apps.
-  Check out the
-  <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/"
-         target="_blank">tutorials's code repo</a> on github.
-</aside>
-
-      Web components and templates are the next great ideas in web application development.
-      Together they provide the building blocks to create richer and more dynamic web applications.
-      With the Dart team’s <a href="http://pub.dartlang.org/packages/web_ui">Web UI package</a>,
-      you can get started using web components and templates now.
-
-      <div class="row-fluid">
-
-        <div class="span6" style="border-right:1px solid Lavender">
-          <section>
-          <h4><a href="web-ui/"><img src="images/target.png" height="20" width="20">&nbsp;Get Started with Web UI</a></h4>
-          <p>Bind Dart variables to UI elements.</p>
-          <img src="images/shout-screenshot.png" width="300">
-          </section>
-        </div>
-
-        <div class="span6" style="border-right:1px solid Lavender">
-          <section>
-          <h4><a href="templates/"><img src="images/target.png" height="20" width="20">&nbsp;Use Templates</a></h4>
-          <p>Activate UI elements with loops and conditionals.</p>
-          <img src="images/hangman-screenshot.png" width="300">
-          </section>
-        </div>
-      </div> 
-
-      <div class="row-fluid">
-        <div class="span6">
-          <section>
-          <h4><a href="custom-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom DOM Tag</a></h4>
-          <p>Create new HTML tags with custom elements.</p>
-          <img src="images/convert-screenshot.png" width="300">
-          </section>
-        </div>
-        <div class="span6">
-        </div>
-      </div>
-    </div>
-  -->
-
   <!-- POLYMER TAB -->
     <div class="tab-pane" id="polymer">
 <!--

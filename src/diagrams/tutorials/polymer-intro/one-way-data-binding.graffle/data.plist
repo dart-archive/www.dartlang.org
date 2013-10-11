@@ -233,7 +233,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{41, 317}, {479, 178}}</string>
+			<string>{{41, 317}, {327, 178}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -281,7 +281,7 @@
 \pard\pardeftab720
 
 \f0\fs24 \cf0 @CustomTag('tute-stopwatch')\
-class TuteStopwatch extends PolymerElement with ObservableMixin \{\
+class TuteStopwatch extends PolymerElement \{\
 \
   @observable String counter = '00:00';\
 \
@@ -683,7 +683,7 @@ class TuteStopwatch extends PolymerElement with ObservableMixin \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 20:43:56 +0000</string>
+	<string>2013-10-10 16:35:51 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

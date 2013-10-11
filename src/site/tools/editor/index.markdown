@@ -102,7 +102,7 @@ and send feedback about new features and bugs that you encounter.
 To get started with Dart Editor,
 read these:
 
-[Target 1: Get Started](http://www.dartlang.org/docs/tutorials/get-started/) (the first tutorial in _A Game of Darts_)
+[Get Started](http://www.dartlang.org/docs/tutorials/get-started/) (the first tutorial in the _Dart Tutorials_)
 : Gently introduces you to Dart Editor,
   from downloading it to creating and running apps.
 

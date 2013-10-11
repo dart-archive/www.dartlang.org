@@ -3,12 +3,12 @@ library app_bootstrap;
 import 'package:polymer/polymer.dart';
 import 'dart:mirrors' show currentMirrorSystem;
 
-import 'xmilestone.dart' as i0;
-import 'xcountdown.dart' as i1;
+import 'tute_milestone.dart' as i0;
+import 'tute_countdown.dart' as i1;
 
 void main() {
   initPolymer([
-      'xmilestone.dart',
-      'xcountdown.dart',
+      'tute_milestone.dart',
+      'tute_countdown.dart',
     ], currentMirrorSystem().isolate.rootLibrary.uri.toString());
 }

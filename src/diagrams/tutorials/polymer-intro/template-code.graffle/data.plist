@@ -99,7 +99,7 @@
     &lt;style&gt;\
       ...\
     &lt;/style&gt;\
-    &lt;div id="stopwatch_container"&gt;\
+    &lt;div&gt;\
       &lt;div&gt;\
         \{\{counter\}\}\
       &lt;/div&gt;\
@@ -381,8 +381,8 @@
 			<integer>34179</integer>
 			<key>Points</key>
 			<array>
-				<string>{523, 340.31946954436427}</string>
-				<string>{568, 340.40659760191818}</string>
+				<string>{523, 340.167956414868}</string>
+				<string>{568, 340.213762709832}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -696,8 +696,8 @@
 			<integer>34163</integer>
 			<key>Points</key>
 			<array>
-				<string>{112.48823709610618, 176}</string>
-				<string>{193, 229.70258408417064}</string>
+				<string>{112.46251754642608, 176}</string>
+				<string>{193, 229.78124844228867}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -841,7 +841,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 20:43:44 +0000</string>
+	<string>2013-10-09 23:45:27 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -922,7 +922,7 @@
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{702, 474}, {1104, 792}}</string>
+		<string>{{341, 547}, {1104, 792}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>

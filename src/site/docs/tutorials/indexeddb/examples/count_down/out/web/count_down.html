@@ -11,12 +11,12 @@
   </head>
   <body><script src="packages/shadow_dom/shadow_dom.debug.js"></script>
 <script src="packages/browser/interop.js"></script>
-<polymer-element name="x-milestone" attributes="milestone">
+<polymer-element name="tute-milestone" attributes="milestone">
       <template>
         <span>{{milestone.timeRemainingAsString}}</span> <button on-click="removeMilestone">-</button>
       </template>
       
-    </polymer-element><polymer-element name="x-count-down">
+    </polymer-element><polymer-element name="tute-count-down">
         <template>
           
           <div>
@@ -31,8 +31,8 @@
               <template bind="" if="{{appObj.hazMilestones}}">
                 <template repeat="{{appObj.milestones}}">
                   <li>
-                    <x-milestone milestone="{{}}">
-                    </x-milestone>
+                    <tute-milestone milestone="{{}}">
+                    </tute-milestone>
                   </li>
                 </template>
               </template>
@@ -50,7 +50,7 @@
     <h1>Count down</h1>
     
     <!-- Insert the CountDownComponent, implemented in xcountdown.html & xcountdown.dart -->
-    <x-count-down id="count_down"></x-count-down>
+    <tute-count-down id="count_down"></tute-count-down>
     
     <!--<script type="application/dart" src="count_down.dart"></script>-->
   

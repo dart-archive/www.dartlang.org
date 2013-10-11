@@ -7,7 +7,7 @@
   </head>
   <body><script src="packages/shadow_dom/shadow_dom.debug.js"></script>
 <script src="packages/browser/interop.js"></script>
-<polymer-element name="x-slambook-form" extends="form">
+<polymer-element name="tute-slambook-form" extends="form">
     <template>
     <style>
       #slambookform {
@@ -105,7 +105,7 @@
   
         <div class="submitarea">
           <input type="submit" value="Submit" on-click="submitForm">
-          <input type="reset" value="Clear" on-click="resetForm"> <br>    
+          <input type="reset" value="Reset" on-click="resetForm"> <br>    
           <textarea disabled="" class="responsetext" value="{{serverResponse}}"></textarea>
           <!--<p class="responsetext"> {{serverResponse}} </p>-->
         </div>
@@ -117,7 +117,7 @@
     <h1>SlamBook</h1>
 
     <div class="container">
-      <form is="x-slambook-form"></form>
+      <form is="tute-slambook-form"></form>
     </div>
     
   

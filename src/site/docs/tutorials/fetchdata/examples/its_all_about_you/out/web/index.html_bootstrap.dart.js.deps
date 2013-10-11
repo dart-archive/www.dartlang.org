@@ -104,7 +104,6 @@ file:///Users/mcampione/Desktop/dart/dart-sdk/lib/html/html_common/css_class_set
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/html/html_common/device.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/html/html_common/filtered_element_list.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/html/html_common/html_common_dart2js.dart
-file:///Users/mcampione/Desktop/dart/dart-sdk/lib/html/html_common/jenkins_smi_hash.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/html/html_common/lists.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/html/html_common/metadata.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/indexed_db/dart2js/indexed_db_dart2js.dart
@@ -112,8 +111,11 @@ file:///Users/mcampione/Desktop/dart/dart-sdk/lib/isolate/isolate.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/isolate/isolate_stream.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/js/dart2js/js_dart2js.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/json/json.dart
+file:///Users/mcampione/Desktop/dart/dart-sdk/lib/math/jenkins_smi_hash.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/math/math.dart
+file:///Users/mcampione/Desktop/dart/dart-sdk/lib/math/point.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/math/random.dart
+file:///Users/mcampione/Desktop/dart/dart-sdk/lib/math/rectangle.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/mirrors/mirrors.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/svg/dart2js/svg_dart2js.dart
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/typed_data/dart2js/typed_data_dart2js.dart
@@ -122,6 +124,7 @@ file:///Users/mcampione/Desktop/dart/dart-sdk/lib/web_gl/dart2js/web_gl_dart2js.
 file:///Users/mcampione/Desktop/dart/dart-sdk/lib/web_sql/dart2js/web_sql_dart2js.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/index.html_bootstrap.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/custom_element/custom_element.dart
+file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/custom_element/src/attribute_map.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/custom_element/src/custom_tag_name.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/logging/logging.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/mdv/mdv.dart
@@ -152,9 +155,13 @@ file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-s
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/observe/src/path_observer.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/observe/src/to_observable.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/path/path.dart
+file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/deserialize.dart
+file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/job.dart
+file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/platform.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/polymer.dart
-file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/polymer_element.dart
-file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/src/utils.dart
+file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/src/declaration.dart
+file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/src/instance.dart
+file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer/src/loader.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer_expressions/async.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer_expressions/eval.dart
 file:///Users/mcampione/Documents/tutorial/official-example-src/dart-tutorials-samples/web/fetchdata/its_all_about_you/out/web/packages/polymer_expressions/expression.dart

@@ -119,7 +119,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{21, 212}, {349, 94}}</string>
+			<string>{{21, 212}, {306, 94}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -170,7 +170,7 @@
 \deftab720
 \pard\pardeftab720
 
-\f0\fs24 \cf0 &lt;select bind-selected-index="theData['music']"&gt;\
+\f0\fs24 \cf0 &lt;select selectedIndex="theData['music']"&gt;\
   &lt;option&gt;Classical&lt;/option&gt;\
   &lt;option&gt;Country&lt;/option&gt;\
   &lt;option&gt;Rock&lt;/option&gt;\
@@ -234,8 +234,8 @@
 			<integer>34270</integer>
 			<key>Points</key>
 			<array>
-				<string>{400.65887767529512, 81.000001072883606}</string>
-				<string>{401.08125782548183, 136.82901000976562}</string>
+				<string>{400.65876501927085, 81.000001072883606}</string>
+				<string>{401.08084567068676, 136.82901000976562}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -477,7 +477,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{49.696855217218399, 129.01747620105743}, {120.62667846679688, 42}}</string>
+			<string>{{49.751683046420411, 127.32799851894379}, {120.62667846679688, 42}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -559,7 +559,7 @@
 			<array>
 				<string>{113.03333333333333, 72}</string>
 				<string>{110, 150}</string>
-				<string>{146.75, 213}</string>
+				<string>{139.7248201438849, 213}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -591,8 +591,8 @@
 			<integer>34258</integer>
 			<key>Points</key>
 			<array>
-				<string>{356.84384126228122, 136.82901000976562}</string>
-				<string>{151.50804915465145, 72}</string>
+				<string>{356.843853528191, 136.82901000976562}</string>
+				<string>{151.50811821961784, 72}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -624,8 +624,8 @@
 			<integer>34257</integer>
 			<key>Points</key>
 			<array>
-				<string>{183.51115288978198, 213}</string>
-				<string>{352.16931182694077, 164.82901000976562}</string>
+				<string>{176.49766307844888, 213}</string>
+				<string>{350.58997623369891, 164.82901000976562}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -795,7 +795,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{80, 213}, {278, 20}}</string>
+			<string>{{80, 213}, {247, 20}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -945,7 +945,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 20:41:53 +0000</string>
+	<string>2013-10-10 17:40:56 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

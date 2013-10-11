@@ -86,7 +86,7 @@
 			<integer>34264</integer>
 			<key>Points</key>
 			<array>
-				<string>{201.99947638990227, 315.55047162547623}</string>
+				<string>{194.02186522366623, 315.57518131305983}</string>
 				<string>{231, 256}</string>
 			</array>
 			<key>Style</key>
@@ -200,7 +200,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{108.61778452310219, 191.60895538330078}, {71, 42}}</string>
+			<string>{{108.93972716274033, 190.54010581970215}, {71, 42}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -280,7 +280,7 @@
 			<integer>34263</integer>
 			<key>Points</key>
 			<array>
-				<string>{175.80065013647095, 315.52244597473981}</string>
+				<string>{166.44355512840914, 315.51156905307158}</string>
 				<string>{144, 213}</string>
 				<string>{171.10843373493975, 123}</string>
 			</array>
@@ -653,7 +653,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{12, 316}, {507, 80}}</string>
+			<string>{{12, 316}, {471, 80}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -704,18 +704,18 @@
 \deftab720
 \pard\pardeftab720
 
-\f0\fs24 \cf0 &lt;input type="text"  bind-value="theData['firstName']"&gt;\
-&lt;textarea           bind-value="theData['favoriteQuote']"&gt;&lt;/textarea&gt;\
-&lt;input type="color" bind-value="theData['favoriteColor']"&gt;\
-&lt;input type="date"  bind-value="theData['birthday']"&gt;\
-&lt;input type="range" bind-value="theData['volume']" min="0" max="11"&gt;}</string>
+\f0\fs24 \cf0 &lt;input type="text"  value="theData['firstName']"&gt;\
+&lt;textarea           value="theData['favoriteQuote']"&gt;&lt;/textarea&gt;\
+&lt;input type="color" value="theData['favoriteColor']"&gt;\
+&lt;input type="date"  value="theData['birthday']"&gt;\
+&lt;input type="range" value="theData['volume']" min="0" max="11"&gt;}</string>
 			</dict>
 			<key>Wrap</key>
 			<string>NO</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{158, 321.50001525878906}, {357.49997901916504, 69}}</string>
+			<string>{{158, 321.50001525878906}, {325, 69}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -875,7 +875,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 20:42:18 +0000</string>
+	<string>2013-10-10 17:23:46 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -956,7 +956,7 @@
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{291, 119}, {924, 970}}</string>
+		<string>{{574, 541}, {924, 970}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>

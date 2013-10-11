@@ -63,8 +63,8 @@
 			<integer>34268</integer>
 			<key>Points</key>
 			<array>
-				<string>{497.36098177047216, 294}</string>
-				<string>{516.98349439191816, 267.52999877929688}</string>
+				<string>{490.98817365711773, 294}</string>
+				<string>{500.06767136982626, 267.52999877929688}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -193,9 +193,9 @@
 \deftab720
 \pard\pardeftab720
 
-\f0\fs24 \cf0 &lt;input bind-value="theData['catOrDog']" name="catOrDog" type="radio" value="cat"&gt;Cat\
-&lt;input bind-value="theData['catOrDog']" name="catOrDog" type="radio" value="dog"&gt;Dog\
-&lt;input bind-value="theData['catOrDog']" name="catOrDog" type="radio" value="iguana"&gt;Iguana}</string>
+\f0\fs24 \cf0 &lt;input value="theData['catOrDog']" name="catOrDog" type="radio" value="cat"&gt;Cat\
+&lt;input value="theData['catOrDog']" name="catOrDog" type="radio" value="dog"&gt;Dog\
+&lt;input value="theData['catOrDog']" name="catOrDog" type="radio" value="iguana"&gt;Iguana}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -276,8 +276,8 @@
 			<integer>34264</integer>
 			<key>Points</key>
 			<array>
-				<string>{288.7465210254752, 167.51500701904297}</string>
-				<string>{166.54012727592823, 226}</string>
+				<string>{288.27443358278896, 167.51500701904297}</string>
+				<string>{164.09589477810621, 226}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -309,8 +309,8 @@
 			<integer>34263</integer>
 			<key>Points</key>
 			<array>
-				<string>{313.97791304859908, 294}</string>
-				<string>{334.6210614003644, 267.52999877929688}</string>
+				<string>{304.19733577124066, 294}</string>
+				<string>{308.65974084357737, 267.52999877929688}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -395,7 +395,7 @@ only one can be selected}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{304, 225.52999877929688}, {112, 42}}</string>
+			<string>{{265, 225.52999877929688}, {112, 42}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -448,7 +448,7 @@ only one can be selected}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{56.573966765319867, 135.01451014663115}, {105.2020272060912, 42}}</string>
+			<string>{{54.985851320546558, 135.01451014663115}, {105.2020272060912, 42}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -528,8 +528,8 @@ only one can be selected}</string>
 			<integer>34259</integer>
 			<key>Points</key>
 			<array>
-				<string>{93.926378802500722, 225.99999999999997}</string>
-				<string>{124.32096235831632, 86.500006518317605}</string>
+				<string>{90.940202746335004, 225.99999999999997}</string>
+				<string>{124.12149889907401, 86.500006518317605}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -778,7 +778,7 @@ only one can be selected}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{60.795166015625, 226}, {236.204833984375, 42}}</string>
+			<string>{{60.795166015625, 226}, {200.204833984375, 42}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -934,7 +934,7 @@ only one can be selected}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{511, 225.52999877929688}, {80, 42}}</string>
+			<string>{{474, 225.52999877929688}, {80, 42}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -987,7 +987,7 @@ only one can be selected}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{588, 252}, {23, 16}}</string>
+			<string>{{551, 252}, {23, 16}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1094,7 +1094,7 @@ only one can be selected}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 20:42:01 +0000</string>
+	<string>2013-10-10 17:25:28 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

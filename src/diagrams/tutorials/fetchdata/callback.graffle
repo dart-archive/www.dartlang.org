@@ -7,7 +7,7 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGrafflePro</string>
-		<string>139.17.0.185490</string>
+		<string>139.18.0.187838</string>
 	</array>
 	<key>AutoAdjust</key>
 	<true/>
@@ -114,7 +114,7 @@
 \f0\fs24 \cf0 ...\
 requestComplete(HttpRequest request) \{\
   if (request.status == 200) \{\
-    List&lt;String&gt; portmanteaux = json.parse(request.responseText);\
+    List&lt;String&gt; portmanteaux = JSON.decode(request.responseText);\
     for (int i = 0; i &lt; portmanteaux.length; i++) \{\
       wordList.children.add(new LIElement()..text = portmanteaux[i]);\
     \}\
@@ -141,8 +141,8 @@ requestComplete(HttpRequest request) \{\
 			<integer>34216</integer>
 			<key>Points</key>
 			<array>
-				<string>{224.67445421054754, 343.28305053710938}</string>
-				<string>{182.19128944518698, 375}</string>
+				<string>{224.67445419993294, 343.28305053710938}</string>
+				<string>{182.19128942162382, 375}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -726,8 +726,8 @@ requestComplete(HttpRequest request) \{\
 			<integer>34199</integer>
 			<key>Points</key>
 			<array>
-				<string>{448.64125637288817, 343.28305053710938}</string>
-				<string>{428.25436314596851, 389.28305053710938}</string>
+				<string>{449.99255583221611, 343.28305053710938}</string>
+				<string>{436.14879682941046, 389.28305053710938}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -749,7 +749,7 @@ requestComplete(HttpRequest request) \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{355.20318603515625, 389.28305053710938}, {143, 14}}</string>
+			<string>{{355.20318603515625, 389.28305053710938}, {159.79681396484375, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -902,7 +902,7 @@ requestComplete(HttpRequest request) \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-06-24 16:55:37 +0000</string>
+	<string>2013-10-10 17:03:36 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

@@ -32,7 +32,7 @@ followed by instructions to help you get started with Dart Editor.
 : Shows each major Dart language feature, from variables to
 operators to classes and libraries.
 
-[A Game of Darts—Tutorials](/docs/tutorials/)
+[Dart Tutorials](/docs/tutorials/)
 : Your step-by-step guide to building web apps using Dart.
 
 ## Tools
@@ -137,8 +137,8 @@ Learn more:
 ## Creating web apps
 
 If you're new to web apps,
-start with <a href="/docs/tutorials/">A Game of Darts—Tutorials</a>.
-It's a set of tutorials that teach you how to use Dart to write web apps,
+start with the <a href="/docs/tutorials/">Dart Tutorials</a>&mdash;a
+of tutorials that teach you how to use Dart to write web apps,
 assuming no previous experience with either Dart or web apps.
 
 While you're developing your web app,

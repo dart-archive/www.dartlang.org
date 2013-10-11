@@ -3,13 +3,8 @@ import 'dart:async';
 import 'package:polymer/polymer.dart';
 
 @CustomTag('tute-stopwatch')
-class TuteStopwatch extends PolymerElement with ChangeNotifierMixin {
-  String __$counter = '00:00';
-  String get counter => __$counter;
-  set counter(String value) {
-    __$counter = notifyPropertyChange(const Symbol('counter'), __$counter, value);
-  }
-  
+class TuteStopwatch extends PolymerElement {
+  @observable String get counter => __$counter; String __$counter='00:00'; set counter(String value) { __$counter = notifyPropertyChange(#counter, __$counter, value); }
   
   Stopwatch mywatch = new Stopwatch();
   Timer mytimer;
@@ -20,9 +15,9 @@ class TuteStopwatch extends PolymerElement with ChangeNotifierMixin {
   
   void inserted() {
     super.inserted();
-    startButton = getShadowRoot('tute-stopwatch').query('#startButton');
-    stopButton = getShadowRoot('tute-stopwatch').query('#stopButton');
-    resetButton = getShadowRoot('tute-stopwatch').query('#resetButton');
+    startButton = $['startButton'];
+    stopButton = $['stopButton'];
+    resetButton = $['resetButton'];
         
     stopButton.disabled = true;
     resetButton.disabled = true;

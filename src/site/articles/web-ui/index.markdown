@@ -87,14 +87,6 @@ This article walks through some examples. For more details, check out our
 [specification](spec.html), the [summary of features](summary.html), and our
 [installation instructions](tools.html).
 
-<aside class="alert alert-info">
-<strong>Try our tutorials!</strong>
-For a gentle introduction to using Web UI, see the tutorials in
-<a href="/docs/tutorials/">A Game of Darts</a>.
-Web UI coverage starts in
-<a href="/docs/tutorials/web-ui/">Target 6: Get Started with Web UI</a>.
-</aside>
-
 <aside class="alert alert-danger">
 <strong>Note:</strong> The examples in this article do not work
 out of the box in a standard Dart SDK;

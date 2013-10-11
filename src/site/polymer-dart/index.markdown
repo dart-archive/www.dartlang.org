@@ -119,6 +119,13 @@ available to you today.
 
 ## Examples
 
+Here's some code that uses Polymer.dart.
+Also see the Dart tutorials'
+[Define a Custom Element](/docs/tutorials/polymer-intro/),
+which provides an example and a description
+of defining, implementing, and instantiating
+a custom element.
+
 ### Custom elements
 
 Extend the lexicon of HTML with your own custom elements.
@@ -443,6 +450,17 @@ to Dart developers.
 {: .table}
 
 <hr>
+
+## Tutorials
+
+[Define a Custom Element](/docs/tutorials/polymer-intro/),
+part of the
+[Dart tutorials](/docs/tutorials/),
+provides a detailed introduction to using Polymer.dart to create
+custom elements.
+You can also check out the other
+[examples](/docs/tutorials/polymer-intro/#what-next)
+in the tutorials that use Polymer.
 
 ## Additional reading
 

@@ -358,7 +358,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{368, 322.99999809265137}, {291, 192}}</string>
+			<string>{{368, 322.99999809265137}, {327, 164}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -403,9 +403,7 @@ import 'dart:async';\
 import 'package:polymer/polymer.dart';\
 \
 @CustomTag('tute-stopwatch')\
-class TuteStopwatch\
-        extends PolymerElement\
-        with ObservableMixin \{\
+class TuteStopwatch extends PolymerElement \{\
 \
   @observable String counter = '00:00';\
   \
@@ -800,8 +798,8 @@ class TuteStopwatch\
 			<integer>34198</integer>
 			<key>Points</key>
 			<array>
-				<string>{442.18428659425587, 303}</string>
-				<string>{512.87957873232358, 230}</string>
+				<string>{442.18396224896401, 303}</string>
+				<string>{512.87688666640133, 230}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1190,7 +1188,7 @@ class TuteStopwatch\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-09-30 20:06:03 +0000</string>
+	<string>2013-10-09 23:39:41 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
