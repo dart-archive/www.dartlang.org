@@ -9,6 +9,10 @@ scripts/packages
 .buildlog
 pubspec.lock
 packages/
+!src/site/docs/tutorials/indexeddb/examples/count_down/out/web/packages/
+!src/site/docs/tutorials/forms/examples/slambook/out/web/packages/
+!src/site/docs/tutorials/fetchdata/examples/its_all_about_you/out/web/packages/
+!src/site/docs/tutorials/fetchdata/examples/portmanteaux_simple/packages/
 !src/site/docs/tutorials/polymer-intro/examples/stopwatch/out/web/packages/
 !src/site/docs/tutorials/get-started/examples/clickme/packages/
 !src/site/docs/tutorials/connect-dart-html/examples/mini/packages/
