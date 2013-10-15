@@ -3,95 +3,57 @@ layout: default
 title: "Dart Code Samples"
 description: Check out some Dart code in action with these samples, ranging
              from Hello, World to a solar system simulator.
+header:
+  css: ["/samples/samples.css"]
 ---
 
 # {{ page.title }}
 
-The <a 
-href="https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/">dart/samples</a>
+The <a
+href="https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples">dart/samples</a>
 directory contains many applications written in Dart.
-Some of these samples are available in [Dart Editor](/editor/) for easy
+Some of these samples are available in [Dart Editor](/tools/editor/) for easy
 experimentation.
 
 {% injectdata samples samples/samples.yaml %}
+<div class="row">
+  <div class="span6">
+    {% for group in page.samples.col1 %}
+      <div class="group-heading">{{ group.heading }}</div>
+      {% for example in group.examples %}
+        <div class="row-fluid example">
+          <div class="span8">
+            <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
+          </div>
+          <div class="span2">
+            <div class="link"><a href="{{ example.source_url }}">Source</a></div>
+          </div>
+          <div class="span2">
+            {% if example.tryit_url %}
+              <div class="link"><a href="{{ example.tryit_url }}">Try it</a></div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div class="span6">
+    {% for group in page.samples.col2 %}
+      <div class="group-heading">{{ group.heading }}</div>
+      {% for example in group.examples %}
+        <div class="row-fluid example">
+          <div class="span8">
+            <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
+          </div>
+          <div class="span2">
+            <div class="link"><a href="{{ example.source_url }}">Source</a></div>
+          </div>
+          <div class="span2">
+            <div class="link"><a href="{{ example.tryit_url }}">Try it</a></div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
 
-<ul class="thumbnails">
-
-  {% for sample in page.samples.row01 %}
-  <li class="span4">
-    <div class="thumbnail">
-      <img src="imgs/{{ sample.name }}.png" alt="{{ sample.alt }}">
-      <h3>{{ sample.title }}</h3>
-      <p>
-        {{ sample.desc }}
-      </p>
-      <p>
-        <a href="{{ sample.source_url }}">View the source.</a>
-        {% if sample.live_url %}
-        <a href="{{ sample.live_url }}">Try it live.</a>
-        {% endif %}
-      </p>
-      <ul>
-        {% for feature in sample.features %}
-        <li>{{ feature }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </li>
-  {% endfor %}
-
-</ul>
-
-<ul class="thumbnails">
-
-  {% for sample in page.samples.row02 %}
-  <li class="span4">
-    <div class="thumbnail">
-      <img src="imgs/{{ sample.name }}.png" alt="{{ sample.alt }}">
-      <h3>{{ sample.title }}</h3>
-      <p>
-        {{ sample.desc }}
-      </p>
-      <p>
-        <a href="{{ sample.source_url }}">View the source.</a>
-        {% if sample.live_url %}
-        <a href="{{ sample.live_url }}">Try it live.</a>
-        {% endif %}
-      </p>
-      <ul>
-        {% for feature in sample.features %}
-        <li>{{ feature }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </li>
-  {% endfor %}
-
-</ul>
-
-<ul class="thumbnails">
-
-  {% for sample in page.samples.row03 %}
-  <li class="span4">
-    <div class="thumbnail">
-      <img src="imgs/{{ sample.name }}.png" alt="{{ sample.alt }}">
-      <h3>{{ sample.title }}</h3>
-      <p>
-        {{ sample.desc }}
-      </p>
-      <p>
-        <a href="{{ sample.source_url }}">View the source.</a>
-        {% if sample.live_url %}
-        <a href="{{ sample.live_url }}">Try it live.</a>
-        {% endif %}
-      </p>
-      <ul>
-        {% for feature in sample.features %}
-        <li>{{ feature }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  </li>
-  {% endfor %}
-
-</ul>
