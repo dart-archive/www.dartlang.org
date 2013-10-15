@@ -1,37 +1,11 @@
 div.bad pre.prettyprint {
   border-radius: 5px;
-
-  background-image: linear-gradient(bottom, rgb(255,242,242) 16%, rgb(255,204,204) 86%);
-  background-image: -o-linear-gradient(bottom, rgb(255,242,242) 16%, rgb(255,204,204) 86%);
-  background-image: -moz-linear-gradient(bottom, rgb(255,242,242) 16%, rgb(255,204,204) 86%);
-  background-image: -webkit-linear-gradient(bottom, rgb(255,242,242) 16%, rgb(255,204,204) 86%);
-  background-image: -ms-linear-gradient(bottom, rgb(255,242,242) 16%, rgb(255,204,204) 86%);
-
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.16, rgb(255,242,242)),
-    color-stop(0.86, rgb(255,204,204))
-  );
+  background-color: #fff8f8;
 }
 
 div.good pre.prettyprint {
   border-radius: 5px;
-
-  background-image: linear-gradient(bottom, rgb(243,255,240) 16%, rgb(213,255,204) 86%);
-  background-image: -o-linear-gradient(bottom, rgb(243,255,240) 16%, rgb(213,255,204) 86%);
-  background-image: -moz-linear-gradient(bottom, rgb(243,255,240) 16%, rgb(213,255,204) 86%);
-  background-image: -webkit-linear-gradient(bottom, rgb(243,255,240) 16%, rgb(213,255,204) 86%);
-  background-image: -ms-linear-gradient(bottom, rgb(243,255,240) 16%, rgb(213,255,204) 86%);
-
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.16, rgb(243,255,240)),
-    color-stop(0.86, rgb(213,255,204))
-  );
+  background-color: #f8fff8;
 }
 
 .good pre.prettyprint:before {
