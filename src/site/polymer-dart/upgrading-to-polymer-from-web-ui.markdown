@@ -89,6 +89,9 @@ Thanks in advance!
   Also, instead of `on-click="doFoo()"`, drop the parens and use
   'on-click="doFoo"'.
 
+* Hyphenated custom attributes are no longer supported. You can now
+  write: `<foo-bar myPropertyName="{{expr}}">`.
+
 ### Data Binding
 
 * Objects **must** be Observable to have changes detected. See the
@@ -139,3 +142,10 @@ Thanks in advance!
 
 * You no longer need `bind-` when binding to an input field. Instead, do this:
   `<input type="text" value="{{foo}}">`.
+
+### Tips from the community
+
+Matthew Butler shared some tips for upgrading from Web UI to Polymer.
+
+* [Upgrading from Web UI to Polymer, part 1](http://blog.butlermatt.me/?p=13)
+* [Upgrading from Web UI to Polymer, part 2](http://blog.butlermatt.me/?p=35)
