@@ -25,13 +25,14 @@ experimentation.
           <div class="span8">
             <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
           </div>
-          <div class="span2">
+          <div class="span4">
             <div class="link"><a href="{{ example.source_url }}">Source</a></div>
-          </div>
-          <div class="span2">
-            {% if example.tryit_url %}
-              <div class="link"><a href="{{ example.tryit_url }}">Try it</a></div>
-            {% endif %}
+
+            <div class="link pull-right">
+              {% if example.tryit_url %}
+                <a href="{{ example.tryit_url }}">Try it</a>
+              {% endif %}
+            </div>
           </div>
         </div>
       {% endfor %}
@@ -45,11 +46,14 @@ experimentation.
           <div class="span8">
             <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
           </div>
-          <div class="span2">
+          <div class="span4">
             <div class="link"><a href="{{ example.source_url }}">Source</a></div>
-          </div>
-          <div class="span2">
-            <div class="link"><a href="{{ example.tryit_url }}">Try it</a></div>
+
+            <div class="link pull-right">
+              {% if example.tryit_url %}
+                <a href="{{ example.tryit_url }}">Try it</a>
+              {% endif %}
+            </div>
           </div>
         </div>
       {% endfor %}

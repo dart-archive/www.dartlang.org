@@ -23,7 +23,7 @@ col1:
     heading: polymer.dart
     examples:
       -
-        title: Defining a Custom Element
+        title: Defining a custom element
         explanation_url: /docs/tutorials/polymer-intro
         tryit_url: stopwatch/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
@@ -35,14 +35,13 @@ col1:
       -
         title: TodoMVC
         explanation_url: https://github.com/dart-lang/bleeding_edge/blob/master/dart/samples/third_party/todomvc/README.md
-        tryit_url: todomvc/
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/third_party/todomvc
       -
         title: Building a CRUD app
         explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker
       -
-        title: Replacing radios and checkboxes with a custom element
+        title: Replacing HTML elements with a custom element
         explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/survey
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/survey
 
@@ -57,18 +56,18 @@ col2:
         tryit_url: raf/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
       -
-        title: 2-D solar system animation using Canvas
+        title: 2D solar system animation using Canvas
         explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
         tryit_url: solar/
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
       -
-        title: 3-D solar system animation using WebGL
+        title: 3D solar system animation using WebGL
         explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
         tryit_url: solar3d/
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
   -
     group_id: html5_persistence
-    heading: Html5 persistence
+    heading: HTML5 persistence
     examples:
       -
         title: Simple LocalStorage example
