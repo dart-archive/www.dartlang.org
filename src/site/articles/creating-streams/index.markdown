@@ -35,10 +35,18 @@ But this article is not about _using_ streams.
 It's about creating your own streams.
 You can create streams by transforming existing streams,
 by using a StreamController,
-by extending EventTransformStream,
 or if necessary by extending Stream itself.
 This article shows the code for each approach
 and gives tips to help you implement your stream correctly.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+This article was updated in October 2013
+to remove sections that used the obsolete EventTransformStream
+and StreamEventTransformer classes.
+For details on how stream transformers have changed, see the
+[breaking change notice](https://groups.google.com/a/dartlang.org/forum/#!msg/misc/7sAIhWXfIKQ/PzYJy1QqtWUJ).
+</aside>
 
 For help on using streams, see
 [Getting Your Feet Wet with Streams](/articles/feet-wet-streams/).
@@ -89,6 +97,8 @@ However, if you need more control over the transformation,
 you can specify a
 [StreamTransformer](http://api.dartlang.org/dart_async/StreamTransformer.html)
 with Stream's `transform()` method.
+
+{% comment %}
 For example, the following code
 (from [transformer.dart](code/transformer.dart))
 combines data from multiple events
@@ -133,7 +143,7 @@ in the preceding example could be omitted,
 since it's just duplicating the default behavior
 inherited from StreamEventTransformer.
 </aside>
-
+{% endcomment %}
 
 ## Using a StreamController
 
@@ -321,6 +331,7 @@ The reason is that if the
 subscription and pause states both change at the same time,
 only the onListen or onCancel callback is called.
 
+{% comment %}
 ## Extending EventTransformStream
 
 If you need to implement a stream
@@ -355,7 +366,7 @@ main() {
   stream.listen(print);  // Prints 1, 1, 2, 2, ..., 15, 15.
 }
 {% endprettify %}
-
+{% endcomment %}
 
 ## Extending Stream
 
