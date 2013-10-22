@@ -76,8 +76,8 @@ hr {
 
 ## Features
 
-First up: ports of _Polymer Foundation_
-and _Polymer Core_, offering:
+Polymer.dart is a port of _Polymer Foundation_
+and _Polymer Core_.
 
 <div class="row-fluid features">
 
@@ -87,7 +87,7 @@ and _Polymer Core_, offering:
 
 <h2 class="no-permalink">Custom tags</h2>
 
-Create your own HTML tags to encapsulate
+Design your own HTML tags to encapsulate
 style, structure, and behavior.
 
 </div>
@@ -98,18 +98,17 @@ style, structure, and behavior.
 
 <h2 class="no-permalink">Data binding</h2>
 
-Live, two-way bindings between Dart objects and DOM nodes.
+Create live, two-way bindings between Dart objects and DOM nodes.
 
 </div>
 
 <div class="span4 text-center">
 
-<i class="icon icon-leaf"> </i>
+<i class="icon icon-check"> </i>
 
-<h2 class="no-permalink">Future proof</h2>
+<h2 class="no-permalink">Standards</h2>
 
-Built on emerging web standards,
-available to you today.
+Use emerging web standards, today.
 
 </div>
 
@@ -119,20 +118,31 @@ available to you today.
 
 ## Examples
 
-Here's some code that uses Polymer.dart.
-Also see the Dart tutorials'
-[Define a Custom Element](/docs/tutorials/polymer-intro/),
-which provides an example and a description
-of defining, implementing, and instantiating
+Along with this code, check out the Dart tutorial
+[Define a Custom Element](/docs/tutorials/polymer-intro/).
+It shows you how to define, implement, and instantiate
 a custom element.
 
 ### Custom elements
 
 Extend the lexicon of HTML with your own custom elements.
 
-Below is a simple custom element. More advanced custom elements
+This sample shows a simple custom element. More advanced custom elements
 can contain their own styles, custom behavior, attributes,
 data binding, and more.  
+
+This HTML code defines a custom element:
+
+{% prettify html %}{% raw %}
+<!-- hello_world.html -->
+<polymer-element name="[[highlight]]hello-world[[/highlight]]" noscript>
+  <template>
+    <p>Hello from inside a custom element!<p>
+  </template>
+</polymer-element>
+{% endraw %}{% endprettify %}
+
+This HTML code _uses_ the custom element:
 
 {% prettify html %}
 <head>
@@ -145,15 +155,6 @@ data binding, and more.
 </body>
 {% endprettify %}
 
-{% prettify html %}{% raw %}
-<polymer-element name="[[highlight]]hello-world[[/highlight]]" noscript>
-  <template>
-    <p>Hello from inside a custom element!<p>
-  </template>
-</polymer-element>
-{% endraw %}{% endprettify %}
-
-<hr>
 
 ### Data binding
 
@@ -188,7 +189,6 @@ class ClickCounterElement extends PolymerElement {
 }
 {% endprettify %}
 
-<hr>
 
 ### Custom attributes
 
@@ -225,7 +225,6 @@ Crank the volume like this:
 <volume-nob volume="11"></volume-nob>
 {% endprettify %}
 
-<hr>
 
 ### Template conditionals
 
@@ -263,7 +262,6 @@ class ClickCounterElement extends PolymerElement {
 }
 {% endprettify %}
 
-<hr>
 
 ### Template loops
 
@@ -298,7 +296,6 @@ class FavFruitsElement extends PolymerElement {
 }
 {% endprettify %}
 
-<hr>
 
 ### Packaging
 
@@ -320,17 +317,18 @@ the Dart package manager.
 </body>
 {% endraw %}{% endprettify %}
 
-<hr>
 
-### Sample code
+### More sample code
 
-Lots and lots of snippets and
+You can find lots and lots of snippets and
 [sample code for polymer.dart](https://github.com/sethladd/dart-polymer-dart-examples).
 Learn how to
 [bind to a checkbox](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/bind_to_checkbox),
 [nest templates](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/nested_templates),
 [call a method on a custom element](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/call_method_on_custom_element),
 and much more. Please [let us know](https://github.com/sethladd/dart-polymer-dart-examples/issues?state=open) if you have a request for a sample.
+
+<hr>
 
 ## Installation
 
@@ -462,6 +460,8 @@ You can also check out the other
 [examples](/docs/tutorials/polymer-intro/#what-next)
 in the tutorials that use Polymer.
 
+<hr>
+
 ## Additional reading
 
 The cultured Dartisan studies the specifications and articles that cover
@@ -476,11 +476,8 @@ the lower-level primitives and features of the polymer.dart libraries.
 ### Articles
 
 * [HTML5Rocks - Shadow DOM 101](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/)
-
 * [HTML5Rocks - Shadow DOM 201: CSS and Styling](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-201/)
-
 * [HTML5Rocks - Shadow DOM 301: Advanced Concepts & DOM APIs](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-301/)
-
 * [Custom elements - defining new elements in HTML](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/)
 
 ### Specifications
@@ -488,7 +485,7 @@ the lower-level primitives and features of the polymer.dart libraries.
 Much of polymer.dart is built upon new and emerging web specifications.
 Polymer.dart offers polyfills for the following features.
 
-Head's up: these are specs written for implementors. Lots of details ahead.
+Heads up: These are specs written for implementors. Lots of details ahead.
 
 [Custom elements][custom-elements-spec]
 : A method for enabling the author to define and use new types of DOM elements.
