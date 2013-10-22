@@ -7,6 +7,7 @@ rel:
 has-permalinks: true
 article:
   written_on: 2013-09-30
+  updated_on: 2013-10-22
   collection: performance
 ---
 
@@ -14,7 +15,7 @@ article:
 
 _Written by Kathy Walrath
 <br>
-September 2013_
+September 2013 (updated October 2013)_
 
 Asynchronous code is everywhere in Dart.
 Many library functions return Future objects,
@@ -145,7 +146,7 @@ If a web app’s user closes its window,
 then the web app might exit before its event queue is empty.
 </aside>
 
-![flowchart: main() -> microtasks -> next event -> microtasks -> ....](images/both-queues.png)
+![flowchart: main() -> microtasks -> next event -> microtasks -> ...](images/both-queues.png)
 
 <aside class="alert alert-warning" markdown="1">
 **Important:**
@@ -213,12 +214,18 @@ you can use the following APIs provided by the dart:async library:
 
 1. The **Future** class,
 which adds an item to the end of the **event queue**.
-1. The top-level **runAsync()** function,
+1. The top-level **scheduleMicrotask()** function,
 which adds an item to the end of the **microtask queue**.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The **scheduleMicrotask()** function used to be named **runAsync()**.
+(See the [announcement](https://groups.google.com/a/dartlang.org/forum/#!msg/misc/7sAIhWXfIKQ/PzYJy1QqtWUJ).)
+</aside>
 
 Examples of using these APIs are in the next section under
 [Event queue: new Future()](#event-queue-new-future) and
-[Microtask queue: runAsync()](#microtask-queue-runasync).
+[Microtask queue: scheduleMicrotask()](#microtask-queue).
 
 ### Use the appropriate queue (usually: the event queue)
 
@@ -229,12 +236,13 @@ reducing the likelihood of the microtask queue starving the event queue.
 If a task absolutely must complete before
 any items from the event queue are handled,
 then you should usually just execute the function immediately.
-If you can’t, then use runAsync() to add an item to the microtask queue.
+If you can’t, then use scheduleMicrotask() to
+add an item to the microtask queue.
 For example, in a web app use a microtask to
 avoid prematurely releasing a js-interop proxy or
 ending an IndexedDB transaction or event handler.
 
-![shows chain of event handler execution, with tasks added using Future and runAsync().](images/scheduling-tasks.png)
+![shows chain of event handler execution, with tasks added using Future and scheduleMicrotask().](images/scheduling-tasks.png)
 
 
 #### Event queue: new Future()
@@ -322,32 +330,32 @@ similar to #2.
 and (unless that function returns a Future)
 completes in a microtask, similar to #2.
 
-#### Microtask queue: runAsync()
+#### Microtask queue: scheduleMicrotask()
 
-The dart:async library defines runAsync() as a top-level function.
-You can call runAsync() like this:
+The dart:async library defines scheduleMicrotask() as a top-level function.
+You can call scheduleMicrotask() like this:
 
 {% prettify dart %}
-runAsync(() {
+scheduleMicrotask(() {
   // ...code goes here...
 });
 {% endprettify %}
 
 Due to bugs [9001](https://code.google.com/p/dart/issues/detail?id=9001)
 and [9002](https://code.google.com/p/dart/issues/detail?id=9002),
-the first call to runAsync() schedules a task on the event queue;
+the first call to scheduleMicrotask() schedules a task on the event queue;
 this task creates the microtask queue and
-enqueues the function specified to runAsync().
+enqueues the function specified to scheduleMicrotask().
 As long as the microtask queue has at least one entry,
-subsequent calls to runAsync() correctly add to the microtask queue.
+subsequent calls to scheduleMicrotask() correctly add to the microtask queue.
 Once the microtask queue is empty,
-it must be created again the next time runAsync() is called.
+it must be created again the next time scheduleMicrotask() is called.
 
 The upshot of these bugs:
-The first task that you schedule with runAsync() seems
+The first task that you schedule with scheduleMicrotask() seems
 like it’s on the event queue.
 
-A workaround is to put your first call to runAsync() before
+A workaround is to put your first call to scheduleMicrotask() before
 your first call to new Future().
 This creates the microtask queue before
 executing other tasks on the event queue.
@@ -405,14 +413,14 @@ What does this sample print out?
 import 'dart:async';
 main() {
   print('main #1 of 2');
-  runAsync(() => print('runAsync #1 of 2'));
+  scheduleMicrotask(() => print('microtask #1 of 2'));
   
   new Future.delayed(new Duration(seconds:1),
                      () => print('future #1 (delayed)'));
   new Future(() => print('future #2 of 3'));
   new Future(() => print('future #3 of 3'));
     
-  runAsync(() => print('runAsync #2 of 2'));
+  scheduleMicrotask(() => print('microtask #2 of 2'));
 
   print('main #2 of 2');
 }
@@ -423,8 +431,8 @@ The answer:
 <pre>
 main #1 of 2
 main #2 of 2
-runAsync #1 of 2
-runAsync #2 of 2
+microtask #1 of 2
+microtask #2 of 2
 future #2 of 3
 future #3 of 3
 future #1 (delayed)
@@ -434,23 +442,23 @@ That order should be what you expected,
 since the example’s code executes in three batches:
 
 1. code in the main() function
-1. tasks in the microtask queue (runAsync())
+1. tasks in the microtask queue (scheduleMicrotask())
 1. tasks in the event queue (new Future() or new Future.delayed())
 
 Keep in mind that all the calls in the main() function execute synchronously,
 start to finish.
-First main() calls print(), then runAsync(),
+First main() calls print(), then scheduleMicrotask(),
 then new Future.delayed(), then new Future(), and so on.
 Only the callbacks—the code in the closure bodies specified as
-arguments to runAsync(), new Future.delayed(), and
+arguments to scheduleMicrotask(), new Future.delayed(), and
 new Future()—execute at a later time.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-Currently, if you comment out the first call to runAsync,
-then the callbacks for futures #2 and #3 execute before runAsync #2.
+Currently, if you comment out the first call to scheduleMicrotask(),
+then the callbacks for futures #2 and #3 execute before microtask #2.
 This is due to bugs 9001 and 9002, as discussed in
-[Microtask queue: runAsync()](#microtask-queue-runasync).
+[Microtask queue: scheduleMicrotask()](#microtask-queue).
 </aside>
 
 ### Question #2
@@ -463,7 +471,7 @@ you get a gold star.
 import 'dart:async';
 main() {
   print('main #1 of 2');
-  runAsync(() => print('runAsync #1 of 3'));
+  scheduleMicrotask(() => print('microtask #1 of 3'));
 
   new Future.delayed(new Duration(seconds:1),
       () => print('future #1 (delayed)'));
@@ -472,11 +480,11 @@ main() {
       .then((_) => print('future #2a'))
       .then((_) {
         print('future #2b');
-        runAsync(() => print('runAsync #0 (from future #2b)'));
+        scheduleMicrotask(() => print('microtask #0 (from future #2b)'));
       })
       .then((_) => print('future #2c'));
 
-  runAsync(() => print('runAsync #2 of 3'));
+  scheduleMicrotask(() => print('microtask #2 of 3'));
 
   new Future(() => print('future #3 of 4'))
       .then((_) => new Future(
@@ -484,7 +492,7 @@ main() {
       .then((_) => print('future #3b'));
 
   new Future(() => print('future #4 of 4'));
-  runAsync(() => print('runAsync #3 of 3'));
+  scheduleMicrotask(() => print('microtask #3 of 3'));
   print('main #2 of 2');
 }
 {% endprettify %}
@@ -494,16 +502,16 @@ The output, assuming bugs 9001/9002 aren't fixed:
 <pre>
 main #1 of 2
 main #2 of 2
-runAsync #1 of 3
-runAsync #2 of 3
-runAsync #3 of 3
+microtask #1 of 3
+microtask #2 of 3
+microtask #3 of 3
 future #2 of 4
 future #2a
 future #2b
 future #2c
 future #3 of 4
 future #4 of 4
-runAsync #0 (from future #2b)
+microtask #0 (from future #2b)
 future #3a (a new future)
 future #3b
 future #1 (delayed)
@@ -512,21 +520,21 @@ future #1 (delayed)
 <aside class="alert alert-info" markdown="1">
 **Note:**
 Due to bugs 9001/9002,
-runAsync #0 executes after future #4;
+microtask #0 executes after future #4;
 it should instead execute before future #3.
 This bug shows up because by the time future #2b executes,
-no runAsync tasks are queued,
-so runAsync #0 results in a new task on the event queue,
+no microtasks are queued,
+so microtask #0 results in a new task on the event queue,
 which creates a new microtask queue.
-This microtask queue has a task for runAsync #0.
-If you comment out runAsync #1,
-then the runAsync tasks all appear together just after future #2c,
+This microtask queue contains microtask #0.
+If you comment out microtask #1,
+then the microtasks all appear together just after future #2c,
 and before future #3.
 </aside>
 
 Like before, the main() function executes,
-and then the tasks on the microtask queue,
-and then those on the event queue.
+and then everything on the microtask queue,
+and then tasks on the event queue.
 Here are a few interesting points:
 
 * When the then() callback for future 3 calls new Future(),
@@ -555,7 +563,7 @@ for more information.
 Here are some figures that might clarify the answer to question #2.
 First, here’s the annotated program source:
 
-![runAsync lines (which add a microtask) are gold; new Future lines (which schedule an event) are blue](images/test-annotated.png)
+![Lines that schedule a microtask are gold; lines that schedule an event are blue](images/test-annotated.png)
 
 And here’s what the queues and output look like at various points in time,
 assuming no external events come in:

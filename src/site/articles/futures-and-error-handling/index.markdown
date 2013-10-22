@@ -386,3 +386,13 @@ Future fragileFunc() {
 
 `Future.sync()` not only allows you to handle errors you know might occur, but
 also prevents errors from *accidentally* leaking out of your function.
+
+
+## More information
+
+Read the following documentation for more details on using Futures:
+
+* [The Event Loop and Dart](/articles/event-loop/),
+  an article that describes how to schedule tasks using Futures
+* [Future API reference](http://api.dartlang.org/dart_async/Future.html)
+

@@ -206,5 +206,7 @@ Read the following documentation for more details on using Futures:
 
 * [Futures and Error Handling](/articles/futures-and-error-handling/),
   an article that starts where this one ends
+* [The Event Loop and Dart](/articles/event-loop/),
+  an article that describes how to schedule tasks using Futures
 * [Future API reference](http://api.dartlang.org/dart_async/Future.html)
 
