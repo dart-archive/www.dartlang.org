@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Simple localstorage example
+title: Simple LocalStorage Example
 live_example_url: example/index.html
 header:
   css: ["/samples/samples.css"]
@@ -21,4 +21,4 @@ Read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

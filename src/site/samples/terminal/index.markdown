@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Emulating a terminal for working with the filesystem
+title: Emulating a Terminal for Working with the FileSystem API
 live_example_url: example/index.html
 
 header:
@@ -25,4 +25,4 @@ Read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Removing elements from the DOM
+title: Removing Elements from the DOM
 live_example_url: /docs/tutorials/remove-elements/examples/todo_with_delete/todo_with_delete.html
 header:
   css: ["/samples/samples.css"]
@@ -26,4 +26,4 @@ more detail, or read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

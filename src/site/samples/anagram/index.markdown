@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Moving elements within the DOM tree
+title: Moving Elements within the DOM Tree
 live_example_url: /docs/tutorials/add-elements/examples/anagram/anagram.html">
 header:
   css: ["/samples/samples.css"]
@@ -26,4 +26,4 @@ more detail, or read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

@@ -1,7 +1,6 @@
 ---
 layout: default
-title: Countdown
-group_id:  "working_with_the_dom"
+title: Storing and Retrieving Data using IndexedDB
 live_example_url: /docs/tutorials/indexeddb/examples/count_down/out/web/count_down.html
 header:
   css: ["/samples/samples.css"]
@@ -37,4 +36,4 @@ more detail, or read the
         src="{{page.live_example_url}}">
 </iframe>
 
-<p>See all <a href="/samples/">samples</a></p>
+See all [samples](/samples/).

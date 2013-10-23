@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Defining a custom element
+title: Defining a Custom Element
 live_example_url: /docs/tutorials/polymer-intro/examples/stopwatch/out/web/index.html
 header:
   css: ["/samples/samples.css"]
@@ -38,4 +38,4 @@ more detail, or read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

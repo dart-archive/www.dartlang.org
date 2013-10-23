@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Simple todo app using IndexedDB
+title: Simple Todo App using IndexedDB
 live_example_url: example/index.html
 header:
   css: ["/samples/samples.css"]
@@ -16,4 +16,4 @@ Read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

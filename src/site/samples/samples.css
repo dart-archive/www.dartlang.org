@@ -1,5 +1,11 @@
-.group {
+body {
+  line-height: inherit;
 }
+
+.row-fluid [class*="span"] {
+  min-height: 26px;
+}
+
 
 .group-heading {
   text-align: left;

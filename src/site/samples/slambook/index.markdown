@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Working with forms
+title: Working with Forms
 live_example_url: /docs/tutorials/forms/examples/slambook/out/web/slambook.html
 header:
   css: ["/samples/samples.css"]
@@ -36,4 +36,4 @@ more detail, or read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

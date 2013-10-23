@@ -26,6 +26,8 @@ packages/
 !src/site/samples/dndfiles/example/packages/
 !src/site/samples/filesystem/example/packages/
 !src/site/samples/imagefilters/example/packages/
+!src/site/samples/localstorage/example/packages/
+!src/site/samples/notifications/example/packages/
 !src/site/samples/indexeddb_todo/example/packages/
 !src/site/samples/notifications/example/packages/
 !src/site/samples/raf/example/packages/

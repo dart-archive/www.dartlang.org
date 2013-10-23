@@ -1,6 +1,5 @@
 col1:
   -
-    group_id: working_with_the_dom
     heading: Working with the DOM
     examples:
       -
@@ -19,7 +18,6 @@ col1:
         tryit_url: todo_with_delete/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete
   -
-    group_id: polymer_dart
     heading: polymer.dart
     examples:
       -
@@ -44,29 +42,7 @@ col1:
         title: Replacing HTML elements with a custom element
         explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/survey
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/survey
-
-col2:
   -
-    group_id: animation_and_graphics
-    heading: Animation and graphics
-    examples:
-      -
-        title: Working with RequestAnimationFrame
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
-        tryit_url: raf/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
-      -
-        title: 2D solar system animation using Canvas
-        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
-        tryit_url: solar/
-        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
-      -
-        title: 3D solar system animation using WebGL
-        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
-        tryit_url: solar3d/
-        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
-  -
-    group_id: html5_persistence
     heading: HTML5 persistence
     examples:
       -
@@ -86,7 +62,7 @@ col2:
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
       -
         title: Exploring the Filesystem APIs
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
         tryit_url: filesystem/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
       -
@@ -95,3 +71,57 @@ col2:
         tryit_url: terminal/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
 
+
+col2:
+  -
+    heading: Animation and graphics
+    examples:
+      -
+        title: Working with requestAnimationFrame
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
+        tryit_url: raf/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
+      -
+        title: 2D solar system animation using Canvas
+        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
+        tryit_url: solar/
+        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
+      -
+        title: 3D solar system animation using WebGL
+        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
+        tryit_url: solar3d/
+        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
+      -
+        title: Using image filters with canvas
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+        tryit_url: imagefilters/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+  -
+    heading: HTML5 Drag and Drop
+    examples:
+      -
+        title: Basic Drag and Drop
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
+        tryit_url: dnd/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
+      -
+        title: Drag and Drop files
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        tryit_url: dndfiles/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+  -
+    heading: WebSockets
+    examples:
+      -
+        title: Basic WebSockets example
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/websockets/basics/
+        tryit_url: websockets/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics
+  -
+    heading: Files API
+    examples:
+      -
+        title: Using the Files API
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        tryit_url: dndfiles/
+        source_url: https://githubo.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles

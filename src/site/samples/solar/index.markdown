@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 2-D solar system animation using canvas
+title: 2D Solar System Animation using Canvas
 live_example_url: example/solar.html
 header:
   css: ["/samples/samples.css"]
@@ -16,4 +16,4 @@ Read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

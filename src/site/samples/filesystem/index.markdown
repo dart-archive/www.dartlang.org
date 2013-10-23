@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Exploring the filesystem APIs
+title: Exploring the FileSystem APIs
 live_example_url: example/index.html
 
 header:

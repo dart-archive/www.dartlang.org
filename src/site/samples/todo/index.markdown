@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Adding elements to the DOM
+title: Adding Elements to the DOM
 live_example_url: /docs/tutorials/add-elements/examples/todo/todo.html
 header:
   css: ["/samples/samples.css"]
@@ -25,4 +25,4 @@ more detail, or read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).

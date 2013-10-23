@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 3D solar system animation using WebGL
+title: 3D Solar System Animation using WebGL
 live_example_url: example/web/solar.html
 header:
   css: ["/samples/samples.css"]
@@ -16,4 +16,4 @@ Read the
         src="{{page.live_example_url}}">
 </iframe>
 
-See all [samples](/samples/)
+See all [samples](/samples/).
