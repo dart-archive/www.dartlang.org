@@ -28,7 +28,7 @@ class ApiRedirectPage(RequestHandler):
         self.redirect('http://api.dartlang.org/', permanent=True)
     else:
         self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
-            
+
 class SpecRedirectPage(RequestHandler):
   def get(self):
     suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
@@ -69,13 +69,27 @@ class CloudStorageRedirect(RequestHandler):
 class EditorUpdateRedirect(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
 
-class EclipseUpdateRedirect(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release'
+
+class EditorUpdateRedirectStableChannel(CloudStorageRedirect):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release'
+
+class EclipseUpdateRedirectBase(CloudStorageRedirect):
   def get(self, *args, **kwargs):
     filename = kwargs['path']
     if filename == '' or filename == '/':
       filename = '/index.html'
     self.redirect_to_cloud_storage(filename)
+
+class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+
+class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
+
+class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
 class BookRedirect(RequestHandler):
   def get(self, *args, **kwargs):
@@ -101,7 +115,15 @@ application = WSGIApplication(
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
     ('/articles/dart-web-components/.*', WebUiRedirect),
+    Route('/editor/update/channels/dev<path:.*>',
+      EditorUpdateRedirectDevChannel),
+    Route('/editor/update/channels/stable<path:.*>',
+      EditorUpdateRedirectStableChannel),
     Route('/editor/update<path:.*>', EditorUpdateRedirect),
+    Route('/eclipse/update/channels/dev<path:.*>',
+      EclipseUpdateRedirectDevChannel),
+    Route('/eclipse/update/channels/stable<path:.*>',
+      EclipseUpdateRedirectStableChannel),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
     Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
