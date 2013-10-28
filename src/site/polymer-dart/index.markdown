@@ -147,7 +147,8 @@ This HTML code _uses_ the custom element:
 {% prettify html %}
 <head>
   <link rel="import" href="[[highlight]]hello_world.html[[/highlight]]">
-  <script src="packages/polymer/boot.js"></script>
+  <script type="application/dart">import 'package:polymer/init.dart';</script>
+  <script src="packages/browser/dart.js"></script>
 </head>
 
 <body>   
@@ -168,7 +169,7 @@ changes.
 {% prettify html %}{% raw %}
 <polymer-element name="click-counter">
   <template>
-    <button on-click="increment">Click Me</button>
+    <button on-click="{{increment}}">Click Me</button>
     <p>You clicked the button [[highlight]]{{count}}[[/highlight]] times.</p>
   </template>
   <script type="application/dart" src="click_counter.dart"></script>
@@ -183,6 +184,8 @@ import 'dart:html';
 class ClickCounterElement extends PolymerElement {
   [[highlight]]@observable int count[[/highlight]] = 0;
   
+  ClickCounterElement.created() : super.created();
+
   void increment(Event e, var detail, Node target) {
     count += 1;
   }
@@ -216,6 +219,8 @@ import 'dart:html';
 class VolumeNobElement extends PolymerElement {
   // @published means 'this is an attribute', and it is observable.
   [[highlight]]@published int volume[[/highlight]] = 0;
+
+  VolumeNobElement.created() : super.created();
 }
 {% endprettify %}
 
@@ -236,7 +241,7 @@ Template conditionals are part of the data binding infrastructure. If
 {% prettify html %}{% raw %}
 <polymer-element name="click-counter">
   <template>
-    <button on-click="increment">Click Me</button>
+    <button on-click="{{increment}}">Click Me</button>
     <template [[highlight]]if="{{count <= 0}}"[[/highlight]]>
       <p>Click the button. It's fun!</p>
     </template>
@@ -256,6 +261,8 @@ import 'dart:html';
 class ClickCounterElement extends PolymerElement {
   @observable int count = 0;
   
+  ClickCounterElement.created() : super.created();
+
   void increment(Event e, var detail, Node target) {
     count += 1;
   }
@@ -293,9 +300,42 @@ import 'package:polymer/polymer.dart';
 @CustomTag('fav-fruits')
 class FavFruitsElement extends PolymerElement {
   final List [[highlight]]fruits = toObservable[[/highlight]](['apples', 'pears', 'bananas']);
+
+  FavFruitsElement.created() : super.created();
 }
 {% endprettify %}
 
+### Extending DOM elements
+
+Subclass real DOM elements.
+
+{% prettify html %}{% raw %}
+<polymer-element name="fancy-button" [[highlight]]extends="button"[[/highlight]]>
+  <template>
+    <style>
+    .fancy {
+      color: pink;
+    }
+    </style>
+    <span class="fancy"><content></content></span>
+  </template>
+  <script type="application/dart" src="fancy_button.dart"></script>
+</polymer-element>
+{% endraw %}{% endprettify %}
+
+{% prettify dart %}{% raw %}
+import 'package:polymer/polymer.dart';
+import 'dart:html';
+
+@CustomTag('fancy-button')
+class FancyButton [[highlight]]extends ButtonElement with Polymer, Observable[[/highlight]] {
+  FancyButton.created() : super.created();
+}
+{% endraw %}{% endprettify %}
+
+{% prettify html %}{% raw %}
+<button [[highlight]]is="fancy-button"[[/highlight]]></button>
+{% endraw %}{% endprettify %}
 
 ### Packaging
 
@@ -420,11 +460,8 @@ Polymer.dart is a work in progress, just like Polymer.
 
 ### Web UI parity
 
-Web UI is the precursor to polymer.dart. Polymer.dart is almost
-at feature parity with Web UI. Below is a list of Web UI features
-that have not yet been implemented in polymer.dart:
-
-* Value of index variable available inside of loops
+Web UI is the precursor to polymer.dart. We believe Polymer.dart
+is at feature-parity with Web UI.
 
 ### Polymer parity
 

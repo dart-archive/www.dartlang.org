@@ -18,13 +18,6 @@ Thanks in advance!
 
 ### Getting Started
 
-* You *should* include `<script src="packages/polymer/boot.js"></script>`
-  and **not** dart.js in your HTML file.
-
-* The boot.js file **must** go into the `<head>` and *not* the `<body>`.
-  (We may allow boot.js in the body later,
-  see [issue 12388](https://code.google.com/p/dart/issues/detail?id=12388).)
-
 * We recommend creating a component for your "application" HTML page.
   Polymer believes that everything is a component.
   - This enables Polymer-style event binding, which only works inside a
@@ -56,6 +49,9 @@ Thanks in advance!
   you should use the form of `<div is="my-element">`. If you omit the
   `extends` attribute, you are safe to use `<my-element>`.
 
+  If you extend a DOM element, you must also extend that element type
+  in your Dart class for the custom element.
+
 * The `constructor` attribute on polymer-element is no longer used.
 
 * If your custom element does not have a corresponding Dart class,
@@ -67,8 +63,9 @@ Thanks in advance!
   Alternatively, you can register it manually by calling
   `registerPolymerElement`.
 
-* You **must** call `super` in your `created` lifecycle callback.
-  It is recommended to do this from `inserted` and `removed` as well, if you
+* You **must** call `super.created()` in your `created()` named constructor.
+  It is recommended to call the super methods
+  from `enteredView` and `leftView` as well, if you
   are inheriting from another custom element.
 
 * Go through `shadowRoot` to find nodes inside of your custom element.
@@ -87,7 +84,7 @@ Thanks in advance!
 
 * Declarative event handing only works inside of a custom element.
   Also, instead of `on-click="doFoo()"`, drop the parens and use
-  'on-click="doFoo"'.
+  {% raw %}'on-click="{{doFoo}}"'.{% endraw %}
 
 * Hyphenated custom attributes are no longer supported. You can now
   write: `<foo-bar myPropertyName="{{expr}}">`.
@@ -111,12 +108,6 @@ Thanks in advance!
   the observe library too, such as
   [PathObserver](http://api.dartlang.org/docs/releases/latest/observe/PathObserver.html)
   and [ListPathObserver](http://api.dartlang.org/docs/releases/latest/observe/ListPathObserver.html).
-
-* When manually observing an object, the
-  [PropertyChangeRecord](http://api.dartlang.org/docs/releases/latest/observe/PropertyChangeRecord.html)
-  only has the field name, not the old and new value. You have to use mirrors to
-  get the new value. This is a bug, see
-  [issue 12075](https://code.google.com/p/dart/issues/detail?id=12075).
 
 * The name of the modified
   [field](http://api.dartlang.org/docs/releases/latest/observe/PropertyChangeRecord.html#field)
