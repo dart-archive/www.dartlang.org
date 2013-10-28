@@ -22,8 +22,6 @@ load and work correctly, even if the user presses the refresh button while
 offline.
 
 You can open the example in Dart Editor and run it by clicking `index.html`.
-Or, you can try this
-[live demo](http://www.dartlang.org/samples/appcache/).
 
 To see this example in action, make changes to `index.html` and then reload
 the app. Your changes don't show up because the browser displays a cached

@@ -70,8 +70,6 @@ col1:
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
         tryit_url: terminal/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
-
-
 col2:
   -
     heading: Animation and graphics
@@ -117,6 +115,30 @@ col2:
         explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/websockets/basics/
         tryit_url: websockets/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics
+  -
+    heading: Application Cache
+    examples:
+      -
+        title: Using Application Cache
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/appcache/beginner/
+        tryit_url: appcache/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner
+  -
+    heading: Geolocation
+    examples:
+      -
+        title: Basic geolocation example
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/geolocation/trip-meter/
+        tryit_url: geolocation/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip-meter
+  -
+    heading: Web Audio
+    examples:
+      -
+        title: Getting started with Web Audio API
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/webaudio/intro/
+        tryit_url: webaudio/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
   -
     heading: Files API
     examples:

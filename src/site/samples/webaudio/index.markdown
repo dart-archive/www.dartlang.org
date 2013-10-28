@@ -23,7 +23,7 @@ Read the
 [source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro).
 
 <iframe class="running-app-frame"
-        style="height:500px;width:100%;"
+        style="height:200px;width:100%;"
         src="{{page.live_example_url}}">
 </iframe>
 
