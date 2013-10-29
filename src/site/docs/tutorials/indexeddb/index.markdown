@@ -127,6 +127,12 @@ Use the **Clear** button to delete all the milestones.
         src="examples/count_down/out/web/count_down.html">
 </iframe>
 
+<aside class="alert">
+<strong>Version Note:</strong> The count_down app
+is compatible with
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.1</a>.
+</aside>
+
 ###Using developer tools to look at the database
 
 You can use the browser's developer tools

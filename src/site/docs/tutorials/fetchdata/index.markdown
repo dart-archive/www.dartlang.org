@@ -87,6 +87,12 @@ and check out the JSON format for each data type.
         src="examples/its_all_about_you/out/web/index.html">
 </iframe>
 
+<aside class="alert">
+<strong>Version Note:</strong> The its_all_about_you app
+is compatible with
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.1</a>.
+</aside>
+
 The dart:convert library contains two convenient functions
 for working with JSON strings:
 

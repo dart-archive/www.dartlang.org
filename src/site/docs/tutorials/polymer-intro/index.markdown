@@ -46,6 +46,12 @@ A custom element is an HTML element you can define yourself,
 encapsulating appearance and/or behavior
 within semantically meaningful HTML.
 
+<aside class="alert">
+<strong>Version Note:</strong> The code sample and the content
+of this tutorial are compatible with
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.1</a>.
+</aside>
+
 <aside class="alert alert-info">
   Custom elements are one feature of
 <a href="http://www.polymer-project.org/"

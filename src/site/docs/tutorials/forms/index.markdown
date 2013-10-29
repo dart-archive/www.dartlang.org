@@ -234,6 +234,12 @@ Enter some data and push the **Submit** button.
         src="examples/slambook/out/web/slambook.html">
 </iframe>
 
+<aside class="alert">
+<strong>Version Note:</strong> The slambook app
+is compatible with 
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.1</a>.
+</aside>
+
 The request gives you an innocent stare and displays "No server"
 because you are not running the server on your machine.
 Let's fix that.
