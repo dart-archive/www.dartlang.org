@@ -69,7 +69,7 @@ The server uses CORS headers to allow cross-origin requests.
 <aside class="alert alert-info" markdown="1">
   <strong>Note:</strong>
   This tutorial assumes that you have read
-  [Define a Custom Elment](/docs/tutorials/polymer-intro/)
+  [Define a Custom Element](/docs/tutorials/polymer-intro/)
   and [Fetch Data Dynamically](/docs/tutorials/fetchdata/)
   and are familiar with Polymer, JSON, and HttpRequest.
 </aside>
@@ -237,7 +237,7 @@ Enter some data and push the **Submit** button.
 <aside class="alert">
 <strong>Version Note:</strong> The slambook app
 is compatible with 
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.1</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.7</a>.
 </aside>
 
 The request gives you an innocent stare and displays "No server"
@@ -326,7 +326,7 @@ and binds it to a Dart mouse click handler.
 
 {% prettify html %}
 <div class="submitarea">
-  <input type="submit" value="Submit" on-click="submitForm($event)">
+  <input type="submit" value="Submit" on-click="{%raw%}{{submitForm}}{%endraw%}">
   ...
 </div>
 {% endprettify %}
@@ -752,7 +752,7 @@ and one in dart:io (for servers).
 | <a href="https://api.dartlang.org/dart_io/HttpResponse.html" target="_blank">HttpResponse</a> | dart:io | Server-side object to carry response to client requests |
 | <a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Streams</a> | dart:async | A stream of data |
 | <a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a> | dart:async | A way to get a value asynchronously |
-| <a href="https://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> | dart:convert | A library with resources for converting an object into a JSON string |
+| <a href="https://api.dartlang.org/dart_convert.html#JSON" target="_blank">JSON</a> | dart:convert | The default implementation of a JSON converter |
 | <a href="https://api.dartlang.org/polymer.html" target="_blank">Polymer</a> | Polymer | Custom elements, data binding, templates |
 {: .table}
 

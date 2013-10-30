@@ -49,7 +49,7 @@ within semantically meaningful HTML.
 <aside class="alert">
 <strong>Version Note:</strong> The code sample and the content
 of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.1</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.7</a>.
 </aside>
 
 <aside class="alert alert-info">
@@ -183,12 +183,16 @@ you need to include Polymer in both
 the HTML side and the Dart side of your app.
 
 * In the primary HTML file for your app,
-include `packages/polymer/boot.js`
+import `package:polymer/init.dart` within a &lt;script&gt; tag
 in the &lt;head&gt; section.
-When using this script,
-you do not need to define a top-level `main()` function,
-although you can.
-**Note:** Use this script instead of `packages/browser/dart.js`.
+This script contains the `main()` function
+for the app and initializes Polymer.
+
+  ![Include the Polymer init script](images/init-script.png)
+
+* In the primary HTML file for your app,
+include the `packages/browser/dart.js` bootstrap script
+in the &lt;head&gt; section.
 
   ![Include the Polymer bootstrap script](images/bootstrap-script.png)
 
@@ -314,7 +318,7 @@ Any Dart class that backs a Polymer element must subclass PolymerElement.
 
 The class can respond to life-cycle milestones
 by overriding [life-cycle methods](#life-cycle-methods).
-For example, the TuteStopwatch class overrides the `inserted()`
+For example, the TuteStopwatch class overrides the `enteredView()`
 method&mdash;which is called when the element is inserted
 into the DOM&mdash;to initialize the app.
 
@@ -329,8 +333,8 @@ that it can override:
 
 |---|---|
 | `created()` | Called when an instance of a custom element is created. |
-| `inserted()` | Called when an instance of a custom element is inserted into the DOM. |
-| `removed()` | Called when an instance of a custom element is removed from the DOM. |
+| `enteredView()` | Called when an instance of a custom element is inserted into the DOM. |
+| `leftView()` | Called when an instance of a custom element is removed from the DOM. |
 | `attributeChanged()` | Called when an attribute, such as `class`, of an instance of the custom element is added, changed, or removed. |
 {: .table}
 
@@ -338,16 +342,16 @@ You can override any of these life-cycle methods.
 The overriding method
 *must* call the super class method first.
 
-The Stopwatch app overrides the `inserted()` method because it
+The Stopwatch app overrides the `enteredView()` method because it
 needs a reference to each of the three buttons
 so that it can enable and disable them.
 When a tute-stopwatch custom element is inserted into the DOM
 the buttons have been created, so the references to them
-will be available when the inserted() method is called.
+will be available when the enteredView() method is called.
 
 {% prettify dart %}
-void inserted() {
-  super.inserted();
+void enteredView() {
+  super.enteredView();
   startButton = $['startButton'];
   stopButton = $['stopButton'];
   resetButton = $['resetButton'];

@@ -53,7 +53,316 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{373, 504}, {91, 18}}</string>
+			<string>{{28, 309.25}, {306, 206}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>FitText</key>
+			<string>YES</string>
+			<key>Flow</key>
+			<string>Resize</string>
+			<key>ID</key>
+			<integer>34217</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>CornerRadius</key>
+					<real>7</real>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>0</integer>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+\cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+\deftab720
+\pard\pardeftab720
+
+\f0\fs24 \cf0 \shad\shadx19\shady-20\shadr0\shado85 \shadc2 &lt;!DOCTYPE html&gt;\
+&lt;html&gt;\
+  &lt;head&gt;\
+    ...\
+\pard\pardeftab720
+\cf2 \shad0     &lt;script type="application/dart"&gt;\
+      import 'package:polymer/init.dart';\
+    &lt;/script&gt;\
+\pard\pardeftab720
+\cf0 \shad\shadx19\shady-20\shadr0\shado85 \shadc2     ...\
+  &lt;/head&gt;\
+  \
+  &lt;body&gt;\
+    ...    \
+  &lt;/body&gt;\
+&lt;/html&gt;}</string>
+			</dict>
+			<key>Wrap</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{175, 265.625}, {326, 22}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>FitText</key>
+			<string>YES</string>
+			<key>Flow</key>
+			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>b</key>
+					<string>0</string>
+					<key>g</key>
+					<string>0</string>
+					<key>r</key>
+					<string>0.501961</string>
+				</dict>
+				<key>Font</key>
+				<string>HelveticaNeue-BoldItalic</string>
+				<key>Size</key>
+				<real>14</real>
+			</dict>
+			<key>ID</key>
+			<integer>34218</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>0</integer>
+				<key>Pad</key>
+				<integer>2</integer>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\i\b\fs28 \cf2 Save to $tutorial/polymer/images/init-script.png}</string>
+				<key>VerticalPad</key>
+				<integer>2</integer>
+			</dict>
+			<key>Wrap</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>Head</key>
+			<dict>
+				<key>ID</key>
+				<integer>34214</integer>
+			</dict>
+			<key>ID</key>
+			<integer>34216</integer>
+			<key>Points</key>
+			<array>
+				<string>{440.57357832662279, 420.25}</string>
+				<string>{329, 391.49921028755062}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>FilledArrow</string>
+					<key>Legacy</key>
+					<true/>
+					<key>TailArrow</key>
+					<string>0</string>
+				</dict>
+			</dict>
+			<key>Tail</key>
+			<dict>
+				<key>ID</key>
+				<integer>34215</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{428, 420.25}, {95, 18}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>34215</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.604698</string>
+						<key>g</key>
+						<string>0.928911</string>
+						<key>r</key>
+						<string>1</string>
+					</dict>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>0</integer>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf0 Init script}</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{62, 368.25}, {267, 43.75}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>34214</integer>
+			<key>Magnets</key>
+			<array>
+				<string>{0.40636704119850198, -0.11714285714285566}</string>
+			</array>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Color</key>
+					<dict>
+						<key>b</key>
+						<string>0.604698</string>
+						<key>g</key>
+						<string>0.928911</string>
+						<key>r</key>
+						<string>1</string>
+					</dict>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{28, 289.25}, {69, 20}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>FitText</key>
+			<string>YES</string>
+			<key>Flow</key>
+			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Font</key>
+				<string>HelveticaNeue-Bold</string>
+				<key>Size</key>
+				<real>13</real>
+			</dict>
+			<key>ID</key>
+			<integer>34213</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>0</integer>
+				<key>Pad</key>
+				<integer>2</integer>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\b\fs26 \cf0 index.html}</string>
+				<key>VerticalPad</key>
+				<integer>2</integer>
+			</dict>
+			<key>Wrap</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{389, 665.5}, {91, 18}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -90,7 +399,7 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -100,7 +409,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{59, 399}, {129, 20}}</string>
+			<string>{{75, 560.5}, {129, 20}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -143,7 +452,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -157,7 +466,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{12, 366.5}, {362, 22}}</string>
+			<string>{{28, 536.875}, {362, 22}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -209,7 +518,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -223,7 +532,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{59, 419}, {342, 122}}</string>
+			<string>{{75, 580.5}, {342, 122}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -257,7 +566,7 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -287,8 +596,8 @@ class TuteStopwatch extends PolymerElement \{  \
 			<integer>34210</integer>
 			<key>Points</key>
 			<array>
-				<string>{399.39622637060307, 504}</string>
-				<string>{325.10377336739282, 469}</string>
+				<string>{415.39622641509436, 665.5}</string>
+				<string>{341.10377358490581, 630.5}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -310,7 +619,7 @@ class TuteStopwatch extends PolymerElement \{  \
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{63, 451}, {274, 18}}</string>
+			<string>{{79, 612.5}, {274, 18}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -354,7 +663,7 @@ class TuteStopwatch extends PolymerElement \{  \
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{12, 87}, {385, 192}}</string>
+			<string>{{20, 66}, {385, 178}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -388,7 +697,7 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -398,8 +707,7 @@ class TuteStopwatch extends PolymerElement \{  \
 &lt;html&gt;\
   &lt;head&gt;\
     ...\
-    &lt;script src="packages/polymer/boot.js"&gt;&lt;/script&gt;\
-    ...\
+    &lt;script src="packages/browser/dart.js"&gt;&lt;/script&gt;\
   &lt;/head&gt;\
   \
   &lt;body&gt;\
@@ -425,8 +733,8 @@ class TuteStopwatch extends PolymerElement \{  \
 			<integer>34207</integer>
 			<key>Points</key>
 			<array>
-				<string>{437.30769573642704, 198}</string>
-				<string>{264.69232407404047, 164}</string>
+				<string>{425.875, 177}</string>
+				<string>{268.625, 143}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -448,7 +756,7 @@ class TuteStopwatch extends PolymerElement \{  \
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{412, 198}, {142, 18}}</string>
+			<string>{{420, 177}, {95, 18}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -485,12 +793,12 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
 
-\f0\fs24 \cf0 Polymer bootstrap script}</string>
+\f0\fs24 \cf0 Bootstrap script}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -547,7 +855,7 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -561,7 +869,7 @@ class TuteStopwatch extends PolymerElement \{  \
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{46, 146}, {346, 18}}</string>
+			<string>{{54, 125}, {346, 18}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -601,7 +909,7 @@ class TuteStopwatch extends PolymerElement \{  \
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{12, 67}, {69, 20}}</string>
+			<string>{{20, 46}, {69, 20}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -644,7 +952,7 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -704,7 +1012,7 @@ class TuteStopwatch extends PolymerElement \{  \
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-09 23:44:22 +0000</string>
+	<string>2013-10-30 17:29:59 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -785,7 +1093,7 @@ class TuteStopwatch extends PolymerElement \{  \
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{128, 381}, {1084, 1077}}</string>
+		<string>{{590, 348}, {1084, 1077}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
