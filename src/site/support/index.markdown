@@ -1,14 +1,13 @@
 ---
 layout: default
-title: "Contact the Dart Project"
-description: "Mailing lists, Google+ communities, and bug databases for the
+title: "Support and Community Resources"
+description: "Communities, mailing lists, and bug databases for the
               Dart project."
 ---
 
 # {{ page.title }}
 
 Track the Dart project and join the conversation in a variety of ways.
-For more resources, see the [Community](/community/) page.
 
 <div class="row">
 
@@ -18,40 +17,35 @@ For more resources, see the [Community](/community/) page.
 
 Dart is an open source project, and we look forward to hearing from you.
 
-How-to questions
+General how-to questions
 : [StackOverflow](http://stackoverflow.com/tags/dart)
 
-Polymer.dart, dart:html, and Web UI
-: Discussion: [web-ui@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/web-ui)
-: How-to questions: [StackOverflow](http://stackoverflow.com/tags/dart-webui)
-: Bugs in Web UI: <https://github.com/dart-lang/web-ui/issues>
-: Bugs in Polymer.dart and dart:html: <http://dartbug.com/new>
+Polymer.dart, dart:html
+: [Discussion](https://groups.google.com/a/dartlang.org/forum/#!forum/web-ui)
+: [How-to questions](http://stackoverflow.com/tags/dart-polymer)
 
 Dart Editor
-: Questions: [editor@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/editor)
+: [Questions](https://groups.google.com/a/dartlang.org/forum/#!forum/editor)
 : Feedback: use the (anonymous) "SEND FEEDBACK" button in Dart Editor
-: Bugs: <http://dartbug.com/new>
 
 Dart VM
-: Development: [vm-dev@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/vm-dev)
-: Bugs: <http://dartbug.com/new>
+: [Development discussions](https://groups.google.com/a/dartlang.org/forum/#!forum/vm-dev)
 
 dart2js
-: Development: [compiler-dev@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/compiler-dev)
-: Bugs: <http://dartbug.com/new>
-
-try.dartlang.org
-: Bugs or feature requests: <http://dartbug.com/new>
-
-dartlang.org
-: Bugs or feature requests: <http://dartbug.com/new>
+: [Development discussions](https://groups.google.com/a/dartlang.org/forum/#!forum/compiler-dev)
 
 General
-: Development: [eng@dartlang.org](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/eng)
-: Discussion: [misc@dartlang.org](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/misc)
-: Google+: [google.com/+dartlang](https://plus.google.com/+dartlang)
-: Twitter: [@dart_lang](https://twitter.com/dart_lang)
-: Bugs: <http://dartbug.com/new>
+: [Discussion](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/misc)
+: [Google+ page](https://plus.google.com/+dartlang)
+: [Twitter](https://twitter.com/dart_lang)
+: [IRC](http://webchat.freenode.net/?channels=dart)
+: [Bugs and feature requests](http://dartbug.com/new)
+
+Communities
+: [Reddit](http://www.reddit.com/r/dartlang/)
+: [Hacker News](http://www.hnsearch.com/search#request/all&amp;q=Dart)
+: [Dartisans on Google+](http://g.co/dartisans)
+: [Dartosphere blog aggregator](http://dartosphere.org)
   
 </div>
 
@@ -63,7 +57,7 @@ These lists are read only.
 
 <i class="icon icon-star"> </i>[announce@dartlang.org](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/announce)
 : Low traffic announcements of new releases, breaking changes, and other
- important news.
+ important news. Recommended!
 
 [commits@dartlang.org](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/commits)
 : High-traffic list of all commits to the main Dart repository.

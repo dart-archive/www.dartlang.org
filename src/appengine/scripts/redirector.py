@@ -151,6 +151,8 @@ application = WSGIApplication(
       defaults={'_uri': '/tools/editor/'}),
     Route('/dartium/', RedirectHandler,
       defaults={'_uri': '/tools/dartium/'}),
+    Route('/community/', RedirectHandler,
+      defaults={'_uri': '/support/'}),
     Route('/docs/getting-started/editor/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html#ch01-editor'}),
     Route('/docs/getting-started/sdk/', RedirectHandler,

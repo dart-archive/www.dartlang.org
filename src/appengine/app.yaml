@@ -29,6 +29,9 @@ pagespeed:
 #default_expiration: "1d"
 
 handlers:
+- url: /community/
+  script: scripts.redirector.application
+
 - url: /\+
   script: scripts.redirector.application
 
