@@ -3,16 +3,16 @@
 
   <div class="{{ sdk.os }} downloads">
   {% if sdk.os == 'macos' %}
-    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
+    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
       <i class="icon-download-alt"> </i>
       Dart SDK ({{ sdk.name }})
     </a>
   {% else %}
-    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-64.{{ sdk.ext }}">
+    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
     	<i class="icon-download-alt"> </i>
     	Dart SDK (64-bit {{ sdk.name }})
    	</a>
-    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/dartsdk-{{ sdk.os }}-32.{{ sdk.ext }}">
+    <a class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartsdk-{{ sdk.os }}-ia32-release.{{ sdk.ext }}">
       <i class="icon-download-alt"> </i>
       Dart SDK (32-bit {{ sdk.name }})
     </a>
