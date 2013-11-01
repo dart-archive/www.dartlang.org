@@ -7,11 +7,9 @@ permalink: /news/:year/:month/:day/:title.html
 pygments: false
 custom:
   downloads:
-    dartarchive-be-url-prefix: "http://storage.googleapis.com/dart-archive/channels/be/raw"
-    dartarchive-dev-url-prefix: "http://storage.googleapis.com/dart-archive/channels/dev/release"
-    dartarchive-stable-url-prefix: "http://storage.googleapis.com/dart-archive/channels/stable/release"
+    editor-url-prefix: "https://storage.googleapis.com/dart-editor-archive"
     binaries:
-      - os: windows
+      - os: win32
         name: Windows
         ext: zip
         editor-ext: zip
@@ -21,7 +19,7 @@ custom:
         editor-ext: zip
       - os: linux
         name: Linux
-        ext: zip
+        ext: tar.gz
         editor-ext: zip
 kramdown:
   toc_levels: "2,3"

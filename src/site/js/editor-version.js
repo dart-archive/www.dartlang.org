@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  var displayVersion = function() {
-    fetchEditorVersion('stable');
+  var displayIntegrationVersion = function() {
+    fetchEditorVersion('integration');
   };
 
   var updatePlaceholders = function(channel, version) {
@@ -9,10 +9,10 @@ $(document).ready(function() {
     });
   };
 
-  var fetchEditorVersion = function(channel) {
+  var fetchEditorVersion = function(buildType) {
     $.ajax({
       type: "GET",
-      url: 'http://dartlang.org/editor/update/channels/' + channel + '/latest/VERSION',
+      url: 'https://dart-editor-archive-' + buildType + '.commondatastorage.googleapis.com/latest/VERSION',
       dataType: "json",
       success: function(data) {
         updatePlaceholders(buildType, data['revision']);
@@ -23,5 +23,5 @@ $(document).ready(function() {
     })
   };
 
-  displayVersion();
+  displayIntegrationVersion();
 });

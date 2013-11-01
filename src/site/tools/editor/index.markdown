@@ -50,15 +50,15 @@ for help with downloading and launching Dart Editor.
 
 <p>
 The default version of Dart Editor
-is the <em>stable build</em>.
-It's automatically updated about once every six weeks.
+is the <em>integration build</em>.
+It's automatically updated about once per week.
 The
 <a target="_blank"
-  href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/changelog.html">change log</a>
+  href="{{ site.custom.downloads.editor-url-prefix }}-integration/latest/changelog.html">change log</a>
 has a list of release dates and features.
-The <em>dev channel build</em>, on the other hand, is the
-latest tested version of the Dart Editor which contains the newest features but may still contain some bugs.
-If you use the dev channel build, please get new builds frequently,
+The <em>continuous build</em>, on the other hand, is the
+latest, <b>untested</b> version of Dart Editor.
+If you use the continuous build, please get new builds frequently,
 and send feedback about new features and bugs that you encounter.
 </p>
 

@@ -1,19 +1,19 @@
 <div class="bleeding-edge">
-  Want to live on <b>dev channel</b> and get new features a few weeks earlier than users on the stable channel?
+  Want to live on the bleeding edge?
   Download the
   {% for editor in site.custom.downloads.binaries %}
     {% if editor.os == 'macos' %}
     <span class="{{ editor.os }} downloads">
-      <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
-      latest dev channel build</a>.
+      <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">
+      latest continuous build</a>.
     </span>
     {% else %}
     <span class="{{ editor.os }} downloads">
-      latest dev channel build:
-      <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
+      latest continuous build:
+      <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-64.{{ editor.editor-ext }}">
       64-bit</a>
       or
-      <a class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-ia32.{{ editor.editor-ext }}">
+      <a class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.editor-url-prefix }}-continuous/latest/darteditor-{{ editor.os }}-32.{{ editor.editor-ext }}">
       32-bit</a>.
   </span>
   {% endif %}

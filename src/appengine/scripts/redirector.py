@@ -66,6 +66,9 @@ class CloudStorageRedirect(RequestHandler):
   def redirect_to_cloud_storage(self, path):
     self.redirect(self.prefix + path, permanent=False)
 
+class EditorUpdateRedirect(CloudStorageRedirect):
+  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
+
 class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release'
 
@@ -78,6 +81,9 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
     if filename == '' or filename == '/':
       filename = '/index.html'
     self.redirect_to_cloud_storage(filename)
+
+class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
 
 class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
@@ -113,12 +119,12 @@ application = WSGIApplication(
       EditorUpdateRedirectDevChannel),
     Route('/editor/update/channels/stable<path:.*>',
       EditorUpdateRedirectStableChannel),
-    Route('/editor/update<path:.*>', EditorUpdateRedirectDevChannel),
+    Route('/editor/update<path:.*>', EditorUpdateRedirect),
     Route('/eclipse/update/channels/dev<path:.*>',
       EclipseUpdateRedirectDevChannel),
     Route('/eclipse/update/channels/stable<path:.*>',
       EclipseUpdateRedirectStableChannel),
-    Route('/eclipse/update<path:.*>', EclipseUpdateRedirectDevChannel),
+    Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
     Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
