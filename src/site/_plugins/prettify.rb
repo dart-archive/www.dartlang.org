@@ -27,7 +27,7 @@ module Prettify
     end
 
     def render(context)
-      out = '<pre class="prettyprint'
+      out = '<pre class="prettyprint linenums'
       unless @lang.nil?
         out += ' lang-' + @lang
       end
