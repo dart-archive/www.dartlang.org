@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Numeric Computation"
 rel:
   author: john-mccutchan
@@ -9,6 +9,8 @@ article:
   written_on: 2013-05-22
   collection: performance
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -37,8 +39,6 @@ which enable operating on four floating-point numbers in parallel.
 To learn more, read
 [Using SIMD in Dart](/articles/simd/).
 </aside>
-
-{% include toc.html %}
 
 ## Overview
 

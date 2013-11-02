@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Futures and Error Handling"
 description: "Everything you wanted to know about handling errors and
 exceptions when working with Futures (but were afraid to ask)."
@@ -12,6 +12,8 @@ article:
   collection: libraries-and-apis
 ---
 
+{% include toc.html %}
+
 # {{ page.title }}
 
 _Written by Shailen Tuli
@@ -22,9 +24,6 @@ This article covers the subject of error handling when dealing with Futures.
 If you are unfamiliar with the general concepts behind Futures, we
 recommend you first read
 [Using Future Based APIs](/articles/using-future-based-apis/).
-
-{% include toc.html %}
-
 
 ## Introduction
 

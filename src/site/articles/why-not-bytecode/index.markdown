@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Why Not a Bytecode VM?"
 description: "This article discusses the trade-offs VMs have to make,
        and explains why we think that a language VM makes more sense for Dart."
@@ -12,6 +12,7 @@ article:
   collection: design-decisions
 ---
 
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -28,8 +29,6 @@ choice and then simply compile to the specified bytecodes.
 
 In this article we will discuss the trade-offs VMs have to make, and explain
 why we think that a language VM makes more sense for Dart.
-
-{% include toc.html %}
 
 ## Apparent advantages of a bytecode VM
 

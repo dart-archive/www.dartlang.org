@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Reflection in Dart with Mirrors: An Introduction"
 rel:
   author: gilad-bracha

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Dart Style Guide"
 rel:
   author: bob-nystrom
@@ -10,6 +10,8 @@ article:
   updated_on: 2013-10-04
   collection: everyday-dart
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -33,8 +35,6 @@ will evolve too. This means that there will inevitably be code that doesn't
 follow the latest style, or places where the style guide is ambiguous or
 open-ended. Bear with us and it will get better as the language and its
 libraries settle down.
-
-{% include toc.html %}
 
 ## How to read this
 

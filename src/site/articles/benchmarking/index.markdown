@@ -1,5 +1,5 @@
 --- 
-layout: default
+layout: article
 title: "Benchmarking the Dart VM"
 description: "Learn how to benchmark your applications"
 rel:
@@ -11,6 +11,8 @@ article:
   collection: performance
 ---
 
+{% include toc.html %}
+
 # {{ page.title }}
 
 _Written by John McCutchan <br>
@@ -21,8 +23,6 @@ larger application. The point of the benchmark is to have an easy to run,
 reproducible stress test of the performance-sensitive algorithm.
 The benchmark verifies that changes to the algorithm are indeed
 improvements, and not regressions.
-
-{% include toc.html %}
 
 ##Benchmarking Dart
 
@@ -94,7 +94,7 @@ turned on by passing the `--checked` command line flag. The editor has checked
 mode on by default but can be turned off by going to the ‘Manage Launches’
 window.
 
-<div style="display:block; margin-left:auto; margin-right:auto"><img src="checkedmode.png" /></div>
+<div style="display:block; margin-left:auto; margin-right:auto"><img src="checkedmode.png" />
 
 ##Summary
 

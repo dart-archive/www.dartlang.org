@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "The Event Loop and Dart"
 description: "Learn how Dart handles the event queue and microtask queue, so you can write better asynchronous code with fewer surprises."
 rel:
@@ -10,6 +10,8 @@ article:
   updated_on: 2013-10-22
   collection: performance
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -40,8 +42,6 @@ Dart apps and software written in other languages.
 Before reading this article,
 you should be familiar with the basics of using
 [Future-based APIs](/articles/using-future-based-apis/).
-
-{% include toc.html %}
 
 ## Basic concepts
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Improving the DOM"
 rel:
   author: bob-nystrom
@@ -11,6 +11,8 @@ article:
   collection: libraries-and-apis
 ---
 
+{% include toc.html %}
+
 # {{ page.title }}
 
 <em>Written by Bob Nystrom<br />
@@ -20,9 +22,6 @@ One of the great opportunities a new language gives you is a chance to also
 define a cleaner set of APIs for users. When it comes to coding in a browser,
 that API is the DOM. The DOM API that JavaScripters suffer is creaking under the
 weight of history and technological ballast such as XML.
-
-{% include toc.html %}
-
 
 ## Simpler names
 

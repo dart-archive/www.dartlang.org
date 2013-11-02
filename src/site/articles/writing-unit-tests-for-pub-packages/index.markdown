@@ -1,5 +1,5 @@
 --- 
-layout: default
+layout: article
 title: "Writing Unit Tests for Pub Packages"
 description: "Learn how to write unit tests for your pub packages using the unittest library"
 rel:
@@ -10,14 +10,14 @@ article:
   collection: libraries-and-apis
 ---
 
+{% include toc.html %}
+
 # {{ page.title }}
 
 
 <em>Written by Shailen Tuli<br>
 <time pubdate date="2012-11-01">November 2012</time>
 </em>
-
-{% include toc.html %}
 
 ## Introduction
 

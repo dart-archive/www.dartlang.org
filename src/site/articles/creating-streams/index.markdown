@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Creating Streams in Dart"
 rel:
   author: lasse-nielsen
@@ -13,6 +13,8 @@ article:
 <style>
 .comment {color:red;}
 </style>
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -50,8 +52,6 @@ For details on how stream transformers have changed, see the
 
 For help on using streams, see
 [Getting Your Feet Wet with Streams](/articles/feet-wet-streams/).
-
-{% include toc.html %}
 
 ## Transforming an existing stream
 

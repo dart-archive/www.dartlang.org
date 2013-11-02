@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Unit Testing with Dart"
 rel:
   author: graham-wheeler
@@ -11,6 +11,8 @@ article:
   updated_on: 2013-07-23
   collection: libraries-and-apis
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -26,9 +28,6 @@ ecosystem.
 
 For more information, see the
 [unit test library API documentation](http://api.dartlang.org/unittest.html).
-
-{% include toc.html %}
-
 
 ## Differences from the earlier library
 

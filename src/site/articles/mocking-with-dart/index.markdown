@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Mocking with Dart"
 rel:
   author: graham-wheeler
@@ -10,6 +10,8 @@ article:
   updated_on: 2013-03-29
   collection: libraries-and-apis
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -36,9 +38,6 @@ parameters.
 Note that this article assumes you are familiar with the unit test library; in 
 particular with `expect()` and the `Matcher`s. If not, you should first read 
 [Unit Testing with Dart](/articles/dart-unit-tests/).
-
-{% include toc.html %}
-
 
 ## Getting ready for mocking
 

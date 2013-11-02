@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "An Introduction to the dart:io Library"
 description: "An introduction to the Dart I/O library, which is aimed at server-side code that runs on the standalone Dart VM."
 rel:
@@ -10,6 +10,8 @@ article:
   updated_on: 2013-02-28
   collection: libraries-and-apis
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -32,9 +34,6 @@ dart:io uses an asynchronous programming model inspired by
 [node.js](http://nodejs.org),
 [EventMachine](https://github.com/eventmachine/eventmachine/wiki), and
 [Twisted](http://twistedmatrix.com/trac/).
-
-{% include toc.html %}
-
 
 ## The Dart VM and the event loop
 
