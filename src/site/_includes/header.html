@@ -17,11 +17,11 @@
   <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}Dart is a new platform for building structured web apps for modern browsers. It includes a language, a VM, libraries, tools, and a compiler to JavaScript. Try Dart today!{% endif %}">
 
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/dart-style.css" rel="stylesheet">
-  <link href="css/prettify.css" type="text/css" rel="stylesheet" />
+  <link href="/css/dart-style.css" rel="stylesheet">
+  <link href="/css/prettify.css" type="text/css" rel="stylesheet" />
 	{% if page.header and page.header.css %}{% for css in page.header.css %}<link href="{{ css }}" rel="stylesheet" type="text/css">{% endfor %}{% endif %}
 	{% for author in page.rel.author %}<link rel="author" href="/authors/{{ author }}.html">{% endfor %}
 	{% if page.rel.me %}<link rel="me" href="{{ page.rel.me }}">{% endif %}
