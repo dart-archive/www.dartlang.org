@@ -13,12 +13,7 @@ article:
 
 {% include toc.html %}
 
-{::options parse_block_html="true" /}
-<div class="col-md-7">
-{::options parse_block_html="false" /}  
-
 # {{ page.title }}
-
 
 <em>Written by Gilad Bracha <br>
 January 2012
@@ -204,8 +199,4 @@ implement your own function type in Dart:
     when invoked as functions via the **()** syntax.
 1.  As a matter of good style,
     have the class implement the **Function** interface.
-
-
-{::options parse_block_html="true" /}
-</div>
-{::options parse_block_html="false" /}      
+ 
