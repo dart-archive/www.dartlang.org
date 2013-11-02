@@ -7,13 +7,13 @@
         <article{% if page.has-permalinks %} class="has-permalinks"{% endif %}>
         {{ content }}
         </article>
-    
-	    {% if page.article %}
-	    <ul class="pager">
-	      <li><a href="/articles/">More articles about Dart <i class="icon-level-up"></i></a></li>
-	    </ul>
-	    {% endif %}
 	  </div>
+
+	  {% if page.article %}
+	  <ul class="pager">
+	    </li><button type="button" class="btn btn-primary btn-sm" href="/articles/">More articles about Dart</button></li>
+	  </ul>
+	  {% endif %}
 	</div>
   </div>
 </div>
