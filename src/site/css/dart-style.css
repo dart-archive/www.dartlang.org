@@ -41,9 +41,7 @@ h2 {
 
 h3 {
 	font: 400 17px/24px 'Montserrat', sans-serif;
-	text-transform: uppercase;
-	margin-top: 10px;
-	color: #fff;
+	color: #484848;
 }
 
 h4 {
@@ -838,6 +836,13 @@ border-radius: 4px;}
 		position: relative;
 	    height: auto;
 	}
+}
+
+.footer h3 {
+	font: 400 17px/24px 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	margin-top: 10px;
+	color: #fff;
 }
 
 .footer h4 {
