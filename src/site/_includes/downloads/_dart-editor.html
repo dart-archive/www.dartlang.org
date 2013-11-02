@@ -4,25 +4,32 @@
 
   <div class="{{ editor.os }} downloads">
     {% if editor.os == 'macos' %}
-    <a class="download-link btn btn-primary btn-large" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
-      <i class="icon-download-alt"> </i>
-      Download Dart ({{ editor.name }})
+    <a data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
+      <button class="btn btn-primary btn-lg">
+        <i class="icon-download-alt"> </i>
+        Download Dart ({{ editor.name }})
+      </button>
     </a>
     {% else %}
-    <a class="download-link btn btn-primary btn-large" data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
-      <i class="icon-download-alt"> </i>
-      Download Dart (64-bit {{ editor.name }})
+    <a data-bits="64" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
+      <button class="btn btn-primary btn-lg">
+        <i class="icon-download-alt"> </i>
+        Download Dart (64-bit {{ editor.name }})
+      </button>
     </a>
-    <a class="download-link btn btn-primary btn-large" data-bits="32" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-ia32.{{ editor.editor-ext }}">
-      <i class="icon-download-alt"> </i>
-      Download Dart (32-bit {{ editor.name }})
+
+    <a data-bits="32" data-os="{{ editor.os }}" data-build="integration" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-ia32.{{ editor.editor-ext }}">
+      <button class="btn btn-primary btn-lg">
+        <i class="icon-download-alt"> </i>
+        Download Dart (32-bit {{ editor.name }})
+      </button>
     </a>
     {% endif %}
   </div>
 
   {% endfor %}
 
-  <div class="editor-current-version">
+  <div class="editor-current-version version">
     Current stable version of Dart:
     <span class="editor-build-rev-stable">[calculating]</span>
   </div>

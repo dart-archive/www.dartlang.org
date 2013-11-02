@@ -3,13 +3,20 @@
       <li><a href="/articles/">More articles about Dart <i class="icon-level-up"></i></a></li>
     </ul>
     {% endif %}
-	</div> <!-- /.container -->
+    </div> <!-- end container -->
+  
+  </div> <!-- end container-page -->
 
-	<footer>
+  <footer class="footer container-full">
     <div class="container">
-      <div class="row no-print">
-        <div class="span4">
-          <h4>Popular on this site</h4>
+      <div class="row">
+        <div class="col-md-5">
+          <h3>A new language, with tools and libraries, for SCALABLE web app engineering</h3>
+          <p>Dart is an <a href="https://code.google.com/p/dart/">open-source project</a> with contributors from Google and elsewhere.</p>
+          <p class="sm">Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the BSD License.</p>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
+          <h4>Popular Topics</h4>
           <ul>
             <li><a href="/polymer-dart/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Polymer.dart</a></li>
             <li><a href="/performance/">Performance</a></li>
@@ -21,56 +28,30 @@
             <li><a href="/docs/cookbook/?utm_source=site&amp;utm_medium=footer&amp;utm_campaign=homepage">Cookbook</a></li>
           </ul>
         </div>
-        <div class="span4">
-          <h4>More resources</h4>
+        <div class="col-md-2">
+          <h4>Resources</h4>
           <ul>
             <li><a href="http://try.dartlang.org/">Try Dart!</a></li>
             <li><a href="http://synonym.dartlang.org/">Translations from Dart</a></li>
             <li><a href="http://code.google.com/p/dart/issues/list">Dart bugs and feature requests</a></li>
-            <li><a href="http://pub.dartlang.org">Pub packages</a></li>
+            <li><a href="http://pub.dartlang.org/">Pub packages</a></li>
           </ul>
         </div>
-        <div class="span4">
+        <div class="col-md-2">
           <h4>Community</h4>
           <ul>
             <li><a href="/support/">Mailing lists</a></li>
             <li><a href="https://plus.google.com/communities/114566943291919232850">G+ community</a></li>
-            <li><a href="https://plus.google.com/109866369054280216564/posts">G+ announcement group</a></li>
+            <li><a href="https://plus.google.com/+dartlang/posts">G+ announcement group</a></li>
             <li><a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a></li>
           </ul>
         </div>
       </div>
-
-  		<div class="row copyright">
-  			<div class="span8 offset2">
-          <div class="no-print">
-            <p>
-              Dart is an
-              <a href="https://code.google.com/p/dart/">open-source project</a>
-              with contributors from Google and elsewhere.
-            </p>
-          </div>
-  				<p>
-            {% if license %}
-            {{ license }}
-            {% else %}
-            Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://code.google.com/google_bsd_license.html">BSD License</a>.
-            {% endif %}
-  				</p>
-
-          <div class="no-print">
-    				<p>
-    					<a href="/tos.html">Terms of Service</a> &mdash;
-    					<a href="http://www.google.com/intl/en/policies/privacy/">Privacy Policy</a>
-    				</p>
-          </div>
-  			</div>
-  		</div>
     </div>
-	</footer>
+  </footer> <!-- End footer -->
 
 {% bundle %}
-- /js/jquery.min.js
+- /js/jquery.js
 - /js/bootstrap.min.js
 - /js/social-event-analytics.js
 - /js/prettify.js

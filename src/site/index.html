@@ -11,417 +11,403 @@ js:
   defer: true
 ---
 
-<article class="homepage">
-
-<section>
-  <div class="row" id="top-mast">
-    <div class="span12 contents">
-      <img class="logo" src="/imgs/dart-logo.png" width="286" height="116" alt="Dart">
-      <p style="padding: 0 20px 0 20px">
-        A new language, with tools and libraries,
-        for structured web app engineering
-      </p>
-      <p>
-        <a href="#get-started" class="btn btn-primary btn-large">
-          <i class="icon-play"></i>
-          Get started
-        </a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="row-fluid" id="facts">
-    <div class="span8">
-      <p>
-        Dart has all the pieces you need to write modern web apps:
-      </p>
-      <div class="row-fluid">
-        <div class="span6">
-          <div class="media">
-            <a class="pull-left" href="/docs/dart-up-and-running/contents/ch02.html">
-              <i class="icon-align-left icon-large media-object"></i>
-            </a>
-            <div class="media-body">
-              The <b><a href="/docs/dart-up-and-running/contents/ch02.html">Dart language</a></b> is familiar and easy to learn.
-              It's class based and object oriented,
-              without being dogmatic.
-            </div>
-          </div>
-        </div>
-        <div class="span6">
-          <div class="media">
-            <a class="pull-left" href="/tools/">
-              <i class="icon-cogs icon-large media-object"></i>
-            </a>
-            <div class="media-body">
-              <b><a href="/tools/">Tools</a></b> such as
-                <a href="/tools/editor/">Dart Editor</a> and the
-                <a href="http://pub.dartlang.org">pub package manager</a>
-                keep you productive.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span6">
-          <div class="media">
-            <a class="pull-left" href="/docs/dart-up-and-running/contents/ch03.html">
-              <i class="icon-folder-close icon-large media-object"></i>
-            </a>
-            <div class="media-body">
-              <b><a href="/docs/dart-up-and-running/contents/ch03.html">Core libraries</a></b>
-              provide all the basics,
-              including support for asynchronous programming
-              with <a href="/articles/using-future-based-apis/">Futures</a>.
-            </div>
-          </div>
-        </div>
-        <div class="span6">
-          <div class="media">
-            <a class="pull-left" href="/performance/">
-              <i class="icon-bolt icon-large media-object"></i>
-            </a>
-            <div class="media-body">
-              <b><a href="/performance/">Performance</a></b>
-              is good and getting better.
-              Dart apps are fastest in the Dart VM,
-              but they can be speedy even after compilation to JavaScript.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row-fluid">
-        <div class="span6">
-          <div class="media">
-            <a class="pull-left" href="/articles/web-ui/">
-              <i class="icon-road icon-large media-object"></i>
-            </a>
-            <div class="media-body">
-              <b><a href="/polymer-dart/">Polymer.dart</a></b>
-              lets you use future web APIs today,
-              with support for web components, custom elements,
-              data binding, and more.
-            </div>
-          </div>
-        </div>
-        <div class="span6">
-          <div class="media">
-            <a class="pull-left" href="#">
-              <i class="icon-globe icon-large media-object"></i>
-            </a>
-            <div class="media-body">
-              <b>All modern browsers</b>
-              (both desktop and mobile)
-              can run Dart web apps,
-              thanks to our Dart-to-JavaScript compiler.
-              <br>
-              <img src="imgs/homepage/modern-browsers.png"
-                style="vertical-align:top"
-                alt="Chrome, Firefox, Safari, IE logos">
-            </div>
+    <div class="container-full hero-hldr">
+      <div class="hero container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h5>1.0 JUST RELEASED</h5>
+            <h1>A new language, with tools and libraries, for scalable web app engineering.</h1>
+            <button type="button" class="btn btn-default btn-lg download-btn">Download</button>
+            <p class="version">Current version of Dart: 26639</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="span4">
-      <div id="news" class="well">
-        <h5>
-          Headlines from <a href="http://news.dartlang.org/">news.dartlang.org</a>
-        </h5>
-        <div id="feed-posts">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="code">
-  <h1> Code </h1>
-
-   <p> 
-    You can find code examples in Dart Editor's welcome page,
-    in the <a href="/samples/">Samples page</a>,
-    and below.
-    You can also experiment with Dart right in your browser:
-    <a href="http://try.dartlang.org" target="_blank">try.dartlang.org</a>
-  </p>
-
-<div class="tabbable">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#syntax" data-toggle="tab">Syntax</a></li>
-    <li><a                href="#types"    data-toggle="tab">Optional types</a></li>
-    <li><a                href="#classes"  data-toggle="tab">Classes</a></li>
-    <li><a                href="#futures"  data-toggle="tab">Futures</a></li>
-    <li><a                href="#polymer"    data-toggle="tab">Polymer.dart</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane active" id="syntax">
-      <p>
-        Dart aims to be unsurprising,
-        but it does add a few language features
-        to keep your code succinct yet understandable.
-        Read all about Dart syntax in the
-        <a href="/docs/dart-up-and-running/contents/ch02.html">Dart language tour</a>.
-      </p>
-
-      <div class="row-fluid">
-        <div class="span10 offset1">
-{% prettify dart %}
-import 'dart:math';                   // Import a library.
-
-// Functions and variables can be inside or outside of classes.
-var shapes = new List();              // A global variable.
-addShape(shape) [[highlight]]=>[[/highlight]] shapes.add(shape); // Function shorthand syntax.
-
-// Every app has a main() function, where execution starts.
-[[highlight]]main()[[/highlight]] {  
-  // The cascade operator (..) saves you from repetitive typing.
-  addShape(new Ellipse(10, 20)[[highlight]]..[[/highlight]]rotation = 45*PI/180
-                              [[highlight]]..[[/highlight]]color = 'rgb(0,129,198)'
-                              [[highlight]]..[[/highlight]]outlineWidth = 0);
-  
-  // You can easily insert expression values into strings.
-  print('Area of the first shape: [[highlight]]${shapes[0].area}[[/highlight]]');
-}
-{% endprettify %}
-        </div>
+    <div class="container-full sub-hero-hldr">
+      <div id="feed-posts" class="sub-hero container">
       </div>
     </div>
 
-    <div class="tab-pane" id="types">
-      <p>
-      Declaring types is optional in Dart.
-      These types don't affect the runtime behavior,
-      but you can use them to clarify APIs
-      and get better help from tools—for example,
-      better code completion, easier navigation, and earlier error detection.
-      For details, see
-      <a href="/articles/optional-types/">Optional Types in Dart</a>.
-      </p>
-
-      <div class="row-fluid">
-        <div class="span6" id="without-types">
-{% prettify dart %}
-// Without types.
-recalculate(origin, offset, estimate) {
-  // ...
-}
-{% endprettify %}
-        </div>
-        <div class="span6" id="with-types">
-{% prettify dart %}
-// With types (and an optional parameter).
-[[highlight]]num[[/highlight]] recalculate([[highlight]]Point[[/highlight]] origin,
-                [[highlight]]num[[/highlight]] offset,
-                {[[highlight]]bool[[/highlight]] estimate:false}) {
-  // ...
-}
-{% endprettify %}
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-pane" id="classes">
-      <p>
-      Dart is object oriented, with full support for classes.
-      Each class has a single <em>superclass</em>,
-      but classes can implement any number of <em>interfaces</em>.
-      For details, see
-      <a href="/docs/dart-up-and-running/contents/ch02.html#classes">Classes</a> in the language tour.
-      </p>
-
-      <div class="row-fluid">
-        <div class="span10 offset1">
-{% prettify dart%}
-import 'dart:math';
-
-[[highlight]]class[[/highlight]] Ellipse extends Shape {              // Declare a class.
-  num majorAxis = 0;                        // An instance variable (property).
-  num minorAxis = 0;
-  static const num C = PI/4;              // A constant.
-  num get area => C*majorAxis*minorAxis;   // A property implemented with a getter.
-
-  Ellipse([[highlight]]this.majorAxis[[/highlight]], [[highlight]]this.minorAxis[[/highlight]]); // Compact constructor syntax.
-  Ellipse.circle(num diameter) {           // A named constructor.
-    minorAxis = majorAxis = diameter;
-  }
-}
-
-[[highlight]]abstract[[/highlight]] class Shape {                     // Declare a class that can't be instantiated.
-  num get area;
-  num rotation = 0;
-  num outlineWidth = 1;
-  String color = 'black';
-}
-{% endprettify %}
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-pane" id="futures">
-      <p>
-        Functions that do potentially expensive work return Futures.
-        To specify what happens when the function's work is done,
-        invoke <code>then()</code> on the Future.
-        To handle errors, invoke <code>catchError()</code>.
-        Learn more by reading
-        <a href="/articles/using-future-based-apis/">Using Future Based APIs</a>.
-      </p>
-
-      <div class="row-fluid">
-        <div class="span10 offset1">
-
-{% prettify dart %}
-import 'dart:io';
-import 'dart:async';
-
-void printDailyNewsDigest() {
-  File file = new File("dailyNewsDigest.txt");
-  [[highlight]]file.readAsString()[[/highlight]]                  // readAsString() returns a Future.
-    [[highlight]].then[[/highlight]]((content) => print(content)) // Handle successful completion.
-    [[highlight]].catchError[[/highlight]]((error) =>             // Handle failure.
-        print("Sorry, no news today. Here's why:\n$error"));
-}
-{% endprettify %}
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane" id="polymer">
-      <p>
-        Here's an example of implementing a web app using the
-        <a href="/polymer-dart/">polymer.dart</a>
-        package.
-      </p>
-
-      <div class="row-fluid">
-        <div class="span6" id="dart-code">
-{% prettify dart %}
-<head>
-  <link rel="import" href="[[highlight]]click_counter.html[[/highlight]]">
-  <script src="packages/polymer/boot.js"></script>
-</head>
-
-<body>   
-  [[highlight]]<click-counter></click-counter>[[/highlight]]
-</body>
-{% endprettify %}
-        </div>
-      <div class="span6" id="html-code">
-{% prettify html %}{% raw %}
-<polymer-element name="[[highlight]]click-counter[[/highlight]]">
-  <template>
-    <button on-click="increment">Click Me</button>
-    <p>You clicked the button {{count}} times.</p>
-  </template>
-  <script type="application/dart">
-    import 'package:polymer/polymer.dart';
-    import 'dart:html';
-
-    @CustomTag('click-counter')
-    class ClickCounterElement extends PolymerElement {
-      @observable int count = 0;
+    <div class="container dart-container">
       
-      void increment(Event e, var detail, Node target) {
-        count += 1;
-      }
-    }
-  </script>
-</polymer-element>
-{% endraw %}{% endprettify %}
+      <section class="dart-ctas">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-4">
+                <h2>See Dart</h2>
+                <p class="timer"><i class="icon-timer"></i>About 15 minutes</p>
+                <p>Dart is familiar and easy to learn. It's class based and object oriented, without being dogmatic.</p>
+                <a href="/samples/"><i class="icon-triangle"></i>See some examples</a>
+              </div>
+              <div class="col-md-4">
+                <h2>Try Dart</h2>
+                <p class="timer"><i class="icon-timer"></i>About 1 HOUR</p>
+                <p>Tools as <a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Dart Editor</a> and the <a href="http://pub.dartlang.org/">pub package manager</a> keep you productive.</p> 
+                <a href="/docs/tutorials/"><i class="icon-triangle"></i>Start Coding</a>
+              </div>
+              <div class="col-md-4">
+                <h2>Dive deep</h2>
+                <p class="timer"><i class="icon-timer"></i>About 1 DAY</p>
+                <p>Dart is has <a href="#">full documentation</a>, many videos articles, and a developer community to engage with.</p>
+                <a href="/docs/"><i class="icon-triangle"></i>Programmer’s Guides</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div> <!-- code -->
-    </div>
-  </div>
-</div>
-</section>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 browser-support">
+            <p>All modern browsers (both desktop and mobile) can run Dart web apps, thanks to our Dart-to-JavaScript compiler.</p>
+            <i class="icon-browsers"></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="dart-new-language sec-shadow">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2>Dart is a new language</h2>
+
+            <div id="dart-language-carousel" class="carousel slide dart-carousel" data-interval="false">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#dart-language-carousel" data-slide-to="0" class="active">Familiar</li>
+                <li data-target="#dart-language-carousel" data-slide-to="1">Concise</li>
+                <li data-target="#dart-language-carousel" data-slide-to="2">Optionally Typed</li>
+                <li data-target="#dart-language-carousel" data-slide-to="3">Modular</li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <p>You can already read (and probably even write) Dart code.</p>
+                  <div class="code-hldr">
+<pre class="prettyprint linenums lang-dart">
+  import 'dart:math';
+   <a href="#" class="dart-popover" data-toggle="popover" title="1 Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">class</a> Ellipse extends Shape {              // Declare a class.
+    num majorAxis = 0;                        // An instance variable (property).
+    num minorAxis = 0;
+    static const num C = PI/4;              // A constant.
+    num get area => C*majorAxis*minorAxis;   // A property implemented with a getter.
+
+    Ellipse <a href="#" class="dart-popover" data-toggle="popover" title="2 Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">(this.majorAxis, this.minorAxis)</a>; // Compact constructor syntax.
+    Ellipse.circle(num diameter) {           // A named constructor.
+      minorAxis = majorAxis = diameter;
+    }
+  }
+  abstract class Shape {                     // Declare a class that can't be instantiated.
+    num get area;
+    num rotation = 0;
+    num outlineWidth = 1;
+    String color = 'black';
+  }
+</pre>
+                  </div>
+                </div>
+                <div class="item">
+                  <p>You can already read (and probably even write) Dart code.</p>
+                  <div class="code-hldr">
+<pre class="prettyprint linenums lang-dart">
+  // Without types.
+  recalculate(origin, offset, estimate) {
+    // ...
+  }
+
+  // With types (and an optional parameter).
+  num recalculate(Point origin,
+                  <a href="#" class="dart-popover" data-toggle="popover" title="2 Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">num</a> offset,
+                  {bool estimate:false}) {
+    // ...
+  }
+</pre>
+                  </div>
+                </div>
+                <div class="item">
+                  <p>You can already read (and probably even write) Dart code.</p>
+                  <div class="code-hldr">
+<pre class="prettyprint linenums lang-dart">
+  import 'dart:math'; // Import a library.
+
+  // Functions and variables can be inside or outside of classes.
+  var shapes = new List(); // A global variable.
+  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+
+  // Every app has a main() function, where execution starts.
+  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
+    // The cascade operator (..) saves you from repetitive typing.
+    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
+                                ..color = 'rgb(0,129,198)'
+                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
+    
+    // You can easily insert expression values into strings.
+    print('Area of the first shape: ${shapes[0].area}');
+  }
+</pre>
+                  </div>
+                </div>
+                <div class="item">
+                  <p>You can already read (and probably even write) Dart code.</p>
+                  <div class="code-hldr">  
+<pre class="prettyprint linenums lang-dart">
+  import 'dart:math'; // Import a library.
+
+  // Functions and variables can be inside or outside of classes.
+  var shapes = new List(); // A global variable.
+  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+
+  // Every app has a main() function, where execution starts.
+  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
+    // The cascade operator (..) saves you from repetitive typing.
+    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
+                                ..color = 'rgb(0,129,198)'
+                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
+    
+    // You can easily insert expression values into strings.
+    print('Area of the first shape: ${shapes[0].area}');
+  }
+</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      
+      <section class="dart-libraries">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2>Dart’s comprehensive libraries give you lots of choices</h2>
+
+            <div id="dart-libraries-carousel" class="carousel slide dart-carousel" data-interval="false">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#dart-libraries-carousel" data-slide-to="0" class="active">Collections</li>
+                <li data-target="#dart-libraries-carousel" data-slide-to="1">Async</li>
+                <li data-target="#dart-libraries-carousel" data-slide-to="2">HTML</li>
+                <li data-target="#dart-libraries-carousel" data-slide-to="3">Testing</li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
+                  <div class="code-hldr">        
+<pre class="prettyprint linenums lang-dart">
+  import 'dart:math'; // Import a library.
+
+  // Functions and variables can be inside or outside of classes.
+  var shapes = new List(); // A global variable.
+  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+
+  // Every app has a main() function, where execution starts.
+  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
+    // The cascade operator (..) saves you from repetitive typing.
+    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
+                                ..color = 'rgb(0,129,198)'
+                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
+    
+    // You can easily insert expression values into strings.
+    print('Area of the first shape: ${shapes[0].area}');
+  }
+</pre>
+                  </div>
+                </div>
+                <div class="item">
+                  <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
+                  <div class="code-hldr">   
+<pre class="prettyprint linenums lang-dart">
+  import 'dart:math'; // Import a library.
+
+  // Functions and variables can be inside or outside of classes.
+  var shapes = new List(); // A global variable.
+  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+
+  // Every app has a main() function, where execution starts.
+  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
+    // The cascade operator (..) saves you from repetitive typing.
+    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
+                                ..color = 'rgb(0,129,198)'
+                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
+    
+    // You can easily insert expression values into strings.
+    print('Area of the first shape: ${shapes[0].area}');
+  }
+</pre>
+                  </div>
+                </div>
+                <div class="item">
+                  <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
+                  <div class="code-hldr">
+<pre class="prettyprint linenums lang-dart">
+  import 'dart:math'; // Import a library.
+
+  // Functions and variables can be inside or outside of classes.
+  var shapes = new List(); // A global variable.
+  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+
+  // Every app has a main() function, where execution starts.
+  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
+    // The cascade operator (..) saves you from repetitive typing.
+    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
+                                ..color = 'rgb(0,129,198)'
+                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
+    
+    // You can easily insert expression values into strings.
+    print('Area of the first shape: ${shapes[0].area}');
+  }
+</pre>
+                  </div>
+                </div>
+                <div class="item">
+                  <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
+                  <div class="code-hldr">
+<pre class="prettyprint linenums lang-dart">
+  import 'dart:math'; // Import a library.
+
+  // Functions and variables can be inside or outside of classes.
+  var shapes = new List(); // A global variable.
+  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+
+  // Every app has a main() function, where execution starts.
+  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
+    // The cascade operator (..) saves you from repetitive typing.
+    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
+                                ..color = 'rgb(0,129,198)'
+                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
+    
+    // You can easily insert expression values into strings.
+    print('Area of the first shape: ${shapes[0].area}');
+  }
+</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="js-dart-apps sec-shadow">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2>Compilation to JavaScript lets you deploy Dart apps now</h2>
+
+            <div id="js-dart-apps-carousel" class="carousel slide dart-carousel" data-interval="false">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#js-dart-apps-carousel" data-slide-to="0" class="active">Runs in all modern browsers</li>
+                <li data-target="#js-dart-apps-carousel" data-slide-to="1">Tree shaking</li>
+                <li data-target="#js-dart-apps-carousel" data-slide-to="2">Minifying</li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <p>Compile Dart to JavaScript and let all modern browsers run your app.</p>
+                  <img src="/imgs/temp-code-example.png" alt="Modern Browsers">
+
+                </div>
+                <div class="item">
+                  <p>Use lots of libraries? That’s OK. Tree shaking gets rid of the stuff you don’t need.</p>
+                   <img src="/imgs/slider-tree-example.png" alt="temp image">
+                </div>
+                <div class="item">
+                  <p>Shrink your code before you deploy to generate faster-loading JavaScript.</p>
+                  <img src="/imgs/slider-minify-example.png" alt="temp image">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="amazing-apps">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h2>Dart is used to build amazing apps</h2>
+
+            <div id="amazing-apps-carousel" class="carousel slide dart-carousel" data-interval="false">
+              <!-- Indicators -->
+              <ol class="carousel-indicators icon-indicators">
+                <li data-target="#amazing-apps-carousel" data-slide-to="0" class="active"><i class="icon-app-1"></i></li>
+                <li data-target="#amazing-apps-carousel" data-slide-to="1"><i class="icon-app-2"></i></li>
+                <li data-target="#amazing-apps-carousel" data-slide-to="2"><i class="icon-app-3"></i></li>
+                <li data-target="#amazing-apps-carousel" data-slide-to="3"><i class="icon-app-4"></i></li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+
+                  <h4>"Being able to work well at scale is extremely important, and Dart is instrumental to this effort"</h4>
+                  <p class="person">Firstname Lastname, <span class="title">Title</span></p>
+                  <p class="company">Mandrill</p>
+
+                </div>
+                <div class="item">
+           <h4>"Being able to work well at scale is extremely important, and Dart is instrumental to this effort"</h4>
+                  <p class="person">Firstname Lastname, <span class="title">Title</span></p>
+                  <p class="company">Mandrill</p>
+                  
+                </div>
+                <div class="item">
+           <h4>"Being able to work well at scale is extremely important, and Dart is instrumental to this effort"</h4>
+                  <p class="person">Firstname Lastname, <span class="title">Title</span></p>
+                  <p class="company">Mandrill</p>
+                </div>
+                <div class="item">
+           <h4>"Being able to work well at scale is extremely important, and Dart is instrumental to this effort"</h4>
+                  <p class="person">Firstname Lastname, <span class="title">Title</span></p>
+                  <p class="company">Mandrill</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="productivity-tools sec-shadow">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Dart’s tools help you be productive</h2>
+            <img src="/imgs/dart-editor.png" alt="Image of Dart Editor">
+            <p>Dart Editor is best way to get started, this editor helps you edit, debug, and run Dart apps. When you download Dart Editor, you get all of the other tools, as well.</p>
+          </div>
+        </div>
+        <div class="row productivity-tools-options">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="row">
+              <div class="col-md-4">
+                <h6>Dev Server</h6>
+                <p>Automatically generate assets using pub’s dev server</p>
+              </div>
+              <div class="col-md-4">
+                <h6>Pub package manager</h6>
+                <p>The easiest way to get and share Dart code, pub keeps your packages up to date, handling versioning and dependency</p>
+              </div>
+              <div class="col-md-4">
+                <h6>Dartium</h6>
+                <p>Experience zero-compile edit/refresh cycles. This build of Chromium includes the Dart VM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12">
+          {% include downloads/_dart-editor.html %}
+          </div>
+          <aside class="alert alert-info">
+            <b>Note:</b>
+            You can write Dart apps using any recent version of
+            {% include os-choices.html %}
+            The Dart development tools <b>do not&nbsp;support Windows XP</b>.
+            Dart Editor requires Java version 6 or higher.
+          </aside>
+        </div>
 
 
-<section id="get-started">
 
-<h1> Get started </h1>
-
-<p>
-  Getting started with Dart is easy.
-  Just download Dart,
-  and you'll get <a href="/tools/editor/">Dart Editor</a>,
-  a full-featured editing environment
-  that comes with samples
-  and app templates.
-  Then, for a gentle introduction to web programming,
-  follow the <a href="/docs/tutorials/">Dart tutorials</a>.
-  When you have a question
-  that the documentation doesn't answer, check
-  <a href="http://stackoverflow.com/questions/tagged/dart">Stack Overflow</a>.
-</p>
-
-<div class="row-fluid callouts">
-  <div class="span4">
-    <h2> <i class="icon-download-alt"></i> Get Dart </h2>
-
-    <p>
-      Download Dart to get
-      and everything you need
-      to edit, run, and debug Dart apps.
-    </p>
-
-    {% include downloads/_dart-editor.html %}
-
-    <p>
-      Also see:
-      <a href="/tools/">Tools&nbsp;for&nbsp;Dart</a>
-    </p>
-  </div>
-
-  <div class="span4">
-    <h2><i class="icon-book"></i> Learn</h2>
-
-    <ul>
-      <li><a href="/docs/tutorials/">Follow the Dart tutorials</a></li>
-      <li><a href="/samples/">Tour the samples</a></li>
-      <li><a href="/dart-tips/">Watch a 5-minute video</a></li>
-      <li> <a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Play
-      with Dart Editor (with samples!)</a></li>
-    </ul>
-
-    <p>
-      Also see:
-      <a href="/docs/">Programmer's&nbsp;Guide</a>,
-      <a href="/docs/cookbook/">Dart&nbsp;Cookbook</a>
-    </p>
-  </div>
-
-  <div class="span4">
-    <h2><i class="icon-comments"></i> Join In </h2>
-      <ul>
-        <li><a href="/support/">Join mailing lists</a></li>
-        <li><a href="http://stackoverflow.com/questions/tagged/dart">Get answers at Stack Overflow</a></li>
-        <li><a href="https://plus.google.com/109866369054280216564/posts">Follow on G+</a>
-          or <a href="http://twitter.com/dart_lang">Twitter</a></li>
-        <li><a href="https://plus.google.com/communities/114566943291919232850">Join the G+ Dartisans community</a>
-        <li><a href="http://dartbug.com/new">File feature requests and bugs</a></li>
-        <li><a href="http://code.google.com/p/dart/wiki/Contributing">Submit a patch</a></li>
-      </ul>
-
-    <p>
-      Also see:
-      <a href="/support/">Support and Community Resources</a>
-    </p>
-  </div>
-</div>
-
-<aside class="alert alert-info">
-  <b>Note:</b>
-  You can write Dart apps using any recent version of
-  {% include os-choices.html %}
-  The Dart development tools <b>do not&nbsp;support Windows XP</b>.
-  Dart Editor requires Java version 6 or higher.
-</aside>
-
-</section>
-
-</article> <!-- /.homepage -->
-
+      </section>
