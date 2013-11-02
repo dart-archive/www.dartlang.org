@@ -1,7 +1,17 @@
 {% include header.html %}
 
-  <article{% if page.has-permalinks %} class="has-permalinks"{% endif %}>
+<div class="container-page">
+  <div class="container">
+    <article{% if page.has-permalinks %} class="has-permalinks"{% endif %}>
     {{ content }}
-  </article>
+    </article>
+    
+	{% if page.article %}
+	<ul class="pager">
+	  <li><a href="/articles/">More articles about Dart <i class="icon-level-up"></i></a></li>
+	</ul>
+	{% endif %}
+  </div>
+</div>
 
 {% include footer.html %}
