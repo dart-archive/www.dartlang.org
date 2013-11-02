@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Emulating Functions in Dart"
 description: Learn how to define Dart classes that behave like functions.
 rel:
@@ -11,6 +11,12 @@ article:
   collection: language-details
 ---
 
+{% include toc.html %}
+
+{::options parse_block_html="true" /}
+<div class="col-md-7">
+{::options parse_block_html="false" /}  
+
 # {{ page.title }}
 
 
@@ -20,9 +26,6 @@ January 2012
 
 This document describes how to define Dart classes
 that behave like functions.
-
-{% include toc.html %}
-
 
 ## The call() method
 
@@ -201,3 +204,8 @@ implement your own function type in Dart:
     when invoked as functions via the **()** syntax.
 1.  As a matter of good style,
     have the class implement the **Function** interface.
+
+
+{::options parse_block_html="true" /}
+</div>
+{::options parse_block_html="false" /}      
