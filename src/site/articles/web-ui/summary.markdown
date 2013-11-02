@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Web UI Feature Summary"
 rel:
   author: siggi-cherem
@@ -12,6 +12,8 @@ See README comment in index.markdown for explanations of
 {{'{{'}}, \{\% raw \%\}, and \{\% codesample \%\}.
 
 {% endcomment %}
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -33,8 +35,6 @@ help you write web applications at scale. The following tables collect all
 features supported by Web UI. Read the [reference specification](spec.html) for
 more details, or refer to our [explainer article](index.html) for a high-level
 introduction and examples.
-
-{% include toc.html %}
 
 ## Web components features
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Web UI Package"
 rel:
   author: sigmund-cherem
@@ -40,14 +40,18 @@ that will contain the running version of the code sample.
 {% iframeprefix example/ %}
 {% endcodesampleSetup %}
 
+{% include toc.html %}
+
+{::options parse_block_html="true" /}
 <div class="hero-unit">
-      <h1> Introducing Polymer.dart </h1>
-      <p markdown="1">
+<h1> Introducing Polymer.dart </h1>
+<p markdown="1">
         [Polymer.dart](/polymer-dart/), the next evolution of Web UI, has
         better debugging,
         faster development, and closer spec alignment.
-      </p>
+</p>
 </div>
+{::options parse_block_html="false" /}  
 
 # {{ page.title }}
 
@@ -96,8 +100,6 @@ See the page <a href="tools.html">Tools for Web UI</a>
 for details on using Dart Editor and command-line scripts
 to compile code that uses Web UI.
 </aside>
-
-{% include toc.html %}
 
 ## MDV templates in Dart {#templates}
 
