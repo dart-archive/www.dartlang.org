@@ -50,10 +50,10 @@ from left to right...or choose just the ones you need.
       discover which tools and libraries you get with the bundle.
       Run two sample apps.
 
-      <div class="row-fluid">
+      <div class="row">
 
         <!-- Getting Started -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="get-started/"><img src="images/target.png" height="20" width="20">&nbsp;Get started</a></h4>
             <p>Get Dart. Run two apps.
@@ -61,7 +61,7 @@ from left to right...or choose just the ones you need.
           <img src="images/clickme-screenshot.png" width="300">
           </section>
         </div>
-        <div class="span6">
+        <div class="col-md-6">
           <section>
             <h4>Get the sample code</h4>
             Before moving on,
@@ -88,7 +88,7 @@ from left to right...or choose just the ones you need.
           </section>
         </div>
 
-      </div> <!-- end row-fluid -->
+      </div> <!-- end row -->
     </div> <!-- end Getting Started tab -->
 
   <!-- DOM TAB -->
@@ -102,9 +102,9 @@ from left to right...or choose just the ones you need.
       First, learn how to connect Dart and HTML.
       Then learn how to add, move, and remove DOM elements.
 
-      <div class="row-fluid">
+      <div class="row">
         <!-- Connect Dart & HTML -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="connect-dart-html/"><img src="images/target.png" height="20" width="20">&nbsp;Connect Dart &amp; HTML</a></h4>
             <p>Include a Dart script in an HTML page.
@@ -114,7 +114,7 @@ from left to right...or choose just the ones you need.
         </div>
 
         <!-- Add Elements -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="add-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Add Elements to the DOM</a></h4>
           <p>Add elements to the web page and move them.</p>
@@ -125,19 +125,19 @@ from left to right...or choose just the ones you need.
       </div>
 
 
-      <div class="row-fluid">
+      <div class="row">
         <!-- Remove Elements -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="remove-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Remove DOM Elements</a></h4>
           <p>Delete elements from the web page.</p>
           <img src="images/todo-with-delete-screenshot.png" width="300">
           </section>
         </div>
-        <div class="span6">
+        <div class="col-md-6">
         </div>
 
-      </div> <!-- end row-fluid -->
+      </div> <!-- end row -->
     </div> <!-- end DOM tab -->
 
   <!-- PACKAGES TAB -->
@@ -146,17 +146,17 @@ from left to right...or choose just the ones you need.
       Dart developers have been busy creating code libraries that can help you be more productive.
       Leverage that code or put your code out in the world to share with others.
 
-      <div class="row-fluid">
+      <div class="row">
 
         <!-- Packages -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="shared-pkgs/"><img src="images/target.png" height="20" width="20">&nbsp;Install Shared Packages</a></h4>
           <p>Organize and share code at <a href="http://pub.dartlang.org/">pub.dartlang.org</a>.</p>
           <img src="images/add-packages-screenshot.png" width="300">
           </section>
         </div>
-        <div class="span6">
+        <div class="col-md-6">
 
         </div>
       </div>
@@ -164,9 +164,9 @@ from left to right...or choose just the ones you need.
 
   <!-- POLYMER TAB -->
     <div class="tab-pane" id="polymer">
-      <div class="row-fluid">
+      <div class="row">
 
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="polymer-intro/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom Element</a></h4>
           <p>Create a custom HTML element using Polymer.</p>
@@ -174,7 +174,7 @@ from left to right...or choose just the ones you need.
           </section>
         </div>
 
-        <div class="span6">
+        <div class="col-md-6">
         </div>
 
       </div>
@@ -189,10 +189,10 @@ from left to right...or choose just the ones you need.
       You can use JSON to format data and HttpRequest to send requests and receive responses.
       And, finally, you can save data on the client with IndexedDB.
 
-      <div class="row-fluid">
+      <div class="row">
 
         <!-- Fetch Data -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="fetchdata/"><img src="images/target.png" height="20" width="20">&nbsp;Fetch Data Dynamically</a></h4>
           <p>Load data from a static file or from a server.</p>
@@ -201,35 +201,35 @@ from left to right...or choose just the ones you need.
         </div>
 
         <!-- Forms -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="forms/"><img src="images/target.png" height="20" width="20">&nbsp;Get Input from a Form</a></h4>
           <p>Use forms and input elements to get data.</p>
           <img src="images/slambook-screenshot.png" width="300">
           </section>
         </div>
-      </div> <!-- end row-fluid -->
+      </div> <!-- end row -->
 
-      <div class="row-fluid">
+      <div class="row">
         <!-- IndexedDB -->
-        <div class="span6">
+        <div class="col-md-6">
           <section>
           <h4><a href="indexeddb/"><img src="images/target.png" height="20" width="20">&nbsp;Use IndexedDB</a></h4>
           <p>Save data on the client with IndexedDB.</p>
           <img src="images/countdown-screenshot.png" width="300">
           </section>
         </div>
-        <div class="span6">
+        <div class="col-md-6">
         </div>
-      </div> <!-- end row-fluid -->
+      </div> <!-- end row -->
     </div> <!-- end FORMS tab -->
 
   <!-- MOBILE TAB -->
   <!--
     <div class="tab-pane" id="mobile">
-      <div class="row-fluid">
+      <div class="row">
 
-        <div class="span6" style="border-right:1px solid Lavender">
+        <div class="col-md-6" style="border-right:1px solid Lavender">
           <section>
           <h4><a href="mobile/"><img src="images/target.png" height="20" width="20">&nbsp;Write for Mobile Devices</a></h4>
           <p>Mobile devices are taking over the world!</p>
@@ -237,7 +237,7 @@ from left to right...or choose just the ones you need.
           </section>
         </div>
 
-        <div class="span6">
+        <div class="col-md-6">
         </div>
 
       </div>
