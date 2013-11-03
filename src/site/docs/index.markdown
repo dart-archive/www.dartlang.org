@@ -1,16 +1,11 @@
 ---
-layout: default
+layout: article
 title: "Programmer's Guide"
 description: "Documentation, references, and more about the Dart language, libraries, and tools."
 has-permalinks: true
 ---
 
-<div class="row-fluid" markdown="1">
-<div class="span3" id="toc-side" markdown="1">
-{% include guide_toc.html %}
-</div>
-
-<div class="span9 offset3" markdown="1">
+{% include docs_toc.html %}
 
 # {{ page.title }}
 
@@ -242,5 +237,3 @@ or start a discussion on the appropriate
 
 * [Dart issues](http://code.google.com/p/dart/issues/list)
 
-</div>
-</div>
