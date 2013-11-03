@@ -885,3 +885,12 @@ border-radius: 4px;}
 	font-size: 11px;
 	line-height: 16px;
 }
+
+/* Disable numbing on toc elements */
+.toc ol > li {
+	list-style-type: none;
+}
+
+.toc li {
+	list-style-type: none;
+}
