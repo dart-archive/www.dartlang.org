@@ -98,11 +98,11 @@ contains the following:
 <div>
   <hr>
   <div class="row">
-    <div class="span2">
+    <div class="col-md-2">
     <img src="images/dart-editor-icon.png"
          width="77" height="93" alt="Dart Editor"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     Dart Editor is a powerful,
     lightweight, open source editor.
     With it you can create and edit files,
@@ -113,11 +113,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
+    <div class="col-md-2">
     <img src="images/chromium.png"
          width="81" height="89" alt="Dartium, a special Chromium build"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     This is a special build of the Chromium web browser, 
     called Dartium, that has the Dart VM (virtual machine) embedded.
     You can run your apps directly in this browser,
@@ -127,11 +127,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
+    <div class="col-md-2">
     <img src="images/dart-sdk-directory.png"
          width="86" height="94" alt="dart-sdk directory"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     The dart-sdk directory contains the Dart software development kit.
     Here you will find Dart libraries, such as dart:core and dart:html,
     that define APIs useful to all apps.
@@ -142,11 +142,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
+    <div class="col-md-2">
     <img src="images/samples-directory.png"
          width="81" height="91" alt="samples directory"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     The samples directory contains the complete source code
     for several Dart web applications.
     You can experiment with
@@ -155,11 +155,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
+    <div class="col-md-2">
     <img src="images/and-the-rest.png"
          width="81" height="71" alt="more directories"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     You might notice some other directories
     in the Dart installation directory.
     You can ignore them for now. 
