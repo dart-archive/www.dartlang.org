@@ -45,7 +45,7 @@ and our 5-minute video tutorials, [Dart Tips](/dart-tips/).
 
 <ul class="thumbnails">
   {% for preso in page.presos %}
-  <li class="span6" id="{{ preso.short }}">
+  <li class="col-md-6" id="{{ preso.short }}">
     <div class="thumbnail">
       <img class="screenshot" src="imgs/{{ preso.short }}.jpg">
       <div class="presentation-details">

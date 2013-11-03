@@ -140,9 +140,9 @@ for details on implementing your own build.dart file.
   </p>  
 
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       <ul class="thumbnails">
-        <li class="span6">
+        <li class="col-md-6">
           <div class="thumbnail">
             <img src="images/editor-code-completion.png" alt="Code completion in Dart Editor">
             <h5>Code completion</h5>
@@ -153,7 +153,7 @@ for details on implementing your own build.dart file.
           </div>
         </li>
 
-        <li class="span6">
+        <li class="col-md-6">
           <div class="thumbnail">
             <img src="images/editor-refactor.png" alt="Refactoring in Dart Editor">
             <h5>Refactoring</h5>
@@ -168,9 +168,9 @@ for details on implementing your own build.dart file.
   </div>
 
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       <ul class="thumbnails">
-        <li class="span6">
+        <li class="col-md-6">
           <div class="thumbnail">
             <img src="images/editor-outline.png" alt="Code completion in Dart Editor">
             <h5>Outline view</h5>
@@ -182,7 +182,7 @@ for details on implementing your own build.dart file.
           </div>
         </li>
 
-        <li class="span6">
+        <li class="col-md-6">
           <div class="thumbnail">
             <img src="images/editor-debug.png" alt="Debugging in Dart Editor">
             <h5>Debugger</h5>
@@ -197,10 +197,10 @@ for details on implementing your own build.dart file.
   </div>
 
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       <ul class="thumbnails">
 
-        <li class="span6">
+        <li class="col-md-6">
           <div class="thumbnail">
             <img src="images/editor-warnings.png" alt="Static analysis warnings in Dart Editor">
             <h5>Static analysis</h5>
@@ -210,7 +210,7 @@ for details on implementing your own build.dart file.
           </div>
         </li>
 
-        <li class="span6">
+        <li class="col-md-6">
           <div class="thumbnail">
             <img src="images/editor-callers.png" alt="Find callers for methods in Dart Editor">
             <h5>Find callers</h5>

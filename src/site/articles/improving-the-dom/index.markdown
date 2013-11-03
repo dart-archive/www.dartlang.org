@@ -52,7 +52,7 @@ Using CSS Selectors</em>. With the One True Way in hand, we've stripped it
 down to just two (!) methods: `query()` and `queryAll()`.
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Old:
@@ -72,7 +72,7 @@ selectElement.options
 
   </div>
 
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify dart %}
 // New:
@@ -84,7 +84,7 @@ queryAll()
 </div>
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Old:
@@ -97,7 +97,7 @@ elem.querySelectorAll('.foo .bar');
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_query) -->{% prettify dart %}
 // New:
@@ -144,7 +144,7 @@ special-case methods too. Instead of a bunch of methods on `Element`
 for working with attributes, we just made `attributes` a map:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Old:
@@ -156,7 +156,7 @@ elem.removeAttribute('name');
 
   </div>
 
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_attributes) -->{% prettify dart %}
 // New:
@@ -174,7 +174,7 @@ full-featured collections, we can get rid of a bunch of methods on
 `Element` and `Node`:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Old:
@@ -185,7 +185,7 @@ elem.appendChild(child);
 
   </div>
 
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_nodes) -->{% prettify dart %}
 // New:
@@ -207,7 +207,7 @@ Dart is a _class-based_ object-oriented language. We have constructors,
 and we like constructors.
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Old:
@@ -216,7 +216,7 @@ document.createElement('div');
 
   </div>
 
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_constructors) -->{% prettify dart %}
 // New:
@@ -276,7 +276,7 @@ that can register listeners and dispatch events.
 Here's an example:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Old:
@@ -288,7 +288,7 @@ elem.removeEventListener(
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_listen) -->{% prettify dart %}
 // New:
@@ -317,7 +317,7 @@ event, or work with events generically, we also put a subscript operator on
 [Events](http://api.dartlang.org/docs/releases/latest/dart_html/Events.html):
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Old:
@@ -328,7 +328,7 @@ elem.addEventListener(
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_listen_dynamic) -->{% prettify dart %}
 // New:
@@ -356,7 +356,7 @@ a feature across implementations. Dart's HTML library takes care of it for you.
 Here's one example for `getUserMedia`:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Traditionally:
@@ -367,7 +367,7 @@ navigator.getMedia = ( navigator.getUserMedia ||
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify dart %}
 // With Dart:
@@ -380,7 +380,7 @@ window.navigator.getUserMedia(audio:true, video: true) ...
 Here's `indexedDB`:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 window.indexedDB = window.indexedDB ||
@@ -390,7 +390,7 @@ window.indexedDB = window.indexedDB ||
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify dart %}
 // With Dart:
@@ -419,7 +419,7 @@ Compare and contrast `getUserMedia`'s traditional interface and
 its new Future-based interface from Dart:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Traditionally:
@@ -454,7 +454,7 @@ navigator.getMedia (
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_get_user_media) -->{% prettify dart %}
 // With Dart:
@@ -475,7 +475,7 @@ window.navigator.getUserMedia(audio:true, video: true)
 Here is IndexedDB, all Future-ized:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify javascript %}
 // Traditionally:
@@ -505,7 +505,7 @@ db.transaction("customers")
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_indexdb) -->{% prettify dart %}
 // With Dart:
@@ -584,7 +584,7 @@ Luckily, Dart has _method cascades_, a language feature to help simplify
 builder-type APIs like the DOM.
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 
 {% prettify dart %}
 // Without cascades:
@@ -596,7 +596,7 @@ button.onClick.listen((e) => registerAccount());
 {% endprettify %}
 
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 
 <!--- BEGIN(element_cascades) -->{% prettify dart %}
 // With cascades:

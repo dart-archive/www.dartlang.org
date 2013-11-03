@@ -25,10 +25,10 @@ or with
 {% capture link %}dartisans-ep-{{episode.num}}.html{% endcapture %}
 
 <div class="row" style="margin-bottom:1em">
-  <div class="span2">
+  <div class="col-md-2">
     <a href="{{ link }}"><img style="margin-top:9px; box-shadow: 5px 5px 10px #CCC" src="{{episode.thumbnail}}"></a>
   </div>
-  <div class="span10">
+  <div class="col-md-10">
     <h3><a href="{{ link }}">Ep. {{ episode.num }}: {{ episode.subtitle }}</a></h3>
     
     <p>{{ episode.description }}</p>

@@ -59,9 +59,9 @@ hr {
       </p>
 </div>
 
-<div class="row-fluid" markdown="1">
+<div class="row" markdown="1">
 
-<div class="span3" markdown="1">
+<div class="col-md-3" markdown="1">
 
 <div class="sidenav" data-spy="affix" data-offset-top="250" markdown="1">
 
@@ -72,16 +72,16 @@ hr {
 
 </div>
 
-<div class="span8" markdown="1">
+<div class="col-md-8" markdown="1">
 
 ## Features
 
 Polymer.dart is a port of _Polymer Foundation_
 and _Polymer Core_.
 
-<div class="row-fluid features">
+<div class="row features">
 
-<div class="span4 text-center">
+<div class="col-md-4 text-center">
 
 <i class="icon icon-code"> </i>
 
@@ -92,7 +92,7 @@ style, structure, and behavior.
 
 </div>
 
-<div class="span4 text-center">
+<div class="col-md-4 text-center">
 
 <i class="icon icon-exchange"> </i>
 
@@ -102,7 +102,7 @@ Create live, two-way bindings between Dart objects and DOM nodes.
 
 </div>
 
-<div class="span4 text-center">
+<div class="col-md-4 text-center">
 
 <i class="icon icon-check"> </i>
 

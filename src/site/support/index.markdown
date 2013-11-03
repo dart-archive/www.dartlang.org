@@ -11,7 +11,7 @@ Track the Dart project and join the conversation in a variety of ways.
 
 <div class="row">
 
-  <div class="span6" markdown="1">
+  <div class="col-md-6" markdown="1">
 
 ## Join the conversation
 
@@ -49,7 +49,7 @@ Communities
   
 </div>
 
-  <div class="span6" markdown="1">
+  <div class="col-md-6" markdown="1">
 
 ## Track the project
 

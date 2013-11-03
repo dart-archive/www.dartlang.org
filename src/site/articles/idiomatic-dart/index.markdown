@@ -726,7 +726,7 @@ eschews ceremonial API docs for more fluid and natural comments.
 Compare and contrast Java and Dart comment styles:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 {% prettify java %}
 /**
  * Returns an Llama object that can then be petted. 
@@ -750,7 +750,7 @@ Compare and contrast Java and Dart comment styles:
  }
 {% endprettify %}
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 {% prettify dart %}
 /**
  * Returns a Llama that can be petted.
