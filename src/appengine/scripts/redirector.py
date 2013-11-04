@@ -69,6 +69,9 @@ class CloudStorageRedirect(RequestHandler):
 class EditorUpdateRedirect(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
 
+class EditorUpdateRedirectBeChannel(CloudStorageRedirect):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw'
+
 class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release'
 
@@ -84,6 +87,9 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
 
 class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+
+class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
 
 class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
@@ -115,11 +121,15 @@ application = WSGIApplication(
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
     ('/articles/dart-web-components/.*', WebUiRedirect),
+    Route('/editor/update/channels/be<path:.*>',
+      EditorUpdateRedirectBeChannel),
     Route('/editor/update/channels/dev<path:.*>',
       EditorUpdateRedirectDevChannel),
     Route('/editor/update/channels/stable<path:.*>',
       EditorUpdateRedirectStableChannel),
     Route('/editor/update<path:.*>', EditorUpdateRedirect),
+    Route('/eclipse/update/channels/be<path:.*>',
+      EclipseUpdateRedirectBeChannel),
     Route('/eclipse/update/channels/dev<path:.*>',
       EclipseUpdateRedirectDevChannel),
     Route('/eclipse/update/channels/stable<path:.*>',
