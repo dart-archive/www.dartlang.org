@@ -128,10 +128,16 @@ handlers:
 - url: /hangouts.*
   script: scripts.redirector.application
 
+- url: /codelabs/
+  script: scripts.redirector.application
+
 - url: /codelab
   script: scripts.redirector.application
 
 - url: /codelabs/web-ui-writer/codelab.pdf
+  script: scripts.redirector.application
+
+- url: /codelabs/web-ui-writer/
   script: scripts.redirector.application
 
 - url: /eclipse/update.*
