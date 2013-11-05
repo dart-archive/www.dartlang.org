@@ -45,7 +45,7 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Run `sudo gem install jekyll`?
 * Run `sudo gem install kramdown`
 * Run `sudo gem install compass`
-* If you see errors similar to `library X (at master) is not checked out. Please run 'bundle install'`, you should run `sudo bundle install --path vendor/cache`
+* If you see errors similar to `library X (at master) is not checked out. Please run 'bundle install'`, you should run `bundle install` (without the sudo)
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not.
     * It will say, in the log "you're using 2.6".
