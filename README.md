@@ -36,14 +36,16 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 
 * Ensure you have Ruby 1.9.3.
   * You can use **brew** (if you're on a Mac), but it installs Ruby 2 by default.
-	* You probably want to use RVM to manage Ruby versions. [Here are some instructions for setting up RVM on Mac](http://net.tutsplus.com/tutorials/ruby/how-to-install-ruby-on-a-mac/).
+  * You probably want to use RVM to manage Ruby versions. [Here are some instructions for setting up RVM on Mac](http://net.tutsplus.com/tutorials/ruby/how-to-install-ruby-on-a-mac/).
 * Ensure you have Python 2.7.
   * On a Mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
 * Run `sudo gem install bundler`.
 * Run `sudo bundle install` from the root of your dartlang project.
 * Run `sudo gem install jekyll`?
-* Run 'sudo gem install kramdown'
+* Run `sudo gem install kramdown`
+* Run `sudo gem install compass`
+* If you see errors similar to `library X (at master) is not checked out. Please run 'bundle install'`, you should run `sudo bundle install --path vendor/cache`
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not.
     * It will say, in the log "you're using 2.6".
