@@ -67,16 +67,16 @@ class CloudStorageRedirect(RequestHandler):
     self.redirect(self.prefix + path, permanent=False)
 
 class EditorUpdateRedirect(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
+  prefix = 'https://storage.googleapis.com/dart-editor-archive-integration'
 
 class EditorUpdateRedirectBeChannel(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/be/raw'
 
 class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/dev/release'
 
 class EditorUpdateRedirectStableChannel(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/stable/release'
 
 class EclipseUpdateRedirectBase(CloudStorageRedirect):
   def get(self, *args, **kwargs):
@@ -86,16 +86,16 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
     self.redirect_to_cloud_storage(filename)
 
 class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+  prefix = 'https://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
 
 class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
 
 class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
 
 class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
 class BookRedirect(RequestHandler):
   def get(self, *args, **kwargs):
