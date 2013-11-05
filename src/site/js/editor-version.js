@@ -15,7 +15,7 @@ $(document).ready(function() {
       url: 'http://dartlang.org/editor/update/channels/' + channel + '/latest/VERSION',
       dataType: "json",
       success: function(data) {
-        updatePlaceholders(buildType, data['revision']);
+        updatePlaceholders(channel, data['revision']);
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(textStatus);
