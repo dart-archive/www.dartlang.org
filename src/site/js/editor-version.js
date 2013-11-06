@@ -12,7 +12,7 @@ $(document).ready(function() {
   var fetchEditorVersion = function(channel) {
     $.ajax({
       type: "GET",
-      url: 'http://dartlang.org/editor/update/channels/' + channel + '/latest/VERSION',
+      url: 'https://storage.googleapis.com/dart-archive/channels/' + channel + '/release/latest/VERSION',
       dataType: "json",
       success: function(data) {
         updatePlaceholders(channel, data['revision']);
