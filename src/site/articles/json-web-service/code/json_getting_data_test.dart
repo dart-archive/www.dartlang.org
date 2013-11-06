@@ -1,4 +1,3 @@
-import "dart:json";
 import "dart:html";
 
 void loadData() {

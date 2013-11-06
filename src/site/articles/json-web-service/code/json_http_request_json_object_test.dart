@@ -1,6 +1,5 @@
 // Note: all commented out code fails the static type checker
 //import "package:json_object/json_object.dart";
-import "dart:json";
 import "dart:html";
 
 void onDataLoaded(HttpRequest req) {
