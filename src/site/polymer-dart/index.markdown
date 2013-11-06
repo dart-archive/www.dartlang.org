@@ -43,13 +43,13 @@ hr {
   }
 }
 
-.hero-unit h1 {
+.jumbotron h1 {
   margin-bottom: 22px;
 }
 
 </style>
 
-<div class="hero-unit">
+<div class="jumbotron">
       <h1> {{page.title}} </h1>
       <p>
         Build structured, encapsulated, client-side web apps with Dart and

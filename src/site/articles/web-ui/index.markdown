@@ -43,7 +43,7 @@ that will contain the running version of the code sample.
 {% include toc.html %}
 
 {::options parse_block_html="true" /}
-<div class="hero-unit">
+<div class="jumbotron">
 <h1> Introducing Polymer.dart </h1>
 <p markdown="1">
         [Polymer.dart](/polymer-dart/), the next evolution of Web UI, has
