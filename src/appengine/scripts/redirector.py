@@ -66,15 +66,19 @@ class CloudStorageRedirect(RequestHandler):
   def redirect_to_cloud_storage(self, path):
     self.redirect(self.prefix + path, permanent=False)
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirect(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirectBeChannel(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw'
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release'
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirectStableChannel(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release'
 
@@ -85,15 +89,19 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
       filename = '/index.html'
     self.redirect_to_cloud_storage(filename)
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
