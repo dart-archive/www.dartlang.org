@@ -40,18 +40,7 @@ that will contain the running version of the code sample.
 {% iframeprefix example/ %}
 {% endcodesampleSetup %}
 
-{% include toc.html %}
-
-{::options parse_block_html="true" /}
-<div class="jumbotron">
-<h1> Introducing Polymer.dart </h1>
-<p markdown="1">
-        [Polymer.dart](/polymer-dart/), the next evolution of Web UI, has
-        better debugging,
-        faster development, and closer spec alignment.
-</p>
-</div>
-{::options parse_block_html="false" /}  
+{% include toc.html %} 
 
 # {{ page.title }}
 
