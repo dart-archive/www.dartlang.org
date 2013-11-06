@@ -22,7 +22,7 @@ the preferred way to do this. This article discusses communicating with a
 server using the 
 [HttpRequest API](http://api.dartlang.org/html/HttpRequest.html)
 from the [dart:html](http://api.dartlang.org/html.html) library and 
-parsing JSON data using the [dart:json](http://api.dartlang.org/json.html) 
+parsing JSON data using the [dart:convert](http://api.dartlang.org/docs/releases/latest/dart_convert.html) 
 library. It then goes on to show how to provide dot-notation access to JSON 
 data through the use of JsonObject.
 
@@ -148,30 +148,32 @@ Now that you have seen how HttpRequest GETs data from the server back to the
 client, and POSTs data from the client to the server, the next step is to make
 use of the JSON data in the client application.
 
-The [dart:json](http://api.dartlang.org/dart_json.html) library provides two 
-top-level functions, <code>parse()</code> and <code>stringify()</code>.
+The [dart:convert](http://api.dartlang.org/docs/releases/latest/dart_convert/JsonCodec.html) library provides a JsonCodec class,
+which you can use to convert simple types (map, list, int, num, string) automatically 
+from a and to a JSON string.  The two key static methods are, <code>JSON.encode(object)</code> and <code>JSON.decode(string)</code>.
 
 <aside class="alert alert-info" markdown="1">
   <strong>Tip:</strong>
-  A previous version of this library had these functions as static methods on 
-a <code>JSON</code> class.  To avoid breaking changes with older code, you can import the JSON library with a library prefix, such as: <code>import 'dart:json' as JSON</code>.  This will allow using syntax such as <code>JSON.parse()</code> and <code>JSON.stringify()</code>.
+  JSON support was previously included as part of the dart:json library.  
+  The equivalent <code>JSON.stringify()</code> function is now <code>JSON.encode()</code>, 
+  and likewise <code>JSON.parse()</code> is now <code>JSON.decode()</code>
 </aside>
 
-The <code>parse()</code> function converts a string containing JSON formatted 
+The <code>JSON.decode()</code> static method converts a string containing JSON formatted 
 text into a List of values or a Map of key-value pairs, depending upon the 
 content of the JSON:
 
 {% prettify dart %}
-import 'dart:json';
+import 'dart:convert';
 
 main() {
-  String listAsJson = '["Dart",0.8]'; // input List of data
-  List parsedList = parse(listAsJson);
+  String listAsJson = '["Dart",1.0]'; // input List of data
+  List parsedList = JSON.decode(listAsJson);
   print(parsedList[0]); // Dart
   print(parsedList[1]); // 0.8
 
   String mapAsJson = '{"language":"dart"}';  // input Map of data
-  Map parsedMap = parse(mapAsJson);
+  Map parsedMap = JSON.decode(mapAsJson);
   print(parsedMap["language"]); // dart
 }
 {% endprettify %}
@@ -179,18 +181,18 @@ main() {
 JSON also works for more complex data structures, such as nested maps inside
 of lists.
 
-Use <code>parse()</code> to convert the HttpRequest's response from raw text to an actual Dart Map object:
+Use <code>JSON.decode()</code> to convert the HttpRequest's response from raw text to an actual Dart <code>Map</code> object:
 
 {% prettify dart %}
 void onDataLoaded(HttpRequest req) {
-  Map data = parse(req.responseText); // parse response text
+  Map data = JSON.decode(req.responseText); // parse response text
   print(data["language"]); // dart
   print(data["targets"][0]); // dartium
   print(data["website"]["homepage"]); // www.dartlang.org
 }
 {% endprettify %}
 
-The <code>stringify()</code> function works the same as <code>parse</code> but in reverse.
+The <code>encode()</code> static method works the same as <code>decode</code> but in reverse.
 
 {% prettify dart %}
 void saveData() {
@@ -202,7 +204,7 @@ void saveData() {
   mapData["targets"] = new List();
   mapData["targets"].add("dartium");
 
-  String jsonData = stringify(mapData); // convert map to String
+  String jsonData = JSON.encode(mapData); // convert map to String
   request.send(jsonData); // perform the async POST
 }
 {% endprettify %}
@@ -232,7 +234,7 @@ print(data.targets[0]);
 data.website.forEach((key, value) => print("$key=$value"));
 {% endprettify %}
 
-Fortunately, the ability to write code using this “dot notation” is built into
+Fortunately, the ability to write code using this "dot notation" is built into
 Dart, through its support of classes. The solution, then, is to combine the
 flexibility of a Map with the structure of a class.
 
@@ -240,7 +242,7 @@ flexibility of a Map with the structure of a class.
 
 This flexibility of JSON and Maps combined with the structure of classes is 
 made possible with JsonObject, which is a third-party open source library.
-JsonObject uses the dart:json parse() function to extract the JSON data into 
+JsonObject uses the dart:convert decode() function to extract the JSON data into 
 a map, and then it uses the noSuchMethod feature of Dart classes to provide a 
 way to access values in the parsed map by using dot notation.
 
@@ -253,7 +255,7 @@ data.language, where data is a JsonObject, then behind the scenes
 `noSuchMethod("get:language", null)` is called.  Likewise, when you try to set
 a value on a JsonObject, `noSuchMethod("set:language", ["Dart"])` is called.
 JsonObject intercepts the calls to noSuchMethod and accesses the underlying 
-Map.  Data contained within a JsonObject is still Map data, and so the dart:json parse() and stringify() methods still work on JsonObjects.
+Map.  Data contained within a JsonObject is still Map data, and so the dart:convert encode() and decode() methods still work on JsonObjects.
 
 Here is an example of using JsonObject instead of a raw Map:
 
@@ -336,7 +338,7 @@ data["language"] = "Dart"; // standard map syntax
 {% endprettify %}
 
 Because JsonObject implements Map, you can pass a JsonObject into
-stringify(), which converts a Map into JSON for sending the data back to
+JSON.encode(), which converts a Map into JSON for sending the data back to
 the server:
 
 {% prettify dart %}
@@ -344,7 +346,7 @@ var data = new JsonObject.fromJsonString(req.responseText);
 
 // later...
 // convert the JsonObject data back to a string
-String json = stringify(data);
+String json = JSON.encode(data);
 
 // and POST it back to the server
 HttpRequest req = new HttpRequest();
@@ -419,14 +421,14 @@ the [js package docs](http://dart-lang.github.com/js-interop/docs/js.html).
 
 This article showed how a client-side Dart application communicates with a
 JSON-based web service via HTTP GET and POST.  JSON data is parsed using the
-dart:json library, which converts JSON strings into maps and lists.  Using
+dart:convert library, which converts JSON strings into maps and lists.  Using
 JsonObject with the JSON data allows you to extend the functionality of the
-dart:json library by letting you use dot notation to access data fields.
+dart:convert library by letting you use dot notation to access data fields.
 
 ## Resources
 
 * [Source code examples from this article](https://github.com/chrisbu/dartlang_json_webservice_article_code)
-* [dart:json](http://api.dartlang.org/dart_json.html)
+* [dart:convert](http://api.dartlang.org/docs/releases/latest/dart_convert.html)
 * [HttpRequest](http://api.dartlang.org/html/HttpRequest.html)
 * [JsonObject](https://github.com/chrisbu/dartwatch-JsonObject)
 * [Using JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html)
