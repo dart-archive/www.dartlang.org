@@ -11,8 +11,7 @@ snippet_img: imgs/dart-today-and-beyond.jpg
 # Dart Presentations
 
 Watch videos and review slides from presentations about Dart.
-You can also watch our Dart videocast, [Dartisans](/dartisans/),
-and our 5-minute video tutorials, [Dart Tips](/dart-tips/).
+You can also watch our 5-minute video tutorials, [Dart Tips](/dart-tips/).
 
 {% injectdata presos slides/presentations.yaml %}
 
