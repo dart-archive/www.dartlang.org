@@ -3,7 +3,7 @@ body {
 }
 
 .row-fluid [class*="span"] {
-  min-height: 26px;
+  min-height: 21px;
 }
 
 
@@ -19,7 +19,7 @@ body {
   border-radius: 5px;
   border: 1px solid #f0f0f0;
   padding: 0px 5px;
-  padding-top: 8px;
+  padding-top: 3px;
 }
 
 .link {

@@ -18,6 +18,24 @@ col1:
         tryit_url: todo_with_delete/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete
   -
+    heading: Using JavaScript from Dart
+    examples:
+      -
+        title: Simple Google Maps example
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/README.md
+        tryit_url: google_maps/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
+      -
+        title: Using the Google Charts API
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/README.md
+        tryit_url: gauge/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/
+      -
+        title: Fetching data using JSONP
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/README.md
+        tryit_url: jsonp/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/
+  -
     heading: polymer.dart
     examples:
       -
@@ -32,16 +50,12 @@ col1:
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/slambook
       -
         title: TodoMVC
-        explanation_url: https://github.com/dart-lang/bleeding_edge/blob/master/dart/samples/third_party/todomvc/README.md
-        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/third_party/todomvc
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/README.md
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
       -
         title: Building a CRUD app
-        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker
-        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker
-      -
-        title: Replacing HTML elements with a custom element
-        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/survey
-        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/survey
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
   -
     heading: HTML5 persistence
     examples:
@@ -59,7 +73,7 @@ col1:
         title: Store and retrieve data using IndexedDB
         explanation_url: /docs/tutorials/indexeddb/
         tryit_url: countdown/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
       -
         title: Exploring the Filesystem APIs
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
@@ -128,9 +142,9 @@ col2:
     examples:
       -
         title: Basic geolocation example
-        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/geolocation/trip-meter/
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/geolocation/trip_meter/
         tryit_url: geolocation/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip-meter
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter
   -
     heading: Web Audio
     examples:
