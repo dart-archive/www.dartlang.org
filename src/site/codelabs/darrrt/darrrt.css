@@ -10,7 +10,7 @@ body {
 .piratemap {
 	background-image: url('images/piratemap.jpg');
 	background-repeat: no-repeat;
-	background-position: right;
+	background-position: 400px;
 	background-size: 300px 300px;
 }
 

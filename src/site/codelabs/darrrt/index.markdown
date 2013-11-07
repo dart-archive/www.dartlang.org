@@ -2,6 +2,7 @@
 layout: default
 title: "Try Dart"
 description: "Write some Dart code. Learn some stuff."
+snippet_img: images/piratemap.jpg
 has-permalinks: true
 tutorial:
   id: trydart
@@ -34,7 +35,9 @@ This code lab assumes that you have some programming experience.
 
 <hr>
 
-## The Map
+<div class="piratemap" markdown="1" style="min-height:325px">
+
+## Map
 
 * [Step 0: Set up](#set-up)
 * [Step 1: Run the skeleton app](#step-one)
@@ -44,6 +47,8 @@ This code lab assumes that you have some programming experience.
 * [Step 5: Save to local storage](#step-five)
 * [Step 6: Read names from JSON file using HttpRequest](#step-six)
 * [Step 7: Go forth and learn more about Dart](#step-seven)
+
+</div>
 
 
 <hr>
@@ -247,6 +252,9 @@ and click the Run button
 
 ![Click the run button](images/clickrun.png)
 
+Dart Editor launches _Dartium_, a special build of Chromium
+that has the Dart Virtual Machine built in, and loads the app.
+
 You should see a TO DO comment on the left
 and a red and white name badge on the right.
 </div>
@@ -408,7 +416,7 @@ Implement the event handler as a top-level function.
 * The element that generated the event, the input field, is `e.target`.
 
 * The `as` keyword typecasts `e.target` to an
-`InputElement`.
+`InputElement` to silence warnings from Dart Editor.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -633,7 +641,7 @@ void updateBadge(Event e) {
 
 <hr>
 
-Now add code to `updateBadge()` to enable and disable the button as needed.
+Add a skeleton if-else statement to `updateBadge()`.
 </div>
 
 <div class="row"> <div class="span7">
@@ -644,11 +652,9 @@ void updateBadge(Event e) {
   String inputName = (e.target as InputElement).value;
   setBadgeName(inputName);
 [[highlight]]  if (inputName.trim().isEmpty) {
-    genButton..disabled = false
-             ..text = 'Aye! Gimme a name!';
+    // To do: add some code here.
   } else {
-    genButton..disabled = true
-             ..text = 'Arrr! Write yer name!';
+    // To do: add some code here.
   }[[/highlight]]
 }
 {% endprettify %}
@@ -658,18 +664,60 @@ void updateBadge(Event e) {
 
 </div> <div class="span5" markdown="1">
 
-* The `String` class has useful functions and properties for dealing with strings,
+* The `String` class has useful functions and properties 
+for working with string data,
 such as `trim()` and `isEmpty`.
 
 * String comes from the `dart:core` library,
 which is automatically imported into every Dart program.
 
-* The cascade operator (`..`) allows you to perform multiple
-operations on the members of a single object. 
-
 * Dart has common programming language constructs like `if`-`else`.
 
 </div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Now fill in the if-else statement to modify the button as needed.
+</div>
+
+<div class="row"> <div class="span7">
+
+<div class="trydart-step-details">
+{% prettify dart %}
+void updateBadge(Event e) {
+  String inputName = (e.target as InputElement).value;
+  setBadgeName(inputName);
+  if (inputName.trim().isEmpty) {
+    [[highlight]]genButton..disabled = false
+             ..text = 'Aye! Gimme a name!';[[/highlight]]
+  } else {
+    [[highlight]]genButton..disabled = true
+             ..text = 'Arrr! Write yer name!';[[/highlight]]
+  }
+}
+{% endprettify %}
+</div>
+
+<div class="trydart-filename">piratebadge.dart</div>
+
+</div> <div class="span5" markdown="1">
+
+* The cascade operator (`..`) allows you to perform multiple
+operations on the members of a single object. 
+
+* The `updateBadge()` code uses the cascade operator
+to set two properties on the button element.
+The result is the same as this more verbose code:
+
+<pre>
+genButton.disabled = false;
+genButton.text = 'Aye! Gimme a name!';
+</pre>
+
+</div></div>
+
 
 #### <i class="icon-anchor"> </i> Run the app.
 
@@ -1188,7 +1236,8 @@ void main() {
 
 </div> <div class="span5" markdown="1">
 
-* This string is a key to the local storage.
+* You store key-value pairs in local storage. This string is the key.
+The value is the pirate name.
 
 </div> </div>
 
@@ -1468,7 +1517,7 @@ class PirateName {
 
 </div> <div class="span5" markdown="1">
 
-* Be sure to remove `final` from these declarations.
+* **Be sure to remove `final` from these declarations.**
 
 * `[]` is equivalent to `new List()`.
 
@@ -1565,7 +1614,7 @@ Make these changes to the `main()` function.
 {% prettify dart %}
 void main() {
   [[highlight]]InputElement inputField = querySelector('#inputName');
-  inputElement.onInput.listen(updateBadge);[[/highlight]]
+  inputField.onInput.listen(updateBadge);[[/highlight]]
   genButton = querySelector('#generateButton');
   genButton.onClick.listen(generateBadge);
   
