@@ -36,8 +36,7 @@ what you really need to know about Dart’s mirror API will be covered here.
 <aside>
 <div class="alert alert-warning">
 <strong>Caveat 1:</strong>
-Dart's mirror API is evolving; Whi
-le most of the introspection API
+Dart's mirror API is evolving; While most of the introspection API
 is stable, there will be some additions and
 adjustments going forward, even post 1.0.
 </div>
@@ -236,9 +235,7 @@ main() {
   
   print('methods:');
   
-  Iterable<DeclarationMirror> decls = 
-  
-    MyClassMirror.declarations.values.where((dm) => dm is MethodMirror && dm.isRegularMethod);
+  Iterable<DeclarationMirror> decls = MyClassMirror.declarations.values.where((dm) => dm is MethodMirror && dm.isRegularMethod);
     
   decls.forEach((MethodMirror mm) {print(MirrorSystem.getName(mm.simpleName));});
   
@@ -257,7 +254,7 @@ And here’s the output:
 {% prettify %}
 sum = 7
 
-noise = InstanceMirror on <42>
+noise = InstanceMirror on \<42\>
 
 methods:
 
