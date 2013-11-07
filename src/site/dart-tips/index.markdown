@@ -17,7 +17,7 @@ Dart language and library topics.
 
 <div class="row" style="margin-bottom:1em">
   <div class="col-md-2">
-    <a href="{{ link }}"><img style="margin-top:9px; box-shadow: 5px 5px 10px #CCC" src="{{episode.thumbnail}}"></a>
+    <a href="{{ link }}"><img style="margin-top:25px; box-shadow: 5px 5px 10px #CCC; width:100%" src="{{episode.thumbnail}}"></a>
   </div>
   <div class="col-md-10">
     <h3><a href="{{ link }}">Ep. {{ episode.num }}: {{ episode.subtitle }}</a></h3>
