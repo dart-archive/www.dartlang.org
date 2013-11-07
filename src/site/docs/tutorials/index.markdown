@@ -55,7 +55,7 @@ from left to right...or choose just the ones you need.
         <!-- Getting Started -->
         <div class="col-md-6">
           <section>
-          <h4><a href="get-started/"><img src="images/target.png" height="20" width="20">&nbsp;Get started</a></h4>
+          <h4 class="no-permalink"><a href="get-started/"><img src="images/target.png" height="20" width="20">&nbsp;Get started</a></h4>
             <p>Get Dart. Run two apps.
             </p>
           <img src="images/clickme-screenshot.png" width="300">
@@ -63,7 +63,7 @@ from left to right...or choose just the ones you need.
         </div>
         <div class="col-md-6">
           <section>
-            <h4>Get the sample code</h4>
+            <h4 class="no-permalink">Get the sample code</h4>
             Before moving on,
             get the code for all the tutorials' samples.
             <ol>
@@ -106,7 +106,7 @@ from left to right...or choose just the ones you need.
         <!-- Connect Dart & HTML -->
         <div class="col-md-6">
           <section>
-          <h4><a href="connect-dart-html/"><img src="images/target.png" height="20" width="20">&nbsp;Connect Dart &amp; HTML</a></h4>
+          <h4 class="no-permalink"><a href="connect-dart-html/"><img src="images/target.png" height="20" width="20">&nbsp;Connect Dart &amp; HTML</a></h4>
             <p>Include a Dart script in an HTML page.
             </p>
           <img src="images/miniapp-screenshot.png" width="300">
@@ -116,7 +116,7 @@ from left to right...or choose just the ones you need.
         <!-- Add Elements -->
         <div class="col-md-6">
           <section>
-          <h4><a href="add-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Add Elements to the DOM</a></h4>
+          <h4 class="no-permalink"><a href="add-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Add Elements to the DOM</a></h4>
           <p>Add elements to the web page and move them.</p>
           <img src="images/todo-screenshot.png" width="300">
           </section>
@@ -129,7 +129,7 @@ from left to right...or choose just the ones you need.
         <!-- Remove Elements -->
         <div class="col-md-6">
           <section>
-          <h4><a href="remove-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Remove DOM Elements</a></h4>
+          <h4 class="no-permalink"><a href="remove-elements/"><img src="images/target.png" height="20" width="20">&nbsp;Remove DOM Elements</a></h4>
           <p>Delete elements from the web page.</p>
           <img src="images/todo-with-delete-screenshot.png" width="300">
           </section>
@@ -151,7 +151,7 @@ from left to right...or choose just the ones you need.
         <!-- Packages -->
         <div class="col-md-6">
           <section>
-          <h4><a href="shared-pkgs/"><img src="images/target.png" height="20" width="20">&nbsp;Install Shared Packages</a></h4>
+          <h4 class="no-permalink"><a href="shared-pkgs/"><img src="images/target.png" height="20" width="20">&nbsp;Install Shared Packages</a></h4>
           <p>Organize and share code at <a href="http://pub.dartlang.org/">pub.dartlang.org</a>.</p>
           <img src="images/add-packages-screenshot.png" width="300">
           </section>
@@ -168,7 +168,7 @@ from left to right...or choose just the ones you need.
 
         <div class="col-md-6">
           <section>
-          <h4><a href="polymer-intro/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom Element</a></h4>
+          <h4 class="no-permalink"><a href="polymer-intro/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom Element</a></h4>
           <p>Create a custom HTML element using Polymer.</p>
           <img src="images/stopwatch-screenshot.png" width="200">
           </section>
@@ -194,7 +194,7 @@ from left to right...or choose just the ones you need.
         <!-- Fetch Data -->
         <div class="col-md-6">
           <section>
-          <h4><a href="fetchdata/"><img src="images/target.png" height="20" width="20">&nbsp;Fetch Data Dynamically</a></h4>
+          <h4 class="no-permalink"><a href="fetchdata/"><img src="images/target.png" height="20" width="20">&nbsp;Fetch Data Dynamically</a></h4>
           <p>Load data from a static file or from a server.</p>
           <img src="images/allaboutyou-screenshot.png" width="300">
           </section>
@@ -203,7 +203,7 @@ from left to right...or choose just the ones you need.
         <!-- Forms -->
         <div class="col-md-6">
           <section>
-          <h4><a href="forms/"><img src="images/target.png" height="20" width="20">&nbsp;Get Input from a Form</a></h4>
+          <h4 class="no-permalink"><a href="forms/"><img src="images/target.png" height="20" width="20">&nbsp;Get Input from a Form</a></h4>
           <p>Use forms and input elements to get data.</p>
           <img src="images/slambook-screenshot.png" width="300">
           </section>
@@ -214,7 +214,7 @@ from left to right...or choose just the ones you need.
         <!-- IndexedDB -->
         <div class="col-md-6">
           <section>
-          <h4><a href="indexeddb/"><img src="images/target.png" height="20" width="20">&nbsp;Use IndexedDB</a></h4>
+          <h4 class="no-permalink"><a href="indexeddb/"><img src="images/target.png" height="20" width="20">&nbsp;Use IndexedDB</a></h4>
           <p>Save data on the client with IndexedDB.</p>
           <img src="images/countdown-screenshot.png" width="300">
           </section>
@@ -231,7 +231,7 @@ from left to right...or choose just the ones you need.
 
         <div class="col-md-6" style="border-right:1px solid Lavender">
           <section>
-          <h4><a href="mobile/"><img src="images/target.png" height="20" width="20">&nbsp;Write for Mobile Devices</a></h4>
+          <h4 class="no-permalink"><a href="mobile/"><img src="images/target.png" height="20" width="20">&nbsp;Write for Mobile Devices</a></h4>
           <p>Mobile devices are taking over the world!</p>
           <img src="images/countdown-screenshot.png" width="300">
           </section>
