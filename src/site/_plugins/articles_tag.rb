@@ -56,9 +56,9 @@ module Jekyll
       end
 
       <<-END
-      <section class="article">
-        <h4><a href="#{article.full_path}">#{article.data['title']}</a></h4>
-        <div class="author-and-date">#{author_names}, #{date}</div>
+      <section>
+        <a href="#{article.full_path}"><h4>#{article.data['title']}</h4></a>
+        <div class="text-muted">#{author_names}, #{date}</div>
         <p>#{article.data['description']}</p>
       </section>
       END
