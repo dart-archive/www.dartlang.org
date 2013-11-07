@@ -19,22 +19,19 @@ has_permalinks: true
 <div class="col-md-9" >
   <div class="row">
     {% for group in page.samples.col1 %}
-      <h2 class="group-heading"><a id="{{group.anchor}}">{{ group.heading }}</a></h2>
-      <div class="row">
-        <div class="col-md-9">
-          {% for example in group.examples %}
-            <div class="row example">
-              <div class="col-md-6">
-                <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
-              </div>
-              <div class="col-md-3">
-                <div class="link"><a href="{{ example.source_url }}">Source</a></div>
-              </div>
-              <div class="col-md-3">
-                {% if example.tryit_url %}
-                  <a href="{{ example.tryit_url }}">Try it</a>
-                {% endif %}
-              </div>
+      <div class="group-heading">{{ group.heading }}</div>
+      {% for example in group.examples %}
+        <div class="row example">
+          <div class="col-md-8">
+            <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
+          </div>
+          <div class="col-md-4">
+            <div class="link pull-left"><a href="{{ example.source_url }}">Source</a></div>
+
+            <div class="link pull-right">
+              {% if example.tryit_url %}
+                <a href="{{ example.tryit_url }}">Try it</a>
+              {% endif %}
             </div>
           {% endfor %}
         </div>
@@ -46,7 +43,15 @@ has_permalinks: true
                   src="imgs/{{group.screenshot}}">
             </a>
           </div>
-          <div class="caption">{{group.caption}}</div>
+          <div class="col-md-4">
+            <div class="link pull-left"><a href="{{ example.source_url }}">Source</a></div>
+
+            <div class="link pull-right">
+              {% if example.tryit_url %}
+                <a href="{{ example.tryit_url }}">Try it</a>
+              {% endif %}
+            </div>
+          </div>
         </div>
       </div>
     {% endfor %}

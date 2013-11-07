@@ -901,3 +901,8 @@ code.highlight {
   background-color: lemonchiffon;
   border-radius: 4px;
 }
+
+/* Center link. */
+.link {
+    vertical-align: middle;
+}
