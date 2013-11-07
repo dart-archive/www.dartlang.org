@@ -286,89 +286,6 @@ MyClass
 91
 {% endprettify %}
 
-We've made heavy use of the declarations accessor, but as we mentioned, it doesn't
-give us access to inherited or synthetic methods. Class mirrors support other accessors for
-this purpose: instanceMembers and staticMembers. The purpose of these accessors is to provide
-reflective access to the API of a class. By API, we mean the set of methods one can invoke
-on an instance of a class (provided by instanceMembers) or on the class itself (for which
-we use staticMembers). 
-
-The API of an instance includes inherited methods so instanceMembers gives us those.
-On the other hand, fields are nver part of an API in Dart. The API will contain the
-automatically generated accessors for those fields, but not the fields themselves.
-Hence both instanceMembers and staticMembers will not never include VariableMirrors
-among their results, but may include mirrors on synthetic getters and setters.
-
-Let's tweak our code 
-to use instanceMembers() instead declarations(), to illustrate some of the differences
-between the two:
-
-main() {
-
-  MyClass myClass = new MyClass(3, 4);
-
-  InstanceMirror myClassInstanceMirror = reflect(myClass);
-  
-  ClassMirror MyClassMirror = myClassInstanceMirror.type;
-  
-  InstanceMirror res = myClassInstanceMirror.invoke(#sum, []);
-  
-  print('sum = ${res.reflectee}');
-  
-  f = MyClassMirror.invoke(#noise, []);
-  
-  print('noise = $f');
-  
-  print('api methods:');
-  
-  Iterable<DeclarationMirror> api = 
-  
-    MyClassMirror.instanceMembers.values.where((dm) => dm.isRegularMethod);
-    
-  api.forEach((MethodMirror mm) {print(MirrorSystem.getName(mm.simpleName));});
-  
-  print('All instance members:');
-  
-  for (var k in MyClassMirror.instanceMembers.keys) print(MirrorSystem.getName(k));
-  
-  MyClassMirror.setField(#s, 91);
-  
-  print(MyClass.s);
-}
-{% endprettify %}
-
-And here’s the output:
-
-{% prettify %}
-sum = 7
-
-noise = InstanceMirror on <42>
-
-api methods:
-
-my_method
-
-sum
-
-
-All instance members:
-
-i
-
-i=
-
-j
-
-j=
-
-my_method
-
-sum
-
-MyClass
-91
-{% endprettify %}
-
 At this point we’ve shown you enough to get started.
 Some more things you should be aware of follow.
 
@@ -382,9 +299,9 @@ This may interact with reflection in annoying ways.
 </aside>
 
 Because the size of web applications needs to be kept down,
-deployed Dart applications may be subject to tree shaking and minification.
-_Tree shaking_ refers to the elimination of source code that isn’t called;
-we discussed minification above.
+deployed Dart applications may be subject to minification and tree shaking.
+We discussed minification above; 
+_Tree shaking_ refers to the elimination of source code that isn’t called.
 Both of these steps cannot generally detect reflective uses of code.
 
 Such optimizations are a fact of life in Dart,
