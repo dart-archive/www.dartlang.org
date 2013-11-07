@@ -12,16 +12,20 @@ js:
   defer: true
 ---
 
-# {{page.title}} 
-
-<div class="pull-right">
-  <iframe width="300" height="169" src="//www.youtube.com/embed/VQLdm8BY1Ao?vq=hd720" frameborder="0" allowfullscreen></iframe>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-6">
+      <h1> {{page.title}} </h1>
+      <p>
+        An open-source tool for editing, debugging, and running Dart applications.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <iframe width="350" height="197" src="//www.youtube.com/embed/VQLdm8BY1Ao?vq=hd720" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
 
-Dart Editor is an open-source tool for
-editing, debugging, and running Dart applications.
-To learn about other tools you can use for Dart development,
-see <a href="/tools/">Tools for Dart</a>.
   
 {% include toc.html %}
 
