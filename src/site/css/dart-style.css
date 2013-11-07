@@ -813,7 +813,8 @@ font-size: 90%;
 color: #0084c5;
 white-space: nowrap;
 background-color: #dce3e6;
-border-radius: 4px;}
+border-radius: 4px;
+}
 
 /* ***** Footer ***** */
 .footer {
@@ -889,4 +890,14 @@ border-radius: 4px;}
 
 .toc li {
 	list-style-type: none;
+}
+
+/* Highlighting code annotated with [[highlight]] */
+code.highlight {
+  border: 1px solid yellow;
+  color: #0084c5;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: lemonchiffon;
+  border-radius: 4px;
 }
