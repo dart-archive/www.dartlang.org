@@ -89,7 +89,7 @@ The dart:io library provides access to files and directories through the
 The following example prints its own source code.
 To determine the location of the source code being executed,
 we use the
-[Options](http://api.dartlang.org/docs/releases/latest/dart_io/Options.html)
+[Platform](http://api.dartlang.org/docs/releases/latest/dart_io/Platform.html)
 class.
 
 <!--- BEGIN(io_file_system) -->{% prettify dart %}
@@ -97,8 +97,7 @@ import 'dart:io';
 import 'dart:async';
 
 main() {
-  var options = new Options();
-  var file = new File(options.script);
+  var file = new File(Platform.script.toFilePath());
   Future<String> finishedReading = file.readAsString(encoding: Encoding.ASCII);
   finishedReading.then((text) => print(text));
 }
@@ -128,11 +127,10 @@ until it encounters the char code for ';'.
 import 'dart:io';
 
 main() {
-  var options = new Options();
   var semicolon = ';'.codeUnitAt(0);
   var result = [];
 
-  new File(options.script).open(mode: FileMode.READ).then((RandomAccessFile file) {
+  new File(Platform.script.toFilePath()).open(mode: FileMode.READ).then((RandomAccessFile file) {
     // Callback to deal with each byte.
     void onByte(int byte) {
       result.add(byte);
@@ -167,10 +165,9 @@ import 'dart:io';
 import 'dart:async';
 
 main() {
-  Options options = new Options();
   List result = [];
 
-  Stream<List<int>> stream = new File(options.script).openRead();
+  Stream<List<int>> stream = new File(Platform.script.toFilePath()).openRead();
   int semicolon = ';'.codeUnitAt(0);
   StreamSubscription subscription;
   subscription = stream.listen((data) {
@@ -348,7 +345,7 @@ startServer(String basePath) {
 main() {
   // Compute base path for the request based on the location of the
   // script and then start the server.
-  File script = new File(new Options().script);
+  File script = new File(Platform.script.toFilePath());
   startServer(script.directory.path);
 }
 {% endprettify %}<!--- END(io_http_server_file) -->
