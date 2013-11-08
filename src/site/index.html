@@ -18,8 +18,7 @@ js:
           <div class="col-md-10 col-md-offset-1">
             <h5>1.0 JUST RELEASED</h5>
             <h1>A new language, with tools and libraries, for scalable web app engineering.</h1>
-            <button type="button" class="btn btn-default btn-lg download-btn">Download</button>
-            <p class="editor-current-version version">Current version of Dart: <span class="editor-build-rev-stable">[calculating]</span></p>
+            {% include downloads/_dart-editor.html buttonclass="btn btn-default btn-lg download-btn" %}
           </div>
         </div>
       </div>
@@ -398,7 +397,7 @@ js:
         
         <div class="row">
           <div class="col-md-12">
-          {% include downloads/_dart-editor.html %}
+          {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
           </div>
           <aside class="alert alert-info">
             <b>Note:</b>
