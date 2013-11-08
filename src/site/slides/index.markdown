@@ -15,59 +15,36 @@ You can also watch our 5-minute video tutorials, [Dart Tips](/dart-tips/).
 
 {% injectdata presos slides/presentations.yaml %}
 
-<style>
-.thumbnail {
-  position: relative;
-}
-.presentation-details {
-  position: absolute;
-  bottom: 58px;
-  left: 0px;
-  width: 100%;
-  background: whitesmoke;
-}
-.inner {
-  padding: 15px;
-}
-.thumbnail .buttons {
-  margin-top: 15px;
-  position: relative;
-}
-.thumbnail .plusone-preso {
-  position: absolute;
-  bottom: 30px;
-  right: 15px;
-}
-</style>
 
 <!-- XXXX don't set width/height on images, just use 640x360 -->
 
-<ul class="thumbnails">
-  {% for preso in page.presos %}
-  <li class="col-md-6" id="{{ preso.short }}">
-    <div class="thumbnail">
-      <img class="screenshot" src="imgs/{{ preso.short }}.jpg">
-      <div class="presentation-details">
-        <div class="inner">
-          <h4 class="title">{{ preso.title }}</h4>
-          <p>
-            by {{ preso.presenters | array_to_sentence_string }}<br>
-            from {{ preso.event }}, {{ preso.date }}
-          </p>
+{% for preso in page.presos %}
 
-        </div>
-      </div>
+<!-- create a row for every three presos -->
+{% cycle '<div class="row">', '', '' %}
+
+<div class="col-md-4" id="{{ preso.short }}">
+  <div class="thumbnail">
+    <img class="screenshot" src="imgs/{{ preso.short }}.jpg">
+    <div class="caption">
+      <h4 class="title">{{ preso.title }}</h4>
+      <p>
+        by {{ preso.presenters | array_to_sentence_string }}<br>
+        from {{ preso.event }}, {{ preso.date }}
+      </p>
       <p class="buttons">
         {% if preso.video %}
-        <a href="{{ preso.video }}" target="_blank" class="video btn btn-primary"><i class="icon-film">&nbsp;</i>Watch</a>
+        <a href="{{ preso.video }}" target="_blank" class="video btn btn-primary">Watch</a>
         {% endif %}
         {% if preso.slides %}
-        <a href="{{ preso.slides }}" target="_blank" class="pdf btn btn-primary"><i class="icon-picture">&nbsp;</i>Slides</a>
+        <a href="{{ preso.slides }}" target="_blank" class="pdf btn btn-primary">Slides</a>
         {% endif %}
       </p>
     </div>
-  </li>
-  {% endfor %}
-</ul>
+  </div>
+</div>
+
+{% cycle '', '', '</div>' %}
+{% endfor %}
 
 
