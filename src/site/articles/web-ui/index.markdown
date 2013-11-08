@@ -6,10 +6,6 @@ rel:
 description: "Use web components and templates today with Dart. This brief
      introduction shows you how to use the features of tomorrow, today."
 has-permalinks: true
-article:
-  written_on: 2012-10-01
-  updated_on: 2013-02-01
-  collection: libraries-and-apis
 ---
 {% comment %}
 
@@ -44,7 +40,24 @@ that will contain the running version of the code sample.
 {% iframeprefix example/ %}
 {% endcodesampleSetup %}
 
+<div class="hero-unit">
+      <h1> Introducing Polymer.dart </h1>
+      <p markdown="1">
+        [Polymer.dart](/polymer-dart/), the next evolution of Web UI, has
+        better debugging,
+        faster development, and closer spec alignment.
+      </p>
+</div>
+
 # {{ page.title }}
+
+<aside class="alert alert-danger" markdown="1">
+<strong>Web UI is now Polymer.dart.</strong>
+Web UI has evolved to
+[Polymer.dart](/polymer-dart/), which provides many fixes and improvements.
+We encourage Web UI users to upgrade to Polymer.dart.
+The information on this page apply only to Web UI, which is now deprecated.
+</aside>
 
 _Written by Sigmund Cherem<br />
 October 2012 (Updated February 2013)_
@@ -73,14 +86,6 @@ possible, emulating missing features when necessary.
 This article walks through some examples. For more details, check out our
 [specification](spec.html), the [summary of features](summary.html), and our
 [installation instructions](tools.html).
-
-<aside class="alert alert-info">
-<strong>Try our tutorials!</strong>
-For a gentle introduction to using Web UI, see the tutorials in
-<a href="/docs/tutorials/">A Game of Darts</a>.
-Web UI coverage starts in
-<a href="/docs/tutorials/web-ui/">Target 6: Get Started with Web UI</a>.
-</aside>
 
 <aside class="alert alert-danger">
 <strong>Note:</strong> The examples in this article do not work
@@ -151,14 +156,15 @@ the UI.
   <div>Hello counter: {{count}}</div>
   <script type="application/dart">
     import 'dart:html';
+    import 'dart:async';
     import 'package:web_ui/watcher.dart' as watchers;
     int count;
     main() {
       count = 0;
-      window.setInterval(() {
+      new Timer.periodic(const Duration(seconds: 1), (_) {
         count++;
         watchers.dispatch();
-      }, 1000);
+      });
     }
   </script>
 </body></html>

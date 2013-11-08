@@ -5,8 +5,8 @@ description: "Packages are bundles of source code, tools, and resources that hel
 has-permalinks: true
 tutorial:
   id: packages
-next: web-ui/
-next-title: "Get Started with Web UI"
+next: polymer-intro/
+next-title: "Define a Custom Element"
 prev: remove-elements/
 prev-title: "Remove DOM Elements"
 ---
@@ -48,14 +48,14 @@ are available at the
 <a href="https://pub.dartlang.org/">pub.dartlang.org</a>
 repository.
 
-This target shows you how to use `pub`&mdash;a package manager
+This tutorial shows you how to use `pub`&mdash;a package manager
 that comes with Dart&mdash;to
 install one of the packages in the repository,
 the vector_math package.
 You can follow these same steps to install any package hosted at
 <a href="https://pub.dartlang.org/">pub.dartlang.org</a>;
 just change the package name when you get to that step.
-This target also describes some of the resources you can expect to find
+This tutorial also describes some of the resources you can expect to find
 in a well-built package.
 
 * [About the pubspec.yaml file](#about-pubspec)
@@ -64,6 +64,7 @@ in a well-built package.
 * [What did you get (and not get)?](#about-packages)
 * [Import libraries from a package](#use-package)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##About the pubspec.yaml file {#about-pubspec}
 
@@ -92,8 +93,10 @@ created for the vector_victor application.
 ![The default pubspec.yaml file specifies name and description](images/pubspec.png)
 
 The package name is required.
-All web applications are dependent on the browser package
-provided at pub.dartlang.org.
+You'll note that the pubspec.yaml file already
+lists a dependency on the browser package.
+Web applications that don't use Polymer
+need the browser package.
 
 {% comment %}
 ##...Or put an existing application into a package {#old-app-in-pkg}
@@ -132,11 +135,12 @@ of a package that your application uses.
 Let's make the vector_victor application have a dependency 
 on the vector_math package,
 which is available at pub.dartlang.org.
-Click the **Add** button in Dart Editor.
+
+* Click the **Add** button in Dart Editor.
 
 ![Click the add button to add a package dependency](images/dependencies-ui.png)
 
-Enter the name of the package in the popup window.
+* Enter the name of the package in the popup window.
 
 ![Enter the package name](images/add-dependency-window.png)
 
@@ -265,10 +269,10 @@ Open the vector_math directory by clicking the little arrow.
 
 ![Finally, the vector_math library files](images/the-vectormath-library.png)
 
-The directory contains a Dart file,
+The directory contains a Dart file called vector_math.dart,
 which you import into your Dart application,
 and a `src` directory,
-which contains all of the source code for the library.
+which contains the source code for the library.
 As with the SDK libraries,
 use the import directive to use code from an installed library.
 The Dart SDK libraries are built-in and
@@ -293,15 +297,17 @@ Note that you specify the filename, not the library name.
     See the <a href="https://pub.dartlang.org/doc/">pub documentation</a>
     to get started using and sharing packages.
   </li>
-  <li>
-    One important package that you will find there
-    is
-    <a href="https://pub.dartlang.org/packages/web_ui">web_ui</a>&mdash;a package
-    created by the Dart team that lets you use Web components and templating.
-    The
-    <a href="/docs/tutorials/web-ui/">next target</a> covers Web UI.
-  </li>
 </ul>
+
+##What next? {#what-next}
+
+One package at pub.dartlang.org is Polymer.dart,
+which makes writing web applications easier
+with data binding, templates, and declarative event handlers.
+Check out the next tutorial,
+[Define a Custom Element](/docs/tutorials/polymer-intro),
+for an introduction to Polymer.
+
 
 {% endcapture %}
 

@@ -2,14 +2,14 @@
 
 import 'dart:html';
 
-final List<String> osList = const <String>['macos', 'win32', 'linux'];  // all supported OSs
+final List<String> osList = const <String>['macos', 'windows', 'linux'];  // all supported OSs
 String osName = 'linux'; // the currently displayed platform
 
 /** Initializes osName and selects the corresponding radio button. */
 void detectPlatform() {
   // osName is initially 'linux', since linux strings are unpredictable.
   if (window.navigator.appVersion.contains('Win')) {
-    osName = 'win32';
+    osName = 'windows';
   } else if (window.navigator.appVersion.contains('Mac')) {
     osName = 'macos';
   }

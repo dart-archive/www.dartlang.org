@@ -285,7 +285,7 @@ that returns a new object with values in the specified order:
 
 <div class="good">
 {% prettify dart %}
-Float32x4 v2 = v.wzyx;  // Reverse the order of the values.
+Float32x4 v2 = v.shuffle(Float32x4.WZYX);  // Reverse the order of the values.
 {% endprettify %}
 </div>
 
@@ -431,13 +431,13 @@ void multiplyMatrices(Float32x4List A, Float32x4List B, Float32x4List R) {
     var a3 = A[3];
 
     var b0 = B[0];
-    R[0] = b0.xxxx * a0 + b0.yyyy * a1 + b0.zzzz * a2 + b0.wwww * a3;
+    R[0] = b0.shuffle(Float32x4.XXXX) * a0 + b0.shuffle(Float32x4.YYYY) * a1 + b0.shuffle(Float32x4.ZZZZ) * a2 + b0.shuffle(Float32x4.WWWW) * a3;
     var b1 = B[1];
-    R[1] = b1.xxxx * a0 + b1.yyyy * a1 + b1.zzzz * a2 + b1.wwww * a3;
+    R[1] = b1.shuffle(Float32x4.XXXX) * a0 + b1.shuffle(Float32x4.YYYY) * a1 + b1.shuffle(Float32x4.ZZZZ) * a2 + b1.shuffle(Float32x4.WWWW) * a3;
     var b2 = B[2];
-    R[2] = b2.xxxx * a0 + b2.yyyy * a1 + b2.zzzz * a2 + b2.wwww * a3;
+    R[2] = b2.shuffle(Float32x4.XXXX) * a0 + b2.shuffle(Float32x4.YYYY) * a1 + b2.shuffle(Float32x4.ZZZZ) * a2 + b2.shuffle(Float32x4.WWWW) * a3;
     var b3 = B[3];
-    R[3] = b3.xxxx * a0 + b3.yyyy * a1 + b3.zzzz * a2 + b3.wwww * a3;
+    R[3] = b3.shuffle(Float32x4.XXXX) * a0 + b3.shuffle(Float32x4.YYYY) * a1 + b3.shuffle(Float32x4.ZZZZ) * a2 + b3.shuffle(Float32x4.WWWW) * a3;
 }
 {% endprettify %}
 

@@ -6,7 +6,7 @@ has-permalinks: true
 tutorial:
   id: indexeddb
 next: 
-next-title: "A Game of Darts"
+next-title: "Home"
 prev: forms/
 prev-title: "Get Input from a Form"
 ---
@@ -25,19 +25,15 @@ and other advantages.
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the example featured in this target:</p>
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down"
-       target="_blank">count_down</a> (web_ui)
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down"
-       target="_blank">count_down</a> (polymer)
-  </li>
-</ul>
+<p> This tutorial features this example:</p>
+* count_down
+
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -67,12 +63,12 @@ Your apps
 
 * can have full functionality even if a network connection is not available.
 * can cache data and restore state between invocations.
-* won't lose data if the network connected is interrupted.
+* won't lose data if the network connection is interrupted.
 * generate less network traffic.
 * perform better because data management happens on the local computer
 rather than over the Internet.
 
-<aside class="alert" markdown="1">
+<aside class="alert alert-info" markdown="1">
 <strong>Note:</strong>
 Some browsers don't yet support IndexedDB.
 Check
@@ -84,7 +80,7 @@ if the current platform supports IndexedDB
 and adjust accordingly.
 </aside>
 
-This target shows you how to use
+This tutorial shows you how to use
 <a href="https://api.dartlang.org/dart_indexed_db.html"
    target="_blank">dart:indexed_db</a>
 to store data to and retrieve data from the browser's IndexedDB.
@@ -103,6 +99,7 @@ to store data to and retrieve data from the browser's IndexedDB.
 * [Clearing all data](#clearing-all-data)
 * [Using a cursor to get all the records](#getting-data)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##Run the app {#run-the-app}
 
@@ -112,9 +109,8 @@ and displays a countdown timer for each one.
 **Try it!**
 Enter the name, date, and time of a milestone&mdash;your
 birthday, for example&mdash;and click the plus (**+**) button.
-The app shows the milestone name briefly,
-starts a countdown timer,
-and then displays the amount of time remaining until the milestone occurs.
+The app starts a countdown timer
+and displays the amount of time remaining until the milestone occurs.
 The app updates the display every second.
 
 Close this browser window and reload
@@ -128,11 +124,14 @@ Use the **Clear** button to delete all the milestones.
 
 <iframe class="running-app-frame"
         style="height:400px;width:600px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target11/count_down/web/out/count_down.html">
+        src="examples/count_down/out/web/count_down.html">
 </iframe>
 
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target11/count_down" target="_blank">count_down</a>.
+<aside class="alert">
+<strong>Version Note:</strong> The count_down app
+is compatible with
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.7</a>.
+</aside>
 
 ###Using developer tools to look at the database
 
@@ -162,14 +161,14 @@ The count_down app uses a Model, View, View-model (MVVM) structure.
 connects the View and the Model,
 using UI and Timer events
 to make changes to the Model.
-The MilestoneApp class is primary class
+The MilestoneApp class is the primary class
 that implements the View-Model&mdash;it
 manages the timer,
 and implements the app's business logic,
 which manages the information exchange between the Model and the View.
 
 * The **View** provides the user interface for the app.
-Two custom components implement the View in the count_down app:
+Two custom elements implement the View in the count_down app:
 CountDownComponent describes the user interface for the app as a whole,
 and MilestoneComponent describes the UI for an individual milestone.
 These components inform the View-model of UI events.
@@ -181,7 +180,7 @@ manages a list of Milestone objects in memory
 and keeps an IndexedDB in sync with the list,
 saving the milestone data persistently.
 The View-model queries the Model upon initialization
-and uses Web UI data-bindings to keep the View in sync.
+and uses Polymer data-bindings to keep the View in sync.
 Also, it uses Timer events to trigger updates in the Model.
 
 ###The libraries used by the count_down app 
@@ -193,29 +192,21 @@ The count_down app uses the following libraries:
 | <a href="https://api.dartlang.org/dart_indexed_db.html" target="_blank">dart:indexed_db</a> | Save data into an indexed database for persistence and offline capability |
 | <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a> | Perform tasks asynchronously |
 | <a href="https://api.dartlang.org/dart_core.html" target="_blank">dart:core</a> | Use DateTime and Duration to manage time-related tasks |
-| <a href="https://pub.dartlang.org/packages/web_ui" target="_blank">package:web_ui</a> | Create UIs with data-binding and web components. |
+| <a href="https://api.dartlang.org/polymer.html" target="_blank">Polymer</a> | Create UIs with custom elements and data binding. |
 {: .table }
 
-This target explains the Dart API for IndexedDB used by the count_down app.
-In addition, this target covers some interesting
-API related to dates, times, and timers.
+This tutorial explains the Dart API for IndexedDB used by the count_down app.
 
-<aside class="alert" markdown="1">
+<aside class="alert alert-info" markdown="1">
 <strong>Note:</strong>
-This target does not cover Futures or Web UI.
+This tutorial does not cover Futures or Polymer.
 For information about Futures,
 see
 <a href="/articles/using-future-based-apis/">Using Future Based APIs</a>
 and 
 <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
-For information about Web UI,
-check out the relevant recipes in the
-<a href="/docs/cookbook/">
-       <i class="icon-food"> </i> Dart Cookbook</a>
-or read the Web UI tutorials in
-Targets <a href="/docs/tutorials/web-ui/">6</a>,
-<a href="/docs/tutorials/templates/">7</a>,
-<a href="/docs/tutorials/custom-elements/">8</a>.
+For information about Polymer,
+refer to <a href="/docs/tutorials/polymer-intro/">Define a Custom Element</a>.
 
 </aside>
 
@@ -350,7 +341,7 @@ the database is simply opened.
 The third parameter, `onUpgradeNeeded`,
 provides a callback function that gets called
 when an upgrade needed event is fired,
-which happens when a new database
+which happens when a new database is created
 or the version of a database is updated.
 This gives your app an opportunity to create an object store.
 The only place you can create an object store
@@ -365,8 +356,9 @@ The following flow chart describes the logic of the
 
 Because creating and opening a database can take time,
 `window.indexedDB.open()` returns a Future object,
-which runs asynchronously and returns a value sometime in the future.
-The value is returned to a callback function
+which runs asynchronously and returns a value, the database object,
+sometime in the future.
+The database object is returned to a callback function
 registered with `then()`.
 In this example,
 the callback function is called `_loadFromDB()`.
@@ -420,9 +412,9 @@ in this object store.
 The code sets `autoIncrement` on the object store to true.
 When autoIncrement is true,
 the database generates unique, primary keys for you,
-which saves you the trouble of doing so.
+which saves you the trouble of ensuring unique keys.
 
-Finally, `_initializeDatabase` creates an index.
+Finally, `_initializeDatabase` creates a name index.
 
 ##Using a name index
 
@@ -466,7 +458,7 @@ All database operations must be performed
 within a
 <a href="https://api.dartlang.org/dart_indexedDb/Transaction.html" target="_blank">Transaction</a>.
 
-<aside class="alert" markdown="1">
+<aside class="alert alert-info" markdown="1">
 <strong>Important: About the life-cycle of a transaction</strong>
 
 The life-cycle of a transaction is as follows:
@@ -713,22 +705,16 @@ The _loadFromDB method returns a Future that returns the length of the stream.
   <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
   </li>
   <li>
-  For information about Web UI,
-  check out the relevant recipes in the
-  <a href="/docs/cookbook/">
-         <i class="icon-food"> </i> Dart Cookbook</a>
-  or read Targets <a href="/docs/tutorials/web-ui">6</a>,
-  <a href="/docs/tutorials/templates">7</a>, and
-  <a href="/docs/tutorials/custom-elements">8</a>.
+  For information about Polymer,
+  read <a href="/docs/tutorials/polymer-intro">Define a Custom Element</a>.
   </li>
 </ul>
 
 ###What next?
 
-Check out our
-<a href="/codelabs/web-ui-writer/index.html" target="_blank"><i class="icon-beaker"> </i>Codelab</a>;
-it uses LocalStorage instead of IndexedDB to store data in the client.
-Try converting it to use IndexedDB.
+You've completed the tutorials!
+Check out the Dart
+[code samples](/samples/) and [articles](/articles/).
 
 {% endcapture %}
 

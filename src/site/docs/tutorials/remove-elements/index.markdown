@@ -18,21 +18,19 @@ prev-title: "Add Elements to the DOM"
 * Function expressions are a convenient way to define single-use functions.
 * => is a shorthand syntax for defining functions that contain just one
 expression.
-* dart:html defines many event-related classes.
 
 {% endcapture %}
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the sample featured in this target:</p>
+<p> This tutorial features this example:</p>
+* todo_with_delete
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target04/todo_with_delete"
-       target="_blank">todo_with_delete</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -43,9 +41,9 @@ Get the source code for the sample featured in this target:</p>
 <h3>Dynamically delete items from the browser page.</h3>
 </div>
 
-This target shows you how to delete elements from the DOM.
+This tutorial shows you how to delete elements from the DOM.
 A new and improved version of the todo app from
-[the previous target](/docs/tutorials/add-elements/)
+[the previous tutorial](/docs/tutorials/add-elements/)
 now allows the user to delete items from the list
 either one at a time, or all at once.
 
@@ -55,13 +53,14 @@ either one at a time, or all at once.
 * [Removing all child elements from an element](#remove-all-elem)
 * [About function expressions and =>](#about-function-expressions)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##Try the app {#try-app}
 
 Below is a revised version
-of the todo app from the previous target
+of the todo app from the previous tutorial
 that allows you to delete items.
-Stop procrastinating and remove items from your todo list.
+Stop procrastinating and remove items from your to do list.
 
 **Try it!**
 Type in the input field and press the return key;
@@ -70,21 +69,17 @@ Enter a few more items.
 Point the mouse cursor at one of the items in the list;
 the item turns red and gets slightly larger.
 Click it and it disappears from the list.
-Use the **Delete All** button in the lower right corner of the app
+Use the **Delete All** button
 to remove all of the items in the list at once.
 
 <iframe class="running-app-frame"
         style="height:250px;width:300px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target04/todo_with_delete/web/todo_with_delete.html">
+        src="examples/todo_with_delete/todo_with_delete.html">
 </iframe>
-
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target04/todo_with_delete"
-target="_blank">todo_with_delete</a>.
 
 The remaining sections describe
 key aspects of the code 
-added to the todo app for this target.
+added to the todo app for this tutorial.
 Specifically, they look at
 the Dart code that removes one or more elements from the DOM
 and the CSS code that makes the text red and larger.
@@ -117,7 +112,9 @@ to keep the code simpler.
 
 An element is removed from
 the DOM when it is removed from its parent's list of children.
-The List class provides functions for finding an item in the list
+The
+<a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>
+class provides functions for finding an item in the list
 and removing it.
 But, in this case,
 using the element's remove() function
@@ -131,7 +128,8 @@ the user clicks an item to delete it.
 This is achieved with one line of Dart code.
 When a new to do item is created,
 the code registers a mouse click handler on the new element.
-The event handler causes the element to remove itself from the DOM
+When the user clicks that new element,
+its event handler causes the element to remove itself from the DOM
 with remove().
 
 ![Registering an event handler to delete an item](images/remove-element-code.png)
@@ -233,11 +231,23 @@ it returns no value and takes an Event object as a parameter.
 
   <li>
     You can find more information about the DOM and CSS in
-    <a href="/docs/dart-up-and-running/">Dart Up and Running</a>,
+    <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>,
     which also provides thorough coverage of the Dart language, 
     libraries, and tools.
   </li>
 </ul>
+
+##What next? {#what-next}
+
+* The next tutorial,
+[Install Shared Packages](/docs/tutorials/shared-pkgs),
+shows you how to use code written and shared by others.
+
+* One of those packages is Polymer.dart,
+which makes manipulating the DOM even easier
+with data binding, templates, and declarative event handlers.
+Check out [Define a Custom Element](/docs/tutorials/polymer-intro)
+for an introduction to Polymer.
 
 {% endcapture %}
 

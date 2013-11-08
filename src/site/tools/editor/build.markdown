@@ -47,9 +47,17 @@ any of the following command-line flags:
   to print rich JSON error messages to the standard output (stdout),
   so that Dart Editor can interpret the messages.
 
+`--deploy`
+: Creates a directory containing the files needed to deploy this
+  application to a server.
+  Used only for the <a href="/polymer-dart">Polymer.dart</a>
+  linter and build tool.
+  You can find more information in the polymer library file
+  [builder.dart](https://code.google.com/p/dart/source/browse/trunk/dart/pkg/polymer/lib/builder.dart).
+
 Currently, the editor always passes the `--machine` flag
 into the build script.
-The other flags are either a single `--full` flag,
+The other flags include either a single `--full` flag,
 a single `--clean` flag,
 or one or more `--changed` and `--removed` flags.
 

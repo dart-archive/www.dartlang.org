@@ -7,7 +7,7 @@ description: "Follow these guidelines for consistent, readable Dart code."
 has-permalinks: true
 article:
   written_on: 2011-10-01
-  updated_on: 2013-02-01
+  updated_on: 2013-10-04
   collection: everyday-dart
 ---
 
@@ -15,7 +15,7 @@ article:
 
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
-(updated February 2013)
+(updated October 2013)
 </em>
 
 As we build up an ecosystem of Dart code, it's helpful if it follows a
@@ -142,7 +142,9 @@ constructor invocation.
 class Point {
   num x, y;
   Point(this.x, this.y);
-  Point.zero() : x = 0, y = 0;
+  Point.zero()
+      : x = 0,
+        y = 0;
 }
 {% endprettify %}
 </div>
@@ -548,15 +550,15 @@ it.)
 <div class="good">
 {% prettify dart %}
 // Accepts any object.
-log(Object object) {
+void log(Object object) {
   print(object.toString());
 }
 
 // Only accepts bool or String, which can't be expressed in a type annotation.
-convertToBool(arg) {
+bool convertToBool(arg) {
   if (arg is bool) return arg;
   if (arg is String) return arg == 'true';
-  throw 'Cannot convert $arg to a bool.';
+  throw new ArgumentError('Cannot convert $arg to a bool.');
 }
 {% endprettify %}
 </div>

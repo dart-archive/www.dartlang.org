@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  var osList = ['macos', 'win32', 'linux'];
+  var osList = ['macos', 'windows', 'linux'];
 
   function detectPlatform() {
     // default to 'linux', since linux strings are unpredictable.
     if (navigator.platform.indexOf('Win') != -1) {
-      return 'win32';
+      return 'windows';
     } else if (navigator.platform.indexOf('Mac') != -1) {
       return 'macos';
     } else {

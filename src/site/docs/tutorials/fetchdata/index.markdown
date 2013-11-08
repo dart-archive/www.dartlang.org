@@ -7,42 +7,31 @@ tutorial:
   id: fetchdata
 next: forms/
 next-title: "Get Input from a Form"
-prev: custom-elements/
-prev-title: "Define a Custom DOM Tag"
+prev: polymer-intro/
+prev-title: "Define a Custom Element"
 ---
 
 {% capture whats_the_point %}
 
 * Data on the web is often formatted in JSON.
 * JSON is text based and human readable.
-* The dart:json library provides support for JSON.
+* The dart:convert library provides support for JSON.
 * Use HttpRequest to dynamically load data.
 
 {% endcapture %}
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this target:</p>
+<p> This tutorial features these examples:</p>
+* its_all_about_you
+* portmanteaux_simple
+* portmanteaux
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/its_all_about_you"
-       target="_blank">its_all_about_you</a> (web_ui)
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09-polymer/its_all_about_you"
-       target="_blank">its_all_about_you</a> (polymer)
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux_simple"
-       target="_blank">portmanteaux_simple</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux"
-       target="_blank">portmanteaux</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -59,12 +48,12 @@ to pass data between clients and servers.
 Data can be _serialized_ into a JSON string,
 which is then passed between a client and server,
 and revived as an object at its destination.
-This target shows you how to use functions in the
-<a href="https://api.dartlang.org/dart_json.html"
-   target="_blank">dart:json</a>
+This tutorial shows you how to use functions in the
+<a href="https://api.dartlang.org/dart_convert.html"
+   target="_blank">dart:convert</a>
 library to produce and consume JSON data.
 Because JSON data is typically loaded dynamically,
-this target also shows how a web app
+this tutorial also shows how a web app
 can use an HTTP request to get data from an HTTP server.
 For web apps,
 HTTP requests are served by the browser in which the app is running,
@@ -77,6 +66,7 @@ and thus are subject to the browser's security restrictions.
 * [Using the getString() function to load a file](#using-getString-function)
 * [Using an HttpRequest object to load a file](#making-a-get-request)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##About JSON
 
@@ -94,26 +84,32 @@ and check out the JSON format for each data type.
 
 <iframe class="running-app-frame"
         style="height:500px;width:700px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target09/its_all_about_you/web/out/its_all_about_you.html">
+        src="examples/its_all_about_you/out/web/index.html">
 </iframe>
 
-The complete source code is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/its_all_about_you"
-   target="_blank">its_all_about_you</a>.
-Because this application uses the Web UI package,
-you need to compile as described in
-<a href="/docs/tutorials/web-ui/">Target 6: Get Started with Web UI</a>.
+<aside class="alert">
+<strong>Version Note:</strong> The its_all_about_you app
+is compatible with
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.7</a>.
+</aside>
 
-The dart:json library contains two top-level functions
+The dart:convert library contains two convenient functions
 for working with JSON strings:
 
-| dart:json function | Description |
+| dart:convert function | Description |
 |---|---|
-| <a href="https://api.dartlang.org/dart_json.html" target="_blank">parse()</a> | Builds Dart objects from a string containing JSON data. |
-| <a href="https://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> |  Serializes a Dart object into a JSON string. |
+| <a href="https://api.dartlang.org/dart_convert.html" target="_blank">JSON.decode()</a> | Builds Dart objects from a string containing JSON data. |
+| <a href="https://api.dartlang.org/dart_convert.html" target="_blank">JSON.encode()</a> |  Serializes a Dart object into a JSON string. |
 {: .table}
 
-The parse() and stringify() functions can handle these Dart types automatically:
+To use these functions,
+you need to import dart:convert into your Dart code:
+
+{% highlight dart %}
+import 'dart:convert';
+{% endhighlight %}
+
+The JSON.encode() and JSON.decode() functions can handle these Dart types automatically:
 <ul>
 <li> num</li>
 <li> String</li>
@@ -123,21 +119,13 @@ The parse() and stringify() functions can handle these Dart types automatically:
 <li> Map</li>
 </ul>
 
-Import dart:json using the `as` clause
-to give your code clarity
-and to avoid naming conflicts.
-
-{% highlight dart %}
-import 'dart:json' as json;
-{% endhighlight %}
-
 ##Serializing data into JSON
 
-Use the stringify() function to serialize an object that supports JSON.
-Here's the function from the previous example that
+Use the JSON.encode() function to serialize an object that supports JSON.
+Here's the function, `showJson`, from the its_all_about_you example that
 converts all of the data to JSON strings.
 
-![Use stringify() to convert objects into JSON](images/stringify.png)
+![Use JSON.encode() to convert objects into JSON](images/stringify.png)
 
 Below is the JSON string that results from the code
 using the original values from the its_all_about_you app.
@@ -164,9 +152,9 @@ The values in the map vary in type but they are all JSON-parsable.
 
 ##Parsing JSON data
 
-Use the parse() function from the dart:json library to
+Use the JSON.decode() function from the dart:convert library to
 create Dart objects from a JSON string.
-The example above initially populates the values in the form
+The its_all_about_you example initially populates the values in the form
 from this JSON string:
 
 {% highlight dart %}
@@ -181,10 +169,10 @@ String jsonDataAsString = '''
 }
 ''';
 
-Map jsonData = json.parse(jsonDataAsString);
+Map jsonData = JSON.decode(jsonDataAsString);
 {% endhighlight %}
 
-This code calls the parse() function with a properly formatted JSON string.
+This code calls the JSON.decode() function with a properly formatted JSON string.
 <strong>Note that Dart strings can use either single or double quotes to denote strings.
 JSON requires double quotes.</strong>
 
@@ -194,10 +182,10 @@ or read from a static file or received from a server.
 An example later on this page shows how to dynamically fetch
 JSON data from a file that is co-located with the code for the app.
 
-The parse() function reads the string and
+The JSON.decode() function reads the string and
 builds Dart objects from it.
 In this example, 
-the parse() function creates a Map object based on
+the JSON.decode() function creates a Map object based on
 the information in the JSON string.
 The Map contains objects of various types
 including an integer, a double, a boolean value, a regular string,
@@ -293,12 +281,8 @@ and loads the file.
 
 <iframe class="running-app-frame"
         style="height:400px;width:300px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target09/portmanteaux_simple/web/portmanteaux_simple.html">
+        src="examples/portmanteaux_simple/portmanteaux_simple.html">
 </iframe>
-
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux_simple/"
-   target="_blank">portmanteaux_simple</a>.
 
 This program uses a convenience method,
 `getString()`,
@@ -375,13 +359,10 @@ configure its header and other information,
 and use the `send()` method to make the request.
 
 This section looks at a new
-version of the portmanteaux example
+version of the portmanteaux example,
+called portmanteaux,
 that has been rewritten
 to use an explicitly constructed HttpRequest object.
-You can find the complete source code for the modified version
-on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target09/portmanteaux/"
-   target="_blank">portmanteaux</a>.
 
 ###Setting up the HttpRequest object
 
@@ -429,7 +410,7 @@ If the status code is 200,
 the file was found and loaded successfully,
 The contents of the requested file, `portmanteaux.json`, are
 returned in the `responseText` property of an HttpRequest object.
-Using the `parse()` function from the dart:json library,
+Using the `JSON.decode()` function from the dart:convert library,
 the code easily converts the JSON-formatted list of words
 to a Dart list of strings,
 creates a new LIElement for each one,
@@ -440,8 +421,7 @@ and adds it to the &lt;ul&gt; element on the page.
 ###Populating the UI from JSON
 
 The data file in the portmanteaux example,
-<a href="https://github.com/dart-lang/dart-tutorials-samples/master/web/target09/portmanteaux/web/portmanteaux.json"
-   target="_blank">portmanteaux.json</a>,
+portmanteaux.json,
 contains a JSON-formatted list of strings.
 
 {% highlight dart %}
@@ -457,10 +437,10 @@ Upon request, the server reads this data from the file
 and sends it as a single string
 to the client program.
 The client program receives the JSON string
-and uses the parse() function from the dart:json library
+and uses JSON.decode() 
 to create the String objects specified by the JSON string.
 
-![Parse a JSON formatted list of strings](images/json-parse.png)
+![Decode a JSON formatted list of strings](images/json-parse.png)
 
 ##Other resources
 
@@ -469,6 +449,15 @@ Check out Chris Buckett's article,
    target="_blank">Using Dart with JSON Web Services</a>,
 for more information and an example with source code for both
 client and server programs.
+
+##What Next?
+
+The next tutorial,
+[Get Input from a Form](/docs/tutorials/forms/),
+contains a client/server example that
+shows you how to use a form to get data from the user,
+and using JSON, send that form to a server,
+and handle the server's response.
 
 {% endcapture %}
 

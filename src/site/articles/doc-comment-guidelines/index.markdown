@@ -50,8 +50,8 @@ const double PI = 3.1415926535897932;
 {% endprettify %}<!-- END(PI) -->
 
 For an example of a class description with example code, see Completer
-([generated doc](http://api.dartlang.org/docs/bleeding_edge/dart_core/Completer.html),
-[source code](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/sdk/lib/core/future.dart)).
+([generated doc](http://api.dartlang.org/dart_async/Completer.html),
+[source code](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/sdk/lib/async/future.dart)).
 
 
 ## Content
@@ -283,7 +283,7 @@ Here's an example of a warning:
   section of the Dart Style Guide
 * dart:math API doc 
   ([generated doc](http://api.dartlang.org/dart_math.html),
-  [source code](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/sdk/lib/math/base.dart))
+  [source code](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/sdk/lib/math/math.dart))
 * [dart-doc-testing](https://github.com/kwalrath/dart-doc-testing) project
   ([generated doc](http://kwalrath.github.com/dart-doc-testing/comment_test/CommentTester.html),
   [source code](https://github.com/kwalrath/dart-doc-testing/blob/master/CommentTest.dart))

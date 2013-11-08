@@ -77,7 +77,7 @@ void wrapEverything() {
 
   void main2() {
 //  void main() {
-    print('main');  
+    print('main');
     handleAuthResponse({'username': 'johncage', 'age': 92})
       .then((_) => print('handled'))
       .catchError(handleFormatException,
@@ -201,7 +201,7 @@ void wrapEverything() {
   //   <error from obtainFileName>
 
 
-  Future myFunc() {
+  Future fragileFunc() {
     return new Future.sync(() {
       var x = someFunc();     // Unexpectedly throws in some rare cases.
       var y = 10 / x;         // x should not equal 0.

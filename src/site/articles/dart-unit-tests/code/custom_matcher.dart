@@ -19,7 +19,7 @@ class Widget {
 }
 
 class _Price extends CustomMatcher {
-  const _Price(matcher) : super('Widget with price that is', 'price', matcher);
+  _Price(matcher) : super('Widget with price that is', 'price', matcher);
   featureValueOf(actual) => actual.price;
 }
 Matcher price(m) => new _Price(wrapMatcher(m));

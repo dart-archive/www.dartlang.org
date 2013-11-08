@@ -1,0 +1,48 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Stopwatch</title>
+    
+    <link rel="stylesheet" href="stopwatch.css">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  
+  <body><script src="packages/shadow_dom/shadow_dom.debug.js"></script>
+<script src="packages/browser/interop.js"></script>
+<polymer-element name="tute-stopwatch">
+ 
+  <template>
+    <style>
+      @host {
+        :scope {
+          background-color: LemonChiffon;
+          text-align: center;
+          display: inline-block;
+          border: solid 1px;
+          padding: 10px 10px 10px 10px;
+        }
+      }
+    </style>
+    <div>
+      <div>
+        {{counter}}
+      </div>
+      <div>
+        <button on-click="start" id="startButton">Start</button>
+        <button on-click="stop" id="stopButton">Stop</button>
+        <button on-click="reset" id="resetButton">Reset</button>
+      </div>
+    </div>
+  </template>
+
+  
+
+</polymer-element>
+    
+    <h1>Stopwatch</h1>
+
+    <tute-stopwatch></tute-stopwatch>
+    
+  
+
+<script type="application/dart" src="index.html_bootstrap.dart"></script><script src="packages/browser/dart.js"></script></body></html>

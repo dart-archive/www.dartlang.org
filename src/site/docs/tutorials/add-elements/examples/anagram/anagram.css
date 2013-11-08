@@ -1,0 +1,19 @@
+
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+.letter {
+  width: 48px;
+  height: 48px;
+  font-size: 32px;
+  background-color: Lavender;
+  color: purple;
+  border: 1px solid black;
+  margin: 2px 2px 2px 2px;
+}

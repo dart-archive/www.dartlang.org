@@ -1,6 +1,6 @@
 // Note: all commented out code fails the static type checker
 //import "package:json_object/json_object.dart";
-import "dart:json";
+import "dart:convert";
 import "dart:html";
 
 // Abstract class defines the interface of our JSON data structure
@@ -61,7 +61,7 @@ var data; // = new JsonObject.fromJsonString(req.responseText);
 
 // later...
 // convert the JsonObject data back to a string
-String json = stringify(data);
+String json = JSON.encode(data);
 }
 
 void d() {
@@ -74,7 +74,7 @@ var data; // = new JsonObject.fromJsonString(req.responseText);
 
 // later...
 // convert the JsonObject data back to a string
-String json = stringify(data);
+String json = JSON.encode(data);
 
 req.open("POST", url);
 req.send(json);   

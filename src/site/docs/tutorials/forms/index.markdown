@@ -19,33 +19,22 @@ prev-title: "Fetch Data Dynamically"
 * Handle communication asynchronously with Futures.
 * Use HttpServer to set up a server to listen on a port and host.
 * Use CORS headers to set access permissions for each request.
-* Use Web UI binding to sync form data and Dart data.
+* Use Polymer data binding to sync form data and Dart data.
 
 {% endcapture %}
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this target:</p>
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/search_form"
-       target="_blank">search_form</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/slambook"
-       target="_blank">slambook</a> (web_ui)
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10-polymer/slambook"
-       target="_blank">slambook</a> (polymer)
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/multiselect"
-       target="_blank">multiselect</a>
-  </li>
-</ul>
+<p> This tutorial features these examples:</p>
+* search_form
+* slambook
+
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -68,8 +57,8 @@ HTML5 adds more specialized input elements such
 as email and password fields,
 color pickers, date and time widgets, and range elements.
 
-The main example in this target contains a client and a server.
-The client uses the Web UI package to present its user interface
+The main example in this tutorial contains a client and a server.
+The client uses Polymer to present its user interface
 (a form with many kinds of input elements),
 and keep the interface in sync with Dart data.
 The client and server communicate using
@@ -77,14 +66,14 @@ several classes from the core Dart library,
 including streams, Futures, HttpRequest, and so on.
 The server uses CORS headers to allow cross-origin requests.
 
-This target brings together concepts from all previous targets.
-Before you go on,
-make sure you are comfortable with the information in
-[Target 6](/docs/tutorials/web-ui/),
-[Target 7](/docs/tutorials/templates/),
-[Target 8](/docs/tutorials/custom-elements/), and
-[Target 9](/docs/tutorials/fetchdata/),
-in particular.
+<aside class="alert alert-info" markdown="1">
+  <strong>Note:</strong>
+  This tutorial assumes that you have read
+  [Define a Custom Element](/docs/tutorials/polymer-intro/)
+  and [Fetch Data Dynamically](/docs/tutorials/fetchdata/)
+  and are familiar with Polymer, JSON, and HttpRequest.
+</aside>
+
 
 * [About forms, generally](#about-forms)
 * [About the slambook example, specifically](#about-the-slambook-example)
@@ -95,8 +84,9 @@ in particular.
 * [Setting CORS headers](#setting-cors-headers)
 * [Handling POST requests](#handling-post-requests)
 * [Recipe for client-server web apps](#recipe)
-* [Binding data to different kinds of inputs](#binding-data)
+* [Two-way data binding using Polymer](#binding-data)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##About forms, generally {#about-forms}
 
@@ -109,27 +99,22 @@ programmatically.
 
 Let's begin with a basic, HTML-only form to learn a little bit about
 action, method, input elements, and the default behavior of forms.
-The search_form app running below provides a useful form that
-you can add to your website pages.
-It uses Google to search the specified website
-if the checkbox is selected,
-or the web if it is not,
+The form below uses Google to search the website
+specified in the &lt;form&gt; tag
+if the checkbox is selected
+(or the web if it is not),
 for the text entered by the user.
 In this example,
 called `search_form`,
 the default is to search
 [dartlang.org](http://www.dartlang.org)
 for "Cookbook",
-another useful resource for learning about Dart.
+a useful resource for learning about Dart.
 
 <iframe class="running-app-frame"
         style="height:100px;width:500px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target10/search_form/web/search_form.html">
+        src="examples/search_form/web/search_form.html">
 </iframe>
-
-The source code for this example is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/search_form"
-   target="_blank">search_form</a>.
 
 Here is the HTML code that creates the form:
 
@@ -211,7 +196,7 @@ to a server programmatically using a POST request.
 
 ##About the slambook example, specifically {#about-the-slambook-example}
 
-The primary example in this target consists of two programs.
+The primary example in this tutorial consists of two programs.
 
 * First,
 a basic server program, called `slambookserver`,
@@ -225,11 +210,11 @@ running from a different origin.
 the client program,
 called `slambook`,
 provides a form into which users can enter some information.
-It uses Web UI to bind the input data to Dart variables.
+It uses Polymer two-way data binding to bind the input data to Dart variables.
 When the user clicks the submit button,
 the Dart code formats the data into a JSON string,
-sends it to slambookserver using an OPTIONS request to
-get access first and then a POST request to send the data.
+sends an OPTIONS request to get permission from the server,
+and then a POST request to send the data.
 When the response from the server is ready,
 the client displays it.
 
@@ -246,12 +231,14 @@ Enter some data and push the **Submit** button.
 
 <iframe class="running-app-frame"
         style="height:500px;width:525px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target10/slambook/web/out/slambook.html">
+        src="examples/slambook/out/web/slambook.html">
 </iframe>
 
-The complete source code for both the client and the
-server is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/slambook" target="_blank">slambook</a>
+<aside class="alert">
+<strong>Version Note:</strong> The slambook app
+is compatible with 
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.7</a>.
+</aside>
 
 The request gives you an innocent stare and displays "No server"
 because you are not running the server on your machine.
@@ -259,10 +246,13 @@ Let's fix that.
 
 ###Run the server
 
-Download or copy the source code for the basic server program
-from the github repository:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/slambook/bin/slambookserver.dart"
-   target="_blank">slambookserver.dart</a>
+Get the source code for the basic server program,
+slambookserver.dart,
+from the
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+ tutorials samples
+</a>
+download.
 
 Run the server program from the command line:
 
@@ -285,15 +275,13 @@ Avoid using 3030 because Dart Editor listens there.
 Then run both the client and the server locally on your machine.
 </aside>
 
-The rest of this target explains the code for both the client and the server.
+The rest of this tutorial explains the code for both the client and the server.
 
 On the client side, you learn about
 
 * Submitting the form
 * Resetting the form
-* Using Web UI to bind the form data to variables in the Dart program
-  (You've seen some data binding in previous targets. We'll talk about
-  using Web UI with HTML5 widgets at the end of this target.)
+* Using Polymer to bind the form data to variables in the Dart program
 
 On the server side, the sections cover
 
@@ -303,7 +291,7 @@ On the server side, the sections cover
 
 ##Submitting a form
 
-Let's first take a look at how that data is submitted to the server.
+Let's first take a look at how the data is submitted to the server.
 
 Recall that the search_form example relies on the `action` and
 `method` attributes to set the destination and method for the form request.
@@ -321,23 +309,24 @@ the automatic behavior of the submit button.
 with help from the Dart libraries.
 
 The form in the slambook example is
-a custom element called `x-slambook-form`
+a custom element called `tute-slambook-form`
 that's instantiated with this HTML code:
 
 {% prettify html %}
 <div class="container">
-  <form is="x-slambook-form" id="slambookform"></form>
+  <form is="tute-slambook-form" id="slambookform"></form>
 </div>
 {% endprettify %}
 
 Note the absence of either an `action` or a `method` attribute.
-Instead, the behavior for the submit button is coded in Dart.
+Instead, the behavior for the submit button is coded in a Dart
+mouse click handler.
 Below is the HTML code that creates the submit button
 and binds it to a Dart mouse click handler.
 
 {% prettify html %}
 <div class="submitarea">
-  <input type="submit" value="Submit" on-click="submitForm($event)">
+  <input type="submit" value="Submit" on-click="{%raw%}{{submitForm}}{%endraw%}">
   ...
 </div>
 {% endprettify %}
@@ -450,7 +439,8 @@ First the code checks whether the request is complete and successful.
 If it is, the code puts the server's response in a string,
 called `serverResponse`, which is bound to the value of a textarea
 in the slambook app's UI.
-When the string changes, the UI is automatically updated.
+When the string changes, the UI is automatically updated,
+and the message is displayed for the user.
 
 If the request is complete but unsuccessful,
 the program sets `serverResponse` to an error message,
@@ -458,13 +448,10 @@ thus displaying it to the user.
 
 ##Resetting a form
 
-The reset button is a special input type that, by default,
+The reset button is a special HTML input type that, by default,
 clears the values of all inputs within the form.
-Currently,
-this automatic behavior clears the input elements
-as expected,
-but any bound Dart values do not get updated.
-
+Instead, we want the button to reset the values in the form
+to their initial value.
 So, the mouse click handler for the reset button
 needs to suppress the automatic behavior
 and reset the form with neutral data explicitly.
@@ -485,7 +472,7 @@ void resetForm(Event e) {
   theData['catOrDog'] = 'cat';
   theData['music'] = 0;
   theData['zombies'] = false;
-  serverResponse = "Data cleared.";
+  serverResponse = "Data reset.";
 }
 {% endprettify %}
 
@@ -533,7 +520,7 @@ The second, `printError`, is called if the binding fails.
 An error might occur if, for example,
 another program is already listening on the same port.
 
-The code for gotMessage(), shown below, triages the request
+The code for gotMessage(), shown below, filters the request
 and calls other methods to handle each specific kind of request.
 
 {% prettify dart %}
@@ -554,9 +541,10 @@ void gotMessage(_server) {
 }
 {% endprettify %}
 
-To handle other types of requests,
-you could simply add more `case` statements.
-For example, `case 'GET'` for HTTP GET requests.
+To handle other types of requests
+such as `GET` requests,
+you could simply add more `case` statements,
+such as `case 'GET'`.
 
 ###About Futures, briefly
 
@@ -581,7 +569,7 @@ two things happen:
   and returns an uncompleted Future object immediately.
   </li>
   <li>
-  Later, when a value is available,
+  Later, when the value is available,
   the Future object completes with that value or with an error.
   </li>
 </ul>
@@ -604,7 +592,7 @@ With help from the
    target="_blank">HttpRequest</a>
 class, the slambook client makes a POST request
 when the user clicks the submit button.
-You saw the code for this earlier in this target.
+You saw the code for this earlier in this tutorial.
 
 If the client is running from a different origin than the server,
 which is common in web apps,
@@ -735,7 +723,7 @@ Here's an outline of what the client needs to do.
 
 * Use forms to gather data from a user.
 * Put input fields in your forms for individual data items.
-* Use Web UI two-way binding to keep the form data in sync with the Dart code.
+* Use Polymer two-way binding to keep the form data in sync with the Dart code.
 * Send data declaratively (action and method attributes on the form)
 * ... or programmatically (overriding the default behavior of
 the submit button with Dart code)
@@ -764,43 +752,46 @@ and one in dart:io (for servers).
 | <a href="https://api.dartlang.org/dart_io/HttpResponse.html" target="_blank">HttpResponse</a> | dart:io | Server-side object to carry response to client requests |
 | <a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Streams</a> | dart:async | A stream of data |
 | <a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a> | dart:async | A way to get a value asynchronously |
-| <a href="https://api.dartlang.org/dart_json.html" target="_blank">stringify()</a> | dart:json | How you format an object into a JSON string |
-| <a href="https://pub.dartlang.org/packages/web_ui" target="_blank">Web UI package</a> | web_ui | Data binding, templates, and custom elements |
+| <a href="https://api.dartlang.org/dart_convert.html#JSON" target="_blank">JSON</a> | dart:convert | The default implementation of a JSON converter |
+| <a href="https://api.dartlang.org/polymer.html" target="_blank">Polymer</a> | Polymer | Custom elements, data binding, templates |
 {: .table}
 
-##Binding data to different kinds of inputs {#binding-data}
+##Two-way data binding using Polymer {#binding-data}
 
-The slambook sample uses the Web UI package to
+The slambook sample uses Polymer's two-way data binding to
 bind the values of input elements to Dart variables.
 If the user changes the value in an input element,
 the bound variable in the Dart code automatically changes.
 Or if the Dart code changes the value of the bound variable,
 the UI automatically updates.
-[Target 6: Get Started with Web UI](/docs/tutorials/web-ui/)
-provides introductory details
-about data binding with Web UI.
+[Define a Custom Element](/docs/tutorials/polymer-intro/)
+provides introductory details about Polymer and
+about data binding.
 
-With this example,
+The example also uses declarative event handler mapping to hook
+event handler functions to input elements.
+
+With the slambook example,
 you can see two-way data binding used with a variety of input elements,
 including new HTML5 elements.
 This table summarizes the two-way data binding attributes
-you can use with Web UI:
+you can use with Polymer:
 
 | Attribute | Dart type | Input element |
 |---|---|
-| bind-value | String | any <br>with special considerations for elements <br> that allow multiple selection,<br> such as a group of radio buttons and &lt;select&gt; elements |
-| bind-selected-index | integer | a &lt;select&gt; element in which only one choice is allowed |
-| bind-checked | bool | individual radio buttons or checkboxes |
-{: .table .nowraptable}
+| value | String | any |
+| selectedIndex | integer | a &lt;select&gt; element in which only one choice is allowed |
+| checked | bool | individual radio buttons or checkboxes |
+{: .table}
 
-###Using bind-value with any input element
+###Using value with any input element
 
-The `bind-value` attribute works with any input element
+The `value` attribute works with any input element
 and binds the value to a Dart string.
-This example uses `bind-value` with a text field, a text area,
+This example uses `value` with a text field, a text area,
 a color picker, a date chooser, and a range element.
 
-![Two-way data binding with bind-value and strings](images/bind-value.png)
+![Two-way data binding with value and strings](images/bind-value.png)
 
 (Note that some surrounding code,
 such as that for the labels,
@@ -812,13 +803,13 @@ to make the bindings.
 
 The map contains a key-value pair for each input element,
 where the key is a string.
-The values in the map can be of any type
-but the values for elements bound with `bind-value` are all strings.
+The values for elements bound with `value` are all strings.
 The HTML refers to the items in the map
 using their Dart names (identifiers).
 For example, the value of the color picker is bound to
 `theData['favoriteColor']`.
 
+{% comment %}
 ####Special case: Using bind-value with a group of radio buttons
 
 The slambook form contains three radio buttons,
@@ -861,12 +852,8 @@ Instead, you can look at a different example,
 
 <iframe class="running-app-frame"
         style="height:400px;width:500px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target10/multiselect/web/out/multiselect.html">
+        src="http://dart-lang.github.io/dart-tutorials-samples/web/forms/multiselect/web/out/multiselect.html">
 </iframe>
-
-The source code for this example is available on github:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target10/multiselect"
-   target="_blank">multiselect</a>.
 
 Key-value pairs in a map called `books` contain the data
 for the &lt;select&gt; element.
@@ -881,7 +868,7 @@ final Map<String, bool> books = toObservable(
 );
 {% endprettify %}
 
-Using `template repeat` from Web UI,
+Using `template repeat` from Polymer,
 the HTML code puts &lt;option&gt; elements in the 
 &lt;select&gt; element based on the Dart map.
 Instead of binding the values of the &lt;option&gt; elements
@@ -925,26 +912,27 @@ to the selected books.
 The `booksselected` getter has an implied dependency on
 the `books` map, because the getter uses the map.
 When `books` changes, the UI updates the unnumbered list of selected books.
+{% endcomment %}
 
-###Using bind-selected-index with a pull-down menu
+###Using selectedIndex with a pull-down menu
 
 A &lt;select&gt; element contains one or more &lt;option&gt; elements,
 only one of which, by default, can be selected at a time.
 A single-select element is usually implemented as a pull-down menu.
-You can use the `bind-selected-index` attribute
+You can use the `selectedIndex` attribute
 to bind a Dart integer to a pull-down menu.
 The integer indicates the index of the selected item.
 Indices begin at 0.
 
-![bind-selected-index with a single-selection pull-down menu](images/bind-selected.png)
+![The selectedIndex attribute with a single-selection pull-down menu](images/bind-selected.png)
 
-###Using bind-checked with checkboxes
+###Using checked with checkboxes
 
-You can use the `bind-checked` attribute
+You can use the `checked` attribute
 to bind a Dart boolean to a single checkbox.
 Here each checkbox is bound to a separate boolean value within a map.
 
-![bind-checked with individual checkboxes](images/bind-checked.png)
+![The checked attribute with individual checkboxes](images/bind-checked.png)
 
 
 ##Other resources
@@ -958,10 +946,10 @@ Here each checkbox is bound to a separate boolean value within a map.
   <li> Check out
        <a href="/docs/cookbook/">
        <i class="icon-food"> </i> Dart Cookbook</a>.
-       You'll find many recipes related to topics in this Target,
-       including Web UI, JSON, and URIs.
+       You'll find many recipes related to topics in this tutorial,
+       including JSON and URIs.
   </li>
-  <li> The previous target,
+  <li> The previous tutorial,
        <a href="/docs/tutorials/fetchdata/">Fetch Data Dynamically</a>,
        contains a more basic client program that relies on the server
        within Dart Editor (port 3030 on localhost),
@@ -971,10 +959,10 @@ Here each checkbox is bound to a separate boolean value within a map.
 
 ###What next?
 
-Try our
-<a href="/codelabs/web-ui-writer/index.html" target="_blank"><i class="icon-beaker"> </i>Codelab</a>.
-In this step-by-step guide, you’ll build a simple,
-single­-page, modern web app for desktop and mobile.
+The next tutorial,
+[Use IndexedDB](/docs/tutorials/indexeddb),
+describes how to save data on the client
+in the browser's Indexed Database.
 
 {% endcapture %}
 

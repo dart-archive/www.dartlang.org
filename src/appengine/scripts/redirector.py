@@ -28,7 +28,7 @@ class ApiRedirectPage(RequestHandler):
         self.redirect('http://api.dartlang.org/', permanent=True)
     else:
         self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
-            
+
 class SpecRedirectPage(RequestHandler):
   def get(self):
     suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
@@ -66,16 +66,44 @@ class CloudStorageRedirect(RequestHandler):
   def redirect_to_cloud_storage(self, path):
     self.redirect(self.prefix + path, permanent=False)
 
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirect(CloudStorageRedirect):
   prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
 
-class EclipseUpdateRedirect(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
+class EditorUpdateRedirectBeChannel(CloudStorageRedirect):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw'
+
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
+class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release'
+
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
+class EditorUpdateRedirectStableChannel(CloudStorageRedirect):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release'
+
+class EclipseUpdateRedirectBase(CloudStorageRedirect):
   def get(self, *args, **kwargs):
     filename = kwargs['path']
     if filename == '' or filename == '/':
       filename = '/index.html'
     self.redirect_to_cloud_storage(filename)
+
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
+class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
+
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
+class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
+
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
+class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
+
+# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
+class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
+  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
 class BookRedirect(RequestHandler):
   def get(self, *args, **kwargs):
@@ -101,7 +129,19 @@ application = WSGIApplication(
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
     ('/articles/dart-web-components/.*', WebUiRedirect),
+    Route('/editor/update/channels/be<path:.*>',
+      EditorUpdateRedirectBeChannel),
+    Route('/editor/update/channels/dev<path:.*>',
+      EditorUpdateRedirectDevChannel),
+    Route('/editor/update/channels/stable<path:.*>',
+      EditorUpdateRedirectStableChannel),
     Route('/editor/update<path:.*>', EditorUpdateRedirect),
+    Route('/eclipse/update/channels/be<path:.*>',
+      EclipseUpdateRedirectBeChannel),
+    Route('/eclipse/update/channels/dev<path:.*>',
+      EclipseUpdateRedirectDevChannel),
+    Route('/eclipse/update/channels/stable<path:.*>',
+      EclipseUpdateRedirectStableChannel),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
     Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
@@ -109,6 +149,8 @@ application = WSGIApplication(
                 '_code': 302}),
     Route('/language-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html'}),
+    Route('/docs/technical-overview/', RedirectHandler,
+      defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html'}),
     Route('/downloads.html', RedirectHandler,
       defaults={'_uri': '/tools/'}),
     Route('/docs/language-tour/', RedirectHandler,
@@ -127,6 +169,8 @@ application = WSGIApplication(
       defaults={'_uri': '/tools/editor/'}),
     Route('/dartium/', RedirectHandler,
       defaults={'_uri': '/tools/dartium/'}),
+    Route('/community/', RedirectHandler,
+      defaults={'_uri': '/support/'}),
     Route('/docs/getting-started/editor/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html#ch01-editor'}),
     Route('/docs/getting-started/sdk/', RedirectHandler,
@@ -142,9 +186,19 @@ application = WSGIApplication(
     Route('/docs/standalone-dart-vm/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html'}),
     Route('/codelab', RedirectHandler,
-      defaults={'_uri': '/codelabs/web-ui-writer/'}),
+      defaults={'_uri': '/codelabs/darrrt/'}),
+    Route('/codelabs/', RedirectHandler,
+      defaults={'_uri': '/codelabs/darrrt/'}),
+    Route('/docs/tutorials/web-ui/', RedirectHandler,
+      defaults={'_uri': '/docs/tutorials/polymer-intro/'}),
+    Route('/docs/tutorials/templates/', RedirectHandler,
+      defaults={'_uri': '/docs/tutorials/polymer-intro/'}),
+    Route('/docs/tutorials/custom-elements/', RedirectHandler,
+      defaults={'_uri': '/docs/tutorials/polymer-intro/'}),
     Route('/codelabs/web-ui-writer/codelab.pdf', RedirectHandler,
-      defaults={'_uri': '/codelabs/web-ui-writer/'}),
+      defaults={'_uri': '/codelabs/darrrt/'}),
+    Route('/codelabs/web-ui-writer/', RedirectHandler,
+      defaults={'_uri': '/codelabs/darrrt/'}),
     Route('/tools/analyzer', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html'}),
     Route('/atom.xml', RedirectHandler,

@@ -1,4 +1,4 @@
-import 'dart:json';
+import 'dart:convert';
 import 'dart:html';
 HttpRequest request;
 
@@ -11,6 +11,6 @@ void saveData() {
   mapData["targets"] = new List();
   mapData["targets"].add("dartium");
 
-  String jsonData = stringify(mapData); // convert map to String
+  String jsonData = JSON.encode(mapData); // convert map to String
   request.send(jsonData); // perform the async POST
 }

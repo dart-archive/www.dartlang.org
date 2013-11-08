@@ -29,7 +29,19 @@ pagespeed:
 #default_expiration: "1d"
 
 handlers:
+- url: /community/
+  script: scripts.redirector.application
+
 - url: /\+
+  script: scripts.redirector.application
+
+- url: /docs/tutorials/web-ui/
+  script: scripts.redirector.application
+
+- url: /docs/tutorials/templates/
+  script: scripts.redirector.application
+
+- url: /docs/tutorials/custom-elements/
   script: scripts.redirector.application
 
 - url: /docs/dart-up-and-running/ch0\d.html
@@ -95,6 +107,9 @@ handlers:
 - url: /language-tour/.*
   script: scripts.redirector.application
 
+- url: /docs/technical-overview.*
+  script: scripts.redirector.application
+
 - url: /docs/getting-started/sdk/.*
   script: scripts.redirector.application
 
@@ -113,10 +128,16 @@ handlers:
 - url: /hangouts.*
   script: scripts.redirector.application
 
+- url: /codelabs/
+  script: scripts.redirector.application
+
 - url: /codelab
   script: scripts.redirector.application
 
 - url: /codelabs/web-ui-writer/codelab.pdf
+  script: scripts.redirector.application
+
+- url: /codelabs/web-ui-writer/
   script: scripts.redirector.application
 
 - url: /eclipse/update.*

@@ -1,99 +1,163 @@
-row01:
--
-  title: Hello, World
-  name: hello
-  alt: Hello, World in a browser.
-  source_url: https://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fhi
-  desc: Basic web app with the obligatory "Hello, world" example.
-  features: 
-    - Libraries and imports
-    - main()
-    - Finding DOM elements
-    - Setting text on a web page
-
--
-  title: Solar System
-  name: solar
-  alt: Solar system in a browser.
-  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%solar
-  desc: A solar system simulation.
-  features:
-    - HTML5 canvas
-    - Collections
-    - Optional parameters
-    - Math
-
--
-  title: Countdown Clock
-  name: clock
-  alt: Countdown clock in a browser.
-  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%2Fclock
-  desc: A countdown clock, complete with bouncing balls, from Google I/O 2011.
-  features:
-    - Animations
-    - Classes
-    - Top-level functions
-    - Multiple files
-
-row02:
--
-  title: Sunflower
-  name: sunflower
-  alt: Sunflower in a browser.
-  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%sunflower
-  desc: Canvas 2D app with HTML5 range input and event handler.
-  features:
-    - HTML5 canvas
-    - Event handling
-    - Compile-time constants
-
--
-  title: Spirodraw
-  name: spirodraw
-  alt: A spirodraw game in a browser.
-  source_url: http://code.google.com/p/dart/source/browse/#svn%2Ftrunk%2Fdart%2Fsamples%spirodraw
-  desc: Fun and interactive animation using canvas 2D.
-  features:
-    - HTML5 canvas
-    - User input
-    - Function alias
-    - Library with multiple files
-
--
-  title: HTML5 and Dart
-  name: html5
-  alt: A list of HTML5 samples written in Dart.
-  source_url: https://github.com/dart-lang/dart-html5-samples
-  desc: Lots of HTML5 samples written with Dart. Many ported from HTML5 Rocks.
-  features:
-    - HTML5 Rocks ports
-    - WebGL
-    - IndexedDB and local storage
-    - Many more HTML5 samples
-
-row03:
--
-  title: Pop Pop Win
-  name: poppopwin
-  alt: Gameboard for Pop Pop Win.
-  source_url: https://github.com/dart-lang/pop-pop-win
-  live_url: http://dart-lang.github.com/pop-pop-win/
-  desc: Pop balloons but avoid the bombs in this fun game.
-  features:
-    - Touch and mouse events
-    - Web Audio API
-    - HTML5 canvas
-    - Sprite atlases
-
--
-  title: TodoMVC
-  name: todomvc
-  alt: Todo list.
-  source_url: https://github.com/dart-lang/web-ui/tree/master/example/todomvc
-  live_url: http://dart-lang.github.com/web-ui/example/todomvc/index.html
-  desc: Port of TodoMVC to Dart using the Web UI package. <a href="/articles/dart-web-components/">Read more about the Web UI package.</a>
-  features:
-    - Custom elements
-    - One-way and two-way data binding
-    - Template loops and conditionals
-    - Declarative event handler assignment
+col1:
+  -
+    heading: Working with the DOM
+    examples:
+      -
+        title: Adding elements to the DOM
+        explanation_url: /docs/tutorials/add-elements/
+        tryit_url: todo/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo
+      -
+        title: Moving elements within the DOM tree
+        explanation_url: /docs/tutorials/add-elements/#moving-elements
+        tryit_url: anagram/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/anagram
+      -
+        title: Removing elements from the DOM
+        explanation_url: /docs/tutorials/remove-elements
+        tryit_url: todo_with_delete/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete
+  -
+    heading: Using JavaScript from Dart
+    examples:
+      -
+        title: Simple Google Maps example
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/README.md
+        tryit_url: google_maps/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
+      -
+        title: Using the Google Charts API
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/README.md
+        tryit_url: gauge/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/
+      -
+        title: Fetching data using JSONP
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/README.md
+        tryit_url: jsonp/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/
+  -
+    heading: polymer.dart
+    examples:
+      -
+        title: Defining a custom element
+        explanation_url: /docs/tutorials/polymer-intro
+        tryit_url: stopwatch/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
+      -
+        title: Working with forms in Polymer
+        explanation_url: /docs/tutorials/forms
+        tryit_url: slambook/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/slambook
+      -
+        title: TodoMVC
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/README.md
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
+      -
+        title: Building a CRUD app
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
+  -
+    heading: HTML5 persistence
+    examples:
+      -
+        title: Simple LocalStorage example
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/localstorage/basics/README
+        tryit_url: localstorage/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics
+      -
+        title: Simple todo app using IndexedDB
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+        tryit_url: indexeddb_todo/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+      -
+        title: Store and retrieve data using IndexedDB
+        explanation_url: /docs/tutorials/indexeddb/
+        tryit_url: countdown/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
+      -
+        title: Exploring the Filesystem APIs
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+        tryit_url: filesystem/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+      -
+        title: Emulating a terminal for working with the file system
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+        tryit_url: terminal/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+col2:
+  -
+    heading: Animation and graphics
+    examples:
+      -
+        title: Working with requestAnimationFrame
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
+        tryit_url: raf/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
+      -
+        title: 2D solar system animation using Canvas
+        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
+        tryit_url: solar/
+        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
+      -
+        title: 3D solar system animation using WebGL
+        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
+        tryit_url: solar3d/
+        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
+      -
+        title: Using image filters with canvas
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+        tryit_url: imagefilters/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+  -
+    heading: HTML5 Drag and Drop
+    examples:
+      -
+        title: Basic Drag and Drop
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
+        tryit_url: dnd/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
+      -
+        title: Drag and Drop files
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        tryit_url: dndfiles/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+  -
+    heading: WebSockets
+    examples:
+      -
+        title: Basic WebSockets example
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/websockets/basics/
+        tryit_url: websockets/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics
+  -
+    heading: Application Cache
+    examples:
+      -
+        title: Using Application Cache
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/appcache/beginner/
+        tryit_url: appcache/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner
+  -
+    heading: Geolocation
+    examples:
+      -
+        title: Basic geolocation example
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/geolocation/trip_meter/
+        tryit_url: geolocation/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter
+  -
+    heading: Web Audio
+    examples:
+      -
+        title: Getting started with Web Audio API
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/webaudio/intro/
+        tryit_url: webaudio/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
+  -
+    heading: Files API
+    examples:
+      -
+        title: Using the Files API
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        tryit_url: dndfiles/
+        source_url: https://githubo.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles

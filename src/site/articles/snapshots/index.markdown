@@ -112,23 +112,23 @@ is amortized over many launches.
 </aside>
 
 To generate a script snapshot,
-use dart with the `--generate-script-snapshot` option.
+use dart with the `--snapshot` option.
 You can use the `--package_root` option
 to specify the location of packages used in imports
 (`import 'package:...'`).
 
 <pre>
-dart <em>[</em>--package_root=<em>path]</em> --generate-script-snapshot=<em>out-file</em> <em>dart-script-file</em>
+dart <em>[</em>--package_root=<em>path]</em> --snapshot=<em>out-file</em> <em>dart-script-file</em>
 </pre>
 
-The `--generate-script-snapshot` option writes
+The `--snapshot` option writes
 a script snapshot of _dart-script-file_ to _out-file_.
 For example, the following command creates
 a snapshot of the Dart script `dart2js.dart`,
 putting it into a file called `dart2js.snapshot`.
 
 {% prettify sh %}
-dart --generate-script-snapshot=dart2js.snapshot \ 
+dart --snapshot=dart2js.snapshot \ 
     dart-sdk/lib/dart2js/lib/_internal/compiler/implementation/dart2js.dart
 {% endprettify %}
 

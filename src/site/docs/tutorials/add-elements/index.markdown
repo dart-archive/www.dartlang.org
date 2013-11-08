@@ -23,19 +23,15 @@ prev-title: "Connect Dart & HTML"
 
 {% capture sample_links %}
 
-<p>
-Get the source code for the samples featured in this target:</p>
+<p> This tutorial features these examples:</p>
+* todo
+* anagram
 
-<ul>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/todo"
-       target="_blank">todo</a>
-  </li>
-  <li>
-    <a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/anagram"
-       target="_blank">anagram</a>
-  </li>
-</ul>
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
 
 {% endcapture %}
 
@@ -46,7 +42,7 @@ Get the source code for the samples featured in this target:</p>
 <h3>Dynamically add items to the browser page.</h3>
 </div>
 
-As you learned in the previous target,
+As you learned in the previous tutorial,
 the DOM represents the structure
 of a web page document using a simple tree structure.
 Each node in the tree represents an item on the page.
@@ -68,7 +64,7 @@ elements are implemented by the
 <a href="https://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a>
 class, which is a subclass of Node.
 Because the nodes you care about most are usually elements,
-this target focuses on Element,
+this tutorial focuses on Element,
 rather than on Node.
 
 * [Copy and run the todo app](#copy-app)
@@ -81,10 +77,11 @@ rather than on Node.
 * [Styling the page elements](#about-css)
 * [Moving elements within the DOM tree](#moving-elements)
 * [Other resources](#other-resources)
+* [What next?](#what-next)
 
 ##Copy and run the todo app {#copy-app}
 
-In this target, you will be working with a sample web app
+In this tutorial, you will be working with a sample web app
 that is a partial implementation of a todo list.
 This program dynamically changes the DOM,
 and therefore the web page,
@@ -96,12 +93,8 @@ Enter a few items into the input field:
 
 <iframe class="running-app-frame"
         style="height:250px;width:300px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target03/todo/web/todo.html">
+        src="examples/todo/todo.html">
 </iframe>
-
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/todo"
-target="_blank">todo</a>.
 
 This is the beginning of an app to manage a list of things to do.
 Right now, this app is for procrastinators only
@@ -128,7 +121,7 @@ a subset of the DOM that includes
 only the nodes that are Elements.
 You can work with a virtual tree of Elements
 rather than the more complex tree of Nodes.
-This target shows you how to manipulate the
+This tutorial shows you how to manipulate the
 DOM through the Element class.
 
 An Element has a parent Element
@@ -146,7 +139,8 @@ you would refer to its parent element with `anElement.parent`.
 ![Dart code reference to anElement's parent](images/parent-reference.png)
 
 An Element maintains references to its child elements in a list.
-List is a class in the dart:core library
+<a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>
+is a class in the dart:core library
 that implements an indexable collection with a length.
 A list can be of fixed size or extendable.
 
@@ -298,11 +292,10 @@ The change event handler has the following code:
 ![The addToDoItem() function explained](images/add-element-code.png)
 
 The final line of code is where the DOM gets changed.
-The add() method is defined in the List class in the dart:core library.
 
 An Element keeps references to all of its children in a list called `children`.
 By adding and removing elements to and from this list,
-your code changes the DOM.
+the code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
 The effect, in our todo app, is that a new bullet item appears 
 in the to do list.
@@ -335,12 +328,8 @@ Here's an example that shows how to move an element within the DOM.
 
 <iframe class="running-app-frame"
         style="height:400px;width:400px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/target03/anagram/web/anagram.html">
+        src="examples/anagram/anagram.html">
 </iframe>
-
-You can find the complete source code for this sample on github at
-<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/target03/anagram"
-target="_blank">anagram</a>.
 
 When the program starts,
 it creates one button element for each of seven
@@ -382,11 +371,16 @@ automatically removes it from its previous parent.
 
   <li>
     You can find more information about the DOM and CSS in
-    <a href="/docs/dart-up-and-running/">Dart Up and Running</a>,
+    <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>,
     which also provides thorough coverage of the Dart language, 
     libraries, and tools.
   </li>
 </ul>
+
+##What next?
+
+The next tutorial, [Remove DOM Elements](/docs/tutorials/remove-elements/),
+describes how to remove elements from the DOM and items off your todo list.
 
 {% endcapture %}
 

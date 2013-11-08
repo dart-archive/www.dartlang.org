@@ -375,7 +375,7 @@ function has a lot of code packed into it, chances are that you could be doing
 something dangerous without realizing it:
 
 {% prettify dart %}
-Future myFunc() {
+Future fragileFunc() {
   return new Future.sync(() {
     var x = someFunc();     // Unexpectedly throws in some rare cases.
     var y = 10 / x;         // x should not equal 0.
@@ -386,3 +386,13 @@ Future myFunc() {
 
 `Future.sync()` not only allows you to handle errors you know might occur, but
 also prevents errors from *accidentally* leaking out of your function.
+
+
+## More information
+
+Read the following documentation for more details on using Futures:
+
+* [The Event Loop and Dart](/articles/event-loop/),
+  an article that describes how to schedule tasks using Futures
+* [Future API reference](http://api.dartlang.org/dart_async/Future.html)
+
