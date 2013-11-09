@@ -44,6 +44,8 @@ $(function() {
         }, 1000);
         window.location.hash = this.hash;
         return false;
+      } else {
+        window.location.hash = this.hash;
       }
     }
   });
