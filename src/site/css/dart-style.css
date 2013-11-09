@@ -1106,3 +1106,13 @@ line-height: 120%;
 		width:100%;
 	} 
 }
+
+/* ***** Up and running Book ***** */
+.up-and-running-contents .navheader > table > tbody > tr > th {
+	text-align: center;
+}
+
+.up-and-running-contents img {
+	max-width:100%; 
+	max-height:100%;
+}
