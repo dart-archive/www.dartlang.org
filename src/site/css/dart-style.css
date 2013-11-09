@@ -912,3 +912,187 @@ code.highlight {
 	max-width:100%; 
 	max-height:100%;"
 }
+
+/* ***** Tutorials ***** */
+
+.tute-target-title {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+
+  background-color: #D8ECFD; /* fallback color if gradients are not supported */
+  background-image: -webkit-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For Chrome and Safari */
+  background-image:    -moz-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For old Fx (3.6 to 15) */
+  background-image:     -ms-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For pre-releases of IE 10*/
+  background-image:      -o-linear-gradient(right, #D8ECFD, #DDFFDD, #e6E6FA); /* For old Opera (11.1 to 12.0) */ 
+  background-image:         linear-gradient(to right, #D8ECFD, #DDFFDD, #e6E6FA); /* Standard syntax; must be last */
+}
+
+.tute-target-title h1 {
+  font-size: 56px;
+}
+
+.tute-target-title h3 {
+  padding-top: 15px;
+  font-size: 28px;
+}
+
+.tute-tabs {
+  margin-top: 40px;
+}
+
+.tute-tabs h4 {
+  margin-top: 20px;
+}
+
+.running-app-frame {
+  border-style:solid;
+  border-width:1px;
+  border-radius:7px;
+  background-color:WhiteSmoke;
+  padding:5px;
+}
+
+#under-construction {
+  background-color: #F5E2FF;
+  border-radius: 10px;
+  border-width: 1px;
+  margin: 15px 50px 15px 50px;
+  padding: 10px;
+}
+
+#under-construction h3 {
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+#under-construction .icon-wrench {
+  font-size: 24pt;
+}
+
+.icon-info-sign {
+  color: SlateBlue;
+  font-size: 18pt;
+  vertical-align: middle;
+}
+
+#code-links {
+  list-style-type: square;
+  font-size: 9pt;
+
+  padding: 10px;
+  background-color: #DDFFDD;
+  border-radius: 10px;
+  line-height: 120%;
+
+  margin: 10px 0px 15px 0px;
+}
+
+#code-links p {
+  font-size: 9pt;
+  line-height: 120%;
+}
+
+#code-links ul {
+  margin: 0px 0px 0px 15px;
+}
+
+#code-links li {
+line-height: 120%;
+  padding-bottom: 7px;
+}
+
+#code-links h4 {
+  padding-bottom: 7px;
+}
+
+#whats-the-point {
+  list-style-type: square;
+  font-size: 9pt;
+
+  padding: 10px;
+  background-color: #D8ECFD;
+  border-radius: 10px;
+
+  margin: 0px 0px 15px 0px;
+
+/* colors from logo */
+/*$blue-dark: #0081C6;*/
+/*$blue-light: #00A4E4;*/
+/*$green-dark: #00D2B8;*/
+/*$green-light: #55DDCA;*/
+
+}
+
+#whats-the-point ul {
+  margin: 0px 0px 0px 15px;
+}
+
+#whats-the-point li {
+  line-height: 120%;
+  padding-bottom: 7px;
+}
+
+#whats-the-point h4 {
+  padding-bottom: 7px;
+}
+
+#tutorial-toc {
+  list-style-type: square;
+  font-size: 9pt;
+
+  padding: 10px;
+  background-color: #e6E6FA;
+  border-radius: 10px;
+
+  margin: 0px 0px 15px 0px;
+}
+
+#tutorial-toc ul {
+  margin: 0px 0px 0px 15px;
+}
+
+#tutorial-toc li {
+  line-height: 120%;
+}
+
+#tutorial-toc h4 {
+  padding-bottom: 7px;
+}
+
+
+#tutorial-side {
+  width: 200px;
+  position: fixed;
+  top: 129px;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  #tutorial-side {
+    width: 258px;
+  }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+  #tutorial-side {
+    width: 158px;
+  }
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	#tutorial-side {
+		position: static;
+		width:100%;
+	} 
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+	#tutorial-side {
+		position: static; 
+		width:100%;
+	} 
+}

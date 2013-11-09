@@ -14,7 +14,7 @@ next-title: "Get Started"
 
 {% capture content %}
 
-<img src="images/banner.png">
+<img class="scale-img-max" src="images/banner.png">
 
 **The Dart Tutorials** teach you how to build web applications
 using the Dart language, tools, and APIs.
