@@ -40,10 +40,9 @@ col1:
         explanation_url: https://github.com/angular/angular.dart/tree/master/demo/todo
         source_url: https://github.com/angular/angular.dart/tree/master/demo/todo
       -
-        title: Store and retrieve data using IndexedDB
-        explanation_url: /docs/tutorials/indexeddb/
-        tryit_url: countdown/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
+        title: Bouncing balls
+        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
+        source_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
       -
         title: Recipe book tutorial app
         explanation_url: https://github.com/angular/angular.dart.tutorial#welcome-to-the-angulardart-tutorial
@@ -53,7 +52,7 @@ col1:
     anchor: using_javascript_from_dart
     screenshot: google_maps.png
     caption: "Using a JavaScript API with dart:js: Simple Google Maps example"
-    link: http://localhost:8081/samples/google_maps/
+    link: google_maps/
     examples:
       -
         title: Simple Google Maps example
@@ -151,7 +150,7 @@ col1:
         tryit_url: indexeddb_todo/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
       -
-        title: Store and retrieve data using IndexedDB
+        title: Storing and retrieving data using IndexedDB
         explanation_url: /docs/tutorials/indexeddb/
         tryit_url: countdown/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
