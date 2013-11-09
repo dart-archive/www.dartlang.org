@@ -1075,17 +1075,27 @@ line-height: 120%;
 }
  
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) { 
+/*@media (max-width: 992px) { 
   #tutorial-side {
     width: 158px;
   }
-}
+}*/
  
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) { 
+@media (max-width: 992px) { 
 	#tutorial-side {
 		position: static;
 		width:100%;
+	} 
+
+	#tutorial-navigation-links-top {
+		margin-top: 52px;
+	} 
+}
+
+@media (max-width: 768px) {
+	#tutorial-navigation-links-top {
+		margin-top: 1px;
 	} 
 }
  
