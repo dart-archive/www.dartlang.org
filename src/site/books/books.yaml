@@ -1,3 +1,18 @@
+- title: The Dart Programming Language
+  authors:
+    - Gilad Bracha
+  publisher: Addison-Wesley Professional
+  cover: the-dart-programming-language.jpg
+  link: http://www.amazon.com/Dart-Programming-Language-Gilad-Bracha/dp/0321927702
+  desc: 'Dart makes it easier for programmers to build structured modern
+        web apps that scale from simple scripts to the largest systems.
+        The Dart Programming Language   is an authoritative and rigorous
+        description of the Dart language. Written by Dart spec lead Gilad
+        Bracha, it is designed for computer scientists, advanced students,
+        and experienced software professionals. It is intended to be a
+        readable textbook that introduces the language, its rationale and
+        its philosophy.'
+
 - title: Dart for Hipsters
   authors:
     - Chris Strom
