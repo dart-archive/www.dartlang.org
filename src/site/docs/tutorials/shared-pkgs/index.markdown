@@ -78,7 +78,8 @@ Dart Editor automatically creates a `pubspec.yaml` file.
 Start Dart Editor and create a new application with the name `vector_victor`.
 Double click pubspec.yaml to view its contents.
 
-![Dart Editor with pubspec.yaml file](images/victor-files.png)
+<img class="scale-img-max" src="images/victor-files.png"
+     alt="Dart Editor with pubspec.yaml file">
 
 The pubspec.yaml file contains the package specification written in YAML
 (visit <a href="https://pub.dartlang.org/doc/pubspec.html">Pubspec Format</a>
@@ -90,7 +91,8 @@ to edit the YAML code directly.
 Below is the pubspec.yaml file that was
 created for the vector_victor application.
 
-![The default pubspec.yaml file specifies name and description](images/pubspec.png)
+<img class="scale-img-max" src="images/pubspec.png"
+     alt="The default pubspec.yaml file specifies name and description">
 
 The package name is required.
 You'll note that the pubspec.yaml file already
@@ -106,7 +108,8 @@ and want it to use an external package,
 simply create a pubspec.yaml file in the application's top-level directory.
 Your pubspec.yaml file must at least specify the package name.
 
-![The smallest possible pubspec.yaml](images/minimalpubspec.png)
+<img class="scale-img-max" src="images/minimalpubspec.png"
+     alt="The smallest possible pubspec.yaml">
 
 <aside class="alert">
 <strong>Tip:</strong> If you are using
@@ -138,15 +141,18 @@ which is available at pub.dartlang.org.
 
 * Click the **Add** button in Dart Editor.
 
-![Click the add button to add a package dependency](images/dependencies-ui.png)
+<img class="scale-img-max" src="images/dependencies-ui.png"
+     alt="Click the add button to add a package dependency">
 
 * Enter the name of the package in the popup window.
 
-![Enter the package name](images/add-dependency-window.png)
+<img class="scale-img-max" src="images/add-dependency-window.png"
+     alt="Enter the package name">
 
 Dart Editor adds the package name to the list.
 
-![The application is now dependent on vector_math](images/after-add.png)
+<img class="scale-img-max" src="images/after-add.png"
+     alt="The application is now dependent on vector_math">
 
 Notice the **Version** field.
 `any` means that this application can use
@@ -160,7 +166,8 @@ Pub's Versioning Philosophy
 
 Here's the new pubspec.yaml file:
 
-![Pubspec.yaml file with vector_math dependency](images/pubspec-vectormath.png)
+<img class="scale-img-max" src="images/pubspec-vectormath.png"
+     alt="Pubspec.yaml file with vector_math dependency">
 
 <a href="https://pub.dartlang.org/">pub.dartlang.org</a>
 is the primary public repository for Dart packages.
@@ -186,7 +193,8 @@ Click the wee arrow to expand the packages directory.
 There you will find the vector_math directory,
 which links to the Dart libraries from the vector_math package.
 
-![Pub Install finds and installs required packages](images/run-pub-install.png)
+<img class="scale-img-max" src="images/run-pub-install.png"
+     alt="Pub Install finds and installs required packages">
 
 Pub install works recursively;
 if the included package has dependencies, those packages are installed as well.
@@ -217,8 +225,8 @@ only one, `lib`, was installed when you ran pub install.
 <div>
   <hr>
   <div class="row">
-    <div class="col-md-2">
-    <img src="images/libraries-folder.png"
+    <div class="col-md-3">
+    <img class="scale-img-max" src="images/libraries-folder.png"
          alt="Dart libraries directory"/>
     </div>
     <div class="col-md-7">
@@ -229,8 +237,8 @@ only one, `lib`, was installed when you ran pub install.
   </div>
   <hr>
   <div class="row">
-    <div class="col-md-2">
-    <img src="images/housekeeping-files.png"
+    <div class="col-md-3">
+    <img class="scale-img-max" src="images/housekeeping-files.png"
          alt="Housekeeping files"/>
     </div>
     <div class="col-md-7">
@@ -246,8 +254,8 @@ only one, `lib`, was installed when you ran pub install.
   </div>
   <hr>
   <div class="row">
-    <div class="col-md-2">
-    <img src="images/other-folders.png"
+    <div class="col-md-3">
+    <img class="scale-img-max" src="images/other-folders.png"
          alt="Document, scripts, tests, and other resources"/>
     </div>
     <div class="col-md-7">
@@ -267,7 +275,8 @@ only one, `lib`, was installed when you ran pub install.
 
 Open the vector_math directory by clicking the little arrow.
 
-![Finally, the vector_math library files](images/the-vectormath-library.png)
+<img class="scale-img-max" src="images/the-vectormath-library.png"
+     alt="Finally, the vector_math library files">
 
 The directory contains a Dart file called vector_math.dart,
 which you import into your Dart application,

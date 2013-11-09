@@ -349,7 +349,7 @@ between `mini.dart` and `mini.html`.
 
 In Dart Editor,
 select `mini.html` and then click the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 Dart Editor invokes Dartium
 and loads `mini.html` in it.

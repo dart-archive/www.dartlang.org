@@ -99,7 +99,7 @@ contains the following:
   <hr>
   <div class="row">
     <div class="col-md-2">
-    <img src="images/dart-editor-icon.png"
+    <img class="scale-img-max" src="images/dart-editor-icon.png"
          width="77" height="93" alt="Dart Editor"/>
     </div>
     <div class="col-md-7">
@@ -114,7 +114,7 @@ contains the following:
   <hr>
   <div class="row">
     <div class="col-md-2">
-    <img src="images/chromium.png"
+    <img class="scale-img-max" src="images/chromium.png"
          width="81" height="89" alt="Dartium, a special Chromium build"/>
     </div>
     <div class="col-md-7">
@@ -128,7 +128,7 @@ contains the following:
   <hr>
   <div class="row">
     <div class="col-md-2">
-    <img src="images/dart-sdk-directory.png"
+    <img class="scale-img-max" src="images/dart-sdk-directory.png"
          width="86" height="94" alt="dart-sdk directory"/>
     </div>
     <div class="col-md-7">
@@ -143,7 +143,7 @@ contains the following:
   <hr>
   <div class="row">
     <div class="col-md-2">
-    <img src="images/samples-directory.png"
+    <img class="scale-img-max" src="images/samples-directory.png"
          width="81" height="91" alt="samples directory"/>
     </div>
     <div class="col-md-7">
@@ -156,7 +156,7 @@ contains the following:
   <hr>
   <div class="row">
     <div class="col-md-2">
-    <img src="images/and-the-rest.png"
+    <img class="scale-img-max" src="images/and-the-rest.png"
          width="81" height="71" alt="more directories"/>
     </div>
     <div class="col-md-7">
@@ -172,7 +172,7 @@ contains the following:
 
 Invoke Dart Editor by double-clicking its icon
 in your Dart installation directory
-<img src="/imgs/Dart_Logo_21.png"
+<img class="scale-img-max" src="/imgs/Dart_Logo_21.png"
      width="21" height="21" alt="Dart Editor icon">.
 
 Dart Editor displays its Welcome Page
@@ -268,7 +268,7 @@ The Dart VM runs Dart code directly without intermediate compilation.
 
 Conveniently, you can run command-line apps
 directly in Dart Editor with the click of the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 Alternatively,
 use the Dart VM tool
@@ -284,7 +284,7 @@ user interface for a server.
 
 You can run your Dart web app from Dart Editor
 by clicking the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 By default, Dart Editor will invoke Dartium,
 which has the Dart VM embedded in it,
@@ -315,7 +315,7 @@ and then a web application.
 
 In Dart Editor, choose **File->New Application** from the menu
 or click the New Application button
-<img src="images/newapp.png" width="17" height="16" alt="New App button"/>.
+<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
 A dialog appears that looks like this:
 
 <img class="scale-img-max" src="images/new-helloworld.png"
@@ -396,7 +396,7 @@ To run the helloworld app from Dart Editor:
 
 * Select the helloworld.dart file in the **Files view**.
 * Click the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 
 Dart Editor opens a new panel,
@@ -411,7 +411,7 @@ and displays the output of the helloworld app.
 Now let's create a web application.
 As you did when creating a command-line application,
 click the **New Application** button
-<img src="images/newapp.png" width="17" height="16" alt="New App button"/>.
+<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
 Name the application `clickme`.
 This time you are creating a web app,
 so select **Web application** from the list
@@ -449,7 +449,7 @@ To run the clickme app from Dart Editor:
 
 * Select `clickme.html`.
 * Click the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 
 Dart Editor invokes Dartium providing it with
