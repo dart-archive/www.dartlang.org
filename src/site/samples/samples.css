@@ -11,15 +11,11 @@ body {
   text-align: left;
   font-size: 1.3em;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 0px 0;
 }
 
 .example {
-  margin: 3px auto 7px auto;
-  border-radius: 5px;
-  border: 1px solid #f0f0f0;
-  padding: 0px 5px;
-  padding-top: 3px;
+  margin: 7px auto;
 }
 
 .link {
@@ -30,4 +26,33 @@ body {
   padding: 0;
 }
 
+.screenshot {
+  border: 2px solid #49c;
+  border-radius: 5px;
+}
 
+.screenshot-container {
+  text-align:center;
+}
+.group-heading {
+  border-bottom: 1px solid #eee;
+  margin: 20px auto 8px auto;
+  padding: 0;
+  line-height: inherit;
+}
+
+#samples-toc {
+  margin-top: 26px;
+  margin-left: 0px;
+  list-style: none;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.caption {
+  text-align: center;
+  font-style: italic;
+  font-size: .9em;
+
+}

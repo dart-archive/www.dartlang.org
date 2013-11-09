@@ -1,63 +1,54 @@
 ---
 layout: default
 title: "Dart Code Samples"
-description: Check out some Dart code in action with these samples, ranging
-             from Hello, World to a solar system simulator.
 header:
   css: ["/samples/samples.css"]
+has_permalinks: true
 ---
-
-# {{ page.title }}
-
-The <a
-href="https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples">dart/samples</a>
-directory contains many applications written in Dart.
-Some of these samples are available in [Dart Editor](/tools/editor/) for easy
-experimentation.
-
 {% injectdata samples samples/samples.yaml %}
-<div class="row">
-  <div class="span6">
+  <h1> {{ page.title }} </h1>
+<div class="row-fluid">
+<div class="span3">
+  <ul id="samples-toc">
+  {% for group in page.samples.col1 %}
+    <li><a href="#{{group.anchor}}">{{ group.heading }}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+
+<div class="span9" >
+  <div class="row-fluid">
     {% for group in page.samples.col1 %}
-      <div class="group-heading">{{ group.heading }}</div>
-      {% for example in group.examples %}
-        <div class="row-fluid example">
-          <div class="span8">
-            <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
-          </div>
-          <div class="span4">
-            <div class="link"><a href="{{ example.source_url }}">Source</a></div>
-
-            <div class="link pull-right">
-              {% if example.tryit_url %}
-                <a href="{{ example.tryit_url }}">Try it</a>
-              {% endif %}
+      <h2 class="group-heading"><a id="{{group.anchor}}">{{ group.heading }}</a></h2>
+      <div class="row-fluid">
+        <div class="span9">
+          {% for example in group.examples %}
+            <div class="row-fluid example">
+              <div class="span6">
+                <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
+              </div>
+              <div class="span3">
+                <div class="link"><a href="{{ example.source_url }}">Source</a></div>
+              </div>
+              <div class="span3">
+                {% if example.tryit_url %}
+                  <a href="{{ example.tryit_url }}">Try it</a>
+                {% endif %}
+              </div>
             </div>
-          </div>
+          {% endfor %}
         </div>
-      {% endfor %}
-    {% endfor %}
-  </div>
-  <div class="span6">
-    {% for group in page.samples.col2 %}
-      <div class="group-heading">{{ group.heading }}</div>
-      {% for example in group.examples %}
-        <div class="row-fluid example">
-          <div class="span8">
-            <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
+        <div class="span3">
+          <div class="screenshot-container">
+            <a href="{{group.link}}">
+              <img width="135" class="screenshot"
+                  alt="{{group.caption}}"
+                  src="imgs/{{group.screenshot}}">
+            </a>
           </div>
-          <div class="span4">
-            <div class="link"><a href="{{ example.source_url }}">Source</a></div>
-
-            <div class="link pull-right">
-              {% if example.tryit_url %}
-                <a href="{{ example.tryit_url }}">Try it</a>
-              {% endif %}
-            </div>
-          </div>
+          <div class="caption">{{group.caption}}</div>
         </div>
-      {% endfor %}
+      </div>
     {% endfor %}
   </div>
 </div>
-

@@ -1,42 +1,10 @@
 col1:
   -
-    heading: Working with the DOM
-    examples:
-      -
-        title: Adding elements to the DOM
-        explanation_url: /docs/tutorials/add-elements/
-        tryit_url: todo/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo
-      -
-        title: Moving elements within the DOM tree
-        explanation_url: /docs/tutorials/add-elements/#moving-elements
-        tryit_url: anagram/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/anagram
-      -
-        title: Removing elements from the DOM
-        explanation_url: /docs/tutorials/remove-elements
-        tryit_url: todo_with_delete/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete
-  -
-    heading: Using JavaScript from Dart
-    examples:
-      -
-        title: Simple Google Maps example
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/README.md
-        tryit_url: google_maps/
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
-      -
-        title: Using the Google Charts API
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/README.md
-        tryit_url: gauge/
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/
-      -
-        title: Fetching data using JSONP
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/README.md
-        tryit_url: jsonp/
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/
-  -
     heading: polymer.dart
+    anchor: polymer_dart
+    screenshot: tracker.png
+    caption: "Tracker: A task management tool"
+    link: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
     examples:
       -
         title: Defining a custom element
@@ -53,40 +21,81 @@ col1:
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/README.md
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
       -
-        title: Building a CRUD app
+        title: A task management tool
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
   -
-    heading: HTML5 persistence
+    heading: angular.dart
+    anchor: angular_dart
+    screenshot: angular.png
+    caption: "Angular Dart demo: Bouncing balls"
+    link: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
     examples:
       -
-        title: Simple LocalStorage example
-        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/localstorage/basics/README
-        tryit_url: localstorage/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics
+        title: Hello world
+        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/helloworld
+        source_url: https://github.com/angular/angular.dart/tree/master/demo/helloworld
       -
-        title: Simple todo app using IndexedDB
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
-        tryit_url: indexeddb_todo/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+        title: Todo
+        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/todo
+        source_url: https://github.com/angular/angular.dart/tree/master/demo/todo
       -
         title: Store and retrieve data using IndexedDB
         explanation_url: /docs/tutorials/indexeddb/
         tryit_url: countdown/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
       -
-        title: Exploring the Filesystem APIs
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
-        tryit_url: filesystem/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+        title: Recipe book tutorial app
+        explanation_url: https://github.com/angular/angular.dart.tutorial#welcome-to-the-angulardart-tutorial
+        source_url: https://github.com/angular/angular.dart.tutorial
+  -
+    heading: Using JavaScript from Dart
+    anchor: using_javascript_from_dart
+    screenshot: google_maps.png
+    caption: "Using a JavaScript API with dart:js: Simple Google Maps example"
+    link: http://localhost:8081/samples/google_maps/
+    examples:
       -
-        title: Emulating a terminal for working with the file system
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
-        tryit_url: terminal/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
-col2:
+        title: Simple Google Maps example
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/README.md
+        tryit_url: google_maps/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
+      -
+        title: Using the Google Charts API
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/README.md
+        tryit_url: gauge/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/
+      -
+        title: Fetching data using JSONP
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/README.md
+        tryit_url: jsonp/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/
+
+  -
+    heading: Working with the I/O library
+    anchor: io
+    screenshot: search.png
+    caption: "Dartiverse Search: A search app using HttpServer and WebSockets"
+    link: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
+    examples:
+      -
+        title: A search app using HttpServer and WebSockets
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
+      -
+        title: Searching files for content
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep/README.md
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep
+      -
+        title: Concatenating files
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat/README.md
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat
   -
     heading: Animation and graphics
+    anchor: animation_and_graphics
+    screenshot: stagexl.png
+    caption: "FlipBook: Sprite sheet animations with StageXL"
+    link: http://www.stagexl.org/samples/flipbook/index.html
     examples:
       -
         title: Working with requestAnimationFrame
@@ -108,56 +117,127 @@ col2:
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
         tryit_url: imagefilters/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+      -
+        title: Shaped masks with StageXL
+        explanation_url: https://github.com/bp74/StageXL/tree/master/example08
+        tryit_url: http://www.stagexl.org/samples/mask/index.html
+        source_url: https://github.com/bp74/StageXL/tree/master/example/example08
+      -
+        title: Sprite sheet animations with StageXL
+        explanation_url: https://github.com/bp74/StageXL/tree/master/example/example08
+        tryit_url: http://www.stagexl.org/samples/flipbook/index.html
+        source_url: https://github.com/bp74/StageXL/tree/master/example/example08
+      -
+        title: Adobe Flash game ported to HTML5 using StageXL
+        explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape#escape
+        tryit_url: http://www.stagexl.org/samples/escape/
+        source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape
+
   -
-    heading: HTML5 Drag and Drop
+    heading: HTML5 persistence
+    anchor: html5_persistence
+    screenshot: terminal.png
+    caption: "Terminal: A terminal emulator that uses FileSystem APIs"
+    link: terminal/
     examples:
       -
-        title: Basic Drag and Drop
+        title: Simple LocalStorage example
+        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/localstorage/basics/README
+        tryit_url: localstorage/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics
+      -
+        title: Simple todo app using IndexedDB
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+        tryit_url: indexeddb_todo/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+      -
+        title: Store and retrieve data using IndexedDB
+        explanation_url: /docs/tutorials/indexeddb/
+        tryit_url: countdown/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
+      -
+        title: Exploring the FileSystem APIs
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+        tryit_url: filesystem/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+      -
+        title: A terminal emulator that uses FileSystem APIs
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+        tryit_url: terminal/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+
+  -
+    heading: Other HTML5 APIs
+    anchor: other_html5_apis
+    screenshot: files.png
+    caption: "Using an HTML5 API: Drag and drop files"
+    link: dndfiles/
+
+    examples:
+      -
+        title: Basic drag and drop
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
         tryit_url: dnd/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
       -
-        title: Drag and Drop files
+        title: Drag and drop files
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
         tryit_url: dndfiles/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
-  -
-    heading: WebSockets
-    examples:
-      -
-        title: Basic WebSockets example
-        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/websockets/basics/
-        tryit_url: websockets/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics
-  -
-    heading: Application Cache
-    examples:
+
       -
         title: Using Application Cache
         explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/appcache/beginner/
         tryit_url: appcache/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner
-  -
-    heading: Geolocation
-    examples:
+
       -
         title: Basic geolocation example
         explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/geolocation/trip_meter/
         tryit_url: geolocation/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter
-  -
-    heading: Web Audio
-    examples:
+
       -
         title: Getting started with Web Audio API
         explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/webaudio/intro/
         tryit_url: webaudio/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
-  -
-    heading: Files API
-    examples:
+
       -
         title: Using the Files API
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
         tryit_url: dndfiles/
         source_url: https://githubo.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+
+  -
+    heading: Web programming fundamentals
+    anchor: web_programming_fundamentals
+    screenshot: anagrams.png
+    caption: "Anagrams: Moving elements within the DOM tree"
+    link: anagram/
+    examples:
+      -
+        title: Adding elements to the DOM
+        explanation_url: /docs/tutorials/add-elements/
+        tryit_url: todo/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo
+      -
+        title: Moving elements within the DOM tree
+        explanation_url: /docs/tutorials/add-elements/#moving-elements
+        tryit_url: anagram/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/anagram
+      -
+        title: Removing elements from the DOM
+        explanation_url: /docs/tutorials/remove-elements
+        tryit_url: todo_with_delete/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete
+      -
+        title: Working with JSON
+        explanation_url: /docs/tutorials/fetchdata/#about-json
+        source_url: /docs/tutorials/fetchdata/#about-json
+        tryit_url: /docs/tutorials/fetchdata/#about-json
+      -
+        title: Fetching data dynamically
+        explanation_url: /docs/tutorials/fetchdata/#about-uris
+        source_url: /docs/tutorials/fetchdata/#about-uris
+        tryit_url: /docs/tutorials/fetchdata/#about-uris
