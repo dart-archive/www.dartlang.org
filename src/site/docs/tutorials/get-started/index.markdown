@@ -74,7 +74,7 @@ which you'll be using
 throughout this tutorial.
 
 <div align="center">
-  {% include downloads/_dart-editor.html %}
+  {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 </div>
 
 <p>
@@ -180,7 +180,7 @@ in a tab in the **Editor pane**.
 The following diagram highlights
 some of the features of the editor.
 
-<img src="images/dart-editor-items.png"
+<img class="scale-img-max" src="images/dart-editor-items.png"
      alt="Dart Editor's basic features">
 
 Send feedback button
@@ -263,7 +263,7 @@ but they can also be scripts.
 
 The Dart VM runs Dart code directly without intermediate compilation.
 
-<img src="images/dartvm-cmd-line.png"
+<img class="scale-img-max" src="images/dartvm-cmd-line.png"
      alt="Run a command-line application without compilation">
 
 Conveniently, you can run command-line apps
@@ -291,7 +291,7 @@ which has the Dart VM embedded in it,
 and loads your HTML file,
 which in turn loads your app.
 
-<img src="images/dartvm-web-app.png"
+<img class="scale-img-max" src="images/dartvm-web-app.png"
      alt="Run a web application directly in a Dart-savvy browser">
 
 If you want to see your web app in a browser
@@ -304,7 +304,7 @@ into your browser of choice.
 Dart Editor provides a convenient menu option for
 running web apps as JavaScript.
 
-<img src="images/dartvm-js.png"
+<img class="scale-img-max" src="images/dartvm-js.png"
      alt="Run a web application by compiling to JavaScript">
 
 The rest of this tutorial steps you through
@@ -318,7 +318,7 @@ or click the New Application button
 <img src="images/newapp.png" width="17" height="16" alt="New App button"/>.
 A dialog appears that looks like this:
 
-<img src="images/new-helloworld.png"
+<img class="scale-img-max" src="images/new-helloworld.png"
      alt="Create a new command-line application"/>
 
 <ol>
@@ -357,7 +357,7 @@ and boilerplate files for a small command-line app.
 The **Files view** displays
 the file hierarchy for the application.
 
-<img src="images/helloworld-files.png"
+<img class="scale-img-max" src="images/helloworld-files.png"
      alt="Dart Editor with new command-line app files"/>
 
 Some of the files and directories in the helloworld application
@@ -403,7 +403,7 @@ Dart Editor opens a new panel,
 called the **Output view**,
 and displays the output of the helloworld app.
 
-<img src="images/helloworld-output.png"
+<img class="scale-img-max" src="images/helloworld-output.png"
      alt="Dart Editor with helloworld output view"/>
 
 ##Create a web app {#create-web-app}
@@ -417,13 +417,13 @@ This time you are creating a web app,
 so select **Web application** from the list
 in the New Application dialog window:
 
-<img src="images/new-click-me.png"
+<img class="scale-img-max" src="images/new-click-me.png"
      alt="Create a new web application"/>
 
 Dart Editor creates the directory and files needed
 for a boilerplate web application.
 
-<img src="images/click-me-files.png"
+<img class="scale-img-max" src="images/click-me-files.png"
      alt="Dart Editor with new web application files"/>
 
 As before, the directory is named after your application.
@@ -470,7 +470,7 @@ Dart Editor provides a convenient menu option for doing so.
 Right click on `clickme.html`
 and select **Run as JavaScript** from the menu.
 
-<img src="images/run-as-javascript-screenshot.png"
+<img class="scale-img-max" src="images/run-as-javascript-screenshot.png"
      alt="Run a web app as JavaScript"/>
 
 Dart Editor compiles the app to JavaScript and
@@ -526,14 +526,14 @@ And the clickme app defines a top-level function called reverseText().
 A function declaration
 has two parts: a _signature_ and a _body_.
 
-<img src="images/function-parts.png"
+<img class="scale-img-max" src="images/function-parts.png"
      alt="Two parts of a function, the signature and the body"/>
 
 The signature sets the function name,
 the data type of its return value,
 and the number and type of its input arguments.
 
-<img src="images/signature-parts.png"
+<img class="scale-img-max" src="images/signature-parts.png"
      alt="The parts of a function signature"/>
 
 The body is the code that defines the function's behavior.

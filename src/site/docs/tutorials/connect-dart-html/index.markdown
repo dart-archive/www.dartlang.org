@@ -90,7 +90,7 @@ and displays the document in a window.
 The following diagram shows a simple HTML file and
 the resulting web browser page in Chrome.
 
-<img src="images/simple-html.png"
+<img class="scale-img-max" src="images/simple-html.png"
      alt="A simple HTML file and its resulting web page">
 
 HTML uses tags to describe the document.
@@ -113,7 +113,8 @@ For example, the tree has page elements,
 text nodes, and attribute nodes.
 Here is the DOM tree for the simple HTML file above.
 
-<img src="images/simple-dom-tree.png" alt="The DOM tree for a simple HTML file">
+<img class="scale-img-max" src="images/simple-dom-tree.png" 
+     alt="The DOM tree for a simple HTML file">
 
 Notice that some tags, such as the \<p> paragraph tag,
 are represented by multiple nodes.
@@ -131,7 +132,7 @@ by adding, deleting, and modifying the nodes in the DOM tree.
 When the DOM is changed,
 the browser immediately re-renders the window.
 
-<img src="images/dynamic-dart.png"
+<img class="scale-img-max" src="images/dynamic-dart.png"
      alt="A Dart program can dynamically change the DOM">
 
 The diagram shows a small Dart program that makes
@@ -153,7 +154,7 @@ like you did in the previous tutorial,
 [Get Started](/docs/tutorials/get-started/).
 Name the app `mini`.
 
-<img src="images/new-app-mini.png"
+<img class="scale-img-max" src="images/new-app-mini.png"
      alt="New Application dialog window">
 
 ##Edit the HTML file {#create-html}
@@ -195,14 +196,14 @@ is an identifier "RipVanWinkle".
 The Dart code you create in the next step uses this ID
 to get the paragraph element.
 
-<img src="images/html-id.png"
+<img class="scale-img-max" src="images/html-id.png"
      alt="Using an ID in HTML">
 
 Notice the use of the `script` tag.
 The source for a script is provided by a client-side file.
 The HTML code above has two scripts.
 
-<img src="images/script-tags.png"
+<img class="scale-img-max" src="images/script-tags.png"
      alt="Including Dart apps in HTML">
 
 The first script includes your mini app.
@@ -243,7 +244,7 @@ making all of the classes and functions
 in that library
 available to your program.
 
-<img src="images/0-mini-code-walk-through.png"
+<img class="scale-img-max" src="images/0-mini-code-walk-through.png"
      alt="Import Dart HTML library">
 
 This program imports Dart's HTML library,
@@ -273,7 +274,7 @@ Let's deconstruct it.
 query() is a top-level function provided by the Dart HTML library
 that gets an Element object from the DOM.
 
-<img src="images/3-mini-code-walk-through.png"
+<img class="scale-img-max" src="images/3-mini-code-walk-through.png"
      alt="An example of querying for a DOM object by its ID">
 
 The argument to query(), a string,
@@ -285,7 +286,7 @@ In this case RipVanWinkle is the unique ID for a paragraph element
 declared in the HTML file
 and #RipVanWinkle specifies that ID.
 
-<img src="images/2-mini-code-walk-through.png"
+<img class="scale-img-max" src="images/2-mini-code-walk-through.png"
      alt="ID attribute from HTML file">
 
 Another useful function for getting elements from the DOM
@@ -303,7 +304,7 @@ the node containing the string
 "RipVanWinkle paragraph."
 is a text node.
 
-<img src="images/paragraph-dom.png"
+<img class="scale-img-max" src="images/paragraph-dom.png"
      alt="DOM tree for a paragraph element">
 
 More complex text,
@@ -316,7 +317,7 @@ you can simply use the Element `text` property,
 which has a getter
 that walks the subtree of nodes for you and extracts their text.
 
-<img src="images/4-mini-code-walk-through.png"
+<img class="scale-img-max" src="images/4-mini-code-walk-through.png"
      alt="Text node child of the paragraph">
 
 However, if the text node has styles (and thus a subtree),
@@ -329,7 +330,7 @@ The assignment operator (=) sets the text
 of the Element returned by the query() function
 to the string "Wake up, sleepy head!".
 
-<img src="images/5-mini-code-walk-through.png"
+<img class="scale-img-max" src="images/5-mini-code-walk-through.png"
      alt="Set the text node, thereby changing the text on the page">
 
 This causes the browser to immediately re-render
@@ -341,7 +342,7 @@ dynamically displaying the text on the browser page.
 This diagram summarizes the connections
 between `mini.dart` and `mini.html`.
 
-<img src="images/dart-html-connect.png"
+<img class="scale-img-max" src="images/dart-html-connect.png"
      alt="The connection between the HTML file and the Dart file">
 
 ##Run the mini web app {#run-mini}
@@ -397,7 +398,7 @@ with the ID RipVanWinkle.
 To use this style sheet,
 edit `mini.html` and add the line shown in bold below:
 
-<img src="images/html-with-css.png"
+<img class="scale-img-max" src="images/html-with-css.png"
      alt="HTML with CSS">
 
 Save your files and run the app again.
@@ -460,7 +461,7 @@ Let's look at the CSS code for mini app.
 The CSS file for the mini app has one CSS rule in it.
 A CSS rule has two main parts: a selector and a set of declarations.
 
-<img src="images/css-rule-explained.png"
+<img class="scale-img-max" src="images/css-rule-explained.png"
      alt="The parts of a CSS rule">
 
 In mini app, the selector #RipVanWinkle is an ID selector,
@@ -482,7 +483,7 @@ for all matching elements.
 The style sheet is used to set the appearance
 of the matching element(s) on the web page.
 
-<img src="images/css-property-value.png"
+<img class="scale-img-max" src="images/css-property-value.png"
      alt="A declaration specifies an attribute and its value">
 
 The CSS rule for the RipVanWinkle paragraph

@@ -906,3 +906,9 @@ code.highlight {
 .link {
     vertical-align: middle;
 }
+
+/* Maximum scaling for image at 100% */
+.scale-img-max {
+	max-width:100%; 
+	max-height:100%;"
+}
