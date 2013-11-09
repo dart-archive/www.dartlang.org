@@ -87,7 +87,7 @@ $(function(){
 
   //   // Add close button to each one.
   //   var popTitle = lnk.attr('data-original-title');
-  //   var closeBtn = '<a class="close-btn" href="javascript:"><i class="icon-close-x"></i></a>';
+  //   var closeBtn = '<a class="close-btn" href="javascript:"><i class="sprite-icon-close-x"></i></a>';
   //   lnk.attr('data-original-title', closeBtn + popTitle);
 
   // });

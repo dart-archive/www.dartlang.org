@@ -85,49 +85,49 @@ ul, li {
 }
 
 /* ***** Icons ***** */
-i[class*="icon-"] {
+i[class*="sprite-icon-"] {
 	background-image: url(../imgs/dart-sprite.png);
 	display: block;
 }
 
-i[class*="icon-social-"] {
+i[class*="sprite-icon-social-"] {
 	width: 23px;
 	height: 23px; 
 }
 
-i[class*="icon-social-"]:hover {
+i[class*="sprite-icon-social-"]:hover {
 	opacity: 0.7;
 }
 
-i.icon-social-twitter {
+i.sprite-icon-social-twitter {
 	background-position: 0 -50px;
 	margin-left: 20px;
 }
 
 @media (max-width: 768px) {
-	i.icon-social-twitter {
+	i.sprite-icon-social-twitter {
 		margin-left: 0;
 	}
 }
 
-i.icon-social-gplus {
+i.sprite-icon-social-gplus {
 	background-position: -50px -50px;
 }
 
-i.icon-browsers {
+i.sprite-icon-browsers {
 	width: 193px;
 	height: 36px;
 	background-position: 0 -100px;
 	margin: 0 auto;
 }
 
-i.icon-dart-logo {
+i.sprite-icon-dart-logo {
 	width: 117px;
 	height: 33px;
 	background-position: 0 0;
 }
 
-i.icon-timer {
+i.sprite-icon-timer {
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -137,28 +137,28 @@ i.icon-timer {
     top: 4px;
 }
 
-i[class*="icon-app-"] {
+i[class*="sprite-icon-app-"] {
 	width: 35px;
 	height: 35px; 
 }
 
-i.icon-app-1 {
+i.sprite-icon-app-1 {
 	background-position: 0 -150px;
 }
 
-i.icon-app-2 {
+i.sprite-icon-app-2 {
 	background-position: -50px -150px;
 }
 
-i.icon-app-3 {
+i.sprite-icon-app-3 {
 	background-position: -100px -150px;
 }
 
-i.icon-app-4 {
+i.sprite-icon-app-4 {
 	background-position: -150px -150px;
 }
 
-i.icon-triangle {
+i.sprite-icon-triangle {
 	display: inline-block;
 	width: 9px;
 	height: 10px;
@@ -166,7 +166,7 @@ i.icon-triangle {
 	background-position: -50px -200px;
 }
 
-i.icon-dd-tip {
+i.sprite-icon-dd-tip {
 	width: 17px;
 	height: 8px;
 	background-position: -100px -200px;
@@ -175,7 +175,7 @@ i.icon-dd-tip {
 	left: 10px;
 }
 
-i.icon-close-x {
+i.sprite-icon-close-x {
 	width: 8px;
 	height: 8px;
 	background-position: -150px -200px;
