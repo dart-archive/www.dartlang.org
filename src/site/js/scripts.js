@@ -42,6 +42,7 @@ $(function() {
         $('html,body').animate({
           scrollTop: target.offset().top - scrollOffset
         }, 1000);
+        window.location.hash = this.hash;
         return false;
       }
     }
