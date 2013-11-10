@@ -1116,3 +1116,12 @@ line-height: 120%;
 	max-width:100%; 
 	max-height:100%;
 }
+
+/* ***** More books on dart ***** */
+.book {
+  margin-bottom: 2em;
+}
+
+.book img.cover {
+  box-shadow: 8px 8px 15px #CCC;
+}
