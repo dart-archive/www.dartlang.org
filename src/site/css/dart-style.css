@@ -1125,3 +1125,14 @@ line-height: 120%;
 .book img.cover {
   box-shadow: 8px 8px 15px #CCC;
 }
+
+/* ***** Permalink ***** */
+a.permalink {
+  margin-left: 0.5em;
+  display:none;
+}
+
+.has-permalink:hover > a.permalink {
+  display:inline;
+}
+
