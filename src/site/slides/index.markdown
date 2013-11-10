@@ -34,10 +34,10 @@ You can also watch our 5-minute video tutorials, [Dart Tips](/dart-tips/).
       </p>
       <p class="buttons">
         {% if preso.video %}
-        <a href="{{ preso.video }}" target="_blank" class="video btn btn-primary">Watch</a>
+        <a href="{{ preso.video }}" target="_blank" class="btn btn-primary"><i class="glyphicon glyphicon-film"> </i> Watch</a>
         {% endif %}
         {% if preso.slides %}
-        <a href="{{ preso.slides }}" target="_blank" class="pdf btn btn-primary">Slides</a>
+        <a href="{{ preso.slides }}" target="_blank" class="btn btn-primary"><i class="glyphicon glyphicon-picture"> </i> Slides</a>
         {% endif %}
       </p>
     </div>
