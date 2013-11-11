@@ -65,7 +65,7 @@ If you haven't already done so,
 get the Dart download.
 Unzip the ZIP file, which creates a directory called `dart`.
 
-{% include downloads/_dart-editor.html %}
+{% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 
 <p markdown="1">
   The Dart tools
