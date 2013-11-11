@@ -122,6 +122,15 @@ handlers:
 - url: /articles/dart-web-components/.*
   script: scripts.redirector.application
 
+- url: /articles/m1-language-changes/.*
+  script: scripts.redirector.application
+
+- url: /articles/m2-whats-new/.*
+  script: scripts.redirector.application
+
+- url: /articles/m3-whats-new/.*
+  script: scripts.redirector.application
+
 - url: /dartisans/podcast-feed
   script: scripts.redirector.application
 
