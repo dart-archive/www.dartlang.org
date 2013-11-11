@@ -12,7 +12,7 @@ p {
 
 a {
 	font-family: 'Roboto', sans-serif;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
@@ -1136,3 +1136,23 @@ a.permalink {
   display:inline;
 }
 
+/* External link badge. 
+ * TODO: Taken from bootstrap3 and should be 
+ * implemented by using class="glyphicon glyphicon-new-window"
+ * instead of this css. 
+ */
+a[href^="http"]:not(.btn):after {
+  content: "\e164";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  padding-left: 0.25em;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 67%;
+  line-height: 1;
+  text-decoration: inherit;
+  -moz-osx-font-smoothing: grayscale;
+}
