@@ -80,92 +80,81 @@ js:
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
                 <div class="item active">
-                  <p>You can already read (and probably even write) Dart code.</p>
+                  <p>Dart is familiar, so you can probably already read and even write Dart code.</p>
                   <div class="code-hldr">
 <pre class="prettyprint linenums lang-dart">
-  import 'dart:math';
-   <a href="#" class="dart-popover" data-toggle="popover" title="1 Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">class</a> Ellipse extends Shape {              // Declare a class.
-    num majorAxis = 0;                        // An instance variable (property).
-    num minorAxis = 0;
-    static const num C = PI/4;              // A constant.
-    num get area => C*majorAxis*minorAxis;   // A property implemented with a getter.
+main() {                              // This is where the app starts executing.
+  print(<a href="#" class="dart-popover" data-toggle="popover" title="Automatically calls toString()." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">new Fibonacci(10)</a>);          // Print a new object's value.
+}
 
-    Ellipse <a href="#" class="dart-popover" data-toggle="popover" title="2 Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">(this.majorAxis, this.minorAxis)</a>; // Compact constructor syntax.
-    Ellipse.circle(num diameter) {           // A named constructor.
-      minorAxis = majorAxis = diameter;
+class Fibonacci {                     // Define a class.
+  int original, fibo;                 // Declare variables.
+  String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">$fibo</a>';      // Define a method using shorthand syntax.
+
+  Fibonacci(int value) :              // Define a constructor with list initializer.
+    original = value, fibo = fib(value) {
+  }
+
+  static int fib(int n) {             // Define a class method.
+    if (n < 2) {                      // Control flow and expressions.
+      return n;
+    } else {
+      return fib(n-1) + fib(n-2);     // Arithmetic operators.
     }
   }
-  abstract class Shape {                     // Declare a class that can't be instantiated.
-    num get area;
-    num rotation = 0;
-    num outlineWidth = 1;
-    String color = 'black';
-  }
+}
 </pre>
                   </div>
                 </div>
                 <div class="item">
-                  <p>You can already read (and probably even write) Dart code.</p>
+                  <p>Write less. Say more.</p>
                   <div class="code-hldr">
 <pre class="prettyprint linenums lang-dart">
-  // Without types.
-  recalculate(origin, offset, estimate) {
-    // ...
-  }
+import 'dart:math' show PI;
 
-  // With types (and an optional parameter).
-  num recalculate(Point origin,
-                  <a href="#" class="dart-popover" data-toggle="popover" title="2 Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">num</a> offset,
-                  {bool estimate:false}) {
-    // ...
-  }
+List shapes = <a href="#" class="dart-popover" data-toggle="popover" title="Short for new List()" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">[]</a>;                      // Use literals to create lists.
+addShape(shape) <a href="#" class="dart-popover" data-toggle="popover" title="Fat-arrow is short for { return expr } ." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">=></a> shapes.add(shape); // Function shorthand syntax.
+
+main() {
+  // The cascade operator (..) saves you from repetitive typing.
+  addShape(new Ellipse(10, 20)<a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator lets you join method calls to a single object." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..</a>rotation = 45*PI/180
+                              <a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator lets you join method calls to a single object." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..</a>color = 'rgb(0,129,198)'
+                              <a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator lets you join method calls to a single object." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..</a>outlineWidth = 0);
+
+  // You can easily insert expression values into strings.
+  print('Area of the first shape: <a href="#" class="dart-popover" data-toggle="popover" title="Insert expressions into strings." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">${shapes[0].area}</a>');
+}
+
+class Ellipse {
+  num minorAxis, majorAxis;
+  // Syntactic sugar to set members before the constructor body runs.
+  Ellipse(this.minorAxis, this.majorAxis);
+}
 </pre>
                   </div>
                 </div>
                 <div class="item">
-                  <p>You can already read (and probably even write) Dart code.</p>
+                  <p>Add types to your code to help people and tools.
+                  Or don’t. You can always go dynamic.</p>
                   <div class="code-hldr">
-<pre class="prettyprint linenums lang-dart">
-  import 'dart:math'; // Import a library.
 
-  // Functions and variables can be inside or outside of classes.
-  var shapes = new List(); // A global variable.
-  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+        <div class="item" style="margin-top:23px">
+  Without types, code freely.<br>
+<img src="imgs/no_types.png">
+        </div>
+        <div class="item" style="margin-top:23px;">
+  With types, learn about errors early.<br>
+<img src="imgs/with_types.png">
+        </div>
 
-  // Every app has a main() function, where execution starts.
-  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
-    // The cascade operator (..) saves you from repetitive typing.
-    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
-                                ..color = 'rgb(0,129,198)'
-                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
-    
-    // You can easily insert expression values into strings.
-    print('Area of the first shape: ${shapes[0].area}');
-  }
-</pre>
+
                   </div>
                 </div>
                 <div class="item">
-                  <p>You can already read (and probably even write) Dart code.</p>
+                  <p>Structure that scales. Organize your code with functions,
+                  classes, mixins, and libraries.</p>
                   <div class="code-hldr">  
-<pre class="prettyprint linenums lang-dart">
-  import 'dart:math'; // Import a library.
-
-  // Functions and variables can be inside or outside of classes.
-  var shapes = new List(); // A global variable.
-  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
-
-  // Every app has a main() function, where execution starts.
-  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
-    // The cascade operator (..) saves you from repetitive typing.
-    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
-                                ..color = 'rgb(0,129,198)'
-                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
-    
-    // You can easily insert expression values into strings.
-    print('Area of the first shape: ${shapes[0].area}');
-  }
-</pre>
+  <img src="imgs/slider-minify-example.png">
                   </div>
                 </div>
               </div>
@@ -193,93 +182,113 @@ js:
                 <div class="item active">
                   <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
                   <div class="code-hldr">        
-<pre class="prettyprint linenums lang-dart">
-  import 'dart:math'; // Import a library.
+{% prettify dart %}
+Map famousDuos = { 'Hans Solo': 'Chewbacca',     // Map literal.
+                   'Bonnie': 'Clyde',
+                   'Laurel': 'Hardy' };
+List myFriends = [ 'Seth', 'Kathy', 'Shailen' ]; // List literal.
 
-  // Functions and variables can be inside or outside of classes.
-  var shapes = new List(); // A global variable.
-  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+// Create lists and maps from Iterable objects.
+List shuffledSidekicks = new List.from(famousDuos.values)..shuffle();
+Map mixedDuos = new Map.fromIterables(famousDuos.keys, shuffledSidekicks);
 
-  // Every app has a main() function, where execution starts.
-  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
-    // The cascade operator (..) saves you from repetitive typing.
-    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
-                                ..color = 'rgb(0,129,198)'
-                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
-    
-    // You can easily insert expression values into strings.
-    print('Area of the first shape: ${shapes[0].area}');
-  }
-</pre>
+// Iteration.
+mixedDuos.forEach((k, v) { print('$k, $v'); });
+
+// Some lists, maps, and sets are growable.
+Set setOfMyFriends = new Set.from(myFriends);
+Set famousPeople = new Set.from(famousDuos.values);
+famousPeople.addAll(famousDuos.keys);
+
+// Rich set of functionality for collections.
+print(famousPeople.intersection(setOfMyFriends).isEmpty);
+print(famousPeople.union(setOfMyFriends).length);
+{% endprettify %}
                   </div>
                 </div>
                 <div class="item">
-                  <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
+                  <p>Dart's Future and Stream classes provide a consistent interface to values that aren’t yet available.</p>
                   <div class="code-hldr">   
 <pre class="prettyprint linenums lang-dart">
-  import 'dart:math'; // Import a library.
+// Get a stream of key-press events from an element:
+querySelector('textarea').onKeyPress
+  // Filter the stream, getting a stream of events only for certain key codes:
+  .where((e) => e.keyCode >= 32 && e.keyCode <= 122)
+  // Convert those key codes, getting a stream of corresponding characters:
+  .map((e) => new String.fromCharCode(e.charCode))
+  // Ask for the first character, getting a Future.
+  .first
+  // When the Future completes, print the first character to the console.
+  .then((char) => print('First char=$char'));
 
-  // Functions and variables can be inside or outside of classes.
-  var shapes = new List(); // A global variable.
-  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
 
-  // Every app has a main() function, where execution starts.
-  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
-    // The cascade operator (..) saves you from repetitive typing.
-    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
-                                ..color = 'rgb(0,129,198)'
-                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
-    
-    // You can easily insert expression values into strings.
-    print('Area of the first shape: ${shapes[0].area}');
-  }
+
+
+
+
+
+
+
+
+
 </pre>
                   </div>
                 </div>
                 <div class="item">
-                  <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
+                  <p>Dart’s HTML library unlocks the power of the modern browser, smoothing over browser differences.</p>
                   <div class="code-hldr">
-<pre class="prettyprint linenums lang-dart">
-  import 'dart:math'; // Import a library.
 
-  // Functions and variables can be inside or outside of classes.
-  var shapes = new List(); // A global variable.
-  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+{% prettify dart %}
+import 'dart:html';
+import 'dart:convert' show JSON;
 
-  // Every app has a main() function, where execution starts.
-  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
-    // The cascade operator (..) saves you from repetitive typing.
-    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
-                                ..color = 'rgb(0,129,198)'
-                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
-    
-    // You can easily insert expression values into strings.
-    print('Area of the first shape: ${shapes[0].area}');
-  }
-</pre>
+void main() {
+  querySelector('#getColors').onClick.listen(showColors); // Event handling.
+}
+void showColors(Event e) {
+  HttpRequest.getString('colors.json')              // One-line HTTP request.
+      .then((String jsonString) {                   // Uses Futures and Streams.
+        UListElement colors = querySelector('#colors');  // DOM element types.
+        List<String> colorList = JSON.decode(jsonString);
+        for (int i = 0; i < colorList.length; i++) {
+          colors.children.add(                      // Dynamic DOM manipulation.
+            new LIElement()..text = colorList[i]    // Dynamic element creation.
+             ..style.color = colorList[i]           // Uniform CSS styles.
+             ..style.fontFamily = 'Marker Felt');
+        }
+      })
+      .catchError((_) { /* Handle error. */ });
+}
+{% endprettify %}
+
                   </div>
                 </div>
                 <div class="item">
-                  <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
+                  <p>Use Dart's unit testing and mocking libraries
+                  to make sure your app keeps working well.</p>
                   <div class="code-hldr">
-<pre class="prettyprint linenums lang-dart">
-  import 'dart:math'; // Import a library.
+{% prettify dart %}
+import 'package:unittest/unittest.dart';
+import 'dart:math' show Point;
 
-  // Functions and variables can be inside or outside of classes.
-  var shapes = new List(); // A global variable.
-  addShape(shape) =&gt; shapes.add(shape); // Function shorthand syntax.
+main() {
+  Point a = new Point(2, 15);
+  Point b = new Point(7, 3);
 
-  // Every app has a main() function, where execution starts.
-  <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">main() {</a>
-    // The cascade operator (..) saves you from repetitive typing.
-    addShape(new Ellipse(10, 20)..rotation = 45*PI/180
-                                ..color = 'rgb(0,129,198)'
-                                <a href="#" class="dart-popover" data-toggle="popover" title="Code Type Note Here" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..outlineWidth = 0);</a>
-    
-    // You can easily insert expression values into strings.
-    print('Area of the first shape: ${shapes[0].area}');
-  }
-</pre>
+  test('point distances', () {
+    expect(a.distanceTo(b), equals(13));
+  });
+  test('point magnitude close to', () {
+    expect(a.magnitude, closeTo(15, .25));
+  });
+  test('point magnitude greater than', () {
+    expect(a.magnitude, greaterThan(b.magnitude));
+  });
+  test('point == operator', () {
+    expect(a == b, equals(false));
+  });
+}
+{% endprettify %}
                   </div>
                 </div>
               </div>
