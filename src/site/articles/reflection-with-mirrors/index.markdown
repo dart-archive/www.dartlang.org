@@ -3,19 +3,19 @@ layout: default
 title: "Reflection in Dart with Mirrors: An Introduction"
 rel:
   author: gilad-bracha
-description: "An introduction to reflection in Dart,
-              which is based on the concept of mirrors."
+description: "Use the dart:mirrors library for introspection:
+              discovering and using your program's structure."
 has-permalinks: true
 article:
   written_on: 2012-11-30
-  updated_on: 2013-05-22
+  updated_on: 2013-11-07
   collection: libraries-and-apis
 ---
 
 # {{ page.title }}
 
 _Written by Gilad Bracha <br />
-November 2012 (Updated May 2013)_
+November 2012 (updated November 2013)_
 
 
 Reflection in Dart is based on the concept of _mirrors_,
@@ -32,12 +32,14 @@ using them is sometimes more verbose than older approaches.
 For a thorough introduction to the rationale for mirror-based reflection,
 see the references at the end of this document.
 However, you don’t need to delve into all that if you don’t want to;
-all you really need to know about Dart’s mirror API will be covered here.  
+what you really need to know about Dart’s mirror API will be covered here.  
 
 <aside>
 <div class="alert alert-warning">
 <strong>Caveat 1:</strong>
-Everything is subject to change and should be treated with due caution.
+Dart's mirror API is evolving; while most of the introspection API
+is stable, there will be some additions and
+adjustments going forward, even post 1.0.
 </div>
 </aside>
 
@@ -45,36 +47,15 @@ At this time, only part of the planned API has been realized.
 The part that exists deals with _introspection_,
 the ability of a program to discover and use its own structure.
 The introspection API has been largely implemented on the Dart VM.
-The dart2js version is in progress and will be ready soon.  
+In dart2js, a similar implementation is under development, but is 
+still incomplete.  
 
-There is also a closely related source mirror API
-that is designed for compile-time reflection,
-and is being used to support DartDoc.
-Given this state of affairs,
-we will concentrate on introspection.
-
-The introspection API is declared in a library named `mirrors`
-and is for the most part synchronous.
-If you wish to experiment with reflection,
-you can import dart:mirrors.
+The introspection API is declared in the library named `dart:mirrors`.
+If you wish to use introspection, import it:
 
 {% prettify dart %}
 import 'dart:mirrors';
 {% endprettify %}
-
-<aside>
-<div class="alert alert-warning">
-<strong>Caveat 2:</strong>
-Since the API described here works only on the Dart VM,
-you will get a warning from Dart Editor
-when you import the mirror library. This warning will go away 
-once the dart2js implementation is complete.
-In the meantime, we don’t want you to spend time and effort 
-developing code
-that relies on mirrors only to discover
-that you cannot deploy it to the browser. 
-</div>
-</aside>
 
 For the sake of illustration,
 we’ll assume you’ve defined the following class:
@@ -98,10 +79,11 @@ The easiest way to get a mirror is to call the top-level function
 
 <aside>
 <div class="alert alert-warning">
-<strong>Caveat 3:</strong>
+<strong>Caveat 2:</strong>
 Currently, reflection works only if the reflection code
 and the object being reflected are running in the same isolate.
-In the future, reflection should work across isolates.
+In the future, we expect to extend the API to support reflection 
+across isolates.
 </div>
 </aside>
 
@@ -119,22 +101,31 @@ the root of the mirror hierarchy.
 An InstanceMirror allows one to invoke dynamically chosen code on an object. 
 
 {% prettify dart %}
-InstanceMirror res = myClassInstanceMirror.invoke(const Symbol('sum'), []); 
+InstanceMirror f = im.invoke(#sum, []); 
 // Returns an InstanceMirror on 7.
 {% endprettify %}
 
-The invoke() method takes the method name,
+The invoke() method takes a symbol (in this case, #sum)
+representing the method name,
 a list of positional arguments,
-and (optionally) a map describing named arguments.
+and (optionally) a map describing named arguments. 
 
-The method name must be encoded as a Symbol object.
-Symbol has a constructor that takes a string. Calling the constructor with
-const rather than new allows dart2js to minify all identifiers in the program, 
-keeping the
-generated JavaScript small. A fuller explanation of why we use Symbol appears
-toward the end of this article.
 
-Suppose you want to print out all the members of a class.
+Why doesn't invoke() take a string representing the method name?
+Because of _minification_.
+Minification is the process of mangling names in web programs in
+order to reduced download size.
+
+Symbols were introduced into Dart to help reflection work
+in the presence of minification.
+The big advantage  of symbols is that when a Dart program is minified,
+symbols get minified as well.
+For this reason, the mirror API traffics in symbols rather than strings.
+You can convert between symbols and strings;
+typically, you will do that in order to
+print out names of declarations as we'll see below.
+
+Suppose you want to print out all the declarations in a class.
 You’ll need a
 [ClassMirror](http://api.dartlang.org/dart_mirrors/ClassMirror.html),
 which as you’d expect reflects a class.
@@ -144,31 +135,50 @@ One way to get a class mirror is from an instance mirror.
 ClassMirror MyClassMirror = myClassInstanceMirror.type; // Reflects MyClass
 {% endprettify %}
 
-Now we can print out the names of all members of the class
-reflected by `MyClassMirror`.
+Another way is to use the top-level function
+[reflectClass()](http://api.dartlang.org/dart_mirrors.html#reflectClass).
 
 {% prettify dart %}
-for (var m in MyClassMirror.members.values) print(MirrorSystem.getName(m.simpleName));
+ClassMirror cm = reflectClass(MyClass); // Reflects MyClass
+{% endprettify %}
+
+Once we've obtained a class mirror `cm` by whatever means, 
+we can print out the names of all declarations of the class
+reflected by `cm`.
+
+{% prettify dart %}
+for (var m in cm.declarations.values) print(MirrorSystem.getName(m.simpleName));
 {% endprettify %}
 
 ClassMirror has a getter
-[members](http://api.dartlang.org/dart_mirrors/ClassMirror.html#members)
-that returns a map from the names of the reflected class’ members
-to mirrors on those members.
-We extract the values from the map;
-each of these will be a mirror on one of 
-the members of MyClass. Each such mirror has a getter `simpleName`
-that returns the name of the corresponding member. 
-Since names are represented by symbols, we use the utility function
-MirrorSystem.getName() which converts symbols back into strings.
+[declarations](http://api.dartlang.org/dart_mirrors/ClassMirror.html#declarations)
+that returns a map from the names of the reflected class’ declarations
+to mirrors on those declarations.
+The map contains all declarations listed
+explicitly in source code of the class:
+its fields and methods (including getters,
+setters and regular methods) be they static or not,
+and constructors of all stripes.
+The map will not contain any inherited members, nor any synthetic members,
+such as the getters and setters generated automatically for fields.
 
-Obviously, we know what the members of MyClass are in this case;
+We extract the values from the map;
+each of these will be a mirror on one of the declarations of MyClass,
+and will support the getter `simpleName` that returns
+the name of the declaration.
+The returned name is a Symbol,
+so we must convert it to a string in order to print it.
+The static method
+[MirrorSystem.getName](http://api.dartlang.org/dart_mirrors/MirrorSystem.html#getName)
+does that for us.
+
+Obviously, we know what the declarations in MyClass are in this case;
 the point is that the `for` loop above works for any class mirror,
-and therefore we can use it to print the members of any class.
+and therefore we can use it to print the declarations of any class.
 
 {% prettify dart %}
-printAllMembersOf(ClassMirror cm) {
-  for (var m in cm.members.values) print(MirrorSystem.getName(m.simpleName));
+printAllDeclarationsOf(ClassMirror cm) {
+  for (var m in cm.declarations.values) print(MirrorSystem.getName(m.simpleName));
 }
 {% endprettify %}
 
@@ -179,18 +189,16 @@ to iterate over all the names, or to iterate over all the members.
 In fact, there is a simpler way to accomplish what we just did.
 
 {% prettify dart %}
-printAllMembersOf(ClassMirror cm) {
-  for (var k in cm.members.keys) print(MirrorSystem.getName(k));
+printAllDeclarationsOf(ClassMirror cm) {
+  for (var k in cm.declarations.keys) print(MirrorSystem.getName(k));
 }
 {% endprettify %}
-
 
 What if we want to invoke static code reflectively?
 We can call invoke() on a ClassMirror as well.
 
 {% prettify dart %}
-InstanceMirror v = MyClassMirror.invoke(const Symbol('noise'), []);
-// Returns an InstanceMirror on 42.
+cm.invoke(#noise, []); // Returns an InstanceMirror on 42
 {% endprettify %}
 
 In fact, invoke() is defined in class
@@ -218,24 +226,30 @@ class MyClass {
 }
 
 main() {
-  InstanceMirror myClassInstanceMirror = reflect(new MyClass(3, 4));
-  ClassMirror MyClassMirror = myClassInstanceMirror.type; // Reflects MyClass
-  
-  InstanceMirror res = myClassInstanceMirror.invoke(const Symbol('sum'), []);
-  // Returns an InstanceMirror on 7.
+  MyClass myClass = new MyClass(3, 4);
+  InstanceMirror myClassInstanceMirror = reflect(myClass);
+  ClassMirror MyClassMirror = myClassInstanceMirror.type;
+
+  InstanceMirror res = myClassInstanceMirror.invoke(#sum, []);
   print('sum = ${res.reflectee}');
-    
-  InstanceMirror v = MyClassMirror.invoke(const Symbol('noise'), []);
-  // Returns an InstanceMirror on 42.
-  print('noise = ${v.reflectee}');
+
+  var f = MyClassMirror.invoke(#noise, []);
+  print('noise = $f');
+
+  print('\nMethods:');  
+  Iterable<DeclarationMirror> decls =
+      MyClassMirror.declarations.values.where(
+        (dm) => dm is MethodMirror && dm.isRegularMethod);
+  decls.forEach((MethodMirror mm) {
+    print(MirrorSystem.getName(mm.simpleName));
+  });
   
-  print('\nmethods:');
-  Map<Symbol, MethodMirror> map = MyClassMirror.methods;
-  map.values.forEach((MethodMirror mm) {print(MirrorSystem.getName(mm.simpleName));});
+  print('\nAll declarations:');
+  for (var k in MyClassMirror.declarations.keys) {
+    print(MirrorSystem.getName(k));
+  }
   
-  print('\nmembers:');
-  for (var k in MyClassMirror.members.keys) print(MirrorSystem.getName(k));
-  MyClassMirror.setField(const Symbol('s'), 91);
+  MyClassMirror.setField(#s, 91);
   print(MyClass.s);
 }
 {% endprettify %}
@@ -244,40 +258,40 @@ And here’s the output:
 
 {% prettify %}
 sum = 7
-noise = 42
+noise = InstanceMirror on 42
 
-methods:
+Methods:
 my_method
-noise
 sum
-
-members:
 noise
-my_method
+
+All declarations:
 i
 j
 s
+my_method
 sum
+noise
+MyClass
 91
 {% endprettify %}
 
 At this point we’ve shown you enough to get started.
 Some more things you should be aware of follow.
 
-
 <aside>
 <div class="alert alert-warning">
-<strong>Caveat 4:</strong>
+<strong>Caveat 3:</strong>
 What you deploy is often less than what you wrote.
 This may interact with reflection in annoying ways. 
 </div>
 </aside>
 
 Because the size of web applications needs to be kept down,
-deployed Dart applications may be subject to tree shaking and minification.
-_Tree shaking_ refers to the elimination of source code that isn’t called;
-_minification_ refers to the compaction of the code,
-which may include replacing symbols used in the original source.
+deployed Dart applications may be subject to minification and tree shaking.
+We discussed minification above; 
+_Tree shaking_ refers to the elimination of source code that isn’t called.
+Both of these steps cannot generally detect reflective uses of code.
 
 Such optimizations are a fact of life in Dart,
 because of the need to deploy to JavaScript.
@@ -310,21 +324,21 @@ including the Dart platform itself.
 Instead, we may choose to treat such invocations
 as if the method never existed in the source. 
 
-We intend provide a reliable, portable, and straightforward mechanism
+We are experimenting with mechanisms
 for programmers to specify that certain code
 may not be eliminated by tree shaking.
-The planned approach is to use metadata.
+Currently, you may use the
+[MirrorsUsed](http://api.dartlang.org/dart_mirrors/MirrorsUsed.html) 
+annotation for this purpose
+but we expect the details to change significantly over time.
 
-Minification also poses a challenge, which Dart's mirror system addresses
-by using instances of Symbol to describe names used in the program. If we
-simply used strings to refer to, say, the members of a class, the minified 
-code would no longer use those same names, and reflection would fail to find
-the members when used in minified code. However, class Symbol encodes strings
-using the same minification scheme used by dart2js for program identifiers,
-so reflection works under minification. To help dart2js optimize away the
-strings, we recommend using constant Symbols as much as possible, as shown
-in the code above.
-
+<aside>
+<div class="alert alert-warning">
+<strong>Caveat 4:</strong>
+One thing we can promise you is that MirrorsUsed will change.
+If you use it, be prepared for breaking changes.
+</div>
+</aside>
 
 The above should be enough to get you started using mirrors.
 There is a good deal more to the introspection API;
