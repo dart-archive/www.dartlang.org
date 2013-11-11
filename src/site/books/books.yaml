@@ -13,6 +13,23 @@
         readable textbook that introduces the language, its rationale and
         its philosophy.'
 
+- title: Learning Dart
+  authors:
+    - Dzenan Ridjanovic 
+    - Ivo Balbaert
+  publisher: Packt Publishing
+  cover: learning-dart.jpg
+  link: http://www.packtpub.com/learning-dart/book
+  desc: 'Learning Dart provides you with a thorough overview of this new
+        open source programming language. It will guide you step-by-step 
+        through building games and business applications for the Web, taking
+        advantage of the power behind a modern language combined with HTML5.
+        Learning Dart starts by exploring the Dart ecosystem. This is followed
+        by two chapters that will show you everything you need to know about
+        Dart syntax and development principles. Throughout the rest of the
+        book, you will apply this knowledge to advanced topics with the help
+        of an example-based approach.'    
+
 - title: Dart for Hipsters
   authors:
     - Chris Strom
