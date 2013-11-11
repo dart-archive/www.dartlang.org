@@ -25,10 +25,10 @@ providing a **potential speedup of 400%** for
 and other numeric computation algorithms.
 
 This article tells you how to use the SIMD numeric types
-that the **dart:typed_data** library provides—Float32x4 and Uint32x4.
+that the **dart:typed_data** library provides—Float32x4 and Int32x4.
 Both types hold four numbers together
 and operate on the four numbers simultaneously.
-**Uint32x4** is more limited;
+**Int32x4** is more limited;
 it's useful for comparison, branching, and selection.
 **Float32x4** offers the standard set of arithmetic operations and more.
 
@@ -116,7 +116,7 @@ with operations that create new immutable Float32x4 objects.
 ### Horizontal operations
 
 Horizontal operations read or write the individual lane values
-inside a Float32x4 or Uint32x4 value.
+inside a Float32x4 or Int32x4 value.
 Operating on these values horizontally—for example,
 adding the individual lane values together—is slow; avoid it.
 If you can’t avoid a horizontal operation entirely,
@@ -160,8 +160,8 @@ but it can reap performance wins.
 ## Types
 
 The [dart:typed_data library](http://api.dartlang.org/docs/releases/latest/dart_typed_data.html)
-has three types to support SIMD:
-Float32x4, Uint32x4, and Float32x4List.
+has four types to support SIMD:
+Float32x4, Int32x4, Float32x4List and Int32x4List.
 
 ### Float32x4
 
@@ -171,31 +171,31 @@ For a complete list of methods and constructors,
 see the [Float32x4 API reference](http://api.dartlang.org/dart_typed_data/Float32x4.html).
 
 
-### Uint32x4
+### Int32x4
 
-Each lane in a Uint32x4 API reference
+Each lane in a Int32x4 API reference
 holds an unsigned, 32-bit integer value.
-Uint32x4 has no support for arithmetic.
+Int32x4 has no support for arithmetic.
 Instead, use it for logical operations
 such as comparison and selection.
 
-You can get Uint32x4 objects by explicitly creating them or,
+You can get Int32x4 objects by explicitly creating them or,
 as the [Branching](#branching) section shows,
 from the return values of Float32x4 methods.
 To create an explicit selection mask,
-you can use the Uint32x4.bool() constructor:
+you can use the Int32x4.bool() constructor:
 
 {% prettify dart %}
-Uint32x4.bool(bool x, bool y, bool z, bool w);
+Int32x4.bool(bool x, bool y, bool z, bool w);
 {% endprettify %}
 
-This constructor creates a new Uint32x4 instance
+This constructor creates a new Int32x4 instance
 with 0xFFFFFFFF in lanes where the boolean parameter is true
 and 0x0 in lanes where the boolean parameter is false.
 For an example of using this constructor, see the
 [Lane masking](#lane-masking) section.
 
-The [Uint32x4 API reference](http://api.dartlang.org/dart_typed_data/Uint32x4.html)
+The [Int32x4 API reference](http://api.dartlang.org/dart_typed_data/Int32x4.html)
 has a complete list of methods and constructors.
 
 
@@ -251,7 +251,7 @@ double addXY(Float32x4 v) {
   This technique is **slow**.
 </aside>
 
-Remember that all instances of Float32x4 and Uint32x4 are immutable,
+Remember that all instances of Float32x4 and Int32x4 are immutable,
 so you can’t change the value in a given lane.
 However you can construct a new instance
 using the lane values from an existing instance,
@@ -322,18 +322,18 @@ Float32x4 does not support the standard comparison operators;
 instead it defines the following methods:
 
 {% prettify dart %}
-Uint32x4 greaterThan(Float32x4 other);
-Uint32x4 greaterThanOrEqual(Float32x4 other);
-Uint32x4 lessThan(Float32x4 other);
-Uint32x4 lessThanOrEqual(Float32x4 other);
-Uint32x4 equal(Float32x4 other);
-Uint32x4 notEqual(Float32x4 other);
+Int32x4 greaterThan(Float32x4 other);
+Int32x4 greaterThanOrEqual(Float32x4 other);
+Int32x4 lessThan(Float32x4 other);
+Int32x4 lessThanOrEqual(Float32x4 other);
+Int32x4 equal(Float32x4 other);
+Int32x4 notEqual(Float32x4 other);
 {% endprettify %}
 
-Each method returns a Uint32x4,
+Each method returns a Int32x4,
 where the lane values are 0xFFFFFFFF when the comparison is true
 and 0x0 when the comparison is false.
-This Uint32x4 is called a selection mask
+This Int32x4 is called a selection mask
 and is used to select values from two Float32x4s,
 lane by lane.
 Here is the preceding code snippet rewritten for SIMD:
@@ -342,12 +342,12 @@ Here is the preceding code snippet rewritten for SIMD:
 {% prettify dart %}
 Float32x4 a = ...;
 Float32x4 b = ...;
-Uint32x4 mask = a.greaterThan(b);  // Create selection mask.
+Int32x4 mask = a.greaterThan(b);  // Create selection mask.
 Float32x4 c = mask.select(a, b);   // Select.
 {% endprettify %}
 </div>
 
-The select() method is defined in the Uint32x4 class as follows:
+The select() method is defined in the Int32x4 class as follows:
 
 {% prettify dart %}
 Float32x4 select(Float32x4 trueValue, Float32x4 falseValue);
@@ -359,7 +359,7 @@ if the mask has 0x0 in a lane,
 the result has the lane value from _falseValue_.
 The following diagram demonstrates a selection:
 
-![illustration of a Uint32x4 selection mask being applied to 2 Float32x4 objects, and the resulting Float32x4 object](images/select_logic.png)
+![illustration of a Int32x4 selection mask being applied to 2 Float32x4 objects, and the resulting Float32x4 object](images/select_logic.png)
 
 In general, programs that branch based on the values in a Float32x4
 execute both the true path and the false path.
@@ -380,7 +380,7 @@ For example:
 Float32x4 v = new Float32x4(2.0, 3.0, 4.0, 5.0);
 
 // mask = [0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x0]
-Uint32x4 mask = new Uint32x4.bool(true, true, true, false);  
+Int32x4 mask = new Int32x4.bool(true, true, true, false);  
 
 // r = [4.0, 9.0, 16.0, 25.0].
 Float32x4 r = v * v; 
@@ -473,7 +473,7 @@ For more details, check out these resources:
 
 * API reference documentation for
   [Float32x4](http://api.dartlang.org/dart_typed_data/Float32x4.html),
-  [Uint32x4](http://api.dartlang.org/dart_typed_data/Uint32x4.html), and
+  [Int32x4](http://api.dartlang.org/dart_typed_data/Int32x4.html), and
   [Float32x4List](http://api.dartlang.org/dart_typed_data/Float32x4List.html)
 * Code that uses SIMD:
   * [Google I/O 2013 demo (spectre)](https://github.com/johnmccutchan/spectre)
