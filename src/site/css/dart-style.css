@@ -351,6 +351,13 @@ i.sprite-icon-close-x {
 	bottom: -100px;
 }
 
+@media (max-width: 768px) {
+	.dart-carousel .carousel-indicators.icon-indicators {
+		width: 100%;
+		margin-left: -50%;
+	}
+}
+
 .dart-carousel .carousel-indicators li {
 	display: inline-block;
 	position: relative;
@@ -382,6 +389,16 @@ i.sprite-icon-close-x {
 
 .dart-carousel .carousel-indicators.icon-indicators li {
 	padding-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+	.dart-carousel .carousel-indicators.icon-indicators li  {
+		padding: 0;
+	}
+
+	.dart-carousel .carousel-indicators.icon-indicators li i {
+		display: none;
+	}
 }
 
 .dart-carousel .carousel-indicators li.active {
