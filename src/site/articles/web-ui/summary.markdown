@@ -16,12 +16,14 @@ See README comment in index.markdown for explanations of
 # {{ page.title }}
 
 <aside class="alert alert-danger" markdown="1">
-<strong>Web UI is now Polymer.dart.</strong>
-Web UI has evolved to
-[Polymer.dart](/polymer-dart/), which contains many fixes and improvements.
+<strong>Web UI is deprecated.</strong>
+Instead, use [Polymer.dart](/polymer-dart/),
+which supersedes Web UI beginning with version 0.5
+and provides many fixes and improvements.
 We encourage Web UI users to upgrade to Polymer.dart.
-The information on this page apply only to Web UI, which is now deprecated.
+The information on this page applies only to Web UI.
 </aside>
+
 
 _Written by Sigmund Cherem<br />
 November 2012 (Updated December 2012)_
