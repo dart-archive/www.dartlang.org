@@ -1192,3 +1192,20 @@ a[href^="http"]:not(.btn):after {
 .download-buttons, .os-choices {
 	display: none;
 }
+
+/* Spacing for definition lists. */
+dl {
+  margin-bottom:22px
+}
+
+dt, dd {
+  line-height:22px
+}
+
+dt{
+  font-weight:bold
+}
+
+dd{
+  margin-left:11px
+}
