@@ -16,7 +16,7 @@ article:
 
 <em>Written by Gilad Bracha <br>
 January 2012
-(updated November 2012)</em>
+(updated November 2013)</em>
 
 This document describes how to define Dart classes
 that behave like functions.
@@ -72,9 +72,9 @@ The class Function defines the static method `apply()`
 with the following signature:
 
 {% prettify dart %}
-external static apply(Function function,
+static apply(Function function,
                       List positionalArguments,
-                      [Map<String, dynamic> namedArguments]);
+                      [Map< Symbol, dynamic> namedArguments]);
 {% endprettify %}
 
 The apply() function allows functions to be called in generic fashion.
@@ -103,24 +103,23 @@ defined in their class chain by overriding noSuchMethod(). Here's an example
 showing how you could use function emulation inside noSuchMethod():
 
 {% prettify dart %}
-noSuchMethod(InvocationMirror msg) =>
-    msg.memberName == 'foo' ? msg.invokeOn(bar())
-                            : Function.apply(baz,
+noSuchMethod(Invocation msg) =>
+    msg.memberName == #foo ? Function.apply(baz,
                                 msg.positionalArguments,
-                                msg.namedArguments);
+                                msg.namedArguments)
+                          : super.noSuchMethod(msg);
 {% endprettify %}
 
-In the second line, `invokeOn()` handles the common case where you want to
-forward the call to a particular object (in this case, the result of `bar()`).
-The remaining lines handle the case where you want to forward just the parameters to
+The first branch handles the case where you want to forward just the parameters to
 another function. If you know `baz` doesn't take any named arguments,
 then that code can instead be
-`Function.apply(baz, msg.positionalArguments)`.
+`Function.apply(baz, msg.positionalArguments)`. The second branch simply forwards
+to the standard implementation of the noSuchMethod(), a common pattern.
 
 The only argument to noSuchMethod() is an
-[InvocationMirror](http://api.dartlang.org/dart_core/InvocationMirror.html).
+[Invocation](http://api.dartlang.org/dart_core/Invocation.html).
 
-The boolean properties of InvocationMirror identify the syntactic form of the
+The boolean properties of Invocation identify the syntactic form of the
 method invocation, as the following table shows.
 
 <!-- TODO: move this to stylesheet -->
@@ -174,10 +173,9 @@ was present, it would be closurized and returned.
 ## Summary
 
 This document describes how to define Dart classes that behave like functions.
-This functionality will be supported in Dart starting with the M2 release.
 
-Here is what you'll need to know in order to
-implement your own function type in Dart once the feature is implemented:
+Here is what you need to know in order to
+implement your own function type in Dart:
 
 1.  Define a class with a method named **call**.
 1.  Implement the call() method to define
