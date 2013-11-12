@@ -1144,6 +1144,11 @@ line-height: 120%;
   box-shadow: 8px 8px 15px #CCC;
 }
 
+/* ***** Dart Presentations ***** */
+.presentation {
+  margin-bottom: 2em;
+}
+
 /* ***** Permalink ***** */
 a.permalink {
   font-family: 'Montserrat', sans-serif;

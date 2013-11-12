@@ -23,7 +23,7 @@ You can also watch our 5-minute video tutorials, [Dart Tips](/dart-tips/).
 <!-- create a row for every three presos -->
 {% cycle '<div class="row">', '', '' %}
 
-<div class="col-md-4" id="{{ preso.short }}">
+<div class="presentation col-md-4" id="{{ preso.short }}">
   <div class="thumbnail">
     <img class="screenshot" src="imgs/{{ preso.short }}.jpg">
     <div class="caption">
