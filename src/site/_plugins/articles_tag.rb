@@ -56,11 +56,11 @@ module Jekyll
       end
 
       <<-END
-      <section>
-        <a href="#{article.full_path}"><h4>#{article.data['title']}</h4></a>
-        <div class="text-muted">#{author_names}, #{date}</div>
-        <p>#{article.data['description']}</p>
-      </section>
+      <p>
+        <a href="#{article.full_path}"><strong>#{article.data['title']}</strong></a><br>
+        <span class="text-muted">#{author_names}, #{date}</span><br>
+        #{article.data['description']}
+      </p>
       END
     end
 
