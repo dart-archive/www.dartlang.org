@@ -185,6 +185,8 @@ application = WSGIApplication(
       defaults={'_uri': '/articles/'}),
     Route('/articles/m3-whats-new/', RedirectHandler,
       defaults={'_uri': '/articles/'}),
+    Route('/articles/js-dart-interop/', RedirectHandler,
+      defaults={'_uri': '/articles/'}),
     Route('/docs/editor/getting-started/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html#ch01-editor'}),
     Route('/docs/dart2js/', RedirectHandler,

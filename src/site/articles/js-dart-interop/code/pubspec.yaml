@@ -1,8 +1,0 @@
-name:  js_code_sample
-description:  A sample application
-
-dependencies:
-  js:
-    git: 
-      url: git://github.com/dart-lang/js-interop.git
-      ref: ad06d9d49171cf03763b700cbcdbf417fca47771
