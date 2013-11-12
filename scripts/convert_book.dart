@@ -44,8 +44,8 @@ checkDir(Directory dir) {
   }
 }
 
-main() {
-  var args = new Options().arguments;
+main(List<String> args) {
+  //var args = new Options().arguments;
   if (args.length != 2) {
     print("Usage: convert_book.dart dir_of_html output_dir");
     exit(1);
