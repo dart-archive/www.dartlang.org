@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Google Maps API and dart:js
+title: "Google Maps: Using the JavaScript API with dart:js"
 live_example_url: example/index.html
 
 header:

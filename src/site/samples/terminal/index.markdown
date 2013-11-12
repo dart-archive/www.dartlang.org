@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Emulating a Terminal for Working with the FileSystem API
+title: A Terminal Emulator that Uses the FileSystem APIs
 live_example_url: example/index.html
 
 header:

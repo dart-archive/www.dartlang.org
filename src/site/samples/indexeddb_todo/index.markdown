@@ -8,6 +8,8 @@ header:
 
 ## {{ page.title }}
 
+Store and retrieve data using IndexedDB.
+
 Read the
 [source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb).
 

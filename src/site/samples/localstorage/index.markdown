@@ -1,6 +1,5 @@
----
 layout: default
-title: Simple LocalStorage Example
+title: LocalStorage 101
 live_example_url: example/index.html
 header:
   css: ["/samples/samples.css"]
@@ -8,9 +7,9 @@ header:
 
 ## {{ page.title }}
 
-This is a very simple example of the use of localstorage for data
+A simple example of the use of localStorage for data
 persistence. When you enter a value in the `input` below, it is stored
-in localstorage. The value is then retrieved from localstorage and displayed
+in localStorage. The value is then retrieved from localStorage and displayed
 on the page.
 
 Read the

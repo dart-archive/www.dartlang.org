@@ -1,6 +1,6 @@
 ---
 layout: default
-title: A Basic WebSockets Example
+title: WebSockets 101
 live_example_url: example/index.html
 
 header:

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Working with the Files API
+title: Using the Files API
 live_example_url: example/index.html
 
 header:

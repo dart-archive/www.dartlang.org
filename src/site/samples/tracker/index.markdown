@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Tracker
+title: "Tracker: A Task Management Tool"
 live_example_url: example/index.html
 header:
   css: ["/samples/samples.css"]
@@ -8,7 +8,7 @@ header:
 
 ## {{ page.title }}
 
-A simple task management tool built using Polymer.
+Create, update, and delete tasks. Built using Polymer Dart.
 
 Read the
 [source](https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker/)

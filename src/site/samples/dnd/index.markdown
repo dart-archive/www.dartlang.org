@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HTML5 Drag and Drop
+title: Basic HTML5 Drag and Drop
 live_example_url: example/index.html
 
 header:

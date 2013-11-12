@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Recipe Book
+title: Recipe Book Tutorial App
 live_example_url: example/web/index.html
 header:
   css: ["/samples/samples.css"]
@@ -9,10 +9,8 @@ header:
 ## {{ page.title }}
 
 An example from the Angular Dart Tutorial. The tutorial has several parts. Be
-sure to check out all the examples at
-
-Read the
-[source](https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker/)
+sure to
+[check out all the examples](https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker/).
 
 
 <iframe class="running-app-frame"

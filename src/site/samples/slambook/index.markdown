@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Working with Forms
+title: Get Input from a Form
 live_example_url: /docs/tutorials/forms/examples/slambook/out/web/slambook.html
 header:
   css: ["/samples/samples.css"]

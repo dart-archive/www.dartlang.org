@@ -12,7 +12,7 @@ col1:
         tryit_url: stopwatch/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
       -
-        title: Working with forms in Polymer
+        title: Get input from a form
         explanation_url: /docs/tutorials/forms
         tryit_url: slambook/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/slambook
@@ -22,16 +22,16 @@ col1:
         tryit_url: todomvc/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
       -
-        title: "Tracker: A task management tool"
+        title: "A task management tool"
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/README.md
         tryit_url: tracker/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
   -
     heading: angular.dart
     anchor: angular_dart
-    screenshot: angular.png
-    caption: "Angular Dart demo: Bouncing balls"
-    link: bouncing_balls/
+    screenshot: angular_todo.png
+    caption: "Angular Dart demo: Todo"
+    link: angular_todo/
     examples:
       -
         title: Hello world
@@ -46,7 +46,6 @@ col1:
       -
         title: Bouncing balls
         explanation_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
-        tryit_url: bouncing_balls/
         source_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
       -
         title: Recipe book tutorial app
@@ -57,16 +56,16 @@ col1:
     heading: Using JavaScript from Dart
     anchor: using_javascript_from_dart
     screenshot: google_maps.png
-    caption: "Using a JavaScript API with dart:js: Simple Google Maps example"
+    caption: "Using the JavaScript API with dart:js: Google Maps"
     link: google_maps/
     examples:
       -
-        title: Simple Google Maps example
+        title: "Google Maps"
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/README.md
         tryit_url: google_maps/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
       -
-        title: Using the Google Charts API
+        title: Using the Google Charts Visualization API
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/README.md
         tryit_url: gauge/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/
@@ -93,6 +92,7 @@ col1:
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat
       -
         title: A search app using HttpServer and WebSockets
+        title: "Dartiverse Search: A search app using HttpServer and WebSockets"
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
   -
@@ -123,17 +123,17 @@ col1:
         tryit_url: imagefilters/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
       -
-        title: "Mask: Shaped masks with StageXL"
+        title: "Shaped masks with StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/mask#mask
         tryit_url: http://www.stagexl.org/samples/mask/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/mask
       -
-        title: "FlipBook: Sprite sheet animations with StageXL"
+        title: "Sprite sheet animations with StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook#flipbook
         tryit_url: http://www.stagexl.org/samples/flipbook/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook
       -
-        title: "Escape: Adobe Flash game ported to HTML5 using StageXL"
+        title: "Adobe Flash game ported to HTML5 using StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape#escape
         tryit_url: http://www.stagexl.org/samples/escape/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape
@@ -175,7 +175,7 @@ col1:
     heading: Other HTML5 APIs
     anchor: other_html5_apis
     screenshot: files.png
-    caption: "Using an HTML5 API: Drag and drop files"
+    caption: "Using the Files API"
     link: dndfiles/
 
     examples:
@@ -185,7 +185,7 @@ col1:
         tryit_url: websockets/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basic
       -
-        title: Basic drag and drop
+        title: Basic HTML5 drag and drop
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics#basic-drag-and-drop
         tryit_url: dnd/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
@@ -205,8 +205,8 @@ col1:
         tryit_url: webaudio/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
       -
-        title: Using the Files APIs
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles#using-the-file-apis
+        title: Using the Files API
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles#using-the-file-api
         tryit_url: dndfiles/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Google Charts API and dart:js
+title: Using the Google Charts Visualization API
 live_example_url: example/gauge.html
 
 header:
