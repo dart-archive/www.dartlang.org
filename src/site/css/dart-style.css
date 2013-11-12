@@ -42,7 +42,6 @@ h3 {
 
 h4 {
 	font: 400 12px/17px 'Montserrat', sans-serif;
-	text-transform: uppercase;
 }
 
 h5 {
@@ -843,6 +842,7 @@ border-radius: 4px;
 }
 
 .footer h4 {
+	text-transform: uppercase;
     color: #1485c3;
 }
 
@@ -1167,7 +1167,7 @@ a[href^="http"]:not(.btn):after {
   display: none;
 }
 
-/* Maximum scaling and mimum height for mobile and desktop browser */
+/* Maximum scaling and minimum height for mobile and desktop browser */
 .dart-tips-video {
 	margin: 25px 0 25px 0;
 	width: 100%; 
