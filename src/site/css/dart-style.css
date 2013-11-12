@@ -1157,3 +1157,12 @@ a[href^="http"]:not(.btn):after {
   text-decoration: none;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ***** Download buttons ***** */
+/*  We hide windows and linux because they have two
+ *  buttons, while macos only has one, so the page
+ *  only expands, rather than contracting.
+ */
+.windows, .linux {
+  display: none;
+}
