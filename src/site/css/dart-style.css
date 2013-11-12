@@ -1177,15 +1177,6 @@ a[href^="http"]:not(.btn):after {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ***** Download buttons ***** */
-/*  We hide windows and linux because they have two
- *  buttons, while macos only has one, so the page
- *  only expands, rather than contracting.
- */
-.windows, .linux {
-  display: none;
-}
-
 /* Maximum scaling and minimum height for mobile and desktop browser */
 .dart-tips-video {
 	margin: 25px 0 25px 0;
