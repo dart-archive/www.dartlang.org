@@ -16,7 +16,7 @@ article:
 
 <em>Written by Gilad Bracha <br>
 January 2012
-(updated May 2013)</em>
+(updated November 2013)</em>
 
 This document describes how to define Dart classes
 that behave like functions.
@@ -72,7 +72,7 @@ The class Function defines the static method `apply()`
 with the following signature:
 
 {% prettify dart %}
-external static apply(Function function,
+static apply(Function function,
                       List positionalArguments,
                       [Map<Symbol, dynamic> namedArguments]);
 {% endprettify %}
@@ -125,29 +125,20 @@ showing how you could use function emulation inside noSuchMethod():
 
 {% prettify dart %}
 noSuchMethod(Invocation msg) =>
-    msg.memberName == const Symbol('foo') ?
-                            reflect(bar()).delegate(msg)
-                            : Function.apply(baz,
+    msg.memberName == #foo ? Function.apply(baz,
                                 msg.positionalArguments,
-                                msg.namedArguments);
+                                msg.namedArguments)
+                          : super.noSuchMethod(msg);
 {% endprettify %}
 
-The third line handles the common case where you want to
-forward the call to a particular object (in this case, the result of `bar()`).
-We obtain an 
-[InstanceMirror](http://api.dartlang.org/docs/releases/latest/dart_mirrors/InstanceMirror.html) 
-on the object using the `reflect()` function
-of [dart:mirrors])(http://api.dartlang.org/docs/releases/latest/dart_mirrors.html).
-Then we forward the call described by [msg] using the `delegate()` method of 
-[InstanceMirror](http://api.dartlang.org/docs/releases/latest/dart_mirrors/InstanceMirror.html).
-
-The remaining lines handle the case where you want to forward just the parameters to
+The first branch handles the case where you want to forward just the parameters to
 another function. If you know `baz` doesn't take any named arguments,
 then that code can instead be
-`Function.apply(baz, msg.positionalArguments)`.
+`Function.apply(baz, msg.positionalArguments)`. The second branch simply forwards
+to the standard implementation of the noSuchMethod(), a common pattern.
 
 The only argument to noSuchMethod() is an
-[Invocation](http://api.dartlang.org/docs/releases/latest/dart_core/Invocation.html).
+[Invocation](http://api.dartlang.org/dart_core/Invocation.html).
 The boolean properties of Invocation identify the syntactic form of the
 method invocation, as the following table shows.
 
@@ -201,7 +192,7 @@ was present, it would be closurized and returned.
 
 ## Summary
 
-Here is what you need to know to
+Here is what you need to know in order to
 implement your own function type in Dart:
 
 1.  Define a class with a method named **call**.

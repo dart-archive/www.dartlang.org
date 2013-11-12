@@ -118,7 +118,7 @@ order to reduced download size.
 
 Symbols were introduced into Dart to help reflection work
 in the presence of minification.
-The big advantage  of symbols is that when a Dart program is minified,
+The big advantage of symbols is that when a Dart program is minified,
 symbols get minified as well.
 For this reason, the mirror API traffics in symbols rather than strings.
 You can convert between symbols and strings;
@@ -228,6 +228,7 @@ class MyClass {
 main() {
   MyClass myClass = new MyClass(3, 4);
   InstanceMirror myClassInstanceMirror = reflect(myClass);
+  
   ClassMirror MyClassMirror = myClassInstanceMirror.type;
 
   InstanceMirror res = myClassInstanceMirror.invoke(#sum, []);
@@ -262,7 +263,9 @@ noise = InstanceMirror on 42
 
 Methods:
 my_method
+
 sum
+
 noise
 
 All declarations:
@@ -270,6 +273,7 @@ i
 j
 s
 my_method
+
 sum
 noise
 MyClass
