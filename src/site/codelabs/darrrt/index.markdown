@@ -1720,8 +1720,6 @@ Check your code against the files in `6-piratebadge_json`.
 
 </div>
 
-{% comment %}
-
 #### <i class="icon-anchor"> </i> Share your pirate name.
 
 <div class="trydart-step-details" markdown="1">
@@ -1743,7 +1741,6 @@ Share your pirate name with the world.
 <g:plus action="share"></g:plus>
 
 </div>
-{% endcomment %}
 
 
 <hr>
