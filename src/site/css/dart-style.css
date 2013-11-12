@@ -1128,6 +1128,7 @@ line-height: 120%;
 
 /* ***** Permalink ***** */
 a.permalink {
+  font-family: 'Montserrat', sans-serif;
   margin-left: 0.5em;
   display:none;
 }
