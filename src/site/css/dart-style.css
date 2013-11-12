@@ -1166,3 +1166,12 @@ a[href^="http"]:not(.btn):after {
 .windows, .linux {
   display: none;
 }
+
+/* Maximum scaling and mimum height for mobile and desktop browser */
+.dart-tips-video {
+	margin: 25px 0 25px 0;
+	width: 100%; 
+	height: 315px;
+	max-width:560px; 
+	max-height:315px;
+}
