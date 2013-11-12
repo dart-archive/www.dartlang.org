@@ -186,12 +186,6 @@ You can use the following _options_:
 
 ## Summary
 
-We are currently working on trying to make the size of snapshots smaller,
-as that has a direct impact on startup times.
-As a part of this exercise,
-some of the less frequently used libraries
-might be removed from the full snapshot.
-
 You can find more information about snapshots
 and how they are implemented by browsing the files in the
 [dart/runtime/vm directory](http://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fruntime%2Fvm).

@@ -474,11 +474,12 @@ so they effectively work on the controller's stream.
 Whichever way you implement your stream,
 keep these tips in mind:
 
-* Be careful when and where you send events on your stream.
-  When you send an event on an unpaused controller
+* Be careful when using a synchronous controller—for example,
+  one created using `new StreamController(sync: true)`.
+  When you send an event on an unpaused synchronous controller
   (for example, using the add(), addError(), or close() methods
   defined by [EventSink](http://api.dartlang.org/dart_async/EventSink.html)),
-  the event might be sent immediately to all listeners on the stream.
+  the event is sent immediately to all listeners on the stream.
   Make sure your stream's public methods
   are ready for event listeners to call them immediately.
 
