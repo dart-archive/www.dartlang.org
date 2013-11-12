@@ -1176,6 +1176,14 @@ a[href^="http"]:not(.btn):after {
 	max-height:315px;
 }
 
+.dart-editor-video {
+	margin: 25px 0 25px 0;
+	width: 100%; 
+	height: 197px;
+	max-width:350px; 
+	max-height:197px;
+}
+
 /* Disable the download buttons by default. 
  * Let scripts.js enable all download buttons
  * and os choices dialog.
