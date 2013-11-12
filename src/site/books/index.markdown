@@ -14,7 +14,7 @@ Here's a collection of books about Dart.
 {% for book in page.books %}
 <div class="book row">
   <div class="col-md-3">
-    <a href="{{ book.link }}"><img src="covers/{{ book.cover }}" class="cover"></a>
+    <a href="{{ book.link }}" class="btn"><img src="covers/{{ book.cover }}" class="cover"></a>
   </div>
   <div class="col-md-9">
     <h3 class="title"><a href="{{ book.link }}">{{ book.title }}</a></h3>
