@@ -74,6 +74,7 @@ ul, li {
     z-index: 200;
     height: 100%;
     margin-bottom: 300px;
+    padding-bottom: 50px;
     background-color: #fff;
 }
 
