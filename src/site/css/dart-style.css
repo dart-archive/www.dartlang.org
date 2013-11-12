@@ -1146,13 +1146,14 @@ a[href^="http"]:not(.btn):after {
   position: relative;
   top: 1px;
   display: inline-block;
+  vertical-align: super;
   padding-left: 0.25em;
   font-family: 'Glyphicons Halflings';
   -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
-  font-size: 67%;
+  font-size: 45%;
   line-height: 1;
-  text-decoration: inherit;
+  text-decoration: none;
   -moz-osx-font-smoothing: grayscale;
 }
