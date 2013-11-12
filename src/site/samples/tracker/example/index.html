@@ -1,0 +1,206 @@
+<!DOCTYPE html><!--
+Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+--><html><head><script src="packages/shadow_dom/shadow_dom.debug.js"></script>
+<script src="packages/custom_element/custom-elements.debug.js"></script>
+<script src="packages/browser/interop.js"></script>
+
+    <meta charset="utf-8">
+    <title>Tracker</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/third_party/bootstrap.min.css">
+
+    
+    <script src="index.html_bootstrap.dart.js"></script>
+    
+  </head>
+  <body><polymer-element name="task-form-element" attributes="task">
+  <template>
+    <style>
+      .field {
+        margin-bottom: 1.5em;
+      }
+
+      .field textarea, select {
+        width: 85%;
+        padding: .5em;
+      }
+
+      .field .chars-left {
+        margin-left: 1%;
+        width: 9%;
+        text-align: left;
+      }
+
+      .delete-task {
+        float:right;
+        margin-right: 5px;
+      }
+    </style>
+
+    <form on-submit="{{createOrUpdateTask}}">
+      <!-- Can't delete a form for creating a new task. -->
+      <template if="{{taskSaved}}">
+        <div on-click="{{deleteTask}}" class="delete-task glyphicon glyphicon-remove"></div>
+      </template>
+
+      <div class="field">
+        <textarea class="form-control" placeholder="Add title here" value="{{task.title}}" on-keyup="{{validateTitle}}"></textarea>
+        <span class="chars-left">{{maxTitleLength - taskTitleLength}}</span>
+
+        <div class="error" hidden?="{{titleErrorMessageIsEmpty}}">
+          {{titleErrorMessage}}
+        </div>
+      </div>
+
+      <div class="field">
+        <textarea rows="5" class="form-control" placeholder="Add description here" value="{{task.description}}" on-keyup="{{validateDescription}}"></textarea>
+        <span class="chars-left">
+          {{maxDescriptionLength - taskDescriptionLength}}
+        </span>
+
+        <div class="error" hidden?="{{descriptionErrorMessageIsEmpty}}">
+          {{descriptionErrorMessage}}
+        </div>
+      </div>
+
+      <div class="field">
+        <select class="form-control" selectedindex="{{statusSelectedIndex}}">
+          <option template="" repeat="{{taskStatusOptions}}">{{}}</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <button type="submit" class="btn btn-default">
+          {{submitLabel}}
+        </button>&nbsp;
+        <button type="button" on-click="{{dispatchCancelForm}}" class="btn btn-link">Cancel
+        </button>
+      </div>
+    </form>
+  </template>
+  
+</polymer-element><polymer-element name="task-element" attributes="task" extends="li">
+  <template>
+    <style>
+      .nav-glyph {
+        padding: 0; margin: 0;
+        width: 1.5em;
+        float: left;
+        font-size: .6em;
+        top: .5em;
+        color: #888;
+      }
+
+      .element-container {
+        padding: 0; margin: 0;
+        margin-left: 1.5em;
+      }
+    </style>
+
+    <template if="{{!usingForm}}">
+      <div>
+        <div on-click="{{toggleFormDisplay}}" class="nav-glyph glyphicon glyphicon-plus">
+        </div>
+        <div class="element-container">{{task.title}}</div>
+      </div>
+    </template>
+
+    <template if="{{usingForm}}">
+      <div>
+        <div on-click="{{toggleFormDisplay}}" class="nav-glyph glyphicon glyphicon-minus">
+        </div>
+        <div class="element-container">
+          <task-form-element task="{{task}}" on-notneeded="{{toggleFormDisplay}}" on-cancelform="{{toggleFormDisplay}}">
+          </task-form-element>
+        </div>
+      </div>
+    </template>
+  </template>
+  
+</polymer-element><polymer-element name="tracker-app">
+  <template>
+    <style>
+      .error {
+        color: red;
+      }
+
+      .success {
+        color: green;
+      }
+
+      #new-task-button, #search-input {
+         margin-top: 20px;
+      }
+
+      .moved {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Task Tracker</h1>
+        </div>
+
+        <template if="{{!usingForm}}">
+          <div class="col-md-2">
+            <button id="new-task-button" on-click="{{showEmptyForm}}" type="button" class="btn btn-primary">
+              Add task
+            </button>
+          </div>
+          <div class="col-md-2">
+             <input type="text" id="search-input" class="form-control" on-keyup="{{search}}" value="{{searchParam}}" placeholder="Search">
+          </div>
+        </template>
+      </div>
+
+      <div class="row">
+        <div class="list-container col-md-4">
+          <template if="{{usingForm}}">
+            <div>
+              <div class="element-container">
+                <task-form-element task="{{newTask}}" on-notneeded="{{showEmptyForm}}" on-cancelform="{{toggleFormDisplay}}">
+                </task-form-element>
+              </div>
+            </div>
+          </template>
+
+          <h2>Current</h2>
+          <ul class="list-unstyled">
+            <template repeat="{{task in current}}">
+              <li is="task-element" task="{{task}}"></li>
+            </template>
+          </ul>
+        </div>
+
+        <div class="list-container col-md-4">
+          <h2>Pending</h2>
+          <ul class="list-unstyled">
+            <template repeat="{{task in pending}}">
+              <li is="task-element" task="{{task}}"></li>
+            </template>
+          </ul>
+        </div>
+
+        <div class="list-container col-md-4">
+          <h2>Completed</h2>
+          <ul class="list-unstyled">
+            <template repeat="{{task in completed}}">
+              <li is="task-element" task="{{task}}"></li>
+            </template>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+</polymer-element>    
+    <tracker-app></tracker-app>
+  
+
+</body></html>

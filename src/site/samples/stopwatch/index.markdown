@@ -34,7 +34,7 @@ more detail, or read the
 
 
 <iframe class="running-app-frame"
-        style="height:300px;width:300px;"
+        style="height:250px;width:100%;"
         src="{{page.live_example_url}}">
 </iframe>
 

@@ -32,7 +32,7 @@ more detail, or read the
 [source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/slambook).
 
 <iframe class="running-app-frame"
-        style="height:400px;width:50%;"
+        style="height:550px;width:100%;"
         src="{{page.live_example_url}}">
 </iframe>
 

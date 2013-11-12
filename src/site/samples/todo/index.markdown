@@ -21,7 +21,7 @@ more detail, or read the
 [source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo).
 
 <iframe class="running-app-frame"
-        style="height:400px;width:40%;"
+        style="height:400px;width:100%;"
         src="{{page.live_example_url}}">
 </iframe>
 

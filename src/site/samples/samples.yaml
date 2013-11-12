@@ -4,7 +4,7 @@ col1:
     anchor: polymer_dart
     screenshot: tracker.png
     caption: "Tracker: A task management tool"
-    link: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
+    link: tracker/
     examples:
       -
         title: Defining a custom element
@@ -19,33 +19,39 @@ col1:
       -
         title: TodoMVC
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/README.md
+        tryit_url: todomvc/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
       -
-        title: A task management tool
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
+        title: "Tracker: A task management tool"
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/README.md
+        tryit_url: tracker/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
   -
     heading: angular.dart
     anchor: angular_dart
     screenshot: angular.png
     caption: "Angular Dart demo: Bouncing balls"
-    link: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
+    link: bouncing_balls/
     examples:
       -
         title: Hello world
         explanation_url: https://github.com/angular/angular.dart/tree/master/demo/helloworld
+        tryit_url: helloworld/
         source_url: https://github.com/angular/angular.dart/tree/master/demo/helloworld
       -
         title: Todo
-        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/todo
+        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/todo#angulardarts-todo-demo
+        tryit_url: angular_todo/
         source_url: https://github.com/angular/angular.dart/tree/master/demo/todo
       -
         title: Bouncing balls
         explanation_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
+        tryit_url: bouncing_balls/
         source_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
       -
         title: Recipe book tutorial app
         explanation_url: https://github.com/angular/angular.dart.tutorial#welcome-to-the-angulardart-tutorial
+        tryit_url: recipe_book/
         source_url: https://github.com/angular/angular.dart.tutorial
   -
     heading: Using JavaScript from Dart
@@ -78,10 +84,6 @@ col1:
     link: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
     examples:
       -
-        title: A search app using HttpServer and WebSockets
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
-      -
         title: Searching files for content
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep/README.md
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep
@@ -89,45 +91,49 @@ col1:
         title: Concatenating files
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat/README.md
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat
+      -
+        title: A search app using HttpServer and WebSockets
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
   -
     heading: Animation and graphics
     anchor: animation_and_graphics
     screenshot: stagexl.png
     caption: "FlipBook: Sprite sheet animations with StageXL"
-    link: http://www.stagexl.org/samples/flipbook/index.html
+    link: http://www.stagexl.org/samples/flipbook/
     examples:
       -
         title: Working with requestAnimationFrame
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations#working-with-requestanimationframe
         tryit_url: raf/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
       -
         title: 2D solar system animation using Canvas
-        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/solar/README.md
         tryit_url: solar/
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
       -
         title: 3D solar system animation using WebGL
-        explanation_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d#3d-solar-system-simulation
         tryit_url: solar3d/
-        source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d
       -
         title: Using image filters with canvas
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters#using-image-filters-with-canvas
         tryit_url: imagefilters/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
       -
-        title: Shaped masks with StageXL
-        explanation_url: https://github.com/bp74/StageXL/tree/master/example08
-        tryit_url: http://www.stagexl.org/samples/mask/index.html
-        source_url: https://github.com/bp74/StageXL/tree/master/example/example08
+        title: "Mask: Shaped masks with StageXL"
+        explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/mask#mask
+        tryit_url: http://www.stagexl.org/samples/mask/
+        source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/mask
       -
-        title: Sprite sheet animations with StageXL
-        explanation_url: https://github.com/bp74/StageXL/tree/master/example/example08
-        tryit_url: http://www.stagexl.org/samples/flipbook/index.html
-        source_url: https://github.com/bp74/StageXL/tree/master/example/example08
+        title: "FlipBook: Sprite sheet animations with StageXL"
+        explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook#flipbook
+        tryit_url: http://www.stagexl.org/samples/flipbook/
+        source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook
       -
-        title: Adobe Flash game ported to HTML5 using StageXL
+        title: "Escape: Adobe Flash game ported to HTML5 using StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape#escape
         tryit_url: http://www.stagexl.org/samples/escape/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape
@@ -140,13 +146,13 @@ col1:
     link: terminal/
     examples:
       -
-        title: Simple LocalStorage example
-        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/localstorage/basics/README
+        title: LocalStorage 101
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics#localstorage-101
         tryit_url: localstorage/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics
       -
         title: Simple todo app using IndexedDB
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb/todo#simple-todo-app-using-indexeddb
         tryit_url: indexeddb_todo/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
       -
@@ -156,12 +162,12 @@ col1:
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
       -
         title: Exploring the FileSystem APIs
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem#exploring-the-filesystem-apis
         tryit_url: filesystem/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
       -
-        title: A terminal emulator that uses FileSystem APIs
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+        title: A terminal emulator that uses the FileSystem APIs
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal#a-terminal-emulator-that-uses-the-filesystem-apis
         tryit_url: terminal/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
 
@@ -174,39 +180,35 @@ col1:
 
     examples:
       -
+        title: WebSockets 101
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics#websockets-101
+        tryit_url: websockets/
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basic
+      -
         title: Basic drag and drop
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics#basic-drag-and-drop
         tryit_url: dnd/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
       -
-        title: Drag and drop files
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
-        tryit_url: dndfiles/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
-
-      -
         title: Using Application Cache
-        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/appcache/beginner/
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner#using-application-cache
         tryit_url: appcache/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner
-
       -
         title: Basic geolocation example
-        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/geolocation/trip_meter/
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter#trip-meter-a-basic-geolocaton-example
         tryit_url: geolocation/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter
-
       -
         title: Getting started with Web Audio API
-        explanation_url: https://github.com/dart-lang/dart-samples/blob/master/web/html5/webaudio/intro/
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro#getting-started-with-web-audio-api
         tryit_url: webaudio/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
-
       -
-        title: Using the Files API
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        title: Using the Files APIs
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles#using-the-file-apis
         tryit_url: dndfiles/
-        source_url: https://githubo.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
 
   -
     heading: Web programming fundamentals

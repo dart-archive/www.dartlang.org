@@ -17,7 +17,7 @@ Read the
 [source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics).
 
 <iframe class="running-app-frame"
-        style="height:400px;width:50%;"
+        style="height:400px;width:100%;"
         src="{{page.live_example_url}}">
 </iframe>
 
