@@ -69,7 +69,7 @@ create and run two small applications.
 ##Download the Dart software bundle {#download-dart}
 
 Get Dart.
-The Dart download includes Dart Editor,
+The Dart download includes <a href="/tools/editor/">Dart Editor</a>,
 which you'll be using
 throughout this tutorial.
 
@@ -77,7 +77,7 @@ throughout this tutorial.
   {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 </div>
 
-<p>
+<p class="os-choices" >
   The Dart tools
   work in recent versions of
   {% include os-choices.html %}

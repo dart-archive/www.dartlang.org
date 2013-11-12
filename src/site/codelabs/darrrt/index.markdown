@@ -67,7 +67,7 @@ Unzip the ZIP file, which creates a directory called `dart`.
 
 {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 
-<p markdown="1">
+<p class="os-choices" markdown="1">
   The Dart tools
   work in recent versions of
   {% include os-choices.html %}

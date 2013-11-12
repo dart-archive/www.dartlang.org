@@ -1175,3 +1175,11 @@ a[href^="http"]:not(.btn):after {
 	max-width:560px; 
 	max-height:315px;
 }
+
+/* Disable the download buttons by default. 
+ * Let scripts.js enable all download buttons
+ * and os choices dialog.
+ */
+.download-buttons, .os-choices {
+	display: none;
+}

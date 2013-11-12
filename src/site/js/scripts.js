@@ -1,4 +1,27 @@
 $(document).ready(function() {
+  var isMobile = {
+      Android: function() {
+          return navigator.userAgent.match(/Android/i) ? true : false;
+      },
+      BlackBerry: function() {
+          return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+      },
+      iOS: function() {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+      },
+      Windows: function() {
+          return navigator.userAgent.match(/IEMobile/i) ? true : false;
+      },
+      any: function() {
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+      }
+  };
+
+  if (isMobile.any() != true) {
+    $('.download-buttons').show();
+    $('.os-choices').show();
+  }
+
   var addPermalink = function() {
     if ($(this).hasClass('no-permalink')) {
       return;
@@ -26,6 +49,7 @@ $(document).ready(function() {
 
   // Add syntax highlighting.
   prettyPrint();
+
 });
 
 // Anchor scrolling for the page
@@ -103,4 +127,5 @@ $(function(){
   // });
 
 });
+
 
