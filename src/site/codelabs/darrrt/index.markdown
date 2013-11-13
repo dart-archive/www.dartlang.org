@@ -58,7 +58,7 @@ This code lab assumes that you have some programming experience.
 In this step, you download Dart and get the sample code.
 
 
-#### <i class="icon-anchor"> </i> Get Dart.
+### <i class="icon-anchor"> </i> Get Dart.
 
 <div class="trydart-step-details" markdown="1">
 If you haven't already done so,
@@ -74,7 +74,7 @@ Unzip the ZIP file, which creates a directory called `dart`.
 </p>
 </div>
 
-#### <i class="icon-anchor"> </i> Start the editor.
+### <i class="icon-anchor"> </i> Start the editor.
 
 <div class="trydart-step-details" markdown="1">
 Go to the `dart` directory and double-click **DartEditor**.
@@ -84,7 +84,7 @@ Go to the `dart` directory and double-click **DartEditor**.
 
 </div>
 
-#### <i class="icon-anchor"> </i> Get the sample code.
+### <i class="icon-anchor"> </i> Get the sample code.
 
 <div class="trydart-step-details" markdown="1">
 <a href="https://github.com/dart-lang/one-hour-codelab/archive/master.zip">Download</a>
@@ -93,7 +93,7 @@ Unzip the ZIP file,
 which creates a directory called `one-hour-codelab-master`.
 </div>
 
-#### <i class="icon-anchor"> </i> Open the one-hour-codelab-master sample.
+### <i class="icon-anchor"> </i> Open the one-hour-codelab-master sample.
 
 <div class="trydart-step-details" markdown="1">
 In Dart Editor,
@@ -101,11 +101,11 @@ use **File > Open Existing Folder...**
 to open the `one-hour-codelab-master` directory.
 </div>
 
-<div class="row"> <div class="span7" markdown="1">
+<div class="row"> <div class="col-md-7" markdown="1">
 
 ![The files and directories in the piratebadge directory.](images/filesanddirs.png)
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 <i class="icon-key"> </i> <strong> Key Information </strong>
 
@@ -134,7 +134,7 @@ In this step, you open the source files,
 familiarize yourself with the Dart and HTML code,
 and run the app.
 
-#### <i class="icon-anchor"> </i> Expand the 1-blankbadge directory.
+### <i class="icon-anchor"> </i> Expand the 1-blankbadge directory.
 
 <div class="trydart-step-details" markdown="1">
 In Dart Editor, expand the `1-blankbadge` directory
@@ -143,24 +143,24 @@ by clicking the little arrow
 The directory contains two files, `piratebadge.html` and `piratebadge.dart`.
 </div>
 
-#### <i class="icon-anchor"> </i> Open the files.
+### <i class="icon-anchor"> </i> Open the files.
 
 <div class="trydart-step-details" markdown="1">
 Open both files, `piratebadge.html` and `piratebadge.dart`,
 by double-clicking each filename in Dart Editor.
 </div>
 
-#### <i class="icon-anchor"> </i> Review the code.
+### <i class="icon-anchor"> </i> Review the code.
 
 <div class="trydart-step-details" markdown="1">
 Get familiar with the HTML and the Dart code for the skeleton version of the app.
 </div>
 
 <div class="trydart-step-details" markdown="1">
-##### piratebadge.html
+#### piratebadge.html
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify html%}
@@ -194,7 +194,7 @@ Get familiar with the HTML and the Dart code for the skeleton version of the app
 </div>
 <div class="trydart-filename">piratebadge.html</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 <i class="icon-key"> </i> <strong> Key Information </strong>
 
@@ -216,10 +216,10 @@ as well as compatibility with non-Dart browsers.
 </div> </div>
 
 <div class="trydart-step-details" markdown="1">
-##### piratebadge.dart
+#### piratebadge.dart
 </div>
 
-<div class="row"> <div class="span7" markdown="1">
+<div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
@@ -231,7 +231,7 @@ as well as compatibility with non-Dart browsers.
 </div>
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * This file is the main script for the app.
 It is referenced by a &lt;script&gt; tag in the `piratebadge.html` file.
@@ -242,7 +242,7 @@ It is referenced by a &lt;script&gt; tag in the `piratebadge.html` file.
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Run the app.
+### <i class="icon-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
 To run the app in Dart Editor, select `piratebadge.html`
@@ -261,7 +261,7 @@ and a red and white name badge on the right.
 
 <div class="trydart-step-details" markdown="1">
 <iframe class="running-app-frame"
-        style="height:220px;width:530px;"
+        style="height:220px;width:550px;"
         src="examples/1-blankbadge/piratebadge.html">
 </iframe>
 </div>
@@ -281,9 +281,9 @@ In this step, you add an input field to the app.
 As the user types into the text field,
 the Dart code updates the badge from the value of the text field.
 
-#### <i class="icon-anchor"> </i> Edit piratebadge.html.
+### <i class="icon-anchor"> </i> Edit piratebadge.html.
 
-<div class="row"> <div class="span7" markdown="1">
+<div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 
@@ -303,7 +303,7 @@ within the `widgets` &lt;div&gt;.
 
 <div class="trydart-filename">piratebadge.html</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 <i class="icon-key"> </i> <strong> Key Information </strong>
 
@@ -315,7 +315,7 @@ to get elements from the DOM.
 
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="icon-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -325,7 +325,7 @@ library at the top of the file
 
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details" markdown="1">
 
@@ -336,7 +336,7 @@ library at the top of the file
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * This imports all classes and other resources from dart:html,
 which provides HTML elements and access to the DOM.
@@ -353,7 +353,7 @@ Don't worry about it. You'll fix it in the next step.
 Register a function to handle input events on the input field.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details" markdown="1">
 
@@ -366,7 +366,7 @@ void main() {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The `querySelector()` function, defined in
 dart:html, gets an element from the DOM.
@@ -391,7 +391,7 @@ Let's fix that now.
 Implement the event handler as a top-level function.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details" markdown="1">
 
@@ -406,7 +406,7 @@ Implement the event handler as a top-level function.
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * This function sets the text of the `badgeName` element from the value of the input field.
 
@@ -422,7 +422,7 @@ Implement the event handler as a top-level function.
 
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Run the app.
+### <i class="icon-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -442,7 +442,7 @@ Type in the input field.
         src="examples/2-inputnamebadge/piratebadge.html">
 </iframe>
 
-##### Problems?
+#### Problems?
 
 Check your code against the files in `2-inputbadge`.
 
@@ -461,13 +461,13 @@ The button is enabled when the text field contains no text.
 When the user clicks the button,
 the app puts the name `Anne Bonney` on the badge.
 
-#### <i class="icon-anchor"> </i> Edit piratebadge.html.
+### <i class="icon-anchor"> </i> Edit piratebadge.html.
 
 <div class="trydart-step-details" markdown="1">
 Add the &lt;button&gt; tag below the input field.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify html %}
@@ -486,7 +486,7 @@ Add the &lt;button&gt; tag below the input field.
 
 <div class="trydart-filename">piratebadge.html</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 <i class="icon-key"> </i> <strong> Key Information </strong>
 
@@ -495,13 +495,13 @@ the Dart code can get the element.
 
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Edit piragebadge.dart.
+### <i class="icon-anchor"> </i> Edit piragebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 Below the import, declare a top-level variable to hold the `ButtonElement`.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -513,7 +513,7 @@ import 'dart:html';
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Top-level variables are names at the library level.
 
@@ -531,7 +531,7 @@ provided by the dart:html library.
 Wire up the button with an event handler.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -545,7 +545,7 @@ void main() {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * `onClick` registers a mouse click handler.
 
@@ -560,7 +560,7 @@ void main() {
 Add a top-level function that changes the name on the badge.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -574,7 +574,7 @@ Add a top-level function that changes the name on the badge.
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The function updates the HTML page with a new name.
 
@@ -589,7 +589,7 @@ Add a top-level function that changes the name on the badge.
 Implement the click handler for the button.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -603,7 +603,7 @@ Implement the click handler for the button.
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * This function sets the badge name to `Anne Bonney`.
 
@@ -617,7 +617,7 @@ Implement the click handler for the button.
 Modify `updateBadge()` to call `setBadgeName()`.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -630,7 +630,7 @@ void updateBadge(Event e) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Assign the input field's value to a local string.
 
@@ -644,7 +644,7 @@ void updateBadge(Event e) {
 Add a skeleton if-else statement to `updateBadge()`.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -662,7 +662,7 @@ void updateBadge(Event e) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The `String` class has useful functions and properties 
 for working with string data,
@@ -682,7 +682,7 @@ which is automatically imported into every Dart program.
 Now fill in the if-else statement to modify the button as needed.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -702,7 +702,7 @@ void updateBadge(Event e) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The cascade operator (`..`) allows you to perform multiple
 operations on the members of a single object. 
@@ -719,7 +719,7 @@ genButton.text = 'Aye! Gimme a name!';
 </div></div>
 
 
-#### <i class="icon-anchor"> </i> Run the app.
+### <i class="icon-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -742,7 +742,7 @@ Click the button.
 </iframe>
 
 
-##### Problems?
+#### Problems?
 
 Check your code against the files in `3-buttonbadge`.
 
@@ -764,13 +764,13 @@ randomly selects a name and appellation from a list,
 or optionally you can provide a name
 and an appellation to the constructor.
 
-#### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="icon-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 Add an import to the top of the file.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -782,7 +782,7 @@ import 'dart:html';
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 <i class="icon-key"> </i> <strong> Key Information </strong>
 
@@ -800,7 +800,7 @@ you can import only the classes, functions, or properties you need.
 Add a class declaration to the bottom of the file.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -813,7 +813,7 @@ Add a class declaration to the bottom of the file.
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The class declaration provides the class name.
 
@@ -826,7 +826,7 @@ Add a class declaration to the bottom of the file.
 Create a class-level Random object.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -838,7 +838,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * `static` defines a class-level field. That is,
 the random number generator is shared with all
@@ -858,7 +858,7 @@ Add two instance variables to class,
 one for the first name and one for the appellation.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -872,7 +872,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Private variables start with underscore (`_`).
 
@@ -886,7 +886,7 @@ Create two static lists within the class
 that provide a small collection of names and appellations to choose from.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -904,7 +904,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * `final` variables cannot change.
 
@@ -923,7 +923,7 @@ These lists are created using list literals.
 Provide a constructor for the class.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -947,7 +947,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Constructors have the same name as the class.
 
@@ -972,7 +972,7 @@ from the random number generator.
 Provide a getter for the pirate name.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -986,7 +986,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div><div class="span5" markdown="1">
+</div><div class="col-md-5" markdown="1">
 
 * Getters are special methods that provide read access to an object’s properties.
 
@@ -1007,7 +1007,7 @@ lets you easily build strings from other objects.
 Modify the function `setBadgeName()` to use a PirateName instead of a String:
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1019,7 +1019,7 @@ void setBadgeName([[highlight]]PirateName[[/highlight]] newName) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div><div class="span5" markdown="1">
+</div><div class="col-md-5" markdown="1">
 
 * This code calls the getter to get the PirateName as a string.
 
@@ -1032,7 +1032,7 @@ void setBadgeName([[highlight]]PirateName[[/highlight]] newName) {
 Change `updateBadge()` to generate a PirateName based on the input field value.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1047,7 +1047,7 @@ void updateBadge(Event e) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div><div class="span5" markdown="1">
+</div><div class="col-md-5" markdown="1">
 
 * The call to the constructor provides a value for one optional named parameter.
 
@@ -1060,7 +1060,7 @@ void updateBadge(Event e) {
 Change `generateBadge()` to generate a PirateName instead of using `Anne Bonney`.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1072,13 +1072,13 @@ void generateBadge(Event e) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div><div class="span5" markdown="1">
+</div><div class="col-md-5" markdown="1">
 
 * In this case, the call to the constructor passes no parameters.
 
 </div></div>
 
-#### <i class="icon-anchor"> </i> Run the app.
+### <i class="icon-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
   
@@ -1101,7 +1101,7 @@ Click the button.
 </iframe>
 
 
-##### Problems?
+#### Problems?
 
 Check your code against the files in `4-classbadge`.
 
@@ -1122,13 +1122,13 @@ by saving the badge name to local storage each time it changes.
 When you restart the app,
 it initializes the badge from the saved name.
 
-#### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="icon-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 Import the JSON converter from the `dart:convert` library.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1141,7 +1141,7 @@ import 'dart:convert' show JSON;[[/highlight]]
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 <i class="icon-key"> </i> <strong> Key Information </strong>
 
@@ -1156,7 +1156,7 @@ import 'dart:convert' show JSON;[[/highlight]]
 Add a named constructor to the PirateName class.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1173,7 +1173,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The constructor creates a new PirateName instance from a JSON-encoded string.
 
@@ -1193,7 +1193,7 @@ Add a getter to the PirateName class
 that encodes a pirate name in a JSON string.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1206,7 +1206,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The getter formats the JSON string using the map format.
 
@@ -1220,7 +1220,7 @@ class PirateName {
 Declare a top-level string.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1234,7 +1234,7 @@ void main() {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * You store key-value pairs in local storage. This string is the key.
 The value is the pirate name.
@@ -1248,7 +1248,7 @@ The value is the pirate name.
 Save the pirate name when the badge name changes.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1264,7 +1264,7 @@ void setBadgeName(PirateName newName) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Local storage is provided by the browser's `Window`.
 
@@ -1279,7 +1279,7 @@ void setBadgeName(PirateName newName) {
 Add a top-level function called `getBadgeNameFromStorage()`.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1300,7 +1300,7 @@ void setBadgeName(PirateName newName) {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The function retrieves the pirate name from local storage
 and creates a PirateName object from it.
@@ -1314,7 +1314,7 @@ and creates a PirateName object from it.
 Call the function from the `main()` function.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1327,7 +1327,7 @@ void main() {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Initialize the badge name from local storage.
 
@@ -1335,7 +1335,7 @@ void main() {
 
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Run the app.
+### <i class="icon-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
   
@@ -1357,7 +1357,7 @@ Start the app again by duplicating this window.
 </iframe>
 
 
-##### Problems?
+#### Problems?
 
 Check your code against the files in `5-localbadge`.
 
@@ -1378,7 +1378,7 @@ the list of names and appellations from a JSON file.
 This gives you a chance to add more names and
 appellations to the program.
 
-#### <i class="icon-anchor"> </i> Create piratenames.json.
+### <i class="icon-anchor"> </i> Create piratenames.json.
 
 <div class="trydart-step-details" markdown="1">
 Use **File > New File...** to create a JSON-encoded file
@@ -1387,7 +1387,7 @@ named `piratenames.json` with the following content.
 Put the file in `1-blankbadge` alongside the Dart and HTML files you've been editing.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1424,7 +1424,7 @@ Put the file in `1-blankbadge` alongside the Dart and HTML files you've been edi
 
 <div class="trydart-filename">piratenames.json</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 <i class="icon-key"> </i> <strong> Key Information </strong>
 
@@ -1433,13 +1433,13 @@ which contains two lists of strings.
 
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Edit piratebadge.html.
+### <i class="icon-anchor"> </i> Edit piratebadge.html.
 
 <div class="trydart-step-details" markdown="1">
 Disable the input field and the button.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify html %}
@@ -1456,7 +1456,7 @@ Disable the input field and the button.
 
 <div class="trydart-filename">piratebadge.html</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 
 * The Dart code enables the text field and
@@ -1465,14 +1465,14 @@ the JSON file.
 
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="icon-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 
 Add an import to the top of the file.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1486,7 +1486,7 @@ import 'dart:convert' show JSON;
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * The `dart:async` library provides for asynchronous programming.
 
@@ -1500,7 +1500,7 @@ import 'dart:convert' show JSON;
 Replace the `names` and `appellations` lists with these static, empty lists:
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1515,7 +1515,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * **Be sure to remove `final` from these declarations.**
 
@@ -1534,7 +1534,7 @@ you can declare it as `List<String>`.
 Add two static functions to the PirateName class:
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1558,7 +1558,7 @@ class PirateName {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * `HttpRequest` is a utility for retrieving data from a URL.
 
@@ -1583,7 +1583,7 @@ opportunity to do something after the file is read.
 Add a top-level variable.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1597,7 +1597,7 @@ void main() {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Stash the span element for repeated use instead of querying the DOM for it.
 
@@ -1608,7 +1608,7 @@ void main() {
 Make these changes to the `main()` function.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1626,7 +1626,7 @@ void main() {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Stash the span element in the global variable.
 Also, stash the input element in a local variable.
@@ -1640,7 +1640,7 @@ Then, add the code to get the names from the JSON file,
 handling both success and failure.
 </div>
 
-<div class="row"> <div class="span7">
+<div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details">
 {% prettify dart %}
@@ -1664,7 +1664,7 @@ void main() {
 
 <div class="trydart-filename">piratebadge.dart</div>
 
-</div> <div class="span5" markdown="1">
+</div> <div class="col-md-5" markdown="1">
 
 * Call the `readyThePirates()` function,
 which returns a Future.
@@ -1687,7 +1687,7 @@ leaving the UI disabled.
 
 </div> </div>
 
-#### <i class="icon-anchor"> </i> Run the app.
+### <i class="icon-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
   
@@ -1710,7 +1710,7 @@ Compare your app to the final version running below.
 </iframe>
 
 
-##### Problems?
+#### Problems?
 
 Check your code against the files in `6-piratebadge_json`.
 
@@ -1720,7 +1720,7 @@ Check your code against the files in `6-piratebadge_json`.
 
 </div>
 
-#### <i class="icon-anchor"> </i> Share your pirate name.
+### <i class="icon-anchor"> </i> Share your pirate name.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1747,7 +1747,7 @@ Share your pirate name with the world.
 
 ##Step 7: Go forth and learn more about Dart {#step-seven}
 
-#### <i class="icon-anchor"> </i> Think about what you've done!
+### <i class="icon-anchor"> </i> Think about what you've done!
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1755,7 +1755,7 @@ This code lab provided a tour of most Dart language features
 and many library features.
 Here's where to go to learn more.
 
-##### The Dart language
+#### The Dart language
 
 <a href="https://www.dartlang.org/docs/dart-up-and-running/contents/ch02.html">
 A Tour of the Dart Language</a>
@@ -1779,13 +1779,13 @@ all of which are covered in more detail in the language tour.
 * import, and import with `show` (`import 'dart:math' show Random;`)
 * generics
 
-##### The Dart libraries
+#### The Dart libraries
 
 <a href="https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html">
 A Tour of the Dart Libraries</a>
 shows you how to use the major features in Dart’s libraries.
 
-##### API documentation for classes
+#### API documentation for classes
 
 <a href="https://api.dartlang.org/dart_core/String.html" target="_blank">String</a>,
 <a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
@@ -1797,7 +1797,7 @@ shows you how to use the major features in Dart’s libraries.
 <a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a>, and
 <a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a>
 
-##### API documentation for libraries
+#### API documentation for libraries
 
 <a href="https://api.dartlang.org/dart_core.html" target="_blank">dart:core</a>,
 <a href="https://api.dartlang.org/dart_math.html" target="_blank">dart:math</a>,
@@ -1805,7 +1805,7 @@ shows you how to use the major features in Dart’s libraries.
 <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a>, and
 <a href="https://api.dartlang.org/dart_convert.html" target="_blank">dart:convert</a>
 
-##### API documentation for JSON and local storage
+#### API documentation for JSON and local storage
 
 <a href="https://api.dartlang.org/dart_html/Window.html#localStorage" target="_blank">LocalStorage</a>, and
 <a href="https://api.dartlang.org/dart_convert.html#JSON" target="_blank">JSON</a>
@@ -1813,7 +1813,7 @@ shows you how to use the major features in Dart’s libraries.
 
 </div>
 
-#### <i class="icon-anchor"> </i> Check out the samples.
+### <i class="icon-anchor"> </i> Check out the samples.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1821,7 +1821,7 @@ Run some Dart programs online and check out the source code
 on our [Samples page](/samples/).
 </div>
 
-#### <i class="icon-anchor"> </i> Read the tutorials.
+### <i class="icon-anchor"> </i> Read the tutorials.
 
 <div class="trydart-step-details" markdown="1">
 Learn more about Dart from
