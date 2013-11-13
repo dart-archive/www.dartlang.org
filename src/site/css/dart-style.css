@@ -307,11 +307,11 @@ i.sprite-icon-close-x {
 }
 
 
-/*@media (max-width: 768px) {
+@media (max-width: 1000px) {
 	.navbar-search {
 	    display: none;
 	}
-}*/
+}
 
 .navbar-search .search-query {
     margin-bottom: 0;
