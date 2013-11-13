@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "Dart plugin for WebStorm, IntelliJ, PhpStorm, PyCharm, and RubyMine"
-description: "Use Dart with a variety of IDEs and editors from Jetbrains."
+title: "Dart plugin for WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine"
+description: "Use Dart with a variety of IDEs and editors from JetBrains."
 has-permalinks: false
 ---
 
-# Dart plugin from Jetbrains
+# Dart plugin from JetBrains
 
-## For WebStorm, IntelliJ, PhpStorm, PyCharm, and RubyMine
+## For WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine
 
 The [Dart plugin][plugin] for [WebStorm][ws] JavaScript IDE offers advanced support
 for the Dart language. This plugin is also available for other IntelliJ
