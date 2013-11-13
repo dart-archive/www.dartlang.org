@@ -466,6 +466,10 @@ i.sprite-icon-close-x {
 	padding:2px 3px;
 }
 
+.lang-dart .com {
+  color: #757575;
+}
+
 .lang-dart a span {
 	color:#fff !important;
 }
