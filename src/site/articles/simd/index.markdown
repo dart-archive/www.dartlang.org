@@ -1,5 +1,5 @@
 --- 
-layout: default
+layout: article
 title: "Using SIMD in Dart"
 description: "Get more out of your CPU: operate on four numbers in parallel, using the Float32x4 class from the dart:typed_data library."
 rel:
@@ -9,6 +9,8 @@ article:
   written_on: 2013-08-02
   collection: libraries-and-apis
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -31,10 +33,6 @@ and operate on the four numbers simultaneously.
 **Int32x4** is more limited;
 it's useful for comparison, branching, and selection.
 **Float32x4** offers the standard set of arithmetic operations and more.
-
-
-{% include toc.html %}
-
 
 ## Performance gains
 

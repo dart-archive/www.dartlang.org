@@ -222,7 +222,8 @@ The following diagram shows the flow of communication between
 the server and the client in this example.
 <hr> 
 
-![Client-server communication in the slambook example](images/client-server-comm.png)
+<img class="scale-img-max" src="images/client-server-comm.png"
+     alt="Client-server communication in the slambook example">
 
 <hr> 
 
@@ -333,7 +334,8 @@ and binds it to a Dart mouse click handler.
 
 Here's the code for the submitForm() mouse click handler:
 
-![Making a post request](images/post-request.png)
+<img class="scale-img-max" src="images/post-request.png"
+     alt="Making a post request">
 
 Let's walk through the click handler's code.
 
@@ -791,7 +793,8 @@ and binds the value to a Dart string.
 This example uses `value` with a text field, a text area,
 a color picker, a date chooser, and a range element.
 
-![Two-way data binding with value and strings](images/bind-value.png)
+<img class="scale-img-max" src="images/bind-value.png"
+     alt="Two-way data binding with value and strings">
 
 (Note that some surrounding code,
 such as that for the labels,
@@ -820,7 +823,8 @@ Because only one radio button in a group can be selected at a time
 and each radio button has a different value,
 the bound string reflects the value of the entire group.
 
-![bind-value with a group of radio buttons](images/radio-bindings.png)
+<img class="scale-img-max" src="images/radio-bindings.png"
+     alt="bind-value with a group of radio buttons">
 
 ####Special case: Not using bind-value with a multiple select element
 
@@ -907,7 +911,8 @@ a Dart getter, called `booksselected`,
 that dynamically creates a List object containing the keys
 to the selected books.
 
-![Display list of selected option elements](images/multiselect1.png)
+<img class="scale-img-max" src="images/multiselect1.png"
+     alt="Display list of selected option elements">
 
 The `booksselected` getter has an implied dependency on
 the `books` map, because the getter uses the map.
@@ -924,7 +929,8 @@ to bind a Dart integer to a pull-down menu.
 The integer indicates the index of the selected item.
 Indices begin at 0.
 
-![The selectedIndex attribute with a single-selection pull-down menu](images/bind-selected.png)
+<img class="scale-img-max" src="images/bind-selected.png"
+     alt="The selectedIndex attribute with a single-selection pull-down menu">
 
 ###Using checked with checkboxes
 
@@ -932,7 +938,8 @@ You can use the `checked` attribute
 to bind a Dart boolean to a single checkbox.
 Here each checkbox is bound to a separate boolean value within a map.
 
-![The checked attribute with individual checkboxes](images/bind-checked.png)
+<img class="scale-img-max" src="images/bind-checked.png"
+     alt="The checked attribute with individual checkboxes">
 
 
 ##Other resources

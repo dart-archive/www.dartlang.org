@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Snapshots in Dart"
 rel:
   author: siva-annamalai
@@ -9,6 +9,8 @@ article:
   written_on: 2013-02-13
   collection: language-details
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -28,10 +30,6 @@ browsers with the Dart VM can snapshot your app automatically.
 The next time your web app runs,
 the browser can retrieve the snapshot from the browser cache
 and use it to start your app faster.
-
-
-{% include toc.html %}
-
 
 ## What is a snapshot?
 

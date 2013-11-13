@@ -111,7 +111,8 @@ which as the user of the element, you care nothing about.
 When you use developer tools to inspect the element,
 you see just the custom element's begin and end tags.
 
-![Custom element encapsulates its contents](images/dev-tools-dom.png)
+<img class="scale-img-max" src="images/dev-tools-dom.png"
+     alt="Custom element encapsulates its contents">
 
 With custom elements, you can easily create new kinds of elements
 that have semantically meaningful tags and that are easy to share,
@@ -146,7 +147,8 @@ Three main source files implement the Stopwatch example:
 The following diagram shows the structure of the example
 app and its use of custom elements.
 
-![The connections between Dart and HTML](images/connections.png)
+<img class="scale-img-max" src="images/connections.png"
+     alt="The connections between Dart and HTML">
 
 ##Installing Polymer.dart {#getting-polymer-dart}
 
@@ -165,7 +167,8 @@ by adding the package name, `polymer`, to the list.
 YAML is whitespace-sensitive,
 so take care to indent the package name as shown:
 
-  ![Sample pubspec file with polymer dependency](images/sample-pubspec.png)
+  <img class="scale-img-max" src="images/sample-pubspec.png"
+     alt="Sample pubspec file with polymer dependency">
 
 * Run `pub install`,
 which recursively installs the polymer.dart package
@@ -188,17 +191,20 @@ in the &lt;head&gt; section.
 This script contains the `main()` function
 for the app and initializes Polymer.
 
-  ![Include the Polymer init script](images/init-script.png)
+  <img class="scale-img-max" src="images/init-script.png"
+     alt="Include the Polymer init script">
 
 * In the primary HTML file for your app,
 include the `packages/browser/dart.js` bootstrap script
 in the &lt;head&gt; section.
 
-  ![Include the Polymer bootstrap script](images/bootstrap-script.png)
+  <img class="scale-img-max" src="images/bootstrap-script.png"
+     alt="Include the Polymer bootstrap script">
 
 * In your Dart code, import the Polymer library:
 
-  ![Import the Polymer library](images/polymer-library.png)
+  <img class="scale-img-max" src="images/polymer-library.png"
+     alt="Import the Polymer library">
 
 ##Instantiating a custom element {#instantiating}
 
@@ -206,7 +212,8 @@ To create an instance of a custom element,
 use the name of the custom element just as you would any normal HTML tag.
 In this example, the tag name is `tute-stopwatch`.
 
-![Instantiate a custom element with a custom tag](images/polymer-element-instantiation.png)
+<img class="scale-img-max" src="images/polymer-element-instantiation.png"
+     alt="Instantiate a custom element with a custom tag">
 
 Using best practices,
 the custom element definition is in a separate file.
@@ -279,7 +286,8 @@ A custom element with a template and no script is purely visual.
 
 Here's the template code for the tute-stopwatch element:
 
-![The template code for the tute-stopwatch element](images/template-code.png)
+<img class="scale-img-max" src="images/template-code.png"
+     alt="The template code for the tute-stopwatch element">
 
 The tute-stopwatch template uses a &lt;style&gt; tag, which is optional.
 These styles are scoped; they affect only
@@ -304,11 +312,13 @@ On the Dart side, a class implements the behavior of the custom element.
 You associate the Dart class with the custom element using the `@CustomTag`
 annotation and the name of the custom element.
 
-![Two parts to a custom element definition](images/polymer-element-definition.png)
+<img class="scale-img-max" src="images/polymer-element-definition.png"
+     alt="Two parts to a custom element definition">
 
 This diagram gives an overview of the TuteStopwatch class:
 
-![The script code for the tute-stopwatch element](images/dart-script-code.png)
+<img class="scale-img-max" src="images/dart-script-code.png"
+     alt="The script code for the tute-stopwatch element">
 
 Any Dart class that backs a Polymer element must subclass PolymerElement.
 
@@ -374,7 +384,8 @@ In your Dart code, use the `@observable` annotation
 to mark the embedded data.
 Here, the data is a string called `counter`.
 
-![One-way data binding](images/one-way-data-binding.png)
+<img class="scale-img-max" src="images/one-way-data-binding.png"
+     alt="One-way data binding">
 
 The tute-stopwatch element uses a periodic
 <a href="https://api.dartlang.org/dart_async/Timer.html" target="_blank">Timer</a>
@@ -411,7 +422,8 @@ This example has three buttons, each
 with an event handler that is written in Dart,
 but attached to the button declaratively from HTML.
 
-![Declaratively attach a click handler](images/click-handler.png)
+<img class="scale-img-max" src="images/click-handler.png"
+     alt="Declaratively attach a click handler">
 
 In HTML, use the `on-click` attribute
 to attach a mouse click handler to an HTML element.
@@ -445,7 +457,8 @@ The Shadow DOM is key to encapsulation.
 The DOM subtree for a custom element is
 hidden from outside of the custom element.
 
-![Shadow DOM for tute-stopwatch custom element](images/shadow-dom.png)
+<img class="scale-img-max" src="images/shadow-dom.png"
+     alt="Shadow DOM for tute-stopwatch custom element">
 
 You can programmatically get items from the Shadow DOM
 by querying a custom element's _shadow root_&mdash;a
@@ -473,7 +486,8 @@ not from anywhere else on the page.
 You can optionally include CSS styles for your custom element
 that apply only to the contents of the custom element.
 
-![Scoped CSS styling](images/css-styling.png)
+<img class="scale-img-max" src="images/css-styling.png"
+     alt="Scoped CSS styling">
 
 The `@host` rule allows you to target and style an element internally,
 from within its definition.

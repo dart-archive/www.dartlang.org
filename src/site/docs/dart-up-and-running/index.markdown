@@ -6,10 +6,14 @@ description: "Excerpts from the O'Reilly book."
 
 # {{ page.title }}
 
-<a href="http://shop.oreilly.com/product/0636920025719.do"><img
-  src="front_cover.gif"
-  alt="Dart: Up and Running, by Kathy Walrath and Seth Ladd"
-  width="190" height="250" align="right" /></a>
+<div class="pull-right">
+  <a href="http://shop.oreilly.com/product/0636920025719.do" class="btn">
+    <img class="media-object"
+    src="front_cover.gif"
+    alt="Dart: Up and Running, by Kathy Walrath and Seth Ladd"
+    width="190" height="250" />
+  </a>
+</div>
 _Dart: Up and Running_
 is published by O'Reilly and reproduced on dartlang.org with permission.
 Its content is licensed under the

@@ -125,12 +125,14 @@ Use the JSON.encode() function to serialize an object that supports JSON.
 Here's the function, `showJson`, from the its_all_about_you example that
 converts all of the data to JSON strings.
 
-![Use JSON.encode() to convert objects into JSON](images/stringify.png)
+<img class="scale-img-max" src="images/stringify.png"
+     alt="Use JSON.encode() to convert objects into JSON">
 
 Below is the JSON string that results from the code
 using the original values from the its_all_about_you app.
 
-![The JSON string for the its_all_about_you app](images/jsonstring.png)
+<img class="scale-img-max" src="images/jsonstring.png"
+     alt="The JSON string for the its_all_about_you app">
 
 Boolean and numeric values
 appear as they would if they were literal values in code,
@@ -209,7 +211,8 @@ contain three pieces of information:
 
 For example, the URL for this page breaks down as follows:
 
-![The tutorial URL](images/uri-details.png)
+<img class="scale-img-max" src="images/uri-details.png"
+     alt="The tutorial URL">
 
 This URL specifies the HTTP protocol.
 At its most basic,
@@ -218,7 +221,8 @@ the browser sends an HTTP GET request to a web server,
 and the web server sends an HTTP response that contains the
 contents of the page (or an error message).
 
-![Basic HTTP communication between client and server](images/client-server.png)
+<img class="scale-img-max" src="images/client-server.png"
+     alt="Basic HTTP communication between client and server">
 
 Most HTTP requests in a web browser are simple GET requests
 asking for the contents of a page.
@@ -289,7 +293,8 @@ This program uses a convenience method,
 provided by the HttpRequest class
 to request the file from the server.
 
-![Use the getString() function to make a request](images/getstringfunction.png)
+<img class="scale-img-max" src="images/getstringfunction.png"
+     alt="Use the getString() function to make a request">
 
 The getString() method uses a Future object to handle the request.
 You can use the code above as an idiom
@@ -308,7 +313,8 @@ select the portmanteaux_simple.html file, and run the program.
 Before doing anything else,
 notice the URI for the program in Dartium.
 
-![URI for a Dart program running in Dartium](images/uri-dart-program.png)
+<img class="scale-img-max" src="images/uri-dart-program.png"
+     alt="URI for a Dart program running in Dartium">
 
 <ul>
   <li markdown="1">
@@ -341,13 +347,15 @@ that hosts the app.
 The HttpRequest object resolves the file name to an absolute URI
 using the URI for the current web page as its basis.
 
-![A relative URI resolves to an absolute URI](images/relative-uri.png)
+<img class="scale-img-max" src="images/relative-uri.png"
+     alt="A relative URI resolves to an absolute URI">
 
 The GET request in this
 example is successful because the app and the requested resource
 are from the same origin:
 
-![The app and the data file have the same origin](images/same-origin.png)
+<img class="scale-img-max" src="images/same-origin.png"
+     alt="The app and the data file have the same origin">
 
 ##Using an HttpRequest object to load a file {#making-a-get-request}
 
@@ -372,7 +380,8 @@ configures it with a URI and callback function,
 and then sends the request.
 Let's take a look at the Dart code:
 
-![Making an HTTP GET request](images/portmanteaux-code.png)
+<img class="scale-img-max" src="images/portmanteaux-code.png"
+     alt="Making an HTTP GET request">
 
 ###Sending the request
 
@@ -401,7 +410,8 @@ that in turn calls `requestComplete()`.
 This callback function is called when the request completes,
 either successfully or unsuccessfully.
 
-![Set up a callback function for request completion](images/set-callback.png)
+<img class="scale-img-max" src="images/set-callback.png"
+     alt="Set up a callback function for request completion">
 
 The callback function for our example,
 requestComplete(),
@@ -416,7 +426,8 @@ to a Dart list of strings,
 creates a new LIElement for each one,
 and adds it to the &lt;ul&gt; element on the page.
 
-![Getting the response text from an HTTP GET request](images/portmanteaux-callback.png)
+<img class="scale-img-max" src="images/portmanteaux-callback.png"
+     alt="Getting the response text from an HTTP GET request">
 
 ###Populating the UI from JSON
 
@@ -440,7 +451,8 @@ The client program receives the JSON string
 and uses JSON.decode() 
 to create the String objects specified by the JSON string.
 
-![Decode a JSON formatted list of strings](images/json-parse.png)
+<img class="scale-img-max" src="images/json-parse.png"
+     alt="Decode a JSON formatted list of strings">
 
 ##Other resources
 

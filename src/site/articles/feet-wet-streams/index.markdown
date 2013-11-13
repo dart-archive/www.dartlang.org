@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Getting Your Feet Wet with Streams"
 description: 
   Learn how to consume single-subscriber and broadcast streams, 
@@ -11,6 +11,8 @@ article:
   written_on: 2013-03-20
   collection: libraries-and-apis
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -25,9 +27,6 @@ button.onClick, or on the server as part of the dart:io changes, Streams form
 a unified interface to anything that might send out a repeating series of data.
 
 This article explains how to consume streams using this unified interface.
-
-{% include toc.html %}
-
 
 ## Background reading: futures
 

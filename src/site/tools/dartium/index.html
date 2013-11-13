@@ -8,15 +8,15 @@ js:
   defer: true
 ---
 
-<div class="hero-unit">
-  <div class="row-fluid">
-    <div class="span6">
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-6">
       <h1> {{page.title}} </h1>
       <p>
         Chromium with the Dart VM
       </p>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
       <img src="images/dartium.png"
            alt="Dartium running a sample" />
     </div>
@@ -32,7 +32,7 @@ To learn about other tools you can use for Dart development,
 see <a href="/tools/">Tools for Dart</a>.
 </p>
 
-<aside class="alert">
+<aside class="alert alert-warning">
   <strong>Warning:</strong>
   This browser is a technical preview,
   and it might have security and stability issues.
@@ -57,7 +57,7 @@ see <a href="/tools/">Tools for Dart</a>.
   you already have Dartium.
 </p>
 
-<p>
+<p class="os-choices">
   Or you can download the latest release of Dartium for
   {% include os-choices.html %}
 </p>

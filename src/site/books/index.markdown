@@ -13,10 +13,10 @@ Here's a collection of books about Dart.
 
 {% for book in page.books %}
 <div class="book row">
-  <div class="span2">
-    <a href="{{ book.link }}"><img src="covers/{{ book.cover }}" class="cover"></a>
+  <div class="col-md-3">
+    <a href="{{ book.link }}" class="btn"><img src="covers/{{ book.cover }}" class="cover"></a>
   </div>
-  <div class="span10">
+  <div class="col-md-9">
     <h3 class="title"><a href="{{ book.link }}">{{ book.title }}</a></h3>
     <h4 class="authors">Written by {{ book.authors || array_to_sentence_string }}</h4>
     <p>{{ book.desc }}</p>

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Embedding Dart in HTML"
 description: "Find out how you can embed Dart into HTML pages."
 has-permalinks: true
@@ -14,6 +14,8 @@ article:
   collection: libraries-and-apis
 ---
 
+{% include toc.html %}
+
 # {{ page.title }}
 
 <em>Written by Sigmund Cherem, Vijay Menon, and Seth Ladd <br>
@@ -26,9 +28,6 @@ embedded into web browsers.
 
 This article covers how to integrate Dart apps into web pages, when first
 compiled to JavaScript or when run in the Dart VM.
-
-{% include toc.html %}
-
 
 ## Quick start
 

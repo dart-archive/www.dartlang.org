@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Using Dart with JSON Web Services"
 description: "Learn how to consume JSON-based web services with Dart."
 rel:
@@ -10,6 +10,8 @@ article:
   updated_on: 2013-02-02
   collection: libraries-and-apis
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -25,9 +27,6 @@ from the [dart:html](http://api.dartlang.org/html.html) library and
 parsing JSON data using the [dart:convert](http://api.dartlang.org/docs/releases/latest/dart_convert.html) 
 library. It then goes on to show how to provide dot-notation access to JSON 
 data through the use of JsonObject.
-
-{% include toc.html %}
-
 
 ## A JSON web service
 

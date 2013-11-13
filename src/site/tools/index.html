@@ -12,34 +12,43 @@ js:
   defer: true
 ---
 
-<div class="hero-unit">
-  <div class="row-fluid">
-    <div class="span6">
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-6">
       <h1> {{page.title}} </h1>
       <p>
         Download editors, IDE plugins, command-line tools, and more
       </p>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
       <img src="images/dart-editor.png"
-           style="border:1px gray solid">
+           style="border:1px gray solid; width:100%">
     </div>
   </div>
 </div>
 
 
-<p>
+<p class="os-choices">
   The Dart download 
   has everything you need
   to edit, run, and debug Dart apps.
+  Dart Editor, Dartium, and the SDK tools
+  work in recent versions of
+  {% include os-choices.html %}
+  The Dart development tools
+  <b>do not support Windows XP</b>.
 </p>
 
 <div align="center">
-  {% include downloads/_dart-editor.html %}
+  {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg"  %}
 </div>
 
+<p>
+  
+</p>
+
 <div class="row">
-  <div class="span4">
+  <div class="col-md-4">
     <h2> Editors and IDEs </h2>
 
     <p>
@@ -62,6 +71,11 @@ js:
 
     <table>
       <tr>
+        <td> <img src="images/IntellIJ-IDEA.png" width="48"
+                  alt="IntelliJ logo" > </td>
+        <td> <a href="webstorm/"><b>IntelliJ IDEA and WebStorm</b></a> </td>
+      </tr>
+      <tr>
         <td> <img src="images/eclipse.png" align="left" width="48"
                   alt="Eclipse logo" > </td>
         <td> <a href="/tools/eclipse-plugin/"><b>Eclipse</b></a> </td>
@@ -70,11 +84,6 @@ js:
         <td> <img src="images/emacs.png" width="48"
                   alt="Emacs logo" > </td>
         <td> <a href="https://github.com/nex3/dart-mode"><b>Emacs</b></a> </td>
-      </tr>
-      <tr>
-        <td> <img src="images/IntellIJ-IDEA.png" width="48"
-                  alt="IntelliJ logo" > </td>
-        <td> <a href="http://plugins.intellij.net/plugin/?idea&amp;id=6351"><b>IntelliJ IDEA and WebStorm</b></a> </td>
       </tr>
       <tr>
         <td> <img src="images/sublime.png" width="48"
@@ -90,7 +99,7 @@ js:
 
   </div>
 
-  <div class="span4">
+  <div class="col-md-4">
     <h2> Other downloads </h2>
     <p> 
       You might need the following downloads
@@ -130,7 +139,7 @@ js:
 
   </div>
 
-  <div class="span4">
+  <div class="col-md-4">
     <h2> Tips </h2>
 
     <p> Get pointers for using Dart tools
@@ -172,13 +181,3 @@ js:
     </dl>
   </div>
 </div>
-
-<p>
-  Dart Editor, Dartium, and the SDK tools
-  work in recent versions of
-  {% include os-choices.html %}
-</p>
-
-<aside class="alert alert-info">
-  <b>Note:</b> The Dart development tools <b>do not support Windows XP</b>.
-</aside>

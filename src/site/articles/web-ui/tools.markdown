@@ -1,10 +1,12 @@
 ---
-layout: default
+layout: article
 title: Tools for Web UI
 description: "Tools for creating a project with Web UI"
 rel:
   author: sigmund-cherem
 ---
+
+{% include toc.html %}
 
 # {{ page.title}}
 
@@ -25,9 +27,6 @@ The Web UI package (Web UI for short) provides web components and templates to
 help you write web applications at scale. You can learn about this package in
 our [explainer article](/articles/web-ui/). This article describes tools that will help
 you create and deploy projects that use Web UI.
-
-{% include toc.html %}
-
 
 ## The overall approach: a compiler in disguise
 

@@ -65,9 +65,9 @@ If you haven't already done so,
 get the Dart download.
 Unzip the ZIP file, which creates a directory called `dart`.
 
-{% include downloads/_dart-editor.html %}
+{% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 
-<p markdown="1">
+<p class="os-choices" markdown="1">
   The Dart tools
   work in recent versions of
   {% include os-choices.html %}
@@ -1720,8 +1720,6 @@ Check your code against the files in `6-piratebadge_json`.
 
 </div>
 
-{% comment %}
-
 #### <i class="icon-anchor"> </i> Share your pirate name.
 
 <div class="trydart-step-details" markdown="1">
@@ -1743,7 +1741,6 @@ Share your pirate name with the world.
 <g:plus action="share"></g:plus>
 
 </div>
-{% endcomment %}
 
 
 <hr>

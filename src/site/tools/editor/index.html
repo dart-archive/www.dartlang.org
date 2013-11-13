@@ -1,0 +1,256 @@
+---
+layout: default
+title: "Dart Editor"
+description: "Get Dart Editor, a custom, powerful editor for Dart developers."
+has-permalinks: false
+js:
+- url: /js/os-switcher.js
+  defer: true
+- url: /js/editor-downloads-analytics.js
+  defer: true
+- url: /js/editor-version.js
+  defer: true
+---
+
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-6">
+      <h1> {{page.title}} </h1>
+      <p>
+        An open-source tool for editing, debugging, and running Dart applications.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <iframe class="dart-editor-video" src="//www.youtube.com/embed/VQLdm8BY1Ao?vq=hd720" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+
+<h2 id="download"> Getting Dart Editor </h2>
+
+<p class="os-choices">
+Dart Editor is in the Dart download for
+{% include os-choices.html %}
+</p>
+
+<p>
+  {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
+</p>
+
+<p>
+  {% include downloads/_dart-editor-continuous.html %}
+</p>
+
+
+<h2 id="install"> Installing Dart Editor </h2>
+
+<p>
+  Unzip the file you downloaded. You're done!
+</p>
+
+<p>
+  Want to use command-line tools, as well?
+  You already have them, thanks to the Dart download including the SDK.
+  However, you might want to set environment variables,
+  as described in the <a href="/tools/sdk/">SDK page</a>.
+</p>
+
+<p>
+The default version of Dart Editor
+is the <em>stable build</em>.
+It's automatically updated about once every six weeks.
+The
+<a target="_blank"
+  href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/changelog.html">change log</a>
+has a list of release dates and features.
+The <em>dev channel build</em>, on the other hand, is the
+latest tested version of the Dart Editor which contains the newest features but may still contain some bugs.
+If you use the dev channel build, please get new builds frequently,
+and send feedback about new features and bugs that you encounter.
+</p>
+
+<aside class="alert alert-info">
+  <b> Problems? </b>
+  See <a href="troubleshoot.html">Troubleshooting Dart Editor</a>.
+</aside>
+
+
+<h3 id="update"> Updating </h3>
+
+<p>
+  Dart Editor can automatically update itself,
+  along with the SDK and Dartium,
+  whenever a new integration build is available.
+  To enable automatic updates,
+  go to <b>Preferences</b>, choose <b>Update</b>, and
+  select <b>Download updates automatically</b>.
+</p>
+
+<p>
+  If you'd rather choose when to update,
+  make sure <b>Download updates automatically</b> is not selected.
+  Then when you're ready to update,
+  use the <b>About Dart Editor</b> dialog
+  to download and apply updates.
+</p>
+
+
+<h2 id="using"> Using Dart Editor </h2>
+
+<p>
+  To get started with Dart Editor,
+  read these:
+</p>
+
+<ul>
+  <li>
+    <a href="http://www.dartlang.org/docs/tutorials/get-started/">Get Started</a> <span class="text-muted">(the first tutorial in the <em>Dart Tutorials</em>)</span><br />
+    Gently introduces you to Dart Editor, from downloading it to creating and running apps.
+  </li>
+
+  <li>
+    <a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Up and Running</a> <span class="text-muted">(a section from Chapter 1 of <em>Dart Up and Running</em>)</span><br />
+    Quickly leads you through downloading Dart Editor, running a sample, and creating an app.
+  </li>
+</ul>
+
+<p>
+  For details on <em>using</em> Dart Editor,
+  read this:
+</p>
+
+<ul>
+  <li>
+    <a href="/docs/dart-up-and-running/contents/ch04-tools-editor.html">Dart Editor</a> <span class="text-muted">(a section from Chapter 4 of <em>Dart Up and Running</em>)</span><br />
+    Teaches how to use Dart Editor &emdash; for example, how to set up launches for different browsers.
+  </li>
+</ul>
+
+
+<h2 id="features"> Features </h2>
+
+<p>
+  Dart Editor,
+  with its static analysis engine
+  and direct integration with Dartium,
+  helps you develop, debug, and maintain your apps.
+</p>  
+
+<div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="images/editor-code-completion.png" alt="Code completion in Dart Editor">
+        <h5>Code completion</h5>
+        <p>
+          Explore the methods and fields
+          available to an object.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="images/editor-refactor.png" alt="Refactoring in Dart Editor">
+        <h5>Refactoring</h5>
+        <p>
+          Change your code structure
+          without changing the behavior.
+        </p>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img src="images/editor-outline.png" alt="Code completion in Dart Editor">
+        <h5>Outline view</h5>
+        <p>
+          List the classes,
+          methods, and functions
+          in a simple tree display.
+        </p>
+      </div>
+    </div>
+</div>
+
+<p></p>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="images/editor-debug.png" alt="Debugging in Dart Editor">
+      <h5>Debugger</h5>
+      <p>
+        Set breakpoints, inspect variables,
+        and step over, into, and out of code.
+      </p>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="images/editor-warnings.png" alt="Static analysis warnings in Dart Editor">
+      <h5>Static analysis</h5>
+      <p>
+        See warnings when inconsistencies and potential problems are detected.
+      </p>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img src="images/editor-callers.png" alt="Find callers for methods in Dart Editor">
+      <h5>Find callers</h5>
+      <p>
+        Quickly find all callers for a method, and easily jump to those locations.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<h2 id="build"> Customizing the build </h2>
+
+<p>
+  You can add behavior to the Dart Editor build process
+  by creating a build.dart file.
+  For example,
+  Web UI uses a build.dart file to run custom tools over Dart and HTML files
+  and to map from the original files to the generated files.
+  See <a href="build.html">Build.dart and the Dart Editor Build System</a>
+  for details on implementing your own build.dart file.
+</p>
+
+
+<h2 id="bugs"> Filing bugs and feature requests </h2>
+
+<p>
+  Click the SEND FEEDBACK link
+  (at the upper right of the Dart Editor window)
+  whenever you notice a problem
+  or have an idea for improving Dart Editor.
+  We’ll open a new issue for you, if appropriate,
+  without disclosing your sensitive or personally identifiable information.
+</p>
+
+<aside class="alert alert-info">
+  <b>Tip:</b>
+  If you'd like to talk with the Dart Editor team about your bug,
+  <b>include your email address</b>.
+</aside>
+
+<p>
+  To see existing issues or create a new one directly,
+  go to the
+  <a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Editor">Dart Editor issue list</a>.
+</p>
+
+
+<h2 id="troubleshooting"> Troubleshooting </h2>
+
+<p>
+  <a href="troubleshoot.html">Troubleshooting Dart Editor</a>
+  gives solutions to problems you might encounter
+  when installing and launching Dart Editor.
+</p>
+

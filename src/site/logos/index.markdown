@@ -14,7 +14,7 @@ These logos and files are licensed under
 * [dart-logo.png](dart-logo.png)
 * [dart-logo.eps](dart-logo.eps)
 * [dart-logo-wordmark.png](dart-logo-wordmark.png)
-* [dart-logo-wordmark.eps](dart-logo-wordmark.eps)
+* [dart-logo-wordmark.svg](dart-logo-wordmark.svg)
 
 ## Colors
 
@@ -30,10 +30,7 @@ Greens:
 
 ## Font
 
-It is Gotham Bold with a modified T. As far as free alternatives -
-<http://www.tenbytwenty.com/nevis.php> or <http://typography.synthview.com/>
-could work for associated headings, text weights, etc. but do not replace
-the wordmark itself with an alternate typeface.﻿
+It is [Montserrat](http://www.google.com/fonts/specimen/Montserrat).
 
 ## Guidelines
 

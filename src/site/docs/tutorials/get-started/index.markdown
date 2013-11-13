@@ -69,15 +69,15 @@ create and run two small applications.
 ##Download the Dart software bundle {#download-dart}
 
 Get Dart.
-The Dart download includes Dart Editor,
+The Dart download includes <a href="/tools/editor/">Dart Editor</a>,
 which you'll be using
 throughout this tutorial.
 
 <div align="center">
-  {% include downloads/_dart-editor.html %}
+  {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 </div>
 
-<p>
+<p class="os-choices" >
   The Dart tools
   work in recent versions of
   {% include os-choices.html %}
@@ -98,11 +98,11 @@ contains the following:
 <div>
   <hr>
   <div class="row">
-    <div class="span2">
-    <img src="images/dart-editor-icon.png"
+    <div class="col-md-2">
+    <img class="scale-img-max" src="images/dart-editor-icon.png"
          width="77" height="93" alt="Dart Editor"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     Dart Editor is a powerful,
     lightweight, open source editor.
     With it you can create and edit files,
@@ -113,11 +113,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
-    <img src="images/chromium.png"
+    <div class="col-md-2">
+    <img class="scale-img-max" src="images/chromium.png"
          width="81" height="89" alt="Dartium, a special Chromium build"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     This is a special build of the Chromium web browser, 
     called Dartium, that has the Dart VM (virtual machine) embedded.
     You can run your apps directly in this browser,
@@ -127,11 +127,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
-    <img src="images/dart-sdk-directory.png"
+    <div class="col-md-2">
+    <img class="scale-img-max" src="images/dart-sdk-directory.png"
          width="86" height="94" alt="dart-sdk directory"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     The dart-sdk directory contains the Dart software development kit.
     Here you will find Dart libraries, such as dart:core and dart:html,
     that define APIs useful to all apps.
@@ -142,11 +142,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
-    <img src="images/samples-directory.png"
+    <div class="col-md-2">
+    <img class="scale-img-max" src="images/samples-directory.png"
          width="81" height="91" alt="samples directory"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     The samples directory contains the complete source code
     for several Dart web applications.
     You can experiment with
@@ -155,11 +155,11 @@ contains the following:
   </div>
   <hr>
   <div class="row">
-    <div class="span2">
-    <img src="images/and-the-rest.png"
+    <div class="col-md-2">
+    <img class="scale-img-max" src="images/and-the-rest.png"
          width="81" height="71" alt="more directories"/>
     </div>
-    <div class="span7">
+    <div class="col-md-7">
     You might notice some other directories
     in the Dart installation directory.
     You can ignore them for now. 
@@ -172,7 +172,7 @@ contains the following:
 
 Invoke Dart Editor by double-clicking its icon
 in your Dart installation directory
-<img src="/imgs/Dart_Logo_21.png"
+<img class="scale-img-max" src="/imgs/Dart_Logo_21.png"
      width="21" height="21" alt="Dart Editor icon">.
 
 Dart Editor displays its Welcome Page
@@ -180,7 +180,7 @@ in a tab in the **Editor pane**.
 The following diagram highlights
 some of the features of the editor.
 
-<img src="images/dart-editor-items.png"
+<img class="scale-img-max" src="images/dart-editor-items.png"
      alt="Dart Editor's basic features">
 
 Send feedback button
@@ -263,12 +263,12 @@ but they can also be scripts.
 
 The Dart VM runs Dart code directly without intermediate compilation.
 
-<img src="images/dartvm-cmd-line.png"
+<img class="scale-img-max" src="images/dartvm-cmd-line.png"
      alt="Run a command-line application without compilation">
 
 Conveniently, you can run command-line apps
 directly in Dart Editor with the click of the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 Alternatively,
 use the Dart VM tool
@@ -284,14 +284,14 @@ user interface for a server.
 
 You can run your Dart web app from Dart Editor
 by clicking the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 By default, Dart Editor will invoke Dartium,
 which has the Dart VM embedded in it,
 and loads your HTML file,
 which in turn loads your app.
 
-<img src="images/dartvm-web-app.png"
+<img class="scale-img-max" src="images/dartvm-web-app.png"
      alt="Run a web application directly in a Dart-savvy browser">
 
 If you want to see your web app in a browser
@@ -304,7 +304,7 @@ into your browser of choice.
 Dart Editor provides a convenient menu option for
 running web apps as JavaScript.
 
-<img src="images/dartvm-js.png"
+<img class="scale-img-max" src="images/dartvm-js.png"
      alt="Run a web application by compiling to JavaScript">
 
 The rest of this tutorial steps you through
@@ -315,10 +315,10 @@ and then a web application.
 
 In Dart Editor, choose **File->New Application** from the menu
 or click the New Application button
-<img src="images/newapp.png" width="17" height="16" alt="New App button"/>.
+<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
 A dialog appears that looks like this:
 
-<img src="images/new-helloworld.png"
+<img class="scale-img-max" src="images/new-helloworld.png"
      alt="Create a new command-line application"/>
 
 <ol>
@@ -357,7 +357,7 @@ and boilerplate files for a small command-line app.
 The **Files view** displays
 the file hierarchy for the application.
 
-<img src="images/helloworld-files.png"
+<img class="scale-img-max" src="images/helloworld-files.png"
      alt="Dart Editor with new command-line app files"/>
 
 Some of the files and directories in the helloworld application
@@ -396,14 +396,14 @@ To run the helloworld app from Dart Editor:
 
 * Select the helloworld.dart file in the **Files view**.
 * Click the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 
 Dart Editor opens a new panel,
 called the **Output view**,
 and displays the output of the helloworld app.
 
-<img src="images/helloworld-output.png"
+<img class="scale-img-max" src="images/helloworld-output.png"
      alt="Dart Editor with helloworld output view"/>
 
 ##Create a web app {#create-web-app}
@@ -411,19 +411,19 @@ and displays the output of the helloworld app.
 Now let's create a web application.
 As you did when creating a command-line application,
 click the **New Application** button
-<img src="images/newapp.png" width="17" height="16" alt="New App button"/>.
+<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
 Name the application `clickme`.
 This time you are creating a web app,
 so select **Web application** from the list
 in the New Application dialog window:
 
-<img src="images/new-click-me.png"
+<img class="scale-img-max" src="images/new-click-me.png"
      alt="Create a new web application"/>
 
 Dart Editor creates the directory and files needed
 for a boilerplate web application.
 
-<img src="images/click-me-files.png"
+<img class="scale-img-max" src="images/click-me-files.png"
      alt="Dart Editor with new web application files"/>
 
 As before, the directory is named after your application.
@@ -449,7 +449,7 @@ To run the clickme app from Dart Editor:
 
 * Select `clickme.html`.
 * Click the Run button
-<img src="images/run.png" width="16" height="16"
+<img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 
 Dart Editor invokes Dartium providing it with
@@ -470,7 +470,7 @@ Dart Editor provides a convenient menu option for doing so.
 Right click on `clickme.html`
 and select **Run as JavaScript** from the menu.
 
-<img src="images/run-as-javascript-screenshot.png"
+<img class="scale-img-max" src="images/run-as-javascript-screenshot.png"
      alt="Run a web app as JavaScript"/>
 
 Dart Editor compiles the app to JavaScript and
@@ -526,14 +526,14 @@ And the clickme app defines a top-level function called reverseText().
 A function declaration
 has two parts: a _signature_ and a _body_.
 
-<img src="images/function-parts.png"
+<img class="scale-img-max" src="images/function-parts.png"
      alt="Two parts of a function, the signature and the body"/>
 
 The signature sets the function name,
 the data type of its return value,
 and the number and type of its input arguments.
 
-<img src="images/signature-parts.png"
+<img class="scale-img-max" src="images/signature-parts.png"
      alt="The parts of a function signature"/>
 
 The body is the code that defines the function's behavior.

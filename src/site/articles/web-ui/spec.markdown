@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Web UI Specification"
 rel:
   author: siggi-cherem
@@ -12,6 +12,8 @@ See README comment in index.markdown for explanations on {{'{{'}}, \{\% raw \%\}
 and \{\% codesample \%\}.
 
 {% endcomment %}
+
+{% include toc.html %}
 
 # {{ page.title }}
 {: .no_toc}
@@ -34,9 +36,6 @@ specification of Web UI's features. For a quick reference table of
 these features, please refer to our [summary article](summary.html); for a
 high-level introduction and examples, see our
 [explainer article](/articles/web-ui/).
-
-
-{% include toc.html %}
 
 - - -
 

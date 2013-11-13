@@ -7,6 +7,12 @@ has-permalinks: true
 
 # Dart Cookbook
 
+{::options parse_block_html="true" /}
+<div class="row">
+<div class="col-md-4">
+<div class="bs-sidebar hidden-print affix-top" role="complementary">
+{::options parse_block_html="false" /}  
+
 ## Contents
 
 1. [Strings](#strings)
@@ -66,9 +72,13 @@ has-permalinks: true
     1. [Creating a binding using radio buttons](#creating-a-binding-using-radio-buttons)
     1. [Creating bindings for booleans using checkboxes](#creating-bindings-for-booleans-using-checkboxes)
     1. [Selecting multiple items from a list of checkboxes using data binding](#selecting-multiple-items-from-a-list-of-checkboxes-using-data-binding)
-{:.toc}
+{:.toc .nav .bs-sidenav}
 
-
+{::options parse_block_html="true" /}
+</div>
+</div>
+<div class="col-md-8"> <!-- Start of content -->
+{::options parse_block_html="false" /}  
 
 ## Strings
 
@@ -3921,3 +3931,8 @@ the values of the checked checkboxes gets updated in real time:
 </ul>
 {% endraw %}
 {% endprettify %}
+
+{::options parse_block_html="true" /}
+</div> <!-- End of "col-md-7" -->
+</div> <!-- End of "row" -->
+{::options parse_block_html="false" /}  

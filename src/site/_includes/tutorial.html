@@ -1,17 +1,17 @@
 <!-- NAVI LINKS -->
-<div class="row">
-  <div class="span12">
+<div id="tutorial-navigation-links-top" class="row">
+  <div class="col-md-12">
     <div class="row">
-      <div class="span3">
+      <div class="col-md-3">
         <a href="/docs/tutorials/"><img src="/docs/tutorials/images/tute-home.png" width="36"></a>
       </div>
-      <div class="span3">
-        <a href="/docs/tutorials/{{page.prev}}"><i class="icon-chevron-left"> </i> {{page.prev-title}}</a>
+      <div class="col-md-3">
+        <a href="/docs/tutorials/{{page.prev}}"><i class="glyphicon glyphicon-chevron-left"> </i> {{page.prev-title}}</a>
       </div>
-      <div class="span3">
+      <div class="col-md-3">
       </div>
-      <div class="span3">
-        <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}} <i class="icon-chevron-right"> </i> </a>
+      <div class="col-md-3">
+        <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}} <i class="glyphicon glyphicon-chevron-right"> </i> </a>
       </div>
     </div> 
     <hr>
@@ -22,7 +22,7 @@
 <div class="row">
 
   <!-- LEFT SIDE BAR -->
-  <div class="span3">
+  <div class="col-md-3">
 
     <div id="tutorial-side">
       <div id="whats-the-point">
@@ -44,17 +44,17 @@
       <div id="tutorial-toc">
         <a href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
          target="_blank">
-        <i class="icon-comment"> </i>
+        <i class="glyphicon glyphicon-comment"> </i>
         Send feedback
         </a>
       </div> <!-- tutorial-toc -->
       
     </div> <!-- tutorial-side -->
 
-  </div> <!-- end div span3 -->
+  </div> <!-- end div col-md-3 -->
 
   <!-- CONTENT-->
-  <article class="span9 tutorial-content">
+  <article class="col-md-9 tutorial-content">
 
     {{ content | markdownify }}
 
@@ -62,20 +62,20 @@
 </div>
 
 <!-- NAVI LINKS -->
-<div class="row">
-  <div class="span12">
+<div id="tutorial-navigation-links-bottom" class="row">
+  <div class="col-md-12">
     <hr>
     <div class="row">
-      <div class="span3">
+      <div class="col-md-3">
         <a href="/docs/tutorials/"><img src="/docs/tutorials/images/tute-home.png" width="36"></a>
       </div>
-      <div class="span3">
-        <a href="/docs/tutorials/{{page.prev}}"><i class="icon-chevron-left"> </i> {{page.prev-title}}</a>
+      <div class="col-md-3">
+        <a href="/docs/tutorials/{{page.prev}}"><i class="glyphicon glyphicon-chevron-left"> </i> {{page.prev-title}}</a>
       </div>
-      <div class="span3">
+      <div class="col-md-3">
       </div>
-      <div class="span3">
-        <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}} <i class="icon-chevron-right"> </i> </a>
+      <div class="col-md-3">
+        <a href="/docs/tutorials/{{page.next}}" class="pull-right">{{page.next-title}} <i class="glyphicon glyphicon-chevron-right"> </i> </a>
       </div>
     </div> 
   </div> 

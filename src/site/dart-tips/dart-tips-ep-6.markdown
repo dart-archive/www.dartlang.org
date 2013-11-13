@@ -9,7 +9,8 @@ rel:
 
 # {{ page.title }}
 
-<iframe style="margin: 25px 0 25px 0" width="560" height="315" src="//www.youtube.com/embed/DWtvhdJkiRE" frameborder="0" allowfullscreen></iframe>
+<iframe class="dart-tips-video" src="//www.youtube.com/embed/DWtvhdJkiRE" 
+frameborder="0" allowfullscreen></iframe>
 
 [Back to all Dart Tips episodes](/dart-tips/).
 

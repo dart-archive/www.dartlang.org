@@ -1,5 +1,5 @@
 --- 
-layout: default
+layout: article
 title: "Using Future Based APIs"
 description: "A first look at Futures and how to use them to make your
 asynchronous code better."
@@ -11,11 +11,11 @@ article:
   collection: libraries-and-apis
 ---
 
+{% include toc.html %}
+
 # {{ page.title }}
 
 _Written by Shailen Tuli, February 2013_
-
-{% include toc.html %}
 
 ## Introduction
 

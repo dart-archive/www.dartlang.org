@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Native Extensions for the Standalone Dart VM"
 description: "Learn how to enable command-line Dart apps to call C/C++ functions."
 rel:
@@ -9,6 +9,8 @@ article:
   written_on: 2012-05-01
   collection: libraries-and-apis
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -26,9 +28,6 @@ by the Dart VM. A _synchronous extension_ uses the Dart virtual machine
 library's C API (the Dart Embedding API) directly and runs on the same thread as
 the Dart isolate. An asynchronous function is called by sending a message to a
 Dart port, receiving the response on a reply port.
-
-{% include toc.html %}
-
 
 ###Anatomy of a native extension
 

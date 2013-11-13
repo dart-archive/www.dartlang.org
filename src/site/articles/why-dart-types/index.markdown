@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Why Dart Types Are Optional and Unsound"
 description: A review of why Dart has optional static type annotations.
 rel:
@@ -8,6 +8,8 @@ article:
   written_on: 2011-12-01
   collection: design-decisions
 ---
+
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -31,13 +33,6 @@ This document is intended for people who are interested in types and have
   <em>what</em> Dart's optional types are doing, and are asking <em>why</em>;
   for a review of the <em>what</em>, see <a href="/articles/optional-types/">Optional
   Types in Dart</a>.
-
-
-
-{% include toc.html %}
-
-
-
 
 ## Background: Dart is a dynamically typed language, and proud of it
 

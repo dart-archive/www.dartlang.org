@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: "Idiomatic Dart"
 rel:
   author: bob-nystrom
@@ -11,6 +11,7 @@ article:
   collection: everyday-dart
 ---
 
+{% include toc.html %}
 
 # {{ page.title }}
 
@@ -29,9 +30,6 @@ Since the language is still evolving, many of the idioms here are changing too.
 There are places in the language where we still aren't sure what the best
 practice is yet. (Maybe you can help us.) But here are some pointers that will
 hopefully kick your brain out of Java or JavaScript mode, and into Dart.
-
-{% include toc.html %}
-
 
 <aside class="alert alert-info" markdown="1">
   **Note**:
@@ -728,7 +726,7 @@ eschews ceremonial API docs for more fluid and natural comments.
 Compare and contrast Java and Dart comment styles:
 
 <div class="row">
-  <div class="span6">
+  <div class="col-md-6">
 {% prettify java %}
 /**
  * Returns an Llama object that can then be petted. 
@@ -752,7 +750,7 @@ Compare and contrast Java and Dart comment styles:
  }
 {% endprettify %}
   </div>
-  <div class="span6">
+  <div class="col-md-6">
 {% prettify dart %}
 /**
  * Returns a Llama that can be petted.
