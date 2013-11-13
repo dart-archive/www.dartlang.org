@@ -185,6 +185,18 @@ i.sprite-icon-close-x {
 	background-position: -150px -200px;
 }
 
+i.sprite-icon-download-btn {
+	position: absolute;
+	left: 40px;
+	width: 14px;
+	height: 18px;
+	background-position: 0px -250px;
+}
+
+.hero .download-btn:hover i.sprite-icon-download-btn {
+	background-position: -50px -250px;
+}
+
 
 
 
@@ -564,14 +576,15 @@ i.sprite-icon-close-x {
 	text-transform: uppercase;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
-	padding: 10px 46px;
+	padding: 10px 46px 10px 66px;
 	-webkit-transition: background ease-out 500ms;
-    -moz-transition: background ease-out 500ms;
-    -o-transition: background ease-out 500ms;
-    transition: background ease-out 500ms;
-    -moz-box-shadow:    none;
-    -webkit-box-shadow: none;
-    box-shadow:         none;
+	-moz-transition: background ease-out 500ms;
+	-o-transition: background ease-out 500ms;
+	transition: background ease-out 500ms;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	position: relative;
 }
 
 .hero .download-btn:hover {
