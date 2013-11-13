@@ -471,15 +471,15 @@ i.sprite-icon-download-btn {
 }
 
 .lang-dart {
-	max-width: 800px;
-	text-align: left;
-	margin-right: auto;
-	margin-left: auto;
-	/*background-image: url(../imgs/);*/
+  max-width: 800px;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px !important;
 
-	-webkit-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
-	   -moz-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
-	        box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 500px) {
