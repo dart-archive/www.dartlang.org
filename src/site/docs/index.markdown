@@ -19,9 +19,10 @@ Read these,
 or just [download Dart](/#get-started)
 and start playing with Dart Editor.
 
-[Quick Start (_Dart: Up and Running_, Chapter 1)](/docs/dart-up-and-running/contents/ch01.html)
-: A brief intro to Dart's history and features,
-followed by instructions to help you get started with Dart Editor.
+[Try Dart](/codelabs/darrrt/)
+: Walks you through building a web app.
+This one-hour code lab assumes you have some programming experience
+but no previous experience with either Dart or web apps.
 
 [Language Tour (_Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/contents/ch02.html)
 : Shows each major Dart language feature, from variables to
@@ -133,7 +134,7 @@ Learn more:
 
 If you're new to web apps,
 start with the <a href="/docs/tutorials/">Dart Tutorials</a>&mdash;a
-of tutorials that teach you how to use Dart to write web apps,
+set of tutorials that teach you how to use Dart to write web apps,
 assuming no previous experience with either Dart or web apps.
 
 While you're developing your web app,
@@ -141,10 +142,11 @@ you can run it in Dartium.
 Later, you can compile your app to JavaScript
 and run it in other browsers.
 
-Two libraries are important for creating web apps:
-dart:html and the polymer.dart package.
-You don't need to use polymer.dart,
-but it's a great way to simplify your code.
+When creating web apps, you can use
+dart:html and the polymer.dart package
+or AngularDart.
+Although you don't need to use polymer.dart or AngularDart,
+they're a great way to simplify your code.
 
 
 ### dart:html
@@ -158,22 +160,30 @@ A basic, yet Darty, interface to the browser.
 * [HTML DOM](/docs/cookbook/#html-dom)
   (recipes in the Dart Cookbook)
 
-### polymer.dart
+### Polymer.dart
 
 A package that lets you use tomorrow's web APIs today.
 
-* [polymer.dart](/polymer-dart/)
+* [Polymer.dart homepage](/polymer-dart/)
 * [pub.dartlang.org/packages/polymer](http://pub.dartlang.org/packages/polymer)
-* [Upgrading to polymer.dart from Web UI](/polymer-dart/upgrading-to-polymer-from-web-ui.html)
+* [Samples that use polymer.dart](/samples/#polymer_dart)
+
+### AngularDart
+
+A port of the Angular framework to Dart.
+
+* [AngularDart tutorial](https://github.com/angular/angular.dart.tutorial/wiki)
+* [pub.dartlang.org/packages/angular](http://pub.dartlang.org/packages/angular)
+* [Samples that use AngularDart](/samples/#angular_dart)
 
 ### Dart and JavaScript
 
 You aren't limited to Dart libraries.
-With the js package,
+With the dart:js library,
 you can use JavaScript libraries in your Dart app.
 
-* [Using JavaScript from Dart: The js Library](/articles/js-dart-interop/)
-* [pub.dartlang.org/packages/js](http://pub.dartlang.org/packages/js)
+* [dart:js API documentation](http://api.dartlang.org/dart_js.html)
+* [Samples that use JavaScript](/samples/#using_javascript_from_dart)
 
 
 ## Creating command-line apps
