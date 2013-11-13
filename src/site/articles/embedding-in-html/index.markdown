@@ -10,7 +10,7 @@ rel:
     - seth-ladd
 article:
   written_on: 2011-10-01
-  updated_on: 2012-11-01
+  updated_on: 2013-11-11
   collection: libraries-and-apis
 ---
 
@@ -18,7 +18,7 @@ article:
 
 <em>Written by Sigmund Cherem, Vijay Menon, and Seth Ladd <br>
 October 2011
-(updated November 2012)</em>
+(updated November 2013)</em>
 
 Dart apps compile to JavaScript to run across modern desktop and mobile
 browsers. Dart apps can also run inside a Dart virtual machine (VM), which can be
@@ -55,8 +55,6 @@ Here is a minimal example, which works in all browsers (even if they don't
 </html>
 {% endprettify %}
 
-Your Dart app's `main()` function is run after DOM content is loaded.
-
 ## Dart MIME type and the &lt;script&gt; tag
 {:#dart-mime-type}
 
@@ -76,18 +74,43 @@ with the Dart VM), the Dart-to-JavaScript compiler (dart2js) doesn't work with i
 scripts.
 
 The Dart app must have a visible top-level function called `main()`.
-The browser invokes `main()` when the DOM content is loaded.
+The browser invokes `main()` when the DOM content is loaded (but see
+caveat in the [next section](#dart-html-semantics)).
 
 You should use only one `<script type="application/dart">` inside the HTML
 page. The dart2js compiler produces JavaScript that assumes it is
 the only Dart app on the page.
 
+## Dart semantics in HTML
+{:#dart-html-semantics}
+
+The precise semantics of Dart execution on an HTML page are evolving
+and likely to change by the time Dart is natively supported in a
+production browser.
+
+Currently, your Dart app's `main()` function is run after DOM content
+is loaded, but the exact timing is undefined (e.g., with respect to
+the load event or deferred JavaScript).  In the future, we may invoke
+`main()` synchronously during HTML parsing instead of waiting for DOM
+content to load.
+
+As such, we recommend the following:
+
+1. Restrict your application to a single Dart script per document.
+1. Place your Dart script at the end of your document's body (followed
+   only by the dart.js script if you choose to use that).
+1. Do not use async or defer attributes on your Dart script tag at this point.
+1. Do not rely upon ordering between your Dart script and any
+   JavaScript scripts that may execute after it (e.g., that appear
+   after it or are marked async or defer).
+1. Do not rely upon script injection of Dart code.
+
 ## The dart.js script
 {:#dartjs-script}
 
-Use the dart.js script to start the Dart VM (if it exists) and to run your app
-in browsers that don't have a Dart VM. The dart.js script allows you to use the
-same HTML page for both Dartium and other browsers.
+Use the dart.js script to run your app in browsers that don't have a
+Dart VM. The dart.js script allows you to use the same HTML page for
+both Dartium and other browsers.
 
 If no Dart VM is detected in the browser, the dart.js script swaps out the
 `application/dart` script for a
@@ -130,16 +153,23 @@ in a few ways.
 
 ### A single script tag
 
-Each HTML page can have at most one Dart script tag, or only one
+Each HTML document can have at most one Dart script tag, or only one
 script tag that references a Dart app that is compiled to JavaScript.
 This fundamentally differs from the way
 that JavaScript is embedded in HTML&mdash;in
-JavaScript, you can have multiple script tags per page.
+JavaScript, you can have multiple script tags per document.
 
 In JavaScript, additional script tags are used to import third party libraries
 (e.g., jQuery).  In Dart, this is not necessary: import is part of the language.
 
-### Delayed execution
+Web components and HTML imports are an important caveat to the one
+script per document rule.  For example, the [Polymer.dart](/polymer-dart)
+framework uses HTML imports to allow developers to include HTML components into a
+Dart application.  Dart scripts in imported HTML documents are
+injected into the main application.  See the Polymer.dart
+[documentation](/polymer-dart) for more details.
+
+### Execution timing
 
 Unlike in JavaScript,
 top-level Dart constructs (such as interfaces, classes, and functions)
@@ -148,7 +178,7 @@ Each Dart application (defined via a script tag)
 provides an explicit `main()` entry point
 that is invoked by the browser when it is ready to run.
 
-By default, the Dart app's `main()` function
+Currently, the Dart app's `main()` function
 is invoked after the page's DOM is loaded.
 
 ### No inline event listeners
@@ -169,6 +199,6 @@ As such, we propose to not allow inline Dart listeners.
 
 ### No script injection of Dart code
 
-We do not support dynamically injecting a `<script>` tag that loads Dart
-code. Recent browser security trends, like Content Security Policy, actively
-prevent this practice.
+We do not currently support or recommend dynamically injecting a
+`<script>` tag that loads Dart code. Recent browser security trends,
+like Content Security Policy, actively prevent this practice.
