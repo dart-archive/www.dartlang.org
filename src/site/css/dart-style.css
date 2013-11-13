@@ -84,6 +84,10 @@ ul, li {
 	}
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 /* ***** Icons ***** */
 i[class*="sprite-icon-"] {
 	background-image: url(../imgs/dart-sprite.png);
