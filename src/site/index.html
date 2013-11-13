@@ -37,21 +37,22 @@ js:
             <div class="row">
               <div class="col-md-4">
                 <h2>See Dart</h2>
-                <p class="timer"><i class="sprite-icon-timer"></i>About 15 minutes</p>
-                <p>Dart is familiar and easy to learn. It's class based and object oriented, without being dogmatic.</p>
-                <a href="/samples/"><i class="sprite-icon-triangle"></i>See some examples</a>
+                <p class="timer"><i class="sprite-icon-timer"></i>About 5 minutes</p>
+                <p>Dart is class based and object oriented, without being dogmatic.</p>
+                <a href="#code"><i class="sprite-icon-triangle"></i>See code</a>
               </div>
               <div class="col-md-4">
                 <h2>Try Dart</h2>
-                <p class="timer"><i class="sprite-icon-timer"></i>About 1 HOUR</p>
-                <p>Tools such as <a href="/docs/dart-up-and-running/contents/ch01.html#ch01-editor">Dart Editor</a> and the <a href="http://pub.dartlang.org/">pub package manager</a> keep you productive.</p> 
-                <a href="/docs/tutorials/"><i class="sprite-icon-triangle"></i>Start Coding</a>
+                <p class="timer"><i class="sprite-icon-timer"></i>About 1 hour</p>
+                <p>Write a Dart web app, even if you've never written
+		a web app before. </p>
+                <a href="/docs/tutorials/"><i class="sprite-icon-triangle"></i>Write code</a>
               </div>
               <div class="col-md-4">
                 <h2>Dive deep</h2>
-                <p class="timer"><i class="sprite-icon-timer"></i>About 1 DAY</p>
-                <p>Dart is has <a href="#">full documentation</a>, many videos articles, and a developer community to engage with.</p>
-                <a href="/docs/"><i class="sprite-icon-triangle"></i>Programmer’s Guides</a>
+                <p class="timer"><i class="sprite-icon-timer"></i>About 1 day</p>
+                <p>Dart has lots of tools and documentation, plus a developer community.</p>
+                <a href="/docs/"><i class="sprite-icon-triangle"></i>Learn more</a>
               </div>
             </div>
           </div>
@@ -64,7 +65,7 @@ js:
         </div>
       </section>
 
-      <section class="dart-new-language sec-shadow">
+      <section class="dart-new-language sec-shadow" id="code">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <h2>Dart is a new language</h2>
@@ -72,24 +73,24 @@ js:
             <div id="dart-language-carousel" class="carousel slide dart-carousel" data-interval="false">
               <!-- Indicators -->
               <ol class="carousel-indicators">
-                <li data-target="#dart-language-carousel" data-slide-to="0" class="active">Easy to Learn</li>
+                <li data-target="#dart-language-carousel" data-slide-to="0" class="active">Easy to learn</li>
                 <li data-target="#dart-language-carousel" data-slide-to="1">Concise</li>
-                <li data-target="#dart-language-carousel" data-slide-to="2">Optionally Typed</li>
+                <li data-target="#dart-language-carousel" data-slide-to="2">Optionally typed</li>
                 <li data-target="#dart-language-carousel" data-slide-to="3">Modular</li>
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
                 <div class="item active">
-                  <p>Dart is familiar, so you can probably already read and even write Dart code.</p>
+                  <p>Dart is familiar, so you can probably already read and even write Dart code. <a href="/samples/">See more samples.</a> </p>
                   <div class="code-hldr">
-<pre class="prettyprint linenums lang-dart">
+<pre class="prettyprint lang-dart">
 main() {                              // This is where the app starts executing.
-  print(<a href="#" class="dart-popover" data-toggle="popover" title="Automatically calls toString()." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">new Fibonacci(10)</a>);          // Print a new object's value.
+  print(<a href="#" class="dart-popover" data-toggle="popover" title="Converting objects to strings" data-html="true" data-trigger="hover focus" data-content="The print() function takes any object and converts it to a string, using the object's toString() method.">new Fibonacci(10)</a>);          // Print a new object's value.
 }
 
 class Fibonacci {                     // Define a class.
   int original, fibo;                 // Declare variables.
-  String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">$fibo</a>';      // Define a method using shorthand syntax.
+  String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation" data-html="true" data-trigger="hover focus" data-content="Use $identifier to insert the value of an identifier (in this case, the integer value of fibo) into a string.">$fibo</a>';      // Define a method using shorthand syntax.
 
   Fibonacci(int value) :              // Define a constructor with list initializer.
     original = value, fibo = fib(value) {
@@ -109,7 +110,7 @@ class Fibonacci {                     // Define a class.
                 <div class="item">
                   <p>Write less. Say more.</p>
                   <div class="code-hldr">
-<pre class="prettyprint linenums lang-dart">
+<pre class="prettyprint lang-dart">
 import 'dart:math' show PI;
 
 List shapes = <a href="#" class="dart-popover" data-toggle="popover" title="Short for new List()" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">[]</a>;                      // Use literals to create lists.
@@ -201,7 +202,7 @@ print(famousPeople.union(setOfMyFriends).length);
                 <div class="item">
                   <p>Dart's Future and Stream classes provide a consistent interface to values that aren’t yet available.</p>
                   <div class="code-hldr">   
-<pre class="prettyprint linenums lang-dart">
+<pre class="prettyprint lang-dart">
 // Get a stream of key-press events from an element:
 querySelector('textarea').onKeyPress
   // Filter the stream, getting a stream of events only for certain key codes:
@@ -297,15 +298,16 @@ main() {
             <div id="js-dart-apps-carousel" class="carousel slide dart-carousel" data-interval="false">
               <!-- Indicators -->
               <ol class="carousel-indicators">
-                <li data-target="#js-dart-apps-carousel" data-slide-to="0" class="active">Runs in all modern browsers</li>
+                <li data-target="#js-dart-apps-carousel" data-slide-to="0" class="active">Support for all modern browsers</li>
                 <li data-target="#js-dart-apps-carousel" data-slide-to="1">Tree shaking</li>
                 <li data-target="#js-dart-apps-carousel" data-slide-to="2">Minifying</li>
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
                 <div class="item active">
-                  <p>Compile Dart to JavaScript and let all modern browsers run your app.</p>
-                  <img src="/imgs/temp-code-example.png" alt="Modern Browsers">
+                  <p>Dart web apps run in all modern browsers.
+		  </p>
+                  <img src="/imgs/temp-code-example.png" alt="Modern browsers, desktop and mobile">
 
                 </div>
                 <div class="item">
@@ -315,6 +317,8 @@ main() {
                 <div class="item">
                   <p>Shrink your code before you deploy to generate faster-loading JavaScript.</p>
                   <img src="/imgs/slider-minify-example.png" alt="temp image">
+		  <br>
+		  {PENDING: shouldn't this show app.dart, not app.js?}
                 </div>
               </div>
             </div>
@@ -373,23 +377,23 @@ main() {
           <div class="col-md-12">
             <h2>Dart’s tools help you be productive</h2>
             <img src="/imgs/dart-editor.png" alt="Image of Dart Editor">
-            <p>Dart Editor is best way to get started, this editor helps you edit, debug, and run Dart apps. When you download Dart Editor, you get all of the other tools, as well.</p>
+            <p>Dart Editor is the easiest way to get started, helping you edit, debug, and run Dart apps. When you download Dart Editor, you get other tools, as well:</p>
           </div>
         </div>
         <div class="row productivity-tools-options">
           <div class="col-md-8 col-md-offset-2">
             <div class="row">
               <div class="col-md-4">
-                <h6>Dev Server</h6>
-                <p>Automatically generate assets using pub’s dev server</p>
+                <h6>Pub package manager</h6>
+                <p>The easiest way to get and share Dart code, pub keeps your packages up to date, handling versioning and dependency.</p>
               </div>
               <div class="col-md-4">
-                <h6>Pub package manager</h6>
-                <p>The easiest way to get and share Dart code, pub keeps your packages up to date, handling versioning and dependency</p>
+                <h6>Dev Server</h6>
+                <p>Automatically generate assets using pub’s dev server.</p>
               </div>
               <div class="col-md-4">
                 <h6>Dartium</h6>
-                <p>Experience zero-compile edit/refresh cycles. This build of Chromium includes the Dart VM</p>
+                <p>Experience zero-compile edit/refresh cycles. This build of Chromium includes the Dart VM.</p>
               </div>
             </div>
           </div>
