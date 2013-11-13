@@ -403,16 +403,16 @@ i.sprite-icon-download-btn {
 }
 
 @media (max-width: 500px) {
-	.dart-carousel .carousel-indicators li {
-		width: 10px;
-		height: 10px;
-		text-indent: -999px;
-		cursor: pointer;
-		border: 1px solid #333;
-		border-radius: 10px;
-		margin: 1px;
-		padding: 0;
-	}
+  .dart-carousel .carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    text-indent: -999px;
+    cursor: pointer;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0;
+  }
 }
 
 
