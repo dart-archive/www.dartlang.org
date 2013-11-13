@@ -34,7 +34,7 @@ startServer(String basePath) {
 main() {
   // Compute base path for the request based on the location of the
   // script and then start the server.
-  File script = new File(new Options().script);
+  File script = new File(Platform.script.toFilePath());
   startServer(script.directory.path);
 }
 // END(io_http_server_file)

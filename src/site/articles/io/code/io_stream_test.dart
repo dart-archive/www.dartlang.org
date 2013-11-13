@@ -3,10 +3,9 @@ import 'dart:io';
 import 'dart:async';
 
 main() {
-  Options options = new Options();
   List result = [];
 
-  Stream<List<int>> stream = new File(options.script).openRead();
+  Stream<List<int>> stream = new File(Platform.script.toFilePath()).openRead();
   int semicolon = ';'.codeUnitAt(0);
   StreamSubscription subscription;
   subscription = stream.listen((data) {
