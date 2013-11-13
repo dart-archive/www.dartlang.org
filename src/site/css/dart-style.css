@@ -1024,7 +1024,7 @@ code.highlight {
 }
 
 #code-links ul {
-  margin: 0px 0px 0px 15px;
+  padding: 0px 0px 0px 20px;
 }
 
 #code-links li {
@@ -1033,7 +1033,7 @@ line-height: 120%;
 }
 
 #code-links h4 {
-  padding-bottom: 7px;
+  padding-bottom: 0px;
 }
 
 #whats-the-point {
@@ -1055,7 +1055,7 @@ line-height: 120%;
 }
 
 #whats-the-point ul {
-  margin: 0px 0px 0px 15px;
+  padding: 0px 0px 0px 20px;
 }
 
 #whats-the-point li {
@@ -1064,7 +1064,7 @@ line-height: 120%;
 }
 
 #whats-the-point h4 {
-  padding-bottom: 7px;
+  padding-bottom: 0px;
 }
 
 #tutorial-toc {
