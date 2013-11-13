@@ -94,6 +94,18 @@ i[class*="sprite-icon-"] {
 	display: block;
 }
 
+/* CSS for high-resolution devices */
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    i[class*="sprite-icon-"] {
+        background-image: url(../imgs/dart-sprite-2x.png);
+        background-size: 300px 400px;
+        background-repeat: no-repeat;
+    }
+}
+
 i[class*="sprite-icon-social-"] {
 	width: 23px;
 	height: 23px; 
