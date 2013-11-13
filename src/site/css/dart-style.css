@@ -54,9 +54,9 @@ h5 {
 
 h6 {
 	font: 400 12px/17px 'Montserrat', sans-serif;
-	font-size: 15px;
+  font-size: 15px;
 	color: #0084c5;	
-	margin-bottom: 35px;
+	margin-bottom: 20px;
 }
 
 ul, li {
@@ -766,6 +766,10 @@ pre li {
 .productivity-tools-options {
 	margin-top: 40px;
 	margin-bottom: 80px;
+}
+
+.productivity-tools .editor-current-version {
+	margin-bottom: 20px;
 }
 
 @media (max-width: 992px) {
