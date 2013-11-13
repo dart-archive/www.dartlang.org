@@ -12,6 +12,11 @@ col1:
         tryit_url: stopwatch/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
       -
+        title: Searchable List
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/searchable_list/README.md
+        tryit_url: searchable_list/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/searchable_list/README.md
+      -
         title: Get input from a form
         explanation_url: /docs/tutorials/forms
         tryit_url: slambook/
@@ -22,7 +27,7 @@ col1:
         tryit_url: todomvc/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
       -
-        title: "A task management tool"
+        title: A task management tool
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/README.md
         tryit_url: tracker/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
@@ -209,6 +214,24 @@ col1:
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles#using-the-file-api
         tryit_url: dndfiles/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+
+  -
+    heading: Touch events
+    anchor: touch_events
+    screenshot: swipe.png
+    caption: "Swipe: Touch gestures and CSS 3D transforms"
+    link: swipe/
+    examples:
+      -
+        title: Touch gestures and CSS 3D transforms
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/swipe/README.md
+        tryit_url: swipe/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/swipe/
+      -
+        title: Multi touch
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/multi_touch/README.md
+        tryit_url: multi_touch/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/multi_touch/
 
   -
     heading: Web programming fundamentals

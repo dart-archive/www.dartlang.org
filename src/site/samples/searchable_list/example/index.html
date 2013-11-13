@@ -1,0 +1,46 @@
+<!DOCTYPE html><!--
+Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+--><html lang="en"><head><script src="packages/shadow_dom/shadow_dom.debug.js"></script>
+<script src="packages/custom_element/custom-elements.debug.js"></script>
+<script src="packages/browser/interop.js"></script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="index.html_bootstrap.dart.js"></script>
+  
+  <title>Searchable list</title>
+</head>
+<body><polymer-element name="searchable-list" attributes="data">
+  <template>
+    <div class="container">
+      <input class="form-control" type="text" value="{{searchParam}}">
+      <template if="{{results.length > 0}}">
+        <ul class="list-unstyled">
+          <template repeat="{{result in results}}">
+            <li>{{result}}</li>
+          </template>
+        </ul>
+      </template>
+    </div>
+  </template>
+
+  
+</polymer-element><polymer-element name="demo-app">
+  <template>
+    <style>
+      * {
+        margin: 10px;
+      }
+    </style>
+    <searchable-list data="{{fruits}}"></searchable-list>
+  </template>
+  
+</polymer-element>
+  <demo-app></demo-app>
+
+
+</body></html>
