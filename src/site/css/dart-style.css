@@ -1093,7 +1093,6 @@ line-height: 120%;
 
 #tutorial-side {
   width: 200px;
-  position: fixed;
   top: 129px;
 }
 
@@ -1114,7 +1113,6 @@ line-height: 120%;
 /* Landscape phone to portrait tablet */
 @media (max-width: 992px) { 
 	#tutorial-side {
-		position: static;
 		width:100%;
 	} 
 
@@ -1132,7 +1130,6 @@ line-height: 120%;
 /* Landscape phones and down */
 @media (max-width: 480px) { 
 	#tutorial-side {
-		position: static; 
 		width:100%;
 	} 
 }
