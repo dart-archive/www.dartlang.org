@@ -460,6 +460,10 @@ i.sprite-icon-download-btn {
 	content: none;
 }
 
+.dart-carousel .carousel-inner > .item {
+  min-height: 200px;
+}
+
 .dart-carousel .carousel-inner > .item > img {
 	margin: 0 auto;
 }
