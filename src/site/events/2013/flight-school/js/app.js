@@ -16,11 +16,11 @@
 
   APP.controller('RegisterCtrl', function($scope, $http) {
     return $scope.register = {
-      name: "Test Data 5th round",
-      email: "test@ocupop.com",
-      city: "City",
-      state: "ST",
-      country: "USA",
+      name: "",
+      email: "",
+      city: "",
+      state: "",
+      country: "",
       involvement: {},
       event: {},
       other_value: "",
