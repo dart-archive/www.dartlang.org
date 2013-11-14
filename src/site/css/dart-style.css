@@ -1276,3 +1276,9 @@ dd{
 }
 
 .remark {display:none;}
+
+/* Make the hovering behavior consistent in TOC */
+#markdown-toc * {
+  list-style: none;
+  text-decoration:none;
+}
