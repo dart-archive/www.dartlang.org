@@ -29,7 +29,7 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
   <ul>
     <li><a href="#home" ocu-scroll-click><img ocu-svg="img/logo" alt="Dart 1.0"></a></li>
     <li><a href="#flight" ocu-scroll-click>Dart Flight School</a></li>
-    <li><a href="#register" ocu-scroll-click>Register</a></li>
+    <li><a href="#register" ocu-scroll-click>Get Involved</a></li>
   </ul>
 </nav>
 
@@ -37,6 +37,7 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
   <div class="container">
     <h2>Dart helps you build modern apps that run across the modern web</h2>
     <p>Dart 1.0 provides a stable language, stable core libraries and tools such as a package manager, editor and dart2js compiler to help you be a productive web developer.</p>
+    <p>Help us with take off by organizing or presenting at a Dart Flight School event in your area in February 2014.</p>
   </div>
 </section>
 
@@ -52,7 +53,6 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
 <section id="flight" class="flight-section" ocu-scroll-section>
   <div class="container">
     <h2>Are you ready to fly&nbsp;with&nbsp;Dart?</h2>
-    <p>Help us run Dart Flight Schools the month of February 2014 by organizing or presenting at an event.</p>
     <p>We’ll provide the materials you need to get your community onboarded with Dart. Here are some of the formats we will support for your Dart Flight School event:</p>
     <ul>
       <li>Tech Talk: Host a talk to learn more about what makes Dart a First-Class language. </li>
@@ -83,7 +83,7 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
 
 <section id="register" class="register-section" ocu-scroll-section>
   <div class="container">
-    <h2>Get your boarding pass!</h2>
+    <h2>Get involved</h2>
     <form ng-controller="RegisterCtrl" ng-submit="register.submit()">
       <input type="text" ng-model="register.name" ocu-label="Name" required>
       <input type="email" ng-model="register.email" ocu-label="Email" required>
@@ -103,11 +103,13 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
       <small>e.g. GDG Silicon Valley, BeJUG</small>
       <fieldset class="involvement">
         <label>How do you want to be involved?</label>
+        <small>Check all that apply.</small>
         <div ocu-checkbox="register.involvement.organize">I want to organize an event.</div>
         <div ocu-checkbox="register.involvement.speak">I want to speak at an event</div>
       </fieldset>
       <fieldset class="hosting">
         <label>If you are interested in organizing a Dart Flight School Event, what format(s) would you use?</label>
+        <small>Check all that apply.</small>
         <div class="field" ocu-checkbox="register.event.tech_talk">Tech Talk</div>
         <div class="field" ocu-checkbox="register.event.code_lab">Code Lab</div>
         <div class="field" ocu-checkbox="register.event.hackathon">Hackathon</div>
