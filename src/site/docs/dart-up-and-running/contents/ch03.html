@@ -5,10 +5,9 @@ layout: book
 title: "Chapter 3. A Tour of the Dart Libraries from Dart: Up and Running"
 description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Running, published by O'Reilly."
 ---
-<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri">URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-asynchronous-programming">dart:async - Asynchronous Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-future-example">Using Future and Completer</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-future-error-handling">Error Handling with Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-chaining-multiple-async-methods">Chaining Multiple Asynchronous Methods</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-waiting-for-multiple-futures">Waiting for Multiple Futures</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-9">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-minimum">Maximum and Minimum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-html">More information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-using-isolates">Using Isolates</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-json">dart:json - Encoding and Decoding Objects</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json-decoding">Decoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-json-encoding">Encoding JSON</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-utf">dart:utf - Strings and Unicode</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-utf-decode-utf8">Decoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-encode-utf8">Encoding Strings to UTF-8 Bytes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-mirrors">dart:mirrors - Reflection</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-symbols">Symbols</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-introspection">Introspection</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-invocation">Invocation</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
+<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 3. A Tour of the Dart Libraries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch03"></a>Chapter 3. A Tour of the Dart Libraries</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch03.html#ch03-dartcore---strings-collections-and-more">dart:core - Numbers, Collections, Strings, and More</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-numbers">Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-strings-and-regular-expressions">Strings and Regular Expressions</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-collections">Collections</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-uri">URIs</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-dates-and-times">Dates and Times</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utility-interfaces">Utility Classes</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-exceptions">Exceptions</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-asynchronous-programming">dart:async - Asynchronous Programming</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-futures">Future</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-streams">Stream</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-9">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-math">dart:math - Math and Random</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-trigonometry">Trigonometry</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-maximum-and-minimum">Maximum and Minimum</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-math-constants">Math Constants</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-random-numbers">Random Numbers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-7">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-html-using-html5-apis">dart:html - Browser-Based Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-manipulating-the-dom">Manipulating the DOM</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-httprequest">Using HTTP Resources with HttpRequest</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-websockets">Sending and Receiving Real-Time Data with WebSockets</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-html">More information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartisolate---concurrency-with-isolates">dart:isolate - Concurrency with Isolates</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-isolate-concepts">Isolate Concepts</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-11">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps">dart:io - I/O for Command-Line Apps</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-files-and-directories">Files and Directories</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-io-http">HTTP Clients and Servers</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-more-information-io">More Information</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-dart-convert">dart:convert - Decoding and Encoding JSON, UTF-8, and more</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-json">Decoding and Encoding JSON</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf">Decoding and Encoding UTF-8 Characters</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-utf-other">Other Functionality</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-mirrors">dart:mirrors - Reflection</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-symbols">Symbols</a></span></dt><dt><span class="sect2"><a href="ch03.html#ch03-mirrors-introspection">Introspection</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch03.html#ch03-summary">Summary</a></span></dt></dl></div><p>This chapter shows you how to use the major features in Dart’s
   libraries. It’s just an overview, and by no means comprehensive. Whenever
-  you need more details about a class, consult the <a class="ulink" href="http://api.dartlang.org/" target="_top">Dart API reference. </a> Expect major
-  changes to the Dart libraries before Dart’s first production release.</p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartcore---strings-collections-and-more"></a>dart:core - Numbers, Collections, Strings, and More</h2></div></div></div><p>The Dart core library provides a small but critical set of built-in
+  you need more details about a class, consult the <a class="ulink" href="http://api.dartlang.org/" target="_top">Dart API reference.</a></p><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartcore---strings-collections-and-more"></a>dart:core - Numbers, Collections, Strings, and More</h2></div></div></div><p>The Dart core library provides a small but critical set of built-in
     functionality. This library is automatically imported into every Dart
     program.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-numbers"></a>Numbers</h3></div></div></div><p>The dart:core library defines the num, int, and double classes,
       which have some basic utilities for working with numbers.</p><p>You can convert a string into an integer or double with the
@@ -16,7 +15,11 @@ description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Run
       respectively:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/number-tests.dart
 </span></em>assert(int.parse('42') == 42);
-assert(double.parse('0.50') == 0.5);</pre><p>Use the <code class="literal">toString()</code> method (defined by <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>) to
+assert(int.parse('0x42') == 66);
+assert(double.parse('0.50') == 0.5);</pre><p>To specify the base, add a <code class="literal">radix</code>
+      parameter:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/number-tests.dart
+</span></em>assert(int.parse('42', radix: 16) == 66);</pre><p>Use the <code class="literal">toString()</code> method (defined by <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>) to
       convert an int or double to a string. To specify the number of digits to
       the right of the decimal, use <code class="literal">toStringAsFixed()</code>
       (defined by num). To specify the number of significant digits in the
@@ -127,13 +130,13 @@ assert(fullString ==
         regular expressions. Use regular expressions for efficient searching
         and pattern matching of strings.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/string-tests.dart
-</span></em>// A regular expression for one or more digits
+</span></em>// Here's a regular expression for one or more digits.
 var numbers = new RegExp(r'\d+');
 
 var allCharacters = 'llamas live fifteen to twenty years';
 var someDigits = 'llamas live 15 to 20 years';
 
-// Contains() can use a regular expression.
+// contains() can use a regular expression.
 assert(!allCharacters.contains(numbers));
 assert(someDigits.contains(numbers));
 
@@ -260,11 +263,11 @@ assert(intersection.contains('xenon'));</pre><p>Refer to the <a class="ulink" hr
         literal syntax, or you can use a traditional
         constructor:</span></p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/map-1.dart
-</span></em>// Map literals use strings as keys.
+</span></em>// Maps often use strings as keys.
 var hawaiianBeaches = {
-  'oahu' : ['waikiki', 'kailua', 'waimanalo'],
+  'oahu'       : ['waikiki', 'kailua', 'waimanalo'],
   'big island' : ['wailea bay', 'pololu beach'],
-  'kauai' : ['hanalei', 'poipu']
+  'kauai'      : ['hanalei', 'poipu']
 };
 
 // Maps can be built from a constructor.
@@ -277,11 +280,7 @@ var nobleGases = new Map&lt;int, String&gt;();</pre><p>You add, get, and set map
         map.<em><span class="remark"> [PENDING: It’s questionable that this example uses
         containsKey before containsKey is discussed.]</span></em></p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/map-1.dart
-</span></em>var nobleGases = new Map&lt;int, String&gt;();
-
-// Maps from constructors can use any object as a key.
-// Integers and strings are common key types.
-nobleGases[54] = 'xenon';
+</span></em>var nobleGases = { 54: 'xenon' };
 
 // Retrieve a value with a key.
 assert(nobleGases[54] == 'xenon');
@@ -452,8 +451,7 @@ y2k = new DateTime.utc(2000);   // January 1, 2000, UTC
 y2k = new DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
 
 // Parse an ISO 8601 date.
-y2k = DateTime.parse('2000-01-01T00:00:00Z');
-</pre><p>The <code class="literal">millisecondsSinceEpoch</code>
+y2k = DateTime.parse('2000-01-01T00:00:00Z');</pre><p>The <code class="literal">millisecondsSinceEpoch</code>
       property of a date returns the number of milliseconds since the “Unix
       epoch”—January 1, 1970, UTC:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/date.dart
@@ -461,7 +459,7 @@ y2k = DateTime.parse('2000-01-01T00:00:00Z');
 assert(y2k.millisecondsSinceEpoch == 946684800000);
 var unixEpoch = new DateTime.utc(1970); // 1/1/1970, UTC
 assert(unixEpoch.millisecondsSinceEpoch == 0);</pre><p>Use the Duration class to calculate the difference between two
-      dates and to shift a date’s time forward or backwards:</p><pre class="screen"><em><span class="remark">lang-dart
+      dates and to shift a date forward or backwards:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/date.dart
 </span></em>var y2k = new DateTime.utc(2000);
 
@@ -575,84 +573,114 @@ main() {
 }</pre><p>For more information, see <a class="xref" href="ch02.html#exceptions" title="Exceptions">the section called “Exceptions”</a> and the
       <a class="ulink" href="http://api.dartlang.org/dart_core/Exception.html" target="_top">Exception
       API docs.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-asynchronous-programming"></a>dart:async - Asynchronous Programming</h2></div></div></div><p>Asynchronous programming often uses callback functions, but Dart
-    provides an alternative: <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html" target="_top">Future</a>
+    provides alternatives: <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html" target="_top">Future</a> and
+    <a class="ulink" href="http://api.dartlang.org/dart_async/Stream.html" target="_top">Stream</a>
     objects. A Future is like a promise for a result to be provided sometime
-    in the future.</p><p>You have the option of using a <a class="ulink" href="http://api.dartlang.org/dart_async/Completer.html" target="_top">Completer</a>
-    to produce a Future and, later, to supply a value to the Future.
-    Completer, Future, and more are in the <a class="ulink" href="http://api.dartlang.org/dart_async.html" target="_top">dart:async</a>
+    in the future. A Stream is a way to get a sequence of values, such as
+    events. Future, Stream, and more are in the <a class="ulink" href="http://api.dartlang.org/dart_async.html" target="_top">dart:async</a>
     library.</p><p>The dart:async library works in both web apps and command-line apps.
-    To use it, import <code class="literal">dart:async</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-future-example"></a>Using Future and Completer</h3></div></div></div><p>In the following example, the
-      <code class="literal">longExpensiveSearch()</code> function schedules a query and
-      immediately returns a Future object. Later, when the query finishes in
-      some <span class="keep-together">future event loop iteration</span>,
-      the completer completes with the results. The completion signals that
-      the Future has a value, which runs the callback registered in <span class="keep-together">Future’s <code class="literal">then()</code>.</span></p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/futures.dart</span></em>Future longExpensiveSearch() {
-var completer = new Completer();
-
-// Perform exhaustive search.
-dbQuery('select * from table', onSuccess: (results) {
-  // Sometime later,
-  // found it!!
-  completer.complete(results);
-});
-
-return completer.future;
-}
-
-Future doSearch() {
-var future = longExpensiveSearch(); // Returns immediately.
-
-return future.then((results) {
-  // The following code executes when the operation is complete.
-  print('Here are the results: $results');
-});
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-future-error-handling"></a>Error Handling with Futures</h3></div></div></div><p>If an error or exception is thrown from within a Future, you can
-      catch it with <span class="keep-together"><code class="literal">catchError()</code>.</span> Be sure
-      to invoke <code class="literal">catchError()</code> on the result of
-      <code class="literal">then()</code>—not on the result of the original
-      Future.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/futures.dart</span></em>Future runSearch() {
-var future = longExpensiveSearch(); // Returns immediately.
-
-return future.then((results) {
-  print('Here are the results: $results');
-}).catchError((e) {
-  print("Oops! Encountered $e");
-});
-}</pre><p>The <code class="literal">then().catchError()</code> pattern is the
-      asynchronous version of
-      <code class="literal">try</code>-<code class="literal">catch</code>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-chaining-multiple-async-methods"></a>Chaining Multiple Asynchronous Methods</h3></div></div></div><p>The <code class="literal">then()</code> method returns a Future, which is a
-      useful way to chain multiple asynchronous methods to run in a certain
-      order. If the callback registered with <code class="literal">then()</code> returns
-      a Future, then it is simply returned as is by <code class="literal">then()</code>.
-      If the callback returns a value of any other type, a new Future instance
-      is created and is completed with the value.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/futures.dart</span></em>Future runQuery() {
-Future result = costlyQuery();
+    To use it, import dart:async:</p><pre class="screen"><em><span class="remark">lang-dart</span></em><em><span class="remark">
+</span></em>import 'dart:async';</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-futures"></a>Future</h3></div></div></div><p>Future objects appear throughout the Dart libraries, often as the
+      object returned by an asynchronous method. When a future
+      <span class="emphasis"><em>completes</em></span>, its value is ready to use.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-future-example"></a>Basic Usage</h4></div></div></div><p><span class="keep-together">Use <code class="literal">then()</code> to
+        schedule code that runs when the future completes. For example,
+        <code class="literal">HttpRequest.getString()</code> returns a Future, since
+        HTTP requests can take a while. Using <code class="literal">then()</code> lets
+        you run some code when that Future has completed and the promised
+        string value is available:</span></p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/ch03_4_async/web/ch03_4_async.dart
+</span></em>HttpRequest.getString(url)
+  .then((String result) {
+    print(result); });
+  // Should handle errors here</pre><p>Use <code class="literal">catchError()</code> to handle any errors or
+        exceptions that a Future object might throw. Be sure to invoke
+        <code class="literal">catchError()</code> on the result of
+        <code class="literal">then()</code>—not on the result of the original Future.
+        <em><span class="remark">{PENDING: What are the symptoms when you do it
+        wrong?}</span></em></p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/ch03_4_async/web/ch03_4_async.dart
+</span></em>HttpRequest.getString(url)
+  .then((String result) {  // callback function
+    print(result); })
+  .catchError((e) {
+    // Handle or ignore the error.
+  });</pre><p>The <code class="literal">then().catchError()</code> pattern is the
+        asynchronous version of
+        <code class="literal">try</code>-<code class="literal">catch</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-chaining-multiple-async-methods"></a>Chaining Multiple Asynchronous Methods</h4></div></div></div><p>The <code class="literal">then()</code> method returns a Future, providing
+        a useful way to run multiple asynchronous functions in a certain
+        order. If the callback registered with <code class="literal">then()</code>
+        returns a Future, then it is simply returned as-is by
+        <code class="literal">then()</code>. If the callback returns a value of any
+        other type, a new Future instance is created and is completed with the
+        value.</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/futures.dart
+</span></em>Future result = costlyQuery();
 
 return result.then((value) =&gt; expensiveWork())
              .then((value) =&gt; lengthyComputation())
              .then((value) =&gt; print('done!'))
-             .catchError((exception) =&gt; print('DOH!'));
-}</pre><p>In the above example, the methods run in the following
-      order:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><code class="literal">costlyQuery()</code></p></li><li class="listitem"><p><code class="literal">expensiveWork()</code></p></li><li class="listitem"><p><code class="literal">lengthyComputation()</code></p></li></ol></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-waiting-for-multiple-futures"></a>Waiting for Multiple Futures</h3></div></div></div><p>Sometimes your algorithm needs to initiate many asynchronous
-      methods and wait for each one to complete before continuing. Use the
-      <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html#wait" target="_top"><code class="literal">Future.wait()</code></a>
-      static method to manage multiple Futures and wait for them all to
-      complete:</p><pre class="screen"><em><span class="remark">lang-dart
+             .catchError((exception) =&gt; print('DOH!'));</pre><p>In the above example, the methods run in the following
+        order:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><code class="literal">costlyQuery()</code></p></li><li class="listitem"><p><code class="literal">expensiveWork()</code></p></li><li class="listitem"><p><code class="literal">lengthyComputation()</code></p></li></ol></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-waiting-for-multiple-futures"></a>Waiting for Multiple Futures</h4></div></div></div><p>Sometimes your algorithm needs to invoke many asynchronous
+        functions and wait for them all to complete before continuing. Use the
+        <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html#wait" target="_top"><code class="literal">Future.wait()</code></a>
+        static method to manage multiple Futures and wait for them to
+        complete:</p><pre class="screen"><em><span class="remark">lang-dart
+<em><span class="remark">ch03/futures.dart</span></em>
 </span></em>Future deleteDone = deleteLotsOfFiles();
 Future copyDone = copyLotsOfFiles();
 Future checksumDone = checksumLotsOfOtherFiles();
 
 Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
   print('Done with all the long steps');
-});</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-9"></a>More Information</h3></div></div></div><p>For examples of using Future, see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-math"></a>dart:math - Math and Random</h2></div></div></div><p>The Math library provides common functionality such as sine and
+});</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-streams"></a>Stream</h3></div></div></div><p>Stream objects appear throughout Dart APIs, representing sequences
+      of data. For example, HTML events such as button clicks are delivered
+      using streams. You can also read a file as a stream.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-streams-listen"></a>Listening for Stream Data</h4></div></div></div><p>To get each value as it arrives, subscribe to the stream using
+        the <code class="code">listen()</code> method:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03_html/ch03_html.dart
+</span></em>// Find a button by ID and add an event handler.
+querySelector('#submitInfo').onClick.listen((e) {
+  // When the button is clicked, it runs this code.
+  submitData();
+});</pre><p>In this example, the <code class="literal">onClick</code> property is a
+        Stream object provided by the 'submitInfo' button.</p><p>If you care about only one event, you can get it using a
+        property such as <code class="literal">first</code>, <code class="literal">last</code>, or
+        <code class="literal">single</code>. To test the event before handling it, use a
+        method such as <code class="literal">firstWhere()</code>,
+        <code class="literal">lastWhere()</code>, or <code class="literal">singleWhere()</code>.
+        <em><span class="remark">{PENDING: example}</span></em></p><p>If you care about a subset of events, you can use methods such
+        as <code class="literal">skip()</code>, <code class="literal">skipWhile()</code>,
+        <code class="literal">take()</code>, <code class="literal">takeWhile()</code>, and
+        <code class="literal">where()</code>. <em><span class="remark">{PENDING: example}</span></em></p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-streams-transform"></a>Transforming Stream Data</h4></div></div></div><p>Often, you need to change the format of a stream's data before
+        you can use it. Use the <code class="literal">transform()</code> method to
+        produce a stream with a different type of data:</p><pre class="screen"><em><span class="remark">lang-dart
+</span></em><em><span class="remark">ch03/readFile.dart
+</span></em>var config = new File('config.txt');
+Stream&lt;List&lt;int&gt;&gt; inputStream = config.openRead();
+
+inputStream
+  .transform(UTF8.decoder)
+  .transform(new LineSplitter())
+  .listen(
+    (String line) {...} ...);</pre><p>This example uses two transformers. First it uses UTF8.decoder
+        to transform the <code class="literal">Stream&lt;List&lt;int&gt;&gt;</code> into
+        a <code class="literal">Stream&lt;String&gt;</code>. Then it uses a LineSplitter
+        to transform the <code class="literal">Stream&lt;String&gt;</code> into a
+        <code class="literal">Stream&lt;List&lt;String&gt;&gt;</code>. These
+        transformers are from the dart:convert library (see <a class="xref" href="ch03.html#ch03-dart-convert" title="dart:convert - Decoding and Encoding JSON, UTF-8, and more">the section called “dart:convert - Decoding and Encoding JSON, UTF-8, and more”</a>).<em><span class="remark"> PENDING: add onDone and
+        onError. (See "Streaming file contents".)</span></em></p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-9"></a>More Information</h3></div></div></div><p>For some examples of using Future and Stream in command-line apps,
+      see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.
+      Also see these articles:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/using-future-based-apis/" target="_top">Using
+          Future Based APIs</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/futures-and-error-handling/" target="_top">Futures
+          and Error Handling</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/event-loop/" target="_top">The
+          Event Loop and Dart</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/feet-wet-streams/" target="_top">Getting
+          Your Feet Wet with Streams</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/creating-streams/" target="_top">Creating
+          Streams in Dart</a></p></li></ul></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-math"></a>dart:math - Math and Random</h2></div></div></div><p>The Math library provides common functionality such as sine and
     cosine, maximum and minimum, and constants such as <span class="emphasis"><em>pi</em></span>
     and <span class="emphasis"><em>e</em></span>. Most of the functionality in the Math library
-    is implemented as top-level functions.</p><p>To use the Math library in your app, import <code class="literal">dart:math</code>. The following examples use the prefix
-    <code class="literal">math</code> to make clear which top-level
-    functions and constants are from the Math library:</p><pre class="screen"><em><span class="remark">lang-dart
+    is implemented as top-level functions.</p><p>To use the Math library in your app, import dart:math. The following
+    examples use the prefix <code class="literal">math</code> to make
+    clear which top-level functions and constants are from the Math
+    library:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/math-tests.dart
 </span></em>import 'dart:math' as math;</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-trigonometry"></a>Trigonometry</h3></div></div></div><p>The Math library provides basic trigonometric functions:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/math-tests.dart
@@ -696,11 +724,11 @@ random.nextBool();  // true or false</pre></div><div class="sect2"><div class="t
     (<span class="emphasis"><em>CSS</em></span>), getting data using HTTP requests, and
     exchanging data using <a class="link" href="ch03.html#ch03-websockets" title="Sending and Receiving Real-Time Data with WebSockets">WebSockets</a>.
     HTML5 (and dart:html) has many additional APIs that this section doesn’t
-    cover. Only web apps can use dart:html, not command-line apps.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For a scalable, higher level approach to web app UIs, see the
-      <a class="ulink" href="http://www.dartlang.org/articles/web-ui/" target="_top">Web UI
-      package.</a></p></div><p>To use the HTML library in your web app, import <code class="literal">dart:html</code>:</p><pre class="programlisting"><em><span class="remark">lang-dart
+    cover. Only web apps can use dart:html, not command-line apps.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For scalable, higher level approaches to web app UIs, see <a class="ulink" href="http://www.dartlang.org/polymer-dart/" target="_top">Polymer.dart</a> and
+      <a class="ulink" href="http://pub.dartlang.org/packages/angular" target="_top">AngularDart</a>.</p></div><p>To use the HTML library in your web app, import dart:html:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
-</span></em>import 'dart:html';</pre><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-manipulating-the-dom"></a>Manipulating the DOM</h3></div></div></div><p>To use the DOM, you need to know about
+</span></em>import 'dart:html';</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Parts of the dart:html library are experimental, as noted in the
+      API documentation.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-manipulating-the-dom"></a>Manipulating the DOM</h3></div></div></div><p>To use the DOM, you need to know about
       <span class="emphasis"><em>windows</em></span>, <span class="emphasis"><em>documents</em></span>,
       <span class="emphasis"><em>elements</em></span>, and <span class="emphasis"><em>nodes</em></span>.</p><p>A <a class="ulink" href="http://api.dartlang.org/html/Window.html" target="_top">Window</a> object
       represents the actual window of the web browser. Each Window has a
@@ -708,32 +736,35 @@ random.nextBool();  // true or false</pre></div><div class="sect2"><div class="t
       object), which points to the document currently loaded. The Window
       object also has accessors to various APIs such as IndexedDB (for storing
       data), <code class="literal">requestAnimationFrame()</code> (for animations), and
-      more. In tabbed browsers, each tab has its own Window object.</p><p>With the <a class="ulink" href="http://api.dartlang.org/html/Document.html" target="_top">
-      Document</a> object, you can create and manipulate <a class="ulink" href="http://api.dartlang.org/html/Element.html" target="_top">Elements</a> within
+      more. In tabbed browsers, each tab has its own Window object.</p><p>With the <a class="ulink" href="http://api.dartlang.org/html/Document.html" target="_top">Document</a>
+      object, you can create and manipulate <a class="ulink" href="http://api.dartlang.org/html/Element.html" target="_top">Elements</a> within
       the document. Note that the document itself is an element and can be
       manipulated.</p><p>The DOM models a tree of <a class="ulink" href="http://api.dartlang.org/html/Node.html" target="_top">Nodes.</a> These nodes
       are often elements, but they can also be attributes, text, comments, and
       other DOM types. Except for the root node, which has no parent, each
       node in the DOM has one parent and might have many children.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-finding-elements"></a>Finding elements</h4></div></div></div><p>To manipulate an element, you first need an object that
         represents it. You can get this object using a query.</p><p>Find one or more elements using the top-level functions
-        <code class="literal">query()</code> and<code class="literal"> queryAll()</code>. You can
-        query by ID, class, tag, name, or any combination of these. The <a class="ulink" href="http://www.w3.org/TR/css3-selectors/" target="_top">CSS Selector Specification
+        <code class="literal">querySelector()</code> and<code class="literal">
+        querySelectorAll()</code>. You can query by ID, class, tag, name,
+        or any combination of these. The <a class="ulink" href="http://www.w3.org/TR/css3-selectors/" target="_top">CSS Selector Specification
         guide</a> defines the formats of the selectors such as using a #
-        prefix to specify IDs and a period (.) for classes.</p><p>The query() function returns the first element that matches the
-        selector, while <span class="keep-together"><code class="literal">queryAll()</code> </span>returns a
-        collection of elements that match the selector.</p><pre class="screen"><em><span class="remark">lang-dart
+        prefix to specify IDs and a period (.) for classes.</p><p>The <code class="literal">querySelector()</code> function returns the
+        first element that matches the selector, while <span class="keep-together"><code class="literal">querySelectorAll()</code>
+        </span>returns a collection of elements that match the
+        selector.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
-</span></em>Element elem1 = query('#an-id');           // Find an element by id (an-id).
-Element elem2 = query('.a-class');         // Find an element by class (a-class).
-List&lt;Element&gt; elems1 = queryAll('div');    // Find all elements by tag (&lt;div&gt;).
-List&lt;Element&gt; elems2 = queryAll('input[type="text"]'); // Find all text inputs.
+</span></em>Element elem1 = querySelector('#an-id');           // Find an element by id (an-id).
+Element elem2 = querySelector('.a-class');         // Find an element by class (a-class).
+List&lt;Element&gt; elems1 = querySelectorAll('div');    // Find all elements by tag (&lt;div&gt;).
+List&lt;Element&gt; elems2 = querySelectorAll('input[type="text"]'); // Find all text inputs.
 
 // Find all elements with the CSS class 'class' inside of a &lt;p&gt;
 // that is inside an element with the ID 'id'.
-List&lt;Element&gt; elems3 = queryAll('#id p.class');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-elements"></a>Manipulating elements</h4></div></div></div><p>You can use properties to change the state of an element. Node
+List&lt;Element&gt; elems3 = querySelectorAll('#id p.class');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-elements"></a>Manipulating elements</h4></div></div></div><p>You can use properties to change the state of an element. Node
         and its subtype Element define the properties that all elements have.
-        For example, all elements have <code class="literal">classes</code>, <code class="literal">hidden</code>, <code class="literal">id</code>, <code class="literal">innerHtml</code>, <code class="literal">style</code>, <code class="literal">text</code>, and <code class="literal">title</code> properties. Subclasses of Element
-        define additional properties, such as the <code class="literal">href</code> property of <a class="ulink" href="http://api.dartlang.org/html/AnchorElement.html" target="_top">AnchorElement.</a></p><p>Consider this example of specifying an anchor element in
+        For example, all elements have <code class="literal">classes</code>, <code class="literal">hidden</code>, <code class="literal">id</code>, <code class="literal">style</code>, and <code class="literal">title</code> properties that you can use to set
+        state. Subclasses of Element define additional properties, such as the
+        <code class="literal">href</code> property of <a class="ulink" href="http://api.dartlang.org/html/AnchorElement.html" target="_top">AnchorElement.</a></p><p>Consider this example of specifying an anchor element in
         HTML:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>&lt;a id="example" href="http://example.com"&gt;link text&lt;/a&gt;</pre><p>This &lt;a&gt; tag specifies an element with an <code class="literal">href</code> attribute and a text node (accessible
@@ -742,7 +773,7 @@ List&lt;Element&gt; elems3 = queryAll('#id p.class');</pre></div><div class="sec
         can use AnchorElement’s <code class="literal">href</code>
         property:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
-</span></em>query('#example').href = 'http://dartlang.org';</pre><p>Often you need to set properties on multiple elements. For
+</span></em>querySelector('#example').href = 'http://dartlang.org';</pre><p>Often you need to set properties on multiple elements. For
         example, the following code sets the <code class="literal">hidden</code> property of all elements that have a
         class of “mac”, “win”, or “linux”. Setting the <code class="literal">hidden</code> property to true has the same effect
         as adding <code class="literal">display:none</code> to <span class="keep-together">the CSS</span>.</p><pre class="screen"><em><span class="remark">lang-dart
@@ -761,18 +792,16 @@ var userOs = 'linux'; // In real code you'd programmatically determine this.
 
 for (var os in osList) {            // For each possible OS...
   bool shouldShow = (os == userOs); // Does this OS match the user's OS?
-  for (var elem in queryAll('.$os')) { // Find all elements for this OS.
+  for (var elem in querySelectorAll('.$os')) { // Find all elements for this OS.
     elem.hidden = !shouldShow;      // Show or hide each element.
   }
 }</pre><p>When the right property isn’t available or convenient, you can
         use Element’s <code class="literal">attributes</code> property.
-        This property has the type <a class="ulink" href="http://api.dartlang.org/html/AttributeMap.html" target="_top">AttributeMap,</a>
-        which implements a <a class="link" href="ch03.html#ch03-maps-aka-dictionaries-or-hashes" title="Maps">map</a> with keys
-        that are strings (attribute names) and values that it automatically
-        converts to strings. For a list of attribute names and their meanings,
-        see the <a class="ulink" href="https://developer.mozilla.org/en/HTML/Attributes" target="_top">
-        MDN Attributes page.</a> Here’s an example of setting an
-        attribute’s value:</p><pre class="screen"><em><span class="remark">lang-dart
+        This property is a <code class="literal">Map&lt;String, String&gt;</code>, where
+        the keys are attribute names. For a list of attribute names and their
+        meanings, see the <a class="ulink" href="https://developer.mozilla.org/en/HTML/Attributes" target="_top">MDN Attributes
+        page.</a> Here’s an example of setting an attribute’s
+        value:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>elem.attributes['someAttribute'] = 'someValue';</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-creating-elements"></a>Creating elements</h4></div></div></div><p>You can add to existing HTML pages by creating new elements and
         attaching them to the DOM. Here’s an example of creating a paragraph
@@ -795,24 +824,23 @@ elem.text = 'Creating is easy!';</pre><p>You can also create an element by parsi
         <code class="literal">add()</code> method:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>// Find the parent by ID, and add elem as its last child.
-query('#inputs').nodes.add(elem);</pre><p>To replace a node, use the Node <code class="literal">replaceWith()</code>
+querySelector('#inputs').nodes.add(elem);</pre><p>To replace a node, use the Node <code class="literal">replaceWith()</code>
         method:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>// Find a node by ID, and replace it in the DOM.
-query('#status').replaceWith(elem);</pre><p>To remove a node, use the Node <code class="literal">remove()</code>
+querySelector('#status').replaceWith(elem);</pre><p>To remove a node, use the Node <code class="literal">remove()</code>
         method:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>// Find a node by ID, and remove it from the DOM.
-query('#expendable').remove();</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-styles"></a>Manipulating CSS styles</h4></div></div></div><p>CSS, or <span class="emphasis"><em>cascading style sheets</em></span>, is used to
-        define the presentation styles of DOM elements. You can change the
-        appearance of an element by attaching ID and class attributes to
-        it.</p><p>Each element has a <code class="literal">classes</code>
+querySelector('#expendable').remove();</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-manipulating-styles"></a>Manipulating CSS styles</h4></div></div></div><p>CSS, or <span class="emphasis"><em>cascading style sheets</em></span>, defines the
+        presentation styles of DOM elements. You can change the appearance of
+        an element by attaching ID and class attributes to it.</p><p>Each element has a <code class="literal">classes</code>
         field, which is a list. Add and remove CSS classes simply by adding
         and removing strings from this collection. For example, the following
         sample adds the <code class="literal">warning</code> class to an
         element:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
-</span></em>var element = query('#message');
+</span></em>var element = querySelector('#message');
 element.classes.add('warning');</pre><p>It’s often very efficient to find an element by ID. You can
         dynamically set an element ID with the <code class="literal">id</code> property:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
@@ -840,7 +868,7 @@ message.text = 'Please subscribe to the Dart mailing list.';</pre><p>You can red
         button:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>// Find a button by ID and add an event handler.
-query('#submitInfo').onClick.listen((e) {
+querySelector('#submitInfo').onClick.listen((e) {
   // When the button is clicked, it runs this code.
   submitData();
 });</pre><p>Events can propagate up and down through the DOM tree. To
@@ -850,8 +878,9 @@ query('#submitInfo').onClick.listen((e) {
   var clickedElem = e.target;
   print('You clicked the ${clickedElem.id} element.');
 });</pre><p>To see all the events for which you can register an event
-        listener, consult the API docs for <a class="ulink" href="http://api.dartlang.org/html/ElementEvents.html" target="_top">ElementEvents</a>
-        and its subclasses. Some common events include:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>change</p></li><li class="listitem"><p>blur</p></li><li class="listitem"><p>keyDown</p></li><li class="listitem"><p>keyUp</p></li><li class="listitem"><p>mouseDown</p></li><li class="listitem"><p>mouseUp</p></li></ul></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-httprequest"></a>Using HTTP Resources with HttpRequest</h3></div></div></div><p>Formerly known as XMLHttpRequest, the <span class="emphasis"><em><a class="ulink" href="http://api.dartlang.org/dart_html/HttpRequest.html" target="_top">HttpRequest</a></em></span>
+        listener, look for "on<em class="replaceable"><code>EventType</code></em>" properties
+        in the API docs for <a class="ulink" href="http://api.dartlang.org/dart_html/Element.html" target="_top">Element</a>
+        and its subclasses. Some common events include:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>change</p></li><li class="listitem"><p>blur</p></li><li class="listitem"><p>keyDown</p></li><li class="listitem"><p>keyUp</p></li><li class="listitem"><p>mouseDown</p></li><li class="listitem"><p>mouseUp</p></li></ul></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-httprequest"></a>Using HTTP Resources with HttpRequest</h3></div></div></div><p>Formerly known as XMLHttpRequest, the <a class="ulink" href="http://api.dartlang.org/dart_html/HttpRequest.html" target="_top">HttpRequest</a>
       class gives you access to HTTP resources from within your browser-based
       app. Traditionally, AJAX-style apps make heavy use of HttpRequest. Use
       HttpRequest to dynamically load JSON data or any other resource from a
@@ -883,7 +912,7 @@ processString(String jsonText) {
         <code class="literal">processString()</code>) runs when the data at the
         specified URI is successfully retrieved. In this case, we are
         dynamically loading a JSON file. Information about the JSON API is in
-        <a class="xref" href="ch03.html#ch03-json" title="dart:json - Encoding and Decoding Objects">the section called “dart:json - Encoding and Decoding Objects”</a>.</p><p>Add <code class="literal">.catchError()</code> after the call to
+        <a class="xref" href="ch03.html#ch03-json" title="Decoding and Encoding JSON">the section called “Decoding and Encoding JSON”</a>.</p><p>Add <code class="literal">.catchError()</code> after the call to
         <code class="literal">.then()</code> to specify an error handler:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03_html/ch03_2_html.dart
 </span></em>...
@@ -907,7 +936,7 @@ var xmlUri = 'data.xml';
 
 main() {
   // Read an XML file.
-  HttpRequest.request(uri)
+  HttpRequest.request(xmlUri)
       .then(processRequest)
       .catchError(handleError);
 }
@@ -915,7 +944,7 @@ main() {
 processRequest(HttpRequest request) {
   var xmlDoc = request.responseXml;
   try {
-    var license = xmlDoc.query('license').text;
+    var license = xmlDoc.querySelector('license').text;
     print('License: $license');
   } catch(e) {
     print('$xmlUri doesn\'t have correct XML formatting.');
@@ -924,13 +953,13 @@ processRequest(HttpRequest request) {
 ...</pre><p>You can also use the full API to handle more interesting cases.
         For example, you can set arbitrary headers.</p><p>The general flow for using the full API of HttpRequest is as
         follows:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Create the HttpRequest object.</p></li><li class="listitem"><p>Open the URL with either <code class="literal">GET</code> or <code class="literal">POST</code>.</p></li><li class="listitem"><p>Attach event handlers.</p></li><li class="listitem"><p>Send the request.</p></li></ol></div><p>For example:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">tutorial/servers/web/client.dart
+</span></em><em><span class="remark">dart-tutorials-samples/web/portmanteaux/portmanteaux.dart
 </span></em>import 'dart:html';
 ...
-var httpRequest = new HttpRequest();
-httpRequest.open('POST', dataUrl);
-httpRequest.onLoadEnd.listen((e) =&gt; loadEnd(httpRequest));
-httpRequest.send(encodedData);
+var httpRequest = new HttpRequest()
+    ..open('POST', dataUrl)
+    ..onLoadEnd.listen((_) =&gt; requestComplete(httpRequest))
+    ..send(encodedData);
 </pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_sending_data_to_the_server"></a>Sending data to the server</h4></div></div></div><p>HttpRequest can send data to the server using the HTTP method
         POST. For example, you might want to dynamically submit data to a form
         handler. Sending JSON data to a RESTful web service is another common
@@ -973,67 +1002,68 @@ main() {
       data transmitted over a WebSocket can be a string, a blob, or an <a class="ulink" href="http://api.dartlang.org/html/ArrayBuffer.html" target="_top">ArrayBuffer.</a>
       Often, the data is a JSON-formatted string.</p><p>To use a WebSocket in your web app, first create a <a class="ulink" href="http://api.dartlang.org/html/WebSocket.html" target="_top">WebSocket</a>
       object, passing the WebSocket URL as an argument:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>var webSocket = new WebSocket('ws://127.0.0.1:1337/ws');</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-sending-data"></a>Sending data</h4></div></div></div><p>To send string data on the WebSocket, use the
+github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
+</span></em>var ws = new WebSocket('ws://echo.websocket.org');</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-sending-data"></a>Sending data</h4></div></div></div><p>To send string data on the WebSocket, use the
         <code class="literal">send()</code> method:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>sendMessage(String data) {
-  if (webSocket.readyState == WebSocket.OPEN) {
-    webSocket.send(data);
-  } else {
-    throw 'WebSocket not connected, message $data not sent';
-  }
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-receiving-data"></a>Receiving data</h4></div></div></div><p>To receive data on the WebSocket, register a listener for
+</span></em><em><span class="remark">github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
+</span></em>ws.send('Hello from Dart!');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-receiving-data"></a>Receiving data</h4></div></div></div><p>To receive data on the WebSocket, register a listener for
         message events:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>webSocket.onMessage.listen((MessageEvent e) {
-  receivedMessage(e.data);
+<em><span class="remark">github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
+</span></em></span></em>ws.onMessage.listen((MessageEvent e) {
+  print('Received message: ${e.data}');
 });</pre><p>The message event handler receives a <a class="ulink" href="http://api.dartlang.org/html/MessageEvent.html" target="_top">MessageEvent</a>
         object. This object’s <code class="literal">data</code> field
-        has the data from the server. Here’s an example of decoding a JSON
-        string sent on a WebSocket, where the JSON string has two fields,
-        “from” and “content”:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>// Called from the message listener like this: receivedMessage(e.data)
-receivedMessage(String data) {
-  Map message = json.parse(data);
-  if (message['from'] != null) {
-    print('Message from ${message['from']}: ${message['content']}');
-  }
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-websocket-events"></a>Handling WebSocket events</h4></div></div></div><p><a class="ulink" href="http://api.dartlang.org/html/WebSocketEvents.html" target="_top">WebSocketEvents</a>
+        has the data from the server.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-websocket-events"></a>Handling WebSocket events</h4></div></div></div><p><a class="ulink" href="http://api.dartlang.org/html/WebSocketEvents.html" target="_top">WebSocketEvents</a>
         defines the WebSocket events your app can handle: open, close, error,
         and (as shown above) message. Here’s an example of a method that
-        creates a WebSocket object and handles message, open, close, and error
-        events:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>connectToWebSocket([int retrySeconds = 2]) {
-  bool reconnectScheduled = false;
-  webSocket = new WebSocket(url);
-  
-  scheduleReconnect() {
-    print('web socket closed, retrying in $retrySeconds seconds');
+        creates a WebSocket object and registers handlers for open, close,
+        error, and message events:</p><pre class="screen"><em><span class="remark">lang-dart
+<em><span class="remark">github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
+</span></em></span></em>void initWebSocket([int retrySeconds = 2]) {
+  var reconnectScheduled = false;
+
+  print("Connecting to websocket");
+  ws = new WebSocket('ws://echo.websocket.org');
+
+  void scheduleReconnect() {
     if (!reconnectScheduled) {
-      new Timer(new Duration(seconds:retrySeconds),
-        () =&gt; connectToWebSocket(retrySeconds*2));
+      new Timer(new Duration(milliseconds: 1000 * retrySeconds), () =&gt; initWebSocket(retrySeconds * 2));
     }
     reconnectScheduled = true;
   }
-  
-  webSocket.onOpen.listen((e) {
+
+  ws.onOpen.listen((e) {
     print('Connected');
+    ws.send('Hello from Dart!');
   });
-  
-  webSocket.onClose.listen((e) =&gt; scheduleReconnect());
-  webSocket.onError.listen((e) =&gt; scheduleReconnect());
-  
-  webSocket.onMessage.listen((MessageEvent e) {
-    _receivedEncodedMessage(e.data);
+
+  ws.onClose.listen((e) {
+    print('Websocket closed, retrying in $retrySeconds seconds');
+    scheduleReconnect();
   });
-}</pre><p>For an example of using WebSockets, see <a lang="" class="xref" href="ch05.html" title="Chapter 5. Walkthrough: Dart Chat">Chapter 5, <i>Walkthrough: Dart Chat</i></a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-html"></a>More information</h3></div></div></div><p>This section barely scratched the surface of using the dart:html
-      library. For more information, see the documentation for <a class="ulink" href="http://api.dartlang.org/dart_html.html" target="_top">dart:html.</a> Dart has
-      additional libraries for more specialized web APIs, such as <a class="ulink" href="http://api.dartlang.org/dart_web_audio.html" target="_top">web audio.</a>
-      Finally, don’t miss the <a class="ulink" href="http://www.dartlang.org/articles/web-ui/" target="_top">Web UI
-      package.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartisolate---concurrency-with-isolates"></a>dart:isolate - Concurrency with Isolates</h2></div></div></div><p>Dart has no shared-memory threads. Instead, all Dart code runs in
+
+  ws.onError.listen((e) {
+    print("Error connecting to ws");
+    scheduleReconnect();
+  });
+
+  ws.onMessage.listen((MessageEvent e) {
+    print('Received message: ${e.data}');
+  });
+}</pre><p>For more information and examples of using WebSockets, see the
+        <a class="ulink" href="http://www.dartlang.org/samples/" target="_top">Dart Code
+        Samples.</a></p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-html"></a>More information</h3></div></div></div><p>This section barely scratched the surface of using the dart:html
+      library. For more information, see the documentation for <a class="ulink" href="http://api.dartlang.org/dart_html.html" target="_top">dart:html</a> and the
+      code and explanations in the <a class="ulink" href="http://www.dartlang.org/samples/" target="_top">Dart Code Samples.</a> Dart
+      has additional libraries for more specialized web APIs, such as <a class="ulink" href="http://api.dartlang.org/dart_web_audio.html" target="_top">web audio,</a>
+      <a class="ulink" href="http://api.dartlang.org/dart_indexed_db.html" target="_top">IndexedDB</a>,
+      and <a class="ulink" href="http://api.dartlang.org/dart_web_gl.html" target="_top">WebGL</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartisolate---concurrency-with-isolates"></a>dart:isolate - Concurrency with Isolates</h2></div></div></div><p>Dart has no shared-memory threads. Instead, all Dart code runs in
     isolates, which communicate via message passing. Messages are copied
     before they are received, ensuring that no two isolates can manipulate the
     same object instance. Because state is managed by individual isolates, no
     locks or mutexes are needed, greatly simplifying concurrent
-    programming.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-isolate-concepts"></a>Isolate Concepts</h3></div></div></div><p>To use isolates, you should understand the following
+    programming.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The isolate API changed recently. We'll update this section to
+      reflect the new API. <em><span class="remark"> {PENDING: update!!!} </span></em></p></div><p class="remark"><em><span class="remark"><span style="color: red">&lt;p&gt;&lt;/p&gt;</span></span></em></p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-isolate-concepts"></a>Isolate Concepts</h3></div></div></div><p>To use isolates, you should understand the following
       concepts:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>No two isolates ever share the same thread at the same time.
           Within an isolate, callbacks execute one at a time, making the code
           more predictable.</p></li><li class="listitem"><p>All values in memory, including globals, are available only to
@@ -1041,127 +1071,27 @@ receivedMessage(String data) {
           another isolate.</p></li><li class="listitem"><p>The only way isolates can communicate with each other is by
           passing messages.</p></li><li class="listitem"><p>Isolates send messages using SendPorts, and receive them using
           ReceivePorts.</p></li><li class="listitem"><p>The content of a message can be any of the following:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>A primitive value (null, num, bool, double, String)</p></li><li class="listitem"><p>An instance of SendPort</p></li><li class="listitem"><p>A list or map whose elements are any of the above,
-              including other lists and maps</p></li><li class="listitem"><p>In <a class="link" href="ch03.html#ch03-sending-any-type-of-object" title="Sending any type of object">special
-              circumstances</a>, an object of any type</p></li></ul></div></li><li class="listitem"><p>Each isolate has a ReceivePort, which is available as the
-          <code class="literal">port</code> variable. Because all Dart
-          code runs inside an isolate, even <code class="literal">main()</code> has
-          access to a port object.</p></li><li class="listitem"><p>When a web application is compiled to JavaScript, its isolates
-          can be implemented as Web workers. When running in Dartium, isolates
-          run in the VM.</p></li><li class="listitem"><p>In the standalone VM, the <code class="literal">main()</code> function
-          runs in the first isolate (also known as the <span class="emphasis"><em>root
-          isolate</em></span>). When the root isolate terminates, it terminates
-          the whole VM, regardless of whether other isolates are still
-          running. For more information, see <a class="xref" href="ch03.html#ch03-keeping-the-root-isolate-alive" title="Keeping the root isolate alive">the section called “Keeping the root isolate alive”</a>.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-using-isolates"></a>Using Isolates</h3></div></div></div><p>To use an isolate, you import the <code class="literal">dart:isolate</code> library, spawn a new isolate, and
-      then send and receive messages.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-spawning-isolates"></a>Spawning isolates</h4></div></div></div><p>Any top-level function or static method<a href="#ftn.ch03-isolate-footnote-1" class="footnote" name="ch03-isolate-footnote-1"><sup class="footnote">[2]</sup></a> is a valid entry point for an isolate. The entry point
-        should not expect arguments and should return void. It is illegal to
-        use a function closure as an entry point to an isolate. Pass the entry
-        point to <code class="literal">spawnFunction()</code>.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:isolate';
-
-runInIsolate() {
-  print('hello from an isolate!');
-}
-
-main() {
-  spawnFunction(runInIsolate);
-
-  // Note: incomplete.
-  // Use a ReceivePort (details below) to keep the root isolate alive
-  // long enough for runInIsolate() to perform its work.
-}</pre><p>We plan to support spawning an isolate from code at a
-        URI.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-sending-messages"></a>Sending messages</h4></div></div></div><p>Send a message to an isolate via a SendPort. The
-        <code class="literal">spawnFunction()</code> method returns a handle to the
-        newly created isolate’s SendPort.</p><p>To simply send a message, use <code class="literal">send()</code>:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:isolate';
-
-echo() {
-  // Receive messages here. (See the next section.)
-}
-
-main() {
-  var sendPort = spawnFunction(echo);
-  sendPort.send('Hello from main');
-
-  // Note: incomplete.
-  // Use a ReceivePort (details below) to keep the root isolate alive
-  // long enough for echo() to perform its work.
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-sending-any-type-of-object"></a>Sending any type of object</h4></div></div></div><p>In special circumstances (such as when using
-        <code class="literal">spawnFunction()</code> inside the Dart VM), it is possible
-        to send any type of object to an isolate.<a href="#ftn.ch03-isolate-footnote-2" class="footnote" name="ch03-isolate-footnote-2"><sup class="footnote">[3]</sup></a> The object message is copied when sent.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-receiving-messages"></a>Receiving messages</h4></div></div></div><p>Use a ReceivePort to receive messages sent to an isolate. Obtain
-        a handle to the default ReceivePort from the top-level <code class="literal">port</code> property. You can also create new
-        instances of ReceivePort, if you want to route messages to different
-        ports and callbacks.</p><p>Handle an incoming message with a callback function passed to
-        the <code class="literal">receive()</code> method:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>import 'dart:isolate';
-echo() {
-  port.receive((msg, reply) {
-    print('I received: $msg');
-  });
-}
-
-main() {
-  var sendPort = spawnFunction(echo);
-  sendPort.send('Hello from main');
-
-  // Note: incomplete.
-  // Use a ReceivePort (details below) to keep the root isolate alive
-  // long enough for echo() to perform its work.
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-receiving-replies"></a>Receiving replies</h4></div></div></div><p>Use the <code class="literal">call()</code> method on SendPort as a simple
-        way to send a message and receive a reply. The
-        <code class="literal">call()</code> method returns a Future for the
-        reply.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:isolate';
-
-echo() {
-  port.receive((msg, reply) {
-    reply.send('I received: $msg');
-  });
-}
-
-main() {
-  var sendPort = spawnFunction(echo);
-  sendPort.call('Hello from main').then((reply) {
-    print(reply);    // I received: Hello from main
-  });
-}</pre><p>Under the covers, the <code class="literal">call()</code> method creates
-        and manages a SendPort and a ReceivePort, which are necessary for a
-        call-and-response message exchange.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-keeping-the-root-isolate-alive"></a>Keeping the root isolate alive</h4></div></div></div><p>In the VM, an isolate continues to run as long as it has an open
-        ReceivePort inside the isolate. If the <code class="literal">main()</code>
-        function only starts other isolates, doing no work itself, you must
-        keep the root isolate alive to keep the program alive.</p><p>To keep a root isolate alive, open a ReceivePort in the root
-        isolate. When all the child isolates have finished their work, you can
-        send a message to the root isolate to close its ReceivePort, thus
-        stopping the program.</p><p>You can coordinate isolates with message passing, sending a
-        message to inform the root isolate when a child isolate finishes. Here
-        is an example:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:isolate';
-
-childIsolate() {
-  port.receive((msg, replyTo) {
-    print('doing some work');
-    if (replyTo != null) replyTo.send('shutdown');
-  });
-}
-
-main() {
-  var sender = spawnFunction(childIsolate);
-  var receiver = new ReceivePort();
-  receiver.receive((msg, _) {
-    if (msg == 'shutdown') {
-      print('shutting down');
-      receiver.close();
-    }
-  });
-  sender.send('do work please', receiver.toSendPort());
-}</pre><p>In the above example, the child isolate runs to completion
-        because the root isolate keeps a ReceivePort open. The root isolate
-        creates a ReceivePort to wait for a shutdown message. The term
-        shutdown is arbitrary; the ReceivePort simply needs to wait for some
-        signal.</p><p>Once the root isolate receives a shutdown message, it closes the
-        ReceivePort. With the ReceivePort closed and nothing else to do, the
-        root isolate terminates, causing the app to exit.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-11"></a>More Information</h3></div></div></div><p>See the API docs for the <a class="ulink" href="http://api.dartlang.org/dart_isolate.html" target="_top">dart:isolate
+              including other lists and maps</p></li></ul></div></li></ul></div><p class="remark"><em><span class="remark">Deleted this additional content type: "In special
+      circumstances(ch03-sending-any-type-of-object), an object of any type."
+      Also deleted the following bulleted items: (1) Each isolate has a
+      ReceivePort, which is available as the <code class="literal">port</code> variable. Because all Dart code runs
+      inside an isolate, even <code class="literal">main()</code> has access to a port
+      object. (2) When a web application is compiled to JavaScript, its
+      isolates can be implemented as Web workers. When running in Dartium,
+      isolates run in the VM. (3) In the standalone VM, the
+      <code class="literal">main()</code> function runs in the first isolate (also known
+      as the <span class="emphasis"><em>root isolate</em></span>). When the root isolate
+      terminates, it terminates the whole VM, regardless of whether other
+      isolates are still running. For more information, see
+      ch03-keeping-the-root-isolate-alive.</span></em></p><p class="remark"><em><span class="remark">Removed section on Using Isolates(ch03-using-isolates)
+      (subsections: [Spawning isolates](ch03-spawning-isolates), [Sending
+      messages](ch03-sending-messages), [Sending any type of
+      object](ch03-sending-any-type-of-object), [Receiving
+      messages](ch03-receiving-messages) [Receivingn
+      replies](ch03-receiving-replies) [Keeping the root isolate
+      alive](ch03-keeping-the-root-isolate-alive)).</span></em></p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-11"></a>More Information</h3></div></div></div><p>See the API docs for the <a class="ulink" href="http://api.dartlang.org/dart_isolate.html" target="_top">dart:isolate
       library,</a> as well as for <a class="ulink" href="http://api.dartlang.org/dart_isolate/SendPort.html" target="_top">SendPort</a>
-      and <a class="ulink" href="http://api.dartlang.org/dart_isolate/ReceivePort.html" target="_top">ReceivePort</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartio---file-and-socket-io-for-command-line-apps"></a>dart:io - I/O for Command-Line Apps</h2></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/io.html" target="_top">dart:io
+      and <a class="ulink" href="http://api.dartlang.org/dart_isolate/ReceivePort.html" target="_top">ReceivePort.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dartio---file-and-socket-io-for-command-line-apps"></a>dart:io - I/O for Command-Line Apps</h2></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/io.html" target="_top">dart:io
     library</a> provides APIs to deal with files, directories, processes,
     sockets, and HTTP connections. Only command-line apps can use dart:io—not
     web apps.</p><p>In general, the dart:io library implements and promotes an
@@ -1174,13 +1104,13 @@ main() {
       and browse directories. You have two choices for reading the contents of
       a file: all at once, or streaming. Reading a file all at once requires
       enough memory to store all the contents of the file. If the file is very
-      large or you want to process it while reading it, you should use an
+      large or you want to process it while reading it, you should use a
       Stream, as described in <a class="xref" href="ch03.html#ch03-streaming-file-contents" title="Streaming file contents">the section called “Streaming file contents”</a>.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-reading-a-file-as-text"></a>Reading a file as text</h4></div></div></div><p>When reading a text file, you can read the entire file contents
         with <code class="literal">readAsString()</code>. When the individual lines are
         important, you can use <code class="literal">readAsLines()</code>. In both
         cases, a Future object is returned that provides the contents of the
         file as one or more strings.</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">ch03/textRead.dart
+ch03/textRead.dart
 </span></em>import 'dart:io';
 
 main() {
@@ -1207,10 +1137,9 @@ main() {
   config.readAsBytes().then((List&lt;int&gt; contents) {
     print('The entire file is ${contents.length} bytes long');
   });
-}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-errors"></a>Handling errors</h4></div></div></div><p>Errors are thrown as exceptions if you do not register an
-        explicit handler. If you want to capture an error, you can register a
-        <code class="literal">catchError</code> handler with the Future
-        object:</p><pre class="screen"><em><span class="remark">lang-dart
+}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-errors"></a>Handling errors</h4></div></div></div><p>To capture errors so they don't result in exceptions, you can
+        register a <code class="literal">catchError</code>
+        handler:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/fileErrors.dart
 </span></em>import 'dart:io';
 
@@ -1227,6 +1156,7 @@ main() {
         executes.</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/readFile.dart
 </span></em>import 'dart:io';
+import 'dart:convert';
 import 'dart:async';
 
 main() {
@@ -1234,18 +1164,15 @@ main() {
   Stream&lt;List&lt;int&gt;&gt; inputStream = config.openRead();
 
   inputStream
-    .transform(new StringDecoder())
-    .transform(new LineTransformer())
+    .transform(UTF8.decoder)
+    .transform(new LineSplitter())
     .listen(
       (String line) { 
         print('Read ${line.length} bytes from stream');
       },
       onDone: () { print('file is now closed'); },
       onError: (e) { print(e.toString()); });
-}</pre><p>To decode from bytes into characters, wrap the stream with a
-        <a class="ulink" href="http://api.dartlang.org/dart_io/StringDecoder.html" target="_top">StringDecoder.</a>
-        You can read the strings either as data becomes available or one line
-        at a time.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-writing-file-contents"></a>Writing file contents</h4></div></div></div><p>You can use an <a class="ulink" href="http://api.dartlang.org/dart_io/IOSink.html" target="_top">IOSink</a> to
+}</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-writing-file-contents"></a>Writing file contents</h4></div></div></div><p>You can use an <a class="ulink" href="http://api.dartlang.org/dart_io/IOSink.html" target="_top">IOSink</a> to
         write data to a file. Use the File <code class="literal">openWrite()</code>
         method to declare a mode and get an IOSink that you can write to. The
         default mode, <code class="literal">FileMode.WRITE</code>,
@@ -1258,7 +1185,7 @@ sink.close();</pre><p>To add to the end of the file, use the optional
         <code class="literal">mode</code> parameter to specify
         <code class="literal">FileMode.APPEND</code>:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/writeFile.dart
-</span></em>var sink = logFile.openWrite(mode: FileMode.APPEND); </pre><p>To write binary data, use <code class="literal">add(List&lt;int&gt; buffer)</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-listing-files-in-a-directory"></a>Listing files in a directory</h4></div></div></div><p>Finding all files and subdirectories for a directory is an
+</span></em>var sink = logFile.openWrite(mode: FileMode.APPEND); </pre><p>To write binary data, use <code class="literal">add(List&lt;int&gt; data)</code>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-listing-files-in-a-directory"></a>Listing files in a directory</h4></div></div></div><p>Finding all files and subdirectories for a directory is an
         asynchronous operation. The <code class="literal">list()</code> method returns a
         Stream on which you can register handlers (using
         <code class="literal">listen()</code>) to be notified when a file or directory
@@ -1286,11 +1213,7 @@ main() {
             File and Directory</p></li><li class="listitem"><p>Getting the length of a file: <code class="literal">length()</code> in
             File</p></li><li class="listitem"><p>Getting random access to a file: <code class="literal">open()</code>
             in File</p></li></ul></div><p>Refer to the API docs for <a class="ulink" href="http://api.dartlang.org/io/File.html" target="_top">File</a> and <a class="ulink" href="http://api.dartlang.org/io/Directory.html" target="_top">Directory</a> for
-        a full list of methods.</p><p>Besides the APIs discussed in this section, the dart:io library
-        also provides APIs for <a class="ulink" href="http://api.dartlang.org/io/Process.html" target="_top">processes,</a>
-        <a class="ulink" href="http://api.dartlang.org/io/Socket.html" target="_top">sockets,</a>
-        and <a class="ulink" href="http://api.dartlang.org/io/WebSocket.html" target="_top">web
-        sockets.</a></p><p>For more examples of using dart:io, see <a lang="" class="xref" href="ch05.html" title="Chapter 5. Walkthrough: Dart Chat">Chapter 5, <i>Walkthrough: Dart Chat</i></a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-io-http"></a>HTTP Clients and Servers</h3></div></div></div><p>The dart:io library provides classes that command-line apps can
+        a full list of methods.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-io-http"></a>HTTP Clients and Servers</h3></div></div></div><p>The dart:io library provides classes that command-line apps can
       use for accessing HTTP resources, as well as running HTTP
       servers.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_http_server"></a>HTTP server</h4></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/dart_io/HttpServer.html" target="_top">HttpServer</a>
         class provides the low-level functionality for building web servers.
@@ -1322,7 +1245,12 @@ main() {
       }
     });
   });
-}</pre><p>You can see a more comprehensive HTTP server in <a class="xref" href="ch05.html#ch05-server" title="The Server’s Code">the section called “The Server’s Code”</a>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_http_client"></a>HTTP client</h4></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/dart_io/HttpClient.html" target="_top">HttpClient</a>
+}</pre><p>For a more comprehensive HTTP server, see the <a class="ulink" href="https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/" target="_top">dartiverse_search</a>
+        example, which uses additional packages such as <a class="ulink" href="https://pub.dartlang.org/packages/http_server" target="_top">http_server</a>
+        and <a class="ulink" href="http://pub.dartlang.org/packages/route" target="_top">route</a>.<em><span class="remark">
+        {PENDING: point to the <a class="ulink" href="http://www.dartlang.org/samples/" target="_top">Dart Code Samples</a>
+        instead? Need to come up with a good way of pointing to
+        samples.}</span></em></p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="_http_client"></a>HTTP client</h4></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/dart_io/HttpClient.html" target="_top">HttpClient</a>
         class helps you connect to HTTP resources from your Dart command-line
         or server-side application. You can set headers, use HTTP methods, and
         read and write data. The HttpClient class does not work in
@@ -1330,6 +1258,7 @@ main() {
         of using HttpClient:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/httpClient.dart
 </span></em>import 'dart:io';
+import 'dart:convert';
 
 main() {
   var url = Uri.parse('http://127.0.0.1:8888/languages/dart');
@@ -1341,19 +1270,24 @@ main() {
     })
     .then((HttpClientResponse response) {
       print('have response');
-      response.transform(new StringDecoder()).toList().then((data) {
+      response.transform(UTF8.decoder).toList().then((data) {
         var body = data.join('');
         print(body);
         httpClient.close();
       });
     });
-}</pre></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-json"></a>dart:json - Encoding and Decoding Objects</h2></div></div></div><p><a class="ulink" href="http://www.json.org/" target="_top">JSON</a> is a simple text
-    format for representing structured objects and collections. The <a class="ulink" href="http://api.dartlang.org/json.html" target="_top">JSON library</a> decodes
-    JSON-formatted strings into Dart objects, and encodes objects into
-    JSON-formatted strings.</p><p>The Dart JSON library works in both web apps and command-line apps.
-    To use the JSON library, import <code class="literal">dart:json</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-json-decoding"></a>Decoding JSON</h3></div></div></div><p>Decode a JSON-encoded string into a Dart object with
-      <code class="literal">json.parse()</code>:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:json' as json;
+}</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-io"></a>More Information</h3></div></div></div><p>Besides the APIs discussed in this section, the dart:io library
+      also provides APIs for <a class="ulink" href="http://api.dartlang.org/io/Process.html" target="_top">processes,</a> <a class="ulink" href="http://api.dartlang.org/io/Socket.html" target="_top">sockets,</a> and <a class="ulink" href="http://api.dartlang.org/io/WebSocket.html" target="_top">web
+      sockets.</a></p><p>For more examples of using dart:io, see the <a class="ulink" href="http://www.dartlang.org/samples/" target="_top">Dart Code Samples.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-convert"></a>dart:convert - Decoding and Encoding JSON, UTF-8, and more</h2></div></div></div><p>The <a class="ulink" href="http://api.dartlang.org/dart_convert.html" target="_top">dart:convert
+    library</a> has converters for JSON and UTF-8, as well as support for
+    creating additional converters. JSON is a simple text format for
+    representing structured objects and collections. UTF-8 is a common
+    variable-width encoding that can represent every character in the Unicode
+    character set.</p><p>The dart:convert library works in both web apps and command-line
+    apps. To use it, import dart:convert.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-json"></a>Decoding and Encoding JSON</h3></div></div></div><p>Decode a JSON-encoded string into a Dart object with
+      <code class="literal">JSON.decode()</code>:</p><pre class="screen"><em><span class="remark">lang-dart
+ch03/jsonParse.dart
+</span></em>import 'dart:convert' show JSON;
 
 main() {
   // NOTE: Be sure to use double quotes ("), not single quotes ('),
@@ -1365,21 +1299,16 @@ main() {
   ]
   ''';
 
-  var scores = json.parse(jsonString);
+  var scores = JSON.decode(jsonString);
   assert(scores is List);
 
   var firstScore = scores[0];
   assert(firstScore is Map);
   assert(firstScore['score'] == 40);
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-json-encoding"></a>Encoding JSON</h3></div></div></div><p>Encode a supported Dart object into a JSON-formatted string with
-      <code class="literal">json.stringify()</code>.</p><p>Only objects of type int, double, String, bool, null, List, or Map
-      can be encoded into JSON. List and Map objects are encoded
-      recursively.</p><p>If any object that isn’t an int, double, String, bool, null, List,
-      or Map is passed to <span class="keep-together"><code class="literal">stringify()</code>,</span> the
-      object’s <code class="literal">toJson()</code> method is called. If
-      <code class="literal">toJson()</code> returns an encodable value, that value is
-      encoded in the object’s place.</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>import 'dart:json' as json;
+}</pre><p>Encode a supported Dart object into a JSON-formatted string with
+      <code class="literal">JSON.encode()</code>:</p><pre class="programlisting"><em><span class="remark">lang-dart
+ch03/jsonStringify.dart
+</span></em>import 'dart:convert' show JSON;
 
 main() {
   var scores = [
@@ -1388,26 +1317,43 @@ main() {
     {'score': 100, 'overtime': true, 'special_guest': null}
   ];
 
-  var jsonText = json.stringify(scores);
+  var jsonText = JSON.encode(scores);
   assert(jsonText == '[{"score":40},{"score":80},'
                      '{"score":100,"overtime":true,'
                      '"special_guest":null}]');
-}</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-utf"></a>dart:utf - Strings and Unicode</h2></div></div></div><p>The UTF library helps bridge the gap between strings and
-    UTF-8/UTF-16/UTF-32 encodings.</p><p>This library works in both web apps and command-line apps. To use
-    it, import <code class="literal">dart:utf</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-decode-utf8"></a>Decoding UTF-8 Characters</h3></div></div></div><p>Use <code class="literal">decodeUtf8()</code> to decode UTF8-encoded bytes
+}</pre><p>Only objects of type int, double, String, bool, null, List, or Map
+      (with string keys) are directly encodable into JSON. List and Map
+      objects are encoded recursively.</p><p>You have two options for encoding objects that aren't directly
+      encodable. The first is to invoke <code class="literal">encode()</code> with a
+      second argument: a function that returns an object that is directly
+      encodable. Your second option is to omit the second argument, in which
+      case the encoder calls the object's <code class="literal">toJson()</code>
+      method.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf"></a>Decoding and Encoding UTF-8 Characters</h3></div></div></div><p>Use <code class="literal">UTF8.decode()</code> to decode UTF8-encoded bytes
       to a Dart string:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:utf';
+ch03/decodeUtf8.dart
+</span></em>import 'dart:convert' show UTF8;
 
 main() {
-  var string = decodeUtf8([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
+  var string = UTF8.decode([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
                            0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
                            0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
                            0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
                            0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1]);
   print(string); // 'Îñţérñåţîöñåļîžåţîờñ'
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-encode-utf8"></a>Encoding Strings to UTF-8 Bytes</h3></div></div></div><p>Use <code class="literal">encodeUtf8()</code> to encode a Dart string as a
+}</pre><p>To convert a stream of UTF-8 characters into a Dart string,
+      specify <code class="literal">UTF8.decoder</code> to the Stream
+      <code class="literal">transform()</code> method:</p><pre class="screen"><em><span class="remark">lang-dart
+ch03/readFile.dart
+</span></em>inputStream
+  .transform(UTF8.decoder)
+  .transform(new LineSplitter())
+  .listen(
+    (String line) { 
+      print('Read ${line.length} bytes from stream');
+    });</pre><p>Use <code class="literal">UTF8.encode()</code> to encode a Dart string as a
       list of UTF8-encoded bytes:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em>import 'dart:utf';
+ch03/encodeUtf8.dart
+</span></em>import 'dart:convert' show UTF8;
 
 main() {
   List&lt;int&gt; expected = [0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9, 0x72,
@@ -1416,7 +1362,7 @@ main() {
                         0xc5, 0xbe, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xe1,
                         0xbb, 0x9d, 0xc3, 0xb1];
 
-  List&lt;int&gt; encoded = encodeUtf8('Îñţérñåţîöñåļîžåţîờñ');
+  List&lt;int&gt; encoded = UTF8.encode('Îñţérñåţîöñåļîžåţîờñ');
 
   assert(() {
     if (encoded.length != expected.length) return false;
@@ -1425,106 +1371,70 @@ main() {
     }
     return true;
   });
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-other"></a>Other Functionality</h3></div></div></div><p>The UTF library can decode and encode UTF-16 and UTF-32 bytes. The
-      library can also convert directly to and from Unicode code points and
-      UTF8-encoded bytes. For details, see the <a class="ulink" href="http://api.dartlang.org/utf.html" target="_top">API docs for the UTF
-      library.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-mirrors"></a>dart:mirrors - Reflection</h2></div></div></div><p>The mirrors library provides basic reflection abilities to Dart. Use
-    mirrors to query the structure of your program, and to dynamically invoke
-    functions or methods at runtime.</p><p>Mirrors can give you information about objects and classes inside
-    the current isolate, as well as in other (possibly remote) isolates.
-    Therefore, the mirrors library often has two versions of each method:
-    synchronous (for working inside the current isolate) and asynchronous (for
-    working with another isolate). This section covers mirrors only as they
-    apply to the current isolate.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Mirrors can also work on static source code. For example, the
-      dartdoc tool (which generates HTML docs from Dart source code) uses
-      source-code mirrors.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-symbols"></a>Symbols</h3></div></div></div><p>The mirror system represents the names of Dart declarations
+}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-utf-other"></a>Other Functionality</h3></div></div></div><p>The dart:convert library also has converters for ASCII and ISO
+      Latin 1. For details, see the <a class="ulink" href="http://api.dartlang.org/dart_convert.html" target="_top">API docs for the
+      dart:convert library.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-mirrors"></a>dart:mirrors - Reflection</h2></div></div></div><p>The dart:mirrors library provides basic reflection abilities to
+    Dart. Use mirrors to query the structure of your program and to
+    dynamically invoke functions or methods at runtime. Mirrors can also work
+    on static source code. For example, the dartdoc tool (which generates HTML
+    docs from Dart source code) uses source-code mirrors.</p><p>The dart:mirrors library works in both web apps and command-line
+    apps. To use it, import dart:mirrors.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The dart:mirrors library is still under development. Its API might
+      change slightly as a result of user feedback.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-symbols"></a>Symbols</h3></div></div></div><p>The mirror system represents the names of Dart declarations
       (classes, fields, and so on) by instances of the class <a class="ulink" href="http://api.dartlang.org/dart_core/Symbol.html" target="_top">Symbol</a>.
       Symbols help compilers like dart2js produce efficient output, even when
-      minified.</p><p>When you know the name of the symbol ahead of time, use Symbol's
-      const constructor. This way, repeated uses of the same symbol can use
-      the same canonicalized instance. If the name of the symbol is determined
-      dynamically at runtime, use the factory constructor.</p><pre class="screen"><em><span class="remark">lang-dart
-      </span></em>// If the symbol name is known at compile time.
-const className = const Symbol('MyClass');
+      minified.</p><p>When you know the name of the symbol ahead of time, use a symbol
+      literal. This way, repeated uses of the same symbol can use the same
+      canonicalized instance. If the name of the symbol is determined
+      dynamically at runtime, use the Symbol constructor.</p><pre class="screen"><em><span class="remark">lang-dart
+ch03/mirrors.dart
+</span></em>import 'dart:mirrors';
+
+// If the symbol name is known at compile time.
+const className = #MyClass;
 
 // If the symbol name is dynamically determined.
 var userInput = askUserForNameOfFunction();
-var functionName = new Symbol(userInput);</pre><p>During minification, a compiler might replace a Symbol name with a
+var functionName = new Symbol(userInput);</pre><p>During minification, a compiler might replace a symbol name with a
       different (often smaller) name. To convert from a symbol back to a
       string, use <code class="literal">MirrorSystem.getName()</code>. This function
       returns the correct name, even if the code was minified.</p><pre class="screen"><em><span class="remark">lang-dart
-      </span></em>import 'dart:mirrors';
+ch03/mirrors.dart
+</span></em>import 'dart:mirrors';
 
-main() {
-  const name = const Symbol('MyClass');
-
-  assert('MyClass' == MirrorSystem.getName(name));
-}</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-introspection"></a>Introspection</h3></div></div></div><p>Use mirrors to introspect the running program's structure. You can
-      inspect classes, libraries, instances, and more.</p><p>The examples in this section use the following Person
-      class:</p><pre class="screen"><em><span class="remark">lang-dart
-      </span></em>class Person {
-  String firstName;
-  String lastName;
-  int age;
-  
-  Person(this.firstName, this.lastName, this.age);
-
-  String get fullName =&gt; '$firstName $lastName';
-
-  void greet(String other) {
-    print('Hello there, $other!');
-  }
-}</pre><p>To begin, you need to <span class="emphasis"><em>reflect</em></span> on a class or
-      object to get its <span class="emphasis"><em>mirror</em></span>.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-mirrors-class-inspect"></a>Class Mirrors</h4></div></div></div><p>Reflect on a Type to get its ClassMirror.</p><pre class="screen"><em><span class="remark">lang-dart
-        </span></em>ClassMirror mirror = reflectClass(Person);
-
-assert('Person' == MirrorSystem.getName(mirror.simpleName));</pre><p>You can also call <code class="literal">runtimeType</code> to get a Type
-        from an instance.</p><pre class="screen"><em><span class="remark">lang-dart
-        </span></em>var bob = new Person('Bob', 'Smith', 33);
-ClassMirror mirror = reflectClass(bob.runtimeType);
-
-assert('Person' == MirrorSystem.getName(mirror.simpleName));</pre><p>Once you have a ClassMirror, you can get a class's constructors,
+const className = #MyClass;
+assert('MyClass' == MirrorSystem.getName(className));
+</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-introspection"></a>Introspection</h3></div></div></div><p>Use mirrors to introspect the running program's structure. You can
+      inspect classes, libraries, instances, and more.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The dart:mirrors library changed recently. We'll update this
+        section soon to reflect the new API. <em><span class="remark"> {PENDING: update!!!}
+        Removed the following: The examples in this section use the following
+        Person class: class Person { String firstName; String lastName; int
+        age; Person(this.firstName, this.lastName, this.age); String get
+        fullName =&gt; '$firstName $lastName'; void greet(String other) {
+        print('Hello there, $other!'); } } To begin, you need to
+        <span class="emphasis"><em>reflect</em></span> on a class or object to get its
+        <span class="emphasis"><em>mirror</em></span>. SECT3: Class Mirrors. Reflect on a Type
+        to get its ClassMirror. {e.g.} You can also call
+        <code class="literal">runtimeType</code> to get a Type from an instance. {e.g.}
+        Once you have a ClassMirror, you can get a class's constructors,
         fields, and more. Here is an example of listing the constructors of a
-        class.</p><pre class="screen"><em><span class="remark">lang-dart
-        </span></em>showConstructors(ClassMirror mirror) {
-  Map&lt;Symbol, MethodMirror&gt; constructors = mirror.constructors;
-
-  constructors.forEach((s, m) {
-    print('The constructor $s has ${m.parameters.length} parameters.');
-  });
-}</pre><p>Here is an example of listing all of the fields declared by a
-        class.</p><pre class="screen"><em><span class="remark">lang-dart
-        </span></em>showFields(ClassMirror mirror) {
-  Map&lt;Symbol, VariableMirror&gt; fields = mirror.variables;
-
-  fields.forEach((s, v) {
-    var finalStatus = v.isFinal ? 'final' : 'not final';
-    var privateStatus = v.isPrivate ? 'private' : 'not private';
-    var typeAnnotation = v.type.simpleName;
-
-    print('The field $s is $privateStatus and $finalStatus and is annotated '
-          'as $typeAnnotation');
-  });
-}</pre><p>For a full list of methods, consult the <a class="ulink" href="http://api.dartlang.org/dart_mirrors/ClassMirror.html" target="_top">API docs
-        for ClassMirror</a>.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-mirrors-instance-inspect"></a>Instance Mirrors</h4></div></div></div><p>Reflect on an object to get an InstanceMirror.</p><pre class="screen"><em><span class="remark">lang-dart
-        </span></em>reflectOnInstance() {
-  var p = new Person('Bob', 'Smith', int);
-  InstanceMirror mirror = reflect(p);
-}</pre><p>If you have an InstanceMirror and you want to get the object
-        that it reflects, use <code class="literal">reflectee</code>. This works only if
-        the current isolate knows about the type of the reflectee. Remember,
-        mirrors work across isolates, and one isolate might contain a class
-        that is not in the current isolate.</p><pre class="screen"><em><span class="remark">lang-dart
-        </span></em>  var person = mirror.reflectee;
-  assert(identical(p, person));</pre><p>Once you have an InstanceMirror, you can invoke methods and call
-        getters and setters. For a full list of methods, consult the <a class="ulink" href="http://api.dartlang.org/dart_mirrors/InstanceMirror.html" target="_top">API
-        docs for InstanceMirror</a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-mirrors-invocation"></a>Invocation</h3></div></div></div><p>{PENDING: To be written}</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17969728"></a>get and set fields</h4></div></div></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17970496"></a>invoke</h4></div></div></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp17971264"></a>delegate</h4></div></div></div></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-summary"></a>Summary</h2></div></div></div><p>This chapter introduced you to the most commonly used functionality
+        class. {e.g.} Here is an example of listing all of the fields declared
+        by a class. {e.g.} For a full list of methods, consult the <a class="ulink" href="http://api.dartlang.org/dart_mirrors/ClassMirror.html" target="_top">API docs
+        for ClassMirror</a>. SECT3: Instance Mirrors. Reflect on an object
+        to get an InstanceMirror. {e.g.} If you have an InstanceMirror and you
+        want to get the object that it reflects, use
+        <code class="literal">reflectee</code>. This works only if the current isolate
+        knows about the type of the reflectee. Remember, mirrors work across
+        isolates, and one isolate might contain a class that is not in the
+        current isolate. Once you have an InstanceMirror, you can invoke
+        methods and call getters and setters. For a full list of methods,
+        consult the <a class="ulink" href="http://api.dartlang.org/dart_mirrors/InstanceMirror.html" target="_top">API
+        docs for InstanceMirror</a>. SECT2: Invocation. {PENDING: To be
+        written} SECT3: get and set fields. SECT3: invoke. SECT3: delegate
+        </span></em></p></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-summary"></a>Summary</h2></div></div></div><p>This chapter introduced you to the most commonly used functionality
     in many of Dart’s built-in libraries. It didn’t cover all the built-in
-    libraries, however. Other libraries you might want to look into include
-    <a class="ulink" href="http://api.dartlang.org/dart_collection.html" target="_top">dart:collection,</a>
-    <a class="ulink" href="http://api.dartlang.org/dart_convert.html" target="_top">dart:convert,</a>
-    <a class="ulink" href="http://api.dartlang.org/logging.html" target="_top">logging,</a> and
-    <a class="ulink" href="http://api.dartlang.org/unittest.html" target="_top"><span class="keep-together">unittest</span>.</a> You can use the pub tool,
-    discussed in the next chapter, to install additional Dart <span class="keep-together">libraries</span>.</p></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.ch03-isolate-footnote-1" class="footnote"><p><a href="#ch03-isolate-footnote-1" class="para"><sup class="para">[2] </sup></a>The dart2js compiler and the Dart VM do not yet support
-            static methods as isolate entry points. For details, see <a class="ulink" href="http://dartbug.com/3011" target="_top">http://dartbug.com/3011</a>.</p></div><div id="ftn.ch03-isolate-footnote-2" class="footnote"><p><a href="#ch03-isolate-footnote-2" class="para"><sup class="para">[3] </sup></a>Support for sending an arbitrary object to an isolate is not
-            yet available when compiling to JavaScript.</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. A Tour of the Dart Language </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 4. Tools</td></tr></table></div>
+    libraries, however. Others that you might want to look into include <a class="ulink" href="http://api.dartlang.org/dart_collection.html" target="_top">dart:collection,</a>
+    <a class="ulink" href="http://api.dartlang.org/dart_js.html" target="_top">dart:js,</a> and
+    <a class="ulink" href="http://api.dartlang.org/dart_typed_data.html" target="_top">dart:typed_data.</a>
+    You can get yet more libraries by using the pub tool, discussed in the
+    next chapter. The <a class="ulink" href="http://pub.dartlang.org/packages/args" target="_top">args,</a> <a class="ulink" href="http://api.dartlang.org/logging.html" target="_top">logging,</a> <a class="ulink" href="http://pub.dartlang.org/packages/polymer" target="_top">polymer,</a> and <a class="ulink" href="http://api.dartlang.org/unittest.html" target="_top"><span class="keep-together">unittest</span></a> libraries are just a
+    sampling of what you can install using pub.</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 2. A Tour of the Dart Language </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 4. Tools</td></tr></table></div>

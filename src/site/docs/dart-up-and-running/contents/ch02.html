@@ -260,18 +260,17 @@ var nobleGases = {
    10 : 'neon',
    18 : 'argon',
 };
-</pre><p>You can create the same objects using a Map constructor.</p><pre class="programlisting"><em><span class="remark">lang-dart
+</pre><p>You can create the same objects using a Map constructor:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/map_constructor.dart
 </span></em>var gifts = new Map();
-map['first'] = 'partridge';
-map['second'] = 'turtledoves';
-map['fifth'] = 'golden rings';
+gifts['first'] = 'partridge';
+gifts['second'] = 'turtledoves';
+gifts['fifth'] = 'golden rings';
 
 var nobleGases = new Map();
-map[2] = 'helium';
-map[10] = 'neon';
-map[18] = 'argon';
-</pre><p>Add a new key-value pair to an existing map just as you would in
+nobleGases[2] = 'helium';
+nobleGases[10] = 'neon';
+nobleGases[18] = 'argon';</pre><p>Add a new key-value pair to an existing map just as you would in
       JavaScript:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var gifts = { 'first': 'partridge' };
 gifts['fourth'] = 'calling birds';    // Add a key-value pair</pre><p>Retrieve a value from a map the same way you would in
@@ -795,7 +794,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
     <em class="firstterm">constructor</em> for a class. Constructor names can be
     either <span class="emphasis"><em><em class="replaceable"><code>ClassName</code></em></em></span> or
     <em class="replaceable"><code>ClassName.identifier</code></em>. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>var jsonData = json.parse('{"x":1, "y":2}');
+</span></em>var jsonData = JSON.decode('{"x":1, "y":2}');
 
 var p1 = new Point(2,2);               // Create a Point using Point().
 var p2 = new Point.fromJson(jsonData); // Create a Point using Point.fromJson().</pre><p>Objects have <em class="firstterm">members</em> consisting of functions
