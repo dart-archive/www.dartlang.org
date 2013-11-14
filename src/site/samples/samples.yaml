@@ -216,7 +216,7 @@ col1:
         title: WebSockets 101
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics#websockets-101
         tryit_url: websockets/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basic
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics
         description: Example that opens a WebSocket connection to an echo server, and sends and receives data.
       -
         title: Basic HTML5 drag and drop
