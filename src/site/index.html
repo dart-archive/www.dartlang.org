@@ -115,17 +115,17 @@ class Fibonacci {                     // Define a class.
 <pre class="prettyprint lang-dart">
 import 'dart:math' show PI;
 
-List shapes = <a href="#" class="dart-popover" data-toggle="popover" title="Short for new List()" data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">[]</a>;                      // Use literals to create lists.
-addShape(shape) <a href="#" class="dart-popover" data-toggle="popover" title="Fat-arrow is short for { return expr } ." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">=></a> shapes.add(shape); // Function shorthand syntax.
+List shapes = <a href="#" class="dart-popover" data-toggle="popover" title="Empty list literal" data-html="true" data-trigger="hover focus" data-content="Empty square brackets form an empty list literal, which creates a new, empty List object. This is equivalent to new List().">[]</a>;                     // Use literals to create lists.
+addShape(shape) <a href="#" class="dart-popover" data-toggle="popover" title="Fat-arrow syntax" data-html="true" data-trigger="hover focus" data-content="The function on the left-hand side of the fat arrow (in this case, addShape) returns the value on the right-hand side of the fat arrow.">=></a> shapes.add(shape); // Function shorthand syntax.
 
 main() {
   // The cascade operator (..) saves you from repetitive typing.
-  addShape(new Ellipse(10, 20)<a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator lets you join method calls to a single object." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..</a>rotation = 45*PI/180
-                              <a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator lets you join method calls to a single object." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..</a>color = 'rgb(0,129,198)'
-                              <a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator lets you join method calls to a single object." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">..</a>outlineWidth = 0);
+  addShape(new Ellipse(10, 20)<a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator" data-html="true" data-trigger="hover focus" data-content="The cascade operator lets you chain multiple method calls and member references to the same object.">..</a>rotation = 45*PI/180
+                              <a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator" data-html="true" data-trigger="hover focus" data-content="The cascade operator lets you chain multiple method calls and member references to the same object.">..</a>color = 'rgb(0,129,198)'
+                              <a href="#" class="dart-popover" data-toggle="popover" title="Cascade operator" data-html="true" data-trigger="hover focus" data-content="The cascade operator lets you chain multiple method calls and member references to the same object.">..</a>outlineWidth = 0);
 
   // You can easily insert expression values into strings.
-  print('Area of the first shape: <a href="#" class="dart-popover" data-toggle="popover" title="Insert expressions into strings." data-html="true" data-trigger="hover focus" data-content="This is a note about a particular feature of the code.">${shapes[0].area}</a>');
+  print('Area of the first shape: <a href="#" class="dart-popover" data-toggle="popover" title="Insert expressions into strings" data-html="true" data-trigger="hover focus" data-content="Use ${expression} to insert the value of an expression into a string. The expression is evaluated and converted to a string.">${shapes[0].area}</a>');
 }
 
 class Ellipse {
@@ -177,18 +177,18 @@ class Ellipse {
                 <div class="item active">
                   <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
                   <div class="code-hldr">        
-{% prettify dart %}
-Map famousDuos = { 'Han Solo': 'Chewbacca',     // Map literal.
+<pre class="prettyprint lang-dart">
+Map famousDuos = { 'Han Solo': 'Chewbacca',      // Map literal.
                    'Bonnie': 'Clyde',
                    'Laurel': 'Hardy' };
 List myFriends = [ 'Seth', 'Kathy', 'Shailen' ]; // List literal.
 
-// Create lists and maps from Iterable objects.
+// Create lists and maps from <a href="#" class="dart-popover" data-toggle="popover" title="Iterables" data-html="true" data-trigger="hover focus" data-content="An Iterable object uses an Iterator to serve objects one at a time. Maps, lists, and sets are all examples of Iterable objects.">Iterable</a> objects.
 List shuffledSidekicks = new List.from(famousDuos.values)..shuffle();
 Map mixedDuos = new Map.fromIterables(famousDuos.keys, shuffledSidekicks);
 
 // Iteration.
-mixedDuos.forEach((k, v) { print('$k, $v'); });
+mixedDuos.<a href="#" class="dart-popover" data-toggle="popover" title="Iteration with forEach()" data-html="true" data-trigger="hover focus" data-content="The forEach() method calls the provided function for each key-value pair in the Map object, passing in both the key and the value. In this example, the function just prints the key and value.">forEach((k, v) { print('$k, $v'); });</a>
 
 // Some lists, maps, and sets are growable.
 Set setOfMyFriends = new Set.from(myFriends);
@@ -198,7 +198,7 @@ famousPeople.addAll(famousDuos.keys);
 // Rich set of functionality for collections.
 print(famousPeople.intersection(setOfMyFriends).isEmpty);
 print(famousPeople.union(setOfMyFriends).length);
-{% endprettify %}
+</pre>
                   </div>
                 </div>
                 <div class="item">
@@ -206,19 +206,19 @@ print(famousPeople.union(setOfMyFriends).length);
                   <div class="code-hldr">   
 <pre class="prettyprint lang-dart">
 // Get a stream of key-press events from an element:
-querySelector('textarea').onKeyPress
+querySelector('textarea').<a href="#" class="dart-popover" data-toggle="popover" title="onKeyPress" data-html="true" data-trigger="hover focus" data-content="The onKeyPress field of an element is an instance of ElementStream, which provides notifications about key press events on the element.">onKeyPress</a>
+
   // Filter the stream, getting a stream of events only for certain key codes:
-  .where((e) => e.keyCode >= 32 && e.keyCode <= 122)
+  <a href="#" class="dart-popover" data-toggle="popover" title="where()" data-html="true" data-trigger="hover focus" data-content="where() is a method in Stream that filters out some events.">.where</a>((e) => e.keyCode >= 32 && e.keyCode <= 122)
+
   // Convert those key codes, getting a stream of corresponding characters:
-  .map((e) => new String.fromCharCode(e.charCode))
+  <a href="#" class="dart-popover" data-toggle="popover" title="map()" data-html="true" data-trigger="hover focus" data-content="map() is a method in Stream that converts each item in the stream to a new value using the function provided.">.map</a>((e) => new String.fromCharCode(e.charCode))
+
   // Ask for the first character, getting a Future.
-  .first
+  <a href="#" class="dart-popover" data-toggle="popover" title="first" data-html="true" data-trigger="hover focus" data-content="first is a property in Stream that returns the first element of the stream by way of a Future.">.first</a>
+
   // When the Future completes, print the first character to the console.
-  .then((char) => print('First char=$char'));
-
-
-
-
+  <a href="#" class="dart-popover" data-toggle="popover" title="then()" data-html="true" data-trigger="hover focus" data-content="then() is a method in Future that registers a callback function on the Future.">.then</a>((char) => print('First char=$char'));
 
 
 
@@ -232,18 +232,18 @@ querySelector('textarea').onKeyPress
                   <p>Dart’s HTML library unlocks the power of the modern browser, smoothing over browser differences.</p>
                   <div class="code-hldr">
 
-{% prettify dart %}
+<pre class="prettyprint lang-dart">
 import 'dart:html';
 import 'dart:convert' show JSON;
 
 void main() {
-  querySelector('#getColors').onClick.listen(showColors); // Event handling.
+  querySelector('#getColors')<a href="#" class="dart-popover" data-toggle="popover" title="Listen to a stream" data-html="true" data-trigger="hover focus" data-content="Register an event handler for mouse click events.">.onClick.listen(showColors)</a>; // Event handling.
 }
 void showColors(Event e) {
-  HttpRequest.getString('colors.json')              // One-line HTTP request.
+  <a href="#" class="dart-popover" data-toggle="popover" title="Make HTTP Requests" data-html="true" data-trigger="hover focus" data-content="Use HttpRequest.getString() to read data from a URI as a string. In this case, the file contains JSON-encoded data.">HttpRequest.getString('colors.json')</a>             // One-line HTTP request.
       .then((String jsonString) {                   // Uses Futures and Streams.
         UListElement colors = querySelector('#colors');  // DOM element types.
-        List<String> colorList = JSON.decode(jsonString);
+        List<String> colorList = <a href="#" class="dart-popover" data-toggle="popover" title="JSON converter" data-html="true" data-trigger="hover focus" data-content="JSON, an object in dart:convert, encodes and decodes JSON data.">JSON.decode(jsonString);</a>
         for (int i = 0; i < colorList.length; i++) {
           colors.children.add(                      // Dynamic DOM manipulation.
             new LIElement()..text = colorList[i]    // Dynamic element creation.
@@ -253,7 +253,7 @@ void showColors(Event e) {
       })
       .catchError((_) { /* Handle error. */ });
 }
-{% endprettify %}
+</pre>
 
                   </div>
                 </div>
