@@ -5,6 +5,11 @@ description: "Use Dart with a variety of IDEs and editors from JetBrains."
 has-permalinks: false
 ---
 
+{::options parse_block_html="true" /}
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+{::options parse_block_html="false" /}	
+
 # Dart plugin from JetBrains
 
 ## For WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine
@@ -28,28 +33,28 @@ IDE understands Dart syntax and automatically provides appropriate code
 completion. Custom settings can be added for the formatting and highlighting of
 Dart code:
 
-![Code completion](imgs/1completion.png)
+<img class="scale-img-max" alt="Code completion" src="imgs/1completion.png">
 
 ### Debugging Dart web apps with Dartium
 
 Start debugging Dart web apps in just one click from the file context menu. The
 IDE will start Dartium and give you access to the full-featured debugger.
 
-![Debugging](imgs/2debug.png)
+<img class="scale-img-max" alt="Debugging" src="imgs/2debug.png">
 
 ### Package management
 
 Use the pub tool without leaving the IDE: Upgrade Dependencies and Build actions
 are available in the context menu of the pubspec.yaml file:
 
-![Package management](imgs/3dependencies.png)
+<img class="scale-img-max" alt="Package management" src="imgs/3dependencies.png">
 
 ### Smart refactorings
 
 Smart refactorings for Dart allow you to do safe rename, extract methods,
 variables and constants:
 
-![Refactoring](imgs/4refactoring.png)
+<img class="scale-img-max" alt="Refactoring" src="imgs/4refactoring.png">
 
 ### Code navigation
 
@@ -57,27 +62,32 @@ Powerful code navigation features in the IDE include: Go to declaration and Find
 usages for classes, variables, methods and functions, Go to implementation, Go
 to symbol, Go to Class, and Structure view:
 
-![Code navigation](imgs/5navigation.png)
+<img class="scale-img-max" alt="Code navigation" src="imgs/5navigation.png">
 
 ### Code validation and quick-fix options
 
 The static code analyzer will detect errors in your code on the fly and suggest
 quick-fix options:
 
-![Code analysis](imgs/6analyzer.png)
+<img class="scale-img-max" alt="Code analysis" src="imgs/6analyzer.png">
 
 ### Dart-to-JS compiler
 
 Compilation of Dart code to JavaScript is available from the Dart file context
 menu. As an additional option you can select code minification:
 
-![Compile Dart to JavaScript](imgs/7dart2js.png)
+<img class="scale-img-max" alt="Compile Dart to JavaScript" src="imgs/7dart2js.png">
 
 ### Dart unit test support
 
 IDE provides support for Dart unit testing:
 
-![Unit tests](imgs/8dartunit.png)
+<img class="scale-img-max" alt="Unit tests" src="imgs/8dartunit.png">
 
 [ws]: http://www.jetbrains.com/webstorm/
 [plugin]: http://plugins.jetbrains.com/plugin/?idea&id=6351
+
+{::options parse_block_html="true" /}
+</div>
+</div>
+{::options parse_block_html="false" /}	
