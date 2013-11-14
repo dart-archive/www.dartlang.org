@@ -78,7 +78,7 @@ col1:
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/README.md
         tryit_url: google_maps/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
-        description: Using the Google Maps JavaScript API with the dart:js library
+        description: Using the Google Maps JavaScript API with the dart:js library.
       -
         title: Using the Google Charts Visualization API
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/README.md
@@ -108,7 +108,7 @@ col1:
         title: Concatenating files
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat/README.md
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat
-        description: Use streams to read files and and process I/O.
+        description: Use streams to read files and process I/O.
       -
         title: A search app using HttpServer and WebSockets
         title: "Dartiverse Search: A search app using HttpServer and WebSockets"
@@ -133,14 +133,14 @@ col1:
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/solar/README.md
         tryit_url: solar/
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
-        description: A solar system implementation using Canvas
+        description: A solar system implementation using Canvas.
 
       -
         title: 3D solar system animation
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d#3d-solar-system-simulation
         tryit_url: solar3d/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d
-        description: A solar system implementation using WebGL
+        description: A solar system implementation using WebGL.
       -
         title: Using image filters with canvas
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters#using-image-filters-with-canvas
@@ -158,7 +158,7 @@ col1:
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook#flipbook
         tryit_url: http://www.stagexl.org/samples/flipbook/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook
-        description: Initialize the StageXL Stage, the RenderLoop. Use the FlipBook class to play sprite sheet animations.
+        description: Initialize the StageXL Stage, and the RenderLoop. Use the FlipBook class to play sprite sheet animations.
       -
         title: "Adobe Flash game ported to HTML5 using StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape#escape
@@ -242,7 +242,7 @@ col1:
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro#getting-started-with-web-audio-api
         tryit_url: webaudio/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
-        description: Sample that shows processing and synthesizing audio using the Web Audio API
+        description: Sample that shows processing and synthesizing audio using the Web Audio API.
       -
         title: Using the Files API
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles#using-the-file-api
@@ -262,13 +262,13 @@ col1:
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/swipe/README.md
         tryit_url: swipe/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/swipe/
-        description: Sample uses that touch gestures and CSS 3D transforms to spin a palindrome on the page.
+        description: Sample that uses touch gestures and CSS 3D transforms to spin a palindrome on the page.
       -
         title: Multi touch
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/multi_touch/README.md
         tryit_url: multi_touch/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/multi_touch/
-        description: A multi touch Canvas fingerpaint Demo. Use on a device that supports touch events.
+        description: Fingerpainting with multiple touch points.
 
   -
     heading: Web programming fundamentals
@@ -306,4 +306,4 @@ col1:
         explanation_url: /docs/tutorials/fetchdata/#about-uris
         source_url: /docs/tutorials/fetchdata/#about-uris
         tryit_url: /docs/tutorials/fetchdata/#about-uris
-        description: Fetching data using HttpRequest.
+        description: Using HttpRequest to fetch data.

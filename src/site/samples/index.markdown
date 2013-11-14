@@ -21,7 +21,7 @@ has_permalinks: true
   <div class="row">
     {% for group in page.samples.col1 %}
       <div class="row">
-        <h2><a id="{{group.anchor}}">{{ group.heading }}</a></h2>
+        <h2 class="has-permalinks" id="{{group.anchor}}">{{ group.heading }}</h2>
       </div>
       <div class="row">
         <div class="col-md-7 group">
