@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="dart"> <!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Dart 1.0 | Flight Ready</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/style.1384387088268.css">
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<script src="js/vendor.min.1384387088268.js"></script>
+<script>
+/* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
+window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.createElementNS||!t.document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||window.opera&&-1===navigator.userAgent.indexOf("Chrome")),o=function(o){var r=t.document.createElement("link"),a=t.document.getElementsByTagName("script")[0];r.rel="stylesheet",r.href=e[o&&n?0:o?1:2],a.parentNode.insertBefore(r,a)},r=new t.Image;r.onerror=function(){o(!1)},r.onload=function(){o(1===r.width&&1===r.height)},r.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="}};
+grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "img/icons/icons.fallback.css" ] );</script>
+</head>
+
+<body ocu-animate>
+
+<header class="page-header">
+  <h1 class="site-title"><img ocu-svg="img/header" alt="Dart 1.0 Flight Ready"></h1>
+</header>
+
+<nav class="page-nav" ng-controller="NavCtrl">
+  <ul>
+    <li><a href="#home" ocu-scroll-click><img ocu-svg="img/logo" alt="Dart 1.0"></a></li>
+    <li><a href="#flight" ocu-scroll-click>Dart Flight School</a></li>
+    <li><a href="#register" ocu-scroll-click>Register</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="home-section" ocu-scroll-section>
+  <div class="container">
+    <h2>Dart helps you build modern apps that run across the modern web</h2>
+    <p>Dart 1.0 provides a stable language, stable core libraries and tools such as a package manager, editor and dart2js compiler to help you be a productive web developer.</p>
+  </div>
+</section>
+
+<div class="ocu-divider after" ocu-scroll-collision="divider" collision-element=".page-nav">
+  <a ocu-scroll-click href="#home" class="ocu-divider-before">
+    <span>Dart 1.0</span>
+  </a>
+  <a ocu-scroll-click href="#flight" class="ocu-divider-after">
+    <span>Dart Flight School</span>
+  </a>
+</div>
+
+<section id="flight" class="flight-section" ocu-scroll-section>
+  <div class="container">
+    <h2>Are you ready to fly&nbsp;with&nbsp;Dart?</h2>
+    <p>Help us run Dart Flight Schools the month of February 2014 by organizing or presenting at an event.</p>
+    <p>We’ll provide the materials you need to get your community onboarded with Dart. Here are some of the formats we will support for your Dart Flight School event:</p>
+    <ul>
+      <li>Tech Talk: Host a talk to learn more about what makes Dart a First-Class language. </li>
+      <li>Code Lab: Go from runway to take-off through a guided hands-on Code Lab.</li>
+      <li>Hackathon: Create your own flight plan and use Dart to bring your ideas to the web.</li>
+    </ul>
+
+    <h3>Be part of a global event</h3>
+    <ul>
+      <li>Connect with Google's Dart team &amp; established Dartisans during Flight School preparations.</li>
+      <li>Get Tier-One Dart support during the event.</li>
+      <li>Be part of a global, coordinated event.</li>
+      <li>Get your event spotlighted by the Google Developers G+ page &amp; Dart's G+ page.</li>
+      <li>Swag! (More details to come.) </li>
+    </ul>
+
+  </div>
+</section>
+
+<div class="ocu-divider after" ocu-scroll-collision="divider" collision-element=".page-nav">
+  <a ocu-scroll-click href="#flight" class="ocu-divider-before">
+    <span>Dart Flight School</span>
+  </a>
+  <a ocu-scroll-click href="#register" class="ocu-divider-after">
+    <span>Register</span>
+  </a>
+</div>
+
+<section id="register" class="register-section" ocu-scroll-section>
+  <div class="container">
+    <h2>Get your boarding pass!</h2>
+    <form ng-controller="RegisterCtrl" ng-submit="register.submit()">
+      <input type="text" ng-model="register.name" ocu-label="Name" required>
+      <input type="email" ng-model="register.email" ocu-label="Email" required>
+      <small>Please provide your email address so we can keep in touch as 02.2014 approaches.</small>
+      <fieldset class="location">
+        <div class="city">
+          <input type="text" ng-model="register.city" ocu-label="city" required>
+        </div>
+        <div class="state">
+          <input class="state" type="text" ng-model="register.state" ocu-label="state">
+        </div>
+        <div class="country">
+          <input class="country" type="text" ng-model="register.country" ocu-label="country" required>
+        </div>
+      </fieldset>
+      <input type="text" ng-model="register.user_group" ocu-label="User Group Chapter">
+      <small>e.g. GDG Silicon Valley, BeJUG</small>
+      <fieldset class="involvement">
+        <label>How do you want to be involved?</label>
+        <div ocu-checkbox="register.involvement.organize">I want to organize an event.</div>
+        <div ocu-checkbox="register.involvement.speak">I want to speak at an event</div>
+      </fieldset>
+      <fieldset class="hosting">
+        <label>If you are interested in organizing a Dart Flight School Event, what format(s) would you use?</label>
+        <div class="field" ocu-checkbox="register.event.tech_talk">Tech Talk</div>
+        <div class="field" ocu-checkbox="register.event.code_lab">Code Lab</div>
+        <div class="field" ocu-checkbox="register.event.hackathon">Hackathon</div>
+        <div class="field">
+          <input type="checkbox" ng-model="register.event.other">
+          <div class='input-checkbox' ng-class='{checked: register.event.other}'
+            ng-click="register.event.other = !register.event.other"></div>
+          <input type="text" class="other-field" ng-model="register.event.other_value" placeholder="Other">
+        </div>
+      </fieldset>
+      <div ng-hide="register.submitted">
+        <input type="submit" value="Register">
+      </div>
+      <div ng-show="register.submitted">
+        <p>Thanks for contributing to Dart Flight Schools! Your information has been submitted.</p>
+      </div>
+    </form>
+  </div>
+
+</section>
+
+<div class="sky-layer"></div>
+
+<div class="stars-layer"></div>
+
+<div class="milky-way-layer">
+  <img src="img/milky_way.png">
+</div>
+
+<div class="earth-layer">
+  <img src="img/earth.png">
+</div>
+
+
+<!--[if lte IE 8]>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!--<![endif]-->
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="js/plugins.min.1384387088268.js"></script>
+<script src="js/app.1384387088268.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  // fill in analytics here
+  // ga('create', '', '');
+  // ga('send', 'pageview');
+</script>
+
+</body>
+</html>
