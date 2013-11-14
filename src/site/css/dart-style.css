@@ -600,7 +600,6 @@ i.sprite-icon-download-btn {
 	background: none;
 	border: 1px solid #fff;
 	margin-top: 30px;
-	margin-bottom: 30px;
 	color: #fff;
 	text-transform: uppercase;
 	font-family: 'Roboto', sans-serif;
@@ -630,6 +629,7 @@ i.sprite-icon-download-btn {
 	color: #fff;
 	font-weight: 400;
 	text-transform: uppercase;
+	margin-top: 30px;
 	margin-bottom: 50px;
 }
 
