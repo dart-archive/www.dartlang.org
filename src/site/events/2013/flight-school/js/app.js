@@ -73,7 +73,7 @@
         } else {
           formString += "entry.172590286=";
         }
-        return $.post("proxy.php?url=" + form_url, formString).done(function(data) {
+        return $.post("proxy.php", formString).done(function(data) {
           _this.submitted = true;
           return $scope.$apply();
         });
