@@ -381,10 +381,11 @@ i.sprite-icon-download-btn {
 }
 
 @media (max-width: 768px) {
-	.dart-carousel .carousel-indicators.icon-indicators {
-		width: 100%;
-		margin-left: -50%;
-	}
+  .dart-carousel .carousel-indicators.icon-indicators {
+    width: 100%;
+    margin-left: -50%;
+    bottom: -50px;
+  }
 }
 
 .dart-carousel .carousel-indicators li {
@@ -460,8 +461,20 @@ i.sprite-icon-download-btn {
 	content: none;
 }
 
-.dart-carousel .carousel-inner > .item {
+.amazing-apps .dart-carousel .carousel-inner > .item {
   min-height: 200px;
+}
+
+@media (max-width: 768px) {
+  .amazing-apps .dart-carousel .carousel-inner > .item {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .amazing-apps .dart-carousel .carousel-inner > .item {
+      min-height: 350px;
+  }
 }
 
 .dart-carousel .carousel-inner > .item > img {
