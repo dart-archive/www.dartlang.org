@@ -2,10 +2,18 @@ body {
   line-height: inherit;
 }
 
-.row-fluid [class*="span"] {
-  min-height: 21px;
+.toc {
+  margin: 0;
+  margin-top: 20px;
 }
 
+
+.group {
+ background: rgb(252, 252, 252);
+ padding: 5px 10px;
+ border-radius: 10px;
+
+}
 
 .group-heading {
   text-align: left;
@@ -18,6 +26,12 @@ body {
   margin: 7px auto;
 }
 
+.title, .row {
+  margin: 0;
+  padding: 0;
+}
+
+
 .link {
   text-align: left;
   display: inline-block;
@@ -27,8 +41,7 @@ body {
 }
 
 .screenshot {
-  border: 2px solid #49c;
-  border-radius: 5px;
+  width: 100%;
 }
 
 .screenshot-container {
@@ -52,7 +65,10 @@ body {
 
 .caption {
   text-align: center;
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
   font-style: italic;
   font-size: .9em;
-
+  width: 100%;
 }
