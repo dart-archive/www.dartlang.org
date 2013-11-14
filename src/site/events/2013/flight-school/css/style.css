@@ -229,7 +229,7 @@ section ul {
   /* line 16, ../../sass/_background.sass */
   .stars-layer:before, .stars-layer:after {
     content: "";
-    background-image: url('../img/star.png?1384382308');
+    background-image: url('../img/star.png');
     width: 400px;
     height: 100%;
     position: absolute;

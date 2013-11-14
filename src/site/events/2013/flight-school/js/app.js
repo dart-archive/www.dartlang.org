@@ -26,8 +26,7 @@
       other_value: "",
       submitted: false,
       submit: function() {
-        var data, e, events, formString, form_url, g_encode, index, involvement_val, key, other_val, value, _i, _len, _ref,
-          _this = this;
+        var $shadow, events, form_url, involvement_val, other_val, _ref;
         form_url = "https://docs.google.com/forms/d/1bbzXqcK6UCDTvqtIxjqhoCK8rVlgmz04vbYcTk_dTDE/formResponse";
         involvement_val = this.involvement.organize && this.involvement.speak ? "Both!" : this.involvement.organize ? "I want to organize an event." : this.involvement.speak ? "I want to speak at an event." : "";
         events = [];
@@ -44,39 +43,14 @@
         if (this.event.other) {
           events.push(other_val);
         }
-        data = {
-          "entry.317145556": this.name,
-          "entry.1542980384": this.email,
-          "entry.1134813112": "" + this.city + ", " + this.state + ", " + this.country,
-          "entry.310283512": this.user_group,
-          "entry.696967509": involvement_val
-        };
-        g_encode = function(string) {
-          return encodeURIComponent(string).replace('%20', '+', 'g');
-        };
-        formString = "";
-        for (key in data) {
-          value = data[key];
-          if (value == null) {
-            value = "";
-          }
-          formString += "" + key + "=" + (g_encode(value)) + "&";
-        }
-        if (events.length) {
-          for (index = _i = 0, _len = events.length; _i < _len; index = ++_i) {
-            e = events[index];
-            formString += "entry.172590286=" + (g_encode(e));
-            if (index !== events.length - 1) {
-              formString += "&";
-            }
-          }
-        } else {
-          formString += "entry.172590286=";
-        }
-        return $.post("proxy.php", formString).done(function(data) {
-          _this.submitted = true;
-          return $scope.$apply();
-        });
+        $shadow = $("<form action='" + form_url + "' method='POST'></form>");
+        $shadow.append($('<input name="entry.317145556">').val(this.name));
+        $shadow.append($('<input name="entry.1542980384">').val(this.email));
+        $shadow.append($('<input name="entry.1134813112">').val("" + this.city + ", " + this.state + ", " + this.country));
+        $shadow.append($('<input name="entry.310283512">').val(this.user_group));
+        $shadow.append($('<input name="entry.696967509">').val(involvement_val));
+        $shadow.append($('<input name="entry.172590286">').val(events.join(', ')));
+        return $shadow.submit();
       }
     };
   });
