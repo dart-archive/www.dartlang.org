@@ -6,8 +6,8 @@ body {
 
 /* ***** General ***** */
 p {
-	font: 400 15px/25px 'Roboto', sans-serif;
-	color: #484848;
+  font: 400 15px/19px 'Roboto', sans-serif;
+  color: #484848;
 }
 
 a {
@@ -41,7 +41,7 @@ h3 {
 }
 
 h4 {
-	font: 400 12px/17px 'Montserrat', sans-serif;
+  font: 400 15px/21px 'Montserrat', sans-serif;
 }
 
 h5 {
@@ -92,6 +92,18 @@ ul, li {
 i[class*="sprite-icon-"] {
 	background-image: url(../imgs/dart-sprite.png);
 	display: block;
+}
+
+/* CSS for high-resolution devices */
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    i[class*="sprite-icon-"] {
+        background-image: url(../imgs/dart-sprite-2x.png);
+        background-size: 300px 400px;
+        background-repeat: no-repeat;
+    }
 }
 
 i[class*="sprite-icon-social-"] {
@@ -183,6 +195,18 @@ i.sprite-icon-close-x {
 	width: 8px;
 	height: 8px;
 	background-position: -150px -200px;
+}
+
+i.sprite-icon-download-btn {
+	position: absolute;
+	left: 40px;
+	width: 14px;
+	height: 18px;
+	background-position: 0px -250px;
+}
+
+.hero .download-btn:hover i.sprite-icon-download-btn {
+	background-position: -50px -250px;
 }
 
 
@@ -357,10 +381,11 @@ i.sprite-icon-close-x {
 }
 
 @media (max-width: 768px) {
-	.dart-carousel .carousel-indicators.icon-indicators {
-		width: 100%;
-		margin-left: -50%;
-	}
+  .dart-carousel .carousel-indicators.icon-indicators {
+    width: 100%;
+    margin-left: -50%;
+    bottom: -50px;
+  }
 }
 
 .dart-carousel .carousel-indicators li {
@@ -379,16 +404,16 @@ i.sprite-icon-close-x {
 }
 
 @media (max-width: 500px) {
-	.dart-carousel .carousel-indicators li {
-		width: 10px;
-		height: 10px;
-		text-indent: -999px;
-		cursor: pointer;
-		border: 1px solid #333;
-		border-radius: 10px;
-		margin: 1px;
-		padding: 0;
-	}
+  .dart-carousel .carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    text-indent: -999px;
+    cursor: pointer;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 0;
+  }
 }
 
 
@@ -436,6 +461,22 @@ i.sprite-icon-close-x {
 	content: none;
 }
 
+.amazing-apps .dart-carousel .carousel-inner > .item {
+  min-height: 200px;
+}
+
+@media (max-width: 768px) {
+  .amazing-apps .dart-carousel .carousel-inner > .item {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .amazing-apps .dart-carousel .carousel-inner > .item {
+      min-height: 350px;
+  }
+}
+
 .dart-carousel .carousel-inner > .item > img {
 	margin: 0 auto;
 }
@@ -447,15 +488,15 @@ i.sprite-icon-close-x {
 }
 
 .lang-dart {
-	max-width: 800px;
-	text-align: left;
-	margin-right: auto;
-	margin-left: auto;
-	/*background-image: url(../imgs/);*/
+  max-width: 800px;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px !important;
 
-	-webkit-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
-	   -moz-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
-	        box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 500px) {
@@ -564,14 +605,15 @@ i.sprite-icon-close-x {
 	text-transform: uppercase;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
-	padding: 10px 46px;
+	padding: 10px 46px 10px 66px;
 	-webkit-transition: background ease-out 500ms;
-    -moz-transition: background ease-out 500ms;
-    -o-transition: background ease-out 500ms;
-    transition: background ease-out 500ms;
-    -moz-box-shadow:    none;
-    -webkit-box-shadow: none;
-    box-shadow:         none;
+	-moz-transition: background ease-out 500ms;
+	-o-transition: background ease-out 500ms;
+	transition: background ease-out 500ms;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	position: relative;
 }
 
 .hero .download-btn:hover {
@@ -1093,7 +1135,6 @@ line-height: 120%;
 
 #tutorial-side {
   width: 200px;
-  position: fixed;
   top: 129px;
 }
 
@@ -1114,7 +1155,6 @@ line-height: 120%;
 /* Landscape phone to portrait tablet */
 @media (max-width: 992px) { 
 	#tutorial-side {
-		position: static;
 		width:100%;
 	} 
 
@@ -1132,7 +1172,6 @@ line-height: 120%;
 /* Landscape phones and down */
 @media (max-width: 480px) { 
 	#tutorial-side {
-		position: static; 
 		width:100%;
 	} 
 }
