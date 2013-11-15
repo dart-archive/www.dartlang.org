@@ -446,8 +446,7 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
 {% endprettify %}
 </div>
 
-#### PREFER using `double` or `int` instead of `num` for parameter type
-annotations in performance sensitive code.
+#### PREFER using `double` or `int` instead of `num` for parameter type annotations in performance sensitive code.
 
 Monomorphic call sites (sites that have stable input types)
 can be optimized much easier than polymorphic call sites (sites that have
