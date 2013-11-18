@@ -147,7 +147,7 @@ This HTML code _uses_ the custom element:
 {% prettify html %}
 <head>
   <link rel="import" href="[[highlight]]hello_world.html[[/highlight]]">
-  <script type="application/dart">import 'package:polymer/init.dart';</script>
+  <script type="application/dart">export 'package:polymer/init.dart';</script>
   <script src="packages/browser/dart.js"></script>
 </head>
 
