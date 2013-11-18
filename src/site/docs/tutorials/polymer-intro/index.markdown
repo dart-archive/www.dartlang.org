@@ -49,7 +49,7 @@ within semantically meaningful HTML.
 <aside class="alert">
 <strong>Version Note:</strong> The code sample and the content
 of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 1.0</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.9</a>.
 </aside>
 
 <aside class="alert alert-info">
