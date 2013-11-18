@@ -89,28 +89,29 @@ js:
                   <p>You can probably already read and even write Dart code. <a href="/samples/">See more samples.</a> </p>
                   <div class="code-hldr">
 <pre class="prettyprint lang-dart">
-main() {                              // This is where the app starts executing.
-  print(<a href="#" class="dart-popover" data-toggle="popover" title="Converting objects to strings" data-html="true" data-trigger="hover focus" data-content="The print() function takes any object and converts it to a string, using the object's toString() method.">new Fibonacci(10)</a>);          // Print a new object's value.
+import 'dart:math' show Random;        // Import a class from a library.
+
+void main() {                          // This is where the app starts executing.
+  print(new Die(<a href="#" class="dart-popover" data-toggle="popover" title="Named parameters" data-html="true" data-trigger="hover focus" data-content="Set the value of a named optional parameter. In this case, set the number of sides for a new Die object to 12.">n:12</a>).roll());        // Print a new object's value. Chain method calls.
 }
 
-class Fibonacci {                     // Define a class.
-  int original, fibo;                 // Declare variables.
-  String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation" data-html="true" data-trigger="hover focus" data-content="Use $identifier to insert the value of an identifier (in this case, the integer value of fibo) into a string.">$fibo</a>';      // Define a method using shorthand syntax.
+class Die {                            // Define a class.
+  static Random shaker = new Random(); // Define a class variable.
+  int sides, value;                    // Define instance variables.
 
-  Fibonacci(int value) :              // Define a constructor with list initializer.
-    original = value, fibo = fib(value) {
-  }
+  String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation" data-html="true" data-trigger="hover focus" data-content="Use $identifier to insert the value of an identifier (in this case, the integer value of 'value') into a string.">$value</a>';      // Define a method using shorthand syntax.
 
-  static int fib(int n) {             // Define a class method.
-    if (n < 2) {                      // Control flow and expressions.
-      return n;
+  Die(<a href="#" class="dart-popover" data-toggle="popover" title="Optional named parameters" data-html="true" data-trigger="hover focus" data-content="Parameters within curly brackets are optional. Set them by name when you call the function, method or, in this case, constructor. Here, the default value of 'n' is set to 6.">{int n: 6}</a>) {                   // Define a constructor.
+    if (4 <= n && n <= 20) {
+      sides = n;
     } else {
-      return fib(n-1) + fib(n-2);     // Arithmetic operators.
+      throw new ArgumentError(/* */);  // Support for errors and exceptions.
     }
   }
+  int roll() {                         // Define an instance method.
+    return value = shaker.nextInt(sides); // Get a random number.
+  }
 }
-// Want terser code? Write a one-line function instead:
-// fib(n) => n < 2 ? n : (fib(n - 1) + fib(n - 2));
 </pre>
                   </div>
                 </div>
