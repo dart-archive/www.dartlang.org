@@ -49,7 +49,7 @@ within semantically meaningful HTML.
 <aside class="alert">
 <strong>Version Note:</strong> The code sample and the content
 of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.7</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 1.0</a>.
 </aside>
 
 <aside class="alert alert-info">
@@ -186,7 +186,7 @@ you need to include Polymer in both
 the HTML side and the Dart side of your app.
 
 * In the primary HTML file for your app,
-import `package:polymer/init.dart` within a &lt;script&gt; tag
+export `package:polymer/init.dart` within a &lt;script&gt; tag
 in the &lt;head&gt; section.
 This script contains the `main()` function
 for the app and initializes Polymer.

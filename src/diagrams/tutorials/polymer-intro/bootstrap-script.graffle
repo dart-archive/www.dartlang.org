@@ -87,22 +87,22 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\colortbl;\red255\green255\blue255;}
 \deftab720
 \pard\pardeftab720
 
-\f0\fs24 \cf0 \shad\shadx19\shady-20\shadr0\shado85 \shadc2 &lt;!DOCTYPE html&gt;\
+\f0\fs24 \cf0 \shad\shadx19\shady-20\shadr0\shado85 \shadc0 &lt;!DOCTYPE html&gt;\
 &lt;html&gt;\
   &lt;head&gt;\
     ...\
 \pard\pardeftab720
-\cf2 \shad0     &lt;script type="application/dart"&gt;\
-      import 'package:polymer/init.dart';\
+\cf0 \shad0     &lt;script type="application/dart"&gt;\
+      export 'package:polymer/init.dart';\
     &lt;/script&gt;\
 \pard\pardeftab720
-\cf0 \shad\shadx19\shady-20\shadr0\shado85 \shadc2     ...\
+\cf0 \shad\shadx19\shady-20\shadr0\shado85 \shadc0     ...\
   &lt;/head&gt;\
   \
   &lt;body&gt;\
@@ -167,7 +167,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -191,8 +191,8 @@
 			<integer>34216</integer>
 			<key>Points</key>
 			<array>
-				<string>{440.57357832662279, 420.25}</string>
-				<string>{329, 391.49921028755062}</string>
+				<string>{440.61667980302366, 420.25}</string>
+				<string>{329, 391.45256579491866}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -251,7 +251,7 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -348,7 +348,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -399,7 +399,7 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -452,7 +452,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -518,7 +518,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -566,7 +566,7 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -697,7 +697,7 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -793,7 +793,7 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -855,7 +855,7 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -952,7 +952,7 @@ class TuteStopwatch extends PolymerElement \{  \
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -1012,7 +1012,7 @@ class TuteStopwatch extends PolymerElement \{  \
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-30 17:29:59 +0000</string>
+	<string>2013-11-18 20:54:59 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
