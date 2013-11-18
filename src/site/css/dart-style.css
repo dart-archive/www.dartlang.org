@@ -1276,3 +1276,23 @@ dd{
 }
 
 .remark {display:none;}
+
+.bad pre.prettyprint {
+  background-color: #fff8f8;
+}
+
+.bad pre.prettyprint:before {
+  content: "bad";
+  color: #c00;
+  float: right;
+}
+
+.good pre.prettyprint {
+  background-color: #f8fff8;
+}
+
+.good pre.prettyprint:before {
+  content: "good";
+  color: #696;
+  float: right;
+}
