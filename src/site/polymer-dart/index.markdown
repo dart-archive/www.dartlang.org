@@ -398,8 +398,7 @@ Create a `build.dart` file at the root of your project:
 import 'package:polymer/builder.dart';
 
 void main() {
-  // Runs the linter, and optionally builds the project for deployment.
-  build(entryPoints: ['web/index.html']);
+  lint(entryPoints: ['web/index.html']);
 }
 {% endprettify %}
 
