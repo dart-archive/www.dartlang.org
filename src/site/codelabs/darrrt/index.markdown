@@ -17,9 +17,7 @@ header:
   css: ["/codelabs/darrrt/darrrt.css"]
 ---
 
-# {{ page.title }}
-
-## Got an hour? Write a Dart app.
+# {{ page.title }} - Write your first Dart app
 
 In this code lab,
 you build a pirate badge generator from a skeleton app.
