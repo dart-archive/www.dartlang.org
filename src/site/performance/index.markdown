@@ -7,6 +7,20 @@ js:
   defer: true
 ---
 
+<style>
+/* https://code.google.com/p/dart/issues/detail?id=10602 */
+
+#performance-charts > .tab-pane {
+  display: block !important;
+  height: 0;
+  overflow: hidden;
+}
+#performance-charts > .tab-pane.active {
+    height: 440px;
+}
+
+</style>
+
 # {{ page.title }}
 
 Tracking [Dart VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html) and
