@@ -7,6 +7,7 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-12-18
+  updated_on: 2013-11-01
   collection: language-details
 ---
 
@@ -15,7 +16,7 @@ article:
 # {{ page.title }}
 
 _Written by Gilad Bracha <br>
-December 2012_ (Revised November 2013)
+December 2012 (updated November 2013)_
 
 This document describes mixins in Dart.
 The semantics are deliberately restricted in several ways,
