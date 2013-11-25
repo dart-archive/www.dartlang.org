@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Write Dart"
+title: "Try Dart"
 description: "Write some Dart code. Learn some stuff."
 snippet_img: images/piratemap.jpg
 has-permalinks: true
