@@ -1,0 +1,4 @@
+name: frontpagesamples
+description: Example code that appears on the front page of dartlang.org
+dependencies:
+  unittest: any

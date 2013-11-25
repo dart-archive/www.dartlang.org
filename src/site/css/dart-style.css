@@ -485,6 +485,7 @@ i.sprite-icon-download-btn {
 .code-hldr {
 	text-align: center;
 	min-height: 450px;
+	height: 450px;
 }
 
 .lang-dart, .lang-html {

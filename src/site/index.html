@@ -46,8 +46,8 @@ js:
               <div class="col-md-4">
                 <h2>Try Dart</h2>
                 <p class="timer"><i class="sprite-icon-timer"></i>Under an hour</p>
-                <p>Write a Dart web app, even if you've never written
-		a web app before. </p>
+                <p>Follow this code lab to create a Dart web app, even if you've never written
+            		a web app before. </p>
                 <a href="/codelabs/darrrt/"><i class="sprite-icon-triangle"></i>Write code</a>
               </div>
               <div class="col-md-4">
@@ -91,8 +91,8 @@ js:
 <pre class="prettyprint lang-dart">
 import 'dart:math' show Random;        // Import a class from a library.
 
-void main() {                          // This is where the app starts executing.
-  print(new Die(<a href="#" class="dart-popover" data-toggle="popover" title="Named parameters" data-html="true" data-trigger="hover focus" data-content="Set the value of a named optional parameter. In this case, set the number of sides for a new Die object to 12.">n:12</a>).roll());        // Print a new object's value. Chain method calls.
+void main() {                          // The app starts executing here.
+  print(new Die(<a href="#" class="dart-popover" data-toggle="popover" title="Named parameters" data-html="true" data-trigger="hover focus" data-content="Set the value of a named optional parameter. In this case, set the number of sides for a new Die object to 12.">n: 12</a>).roll());       // Print a new object's value. Chain method calls.
 }
 
 class Die {                            // Define a class.
@@ -134,28 +134,36 @@ main() {
   print('Area of the first shape: <a href="#" class="dart-popover" data-toggle="popover" title="Insert expressions into strings" data-html="true" data-trigger="hover focus" data-content="Use ${expression} to insert the value of an expression into a string. The expression is evaluated and converted to a string.">${shapes[0].area}</a>');
 }
 
-class Ellipse {
+class Ellipse extends Shape {
   num minorAxis, majorAxis;
   // Syntactic sugar to set members before the constructor body runs.
   Ellipse(this.minorAxis, this.majorAxis);
+
+  static const num C = PI/4;
+  num get area => C*majorAxis*minorAxis;  // A property implemented with a getter.
 }
 </pre>
                   </div>
                 </div>
                 <div class="item">
                   <p>Add types to your code to help people and tools.
-                  Or don’t. You can always go dynamic.</p>
+                  Or don’t. Dart is truly dynamic.</p>
                   <div class="code-hldr">
-                    <div class="code-hldr">  
-                      <div class="item" style="margin-top:23px">
-                          Without types, code freely.<br>
-                        <img src="imgs/no_types.png">
-                                </div>
-                                <div class="item" style="margin-top:23px;">
-                          With types, learn about errors early.<br>
-                        <img src="imgs/with_types.png">
-                      </div>
-                    </div>
+                          <div style="padding-top:20px;">While prototyping, code freely without worrying about types.</div>
+<pre class="prettyprint lang-dart">
+// A function without types.
+recalculate(origin, offset, estimate) {
+  // ...
+}
+</pre>
+                          <div style="padding-top:20px;">During production, use types to learn about errors early,
+                          communicate intent, and get help with code completion.</div>
+<pre class="prettyprint lang-dart">
+// A function with types (and an optional parameter).
+num recalculate(Point origin, num offset, {bool estimate: false}) {
+  // ...
+}
+</pre>
                   </div>
                 </div>
                 <div class="item">
