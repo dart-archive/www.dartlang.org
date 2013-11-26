@@ -131,7 +131,7 @@ handlers:
 - url: /articles/m3-whats-new/.*
   script: scripts.redirector.application
 
-- url: /articles/js-dart-interop/.*
+- url: /articles/dart-js/.*
   script: scripts.redirector.application
 
 - url: /dartisans/podcast-feed
