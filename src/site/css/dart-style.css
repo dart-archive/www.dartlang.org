@@ -880,12 +880,11 @@ position: fixed;
 }
 
 code {
-padding: 2px 4px;
-font-size: 90%;
-color: #0084c5;
-white-space: nowrap;
-background-color: #dce3e6;
-border-radius: 4px;
+	padding: 0;
+	font-size: 90%;
+	color: #0084c5;
+	white-space: nowrap;
+	border-radius: 4px;
 }
 
 /* ***** Footer ***** */
