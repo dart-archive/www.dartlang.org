@@ -10,6 +10,7 @@ scripts/packages
 *.pyc
 pubspec.lock
 packages/
+*.js.deps
 
 !src/site/samples/searchable_list/example/packages/
 !src/site/samples/tracker/example/packages/
