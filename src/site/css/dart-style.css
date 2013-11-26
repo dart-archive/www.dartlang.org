@@ -482,6 +482,11 @@ i.sprite-icon-download-btn {
 }
 
 /* ***** Code ***** */
+
+pre.prettyprint {
+	background-color: #f8f8f8;
+}
+
 .code-hldr {
 	text-align: center;
 	min-height: 450px;
@@ -494,10 +499,6 @@ i.sprite-icon-download-btn {
   margin-right: auto;
   margin-left: auto;
   padding: 5px !important;
-
-  -webkit-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
-     -moz-box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 500px) {
@@ -968,8 +969,6 @@ code {
 code.highlight {
   border: 1px solid yellow;
   color: #0084c5;
-  padding-top: 1px;
-  padding-bottom: 1px;
   background-color: lemonchiffon;
   border-radius: 4px;
 }
