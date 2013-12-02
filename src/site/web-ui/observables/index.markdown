@@ -7,6 +7,15 @@ description: Efficient data binding with Dart's Web UI library.
 # {{ page.title }}
 {:.no_toc}
 
+<aside class="alert alert-danger" markdown="1">
+<strong>Web UI is deprecated.</strong>
+Instead, use [Polymer.dart](/polymer-dart/),
+which supersedes Web UI beginning with version 0.5
+and provides many fixes and improvements.
+We encourage Web UI users to upgrade to Polymer.dart.
+The information on this page applies only to Web UI.
+</aside>
+
 Dart's [Web UI] package offers live, two-way data binding implemented with an
 efficient observable engine. The new observable system propagates changes
 proportional to the number of changes, instead of the number of watched
