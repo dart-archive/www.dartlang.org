@@ -98,7 +98,6 @@ Learn more:
 
 * [Collections (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html#ch03-collections)
 * [Iteration (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html#ch03-iteration)
-* [Iterables (an article for the M3 update to the Iterable API)](/articles/m3-whats-new/iterables.html)
 * [Iterable API documentation](http://api.dartlang.org/dart_core/Iterable.html)
 
 

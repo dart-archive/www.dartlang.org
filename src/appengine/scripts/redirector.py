@@ -183,7 +183,7 @@ application = WSGIApplication(
       defaults={'_uri': '/articles/'}),
     Route('/articles/m2-whats-new/', RedirectHandler,
       defaults={'_uri': '/articles/'}),
-    Route('/articles/m3-whats-new/', RedirectHandler,
+    Route('/articles/m3-whats-new/iterables.html', RedirectHandler,
       defaults={'_uri': '/articles/'}),
     Route('/articles/dart-js/', RedirectHandler,
       defaults={'_uri': '/articles/js-dart-interop/'}),
