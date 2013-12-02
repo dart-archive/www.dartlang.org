@@ -169,7 +169,7 @@ main() {
   String listAsJson = '["Dart",1.0]'; // input List of data
   List parsedList = JSON.decode(listAsJson);
   print(parsedList[0]); // Dart
-  print(parsedList[1]); // 0.8
+  print(parsedList[1]); // 1.0
 
   String mapAsJson = '{"language":"dart"}';  // input Map of data
   Map parsedMap = JSON.decode(mapAsJson);
