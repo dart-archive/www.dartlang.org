@@ -5,9 +5,9 @@ description: "Create a custom HTML element using Polymer."
 has-permalinks: true
 tutorial:
   id: polymer-intro
-next: fetchdata
-next-title: "Fetch Data Dynamically"
-prev: shared-pkgs
+next: futures/
+next-title: "Use Future-Based APIs"
+prev: shared-pkgs/
 prev-title: "Install Shared Packages"
 ---
 

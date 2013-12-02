@@ -116,6 +116,9 @@ handlers:
 - url: /resources/
   script: scripts.redirector.application
 
+- url: /articles/using-future-based-apis/
+  script: scripts.redirector.application
+
 - url: /articles/profiling/
   script: scripts.redirector.application
 

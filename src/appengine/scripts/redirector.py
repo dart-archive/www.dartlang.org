@@ -177,6 +177,8 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/sdk/'}),
     Route('/resources/', RedirectHandler,
       defaults={'_uri': '/community/'}),
+    Route('/articles/using-future-based-apis/', RedirectHandler,
+      defaults={'_uri': '/docs/tutorials/futures/'}),
     Route('/articles/profiling/', RedirectHandler,
       defaults={'_uri': '/articles/benchmarking/'}),
     Route('/articles/m1-language-changes/', RedirectHandler,

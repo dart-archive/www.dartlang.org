@@ -62,16 +62,17 @@ The client uses Polymer to present its user interface
 (a form with many kinds of input elements),
 and keep the interface in sync with Dart data.
 The client and server communicate using
-several classes from the core Dart library,
+several classes from various Dart libraries,
 including streams, Futures, HttpRequest, and so on.
 The server uses CORS headers to allow cross-origin requests.
 
 <aside class="alert alert-info" markdown="1">
   <strong>Note:</strong>
   This tutorial assumes that you have read
-  [Define a Custom Element](/docs/tutorials/polymer-intro/)
+  [Define a Custom Element](/docs/tutorials/polymer-intro/),
+  [Use Future-Based APIs](/docs/tutorials/futures/),
   and [Fetch Data Dynamically](/docs/tutorials/fetchdata/)
-  and are familiar with Polymer, JSON, and HttpRequest.
+  and are familiar with Polymer, Futures, JSON, and HttpRequest.
 </aside>
 
 

@@ -192,7 +192,7 @@ The count_down app uses the following libraries:
 | Library | Description |
 |---|---|
 | <a href="https://api.dartlang.org/dart_indexed_db.html" target="_blank">dart:indexed_db</a> | Save data into an indexed database for persistence and offline capability |
-| <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a> | Perform tasks asynchronously |
+| <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a> | Perform tasks asynchronously with Futures |
 | <a href="https://api.dartlang.org/dart_core.html" target="_blank">dart:core</a> | Use DateTime and Duration to manage time-related tasks |
 | <a href="https://api.dartlang.org/polymer.html" target="_blank">Polymer</a> | Create UIs with custom elements and data binding. |
 {: .table }
@@ -204,7 +204,7 @@ This tutorial explains the Dart API for IndexedDB used by the count_down app.
 This tutorial does not cover Futures or Polymer.
 For information about Futures,
 see
-<a href="/articles/using-future-based-apis/">Using Future Based APIs</a>
+<a href="/docs/tutorials/futures/">Use Future-Based APIs</a>
 and 
 <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
 For information about Polymer,
@@ -710,7 +710,7 @@ The _loadFromDB method returns a Future that returns the length of the stream.
 
 <ul>
   <li> For information about Futures, see
-  <a href="/articles/using-future-based-apis/">Using Future Based APIs</a>
+  <a href="/docs/tutorials/futures/">Use Future-Based APIs</a>
   and 
   <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
   </li>
