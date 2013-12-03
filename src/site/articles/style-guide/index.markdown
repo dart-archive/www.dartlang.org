@@ -937,7 +937,7 @@ expressions, like being passed to methods. These are formatted like so:
 
 <div class="good">
 {% prettify dart %}
-new Future.delayed(const Duration(seconds:1), () {
+new Future.delayed(const Duration(seconds: 1), () {
   print('I am a callback');
 });
 {% endprettify %}
@@ -945,7 +945,7 @@ new Future.delayed(const Duration(seconds:1), () {
 
 <div class="bad">
 {% prettify dart %}
-new Future.delayed(const Duration(seconds:1), () {
+new Future.delayed(const Duration(seconds: 1), () {
       print('I am a callback');
     });
 {% endprettify %}
@@ -1133,7 +1133,7 @@ Note that the `:` should be wrapped to the next line and indented four spaces.
 Fields should all line up (so all but the first field end up indented six
 spaces).
 
-#### DO use a space around `:` in named parameters and after `:`  for a named argument.
+#### DO use a space after `:` in named parameters and named arguments.
 
 
 <div class="good">
