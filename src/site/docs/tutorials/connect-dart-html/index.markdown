@@ -113,7 +113,7 @@ For example, the tree has page elements,
 text nodes, and attribute nodes.
 Here is the DOM tree for the simple HTML file above.
 
-<img class="scale-img-max" src="images/simple-dom-tree.png" 
+<img class="scale-img-max" src="images/simple-dom-tree.png"
      alt="The DOM tree for a simple HTML file">
 
 Notice that some tags, such as the \<p> paragraph tag,
@@ -172,7 +172,7 @@ simplied HTML.
   <head>
     <title>A Minimalist App</title>
   </head>
-  
+
   <body>
     <p id="RipVanWinkle">
       RipVanWinkle paragraph.
@@ -388,7 +388,7 @@ the following CSS code:
   text-align: center;
   margin-top: 20px;
   background-color: SlateBlue;
-  color: Yellow;  
+  color: Yellow;
 }
 {% endprettify %}
 
@@ -453,7 +453,7 @@ even when there was no CSS file.
 You do not need a CSS file for a Dart program.
 Nor do you need a CSS file to use CSS selectors.
 CSS selectors are established in the HTML file
-and used by the Dart program 
+and used by the Dart program
 to select matching elements.
 </aside>
 
@@ -506,15 +506,6 @@ for example, it sets the text color to Yellow.
     The excerpt includes, for example,
     how to use Dart Editor's power features such as autocompletion and refactoring,
     how to set up different run-time environments, and so on.
-  </li>
-  <li>
-    Also, check out
-    <a href="/docs/cookbook/">
-    <i class="icon-food"> </i> Dart Cookbook</a>,
-    where you'll find many recipes about
-    manipulating the DOM and using CSS.
-    The cookbook also has recipes about basic Dart data types,
-    such strings, lists, maps, and numbers.
   </li>
 </ul>
 

@@ -119,6 +119,10 @@ class WebUiRedirect(RequestHandler):
     else:
         self.redirect('/articles/web-ui/' + filename, permanent=True)
 
+class CookbookRedirect(RequestHandler):
+  def get(self):
+    self.redirect('/docs/dart-up-and-running/contents/ch03.html', permanent=True)
+
 def trailing_slash(handler, *args, **kwargs):
   return '/' + kwargs['path'] + '/'
 
@@ -144,6 +148,7 @@ application = WSGIApplication(
       EclipseUpdateRedirectStableChannel),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
     Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
+    Route('/docs/cookbook/', CookbookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                 '_code': 302}),

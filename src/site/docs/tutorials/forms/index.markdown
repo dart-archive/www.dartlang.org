@@ -221,12 +221,12 @@ the client displays it.
 
 The following diagram shows the flow of communication between
 the server and the client in this example.
-<hr> 
+<hr>
 
 <img class="scale-img-max" src="images/client-server-comm.png"
      alt="Client-server communication in the slambook example">
 
-<hr> 
+<hr>
 
 **Try it!**
 Enter some data and push the **Submit** button.
@@ -238,7 +238,7 @@ Enter some data and push the **Submit** button.
 
 <aside class="alert">
 <strong>Version Note:</strong> The slambook app
-is compatible with 
+is compatible with
 <a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.9</a>.
 </aside>
 
@@ -402,7 +402,7 @@ so the send() method returns as soon as the request is sent.
 ###Listening for the server response
 
 The HttpRequest object handles communication with the server.
-You can get the state of that communication through 
+You can get the state of that communication through
 the HttpRequest object's `readyState` field.
 The ready state has five possible values:
 unsent, opened, headers received, loading, and done.
@@ -530,10 +530,10 @@ and calls other methods to handle each specific kind of request.
 void gotMessage(_server) {
   _server.listen((HttpRequest request) {
     switch (request.method) {
-      case 'POST': 
+      case 'POST':
         handlePost(request);
         break;
-      case 'OPTIONS': 
+      case 'OPTIONS':
         handleOptions(request);
         break;
       default: defaultHandler(request);
@@ -582,7 +582,7 @@ use the then() method to register a callback.
 When the Future completes, it calls
 the callback function.
 
-In this example, 
+In this example,
 both the client and server use Futures when sending requests
 and responses back and forth.
 Client-server programs should almost always handle communication
@@ -672,9 +672,9 @@ Here is the function that handles the client's HTTP POST request:
 void handlePost(HttpRequest req) {
   HttpResponse res = req.response;
   print('${req.method}: ${req.uri.path}');
-  
+
   addCorsHeaders(res);
-  
+
   req.listen((List<int> buffer) {
     // Return the data back to the client.
     res.write('Thanks for the data. This is what I heard you say: ');
@@ -874,7 +874,7 @@ final Map<String, bool> books = toObservable(
 {% endprettify %}
 
 Using `template repeat` from Polymer,
-the HTML code puts &lt;option&gt; elements in the 
+the HTML code puts &lt;option&gt; elements in the
 &lt;select&gt; element based on the Dart map.
 Instead of binding the values of the &lt;option&gt; elements
 to the `books` map,
@@ -950,12 +950,6 @@ Here each checkbox is bound to a separate boolean value within a map.
        client and server is based on code written and explained
        by Chris Buckett in
        <a href="/articles/json-web-service/">Using Dart with JSON Web Services</a>.
-  </li>
-  <li> Check out
-       <a href="/docs/cookbook/">
-       <i class="icon-food"> </i> Dart Cookbook</a>.
-       You'll find many recipes related to topics in this tutorial,
-       including JSON and URIs.
   </li>
   <li> The previous tutorial,
        <a href="/docs/tutorials/fetchdata/">Fetch Data Dynamically</a>,

@@ -67,7 +67,7 @@ and get many more using the
 [pub package manager](http://pub.dartlang.org).
 
 [Libraries and Visibility (a section of _Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/contents/ch02.html#libraries)
-: Learn how to use and create libraries. 
+: Learn how to use and create libraries.
 
 [Library Tour (_Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html)
 : Learn how to use the major features in each library that comes with Dart.
@@ -156,8 +156,6 @@ A basic, yet Darty, interface to the browser.
   (part of the Dart tutorials)
 * [Improving the DOM](/articles/improving-the-dom/)
 * [dart:html API documentation](http://api.dartlang.org/dart_html.html)
-* [HTML DOM](/docs/cookbook/#html-dom)
-  (recipes in the Dart Cookbook)
 
 ### Polymer.dart
 
@@ -189,10 +187,10 @@ you can use JavaScript libraries in your Dart app.
 
 You can use Dart for anything from scripts to web servers.
 Thanks to Heroku's support for third-party runtimes,
-you can run your server-side Dart app on Heroku's cloud. 
+you can run your server-side Dart app on Heroku's cloud.
 
 * [dart: The Standalone VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html)
-* [Heroku cloud application platform](http://www.heroku.com) 
+* [Heroku cloud application platform](http://www.heroku.com)
 
 ## Testing
 
@@ -204,8 +202,6 @@ try drone.io for continuous testing.
 * [dartanalyzer: The Static Analyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html)
 * [Writing Unit Tests for Pub Packages](/articles/writing-unit-tests-for-pub-packages/)
 * [Unit Testing with Dart](/articles/dart-unit-tests/)
-* [Testing](/docs/cookbook/#testing)
-  (recipes in the Dart Cookbook)
 * [drone.io](http://drone.io)
 
 ## Other resources
@@ -216,12 +212,9 @@ try these resources.
 
 ### Programming questions
 
-Two great resources for all kinds of programming questions:
+Ask specific programming questions here:
 
-* [Dart Cookbook](/docs/cookbook/)
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/dart)
-
-Or try a <a href="/support/">mailing list</a>.
 
 
 ### Style

@@ -267,7 +267,7 @@ or `keyDown` for when the user presses a key on the keyboard.
 ##About EventListener functions {#about-event-listeners}
 
 The argument passed to the listen() method is a _callback function_
-of type 
+of type
 <a href="https://api.dartlang.org/dart_html/EventListener.html" target="_blank">EventListener</a>.
 EventListener is a typedef defined in the dart:html library as follows:
 
@@ -307,7 +307,7 @@ An Element keeps references to all of its children in a list called `children`.
 By adding and removing elements to and from this list,
 the code changes the DOM.
 When the DOM changes, the browser re-renders the browser page.
-The effect, in our todo app, is that a new bullet item appears 
+The effect, in our todo app, is that a new bullet item appears
 in the to do list.
 
 ##Styling the page elements {#about-css}
@@ -373,19 +373,9 @@ automatically removes it from its previous parent.
 
 <ul>
   <li>
-    Check out
-    <a href="/docs/cookbook/">
-    <i class="icon-food"> </i> Dart Cookbook</a>,
-    where you'll find many recipes about manipulating the DOM
-    and using CSS.
-    The cookbook also has recipes about basic Dart data types,
-    such strings, lists, maps, and numbers.
-  </li>
-
-  <li>
     You can find more information about the DOM and CSS in
     <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>,
-    which also provides thorough coverage of the Dart language, 
+    which also provides thorough coverage of the Dart language,
     libraries, and tools.
   </li>
 </ul>

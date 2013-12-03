@@ -23,8 +23,8 @@ expressions. This results in less work per event loop and more responsive web
 UIs.
 
 This article covers Web UI's observables and how to use them with interactive
-web apps. To learn more about Web UI, try our [tutorials][tutorial],
-[cookbook], or [articles][web ui].
+web apps. To learn more about Web UI, try our [tutorials][tutorial]
+or [articles][web ui].
 
 <aside class="alert alert-info">
 <b>Head's up!</b> The observable system described in this article is intended
@@ -214,7 +214,7 @@ expressions). We don't recommend that you manually recreate the functionality of
 bindings, but you can create your own observers when you need some code to
 respond to changes.
 
-To illustrate how observers work, let's manually recreate some of what the dwc 
+To illustrate how observers work, let's manually recreate some of what the dwc
 does for you.
 
 Here is some HTML with a placeholder span element that gets updated when a
@@ -341,4 +341,3 @@ Dart's Web UI is [open source] on Github, participation most welcome!
 [custom elements]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/custom/index.html
 [html imports]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html
 [mdv]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html
-[cookbook]: //www.dartlang.org/docs/cookbook/

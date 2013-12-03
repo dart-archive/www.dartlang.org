@@ -143,6 +143,9 @@ handlers:
 - url: /hangouts.*
   script: scripts.redirector.application
 
+- url: /docs/cookbook/
+  script: scripts.redirector.application
+
 - url: /codelabs/
   script: scripts.redirector.application
 
