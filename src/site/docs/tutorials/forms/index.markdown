@@ -896,7 +896,7 @@ updates the map whenever the user changes the selection.
 void changeselected(Event e) {
   // Get the selected elements.
   List<OptionElement> options =
-      (query('#bookselector') as SelectElement).selectedOptions;
+      (querySelector('#bookselector') as SelectElement).selectedOptions;
   // Set everything in books map to false temporarily.
   books.forEach((k, v) => books[k] = false);
   // Set true in books map for selected items.

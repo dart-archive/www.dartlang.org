@@ -254,7 +254,7 @@ href="https://github.com/dart-lang/web-ui/issues/93">issue #93</a>.
 You can reach a component instance using the `xtag` property of the
 associated HTML element. For example, if you create a tag as `<x-foo
 id="example"></x-foo>` in the top-level body of your page, you can get an
-instance of the component by calling `document.query('#example').xtag`.
+instance of the component by calling `document.querySelector('#example').xtag`.
 
 Note that `xtag` only works after an application is initialized and web
 components have been created. In particular, the `xtag` will be null when the

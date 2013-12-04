@@ -15,7 +15,7 @@ prev-title: "Get started"
 
 * The DOM models a browser page in a tree/node structure.
 * An HTML file hosts your Dart code in a browser page.
-* Use query() with an ID to get an element from the DOM.
+* Use querySelector() with an ID to get an element from the DOM.
 * Compile to JavaScript to run in any modern browser.
 * CSS selectors are patterns used to select matching elements in the DOM.
 * Use CSS rules to style elements.
@@ -229,7 +229,7 @@ to look like this:
 {% prettify dart %}
 import 'dart:html';
 void main() {
-  query('#RipVanWinkle').text = 'Wake up, sleepy head!';
+  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';
 }
 {% endprettify %}
 
@@ -264,20 +264,20 @@ a parameterized class that can specify the type of its members.
 An instance of Element keeps its list of child Elements
 in a List\<Element>.
 
-###Using the query() function
+###Using the querySelector() function
 
 This app's main() function contains a single
 line of code that is a little like a run-on sentence
 with multiple things happening one after another.
 Let's deconstruct it.
 
-query() is a top-level function provided by the Dart HTML library
+querySelector() is a top-level function provided by the Dart HTML library
 that gets an Element object from the DOM.
 
 <img class="scale-img-max" src="images/3-mini-code-walk-through.png"
      alt="An example of querying for a DOM object by its ID">
 
-The argument to query(), a string,
+The argument to querySelector(), a string,
 is a CSS selector that identifies the object.
 Most commonly CSS selectors specify classes, identifiers, or attributes.
 We'll look at these in a little more detail later,
@@ -290,7 +290,7 @@ and #RipVanWinkle specifies that ID.
      alt="ID attribute from HTML file">
 
 Another useful function for getting elements from the DOM
-is queryAll(),
+is querySelectorAll(),
 which returns multiple Element objects via
 a list of elements&mdash;List<Element>&mdash;all
 of which match the provided selector.
@@ -327,7 +327,7 @@ Often, as with our RipVanWinkle example,
 this simplification has no adverse effects.
 
 The assignment operator (=) sets the text
-of the Element returned by the query() function
+of the Element returned by the querySelector() function
 to the string "Wake up, sleepy head!".
 
 <img class="scale-img-max" src="images/5-mini-code-walk-through.png"
@@ -427,10 +427,10 @@ a class, or an attribute.
 Selectors can also be nested.
 
 CSS selectors are important in Dart programs
-because you use them with query() and queryAll()
+because you use them with querySelector() and querySelectorAll()
 to get matching elements from the DOM.
-Most often Dart programs use ID selectors with query()
-and class selectors with queryAll().
+Most often Dart programs use ID selectors with querySelector()
+and class selectors with querySelectorAll().
 
 Here are some examples of CSS selectors:
 

@@ -215,9 +215,9 @@ the Dart code for the todo app.
 <img class="scale-img-max" src="images/todo-dart.png"
      alt="todo app and its corresponding Dart code">
 
-The main() function uses dart:html's top-level query()
+The main() function uses dart:html's top-level querySelector()
 function to get the interesting elements from the DOM.
-Because calling query() isn't free,
+Because calling querySelector() isn't free,
 if a program refers to an element more than once
 it should stash a reference to the element.
 
