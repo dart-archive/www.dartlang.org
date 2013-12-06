@@ -212,7 +212,7 @@ To create an instance of a custom element,
 use the name of the custom element just as you would any normal HTML tag.
 In this example, the tag name is `tute-stopwatch`.
 
-<img class="scale-img-max" src="images/polymer-element-instantiation.png"
+<img class="scale-img-max" src="images/polymer-instance-create.png"
      alt="Instantiate a custom element with a custom tag">
 
 Using best practices,
