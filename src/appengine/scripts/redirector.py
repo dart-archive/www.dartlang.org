@@ -90,10 +90,6 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
     self.redirect_to_cloud_storage(filename)
 
 # XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
-class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
-
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
 
@@ -146,7 +142,7 @@ application = WSGIApplication(
       EclipseUpdateRedirectDevChannel),
     Route('/eclipse/update/channels/stable<path:.*>',
       EclipseUpdateRedirectStableChannel),
-    Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
+    Route('/eclipse/update<path:.*>', EclipseUpdateRedirectDevChannel),
     Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
     Route('/docs/cookbook/', CookbookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
