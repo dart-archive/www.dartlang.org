@@ -37,6 +37,7 @@ from left to right...or choose just the ones you need.
     <li><a href="#dom" data-toggle="tab">Browser</a></li>
     <li><a href="#packages" data-toggle="tab">Packages</a></li>
     <li><a href="#polymer" data-toggle="tab">Polymer</a></li>
+    <li><a href="#futures" data-toggle="tab">Futures</a></li>
     <li><a href="#forms" data-toggle="tab">Forms & Data</a></li>
     <!--<li><a href="#mobile" data-toggle="tab">Mobile</a></li>-->
   </ul>
@@ -171,6 +172,24 @@ from left to right...or choose just the ones you need.
           <h4 class="no-permalink"><a href="polymer-intro/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom Element</a></h4>
           <p>Create a custom HTML element using Polymer.</p>
           <img src="images/stopwatch-screenshot.png" width="200">
+          </section>
+        </div>
+
+        <div class="col-md-6">
+        </div>
+
+      </div>
+    </div>
+
+  <!-- FUTURES & STREAMS TAB -->
+    <div class="tab-pane" id="futures">
+      <div class="row">
+
+        <div class="col-md-6">
+          <section>
+          <h4 class="no-permalink"><a href="futures/"><img src="images/target.png" height="20" width="20">&nbsp;Use Future-Based APIs</a></h4>
+          <p>A first look at Futures.</p>
+          <img src="futures/images/futurescode.png" width="350">
           </section>
         </div>
 

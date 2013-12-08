@@ -78,7 +78,7 @@ to remove all of the items in the list at once.
 </iframe>
 
 The remaining sections describe
-key aspects of the code 
+key aspects of the code
 added to the todo app for this tutorial.
 Specifically, they look at
 the Dart code that removes one or more elements from the DOM
@@ -166,7 +166,7 @@ The HTML code creates a button with the ID delete-all.
 
 <li markdown="1">
 The Dart code gets the button element from the DOM
-using query() and the button's ID, #delete-all.
+using querySelector() and the button's ID, #delete-all.
 The code registers a mouse click handler on the button;
 the handler removes all of the child elements from the to do list.
 Here is all of the Dart code related to the **Delete All** button.
@@ -225,19 +225,9 @@ it returns no value and takes an Event object as a parameter.
 
 <ul>
   <li>
-    Check out
-    <a href="/docs/cookbook/">
-    <i class="icon-food"> </i> Dart Cookbook</a>,
-    where you'll find many recipes about manipulating the DOM
-    and using CSS.
-    The cookbook also has recipes about basic Dart data types,
-    such strings, lists, maps, and numbers.
-  </li>
-
-  <li>
     You can find more information about the DOM and CSS in
     <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>,
-    which also provides thorough coverage of the Dart language, 
+    which also provides thorough coverage of the Dart language,
     libraries, and tools.
   </li>
 </ul>

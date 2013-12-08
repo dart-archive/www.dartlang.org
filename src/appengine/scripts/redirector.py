@@ -90,10 +90,6 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
     self.redirect_to_cloud_storage(filename)
 
 # XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
-class EclipseUpdateRedirect(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration/latest/eclipse-update'
-
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
 
@@ -119,6 +115,10 @@ class WebUiRedirect(RequestHandler):
     else:
         self.redirect('/articles/web-ui/' + filename, permanent=True)
 
+class CookbookRedirect(RequestHandler):
+  def get(self):
+    self.redirect('/docs/dart-up-and-running/contents/ch03.html', permanent=True)
+
 def trailing_slash(handler, *args, **kwargs):
   return '/' + kwargs['path'] + '/'
 
@@ -142,8 +142,9 @@ application = WSGIApplication(
       EclipseUpdateRedirectDevChannel),
     Route('/eclipse/update/channels/stable<path:.*>',
       EclipseUpdateRedirectStableChannel),
-    Route('/eclipse/update<path:.*>', EclipseUpdateRedirect),
+    Route('/eclipse/update<path:.*>', EclipseUpdateRedirectDevChannel),
     Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
+    Route('/docs/cookbook/', CookbookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                 '_code': 302}),
@@ -177,16 +178,18 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/sdk/'}),
     Route('/resources/', RedirectHandler,
       defaults={'_uri': '/community/'}),
+    Route('/articles/using-future-based-apis/', RedirectHandler,
+      defaults={'_uri': '/docs/tutorials/futures/'}),
     Route('/articles/profiling/', RedirectHandler,
       defaults={'_uri': '/articles/benchmarking/'}),
     Route('/articles/m1-language-changes/', RedirectHandler,
       defaults={'_uri': '/articles/'}),
     Route('/articles/m2-whats-new/', RedirectHandler,
       defaults={'_uri': '/articles/'}),
-    Route('/articles/m3-whats-new/', RedirectHandler,
+    Route('/articles/m3-whats-new/iterables.html', RedirectHandler,
       defaults={'_uri': '/articles/'}),
-    Route('/articles/js-dart-interop/', RedirectHandler,
-      defaults={'_uri': '/articles/'}),
+    Route('/articles/dart-js/', RedirectHandler,
+      defaults={'_uri': '/articles/js-dart-interop/'}),
     Route('/docs/editor/getting-started/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html#ch01-editor'}),
     Route('/docs/dart2js/', RedirectHandler,

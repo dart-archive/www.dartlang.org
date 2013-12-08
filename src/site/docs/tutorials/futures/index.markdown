@@ -1,27 +1,80 @@
---- 
-layout: article
-title: "Using Future Based APIs"
-description: "A first look at Futures and how to use them to make your
-asynchronous code better."
+---
+layout: default
+title: "Use Future-Based APIs"
+description: "A first look at Futures and how to use them to make your asynchronous code better."
+has-permalinks: true
+tutorial:
+  id: futures
+next: fetchdata/
+next-title: "Fetch Data Dynamically"
+prev: polymer-intro/
+prev-title: "Define a Custom Element"
 rel:
     author: shailen-tuli
-has-permalinks: true
-article:
-  written_on: 2013-02-07
-  collection: libraries-and-apis
 ---
 
-{% include toc.html %}
+{% capture whats_the_point %}
 
-# {{ page.title }}
+* Dart is single-threaded.
+* Synchronous code can make your program freeze.
+* Use Futures to perform asynchronous operations.
+* Call `then()` to schedule code that runs when a Future completes.
+* Use `catchError()` to handle errors that occur within a Future.
+* You can chain Futures to run asynchronous functions in order.
 
-_Written by Shailen Tuli, February 2013_
+{% endcapture %}
 
-## Introduction
+{% capture sample_links %}
 
-Dart is a single-threaded programming language. If any code blocks the thread
-of execution, the program effectively freezes. Let's look at some code where
-this happens:
+
+<p markdown="1"> This tutorial features these examples
+in the `bin` directory,
+all variations of the same example:</p>
+
+* futures1
+* futures2
+* futures3
+* futures4
+* futures5
+
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
+
+{% endcapture %}
+
+{% capture content %}
+
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Use Futures for asynchronous operations.</h3>
+</div>
+
+_Written by Shailen Tuli_
+
+Dart is a single-threaded programming language.
+If any code blocks the thread of execution
+(for example, by waiting for a time-consuming operation
+or blocking on I/O)
+the program effectively freezes.
+Asynchronous operations let your program run without getting blocked.
+Dart uses Futures to perform asynchronous operations.
+
+* [Introduction](#introduction)
+* [What is a Future?](#what-is-a-future)
+* [Using a Future](#using-a-future)
+* [Sequence of events during code execution](#sequence-of-events)
+* [Handling errors when dealing with Futures](#handling-errors)
+* [Calling multiple functions that return Futures](#calling-multiple-funcs)
+* [Other resources](#other-resources)
+* [What next?](#what-next)
+
+## Introduction {#introduction}
+
+Let's look at some code that could possibly cause a program to freeze:
 
 {% prettify dart %}
 import 'dart:io';
@@ -55,9 +108,11 @@ will be like, and who won today's game. Not good.
 
 To help keep the application responsive, Dart library authors use an
 asynchronous model when defining functions that do potentially expensive work.
-Such functions return their value using a Future.
+Such functions return their value using a
+<a href="https://api.dartlang.org/dart_async/Future.html"
+   target="_blank">Future</a>
 
-## What is a Future?
+## What is a Future? {#what-is-a-future}
 
 A Future represents a means for getting a value sometime in the future. When a
 function that returns a Future is invoked, two things happen:
@@ -70,7 +125,7 @@ value (or with an error; we'll discuss that later).
 To get the value that the Future represents, use the `then()` method to
 register a callback. This callback fires when the Future completes.
 
-## Using a Future
+## Using a Future {#using-a-future}
 
 Let's rewrite `printDailyNewsDigest()` to get the file contents
 asynchronously:
@@ -102,7 +157,7 @@ digest is printed.
     Baseball score: Red Sox 10, Yankees 0
     <Contents of dailyNewsDigest.txt>
 
-## Sequence of events during code execution
+## Sequence of events during code execution {#sequence-of-events}
 
 The preceding code executes in three steps:
 
@@ -119,7 +174,7 @@ Calling `then()` returns a new Future, which completes with the value
 returned by `then()`'s callback. This means that calls to `then()` can be
 chained (we'll see examples of this later). 
 
-## Handling errors when dealing with Futures
+## Handling errors when dealing with Futures {#handling-errors}
 
 If a Future-returning function completes with an error, the Future returned by
 `then()` also completes with an error. We can capture that error using
@@ -158,7 +213,7 @@ For more details and examples, read
 [Futures and Error Handling](/articles/futures-and-error-handling/).
 
 
-## Calling multiple functions that return Futures
+## Calling multiple functions that return Futures {#calling-multiple-funcs}
 
 Consider three functions,  `expensiveA()`, `expensiveB()`, and `expensiveC()`,
 that return Futures.  You can invoke them sequentially (one function starts
@@ -200,13 +255,27 @@ If any of the invoked functions completes with an error, the Future returned
 by `Future.wait()` also completes with an error. Use `catchError()` to handle
 the error.
 
-## More information
+## Other resources {#other-resources}
 
 Read the following documentation for more details on using Futures:
 
 * [Futures and Error Handling](/articles/futures-and-error-handling/),
-  an article that starts where this one ends
+  an article that starts where this tutorial ends
 * [The Event Loop and Dart](/articles/event-loop/),
   an article that describes how to schedule tasks using Futures
 * [Future API reference](http://api.dartlang.org/dart_async/Future.html)
+
+## What next? {#what-next}
+
+* The next tutorial,
+[Fetch Data Dynamically](/docs/tutorials/fetchdata/),
+uses a Future when doing an HTTP request.
+
+* The example featured in
+[Use IndexedDB](/docs/tutorials/indexeddb/)
+uses many Futures when interacting with the database.
+
+{% endcapture %}
+
+{% include tutorial.html %}
 

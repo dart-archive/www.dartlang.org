@@ -6,10 +6,7 @@ clean:
 
 build: copy add_version
 
-compass:
-	compass compile src/site/
-
-copy: clean compass
+copy: clean
 	cd ./src/site && jekyll build && cd ../.. && cp -R ./src/appengine/* build/
 
 add_version:

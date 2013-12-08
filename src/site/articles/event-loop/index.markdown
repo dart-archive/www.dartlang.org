@@ -192,7 +192,7 @@ future.then(...set an important variable...)
 The better code uses then() to specify that
 the variable must be set before it can be used.
 (You can use whenComplete() instead of then()
-if you want the code to execute even if an error occurs.) 
+if you want the code to execute even if an error occurs.)
 
 If using the variable takes time and can be done later,
 consider putting that code in a new Future:
@@ -315,7 +315,7 @@ which is the Dart interface to
 
 Fun facts about Future:
 
-1. The function that you pass into Future’s **then()** method 
+1. The function that you pass into Future’s **then()** method
 executes immediately when the Future completes.
 (The function isn’t enqueued, it’s just called.)
 1. If a Future is _already complete_ before **then()** is invoked on it,
@@ -414,12 +414,12 @@ import 'dart:async';
 main() {
   print('main #1 of 2');
   scheduleMicrotask(() => print('microtask #1 of 2'));
-  
+
   new Future.delayed(new Duration(seconds:1),
                      () => print('future #1 (delayed)'));
   new Future(() => print('future #2 of 3'));
   new Future(() => print('future #3 of 3'));
-    
+
   scheduleMicrotask(() => print('microtask #2 of 2'));
 
   print('main #2 of 2');
@@ -475,7 +475,7 @@ main() {
 
   new Future.delayed(new Duration(seconds:1),
       () => print('future #1 (delayed)'));
-  
+
   new Future(() => print('future #2 of 4'))
       .then((_) => print('future #2a'))
       .then((_) {

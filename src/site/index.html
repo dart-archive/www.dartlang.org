@@ -45,9 +45,9 @@ js:
               </div>
               <div class="col-md-4">
                 <h2>Try Dart</h2>
-                <p class="timer"><i class="sprite-icon-timer"></i>About 1 hour</p>
-                <p>Write a Dart web app, even if you've never written
-		a web app before. </p>
+                <p class="timer"><i class="sprite-icon-timer"></i>Under an hour</p>
+                <p>Follow this code lab to create a Dart web app, even if you've never written
+            		a web app before. </p>
                 <a href="/codelabs/darrrt/"><i class="sprite-icon-triangle"></i>Write code</a>
               </div>
               <div class="col-md-4">
@@ -89,28 +89,29 @@ js:
                   <p>You can probably already read and even write Dart code. <a href="/samples/">See more samples.</a> </p>
                   <div class="code-hldr">
 <pre class="prettyprint lang-dart">
-main() {                              // This is where the app starts executing.
-  print(<a href="#" class="dart-popover" data-toggle="popover" title="Converting objects to strings" data-html="true" data-trigger="hover focus" data-content="The print() function takes any object and converts it to a string, using the object's toString() method.">new Fibonacci(10)</a>);          // Print a new object's value.
+import 'dart:math' show Random;        // Import a class from a library.
+
+void main() {                          // The app starts executing here.
+  print(new Die(<a href="#" class="dart-popover" data-toggle="popover" title="Named parameters" data-html="true" data-trigger="hover focus" data-content="Set the value of a named optional parameter. In this case, set the number of sides for a new Die object to 12.">n: 12</a>).roll());       // Print a new object's value. Chain method calls.
 }
 
-class Fibonacci {                     // Define a class.
-  int original, fibo;                 // Declare variables.
-  String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation" data-html="true" data-trigger="hover focus" data-content="Use $identifier to insert the value of an identifier (in this case, the integer value of fibo) into a string.">$fibo</a>';      // Define a method using shorthand syntax.
+class Die {                            // Define a class.
+  static Random shaker = new Random(); // Define a class variable.
+  int sides, value;                    // Define instance variables.
 
-  Fibonacci(int value) :              // Define a constructor with list initializer.
-    original = value, fibo = fib(value) {
-  }
+  String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation" data-html="true" data-trigger="hover focus" data-content="Use $identifier to insert the value of an identifier (in this case, the integer value of 'value') into a string.">$value</a>';      // Define a method using shorthand syntax.
 
-  static int fib(int n) {             // Define a class method.
-    if (n < 2) {                      // Control flow and expressions.
-      return n;
+  Die(<a href="#" class="dart-popover" data-toggle="popover" title="Optional named parameters" data-html="true" data-trigger="hover focus" data-content="Parameters within curly brackets are optional. Set them by name when you call the function, method or, in this case, constructor. Here, the default value of 'n' is set to 6.">{int n: 6}</a>) {                   // Define a constructor.
+    if (4 <= n && n <= 20) {
+      sides = n;
     } else {
-      return fib(n-1) + fib(n-2);     // Arithmetic operators.
+      throw new ArgumentError(/* */);  // Support for errors and exceptions.
     }
   }
+  int roll() {                         // Define an instance method.
+    return value = shaker.nextInt(sides); // Get a random number.
+  }
 }
-// Want terser code? Write a one-line function instead:
-// fib(n) => n < 2 ? n : (fib(n - 1) + fib(n - 2));
 </pre>
                   </div>
                 </div>
@@ -133,28 +134,36 @@ main() {
   print('Area of the first shape: <a href="#" class="dart-popover" data-toggle="popover" title="Insert expressions into strings" data-html="true" data-trigger="hover focus" data-content="Use ${expression} to insert the value of an expression into a string. The expression is evaluated and converted to a string.">${shapes[0].area}</a>');
 }
 
-class Ellipse {
+class Ellipse extends Shape {
   num minorAxis, majorAxis;
   // Syntactic sugar to set members before the constructor body runs.
   Ellipse(this.minorAxis, this.majorAxis);
+
+  static const num C = PI/4;
+  num get area => C*majorAxis*minorAxis;  // A property implemented with a getter.
 }
 </pre>
                   </div>
                 </div>
                 <div class="item">
                   <p>Add types to your code to help people and tools.
-                  Or don’t. You can always go dynamic.</p>
+                  Or don’t. Dart is truly dynamic.</p>
                   <div class="code-hldr">
-                    <div class="code-hldr">  
-                      <div class="item" style="margin-top:23px">
-                          Without types, code freely.<br>
-                        <img src="imgs/no_types.png">
-                                </div>
-                                <div class="item" style="margin-top:23px;">
-                          With types, learn about errors early.<br>
-                        <img src="imgs/with_types.png">
-                      </div>
-                    </div>
+                          <div style="padding-top:20px;">While prototyping, code freely without worrying about types.</div>
+<pre class="prettyprint lang-dart">
+// A function without types.
+recalculate(origin, offset, estimate) {
+  // ...
+}
+</pre>
+                          <div style="padding-top:20px;">During production, use types to learn about errors early,
+                          communicate intent, and get help with code completion.</div>
+<pre class="prettyprint lang-dart">
+// A function with types (and an optional parameter).
+num recalculate(Point origin, num offset, {bool estimate: false}) {
+  // ...
+}
+</pre>
                   </div>
                 </div>
                 <div class="item">
@@ -373,7 +382,7 @@ main() {
                   <p class="company">Mandrill</p>
                 </div>
                 <div class="item">
-           <h4>&ldquo;When we were first started exploring Dart, the team was very excited about its potential. After using it with Montage, we're even more convinced about its future.&rdquo;</h4>
+           <h4>&ldquo;When we first started exploring Dart, the team was very excited about its potential. After using it with Montage, we're even more convinced about its future.&rdquo;</h4>
                   <p class="person"><span class="title"></span></p>
                   <p class="company">Montage</p>
                 </div>
@@ -389,7 +398,11 @@ main() {
           <div class="col-md-12" id="tools">
             <h2>Dart’s tools help you be productive</h2>
             <img src="/imgs/dart-editor.png" alt="Image of Dart Editor">
-            <p>Dart Editor is the easiest way to get started, helping you edit, debug, and run Dart apps. When you download Dart Editor, you get other tools, as well:</p>
+            <p>Dart Editor is the easiest way to get started, helping you edit,
+              debug, and run Dart apps.
+              When you download Dart, you get
+              <a href="/tools/editor/">Dart Editor</a> and
+              <a href="/tools/">other tools</a>, as well:</p>
           </div>
         </div>
         <div class="row productivity-tools-options">

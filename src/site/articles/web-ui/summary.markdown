@@ -100,7 +100,7 @@ that the component directly or indirectly extends from
 <tr><td>
 <a href="spec.html#retrieval">Retrieval</a>
 </td><td>
-{% prettify dart %}document.query('x-foo').xtag{% endprettify %}
+{% prettify dart %}document.querySelector('x-foo').xtag{% endprettify %}
 </td><td>
 Retrieves a reference to a component previously instantiated in your page.
 <br>
