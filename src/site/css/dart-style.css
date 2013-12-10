@@ -493,7 +493,7 @@ pre.prettyprint {
 	height: 450px;
 }
 
-.lang-dart, .lang-html {
+.lang-dart, .lang-html, .lang-js, .lang-csharp, .lang-python {
   max-width: 800px;
   text-align: left;
   margin-right: auto;
@@ -1294,4 +1294,63 @@ dd{
   content: "good";
   color: #696;
   float: right;
+}
+
+/* Synonym */
+
+#synonym-meat h1 {
+  border-left: 5px solid gray;
+  padding-left: 5px;
+  font-size: 35px;
+}
+
+#synonym-meat h2 {
+  font-size: 25px;
+}
+
+@media (max-width: 768px) {
+	#synonym-meat h1 {
+		font: 400 25px 'Montserrat', sans-serif;
+	}
+
+	#synonym-meat h2 {
+		font: 400 15px 'Montserrat', sans-serif;
+	}
+}
+
+.synonym .language-choice select {
+  width: 240px;
+  height: 40px;
+  font-size: 25px;
+  -webkit-appearance: menulist-button;
+  margin-top: 20px;
+  color: #484848;
+}
+
+.synonym nav ul {
+	-moz-column-count: 3; /* Firefox */
+	-webkit-column-count: 3; /* Safari and Chrome */
+	column-count: 3;
+	padding-left: 0;
+	list-style: none;
+}
+
+.synonym nav ul li {
+	margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+	.synonym nav ul {
+		-moz-column-count:2; /* Firefox */
+		-webkit-column-count:2; /* Safari and Chrome */
+		column-count:2;
+	}
+}
+
+@media (max-width: 420px) {
+	.synonym nav ul {
+		-moz-column-count:1; /* Firefox */
+		-webkit-column-count:1; /* Safari and Chrome */
+		column-count:1;
+	}
 }

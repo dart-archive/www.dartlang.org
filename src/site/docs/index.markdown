@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 title: "Programmer's Guide"
 description: "Documentation, references, and more about the Dart language, libraries, and tools."
 has-permalinks: true
