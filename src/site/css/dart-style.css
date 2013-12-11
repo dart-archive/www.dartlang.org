@@ -888,6 +888,12 @@ code {
 	border-radius: 4px;
 }
 
+/* Fix perf bug with desktop chrome */
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+	-webkit-transform: translateZ(0);
+}
+
 /* ***** Footer ***** */
 .footer {
 	background: #3f4245 url(../imgs/footer-bg.png) repeat-x left top;
@@ -898,6 +904,7 @@ code {
     left: 0;
     z-index: 100;
     height: 300px;
+    -webkit-transform: translateZ(0);
 }
 
 @media (max-width: 992px) {
