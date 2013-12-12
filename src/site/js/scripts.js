@@ -63,9 +63,12 @@ $(function() {
       var isnavtabs = $('.nav-tabs')[0];
       if (target.length && !isnavtabs) {
         var scrollOffset = $('.navbar').outerHeight() + scrollPadding;
-        $('html,body').animate({
-          scrollTop: target.offset().top - scrollOffset
-        }, 1000);
+        if(typeof $(this).data('slide') !== 'undefined') {
+          $('html,body').animate({
+            scrollTop: target.offset().top - scrollOffset
+          }, 1000);
+        }
+        
         window.location.hash = this.hash;
         return false;
       } else {
@@ -81,12 +84,12 @@ $(function(){
   
   var popOpen = false;
 
-  $(".dart-popover").popover();
+  $(".dart-popover").popover('show');
 
   $('.dart-popover').on( "click", function(e) {
     e.preventDefault();
     if (popOpen) {
-      $(".dart-popover").not(this).popover('hide');
+      //$(".dart-popover").not(this).popover('hide');
     } 
     popOpen = true;
   });
