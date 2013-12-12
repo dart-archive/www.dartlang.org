@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Synonyms - Dart, JavaScript, C#, Python"
+description: "Dart idioms and snippets translated to JavaScript, Python, and C#."
+has-permalinks: true
+snippet_img: dart-synonym-screenshot.png
+---
+
+<div class="synonym">
+
+  <h1>Synonyms</h1>
+
+  <p>Dart idioms and snippets translated to JavaScript, Python, and C#.</p>
+
+  <nav>
+  <ul>
+  </ul>
+  </nav>
+
+<div class="row">
+  <div class="col-md-6">
+    <h1 class="language-name">
+      Dart
+    </h1>
+  </div>
+  <div class="col-md-6 language-choice">
+    <select>
+      <option value="js">JavaScript</option>
+      <option value="csharp">C#</option>
+      <option value="python">Python</option>
+    </select>
+  </div>
+</div>
+
+<hr>
+
+<div id="synonym-meat">
+  <div class='row loading'>
+    <div class='col-md-16'>
+      <h1>Loading&hellip;</h1>
+      <p>Thanks for your patience!</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script type="application/dart" src="assets/synonyms.dart"></script>
+<script type="text/javascript" src="assets/dart.js"></script>
+
+<script type="text/javascript">
+  window.addEventListener('message', function(e) {
+    if (e.data == 'code:loaded') {
+      window.prettyPrint();
+    }
+  });
+</script>

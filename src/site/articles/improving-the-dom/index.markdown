@@ -49,7 +49,7 @@ DOM has a pile of methods for finding stuff.
 All of this piled up before <a href="http://jquery.com/">jQuery</a> appeared
 on a mountaintop to give us the revelation that <em>Thou Shalt Find Nodes By
 Using CSS Selectors</em>. With the One True Way in hand, we've stripped it
-down to just two (!) methods: `query()` and `queryAll()`.
+down to just two (!) methods: `querySelector()` and `querySelectorAll()`.
 
 <div class="row">
   <div class="col-md-6">
@@ -76,8 +76,8 @@ selectElement.options
 
 {% prettify dart %}
 // New:
-query()
-queryAll()
+querySelector()
+querySelectorAll()
 {% endprettify %}
 
   </div>
@@ -101,12 +101,12 @@ elem.querySelectorAll('.foo .bar');
 
 <!--- BEGIN(element_query) -->{% prettify dart %}
 // New:
-elem.query('#foo');
-elem.queryAll('div');
-elem.queryAll('[name="foo"]');
-elem.queryAll('.foo');
-elem.query('.foo .bar');
-elem.queryAll('.foo .bar');
+elem.querySelector('#foo');
+elem.querySelectorAll('div');
+elem.querySelectorAll('[name="foo"]');
+elem.querySelectorAll('.foo');
+elem.querySelector('.foo .bar');
+elem.querySelectorAll('.foo .bar');
 {% endprettify %}<!--- END(element_query) -->
 
   </div>
@@ -117,7 +117,7 @@ elem.queryAll('.foo .bar');
 In JavaScript, the DOM collection types are different from the built-in
 Array type, which trips users up when methods they use on one aren't available
 on the other. For Dart, we've cleaned that up. Methods like
-`children`, `nodes`, and `queryAll()` return
+`children`, `nodes`, and `querySelectorAll()` return
 _actual_
 Dart [lists](http://api.dartlang.org/docs/releases/latest/dart_core/List.html),
 [maps](http://api.dartlang.org/docs/releases/latest/dart_core/Map.html),
@@ -125,7 +125,7 @@ and [sets](http://api.dartlang.org/docs/releases/latest/dart_core/Set.html).
 
 {% prettify dart %}
 // From dart:html
-List<Element> queryAll(String selector);
+List<Element> querySelectorAll(String selector);
 
 // On Element:
 Map<String, String> attributes

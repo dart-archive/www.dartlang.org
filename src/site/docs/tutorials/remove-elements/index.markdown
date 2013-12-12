@@ -166,7 +166,7 @@ The HTML code creates a button with the ID delete-all.
 
 <li markdown="1">
 The Dart code gets the button element from the DOM
-using query() and the button's ID, #delete-all.
+using querySelector() and the button's ID, #delete-all.
 The code registers a mouse click handler on the button;
 the handler removes all of the child elements from the to do list.
 Here is all of the Dart code related to the **Delete All** button.

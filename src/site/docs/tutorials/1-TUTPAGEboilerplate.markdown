@@ -28,7 +28,7 @@ This section provides links to sources on github.
 {% capture content %}
 
 <div id="under-construction" markdown="1">
-<h3> <i class="icon-wrench"> </i> Under construction </h3>
+<h3> <i class="fa fa-wrench"> </i> Under construction </h3>
 
 This is a draft under construction.
 Your kindly worded

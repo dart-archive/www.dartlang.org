@@ -212,7 +212,7 @@ To create an instance of a custom element,
 use the name of the custom element just as you would any normal HTML tag.
 In this example, the tag name is `tute-stopwatch`.
 
-<img class="scale-img-max" src="images/polymer-element-instantiation.png"
+<img class="scale-img-max" src="images/polymer-instance-create.png"
      alt="Instantiate a custom element with a custom tag">
 
 Using best practices,
@@ -465,17 +465,17 @@ by querying a custom element's _shadow root_&mdash;a
 special node from which an instance of a custom element is rendered.
 
 {% prettify dart %}
-startButton = getShadowRoot('tute-stopwatch').query('#startbutton');
-stopButton = getShadowRoot('tute-stopwatch').query('#stopbutton');
-resetButton = getShadowRoot('tute-stopwatch').query('#resetbutton');
+startButton = getShadowRoot('tute-stopwatch').querySelector('#startbutton');
+stopButton = getShadowRoot('tute-stopwatch').querySelector('#stopbutton');
+resetButton = getShadowRoot('tute-stopwatch').querySelector('#resetbutton');
 {% endprettify %}
 
 Call `getShadowRoot()` with the name of the custom element.
 The `getShadowRoot()` method returns the shadow root element
 for this instance of the specified element.
-Use `query()` with a CSS selector to get the element(s) of interest.
+Use `querySelector()` with a CSS selector to get the element(s) of interest.
 
-Note that this code uses `query()` to get each button by ID.
+Note that this code uses `querySelector()` to get each button by ID.
 By querying the shadow root object rather than the DOM,
 you are guaranteed to get the objects from within the custom element,
 not from anywhere else on the page.

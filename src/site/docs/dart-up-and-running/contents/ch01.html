@@ -71,7 +71,7 @@ main() {
         ..text = 'Click to Confirm'
         ..classes.add('important')
         ..onClick.listen((e) =&gt; window.alert('Confirmed!'));
-  query('#registration').children.add(button);
+  querySelector('#registration').children.add(button);
 }</pre><p>You’ll learn about the Dart language and libraries in Chapters <a class="xref" href="ch02.html" title="Chapter 2. A Tour of the Dart Language">2</a> and <a class="xref" href="ch03.html" title="Chapter 3. A Tour of the Dart Libraries">3</a> respectively.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch01-whats-cool"></a>What’s Cool About Dart</h2></div></div></div><p>Dart may look familiar, but don’t let that fool you. Dart has lots
     of cool features to help give you a productive and fun experience building
     the next generation of awesome web apps.</p><p><span class="emphasis"><em>Dart is easy to learn.</em></span> A wide range of
@@ -128,19 +128,18 @@ main() {
     <a class="ulink" href="http://dart.googlecode.com" target="_top">issue tracker and source
     repository</a> online. Maybe you’ll submit the next patch?</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch01-editor"></a>Up and Running</h2></div></div></div><p>Now that you know something about Dart, get ready to code! These
     instructions feature the open-source Dart Editor tool. When you download
-    Dart, you not only get Dart Editor,
-    but also tools such as the Dart-to-JavaScript compiler and a version of
-    Chromium (nicknamed <span class="emphasis"><em>Dartium</em></span>) that includes the Dart
-    VM.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If you run into trouble installing and using Dart Editor, see
+    Dart, you not only get Dart Editor, but also tools such as the
+    Dart-to-JavaScript compiler and a version of Chromium (nicknamed
+    <span class="emphasis"><em>Dartium</em></span>) that includes the Dart VM.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If you run into trouble installing and using Dart Editor, see
       <a class="ulink" href="http://www.dartlang.org/tools/editor/troubleshoot.html" target="_top">Troubleshooting
       Dart Editor.</a></p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch01-editor-download"></a>Step 1: Download and Install the Software</h3></div></div></div><p>In this step, you’ll install Dart Editor and, if necessary, a Java
       runtime environment. (To avoid having to modify the PATH environment
       variable, you can install the JRE under your Dart installation
       directory, in a subdirectory named <code class="code">jre</code>.)</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><a class="ulink" href="http://dartlang.org/#get-started" target="_top">Download
-          Dart</a>.</p></li><li class="listitem"><p>Unzip the file you downloaded. The resulting directory, which we’ll call your
-          <span class="emphasis"><em>Dart installation directory</em></span>, contains the
-          <code class="code">DartEditor</code> executable file and several subdirectories,
-          including a <code class="code">samples</code> directory.</p></li><li class="listitem"><p>If you don’t already have a Java runtime, download and install
+          Dart</a>.</p></li><li class="listitem"><p>Unzip the file you downloaded. The resulting directory, which
+          we’ll call your <span class="emphasis"><em>Dart installation directory</em></span>,
+          contains the <code class="code">DartEditor</code> executable file and several
+          subdirectories, including a <code class="code">samples</code> directory.</p></li><li class="listitem"><p>If you don’t already have a Java runtime, download and install
           it. Dart Editor requires Java version 6 or higher.</p></li></ol></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch01-editor-launch"></a>Step 2: Launch the Editor</h3></div></div></div><p>Go to your Dart installation directory, and double-click the
       <span class="bold"><strong>DartEditor</strong></span> executable <span class="keep-together">file <span class="inlinemediaobject"><img src="figs/web/Dart_Logo_21.png" width="11"></span>.</span></p><p>You should see the Dart Editor application window appear, looking
       something like <a class="xref" href="ch01.html#DartEditor-initial" title="Figure 1.2. Dart Editor and its Welcome page">Figure 1.2, “Dart Editor and its Welcome page”</a>.</p><div class="figure"><a name="DartEditor-initial"></a><p class="title"><b>Figure 1.2. Dart Editor and its Welcome page</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0102.png" alt="Dart Editor and its Welcome page"></div></div></div><br class="figure-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch01-editor-code"></a>Step 3: Create and Run an App</h3></div></div></div><p>It’s easy to create a simple web or command-line app from scratch.

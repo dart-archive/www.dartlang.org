@@ -16,17 +16,20 @@
   {% endif %}
   <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}Dart is a new platform for building structured web apps for modern browsers. It includes a language, a VM, libraries, tools, and a compiler to JavaScript. Try Dart today!{% endif %}">
 
-  <!-- Bootstrap core CSS -->
-  <link href="/css/bootstrap.min.css" rel="stylesheet">
+{% bundle %}
+- /css/bootstrap.min.css
+- /css/dart-style.css
+- /css/prettify.css
+- /css/font-awesome.min.css
+{% endbundle %}
 
-  <!-- Custom styles for this template -->
-  <link href="/css/dart-style.css" rel="stylesheet">
-  <link href="/css/prettify.css" type="text/css" rel="stylesheet" />
-  <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:300,400" rel="stylesheet">
+
 	{% if page.header and page.header.css %}{% for css in page.header.css %}<link href="{{ css }}" rel="stylesheet" type="text/css">{% endfor %}{% endif %}
+
 	{% for author in page.rel.author %}<link rel="author" href="/authors/{{ author }}.html">{% endfor %}
 	{% if page.rel.me %}<link rel="me" href="{{ page.rel.me }}">{% endif %}
+
 	<link rel="alternate" type="application/atom+xml" href="http://news.dartlang.org/feeds/posts/default" title="Atom feed">
   <link href="https://plus.google.com/109866369054280216564" rel="publisher">
 
@@ -43,27 +46,6 @@
 
   {% include analytics.html %}
 
-  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script>
-  {% if page.googleapi %} google.load("feeds", "1"); {% endif %}
-
-	window.___gcfg = {lang: 'en'};
-	(function()
-	{var po = document.createElement("script");
-	po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
-	var s = document.getElementsByTagName("script")[0];
-	s.parentNode.insertBefore(po, s);
-	})();
-  </script>
-
-  <script>
-    window.twttr = (function (d,s,id) {
-      var t, js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-      js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-      return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-    }(document, "script", "twitter-wjs"));
-  </script>
 </head>
 <body onload="prettyPrint()">
 
@@ -128,7 +110,7 @@
               <ul class="dropdown-menu">
                 <i class="sprite-icon-dd-tip"></i>
                 <li><a href="/samples/">Code Samples</a></li>
-                <li><a href="http://synonym.dartlang.org/">Translations from Dart</a></li>
+                <li><a href="/docs/synonyms/">Synonyms with other languages</a></li>
 
                 <li class="divider"></li>
                 <li><a href="/slides/">Presentations</a></li>
@@ -143,7 +125,7 @@
             </li>
             <li class="dropdown">
               <a href="/support/" title="Community and Support">
-                    Community
+                    Support
               </a>
             </li>
           </ul>
