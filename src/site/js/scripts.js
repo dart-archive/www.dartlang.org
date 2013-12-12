@@ -84,12 +84,12 @@ $(function(){
   
   var popOpen = false;
 
-  $(".dart-popover").popover('show');
+  $(".dart-popover").popover();
 
   $('.dart-popover').on( "click", function(e) {
     e.preventDefault();
     if (popOpen) {
-      //$(".dart-popover").not(this).popover('hide');
+      $(".dart-popover").not(this).popover('hide');
     } 
     popOpen = true;
   });
