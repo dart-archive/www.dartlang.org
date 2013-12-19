@@ -1,3 +1,13 @@
+- title: "Dart for the modern web developer"
+  short: dart-at-cds
+  presenters:
+    - Kasper Lund
+    - Seth Ladd
+  date: 2013-11-20
+  slides: https://docs.google.com/presentation/d/1JU1ToBg-K7_vLC5bt2gEcEy3p12mCQG8CGELOP3vWvI/edit?usp=sharing
+  video: http://www.youtube.com/watch?v=FqsU3TbUw_s
+  event: Chrome Developer Summit
+
 - title: "Modern Web Development with Dart"
   short: dart-smalltalk-industry-conference
   presenters:

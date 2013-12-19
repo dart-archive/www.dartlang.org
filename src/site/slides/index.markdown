@@ -12,6 +12,8 @@ snippet_img: imgs/dart-today-and-beyond.jpg
 
 Watch videos and review slides from presentations about Dart.
 You can also watch our 5-minute video tutorials, [Dart Tips](/dart-tips/).
+For even more videos, check out this collection of community-curated
+[videos about Dart][dartlangtv].
 
 {% injectdata presos slides/presentations.yaml %}
 
@@ -47,4 +49,4 @@ You can also watch our 5-minute video tutorials, [Dart Tips](/dart-tips/).
 {% cycle '', '', '</div>' %}
 {% endfor %}
 
-
+[dartlangtv]: http://www.youtube.com/user/DartlangTV
