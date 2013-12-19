@@ -33,9 +33,9 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
     <ul>
       <li><a href="#home"       ocu-scroll-click class="current-nav-item">Home</a></li>
       <li><a href="#locations"  ocu-scroll-click>Find an event</a></li>
-      <li><a href="#register"   ocu-scroll-click>Start your own event</a></li>
       <li><a href="#resources"  ocu-scroll-click>Organizer Resources</a></li>
       <li><a href="#faq"        ocu-scroll-click>FAQ</a></li>
+      <li><a href="#register"   ocu-scroll-click>Start your own event</a></li>
     </ul>
     <div class="mobile-nav-hook" ng-click="nav.show_mobile = !nav.show_mobile">
       <span>&nbsp;</span>
@@ -106,7 +106,7 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
       </ul>
     </div>
     <p>
-      Can't find an event near you? Consider <a href="#register">starting your own</a>!
+      Can't find an event near you? Consider <a href="#register" ocu-scroll-nav>starting your own</a>!
     </p>
   </div>
 
@@ -151,7 +151,8 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
       <li>
         <h3>Communities</h3>
         <p>Connect with fellow organizers and other Dartisans over Google+.</p>
-        <a href="https://plus.google.com/communities/103524414949893193373" class="resource-link">Flight School Organizers (use the <a href="#register">form</a> for an invite)</a>
+        <a href="https://plus.google.com/communities/103524414949893193373" class="resource-link">Flight School Organizers</a>
+        <a href="#register" ocu-scroll-click class="resource-link">Register for an Invite</a>
         <a href="http://g.co/dartisans" class="resource-link">Dartisans</a>
       </li>
     </ul>
@@ -159,7 +160,7 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
       <li>
         <h3>Swag</h3>
         <p>We'll send Dart swag packs to events that meet the
-          <a href="#howdoigetswag">minimum requirements</a>.</p>
+          <a href="#howdoigetswag" class="inline" ocu-scroll-click>minimum requirements</a>.</p>
         <a href="#" class="resource-link">Swag Request Form (Coming soon)</a>
       </li>
       <li>
@@ -252,7 +253,7 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
        feel free to look for speakers inside of, and outside of, the local Dart
        community.
     </p>
-    
+
     <h3 id="howdoigetswag">I’d like to organize my own Flight School, what do I
       have to do to request a Dart swag packet?</h3>
     <p>We're still working out the details,
@@ -339,13 +340,8 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
-<script src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
 <script src="js/plugins.min.js"></script>
 <script src="js/app.js"></script>
-
-<style>
-p a { text-decoration: underline; }
-</style>
 
 {% include analytics.html %}
 
