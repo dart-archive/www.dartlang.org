@@ -7,8 +7,8 @@ tutorial:
   id: fetchdata
 next: forms/
 next-title: "Get Input from a Form"
-prev: polymer-intro/
-prev-title: "Define a Custom Element"
+prev: streams/
+prev-title: "Use Streams for Data"
 ---
 
 {% capture whats_the_point %}
@@ -90,7 +90,7 @@ and check out the JSON format for each data type.
 <aside class="alert">
 <strong>Version Note:</strong> The its_all_about_you app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.8.7</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.9</a>.
 </aside>
 
 The dart:convert library contains two convenient functions
@@ -297,7 +297,12 @@ to request the file from the server.
      alt="Use the getString() function to make a request">
 
 The getString() method uses a Future object to handle the request.
-You can use the code above as an idiom
+A Future is a way to perform potentially time-consuming operations,
+such as HTTP requests, asynchronously.
+If you haven't encountered Futures yet,
+you can learn more about them in
+[Use Future-Based APIs](/docs/tutorials/futures/).
+Until then, you can use the code above as an idiom
 and provide your own code for the body of the processString() function
 and your own code to handle the error.
 
@@ -462,9 +467,14 @@ Check out Chris Buckett's article,
 for more information and an example with source code for both
 client and server programs.
 
-##What Next?
+##What next?
 
-The next tutorial,
+* If you skipped the previous tutorial,
+[Use Future-Based APIs](/docs/tutorials/futures/),
+we highly recommend that you go back and learn about Futures
+before going any further.
+
+* The next tutorial,
 [Get Input from a Form](/docs/tutorials/forms/),
 contains a client/server example that
 shows you how to use a form to get data from the user,

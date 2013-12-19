@@ -63,9 +63,12 @@ $(function() {
       var isnavtabs = $('.nav-tabs')[0];
       if (target.length && !isnavtabs) {
         var scrollOffset = $('.navbar').outerHeight() + scrollPadding;
-        $('html,body').animate({
-          scrollTop: target.offset().top - scrollOffset
-        }, 1000);
+        if(typeof $(this).data('slide') !== 'undefined') {
+          $('html,body').animate({
+            scrollTop: target.offset().top - scrollOffset
+          }, 1000);
+        }
+        
         window.location.hash = this.hash;
         return false;
       } else {

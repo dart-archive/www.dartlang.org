@@ -1,14 +1,7 @@
-/* TEAM */
-Tech writer: Kathy Walrath
-Site: https://plus.google.com/105904968710974272643/
-
-Developer advocate: Seth Ladd
-Site: https://plus.google.com/118397406534237711570/
-
 /* THANKS */
 To the Dart team and our fabulous site contributors! And to developers like you.
 
 /* SITE */
 Standards: HTML5, CSS3
 Components: Bootstrap
-Software: Jekyll, Compass, optipng
+Software: Jekyll, optipng

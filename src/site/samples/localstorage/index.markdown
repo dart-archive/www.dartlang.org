@@ -1,3 +1,4 @@
+---
 layout: default
 title: LocalStorage 101
 live_example_url: example/index.html

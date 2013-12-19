@@ -1076,6 +1076,11 @@ These are:
   useful in particular for driving tests from other programs or scripts
   where the return code of the process is useful to detect success or failure;
   call `useVMConfiguration()` to use this, and import `vm_config.dart`
+* `CompactVMConfiguration`,
+  which generates a compact 1-line progress bar. Useful for running unittest
+  from the command line and displaying a cleaner output than the default
+  configuration. Call `useCompactVMConfiguration()` to use this and import
+  `compact_vm_config.dart`
 * `HtmlConfiguration`,
   which puts test results in an HTML table
   and sets the browser document body to be this table;

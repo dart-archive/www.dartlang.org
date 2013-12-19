@@ -122,9 +122,9 @@ END
         'coffee' =>
           Liquid::Template.parse("<script type='text/coffeescript' src='{{url}}'></script>\n"),
         'css'    =>
-          Liquid::Template.parse("<link rel='stylesheet' type='text/css' href='{{url}}' />\n"),
+          Liquid::Template.parse("<link rel='stylesheet' type='text/css' href='{{url}}'>\n"),
         'less'   =>
-          Liquid::Template.parse("<link rel='stylesheet/less' type='text/css' href='{{url}}' />\n")
+          Liquid::Template.parse("<link rel='stylesheet/less' type='text/css' href='{{url}}'>\n")
       }
     }
     @@current_config = nil

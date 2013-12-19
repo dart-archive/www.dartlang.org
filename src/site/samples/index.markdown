@@ -9,26 +9,35 @@ has_permalinks: true
   <h1> {{ page.title }} </h1>
 <div class="row">
 <div class="col-md-3">
-  <ul id="samples-toc">
+  <ol class="toc nav bs-sidenav" id="markdown-toc" role="complementary">
+
   {% for group in page.samples.col1 %}
     <li><a href="#{{group.anchor}}">{{ group.heading }}</a></li>
   {% endfor %}
-  </ul>
+  </ol>
 </div>
 
 <div class="col-md-9" >
   <div class="row">
     {% for group in page.samples.col1 %}
-      <h2 class="group-heading"><a id="{{group.anchor}}">{{ group.heading }}</a></h2>
       <div class="row">
-        <div class="col-md-9">
+        <h2 class="has-permalinks" id="{{group.anchor}}">{{ group.heading }}</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-7 group">
           {% for example in group.examples %}
-            <div class="row example">
+            <div class="row">
+              <h3 class="title">{{ example.title }}</h3>
+            </div>
+
+            <div class="row">
               <div class="col-md-6">
-                <div class="title"><a href="{{ example.explanation_url }}">{{ example.title }}</a></div>
+                <p class="text-muted">{{ example.description }}&nbsp;
+                   <a href="{{ example.explanation_url}}">More</a>
+                </p>
               </div>
               <div class="col-md-3">
-                <div class="link"><a href="{{ example.source_url }}">Source</a></div>
+                <a href="{{ example.source_url }}">Source</a>
               </div>
               <div class="col-md-3">
                 {% if example.tryit_url %}
@@ -36,17 +45,20 @@ has_permalinks: true
                 {% endif %}
               </div>
             </div>
+
           {% endfor %}
         </div>
-        <div class="col-md-3">
-          <div class="screenshot-container">
-            <a href="{{group.link}}">
-              <img width="135" class="screenshot"
-                  alt="{{group.caption}}"
-                  src="imgs/{{group.screenshot}}">
-            </a>
+        <div class="col-md-5">
+          <div class="row">
+            <div class="thumbnail">
+              <a href="{{group.link}}">
+                <img class="screenshot"
+                    alt="{{group.caption}}"
+                    src="imgs/{{group.screenshot}}">
+              </a>
+              <div class="caption">{{group.caption}}</div>
+            </div>
           </div>
-          <div class="caption">{{group.caption}}</div>
         </div>
       </div>
     {% endfor %}

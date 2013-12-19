@@ -2,11 +2,10 @@
 import 'dart:io';
 
 main() {
-  var options = new Options();
   var semicolon = ';'.codeUnitAt(0);
   var result = [];
 
-  new File(options.script).open(mode: FileMode.READ).then((RandomAccessFile file) {
+  new File(Platform.script.toFilePath()).open(mode: FileMode.READ).then((RandomAccessFile file) {
     // Callback to deal with each byte.
     void onByte(int byte) {
       result.add(byte);

@@ -37,6 +37,7 @@ from left to right...or choose just the ones you need.
     <li><a href="#dom" data-toggle="tab">Browser</a></li>
     <li><a href="#packages" data-toggle="tab">Packages</a></li>
     <li><a href="#polymer" data-toggle="tab">Polymer</a></li>
+    <li><a href="#futures" data-toggle="tab">Futures & Streams</a></li>
     <li><a href="#forms" data-toggle="tab">Forms & Data</a></li>
     <!--<li><a href="#mobile" data-toggle="tab">Mobile</a></li>-->
   </ul>
@@ -174,6 +175,28 @@ from left to right...or choose just the ones you need.
           </section>
         </div>
 
+        <div class="col-md-6">
+        </div>
+
+      </div>
+    </div>
+
+  <!-- FUTURES & STREAMS TAB -->
+    <div class="tab-pane" id="futures">
+      <div class="row">
+
+        <div class="col-md-6">
+          <section>
+          <h4 class="no-permalink"><a href="futures/"><img src="images/target.png" height="20" width="20">&nbsp;Use Future-Based APIs</a></h4>
+          <p>A first look at using Futures for asynchronous tasks.</p>
+          <img src="futures/images/futurescode.png" width="350">
+          </section>
+        </div>
+          <section>
+          <h4 class="no-permalink"><a href="streams/"><img src="images/target.png" height="20" width="20">&nbsp;Use Streams for Data</a></h4>
+          <p>Use streams to manage sequences of data</p>
+          <img src="images/streams-code.png">
+          </section>
         <div class="col-md-6">
         </div>
 

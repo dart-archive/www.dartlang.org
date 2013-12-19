@@ -19,8 +19,6 @@ header:
 
 # {{ page.title }}
 
-## Got an hour? Write a Dart app.
-
 In this code lab,
 you build a pirate badge generator from a skeleton app.
 The sample app provides a brief look at some Dart language and library features.
@@ -29,7 +27,7 @@ This code lab assumes that you have some programming experience.
 <strong>Build this app!</strong>
 
 <iframe class="running-app-frame"
-        style="height:220px;width:530px;"
+        style="height:220px;width:550px;"
         src="examples/6-piratebadge_json/piratebadge.html">
 </iframe>
 
@@ -58,7 +56,7 @@ This code lab assumes that you have some programming experience.
 In this step, you download Dart and get the sample code.
 
 
-### <i class="icon-anchor"> </i> Get Dart.
+### <i class="fa fa-anchor"> </i> Get Dart.
 
 <div class="trydart-step-details" markdown="1">
 If you haven't already done so,
@@ -74,7 +72,7 @@ Unzip the ZIP file, which creates a directory called `dart`.
 </p>
 </div>
 
-### <i class="icon-anchor"> </i> Start the editor.
+### <i class="fa fa-anchor"> </i> Start the editor.
 
 <div class="trydart-step-details" markdown="1">
 Go to the `dart` directory and double-click **DartEditor**.
@@ -84,7 +82,7 @@ Go to the `dart` directory and double-click **DartEditor**.
 
 </div>
 
-### <i class="icon-anchor"> </i> Get the sample code.
+### <i class="fa fa-anchor"> </i> Get the sample code.
 
 <div class="trydart-step-details" markdown="1">
 <a href="https://github.com/dart-lang/one-hour-codelab/archive/master.zip">Download</a>
@@ -93,7 +91,7 @@ Unzip the ZIP file,
 which creates a directory called `one-hour-codelab-master`.
 </div>
 
-### <i class="icon-anchor"> </i> Open the one-hour-codelab-master sample.
+### <i class="fa fa-anchor"> </i> Open the one-hour-codelab-master sample.
 
 <div class="trydart-step-details" markdown="1">
 In Dart Editor,
@@ -107,7 +105,7 @@ to open the `one-hour-codelab-master` directory.
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="icon-key"> </i> <strong> Key Information </strong>
+<i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * The `packages` directory, as well as the `pubspec.yaml` and `pubspec.lock` files are
 related to package dependencies.
@@ -134,7 +132,7 @@ In this step, you open the source files,
 familiarize yourself with the Dart and HTML code,
 and run the app.
 
-### <i class="icon-anchor"> </i> Expand the 1-blankbadge directory.
+### <i class="fa fa-anchor"> </i> Expand the 1-blankbadge directory.
 
 <div class="trydart-step-details" markdown="1">
 In Dart Editor, expand the `1-blankbadge` directory
@@ -143,14 +141,14 @@ by clicking the little arrow
 The directory contains two files, `piratebadge.html` and `piratebadge.dart`.
 </div>
 
-### <i class="icon-anchor"> </i> Open the files.
+### <i class="fa fa-anchor"> </i> Open the files.
 
 <div class="trydart-step-details" markdown="1">
 Open both files, `piratebadge.html` and `piratebadge.dart`,
 by double-clicking each filename in Dart Editor.
 </div>
 
-### <i class="icon-anchor"> </i> Review the code.
+### <i class="fa fa-anchor"> </i> Review the code.
 
 <div class="trydart-step-details" markdown="1">
 Get familiar with the HTML and the Dart code for the skeleton version of the app.
@@ -196,7 +194,7 @@ Get familiar with the HTML and the Dart code for the skeleton version of the app
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="icon-key"> </i> <strong> Key Information </strong>
+<i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * During this code lab,
 all the changes you make to `piratebadge.html` are within
@@ -242,7 +240,7 @@ It is referenced by a &lt;script&gt; tag in the `piratebadge.html` file.
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
-### <i class="icon-anchor"> </i> Run the app.
+### <i class="fa fa-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
 To run the app in Dart Editor, select `piratebadge.html`
@@ -281,7 +279,7 @@ In this step, you add an input field to the app.
 As the user types into the text field,
 the Dart code updates the badge from the value of the text field.
 
-### <i class="icon-anchor"> </i> Edit piratebadge.html.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.html.
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
@@ -305,7 +303,7 @@ within the `widgets` &lt;div&gt;.
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="icon-key"> </i> <strong> Key Information </strong>
+<i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * The ID for the input element is `inputName`.
 Dart uses CSS selectors, like this ID,
@@ -315,7 +313,7 @@ to get elements from the DOM.
 
 </div> </div>
 
-### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -422,7 +420,7 @@ Implement the event handler as a top-level function.
 
 </div> </div>
 
-### <i class="icon-anchor"> </i> Run the app.
+### <i class="fa fa-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -438,7 +436,7 @@ Compare your app to the one running below.
 Type in the input field.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:530px;"
+        style="height:220px;width:550px;"
         src="examples/2-inputnamebadge/piratebadge.html">
 </iframe>
 
@@ -461,7 +459,7 @@ The button is enabled when the text field contains no text.
 When the user clicks the button,
 the app puts the name `Anne Bonney` on the badge.
 
-### <i class="icon-anchor"> </i> Edit piratebadge.html.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.html.
 
 <div class="trydart-step-details" markdown="1">
 Add the &lt;button&gt; tag below the input field.
@@ -488,14 +486,14 @@ Add the &lt;button&gt; tag below the input field.
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="icon-key"> </i> <strong> Key Information </strong>
+<i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * The button has the ID `generateButton` so
 the Dart code can get the element.
 
 </div> </div>
 
-### <i class="icon-anchor"> </i> Edit piragebadge.dart.
+### <i class="fa fa-anchor"> </i> Edit piragebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 Below the import, declare a top-level variable to hold the `ButtonElement`.
@@ -719,7 +717,7 @@ genButton.text = 'Aye! Gimme a name!';
 </div></div>
 
 
-### <i class="icon-anchor"> </i> Run the app.
+### <i class="fa fa-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -737,7 +735,7 @@ Remove the text from the input field.
 Click the button.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:530px;"
+        style="height:220px;width:550px;"
         src="examples/3-buttonbadge/piratebadge.html">
 </iframe>
 
@@ -764,7 +762,7 @@ randomly selects a name and appellation from a list,
 or optionally you can provide a name
 and an appellation to the constructor.
 
-### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 Add an import to the top of the file.
@@ -784,7 +782,7 @@ import 'dart:html';
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="icon-key"> </i> <strong> Key Information </strong>
+<i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * Using the `show` keyword,
 you can import only the classes, functions, or properties you need.
@@ -1078,7 +1076,7 @@ void generateBadge(Event e) {
 
 </div></div>
 
-### <i class="icon-anchor"> </i> Run the app.
+### <i class="fa fa-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
   
@@ -1096,7 +1094,7 @@ Remove the text from the input field.
 Click the button.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:530px;"
+        style="height:220px;width:550px;"
         src="examples/4-classbadge/piratebadge.html">
 </iframe>
 
@@ -1122,7 +1120,7 @@ by saving the badge name to local storage each time it changes.
 When you restart the app,
 it initializes the badge from the saved name.
 
-### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 Import the JSON converter from the `dart:convert` library.
@@ -1143,7 +1141,7 @@ import 'dart:convert' show JSON;[[/highlight]]
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="icon-key"> </i> <strong> Key Information </strong>
+<i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * `JSON` provides convenient access to the most common JSON use cases.
 
@@ -1335,7 +1333,7 @@ void main() {
 
 </div> </div>
 
-### <i class="icon-anchor"> </i> Run the app.
+### <i class="fa fa-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
   
@@ -1352,7 +1350,7 @@ Click the button to put a name on the badge.
 Start the app again by duplicating this window.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:530px;"
+        style="height:220px;width:550px;"
         src="examples/5-localbadge/piratebadge.html">
 </iframe>
 
@@ -1378,7 +1376,7 @@ the list of names and appellations from a JSON file.
 This gives you a chance to add more names and
 appellations to the program.
 
-### <i class="icon-anchor"> </i> Create piratenames.json.
+### <i class="fa fa-anchor"> </i> Create piratenames.json.
 
 <div class="trydart-step-details" markdown="1">
 Use **File > New File...** to create a JSON-encoded file
@@ -1426,14 +1424,14 @@ Put the file in `1-blankbadge` alongside the Dart and HTML files you've been edi
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="icon-key"> </i> <strong> Key Information </strong>
+<i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * The file contains a JSON-encoded map,
 which contains two lists of strings.
 
 </div> </div>
 
-### <i class="icon-anchor"> </i> Edit piratebadge.html.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.html.
 
 <div class="trydart-step-details" markdown="1">
 Disable the input field and the button.
@@ -1465,7 +1463,7 @@ the JSON file.
 
 </div> </div>
 
-### <i class="icon-anchor"> </i> Edit piratebadge.dart.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1687,7 +1685,7 @@ leaving the UI disabled.
 
 </div> </div>
 
-### <i class="icon-anchor"> </i> Run the app.
+### <i class="fa fa-anchor"> </i> Run the app.
 
 <div class="trydart-step-details" markdown="1">
   
@@ -1705,7 +1703,7 @@ Compare your app to the final version running below.
 
 
 <iframe class="running-app-frame"
-        style="height:220px;width:530px;"
+        style="height:220px;width:550px;"
         src="examples/6-piratebadge_json/piratebadge.html">
 </iframe>
 
@@ -1720,7 +1718,7 @@ Check your code against the files in `6-piratebadge_json`.
 
 </div>
 
-### <i class="icon-anchor"> </i> Share your pirate name.
+### <i class="fa fa-anchor"> </i> Share your pirate name.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1747,7 +1745,7 @@ Share your pirate name with the world.
 
 ##Step 7: Go forth and learn more about Dart {#step-seven}
 
-### <i class="icon-anchor"> </i> Think about what you've done!
+### <i class="fa fa-anchor"> </i> Think about what you've done!
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1813,7 +1811,7 @@ shows you how to use the major features in Dart’s libraries.
 
 </div>
 
-### <i class="icon-anchor"> </i> Check out the samples.
+### <i class="fa fa-anchor"> </i> Check out the samples.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1821,7 +1819,7 @@ Run some Dart programs online and check out the source code
 on our [Samples page](/samples/).
 </div>
 
-### <i class="icon-anchor"> </i> Read the tutorials.
+### <i class="fa fa-anchor"> </i> Read the tutorials.
 
 <div class="trydart-step-details" markdown="1">
 Learn more about Dart from

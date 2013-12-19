@@ -1,26 +1,13 @@
-GIT
-  remote: git://github.com/vwall/compass-twitter-bootstrap.git
-  revision: e20353ba3c6637e381ada7303206160f4dc0ad22
-  specs:
-    compass_twitter_bootstrap (2.3.2)
-      compass
-
 GEM
   remote: http://rubygems.org/
   specs:
-    chunky_png (1.2.9)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
     colorator (0.1)
     commander (4.1.5)
       highline (~> 1.6.11)
-    compass (0.12.2)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
     directory_watcher (1.4.1)
     fast-stemmer (1.0.2)
-    fssm (0.2.10)
     highline (1.6.20)
     jekyll (1.2.1)
       classifier (~> 1.3)
@@ -41,14 +28,11 @@ GEM
       yajl-ruby (~> 1.1.0)
     redcarpet (2.3.0)
     safe_yaml (0.7.1)
-    sass (3.2.12)
     yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  compass (= 0.12.2)
-  compass_twitter_bootstrap!
   jekyll (= 1.2.1)
   kramdown (= 1.0.2)

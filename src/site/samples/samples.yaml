@@ -11,26 +11,31 @@ col1:
         explanation_url: /docs/tutorials/polymer-intro
         tryit_url: stopwatch/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
+        description: Install Polymer, define and use a simple custom element.
       -
         title: Searchable List
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/searchable_list/README.md
         tryit_url: searchable_list/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/searchable_list/README.md
+        description: Use data binding to make any list searchable.
       -
         title: Get input from a form
         explanation_url: /docs/tutorials/forms
         tryit_url: slambook/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/slambook
+        description: Use data binding to work with form data in Polymer.
       -
         title: TodoMVC
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/README.md
         tryit_url: todomvc/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
+        description: A Polymer implementation of the the canonical todo app.
       -
         title: A task management tool
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/README.md
         tryit_url: tracker/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
+        description: A full Polymer app with multiple custom elements.
   -
     heading: angular.dart
     anchor: angular_dart
@@ -40,23 +45,27 @@ col1:
     examples:
       -
         title: Hello world
-        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/helloworld
+        explanation_url: https://github.com/angular/angular.dart.tutorial/wiki/Creating-your-first-Angular-app
         tryit_url: helloworld/
         source_url: https://github.com/angular/angular.dart/tree/master/demo/helloworld
+        description: A first app with Angular and Dart.
       -
         title: Todo
         explanation_url: https://github.com/angular/angular.dart/tree/master/demo/todo#angulardarts-todo-demo
         tryit_url: angular_todo/
         source_url: https://github.com/angular/angular.dart/tree/master/demo/todo
+        description: A todo implementation in Angular and Dart.
       -
         title: Bouncing balls
         explanation_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
         source_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
+        description: Advanced demo with Controllers, Directives and Dependency Injection. Uses advanced features like scope and zone.
       -
         title: Recipe book tutorial app
         explanation_url: https://github.com/angular/angular.dart.tutorial#welcome-to-the-angulardart-tutorial
         tryit_url: recipe_book/
         source_url: https://github.com/angular/angular.dart.tutorial
+        description: Part Six of a multipart Angular Dart tutorial.
   -
     heading: Using JavaScript from Dart
     anchor: using_javascript_from_dart
@@ -69,16 +78,19 @@ col1:
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/README.md
         tryit_url: google_maps/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/google_maps/
+        description: Using the Google Maps JavaScript API with the dart:js library.
       -
         title: Using the Google Charts Visualization API
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/README.md
         tryit_url: gauge/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/gauge/
+        description: Intermediate level app that shows the use of JavaScript and Dart interoperability.
       -
         title: Fetching data using JSONP
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/README.md
         tryit_url: jsonp/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/
+        description: Use JSONP to see the GitHub repos for dart-lang.
 
   -
     heading: Working with the I/O library
@@ -91,15 +103,18 @@ col1:
         title: Searching files for content
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep/README.md
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep
+        description: A short app that shows how to work with file and directories asynchronously.
       -
         title: Concatenating files
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat/README.md
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat
+        description: Use streams to read files and process I/O.
       -
         title: A search app using HttpServer and WebSockets
         title: "Dartiverse Search: A search app using HttpServer and WebSockets"
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
+        description: A full app with a server and a client to search for Dart on  StackOverflow and GitHub.
   -
     heading: Animation and graphics
     anchor: animation_and_graphics
@@ -112,36 +127,44 @@ col1:
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations#working-with-requestanimationframe
         tryit_url: raf/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
+        description: A sample that demonstrates the correct way to use rAF.
       -
-        title: 2D solar system animation using Canvas
+        title: 2D solar system animation
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/solar/README.md
         tryit_url: solar/
         source_url: https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar
+        description: A solar system implementation using Canvas.
+
       -
-        title: 3D solar system animation using WebGL
+        title: 3D solar system animation
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d#3d-solar-system-simulation
         tryit_url: solar3d/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d
+        description: A solar system implementation using WebGL.
       -
         title: Using image filters with canvas
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters#using-image-filters-with-canvas
         tryit_url: imagefilters/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+        description: Process pixels, run simple filters, and modify an image using convolution filters.
       -
         title: "Shaped masks with StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/mask#mask
         tryit_url: http://www.stagexl.org/samples/mask/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/mask
+        description: Simple demo showing flowers and the effect when different masks are applied.
       -
         title: "Sprite sheet animations with StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook#flipbook
         tryit_url: http://www.stagexl.org/samples/flipbook/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/flipbook
+        description: Initialize the StageXL Stage, and the RenderLoop. Use the FlipBook class to play sprite sheet animations.
       -
         title: "Adobe Flash game ported to HTML5 using StageXL"
         explanation_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape#escape
         tryit_url: http://www.stagexl.org/samples/escape/
         source_url: https://github.com/bp74/StageXL_Samples/tree/master/web/escape
+        description: From Flash to HTML5, with similarity between ActionScript and Dart making it easy to convert AS3 files to Dart.
 
   -
     heading: HTML5 persistence
@@ -155,26 +178,31 @@ col1:
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics#localstorage-101
         tryit_url: localstorage/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics
+        description: A dead-simple example that uses LocalStorage.
       -
         title: Simple todo app using IndexedDB
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb/todo#simple-todo-app-using-indexeddb
         tryit_url: indexeddb_todo/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+        description: A todo app which persists data using IndexedDB.
       -
         title: Storing and retrieving data using IndexedDB
         explanation_url: /docs/tutorials/indexeddb/
         tryit_url: countdown/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
+        description: Create milestones and count down to them. Uses IndexedDB to store the milestones.
       -
         title: Exploring the FileSystem APIs
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem#exploring-the-filesystem-apis
         tryit_url: filesystem/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+        description: Read, write, and navigate to a sandboxed section of your local file system.
       -
         title: A terminal emulator that uses the FileSystem APIs
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal#a-terminal-emulator-that-uses-the-filesystem-apis
         tryit_url: terminal/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+        description: A Unix terminal in the web that manipulates the local file system.
 
   -
     heading: Other HTML5 APIs
@@ -188,32 +216,39 @@ col1:
         title: WebSockets 101
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics#websockets-101
         tryit_url: websockets/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basic
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics
+        description: Example that opens a WebSocket connection to an echo server, and sends and receives data.
       -
         title: Basic HTML5 drag and drop
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics#basic-drag-and-drop
         tryit_url: dnd/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
+        description: A simple demo of HTML5 Drag and Drop to move elements on a page.
       -
         title: Using Application Cache
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner#using-application-cache
         tryit_url: appcache/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner
+        description: Use Application Cache to tell the browser which files it should cache and make available to offline users.
       -
         title: Basic geolocation example
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter#trip-meter-a-basic-geolocaton-example
         tryit_url: geolocation/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter
+        description: Calculate the distance traveled between locations.
+
       -
         title: Getting started with Web Audio API
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro#getting-started-with-web-audio-api
         tryit_url: webaudio/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
+        description: Sample that shows processing and synthesizing audio using the Web Audio API.
       -
         title: Using the Files API
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles#using-the-file-api
         tryit_url: dndfiles/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        description: Select a file using a form input, or using drag and drop, and monitor progress while uploading a file.
 
   -
     heading: Touch events
@@ -227,11 +262,13 @@ col1:
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/swipe/README.md
         tryit_url: swipe/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/swipe/
+        description: Sample that uses touch gestures and CSS 3D transforms to spin a palindrome on the page.
       -
         title: Multi touch
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/multi_touch/README.md
         tryit_url: multi_touch/
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/multi_touch/
+        description: Fingerpainting with multiple touch points.
 
   -
     heading: Web programming fundamentals
@@ -245,23 +282,28 @@ col1:
         explanation_url: /docs/tutorials/add-elements/
         tryit_url: todo/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo
+        description: "A todo app using the dart:html library."
       -
         title: Moving elements within the DOM tree
         explanation_url: /docs/tutorials/add-elements/#moving-elements
         tryit_url: anagram/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/anagram
+        description: "Build anagrams: a DOM manipulation demo."
       -
         title: Removing elements from the DOM
         explanation_url: /docs/tutorials/remove-elements
         tryit_url: todo_with_delete/
         source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete
+        description: A todo app with a delete option.
       -
         title: Working with JSON
         explanation_url: /docs/tutorials/fetchdata/#about-json
         source_url: /docs/tutorials/fetchdata/#about-json
         tryit_url: /docs/tutorials/fetchdata/#about-json
+        description: A sample app that shows JSON data obtained from a form.
       -
         title: Fetching data dynamically
         explanation_url: /docs/tutorials/fetchdata/#about-uris
         source_url: /docs/tutorials/fetchdata/#about-uris
         tryit_url: /docs/tutorials/fetchdata/#about-uris
+        description: Using HttpRequest to fetch data.

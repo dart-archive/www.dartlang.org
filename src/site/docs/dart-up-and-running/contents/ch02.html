@@ -260,18 +260,17 @@ var nobleGases = {
    10 : 'neon',
    18 : 'argon',
 };
-</pre><p>You can create the same objects using a Map constructor.</p><pre class="programlisting"><em><span class="remark">lang-dart
+</pre><p>You can create the same objects using a Map constructor:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/map_constructor.dart
 </span></em>var gifts = new Map();
-map['first'] = 'partridge';
-map['second'] = 'turtledoves';
-map['fifth'] = 'golden rings';
+gifts['first'] = 'partridge';
+gifts['second'] = 'turtledoves';
+gifts['fifth'] = 'golden rings';
 
 var nobleGases = new Map();
-map[2] = 'helium';
-map[10] = 'neon';
-map[18] = 'argon';
-</pre><p>Add a new key-value pair to an existing map just as you would in
+nobleGases[2] = 'helium';
+nobleGases[10] = 'neon';
+nobleGases[18] = 'argon';</pre><p>Add a new key-value pair to an existing map just as you would in
       JavaScript:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>var gifts = { 'first': 'partridge' };
 gifts['fourth'] = 'calling birds';    // Add a key-value pair</pre><p>Retrieve a value from a map the same way you would in
@@ -795,7 +794,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
     <em class="firstterm">constructor</em> for a class. Constructor names can be
     either <span class="emphasis"><em><em class="replaceable"><code>ClassName</code></em></em></span> or
     <em class="replaceable"><code>ClassName.identifier</code></em>. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>var jsonData = json.parse('{"x":1, "y":2}');
+</span></em>var jsonData = JSON.decode('{"x":1, "y":2}');
 
 var p1 = new Point(2,2);               // Create a Point using Point().
 var p2 = new Point.fromJson(jsonData); // Create a Point using Point.fromJson().</pre><p>Objects have <em class="firstterm">members</em> consisting of functions
@@ -810,7 +809,7 @@ assert(p.y == 3);    // Get the value of y.
 
 num distance = p.distanceTo(new Point(4,4)); // Invoke distanceTo() on p.</pre><p>Use the cascade operator (..) when you want to perform a series of
     operations on the members of a single object:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>query('#button')
+</span></em>querySelector('#button')
     ..text = 'Click to Confirm'                        // Get an object. Use its
     ..classes.add('important')                         // instance variables
     ..onClick.listen((e) =&gt; window.alert('Confirmed!')); // and methods.</pre><p>Some classes provide constant constructors. To create a compile-time
@@ -1434,7 +1433,7 @@ void main() {
     concurrency is error prone and can lead to complicated code.</p><p>Instead of threads, all Dart code runs inside of
     <span class="emphasis"><em>isolates</em></span>. Each isolate has its own memory heap,
     ensuring that no isolate’s state is accessible from any other
-    isolate.</p><p>Learn more about isolates in <a class="xref" href="ch03.html#ch03-dartisolate---concurrency-with-isolates" title="dart:isolate - Concurrency with Isolates">the section called “dart:isolate - Concurrency with Isolates”</a>.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="typedefs"></a>Typedefs</h2></div></div></div><p>In Dart, functions are objects, just like strings and numbers are
+    isolate.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="typedefs"></a>Typedefs</h2></div></div></div><p>In Dart, functions are objects, just like strings and numbers are
     objects. A <span class="emphasis"><em>typedef</em></span>, or <span class="emphasis"><em>function-type
     alias</em></span>, gives a function type a name that you can use when
     declaring fields and return types. A typedef retains type information when

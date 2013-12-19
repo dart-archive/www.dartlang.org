@@ -51,7 +51,7 @@ For details on how stream transformers have changed, see the
 </aside>
 
 For help on using streams, see
-[Getting Your Feet Wet with Streams](/articles/feet-wet-streams/).
+[Use Streams for Data](/docs/tutorials/streams/).
 
 ## Transforming an existing stream
 

@@ -7,7 +7,7 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-01-01
-  updated_on: 2013-05-30
+  updated_on: 2013-11-01
   collection: language-details
 ---
 

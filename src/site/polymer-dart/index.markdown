@@ -83,7 +83,7 @@ and _Polymer Core_.
 
 <div class="col-md-4 text-center">
 
-<i class="icon icon-code"> </i>
+<i class="fa fa-code"> </i>
 
 <h2 class="no-permalink">Custom tags</h2>
 
@@ -94,7 +94,7 @@ style, structure, and behavior.
 
 <div class="col-md-4 text-center">
 
-<i class="icon icon-exchange"> </i>
+<i class="fa fa-exchange"> </i>
 
 <h2 class="no-permalink">Data binding</h2>
 
@@ -104,7 +104,7 @@ Create live, two-way bindings between Dart objects and DOM nodes.
 
 <div class="col-md-4 text-center">
 
-<i class="icon icon-check"> </i>
+<i class="fa fa-check"> </i>
 
 <h2 class="no-permalink">Standards</h2>
 
@@ -147,7 +147,7 @@ This HTML code _uses_ the custom element:
 {% prettify html %}
 <head>
   <link rel="import" href="[[highlight]]hello_world.html[[/highlight]]">
-  <script type="application/dart">import 'package:polymer/init.dart';</script>
+  <script type="application/dart">export 'package:polymer/init.dart';</script>
   <script src="packages/browser/dart.js"></script>
 </head>
 
@@ -329,7 +329,9 @@ import 'dart:html';
 
 @CustomTag('fancy-button')
 class FancyButton [[highlight]]extends ButtonElement with Polymer, Observable[[/highlight]] {
-  FancyButton.created() : super.created();
+  FancyButton.created() : super.created() {
+    polymerCreated();
+  }
 }
 {% endraw %}{% endprettify %}
 
@@ -388,6 +390,8 @@ to learn more.
 
 ## Tools
 
+### Generating warnings
+
 Polymer.dart offers a linter that reports syntax or usage warnings.
 The linter can be connected to Dart Editor to display warnings directly
 at the source.
@@ -397,9 +401,8 @@ Create a `build.dart` file at the root of your project:
 {% prettify dart %}
 import 'package:polymer/builder.dart';
 
-void main() {
-  // Runs the linter, and optionally builds the project for deployment.
-  build(entryPoints: ['web/index.html']);
+void main(List<String> args) {
+  lint(entryPoints: ['web/index.html'], options: parseOptions(args));
 }
 {% endprettify %}
 
@@ -407,6 +410,35 @@ Dart Editor runs `build.dart` after a file is saved, and
 displays warnings from the linter.
 
 <img src="polymer-warning-in-editor.png">
+
+### Building
+
+Use `pub build` to compile your polymer.dart app into JavaScript so that
+it can run across the modern web. The build process also concatenates files
+for faster loading.
+
+First, add the polymer.dart _transformer_ to your `pubspec.yaml`. The
+`transformers` section should go at the end of the file, after the
+dependencies.
+
+{% prettify yaml %}
+transformers:
+- polymer:
+    entry_points: web/index.html
+{% endprettify %}
+
+Then, run `pub build` from the root of your project to generate a `build`
+directory.
+
+{% prettify bash %}
+> pub build
+{% endprettify %}
+
+The `build` directory contains the HTML, JavaScript, and other assets
+required to run the application. You can then deploy the `build` directory
+to your favorite web server.
+
+Learn more about [pub build](http://pub.dartlang.org/doc/pub-build.html).
 
 <hr>
 
@@ -480,8 +512,8 @@ to Dart developers.
 | [Polymer Core](https://github.com/Polymer/polymer) | Tracking
 | Pointer events | Not started
 | Web animations | Not started
-| [Polymer base elements](https://github.com/Polymer/polymer-elements) | Not started
-| [Polymer UI elements](https://github.com/Polymer/polymer-ui-elements) | Not started
+| [Polymer base elements](https://github.com/Polymer/polymer-elements) | [Community effort](https://github.com/ErikGrimes/polymer_elements)
+| [Polymer UI elements](https://github.com/Polymer/polymer-ui-elements) | [Community effort](https://github.com/ErikGrimes/polymer_ui_elements)
 {: .table}
 
 <hr>

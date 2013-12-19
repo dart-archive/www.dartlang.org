@@ -25,6 +25,8 @@ h1, p {
   text-align: center;
   float: left;
   margin-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .greeting {
   color: white;
@@ -38,6 +40,7 @@ h1, p {
   font-size: 25pt;
   padding-top: 1.0em;
   padding-bottom: 0.7em;
+  height: 16px;
 }
 #generateButton {
   font-size: 12pt;
