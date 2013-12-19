@@ -638,10 +638,23 @@ pre.prettyprint {
 
 .hero h1 {
 	color: #fff;
+	margin-top: 60px;
+	margin-bottom: 30px;
 }
 
-.hero h5 {
-	color: #fff;
+.hero ul {
+	list-style: none;
+	padding: 0;
+}
+
+.hero ul li {
+	display: inline;
+	margin-right: 10px;
+	font-size: 20px;
+}
+
+.hero ul li:before {
+	content: '\2713 \A0';
 }
 
 
