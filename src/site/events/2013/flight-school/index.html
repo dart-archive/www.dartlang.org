@@ -90,7 +90,7 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
             <div class="top-border"></div>
             <div class="bottom-border"></div>
 
-
+{% raw %}
             <time datetime="{{event.start|coerceDate|date:'yyyy-MM-dd'}}"
               ng-bind="event.start|coerceDate|date:'longDate'"></time>
             <h3 class="event-title" style="font-size:18px">
@@ -99,6 +99,8 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
             </h3>
             <p class="event-location" ng-bind="event.location"></p>
             <!--<p class="event-description" ng-bind="event.description"></p>-->
+{% endraw %}
+
           </div>
 
 
