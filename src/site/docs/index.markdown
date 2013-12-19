@@ -124,8 +124,8 @@ Another example is the file content stream returned by
 the dart:io File class's openRead() method.
 Learn more:
 
-* [Getting Your Feet Wet with Streams](/articles/creating-streams/)
-* [Creating Streams in Dart](/articles/feet-wet-streams/)
+* [Use Streams for Data](/docs/tutorials/streams/)
+* [Creating Streams in Dart](/articles/creating-streams/)
 * [Stream API documentation](http://api.dartlang.org/dart_async/Stream.html)
 
 

@@ -1,26 +1,56 @@
 ---
 layout: article
-title: "Getting Your Feet Wet with Streams"
+title: "Use Streams for Data"
 description: 
   Learn how to consume single-subscriber and broadcast streams, 
   with real-world uses.
+tutorial:
+  id: streams
+next: fetchdata/
+next-title: "Fetch Data Dynamically"
+prev: futures/
+prev-title: "Use Future-Based APIs"
 rel:
   author: chris-buckett
 has-permalinks: true
-article:
-  written_on: 2013-03-20
-  collection: libraries-and-apis
 ---
 
-{% include toc.html %}
+{% capture whats_the_point %}
 
-# {{ page.title }}
+* Streams provide an asynchronous sequence of data.
+* Data sequences include user-generated events and data read from files.
+* Use transformers to modify the data as it becomes available.
+* Stream has methods for skipping, selecting, filtering, and validating data.
+* Streams provide a way to respond to errors.
 
-_Written by Chris Buckett <br />
-March 2013_
+{% endcapture %}
 
-Over the last few months you can't help but notice that Streams have appeared 
-in Dart in a big way.  
+{% capture sample_links %}
+
+
+<p markdown="1"> This tutorial features these examples
+in the `bin` directory:</p>
+
+* feet_wet_streams.dart
+* html_streams.dart
+* http_request.dart
+
+<p>
+Don't have the source code?
+<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
+  Download it.
+</a>
+
+{% endcapture %}
+
+{% capture content %}
+
+<div class="tute-target-title">
+<h1>{{page.title}}</h1>
+<h3>Use streams to handle sequences of data.</h3>
+</div>
+
+_Written by Chris Buckett_
 
 Whether running in the browser as part of the various HTML events, such as 
 button.onClick, or on the server as part of the dart:io changes, Streams form 
@@ -28,7 +58,19 @@ a unified interface to anything that might send out a repeating series of data.
 
 This article explains how to consume streams using this unified interface.
 
-## Background reading: futures
+* [Background reading: futures](#background-reading)
+* [What are streams for?](#what-are-streams-for)
+* [Consuming a stream](#consuming-a-stream)
+* [Common Stream methods](#common-stream-methods)
+* [Single value streams](#single-value-streams)
+* [Error handling in streams and futures](#error-handling)
+* [Unsubscribing from a stream](#unsubscribing)
+* [Streams are generic](#streams-are-generic)
+* [Some real world examples of consuming a stream](#real-world)
+* [Conclusion](#conclusion)
+* [About the author](#about-chris)
+
+## Background reading: futures {#background-reading}
 
 Before we get started, it is important to note that Streams are part 
 of the [dart:async](http://api.dartlang.org/dart_async.html) library.
@@ -36,37 +78,10 @@ They share a close relationship with Dart's async staple, <code>Future</code>,
 due to their asynchronous nature.
 (You can't block code until a user clicks a button!)
 
+For details about using Futures, refer to the previous
+tutorial [Use Future-Based APIs](/docs/tutorials/futures/).
 
-The Future class is used for async communication within various Dart APIs. A 
-common example is a browser <code>HttpRequest</code> (or AJAX request).  
-You have some code running in the browser that wants to get a value from 
-the server, let's say, the current number of logged on users.
-If your client-side code called the server and then waited (blocking) for 
-the server to respond, the UI would freeze up until the server responded 
-(due to code execution being halted).
-  
-Fortunately (and provided by the A in AJAX), this call to the server is 
-asynchronous, and modelled by Dart's Future API, which returns a future 
-value wrapped up in a callback exposed by the <code>then()</code> 
-function.
-
-The following snippet shows how this might work, with the callback 
-function specified as an argument to then():
-
-<!--- BEGIN(http_request) -->{% prettify dart %}
-var url = "http://example.com/userCount";
-HttpRequest.getString(url).then((String result) {  // callback function
-  print("User count: $result");
-});
-{% endprettify %}<!--- END(http_request) -->
-
-This pattern is used by streams to retrieve or manipulate data that the 
-stream is sending out to its consumers.
-
-There is more detail about futures in the [Using Future Based APIs](http://www.dartlang.org/articles/using-future-based-apis/)
- article.
-
-## What are streams for?
+## What are streams for? {#what-are-streams-for}
 
 Imagine you are writing a chat application.  On a single client, you will be 
 receiving messages and displaying them to the user.  You can't simply write a 
@@ -86,7 +101,7 @@ We'll look at the **consuming** a stream in this article as you're more likely
 to come across streams as a consumer from existing APIs within Dart.  Populating
 a stream will be covered in a future article.
 
-## Consuming a stream
+## Consuming a stream {#consuming-a-stream}
 
 Let's take a look at some simple stream code.  For simplicity we're going to 
 create a stream from a fixed, literal list at the moment by using the 
@@ -174,7 +189,7 @@ Now that the stream allows multiple subscribers, you can add multiple
 listeners. You can check whether a stream is a broadcast stream by checking 
 the <code>stream.isBroadcast</code> property.
 
-## Common Stream methods
+## Common Stream methods {#common-stream-methods}
 
 Lots of methods are available on the Stream class.
 In the following section, I'll describe some of the more common ones.
@@ -293,7 +308,8 @@ broadcastStream
     .then((result) => print("Contains 4?: $result")); // true
 {% endprettify %}<!--- END(validating_stream_data) -->
 
-## Single value streams
+## Single value streams {#single-value-streams}
+
 Some streams are designed to return only a single value, and you want to 
 ensure that you only retrieve a  single value from them.
 The <code>single</code> getter 
@@ -320,7 +336,7 @@ broadcastStream
 
 This brings us neatly on to...
 
-## Error handling in streams and futures
+## Error handling in streams and futures {#error-handling}
 
 There is already an [excellent article about handling errors with future 
 based APIs](http://www.dartlang.org/articles/futures-and-error-handling/), 
@@ -387,7 +403,7 @@ One of the benefits of using the form
 The <code>onDone</code> handler is called when there is no more data, and the 
 underlying stream is closed.
 
-## Unsubscribing from a stream
+## Unsubscribing from a stream {#unsubscribing}
 
 You can use the <code>StreamSubscription</code> object to unsubscribe 
 from the stream, using the <code>cancel()</code> method.  For example, 
@@ -405,7 +421,7 @@ subscription.onError((err) => print("error: $err"));
 subscription.onDone(() => print("done"));
 {% endprettify %}<!--- END(cancelling_a_stream) -->
 
-## Streams are generic
+## Streams are generic {#streams-are-generic}
 
 All the stream classes are also generic, which means that you get strongly 
 typed data in the handlers.  For example, if you create a 
@@ -421,7 +437,7 @@ stream.listen((value) { // value must be an int
 });
 {% endprettify %}<!--- END(stream_generics) -->
 
-## Some real world examples of consuming a stream
+## Some real world examples of consuming a stream {#real-world}
 
 Now that you've seen how to consume data in a stream, let's take a look at a 
 couple of real-world examples: handling button clicks, and reading data from a 
@@ -487,13 +503,13 @@ main() {
 } 
 {% endprettify %}<!--- END(reading_a_file) -->
 
-## Conclusion
+## Conclusion {#conclusion}
 
 Streams are unified across Dart's asynchronous APIs, providing a powerful 
 way to deal with streams of data, whether that data is event 
 objects, bytes, or your own custom classes.
 
-## About the author
+## About the author {#about-chris}
 
 <img src="chris-buckett.png" width="95" height="115"
 alt="Chris Buckett head shot" align="left" style="margin-right: 10px">
@@ -504,3 +520,7 @@ delivering enterprise client-server webapps, mostly with GWT, Java and .Net.
 He runs the [dartwatch.com blog](http://blog.dartwatch.com/), and has written
 the book _Dart in Action_, which is available
 at [manning.com](http://www.manning.com/buckett).
+
+{% endcapture %}
+
+{% include tutorial.html %}

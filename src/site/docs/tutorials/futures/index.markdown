@@ -5,8 +5,8 @@ description: "A first look at Futures and how to use them to make your asynchron
 has-permalinks: true
 tutorial:
   id: futures
-next: fetchdata/
-next-title: "Fetch Data Dynamically"
+next: streams/
+next-title: "Use Streams for Data"
 prev: polymer-intro/
 prev-title: "Define a Custom Element"
 rel:

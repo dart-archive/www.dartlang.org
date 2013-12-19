@@ -7,8 +7,8 @@ tutorial:
   id: fetchdata
 next: forms/
 next-title: "Get Input from a Form"
-prev: futures/
-prev-title: "Use Future-Based APIs"
+prev: streams/
+prev-title: "Use Streams for Data"
 ---
 
 {% capture whats_the_point %}

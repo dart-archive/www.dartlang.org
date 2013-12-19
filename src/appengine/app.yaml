@@ -119,6 +119,9 @@ handlers:
 - url: /articles/using-future-based-apis/
   script: scripts.redirector.application
 
+- url: /articles/feet-wet-streams/
+  script: scripts.redirector.application
+
 - url: /articles/profiling/
   script: scripts.redirector.application
 
