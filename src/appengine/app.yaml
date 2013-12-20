@@ -164,6 +164,9 @@ handlers:
 - url: /eclipse/update.*
   script: scripts.redirector.application
 
+- url: /events/2013/flight-school/
+  script: scripts.redirector.application
+
 - url: /is-dartisans-live-now
   script: scripts.is_dartisans_live.application
 

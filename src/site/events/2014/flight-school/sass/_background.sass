@@ -1,0 +1,56 @@
+.no-touch .sky-layer
+  +fixed(top,left)
+  width: 100%
+  height: 100%
+  background-color: $color-sky
+  opacity: 1
+
+.touch .sky-layer,
+.no-csstransforms3d .sky-layer
+  display: none
+
+.stars-layer
+  +absolute(-50%,left)
+  width: 100%
+  height: 2000px
+  &:before,
+  &:after
+    content: ""
+    background-image: image-url("star.png")
+    width: 400px
+    height: 100%
+    position: absolute
+    top: 0
+  &:before
+    left: 0
+  &:after
+    right: 0
+
+.touch .stars-layer
+  display: none
+
+.milky-way-layer
+  +absolute(top,left)
+  width: 100%
+  height: 1000px
+  img
+    width: 1058px
+    max-width: 100%
+
+.touch .milky-way-layer
+  position: fixed
+
+.earth-layer
+  +absolute(top,left)
+  width: 100%
+  height: 1000px
+
+  img
+    width: 904px
+    // height: 904px
+    max-width: 100%
+
+.touch .earth-layer
+  top: -2%
+  +bk(3)
+    top: -500px

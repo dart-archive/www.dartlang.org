@@ -198,6 +198,8 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart2js.html'}),
     Route('/docs/standalone-dart-vm/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html'}),
+    Route('/events/2013/flight-school/', RedirectHandler,
+      defaults={'_uri': '/events/2014/flight-school/'}),
     Route('/codelab', RedirectHandler,
       defaults={'_uri': '/codelabs/darrrt/'}),
     Route('/codelabs/', RedirectHandler,
