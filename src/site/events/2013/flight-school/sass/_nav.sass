@@ -1,0 +1,69 @@
+$color-nav-background: #222
+
+.page-nav
+  display: block
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 1000
+  color: $color-text
+  text-transform: uppercase
+  .nav-container
+    max-width: $container
+    min-height: $line * 2
+
+    margin: 0 auto
+    &.ui-show
+      background-color: $color-nav-background
+    +bk(3)
+      min-height: 0
+      background-color: $color-nav-background
+      height: $line + $font-small
+      +angle-sides( $height: $line + $font-small, $width: ($line + $font-small - 1px)/2, $color: #222 )
+  ul
+    display: none
+    width: 100%
+    padding: 0 $line
+    +bk(3)
+      display: block
+      +inline-clear
+      text-align: justify
+  .ui-show ul
+    display: block
+  li
+    padding: $line/2 0
+
+    +bk(3)
+      display: inline-block
+      font-size: $font-small + 1px
+  a
+    @extend %bullet-link
+
+  .current-nav-item:before
+    background-color: $color-accent
+
+.mobile-nav-hook
+  cursor: pointer
+  +absolute(bottom, right)
+  margin: $line/2 $gtr * 2
+  width: $line
+  height: $line
+  span,
+  span:before,
+  span:after
+    content: ""
+    position: absolute
+    display: block
+    top: 0
+    width: $line
+    height: $border
+    border-radius: $border
+    background-color: rgba(255,255,255,0.5)
+  span:before
+    top: $border * 2
+  span:after
+    top: $border * 4
+
+  +bk(3)
+    display: none
