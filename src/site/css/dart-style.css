@@ -56,16 +56,13 @@ h5 {
 
 h6 {
   font: 400 12px/17px 'Montserrat', sans-serif;
-    font-size: 15px;
+  font-size: 15px;
   color: #0084c5; 
   margin-bottom: 20px;
 }
 
 ul, li {
   font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  color: #484848;
-  line-height: 19px;
 }
 
 
@@ -731,11 +728,24 @@ pre.prettyprint {
 }
 
 .hero h1 {
-  color: #fff;
+	color: #fff;
+	margin-top: 60px;
+	margin-bottom: 30px;
 }
 
-.hero h5 {
-  color: #fff;
+.hero ul {
+	list-style: none;
+	padding: 0;
+}
+
+.hero ul li {
+	display: inline;
+	margin-right: 10px;
+	font-size: 20px;
+}
+
+.hero ul li:before {
+	content: '\2713 \A0';
 }
 
 
