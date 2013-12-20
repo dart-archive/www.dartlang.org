@@ -1,0 +1,145 @@
+.location-section
+  .map-canvas
+    margin-bottom: $line
+    height: 300px
+    +bk(2)
+      height: 500px
+
+  .infoBox
+    width: $col !important
+
+  .infoBox img
+    z-index: 10
+
+  .location-switch-modes
+    width: 100%
+    position: absolute
+    z-index: 100
+    text-align: center
+    border-top: $border solid $color-accent
+    button
+      display: inline-block
+      font-size: $line
+      text-transform: uppercase
+      color: white
+      background-color: $color-sky
+      height: $line + $border * 2
+      // width: 5em
+      padding: 0 $gtr * 2
+      margin: 0 0-$border
+      &:focus
+        outline: none
+      &:before,
+      &:after
+        content: ""
+        position: absolute
+        top: 0
+        border-width: $line + $border * 2 $line * (2/3)
+        border-style: solid
+        border-color: $color-sky transparent transparent
+        width: 0
+      &:before
+        left: -$line * (2/3)
+      &:after
+        right:  -$line * (2/3)
+
+      &.ui-show
+        background-color: $color-accent
+        z-index: 10
+        &:before,
+        &:after
+          border-top-color: $color-accent
+
+
+  .event-infobox
+    background-color: rgba(0,0,0,0.8)
+    padding: $line/2 $gtr
+    border: $border solid
+    h3,
+    p
+      font-family: $font-body
+      line-height: 1
+    p
+      padding-bottom: 0
+    h3
+      padding-bottom: $line/4
+    a
+      text-decoration: underline
+      font-size: inherit
+      font-family: inherit
+
+  .location-event-list
+    margin: $line/2 -$gtr
+    padding-top: $line/2
+    .event-wrapper
+      padding: $line/2 $gtr
+    time
+      color: $color-soft
+    a
+      text-decoration: underline
+      cursor: pointer
+
+    .event-title
+      text-transform: uppercase
+      font-size: $line
+      padding-bottom: 0
+    .event-location
+      padding-bottom: 0
+      // margin-bottom: $line/2
+
+.location-section .event-wrapper.ui-show
+  background-color: $color-accent
+
++bk(3)
+  .csstransforms .location-section
+    .top-border,
+    .bottom-border
+      position: absolute
+      width: 100%
+      height: 100%
+      left: 0
+      opacity: 0
+      +transition(opacity 1s)
+      &:before,
+      &:after
+        content: ""
+        position: absolute
+        height: 100% / sqrt(3)
+
+    .top-border
+      top: 0
+      border-top: $border solid $color-accent
+      &:before
+        top: -2px
+        left: 0
+        border-left: $border solid $color-accent
+        +rotate(30deg)
+        +transform-origin(0, 0)
+      &:after
+        top: 0
+        right: -1px
+        border-right: $border solid $color-accent
+        +rotate(-30deg)
+        +transform-origin(0, 0)
+
+    .bottom-border
+      bottom: 0
+      border-bottom: $border solid $color-accent
+      &:before
+        bottom: 0
+        left: -1px
+        border-left: $border solid $color-accent
+        +rotate(-30deg)
+        +transform-origin(100%, 100%)
+      &:after
+        bottom: -2px
+        right: 0
+        border-right: $border solid $color-accent
+        +rotate(30deg)
+        +transform-origin(100%, 100%)
+
+    .event-wrapper.ui-show
+      background-color: transparent
+      .top-border,
+      .bottom-border
+        opacity: 1

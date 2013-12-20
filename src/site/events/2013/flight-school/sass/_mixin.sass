@@ -1,0 +1,110 @@
+=bk($n)
+  @media (min-width: ($n * $col))
+    @content
+
+=multi-background($name)
+  // giant displays, e.g. HDTV and larger
+  background-image: image-url("bg/src/" + $name + '.jpg')
+  background-size: cover
+  // most displays
+  @media screen and (max-width: 1600px)
+    background-size: auto
+    background-image: image-url("bg/" + $name + "-large.jpg")
+  // small displays; largest image that iOS can load into single memory buffer
+  @media screen and (max-width: 1024px)
+    background-image: image-url("bg/" +$name + "-medium.jpg")
+  // "phablets"
+  @media screen and (max-width: 640px)
+    background-image: image-url("bg/" +$name + "-small.jpg")
+
+=angle-sides($height, $color, $direction: 'both', $width: 0)
+  @if $width == 0
+    $width: $height
+
+  &:before,
+  &:after
+    content: ""
+    position: absolute
+    top: 0
+    border-width: $height $width
+    border-color: $color transparent
+  &:before
+    border-style: solid none none solid
+    left: 0
+    margin-left: - $width
+    @if $direction == 'right'
+      border: none
+  &:after
+    border-style: solid solid none none
+    right: 0
+    margin-right: - $width
+    @if $direction == 'left'
+      border: none
+
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-o-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=animation($args)
+  -webkit-animation: $args
+  -moz-animation:    $args
+  -o-animation:      $args
+  animation:         $args
+
+=position($y, $x)
+  @if ($y == 'top')
+    top: 0
+    bottom: auto
+  @else if ($y == 'bottom')
+    bottom: 0
+    top: auto
+  @else
+    top: $y
+    bottom: auto
+
+  @if ($x == 'left')
+    left: 0
+    right: auto
+  @else if ($x == 'right')
+    right: 0
+    left: auto
+  @else
+    left: $x
+    right: auto
+
+=absolute($y, $x)
+  position: absolute
+  @include position($y, $x)
+
+=fixed($y, $x)
+  position: fixed
+  @include position($y, $x)
+
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+=inline-clear
+  &:after
+    content: ""
+    display: inline-block
+    width: 100%
+
+=type-helper
+  font-size: $line
+  letter-spacing: 0px
+  padding-top: 0px
+  height: $line

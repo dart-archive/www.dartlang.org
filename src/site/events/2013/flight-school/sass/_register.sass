@@ -1,0 +1,130 @@
+label
+  display: block
+  text-transform: uppercase
+  line-height: $line
+  color: $color-soft
+
+input
+  +placeholder
+    text-transform: uppercase
+    color: $color-soft
+
+form
+  margin: 0 auto
+  max-width: $container * 2/3 - $gtr * 2
+
+
+input
+  display: block
+  font-family: $font-body
+  margin: $line 0 0
+  padding: $border 0
+  border-bottom: $border/2 solid $color-light
+  background-color: transparent
+  width: 100%
+  font-size: $font
+  line-height: $line
+  color: $color-light
+  &:focus
+    outline: none
+  &:invalid
+    box-shadow: none
+
+input[type=checkbox]
+  display: none
+
+.input-checkbox
+  display: inline-block
+  border: $border solid $color-light
+  margin: 0
+  padding: 0
+  width: $line
+  height: $line
+  border-radius: $line
+  top: $border + 2px
+  margin-right: $gtr/2
+  cursor: pointer
+
+  &.checked
+    background-color: $color-accent
+
+  & + label
+    display: inline-block
+    font-size: $font-small
+    cursor: pointer
+
+input[type=submit]
+  display: inline-block
+  background-color: $color-light
+  border-radius: $border
+  color: black
+  text-transform: uppercase
+  width: auto
+  padding: $border +1px $gtr $border - 3px
+  // font-weight: bold
+
+fieldset
+  margin-bottom: $line
+
+.register-section
+
+  small
+    color: $color-accent
+    display: block
+    padding: $line/2 0
+    font-size: $font-small
+
+  .location
+    +clearfix
+    div
+      float: left
+
+    .city
+      width: 100%
+    .state
+      width: 50%
+    .country
+      width: 50%
+
+
+    +bk(2)
+      .city
+        width: ($container * 2/3) - (230px + $gtr * 4)
+      .state
+        width: 50px
+        margin-left: $gtr/2
+      .country
+        width: 180px
+        float: right
+
+  .hosting
+    +clearfix
+    .field
+      float: left
+      width: 100%
+    .other-field
+      display: inline-block
+      margin: 0
+      font-size: $font-small
+      width: 75%
+
+    +bk(2)
+      .field
+        width: auto
+        padding-right: $gtr + 4px
+        &:last-child
+          float: right
+          padding-right: 0
+      .other-field
+        width: 120px
+
+
+
+
+
+
+
+
+
+
+
