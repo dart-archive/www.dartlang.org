@@ -1,17 +1,20 @@
+---
+layout: none
+---
+
 <!DOCTYPE html>
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng-app="dart"> <!--<![endif]-->
+<html class="no-js" ng-app="dart">
 <head>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Dart 1.0 | Flight Ready</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>Dart Flight School - Learn Dart</title>
+<meta name="description" content="Dart Flight School is a series of global events to help developers learn Dart.">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
 
 <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <script src="js/vendor.min.js"></script>
 <script>
 /* grunticon Stylesheet Loader | https://github.com/filamentgroup/grunticon | (c) 2012 Scott Jehl, Filament Group, Inc. | MIT license. */
@@ -19,72 +22,264 @@ window.grunticon=function(e){if(e&&3===e.length){var t=window,n=!(!t.document.cr
 grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "img/icons/icons.fallback.css" ] );</script>
 </head>
 
-<body ocu-animate>
+<body>
 
 <header class="page-header">
-  <h1 class="site-title"><img ocu-svg="img/header" alt="Dart 1.0 Flight Ready" width="820" height="209"></h1>
+  <h1 class="site-title"><img format="svg png" ocu-src="img/header" alt="Dart Flight School"></h1>
 </header>
 
 <nav class="page-nav" ng-controller="NavCtrl">
-  <ul>
-    <li><a href="#home" ocu-scroll-click><img ocu-svg="img/logo" alt="Dart 1.0"></a></li>
-    <li><a href="#flight" ocu-scroll-click>Dart Flight School</a></li>
-    <li><a href="#register" ocu-scroll-click>Get Involved</a></li>
-  </ul>
+  <div class="nav-container" ui-show="nav.show_mobile">
+    <ul>
+      <li><a href="#home"       ocu-scroll-click class="current-nav-item">Home</a></li>
+      <li><a href="#locations"  ocu-scroll-click>Find an event</a></li>
+      <li><a href="#resources"  ocu-scroll-click>Organizer Resources</a></li>
+      <li><a href="#faq"        ocu-scroll-click>FAQ</a></li>
+      <li><a href="#register"   ocu-scroll-click>Start your own event</a></li>
+    </ul>
+    <div class="mobile-nav-hook" ng-click="nav.show_mobile = !nav.show_mobile">
+      <span>&nbsp;</span>
+    </div>
+  </div>
 </nav>
 
 <section id="home" class="home-section" ocu-scroll-section>
   <div class="container">
-    <h2>Dart helps you build modern apps that run across the modern web</h2>
-    <p>Dart 1.0 provides a stable language, stable core libraries and tools such as a package manager, editor and dart2js compiler to help you be a productive web developer.</p>
-    <p>Help us with take off by organizing or presenting at a Dart Flight School event in your area in February 2014.</p>
+    <div class="wrapper">
+      <h2 style="text-align:center">Learn <a href="/">Dart</a> and Angular, get your web development wings</h2>
+      <p>Dart helps you build modern web apps with a new language, core libraries, and tools
+        such as a package manager, editor, and a compiler to JavaScript.
+        Use Angular with Dart for extra jet fuel.</p>
+    </div>
+    <p class="hero-text">Dart hit 1.0 and is now <em>Flight Ready</em>!
+      Developer communities around the world are hosting Dart Flight School
+      events during the month of February 2014. Learn Dart and Angular
+      at your local event, or start one yourself.</p>
+<!--
+    <a href="#locations" class="event-button" ocu-scroll-click>
+      <img ocu-src="img/find" format="svg png" alt="Find">
+      <span>an existing event</span>
+    </a>
+    <p class="start-own-event">
+      or <a href="#register" ocu-scroll-click>start your own event</a>
+    </p>
+-->
   </div>
 </section>
 
-<div class="ocu-divider after" ocu-scroll-collision="divider" collision-element=".page-nav">
-  <a ocu-scroll-click href="#home" class="ocu-divider-before">
-    <span>Dart 1.0</span>
-  </a>
-  <a ocu-scroll-click href="#flight" class="ocu-divider-after">
-    <span>Dart Flight School</span>
-  </a>
-</div>
 
-<section id="flight" class="flight-section" ocu-scroll-section>
+<section id="locations" class="location-section" ocu-scroll-section ng-controller="MapCtrl">
   <div class="container">
-    <h2>Are you ready to fly&nbsp;with&nbsp;Dart?</h2>
-    <p>We’ll provide the materials you need to get your community onboarded with Dart. Here are some of the formats we will support for your Dart Flight School event:</p>
-    <ul>
-      <li>Tech Talk: Host a talk to learn more about what makes Dart a First-Class language. </li>
-      <li>Code Lab: Go from runway to take-off through a guided hands-on Code Lab.</li>
-      <li>Hackathon: Create your own flight plan and use Dart to bring your ideas to the web.</li>
-    </ul>
+    <h2>Find an event</h2>
+    <div class="location-map-container">
+      <div class="location-switch-modes">
+        <button ng-click="event_map.show='map'" ui-show="event_map.show=='map'">
+          Map</button>
+        <button ng-click="event_map.show='list'" ui-show="event_map.show=='list'">
+          List</button>
+      </div>
 
-    <h3>Be part of a global event</h3>
-    <ul>
-      <li>Connect with Google's Dart team &amp; established Dartisans during Flight School preparations.</li>
-      <li>Get Tier-One Dart support during the event.</li>
-      <li>Be part of a global, coordinated event.</li>
-      <li>Get your event spotlighted by the Google Developers G+ page &amp; Dart's G+ page.</li>
-      <li>Swag! (More details to come.) </li>
+      <div id="location-event-map" class="map-canvas" ng-show="event_map.show=='map'"
+        ui-map="event_map.map" ui-options="event_map.map_options"></div>
+
+      <ul id="location-event-list" class="location-event-list"
+        ng-show="event_map.show=='list'">
+        <li ng-repeat="event in event_map.events">
+
+          <div class="event-wrapper" ui-show="event_map.selected === $index">
+            <div class="top-border"></div>
+            <div class="bottom-border"></div>
+
+{% raw %}
+            <time datetime="{{event.start|coerceDate|date:'yyyy-MM-dd'}}"
+              ng-bind="event.start|coerceDate|date:'longDate'"></time>
+            <h3 class="event-title" style="font-size:18px">
+              <a ng-href="https://developers.google.com{{event.defaultEventUrl}}"
+                ng-bind="event.name" target="_blank"></a>
+            </h3>
+            <p class="event-location" ng-bind="event.location"></p>
+            <!--<p class="event-description" ng-bind="event.description"></p>-->
+{% endraw %}
+
+          </div>
+
+
+        </li>
+      </ul>
+    </div>
+    <p>
+      Can't find an event near you? Consider <a href="#register" ocu-scroll-nav>starting your own</a>!
+    </p>
+  </div>
+
+</section>
+
+<section id="resources" class="resources-section" ocu-scroll-section>
+  <div class="container">
+    <h2>Organizer Resources</h2>
+    <p>More to come. See something missing? <a href="https://plus.google.com/communities/103524414949893193373">Organizers can let us know</a>.</p>
+    <ul class="event-formats">
+      <li>
+        <h3>Tech Talk</h3>
+        <p>Host a talk to show off what makes Dart a First-Class language.</p>
+        <a href="#" class="resource-link">Tech Talk deck (Coming soon)</a>
+        <a href="#" class="resource-link">Tech Talk video (Coming soon)</a>
+      </li>
+      <li>
+        <h3>Code Lab</h3>
+        <p>Go from runway to take-off through a guided hands-on Code Lab.</p>
+        <a href="https://www.dartlang.org/codelabs/darrrt/" class="resource-link">Code Lab</a>
+        <a href="https://www.dartlang.org/docs/tutorials/" class="resource-link">Dart Tutorials</a>
+        <a href="https://github.com/angular/angular.dart.tutorial" class="resource-link">AngularDart Tutorial</a>
+      </li>
+      <li>
+        <h3>Hackathon</h3>
+        <p>Create your own flight plan and use Dart to bring your ideas to the web.</p>
+        <a href="#" class="resource-link">Hackathon guide (Coming soon)</a>
+      </li>
     </ul>
+    <ul class="event-formats">
+      <li>
+        <h3>Graphic Assets</h3>
+        <p>Emblazen your event or gear.</p>
+        <a href="/logos" class="resource-link">Dart logos and colors</a>
+        <a href="#" class="resource-link">Flight School logos and swag designs (Coming soon)</a>
+      </li>
+      <li>
+        <h3>Dart Experts</h3>
+        <p>The Dart team will run Q&amp;A sessions to help speakers get up to speed on the content before February.</p>
+        <a href="#" class="resource-link">Q&amp;A over Hangouts (Coming soon)</a>
+      </li>
+      <li>
+        <h3>Communities</h3>
+        <p>Connect with fellow organizers and other Dartisans over Google+.</p>
+        <a href="https://plus.google.com/communities/103524414949893193373" class="resource-link">Flight School Organizers</a>
+        <a href="#register" ocu-scroll-click class="resource-link">Register for an Invite</a>
+        <a href="http://g.co/dartisans" class="resource-link">Dartisans</a>
+      </li>
+    </ul>
+    <ul class="event-formats">
+      <li>
+        <h3>Swag</h3>
+        <p>We'll send Dart swag packs to events that meet the
+          <a href="#howdoigetswag" class="inline" ocu-scroll-click>minimum requirements</a>.</p>
+        <a href="#" class="resource-link">Swag Request Form (Coming soon)</a>
+      </li>
+      <li>
+        <h3>Sponsorship</h3>
+        <p>Opportunities to help with expenses.</p>
+        <a href="#howdoigetsponsors" class="resource-link">Contact your regional lead</a>
+      </li>
+    </ul>
+  </div>
+
+</section>
+
+<section id="faq" class="faq-section" ocu-scroll-section>
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>What are Dart Flight Schools?</h3>
+    <p>Dart Flight Schools are community run events to help developers learn
+      Dart and Angular. They’ll be run by local
+      <a href="https://developers.google.com/groups">Google Developer Groups</a>
+      or other developer meetups all over the world. Each event is a little
+      different, but generally, a Dart Flight School can include a tech talk,
+      code labs, or a hackathon. </p>
+
+    <h3>Why are you guys doing this?</h3>
+    <p>Dart launched 1.0 in November 2013, and the Dart and Chrome teams wanted
+      to help developers all over the world try Dart. The Dart team wants to
+      hear feedback from developers who never used Dart, and from developers
+      that looked at Dart when it first launched.</p>
+
+    <h3>How is Angular involved with this event series?</h3>
+    <p>Angular has ported their popular framework to Dart, and has provided
+      tutorials and examples.</p>
+
+    <h3>I want to talk about this on social media, but can’t do that without
+      the proper hashtag categorization. Help me.</h3>
+    <p>Awesome! Please use <strong>#flydart</strong>.</p>
+
+    <h3>I’d like to organize my own Flight School, do we have to do the events
+      in February?</h3>
+    <p>Not necessarily, but Google is planning to support and promote groups
+      that run their event in February. You can run a Flight School any time,
+      but you may not get first-class support.</p>
+
+    <h3>I’d like to organize my own Flight School, how is Google supporting
+      these events?</h3>
+    <p>The Dart team will be providing instructional materials like slide decks
+      and code labs. In the weeks leading up to February, the team will also host
+      Hangouts on Air sessions for potential speakers to answer questions and
+      explain the content. And of course, we’ll be sending awesome Dart swag to
+      Flight School events. Depending on the resources at local offices, Google
+      will also be hosting and directly sponsoring many events.</p>
+
+    <h3>I’d like to organize my own Flight School, are there specific things we
+      should be talking about?</h3>
+    <p>Yes! Build mobile web apps should be at the top of your list. Other topics
+      include: using Dart and Angular to build client-side apps, using Dart for
+      your server-side app, and compiling Dart apps to JavaScript to run across
+      the modern web.</p>
+
+    <h3>I’d like to organize my own Flight School, when is the content going to
+      be ready?</h3>
+    <p>We’re planning on releasing the content as it’s completed mid-January.
+      Stay up to date on the organizer mailing list (look for an invite) and
+      Google+ community (look for an invite). You’ll receive invites to these
+      forums if you fill out the form above. </p>
+
+    <h3>How do I meet other Flight School organizers?</h3>
+    <p>Organizers are invited to join a private Google+ community. You must sign
+      up to run an event and provide a name that matches your Google+
+      identity.</p>
+
+    <h3>I’m excited about learning Dart RIGHT NOW, and don’t want to wait
+      for a Flight School, what should I do?</h3>
+    <p>Check out the content that’s already available on
+      <a href="/">dartlang.org</a>. You can also find other "Dartisans" on
+      Google+ and ask questions in the
+      <a href="https://plus.google.com/u/0/communities/114566943291919232850">Dartisan community</a>.
+      The team also regularly answers questions on
+      <a href="http://stackoverflow.com/tags/dart">StackOverflow</a>. </p>
+
+    <h3>I’d like to organize my own Flight School, how can I find Dart speakers
+      in my area?</h3>
+    <p>Contact your Google Developer Relations regional lead to get connected to
+      local Dart <a href="http://developers.google.com/experts">Google Developer Experts</a>.
+      If you don’t know your regional lead, contact
+      <a href="https://plus.google.com/+StephanieLiu">+Stephanie Liu</a>.
+       We'll also promote the event series in the Dart community, and will
+       introduce potential speakers with organizers in their area. Of course,
+       feel free to look for speakers inside of, and outside of, the local Dart
+       community.
+    </p>
+
+    <h3 id="howdoigetswag">I’d like to organize my own Flight School, what do I
+      have to do to request a Dart swag packet?</h3>
+    <p>We're still working out the details,
+      but we promise not to make you do any Herculean feats of
+      strength.</p>
+
+    <h3 id="howdoigetsponsors">Can Google help by sponsoring the event?</h3>
+    <p>Venue, food, and other direct sponsorship will be handled at the
+          local
+          level. It will depend on local resource constraints and the specifics
+          of your event. Please work with your Google regional lead.
+          If you don't know who your regional lead is, please
+           ping
+           <a href="https://plus.google.com/+StephanieLiu">+Stephanie Liu</a>.
+    </p>
 
   </div>
 </section>
-
-<div class="ocu-divider after" ocu-scroll-collision="divider" collision-element=".page-nav">
-  <a ocu-scroll-click href="#flight" class="ocu-divider-before">
-    <span>Dart Flight School</span>
-  </a>
-  <a ocu-scroll-click href="#register" class="ocu-divider-after">
-    <span>Register</span>
-  </a>
-</div>
 
 <section id="register" class="register-section" ocu-scroll-section>
   <div class="container">
-    <h2>Get involved</h2>
-    <p>Let us know you’re interested in organizing an event or speaking at one, and we’ll contact you with more information.</p>
+    <h2>Start Your Own Event</h2>
+    <p>Let us know you’re interested in organizing an event or speaking at one,
+      and we’ll contact you with more information. Sign up before January 15, 2014.</p>
     <form ng-controller="RegisterCtrl" ng-submit="register.submit()">
       <input type="text" ng-model="register.name" ocu-label="Name" required>
       <input type="email" ng-model="register.email" ocu-label="Email" required>
@@ -125,12 +320,13 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
         <input type="submit" value="Register">
       </div>
       <div ng-show="register.submitted">
-        <p>Thanks for contributing to Dart Flight Schools! Your information has been submitted.</p>
+        <p>Thanks for contributing to Dart Flight Schools! We'll respond via email.</p>
       </div>
     </form>
   </div>
 
 </section>
+
 
 <div class="sky-layer"></div>
 
@@ -144,28 +340,12 @@ grunticon( [ "img/icons/icons.data.svg.css", "img/icons/icons.data.png.css", "im
   <img src="img/earth.png">
 </div>
 
-
-<!--[if lte IE 8]>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<![endif]-->
-<!--[if gt IE 8]><!-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<!--<![endif]-->
-
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
 <script src="js/plugins.min.js"></script>
 <script src="js/app.js"></script>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  // fill in analytics here
-  // ga('create', '', '');
-  // ga('send', 'pageview');
-</script>
+{% include analytics.html %}
 
 </body>
 </html>

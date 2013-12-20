@@ -178,6 +178,8 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/sdk/'}),
     Route('/resources/', RedirectHandler,
       defaults={'_uri': '/community/'}),
+    Route('/articles/feet-wet-streams/', RedirectHandler,
+      defaults={'_uri': '/docs/tutorials/streams/'}),
     Route('/articles/using-future-based-apis/', RedirectHandler,
       defaults={'_uri': '/docs/tutorials/futures/'}),
     Route('/articles/profiling/', RedirectHandler,

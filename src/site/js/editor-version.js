@@ -15,7 +15,7 @@ $(document).ready(function() {
       url: 'https://storage.googleapis.com/dart-archive/channels/' + channel + '/release/latest/VERSION',
       dataType: "json",
       success: function(data) {
-        updatePlaceholders(channel, data['revision']);
+        updatePlaceholders(channel, data['version']);
       },
       error: function(xhr, textStatus, errorThrown) {
         console.log(textStatus);

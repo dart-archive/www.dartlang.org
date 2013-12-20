@@ -83,7 +83,7 @@ and _Polymer Core_.
 
 <div class="col-md-4 text-center">
 
-<i class="icon icon-code"> </i>
+<i class="fa fa-code"> </i>
 
 <h2 class="no-permalink">Custom tags</h2>
 
@@ -94,7 +94,7 @@ style, structure, and behavior.
 
 <div class="col-md-4 text-center">
 
-<i class="icon icon-exchange"> </i>
+<i class="fa fa-exchange"> </i>
 
 <h2 class="no-permalink">Data binding</h2>
 
@@ -104,7 +104,7 @@ Create live, two-way bindings between Dart objects and DOM nodes.
 
 <div class="col-md-4 text-center">
 
-<i class="icon icon-check"> </i>
+<i class="fa fa-check"> </i>
 
 <h2 class="no-permalink">Standards</h2>
 

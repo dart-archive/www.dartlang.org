@@ -1,3 +1,40 @@
+- title: "Developing Dart Editor"
+  short: developing-dart-editor
+  presenters:
+    - Dan Rubel
+    - Eric Clayberg
+  date: 2013-12-18
+  slides: 2013/12/developing-dart-editor.pdf
+  event: Chrome Developer Summit
+
+- title: "Dart for the modern web developer"
+  short: dart-at-cds
+  presenters:
+    - Kasper Lund
+    - Seth Ladd
+  date: 2013-11-20
+  slides: https://docs.google.com/presentation/d/1JU1ToBg-K7_vLC5bt2gEcEy3p12mCQG8CGELOP3vWvI/edit?usp=sharing
+  video: http://www.youtube.com/watch?v=FqsU3TbUw_s
+  event: Chrome Developer Summit
+
+- title: "Dart 1.0 interview"
+  short: dart-1_0-interview
+  presenters:
+    - Kasper Lund
+    - Lars Bak
+  date: 2013-11-15
+  video: http://www.youtube.com/watch?v=iKhxgcR1GZg
+  event: Devoxx 2013
+
+- title: "Building Optimizing Compiler for Dart"
+  short: building-optimizing-compiler
+  presenters:
+    - Vyacheslav Egorov
+  date: 2013-09-18
+  slides: http://s3.mrale.ph/StrangeLoop2013.pdf
+  video: http://www.infoq.com/presentations/dart-compiler
+  event: Strange Loop 2013
+
 - title: "Modern Web Development with Dart"
   short: dart-smalltalk-industry-conference
   presenters:

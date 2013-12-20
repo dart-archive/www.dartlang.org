@@ -1,6 +1,5 @@
 ---
 layout: homepage
-googleapi: true
 js:
 - url: /js/display-news.js
 - url: /js/os-switcher.js
@@ -18,8 +17,13 @@ js:
       <div class="hero container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-            <h5>1.0 JUST RELEASED</h5>
-            <h1>Dart is a new language for scalable web app engineering.</h1>
+            <h1>Dart is a new platform<br> for scalable web app engineering.</h1>
+            <ul>
+              <li>Language</li>
+              <li>Libraries</li>
+              <li>Tools</li>
+              <li>Compilation to JavaScript</li>
+            </ul>
             {% include downloads/_dart-editor.html buttonclass="btn btn-default btn-lg download-btn" %}
           </div>
         </div>
@@ -41,7 +45,7 @@ js:
                 <h2>See Dart</h2>
                 <p class="timer"><i class="sprite-icon-timer"></i>About 5 minutes</p>
                 <p>Dart is class based and object oriented, without being dogmatic.</p>
-                <a id="see-code" href="#code"><i class="sprite-icon-triangle"></i>See code</a>
+                <a id="see-code" href="#code" data-slide="true"><i class="sprite-icon-triangle"></i>See code</a>
               </div>
               <div class="col-md-4">
                 <h2>Try Dart</h2>
@@ -438,4 +442,4 @@ main() {
         </div>
       </section>
     </div> <!-- end container -->
-  </div> <!-- end container-page -->      
+  </div> <!-- end container-page -->
