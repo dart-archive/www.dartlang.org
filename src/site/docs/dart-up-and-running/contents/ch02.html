@@ -38,7 +38,7 @@ main() {
         the <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object</a>
         class.</p></li><li class="listitem"><p>Specifying static types (such as <code class="literal">num</code> in the preceding example) clarifies your
         intent and enables static checking by tools, but it’s optional. (You
-        might notice when you’re debugging your code that objects with no
+        might notice when you’re debugging your code that variables with no
         specified type get a special type: <code class="literal">dynamic</code>.)</p></li><li class="listitem"><p>Dart parses all your code before running it. You can provide
         tips to Dart—for example, by using types or compile-time constants—to
         catch errors or help your code run faster.</p></li><li class="listitem"><p>Dart supports top-level functions (such as
@@ -54,11 +54,11 @@ main() {
         underscore (_), it’s private to its library. For details, see <a class="xref" href="ch02.html#libraries" title="Libraries and Visibility">the section called “Libraries and Visibility”</a>.</p></li><li class="listitem"><p><em class="firstterm">Identifiers</em> can start with a letter or _,
         followed by any combination of those characters plus digits.</p></li><li class="listitem"><p>Sometimes it matters whether something is an
         <span class="emphasis"><em>expression</em></span> or a <span class="emphasis"><em>statement</em></span>,
-        so we’ll be precise about those two words.</p></li><li class="listitem"><p>Dart tools can report two kinds of errors: warnings and errors.
-        Warnings are just hints that your code might not work, but they don’t
-        prevent your program from executing. Errors can be either compile-time
-        or run-time. A compile-time error prevents the code from executing at
-        all; a run-time error results in an <a class="link" href="ch02.html#exceptions" title="Exceptions">exception</a> being raised while the code
+        so we’ll be precise about those two words.</p></li><li class="listitem"><p>Dart tools can report two kinds of problems: warnings and
+        errors. Warnings are just indications that your code might not work,
+        but they don’t prevent your program from executing. Errors can be
+        either compile-time or run-time. A compile-time error prevents the
+        code from executing at all; a run-time error results in an <a class="link" href="ch02.html#exceptions" title="Exceptions">exception</a> being raised while the code
         executes.</p></li><li class="listitem"><p>Dart has two <em class="firstterm">runtime modes</em>: production
         and checked. Production is faster, but checked is helpful at
         development.</p></li></ul></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-keywords"></a>Keywords</h3></div></div></div><p><a class="xref" href="ch02.html#keyword_table" title="Table 2.1. Dart keywords">Table 2.1, “Dart keywords”</a> lists the words that the Dart
@@ -91,7 +91,7 @@ assert(lineCount == null);
       declarations:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>String name = 'Bob';</pre><p>Adding types is a way to clearly express your intent. Tools such
       as compilers and editors can use these types to help you, by providing
-      early warnings for bugs and code <span class="keep-together">completion</span>.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This chapter follows the <a class="ulink" href="http://www.dartlang.org/articles/style-guide/#type-annotations" target="_top">style
+      code completion and early warnings for bugs and code <span class="keep-together">completion</span>.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This chapter follows the <a class="ulink" href="http://www.dartlang.org/articles/style-guide/#type-annotations" target="_top">style
         guide recommendation</a> of using <code class="literal">var</code>, rather than type annotations, for local
         variables.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-final-const"></a>Final and Const</h3></div></div></div><p>If you never intend to change a variable, use <code class="literal">final</code> or <code class="literal">const</code>, either instead of <code class="literal">var</code> or in addition to a type. A final variable
       can be set only once; a const variable is a compile-time
@@ -167,8 +167,8 @@ assert('Dart has $s, which is very handy.' ==
        'Dart has string interpolation, which is very handy.');
 assert('That deserves all caps. ${s.toUpperCase()} is very handy!' ==
        'That deserves all caps. STRING INTERPOLATION is very handy!');</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="literal">==</code> operator tests whether
-        two objects are equivalent. Two strings are equivalent if they have
-        the same characters.</p></div><p>You can concatenate strings using adjacent string literals or the
+        two objects are equivalent. Two strings are equivalent if they contain
+        the same sequence of code units.</p></div><p>You can concatenate strings using adjacent string literals or the
       <code class="literal"><code class="literal">+</code></code> operator:</p><pre class="programlisting"><em><span class="remark">lang-dart
 adjacent_string_literals.dart
 </span></em>var s1 = 'String ' 'concatenation'
@@ -372,8 +372,10 @@ assert(say('Bob', 'Howdy') == 'Bob says Howdy with a carrier pigeon');</pre></di
   querySelector("#sample_text_id")
     ..text = "Click me!"
     ..onClick.listen(reverseText);
-}</pre><p>Here's an example of the <code class="literal">main()</code> function for a
-      command-line app that takes arguments:</p><pre class="programlisting"><em><span class="remark">lang-dart
+}</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The <code class="literal">..</code> operator in the preceding code is a
+          cascade operator, which allows you to perform multiple operations on
+          the members of a single object. You'll find out more in <a class="xref" href="ch02.html#classes" title="Classes">the section called “Classes”</a>.</p></div><p>Here's an example of the <code class="literal">main()</code> function for
+      a command-line app that takes arguments:</p><pre class="programlisting"><em><span class="remark">lang-dart
 ch02/args.dart
 </span></em>// Run the app like this: dart args.dart 1 test
 void main(List&lt;String&gt; arguments) {
@@ -733,7 +735,8 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
         in production mode.</p></div><p>Inside the parentheses after <code class="literal">assert</code>, you can put any expression that
       resolves to a boolean value or to a function. If the expression’s value
       or function’s return value is true, the assertion succeeds and execution
-      continues. Otherwise, the assertion fails and an exception (an <a class="ulink" href="http://api.dartlang.org/dart_core/AssertionError.html" target="_top">AssertionError</a>)
+      continues. If it's false, the assertion fails and an exception (an
+      <a class="ulink" href="http://api.dartlang.org/dart_core/AssertionError.html" target="_top">AssertionError</a>)
       is thrown.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="exceptions"></a>Exceptions</h2></div></div></div><p>Your Dart code can throw and catch exceptions. Exceptions are errors
     indicating that something unexpected happened. If the exception isn’t
     caught, the isolate that raised the exception is suspended, and typically
@@ -788,9 +791,12 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
   print('Error: $e');  // Handle the exception first.
 } finally {
   cleanLlamaStalls();  // Then clean up.
-}</pre><p>Learn more by reading <a class="xref" href="ch03.html#ch03-exceptions" title="Exceptions">the section called “Exceptions”</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="classes"></a>Classes</h2></div></div></div><p>Dart is an object-oriented language with classes and single
+}</pre><p>Learn more by reading <a class="xref" href="ch03.html#ch03-exceptions" title="Exceptions">the section called “Exceptions”</a>.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="classes"></a>Classes</h2></div></div></div><p>Dart is an object-oriented language with classes and mixin-based
     inheritance. Every object is an instance of a class, and all classes
-    descend from <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object.</a></p><p>To create an object, you can use the <code class="literal">new</code> keyword with a
+    descend from <a class="ulink" href="http://api.dartlang.org/dart_core/Object.html" target="_top">Object.</a>
+    <span class="emphasis"><em>Mixin-based inheritance</em></span> means that although every
+    class (except for Object) has exactly one superclass, a class body can be
+    reused in multiple class hierarchies.</p><p>To create an object, you can use the <code class="literal">new</code> keyword with a
     <em class="firstterm">constructor</em> for a class. Constructor names can be
     either <span class="emphasis"><em><em class="replaceable"><code>ClassName</code></em></em></span> or
     <em class="replaceable"><code>ClassName.identifier</code></em>. For example:</p><pre class="programlisting"><em><span class="remark">lang-dart
@@ -1085,8 +1091,10 @@ main() {
   assert(v.x == 2 &amp;&amp; v.y == 3);         // v   == (2,3)
   assert((v+w).x == 4 &amp;&amp; (v+w).y == 5); // v+w == (4,5)
   assert((v-w).x == 0 &amp;&amp; (v-w).y == 1); // v-w == (0,1)
-}</pre><p>For an example of overriding <code class="literal">==</code>, see <a class="xref" href="ch03.html#ch03-implementing-map-keys" title="Implementing map keys">the section called “Implementing map keys”</a>. For more information on
-        overriding, in general, see <a class="xref" href="ch02.html#ch02-class-extend" title="Extending a Class">the section called “Extending a Class”</a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-abstract"></a>Abstract Classes</h3></div></div></div><p>Use the <code class="literal">abstract</code> modifier to
+}</pre><p>If you override ==, you should also override Object's
+        <code class="literal">hashCode</code> getter. For an example of overriding
+        <code class="literal">==</code> and <code class="literal">hashCode</code>,
+        see <a class="xref" href="ch03.html#ch03-implementing-map-keys" title="Implementing map keys">the section called “Implementing map keys”</a>.</p><p>For more information on overriding, in general, see <a class="xref" href="ch02.html#ch02-class-extend" title="Extending a Class">the section called “Extending a Class”</a>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-class-abstract"></a>Abstract Classes</h3></div></div></div><p>Use the <code class="literal">abstract</code> modifier to
       define an <em class="firstterm">abstract class</em>—a class that can’t be
       instantiated. Abstract classes are useful for defining interfaces, often
       with some implementation. If you want your abstract class to appear to
@@ -1189,8 +1197,8 @@ class A {
   void noSuchMethod(Invocation mirror) {
     // ...
   }
-}</pre><p>For more information on annotations, see <a class="xref" href="ch02.html#ch02-metadata" title="Metadata">the section called “Metadata”</a>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-mixins"></a>Adding Features to a Class: Mixins</h3></div></div></div><p>Mixins are a way to inject behavior into classes without relying
-      on inheritance.</p><p>To use a mixin, use the <code class="literal">with</code> keyword followed
+}</pre><p>For more information on annotations, see <a class="xref" href="ch02.html#ch02-metadata" title="Metadata">the section called “Metadata”</a>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-mixins"></a>Adding Features to a Class: Mixins</h3></div></div></div><p>Mixins are a way of reusing a class's code in multiple class
+      hierarchies.</p><p>To use a mixin, use the <code class="literal">with</code> keyword followed
       by one or more mixin names. The following example shows two classes that
       use mixins:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch02/mixins.dart
@@ -1521,10 +1529,9 @@ void doSomething() {
   print('do something');
 }</pre><p>Metadata can appear before a library, class, typedef, type
     parameter, constructor, factory, function, field, parameter, or variable
-    declaration and before an import or export directive. In the future,
-    you’ll be able to retrieve metadata at runtime using reflection.<em><span class="remark">
-    Status: <a class="ulink" href="https://code.google.com/p/dart/issues/detail?id=6614" target="_top">issue
-    #6614</a>.</span></em></p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="comments"></a>Comments</h2></div></div></div><p>Dart supports single-line comments, multi-line comments, and
+    declaration and before an import or export directive. If <a class="ulink" href="https://code.google.com/p/dart/issues/detail?id=6614" target="_top">issue
+    #6614</a> is fixed by the time you read this, you can retrieve
+    metadata at runtime using reflection.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="comments"></a>Comments</h2></div></div></div><p>Dart supports single-line comments, multi-line comments, and
     documentation <span class="keep-together">comments.</span></p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-comments-single-line"></a>Single-Line Comments</h3></div></div></div><p>A single-line comment begins with <code class="literal">//</code>. Everything between <code class="literal">//</code> and the end of line is ignored by the Dart
       compiler.</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>main() {

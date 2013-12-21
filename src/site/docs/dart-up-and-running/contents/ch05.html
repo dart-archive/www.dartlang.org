@@ -2,13 +2,362 @@
 # WARNING: GENERATED FILE. DO NOT EDIT.
 # WANT TO CONTRIBUTE? SEE https://github.com/dart-lang/dart-up-and-running-book
 layout: book
-title: "Chapter 5. Walkthrough: Dart Chat from Dart: Up and Running"
-description: "Read Chapter 5. Walkthrough: Dart Chat of Dart: Up and Running, published by O'Reilly."
+title: "Chapter 5. Walkthrough: Dartiverse Search from Dart: Up and Running"
+description: "Read Chapter 5. Walkthrough: Dartiverse Search of Dart: Up and Running, published by O'Reilly."
 ---
-<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Walkthrough: Dart Chat</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04-summary.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="colophon.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch05"></a>Chapter 5. Walkthrough: Dart Chat</h1></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>We deleted the contents of this chapter because it was
-  based on out-of-date code that no longer worked.
-  We intend to create a new example, with a new code walkthrough.
+<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter 5. Walkthrough: Dartiverse Search</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04-summary.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="colophon.html">Next</a></td></tr></table><hr></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="ch05"></a>Chapter 5. Walkthrough: Dartiverse Search</h1></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl class="toc"><dt><span class="sect1"><a href="ch05.html#ch05-how-to-run">How to Run Dartiverse Search</a></span></dt><dt><span class="sect1"><a href="ch05.html#ch05-how-it-works">How Dartiverse Search Works</a></span></dt><dt><span class="sect1"><a href="ch05.html#ch05-client-html">The Client's HTML Code</a></span></dt><dt><span class="sect1"><a href="ch05.html#ch05-client-dart">The Client's Dart Code</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch05.html#ch05-client-dart-find-elements">Finding DOM Elements</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-client-dart-handle-events">Handling Events</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-client-dart-properties">Getting and Setting Properties</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-client-dart-add-elements">Adding DOM Elements</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-client-dart-json">Encoding and Decoding Messages</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-client-dart-web-sockets">Communicating with WebSockets</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch05.html#ch05-server">The Server's Code</a></span></dt><dd><dl><dt><span class="sect2"><a href="ch05.html#ch05-server-static">Serving Static Files</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-server-web-socket">Managing WebSocket Connections</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-server-web-apis">Using Web APIs</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-server-library">Implementing a Library</a></span></dt><dt><span class="sect2"><a href="ch05.html#ch05-server-logging">Logging Messages</a></span></dt></dl></dd><dt><span class="sect1"><a href="ch05.html#ch05-what-next">What Next?</a></span></dt></dl></div><p>This chapter points out some of the useful and fun features of the
+  Dart language and libraries that are used in Dartiverse Search, a
+  client-server app. As <a class="xref" href="ch05.html#DartiverseScreenshot" title="Figure 5.1. The client app UI">Figure 5.1, “The client app UI”</a> shows,
+  Dartiverse Search looks for a user-entered string in GitHub and
+  StackOverflow. The app is asynchronous, adding results as they're found, so
+  the UI is always responsive.</p><div class="figure"><a name="DartiverseScreenshot"></a><p class="title"><b>Figure 5.1. The client app UI</b></p><div class="figure-contents"><div class="mediaobject"><table border="0" summary="manufactured viewport for HTML img" style="cellpadding: 0; cellspacing: 0;" width="NaN"><tr><td><img src="figs/web/daur_0501.png" width="NaN" alt="The client app UI"></td></tr></table></div></div></div><br class="figure-break"><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-how-to-run"></a>How to Run Dartiverse Search</h2></div></div></div><p>You can use Dart Editor to get and run Dartiverse Search.</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>In Dart Editor, go to the Welcome page. (If you don't see it,
+        choose <span class="bold"><strong>Tools &gt; Welcome
+        Page</strong></span>.)</p></li><li class="listitem"><p>In the demo section, click <span class="bold"><strong>Dartiverse
+        Search</strong></span> to create a copy of the dartiverse_search
+        package.</p></li><li class="listitem"><p>Use <span class="bold"><strong>Tools &gt; Pub Build</strong></span> to
+        build the package.</p></li><li class="listitem"><p>Select <code class="literal">bin/server.dart</code> and click the
+        <span class="bold"><strong>Run</strong></span> button. You should see a message
+        that the search server is running at http://127.0.0.1:9223/.</p></li><li class="listitem"><p>Click that URL or enter it into any modern browser. The search
+        client UI should appear in your default browser.</p></li></ol></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-how-it-works"></a>How Dartiverse Search Works</h2></div></div></div><p>The search server is an HTTP server that provides a WebSocket
+    interface. The search client uses that WebSocket interface as a
+    bi-directional communication channel with the server. The client sends
+    search requests to the server over the WebSocket, and the server replies
+    with any results and then a final, "search done" message.</p><p>The server starts things off by binding to localhost, port 9223, and
+    listening for requests to the WebSocket:
+    <code class="literal">ws://127.0.0.1:9223/ws</code>. Search clients can connect
+    using that URL.</p><p>The real communication between client and server happens when the
+    user enters a search string. As <a class="xref" href="ch05.html#DartiverseCommunication" title="Figure 5.2. Communication in Dartiverse Search">Figure 5.2, “Communication in Dartiverse Search”</a>
+    shows, the client sends a JSON-encoded search request to the server. The
+    server extracts the search string from the request and sends it to a
+    series of search engines. Each search engine searches a specific site—for
+    example, GitHub—using whatever API that site supports. Whenever a search
+    engine finds a result, the server forwards that result to the client,
+    again using a JSON-encoded message.</p><div class="figure"><a name="DartiverseCommunication"></a><p class="title"><b>Figure 5.2. Communication in Dartiverse Search</b></p><div class="figure-contents"><div class="mediaobject"><img src="figs/web/daur_0502.png" alt="Communication in Dartiverse Search"></div></div></div><br class="figure-break"><p>The search server implements an HTTP server that both provides
+    content for the client UI and listens for WebSocket requests.</p><p>The client code is split between HTML (page structure), CSS (page
+    look), and JavaScript (logic and behavior). That’s typical of web
+    clients.</p><p>The twist is that this client’s JavaScript code is produced from
+    Dart code, thanks to the dart2js compiler. Any modern browser can run this
+    JavaScript code.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-client-html"></a>The Client's HTML Code</h2></div></div></div><p>The client's UI is simple. It has a search field, implemented as an
+    &lt;input&gt; element named "q". It displays output in two &lt;div&gt;s
+    named "status" and "results".</p><pre class="programlisting">&lt;!-- In web/index.html: --&gt;
 
-  In the meantime, if you would like to try a code lab,
-  check out
-  <a class="ulink" href="http://dartlang.org/codelabs/darrrt" target="_top">Try Darrrt</a>.</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04-summary.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="colophon.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Summary </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Colophon</td></tr></table></div>
+&lt;input type="search" placeholder="Search" value="" id="q" disabled /&gt;
+&lt;div id="status"&gt;&lt;/div&gt;
+...
+&lt;div id="results"&gt;&lt;/div&gt;</pre><p>A couple of &lt;script&gt; tags tell the browser to execute the
+    client’s Dart or JavaScript code:</p><pre class="programlisting">&lt;script type="application/dart" src="client.dart"&gt;&lt;/script&gt;
+&lt;script src="packages/browser/dart.js"&gt;&lt;/script&gt;</pre><p>The first line works in browsers that have an embedded Dart VM and
+    so can execute Dart code; currently, only Dartium qualifies.</p><p>The second line is important for every other browser. It executes
+    dart.js, which is a standard script that converts all Dart &lt;script&gt;
+    tags to use foo.dart.js instead of foo.dart, with the assumption that
+    foo.dart.js is a JavaScript version of foo.dart. For non-Dartium browsers,
+    dart.js changes the first &lt;script&gt; tag to the following:</p><pre class="programlisting">&lt;script src="client.dart.js"&gt;&lt;/script&gt;</pre><p>You can get dart.js with the browser package from pub. See <a class="xref" href="ch04-tools-dart2js.html" title="dart2js: The Dart-to-JavaScript Compiler">the section called “dart2js: The Dart-to-JavaScript Compiler”</a> for more information about compiling Dart
+    code into its JavaScript equivalent.</p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-client-dart"></a>The Client's Dart Code</h2></div></div></div><p>Dart code (<code class="literal">web/client.dart</code>) provides the client’s
+    logic, using the DOM to interact with UI elements. For example, the
+    client’s Dart code uses the DOM to find the div where the client displays
+    messages.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-client-dart-find-elements"></a>Finding DOM Elements</h3></div></div></div><p>The client app uses dart:html’s top-level
+      <code class="literal">querySelector()</code> function to get the client’s UI
+      elements from the DOM:</p><pre class="programlisting"><em><span class="remark">web/client.dart
+</span></em>SearchInputElement searchElement = querySelector('#q');
+DivElement statusElement = querySelector('#status');
+DivElement resultsElement = querySelector('#results');</pre><p>The <code class="literal">querySelector()</code> method uses a selector
+      string that identifies an element in the DOM. See <a class="xref" href="ch03.html#ch03-finding-elements" title="Finding elements">the section called “Finding elements”</a> for more about selectors.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This code could just use <code class="literal">var</code> instead of
+        specifying types (<a class="ulink" href="https://api.dartlang.org/dart_html/SearchInputElement.html" target="_top">SearchInputElement</a>
+        and <a class="ulink" href="https://api.dartlang.org/dart_html/DivElement.html" target="_top">DivElement</a>)
+        for the elements. Whoever writes the code gets to choose whether to
+        specify types.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-client-dart-handle-events"></a>Handling Events</h3></div></div></div><p>The client app uses <code class="literal">onChange.listen()</code> to
+      register a handler that reacts to user input. Whenever the user presses
+      Enter, the search field fires a change event, and the handler kicks off
+      a search.</p><pre class="programlisting">searchElement.onChange.listen((e) {
+  //...Start the search...
+});</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-client-dart-properties"></a>Getting and Setting Properties</h3></div></div></div><p>The change event handler gets and sets the text in the search
+      field using the <code class="literal">value</code> property.</p><pre class="programlisting">search(searchElement.value);
+searchElement.value = '';</pre></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-client-dart-add-elements"></a>Adding DOM Elements</h3></div></div></div><p>Every time the search client receives a result on the WebSocket,
+      the client creates a new div (<code class="literal">result</code>) to display it.
+      The client then adds that new div to the "results" div
+      (<code class="literal">resultsElement</code>).</p><pre class="programlisting">void addResult(String source, String title, String link) {
+  var result = new DivElement();
+  result.children.add(new HeadingElement.h2()..innerHtml = source);
+  result.children.add(
+      new AnchorElement(href: link)
+      ..innerHtml = title
+      ..target = '_blank');
+  result.classes.add('result');
+  resultsElement.children.add(result);
+}</pre><p>This code uses method cascades to avoid creating variables to
+      temporarily hold the new HeadingElement and AnchorElement.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-client-dart-json"></a>Encoding and Decoding Messages</h3></div></div></div><p>The dart:convert library's global <code class="literal">JSON</code> object
+      lets you encode and decode JSON-formatted messages. JSON is an easy way
+      to provide string message data to WebSockets. Using JSON also gives a
+      bit of structure to the messages and leaves the door open to creating
+      more detailed messages in the future.</p><p>The <code class="literal">JSON.encode()</code> method converts a Dart object
+      to a JSON-encoded string, and the <code class="literal">JSON.decode()</code>
+      method converts a JSON string back into a Dart object.</p><p>Here's the code that creates a JSON-encoded search request:</p><pre class="programlisting">var request = {
+  'request': 'search',
+  'input': input
+};
+webSocket.send(JSON.encode(request));</pre><p>Here’s how the client decodes and processes a JSON response from
+      the server:</p><pre class="programlisting">var json = JSON.decode(data);
+var response = json['response'];
+switch (response) {
+  case 'searchResult':
+    addResult(json['source'], json['title'], json['link']);
+    break;
+  ...
+}</pre><p>For more information, see <a class="xref" href="ch03.html#ch03-dart-convert" title="dart:convert - Decoding and Encoding JSON, UTF-8, and more">the section called “dart:convert - Decoding and Encoding JSON, UTF-8, and more”</a>.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-client-dart-web-sockets"></a>Communicating with WebSockets</h3></div></div></div><p>The search client connects to the WebSocket by calling the
+      WebSocket constructor with the argument 'ws://127.0.0.1:9223/ws'. Then
+      it adds event handlers for open and error events. The open event
+      handler, in turn, registers handlers for message and close events.
+      Here's the relevant code:</p><pre class="programlisting">class Client {
+  ...
+  WebSocket webSocket;
+  ...
+
+  Client() {
+    ...
+    connect();
+  }
+
+  void connect() {
+    ...
+    webSocket = new WebSocket('ws://${Uri.base.host}:${Uri.base.port}/ws');
+    webSocket.onOpen.first.then((_) {
+      onConnected();
+      webSocket.onClose.first.then((_) {
+        print("Connection disconnected to ${webSocket.url}");
+        onDisconnected();
+      });
+    webSocket.onError.first.then((_) {...});
+  }
+
+  void onConnected() {
+    ...
+    webSocket.onMessage.listen((e) {
+      handleMessage(e.data);
+    });
+  }
+  ...
+}</pre><p>To send a message on the WebSocket connection, the client invokes
+      WebSocket's <code class="literal">send()</code> method:</p><pre class="programlisting">webSocket.send(JSON.encode(request));</pre><p>When the client receives a message, it decodes the JSON data (as
+      you saw before) and updates the UI to match:</p><pre class="programlisting">void handleMessage(data) {
+  var json = JSON.decode(data);
+  var response = json['response'];
+  switch (response) {
+    case 'searchResult':
+      addResult(json['source'], json['title'], json['link']);
+      break;
+
+    case 'searchDone':
+      setStatus(resultsElement.children.isEmpty
+          ? "$mostRecentSearch: No results found"
+          : "$mostRecentSearch: ${resultsElement.children.length} results found");
+      break;
+
+    default:
+      print("Invalid response: '$response'");
+  } 
+}</pre></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-server"></a>The Server's Code</h2></div></div></div><p>The main code for the search server is under the
+    <code class="literal">bin</code> directory, in a file named
+    <code class="literal">server.dart</code>. It's responsible for serving static files,
+    managing WebSocket connections, and starting searches.</p><p>The code for performing the searches is in a custom library, called
+    search_engine, that's implemented in files under the
+    <code class="literal">lib</code> directory.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-server-static"></a>Serving Static Files</h3></div></div></div><p>The search server uses HttpServer (from dart:io), Platform (also
+      from dart:io), and VirtualDirectory (from the http_server package) to
+      implement a basic web server. Here's the code that initializes the web
+      server and serves static files:</p><pre class="programlisting">var buildPath = Platform.script.resolve('../build').toFilePath();
+...
+int port = 9223;
+
+HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, port).then((server) {
+  ...
+  var router = new Router(server);
+  ...
+  var virDir = new http_server.VirtualDirectory(buildPath);
+  virDir.jailRoot = false;
+  virDir.allowDirectoryListing = true;
+  virDir.directoryHandler = (dir, request) {
+    var indexUri = new Uri.file(dir.path).resolve('index.html');
+    virDir.serveFile(new File(indexUri.toFilePath()), request);
+  };
+  ...
+  virDir.serve(router.defaultStream);
+  ...
+});</pre><p>The call to <code class="literal">HttpServer.bind()</code> creates a web
+      server that handles HTTP requests to the address 127.0.0.1:9223 (also
+      known as localhost:9223).</p><p>Once the future returned by <code class="literal">bind()</code> completes,
+      the code creates a Router (more about that later) and a VirtualDirectory
+      (<code class="literal">virDir</code>). Because packages used by the client are set
+      up using symbolic links pointing outside the root directory,
+      <code class="literal">../build</code>, the <code class="literal">jailRoot</code> property of
+      <code class="literal">virDir</code> must be false. (By default, symbolic links
+      aren't allowed outside the root directory.) The next line sets
+      <code class="literal">allowDirectoryListing</code> to true, allowing the web
+      server to respond to paths that don't include a filename. Next, a custom
+      directory handler overrides the default directory listing code, so that
+      directories display <code class="literal">index.html</code> instead of a list of
+      files.</p><p>Once the VirtualDirectory is all set up, invoking the
+      <code class="literal">serve()</code> method connects <code class="literal">virDir</code> to
+      a stream of HTTP requests. This stream consists of every HTTP request
+      that the router doesn't handle specially—for example, the stream doesn't
+      include WebSocket connection requests.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-server-web-socket"></a>Managing WebSocket Connections</h3></div></div></div><p>The search server uses the Router class from the <a class="ulink" href="http://pub.dartlang.org/packages/route" target="_top">route package</a> to
+      serve dynamic content. In this app, the main purpose of the router is to
+      filter out upgrade HTTP requests for /ws and to handle them as WebSocket
+      connections. The code uses dart:io's WebSocketTransformer class to
+      perform the conversion:</p><pre class="programlisting">router.serve('/ws')
+  .transform(new WebSocketTransformer())
+  .listen(handleWebSocket);</pre><p>Here's the custom <code class="literal">handleWebSocket()</code> method,
+      which handles events on the WebSocket:</p><pre class="programlisting">void handleWebSocket(WebSocket webSocket) {
+  webSocket
+    .map((string) =&gt; JSON.decode(string))
+    .listen((json) {
+      var request = json['request'];
+      switch (request) {
+        case 'search':
+          // ...Kick off searches, and register handlers for results...
+          break;
+        ...
+      }
+    }, onError: (error) {...});
+}</pre><p>The call to <code class="literal">webSocket.map()</code> parses all the
+      messages that the client sends over the WebSocket, converting each
+      JSON-formatted message into an object. Then, after checking the message
+      format, the handler initiates searches on GitHub and
+      StackOverflow.</p><p>Here's the code from the 'search' case that starts the searches
+      and handles results as they come in:</p><pre class="programlisting">for (var engine in searchEngines) {
+  engine.search(input)
+    .listen((result) {
+      var response = {
+        'response': 'searchResult',
+        'source': engine.name,
+        'title': result.title,
+        'link': result.link
+      };
+      webSocket.add(JSON.encode(response));
+    }, onError: (error) {
+      ...
+    }, onDone: () {
+      done++;
+      if (done == searchEngines.length) {
+        webSocket.add(JSON.encode({ 'response': 'searchDone' }));
+      }
+    });</pre><p>Each engine can return up to 3 results, but the WebSocket handler
+      doesn't wait around for those results. Instead, a listener handles each
+      result as it arrives, constructing a JSON-formatted message and using
+      <code class="literal">webSocket.add()</code> to forward the result to the client.
+      Once both engines have finished sending any results, the search server
+      sends a 'searchDone' message to the client.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-server-web-apis"></a>Using Web APIs</h3></div></div></div><p>The GitHub and StackOverflow searches are implemented in
+      <code class="literal">search()</code> methods that take an input string and return
+      a stream of SearchResult objects. Here's an example from the GitHub
+      <code class="literal">search()</code> method:</p><pre class="programlisting">import 'package:http/http.dart' as http_client;
+...
+Stream&lt;SearchResult&gt; search(String input) {
+  var query = {
+    'q': 'language:dart $input'
+  };
+  var searchUri = new Uri.https(
+      'api.github.com',
+      '/search/repositories',
+      query);
+  var controller = new StreamController();
+  http_client.get(searchUri)
+    .then((http_client.Response response) {
+      if (response.statusCode != HttpStatus.OK) {
+        throw "Bad status code: ${response.statusCode}, "
+              "message: ${response.reasonPhrase}";
+      }
+      var json = JSON.decode(response.body);
+      json.putIfAbsent('items', () =&gt; []);
+      json['items']
+        .expand(/* Delete items with empty descriptions. */)
+        .take(3)
+        .forEach((item) {
+          controller.add(new SearchResult(
+              item['description'], item['html_url']));
+        });
+    })
+    .catchError(controller.addError)
+    .whenComplete(controller.close);
+  return controller.stream;
+}</pre><p>This method first constructs a search URI, using the
+      <code class="literal">Uri.https()</code> constructor from dart:core's Uri class.
+      The third argument is a Map&lt;String, String&gt; that specifies the
+      Uri's query parameters. For example, if the input string is 'polymer',
+      then the URI is this:</p><p><code class="literal">https://api.github.com/search/repositories?q=language%3Adart+polymer</code></p><p>Next, the method creates an instance of StreamController (a class
+      from dart:async) to create and manage the stream of results.</p><p>Next comes the search request, using the http package's
+      <code class="literal">get()</code> function to send an HTTP GET request to the
+      search URI. The <code class="literal">get()</code> function returns a
+      Future&lt;Response&gt;. The <code class="literal">then()</code> method registers a
+      handler for the response, <code class="literal">catchError()</code> registers an
+      error handler, and <code class="literal">whenComplete()</code> registers a cleanup
+      function. At this point, the <code class="literal">search()</code> method returns
+      the stream created by StreamController.</p><p>Once the response arrives, the response handler decodes it and
+      adds the first three reasonable results to the result stream. If an
+      error occurs, then an error goes in the result stream, causing the
+      search client's onError handler to execute. After either a successful
+      completion or an error, the stream closes and the search client's onDone
+      handler executes.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-server-library"></a>Implementing a Library</h3></div></div></div><p>The search server implements a library, named search_engine, that
+      contains all the code for performing searches. The search_engine library
+      is declared in <code class="literal">search_engine.dart</code>, with additional
+      implementation in <code class="literal">github_search_engine.dart</code> and
+      <code class="literal">stack_overflow_search_engine.dart</code>. Here's the code
+      that sets up the library:</p><pre class="programlisting">// In search_engine.dart:
+
+library search_engine;
+
+import 'dart:async';
+import 'dart:convert' show JSON;
+import 'dart:io' show HttpStatus;
+import 'package:http/http.dart' as http_client;
+
+part 'github_search_engine.dart';
+part 'stack_overflow_search_engine.dart';
+
+...</pre><p>The other files in the library don't have imports. They do,
+      however, have <code class="literal">part of</code> statements, which let tools and
+      programmers know which library relies on these files:</p><pre class="programlisting">// In github_search_engine.dart and stack_overflow_search_engine.dart:
+
+part of search_engine;
+
+...</pre><p>The implementation of the search_engine library is split as
+      follows:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term">search_engine.dart</span></dt><dd><p>Contains two basic classes, SearchResult and SearchEngine. A
+            SearchResult contains a title and a link. SearchEngine is an
+            abstract class that defines a common API for all search engines: a
+            <code class="literal">name</code> property and a <code class="literal">search()</code>
+            method that takes a string argument and returns a
+            Stream&lt;SearchResult&gt;.</p></dd><dt><span class="term">github_search_engine.dart</span></dt><dd><p>Implements GithubSearchEngine, a SearchEngine subclass that
+            searches GitHub for Dart projects that include the search
+            string.</p></dd><dt><span class="term">stack_overflow_search_engine.dart</span></dt><dd><p>Implements StackOverflowSearchEngine, a SearchEngine
+            subclass that searches StackOverflow for Dart questions with the
+            search string in the title.</p></dd></dl></div><p>The bulk of the code is in the SearchEngine subclasses.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch05-server-logging"></a>Logging Messages</h3></div></div></div><p>The search server uses the <a class="ulink" href="http://pub.dartlang.org/packages/logging" target="_top">logging package</a>
+      to log messages at varying levels of severity. Here's the code from
+      <code class="literal">bin/server.dart</code> that imports API from the logging
+      package and creates a log:</p><pre class="programlisting">import 'package:logging/logging.dart' show Logger, Level, LogRecord;
+...
+final Logger log = new Logger('DartiverseSearch');</pre><p>The Logger class has many methods for logging messages at
+      pre-defined levels. Here's an example of logging an informational
+      message, which you might use for debugging:</p><pre class="programlisting">log.info('New WebSocket connection');</pre><p>Here's an example of logging a warning:</p><pre class="programlisting">log.warning("Invalid request: '$request'");</pre><p>By default, the logging package doesn't do anything useful with
+      the log messages. You must configure the logging level and add a handler
+      for the log messages. Here's the code from
+      <code class="literal">bin/server.dart</code> that creates and configures the
+      Logger object:</p><pre class="programlisting">final Logger log = new Logger('DartiverseSearch');
+...
+
+void main() {
+  // Set up logger.
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
+  ...
+}</pre><p>Setting the level to <code class="literal">Level.ALL</code> makes all
+      logging messages appear in the onRecord stream. If you want only
+      warnings to appear, you can set the level to
+      <code class="literal">Level.WARNING</code>.</p><p>For a list of all the levels and what they mean, see the <a class="ulink" href="https://api.dartlang.org/logging/Level.html" target="_top">Level API
+      documentation.</a> See the <a class="ulink" href="https://api.dartlang.org/logging/Logger.html" target="_top">Logger API
+      documentation</a> for a list of methods that log messages.</p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch05-what-next"></a>What Next?</h2></div></div></div><p>You’ve seen how the Dartiverse Search sample uses both server-side
+    and client-side Dart code to implement a web app. It makes use of both
+    built-in libraries and libraries from packages published on
+    pub.dartlang.org.</p><p>If you'd like to continue exploring Dartiverse Search, consider
+    improving its user interface or adding another search engine. If you'd
+    like to look at other samples, you can find them in Dart Editor and at
+    <a class="ulink" href="http://dartlang.org/samples" target="_top">http://dartlang.org/samples</a>.</p><p>Our website has lots more information, including guides and
+    tutorials. It's all at <a class="ulink" href="http://dartlang.org" target="_top">http://dartlang.org</a>.</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04-summary.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="colophon.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Summary </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Colophon</td></tr></table></div>

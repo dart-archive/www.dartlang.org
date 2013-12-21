@@ -1,0 +1,95 @@
+*
+  position: relative
+  +box-sizing(border-box)
+
+html
+  font-family: $font-body
+  font-weight: 400
+  color: $color-text
+  background-color: black
+  padding-bottom: 100px
+
+.touch,
+.no-csstransforms3d
+  body
+    +background-image(linear-gradient($color-sky, black))
+
+a
+  color: inherit
+  text-decoration: none
+
+img
+  display: block
+  margin: 0 auto
+
+.container
+  padding: 0 $gtr * 2
+  max-width: $container
+  margin: 0 auto
+  +bk(3)
+    padding: 0 $gtr
+
+p
+  font-size: $font
+  line-height: $line + $border
+  padding-bottom: $line
+  a
+    text-decoration: underline
+
+h2, h3
+  text-transform: uppercase
+  padding-bottom: $line
+
+h2
+  font-size: $line
+  line-height: $line * 1.2
+  +bk(2)
+    font-size: $line * 1.3
+    line-height: $line * 1.5
+
+h3
+  font-size: $line
+
+.page-header
+  z-index: 10
+  padding: $line * 4 0 0
+  width: 100%
+  +bk(3)
+    padding-bottom: $line * 4
+
+  img
+    max-width: 100%
+
+  +bk(3)
+    +absolute(top, left)
+
+section
+  z-index: 10
+  padding: $line * 2 0 $line
+
+input,
+button
+  -webkit-appearance: none
+  appearance: none
+  border: none
+  font-family: inherit
+  border-radius: 0
+
+%bullet-link
+  display: block
+  padding-left:  $font-small + $border * 3
+  &:before
+    content: ""
+    position: absolute
+    top: -$border
+    left: 0
+    height: $font-small
+    width:  $font-small
+    border: $border solid $color-light
+    border-radius: $font-small
+
+.resource-link
+  @extend %bullet-link
+  text-transform: uppercase
+  &:before
+    background-color: $color-accent

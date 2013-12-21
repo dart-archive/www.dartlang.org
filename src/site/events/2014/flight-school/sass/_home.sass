@@ -1,0 +1,48 @@
+.home-section
+  .wrapper
+    +clearfix
+  // +bk(2)
+  //   padding-bottom: 100px
+  +bk(3)
+    padding: $line * 18  0 $line * 4
+    .wrapper
+      padding-bottom: $line
+      h2
+        float: left
+        width: 50%
+        font-size: $line
+        border-right: $border solid $color-text
+        padding: 0 $gtr * 2 + $border
+        text-align: right
+        line-height: $line + $border
+      p
+        float: right
+        width: 50%
+        padding: 0 $gtr $border $gtr * 2
+        font-size: $font-small
+        line-height: 20px
+
+.event-button
+  display: block
+  margin: 0 auto
+  text-align: center
+  img
+    max-width: 100%
+  span
+    position: absolute
+    bottom: 0
+    left: 0
+    margin-bottom: $line/2 + $border
+    width: 100%
+    text-transform: uppercase
+
+.hero-text
+  font-size: 16px
+  +bk(3)
+    padding: 0 $gtr * 2 $line
+
+.start-own-event
+  text-align: center
+  text-transform: uppercase
+  a
+    text-decoration: underline

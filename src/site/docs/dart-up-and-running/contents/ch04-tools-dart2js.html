@@ -5,46 +5,65 @@ layout: book
 title: "dart2js: The Dart-to-JavaScript Compiler from Dart: Up and Running"
 description: "Read dart2js: The Dart-to-JavaScript Compiler of Dart: Up and Running, published by O'Reilly."
 ---
-<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">dart2js: The Dart-to-JavaScript Compiler</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04-tools-dartium.html">Prev</a> </td><th width="60%" align="center">Chapter 4. Tools</th><td width="20%" align="right"> <a accesskey="n" href="ch04-tools-dart-vm.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch04-tools-dart2js"></a>dart2js: The Dart-to-JavaScript Compiler</h2></div></div></div><p>You can use the <span class="emphasis"><em>dart2js</em></span> tool to compile Dart
-    code to JavaScript. <a class="link" href="ch04-tools-editor.html#ch04-editor-dart2js" title="Compiling to JavaScript">Dart Editor</a>
-    uses dart2js behind the scenes whenever Dart Editor compiles to
-    JavaScript. This section tells you how to use dart2js on the command line.
-    It also give tips on debugging the JavaScript that dart2js
-    generates.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-basic-usage"></a>Basic Usage</h3></div></div></div><p>Here’s an example of compiling a Dart file to JavaScript:</p><pre class="screen"><em><span class="remark">lang-sh
-</span></em>dart2js --out=test.js <em class="replaceable"><code>test.dart</code></em></pre><p>This command produces a file that contains the JavaScript
+<div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">dart2js: The Dart-to-JavaScript Compiler</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04-tools-dartium.html">Prev</a> </td><th width="60%" align="center">Chapter 4. Tools</th><td width="20%" align="right"> <a accesskey="n" href="ch04-tools-dart-vm.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch04-tools-dart2js"></a>dart2js: The Dart-to-JavaScript Compiler</h2></div></div></div><p>Use the <span class="emphasis"><em>dart2js</em></span> tool to compile Dart code to
+    JavaScript. <a class="link" href="ch04-tools-editor.html#ch04-editor-dart2js" title="Compiling to JavaScript">Dart Editor</a> uses
+    dart2js behind the scenes whenever Dart Editor compiles to JavaScript. The
+    pub tool's <code class="literal">serve</code> and <code class="literal">build</code> options
+    also use dart2js.</p><p>The dart2js tool provides hints for improving your Dart code and
+    removing unused code. You can get these hints for all kinds of code—even
+    command-line apps. Also see dartanalyzer, which performs a similar
+    analysis but, as of 1.0, has a different implementation.</p><p>This section tells you how to use dart2js on the command line. It
+    also give tips on debugging the JavaScript that dart2js generates.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-basic-usage"></a>Basic Usage</h3></div></div></div><p>Here’s an example of compiling a Dart file to JavaScript:</p><pre class="screen"><em><span class="remark">lang-sh
+</span></em>dart2js --out=test.js test.dart</pre><p>This command produces a file that contains the JavaScript
       equivalent of your Dart code. It also produces a source map, which can
-      help you debug the JavaScript version of the app more easily.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-options"></a>Options</h3></div></div></div><p>Common command-line options for dart2js include:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">
-          -o<em class="replaceable"><code>&lt;file&gt;</code></em></code><span class="emphasis"><em> or
+      help you debug the JavaScript version of the app more easily.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-options"></a>Options</h3></div></div></div><p>Common command-line options for dart2js include:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">-o
+          <em class="replaceable"><code>&lt;file&gt;</code></em></code><span class="emphasis"><em> or
           </em></span><code class="literal">--out=<em class="replaceable"><code>&lt;file&gt;</code></em></code></span></dt><dd><p>Generate the output into
             <em class="replaceable"><code>&lt;file&gt;</code></em>. If not specified, the
-            output goes in a file named <code class="literal">out.js</code>.</p></dd><dt><span class="term"><code class="literal"> -c</code><span class="emphasis"><em>
+            output goes in a file named <code class="literal">out.js</code>.</p></dd><dt><span class="term"><code class="literal">-c</code><span class="emphasis"><em>
           or </em></span><code class="literal">--checked</code></span></dt><dd><p>Insert runtime type checks, and enable assertions (checked
-            mode).</p></dd><dt><span class="term"><code class="literal">
-          --minify</code></span></dt><dd><p>Generate minified output.</p></dd><dt><span class="term"><code class="literal"> -h</code><span class="emphasis"><em>
+            mode).</p></dd><dt><span class="term"><code class="literal">-m</code><span class="emphasis"><em>
+          or </em></span><code class="literal">--minify</code></span></dt><dd><p>Generate minified output.</p></dd><dt><span class="term"><code class="literal">-h</code><span class="emphasis"><em>
           or </em></span><code class="literal">--help</code></span></dt><dd><p>Display help. (Use <code class="literal">-vh</code>
-            for information about all options.)</p></dd><dt><span class="term"><code class="literal">
-          --output-type=dart</code></span></dt><dd><p>Output Dart code instead of JavaScript. This option is
-            useful when deploying your app, because it generates a single file
-            containing everything the app needs.</p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-generating-efficient-code"></a>Helping dart2js Generate Better Code</h3></div></div></div><p>You can do a couple of things to improve the code that dart2js
+            for information about all options.)</p></dd></dl></div><p>Some other handy options include: <em><span class="remark">{NOTE:
+      --output-type=dart is intentionally undocumented because ahe says it's
+      not working that well. Also, the following flags are in dart2js.dart but
+      not the help and are intentionally undocumented: --build-id, force-strip
+      (used in tests/compiler/dart2js/dart_backend_test.dart),
+      disable-diagnostic-colors, --trust-type-annotations,
+      disable-type-inference, --disallow-unsafe-eval.}</span></em></p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">-p<em class="replaceable"><code>&lt;path&gt;</code></em></code><span class="emphasis"><em>
+          or
+          </em></span><code class="literal">--package-root=<em class="replaceable"><code>&lt;path&gt;</code></em></code></span></dt><dd><p>Specify where to find "package:" imports.</p></dd><dt><span class="term"><code class="literal">-D<em class="replaceable"><code>&lt;flag&gt;</code></em>=<em class="replaceable"><code>&lt;value&gt;</code></em></code></span></dt><dd><p>Define an environment variable.</p></dd><dt><span class="term"><code class="literal">--version</code></span></dt><dd><p>Display version information for dart2js.</p></dd></dl></div><p>The following options help you control the output of
+      dart2js:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">--suppress-warnings</code></span></dt><dd><p>Don't display warnings.</p></dd><dt><span class="term"><code class="literal">--suppress-hints</code></span></dt><dd><p>Don't display hints.</p></dd><dt><span class="term"><code class="literal">--terse</code></span></dt><dd><p>Emit diagnostics, but don't suggest how to get rid of the
+            diagnosed problems.</p></dd><dt><span class="term"><code class="literal">-v</code><span class="emphasis"><em>
+          or </em></span><code class="literal">--verbose</code></span></dt><dd><p>Display lots of information.</p></dd></dl></div><p>The following options control the analysis that dart2js performs
+      on Dart code:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><code class="literal">--analyze-all</code></span></dt><dd><p>Analyze even the code that isn't reachable from
+            <code class="literal">main()</code>. This option is useful for finding
+            errors in libraries, but using it can result in bigger and slower
+            output.</p></dd><dt><span class="term"><code class="literal">--analyze-only</code></span></dt><dd><p>Analyze the code, but don't generate code.</p></dd><dt><span class="term"><code class="literal">--analyze-signatures-only</code></span></dt><dd><p>Like <code class="literal">--analyze-only</code>, but skip analysis of
+            method bodies and field initializers.</p></dd><dt><span class="term"><code class="literal">--categories=Server</code></span></dt><dd><p>Use with <code class="literal">--analyze-only</code> to analyze a
+            command-line app. The default category is
+            <code class="literal">Client</code>, which tells dart2js to expect a web
+            app.</p></dd></dl></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch04-tools-dart2js-generating-efficient-code"></a>Helping dart2js Generate Better Code</h3></div></div></div><p>You can do a couple of things to improve the code that dart2js
       generates:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Write your code in a way that makes type inference
-          easier.</p></li><li class="listitem"><p>Once you’re ready to deploy your app, use the dart2js --minify
-          option to reduce code size.</p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Don’t worry about the size of your app’s included libraries.
-        Thanks to a feature called <span class="emphasis"><em>tree shaking,</em></span> dart2js
-        omits unused classes, functions, methods, and so on. Just import the
-        libraries you need, and let dart2js get rid of what you don’t
-        need.</p></div><p>Follow these practices to help dart2js do better type inference,
-      so it can generate smaller and faster JavaScript code:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Avoid setting variables to null.</p></li><li class="listitem"><p>Use const or final variables wherever possible.</p></li><li class="listitem"><p>Be consistent with the types of arguments you pass into each
+          easier.</p></li><li class="listitem"><p>Once you’re ready to deploy your app, use the dart2js
+          <code class="literal">--minify</code> option to reduce code size.</p></li></ul></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Don’t worry about the size of your app’s included libraries. The
+        dart2js tool performs tree shaking to omit unused classes, functions,
+        methods, and so on. Just import the libraries you need, and let
+        dart2js get rid of what you don’t need.</p></div><p>Follow these practices to help dart2js do better type inference,
+      so it can generate smaller and faster JavaScript code:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Avoid using the dart:mirrors library, directly or indirectly.
+          If you must use it, provide <code class="literal">@MirrorsUsed</code>
+          annotations.</p></li><li class="listitem"><p>Don't use <code class="literal">Function.apply()</code>.</p></li><li class="listitem"><p>Don't override <code class="literal">noSuchMethod()</code>.</p></li><li class="listitem"><p>Avoid setting variables to null.</p></li><li class="listitem"><p>Be consistent with the types of arguments you pass into each
           function or method.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tools-dart2js-debugging"></a>Debugging</h3></div></div></div><p>This section gives tips for debugging dart2js-produced code in
       Chrome, Firefox, and Safari. Debugging the JavaScript produced by
       dart2js is easiest in browsers such as Chrome that support source
       maps.</p><p>Whichever browser you use, you should enable pausing on at least
       uncaught exceptions, and perhaps on all exceptions. For frameworks such
       as dart:isolate and dart:async that wrap user code in try-catch, we
-      recommend pausing on all exceptions.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="dart2js-debugging-chrome"></a>Chrome</h4></div></div></div><p>To debug in Chrome:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Open the Developer Tools window, as described in <a class="ulink" href="https://developers.google.com/chrome-developer-tools/docs/overview" target="_top">How
-            to Access the Developer Tools.</a></p></li><li class="listitem"><p>Turn on source maps, as described in the video <a class="ulink" href="http://bit.ly/YugIUY" target="_top">SourceMaps in Chrome.</a></p></li><li class="listitem"><p>Enable debugging, either on all exceptions or only on
+      recommend pausing on all exceptions.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="dart2js-debugging-chrome"></a>Chrome</h4></div></div></div><p>To debug in Chrome:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Open the Developer Tools window, as described in the <a class="ulink" href="https://developers.google.com/chrome-developer-tools/docs/overview" target="_top">Chrome
+            DevTools documentation.</a></p></li><li class="listitem"><p>Turn on source maps, as described in the video <a class="ulink" href="http://bit.ly/YugIUY" target="_top">SourceMaps in Chrome.</a></p></li><li class="listitem"><p>Enable debugging, either on all exceptions or only on
             uncaught exceptions, <span class="phrase">as described in <a class="ulink" href="https://developers.google.com/chrome-developer-tools/docs/scripts-breakpoints#pause-on-exceptions" target="_top">Pause
-            on Exceptions</a> </span>and <a class="ulink" href="https://developers.google.com/chrome-developer-tools/docs/scripts-breakpoints#pause-on-uncaught-exceptions" target="_top">Pause
-            on Uncaught Exceptions,</a> respectively.</p></li><li class="listitem"><p>Reload your application.</p></li></ol></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="dart2js-debugging-firefox"></a>Firefox</h4></div></div></div><p>Firefox doesn’t yet support source maps (see <a class="ulink" href="https://bugzilla.mozilla.org/show_bug.cgi?id=771597" target="_top">bug
+            on JavaScript exceptions</a></span>.</p></li><li class="listitem"><p>Reload your application.</p></li></ol></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="dart2js-debugging-firefox"></a>Firefox</h4></div></div></div><p>Firefox doesn’t yet support source maps (see <a class="ulink" href="https://bugzilla.mozilla.org/show_bug.cgi?id=771597" target="_top">bug
         #771597</a>). To debug in Firefox:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Enable the Developer Toolbar, as described in Kevin
             Dangoor’s blog post, <a class="ulink" href="https://hacks.mozilla.org/2012/08/new-firefox-command-line-helps-you-develop-faster/" target="_top">New
             Firefox Command Line Helps You Develop Faster.</a></p></li><li class="listitem"><p>Click the <span class="bold"><strong>Debugger</strong></span> button

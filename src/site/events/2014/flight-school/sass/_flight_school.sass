@@ -1,0 +1,30 @@
+.resources-section
+  +bk(3)
+    .event-formats
+      +clearfix
+      margin-bottom: $line
+      li
+        float: left
+        width: percentage(1/3)
+
+  .event-formats
+    h3
+      background-repeat: no-repeat
+      background-position: center center
+      text-align: center
+      padding: $line/2 0
+      margin-bottom: $line/2
+    p
+      padding: 0 $gtr * 2
+      text-align: justify
+    a
+      margin: $line/2 $gtr * 2
+      &.inline
+        margin: 0
+
+.no-svg .event-formats  h3
+  background-image: image-url("event-format.png")
+
+.svg .event-formats h3
+  background-image: image-url("event-format.svg")
+
