@@ -20,14 +20,19 @@ $(document).ready(function() {
   if (isMobile.any() != true) {
     $('.download-buttons').show();
     $('.os-choices').show();
+  } else {
+    $('.navbar-toggle');
+    $('.icon-bar');
+    $('.navbar-toggle').addClass('mobile-deactivated');
+    $('.icon-bar').addClass('mobile-deactivated');
   }
 
   var addPermalink = function() {
     if ($(this).hasClass('no-permalink')) {
       return;
     }
-  	$(this).addClass('has-permalink');
-  	$(this).append($('<a class="permalink" title="Permalink" href="#' + $(this).attr('id') + '">#</a>'));
+    $(this).addClass('has-permalink');
+    $(this).append($('<a class="permalink" title="Permalink" href="#' + $(this).attr('id') + '">#</a>'));
   };
 
   $.each(['h2','h3','h4'], function(n, h) { $('.has-permalinks ' + h).each(addPermalink); });
@@ -84,16 +89,97 @@ $(function(){
   
   var popOpen = false;
 
-  $(".dart-popover").popover();
+  $('.dart-popover').popover();
 
-  $('.dart-popover').on( "click", function(e) {
-    e.preventDefault();
-    if (popOpen) {
-      $(".dart-popover").not(this).popover('hide');
-    } 
-    popOpen = true;
+  var i = 0;
+  var navDisabled = false;
+  var navToggle = $('.navbar-toggle');
+  var iconBar = $('.icon-bar');
+  var navDropdown = $('.navbar-collapse');
+  var containerPage = $('.container-page');
+  var lastScrollPosY = 0;
+
+  navDropdown.collapse({
+    toggle: false
   });
 
+  $(document).on('touchstart', function(e) {
+    lastScrollPosY = $(this).scrollTop();
+    // console.log($(this).scrollTop(), lastScrollPosY);
+    var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+    var targetTouch = $(touch.target);
+    if(!navDisabled) {
+      if(targetTouch[0] == navToggle[0] || targetTouch[0] == iconBar[0]) {
+        
+        // iconBar.removeClass('collapsed');
+      }
+    } else {
+      return false;
+    }
+
+    if($(touch.target).parents('.container-page')[0] === containerPage[0]) {
+      navDropdown.collapse('hide');
+
+      navToggle.addClass('mobile-deactivated');
+      iconBar.addClass('mobile-deactivated');
+      // iconBar.removeClass('collapsed');
+    }
+
+    
+  });
+
+  
+  $(document).on('touchmove', function(e) {
+    // console.log($(this).scrollTop(), lastScrollPosY);
+    if($(this).scrollTop() != lastScrollPosY) {
+      // navDropdown.collapse('hide');
+
+      // navToggle.toggleClass('mobile-deactivated');
+      // iconBar.toggleClass('mobile-deactivated');
+      // iconBar.removeClass('collapsed');
+    }
+
+    lastScrollPosY = $(this).scrollTop();
+  });
+
+  $(document).on('touchend', function(e) {
+    lastScrollPosY = $(this).scrollTop();
+    // console.log($(this).scrollTop(), lastScrollPosY);
+  });
+
+  navDropdown.on('show.bs.collapse', function(e) {
+    navDisabled = true;
+    navToggle.before('<div class="disabled-block"></div>');
+    navToggle.removeClass('mobile-deactivated');
+    iconBar.removeClass('mobile-deactivated');
+  });
+
+  navDropdown.on('shown.bs.collapse', function(e) {
+    navDisabled = false;
+    $('.disabled-block').remove();
+  });
+
+  navDropdown.on('hide.bs.collapse', function(e) {
+    navDisabled = true;
+    navToggle.before('<div class="disabled-block"></div>');
+    navToggle.addClass('mobile-deactivated');
+  });
+
+  navDropdown.on('hidden.bs.collapse', function(e) {
+    navDisabled = false;
+    $('.disabled-block').remove();
+  });
+
+  $('.dart-popover').on( 'click', function(e) {
+    e.preventDefault();
+    if (popOpen) {
+      $('.dart-popover').not(this).popover('hide');
+    } 
+    popOpen = true;
+
+  });
+
+  
 
   // Adding the navigation to the popup
   // $("a.dart-popover").each(function(index) {
