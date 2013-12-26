@@ -17,6 +17,15 @@
   video: http://www.youtube.com/watch?v=FqsU3TbUw_s
   event: Chrome Developer Summit
 
+- title: "Dart 1.0 Announcement"
+  short: dart-1_0-announcement
+  presenters:
+    - Kasper Lund
+    - Lars Bak
+  date: 2013-11-15
+  video: http://www.parleys.com/play/52a9897ce4b04354fb7e57d0/chapter0/about
+  event: Devoxx 2013
+
 - title: "Dart 1.0 interview"
   short: dart-1_0-interview
   presenters:
