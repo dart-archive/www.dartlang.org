@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Use IndexedDB"
 description: "Use IndexedDB for persistence and offline capability for your app."
 has-permalinks: true

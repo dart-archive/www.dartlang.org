@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Write Command-Line Apps"
 description: "Basics for command-line apps"
 has-permalinks: true

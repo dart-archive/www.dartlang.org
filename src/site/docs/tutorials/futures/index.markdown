@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Use Future-Based APIs"
 description: "A first look at Futures and how to use them to make your asynchronous code better."
 has-permalinks: true

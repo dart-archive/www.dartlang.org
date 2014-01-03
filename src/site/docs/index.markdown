@@ -182,15 +182,16 @@ you can use JavaScript libraries in your Dart app.
 * [dart:js API documentation](http://api.dartlang.org/dart_js.html)
 * [Samples that use JavaScript](/samples/#using_javascript_from_dart)
 
-
 ## Creating command-line apps
 
 You can use Dart for anything from scripts to web servers.
 Thanks to Heroku's support for third-party runtimes,
 you can run your server-side Dart app on Heroku's cloud.
 
-* [dart: The Standalone VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html)
-* [Heroku cloud application platform](http://www.heroku.com)
+[Writing Command-Line Apps: A Programmer's Guide](serverguide.html)
+: Provides a set of samples, tutorials, and articles that
+explain the APIs, tools, and techniques for writing and
+deploying command-line apps such as servers and scripts.
 
 ## Testing
 

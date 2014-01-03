@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: tutorial
 title: "Use Streams for Data"
 description: 
   Learn how to consume single-subscriber and broadcast streams, 

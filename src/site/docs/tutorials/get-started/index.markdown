@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Get Started"
 description: "Get Dart and run two Dart applications"
 has-permalinks: true

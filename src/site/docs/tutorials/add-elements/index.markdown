@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Add Elements to the DOM"
 description: "You have an Element object, now what?"
 has-permalinks: true
