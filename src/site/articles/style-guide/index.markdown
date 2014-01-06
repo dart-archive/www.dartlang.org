@@ -1188,15 +1188,15 @@ class HttpServer {
 <div class="good">
 {% prettify dart %}
 var list = new List()
-    ..addAll([1,2,3])
-    ..addAll([4,5,6]);
+    ..addAll([1, 2, 3])
+    ..addAll([4, 5, 6]);
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
 var list = new List()
-  ..addAll([1,2,3])
-  ..addAll([4,5,6]);
+  ..addAll([1, 2, 3])
+  ..addAll([4, 5, 6]);
 {% endprettify %}
 </div>
