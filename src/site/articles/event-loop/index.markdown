@@ -246,6 +246,7 @@ ending an IndexedDB transaction or event handler.
 
 
 #### Event queue: new Future()
+{:.no_toc}
 
 To schedule a task on the event queue,
 use `new Future()` or `new Future.delayed()`.
@@ -331,6 +332,7 @@ and (unless that function returns a Future)
 completes in a microtask, similar to #2.
 
 #### Microtask queue: scheduleMicrotask()
+{:.no_toc}
 
 The dart:async library defines scheduleMicrotask() as a top-level function.
 You can call scheduleMicrotask() like this:
@@ -559,6 +561,7 @@ for more information.
 
 
 #### Annotated sample and output
+{:.no_toc}
 
 Here are some figures that might clarify the answer to question #2.
 First, here’s the annotated program source:

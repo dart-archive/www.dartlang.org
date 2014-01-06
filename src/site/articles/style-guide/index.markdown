@@ -67,6 +67,7 @@ nice, readable and maintainable code.
 ## Types
 
 #### AVOID creating classes that contain only static members.
+{:.no_toc}
 
 In Java and C#, all members must be in a class. In those languages, you
 occasionally encounter classes that are basically namespaces: just bags of
@@ -105,6 +106,7 @@ class GeometryUtils {
 </div>
 
 #### AVOID defining a one-member abstract class when a simple function will do.
+{:.no_toc}
 
 Unlike Java, Dart has first-class functions, closures, and a nice light syntax
 for using them. If all you need is something like a callback, just use a
@@ -129,6 +131,7 @@ abstract class Predicate {
 ## Members
 
 #### DO use constructors instead of static methods to create instances.
+{:.no_toc}
 
 
 Constructors are invoked using `new` or `const` which communicates clearly at
@@ -160,6 +163,7 @@ class Point {
 </div>
 
 #### DO use `;` instead of `{}` for empty constructor bodies.
+{:.no_toc}
 
 
 In Dart, a constructor with an empty body can be terminated with just a
@@ -185,6 +189,7 @@ class Point {
 </div>
 
 #### DO place the `super()` call last in a constructor initialization list.
+{:.no_toc}
 
 
 Field initializers are evaluated in the order that they appear in the
@@ -218,6 +223,7 @@ View(Style style, List children)
 </div>
 
 #### DO use a getter for operations that conceptually access a property.
+{:.no_toc}
 
 
 If the name of the method starts with `get` or is an adjective like `visible` or
@@ -249,6 +255,7 @@ window.refresh;                      // doesn't return a value
 </div>
 
 #### DO use a setter for operations that conceptually change a property.
+{:.no_toc}
 
 
 If the name of the method starts with `set` that's often a sign that it could be
@@ -271,6 +278,7 @@ button.visible = false;
 </div>
 
 #### AVOID wrapping fields in getters and setters just to be "safe".
+{:.no_toc}
 
 
 In Java and C#, it's common to hide all fields behind getters and setters (or
@@ -305,6 +313,7 @@ class Box {
 </div>
 
 #### PREFER using a public final field instead of a private field with a public getter.
+{:.no_toc}
 
 
 If you have a field that outside code should be able to see but not assign to
@@ -329,6 +338,7 @@ class Box {
 </div>
 
 #### CONSIDER using `=>` to define members whose body returns the result of a single expression.
+{:.no_toc}
 
 
 In addition to using `=>` for function expressions, Dart also lets you define
@@ -348,6 +358,7 @@ cramming a single expression into several continued lines, it is probably
 cleaner to just use a curly body with an explicit `return`.
 
 #### AVOID boolean arguments unless their meaning is completely obvious.
+{:.no_toc}
 
 
 Unlike other types, booleans are usually used in literal form. Things like
@@ -377,6 +388,7 @@ new ListBox(scroll: true, showScrollbars: true);
 ## Type annotations
 
 #### PREFER providing type annotations on public APIs.
+{:.no_toc}
 
 
 Type annotations are important documentation for how a library should be used.
@@ -412,6 +424,7 @@ Future<bool> install(PackageId id, String destPath) {
 With types, all of this is clarified.
 
 #### PREFER using `var` without a type annotation for local variables.
+{:.no_toc}
 
 
 Method bodies in modern code tend to be short, and the types of local variables
@@ -447,6 +460,7 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
 </div>
 
 #### PREFER using `double` or `int` instead of `num` for parameter type annotations in performance sensitive code.
+{:.no_toc}
 
 Monomorphic call sites (sites that have stable input types)
 can be optimized much easier than polymorphic call sites (sites that have
@@ -460,6 +474,7 @@ When you use `num` as a type annotation, you are saying "either an int or
 a double can go here." This ambiguity it harder for Dart runtimes to optimize.
 
 #### DON'T type annotate initializing formals.
+{:.no_toc}
 
 
 If a constructor parameter is using `this.` to initialize a field, then the type
@@ -484,6 +499,7 @@ class Point {
 </div>
 
 #### AVOID annotating types on function expressions.
+{:.no_toc}
 
 
 The value of function expressions is their brevity. If a function is complex
@@ -506,6 +522,7 @@ var names = people.map((Person person) {
 </div>
 
 #### AVOID annotating with `dynamic` when not required.
+{:.no_toc}
 
 
 In most places in Dart, a type annotation can be omitted, in which case the type
@@ -533,6 +550,7 @@ dynamic lookUpOrDefault(String name, Map map, dynamic defaultValue) {
 </div>
 
 #### DO annotate with `Object` instead of `dynamic` to indicate any object is accepted.
+{:.no_toc}
 
 
 Some operations will work with any possible object. For example, a log method
@@ -565,6 +583,7 @@ bool convertToBool(arg) {
 ## Names
 
 #### DO name types using `UpperCamelCase`.
+{:.no_toc}
 
 
 Classes and typedefs should capitalize the first letter of each word (including
@@ -585,6 +604,7 @@ typedef num Adder(num x, num y);
 </div>
 
 #### DO name constants using `ALL_CAPS_WITH_UNDERSCORES`.
+{:.no_toc}
 
 
 Constants&mdash;variables declared using `const`&mdash;are special in Dart
@@ -616,6 +636,7 @@ class Dice {
 </div>
 
 #### DO name other identifiers using `lowerCamelCase`.
+{:.no_toc}
 
 
 Class members, top-level definitions, variables, parameters, and named
@@ -635,6 +656,7 @@ align(clearItems) {
 </div>
 
 #### DO name libraries and source files using `lowercase_with_underscores`.
+{:.no_toc}
 
 
 Some file systems are not case-sensitive, so many projects require filenames to
@@ -660,6 +682,7 @@ Bad:
 </div>
 
 #### DO capitalize acronyms and abbreviations longer than two letters like words.
+{:.no_toc}
 
 
 Capitalized acronyms can be harder to read, and are ambiguous when you have
@@ -693,6 +716,7 @@ Id
 ## Comments
 
 #### DO comment members and types using doc-style comments.
+{:.no_toc}
 
 
 Dart supports two syntaxes of doc comments. Line doc comments start each line
@@ -729,6 +753,7 @@ Within a doc comment, you can use [markdown][] for formatting.
 [markdown]: http://daringfireball.net/projects/markdown/
 
 #### DO use line comments for everything else.
+{:.no_toc}
 
 
 <div class="good">
@@ -750,6 +775,7 @@ greet(name) {
 </div>
 
 #### DO capitalize and punctuate comments like sentences.
+{:.no_toc}
 
 
 This doesn't mean that the comment must always be a complete sentence, though it
@@ -768,6 +794,7 @@ usually should. "Returns the number of items." is an acceptable comment.
 </div>
 
 #### DO use square brackets in doc comments for identifiers that are in scope.
+{:.no_toc}
 
 
 If you surround things like variable, method or type names in square brackets,
@@ -784,6 +811,7 @@ num greatestRoll(Dice a, Dice b) => max(a.roll(), b.roll());
 </div>
 
 #### DO describe method signatures in the prose of the documentation comment.
+{:.no_toc}
 
 
 
@@ -830,6 +858,7 @@ consistent whitespace style helps ensure that human readers see code the same
 way the compiler does.
 
 #### DON'T use tabs.
+{:.no_toc}
 
 
 Using spaces for formatting ensures the code looks the same in everyone's
@@ -843,6 +872,7 @@ Modern editors emulate the behavior of tabs while inserting spaces, giving you
 the easy editing of tabs and the consistency of spaces.
 
 #### AVOID lines longer than 80 characters.
+{:.no_toc}
 
 
 Readability studies show that long lines of text are harder to read because your
@@ -855,6 +885,7 @@ compact. Do you really need to call that class
 `AbstractWidgetFactoryManagerBuilder`?
 
 #### DO place the operator on the preceding line in a multi-line expression.
+{:.no_toc}
 
 
 There are valid arguments for both styles but most of our code seems to go this
@@ -887,6 +918,7 @@ bobLikes()
 </div>
 
 #### DO place the `.` on the next line in a multi-line expression.
+{:.no_toc}
 
 
 This supercedes the previous rule. Unlike other operators, if you split an
@@ -900,6 +932,7 @@ someVeryLongVariable.withAVeryLongProperty
 </div>
 
 #### DO indent block bodies two spaces.
+{:.no_toc}
 
 
 <div class="good">
@@ -911,6 +944,7 @@ if (condition) {
 </div>
 
 #### DO indent continued lines with at least four spaces.
+{:.no_toc}
 
 
 <div class="good">
@@ -930,6 +964,7 @@ someLongObject.aReallyLongMethodName(longArg, anotherLongArg,
 </div>
 
 #### DON'T indent lines that are continued with a function expression.
+{:.no_toc}
 
 
 The one exception to the above rule is function expressions used within larger
@@ -952,6 +987,7 @@ new Future.delayed(const Duration(seconds: 1), () {
 </div>
 
 #### DO place the opening curly brace (`{`) on the same line as what it follows.
+{:.no_toc}
 
 
 <div class="good">
@@ -969,6 +1005,7 @@ class Foo {
 </div>
 
 #### DO use curly braces for all flow control structures.
+{:.no_toc}
 
 
 Doing so avoids the [dangling else][] problem.
@@ -1003,6 +1040,7 @@ if (arg == null) return defaultValue;
 </div>
 
 #### DO indent switch cases two spaces and case bodies four spaces.
+{:.no_toc}
 
 
 <div class="good">
@@ -1020,6 +1058,7 @@ switch (fruit) {
 </div>
 
 #### DO use spaces around binary and ternary operators, after commas, and not around unary operators.
+{:.no_toc}
 
 
 
@@ -1047,6 +1086,7 @@ if (obj is !SomeType) print('not SomeType');
 </div>
 
 #### DO place spaces around `in`, and after each `;` in a loop.
+{:.no_toc}
 
 
 <div class="good">
@@ -1062,6 +1102,7 @@ for (final item in collection) {
 </div>
 
 #### DO use a space after flow-control keywords.
+{:.no_toc}
 
 
 This is unlike function and method calls, which do *not* have a space between
@@ -1082,6 +1123,7 @@ try {
 </div>
 
 #### DON'T use a space after `(`, `[`, and `{`, or before `)`, `]`, and `}`.
+{:.no_toc}
 
 
 Also, do not use a space when using `<` and `>` for generic types.
@@ -1093,6 +1135,7 @@ var numbers = <int>[1, 2, (3 + 4)];
 </div>
 
 #### DO use a space before `{` in function and method bodies.
+{:.no_toc}
 
 
 This is an exception to the above rule. When a `{` is used after a parameter
@@ -1116,6 +1159,7 @@ getEmptyFn(a){
 </div>
 
 #### DO format constructor initialization lists with each field on its own line.
+{:.no_toc}
 
 
 <div class="good">
@@ -1134,6 +1178,7 @@ Fields should all line up (so all but the first field end up indented six
 spaces).
 
 #### DO use a space after `:` in named parameters and named arguments.
+{:.no_toc}
 
 
 <div class="good">
@@ -1158,6 +1203,7 @@ new ListBox(showScrollbars : true);
 </div>
 
 #### DO use a spaces around `=` in optional positional parameters.
+{:.no_toc}
 
 
 <div class="good">
@@ -1183,6 +1229,7 @@ class HttpServer {
 </div>
 
 #### DO use four spaces for method cascades
+{:.no_toc}
 
 
 <div class="good">

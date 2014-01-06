@@ -9,7 +9,7 @@ has-permalinks: true
 
 You can use Dart for any kind of command-line app from scripts to servers.
 
-{% include guide_toc.html %}
+{% include default_toc.html %}
 
 ## Show me the code
 
@@ -30,6 +30,7 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 <div class="col-md-7" markdown="1">
 
 #### Top 10
+{:.no_toc}
 
 10. Using files, directories, and symlinks
 9. Reading and writing files
@@ -59,6 +60,7 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 <div class="col-md-7" markdown="1">
 
 #### APIs
+{:.no_toc}
 
 * Parsing command-line arguments
 * Reading a file
@@ -75,6 +77,7 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 <div class="col-md-5" markdown="1">
 
 #### Servers
+{:.no_toc}
 
 * [slambookserver](https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/slambook/)
 * [dartiverse_search](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt)
@@ -83,6 +86,7 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 <div class="col-md-7" markdown="1">
 
 #### APIs
+{:.no_toc}
 
 * Using the HttpServer class
 * Handling GET, POST, and OPTIONS requests

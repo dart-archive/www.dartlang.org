@@ -9,7 +9,7 @@ has-permalinks: true
 
 Short snippets of code to help you become productive with Dart.
 
-{% include guide_toc.html %}
+{% include default_toc.html %}
 
 See the [source on Github](https://github.com/dart-lang/dart_by_example/tree/master/example).
 
