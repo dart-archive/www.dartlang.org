@@ -5,11 +5,11 @@ header:
 has-permalinks: true
 ---
 
-{% include docs_toc.html %}
-
 # Dart By Example
 
 Short snippets of code to help you become productive with Dart.
+
+{% include guide_toc.html %}
 
 See the [source on Github](https://github.com/dart-lang/dart_by_example/tree/master/example).
 
@@ -30,6 +30,11 @@ the asynchronous `readAsString()` method from the File class, or its synchronous
 counterpart, `readAsStringSync()`.
 <strong>The examples below use only the asynchronous versions.</strong>
 </aside>
+
+After looking at the following code examples,
+refer to
+[Writing Command-line Apps: A Programmer's Guide](/docs/serverguide.html)
+for additional information about I/O, command-line apps, and servers.
 
 ### Files, directories, and symlinks
 

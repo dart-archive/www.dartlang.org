@@ -31,28 +31,6 @@ operators to classes and libraries.
 [Dart Tutorials](/docs/tutorials/)
 : Your step-by-step guide to building web apps using Dart.
 
-## Tools
-
-Thanks to Dart's tool friendliness,
-you have many choices for editors, IDEs, and other tools.
-
-
-When you [download Dart](/#get-started),
-you get not only [Dart Editor](/tools/editor/), but also
-[Dartium](/tools/dartium/) (a browser with built-in Dart support)
-and the [Dart SDK](/tools/sdk/).
-The SDK includes command-line tools such as
-the Dart VM (dart), a Dart-to-JavaScript compiler (dart2js),
-and a package manager (pub).
-
-[Dart Editor](/tools/editor/)
-: The easiest way to start writing Dart programs.
-
-[Tools for Dart](/tools/)
-: Information about tools,
-plus links to downloads.
-
-
 ## Concepts
 
 You don't need to follow all of these links right now,
@@ -128,6 +106,16 @@ Learn more:
 * [Creating Streams in Dart](/articles/creating-streams/)
 * [Stream API documentation](http://api.dartlang.org/dart_async/Stream.html)
 
+## Creating command-line apps
+
+You can use Dart for anything from scripts to web servers.
+Thanks to Heroku's support for third-party runtimes,
+you can run your server-side Dart app on Heroku's cloud.
+
+[Writing Command-Line Apps: A Programmer's Guide](serverguide.html)
+: Provides a set of samples, tutorials, and articles that
+explain the APIs, tools, and techniques for writing and
+deploying command-line apps such as servers and scripts.
 
 ## Creating web apps
 
@@ -182,16 +170,26 @@ you can use JavaScript libraries in your Dart app.
 * [dart:js API documentation](http://api.dartlang.org/dart_js.html)
 * [Samples that use JavaScript](/samples/#using_javascript_from_dart)
 
-## Creating command-line apps
+## Tools
 
-You can use Dart for anything from scripts to web servers.
-Thanks to Heroku's support for third-party runtimes,
-you can run your server-side Dart app on Heroku's cloud.
+Thanks to Dart's tool friendliness,
+you have many choices for editors, IDEs, and other tools.
 
-[Writing Command-Line Apps: A Programmer's Guide](serverguide.html)
-: Provides a set of samples, tutorials, and articles that
-explain the APIs, tools, and techniques for writing and
-deploying command-line apps such as servers and scripts.
+
+When you [download Dart](/#get-started),
+you get not only [Dart Editor](/tools/editor/), but also
+[Dartium](/tools/dartium/) (a browser with built-in Dart support)
+and the [Dart SDK](/tools/sdk/).
+The SDK includes command-line tools such as
+the Dart VM (dart), a Dart-to-JavaScript compiler (dart2js),
+and a package manager (pub).
+
+[Dart Editor](/tools/editor/)
+: The easiest way to start writing Dart programs.
+
+[Tools for Dart](/tools/)
+: Information about tools,
+plus links to downloads.
 
 ## Testing
 

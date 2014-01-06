@@ -1,15 +1,15 @@
 ---
-layout: article
+layout: default
 title: "Command-Line Apps"
 description: "Documentation, references, and more about server-side programming."
 has-permalinks: true
 ---
 
-{% include docs_toc.html %}
-
 # {{ page.title }}
 
 You can use Dart for any kind of command-line app from scripts to servers.
+
+{% include guide_toc.html %}
 
 ## Show me the code
 
@@ -20,14 +20,14 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 <hr>
 
 <div class="row">
-<div class="col-md-5">
+<div class="col-md-5" markdown="1">
 
 ### Best place to start
 
 * [Dart by Example](/dart-by-example/#dart-io-and-command-line-apps)
 
 </div>
-<div class="col-md-7">
+<div class="col-md-7" markdown="1">
 
 #### Top 10
 
@@ -49,14 +49,14 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 <hr>
 
 <div class="row">
-<div class="col-md-5">
+<div class="col-md-5" markdown="1">
 
 ### Basic command-line apps
 
 * [dcat](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat/README.md)
 * [dgrep](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep/README.md)
 </div>
-<div class="col-md-7">
+<div class="col-md-7" markdown="1">
 
 #### APIs
 
@@ -72,7 +72,7 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 <hr>
 
 <div class="row">
-<div class="col-md-5">
+<div class="col-md-5" markdown="1">
 
 #### Servers
 
@@ -80,7 +80,7 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 * [dartiverse_search](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt)
 
 </div>
-<div class="col-md-7">
+<div class="col-md-7" markdown="1">
 
 #### APIs
 
@@ -121,29 +121,23 @@ various Dart libraries and packages.
 <img src="/docs/tutorials/images/target.png" height="16" width="16">
 (contains an HTTP server/client pair)
 * [Walkthrough: Dartiverse Search](/docs/dart-up-and-running/contents/ch05.html)
+(HTTP server, Web Sockets, logging, and routing)
 * [Deploy to Heroku](https://github.com/igrigorik/heroku-buildpack-dart)
 
-{% comment %}
-* How to write a basic server using http_server package (sample link)
-* How to write a web server (sample link)
-* How to use Heroku to deploy (external link)
+### Packages
 
-#### Other server-specific tasks
-
-* How to perform server-side templating (??)
-* How to use SSL to perform secure web messaging (??)
-* Use zones for more control over your asychronous computations (??)
-* How to write a long-running server (??)
-* Using TCP for reliable transmissions (??)
-* Using UDP for lightweight, efficient transmissions (??)
-* Connecting to the postgres database (and concepts for other databases) (??)
-* URL routing for god knows what purpose (??)
-
-{% endcomment %}
+* [Hop Task Framework](http://pub.dartlang.org/packages/hop)&mdash;
+   Help creating command-line scripts, bash command completion,
+   helpful exit codes, and more.
 
 ### Reference docs
 
-* [dart:io](https://api.dartlang.org/dart_io.html)
-* [args package](https://api.dartlang.org/args.html)
-* [dart:async](https://api.dartlang.org/dart_async.html)
-* [dart:convert](https://api.dartlang.org/dart_convert.html)
+* [dart:io](https://api.dartlang.org/dart_io.html)&mdash;
+   Includes support for UDP, TCP, HTTP client and server,
+   files, directories, web sockets, processes, server sockets, and more.
+* [args package](https://api.dartlang.org/args.html)&mdash;
+   Help with handling command-line arguments.
+* [dart:async](https://api.dartlang.org/dart_async.html)&mdash;
+    Asynchronous programming with Futures, Streams.
+* [dart:convert](https://api.dartlang.org/dart_convert.html)&mdash;
+    Converters for data types such as JSON and UTF-8.
