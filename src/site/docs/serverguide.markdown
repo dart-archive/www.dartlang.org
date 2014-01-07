@@ -128,11 +128,35 @@ various Dart libraries and packages.
 (HTTP server, Web Sockets, logging, and routing)
 * [Deploy to Heroku](https://github.com/igrigorik/heroku-buildpack-dart)
 
+### Shell scripting
+
+Kevin Moore created a five-part video series on shell scripting with Dart.
+
+* Part 1: [Basics of creating and running a Dart command][dartshell1]
+* Part 2: [Passing args to your command][dartshell2]
+* Part 3: [Smarter arguments with ArgParser][dartshell3]
+* Part 4: [Advanced ArgParser and Logging][dartshell4]
+* Part 5: [Implementing shell completion using the Bag of Tricks][dartshell5]
+
+Read more about
+[shell scripting with Dart](http://news.dartlang.org/2013/02/dart-in-shell-video-tutorials-now.html).
+
 ### Packages
 
-* [Hop Task Framework](http://pub.dartlang.org/packages/hop)&mdash;
-   Help creating command-line scripts, bash command completion,
-   helpful exit codes, and more.
+* [http_server](https://pub.dartlang.org/packages/http_server)&mdash;
+   Virtual directory, virtual host, and static file serving. (Dart team)
+
+* [route](http://pub.dartlang.org/packages/route)&mdash;
+   URL routing for the server (and the client). (Dart team)
+
+* [args](http://pub.dartlang.org/packages/args)&mdash;
+   Handle command-line arguments. (Dart team)
+
+* [http](http://pub.dartlang.org/packages/http)&mdash;
+   Connect to HTTP resources. (Dart team)
+
+Find more packages useful for server-side and command-line apps
+at [pub.dartlang.org][pub].
 
 ### Reference docs
 
@@ -145,3 +169,11 @@ various Dart libraries and packages.
     Asynchronous programming with Futures, Streams.
 * [dart:convert](https://api.dartlang.org/dart_convert.html)&mdash;
     Converters for data types such as JSON and UTF-8.
+
+
+[dartshell1]: http://www.youtube.com/watch?v=Rh_kaQUXXX4
+[dartshell2]: http://www.youtube.com/watch?v=PK7gEocFfII
+[dartshell3]: http://www.youtube.com/watch?v=zOB8_9pHBik
+[dartshell4]: http://www.youtube.com/watch?v=meAicYl4HHI
+[dartshell5]: http://www.youtube.com/watch?v=18gvMuyfuuY
+[pub]: http://pub.dartlang.org
