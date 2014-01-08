@@ -44,6 +44,15 @@
   video: http://www.infoq.com/presentations/dart-compiler
   event: Strange Loop 2013
 
+- title: "Dart and Web Components - Scalable, Structured Web Apps"
+  short: javazone-2013
+  presenters:
+    - Seth Ladd
+  date: 2013-09-12
+  slides: 2013/09/dart-and-web-components-javazone-2013.pdf
+  video: http://vimeo.com/74391396
+  event: JavaZone 2013
+
 - title: "Modern Web Development with Dart"
   short: dart-smalltalk-industry-conference
   presenters:
