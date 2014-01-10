@@ -332,7 +332,7 @@ that are never closed and thus leak memory or resources.
 
 The following example demonstrates such a case:
 
-<!--- BEGIN(PENDING TEST FILE) -->{% prettify dart %}
+<!--- BEGIN(src/tests/site/articles/broadcast-streams/example1.dart) -->{% prettify dart %}
 import 'dart:io';
 import 'dart:async';
 
@@ -383,12 +383,12 @@ you can often just exchange the listener callback
 on the subscription.
 For example:
 
-<!--- BEGIN(PENDING TEST FILE) -->{% prettify dart %}
-var bstream = stream.asBroadcastStream()
-bstream.first((x) {
+<!--- BEGIN(src/tests/site/articles/broadcast-streams/example2.dart) -->{% prettify dart %}
+var bstream = stream.asBroadcastStream();
+bstream.first.then((x) {
   handleFirstMessage();
   return bstream.first;
-}.then((x) {
+}).then((x) {
   handleSecondMessage();
   bstream.listen(handleAllOtherMessages);
 });
@@ -396,13 +396,13 @@ bstream.first((x) {
 
 could be written as:
 
-<!--- BEGIN(PENDING TEST FILE) -->{% prettify dart %}
+<!--- BEGIN(src/tests/site/articles/broadcast-streams/example3.dart) -->{% prettify dart %}
 StreamSubscription subscription = stream.listen(null);
-subscription.onListen((x) {
+subscription.onData((x) {
   handleFirstMessage();
-  subscription.onListen((x) {
+  subscription.onData((x) {
     handleSecondMessage();
-    subscription.onListen(handleAllOtherMessages);
+    subscription.onData(handleAllOtherMessages);
   });
 });
 {% endprettify %}<!--- END(PENDING TEST FILE) -->
@@ -426,7 +426,7 @@ The operation is still asynchronous, though:
 contrary to synchronous Iterators, moving to the next event can take time,
 and the `moveNext` function therefore returns a future.
 
-<!--- BEGIN(PENDING TEST FILE) -->{% prettify dart %}
+<!--- BEGIN(src/tests/site/articles/broadcast-streams/example4.dart) -->{% prettify dart %}
 Future moveNextAssert(iterator) {
   var future = iterator.moveNext();
   return future.then((hasNext) {

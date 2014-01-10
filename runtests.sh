@@ -15,7 +15,7 @@ ANA="dartanalyzer"
 echo
 echo "Type Analysis, running dartanalyzer..."
 
-for dir in src/tests/site/code/ src/tests/site/articles/*/*/bin/ src/site/tools/*/code/ src/site/articles/*/code/
+for dir in src/tests/site/code/ src/tests/site/articles/*/*/bin/ src/tests/site/articles/*/ src/site/tools/*/code/ src/site/articles/*/code/
 do
   # Run pub if there is a pubspec in this code directory.
   if [ -a "$dir/pubspec.yaml" ]; then
