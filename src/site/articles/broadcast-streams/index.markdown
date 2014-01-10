@@ -476,3 +476,7 @@ Using `asBroadcastStream` on single-subscription streams
 can lead to resource leaks.
 Consider safer alternatives such as
 listener swapping and StreamIterators.
+
+_Thanks to Lasse Reichstein Holst Nielsen, Anders Johnsen,
+and Kathy Walrath for their suggestions and help to improve this article._
+
