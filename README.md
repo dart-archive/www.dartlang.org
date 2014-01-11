@@ -42,7 +42,6 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Run `sudo gem install bundler`.
 * Run `sudo bundle install` from the root of your dartlang project.
   * This gives you liquid, jekyll, and more.
-* Run `sudo gem install compass`
 * If you see errors similar to `library X (at master) is not checked out. Please run 'bundle install'`, you should run `bundle install` (without the sudo).
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
   * Tell App Engine to use Python 2.7 if it's not.
@@ -85,8 +84,6 @@ On a Mac:
 * Your web browser opens to http://localhost:8081.
   * You may need to reload once.
 * Edit, create docs as normal.
-* If you're making changes to the Sass (SCSS) files, you can regenerate the CSS
-  by running `make compass` from the root of the repository on the command line.
 * To run tests, run `./runtests.sh`.
 
 ### Windows development tips
