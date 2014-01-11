@@ -184,8 +184,7 @@ First, and most importantly, with a single-subscription stream
 it's extremely obvious
 when the stream should produce events,
 and when it should stop doing so.
-Second, and more annoyingly, many
-[Stream](http://api.dartlang.org/dart_async/Stream.html)
+Second, and more annoyingly, many Stream
 getters and methods are less useful
 for single-subscription streams.
 For example, just using the `isNotEmpty` getter
@@ -412,8 +411,7 @@ but some abstractions
 (or using methods instead of anonymous closures)
 can easily get rid of them.
 A popular abstraction is, for example, a state machine.
-Another one is the
-[StreamIterator](http://api.dartlang.org/dart_async/StreamIterator.html) class.
+Another one is the StreamIterator class.
 
 ### StreamIterator
 
@@ -476,6 +474,12 @@ Using `asBroadcastStream` on single-subscription streams
 can lead to resource leaks.
 Consider safer alternatives such as
 listener swapping and StreamIterators.
+
+For more information, see the API documentation:
+
+* [Stream](http://api.dartlang.org/dart_async/Stream.html)
+* [StreamSubscription](http://api.dartlang.org/dart_async/StreamSubscription.html)
+* [StreamIterator](http://api.dartlang.org/dart_async/StreamIterator.html)
 
 _Thanks to Lasse Reichstein Holst Nielsen, Anders Johnsen,
 and Kathy Walrath for their suggestions and help to improve this article._
