@@ -38,7 +38,7 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Ensure you have Python 2.7.
   * On a Mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
-* Run 'sudo gem install fast-stemmer -v '1.0.2'.
+* Run `sudo gem install fast-stemmer -v '1.0.2'`.
 * Run `sudo gem install bundler`.
 * Run `sudo bundle install` from the root of your dartlang project.
   * This gives you liquid, jekyll, and more.
