@@ -77,7 +77,8 @@ than the name alone provides.
 Avoid links when possible.
 
 
-#### Functions and methods 
+#### Functions and methods
+{:.no_toc}
 
 Function/method descriptions begin with a **third-person verb**.
 
@@ -88,6 +89,7 @@ Examples:
 
 
 #### Variables, getters, and setters
+{:.no_toc}
 
 Static/instance variable and getter/setter descriptions are **noun phrases**.
 
@@ -101,6 +103,7 @@ Example:
 
 
 #### Classes
+{:.no_toc}
 
 Class descriptions are **noun phrases**.
 
@@ -108,10 +111,11 @@ Examples:
 
 * Possible description for [List](http://api.dartlang.org/dart_core/List.html): <br>`An indexable collection with a length, also known as an array.`
 
-* Possible description for [String](http://api.dartlang.org/dart_core/String.html): <br>`A basic string, implemented as an immutable sequence of UTF-16 code units.`  
+* Possible description for [String](http://api.dartlang.org/dart_core/String.html): <br>`A basic string, implemented as an immutable sequence of UTF-16 code units.`
 
 
 #### Libraries
+{:.no_toc}
 
 Library descriptions are **noun phrases**.
 
@@ -120,14 +124,14 @@ Examples:
 * Possible description for [dart:core](http://api.dartlang.org/dart_core.html): <br>`Core functionality that's automatically imported into every Dart program.`
 
 * Possible description for [dart:collection](http://api.dartlang.org/dart_collection.html): <br>`Data structures for managing collections of objects.`
-        
-        
+
+
 
 ### The rest of the doc comment
 
 Subsequent paragraphs explain return values,
 what arguments you can specify, side effects,
-exceptions that users might want to catch, related APIs, and so on.   
+exceptions that users might want to catch, related APIs, and so on.
 
 Be sure to provide **code examples** for the most common uses of the API,
 and **links** to documents that provide more information.
@@ -153,20 +157,23 @@ of which constructors are a special case,
 or to any URI you choose.
 
 #### Identifier
+{:.no_toc}
 
 `[id]` _or_ `[id](uri)`
 
 If _id_ is the name of a class, the generated link points at the class,
 even if the class has a constructor of the same name.
 If you specify _uri_, it must be the URI of a dart library _L_,
-and _id_ must a name declared in the exported namespace of _L_.  
+and _id_ must a name declared in the exported namespace of _L_.
 
 #### Constructor
+{:.no_toc}
 
 `[new c]` _or_ `[new c](uri)`
 
 
 #### Hyperlink
+{:.no_toc}
 
 `[text](uri)` _or_ `<uri>`
 
@@ -177,10 +184,12 @@ _text_ is the string to be displayed instead of the URI.
 ### Block styles
 
 #### Paragraph
+{:.no_toc}
 
 Use _a blank line_ to denote the end of a paragraph.
 
 #### Code block
+{:.no_toc}
 
 Use four blank spaces _after the line's comment characters,_
 which means **five spaces** after the * or /
@@ -201,6 +210,7 @@ Example:
 {% endprettify %}
 
 #### Header
+{:.no_toc}
 
 <pre>## header text until newline</pre>
 
@@ -209,6 +219,7 @@ are currently implemented but not specified.
 
 
 #### Bulleted (unordered) list item
+{:.no_toc}
 
 <pre>* item continues until next list item or blank line</pre>
 
@@ -216,6 +227,7 @@ The line before the first bulleted list item must be blank.
 
 
 #### Numbered (ordered) list item
+{:.no_toc}
 <pre>1. item continues until next list item or blank line
 2. next item</pre>
 
@@ -226,6 +238,7 @@ Use `2.` for item #2, `3.` for item #3, and so on.
 ### Inline styles
 
 #### Code font
+{:.no_toc}
 
 <code>`code`</code> _(note the backquotes)
 or_
@@ -235,6 +248,7 @@ Avoid code font unless it’s (1) a big chunk of code or
 (2) necessary to prevent confusion.
 
 #### Italics
+{:.no_toc}
 
 `_single underscore_`
 _or_
@@ -244,6 +258,7 @@ It's possible that when the specification is clarified,
 a single asterisk will mean boldface.
 
 #### Boldface
+{:.no_toc}
 
 `**double asterisk**`
 _or_
@@ -281,7 +296,7 @@ Here's an example of a warning:
 
 * [Comments](/articles/style-guide/#comments)
   section of the Dart Style Guide
-* dart:math API doc 
+* dart:math API doc
   ([generated doc](http://api.dartlang.org/dart_math.html),
   [source code](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/sdk/lib/math/math.dart))
 * [dart-doc-testing](https://github.com/kwalrath/dart-doc-testing) project

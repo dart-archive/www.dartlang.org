@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Get Input from a Form"
 description: "Using HTML forms and input elements to send data to a server"
 has-permalinks: true

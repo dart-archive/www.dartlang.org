@@ -99,6 +99,7 @@ not just in the body of an HTML page. See
 </aside>
 
 #### Appearance
+{:.no_toc}
 
 Every component inherits from existing tags.
 This includes tags corresponding to
@@ -145,6 +146,7 @@ components specification article</a>.
 </aside>
 
 #### Behavior
+{:.no_toc}
 
 The behavior of a component is declared directly in Dart code. The `<script>`
 tag declares the code associated with the component.
@@ -365,6 +367,7 @@ main script associated with that page (more details
 [later](#top-level-templates)).
 
 #### Binding in content
+{:.no_toc}
 
 You can introduce a data binding in a text node
 by using expressions of the form
@@ -405,7 +408,7 @@ instance, if we use `x='<span>two</span>'`, the result will be `<span>one
 &lt;span&gt;two&lt;/span&gt; three</span>`
 
 On occasions, you may want to inject HTML fragments directly in the page.
-You can do so by creating an instance of `SafeHtml` (see 
+You can do so by creating an instance of `SafeHtml` (see
 [`package:web_ui/safe_html.dart`][safehtml]). If your content happen to
 be an instance of `SafeHtml`, then the data will not be escaped.
 
@@ -424,6 +427,7 @@ of the `dart:html` APIs.
 </aside>
 
 #### Binding in attributes
+{:.no_toc}
 
 You can also use `{{'{{'}}expression}}` bindings in the middle of HTML
 attributes. An attribute written as `foo="{{'{{'}}exp}}"` will be initialized
@@ -510,6 +514,7 @@ features available for class and style attributes.
   the map keys and values and update actual style of the element accordingly.
 
 #### Binding interactive elements
+{:.no_toc}
 
 Bindings can also be used to monitor user modifications on interactive elements,
 such as input boxes, text areas, and radio buttons. We do so by binding an
@@ -525,7 +530,7 @@ _assignableValue_ is a Dart assignable value. This is the current list of
 two-way bindings supported by Web UI:
 
 | | Interactive element          |  | Attribute      |  | Description                                |  | Event that triggers an update |
-|-| :-----------                 |- | :--------      |- | :-------                                   |- | :------ | 
+|-| :-----------                 |- | :--------      |- | :-------                                   |- | :------ |
 | | `<textarea>`                 |  | `value`        |  | The current value in the textarea element  |  | `input`  |
 | | `<input type="text">`        |  | `value`        |  | The current value in the input box         |  | `input`  |
 | | `<input type="checkbox">`    |  | `checked`      |  | Whether the checkbox is checked            |  | `change` |
@@ -582,6 +587,7 @@ groups behave exactly the same way.
 
 
 #### Watchers
+{:.no_toc}
 
 As hinted in the previous sections, data bindings are reactive. We would like
 the UI to be updated automatically whenever a Dart expression used in a data
@@ -626,6 +632,7 @@ in the element. Next, we discuss each of these approaches and when it is
 appropriate to [use one or the other](#which-conditional).
 
 #### The conditional element node {#conditional-template}
+{:.no_toc}
 
 A template conditional element is a `<template>` tag containing a special
 attribute of the form `instantiate="if expression"`, where `expression` is a
@@ -634,7 +641,7 @@ Alternatively, instead of `instantiate="if exp"` you can write `if="exp"`.
 
 <aside>
 <div class="alert alert-info">
-<strong>Note:</strong> 
+<strong>Note:</strong>
 The final syntax for conditionals is not finalized. In particular, currently
 only <code>instantiate="if ..."</code> is part of the MDV specification.
 However, Web UI supports both <code>instantiate="if ..."</code> and
@@ -694,7 +701,7 @@ tag anymore, they got added directly as siblings. This behavior is
 intentional. Template nodes are intended to be inert, and they are mainly used
 as a declaration. This matches closely the semantics of [MDV][mdv] templates.
 
-A benefit of this semantics is that the resulting HTML is often closer to 
+A benefit of this semantics is that the resulting HTML is often closer to
 what the developer intended to say. For example, a template of the form:
 
 {% prettify html %}
@@ -749,6 +756,7 @@ use. In particular, the first example below is valid, but the second is invalid:
 {% endprettify %}
 
 #### The conditional attribute. {#conditional-attribute}
+{:.no_toc}
 
 An alternative syntax to create conditional content is to use a conditional
 attribute on an arbitrary element. This is especially useful in contexts where
@@ -808,6 +816,7 @@ simply reuse the placeholder node to render the contents within it.
 </aside>
 
 #### Conditional element vs. attribute {#which-conditional}
+{:.no_toc}
 
 The main difference between conditional template nodes and conditional
 attributes is that the former makes the contents of the template node
@@ -884,6 +893,7 @@ iterate `<template>` element node, or you can repeat the body of an element by
 using an iterate attribute on the element.
 
 #### The iterate element node {#iterate-template}
+{:.no_toc}
 
 A template iterate element is a `<template>` tag containing a special attribute
 of the form `iterate="identifier in expression"`, where `expression` evaluates
@@ -937,6 +947,7 @@ placeholder node, and to understand what implications this has during app
 development.
 
 #### The iterate attribute {#iterate-attribute}
+{:.no_toc}
 
 An alternative syntax to do template iterations is
 to use an `iterate` attribute
@@ -979,6 +990,7 @@ intent to remove the extra <code>template</code> attribute.
 </aside>
 
 #### Iterate element vs. attribute {#which-loop}
+{:.no_toc}
 
 The main difference between iterate template nodes and iterate attributes is
 that the former appends the repeated contents

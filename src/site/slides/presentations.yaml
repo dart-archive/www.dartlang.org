@@ -17,6 +17,15 @@
   video: http://www.youtube.com/watch?v=FqsU3TbUw_s
   event: Chrome Developer Summit
 
+- title: "Dart 1.0 Announcement"
+  short: dart-1_0-announcement
+  presenters:
+    - Kasper Lund
+    - Lars Bak
+  date: 2013-11-15
+  video: http://www.parleys.com/play/52a9897ce4b04354fb7e57d0/chapter0/about
+  event: Devoxx 2013
+
 - title: "Dart 1.0 interview"
   short: dart-1_0-interview
   presenters:
@@ -34,6 +43,15 @@
   slides: http://s3.mrale.ph/StrangeLoop2013.pdf
   video: http://www.infoq.com/presentations/dart-compiler
   event: Strange Loop 2013
+
+- title: "Dart and Web Components - Scalable, Structured Web Apps"
+  short: javazone-2013
+  presenters:
+    - Seth Ladd
+  date: 2013-09-12
+  slides: 2013/09/dart-and-web-components-javazone-2013.pdf
+  video: http://vimeo.com/74391396
+  event: JavaZone 2013
 
 - title: "Modern Web Development with Dart"
   short: dart-smalltalk-industry-conference

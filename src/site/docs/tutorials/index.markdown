@@ -37,8 +37,9 @@ from left to right...or choose just the ones you need.
     <li><a href="#dom" data-toggle="tab">Browser</a></li>
     <li><a href="#packages" data-toggle="tab">Packages</a></li>
     <li><a href="#polymer" data-toggle="tab">Polymer</a></li>
-    <li><a href="#futures" data-toggle="tab">Futures & Streams</a></li>
-    <li><a href="#forms" data-toggle="tab">Forms & Data</a></li>
+    <li><a href="#futures" data-toggle="tab">Async</a></li>
+    <li><a href="#forms" data-toggle="tab">Forms & data</a></li>
+    <li><a href="#commandline" data-toggle="tab">Standalone apps</a></li>
     <!--<li><a href="#mobile" data-toggle="tab">Mobile</a></li>-->
   </ul>
 
@@ -246,6 +247,24 @@ from left to right...or choose just the ones you need.
         </div>
       </div> <!-- end row -->
     </div> <!-- end FORMS tab -->
+
+    <!-- COMMAND-LINE APPS TAB -->
+    <div class="tab-pane" id="commandline">
+      <div class="row">
+
+        <div class="col-md-6">
+          <section>
+          <h4 class="no-permalink"><a href="cmdline/"><img src="images/target.png" height="20" width="20">&nbsp;Write Command-line Apps</a></h4>
+          <p>Learn about features that command-line apps need.</p>
+          <img src="cmdline/images/sourceforhomepage.png">
+          </section>
+        </div>
+
+        <div class="col-md-6">
+        </div>
+
+      </div>
+    </div>
 
   <!-- MOBILE TAB -->
   <!--

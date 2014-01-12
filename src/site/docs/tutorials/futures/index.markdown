@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Use Future-Based APIs"
 description: "A first look at Futures and how to use them to make your asynchronous code better."
 has-permalinks: true
@@ -61,7 +61,7 @@ If any code blocks the thread of execution
 or blocking on I/O)
 the program effectively freezes.
 Asynchronous operations let your program run without getting blocked.
-Dart uses Futures to perform asynchronous operations.
+Dart uses a `Future` object to perform asynchronous operations.
 
 * [Introduction](#introduction)
 * [What is a Future?](#what-is-a-future)

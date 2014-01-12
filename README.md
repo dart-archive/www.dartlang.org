@@ -34,16 +34,14 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 
 ## Configuring your system
 
-* Ensure you have Ruby 1.9.3.
-  * You can use **brew** (if you're on a Mac), but it installs Ruby 2 by default.
-  * You probably want to use RVM to manage Ruby versions. [Here are some instructions for setting up RVM on Mac](http://net.tutsplus.com/tutorials/ruby/how-to-install-ruby-on-a-mac/).
+* Ensure you have Ruby 1.9.3. (Version 2.0.0p247 worked for me.)
 * Ensure you have Python 2.7.
   * On a Mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
 * Open a new Terminal.
+* Run 'sudo gem install fast-stemmer -v '1.0.2'.
 * Run `sudo gem install bundler`.
 * Run `sudo bundle install` from the root of your dartlang project.
-* Run `sudo gem install jekyll`?
-* Run `sudo gem install kramdown`
+  * This gives you liquid, jekyll, and more.
 * Run `sudo gem install compass`
 * If you see errors similar to `library X (at master) is not checked out. Please run 'bundle install'`, you should run `bundle install` (without the sudo).
 * Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
@@ -53,6 +51,7 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
       * Go to Preferences, and enter the direct path to the Python 2.7 binary,
       which you downloaded from http://www.python.org/download/releases/2.7.3/.
         * The full path is `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7`.
+  * Ask an admin to invite you to modify the Dart project on the Google App Engine.
 
 ### Tips for Windows
 
@@ -60,6 +59,12 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * Install ruby dev kit for Windows.
 * Run `gem install bundler`.
 * Run `bundle install` from the root of your dartlang project.
+
+
+### GitHub setup
+
+* Create a [GitHub login](https://github.com/join) login if you don't already have one.
+* Ask an admin to invite you to the dart-lang project on GitHub.
 
 
 ### Contributing via Chromium Code Review
@@ -102,7 +107,8 @@ You probably won't have **make** available on the command line by default.
   * This builds the site and places everything into build/.
   * This command also uses the current branch for the app engine version name.
   * This command will then deploy the site.
-* You will probably need to grab a unique password from your Google Account settings.
+(Note: You can also run `make clean && make build` and then deploy using App Engine.)
+* You will probably need to generate an [App-specific password](https://sites.google.com/a/google.com/second-factor/application-specific-passwords-faq).
   * Save this into the App Engine Launcher during the first deployment.
 
 ## Regenerating Dartisans playlists

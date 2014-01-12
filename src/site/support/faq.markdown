@@ -61,8 +61,8 @@ should have this kind of flexibility.
 
 ### Q. Is Google planning to put Dart under the control of a standards body?
 
-Yes, we hope to.  Once Dart reaches a certain level of maturity and acceptance,
-we expect that a standards process will be the next step.
+In December 2013, [Ecma formed TC52][tc52] to publish a standard specification
+of the Dart language.
 
 ### Q. Until that point, how are you taking input on changes to Dart?
 
@@ -613,3 +613,4 @@ Many more have been released or are in development.
 [Oilpan]: https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/V1vJmirHUGE
 [Dartium]: https://www.dartlang.org/tools/dartium/
 [JSON]: http://api.dartlang.org/docs/channels/stable/latest/dart_convert.html#JSON
+[tc52]: http://news.dartlang.org/2013/12/ecma-forms-tc52-for-dart-standardization.html

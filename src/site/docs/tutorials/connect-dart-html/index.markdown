@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Connect Dart &amp; HTML"
 description: "Shows basic scaffolding of a Dart web app"
 has-permalinks: true

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Remove DOM Elements"
 description: "Remove a child element from the DOM"
 has-permalinks: true

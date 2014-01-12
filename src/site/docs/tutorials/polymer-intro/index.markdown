@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: tutorial
 title: "Define a Custom Element"
 description: "Create a custom HTML element using Polymer."
 has-permalinks: true

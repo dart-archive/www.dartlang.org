@@ -71,7 +71,7 @@ as numbers grow and shrink in range.
     <td> bigint </td>
   </tr>
   <tr>
-    <th> Minimum value </th> 
+    <th> Minimum value </th>
     <td> -2<sup>30</sup> (on a 32-bit machine)
          <br>
          -2<sup>62</sup> (on a 64-bit machine)</td>
@@ -79,7 +79,7 @@ as numbers grow and shrink in range.
     <td> Limited by RAM </td>
   </tr>
   <tr>
-    <th> Maximum value </th> 
+    <th> Maximum value </th>
     <td> 2<sup>30</sup> - 1 (on a 32-bit machine)
          <br>
          2<sup>62</sup> - 1 (on a 64-bit machine)</td>

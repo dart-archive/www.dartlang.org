@@ -39,6 +39,6 @@ To find other books about Dart, see [Books on Dart](/books/).
 1. [Chapter 2. A Tour of the Dart Language](contents/ch02.html)
 1. [Chapter 3. A Tour of the Dart Libraries](contents/ch03.html)
 1. [Chapter 4. Tools](contents/ch04.html)
-1. [Chapter 5. Walkthrough: Dart Chat](contents/ch05.html)
+1. [Chapter 5. Walkthrough: Dartiverse Search](contents/ch05.html)
 {:.toc}
 

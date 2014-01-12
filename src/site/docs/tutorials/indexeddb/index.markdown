@@ -1,12 +1,12 @@
 ---
-layout: default
+layout: tutorial
 title: "Use IndexedDB"
 description: "Use IndexedDB for persistence and offline capability for your app."
 has-permalinks: true
 tutorial:
   id: indexeddb
-next: 
-next-title: "Home"
+next: cmdline/
+next-title: "Write Command-Line Apps"
 prev: forms/
 prev-title: "Get Input from a Form"
 ---
