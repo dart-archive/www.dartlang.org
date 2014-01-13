@@ -4,7 +4,7 @@
 
   <div class="{{ editor.os }} downloads">
     {% if editor.os == 'macos' %}
-    <a data-bits="64" data-os="{{ editor.os }}" data-build="integration" class="btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
+    <a data-bits="64" data-os="{{ editor.os }}" data-build="integration" class="btn download-link" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
       <button class="{{ include.buttonclass }}">
         <i class="sprite-icon-download-btn"> </i>
         Download Dart ({{ editor.name }})
@@ -18,7 +18,7 @@
       </button>
     </a>
     <p></p>
-    <a data-bits="32" data-os="{{ editor.os }}" data-build="integration" class="btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-ia32.{{ editor.editor-ext }}">
+    <a data-bits="32" data-os="{{ editor.os }}" data-build="integration" class="btn download-link" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-ia32.{{ editor.editor-ext }}">
       <button class="{{ include.buttonclass }}">
         <i class="sprite-icon-download-btn"> </i>
         Download Dart (32-bit {{ editor.name }})
