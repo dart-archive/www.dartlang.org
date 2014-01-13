@@ -60,6 +60,41 @@ $(document).ready(function() {
 // Anchor scrolling for the page
 $(function() {
   var scrollPadding   = 5;
+  var currentHash;
+
+  function scrollToAnchor(hash) {
+    if (hash.length < 2) {
+      return;
+    } else {
+      hash = hash.slice(1);
+      if (hash === currentHash) {
+        return;
+      }
+    }
+    var animated = false;
+    var target = $('a[name=' + hash + ']');
+    if (target.length) {
+      // Decorate the hash
+      hash = 'js-' + hash;
+    } else {
+      // Use the already decorated hash
+      var match = hash.match(/^js(a?)-(.*)$/);
+      if (match !== null) {
+        target = $('a[name=' + match[2] + ']');
+        animated = !!match[1];
+      }
+    }
+    if (target.length) {
+      currentHash = hash;
+      window.location.hash = hash;
+      var scrollOffset = $('.navbar').outerHeight() + scrollPadding;
+      $('html,body')
+        .animate(
+        {scrollTop: target.offset().top - scrollOffset},
+        animated ? 1000 : 1
+      );
+    }
+  }
 
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -76,26 +111,11 @@ $(function() {
     }
   });
 
-  var currentHash;
   setInterval(
-    function() {
-      var match = window.location.hash.match(/^#js(a?)-(.*)$/);
-      if (match === null) {
-        return;
-      }
-      var target = $('a[name=' + match[2] + ']');
-      if (match[2] !== currentHash && target) {
-        var scrollOffset = $('.navbar').outerHeight() + scrollPadding;
-        $('html,body').animate({
-          scrollTop: target.offset().top - scrollOffset
-        }, match[1] ? 1000 : 1);
-        currentHash = match[2];
-      }
-    },
-    100
-  );
+    function() { scrollToAnchor(window.location.hash); } ,
+    100)
+  ;
 });
-
 
 
 $(function(){
