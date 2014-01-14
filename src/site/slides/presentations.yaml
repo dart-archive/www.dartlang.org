@@ -17,6 +17,14 @@
   video: http://www.youtube.com/watch?v=FqsU3TbUw_s
   event: Chrome Developer Summit
 
+- title: "Mobile, multi-device, multi-player with HTML5 and Dart"
+  short: mobile-multi-player-game-with-dart
+  presenters:
+    - Seth Ladd
+  date: 2013-11-15
+  video: http://www.parleys.com/play/529c10a5e4b039ad2298ca0e
+  event: Devoxx 2013
+
 - title: "Dart 1.0 Announcement"
   short: dart-1_0-announcement
   presenters:
