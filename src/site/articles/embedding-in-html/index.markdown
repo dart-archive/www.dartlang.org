@@ -134,7 +134,7 @@ Here's how:
        dependencies:
          browser: any
 
-2. Run `pub install`.
+2. Run `pub get`.
 
 3. Use a relative script tag to point to the installed version:
 

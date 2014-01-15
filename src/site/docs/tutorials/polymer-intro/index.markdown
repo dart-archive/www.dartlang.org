@@ -170,14 +170,14 @@ so take care to indent the package name as shown:
   <img class="scale-img-max" src="images/sample-pubspec.png"
      alt="Sample pubspec file with polymer dependency">
 
-* Run `pub install`,
+* Run `pub get`,
 which recursively installs the polymer.dart package
 and all the packages that it depends on.
 If you are using Dart Editor,
 when you save pubspec.yaml
-the editor automatically runs `pub install` for you.
+the editor automatically runs `pub get` for you.
 If you are using command line tools,
-you can run it with the command `pub install`.
+you can run it with the command `pub get`.
 
 ##Including Polymer.dart in your application {#bootstrap}
 

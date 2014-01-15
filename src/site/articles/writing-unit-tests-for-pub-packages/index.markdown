@@ -91,7 +91,7 @@ dependencies:
 {% endprettify %}
 
 Saving `pubspec.yaml` in Dart Editor automatically triggers a call to 
-`pub install`; this creates a `pubspec.lock` file and a bunch of symlinks
+`pub get`; this creates a `pubspec.lock` file and a bunch of symlinks
 that are necessary for the plumbing to work correctly. Fortunately, 
 `pub` handles all these details for us. 
 

@@ -41,7 +41,7 @@ for the Dart VM's optimizer.
 
 The harness is available as a pub package and is incredibly easy to use.
 
-1\. Add the following to your pubspec.yaml, and run `pub install`:
+1\. Add the following to your pubspec.yaml, and run `pub get`:
 
 {% prettify yaml %}
 dependencies:

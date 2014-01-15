@@ -19,7 +19,7 @@ for dir in src/tests/site/code/ src/tests/site/articles/*/*/bin/ src/tests/site/
 do
   # Run pub if there is a pubspec in this code directory.
   if [ -a "$dir/pubspec.yaml" ]; then
-    pub_result=`pushd $dir && pub install && popd`
+    pub_result=`pushd $dir && pub get && popd`
     cmd="$ANA --package-root $dir/packages"
   else
     cmd="$ANA"

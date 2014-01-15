@@ -182,7 +182,7 @@ as we have done here.
 In Dart Editor, save pubspec.yaml with **File > Save**.
 When you save the file,
 Dart Editor automatically runs
-<a href="https://pub.dartlang.org/doc/pub-install.html">pub install</a>,
+<a href="https://pub.dartlang.org/doc/pub-install.html">pub get</a>,
 which recursively installs the Dart libraries
 from the packages in the dependencies list.
 You can also select **Pub Install** from the **Tools** menu in Dart Editor.
@@ -220,7 +220,7 @@ Dart vector math repository
 </a>
 at github.
 Although many files and directories are in the repository,
-only one, `lib`, was installed when you ran pub install.
+only one, `lib`, was installed when you ran pub get.
 
 <div>
   <hr>

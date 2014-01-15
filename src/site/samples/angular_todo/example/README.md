@@ -9,10 +9,10 @@ Getting up and running
 
 To run this demo, first clone the entire Angular.dart repository.
 
-Then, run pub install in this directory:
+Then, run pub get in this directory:
 
 ```
-$ cd demo/todo; pub install
+$ cd demo/todo; pub get
 ```
 
 Finally, open the demo/todo/index.html file in Dartium.

@@ -51,7 +51,7 @@ your `pubspec.yaml` file:
     dependencies:
       web_ui: any
 
-Then run `pub install` and you'll have everything you need to get started. You
+Then run `pub get` and you will have everything you need to get started. You
 can use `package:web_ui/...` imports in your code, and you will be able
 to access our compiler under `packages/web_ui/dwc.dart`.
 

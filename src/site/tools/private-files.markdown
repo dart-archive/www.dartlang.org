@@ -77,7 +77,7 @@ in the GitHub help for more information.
 The `packages/` directory
 contains symlinks specific to your machine.
 Users of your code should generate their own packages directory,
-using [pub install](http://pub.dartlang.org/doc/#installing-dependencies).
+using [pub get](http://pub.dartlang.org/doc/#installing-dependencies).
 
 
 ### pubspec.lock

@@ -346,7 +346,7 @@ Reuse and share custom elements with
 the Dart package manager.
 
 {% prettify bash %}{% raw %}
-> pub install fancy_button
+> pub get fancy_button
 {% endraw %}{% endprettify %}
 
 {% prettify html %}{% raw %}
@@ -381,7 +381,7 @@ your `pubspec.yaml` file:
     dependencies:
       polymer: any
 
-Then, run `pub install` to download the package and link it into your app.
+Then, run `pub get` to download the package and link it into your app.
 
 View the [polymer.dart pub page](http://pub.dartlang.org/packages/polymer)
 to learn more.
