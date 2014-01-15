@@ -57,6 +57,12 @@ What benchmarks are you tracking?
   John Maloney and Mario Wolczko. The main focus in DeltaBlue is on
   polymorphism and object-oriented programming.
 
+  * [FluidMotion](https://github.com/dart-lang/benchmark_harness/blob/master/example/FluidMotion.dart)
+  is a 2D Navier-Stokes equations solver,
+  originally written in JavaScript by Oliver Hunt.
+  The main focus is on accessing numeric arrays,
+  as well as doing floating-point arithmetic.
+
   * [Richards](https://github.com/dart-lang/benchmark_harness/blob/master/example/Richards.dart)
   is an OS kernel simulation benchmark, originally written
   in BCPL by Martin Richards. The main focus in Richards is on property
@@ -75,12 +81,6 @@ What benchmarks are you tracking?
   without any abstraction layers in between;
   it runs 50% faster than the original
   Raytrace JavaScript benchmark in Octane.
-
-  * [FluidMotion](https://github.com/dart-lang/benchmark_harness/blob/master/example/FluidMotion.dart)
-  is a 2D Navier-Stokes equations solver,
-  originally written in JavaScript by Oliver Hunt.
-  The main focus is on accessing numeric arrays,
-  as well as doing floating-point arithmetic.
 
 </div>
 
