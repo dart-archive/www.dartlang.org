@@ -9,15 +9,10 @@ _sendNotFound(HttpResponse response) {
 startServer(String basePath) {
   HttpServer.bind('127.0.0.1', 8080).then((server) {
     server.listen((HttpRequest request) {
-      final Path path = new Path(request.uri.path).canonicalize();
-      if (!path.isAbsolute) {
-        _sendNotFound(request.response);
-        return;
-      }
-      // PENDING: Do more security checks here?
-      final String stringPath =
-          path.toString() == '/' ? '/index.html' : path.toString();
-      final File file = new File('${basePath}${stringPath}');
+      final String path = request.uri.toFilePath();
+      // PENDING: Do more security checks here.
+      final String resultPath = path == '/' ? '/index.html' : path;
+      final File file = new File('${basePath}${resultPath}');
       file.exists().then((bool found) {
         if (found) {
           file.openRead()
@@ -35,6 +30,6 @@ main() {
   // Compute base path for the request based on the location of the
   // script and then start the server.
   File script = new File(Platform.script.toFilePath());
-  startServer(script.directory.path);
+  startServer(script.parent.path);
 }
 // END(io_http_server_file)

@@ -16,7 +16,7 @@ article:
 # {{ page.title }}
 
 _Written by Mads Ager <br />
-March 2012 (updated October 2012 and February 2013)_
+March 2012 (updated October 2012, February 2013 and Januart 2014)_
 
 The [dart:io](http://api.dartlang.org/io.html) library
 is aimed at server-side code
@@ -94,10 +94,11 @@ class.
 <!--- BEGIN(io_file_system) -->{% prettify dart %}
 import 'dart:io';
 import 'dart:async';
+import 'dart:convert';
 
 main() {
   var file = new File(Platform.script.toFilePath());
-  Future<String> finishedReading = file.readAsString(encoding: Encoding.ASCII);
+  Future<String> finishedReading = file.readAsString(encoding: ASCII);
   finishedReading.then((text) => print(text));
 }
 {% endprettify %}<!--- END(io_file_system) -->
@@ -114,8 +115,8 @@ let's change the example to read the contents
 only up to the first semicolon and then to print that.
 You could do this in two ways:
 either open the file for random access,
-or open an
-[InputStream](http://api.dartlang.org/io/InputStream.html)
+or open a
+[Stream](http://api.dartlang.org/dart_async/Stream.html)
 for the file and stream in the data.
 
 Here is a version that opens the file for random access operations.
@@ -319,15 +320,10 @@ _sendNotFound(HttpResponse response) {
 startServer(String basePath) {
   HttpServer.bind('127.0.0.1', 8080).then((server) {
     server.listen((HttpRequest request) {
-      final Path path = new Path(request.uri.path).canonicalize();
-      if (!path.isAbsolute) {
-        _sendNotFound(request.response);
-        return;
-      }
-      // PENDING: Do more security checks here?
-      final String stringPath =
-          path.toString() == '/' ? '/index.html' : path.toString();
-      final File file = new File('${basePath}${stringPath}');
+      final String path = request.uri.toFilePath();
+      // PENDING: Do more security checks here.
+      final String resultPath = path == '/' ? '/index.html' : path;
+      final File file = new File('${basePath}${resultPath}');
       file.exists().then((bool found) {
         if (found) {
           file.openRead()
@@ -345,7 +341,7 @@ main() {
   // Compute base path for the request based on the location of the
   // script and then start the server.
   File script = new File(Platform.script.toFilePath());
-  startServer(script.directory.path);
+  startServer(script.parent.path);
 }
 {% endprettify %}<!--- END(io_http_server_file) -->
 
