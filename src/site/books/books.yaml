@@ -13,6 +13,21 @@
         readable textbook that introduces the language, its rationale and
         its philosophy.'
 
+- title: Dart for Absolute Beginners
+  authors:
+    - David Kopec
+  publisher: Springer (Apress)
+  cover: dart-for-absolute-beginners.jpg
+  link: http://www.springer.com/computer/book/978-1-4302-6481-1
+  desc: 'Dart for Absolute Beginners enables individuals with no background in
+         programming to create their own web apps while learning the
+         fundamentals of software development in a cutting edge language.
+         Easily digested chapters, while comprehensive enough to explore the
+         whole domain, are aimed at both hobbyists and professionals alike.
+         The reader will not only gain an insight into Dart, but also the
+         technologies behind the web. A firm foundation is laid for further
+         programming studies.'
+
 - title: Learning Dart
   authors:
     - Dzenan Ridjanovic 

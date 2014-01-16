@@ -1387,7 +1387,8 @@ dt{
 }
 
 dd{
-  margin-left:11px
+  margin-left:11px;
+  margin-bottom:11px;
 }
 
 .remark {display:none;}
