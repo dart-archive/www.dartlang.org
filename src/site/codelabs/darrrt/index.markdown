@@ -1,6 +1,6 @@
 ---
-layout: default
-title: "Try Dart"
+layout: tutorial
+title: "Code Lab: Pirate Convention"
 description: "Write some Dart code. Learn some stuff."
 snippet_img: images/piratemap.jpg
 has-permalinks: true
@@ -63,7 +63,10 @@ If you haven't already done so,
 get the Dart download.
 Unzip the ZIP file, which creates a directory called `dart`.
 
+<!--style here is a hack to remove the arrow, which was only partially showing. -->
+<div style="padding-left: 10px"> 
 {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
+</div>
 
 <p class="os-choices" markdown="1">
   The Dart tools
@@ -108,17 +111,23 @@ to open the `one-hour-codelab-master` directory.
 <i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * The `packages` directory, as well as the `pubspec.yaml` and `pubspec.lock` files are
-related to package dependencies.
-This project has all the dependencies set up for you.
-Dart Editor automatically installs the necessary packages.
+  related to package dependencies.
+  This project has all the dependencies set up for you.
+  Dart Editor automatically installs the necessary packages.
 
 * Several numbered directories contain the completed code for each step.
-`1-blankbadge` contains the skeletal version of the app that you begin with.
-`6-piratebadge_json` contains the final version of the app.
+  `1-blankbadge` contains the skeletal version of the app that you begin with.
+  `6-piratebadge_json` contains the final version of the app.
 
 * The `piratebadge.css` file
-provides the CSS styles for all steps of the app.
-You don't change this file during this code lab.
+  provides the CSS styles for all steps of the app.
+  You don't change this file during this code lab.
+
+* **Dart SDK** contains the source code for all of the functions,
+  variables, and classes provided by the Dart Software Development Kit.
+
+* **Installed Packages** contains the source code for all of the functions,
+  variables, and classes for the additional libraries that this application depends on.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -197,19 +206,24 @@ Get familiar with the HTML and the Dart code for the skeleton version of the app
 <i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * During this code lab,
-all the changes you make to `piratebadge.html` are within
-the &lt;div&gt; element identified with the class `widgets`.
+  all the changes you make to `piratebadge.html` are within
+  the &lt;div&gt; element identified with the class `widgets`.
 
 * In later steps,
-the &lt;span&gt; element with the ID `badgeName`
-is programmatically updated by the Dart code
-based on user input.
+  the &lt;span&gt; element with the ID `badgeName`
+  is programmatically updated by the Dart code
+  based on user input.
 
-* The `piratebadge.dart` script provides the main program for the app.
+* The first &lt;script&gt; tag identifies
+  the main file that implements the app.
+  Here, it's the `piratebadge.dart` file.
 
-* The `packages/browser/dart.js` script is a bootstrap script
-that takes care of turning on the Dart VM,
-as well as compatibility with non-Dart browsers.
+* The Dart Virtual Machine (Dart VM) runs Dart code natively.
+  The Dart VM is built into Dartium,
+  a special build of the Chromium browser in which you can run Dart apps natively.
+
+* The `packages/browser/dart.js` script checks for native Dart support
+  and either bootstraps the Dart VM or loads compiled JavaScript instead.
 
 </div> </div>
 
@@ -231,11 +245,14 @@ as well as compatibility with non-Dart browsers.
 
 </div> <div class="col-md-5" markdown="1">
 
-* This file is the main script for the app.
-It is referenced by a &lt;script&gt; tag in the `piratebadge.html` file.
+* This file contains the entry point for the app&mdash;the `main()` function.
+  The &lt;script&gt; tags in the `piratebadge.html` file start the application
+  by running this function.
 
 * The `main()` function is a top-level function.
-  Dart calls this function when your app starts.
+
+* A top-level variable or function is one that is declared outside
+  a class definition.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
@@ -251,7 +268,10 @@ and click the Run button
 ![Click the run button](images/clickrun.png)
 
 Dart Editor launches _Dartium_, a special build of Chromium
-that has the Dart Virtual Machine built in, and loads the app.
+that has the Dart Virtual Machine built in,
+and loads the `piratebadge.html` file.
+The `piratebadge.html` file loads the app
+and calls the `main()` function.
 
 You should see a TO DO comment on the left
 and a red and white name badge on the right.
@@ -259,7 +279,7 @@ and a red and white name badge on the right.
 
 <div class="trydart-step-details" markdown="1">
 <iframe class="running-app-frame"
-        style="height:220px;width:550px;"
+        style="height:220px;width:600px;"
         src="examples/1-blankbadge/piratebadge.html">
 </iframe>
 </div>
@@ -306,7 +326,7 @@ within the `widgets` &lt;div&gt;.
 <i class="fa fa-key"> </i> <strong> Key Information </strong>
 
 * The ID for the input element is `inputName`.
-Dart uses CSS selectors, like this ID,
+Dart uses CSS selectors, such as `#inputName`,
 to get elements from the DOM.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
@@ -336,11 +356,19 @@ library at the top of the file
 
 </div> <div class="col-md-5" markdown="1">
 
-* This imports all classes and other resources from dart:html,
-which provides HTML elements and access to the DOM.
+* This imports _all_ classes and other resources from dart:html.
+
+* Don't worry about bloated code.
+  The build process performs tree-shaking to help minimize code.
+
+* The dart:html library contains the classes for all DOM element types,
+  in addition to functions for accessing the DOM.
+
+* Later you'll use import with the `show` keyword,
+  which imports only the specified classes.
 
 * Dart Editor helpfully warns you that the import is unused.
-Don't worry about it. You'll fix it in the next step.
+  Don't worry about it. You'll fix it in the next step.
 
 </div> </div>
 
@@ -367,9 +395,12 @@ void main() {
 </div> <div class="col-md-5" markdown="1">
 
 * The `querySelector()` function, defined in
-dart:html, gets an element from the DOM.
-Here, the code uses the ID `#inputName`
-to specify the input field.
+  dart:html, gets the specified element from the DOM.
+  Here, the code uses the selector `#inputName`
+  to specify the input field.
+
+* The object returned from `querySelector()` 
+  _is_ the DOM element object.
 
 * `onInput` registers an event handler for input events.
 
@@ -378,7 +409,7 @@ to specify the input field.
 * You can use either single or double quotes to create a string.
 
 * Dart Editor warns you that the function doesn't exist.
-Let's fix that now.
+  Let's fix that now.
 
 </div> </div>
 
@@ -397,7 +428,7 @@ Implement the event handler as a top-level function.
 ...
 
 [[highlight]]void updateBadge(Event e) { 
-  querySelector('#badgeName').text = (e.target as InputElement).value;
+  querySelector('#badgeName').text = e.target.value;
 }[[/highlight]]
 {% endprettify %}
 </div>
@@ -408,17 +439,55 @@ Implement the event handler as a top-level function.
 
 * This function sets the text of the `badgeName` element from the value of the input field.
 
-* You can tell that `updateBadge()` is an event handler because it takes an
-`Event` object.
+* `Event e` is the argument to the updateBadge function.
+  The argument's name is `e`; its type is `Event`.
+
+* You can tell that `updateBadge()` is an event handler because
+  its parameter is an `Event` object.
 
 * The element that generated the event, the input field, is `e.target`.
 
-* The `as` keyword typecasts `e.target` to an
-`InputElement` to silence warnings from Dart Editor.
+* Note the warning symbol next to this line of code in Dart Editor.
+  `e.target` is typed as an `EventTarget` which does not have a `value` property.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
 </div> </div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Fix the warning message.
+</div>
+
+<div class="row"> <div class="col-md-7">
+
+<div class="trydart-step-details" markdown="1">
+
+{% prettify dart %}
+...
+
+void updateBadge(Event e) { 
+  querySelector('#badgeName').text = [[highlight]](e.target as InputElement)[[/highlight]].value;
+}
+{% endprettify %}
+</div>
+
+<div class="trydart-filename">piratebadge.dart</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+* In this example, `e.target` is the input element
+  that generated the event.
+
+* The `as` keyword typecasts `e.target` to an
+  `InputElement` to silence warnings from Dart Editor.
+
+&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
+
+</div> </div>
+
 
 ### <i class="fa fa-anchor"> </i> Run the app.
 
@@ -512,8 +581,6 @@ import 'dart:html';
 <div class="trydart-filename">piratebadge.dart</div>
 
 </div> <div class="col-md-5" markdown="1">
-
-* Top-level variables are names at the library level.
 
 * ButtonElement is one of many different kinds of DOM elements
 provided by the dart:html library.
@@ -873,6 +940,7 @@ class PirateName {
 </div> <div class="col-md-5" markdown="1">
 
 * Private variables start with underscore (`_`).
+  Dart has no `private` keyword.
 
 </div></div>
 
@@ -1489,6 +1557,7 @@ import 'dart:convert' show JSON;
 * The `dart:async` library provides for asynchronous programming.
 
 * A `Future` provides a way to get a value in the future.
+  (For JavaScript developers: Futures are similar to Promises.)
 
 </div> </div>
 
@@ -1826,3 +1895,11 @@ Learn more about Dart from
 the [Dart tutorials](/docs/tutorials/).
 </div>
 
+### <i class="fa fa-anchor"> </i> Deploy this app to Heroku.
+
+<div class="trydart-step-details" markdown="1">
+
+Learn how to deploy this app to the internet using Heroku in
+[Code Lab: Deploy the Pirates](/codelabs/deploy/).
+
+</div>
