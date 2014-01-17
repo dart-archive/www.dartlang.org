@@ -2,6 +2,7 @@
 layout: default
 title: 'Who Uses Dart'
 description: 'Companies and business that use Dart.'
+snippet_img: who-uses-dart.png
 ---
 
 # {{ page.title }}
