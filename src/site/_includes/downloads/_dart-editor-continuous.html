@@ -4,16 +4,16 @@
   {% for editor in site.custom.downloads.binaries %}
     {% if editor.os == 'macos' %}
     <span class="{{ editor.os }} downloads">
-      <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
+      <a data-tool="editor" class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
       latest dev channel build</a>.
     </span>
     {% else %}
     <span class="{{ editor.os }} downloads">
       latest dev channel build:
-      <a class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
+      <a data-tool="editor" class="download-link" data-bits="64" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
       64-bit</a>
       or
-      <a class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-ia32.{{ editor.editor-ext }}">
+      <a data-tool="editor" class="download-link" data-bits="32" data-os="{{ editor.os }}" data-build="continuous" href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-ia32.{{ editor.editor-ext }}">
       32-bit</a>.
   </span>
   {% endif %}

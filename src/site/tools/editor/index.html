@@ -6,7 +6,7 @@ has-permalinks: false
 js:
 - url: /js/os-switcher.js
   defer: true
-- url: /js/editor-downloads-analytics.js
+- url: /js/downloads-analytics.js
   defer: true
 - url: /js/editor-version.js
   defer: true
