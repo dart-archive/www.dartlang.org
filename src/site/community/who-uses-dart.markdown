@@ -79,5 +79,5 @@ Google internal sales tool
   and server apps.
   
 [sipXecs](http://sipfoundry.org)
-: Open source unified communications system. Management UI continues to migrate to dart.
+: Open source unified communications system. Management UI continues to migrate to Dart.
 
