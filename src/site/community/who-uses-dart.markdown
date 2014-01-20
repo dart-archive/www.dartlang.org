@@ -79,5 +79,9 @@ Google internal sales tool
   and server apps.
   
 [sipXecs](http://sipfoundry.org)
-: Open source unified communications system. Management UI continues to migrate to Dart.
+: Open source unified communications system. Management UI continues to migrate
+  to Dart.
 
+[BIBORG](http://www.biborg.com/)
+: Specialized in the design and implementation of online campaigns. Uses
+  Dart for interactive experiences.
