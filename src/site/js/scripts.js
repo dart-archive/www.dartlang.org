@@ -67,13 +67,6 @@ $(function() {
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       var isnavtabs = $('.nav-tabs')[0];
       if (target.length && !isnavtabs) {
-        var scrollOffset = $('.navbar').outerHeight() + scrollPadding;
-        if(typeof $(this).data('slide') !== 'undefined') {
-          $('html,body').animate({
-            scrollTop: target.offset().top - scrollOffset
-          }, 1000);
-        }
-        
         window.location.hash = this.hash;
         return false;
       } else {
@@ -84,9 +77,8 @@ $(function() {
 });
 
 
-
 $(function(){
-  
+
   var popOpen = false;
 
   $('.dart-popover').popover();
@@ -110,7 +102,7 @@ $(function(){
     var targetTouch = $(touch.target);
     if(!navDisabled) {
       if(targetTouch[0] == navToggle[0] || targetTouch[0] == iconBar[0]) {
-        
+
         // iconBar.removeClass('collapsed');
       }
     } else {
@@ -125,10 +117,10 @@ $(function(){
       // iconBar.removeClass('collapsed');
     }
 
-    
+
   });
 
-  
+
   $(document).on('touchmove', function(e) {
     // console.log($(this).scrollTop(), lastScrollPosY);
     if($(this).scrollTop() != lastScrollPosY) {
@@ -174,17 +166,17 @@ $(function(){
     e.preventDefault();
     if (popOpen) {
       $('.dart-popover').not(this).popover('hide');
-    } 
+    }
     popOpen = true;
 
   });
 
-  
+
 
   // Adding the navigation to the popup
   // $("a.dart-popover").each(function(index) {
   //   var lnk = $(this);
-    
+
   //   // Add prev and nex buttons
   //   if ( lnk == $('.lang-dart:first-child a.dart-popover') ) {
   //     //console.log('first');
