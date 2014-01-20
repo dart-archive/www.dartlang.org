@@ -60,41 +60,6 @@ $(document).ready(function() {
 // Anchor scrolling for the page
 $(function() {
   var scrollPadding   = 5;
-  var currentHash;
-
-  function scrollToAnchor(hash) {
-    if (hash.length < 2) {
-      return;
-    } else {
-      hash = hash.slice(1);
-      if (hash === currentHash) {
-        return;
-      }
-    }
-    var animated = false;
-    var target = $('a[name=' + hash + ']');
-    if (target.length) {
-      // Decorate the hash
-      hash = 'js-' + hash;
-    } else {
-      // Use the already decorated hash
-      var match = hash.match(/^js(a?)-(.*)$/);
-      if (match !== null) {
-        target = $('a[name=' + match[2] + ']');
-        animated = !!match[1];
-      }
-    }
-    if (target.length) {
-      currentHash = hash;
-      window.location.hash = hash;
-      var scrollOffset = $('.navbar').outerHeight() + scrollPadding;
-      $('html,body')
-        .animate(
-        {scrollTop: target.offset().top - scrollOffset},
-        animated ? 1000 : 1
-      );
-    }
-  }
 
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -102,19 +67,13 @@ $(function() {
       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
       var isnavtabs = $('.nav-tabs')[0];
       if (target.length && !isnavtabs) {
-        var hashPrefix = $(this).data('slide') ? "jsa-" : "js-";
-        window.location.hash = hashPrefix + this.hash.substr(1);
+        window.location.hash = this.hash;
         return false;
       } else {
         window.location.hash = this.hash;
       }
     }
   });
-
-  setInterval(
-    function() { scrollToAnchor(window.location.hash); } ,
-    100)
-  ;
 });
 
 
