@@ -108,7 +108,7 @@ int x;
     <code language="java"><![CDATA[
 // Hoisting is not supported
 void printName() {
-  // If it were, but this would error
+  // This does not compile
   System.out.println("Hello, " + name);
   String name = "Bob";
 }
@@ -168,8 +168,6 @@ System.out.println(numbers);
     <title>Key-value pairs</title>
     <code language="java"><![CDATA[
 Map<String, String> periodic = new HashMap<String, String>();
-Map<String, String> periodic = new LinkedHashMap<String, String>();
-Map<String, String> periodic = new ConcurrentHashMap<String, String>();      
 ]]></code>
   </synonym>
   <synonym id="syn-appropriate-keys">
@@ -262,7 +260,7 @@ String someProperty = String.format("%spx", (top + 20));
 ]]></code>
   </synonym>
   <synonym id="syn-concatenation">
-    <title>Substring</title>
+    <title>Concatenation</title>
     <code language="java"><![CDATA[
 String longMessage = "This is a very long line. "
   + "It is concatenated into one string.";
@@ -423,6 +421,7 @@ new Person("Bob", "111").equals(new Person("Robert", "111")
   <synonym id="syn-function-definition">
     <title>Function definition</title>
     <code language="java"><![CDATA[
+// Java uses methods intead of functions like Javascript and Dart
 boolean method() {
   // ...
   return true;
@@ -452,8 +451,18 @@ void method() {
   <synonym id="syn-assign-a-function-to-a-variable">
     <title>Assign a function to a variable</title>
     <code language="java"><![CDATA[
-// Java 1.7 does not support function variable assignments.
-// Java 1.8 will support function variable assignments.
+// Java 1.8
+public class LambdaExample {
+  interface Loudify {
+    String loudify(String msg);
+  }
+
+  public static void main(String[] args) {
+    Loudify loudify = (String msg) -> msg.toUpperCase();
+
+    System.out.println(loudify.loudify("not gonna take it anymore"));
+  }
+}
 ]]></code>
   </synonym>
   <synonym id="syn-optional-parameters">
@@ -477,7 +486,7 @@ void method() {
   <synonym id="syn-variable-number-of-arguments">
     <title>Variable number of arguments</title>
     <code language="java"><![CDATA[
-public static void method(String... strings) {
+public void method(String... strings) {
 }
 method("a", "b", "c");
 ]]></code>
@@ -529,7 +538,7 @@ colors2.add("orange");
 colors2.add("green");
 
 Iterator<String> iterator = colors2.iterator();
-while(iterator.hasNext()) {
+while (iterator.hasNext()) {
   System.out.println(iterator.next());
 }
 ]]></code>
@@ -537,8 +546,25 @@ while(iterator.hasNext()) {
   <synonym id="syn-closures-and-counters-in-loops">
     <title>Closures and counters in loops</title>
     <code language="java"><![CDATA[
-// Java 1.7 doesn't support closures
-// Java 1.8 supports closures
+// Java 1.8
+public class LambdaExample {
+  public interface Callback {
+    void callback();
+  }
+
+  public static void main(String[] args) {
+    List<Callback> callbacks = new ArrayList<Callback>();
+
+    for (int i = 0; i < 2; i++) {
+      final int ii = i;
+      Callback callback = () -> System.out.println(Integer.toString(ii));
+      callbacks.add(callback);
+    }
+
+    callbacks.get(0).callback(); // == 0
+    callbacks.get(1).callback(); // == 1
+  }
+}
 ]]></code>
   </synonym>
 </theme>
@@ -594,7 +620,7 @@ System.out.println(name instanceof String); // == true
     <title>Subclass</title>
     <code language="java"><![CDATA[
 public class Person {
-  protected String name;
+  private String name;
 
   public Person(String name) {
     this.name = name;
@@ -942,7 +968,7 @@ request.setCallback(new RequestCallback() {
     <title>React to document finishing loading</title>
     <code language="java"><![CDATA[
 // Using GWT
-public class MyGxtProject307EntryPoint implements EntryPoint {
+public class ProjectEntryPoint implements EntryPoint {
   @Override
   public void onModuleLoad() {
     System.out.println("loaded");
@@ -1070,7 +1096,6 @@ public native JavaScriptObject eval(String json) /*-{
   <synonym id="syn-adding-a-method-to-a-class">
     <title>Adding a method to a class</title>
     <code language="java"><![CDATA[
-// Dynamic classes need a custom classloader
 ]]></code>
   </synonym>
 </theme>
