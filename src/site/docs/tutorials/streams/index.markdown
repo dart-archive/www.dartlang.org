@@ -274,13 +274,14 @@ Running this produces the following output:
 
 
 Perhaps the most common transform you will use is transforming a 
-List&lt;int&gt; into a String by using a <code>StringDecoder</code>, such as 
-when reading data from a file or HTTP request, as in the following example.
+List&lt;int&gt; into a String by using a <code>UTF8.decoder</code> from 
+<code>dart:convert</code>, such as when reading data from a file or HTTP 
+request, as in the following example.
 
 <!--- BEGIN(string_decoder) -->{% prettify dart %}
 File file = new File("some_file.txt");
 file.openRead()
-    .transform(new StringDecoder()) // use a StringDecoder
+    .transform(UTF8.decoder) // use a UTF8.decoder
     .listen((String data) => print(data), // output the data
         onError: (error) => print("Error, could not open file"),
         onDone: () => print("Finished reading data"));
@@ -487,8 +488,8 @@ click, the second event handler unsubscribes itself.
 The second real-world example shows how to read some data from a file on the 
 filesystem.  The <code>file.openRead()</code> returns a stream containing the 
 file's contents.  The stream (which contains a <code>List&lt;int></code>) 
-is decoded using a <code>StringDecoder</code> class to allow for UTF-8 
-conversion.
+is decoded using a <code>UTF8.decoder</code> class from <code>dart:convert</code> 
+to allow for UTF-8 conversion.
 
 <!--- BEGIN(reading_a_file) -->{% prettify dart %}
 import 'dart:io';
@@ -496,7 +497,7 @@ import 'dart:io';
 main() {
   File file = new File("some_file.txt");
   file.openRead()
-      .transform(new StringDecoder()) // use a StringDecoder
+      .transform(UTF8.decoder) // use a UTF8.decoder
       .listen((String data) => print(data), // output the data
         onError: (error) => print("Error, could not open file"),
         onDone: () => print("Finished reading data"));
