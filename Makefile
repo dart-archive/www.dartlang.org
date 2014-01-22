@@ -1,4 +1,5 @@
 CURRENT_BRANCH=$(shell git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+HAS_XDG_OPEN=$(shell xdg_open --version 2>/dev/null)
 PWD=$(shell pwd)
 
 clean:
@@ -17,7 +18,12 @@ deploy: build
 	@echo "Visit http://$(CURRENT_BRANCH).dart-lang.appspot.com"
 
 server:
-	@open http://localhost:8081/ && cd ./src/site && jekyll serve -w --port=8081 --trace
+ifdef HAS_XDG_OPEN
+	@xdg-open http://localhost:8081/
+else
+	@open http://localhost:8081/
+endif
+	cd ./src/site && jekyll serve -w --port=8081 --trace
 
 optimize:
 	@find . -iname *.png | xargs -L 1 optipng -o7
@@ -29,7 +35,7 @@ dartisansplaylist:
 	dart scripts/gen_dartisans_playlist.dart
 
 darttips:
-	cd scripts &&	dart gen_dart_tips.dart
+	cd scripts && dart gen_dart_tips.dart
 
 convert-docbook-to-html:
 ifndef BOOK_XML_DIR
