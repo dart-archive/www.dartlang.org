@@ -85,3 +85,7 @@ Google internal sales tool
 [BIBORG](http://www.biborg.com/)
 : Specialized in the design and implementation of online campaigns. Uses
   Dart for interactive experiences.
+
+[Chrome Dev Studio (Spark)](https://github.com/dart-lang/spark)
+: Open source IDE for developing Chrome packaged apps as well as web apps.
+  Written completely in Dart and uses Polymer Dart for much of the UI.
