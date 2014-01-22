@@ -963,10 +963,6 @@ pre li {
   border-radius: 5px;
 }
 
-.affix {
-  position: fixed;
-}
-
 code {
   padding: 0;
   font-size: 90%;

@@ -1946,7 +1946,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     this.$element.removeClass(Affix.RESET).addClass('affix' + (affix ? '-' + affix : ''))
 
     if (affix == 'bottom') {
-      this.$element.offset({ top: document.body.offsetHeight - offsetBottom - this.$element.height() })
+      this.$element.offset({ top: scrollHeight - offsetBottom - this.$element.height() })
     }
   }
 
