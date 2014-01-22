@@ -970,6 +970,12 @@ pre li {
     border-radius: 5px;
 }
 
+.bs-sidebar .nav .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+    font-weight: bold;
+}
+
 /* Show and affix the side nav when space allows it */
 @media (min-width: 992px) {
     .bs-sidebar .nav > .active > ul {
