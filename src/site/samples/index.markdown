@@ -1,12 +1,18 @@
 ---
 layout: default
 title: "Dart Code Samples"
+description: Sample Dart code for Polymer, HTML5, Angular, and more.
 header:
   css: ["/samples/samples.css"]
 has_permalinks: true
 ---
+
 {% injectdata samples samples/samples.yaml %}
-  <h1> {{ page.title }} </h1>
+
+# {{ page.title }}
+
+Check out many other [Dart code examples](/dart-by-example/).
+
 <div class="row">
 <div class="col-md-3">
   <ol class="toc nav bs-sidenav" id="markdown-toc" role="complementary">

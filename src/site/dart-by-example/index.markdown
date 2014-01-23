@@ -1,13 +1,16 @@
 ---
 layout: default
+title: Dart By Example
+description: Short snippets of code to help you become productive with Dart.
 header:
   css: ["index.css"]
 has-permalinks: true
 ---
 
-# Dart By Example
+# {{ page.title }}
 
 Short snippets of code to help you become productive with Dart.
+Check out more complete [Dart sample code](/samples/).
 
 {% include default_toc.html %}
 

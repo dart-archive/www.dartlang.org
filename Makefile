@@ -1,5 +1,4 @@
 CURRENT_BRANCH=$(shell git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-HAS_XDG_OPEN=$(shell xdg_open --version 2>/dev/null)
 PWD=$(shell pwd)
 
 clean:
@@ -18,11 +17,7 @@ deploy: build
 	@echo "Visit http://$(CURRENT_BRANCH).dart-lang.appspot.com"
 
 server:
-ifdef HAS_XDG_OPEN
-	@xdg-open http://localhost:8081/
-else
 	@open http://localhost:8081/
-endif
 	cd ./src/site && jekyll serve -w --port=8081 --trace
 
 optimize:
