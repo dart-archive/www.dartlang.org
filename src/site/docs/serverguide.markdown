@@ -121,6 +121,7 @@ various Dart libraries and packages.
 
 ### Servers
 
+* [Weigh Anchor: Deploy a Server and App](/codelabs/deploy/) (a code lab about deploying Dart code to Heroku)
 * [Get Input from a Form](/docs/tutorials/forms/)
 <img src="/docs/tutorials/images/target.png" height="16" width="16">
 (contains an HTTP server/client pair)

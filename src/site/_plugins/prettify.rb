@@ -36,6 +36,10 @@ module Prettify
 
       contents = super.strip
       contents = CGI::escapeHTML(contents)
+
+      contents.gsub!('[[strike]]', '<code class="nocode strike">')
+      contents.gsub!('[[/strike]]', '</code>')
+
       contents.gsub!('[[highlight]]', '<code class="nocode highlight">')
       contents.gsub!('[[/highlight]]', '</code>')
 

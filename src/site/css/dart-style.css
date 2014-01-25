@@ -1071,6 +1071,11 @@ code.highlight {
   border-radius: 4px;
 }
 
+/* Strike through code annotated with [[strike]] */
+code.strike {
+  text-decoration: line-through;
+}
+
 /* Center link. */
 .link {
   vertical-align: middle;

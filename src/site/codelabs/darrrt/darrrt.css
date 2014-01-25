@@ -33,3 +33,11 @@ body {
 	margin-bottom: 10px;
 	margin-right: 5px;
 }
+
+.key-header {
+	padding-left: 20px;
+}
+
+.indent {
+	text-indent: 20px;
+}

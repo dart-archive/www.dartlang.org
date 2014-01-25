@@ -19,7 +19,7 @@ Read these,
 or just [download Dart](/#get-started)
 and start playing with Dart Editor.
 
-[Try Dart](/codelabs/darrrt/)
+[Avast, Ye Pirates: Write a Web App](/codelabs/darrrt/)
 : Walks you through building a web app.
 This one-hour code lab assumes you have some programming experience
 but no previous experience with either Dart or web apps.
