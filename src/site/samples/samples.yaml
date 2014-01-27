@@ -31,6 +31,12 @@ col1:
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
         description: A Polymer implementation of the the canonical todo app.
       -
+        title: Polymer and internationalization
+        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/polymer_intl/README.md
+        tryit_url: polymer_intl/
+        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/polymer_intl/
+        description: Simple demonstration of internationalization and localization with Polymer.
+      -
         title: A task management tool
         explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/README.md
         tryit_url: tracker/
