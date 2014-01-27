@@ -514,7 +514,8 @@ Note: Use the Platform class from the dart:io library,
 not from the dart:html library.
 
 `Platform.environment` provides a copy of the environment
-variables in a mutable map.
+variables in an immutable map. If you need a mutable map (modifiable copy) you 
+can use `Map.from(Platform.environment)`.
 
 {% prettify dart %}
 Map environmentVars = Platform.environment;
