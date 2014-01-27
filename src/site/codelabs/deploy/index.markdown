@@ -161,8 +161,7 @@ Right click `pubspec.yaml` and select **Pub Get**.
 
 * The `packages` directory contains links to 3rd party libraries.
   Those libraries are defined as dependencies in the `pubspec.yaml` file.
-  The `pubspec.lock` file specifies the exact versions
-  of the packages required by this app.
+  The `pubspec.lock` file lists the currently installed versions for those librairies.
 
 * The `web` directory contains the Pirate Badge app to deploy.
 
