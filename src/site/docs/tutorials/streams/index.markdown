@@ -267,7 +267,7 @@ Running this produces the following output:
 
 
 Perhaps the most common transform you will use is transforming a 
-List&lt;int&gt; into a String by using a `UTF8.decoder` from `dart:convert`, 
+List<int> into a String by using a `UTF8.decoder` from `dart:convert`, 
 such as when reading data from a file or HTTP request, as in the following example.
 
 <!--- BEGIN(string_decoder) -->{% prettify dart %}
@@ -283,7 +283,7 @@ file.openRead()
 ### Validating stream data
 
 Sometimes, you want to validate that the data returned from a stream meets 
-certain conditions.  A following functions return `Future&lt;bool>` values: 
+certain conditions.  A following functions return `Future<bool>` values: 
 `any()`, `every()`, and `contains()`.
 
 <!--- BEGIN(validating_stream_data) -->{% prettify dart %}
@@ -410,7 +410,7 @@ subscription.onDone(() => print("done"));
 ## Streams are generic {#streams-are-generic}
 
 All the stream classes are also generic, which means that you get strongly 
-typed data in the handlers.  For example, if you create a `Stream&lt;String&gt;`, 
+typed data in the handlers.  For example, if you create a `Stream<String>`, 
 then all the handler functions will also be expecting a `String`, as shown by 
 the following code:
 
@@ -432,7 +432,7 @@ file.
 ### Button clicks in dart:html
 
 Buttons have a number of `onSomeEvent` streams defined, and the `onClick` stream 
-is defined as `Stream&lt;MouseEvent&gt;`. This type means that the data that you 
+is defined as `Stream<MouseEvent>`. This type means that the data that you 
 receive when you listen to the `onClick` stream is all going to be MouseEvents.
 
 The following code sets up a button and a couple of event handlers.
@@ -471,7 +471,7 @@ click, the second event handler unsubscribes itself.
 
 The second real-world example shows how to read some data from a file on the 
 filesystem.  The `file.openRead()` returns a stream containing the file's 
-contents.  The stream (which contains a `List&lt;int>`) is decoded using a 
+contents.  The stream (which contains a `List<int>`) is decoded using a 
 `UTF8.decoder` class from `dart:convert` to allow for UTF-8 conversion.
 
 <!--- BEGIN(reading_a_file) -->{% prettify dart %}
