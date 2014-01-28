@@ -30,12 +30,12 @@ In this code lab, you deploy an client application (web app) to the Heroku hosti
 This code lab focuses on the server-side programming aspect of this project.
 
 <div class="trydart-note" markdown="1">
-<strong>Note:</strong> 
+<strong>Note:</strong>
 This code lab is for those who want to learn
 how to write a DIY server for deploying a web app.
 If you are not interested in server-side programming,
 this code lab is probably not for you.
-Perhaps you'd prefer the 
+Perhaps you'd prefer the
 [Avast, Ye Pirates](/codelabs/darrrt/) code lab
 for building a web app.
 </div>
@@ -66,7 +66,7 @@ We chose the Heroku hosting service for this project
 because it has a free tier and is easy to use.
 
 * **Client App**&mdash;As for the client app,
-  you will be deploying the Pirate Badge web app from the 
+  you will be deploying the Pirate Badge web app from the
   [Avast, Ye Pirates](/codelabs/darrrt/) code lab.
 
 * **Fun debugging on mobile devices**&mdash;In addition,
@@ -105,7 +105,7 @@ get the Dart download.
 Unzip the ZIP file, which creates a directory called `dart`.
 
 <!--style here is a hack to remove the arrow, which was only partially showing. -->
-<div style="padding-left: 10px"> 
+<div style="padding-left: 10px">
   {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 </div>
 
@@ -148,8 +148,8 @@ to open the `deploy-codelab` directory.
 ![The files and directories in the deploy-codelab directory](images/filesanddirs.png)
 
 <div class="trydart-note" markdown="1">
-<strong>Note:</strong> 
-If you see <span style="color:red">red X's</span> at the left of the 
+<strong>Note:</strong>
+If you see <span style="color:red">red X's</span> at the left of the
 filenames,
 the packages are not properly installed.
 Right click `pubspec.yaml` and select **Pub Get**.
@@ -161,7 +161,7 @@ Right click `pubspec.yaml` and select **Pub Get**.
 
 * The `packages` directory contains links to 3rd party libraries.
   Those libraries are defined as dependencies in the `pubspec.yaml` file.
-  The `pubspec.lock` file lists the currently installed versions for those librairies.
+  The `pubspec.lock` file lists the currently installed versions for those libraries.
 
 * The `web` directory contains the Pirate Badge app to deploy.
 
@@ -294,12 +294,10 @@ and choose **Run in Dartium** from the menu.
 
 ##Step 2: Build the app and run as JavaScript {#step-two}
 
-In this step, you use `pub build` to 
-generate the assets for the app
-and put them into a new directory named `build`.
-In addition to other tasks,
-this process generates minified JavaScript that
-works in any modern browser.
+In this step, you use [`pub build`](http://pub.dartlang.org/doc/pub-build.html)
+to generate the assets for the app and put them into a new directory named
+`build`. In addition to other tasks, this process generates minified JavaScript
+that works in any modern browser.
 
 ### <i class="fa fa-anchor"> </i> Check out pubspec.yaml
 
@@ -309,8 +307,7 @@ works in any modern browser.
 
 Double-click the `pubspec.yaml` file to open it.
 Click the **Source** tab at the bottom of the editing pane.
-The packages listed under dependencies *must* be installed
-to run the app.
+The packages listed under dependencies *must* be installed to run the app.
 Packages are installed in one or more `packages` directories, as needed.
 
 {% prettify dart %}
@@ -340,7 +337,8 @@ dependencies:
   The three packages needed by this app are all hosted on
   [pub.dartlang.org](https://pub.dartlang.org/).
 
-* `any` selects the latest version of the package that matches your SDK.
+* `any` selects the latest possible package version that satisfies all the
+   dependencies.
 
 </div></div>
 
@@ -367,8 +365,8 @@ In Dart Editor, expand the top-level `packages` directory.
 * The `browser` package contains the `dart.js` script
   that checks for native Dart support.
 
-* The `http_server` package implements high-level HTTP server
-  functionality, making it easier to write HTTP server code.
+* The `http_server` makes it easier to write HTTP server by providing a
+  high-level HTTP server API.
 
 * The `path` package provides common path manipulation operations,
   such as joining, splitting, and normalizing.
@@ -386,8 +384,7 @@ In Dart Editor, expand the top-level `packages` directory.
 
 <div class="trydart-step-details" markdown="1">
 
-With `pubspec.yaml` still selected,
-select **Tools > Pub Build**.
+With `pubspec.yaml` still selected, select **Tools > Pub Build**.
 The output looks something like this:
 
 {% prettify bash %}
@@ -468,16 +465,15 @@ and select the
 ##Step 3: Walk through the static file server's code {#step-three}
 
 You can build full HTTP servers with Dart. The HTTP libraries and packages
-support both serving static files and handling dynamic requests. For this code
-lab, we focus on serving static files.
+support serving both static files and dynamic responses. For this code lab,
+we focus on serving static files.
 
 You need to provide a static file server for this project
 because Heroku requires one for deployment.
 Also, it's fun to serve your Dart client app with a server built with Dart!
 The code you downloaded for this project contains a static file server.
-This step walks through the code for the static file server,
-which uses some interesting Dart APIs and
-two helpful pub packages.
+This step walks through the code for the static file server, which uses some
+interesting Dart APIs and two helpful pub packages.
 
 Links to the relevant API docs are provided in [Resources](#resources).
 
@@ -524,8 +520,8 @@ void main() {
   based on the path of the running script.
 
 * The top-level `Platform` object provides information about the
-  environment in which the program is running.
-  Here, the code gets the filepath to the program.
+  environment in which the application is running.
+  Here, the code gets the path to the application main file.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -563,19 +559,17 @@ void main() {
 
 <i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
 
-* The `VirtualDirectory` class from the `http_server` package
-  provides a high-level interface for serving static files and directory listings to HttpRequests.
+* The `VirtualDirectory` class from the `http_server` package provides a
+  high-level interface for serving static files and directory listings.
 
-* This code redirects directory requests to `piratebadge.html`,
+* This code overrides the directory index requests to serve `piratebadge.html`,
   which is the main HTML file for this app.
-  This approach works because the deployed app has only one directory.
 
-* The `serveFile` method serves the requested static file
-  to the given HttpRequest object.
+* The `serveFile` method serves the requested static file to the client.
 
-* Without the `http_server` package, this code would be longer and more complex,
-  because you would have to use the lower-level `HttpServer`, `HttpRequest`,
-  and `HttpResponse` APIs.
+* The `http_server` package enables writing more concise code. The lower-level
+  APIs provided by `dart:io` would require making use of `HttpServer`,
+  `HttpRequest`, `HttpResponse` classes.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -614,8 +608,8 @@ void main() {
 * This code uses the port specified in the `$PORT` environment variable,
   if present. Otherwise, it uses port 9999.
 
-* The `$PORT` environment variable might not be present if the web server is running
-  in a non-Heroku environment.
+* The `$PORT` environment variable might not be present if the web server is
+  running outside of the Heroku environment.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -1027,7 +1021,7 @@ $
 * Your local `git` repository becomes associated with a remote Heroku repository,
   usually named `heroku`, when you push.
 
-* When you push, Heroku runs the buildpack that you specified.
+* Every time you push, Heroku runs the buildpack that you specified.
 
 * In addition to other tasks, this buildpack runs `pub build`.
 
@@ -1044,7 +1038,7 @@ $
 <div class="trydart-step-details" markdown="1">
 
 {% prettify bash %}
-$ heroku ps:scale web=1 
+$ heroku ps:scale web=1
 $
 {% endprettify %}
 
@@ -1186,7 +1180,7 @@ function from the
 
 * The code for the
 <a href="https://pub.dartlang.org/packages/http_server">http_server</a> pub package,
-in particular 
+in particular
 <a href="https://api.dartlang.org/http_server/VirtualDirectory.html" target="_blank">VirtualDirectory</a>
 class.
 * The code for the
