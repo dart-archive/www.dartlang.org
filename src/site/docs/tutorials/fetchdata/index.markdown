@@ -265,7 +265,7 @@ formulating URIs and making HTTP requests:
 
 | Dart code | Library | Description |
 |---|---|
-| <a href="https://api.dartlang.org/dart_uri/Uri.html" target="_blank">Uri</a> | dart:uri | An object representing a URI. |
+| <a href="https://api.dartlang.org/dart_core/Uri.html" target="_blank">Uri</a> | (core library) | An object representing a URI. |
 | <a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a> |  dart:html | Client-side HTTP request object. For use in web apps. |
 | <a href="https://api.dartlang.org/dart_io/HttpRequest.html" target="_blank">HttpRequest</a> |  dart:io | Server-side HTTP request object. Does not work in web apps. |
 {: .table}
