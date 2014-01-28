@@ -50,8 +50,9 @@ For that, you need a client app, a web server, and a hosting service.
 </div>
 
 You can use any web server to serve your Dart client app.
-But Dart runs on the server-side as well as on the client-side,
-so you can use Dart for both your client app and your web server.
+Because Dart can run on the server side, as well as on
+the client side,
+you can use Dart for both your client app and your web server.
 One benefit of doing so is that the client and web server
 can share code.
 The Dart Virtual machine (Dart VM) runs on Windows, Linux, or Mac systems.
@@ -85,8 +86,8 @@ you learn how to use DevTools to inspect and debug your app on a mobile device.
 * [Step 4: Inspect your app on a mobile device](#step-four)
 * [Step 5: Deploy to Heroku](#step-five)
 * [Step 6: Run the app on the web and on a mobile device](#step-six)
-* [What next?](#what-next)
-* [Resources](#resources)
+* [What next?](#whatnext)
+* [Summary and resources](#resources)
 
 </div>
 
@@ -129,7 +130,7 @@ Go to the `dart` directory and double-click **DartEditor**.
 ### <i class="fa fa-anchor"> </i> Get the code.
 
 <div class="trydart-step-details" markdown="1">
-<a href="https://github.com/marycampione/deploy-codelab/archive/master.zip">Download</a>
+<a href="https://github.com/dart-lang/deploy-codelab/archive/master.zip">Download</a>
 the code for the app that you will be deploying.
 Unzip the ZIP file,
 which creates a directory called `deploy-codelab`.
@@ -161,7 +162,8 @@ Right click `pubspec.yaml` and select **Pub Get**.
 
 * The `packages` directory contains links to 3rd party libraries.
   Those libraries are defined as dependencies in the `pubspec.yaml` file.
-  The `pubspec.lock` file lists the currently installed versions for those libraries.
+  The `pubspec.lock` file lists the currently installed
+  versions for those libraries.
 
 * The `web` directory contains the Pirate Badge app to deploy.
 
@@ -171,6 +173,26 @@ Right click `pubspec.yaml` and select **Pub Get**.
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
 </div> </div>
+
+### <i class="fa fa-anchor"> </i> Get some extras.
+
+<div class="trydart-step-details" markdown="1">
+
+Now is a good time to install some other
+prerequisite software and optional hardware.
+You have an opportunity to get them later as well.
+
+For Step 4: (optional step)
+
+* Android mobile device with Chrome for Android 31 or later, with USB cable
+* Chrome M32 or higher on your computer
+
+For Step 5:
+
+* [git](http://git-scm.com/downloads)
+* [Heroku](https://devcenter.heroku.com/articles/quickstart)
+
+</div>
 
 <hr>
 
@@ -307,8 +329,9 @@ that works in any modern browser.
 
 Double-click the `pubspec.yaml` file to open it.
 Click the **Source** tab at the bottom of the editing pane.
-The packages listed under dependencies *must* be installed to run the app.
-Packages are installed in one or more `packages` directories, as needed.
+The list under `dependencies` lists the packages that this app requires.
+The `pub` command installs these packages.
+`pub` might install multiple `packages` directories, as needed.
 
 {% prettify dart %}
 name: deploy_codelab
@@ -365,7 +388,7 @@ In Dart Editor, expand the top-level `packages` directory.
 * The `browser` package contains the `dart.js` script
   that checks for native Dart support.
 
-* The `http_server` makes it easier to write HTTP server by providing a
+* The `http_server` package makes it easier to write HTTP server by providing a
   high-level HTTP server API.
 
 * The `path` package provides common path manipulation operations,
@@ -475,7 +498,8 @@ The code you downloaded for this project contains a static file server.
 This step walks through the code for the static file server, which uses some
 interesting Dart APIs and two helpful pub packages.
 
-Links to the relevant API docs are provided in [Resources](#resources).
+Links to the relevant API docs are
+provided in [Summary and Resources](#resources).
 
 ### <i class="fa fa-anchor"> </i> Setting the path to the app.
 
@@ -692,8 +716,15 @@ void main() {
   to receive requests from any network socket.
   If you don't know what specific IP to listen to, you can use 0.0.0.0.
 
-* The HTTP server listens for requests and uses the `VirtualDirectory` object
-  named `staticFiles` to handle them.
+* A Stream provides an asynchronous sequence of data. Using the
+  `listen()` method, a stream client
+  registers a callback function that gets called when
+  data is available.
+
+* HTTP requests are served over a stream.
+
+* Here, the `VirtualDirectory` object named `staticFiles`
+  provides the callback function for the HTTP requests.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -776,18 +807,16 @@ and open `0.0.0.0:9999` in your browser.
 
 </div>
 
-### <i class="fa fa-anchor"> </i> Bring up Devices page
+### <i class="fa fa-anchor"> </i> Bring up the Devices page
 
 <div class="trydart-step-details" markdown="1">
 
 In Chrome on your computer,
 click the Android icon at the right side of any window
 and select **View Inspection Targets**.
-If the Android icon is not there,
-then the mobile device or your computer is not properly connected or setup.
-Refer back to the
-[Remote Debugging Chrome on Android](https://developers.google.com/chrome-developer-tools/docs/remote-debugging)
-instructions.
+As of Chrome 32,
+you can just visit `about:inspect` and verify
+that **Discover USB Devices** is checked.
 
 ![Click the Android icon](images/androidicon.png)
 
@@ -824,6 +853,7 @@ The change happens instantly on your mobile device.
 </div>
 
 
+<hr>
 ##Step 5: Deploy to Heroku {#step-five}
 
 In this step, you deploy your web server and app to Heroku.
@@ -889,8 +919,8 @@ web: ./dart-sdk/bin/dart bin/basic_http_server.dart
 `git` is a software configuration management system
 and the means for deploying apps to Heroku.
 If you don't already have `git`, you need to download it.
-Refer to
-[Pro Git book](http://git-scm.com/downloads).
+Refer to the
+[git website](http://git-scm.com/downloads)
 for downloads and documentation.
 
 Before you can push an app to Heroku,
@@ -1106,18 +1136,6 @@ and on a mobile device.
 </div> </div>
 
 
-
-<div class="trydart-step-details" markdown="1">
-</div>
-
-<hr>
-
-##What next? {#what-next}
-
-Now that your app is deployed for the world to use,
-what do you do now?
-Here are some suggestions.
-
 ### <i class="fa fa-anchor"> </i> Share your app with the world!
 
 <div class="trydart-step-details" markdown="1">
@@ -1142,23 +1160,77 @@ Share your Heroku URL with your followers and circles.
 
 </div>
 
+<hr>
+
+##What next? {#whatnext}
+
+Now that your app is deployed for the world to use,
+what do you do now?
+Here are some suggestions.
+
 ### <i class="fa fa-anchor"> </i> Jump to another ship.
 
 <div class="trydart-step-details" markdown="1">
 
-* If you never went through the [Avast, Ye Pirates](/codelabs/darrrt/) code lab, do it now.
-* For more command-line application and server code,
-  visit [Dart by Example](/dart-by-example/).
-* Play with some [samples](/samples/).
-* Try the [tutorials](/docs/tutorials/),
-  in particular the [command-line app tutorial](/docs/tutorials/cmdline/).
-* Go write some awesome code.
+If you never went through the [Avast, Ye Pirates](/codelabs/darrrt/) code lab,
+do it now.
+
+</div>
+
+### <i class="fa fa-anchor"> </i> Check out the samples
+
+<div class="trydart-step-details" markdown="1">
+For more command-line application and server code,
+visit [Dart by Example](/dart-by-example/)
+and the [samples](/samples/) page.
+</div>
+
+### <i class="fa fa-anchor"> </i> Read the tutorials
+
+<div class="trydart-step-details" markdown="1">
+Learn more about command-line apps and servers,
+read the [tutorials](/docs/tutorials/),
+in particular the [command-line app tutorial](/docs/tutorials/cmdline/)
+and [Get Input from a Form](/docs/tutorials/forms/),
+which contains an HTTP server.
+</div>
 
 
-##Resources {#resources}
+### <i class="fa fa-anchor"> </i> Go write some awesome code.
+
+
+<hr>
+
+##Summary and resources {#resources}
 
 For more information about the tools and libraries used
 in this code lab, check out these resources.
+
+### <i class="fa fa-anchor"> </i> Think about what you've done!
+
+<div class="trydart-step-details" markdown="1">
+This code lab provided a small example of a static file server.
+You learned some interesting features of Dart,
+the Dart SDK, some Dart tools, and a few pub packages:
+
+* `runZoned()` keeps your program running in spite of exceptions
+* `HttpServer.bind()` creates an HTTP server and binds it to a host and port
+* `listen()` registers a callback function for Stream events
+* `Platform` provides system environment information
+* `File` represents
+
+* `VirtualDirectory` makes HTTP operations easier
+
+* `pub get` installs packages
+* `pub build` builds an app for deployment
+* `pub build` generates JavaScript so your app can run on any modern browser
+
+* Heroku is a hosting service with a free tier
+* DevTools allows you to inspect and debug your app on a mobile device
+
+</div>
+
+### <i class="fa fa-anchor"> </i> Online documentation
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1172,6 +1244,8 @@ classes from the
 <a href="https://api.dartlang.org/dart_io.html" target="_blank">dart:io</a>
 library.
 * The API docs for the
+<a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Stream</a>
+class and
 <a href="https://api.dartlang.org/dart_async.html#runZoned" target="_blank">runZoned()</a>
 function from the
 <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a> library.
@@ -1203,10 +1277,6 @@ functions.
 
 * The [deploy-codelab](https://github.com/dart-lang/deploy-codelab)
 example code.
-
-</div>
-
-<hr>
 
 </div>
 

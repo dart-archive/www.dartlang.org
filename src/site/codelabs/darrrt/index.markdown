@@ -45,7 +45,8 @@ This code lab assumes that you have some programming experience.
 * [Step 5: Save to local storage](#step-five)
 * [Step 6: Read names from JSON file using HttpRequest](#step-six)
 * [Step 7: Build the app and run as JavaScript](#step-seven)
-* [Step 8: Go forth and learn more about Dart](#step-eight)
+* [What next?](#whatnext)
+* [Summary and resources](#resources)
 
 </div>
 
@@ -399,7 +400,15 @@ void main() {
 * The object returned from `querySelector()` 
   _is_ the DOM element object.
 
-* `onInput` registers an event handler for input events.
+* Mouse and keyboard events are served over a stream.
+
+* A Stream provides an asynchronous sequence of data.
+  Using the `listen()` method, a stream client
+  registers a callback function that gets called when
+  data is available.
+
+* `onInput.listen()` listens to the text field's event stream for input events.
+  When such an event occurs, `updateBadge()` is called.
 
 * An input event occurs when the user presses a key.
 
@@ -1971,7 +1980,9 @@ and select the
 
 <hr>
 
-##Step 8: Go forth and learn more about Dart {#step-eight}
+##What next? {#whatnext}
+
+Now that you've written your app, what do you do now? Here are some suggestions.
 
 ### <i class="fa fa-anchor"> </i> Deploy a server and your app
 
@@ -1998,6 +2009,10 @@ on our [Samples page](/samples/).
 Learn more about Dart from
 the [Dart tutorials](/docs/tutorials/).
 </div>
+
+<hr>
+
+##Summary and resources {#resources}
 
 ### <i class="fa fa-anchor"> </i> Think about what you've done!
 
@@ -2030,28 +2045,37 @@ all of which are covered in more detail in the language tour.
 * typecasting with `as` (`(e.target as InputElement)`)
 * import, and import with `show` (`import 'dart:math' show Random;`)
 * generics
+* streams (`inputField.onInput.listen(...);`)
+* futures (`HttpRequest.getString(path).then(...);`)
+</div>
+
+### <i class="fa fa-anchor"> </i> Online documentation
+
+<div class="trydart-step-details" markdown="1">
+
 
 #### The Dart libraries
 
-<a href="https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html">
+* <a href="https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html">
 A Tour of the Dart Libraries</a>
 shows you how to use the major features in Dart’s libraries.
 
 #### API documentation for classes
 
-<a href="https://api.dartlang.org/dart_core/String.html" target="_blank">String</a>,
+* <a href="https://api.dartlang.org/dart_core/String.html" target="_blank">String</a>,
 <a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
 <a href="https://api.dartlang.org/dart_core/Map.html" target="_blank">Map</a>,
 <a href="https://api.dartlang.org/dart_math/Random.html" target="_blank">Random</a>,
 <a href="https://api.dartlang.org/dart_html/InputElement.html" target="_blank">InputElement</a>,
 <a href="https://api.dartlang.org/dart_html/ButtonElement.html" target="_blank">ButtonElement</a>,
 <a href="https://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a>,
-<a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a>, and
-<a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a>
+<a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a>
+<a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a>, and
+<a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Stream</a>
 
 #### API documentation for libraries
 
-<a href="https://api.dartlang.org/dart_core.html" target="_blank">dart:core</a>,
+* <a href="https://api.dartlang.org/dart_core.html" target="_blank">dart:core</a>,
 <a href="https://api.dartlang.org/dart_math.html" target="_blank">dart:math</a>,
 <a href="https://api.dartlang.org/dart_html.html" target="_blank">dart:html</a>,
 <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a>, and
@@ -2059,7 +2083,7 @@ shows you how to use the major features in Dart’s libraries.
 
 #### API documentation for JSON and local storage
 
-<a href="https://api.dartlang.org/dart_html/Window.html#localStorage" target="_blank">LocalStorage</a>, and
+* <a href="https://api.dartlang.org/dart_html/Window.html#localStorage" target="_blank">LocalStorage</a>, and
 <a href="https://api.dartlang.org/dart_convert.html#JSON" target="_blank">JSON</a>
 
 
