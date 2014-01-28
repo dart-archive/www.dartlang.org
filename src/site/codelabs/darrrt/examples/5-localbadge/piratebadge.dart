@@ -80,7 +80,7 @@ class PirateName {
 
   String toString() => pirateName;
 
-  String get jsonString => '{ "f": "$_firstName", "a": "$_appellation" } ';
+  String get jsonString => JSON.encode({ "f": _firstName, "a": _appellation });
 
   String get pirateName => _firstName.isEmpty ? '' : '$_firstName the $_appellation';
 

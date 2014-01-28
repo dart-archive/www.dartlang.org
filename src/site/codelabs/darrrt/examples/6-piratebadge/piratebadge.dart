@@ -131,7 +131,7 @@ class PirateName {
   String toString() => pirateName;
 
   // A getter provides read access to the member of an object.
-  String get jsonString => '{ "f": "$_firstName", "a": "$_appellation" } ';
+  String get jsonString => JSON.encode({ "f": _firstName, "a": _appellation });
 
   // The ternary operator is shorthand for if-then-else. 
   // String interpolation lets you easily build strings from other objects.
