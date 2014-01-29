@@ -185,7 +185,7 @@ You have an opportunity to get them later as well.
 For Step 4: (optional step)
 
 * Android mobile device with Chrome for Android 31 or later, with USB cable
-* Chrome M32 or higher on your computer
+* Chrome 32 or higher on your computer
 
 For Step 5:
 
