@@ -1,5 +1,6 @@
 CURRENT_BRANCH=$(shell git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
 PWD=$(shell pwd)
+XDGOPEN=$(shell type xdg-open 2>/dev/null)
 
 clean:
 	rm -rf ./build
@@ -17,7 +18,11 @@ deploy: build
 	@echo "Visit http://$(CURRENT_BRANCH).dart-lang.appspot.com"
 
 server:
-	@open http://localhost:8081/
+ifeq ($(XDGOPEN),)
+	@open "http://localhost:8081/" &
+else
+	@xdg-open "http://localhost:8081/" &
+endif
 	cd ./src/site && jekyll serve -w --port=8081 --trace
 
 optimize:
