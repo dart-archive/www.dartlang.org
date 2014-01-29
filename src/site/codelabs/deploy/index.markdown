@@ -518,8 +518,7 @@ import 'package:path/path.dart' show [[highlight]]join, dirname;[[/highlight]]
 
 void main() {
   [[highlight]]// Assumes the server lives in bin/ and that `pub build` ran.[[/highlight]]
-  [[highlight]]var pathToBuild = join(dirname(Platform.script.toFilePath()),[[/highlight]]
-                    [[highlight]]'..', 'build');[[/highlight]]
+  [[highlight]]var buildUri = Platform.script.resolve('../build');[[/highlight]]
 
   ...
 }
@@ -532,20 +531,18 @@ void main() {
 
 <i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
 
-* This code assumes that `pub build` has run, because
-  it relies on the `build` directory existing.
+* This code assumes that `pub build` has run, because it relies on the `build`
+  directory existing.
 
-* In the next step, you will configure a Heroku buildpack
-  (a collection of scripts)
-  that runs `pub build` when you upload your app.
+* In the next step, you will configure a Heroku buildpack (a collection of
+  scripts) that runs `pub build` when you upload your app.
 
-* This code uses `join` along with `dirname` to
-  create a path to the `build` directory
-  based on the path of the running script.
+* This code uses `resolve` to get the URI of the `build` directory based on the
+  path of the running script.
 
-* The top-level `Platform` object provides information about the
-  environment in which the application is running.
-  Here, the code gets the path to the application main file.
+* The top-level `Platform` object provides information about the environment in
+  which the application is running.
+  Here, `Platform.script` returns the absolute URI of the script being run.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -565,13 +562,15 @@ import 'package:path/path.dart' show join, dirname;
 
 void main() {
   ...
-  [[highlight]]var staticFiles = new VirtualDirectory(pathToBuild);[[/highlight]]
-  [[highlight]]staticFiles.allowDirectoryListing = true;[[/highlight]]
-  [[highlight]]staticFiles.directoryHandler = (dir, request) {[[/highlight]]
-    [[highlight]]// Redirect directory-requests to piratebadge.html file.[[/highlight]]
-    [[highlight]]var indexUri = new Uri.file(dir.path).resolve('piratebadge.html');[[/highlight]]
-    [[highlight]]staticFiles.serveFile(new File(indexUri.toFilePath()), request);[[/highlight]]
-  [[highlight]]};[[/highlight]]
+  [[highlight]]var staticFiles = new VirtualDirectory(buildUri.toFilePath());[[/highlight]]
+
+  [[highlight]]staticFiles[[/highlight]]
+      [[highlight]]..allowDirectoryListing = true;[[/highlight]]
+      [[highlight]]..directoryHandler = (dir, request) {[[/highlight]]
+        [[highlight]]// Redirect directory-requests to piratebadge.html file.[[/highlight]]
+        [[highlight]]var indexUri = new Uri.file(dir.path).resolve('piratebadge.html');[[/highlight]]
+        [[highlight]]staticFiles.serveFile(new File(indexUri.toFilePath()), request);[[/highlight]]
+      [[highlight]]};[[/highlight]]
   ...
 }
 {% endprettify %}
