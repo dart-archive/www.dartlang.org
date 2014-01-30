@@ -32,7 +32,7 @@ To learn about other tools you can use for Dart development,
 see <a href="/tools/">Tools for Dart</a>.
 </p>
 
-<h2 id="download"> Getting the SDK </h2>
+<h2 id="download">Getting the SDK</h2>
 
 <p>
 If you have an up-to-date version of
@@ -42,31 +42,8 @@ It's in the <code>dart-sdk</code> subdirectory
 of the Dart installation directory.
 </p>
 
-<p class="os-choices">
-If you don't want Dart Editor,
-you can download just the SDK. It is available for
-{% include os-choices.html %}
-</p>
-
-<p class="os-choices">
-  {% include downloads/_sdk.html %}
-</p>
-
 <p>
-Or be on the <b>dev channel</b> to receive new features a few weeks earlier than users on the stable channel
-{% for sdk in site.custom.downloads.binaries %}
-
-<span class="{{ sdk.os }}">
-  latest dev channel build of the
-  <a href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
-    {{ sdk.name }} 64-bit SDK</a>
-  or the
-  <a href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-ia32-release.{{ sdk.ext }}">
-    {{ sdk.name }} 32-bit SDK</a>.
-</span>
-
-{% endfor %}
-</p>
+Otherwise, you can <a href="../install.html">download the SDK</a> directly.</p>
 
 <h2 id="contents"> What's in the SDK </h2>
 
@@ -105,32 +82,15 @@ For more information about the SDK, see its
 <h2 id="install"> Installing the SDK </h2>
 
 <p>
-  Unzip the SDK download file.
-  You probably also should set a couple of environment variables,
-  so that using the tools is as easy as possible.
+  Unzip the SDK download file. Dart is installed!
 </p>
 
-<h3 id="dart_sdk"> Setting environment variables </h2>
-
-<p>
-Some scripts depend on
-having the DART_SDK environment variable set.
-Also, you'll probably want to put the
-SDK <code>bin</code> directory in your path.
-</p>
-
-<p>
-How you set the DART_SDK and PATH environment variables
-depends on your platform.
-Here's an example for the Bash shell on Mac or Linux:
-</p>
-
-<pre>
-DART_SDK=<em>/path/to/</em>dart-sdk
-PATH=$PATH:$DART_SDK/bin
-</pre>
-
-
+<aside class="alert alert-info">
+<strong>Note for Linux users</strong>: If your system uses an older
+version of Ubuntu and you are compiling the SDK,
+you may need to update to GCC 4.6 or later.
+See the <a href="faq.html">Tools FAQ</a> for more information.
+</aside>
 
 <h2 id="bugs"> Filing bugs and feature requests </h2>
 

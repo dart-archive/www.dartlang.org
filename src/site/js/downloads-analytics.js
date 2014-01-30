@@ -19,7 +19,7 @@ function countClicks() {
         downloadType = "Unknown Downloads";
       }
 
-      var target = e.target;
+      var target = e.currentTarget;
       var os = target.getAttribute('data-os') || 'unknown';
       var bits = target.getAttribute('data-bits') || 'unknown';
       var build = target.getAttribute('data-build') || 'unknown';

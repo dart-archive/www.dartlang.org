@@ -1,21 +1,30 @@
 <div class="downloads download-buttons">
 
   <span class="windows">
-    <a data-tool="dartium" class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-windows-ia32-release.zip">
-		<i class="sprite-icon-download-btn"> </i>
-    	Dartium (Windows)</a>
+    <a data-bits="32" data-os="windows" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-windows-ia32-release.zip">
+      <button class="{{ include.buttonclass }}">
+	<i class="sprite-icon-download-btn"> </i>
+    	DOWNLOAD DARTIUM (WINDOWS)
+      </button>
+    </a>
   </span>
 
   <span class="macos">
-    <a data-tool="dartium" class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">
+    <a data-bits="32" data-os="windows" data-tool="dartium" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">
+      <button class="{{ include.buttonclass }}">
     	<i class="sprite-icon-download-btn"> </i>
-    	Dartium (Mac)</a>
+    	DOWNLOAD DARTIUM (MAC)
+      </button>
+    </a>
   </span>
 
   <span class="linux">
-    <a data-tool="dartium" class="download-link btn btn-primary btn-large" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-linux-x64-release.zip">
+    <a data-bits="32" data-os="windows" data-tool="dartium" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-linux-x64-release.zip">
+      <button class="{{ include.buttonclass }}">
     	<i class="sprite-icon-download-btn"> </i>
-    	Dartium (Linux)</a>
+    	DOWNLOAD DARTIUM (LINUX)
+      </button>
+    </a>
   </span>
   
 </div>

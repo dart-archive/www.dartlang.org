@@ -3,11 +3,6 @@ layout: default
 title: "Dartium"
 description: "Download and use Dartium, a build of Chromium with an embedded Dart VM."
 has-permalinks: false
-js:
-- url: /js/os-switcher.js
-  defer: true
-- url: /js/downloads-analytics.js
-  defer: true
 ---
 
 <div class="jumbotron">
@@ -42,16 +37,9 @@ see <a href="/tools/">Tools for Dart</a>.
   <b>Do not use Dartium as your primary browser!</b>
 </aside>
 
-<p>
-  <a href="/docs/dart-up-and-running/contents/ch04-tools-dartium.html" class="btn">
-    <i class="icon-book"></i>
-    Learn how to use Dartium
-  </a>
-</p>
-
 
 <section>
-<h2 id="download"> Getting Dartium </h2>
+<h2 id="download">Getting Dartium</h2>
 
 <p>
   If you have an up-to-date version of
@@ -59,25 +47,12 @@ see <a href="/tools/">Tools for Dart</a>.
   you already have Dartium.
 </p>
 
-<p class="os-choices">
-  Or you can download the latest release of Dartium for
-  {% include os-choices.html %}
-</p>
-
 <p>
-{% include downloads/_dartium.html %}
-</p>
+Otherwise, you can <a href="../install.html">download Dartium</a> directly.
 
-<aside class="alert alert-info">
-  <strong>Note:</strong>
-  The Dartium binary <b>expires</b> within a month.
-  When that happens,
-  you'll need to download a new copy
-  if you want to continue using Dartium.
-</aside>
 </section>
 
-<h2 id="install"> Installing Dartium </h2>
+<h2 id="install">Installing Dartium</h2>
 
 <p>
   You don’t usually need to do anything special to install Dartium:
@@ -88,8 +63,13 @@ see <a href="/tools/">Tools for Dart</a>.
   replacing its original copy of Chromium.
 </p>
 
+<h2 id="using">Using Dartium</h2>
+<p>
+For details on using Dartium, read
+  <a href="/docs/dart-up-and-running/contents/ch04-tools-dartium.html">Dartium: Chromium with the Dart VM</a>.</p>
 
-<h2 id="bugs"> Filing bugs and feature requests </h2>
+
+<h2 id="bugs">Filing bugs and feature requests</h2>
 
 <p>
   To file a bug, use the
