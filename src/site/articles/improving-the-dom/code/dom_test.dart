@@ -7,11 +7,11 @@ main() {
 
 // BEGIN(element_query)
 // New:
-elem.query('#foo');
+elem.querySelector('#foo');
 elem.queryAll('div');
 elem.queryAll('[name="foo"]');
 elem.queryAll('.foo');
-elem.query('.foo .bar');
+elem.querySelector('.foo .bar');
 elem.queryAll('.foo .bar');
 // END(element_query) 
 

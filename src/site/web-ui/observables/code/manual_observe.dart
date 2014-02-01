@@ -12,6 +12,6 @@ updateMsg() {
 
 main() {
   observe(() => msg, (_) {
-    query('#msg').text = msg;
+    querySelector('#msg').text = msg;
   });
 }
