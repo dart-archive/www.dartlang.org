@@ -4,16 +4,15 @@ import 'dart:async';
 
 const dart2js = 'dart2js';
 
-void main() {
-  var args = new List.from(new Options().arguments);
+void main(List<String> args) {
   args.addAll(['--', '--no-rewrite-urls']);
-  
+
   var toCompile = ['hello_world.html', 'observe_object.html',
                    'observe_list.html', 'observe_nested.html',
                    'manual_observe.html'];
-  
+
   Future dwc = build(args, toCompile);
-  
+
   dwc
     .then((_) => Process.run('cp', ['packages/browser/dart.js', 'out/']))
     .then((_) => Process.run('cp', ['App.css', 'out/']))

@@ -1,7 +1,7 @@
 import 'dart:io';
 
-void main() {
-  for (String arg in new Options().arguments) {
+void main(List<String> args) {
+  for (String arg in args) {
     if (arg.startsWith('--changed=')) {
       String file = arg.substring('--changed='.length);
 
