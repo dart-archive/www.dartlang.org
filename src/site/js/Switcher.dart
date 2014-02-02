@@ -21,7 +21,7 @@ void filterPlatformText() {
   // Get all the platform-specific elements.
   osList.forEach((os) {
     bool shouldShow = (os == osName);
-    document.queryAll('.$os').forEach((el) {
+    document.querySelectorAll('.$os').forEach((el) {
       el.hidden = !shouldShow; // Show or hide each element.
     });
   });
