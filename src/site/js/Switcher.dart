@@ -13,15 +13,15 @@ void detectPlatform() {
   } else if (window.navigator.appVersion.contains('Mac')) {
     osName = 'macos';
   }
-  document.query('#$osName').attributes['checked'] = 'true';
+  document.querySelector('#$osName').attributes['checked'] = 'true';
 }
 
 /** Shows the text for the chosen platform (and no other). */
-void filterPlatformText() {    
+void filterPlatformText() {
   // Get all the platform-specific elements.
   osList.forEach((os) {
     bool shouldShow = (os == osName);
-    document.queryAll('.$os').forEach((el) {      
+    document.querySelectorAll('.$os').forEach((el) {
       el.hidden = !shouldShow; // Show or hide each element.
     });
   });
@@ -30,7 +30,7 @@ void filterPlatformText() {
 /** Allows the user to choose the OS. */
 void registerHandlers() {
   osList.forEach((os) {
-    document.query('#$os').onClick.listen((e) {
+    document.querySelector('#$os').onClick.listen((e) {
       osName = os;
       filterPlatformText();
     });

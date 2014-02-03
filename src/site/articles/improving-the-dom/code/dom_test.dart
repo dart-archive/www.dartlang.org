@@ -7,13 +7,13 @@ main() {
 
 // BEGIN(element_query)
 // New:
-elem.query('#foo');
-elem.queryAll('div');
-elem.queryAll('[name="foo"]');
-elem.queryAll('.foo');
-elem.query('.foo .bar');
-elem.queryAll('.foo .bar');
-// END(element_query) 
+elem.querySelector('#foo');
+elem.querySelectorAll('div');
+elem.querySelectorAll('[name="foo"]');
+elem.querySelectorAll('.foo');
+elem.querySelector('.foo .bar');
+elem.querySelectorAll('.foo .bar');
+// END(element_query)
 
 elem.attributes;
 elem.children;
@@ -40,7 +40,7 @@ elem.nodes.add(child);
 // New:
 new DivElement();
 new ButtonElement();
-new InputElement(); 
+new InputElement();
 new InputElement(type: 'checkbox');
 new TableElement();
 new StyleElement();
@@ -91,7 +91,7 @@ var storeName;
 window.indexedDB.open(dbName, version: version,
   onUpgradeNeeded: (e) {
     Database db = e.target.result;
-    if (!db.objectStoreNames.contains(storeName)) {  
+    if (!db.objectStoreNames.contains(storeName)) {
       db.createObjectStore(storeName);
     }
   })

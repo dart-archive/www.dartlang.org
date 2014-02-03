@@ -1,7 +1,5 @@
 import 'package:unittest/unittest.dart';
 import 'package:unittest/vm_config.dart';
-import 'dart:async';
-import 'dart:io';
 
 my_function(x, {successCallback, errorCallback}) {
 }

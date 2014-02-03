@@ -5,8 +5,8 @@ import 'dart:async';
 var wordList;
 
 void main() {
-  query('#getWords').onClick.listen(makeRequest);
-  wordList = query('#wordList');
+  querySelector('#getWords').onClick.listen(makeRequest);
+  wordList = querySelector('#wordList');
 }
 
 void makeRequest(Event e) {

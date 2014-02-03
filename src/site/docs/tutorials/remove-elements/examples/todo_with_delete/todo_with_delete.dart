@@ -5,10 +5,10 @@ UListElement toDoList;
 ButtonElement deleteAll;
 
 void main() {
-  toDoInput = query('#to-do-input');
-  toDoList = query('#to-do-list');
+  toDoInput = querySelector('#to-do-input');
+  toDoList = querySelector('#to-do-list');
   toDoInput.onChange.listen(addToDoItem);
-  deleteAll = query('#delete-all');
+  deleteAll = querySelector('#delete-all');
   deleteAll.onClick.listen((e) => toDoList.children.clear());
 }
 

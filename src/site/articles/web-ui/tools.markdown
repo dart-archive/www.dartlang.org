@@ -126,8 +126,8 @@ following contents:
 import 'package:web_ui/component_build.dart';
 import 'dart:io';
 
-void main() {
-  build(new Options().arguments, ['web/app.html']);
+void main(List<String> args) {
+  build(args, ['web/app.html']);
 }
 {% endprettify %}
 

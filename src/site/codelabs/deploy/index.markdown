@@ -467,7 +467,7 @@ under `deploy-codelab`.
 
 Open the app.
 Select **File > Open File...**
-in a browser such a Firefix or Safari
+in a browser such a Firefox or Safari
 and select the
 `deploy-codelab/build/piratebadge.html` file.
 
