@@ -1262,7 +1262,8 @@ that encodes a pirate name in a JSON string.
 {% prettify dart %}
 class PirateName {
   ...
-  [[highlight]]String get jsonString => '{ "f": "$_firstName", "a": "$_appellation" } ';[[/highlight]]
+  [[highlight]]String get jsonString => 
+    JSON.encode({ "f": _firstName, "a": _appellation });[[/highlight]]
 }
 {% endprettify %}
 </div>
