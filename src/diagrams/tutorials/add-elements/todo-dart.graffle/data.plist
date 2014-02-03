@@ -7,7 +7,7 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGrafflePro</string>
-		<string>139.16.0.171715</string>
+		<string>139.18.0.187838</string>
 	</array>
 	<key>AutoAdjust</key>
 	<true/>
@@ -53,7 +53,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{40, 149.5}, {306, 248}}</string>
+			<string>{{40, 149.5}, {327, 248}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -94,7 +94,7 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -105,8 +105,8 @@ InputElement toDoInput;\
 UListElement toDoList;\
 \
 void main() \{\
-  toDoInput = query('#to-do-input');\
-  toDoList = query('#to-do-list');\
+  toDoInput = querySelector('#to-do-input');\
+  toDoList = querySelector('#to-do-list');\
   toDoInput.onChange.listen(addToDoItem);\
 \}\
 \
@@ -122,7 +122,7 @@ void addToDoItem(Event e) \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{53, 238.5}, {249, 14}}</string>
+			<string>{{53, 238.5}, {307, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -161,7 +161,7 @@ void addToDoItem(Event e) \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{53, 252}, {235, 14}}</string>
+			<string>{{53, 252}, {293, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -252,7 +252,7 @@ void addToDoItem(Event e) \{\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -358,8 +358,8 @@ void addToDoItem(Event e) \{\
 			<integer>191</integer>
 			<key>Points</key>
 			<array>
-				<string>{288, 261.19167409941724}</string>
-				<string>{409, 284.93969361767529}</string>
+				<string>{346, 265.54949814531489}</string>
+				<string>{409, 283.05953934119424}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -391,8 +391,8 @@ void addToDoItem(Event e) \{\
 			<integer>190</integer>
 			<key>Points</key>
 			<array>
-				<string>{302, 243.7654325262389}</string>
-				<string>{405, 255.88806920641267}</string>
+				<string>{360, 245.75715436463315}</string>
+				<string>{405, 254.89915537564605}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -449,7 +449,7 @@ void addToDoItem(Event e) \{\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -494,7 +494,7 @@ void addToDoItem(Event e) \{\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -588,7 +588,7 @@ void addToDoItem(Event e) \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-02-12 21:37:01 +0000</string>
+	<string>2014-02-03 18:23:16 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -669,7 +669,7 @@ void addToDoItem(Event e) \{\
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{160, 217}, {945, 900}}</string>
+		<string>{{648, 452}, {945, 900}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>

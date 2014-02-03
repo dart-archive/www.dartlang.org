@@ -142,7 +142,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -218,7 +218,7 @@
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -263,7 +263,7 @@
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -273,7 +273,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{288, 440.5}, {500, 80}}</string>
+			<string>{{288, 440.5}, {558, 80}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -307,16 +307,16 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
 \pard\pardeftab720
 
 \f0\fs24 \cf0 ...\
-startButton = getShadowRoot("tute-stopwatch").query('#startbutton');\
-stopButton = getShadowRoot("tute-stopwatch").query('#stopbutton');\
-resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
+startButton = getShadowRoot("tute-stopwatch").querySelector('#startbutton');\
+stopButton = getShadowRoot("tute-stopwatch").querySelector('#stopbutton');\
+resetButton = getShadowRoot("tute-stopwatch").querySelector('#resetbutton');\
 ...}</string>
 			</dict>
 			<key>Wrap</key>
@@ -334,8 +334,8 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<integer>241</integer>
 			<key>Points</key>
 			<array>
-				<string>{294, 495.17617452995694}</string>
-				<string>{195.99655349548584, 506.76886438810908}</string>
+				<string>{294, 495.31060030764894}</string>
+				<string>{195.99660968446173, 506.80779582463629}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -367,8 +367,8 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<integer>240</integer>
 			<key>Points</key>
 			<array>
-				<string>{294, 481.16372550055536}</string>
-				<string>{196.00001072766617, 481.58006532841353}</string>
+				<string>{294, 481.1975594313102}</string>
+				<string>{196.00001123112023, 481.58976395452794}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -400,8 +400,8 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<integer>239</integer>
 			<key>Points</key>
 			<array>
-				<string>{294, 465.33732874654288}</string>
-				<string>{195.99760918797347, 455.68812049495602}</string>
+				<string>{294, 465.25411032677135}</string>
+				<string>{195.99763826357002, 455.66408718764836}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -460,7 +460,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -507,7 +507,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -554,7 +554,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -564,7 +564,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{294, 486.875}, {489, 14}}</string>
+			<string>{{294, 486.875}, {544, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -610,7 +610,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{294, 473.125}, {489, 14}}</string>
+			<string>{{294, 473.125}, {536, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -652,7 +652,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{294, 459.125}, {489, 14}}</string>
+			<string>{{294, 459.125}, {544, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -750,7 +750,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -799,7 +799,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -900,7 +900,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -935,7 +935,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1015,7 +1015,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1134,7 +1134,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1189,7 +1189,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1244,7 +1244,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1266,8 +1266,8 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<integer>186</integer>
 			<key>Points</key>
 			<array>
-				<string>{301.96370983611405, 177.40734659733445}</string>
-				<string>{408.50875900866799, 197.8108929853727}</string>
+				<string>{301.96374327041104, 177.38947888225437}</string>
+				<string>{408.50887491118414, 197.75375192228682}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1326,7 +1326,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1346,8 +1346,8 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<integer>108</integer>
 			<key>Points</key>
 			<array>
-				<string>{301.97219153434412, 170.16443174639016}</string>
-				<string>{408.5004334825079, 174.6458198024317}</string>
+				<string>{301.97219323404613, 170.16050298620922}</string>
+				<string>{408.50043936912738, 174.63325811777389}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1379,8 +1379,8 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<integer>107</integer>
 			<key>Points</key>
 			<array>
-				<string>{301.96970951236062, 162.85927577244098}</string>
-				<string>{408.50286894862296, 151.28739980408125}</string>
+				<string>{301.96972064747149, 162.86941735465871}</string>
+				<string>{408.50290763672655, 151.31982803988677}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1439,7 +1439,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1486,7 +1486,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1521,7 +1521,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1591,7 +1591,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -1642,7 +1642,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf390
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -1700,7 +1700,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-10-03 16:53:54 +0000</string>
+	<string>2014-02-03 18:54:45 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -1781,7 +1781,7 @@ resetButton = getShadowRoot("tute-stopwatch").query('#resetbutton');\
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{578, 434}, {1030, 1144}}</string>
+		<string>{{829, 433}, {1030, 1144}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>

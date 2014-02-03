@@ -7,14 +7,14 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGrafflePro</string>
-		<string>139.16.0.171715</string>
+		<string>139.18.0.187838</string>
 	</array>
 	<key>AutoAdjust</key>
 	<true/>
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {576, 733}}</string>
+		<string>{{0, 0}, {1152, 733}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -53,7 +53,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{154.74998474121094, 241.578125}, {416, 69.921875}}</string>
+			<string>{{154.74998474121094, 241.578125}, {474.25, 69.921875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -94,7 +94,7 @@
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -102,13 +102,13 @@
 
 \f0\fs24 \cf0 import 'dart:html';\
 void main() \{\
-  query('#RipVanWinkle').text = 'Wake up, sleepy head!';\
+  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';\
 \}}</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{154.74998474121094, 369.890625}, {416, 69.921875}}</string>
+			<string>{{154.74998474121094, 369.890625}, {474.25, 69.921875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -149,7 +149,7 @@ void main() \{\
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -157,13 +157,13 @@ void main() \{\
 
 \f0\fs24 \cf0 import 'dart:html';\
 void main() \{\
-  query('#RipVanWinkle').text = 'Wake up, sleepy head!';\
+  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';\
 \}}</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{154.74998474121094, 649.625}, {416, 69.921875}}</string>
+			<string>{{154.74998474121094, 649.625}, {474.25, 69.921875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -204,7 +204,7 @@ void main() \{\
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -212,13 +212,13 @@ void main() \{\
 
 \f0\fs24 \cf0 import 'dart:html';\
 void main() \{\
-  query('#RipVanWinkle').text = 'Wake up, sleepy head!';\
+  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';\
 \}}</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{154.74998474121094, 500.64453125}, {416, 69.921875}}</string>
+			<string>{{154.74998474121094, 500.64453125}, {474.25, 69.921875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -259,7 +259,7 @@ void main() \{\
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -267,13 +267,13 @@ void main() \{\
 
 \f0\fs24 \cf0 import 'dart:html';\
 void main() \{\
-  query('#RipVanWinkle').text = 'Wake up, sleepy head!';\
+  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';\
 \}}</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{154.75, 90.15625}, {416, 69.921875}}</string>
+			<string>{{154.75, 90.15625}, {474.25, 69.921875}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -314,7 +314,7 @@ void main() \{\
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -322,7 +322,7 @@ void main() \{\
 
 \f0\fs24 \cf0 import 'dart:html';\
 void main() \{\
-  query('#RipVanWinkle').text = 'Wake up, sleepy head!';\
+  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';\
 \}}</string>
 			</dict>
 		</dict>
@@ -338,8 +338,8 @@ void main() \{\
 			<integer>99</integer>
 			<key>Points</key>
 			<array>
-				<string>{99.193036669802225, 660.09375}</string>
-				<string>{185.25731526946021, 684.671875}</string>
+				<string>{100.20597561671447, 660.09375}</string>
+				<string>{190.02816214913889, 684.671875}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -397,7 +397,7 @@ void main() \{\
 				<key>Align</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
@@ -418,8 +418,8 @@ changes the DOM.}</string>
 			<integer>97</integer>
 			<key>Points</key>
 			<array>
-				<string>{128.14203643798831, 506.85147646395319}</string>
-				<string>{332, 539.839507749625}</string>
+				<string>{128.14203643798828, 505.5355801294026}</string>
+				<string>{393, 540.41331699776629}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -477,7 +477,7 @@ changes the DOM.}</string>
 				<key>Align</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
@@ -497,8 +497,8 @@ changes the DOM.}</string>
 			<integer>95</integer>
 			<key>Points</key>
 			<array>
-				<string>{125.94624292052097, 222.85546875}</string>
-				<string>{229.06327713507773, 276.25390625}</string>
+				<string>{130.53263588724852, 222.85546875}</string>
+				<string>{280.16004981631966, 276.25390625}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -556,7 +556,7 @@ changes the DOM.}</string>
 				<key>Align</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
@@ -576,8 +576,8 @@ changes the DOM.}</string>
 			<integer>93</integer>
 			<key>Points</key>
 			<array>
-				<string>{126.26900303716923, 376.4296875}</string>
-				<string>{169.88368915561762, 405.2734375}</string>
+				<string>{127.0592151740849, 376.4296875}</string>
+				<string>{173.60234617031762, 405.2734375}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -635,7 +635,7 @@ changes the DOM.}</string>
 				<key>Align</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
@@ -715,7 +715,7 @@ matching Element}</string>
 				<key>Align</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
@@ -777,7 +777,7 @@ matching Element}</string>
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -843,7 +843,7 @@ matching Element}</string>
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -909,7 +909,7 @@ matching Element}</string>
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -975,7 +975,7 @@ matching Element}</string>
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -1041,7 +1041,7 @@ matching Element}</string>
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -1055,7 +1055,7 @@ matching Element}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{168, 405.2734375}, {164.5, 14.703125}}</string>
+			<string>{{168, 405.2734375}, {221, 14.703125}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1094,7 +1094,7 @@ matching Element}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{332, 535.5625}, {38, 14.703125}}</string>
+			<string>{{393, 535.5625}, {38, 14.703125}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1168,7 +1168,7 @@ matching Element}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{216.49996948242188, 276.25390625}, {107.03926086425781, 14.703125}}</string>
+			<string>{{274, 276.25390625}, {107.03926086425781, 14.703125}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1207,7 +1207,7 @@ matching Element}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{170, 684.671875}, {392.55889129638672, 14.703125}}</string>
+			<string>{{170, 684.671875}, {449, 14.703125}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -1252,7 +1252,7 @@ matching Element}</string>
 	<key>GuidesVisible</key>
 	<string>YES</string>
 	<key>HPages</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>ImageCounter</key>
 	<integer>1</integer>
 	<key>KeepToScale</key>
@@ -1292,7 +1292,7 @@ matching Element}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-02-12 18:40:21 +0000</string>
+	<string>2014-02-03 17:41:00 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -1373,7 +1373,7 @@ matching Element}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{482, 270}, {731, 908}}</string>
+		<string>{{570, 575}, {1130, 1003}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -1387,7 +1387,7 @@ matching Element}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-43, -18}, {661, 769}}</string>
+		<string>{{0, -58}, {1060, 849}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>

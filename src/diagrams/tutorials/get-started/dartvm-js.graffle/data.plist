@@ -7,7 +7,7 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGrafflePro</string>
-		<string>139.16.0.171715</string>
+		<string>139.18.0.187838</string>
 	</array>
 	<key>AutoAdjust</key>
 	<true/>
@@ -105,7 +105,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -171,7 +171,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -210,7 +210,7 @@
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -253,7 +253,7 @@ compiler}</string>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -299,7 +299,7 @@ compiler}</string>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
@@ -341,7 +341,7 @@ compiler}</string>
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -351,7 +351,7 @@ compiler}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{-0.10839701145170011, 169.75}, {312.1083984375, 65.5}}</string>
+			<string>{{-0.10839701145170011, 169.75}, {347, 65.5}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -383,7 +383,7 @@ compiler}</string>
 				<key>Align</key>
 				<integer>0</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
 \deftab720
@@ -391,7 +391,7 @@ compiler}</string>
 
 \f0\fs24 \cf0 import 'dart:html';\
 void main() \{\
-  query('#ID').text = 'Hello, World!';\
+  querySelector('#ID').text = 'Hello, World!';\
 \}}</string>
 			</dict>
 			<key>TextPlacement</key>
@@ -399,7 +399,7 @@ void main() \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{307.92591624484567, 184}, {158, 22.5}}</string>
+			<string>{{376, 184.25}, {158, 22.5}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -434,7 +434,7 @@ void main() \{\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
@@ -444,7 +444,7 @@ void main() \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{311.517822265625, 201.25}, {271.158935546875, 190}}</string>
+			<string>{{379.59190602077933, 201.5}, {271.158935546875, 190}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -510,7 +510,7 @@ void main() \{\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
@@ -558,7 +558,7 @@ void main() \{\
 			<key>Text</key>
 			<dict>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265
 \cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
@@ -570,7 +570,7 @@ void main() \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{276.01456303946838, 268.13765349495668}, {35.506431579589844, 50.427173614501953}}</string>
+			<string>{{276.01178173069263, 268.43893358832588}, {103.58610534667969, 50.427173614501953}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -581,7 +581,7 @@ void main() \{\
 			<key>ID</key>
 			<integer>62</integer>
 			<key>Rotation</key>
-			<real>1.0830720663070679</real>
+			<real>0.87067842483520508</real>
 			<key>Shape</key>
 			<string>AdjustableArrow</string>
 			<key>ShapeData</key>
@@ -656,7 +656,7 @@ void main() \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{155.21947718130218, 275.8911548261006}, {39.805873870849609, 36}}</string>
+			<string>{{155.21947718130207, 275.8911548261006}, {39.805873870849609, 36}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -742,7 +742,7 @@ void main() \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{97.351108281029425, 232.84965707337287}, {43.754505157470703, 41.096492767333984}}</string>
+			<string>{{104.95284156087067, 232.07159967567168}, {45.911762237548828, 41.096492767333984}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -753,7 +753,7 @@ void main() \{\
 			<key>ID</key>
 			<integer>57</integer>
 			<key>Rotation</key>
-			<real>125.80644226074219</real>
+			<real>132.22319030761719</real>
 			<key>Shape</key>
 			<string>AdjustableArrow</string>
 			<key>ShapeData</key>
@@ -828,7 +828,7 @@ void main() \{\
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{275.01838327910593, 323.4573116372859}, {37.472892761230469, 48.5}}</string>
+			<string>{{274.37070299473237, 319.65407782730642}, {106.85305023193359, 48.5}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>Head</key>
@@ -839,7 +839,7 @@ void main() \{\
 			<key>ID</key>
 			<integer>56</integer>
 			<key>Rotation</key>
-			<real>341.44973754882812</real>
+			<real>345.80255126953125</real>
 			<key>Shape</key>
 			<string>AdjustableArrow</string>
 			<key>ShapeData</key>
@@ -968,7 +968,7 @@ void main() \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-02-11 23:17:02 +0000</string>
+	<string>2014-02-03 18:44:16 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>
@@ -1049,7 +1049,7 @@ void main() \{\
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{240, 210}, {874, 878}}</string>
+		<string>{{878, 360}, {874, 878}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
