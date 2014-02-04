@@ -108,6 +108,14 @@ to open the `one-hour-codelab` directory.
 
 ![The files and directories in the piratebadge directory.](images/filesanddirs.png)
 
+<div class="trydart-note" markdown="1">
+<strong>Note:</strong>
+If you see <span style="color:red">red X's</span> at the left of the
+filenames or if the `packages` directory is missing,
+the packages are not properly installed.
+Right click `pubspec.yaml` and select **Pub Get**.
+</div>
+
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
@@ -587,6 +595,8 @@ import 'dart:html';
 
 * ButtonElement is one of many different kinds of DOM elements
 provided by the dart:html library.
+
+* Variables, including numbers, initialize to null if no value is provided.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -1262,7 +1272,7 @@ that encodes a pirate name in a JSON string.
 {% prettify dart %}
 class PirateName {
   ...
-  [[highlight]]String get jsonString => '{ "f": "$_firstName", "a": "$_appellation" } ';[[/highlight]]
+  [[highlight]]String get jsonString => JSON.encode({"f": _firstName, "a": _appellation});[[/highlight]]
 }
 {% endprettify %}
 </div>
@@ -1953,18 +1963,15 @@ Expand the `6-piratebadge` directory.
 
 </div></div>
 
-
 ### <i class="fa fa-anchor"> </i> Run the app as JavaScript
 
 <div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details" markdown="1">
 
-Open the app.
-Select **File > Open File...**
-in a browser such a Firefox or Safari
-and select the
-`one-hour-codelab/build/6-piratebadge/piratebadge.html` file.
+Right click the `piratebadge.html` file
+and choose **Run as JavaScript** from the menu.
+Copy the URL and run the app in Firefox or Safari.
 
 </div>
 
@@ -1972,11 +1979,12 @@ and select the
 
 <i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
 
-* The app runs on the local machine using the `file` protocol.
+* The app runs on localhost.
   To share your app with others,
   you need to deploy the app to a hosting service.
 
 </div></div>
+
 
 <hr>
 
