@@ -22,7 +22,7 @@
     to_unix_date = function(date) {
       return Math.floor(date.valueOf() / 1000);
     };
-    start_date = to_unix_date(new Date());
+    start_date = to_unix_date(new Date('2014-2-1'));
     end_date = to_unix_date(new Date('2014-12-31'));
     url = "https://google-developers.appspot.com/events/event-markers.public?tag=dartflightschool&start=" + start_date + "&end=" + end_date;
     if (Modernizr.cors) {
