@@ -53,29 +53,6 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{216, 115}, {46, 9}}</string>
-			<key>Class</key>
-			<string>ShapedGraphic</string>
-			<key>ID</key>
-			<integer>41</integer>
-			<key>Shape</key>
-			<string>Rectangle</string>
-			<key>Style</key>
-			<dict>
-				<key>shadow</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-				<key>stroke</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-			</dict>
-		</dict>
-		<dict>
-			<key>Bounds</key>
 			<string>{{94, 40}, {366, 500}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
@@ -160,7 +137,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-01-24 17:53:36 +0000</string>
+	<string>2014-02-05 21:29:45 +0000</string>
 	<key>Modifier</key>
 	<string>Mary Campione</string>
 	<key>NotesVisible</key>

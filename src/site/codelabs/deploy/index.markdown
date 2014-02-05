@@ -133,20 +133,20 @@ Go to the `dart` directory and double-click **DartEditor**.
 <a href="https://github.com/dart-lang/deploy-codelab/archive/master.zip">Download</a>
 the code for the app that you will be deploying.
 Unzip the ZIP file,
-which creates a directory called `deploy-codelab`.
+which creates a directory called `deploy-codelab-master`.
 </div>
 
-### <i class="fa fa-anchor"> </i> Open deploy-codelab.
+### <i class="fa fa-anchor"> </i> Open deploy-codelab-master.
 
 <div class="trydart-step-details" markdown="1">
 In Dart Editor,
 use **File > Open Existing Folder...**
-to open the `deploy-codelab` directory.
+to open the `deploy-codelab-master` directory.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
-![The files and directories in the deploy-codelab directory](images/filesanddirs.png)
+![The files and directories in the deploy-codelab-master directory](images/filesanddirs.png)
 
 <div class="trydart-note" markdown="1">
 <strong>Note:</strong>
@@ -439,7 +439,7 @@ Built 10 files!
 <div class="trydart-step-details" markdown="1">
 
 The `pub build` command creates a `build` directory
-under `deploy-codelab`.
+under `deploy-codelab-master`.
 
 ![The build directory contains everything you need to deploy.](images/builddir.png)
 </div>
@@ -469,7 +469,7 @@ Open the app.
 Select **File > Open File...**
 in a browser such a Firefox or Safari
 and select the
-`deploy-codelab/build/piratebadge.html` file.
+`deploy-codelab-master/build/piratebadge.html` file.
 
 </div>
 
@@ -741,8 +741,10 @@ right click `bin/basic_http_server.dart` and select `Run`.
 Dart Editor brings up a new output pane in which the web server
 displays its output, if any.
 
-Now, open `0.0.0.0:9999` in your browser.
+Now, open `0.0.0.0:9999` in your browser
+(or, on Windows, open `127.0.0.1:9999`).
 The app appears and you can generate pirate names.
+
 
 <strong>Leave the web server running.</strong>
 
@@ -884,7 +886,7 @@ to download the Heroku tools and get an account with Heroku.
 
 <div class="trydart-step-details" markdown="1">
 
-In the `deploy-codelab` directory, create a file
+In the `deploy-codelab-master` directory, create a file
 named `Procfile` and add the following line to it.
 
 {% prettify bash %}
@@ -911,7 +913,7 @@ web: ./dart-sdk/bin/dart bin/basic_http_server.dart
 </div> </div>
 
 
-### <i class="fa fa-anchor"> </i> Commit your changes to your local `deploy-codelab` git repo
+### <i class="fa fa-anchor"> </i> Commit your changes to your local `deploy-codelab-master` git repo
 
 <div class="trydart-step-details" markdown="1">
 
@@ -931,7 +933,7 @@ you need to initialize a local `git` repo and commit your files to it.
 <div class="trydart-step-details" markdown="1">
 
 {% prettify bash %}
-$ cd deploy-codelab
+$ cd deploy-codelab-master
 $ git init
 $ git add -A .
 $ git commit -am "Hoist the mizzen!"

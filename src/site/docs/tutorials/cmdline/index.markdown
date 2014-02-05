@@ -5,7 +5,7 @@ description: "Basics for command-line apps"
 has-permalinks: true
 tutorial:
   id: dart-io
-next: /
+next:
 next-title: "Home"
 prev: indexeddb/
 prev-title: "Use IndexedDB"
