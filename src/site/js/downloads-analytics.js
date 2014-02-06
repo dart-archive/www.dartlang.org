@@ -24,7 +24,7 @@ function countClicks() {
       var bits = target.getAttribute('data-bits') || 'unknown';
       var build = target.getAttribute('data-build') || 'unknown';
       var bitsAndBuild = build + '/' + bits;
-      _gaq.push(['_trackEvent', downldType, os, bitsAndBuild, 1]);
+      _gaq.push(['_trackEvent', downloadType, os, bitsAndBuild, 1]);
     });
   }
 }
