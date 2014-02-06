@@ -95,6 +95,12 @@ handlers:
 - url: /dartium/.*
   script: scripts.redirector.application
 
+- url: /tools/
+  script: scripts.redirector.application
+
+- url: /tools/index.*
+  script: scripts.redirector.application
+
 - url: /tools/analyzer
   script: scripts.redirector.application
 

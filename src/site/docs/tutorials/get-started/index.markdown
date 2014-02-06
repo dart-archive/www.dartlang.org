@@ -70,8 +70,8 @@ create and run two small applications.
 
 Get Dart.
 The Dart download includes <a href="/tools/editor/">Dart Editor</a>,
-which you'll be using
-throughout this tutorial.
+which you'll be using throughout this tutorial.
+(For more options, go to the [download page](/tools/download.html).)
 
 <div align="center">
   {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
@@ -82,6 +82,7 @@ throughout this tutorial.
   work in recent versions of
   {% include os-choices.html %}
 </p>
+
 
 <aside class="alert alert-info">
   <b>Note:</b> The Dart tools <b>do not support Windows XP</b>.
