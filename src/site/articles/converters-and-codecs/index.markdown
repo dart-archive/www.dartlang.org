@@ -161,7 +161,7 @@ The result is an input sink with methods `add()` and `close()`.
 At a later point, the code that started the chunked conversion invokes,
 possibly multiple times, the `add()` method with
 some data. The data is converted by the input sink. If the converted data is
-ready the input sinks sends it to the output sink, possibly with multiple
+ready the input sink sends it to the output sink, possibly with multiple
 `add()` calls. Eventually the user finishes the conversion by invoking
 `close()`. At this point any remaining converted data is sent from the input
 sink to the output sink and the output sink is closed.
@@ -444,8 +444,12 @@ class RotSink extends ChunkedConversionSink<List<int>> {
 }
 {% endprettify %}
 
-We can use the sink that is returned by startChunkedConversion explicitly
-in the code.
+For simplicity we propose a new method that consumes a complete list. A more
+advanced method (for example `addModifiableSlice()`) would take range arguments
+(`from`, `to`) and an `isLast` boolean as arguments.
+
+This new method is not yet used by transformers, but we can already use it when
+invoking `startChunkedConversion` explicitly.
 
 {% prettify dart %}
 
@@ -466,11 +470,13 @@ chunked conversion avoids allocating new lists for the individual chunks.
 For two small chunks, it doesn’t make a difference, but
 if we implement this for the stream transformer,
 encrypting a bigger file can be noticeably faster.
-To do this, we can make use of the modifiable lists provided by
-IOStreams (an undocumented feature). We could now simply rewrite `add()` and
+
+To do this,
+we can make use of the undocumented feature that IOStreams provide modifiable lists.
+We could now simply rewrite `add()` and
 point it directly to `addModifiable()`. In general, this is not safe,
 and
-such a converter would be the potential source of hard-to-track errors. Instead,
+such a converter would be the potential source of hard-to-track bugs. Instead,
 we write a converter that does the unmodifiable-to-modifiable conversion
 explicitly, and then fuse the two converters.
 
