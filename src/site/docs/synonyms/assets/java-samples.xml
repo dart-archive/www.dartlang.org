@@ -664,27 +664,27 @@ public class Employee extends Person {
     <code language="java"><![CDATA[
 // Using GWT
 DOM.getElementById("main");
-// Using GWT > GXT
+// Using GWT with GXT
 DomQuery.select("#main").getItem(0);
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$("#main").get(0);
 ]]></code>
   </synonym>
   <synonym id="syn-find-one-element-by-class">
     <title>Find one element by class</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 DomQuery.select(".visible").getItem(0);
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$(".visible").get(0);
 ]]></code>
   </synonym>
   <synonym id="syn-find-many-elements-by-class">
     <title>Find many elements by class</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 DomQuery.select(".visible");
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$(".visible");
 ]]></code>
   </synonym>
@@ -693,9 +693,9 @@ GQuery.$(".visible");
     <code language="java"><![CDATA[
 // Using GWT
 Document.get().getElementsByTagName("div").getItem(0);
-// Using GWT > GXT
+// Using GWT with GXT
 DomQuery.select("div").getItem(0);
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$("div").get(0);
 ]]></code>
   </synonym>
@@ -704,49 +704,49 @@ GQuery.$("div").get(0);
     <code language="java"><![CDATA[
 // Using GWT
 Document.get().getElementsByTagName("div").getItem(0);
-// Using GWT > GXT 
+// Using GWT with GXT 
 DomQuery.select("div");
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$("div");
 ]]></code>
   </synonym>
   <synonym id="syn-find-one-element-by-name">
     <title>Find one element by name</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 DomQuery.select("[name='form']").getItem(0);
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$("[name='form']").get(0);
 ]]></code>
   </synonym>
   <synonym id="syn-find-many-elements-by-name">
     <title>Find many elements by name</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 DomQuery.select("[name='form']");
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$("[name='form']");
 ]]></code>
   </synonym>
   <synonym id="syn-find-elements-by-combination-of-above">
     <title>Find elements by combination of above</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 DomQuery.select("#main div:first .visible");
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery.$("#main div:first-of-type .visible");
 ]]></code>
   </synonym>
   <synonym id="syn-iterate-over-a-list-of-elements">
     <title>Iterate over a list of elements</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 NodeList<Element> elements = DomQuery.select(".visible");
 for (int i=0; i < elements.getLength(); i++) {
   Element element = elements.getItem(i);
 }
 
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery elements = GQuery.$(".visible");
 for (int i = 0; i < elements.length(); i++) {
   Element element = elements.get(i);
@@ -756,18 +756,18 @@ for (int i = 0; i < elements.length(); i++) {
   <synonym id="syn-access-the-first-child">
     <title>Access the first child</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 elements.getItem(0);
-// Using GWT > GQuery
+// Using GWT with GQuery
 elements.get(0);
 ]]></code>
   </synonym>
   <synonym id="syn-find-out-whether-an-element-has-children-elements">
     <title>Find out whether an element has children elements</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 elements.getLength() == 0
-// Using GWT > GQuery
+// Using GWT with GQuery
 elements.length() == 0
 ]]></code>
   </synonym>
@@ -979,9 +979,9 @@ public class ProjectEntryPoint implements EntryPoint {
   <synonym id="syn-node-lookup">
     <title>Node lookup</title>
     <code language="java"><![CDATA[
-// Using GWT > GXT
+// Using GWT with GXT
 NodeList<Element> elements = DomQuery.select("#main");
-// Using GWT > GQuery
+// Using GWT with GQuery
 GQuery elements = GQuery.$("#main");
 ]]></code>
   </synonym>
