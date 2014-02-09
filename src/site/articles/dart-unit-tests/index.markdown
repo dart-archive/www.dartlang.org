@@ -114,7 +114,7 @@ expect(actualValue, expectedValueMatcher);
 {% endprettify %}
 
 `expect()` is modelled on third-generation assert libraries like
-[Hamcrest](http://http//code.google.com/p/hamcrest/).
+[Hamcrest](http://code.google.com/p/hamcrest/).
 It also borrows some ideas
 from Ladislav Thon's early Dart matcher library, darmatch.
 
