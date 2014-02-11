@@ -22,6 +22,7 @@ final Map<String, String> synonymsUrls = const {
   'dart': 'assets/dart-samples.xml',
   'js': 'assets/js-samples.xml',
   'csharp': 'assets/csharp-samples.xml',
+  'java': 'assets/java-samples.xml',
   'python': 'assets/python-samples.xml'
 };
 

@@ -52,6 +52,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <xsl:if test="@language='python'">
         <xsl:attribute name="class">prettyprint lang-python</xsl:attribute>
       </xsl:if>
+      <xsl:if test="@language='java'">
+        <xsl:attribute name="class">prettyprint lang-java</xsl:attribute>
+      </xsl:if>
       <xsl:value-of select="." />
     </pre>
   </div>
