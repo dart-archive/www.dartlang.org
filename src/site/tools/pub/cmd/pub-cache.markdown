@@ -7,14 +7,20 @@ title: "pub cache"
 
 _Cache_ is one of the commands of the [pub](/tools/pub/) tool.
 
-    $ pub cache list
+{% prettify lang-sh %}
+$ pub cache add <package> [--version <constraint>] [--all]
+{% endprettify %}
 
-This command lists information about packages currently downloaded into your
-[system cache](glossary.html#system-cache). Currently, it only outputs
-information in JSON form and exists mainly for the Editor's benefit.
+The `pub cache` command works with the
+[system cache](/tools/pub/glossary.html#system-cache).
 
-<aside class="alert alert-warning">
-  Eventually, this command will be more useful for end users. For now, you
-  probably just want to ignore it. We may change the format of its output at
-  any time.
-</aside>
+You can use `pub cache add` to install a library in your cache.
+The `--all` flag installs all matching versions and the
+`--version <constraints>` flag installs the best version matching
+the specified constraint.  For example:
+
+{% prettify lang-sh %}
+$ pub cache add barback --version ">=0.8.0 <0.110"
+{% endprettify %}
+
+If `--version` is omitted, pub installs the best of all known versions.
