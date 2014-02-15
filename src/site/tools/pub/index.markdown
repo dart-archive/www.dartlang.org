@@ -40,10 +40,11 @@ application package.
 * [Pubspec Format](pubspec.html)
 * [FAQ](faq.html)
 * [Glossary](glossary.html)
+* [Configuring the Built-in dart2js Transformer](dart2js-transformer.html)
 
 ## Pub commands
 
-The `pub` tool provides a number of commands for a variety of purposes.
+The `pub` tool provides commands for a variety of purposes.
 One command installs packages, another starts up an HTTP server for testing,
 another prepares your app for deployment, and another 
 publishes your package to [pub.dartlang.org](http://pub.dartlang.org).

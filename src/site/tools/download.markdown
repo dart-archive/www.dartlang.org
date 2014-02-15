@@ -38,9 +38,9 @@ You can use Dartium to test and debug your Dart web applications.
   scenes by the Dart Editor:
 
   * [dart](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html) - the standalone VM
-  * [dart2js](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html) - the Dart-to-JavaScript compiler
+  * [dart2js](/tools/dart2js/) - the Dart-to-JavaScript compiler
   * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - the static analyzer
-  * [pub](http://pub.dartlang.org/) - the Dart package manager
+  * [pub](/tools/pub/) - the Dart package manager
   * [dartdoc](dartdoc/) - the API documentation generator
 
 {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
@@ -96,9 +96,9 @@ This is the only Dart bundle that you need. Besides the Dart VM,
 and the Dart libraries, the SDK bundle contains the command-line Dart tools:
 
   * [dart](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html) - the standalone VM
-  * [dart2js](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html) - the Dart-to-JavaScript compiler
+  * [dart2js](/tools/dart2js/) - the Dart-to-JavaScript compiler
   * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - the static analyzer
-  * [pub](http://pub.dartlang.org/) - the Dart package manager
+  * [pub](/tools/pub/) - the Dart package manager
   * [dartdoc](dartdoc/) - the API documentation generator
 
 

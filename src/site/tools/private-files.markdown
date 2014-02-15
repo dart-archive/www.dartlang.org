@@ -8,7 +8,7 @@ has-permalinks: true
 # {{ page.title }}
 
 When you put Dart source code in a repository,
-whether using [pub](pub.dartlang.org) or [github](github.com)
+whether using [pub](/tools/pub) or [github](github.com)
 or some other mechanism,
 you shouldn't include most of the files
 that Dart Editor, pub, and other tools create.
@@ -77,7 +77,7 @@ in the GitHub help for more information.
 The `packages/` directory
 contains symlinks specific to your machine.
 Users of your code should generate their own packages directory,
-using [pub get](http://pub.dartlang.org/doc/#installing-dependencies).
+using [pub get](/tools/pub/get-started.html#installing-packages).
 
 
 ### pubspec.lock
@@ -106,4 +106,4 @@ which provide source maps from JavaScript to Dart
 that make debugging easier.
 For more information on generating and debugging
 JavaScript source for Dart apps, see the
-[dart2js documentation](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html).
+[dart2js documentation](/tools/dart2js/).

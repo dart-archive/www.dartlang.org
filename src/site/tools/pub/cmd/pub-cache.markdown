@@ -5,7 +5,8 @@ title: "pub cache"
 
 # {{ page.title }}
 
-_Cache_ is one of the commands of the [pub](/tools/pub/) tool.
+_Cache_ is one of the commands of the _pub_ tool.
+[Learn more about pub](/tools/pub/).
 
 {% prettify lang-sh %}
 $ pub cache add <package> [--version <constraint>] [--all]

@@ -58,7 +58,7 @@ Common command-line options for dartdoc include:
   You might need to use this option if
   dartdoc can’t find a library because
   your directory structure doesn’t match
-  [pub’s package layout conventions](http://pub.dartlang.org/doc/package-layout.html).
+  [pub’s package layout conventions](/tools/pub/package-layout.html).
   Example: `--package-root=foo/packages/`
 
 `--help`

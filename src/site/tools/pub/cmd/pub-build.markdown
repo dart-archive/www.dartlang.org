@@ -5,32 +5,42 @@ title: "pub build"
 
 # {{ page.title }}
 
-_Build_ is one of the commands of the [pub](/tools/pub/) tool.
+_Build_ is one of the commands of the _pub_ tool.
+[Learn more about pub](/tools/pub/).
 
-    $ pub build [--mode=<mode>]
+{% prettify lang-sh %}
+$ pub build [--mode=<mode>]
+{% endprettify %}
 
 Use `pub build` when you're ready to deploy your web app. When you run
-`pub build`, it generates the [assets](glossary.html#asset) for the current
-package and all of its dependencies, putting them into a new directory
-named `build`.
+`pub build`, it generates the [assets](/tools/pub/glossary.html#asset)
+for the current package and all of its dependencies, putting them into
+new directory named `build`.
 
 To use `pub build`, just run it in your package's root directory. For example:
 
-    $ cd ~/dart/helloworld
-    $ pub build
-    Building helloworld......
-    Built 5 files!
+{% prettify lang-sh %}
+$ cd ~/dart/helloworld
+$ pub build
+Building helloworld......
+Built 5 files!
+{% endprettify %}
 
 If the build directory already exists, `pub build` deletes it and then creates
 it again.
 
 To generate assets, `pub build` uses
-[transformers](glossary.html#transformer). Any source assets that aren't
-transformed are copied, as is, into the build directory or one of its
-subdirectories. Pub also automatically compiles your Dart application to
-JavaScript using dart2js.
+[transformers](/tools/pub/glossary.html#transformer). Any source assets
+that aren't transformed are copied, as is, into the build directory
+or one of its subdirectories. Pub also automatically compiles your
+Dart application to JavaScript using dart2js.
 
-See [Pub Assets and Transformers](assets-and-transformers.html) for information on:
+See
+[Configuring the Built-in dart2js Transformer](/tools/pub/dart2js-transformer.html)
+for information on how to configure the dart2js options in your pubspec.
+
+See [Pub Assets and Transformers](/tools/pub/assets-and-transformers.html)
+for information on:
 
 * Where in your package to put assets.
 * What URLs to use when referring to assets.

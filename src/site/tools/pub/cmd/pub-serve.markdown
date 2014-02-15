@@ -5,24 +5,29 @@ title: "pub serve"
 
 # {{ page.title }}
 
-_Serve_ is one of the commands of the [pub](/tools/pub/) tool.
+_Serve_ is one of the commands of the _pub_ tool.
+[Learn more about pub](/tools/pub/).
 
-    $ pub serve [--port <number>]
+{% prettify lang-sh %}
+$ pub serve [--port <number>]
+{% endprettify %}
 
 This command starts up a _development server_, or _dev server_,
 for your Dart web app. The dev server is an HTTP server on localhost
-that serves up your web app's [assets](glossary.html#asset).
+that serves up your web app's [assets](/tools/pub/glossary.html#asset).
 
 Start the dev server from the directory that contains your web app's
 `pubspec.yaml` file:
 
-    $ cd ~/dart/helloworld
-    $ pub serve
-    Serving helloworld on http://localhost:8080
+{% prettify lang-sh %}
+$ cd ~/dart/helloworld
+$ pub serve
+Serving helloworld on http://localhost:8080
+{% endprettify %}
 
 The dev server doesn't just serve up assets, it produces them by running
-[transformers](glossary.html#transformer). A transformer converts input
-assets (such as Dart files or Polymer-formatted HTML) into output assets
+[transformers](/tools/pub/glossary.html#transformer). A transformer converts
+input assets (such as Dart files or Polymer-formatted HTML) into output assets
 (such as JavaScript and HTML).
 
 These output assets aren't in the file system; they exist only in the dev
@@ -33,7 +38,11 @@ Pub automatically includes a dart2js transformer that compiles your Dart code
 to JavaScript. With this, you can change some Dart code, refresh your
 non-Dartium browser, and immediately see the changes.
 
-See [Pub Assets and Transformers](assets-and-transformers.html) for
+See
+[Configuring the Built-in dart2js Transformer](/tools/pub/dart2js-transformer.html)
+for information on how to configure the dart2js options in your pubspec.
+
+See [Pub Assets and Transformers](/tools/pub/assets-and-transformers.html) for
 information on:
 
 * Where in your package to put assets.
@@ -48,8 +57,10 @@ information on:
 By default the dev server uses `http://localhost:8080`. To change the port
 number, use the `--port` option:
 
-    $ pub serve --port 9080
-    Serving helloworld on http://localhost:9080
+{% prettify lang-sh %}
+$ pub serve --port 9080
+Serving helloworld on http://localhost:9080
+{% endprettify %}
 
 ### `--mode=<mode>`
 

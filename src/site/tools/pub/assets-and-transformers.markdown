@@ -82,6 +82,19 @@ dependencies:
     entry_points: web/index.html</b>
 </pre>
 
+The following example configures the [dart2js](/tools/dart2js/)
+transformer, which is used by both [`pub serve`](cmd/pub-serve.html)
+and [`pub build`](pub-build.html), to analyze the code:
+
+{% prettify yaml %}
+transformers:
+- $dart2js:
+  analyzeAll: true
+{% endprettify %}
+
+For more information, see
+[Configuring the Built-in dart2js Transformer](dart2js-transformer.html).
+
 We expect more transformers to be available in the future. You can specify
 multiple transformers, to run either in parallel (if they're independent of
 each other) or in separate phases. To specify that transformers run in

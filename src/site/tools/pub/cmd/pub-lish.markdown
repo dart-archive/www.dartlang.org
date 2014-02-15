@@ -5,9 +5,12 @@ title: "pub publish"
 
 # {{ page.title }}
 
-_Publish_ is one of the commands of the [pub](/tools/pub/) tool.
+_Publish_ is one of the commands of the _pub_ tool.
+[Learn more about pub](/tools/pub/).
 
-    $ pub publish [--dry-run] [--force] [--server <url>]
+{% prettify lang-sh %}
+$ pub publish [--dry-run] [--force] [--server <url>]
+{% endprettify %}
 
 This command publishes your package on
 [pub.dartlang.org](http://pub.dartlang.org) for anyone to download and depend
@@ -22,7 +25,8 @@ dependencies:
 {% endprettify %}
 
 When publishing a package, it's important to follow the [pubspec
-format](pubspec.html) and [package layout conventions](package-layout.html).
+format](/tools/pub/pubspec.html) and
+[package layout conventions](/tools/pub/package-layout.html).
 Some of these are required in order for others to be able to use your package.
 Others are suggestions to help make it easier for users to understand and work
 with your package. In both cases, pub tries to help you by pointing out what
@@ -54,7 +58,7 @@ you upload.
 the following exceptions:
 
 * Any `packages` directories.
-* Your package's [lockfile](glossary.html#lockfile).
+* Your package's [lockfile](/tools/pub/glossary.html#lockfile).
 * If you're using Git, any files ignored by your `.gitignore` file.
 * If you aren't using Git, all "hidden" files (that is, files whose names begin
   with `.`).

@@ -5,21 +5,26 @@ title: "pub upgrade"
 
 # {{ page.title }}
 
-_Upgrade_ is one of the commands of the [pub](/tools/pub/) tool.
+_Upgrade_ is one of the commands of the _pub_ tool.
+[Learn more about pub](/tools/pub/).
 
-    $ pub upgrade [PACKAGE]
+{% prettify lang-sh %}
+$ pub upgrade [PACKAGE]
+{% endprettify %}
 
 Without any additional arguments, `pub upgrade` gets the latest versions of
-all the dependencies listed in the [`pubspec.yaml`](pubspec.html) file in the
+all the dependencies listed in the [`pubspec.yaml`](/tools/pub/pubspec.html) file in the
 current working directory, as well as their [transitive
-dependencies](glossary.html#transitive-dependencies), to the `packages`
+dependencies](/tools/pub/glossary.html#transitive-dependency), to the `packages`
 directory located next to the pubspec. For example:
 
-    $ pub upgrade
-    Dependencies upgraded!
+{% prettify lang-sh %}
+$ pub upgrade
+Dependencies upgraded!
+{% endprettify %}
 
 When `pub upgrade` upgrades dependency versions, it writes a
-[lockfile](glossary.html#lockfile) to ensure that future [`pub
+[lockfile](/tools/pub/glossary.html#lockfile) to ensure that future [`pub
 get`s](pub-get.html) will use the same versions of those dependencies.
 Application packages should check in the lockfile to source control; this
 ensures the application will use the exact same versions of all dependencies for
@@ -31,6 +36,10 @@ If a lockfile already exists, `pub upgrade` ignores it and generates a new
 one from scratch using the latest versions of all dependencies. This is the
 primary difference between `pub upgrade` and `pub get`, which always tries to
 get the dependency versions specified in the existing lockfile.
+
+<aside class="alert alert-info" markdown="1">
+**Note:** In earlier releases of Dart, _pub upgrade_ was called _pub update_.
+</aside>
 
 ## Upgrading specific dependencies
 

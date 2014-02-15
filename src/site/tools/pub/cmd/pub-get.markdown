@@ -5,17 +5,24 @@ title: "pub get"
 
 # {{ page.title }}
 
-_Get_ is one of the commands of the [pub](/tools/pub/) tool.
+_Get_ is one of the commands of the _pub_ tool.
+[Learn more about pub](/tools/pub/).
 
-    $ pub get [--offline]
+{% prettify lang-sh %}
+$ pub get [--offline]
+{% endprettify %}
 
 This command gets all the dependencies listed in the
-[`pubspec.yaml`](pubspec.html) file in the current working directory, as well as
-their [transitive dependencies](glossary.html#transitive-dependency), and places
-them in a `packages` directory located next to the pubspec. For example:
+[`pubspec.yaml`](/tools/pub/pubspec.html) file in the current working
+directory, as well as their
+[transitive dependencies](/tools/pub/glossary.html#transitive-dependency),
+and places them in a `packages` directory located next to the pubspec.
+For example:
 
-    $ pub get
-    Got dependencies!
+{% prettify lang-sh %}
+$ pub get
+Got dependencies!
+{% endprettify %}
 
 Once the dependencies are acquired, they may be referenced in Dart code. For
 example, if a package depends on `unittest`:
@@ -25,17 +32,19 @@ import "package:unittest/unittest.dart;
 {% endprettify %}
 
 When `pub get` gets new dependencies, it writes a
-[lockfile](glossary.html#lockfile) to ensure that future gets will use the
-same versions of those dependencies. Application packages should check in the
-lockfile to source control; this ensures the application will use the exact same
-versions of all dependencies for all developers and when deployed to production.
+[lockfile](/tools/pub/glossary.html#lockfile) to ensure that future
+gets will use the same versions of those dependencies.
+Application packages should check in the lockfile to source control;
+this ensures the application will use the exact same versions
+of all dependencies for all developers and when deployed to production.
 Library packages should not check in the lockfile, though, since they're
 expected to work with a range of dependency versions.
 
 If a lockfile already exists, `pub get` uses the versions of dependencies
 locked in it if possible. If a dependency isn't locked, pub will get the
 latest version of that dependency that satisfies all the [version
-constraints](glossary.html#version-constraint). This is the primary difference
+constraints](/tools/pub/glossary.html#version-constraint).
+This is the primary difference
 between `pub get` and [`pub upgrade`](pub-upgrade.html), which always tries to
 get the latest versions of all dependencies.
 
@@ -62,8 +71,9 @@ already-acquired dependencies.
 
 ## Linked `packages` directories
 
-Every [entrypoint](glossary.html#entrypoint) in a package needs to be next to a
-`packages` directory in order for it to import packages acquired by Pub.
+Every [entrypoint](/tools/pub/glossary.html#entrypoint) in a package
+needs to be next to a `packages` directory in order for it to import
+packages acquired by pub.
 However, it's not convenient to put every entrypoint at the top level of the
 package alongside the main `packages` directory. You may have example scripts or
 tests that you want to be able to run from subdirectories.
@@ -71,8 +81,8 @@ tests that you want to be able to run from subdirectories.
 `pub get` solves this issue by creating additional `packages` directories
 that link to the main `packages` directory at the root of your package. It
 assumes your package is laid out according to the [package layout
-guide](package-layout.html), and creates a linked `packages` directory in
-`bin/`, `test/`, and `example/`, as well as their subdirectories.
+guide](/tools/pub/package-layout.html), and creates a linked `packages`
+directory in `bin/`, `test/`, and `example/`, as well as their subdirectories.
 
 ## The system package cache
 

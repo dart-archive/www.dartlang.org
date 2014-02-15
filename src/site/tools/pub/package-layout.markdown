@@ -102,8 +102,9 @@ For more information, see [Pubspec Format](pubspec.html).
 
 One file that's very common in open source is a README file that
 describes the project. This is especially important in pub. When you upload
-to [pub.dartlang.org](/), your README will be shown on the page for your
-package. This is the perfect place to introduce people to your code.
+to [pub.dartlang.org](http://pub.dartlang.org), your README will be shown on
+the page for your package. This is the perfect place to introduce people to
+your code.
 
 If your README ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
 [Markdown][].
