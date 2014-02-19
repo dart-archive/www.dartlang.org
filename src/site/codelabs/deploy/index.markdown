@@ -742,7 +742,7 @@ Dart Editor brings up a new output pane in which the web server
 displays its output, if any.
 
 Now, open `0.0.0.0:9999` in your browser
-(or, on Windows, open `127.0.0.1:9999`).
+(or, on Windows, open `localhost:9999`).
 The app appears and you can generate pirate names.
 
 
