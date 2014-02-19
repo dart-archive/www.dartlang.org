@@ -72,6 +72,7 @@ a resource, such as a Dart file, a CSS file, or an
 image, that is intended to be part of a deployed package.
 
 Writing a transformer is an advanced topic that we don't yet document.
-For now, you might find the following resource useful:
+For now, you might find the following resources useful:
 
+* [Writing Transformers: Examples](/tools/pub/transformers/examples) 
 * [Barback - Can We Build It? Yes, We Can!](https://docs.google.com/a/google.com/document/d/1juHkCRg-1YH6LvwhGPHgF2ihX-UQtR1fv-8aknO7t_4/edit?pli=1#)
