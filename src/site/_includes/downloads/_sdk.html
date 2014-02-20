@@ -3,20 +3,20 @@
 
   <div class="{{ sdk.os }} downloads">
   {% if sdk.os == 'macos' %}
-    <a data-bits="32" data-os="windows" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
+    <a data-bits="32" data-os="{{ sdk.os }}" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
     <button class="{{ include.buttonclass }}">
       <i class="sprite-icon-download-btn"> </i>
       DOWNLOAD DART SDK ({{ sdk.name | upcase }})
     </button>
     </a>
   {% else %}
-    <a data-bits="32" data-os="windows" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
+    <a data-bits="32" data-os="{{ sdk.os }}" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
     <button class="{{ include.buttonclass }}">
     	<i class="sprite-icon-download-btn"> </i>
     	DOWNLOAD DART SDK (64-bit {{ sdk.name | upcase }})
     </button>
    	</a>
-    <a data-bits="32" data-os="windows" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-ia32-release.{{ sdk.ext }}">
+    <a data-bits="32" data-os="{{ sdk.os }}" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-ia32-release.{{ sdk.ext }}">
     <button class="{{ include.buttonclass }}">
       <i class="sprite-icon-download-btn"> </i>
       DOWNLOAD DART SDK (32-bit {{ sdk.name | upcase }})
