@@ -107,12 +107,13 @@ constraints](#version-constraints) should be as wide as possible while still
 ensuring that the dependencies will be compatible with the versions that were
 tested against.
 
-Since [semantic versioning](http://semver.org) requires that libraries increment
-their major version numbers for any backwards incompatible changes, library
-packages will usually require their dependencies' versions to be greater than or
-equal to the versions that were tested and less than the next major version. So
-if your library depended on the (fictional) `transmogrify` package and you
-tested it at version 1.2.1, your version constraint would be `">=1.2.1 <2.0.0"`.
+Since [semantic versioning](http://semver.org/spec/v2.0.0-rc.1.html) requires
+that libraries increment their major version numbers for any backwards
+incompatible changes, library packages will usually require their dependencies'
+versions to be greater than or equal to the versions that were tested and less
+than the next major version. So if your library depended on the (fictional)
+`transmogrify` package and you tested it at version 1.2.1, your version
+constraint would be `">=1.2.1 <2.0.0"`.
 
 ### Lockfile {#lockfile}
 

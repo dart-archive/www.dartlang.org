@@ -194,10 +194,10 @@ be compatible with your library. Your goal is to allow a range of versions as
 wide as possible to give your users flexibility. But it should be narrow enough
 to exclude versions that you know don't work or haven't been tested.
 
-The Dart community uses [semantic versioning][], which helps you know which
-versions should work. If you know that your package works fine with `1.2.3` of
-some dependency, then semantic versioning tells you that it should work (at
-least) up to `2.0.0`.
+The Dart community uses [semantic versioning][]<sup id="fnref:semver"><a
+href="#fn:semver">1</a></sup>, which helps you know which versions should work.
+If you know that your package works fine with `1.2.3` of some dependency, then
+semantic versioning tells you that it should work (at least) up to `2.0.0`.
 
 A version constraint is a series of:
 
@@ -271,5 +271,17 @@ Using dev dependencies makes dependency graphs smaller. That makes `pub` run
 faster, and makes it easier to find a set of package versions that satisfies all
 constraints.
 
+<!-- We can't use the built-in Markdown footnote syntax here because it
+     conflicts with the TOC header. -->
+<ol>
+<li id="fn:semver">
+
+Pub follows version <code>2.0.0-rc.1</code> of the semantic versioning spec,
+because that version allows packages to use build identifiers (e.g.
+<code>+12345</code>) to differentiate versions. <a href="#fnref:semver">↩</a>
+
+</li>
+</ol>
+
 [pubsite]: http://pub.dartlang.org
-[semantic versioning]: http://semver.org/
+[semantic versioning]: http://semver.org/spec/v2.0.0-rc.1.html

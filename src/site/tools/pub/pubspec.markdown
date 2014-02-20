@@ -91,7 +91,7 @@ anymore. To make more changes, you'll need a new version.
 
 When you select a version, follow [semantic versioning][].
 
-[semantic versioning]: http://semver.org
+[semantic versioning]: http://semver.org/spec/v2.0.0-rc.1.html
 
 ## Description
 
@@ -175,4 +175,4 @@ Pub will try to find the latest version of a package whose SDK constraint works
 with the version of the Dart SDK that you have installed.
 
 [pubsite]: http://pub.dartlang.org
-[semantic versioning]: http://semver.org/
+[semantic versioning]: http://semver.org/spec/v2.0.0-rc.1.html
