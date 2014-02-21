@@ -86,7 +86,8 @@ print(cow.moo());
 {% endprettify %}
 
 An up-assignment like [1] is always valid, so we make them pass static type checking.  A down-assignment could be valid, as [2] is, or invalid.  Because down-assignments <em>may</em> be valid and Dart is optimistic that you know what you're doing, we make them pass static checking too.  This gives us the assignment rule in the language spec:
-<blockquote>A type T <em>may be assigned to</em> a type S, written  T &hArr; S, iff either T &lt;: S or S &lt;: T.</blockquote>
+<blockquote>A type T <em>may be assigned to</em> a type S, written  T &hArr; S, iff either T &lt;: S or S &lt;: T.
+</blockquote>
 
 ### Here we are, unsound
 
