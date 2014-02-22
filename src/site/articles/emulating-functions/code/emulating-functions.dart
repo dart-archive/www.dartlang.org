@@ -10,6 +10,9 @@ class NsmDummy {
   void foo() {
     print('foo');
   }
+  void bleh() {
+    print('delegated bleh');
+  }
 }
 
 class NsmTester {
@@ -22,12 +25,16 @@ class NsmTester {
     print('baz: not foo');
   }
 
-  noSuchMethod(Invocation msg) =>
-    msg.memberName == const Symbol('foo') ? 
-                            reflect(bar()).delegate(msg)
-                            : Function.apply(baz,
-                                msg.positionalArguments,
-                                msg.namedArguments);
+  noSuchMethod(Invocation invocation) =>
+    invocation.memberName == #foo
+      ?  Function.apply(baz,
+                        invocation.positionalArguments,
+                        invocation.namedArguments)
+      // Article shows
+      //   super.noSuchMethod(invocation);
+      // Here we illustrate delegation of method handling.
+      // (Should this be added to the article?)
+      : reflect(bar()).delegate(invocation);
 }
 
 void main() {

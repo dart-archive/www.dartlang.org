@@ -7,7 +7,7 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-01-01
-  updated_on: 2013-11-01
+  updated_on: 2014-02-20
   collection: language-details
 ---
 
@@ -17,7 +17,7 @@ article:
 
 <em>Written by Gilad Bracha <br>
 January 2012
-(updated November 2013)</em>
+(updated February 2014)</em>
 
 This document describes how to define Dart classes
 that behave like functions.
@@ -122,17 +122,17 @@ defined in their class chain by overriding noSuchMethod(). Here's an example
 showing how you could use function emulation inside noSuchMethod():
 
 {% prettify dart %}
-noSuchMethod(Invocation msg) =>
-    msg.memberName == #foo ? Function.apply(baz,
-                                msg.positionalArguments,
-                                msg.namedArguments)
-                          : super.noSuchMethod(msg);
+noSuchMethod(Invocation invocation) =>
+  invocation.memberName == #foo ? Function.apply(baz,
+                             invocation.positionalArguments,
+                             invocation.namedArguments)
+                        : super.noSuchMethod(invocation);
 {% endprettify %}
 
 The first branch handles the case where you want to forward just the parameters to
 another function. If you know `baz` doesn't take any named arguments,
 then that code can instead be
-`Function.apply(baz, msg.positionalArguments)`. The second branch simply forwards
+`Function.apply(baz, invocation.positionalArguments)`. The second branch simply forwards
 to the standard implementation of the noSuchMethod(), a common pattern.
 
 The only argument to noSuchMethod() is an
