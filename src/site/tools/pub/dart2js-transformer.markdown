@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Configuring the Built-in dart2js Transformer"
---- 
+---
 
 # {{ page.title }}
 
@@ -33,14 +33,14 @@ work, see the [documentation](/tools/dart2js/#options) for dart2js:
 {% prettify yaml %}
 transformers:
 - $dart2js:
-  checked: true,
-  minify: true,
-  verbose: true,
-  environment: {name: value, ...},
-  analyzeAll: true,
-  suppressWarnings: true,
-  suppressHints: true,
-  terse: true
+    checked: true
+    minify: true
+    verbose: true
+    environment: {name: value, ...}
+    analyzeAll: true
+    suppressWarnings: true
+    suppressHints: true
+    terse: true
 {% endprettify %}
 
 ## Special-case option {#additional-options}
