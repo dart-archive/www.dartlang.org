@@ -1,5 +1,3 @@
-import 'dart:mirrors';
-
 typedef BinaryFunction(a,b);
 
 class WannabeFunction {
@@ -22,12 +20,12 @@ class NsmTester {
     print('baz: not foo');
   }
 
-  noSuchMethod(Invocation msg) =>
-    msg.memberName == const Symbol('foo') ? 
-                            reflect(bar()).delegate(msg)
-                            : Function.apply(baz,
-                                msg.positionalArguments,
-                                msg.namedArguments);
+  noSuchMethod(Invocation invocation) =>
+    invocation.memberName == #foo
+      ?  Function.apply(baz,
+                        invocation.positionalArguments,
+                        invocation.namedArguments)
+      : super.noSuchMethod(invocation);
 }
 
 void main() {
