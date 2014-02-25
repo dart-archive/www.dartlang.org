@@ -1,5 +1,3 @@
-import 'dart:mirrors';
-
 typedef BinaryFunction(a,b);
 
 class WannabeFunction {
@@ -30,11 +28,7 @@ class NsmTester {
       ?  Function.apply(baz,
                         invocation.positionalArguments,
                         invocation.namedArguments)
-      // Article shows
-      //   super.noSuchMethod(invocation);
-      // Here we illustrate delegation of method handling.
-      // (Should this be added to the article?)
-      : reflect(bar()).delegate(invocation);
+      : super.noSuchMethod(invocation);
 }
 
 void main() {
