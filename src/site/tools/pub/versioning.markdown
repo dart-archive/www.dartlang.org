@@ -173,6 +173,13 @@ should follow the semantics it specifies. You should assume that the packages
 you depend on also follow it. (And if you find out they don't, let their
 authors know!)
 
+Although semantic versioning doesn't promise any compatibility between versions
+prior to `1.0.0`, the Dart community convention is to treat those versions
+semantically as well. The interpretation of each number is just shifted down one
+slot: going from `0.1.2` to `0.2.0` indicates a breaking change, going to
+`0.1.3` indicates a new feature, and going to `0.1.2+1` indicates a change that
+doesn't affect the public API.
+
 We've got almost all of the pieces we need to deal with versioning and API
 evolution now. Let's see how they play together and what pub does.
 
