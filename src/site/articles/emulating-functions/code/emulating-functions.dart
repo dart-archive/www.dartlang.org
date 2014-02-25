@@ -8,9 +8,6 @@ class NsmDummy {
   void foo() {
     print('foo');
   }
-  void bleh() {
-    print('delegated bleh');
-  }
 }
 
 class NsmTester {
