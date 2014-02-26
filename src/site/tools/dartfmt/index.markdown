@@ -12,9 +12,12 @@ description: "A tool that makes your code follow the conventions in the
 Use _dartfmt_ to format your Dart code according to the conventions in the
 [Dart Style Guide](/articles/style-guide/).
 
-<aside class="alert alert-info" markdown="1">
+<aside class="alert alert-warning" markdown="1">
 The _dartfmt_ tool is available in the Dart SDK and in Dart Editor
 as of the 1.2 release.
+
+Dartfmt is in Early Preview. Please file
+issues and requests on [dartbug.com](http://dartbug.com/new).
 </aside>
 
 To format your code in Dart Editor, right-click in
@@ -138,6 +141,12 @@ the directory and formats all files with a `.dart` extension.
 If no file or directory is specified, dartfmt reads from standard input.
 
 ## Options {#options}
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+To run dartfmt from the command line, you might want to
+[add the SDK's bin directory to your system path](/tools/pub/installing.html).
+</aside>
 
 Common command-line options for dartfmt include:
 
