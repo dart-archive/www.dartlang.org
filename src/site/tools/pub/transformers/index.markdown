@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Writing a Transformer"
+title: "Writing a Pub Transformer"
 header:
   css: ["transformers.css"]
 ---
@@ -25,7 +25,7 @@ relate to each other.
 
 This page uses two examples, SimpleTransformer and
 MarkdownConverter, which you can find at
-[Writing a Transformer: Examples](examples/).
+[Writing a Pub Transformer: Examples](examples/).
 
 ## Implementing a transformer {#implementing-transformer}
 
@@ -253,7 +253,7 @@ For more information, see
 
 ## More information {#more-info}
 
-* [Writing a Transformer: Examples](examples/)
+* [Writing a Pub Transformer: Examples](examples/)
 : Examples to get you started.
 * [barback library](https://api.dartlang.org/apidocs/channels/stable/#barback/barback)
 : API docs for the barback package.

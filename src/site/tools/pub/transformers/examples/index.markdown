@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Writing a Transformer: Examples"
+title: "Writing a Pub Transformer: Examples"
 ---
 
 # {{ page.title }}
@@ -17,7 +17,7 @@ be part of a deployed package.
 
 The following are examples of custom transformers written using
 the [barback](http://pub.dartlang.org/packages/barback) package.
-See [Writing a Transformer](/tools/pub/transformers/) for more information
+See [Writing a Pub Transformer](/tools/pub/transformers/) for more information
 about these examples.
 
 * [SimpleTransformer](SimpleTransformer.zip)
