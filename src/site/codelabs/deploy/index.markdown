@@ -18,13 +18,6 @@ header:
 
 # {{ page.title }}
 
-<div style="font-size:64px;font-weight:bold;color:#DCDCDC">
-BETA
-</div>
-
-Please send feedback to [dartbug.com](http://dartbug.com/new).
-
-<hr>
 
 In this code lab, you deploy an client application (web app) to the Heroku hosting service.
 This code lab focuses on the server-side programming aspect of this project.
@@ -1280,4 +1273,13 @@ functions.
 example code.
 
 </div>
+
+### <i class="fa fa-anchor"> </i> Feedback
+
+<div class="trydart-step-details" markdown="1">
+
+Please provide feedback at [dartbug.com](http://dartbug.com/new).
+
+</div>
+
 

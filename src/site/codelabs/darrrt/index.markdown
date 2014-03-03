@@ -19,6 +19,7 @@ header:
 
 # {{ page.title }}
 
+
 In this code lab,
 you build a pirate badge generator from a skeleton app.
 The sample app provides a brief look at some Dart language and library features.
@@ -2096,4 +2097,13 @@ shows you how to use the major features in Dart’s libraries.
 
 
 </div>
+
+### <i class="fa fa-anchor"> </i> Feedback
+
+<div class="trydart-step-details" markdown="1">
+
+Please provide feedback at [dartbug.com](http://dartbug.com/new).
+
+</div>
+
 

@@ -116,6 +116,8 @@ various Dart libraries and packages.
 
 ### The Basics
 
+* [An Introduction to the dart:io Library](/articles/io/)
+
 * [Write a Command-Line App](/docs/tutorials/cmdline/)
 <img src="/docs/tutorials/images/target.png" height="16" width="16">
 
