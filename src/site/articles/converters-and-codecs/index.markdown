@@ -96,13 +96,9 @@ The codec can be instantiated with arguments that are used as default
 values, unless they are overridden by the named arguments during the
 `encode()`/`decode()` call.
 
-The JsonCodec is
-still under construction and lacks a way to specify the default toEncodable,
-but it has the two following constructors:
-
 {% prettify dart %}
-const JsonCodec();
-factory JsonCodec.withReviver(reviver(var key, var value)) { … }
+const JsonCodec({reviver(var key, var value), toEncodable(var object)})
+  ...
 {% endprettify %}
 
 As a general rule: if a codec can be configured, it should add named arguments
