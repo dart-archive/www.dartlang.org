@@ -89,3 +89,6 @@ Google internal sales tool
 [Chrome Dev Studio (Spark)](https://github.com/dart-lang/spark)
 : Open source IDE for developing Chrome packaged apps as well as web apps.
   Written completely in Dart and uses Polymer Dart for much of the UI.
+
+[Do you speak as GEEK? (game)](http://game.juniorinternet.cz)
+: Hangman written in Dart. [CZ]
