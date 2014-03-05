@@ -46,6 +46,9 @@ Google internal sales tool
 [Codeship](https://www.codeship.io/)
 : Continuous integration with support for Dart.
 
+[Rollbar](https://rollbar.com/)
+: Error reporting service with support for Dart (including source maps).
+
 [Adobe](http://blogs.adobe.com/flashpro/2013/05/16/toolkit-for-dart-flash-pro/)
 : Flash Pro can export to Dart/HTML5/CSS.
 
