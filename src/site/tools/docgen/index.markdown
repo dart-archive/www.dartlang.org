@@ -15,8 +15,7 @@ the documentation for your Dart package.
 <aside class="alert alert-warning" markdown="1">
 The _docgen_ tool is available in the Dart SDK as of the 1.2 release.
 
-Docgen replaces the [_dartdoc_](/tools/dartdoc/) tool,
-which was removed in revision
+Docgen replaces the _dartdoc_ tool, which was removed in revision
 [32387](https://code.google.com/p/dart/source/detail?r=32387).
 
 Docgen is in Early Preview. Please file

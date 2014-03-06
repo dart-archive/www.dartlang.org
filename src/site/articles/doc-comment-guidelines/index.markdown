@@ -142,7 +142,7 @@ and **links** to documents that provide more information.
 Format your text using the markup
 specified in section 15.1.2 of the
 [Dart Language Specification](/docs/spec/).
-Although dartdoc currently recognizes some additional markdown
+Although docgen currently recognizes some additional markdown
 (as noted below),
 it might not always.
 

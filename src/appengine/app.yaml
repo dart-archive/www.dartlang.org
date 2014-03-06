@@ -68,6 +68,9 @@ handlers:
 - url: /docs/pub-package-manager.*
   script: scripts.redirector.application
 
+- url: /tools/dartdoc/
+  script: scripts.redirector.application
+
 - url: /editor.*
   script: scripts.redirector.application
 
