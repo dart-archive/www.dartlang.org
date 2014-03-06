@@ -41,7 +41,7 @@ You can use Dartium to test and debug your Dart web applications.
   * [dart2js](/tools/dart2js/) - the Dart-to-JavaScript compiler
   * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - the static analyzer
   * [pub](/tools/pub/) - the Dart package manager
-  * [dartdoc](dartdoc/) - the API documentation generator
+  * [docgen](docgen/) - the API documentation generator
 
 {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 
@@ -99,7 +99,7 @@ and the Dart libraries, the SDK bundle contains the command-line Dart tools:
   * [dart2js](/tools/dart2js/) - the Dart-to-JavaScript compiler
   * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - the static analyzer
   * [pub](/tools/pub/) - the Dart package manager
-  * [dartdoc](dartdoc/) - the API documentation generator
+  * [docgen](docgen/) - the API documentation generator
 
 
 <p class="os-choices">

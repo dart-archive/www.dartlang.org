@@ -310,9 +310,8 @@ is good documentation. That goes inside a directory named `doc`. We don't
 currently have any guidelines about format or organization within that. Use
 whatever markup format that you prefer.
 
-This directory should *not* just contain docs generated automatically from your
-source code using
-[dartdoc](http://api.dartlang.org/docs/continuous/dartdoc.html). Since that's
+This directory should *not* just contain docs generated automatically
+from your source code using [docgen](/tools/docgen/). Since that's
 pulled directly from the code already in the package, putting those docs in
 here would be redundant. Instead, this is for tutorials, guides, and other
 hand-authored documentation *in addition to* generated API references.
