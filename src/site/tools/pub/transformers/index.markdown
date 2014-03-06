@@ -31,7 +31,7 @@ MarkdownConverter, which you can find at
 
 A transformer is a Dart class that extends the Transformer class
 from the [barback](http://pub.dartlang.org/packages/barback) package.
-Typically, a tranformer's code is in a file named `transformer.dart`
+Typically, a transformer's code is in a file named `transformer.dart`
 that is in its package's `lib` directory.
 
 The barback package,
