@@ -770,7 +770,6 @@ request. Register an error handler using the `errorHandler` property.
 
 {% prettify dart %}
 import 'dart:io';
-
 import 'package:http_server/http_server.dart' as http_server;
 
 void errorPageHandler(HttpRequest request) {
@@ -803,8 +802,6 @@ Use the `route` Pub package, and associate callbacks with URL patterns.
 
 {% prettify dart %}
 import 'dart:io';
-import 'dart:async';
-
 import 'package:route/server.dart';
 import 'package:route/url_pattern.dart';
 
