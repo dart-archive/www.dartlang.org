@@ -740,7 +740,6 @@ property.
 {% prettify dart %}
 library simple_http_server;
 
-import 'dart:async';
 import 'dart:io';
 import 'package:http_server/http_server.dart' show VirtualDirectory;
 
@@ -770,7 +769,6 @@ Use the http Pub package, and create a VirtualDirectory to serve the
 request. Register an error handler using the `errorHandler` property.
 
 {% prettify dart %}
-import 'dart:async';
 import 'dart:io';
 
 import 'package:http_server/http_server.dart' as http_server;
