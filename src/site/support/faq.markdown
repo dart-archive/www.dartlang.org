@@ -610,7 +610,7 @@ Many more have been released or are in development.
 [announcement]: http://blog.chromium.org/2013/11/dart-10-stable-sdk-for-structured-web.html
 [lang]: https://www.dartlang.org/docs/dart-up-and-running/contents/ch02.html
 [libs]: https://www.dartlang.org/docs/dart-up-and-running/contents/ch03.html
-[Oilpan]: https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/V1vJmirHUGE
+[Oilpan]: https://docs.google.com/a/google.com/document/d/1y7_0ni0E_kxvrah-QtnreMlzCDKN3QP4BN1Aw7eSLfY
 [Dartium]: https://www.dartlang.org/tools/dartium/
 [JSON]: http://api.dartlang.org/docs/channels/stable/latest/dart_convert.html#JSON
 [tc52]: http://news.dartlang.org/2013/12/ecma-forms-tc52-for-dart-standardization.html
