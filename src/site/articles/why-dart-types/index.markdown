@@ -210,6 +210,7 @@ I wouldn't say the Dart team is in love with covariant generics; it's pragmatic.
 One reason is that for Dart to operate as a dynamically typed language, it needs some way to express that a variable makes no static claims about what types of values it can hold.  We express this as <code>var thing = ...</code>, a declaration with no type annotation.  (The alternative is to require static type annotations on all declarations but allow this type to be <code>Dynamic</code>, which permits any value.  But this adds no value for this case, just code clutter.)
 
 We also think programmers should be able to decide which type annotations are useful and which are too obvious to justify carrying the annotation in the source code.  We use the <code>var</code> declaration form for this case as well:
+
 {% prettify dart %}
 var s = "obviously a string";
 {% endprettify %}
