@@ -683,7 +683,7 @@ void main() {
 
 ### HTTP server
 
-#### Implementing a dead-simple HTTP server
+#### Implementing a 'Hello world' HTTP server
 
 Use `HttpServer.bind()` method to bind to a port and the HttpServer
 `listen()` method to listen for connections.  Respond to an `HttpRequest`
@@ -694,16 +694,18 @@ import 'dart:io';
 
 void main() {
   HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
-    print(server);
+    print("Serving at ${server.address}:${server.port}");
     server.listen((HttpRequest request) {
-      request.response.write('Hello, world');
-      request.response.close();
+      request.response
+        ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
+        ..write('Hello, world');
+        ..close();
     });
   });
 {% endprettify %}
 
 
-#### Listing directory contents
+#### Serving directory contents
 
 Use the http Pub package, and create a VirtualDirectory to serve the
 request. Set the VirtualDirectory `allowDirectoryListing` field to
@@ -716,11 +718,10 @@ library simple_http_server;
 import 'dart:io';
 import 'package:http_server/http_server.dart' show VirtualDirectory;
 
-final MY_HTTP_ROOT_PATH = Platform.script.resolve('web').toFilePath();
-
 void main() {
-  var virDir = new VirtualDirectory(MY_HTTP_ROOT_PATH);
-  virDir.allowDirectoryListing = true;
+  final MY_HTTP_ROOT_PATH = Platform.script.resolve('web').toFilePath();
+  final virDir = new VirtualDirectory(MY_HTTP_ROOT_PATH);
+    ..allowDirectoryListing = true;
 
   HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
     server.listen((request) {
@@ -730,7 +731,7 @@ void main() {
 {% endprettify %}
 
 
-#### Serving index.html
+#### Serving index.html by default
 
 Use the http Pub package, and create a VirtualDirectory to serve the
 request. Register a callback for handling errors using the `errorHandler`
@@ -739,7 +740,6 @@ property.
 {% prettify dart %}
 library simple_http_server;
 
-import 'dart:async';
 import 'dart:io';
 import 'package:http_server/http_server.dart' show VirtualDirectory;
 
@@ -751,7 +751,7 @@ void directoryHandler(dir, request) {
 }
 
 void main() {
-  virDir = new VirtualDirectory(Platform.script.resolve('./web').toFilePath())
+  virDir = new VirtualDirectory(Platform.script.resolve('web').toFilePath())
     ..allowDirectoryListing = true
     ..directoryHandler = directoryHandler;
 
@@ -769,9 +769,7 @@ Use the http Pub package, and create a VirtualDirectory to serve the
 request. Register an error handler using the `errorHandler` property.
 
 {% prettify dart %}
-import 'dart:async';
 import 'dart:io';
-
 import 'package:http_server/http_server.dart' as http_server;
 
 void errorPageHandler(HttpRequest request) {
@@ -782,7 +780,7 @@ void errorPageHandler(HttpRequest request) {
 }
 
 void main() {
-  var buildPath = Platform.script.resolve('./web').toFilePath();
+  var buildPath = Platform.script.resolve('web').toFilePath();
 
   var virDir = new http_server.VirtualDirectory(buildPath)
     ..allowDirectoryListing = true
@@ -804,8 +802,6 @@ Use the `route` Pub package, and associate callbacks with URL patterns.
 
 {% prettify dart %}
 import 'dart:io';
-import 'dart:async';
-
 import 'package:route/server.dart';
 import 'package:route/url_pattern.dart';
 
