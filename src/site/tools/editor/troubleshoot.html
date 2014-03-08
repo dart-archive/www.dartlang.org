@@ -24,6 +24,7 @@ If we missed something, please
   <li> <a href="#launch-dart-editor">Launching Dart Editor</a> </li>
   <li> <a href="#dartium">Launching Dartium</a> </li>
   <li> <a href="#eclipse">Using Eclipse</a> </li>
+  <li> <a href="#pub-get-firewall">Running "pub get" behind a firewall</a> </li>
   <li> <a href="#clear">Clearing all settings</a> </li>
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
@@ -335,6 +336,58 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   The fix: Don't use the same workspace for
   Dart Editor and any other Eclipse-based software.
   </p>
+</section>
+
+<section id="pub-get-firewall">
+  <h2> Running "pub get" behind a firewall </h2>
+
+  <p>
+  When using <code>pub get</code> behind a firewall,
+  you may see <code>http</code> and
+  socket (connection) errors when the command attempts to pull
+  down dependencies from an external website, such as pub.dartlang.org.
+  </p>
+  <p>
+  You can fix this by setting the environment variables
+  <code>http_proxy</code>, <code>https_proxy</code>, and
+  <code>no_proxy</code>. In the following examples,
+  replace <code>9090</code> with the appropriate
+  port for your proxy:
+
+  <pre>
+  http_proxy=http://&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+  https_proxy=https://&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+  no_proxy=localhost,127.0.0.0/8
+  </pre>
+
+  If your proxy needs authentication, the setup will look more
+  like the following:
+
+  <pre>
+  http_proxy=http://&lt;username&gt;:&lt;password&gt;@&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+  https_proxy=https://&lt;username&gt;:&lt;password&gt;@&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+  </pre>
+
+  <p>
+  To enable Dart Editor to check for updates, add the following to the
+  <code>DartEditor.ini</code> file:</p>
+
+  <pre>
+  -Dhttp.proxyHost=&lt;yourproxy&gt;.&lt;yourdomain&gt;.com
+  -Dhttp.proxyPort=9090
+  -Dhttps.proxyHost=&lt;yourproxy&gt;.&lt;yourdomain&gt;.com
+  -Dhttps.proxyPort=9090
+  </pre>
+
+  <p>
+  If you need user name and password for authentication, add:
+
+  <pre>
+  -Dhttp.proxyUser=&lt;username&gt;
+  -Dhttp.proxyPassword=&lt;passwordstring&gt;
+  -Dhttps.proxyUser=&lt;username&gt;
+  -Dhttps.proxyPassword=&lt;passwordstring&gt;
+  </pre>
 </section>
 
 <section id="clear">
