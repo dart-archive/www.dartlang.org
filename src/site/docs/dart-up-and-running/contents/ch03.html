@@ -469,7 +469,7 @@ y2k = DateTime.parse('2000-01-01T00:00:00Z');</pre><p>The <code class="literal">
 assert(y2k.millisecondsSinceEpoch == 946684800000);
 var unixEpoch = new DateTime.utc(1970); // 1/1/1970, UTC
 assert(unixEpoch.millisecondsSinceEpoch == 0);</pre><p>Use the Duration class to calculate the difference between two
-      dates and to shift a date forward or backwards:</p><pre class="screen"><em><span class="remark">lang-dart
+      dates and to shift a date forward or backward:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/date.dart
 </span></em>var y2k = new DateTime.utc(2000);
 
@@ -636,7 +636,7 @@ main() {
 return result.then((value) =&gt; expensiveWork())
              .then((value) =&gt; lengthyComputation())
              .then((value) =&gt; print('done!'))
-             .catchError((exception) =&gt; print('DOH!'));</pre><p>In the above example, the methods run in the following
+             .catchError((exception) =&gt; print('DOH!'));</pre><p>In the preceding example, the methods run in the following
         order:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><code class="literal">costlyQuery()</code></p></li><li class="listitem"><p><code class="literal">expensiveWork()</code></p></li><li class="listitem"><p><code class="literal">lengthyComputation()</code></p></li></ol></div></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-waiting-for-multiple-futures"></a>Waiting for Multiple Futures</h4></div></div></div><p>Sometimes your algorithm needs to invoke many asynchronous
         functions and wait for them all to complete before continuing. Use the
         <a class="ulink" href="http://api.dartlang.org/dart_async/Future.html#wait" target="_top"><code class="literal">Future.wait()</code></a>
@@ -686,11 +686,11 @@ inputStream
         add onDone and onError. (See "Streaming file
         contents".)}</span></em></p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-9"></a>More Information</h3></div></div></div><p>For some examples of using Future and Stream in command-line apps,
       see <a class="xref" href="ch03.html#ch03-dartio---file-and-socket-io-for-command-line-apps" title="dart:io - I/O for Command-Line Apps">the section called “dart:io - I/O for Command-Line Apps”</a>.
-      Also see these articles:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/using-future-based-apis/" target="_top">Using
-          Future Based APIs</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/futures-and-error-handling/" target="_top">Futures
+      Also see these articles and tutorials:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><a class="ulink" href="https://www.dartlang.org/docs/tutorials/futures/" target="_top">Use
+          Future-Based APIs</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/futures-and-error-handling/" target="_top">Futures
           and Error Handling</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/event-loop/" target="_top">The
-          Event Loop and Dart</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/feet-wet-streams/" target="_top">Getting
-          Your Feet Wet with Streams</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/creating-streams/" target="_top">Creating
+          Event Loop and Dart</a></p></li><li class="listitem"><p><a class="ulink" href="https://www.dartlang.org/docs/tutorials/streams/" target="_top">Use Streams
+          for Data</a></p></li><li class="listitem"><p><a class="ulink" href="http://www.dartlang.org/articles/creating-streams/" target="_top">Creating
           Streams in Dart</a></p></li></ul></div></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch03-dart-math"></a>dart:math - Math and Random</h2></div></div></div><p>The Math library provides common functionality such as sine and
     cosine, maximum and minimum, and constants such as <span class="emphasis"><em>pi</em></span>
     and <span class="emphasis"><em>e</em></span>. Most of the functionality in the Math library
@@ -1031,11 +1031,10 @@ github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_samp
   print('Received message: ${e.data}');
 });</pre><p>The message event handler receives a <a class="ulink" href="http://api.dartlang.org/html/MessageEvent.html" target="_top">MessageEvent</a>
         object. This object’s <code class="literal">data</code> field
-        has the data from the server.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-websocket-events"></a>Handling WebSocket events</h4></div></div></div><p><a class="ulink" href="http://api.dartlang.org/html/WebSocketEvents.html" target="_top">WebSocketEvents</a>
-        defines the WebSocket events your app can handle: open, close, error,
-        and (as shown above) message. Here’s an example of a method that
-        creates a WebSocket object and registers handlers for open, close,
-        error, and message events:</p><pre class="screen"><em><span class="remark">lang-dart
+        has the data from the server.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-handling-websocket-events"></a>Handling WebSocket events</h4></div></div></div><p>Your app can handle the following WebSocket events: open, close,
+        error, and (as shown earlier) message. Here’s an example of a method
+        that creates a WebSocket object and registers handlers for open,
+        close, error, and message events:</p><pre class="screen"><em><span class="remark">lang-dart
 <em><span class="remark">github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
 </span></em></span></em>void initWebSocket([int retrySeconds = 2]) {
   var reconnectScheduled = false;
@@ -1045,7 +1044,8 @@ github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_samp
 
   void scheduleReconnect() {
     if (!reconnectScheduled) {
-      new Timer(new Duration(milliseconds: 1000 * retrySeconds), () =&gt; initWebSocket(retrySeconds * 2));
+      new Timer(new Duration(milliseconds: 1000 * retrySeconds), 
+                () =&gt; initWebSocket(retrySeconds * 2));
     }
     reconnectScheduled = true;
   }
