@@ -489,13 +489,13 @@ that apply only to the contents of the custom element.
 <img class="scale-img-max" src="images/css-styling.png"
      alt="Scoped CSS styling">
 
-The `@host` rule allows you to target and style an element internally,
-from within its definition.
-The `:scope` pseudo-class refers to the custom element itself.
-The only selectors that work within `@host` are those contained
-in the host element itself.
-So you don't need to worry about naming conflicts on the page.
-Any CSS selectors within the template need to be unique only within the template.
+`:host` refers to the custom element itself and has the lowest specificity.
+This allows users to override your styling from the outside.
+You can style elements within the custom element using
+the appropriate selectors for those elements.
+You don't need to worry about naming conflicts on the page.
+Any CSS selectors used within the &lt;style&gt; section
+apply only to those elements within the template.
 
 For further details about styling custom elements,
 refer to
