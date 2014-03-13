@@ -393,8 +393,10 @@ For example, you might use a separate isolate
 for each piece of functionality,
 or when you need to ensure that data isn't shared.
 
+<!-- Obsolete link. Replace it one day when better isolate doc exists.
 See [dart:isolate - Concurrency with Isolates](/docs/dart-up-and-running/contents/ch03.html#ch03-dartisolate---concurrency-with-isolates)
 for more information and examples of using isolates.
+-->
 
 ## Test your understanding
 
