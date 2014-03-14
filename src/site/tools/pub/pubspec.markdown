@@ -39,6 +39,12 @@ Dependencies
 Dev dependencies
 : Can be omitted if your package has no dev dependencies.
 
+Transformers
+: Optional. Used to configure dart2js or other transformers.
+For more information, see
+[Pub Assets and Transformers](assets-and-transformers.html) and
+[Configuring the Built-in dart2js Compiler](dart2js-transformer.html).
+
 All other fields will be ignored. A simple but complete pubspec looks something
 like the following:
 

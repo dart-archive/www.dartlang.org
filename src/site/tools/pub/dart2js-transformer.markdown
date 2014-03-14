@@ -43,6 +43,16 @@ transformers:
     terse: true
 {% endprettify %}
 
+## Excluding an asset {#exclude-assets}
+
+You can also exclude a particular asset, or set of assets,
+from being processed by a transformer.
+You can also configure a transformer to run
+only on a particular asset, or set of assets.
+For more information, see
+[How to exclude assets](assets-and-transformers.html#exclude-assets) in
+[Pub Assets and Transformers](assets-and-transformers.html).
+
 ## Special-case option {#additional-options}
 
 `commandLineOptions: [...args...]`

@@ -202,3 +202,74 @@ filename, but they can't change the directory structure above
 
 [assets]: glossary.html#asset
 [transformers]: glossary.html#transformer
+
+## How to exclude assets {#exclude-assets}
+
+If you have an asset that you do not want a transformer to process,
+you can exclude it, by name, in the pubspec. For example, a transformer
+named `simple_transformer` operates on HTML files,
+but you do not want it to process your `lib/README.html` file.
+You can exclude it by using the `$exclude` tag. The following example
+tells pub to run the transformer on everything it would normally
+process _except_ for lib/foo.html:
+
+{% prettify yaml %}
+transformers:
+- simple_transformer:
+    $exclude: "lib/foo.html"
+{% endprettify %}
+
+You must indent the `$exclude` line by at least 4 spaces and provide
+the file's location from the top of the package.
+
+If you want a transformer to run _only_ on a particular file, you can
+use `$include`. The following example tells pub to run the transformer
+only on lib/foo.html, assuming that foo.html is a file type that it
+would operate on under normal conditions:
+
+{% prettify yaml %}
+transformers:
+- simple_transformer:
+    $include: "lib/foo.html"
+{% endprettify %}
+
+You can't use the include tag to force a transformer to operate on a
+file type that it would not otherwise process.
+
+You can also specify a list of files for the include or exclude tags:
+
+{% prettify yaml %}
+$exclude ["lib/foo.html", "lib/bar.html"]
+{% endprettify %}
+
+## How to configure assets {#configure-assets}
+
+You can use include and exclude to make a transformer, 
+such as dart2js, treat certain assets in a special way.
+
+For example, say that your project includes a Dart file that
+was written by another programmer who wasn't as careful as you are
+about cleaning up compiler warnings. You want to suppress the
+warnings from the dart2js compiler _for this particular file_
+when running `pub build` or `pub serve`.
+The offending code is in the `lib/lax_code.dart` file.
+You can disable the warnings only on that file by using
+the following:
+
+{% prettify yaml %}
+transformers:
+- $dart2js:
+    suppressWarnings: true
+    $include: "lib/lax_code.dart"
+- $dart2js:
+    suppressWarnings: false
+    $exclude: "lib/lax_code.dart"
+{% endprettify %}
+
+This suppresses warnings when processing lib/lax_code.dart, but
+allows warnings when compiling all other Dart files.
+
+## Further information {#more-info}
+
+If you want to write a transformer, see
+[Writing a Pub Transformer](transformers/index.html).
