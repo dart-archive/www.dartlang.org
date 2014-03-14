@@ -292,8 +292,31 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
 </pre>
 
 </section>
-</section>
 
+  <section id="increasing-memory">
+  <h3>Increasing memory</h3>
+
+  <p>
+  When building larger Dart applications, Dart Editor needs more
+  memory for analysis. If you are not already using 64-bit,
+  switch to a 64-bit Java Virtual Machine (JVM),
+  and to the 64-bit version of Dart Editor.
+  In the DartEditor.ini file, find the <tt>-Xmx1000m</tt> string
+  and change it to <tt>-Xmx2000m</tt>, or larger if you have more RAM
+  available.</p>
+  </section>
+
+  <section id="java7-gc-changes">
+  <h3>Java 7 garbage collection changes</h3>
+  <p>
+  Java 7 sports different garbage collection (GC) behavior than Java 6.
+  If you see large pauses when editing files, and you have addressed
+  the <a href="#increasing-memory">memory issues</a>, edit the
+  DartEditor.ini file, and insert a line <em>after</em>
+  <tt>-vmargs</tt> that contains the string <tt>-Xincgc</tt>.</p>
+  </section>
+
+</section>
 
 <section id="dartium">
   <h2>Launching Dartium</h2>
@@ -380,7 +403,7 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   </pre>
 
   <p>
-  If you need user name and password for authentication, add:
+  If you need a user name and password for authentication, add:
 
   <pre>
   -Dhttp.proxyUser=&lt;username&gt;
