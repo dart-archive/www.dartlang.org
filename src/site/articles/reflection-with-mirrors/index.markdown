@@ -101,7 +101,7 @@ the root of the mirror hierarchy.
 An InstanceMirror allows one to invoke dynamically chosen code on an object. 
 
 {% prettify dart %}
-InstanceMirror f = im.invoke(#sum, []); 
+InstanceMirror f = myClassInstanceMirror.invoke(#sum, []); 
 // Returns an InstanceMirror on 7.
 {% endprettify %}
 
