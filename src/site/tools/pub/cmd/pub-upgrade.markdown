@@ -88,3 +88,8 @@ Keep in mind that pub *will* generate a lockfile after it does this. If the
 only version of some dependency in your cache happens to be old, this locks
 your app to that version. The next time you are online, you will likely want to
 run `pub upgrade` again to upgrade to a later version.
+
+## Options {#options}
+
+For options that apply to all pub commands, see
+[Global options](index.html#global-options).

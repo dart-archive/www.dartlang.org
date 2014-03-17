@@ -65,3 +65,36 @@ use the [`pub publish`](pub-lish.html) command to upload your package to
 [`pub uploader`](pub-uploader.html) command enables specific users
 to modify and upload new versions of your package.
 
+---
+
+## Global options {#global-options}
+
+Several command-line options work with all of the pub commands.
+These include:
+
+`--help` or `-h`
+: Print usage information.
+
+`--version`
+: Print version of pub.
+
+`--trace`
+: Print debugging information when an error occurs.
+
+`--verbosity=<level>`
+: The specified level determines the amount of information that is displayed:
+
+* `all`
+: Show all output, including internal tracing messages.
+
+* `io`
+: Show I/O operations.
+
+* `normal`
+: Show errors, warnings, and user messages.
+
+* `solver`
+: Show steps during version resolution.
+
+`-verbose` or `-v`
+: Equivalent to `--verbosity=all`.

@@ -71,6 +71,9 @@ for you to look over before it actually uploads your package.
 
 ## Options
 
+For options that apply to all pub commands, see
+[Global options](index.html#global-options).
+
 ### `--dry-run` or `-n`
 
 With this, pub goes through the validation process but does not actually upload

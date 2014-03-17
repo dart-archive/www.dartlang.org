@@ -52,6 +52,9 @@ information on:
 
 ## Options
 
+For options that apply to all pub commands, see
+[Global options](index.html#global-options).
+
 ### `--port`
 
 By default the dev server uses `http://localhost:8080`. To change the port

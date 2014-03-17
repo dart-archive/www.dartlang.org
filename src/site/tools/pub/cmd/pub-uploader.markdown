@@ -41,3 +41,8 @@ $ pub uploader --package=transmogrify add nweiz@google.com
 
 Note that uploaders are identified by their Google accounts, so use a Gmail or
 Google Apps email address for any new uploaders.
+
+## Options {#options}
+
+For options that apply to all pub commands, see
+[Global options](index.html#global-options).

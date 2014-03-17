@@ -25,3 +25,8 @@ $ pub cache add barback --version ">=0.8.0 <0.110"
 {% endprettify %}
 
 If `--version` is omitted, pub installs the best of all known versions.
+
+## Options {#options}
+
+For options that apply to all pub commands, see
+[Global options](index.html#global-options).

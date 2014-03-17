@@ -54,7 +54,10 @@ development server that continuously generates and serves assets.
 **Note:** In earlier releases of Dart, _pub build_ was called _pub deploy_.
 </aside>
 
-## Options
+## Options {#options}
+
+For options that apply to all pub commands, see
+[Global options](index.html#global-options).
 
 ### `--mode=<mode>`
 

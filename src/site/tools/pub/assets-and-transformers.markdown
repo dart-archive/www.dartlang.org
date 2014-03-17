@@ -269,7 +269,7 @@ transformers:
 This suppresses warnings when processing lib/lax_code.dart, but
 allows warnings when compiling all other Dart files.
 
-## Further information {#more-info}
+## Writing a transformer {#writing-transformer}
 
-If you want to write a transformer, see
+To write a transformer, see
 [Writing a Pub Transformer](transformers/index.html).
