@@ -9,7 +9,8 @@ _Build_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
 {% prettify lang-sh %}
-$ pub build [--mode=<mode>]
+$ pub build [--mode=<mode>] [<directories>]
+$ pub build [--mode=<mode>] [--all]
 {% endprettify %}
 
 Use `pub build` when you're ready to deploy your web app. When you run
@@ -59,9 +60,32 @@ development server that continuously generates and serves assets.
 For options that apply to all pub commands, see
 [Global options](index.html#global-options).
 
-### `--mode=<mode>`
+`<directories>`
+: Optional. By default, `pub build` builds the contents of the
+`web` directory. You can specify one or more of the following
+top-level directories:
 
-Specifies a transformation mode. Typical values are "debug" and "release", but
+* benchmark
+* bin
+* example
+* test
+* web
+
+For example, you might specify:
+
+{% prettify lang-sh %}
+pub build test benchmark example
+{% endprettify %}
+
+This option does not determine use of the `asset` or `lib`
+top-level directories.
+
+`--all`
+: Builds all of the buildable directories (benchmark, bin, example,
+test, and web) that are present.
+
+`--mode=<mode>`
+: Specifies a transformation mode. Typical values are "debug" and "release", but
 any word is allowed. Transformers may use this to change how they behave.
 
 If set to "release" pub generates minified JavaScript using dart2js.
