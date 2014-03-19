@@ -9,7 +9,7 @@ _Serve_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
 {% prettify lang-sh %}
-$ pub serve [--port <number>]
+$ pub serve [--port <number>] [<directories>]
 {% endprettify %}
 
 This command starts up a _development server_, or _dev server_,
@@ -50,33 +50,62 @@ information on:
 * How to use `pubspec.yaml` to specify which transformers run, and in
   what order.
 
-## Options
+## Options {#options}
 
 For options that apply to all pub commands, see
 [Global options](index.html#global-options).
 
-### `--port`
+<dl>
+<dt><tt>&lt;directories&gt;</tt></dt>
+<dd>Optional. By default, <tt>pub serve</tt> serves the contents of the
+<tt>web</tt> and <tt>test</tt> directories. You can specify other
+directories at the command line, including any of the standard top-level
+directories:
 
-By default the dev server uses `http://localhost:8080`. To change the port
-number, use the `--port` option:
+<ul>
+<li>benchmark</li>
+<li>bin</li>
+<li>example</li>
+<li>test</li>
+<li>web</li>
+</ul>
 
-{% prettify lang-sh %}
+For example, you might specify:
+<pre>
+pub serve test benchmark example
+</pre>
+
+However, any directory names are allowed:
+<pre>
+pub serve foo bar
+</pre>
+
+The <tt>asset</tt> and <tt>lib</tt> top-level directories are
+always served.</dd>
+
+<dt><tt>--port</tt></dt>
+<dd>By default the dev server uses <tt>http://localhost:8080</tt>.
+To change the port number, use the <tt>--port</tt> option:
+<pre>
 $ pub serve --port 9080
-Serving helloworld on http://localhost:9080
-{% endprettify %}
+Serving helloworld web on http://localhost:9080
+</pre>
+</dd>
 
-### `--mode=<mode>`
-
-Specifies a transformation mode. Typical values are "debug" and "release", but
-any word is allowed. Transformers may use this to change how they behave.
+<dt><tt>--mode=&lt;mode&gt;</tt></dt>
+<dd>Specifies a transformation mode. Typical values are "debug" and "release",
+but any word is allowed.
+Transformers may use this to change how they behave.<br><br>
 
 If set to "release" pub generates minified JavaScript using dart2js.
-Otherwise, it generates it unminified. Also, in release mode, Pub does not
-include any source .dart files in the resulting build output since they have
+Otherwise, it generates unminified JavaScript.
+Also, in release mode, Pub does not include any source .dart
+files in the resulting build output since they have
 been compiled to JavaScript. In any other mode, the raw Dart files are
-included.
+included.<br><br>
+If omitted, it defaults to "debug".</dd>
 
-If omitted, it defaults to "debug".
+</dl>
 
 ## What about Dart Editor's server?
 

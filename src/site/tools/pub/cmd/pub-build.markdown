@@ -60,38 +60,45 @@ development server that continuously generates and serves assets.
 For options that apply to all pub commands, see
 [Global options](index.html#global-options).
 
-`<directories>`
-: Optional. By default, `pub build` builds the contents of the
+<dl>
+
+<dt><tt>&lt;directories&gt;</tt></dt>
+<dd>Optional. By default, `pub build` builds the contents of the
 `web` directory. You can specify one or more of the following
 top-level directories:
 
-* benchmark
-* bin
-* example
-* test
-* web
+<ul>
+<li>benchmark</li>
+<li>bin</li>
+<li>example</li>
+<li>test</li>
+<li>web</li>
+</ul>
 
 For example, you might specify:
 
-{% prettify lang-sh %}
+<pre>
 pub build test benchmark example
-{% endprettify %}
+</pre>
 
-This option does not determine use of the `asset` or `lib`
-top-level directories.
+The <tt>asset</tt> and <tt>lib</tt> top-level directories are
+always served.</dd>
 
-`--all`
-: Builds all of the buildable directories (benchmark, bin, example,
-test, and web) that are present.
+<dt><tt>--all</tt></dt>
+<dd>Builds all of the buildable directories (benchmark, bin, example,
+test, and web) that are present.</dd>
 
-`--mode=<mode>`
-: Specifies a transformation mode. Typical values are "debug" and "release", but
-any word is allowed. Transformers may use this to change how they behave.
+<dt><tt>--mode=&lt;mode&gt;</tt></dt>
+<dd>Specifies a transformation mode. Typical values are "debug" and "release",
+but any word is allowed.
+Transformers may use this to change how they behave.<br><br>
 
 If set to "release" pub generates minified JavaScript using dart2js.
 Otherwise, it generates it unminified. Also, in release mode, pub does not
 include any source .dart files in the resulting build output since they have
 been compiled to JavaScript. In any other mode, the raw Dart files are
-included.
+included.<br><br>
 
-If omitted, it defaults to "release".
+If omitted, it defaults to "release".</dd>
+
+</dl>
