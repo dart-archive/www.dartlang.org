@@ -23,7 +23,7 @@ js:
 
 # {{ page.title }}
 
-Tracking [Dart VM](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html) and
+Tracking [Dart VM](/tools/dart-vm/) and
 [dart2js](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html) performance. Read more about
 [benchmarking Dart](/articles/benchmarking/).
 

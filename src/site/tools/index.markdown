@@ -116,7 +116,7 @@ by the Dart community.
 
 <div class="row">
   <div class="col-md-4">
-    <dt> <a href="/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html">dart</a> </dt>
+    <dt> <a href="/tools/dart-vm">dart</a> </dt>
       <dd>The standalone VM </dd>
     <dt> <a href="/tools/dart2js/">dart2js</a> </dt>
       <dd>The Dart-to-JavaScript compiler </dd>

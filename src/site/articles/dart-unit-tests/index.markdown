@@ -251,7 +251,7 @@ After making that change and running the app again, we see happiness:
     All 2 tests passed.
 
 We can easily run this from the command line using the
-[standalone Dart virtual machine](/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html).
+[standalone Dart virtual machine](/tools/dart-vm/).
 If you want to test the exit code from the standalone VM, add this import:
 
 {% prettify dart %}
