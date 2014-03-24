@@ -7,7 +7,8 @@ title: "Pub Dependencies"
 
 {% include toc.html %}
 
-Dependencies are one of [pub](/tools/pub)'s core concepts. A dependency is another package
+Dependencies are one of [pub](/tools/pub)'s core concepts.
+A dependency is another package
 that your package needs in order to work. Dependencies are specified in your
 [pubspec](pubspec.html). You only list
 [immediate dependencies](glossary.html#immediate-dependency)&mdash;the
@@ -158,7 +159,7 @@ dependencies:
 This says the root directory for `transmogrify` is `/Users/me/transmogrify`.
 For this dependency, pub generates a symlink directly to the `lib` directory
 of the referenced package directory. Any changes you make to the dependent
-package will be seen immediately. You don't need to run pub every time you
+package are seen immediately. You don't need to run pub every time you
 change the dependent package.
 
 Relative paths are allowed and are considered relative to the directory
@@ -180,7 +181,7 @@ Instead, the typical workflow is:
 ## Version constraints {#version-constraints}
 
 If your package is an application, you don't usually need to specify [version
-constraints](glossary.html#version-constraint) for your dependencies. You will
+constraints](glossary.html#version-constraint) for your dependencies. You 
 typically want to use the latest versions of the dependencies when you first
 create your app. Then you'll create and check in a
 [lockfile](glossary.html#lockfile) that pins your dependencies to those specific
@@ -228,7 +229,7 @@ A version constraint is a series of:
   the upper version that you know does <em>not</em> work with your package
   (because it's the first version to introduce some breaking change).
 
-You can specify version parts as you want, and their ranges will be intersected
+You can specify version parts as you want, and their ranges are intersected
 together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
 `2.0.0` excluding `2.0.0` itself.
 
@@ -270,6 +271,54 @@ can and should be a dev dependency.
 Using dev dependencies makes dependency graphs smaller. That makes `pub` run
 faster, and makes it easier to find a set of package versions that satisfies all
 constraints.
+
+## Dependency overrides {#dependency-overrides}
+
+You can use `dependency_overrides` to temporarily override all references
+to a dependency.
+
+For example, perhaps you are updating a local copy of transmogrify, a
+published library package. Transmogrify is used by other packages in your
+dependency graph, but you don't want to clone each package locally
+and change each pubspec to test your local copy of transmogrify.
+
+In this situation, you can override the dependency using
+`dependency_overrides` to specify the directory holding the local
+copy of the package.
+
+The pubspec would look something like the following:
+
+{% prettify yaml %}
+name: my_app
+dependencies:
+  transmogrify: '>= 1.2.0 <2.0.0'
+dependency_overrides:
+  transmogrify:
+    path: ../transmogrify_patch/
+{% endprettify %}
+
+When you run `pub get`, the pubspec's lockfile is updated to reflect the
+new path to your dependency and, whereever transmogrify is used, pub
+uses the local version instead.
+
+You can also use `dependency_overrides` to specify a particular
+version of a package:
+
+{% prettify yaml %}
+name: my_app
+dependencies:
+  transmogrify: '>= 1.2.0 <2.0.0'
+dependency_overrides:
+  transmogrify: '3.2.1'
+{% endprettify %}
+
+*Caution:* Using a dependency override involves some risk. For example,
+using an override to specify a version outside the range that the
+package claims to support, or using an override to specify
+a local copy of a package that has unexpected behaviors,
+may break your application.
+
+---
 
 <!-- We can't use the built-in Markdown footnote syntax here because it
      conflicts with the TOC header. -->

@@ -39,6 +39,9 @@ Dependencies
 Dev dependencies
 : Can be omitted if your package has no dev dependencies.
 
+Dependency overrides
+: Can be omitted if you do not need to override any dependencies.
+
 Transformers
 : Optional. Used to configure dart2js or other transformers.
 For more information, see
@@ -61,9 +64,12 @@ homepage: http://newtify.dartlang.org
 documentation: http://docs.newtify.com
 dependencies:
   efts: '>=2.0.4 <3.0.0'
-  transmogrify: '>=0.4.0'
+  transmogrify: '>=0.4.0 <1.0.0'
 dev_dependencies:
   unittest: '>=0.6.0'
+dependency_overrides:
+  transmogrify:
+    path: ../transmogrify_patch/
 {% endprettify %}
 
 ## Name
@@ -156,6 +162,9 @@ Dependencies fall into one of two types. "Regular dependencies" are listed
 under `dependencies:`&mdash;these are packages that anyone using your package
 will also need. Dependencies that are only needed in the development phase of
 the package itself are listed under `dev_dependencies`.
+
+During the development process, you might need to temporarily override
+a dependency.  You can do so using `dependency_overrides`.
 
 For more information, see [Pub Dependencies](dependencies.html).
 
