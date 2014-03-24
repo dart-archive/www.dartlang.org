@@ -48,11 +48,11 @@ And add the following scripts:
 
 Use the top-level `context` getter to access the global object in JavaScript.
 For example,
-if your JavaScript code has a top-level `Point` variable,
+if your JavaScript code has a top-level `config` variable,
 your Dart code can use it like this:
 
 {% prettify dart %}
-var obj = context['Point'];
+var obj = context['config'];
 {% endprettify %}
 
 Calling `context` returns a `JsObject`, which represents a proxy of a
