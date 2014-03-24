@@ -24,7 +24,7 @@ reproducible stress test of the performance-sensitive algorithm.
 The benchmark verifies that changes to the algorithm are indeed
 improvements, and not regressions.
 
-##Benchmarking Dart
+## Benchmarking Dart
 
 Dart can go really fast, but you have to give the VM time to optimize your code.
 Most benchmarks we've seen are short and to the point—so short that they don’t
@@ -33,7 +33,7 @@ which execute long enough to be optimized.
 Read on to find out how to use the benchmark_harness library
 to properly run a Dart benchmark.
 
-###Use the benchmark harness
+### Use the benchmark harness
 
 The Dart team has provided an official benchmark harness that ensures
 your benchmark follows the benchmarking procedures necessary
@@ -80,7 +80,19 @@ main() {
 }
 {% endprettify %}
 
-###Run in production mode
+#### Output
+
+The benchmark will output something like the following:
+
+    Template(RunTime): 0.1568472448997197 us.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+µs is an abbreviation for microseconds. A microsecond is one millionth of a
+second.
+</aside>
+
+### Run in production mode
 
 The Dart VM can run in two modes: checked and production mode. Checked mode is
 slower because the VM is checking types at runtime. Before benchmarking make
@@ -94,9 +106,11 @@ turned on by passing the `--checked` command line flag. The editor has checked
 mode on by default but can be turned off by going to the ‘Manage Launches’
 window.
 
-<div style="display:block; margin-left:auto; margin-right:auto"><img src="checkedmode.png" />
+<div style="display:block; margin-left:auto; margin-right:auto">
+  <img style="width:100%" src="checkedmode.png">
+</div>
 
-##Summary
+## Summary
 
 When benchmarking your application be sure to follow these three rules:
 
