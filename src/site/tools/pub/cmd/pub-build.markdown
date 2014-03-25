@@ -102,3 +102,9 @@ included.<br><br>
 If omitted, it defaults to "release".</dd>
 
 </dl>
+
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>
+

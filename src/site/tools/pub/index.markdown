@@ -16,6 +16,11 @@ the Dart SDK, one of the tools that you get is `pub`.
 You can access the `pub` commands either through Dart Editor or
 the command line, so use whatever approach is most convenient.
 
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](troubleshoot.html).
+</aside>
+
 ## Managing packages
 
 Dart applications rely on packages. If your Dart app uses one or
@@ -75,3 +80,8 @@ The following pages cover how to write a custom transformer:
 
 * [Writing a Pub Transformer](/tools/pub/transformers/) 
 * [Barback - Can We Build It? Yes, We Can!](https://docs.google.com/a/google.com/document/d/1juHkCRg-1YH6LvwhGPHgF2ihX-UQtR1fv-8aknO7t_4/edit?pli=1#)
+
+## Troubleshooting {#troubleshooting}
+
+[Troubleshooting Pub](troubleshoot.html) gives solutions to problems that
+you might encounter when using pub.

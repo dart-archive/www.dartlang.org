@@ -101,3 +101,9 @@ The main pub server is itself open source and available [here][pub repo].
 
 [pubsite]: http://pub.dartlang.org
 [pub repo]: https://github.com/dart-lang/pub-dartlang
+
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>
+

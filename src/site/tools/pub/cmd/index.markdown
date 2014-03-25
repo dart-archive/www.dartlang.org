@@ -26,7 +26,10 @@ Quick links to the `pub` commands:
 * [`pub upgrade`](pub-upgrade.html)
 * [`pub uploader`](pub-uploader.html)
 
----
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>
 
 Pub's commands fall into the following categories:
 
