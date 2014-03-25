@@ -1035,8 +1035,6 @@ code {
 .footer ul {
   list-style: none;
   padding-left: 0;
-  font-size: 11px;
-  line-height: 16px;
 }
 
 .footer ul > li {
@@ -1044,10 +1042,14 @@ code {
   margin: 8px 0;
 }
 
-.footer ul > li > a {
+.footer ul > li , .footer ul > li > a {
   color: #fff;
-  font-size: 11px;
-  line-height: 16px;
+}
+
+@media (max-width: 480px) {
+  .footer ul {
+    font-size: 28px;
+  }
 }
 
 /* Disable numbing on toc elements */
