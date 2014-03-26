@@ -18,7 +18,7 @@ drop. See how you can slice a file in separate byte range
 chunks for efficient uploading, and monitor progress while uploading a file.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/dndfiles).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

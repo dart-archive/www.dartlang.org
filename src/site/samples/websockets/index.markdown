@@ -25,7 +25,7 @@ response on the web page.
 You can open the example in Dart Editor and run it by clicking `index.html`.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/websockets/basics).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

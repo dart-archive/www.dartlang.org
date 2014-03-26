@@ -11,7 +11,7 @@ header:
 Store and retrieve data using IndexedDB.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/indexeddb).
 
 <iframe class="running-app-frame"
         style="height:300px;width:100%;"

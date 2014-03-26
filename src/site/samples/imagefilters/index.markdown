@@ -20,7 +20,7 @@ sharpen and emboss an image using convolution filters.
 You can open the example in Dart Editor and run it by clicking `index.html`.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/canvas/imagefilters).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

@@ -18,7 +18,7 @@ This app replicates common UNIX filesystem operations such as cd, mkdir,
 rm, open, and cat using the FileSystem API.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/terminal).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

@@ -14,7 +14,7 @@ This sample ports the example used in
 by Eric Bidelman about using the FileSystem APIs.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/filesystem).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

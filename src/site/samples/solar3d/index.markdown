@@ -9,7 +9,7 @@ header:
 ## {{ page.title }}
 
 Read the
-[source](https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/solar3d).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/webgl/solar3d).
 
 <iframe class="running-app-frame"
         style="height:600px;width:100%;"

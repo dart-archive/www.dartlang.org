@@ -14,7 +14,7 @@ in localStorage. The value is then retrieved from localStorage and displayed
 on the page.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/localstorage/basics).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

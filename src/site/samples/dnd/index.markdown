@@ -18,7 +18,7 @@ on a page. Native browser support for this feature means faster, more
 responsive web apps.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/dnd/basics).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

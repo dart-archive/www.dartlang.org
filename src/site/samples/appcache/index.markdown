@@ -29,7 +29,7 @@ version of `index.html`. Next, change the date or version number in
 appcache.mf, and reload once more. You'll be prompted to load the new version.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/appcache/beginner).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

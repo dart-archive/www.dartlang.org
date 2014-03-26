@@ -15,7 +15,7 @@ by Paul Lewis about correctly using requestAnimationFrame for your animations.
 Use the up and down keys on your keyboard to activate the animation.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/speed/animations).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

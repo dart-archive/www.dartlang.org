@@ -130,9 +130,9 @@ col1:
     examples:
       -
         title: Working with requestAnimationFrame
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations#working-with-requestanimationframe
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/speed/animations#working-with-requestanimationframe
         tryit_url: raf/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/speed/animations
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/speed/animations
         description: A sample that demonstrates the correct way to use rAF.
       -
         title: 2D solar system animation
@@ -143,15 +143,15 @@ col1:
 
       -
         title: 3D solar system animation
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d#3d-solar-system-simulation
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/webgl/solar3d#3d-solar-system-simulation
         tryit_url: solar3d/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webgl/solar3d
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/webgl/solar3d
         description: A solar system implementation using WebGL.
       -
         title: Using image filters with canvas
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters#using-image-filters-with-canvas
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/canvas/imagefilters#using-image-filters-with-canvas
         tryit_url: imagefilters/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/canvas/imagefilters
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/canvas/imagefilters
         description: Process pixels, run simple filters, and modify an image using convolution filters.
       -
         title: "Shaped masks with StageXL"
@@ -181,15 +181,15 @@ col1:
     examples:
       -
         title: LocalStorage 101
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics#localstorage-101
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/weblocalstorage/basics#localstorage-101
         tryit_url: localstorage/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/localstorage/basics
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/localstorage/basics
         description: A dead-simple example that uses LocalStorage.
       -
         title: Simple todo app using IndexedDB
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb/todo#simple-todo-app-using-indexeddb
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/indexeddb/todo#simple-todo-app-using-indexeddb
         tryit_url: indexeddb_todo/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/indexeddb
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/indexeddb
         description: A todo app which persists data using IndexedDB.
       -
         title: Storing and retrieving data using IndexedDB
@@ -199,15 +199,15 @@ col1:
         description: Create milestones and count down to them. Uses IndexedDB to store the milestones.
       -
         title: Exploring the FileSystem APIs
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem#exploring-the-filesystem-apis
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/filesystem#exploring-the-filesystem-apis
         tryit_url: filesystem/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/filesystem
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/filesystem
         description: Read, write, and navigate to a sandboxed section of your local file system.
       -
         title: A terminal emulator that uses the FileSystem APIs
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal#a-terminal-emulator-that-uses-the-filesystem-apis
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/terminal#a-terminal-emulator-that-uses-the-filesystem-apis
         tryit_url: terminal/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/terminal
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/terminal
         description: A Unix terminal in the web that manipulates the local file system.
 
   -
@@ -220,40 +220,40 @@ col1:
     examples:
       -
         title: WebSockets 101
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics#websockets-101
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/websockets/basics#websockets-101
         tryit_url: websockets/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/websockets/basics
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/websockets/basics
         description: Example that opens a WebSocket connection to an echo server, and sends and receives data.
       -
         title: Basic HTML5 drag and drop
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics#basic-drag-and-drop
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/dnd/basics#basic-drag-and-drop
         tryit_url: dnd/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/dnd/basics
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/dnd/basics
         description: A simple demo of HTML5 Drag and Drop to move elements on a page.
       -
         title: Using Application Cache
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner#using-application-cache
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/appcache/beginner#using-application-cache
         tryit_url: appcache/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/appcache/beginner
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/appcache/beginner
         description: Use Application Cache to tell the browser which files it should cache and make available to offline users.
       -
         title: Basic geolocation example
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter#trip-meter-a-basic-geolocaton-example
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/geolocation/trip_meter#trip-meter-a-basic-geolocaton-example
         tryit_url: geolocation/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/geolocation/trip_meter
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/geolocation/trip_meter
         description: Calculate the distance traveled between locations.
 
       -
         title: Getting started with Web Audio API
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro#getting-started-with-web-audio-api
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/webaudio/intro#getting-started-with-web-audio-api
         tryit_url: webaudio/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/webaudio/intro
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/webaudio/intro
         description: Sample that shows processing and synthesizing audio using the Web Audio API.
       -
         title: Using the Files API
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles#using-the-file-api
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/dndfiles#using-the-file-api
         tryit_url: dndfiles/
-        source_url: https://github.com/dart-lang/dart-samples/tree/master/web/html5/file/dndfiles
+        source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/dndfiles
         description: Select a file using a form input, or using drag and drop, and monitor progress while uploading a file.
 
   -
