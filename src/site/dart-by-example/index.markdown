@@ -1,22 +1,16 @@
 ---
 layout: default
-title: Dart By Example
-description: Short snippets of code to help you become productive with Dart.
 header:
   css: ["index.css"]
 has-permalinks: true
 ---
 
-# {{ page.title }}
 
-Short snippets of code to help you become productive with Dart.
-Check out more complete [Dart sample code](/samples/).
+## Dart I/O and Command Line Apps
+{:.no_toc}
 
 {% include default_toc.html %}
 
-See the [source on Github](https://github.com/dart-lang/dart_by_example/tree/master/example).
-
-##  Dart I/O and command-line apps
 
 The following examples are all stand-alone apps, such as servers, that run
 from the command line. Most of the examples use the `dart:io` library, which is
@@ -34,10 +28,13 @@ counterpart, `readAsStringSync()`.
 <strong>The examples below use only the asynchronous versions.</strong>
 </aside>
 
-After looking at the following code examples,
-refer to
+See the
+[source on Github](https://github.com/dart-lang/dart-samples/tree/master/dart_io_mini_samples).
+
+After looking at the following code examples, refer to
 [Writing Command-line Apps: A Programmer's Guide](/docs/serverguide.html)
 for additional information about I/O, command-line apps, and servers.
+
 
 ### Files, directories, and symlinks
 
@@ -62,6 +59,7 @@ void main() {
       // Confirm it no longer exists.
       directory.exists().then(print); // Prints 'false'
     });
+}
 {% endprettify %}
 
 
@@ -88,6 +86,7 @@ void main() {
     .then((file) {
       print('The path is ${file.path}'); // Prints path ending with `bar.txt`.
     });
+}
 {% endprettify %}
 
 
@@ -124,6 +123,7 @@ void main() {
           print('$label: ${entity.path}');
       });
     });
+}
 {% endprettify %}
 
 
@@ -143,6 +143,7 @@ void main() {
       // Print the path of the parent of each file, directory, and symlink.
       print(entity.parent.path);
     });
+}
 {% endprettify %}
 
 
@@ -167,6 +168,7 @@ void main() {
     .then((file) {
       print(file.path);
   });
+}
 {% endprettify %}
 
 
@@ -175,13 +177,13 @@ void main() {
 Use the File `readAsString()` method to read a file as a string.
 
 {% prettify dart %}
-import 'dart:async';
 import 'dart:io';
 
 void main() {
   new File('file.txt').readAsString().then((String contents) {
     // Do something with the file contents.
   });
+}
 {% endprettify %}
 
 
@@ -190,13 +192,13 @@ void main() {
 Use the File `readAsLines()` method to read file contents as lines.
 
 {% prettify dart %}
-import 'dart:async';
 import 'dart:io';
 
 void main() {
   new File('file.txt').readAsLines().then((List<String> lines) {
     // Do something with lines.
   });
+}
 {% endprettify %}
 
 
@@ -205,7 +207,6 @@ void main() {
 Use the File `readAsBytes()` method to read file contents as bytes.
 
 {% prettify dart %}
-import 'dart:async';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
@@ -216,6 +217,7 @@ void main() {
     String base64 = CryptoUtils.bytesToBase64(bytes);
     // ...
   });
+}
 {% endprettify %}
 
 
@@ -247,6 +249,7 @@ main() {
       },
       onDone: () { print('File is now closed.'); },
       onError: (e) { print(e.toString()); });
+}
 {% endprettify %}
 
 
@@ -273,6 +276,7 @@ main() {
       print('There was a ${e.runtimeType} error');
       print('Could not read $filename');
     });
+}
 {% endprettify %}
 
 
@@ -290,6 +294,7 @@ void main() {
     .then((File file) {
       // Do something with the file.
     });
+}
 {% endprettify %}
 
 
@@ -313,6 +318,7 @@ void main() {
       // Decode to a string, and print.
       print(UTF8.decode(data)); // Prints 'Dart!'.
   });
+}
 {% endprettify %}
 
 
@@ -333,6 +339,7 @@ void main() {
 
   // Close the IOSink to free system resources.
   sink.close();
+}
 {% endprettify %}
 
 
@@ -352,6 +359,7 @@ void main() {
     .then((Directory directory) {
       print(directory.path);
   });
+}
 {% endprettify %}
 
 
@@ -370,6 +378,7 @@ void main() {
     .then((directory) {
       print(directory.path);
     });
+}
 {% endprettify %}
 
 
@@ -393,6 +402,7 @@ void main() {
     .listen((FileSystemEntity entity) {
       print(entity.path);
     });
+}
 {% endprettify %}
 
 
@@ -419,6 +429,7 @@ void main() {
       // Do something with the symlink.
     });
   });
+}
 {% endprettify %}
 
 
@@ -442,6 +453,7 @@ void main() {
         if (isLink) print(entity.path);
       });
     });
+}
 {% endprettify %}
 
 
@@ -475,6 +487,7 @@ void main() {
         print(e.message);
       });
     });
+}
 {% endprettify %}
 
 
@@ -493,6 +506,7 @@ void main() {
     print("Response status: ${response.statusCode}");
     print("Response body: ${response.body}");
   });
+}
 {% endprettify %}
 
 
@@ -509,6 +523,7 @@ void main() {
     print("Response status: ${response.statusCode}");
     print("Response body: ${response.body}");
   });
+}
 {% endprettify %}
 
 
@@ -535,6 +550,7 @@ void main() {
               "${repo['forks_count']}");
     }
   });
+}
 {% endprettify %}
 
 
@@ -569,6 +585,7 @@ void main() {
 
        // Close the connection when done.
        .whenComplete(client.close);
+}
 {% endprettify %}
 
 
@@ -597,6 +614,7 @@ void main() {
   http.get("http://some_bogus_website.org")
     .then(handleSuccess)
     .catchError(handleFailure);
+}
 {% endprettify %}
 
 
@@ -619,6 +637,7 @@ main() {
         print(redirect.location); // Prints 'http://www.google.com'.
       });
     });
+}
 {% endprettify %}
 
 
@@ -632,6 +651,7 @@ import 'package:http/http.dart' as http;
 
 void main() {
   http.read("http://www.google.com/").then(print);
+}
 {% endprettify %}
 
 
@@ -652,6 +672,7 @@ void main() {
     String base64 = CryptoUtils.bytesToBase64(bytes);
     // ...
   });
+}
 {% endprettify %}
 
 
@@ -678,12 +699,13 @@ void main() {
     print("content-length = ${response.headers['content-length']}");
     print("connection = ${response.headers['connection']}");
   });
+}
 {% endprettify %}
 
 
 ### HTTP server
 
-#### Implementing a dead-simple HTTP server
+#### Implementing a 'Hello world' HTTP server
 
 Use `HttpServer.bind()` method to bind to a port and the HttpServer
 `listen()` method to listen for connections.  Respond to an `HttpRequest`
@@ -694,12 +716,15 @@ import 'dart:io';
 
 void main() {
   HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
-    print(server);
+    print("Serving at ${server.address}:${server.port}");
     server.listen((HttpRequest request) {
-      request.response.write('Hello, world');
-      request.response.close();
+      request.response
+        ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
+        ..write('Hello, world')
+        ..close();
     });
   });
+}
 {% endprettify %}
 
 
@@ -716,17 +741,17 @@ library simple_http_server;
 import 'dart:io';
 import 'package:http_server/http_server.dart' show VirtualDirectory;
 
-final MY_HTTP_ROOT_PATH = Platform.script.resolve('web').toFilePath();
-
 void main() {
-  var virDir = new VirtualDirectory(MY_HTTP_ROOT_PATH);
-  virDir.allowDirectoryListing = true;
+  final MY_HTTP_ROOT_PATH = Platform.script.resolve('web').toFilePath();
+  final virDir = new VirtualDirectory(MY_HTTP_ROOT_PATH)
+    ..allowDirectoryListing = true;
 
   HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
     server.listen((request) {
       virDir.serveRequest(request);
     });
   });
+}
 {% endprettify %}
 
 
@@ -739,7 +764,6 @@ property.
 {% prettify dart %}
 library simple_http_server;
 
-import 'dart:async';
 import 'dart:io';
 import 'package:http_server/http_server.dart' show VirtualDirectory;
 
@@ -751,7 +775,7 @@ void directoryHandler(dir, request) {
 }
 
 void main() {
-  virDir = new VirtualDirectory(Platform.script.resolve('./web').toFilePath())
+  virDir = new VirtualDirectory(Platform.script.resolve('web').toFilePath())
     ..allowDirectoryListing = true
     ..directoryHandler = directoryHandler;
 
@@ -760,6 +784,7 @@ void main() {
       virDir.serveRequest(request);
     });
   });
+}
 {% endprettify %}
 
 
@@ -769,9 +794,7 @@ Use the http Pub package, and create a VirtualDirectory to serve the
 request. Register an error handler using the `errorHandler` property.
 
 {% prettify dart %}
-import 'dart:async';
 import 'dart:io';
-
 import 'package:http_server/http_server.dart' as http_server;
 
 void errorPageHandler(HttpRequest request) {
@@ -782,7 +805,7 @@ void errorPageHandler(HttpRequest request) {
 }
 
 void main() {
-  var buildPath = Platform.script.resolve('./web').toFilePath();
+  var buildPath = Platform.script.resolve('web').toFilePath();
 
   var virDir = new http_server.VirtualDirectory(buildPath)
     ..allowDirectoryListing = true
@@ -795,6 +818,7 @@ void main() {
   });
 }
 
+
 {% endprettify %}
 
 
@@ -804,8 +828,6 @@ Use the `route` Pub package, and associate callbacks with URL patterns.
 
 {% prettify dart %}
 import 'dart:io';
-import 'dart:async';
-
 import 'package:route/server.dart';
 import 'package:route/url_pattern.dart';
 
@@ -844,6 +866,7 @@ void main() {
       ..serve(postUrl, method: 'GET').listen(servePost)
       ..defaultStream.listen(serveNotFound);
   });
+}
 {% endprettify %}
 
 
@@ -866,6 +889,7 @@ main() {
         socket.transform(UTF8.decoder).listen(print);
       });
     });
+}
 {% endprettify %}
 
 
@@ -882,6 +906,7 @@ main() {
     print(socket.runtimeType);
     socket.write('Hello, World!');
   });
+}
 {% endprettify %}
 
 
@@ -914,6 +939,7 @@ main() {
     });
   },
   onError: (e) => print("An error occurred."));
+}
 {% endprettify %}
 
 
@@ -929,6 +955,7 @@ main() {
   WebSocket.connect('ws://127.0.0.1:4040/ws').then((socket) {
     socket.add('Hello, World!');
   });
+}
 {% endprettify %}
 
 
@@ -944,6 +971,7 @@ import 'dart:io' show Platform;
 void main() {
   Map<String, String> envVars = Platform.environment;
   print(envVars['PATH']);
+}
 {% endprettify %}
 
 
@@ -973,6 +1001,7 @@ void main() {
   } else {
     stdout.writeln('something other than MacOS, Android, Linux, or Windows');
   }
+}
 {% endprettify %}
 
 
@@ -992,6 +1021,7 @@ void main() {
   // Convert the URI to a path.
   var path = uri.toFilePath();
   print(path); // Prints something like 'file:///Users/shailentuli/workspace/...'.
+}
 {% endprettify %}
 
 
@@ -1010,6 +1040,7 @@ main() {
   Process.run('ls', ['-l']).then((ProcessResult results) {
     print(results.stdout);
   });
+}
 {% endprettify %}
 
 
@@ -1030,6 +1061,7 @@ main() {
       print('exit code: $exitCode'); // Prints 'exit code: 1'.
     });
   });
+}
 {% endprettify %}
 
 
@@ -1047,6 +1079,7 @@ import 'package:path/path.dart' as path;
 void main() {
   var newPath = path.join('/Users/shailen', 'dart/projects');
   print(newPath); // Prints '/Users.shailen/dart/projects'.
+}
 {% endprettify %}
 
 
@@ -1063,6 +1096,7 @@ void main() {
 
   // Windows example.
   print(path.split(r'C:\tempdir\tmp.txt')); // Prints [r'C:\', 'tempdir', 'tmp.txt'])
+}
 {% endprettify %}
 
 
@@ -1091,6 +1125,7 @@ void main() {
   var samples = 'http://www.dartlang.org/samples';
   var docs = 'http://www.dartlang.org/docs';
   print(path.relative(samples, from: docs)); // Prints '../samples'.
+}
 {% endprettify %}
 
 
@@ -1105,6 +1140,7 @@ import 'package:path/path.dart' as path;
 void main() {
   var uri = path.toUri('http://dartlang.org/samples');
   print(path.fromUri(uri)); // Prints 'http:/dartlang.org/samples'.
+}
 {% endprettify %}
 
 
@@ -1129,6 +1165,7 @@ void main() {
       print(path.basenameWithoutExtension(file.path)); // Prints 'myFile'.
       print(path.extension(file.path)); // Prints '.txt'.
   });
+}
 {% endprettify %}
 
 
@@ -1148,6 +1185,7 @@ void main() {
 
   // This does the same.
   print(path.separator);
+}
 {% endprettify %}
 
 
