@@ -25,6 +25,7 @@ If we missed something, please
   <li> <a href="#dartium">Launching Dartium</a> </li>
   <li> <a href="#eclipse">Using Eclipse</a> </li>
   <li> <a href="#pub-get-firewall">Running "pub get" behind a firewall</a> </li>
+  <li> <a href="#breakpoints">Breakpoints not triggering</a> </li>
   <li> <a href="#clear">Clearing all settings</a> </li>
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
@@ -411,6 +412,18 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   -Dhttps.proxyUser=&lt;username&gt;
   -Dhttps.proxyPassword=&lt;passwordstring&gt;
   </pre>
+</section>
+
+<section id="breakpoints">
+  <h2> Breakpoints not triggering </h2>
+
+  <p>
+  If your breakpoints are not being triggered, or you are seeing
+  "Source not found" errors inside of Dart Editor, check to make sure that
+  <a href="https://developers.google.com/web-toolkit/speedtracer/">Speed
+  Tracer</a> and <a href="http://benvanik.github.io/WebGL-Inspector/">WebGL
+  Inspector</a> are turned off.</p>
+
 </section>
 
 <section id="clear">
