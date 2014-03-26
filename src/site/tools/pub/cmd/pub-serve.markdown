@@ -9,7 +9,7 @@ _Serve_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
 {% prettify lang-sh %}
-$ pub serve [--port <number>] [<directories>]
+$ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [<directories>]
 {% endprettify %}
 
 This command starts up a _development server_, or _dev server_,
@@ -83,18 +83,31 @@ pub serve foo bar
 The <tt>asset</tt> and <tt>lib</tt> top-level directories are
 always served.</dd>
 
-<dt><tt>--port</tt></dt>
-<dd>By default the dev server uses <tt>http://localhost:8080</tt>.
+<dt><tt>--hostname=&lt;host&gt;</tt></dt>
+<dd>Optional. By default, the dev server listens on <tt>localhost</tt>.
+You can specify another host using the <tt>--hostname</tt> option. 
+For example:
+<pre>
+$ pub serve --hostname=127.0.0.1
+Loading source assets... 
+Loading markdown_converter transformers... (1.3s)
+Serving markdown_converter web on http://127.0.0.1:8080
+Build completed successfully
+</pre>
+</dd>
+
+<dt><tt>--port=&lt;number&gt;</tt></dt>
+<dd>Optional. By default, the dev server uses <tt>http://localhost:8080</tt>.
 To change the port number, use the <tt>--port</tt> option:
 <pre>
-$ pub serve --port 9080
+$ pub serve --port=9080
 Serving helloworld web on http://localhost:9080
 </pre>
 </dd>
 
 <dt><tt>--mode=&lt;mode&gt;</tt></dt>
-<dd>Specifies a transformation mode. Typical values are "debug" and "release",
-but any word is allowed.
+<dd>Optional. Specifies a transformation mode. Typical values are
+"debug" and "release", but any word is allowed.
 Transformers may use this to change how they behave.<br><br>
 
 If set to "release" pub generates minified JavaScript using dart2js.

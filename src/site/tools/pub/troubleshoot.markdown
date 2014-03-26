@@ -6,13 +6,13 @@ description: "Common gotchas you might run into when using Pub."
 
 # {{ page.title }}
 
-**Contents:**
-<ul>
+<h4>Contents</h4>
+<ol class="toc">
 <li><a href="#pub-publish-403">Getting a "403" error when publishing
      a package</a></li>
 <li><a href="#pub-get-fails">Pub build fails with HttpException
      error</a></li>
-</ul>
+</ol>
 
 ### Getting a "403" error when publishing a package {#pub-publish-403}
 
@@ -27,7 +27,7 @@ You aren't an uploader for package '<foo>'
 This problem can occur if one of your accounts was granted permission to
 publish a package, but the pub client registers you with another account.
 
-You can re-set pub's authentication process by removing the credentials file:
+You can reset pub's authentication process by removing the credentials file:
 
 {% prettify lang-sh %}
 rm ~/.pub-cache/credentials.json
