@@ -11,7 +11,7 @@ header:
 A simple first app with Angular and Dart.
 
 Read the
-[source](https://github.com/angular/angular.dart/tree/master/demo/helloworld)
+[source](https://github.com/angular/angular.dart/tree/master/example/web/)
 
 
 <iframe class="running-app-frame"

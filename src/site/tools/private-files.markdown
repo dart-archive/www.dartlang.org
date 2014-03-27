@@ -8,7 +8,7 @@ has-permalinks: true
 # {{ page.title }}
 
 When you put Dart source code in a repository,
-whether using [pub](/tools/pub) or [github](github.com)
+whether using [pub](/tools/pub) or [github](https://github.com/)
 or some other mechanism,
 you shouldn't include most of the files
 that Dart Editor, pub, and other tools create.

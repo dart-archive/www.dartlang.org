@@ -11,7 +11,7 @@ header:
 A simple first app with Angular and Dart.
 
 Read the
-[source](https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls)
+[source](https://github.com/angular/angular.dart/tree/master/example/web/bouncing_balls)
 
 <iframe class="running-app-frame"
         style="height:600px;width:100%;"

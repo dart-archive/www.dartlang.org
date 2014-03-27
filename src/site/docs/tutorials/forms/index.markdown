@@ -662,7 +662,7 @@ by specifying the headers that it allows.
 
 For more information about CORS refer to:
 
-* <a href="https://www.html5rocks.com/en/tutorials/cors/">Using CORS</a>
+* <a href="http://www.html5rocks.com/en/tutorials/cors/">Using CORS</a>
 
 ##Handling POST requests
 

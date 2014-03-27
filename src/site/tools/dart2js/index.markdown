@@ -8,7 +8,7 @@ title: "dart2js: The Dart-to-JavaScript Compiler"
 {% include toc.html %}
 ---
 Use the _dart2js_ tool to compile Dart code to JavaScript.
-[Dart Editor](/pub/tools/editor/) uses dart2js behind the scenes whenever Dart
+[Dart Editor](/tools/editor/) uses dart2js behind the scenes whenever Dart
 Editor compiles to JavaScript. The [`pub serve`](/tools/pub/cmd/pub-serve.html)
 and [`pub build`](/tools/pub/cmd/pub-build.html) options also use dart2js.
 

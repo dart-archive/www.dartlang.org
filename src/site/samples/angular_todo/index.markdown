@@ -11,7 +11,7 @@ header:
 A Todo app built with Angular and Dart.
 
 Read the
-[source](https://github.com/angular/angular.dart/tree/master/demo/todo)
+[source](https://github.com/angular/angular.dart/tree/master/example/web/)
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

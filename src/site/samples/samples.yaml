@@ -53,18 +53,18 @@ col1:
         title: Hello world
         explanation_url: https://github.com/angular/angular.dart.tutorial/wiki/Creating-your-first-Angular-app
         tryit_url: helloworld/
-        source_url: https://github.com/angular/angular.dart/tree/master/demo/helloworld
+        source_url: https://github.com/angular/angular.dart/tree/master/example/web/
         description: A first app with Angular and Dart.
       -
         title: Todo
-        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/todo#angulardarts-todo-demo
+        explanation_url: https://github.com/angular/angular.dart/tree/master/example/web/
         tryit_url: angular_todo/
-        source_url: https://github.com/angular/angular.dart/tree/master/demo/todo
+        source_url: https://github.com/angular/angular.dart/tree/master/example/web/
         description: A todo implementation in Angular and Dart.
       -
         title: Bouncing balls
-        explanation_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
-        source_url: https://github.com/angular/angular.dart/tree/master/demo/bouncing_balls
+        explanation_url: https://github.com/angular/angular.dart/tree/master/example/web/
+        source_url: https://github.com/angular/angular.dart/tree/master/example/web/
         description: Advanced demo with Controllers, Directives and Dependency Injection. Uses advanced features like scope and zone.
       -
         title: Recipe book tutorial app
@@ -181,7 +181,7 @@ col1:
     examples:
       -
         title: LocalStorage 101
-        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/weblocalstorage/basics#localstorage-101
+        explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/localstorage/basics#localstorage-101
         tryit_url: localstorage/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/localstorage/basics
         description: A dead-simple example that uses LocalStorage.

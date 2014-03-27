@@ -215,7 +215,7 @@ You can instantiate such component in the following three ways:
     by the HTML parser. They are not treated as [void
     elements](http://dev.w3.org/html5/spec/syntax.html#void-elements) even if
     they extend a void element. This means you should use an end tag to avoid
-    HTML [parse errors](http://dev.w3.org/html5/spec/parsing.html#parse-error).
+    HTML [parse errors](http://dev.w3.org/html5/spec-preview/parsing.html).
 
   * use a `<span is="x-foo"></span>` tag in your HTML. More specifically, create
     the node that is being extended (`span` in this case) and include an `is`
