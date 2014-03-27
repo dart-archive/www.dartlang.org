@@ -84,7 +84,7 @@ dependencies:
 
 The following example configures the [dart2js](/tools/dart2js/)
 transformer, which is used by both [`pub serve`](cmd/pub-serve.html)
-and [`pub build`](pub-build.html), to analyze the code:
+and [`pub build`](cmd/pub-build.html), to analyze the code:
 
 {% prettify yaml %}
 transformers:
@@ -124,9 +124,12 @@ generate files in the built version of your package&mdash;then you need to
 put it under one of the following directories:
 
 * `lib`: Dart libraries defining the package's public API. Visible in all
-  packages that use this package.
+  packages that use this package. Assets in `lib/src` are invisible
+  to other packages.
 * `asset`: Other public files. Visible in all packages that use this
-  package.
+  package. This directory may be phased out in the future. For more
+  information, see
+  [issue 16647](https://code.google.com/p/dart/issues/detail?id=16647).
 * `web`: A web app's static content plus its main Dart file (the one that
   defines `main()`). Visible _only_ to this package.
 
