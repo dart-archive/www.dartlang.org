@@ -4,9 +4,7 @@ title: "Why Not a Bytecode VM?"
 description: "This article discusses the trade-offs VMs have to make,
        and explains why we think that a language VM makes more sense for Dart."
 rel:
-  author:
-    - florian-loitsch
-    - bob-nystrom
+  author: florian-loitsch
 article:
   written_on: 2011-11-01
   collection: design-decisions
