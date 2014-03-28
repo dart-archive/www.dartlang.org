@@ -25,3 +25,7 @@ custom:
         editor-ext: zip
 kramdown:
   toc_levels: "2,3,4"
+asset_bundler:
+  compress:
+    js: yui
+    css: yui

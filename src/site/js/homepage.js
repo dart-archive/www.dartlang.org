@@ -1,7 +1,10 @@
 function loadAndDisplayPosts() {
   var container = document.getElementById("feed-posts");
+  if (!container) return;
+
   var feed = new google.feeds.Feed("http://news.dartlang.org/feeds/posts/default");
-	var MAX_POSTS = 1;
+  var MAX_POSTS = 1;
+  
   feed.load(function(result) {
     if (!result.error) {
       for (var i = 0; i < result.feed.entries.length && i < MAX_POSTS; i++) {
@@ -25,8 +28,17 @@ function loadGoogleApis() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  if (location.pathname !== '/') return;
+
   var script = document.createElement("script");
   script.src = "https://www.google.com/jsapi?callback=loadGoogleApis";
   script.type = "text/javascript";
   document.getElementsByTagName("head")[0].appendChild(script);
+
+  var link = document.querySelector('#see-code');
+  if (link) {
+	link.addEventListener('click', function(e) {
+	  _gaq.push(['_trackEvent', 'In-Page Clicks', 'See code']);
+	});
+  }
 });

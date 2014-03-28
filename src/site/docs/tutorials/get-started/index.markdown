@@ -5,13 +5,6 @@ description: "Get Dart and run two Dart applications"
 has-permalinks: true
 tutorial:
   id: get-started
-js:
-- url: /js/os-switcher.js
-  defer: true
-- url: /js/downloads-analytics.js
-  defer: true
-- url: /js/editor-version.js
-  defer: true
 next: connect-dart-html/
 next-title: "Connect Dart & HTML"
 prev: 

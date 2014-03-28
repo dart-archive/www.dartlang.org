@@ -40,6 +40,8 @@
     </div>
   </footer> <!-- End footer -->
 
+{% comment %}Put all JS here.{% endcomment %}
+
 {% bundle %}
 - /js/jquery.js
 - /js/bootstrap.min.js
@@ -47,7 +49,20 @@
 - /js/lang-dart.js
 - /js/lang-yaml.js
 - /js/scripts.js
+- /js/os-switcher.js
+- /js/downloads-analytics.js
+- /js/homepage.js
+- /js/editor-version.js
 {% endbundle %}
+
+{% comment %}Non-critical CSS. Put critical CSS in head, all other here.{% endcomment %}
+
+{% bundle %}
+- /css/prettify.css
+- /css/font-awesome.min.css
+{% endbundle %}
+
+{% if page.header and page.header.css %}{% for css in page.header.css %}<link href="{{ css }}" rel="stylesheet" type="text/css">{% endfor %}{% endif %}
 
 {% for js in page.js %}
 <script {% if js.defer %}defer{% endif %} src="{{ js.url }}"></script>

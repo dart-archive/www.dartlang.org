@@ -5,13 +5,6 @@ description: "Deploy a Dart server and serve a Dart app."
 has-permalinks: true
 tutorial:
   id: buildanddeploy
-js:
-- url: /js/os-switcher.js
-  defer: true
-- url: /js/editor-downloads-analytics.js
-  defer: true
-- url: /js/editor-version.js
-  defer: true
 header:
   css: ["/codelabs/darrrt/darrrt.css"]
 ---

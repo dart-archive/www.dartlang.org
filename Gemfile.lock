@@ -29,6 +29,7 @@ GEM
     redcarpet (2.3.0)
     safe_yaml (0.7.1)
     yajl-ruby (1.1.0)
+    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
@@ -36,3 +37,4 @@ PLATFORMS
 DEPENDENCIES
   jekyll (= 1.2.1)
   kramdown (= 1.0.2)
+  yui-compressor (= 0.12.0)

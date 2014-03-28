@@ -11,6 +11,7 @@ scripts/packages
 pubspec.lock
 packages/
 *.js.deps
+_asset_bundler_cache
 
 !src/site/samples/searchable_list/example/packages/
 !src/site/samples/tracker/example/packages/

@@ -3,13 +3,6 @@ layout: default
 title: "Download Dart"
 description: "The download bundles that support the Dart language."
 has-permalinks: false
-js:
-- url: /js/os-switcher.js
-  defer: true
-- url: /js/downloads-analytics.js
-  defer: true
-- url: /js/editor-version.js
-  defer: true
 ---
 
 # Getting and Installing Dart Is Easy!

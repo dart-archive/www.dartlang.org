@@ -2,7 +2,7 @@
 
   {% for editor in site.custom.downloads.binaries %}
 
-  <div class="{{ editor.os }} downloads">
+  <div class="{{ editor.os }} downloads"  style="display:none">
     {% if editor.os == 'macos' %}
     <a data-bits="64" data-os="{{ editor.os }}" data-build="integration" data-tool="editor" class="btn download-link" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-x64.{{ editor.editor-ext }}">
       <button class="{{ include.buttonclass }}">

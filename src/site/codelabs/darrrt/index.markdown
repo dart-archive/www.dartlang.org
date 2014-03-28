@@ -6,13 +6,6 @@ snippet_img: images/piratemap.jpg
 has-permalinks: true
 tutorial:
   id: trydart
-js:
-- url: /js/os-switcher.js
-  defer: true
-- url: /js/downloads-analytics.js
-  defer: true
-- url: /js/editor-version.js
-  defer: true
 header:
   css: ["/codelabs/darrrt/darrrt.css"]
 ---

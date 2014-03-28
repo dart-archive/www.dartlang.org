@@ -3,7 +3,7 @@
 #
 # Author : Colin Kennedy
 # Repo   : http://github.com/moshen/jekyll-asset_bundler
-# Version: 0.09
+# Version: 0.12
 # License: MIT, see LICENSE file
 #
 
@@ -27,7 +27,8 @@ module Jekyll
       begin
         # Some ugliness to work around the Block returning an array
         #   in liquid <2.4.0
-        @assets = YAML::load(raw_markup.class == Array ? raw_markup[0] : raw_markup)
+        # Note: Jekyll 1.0.x only require liquid 2.3
+        @assets = YAML::load(raw_markup.kind_of?(Array) ? raw_markup.first : raw_markup)
       rescue
         puts <<-END
 Asset Bundler - Error: Problem parsing a YAML bundle
@@ -37,7 +38,7 @@ Asset Bundler - Error: Problem parsing a YAML bundle
 END
       end
 
-      if @assets.class != Array
+      if !@assets.kind_of?(Array)
         puts "Asset Bundler - Error: YAML bundle is not an Array\n#{raw_markup}"
         @assets = []
       end
@@ -122,9 +123,9 @@ END
         'coffee' =>
           Liquid::Template.parse("<script type='text/coffeescript' src='{{url}}'></script>\n"),
         'css'    =>
-          Liquid::Template.parse("<link rel='stylesheet' type='text/css' href='{{url}}'>\n"),
+          Liquid::Template.parse("<link rel='stylesheet' type='text/css' href='{{url}}' />\n"),
         'less'   =>
-          Liquid::Template.parse("<link rel='stylesheet/less' type='text/css' href='{{url}}'>\n")
+          Liquid::Template.parse("<link rel='stylesheet/less' type='text/css' href='{{url}}' />\n")
       }
     }
     @@current_config = nil
@@ -158,8 +159,8 @@ END
           ret_config = @@default_config.deep_merge(context.registers[:site].config["asset_bundler"])
 
           ret_config['markup_templates'].keys.each {|k|
-            if ret_config['markup_templates'][k].class != Liquid::Template
-              if ret_config['markup_templates'][k].class == String
+            if !ret_config['markup_templates'][k].instance_of?(Liquid::Template)
+              if ret_config['markup_templates'][k].instance_of?(String)
                 ret_config['markup_templates'][k] =
                   Liquid::Template.parse(ret_config['markup_templates'][k]);
               else
@@ -194,7 +195,8 @@ END
           ret_config['dev'] = context.registers[:site].config["dev"] ? true : false
         end
 
-        if context.registers[:site].config['serving']
+        # Let's assume that when flag 'watch' or 'serving' is enabled, we want dev mode
+        if context.registers[:site].config['serving'] || context.registers[:site].config['watch']
           ret_config['dev'] = true
         end
 
@@ -223,7 +225,17 @@ END
           f.sub!( /^https/i, "http" ) if $1 =~ /^https/i
           @content.concat(remote_asset_cache(URI(f)))
         else
-          @content.concat(File.read(File.join(src, f)))
+          # Load file from path and render it if it contains tags
+
+          # Extract the path parts
+          f = File.split(f)
+
+          # Render the page                               path  file
+          page = Page.new(@context.registers[:site], src, f[0], f[1])
+          page.render(@context.registers[:site].layouts,
+                      @context.registers[:site].site_payload())
+
+          @content.concat(page.output)
         end
       }
 
@@ -248,14 +260,8 @@ END
     end
 
     def cache_dir()
-      plugin_conf = @context.registers[:site].plugins
-      # Hack for jekyll versions before 0.12.0
-      if plugin_conf.kind_of?(Array)
-        plugin_dir = plugin_conf.first
-      else
-        plugin_dir = plugin_conf
-      end
-      cache_dir = File.expand_path( "../_asset_bundler_cache", plugin_dir)
+      cache_dir = File.expand_path( "../_asset_bundler_cache",
+                                    @context.registers[:site].plugins.first )
       if( !File.directory?(cache_dir) )
         FileUtils.mkdir_p(cache_dir)
       end
@@ -292,7 +298,7 @@ END
       src = @context.registers[:site].source
       @files.each {|f|
         @context.registers[:site].static_files.select! {|s|
-          if s.class == StaticFile
+          if s.instance_of?(StaticFile)
             s.path != File.join(src, f)
           else
             true

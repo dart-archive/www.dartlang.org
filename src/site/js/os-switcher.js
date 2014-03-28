@@ -16,7 +16,7 @@ $(document).ready(function() {
     // Get all the platform-specific elements.
     for (var i = 0; i < osList.length; i++) {
       var os = osList[i];
-      var shouldShow = (os == showId);
+      var shouldShow = (os === showId);
       $('.' + os).each(function(i, el) {      
         if (shouldShow) {
           $(el).show();
@@ -29,15 +29,21 @@ $(document).ready(function() {
 
   function registerHandlers() {
     for (var i = 0; i < osList.length; i++) {
-      $('#' + osList[i])[0].addEventListener('click', function(e) {
-        filterPlatformText(e.target.id);
-      });
+      var os = document.getElementById(osList[i]);
+      if (os) {
+        os.addEventListener('click', function(e) {
+          filterPlatformText(e.target.id);
+        });
+      }
     }
   }
 
   var defaultOs = detectPlatform();
-  $('#' + defaultOs).attr('checked', 'checked');
-  filterPlatformText(defaultOs);
-  registerHandlers();
+  var defaultOsElem = document.getElementById(defaultOs);
+  if (defaultOsElem) {
+    defaultOsElem.setAttribute('checked', 'checked');
+    filterPlatformText(defaultOs);
+    registerHandlers();
+  }
 
 });
