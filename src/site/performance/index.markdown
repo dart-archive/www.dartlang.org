@@ -57,10 +57,11 @@ What benchmarks are you tracking?
   John Maloney and Mario Wolczko. The main focus in DeltaBlue is on
   polymorphism and object-oriented programming.
 
-  * FluidMotion is a 2D Navier-Stokes equations solver, originally
-  written in JavaScript by Oliver Hunt. The main focus is on accessing
-  numeric arrays, as well as doing floating-point arithmetic.
-  (Note that the FluidMotion project is no longer available.)
+  * [FluidMotion](https://github.com/dart-lang/benchmark_harness/tree/master/example/FluidMotion/)
+  is a 2D Navier-Stokes equations solver, originally written in
+  JavaScript by Oliver Hunt.
+  The main focus is on accessing numeric arrays,
+  as well as doing floating-point arithmetic.
 
   * [Richards](https://github.com/dart-lang/benchmark_harness/blob/master/example/Richards.dart)
   is an OS kernel simulation benchmark, originally written
