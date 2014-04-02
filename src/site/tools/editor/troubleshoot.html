@@ -2,37 +2,35 @@
 layout: default
 title: "Troubleshooting Dart Editor"
 description: "Installing and running Dart Editor is easy. Except when it isn't."
-js:
-- url: /js/os-switcher.js
-  defer: true
 ---
 
 <h1> {{ page.title }} </h1>
 
-<section>
 <p class="os-choices">
-Find solutions to
-<a href="/tools/editor/">Dart Editor</a> problems for
-{% include os-choices.html %}
-If we missed something, please
-<a href="/support/">let us know</a>.
+  Find solutions to
+  <a href="/tools/editor/">Dart Editor</a> problems for
+  {% include os-choices.html %}
+  If we missed something, please
+  <a href="/support/">let us know</a>.
 </p>
 
 <h4> Contents </h4>
+
 <ol class="toc">
   <li> <a href="#download-dart-editor">Getting your system architecture</a> </li>
   <li> <a href="#launch-dart-editor">Launching Dart Editor</a> </li>
   <li> <a href="#dartium">Launching Dartium</a> </li>
+  <li> <a href="#increasing-memory">Increasing memory</a> </li>
   <li> <a href="#eclipse">Using Eclipse</a> </li>
   <li> <a href="#pub-get-firewall">Running "pub get" behind a firewall</a> </li>
   <li> <a href="#breakpoints">Breakpoints not triggering</a> </li>
   <li> <a href="#clear">Clearing all settings</a> </li>
+  <li> <a href="#generating-heap-dumps">Collecting performance diagnostics</a> </li>
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
 
-<section>
+<section id="download-dart-editor">
 
-  <section id="download-dart-editor">
   <h2> Getting your system architecture </h2>
 
   <div class="linux">
@@ -61,201 +59,185 @@ If we missed something, please
     </p>
   </div>
 
-  </section>
+</section>
 
-  <section id="launch-dart-editor">
+<section id="launch-dart-editor">
+
   <h2> Launching Dart Editor </h2>
 
-<div class="windows">
+  <div class="windows">
+    <p>
+    Your Java version should have the same bit width as
+    your Dart Editor version.
+    For example, if you're using a 64-bit Dart Editor,
+    then you should use 64-bit Java.
+    Otherwise, you might see a message like this
+    when you try to launch Dart Editor:
+    </p>
 
-  <p>
-  Your Java version should have the same bit width as
-  your Dart Editor version.
-  For example, if you're using a 64-bit Dart Editor,
-  then you should use 64-bit Java.
-  Otherwise, you might see a message like this
-  when you try to launch Dart Editor:
-  </p>
-
-<pre>
-Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\client\jvm.dll
-</pre>
+    <pre>
+    Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\client\jvm.dll
+    </pre>
 
     <p>
     You can find the bit width of your default Java version using the command
     <code>java -version</code>.
     </p>
-</div>
 
-<div class="linux">
-  <section id="linux-32bit">
-  <p>
-  If you're using 64-bit Linux but have 32-bit Java libraries,
-  Dart Editor won't work.
-  </p>
+  </div>
 
-  <p>
-  The fix: Use a 64-bit Java JDK.
-  You can get a 64-bit JDK 7 from
-  <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html"
-    target="_blank">Java SE Development Kit 7 Downloads</a>.
-  If you already have a 64-bit JDK but it's not the default,
-  you can specify the Java runtime.
-  </p>
+  <div class="linux" id="linux-32bit">
+    <p>
+    If you're using 64-bit Linux but have 32-bit Java libraries,
+    Dart Editor won't work.
+    </p>
 
-</section>
-</div> <!-- end of linux-only section -->
+    <p>
+    The fix: Use a 64-bit Java JDK.
+    You can get a 64-bit JDK 7 from
+    <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jdk-7-download-432154.html"
+      target="_blank">Java SE Development Kit 7 Downloads</a>.
+    If you already have a 64-bit JDK but it's not the default,
+    you can specify the Java runtime.
+    </p>
+  </div>
 
 
-<div class="macos">
+  <div class="macos">
 
-  <p>
-  A few things can go wrong when launching Dart Editor on a Mac:
-  </p>
+    <p>
+    A few things can go wrong when launching Dart Editor on a Mac:
+    </p>
 
-  <ul>
-    <li> <a href="#security-preferences">Unidentified developer</a>
-      </li>
-    <li> <a href="#corruption">"DartEditor.app" is damaged (64-bit only)</a>
-      </li>
-    <li> <a href="#java-install">Java installation failure</a>
-      </li>
-    <li> <a href="#avstartup">Slow startup</a>
-      </li>
-    <li> <a href="#mac-32bit">32-bit Mac</a>
-      </li>
-  </ul>
+    <ul>
+      <li> <a href="#security-preferences">Unidentified developer</a>
+        </li>
+      <li> <a href="#corruption">"DartEditor.app" is damaged (64-bit only)</a>
+        </li>
+      <li> <a href="#java-install">Java installation failure</a>
+        </li>
+      <li> <a href="#avstartup">Slow startup</a>
+        </li>
+      <li> <a href="#mac-32bit">32-bit Mac</a>
+        </li>
+    </ul>
 
+    <h3 id="security-preferences">Unidentified developer</h3>
 
-  <section id="security-preferences">
-  <h3>Unidentified developer</h3>
+    <p>
+    If you're running Mac OS 10.8 (Mountain Lion),
+    your computer might refuse to start Dart Editor
+    because it's not from the Mac App Store or an identified developer.
+    Until we fix this problem
+    (<a href="http://code.google.com/p/dart/issues/detail?id=5088">bug
+    #5088</a>),
+    you can work around it.
+    </p>
 
-  <p>
-  If you're running Mac OS 10.8 (Mountain Lion),
-  your computer might refuse to start Dart Editor
-  because it's not from the Mac App Store or an identified developer.
-  Until we fix this problem
-  (<a href="http://code.google.com/p/dart/issues/detail?id=5088">bug
-  #5088</a>),
-  you can work around it.
-  </p>
+    <p>
+    <img src="images/mac-permission-error.png"
+      alt="Dialog text: DartEditor can't be opened because it is from an unidentified developer."
+      style="border: 1px solid black">
+    </p>
 
-  <p>
-  <img src="images/mac-permission-error.png"
-    alt="Dialog text: DartEditor can't be opened because it is from an unidentified developer."
-    style="border: 1px solid black">
-  </p>
+    <p>
+    The easiest workaround:
+    When launching Dart Editor for the first time,
+    don't double-click the Dart Editor icon.
+    Instead, right-click (or Ctl+click) it to bring up a context menu,
+    and choose <b>Open</b>.
+    Then, in the dialog that comes up, click <b>Open</b>.
+    </p>
 
-  <p>
-  The easiest workaround:
-  When launching Dart Editor for the first time,
-  don't double-click the Dart Editor icon.
-  Instead, right-click (or Ctl+click) it to bring up a context menu,
-  and choose <b>Open</b>.
-  Then, in the dialog that comes up, click <b>Open</b>.
-  </p>
+    <p>
+    An alternative workaround is to change your security settings.
+    Go to <b>System Preferences > Security &amp; Privacy</b>.
+    In the <b>General</b> tab under
+    <b>Allow applications downloaded from:</b>,
+    choose <b>Anywhere</b>.
+    You should now be able to start Dart Editor.
+    Once you've run Dart Editor,
+    you can change the preference back to its previous setting.
+    </p>
 
-  <p>
-  An alternative workaround is to change your security settings.
-  Go to <b>System Preferences > Security & Privacy</b>.
-  In the <b>General</b> tab under
-  <b>Allow applications downloaded from:</b>,
-  choose <b>Anywhere</b>.
-  You should now be able to start Dart Editor.
-  Once you've run Dart Editor,
-  you can change the preference back to its previous setting.
-  </p>
-  </section>
+    <h3 id="corruption">"DartEditor.app" is damaged (64-bit only)</h3>
 
-  <section id="corruption">
-  <h3>"DartEditor.app" is damaged (64-bit only)</h3>
+    <p>
+    Sometimes when you try to launch a new, 64-bit build of Dart Editor,
+    Mac OS X incorrectly displays a corruption warning:
+    </p>
 
-  <p>
-  Sometimes when you try to launch a new, 64-bit build of Dart Editor,
-  Mac OS X incorrectly displays a corruption warning:
-  </p>
+    <blockquote>
+    "DartEditor.app" is damaged and can't be opened.
+    You should move it to the Trash.
+    </blockquote>
 
-  <blockquote>
-  "DartEditor.app" is damaged and can't be opened.
-  You should move it to the Trash.
-  </blockquote>
+    <p>
+    The workaround is to download and install the
+    <a href="http://gsdview.appspot.com/dart-archive/channels/stable/release/latest/editor/darteditor-macos-ia32.zip">
+    32-bit version of Dart Editor</a>.
+    </p>
 
-  <p>
-  The workaround is to download and install the
-  <a href="http://gsdview.appspot.com/dart-archive/channels/stable/release/latest/editor/darteditor-macos-ia32.zip">
-  32-bit version of Dart Editor</a>.
-  </p>
+    <h3 id="java-install">Java installation failure</h3>
 
-  <section id="java-install">
-  <h3>Java installation failure</h3>
+    <p>
+    When you try to run Dart Editor but don't have a Java SE 6 runtime,
+    Dart Editor offers to install Java for you.
+    If the installation doesn't work,
+    you can either restart Dart Editor or
+    <a href="http://support.apple.com/kb/DL1572">install Java yourself</a>.
+    </p>
 
-  <p>
-  When you try to run Dart Editor but don't have a Java SE 6 runtime,
-  Dart Editor offers to install Java for you.
-  If the installation doesn't work,
-  you can either restart Dart Editor or
-  <a href="http://support.apple.com/kb/DL1572">install Java yourself</a>.
-  </p>
+    <h3 id="avstartup">Slow startup</h3>
 
-  </section>
+    <p>
+    If you use Sophos Anti-Virus,
+    Dart Editor (like most Java applications)
+    starts up 10-15 times slower than normal.
+    </p>
 
-  <section id="avstartup">
-  <h3>Slow startup</h3>
+    <p>
+    The fix: Turn off scanning of the app's JAR files.
+    For example:
+    </p>
 
-  <p>
-  If you use Sophos Anti-Virus,
-  Dart Editor (like most Java applications)
-  starts up 10-15 times slower than normal.
+    <ol>
+      <li> In Sophos Anti-Virus preferences,
+        choose <b>On-access Scanning</b>. </li>
+      <li> If the preferences are locked,
+        click the lock and enter your password. </li>
+      <li> Click <b>Excluded Items</b> and then the <b>+</b> sign. </li>
+      <li> Navigate to the directory that contains <code>DartEditor</code>. </li>
+      <li> Search for files under that directory
+        with names that end in <code>.jar</code>. </li>
+      <li> Select all these <code>.jar</code> files,
+        and click Open. </li>
+    </ol>
 
-  <p>
-  The fix: Turn off scanning of the app's JAR files.
-  For example:
-  </p>
+    <h3 id="mac-32bit">32-bit Mac</h3>
 
-  <ol>
-    <li> In Sophos Anti-Virus preferences,
-      choose <b>On-access Scanning</b>. </li>
-    <li> If the preferences are locked,
-      click the lock and enter your password. </li>
-    <li> Click <b>Excluded Items</b> and then the <b>+</b> sign. </li>
-    <li> Navigate to the directory that contains <code>DartEditor</code>. </li>
-    <li> Search for files under that directory
-      with names that end in <code>.jar</code>. </li>
-    <li> Select all these <code>.jar</code> files,
-      and click Open. </li>
-  </ol>
+    <p>
+    If you're using one of the increasingly rare 32-bit Macs,
+    you can't launch the 64-bit version of Dart Editor.
+    Instead, you see a warning like this:
+    </p>
 
-  </section>
+    <p>
+    <img src="images/mac-installerror.png"
+      alt="Dialog text: You can't open the application DartEditor.app because it's not supported on this type of Mac."
+      style="border: 1px solid black"
+      width="419" height="161" >
+    </p>
 
+    <p>
+    The fix: Download and install the
+    <a href="http://gsdview.appspot.com/dart-archive/channels/stable/release/latest/editor/darteditor-macos-ia32.zip">
+    32-bit version of Dart Editor</a>.
+    </p>
 
-  <section id="mac-32bit">
-  <h3>32-bit Mac</h3>
+  </div> <!-- end of mac-only section -->
 
-  <p>
-  If you're using one of the increasingly rare 32-bit Macs,
-  you can't launch the 64-bit version of Dart Editor.
-  Instead, you see a warning like this:
-  </p>
-
-  <p>
-  <img src="images/mac-installerror.png"
-    alt="Dialog text: You can't open the application DartEditor.app because it's not supported on this type of Mac."
-    style="border: 1px solid black"
-    width="419" height="161" >
-  </p>
-
-  <p>
-  The fix: Download and install the
-  <a href="http://gsdview.appspot.com/dart-archive/channels/stable/release/latest/editor/darteditor-macos-ia32.zip">
-  32-bit version of Dart Editor</a>.
-  </p>
-
-  </section>
-
-</div> <!-- end of mac-only section -->
-
-  <section id="runtime">
-  <h3>Specifying the Java runtime</h3>
+  <h3 id="runtime">Specifying the Java runtime</h3>
 
   <p>
   If necessary, you can specify the Java runtime that Dart Editor uses.
@@ -265,36 +247,37 @@ Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\clie
   <code>&#x2011;vmargs</code> line:
   </p>
 
-<pre>-vm
-<em>/full/path/to/java</em>
-</pre>
+  <pre>-vm
+  <em>/full/path/to/java</em>
+  </pre>
 
-<div class="windows">
-  <p>
-  <b>Important:</b>
-  On Windows, use double backslashes (<code>\\</code>)
-  as the directory separator:
-  </p>
+  <div class="windows">
+    <p>
+    <b>Important:</b>
+    On Windows, use double backslashes (<code>\\</code>)
+    as the directory separator:
+    </p>
 
-<pre>-vm
-c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
-</pre>
-</div>
+    <pre>-vm
+    c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
+    </pre>
+    </div>
+  </div>
 
   <p>
   For example, <code>DartEditor.ini</code> might have:
   </p>
 
-<pre>...
--vm
-/usr/local/buildtools/java/jdk-64/bin/java
--vmargs
-...
-</pre>
+  <pre>...
+  -vm
+  /usr/local/buildtools/java/jdk-64/bin/java
+  -vmargs
+  ...
+  </pre>
 
 </section>
 
-  <section id="increasing-memory">
+<section id="increasing-memory">
   <h3>Increasing memory</h3>
 
   <p>
@@ -305,43 +288,41 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   In the DartEditor.ini file, find the <tt>-Xmx1000m</tt> string
   and change it to <tt>-Xmx2000m</tt>, or larger if you have more RAM
   available.</p>
-  </section>
 
-  <section id="java7-gc-changes">
-  <h3>Java 7 garbage collection changes</h3>
+  <h3 id="java7-gc-changes">Java 7 garbage collection changes</h3>
   <p>
   Java 7 sports different garbage collection (GC) behavior than Java 6.
   If you see large pauses when editing files, and you have addressed
   the <a href="#increasing-memory">memory issues</a>, edit the
   DartEditor.ini file, and insert a line <em>after</em>
   <tt>-vmargs</tt> that contains the string <tt>-Xincgc</tt>.</p>
-  </section>
 
 </section>
 
 <section id="dartium">
   <h2>Launching Dartium</h2>
 
-    <p>
-    By default,
-    when you click Dart Editor's Run button
-    <img src="images/run.png" alt="Run" width="16" height="16"
-    style="vertical-align:top">,
-    your web app runs in Dartium.
-    If you instead see a message that
-    you need to download a new version of Dartium,
-    your software is old.
-    </p>
+  <p>
+  By default,
+  when you click Dart Editor's Run button
+  <img src="images/run.png" alt="Run" width="16" height="16"
+  style="vertical-align:top">,
+  your web app runs in Dartium.
+  If you instead see a message that
+  you need to download a new version of Dartium,
+  your software is old.
+  </p>
 
-    <p>
-    The fix: <a href="/tools/editor/#download">Download</a> and install a new version of
-    <b>Dart Editor</b>.
-    You'll get an updated version of Dartium, plus the
-    <a href="http://news.dartlang.org/search/label/editor">latest improvements to Dart Editor</a>.
-    Alternatively, download a new version of
-    <a href="/tools/dartium/">Dartium</a>
-    and substitute it for the copy that's in your
-    Dart installation directory.
+  <p>
+  The fix: <a href="/tools/editor/#download">Download</a> and install a new version of
+  <b>Dart Editor</b>.
+  You'll get an updated version of Dartium, plus the
+  <a href="http://news.dartlang.org/search/label/editor">latest improvements to Dart Editor</a>.
+  Alternatively, download a new version of
+  <a href="/tools/dartium/">Dartium</a>
+  and substitute it for the copy that's in your
+  Dart installation directory.
+  </p>
 </section>
 
 
@@ -422,8 +403,8 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   "Source not found" errors inside of Dart Editor, check to make sure that
   <a href="https://developers.google.com/web-toolkit/speedtracer/">Speed
   Tracer</a> and <a href="http://benvanik.github.io/WebGL-Inspector/">WebGL
-  Inspector</a> are turned off.</p>
-
+  Inspector</a> are turned off.
+  </p>
 </section>
 
 <section id="clear">
@@ -442,22 +423,54 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   </p>
 
   <table>
-    <tr>
-      <th> Platform </th> <th> Location of settings </th>
-    </tr>
-    <tr>
-      <td> Windows&nbsp;&nbsp;&nbsp; </td>
-      <td> <code><em>&lt;user's home directory&gt;</em>\DartEditor</code> </td>
-    </tr>
-    <tr>
-      <td> Linux </td>
-      <td> <code>$HOME/.dartEditor</code> </td>
-    </tr>
-    <tr>
-      <td> Mac </td>
-      <td> <code>$HOME/Library/Application Support/DartEditor</code> </td>
-    </tr>
+    <thead>
+      <tr>
+        <th> Platform </th> <th> Location of settings </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> Windows&nbsp;&nbsp;&nbsp; </td>
+        <td> <code><em>&lt;user's home directory&gt;</em>\DartEditor</code> </td>
+      </tr>
+      <tr>
+        <td> Linux </td>
+        <td> <code>$HOME/.dartEditor</code> </td>
+      </tr>
+      <tr>
+        <td> Mac </td>
+        <td> <code>$HOME/Library/Application Support/DartEditor</code> </td>
+      </tr>
+    </tbody>
   </table>
+</section>
+
+<section id="generating-heap-dumps">
+  <h2> Collecting performance diagnostics </h2>
+
+  <p>
+    To aid in debugging Dart Editor performance issues,
+    you can generate a <em>heap dump</em>.
+  <p>
+
+  <p>
+    For Linux or Mac users:
+  </p>
+
+  <p>
+    Use <em>top</em> to get the pid of Dart Editor. Then, run
+    <code>jstack &lt;pid&gt;</code>.
+    If the given process is running on a 64-bit VM, you may need to
+    specify a <code>-J-d64</code> option.
+    Please attach the output
+    to the relevant bug at <a href="http://dartbug.com/">dartbug.com</a>.
+  </p>
+
+  <p>
+    More information on
+    <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/share/jstack.html">jstack</a>
+    is available.
+  </p>
 </section>
 
 <section id="bugs">
@@ -478,11 +491,9 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   </div>
   
   <p>
-  <b><a href="https://code.google.com/p/dart/issues/list?can=2&q=label:Area-Editor&sort=-id">Dart Editor issues</a></b>
+  <b><a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label:Area-Editor&amp;sort=-id">Dart Editor issues</a></b>
   lists all of the known bugs in Dart Editor.
   </p>
-
-  </blockquote>
 
   <p>
   Click an issue's star to receive updates about it.
@@ -490,5 +501,4 @@ c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
   add comments to existing ones.
   </p>
 
-</section>
 </section>
