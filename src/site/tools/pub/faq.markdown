@@ -3,9 +3,9 @@ layout: default
 title: "Frequently Asked Questions about Pub"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 Here are some frequently asked questions about [pub](/tools/pub/).
 
@@ -109,7 +109,7 @@ look into it. Usually it resolves itself in a few hours.
 ### Why doesn't pub do ___?
 
 Probably because we haven't implemented it yet. Pub is still under active
-development. If you would like to see specific features, please 
+development. If you would like to see specific features, please
 [file a ticket][dart bug tracker] after searching to make sure it hasn't
 already been requested yet. If it has, star it so we know what things are
 important to users.

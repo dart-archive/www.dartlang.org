@@ -3,9 +3,9 @@ layout: default
 title: "Pub Package and Asset Manager"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 You can use the `pub` tool to manage Dart packages and assets.
 Pub also includes commands for creating, developing, and deploying Dart
@@ -51,7 +51,7 @@ application package.
 
 The `pub` tool provides commands for a variety of purposes.
 One command installs packages, another starts up an HTTP server for testing,
-another prepares your app for deployment, and another 
+another prepares your app for deployment, and another
 publishes your package to [pub.dartlang.org](http://pub.dartlang.org).
 
 For an overview of these commands, see [Pub Commands](cmd/index.html).

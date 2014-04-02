@@ -3,9 +3,9 @@ layout: default
 title: "Installing and Configuring Pub"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 [Pub](/tools/pub/) is in the [Dart SDK](/tools/sdk/),
 which you can download by itself or as part of

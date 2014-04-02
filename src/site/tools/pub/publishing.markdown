@@ -3,9 +3,9 @@ layout: default
 title: "Publishing a Package"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 [Pub](/tools/pub) isn't just for using other people's packages. It also allows you to share
 your packages with the world. Once you've written some useful code and you want
