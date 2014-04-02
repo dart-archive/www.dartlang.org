@@ -5,6 +5,8 @@ title: "Pub Dependencies"
 
 {% include toc.html %}
 
+# {{ page.title }}
+
 Dependencies are one of [pub](/tools/pub)'s core concepts.
 A dependency is another package
 that your package needs in order to work. Dependencies are specified in your
