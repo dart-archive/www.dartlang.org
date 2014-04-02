@@ -155,9 +155,6 @@ handlers:
 - url: /docs/cookbook/
   script: scripts.redirector.application
 
-- url: /codelabs/
-  script: scripts.redirector.application
-
 - url: /codelab
   script: scripts.redirector.application
 
