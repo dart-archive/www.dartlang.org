@@ -1,4 +1,4 @@
---- 
+---
 layout: default
 title: "Polymer.dart"
 description: "Standards-based web components:
@@ -21,26 +21,8 @@ ol {
   margin-left: 11px;
 }
 
-.sidenav.affix {
-  top: 55px;
-}
-
 hr {
   margin: 44px 0;
-}
-
-@media (min-width: 768px) and (max-width: 979px) {
-  .sidenav.affix {
-    top: 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .sidenav.affix {
-    position: static;
-    width: auto;
-    top: 0;
-  }
 }
 
 .jumbotron h1 {
@@ -59,14 +41,16 @@ hr {
       </p>
 </div>
 
-<div class="row" markdown="1">
+<div markdown="1">
 
-<div class="col-md-3" markdown="1">
+<div class="col-md-4" markdown="1">
 
-<div class="sidenav" data-spy="affix" data-offset-top="250" markdown="1">
+<div class="bs-sidebar hidden-print" data-spy="affix"
+    data-offset-top="310" data-offset-bottom="350" role="complementary"
+    markdown="1">
 
 1. ToC
-{:toc .toc .nav .nav-list}
+{:toc .toc .nav .bs-sidenav}
 
 </div>
 
@@ -129,7 +113,7 @@ Extend the lexicon of HTML with your own custom elements.
 
 This sample shows a simple custom element. More advanced custom elements
 can contain their own styles, custom behavior, attributes,
-data binding, and more.  
+data binding, and more.
 
 This HTML code defines a custom element:
 
@@ -151,7 +135,7 @@ This HTML code _uses_ the custom element:
   <script src="packages/browser/dart.js"></script>
 </head>
 
-<body>   
+<body>
   [[highlight]]<hello-world></hello-world>[[/highlight]]
 </body>
 {% endprettify %}
@@ -183,7 +167,7 @@ import 'dart:html';
 @CustomTag('click-counter')
 class ClickCounterElement extends PolymerElement {
   [[highlight]]@observable int count[[/highlight]] = 0;
-  
+
   ClickCounterElement.created() : super.created();
 
   void increment(Event e, var detail, Node target) {
@@ -260,7 +244,7 @@ import 'dart:html';
 @CustomTag('click-counter')
 class ClickCounterElement extends PolymerElement {
   @observable int count = 0;
-  
+
   ClickCounterElement.created() : super.created();
 
   void increment(Event e, var detail, Node target) {

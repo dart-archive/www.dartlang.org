@@ -3,9 +3,9 @@ layout: default
 title: "Pub Assets and Transformers"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 The [`pub serve`](cmd/pub-serve.html) and [`pub build`](cmd/pub-build.html)
 commands use [transformers][] to prepare a package's [assets][] to be served

@@ -3,9 +3,9 @@ layout: default
 title: "Pub Package Layout Conventions"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 Part of a healthy code ecosystem is consistent conventions. When we all do the
 same thing the same way, it makes it easier for us to learn our way around
@@ -164,7 +164,7 @@ resolve. Instead, your entrypoints should go in the appropriate
         guacamole.css
 
 While most library packages exist to let you reuse Dart code, you can also
-reuse other kinds of content. For example, a package for 
+reuse other kinds of content. For example, a package for
 [Bootstrap](http://getbootstrap.com/) might include a number of CSS files for
 consumers of the package to use.
 
@@ -305,7 +305,7 @@ other empirical metrics).
       doc/
         getting_started.md
 
-If you've got code and tests, the next piece you might want 
+If you've got code and tests, the next piece you might want
 is good documentation. That goes inside a directory named `doc`. We don't
 currently have any guidelines about format or organization within that. Use
 whatever markup format that you prefer.

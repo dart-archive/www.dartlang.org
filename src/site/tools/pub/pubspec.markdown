@@ -3,9 +3,9 @@ layout: default
 title: "Pubspec Format"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 Every [pub](/tools/pub/) package needs some metadata so it can specify its
 [dependencies](glossary.html#dependency). Pub packages that are shared with

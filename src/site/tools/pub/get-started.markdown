@@ -3,9 +3,9 @@ layout: default
 title: "Getting Started with Pub"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 You can use [pub](/tools/pub/) to manage Dart packages.
 
@@ -15,7 +15,7 @@ a Dart package is simply a directory containing a _pubspec_ file.
 The pubspec contains some metadata about the package. Additionally,
 a package can contain dependencies (listed in the pubspec),
 Dart libraries, command-line apps, web apps, resources,
-tests, images, or examples. 
+tests, images, or examples.
 If your app uses one or more packages, then your app itself must be
 a package.
 
@@ -78,7 +78,7 @@ command determines which packages your app depends on, and
 puts them in a central cache. For git dependencies, pub clones the git
 repository. For hosted dependencies, pub downloads the package from
 pub.dartlang.org. Transitive dependencies are included, too. For
-example, if the js package depends on the unittest package, `pub` 
+example, if the js package depends on the unittest package, `pub`
 grabs both the js package and the unittest package.
 
 Finally, pub creates a <code class="literal">packages</code>

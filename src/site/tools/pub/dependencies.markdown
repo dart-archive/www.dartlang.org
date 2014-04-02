@@ -3,8 +3,6 @@ layout: default
 title: "Pub Dependencies"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
 
 Dependencies are one of [pub](/tools/pub)'s core concepts.
@@ -181,7 +179,7 @@ Instead, the typical workflow is:
 ## Version constraints {#version-constraints}
 
 If your package is an application, you don't usually need to specify [version
-constraints](glossary.html#version-constraint) for your dependencies. You 
+constraints](glossary.html#version-constraint) for your dependencies. You
 typically want to use the latest versions of the dependencies when you first
 create your app. Then you'll create and check in a
 [lockfile](glossary.html#lockfile) that pins your dependencies to those specific
