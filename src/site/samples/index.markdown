@@ -14,16 +14,18 @@ has_permalinks: true
 Check out many other [Dart code examples](/dart-by-example/).
 
 <div class="row">
-<div class="col-md-3">
-  <ol class="toc nav bs-sidenav" id="markdown-toc" role="complementary">
-
-  {% for group in page.samples.col1 %}
-    <li><a href="#{{group.anchor}}">{{ group.heading }}</a></li>
-  {% endfor %}
-  </ol>
+<div class="col-md-4">
+    <div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="150"
+         data-offset-bottom="350" role="complementary">
+      <ol class="toc nav bs-sidenav" id="markdown-toc">
+      {% for group in page.samples.col1 %}
+        <li><a href="#{{group.anchor}}">{{ group.heading }}</a></li>
+      {% endfor %}
+      </ol>
+    </div>
 </div>
 
-<div class="col-md-9" >
+<div class="col-md-8" >
   <div class="row">
     {% for group in page.samples.col1 %}
       <div class="row">
