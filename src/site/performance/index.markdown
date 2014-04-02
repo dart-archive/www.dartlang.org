@@ -49,26 +49,28 @@ What does the benchmark score mean?
 <div markdown="1">
 What benchmarks are you tracking?
 : We are currently showing charts for the
-  [Octane](https://developers.google.com/octane/)-based benchmarks
-  DeltaBlue, Richards, Tracer, and FluidMotion. 
+  [Octane](https://developers.google.com/octane/)-inspired benchmarks
+  DeltaBlue, Richards, Tracer, and FluidMotion. These benchmarks
+  are tracked as part of the [ton80](https://github.com/dart-lang/ton80)
+  benchmarking suite.
 
-  * [DeltaBlue](https://github.com/dart-lang/benchmark_harness/blob/master/example/DeltaBlue.dart)
+  * [DeltaBlue](https://github.com/dart-lang/ton80/tree/master/lib/src/DeltaBlue)
   is a one-way constraint solver, originally written in Smalltalk by
   John Maloney and Mario Wolczko. The main focus in DeltaBlue is on
   polymorphism and object-oriented programming.
 
-  * [FluidMotion](https://github.com/dart-lang/benchmark_harness/tree/master/example/FluidMotion/)
+  * [FluidMotion](https://github.com/dart-lang/ton80/tree/master/lib/src/FluidMotion)
   is a 2D Navier-Stokes equations solver, originally written in
   JavaScript by Oliver Hunt.
   The main focus is on accessing numeric arrays,
   as well as doing floating-point arithmetic.
 
-  * [Richards](https://github.com/dart-lang/benchmark_harness/blob/master/example/Richards.dart)
+  * [Richards](https://github.com/dart-lang/ton80/tree/master/lib/src/Richards)
   is an OS kernel simulation benchmark, originally written
   in BCPL by Martin Richards. The main focus in Richards is on property
   access and calling functions and methods.
 
-  * [Tracer](https://github.com/dart-lang/benchmark_harness/tree/master/example/Tracer/dart)
+  * [Tracer](https://github.com/dart-lang/ton80/tree/master/lib/src/Tracer)
   is a ray tracer benchmark,
   originally written in JavaScript by Adam Burmister.
   Both Adam’s and the Octane version in JavaScript use
