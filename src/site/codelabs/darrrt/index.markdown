@@ -966,8 +966,8 @@ class PirateName {
     'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
     'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
   static final List appellations = [
-    'Black','Damned', 'Jackal', 'Red', 'Stalwart', 'Axe',
-    'Young', 'Old', 'Angry', 'Brave', 'Crazy', 'Noble'];[[/highlight]]
+    'Jackal', 'King', 'Red', 'Stalwart', 'Axe',
+    'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
 }
 {% endprettify %}
 </div>
