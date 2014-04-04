@@ -213,9 +213,10 @@ with the name resolution function. The two native functions implementing the
 asynchronous extension are shown later.
 
 {% prettify cpp %}
+#include <string.h>
 #include "dart_api.h"
 // Forward declaration of ResolveName function.
-Dart_NativeFunction ResolveName(Dart_Handle name, int argc);
+Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope);
 
 // The name of the initialization function is the extension name followed
 // by _Init.
@@ -231,7 +232,7 @@ DART_EXPORT Dart_Handle sample_extension_Init(Dart_Handle parent_library) {
 
 Dart_Handle HandleError(Dart_Handle handle) {
  if (Dart_IsError(handle)) Dart_PropagateError(handle);
- return handle
+ return handle;
 }
 
 // Native functions get their arguments in a Dart_NativeArguments structure
@@ -258,7 +259,7 @@ void SystemSrand(Dart_NativeArguments arguments) {
   Dart_SetReturnValue(arguments, HandleError(Dart_NewBoolean(success)));
 }
 
-Dart_NativeFunction ResolveName(Dart_Handle name, int argc) {
+Dart_NativeFunction ResolveName(Dart_Handle name, int argc, bool* auto_setup_scope) {
   // If we fail, we return NULL, and Dart throws an exception.
   if (!Dart_IsString8(name)) return NULL;
   Dart_NativeFunction result = NULL;
