@@ -5,6 +5,8 @@ description: "Customize your Dart Editor build with build.dart."
 has-permalinks: false
 ---
 
+{% include toc.html %}
+
 # {{page.title}} 
 
 Build.dart is a simple build script convention
@@ -15,9 +17,6 @@ with information about the changed files.
 You can use build.dart to post-process changed files,
 generate other files,
 or drive other aspects of the build system.  
-
-{% include toc.html %}
-
 
 ## Flags
 

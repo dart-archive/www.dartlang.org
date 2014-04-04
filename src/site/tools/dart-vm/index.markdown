@@ -3,9 +3,9 @@ layout: default
 title: "dart: The Standalone VM"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 You can use the _dart_ tool (`bin/dart`) to run Dart command-line apps such as
 server-side scripts, programs, and servers. During development, you also

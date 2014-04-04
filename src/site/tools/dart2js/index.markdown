@@ -3,9 +3,10 @@ layout: default
 title: "dart2js: The Dart-to-JavaScript Compiler"
 ---
 
+{% include toc.html %}
+
 # {{ page.title }} 
 
-{% include toc.html %}
 ---
 Use the _dart2js_ tool to compile Dart code to JavaScript.
 [Dart Editor](/tools/editor/) uses dart2js behind the scenes whenever Dart

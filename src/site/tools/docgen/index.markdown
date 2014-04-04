@@ -5,9 +5,10 @@ description: "A Dart tool that generates documentation and serves it to
 dartdoc-viewer."
 ---
 
+{% include toc.html %}
+
 # {{ page.title }} 
 
-{% include toc.html %}
 ---
 Use _docgen_ to generate, and serve,
 the documentation for your Dart package.

@@ -60,6 +60,7 @@ The following reference pages cover each command in detail:
 
 * [`pub build`](cmd/pub-build.html)
 * [`pub cache`](cmd/pub-cache.html)
+* [`pub deps`](cmd/pub-deps.html)
 * [`pub get`](cmd/pub-get.html)
 * [`pub publish`](cmd/pub-lish.html)
 * [`pub serve`](cmd/pub-serve.html)

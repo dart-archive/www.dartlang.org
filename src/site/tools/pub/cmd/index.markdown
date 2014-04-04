@@ -3,9 +3,9 @@ layout: default
 title: "Pub Commands"
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 Aside from managing packages, [pub](/tools/pub/) also has support for
 building web apps.
@@ -20,6 +20,7 @@ Quick links to the `pub` commands:
 
 * [`pub build`](pub-build.html)
 * [`pub cache`](pub-cache.html)
+* [`pub deps`](pub-deps.html)
 * [`pub get`](pub-get.html)
 * [`pub publish`](pub-lish.html)
 * [`pub serve`](pub-serve.html)
@@ -40,6 +41,9 @@ the creation and maintenance of a Dart application.
 
 * The [`pub get`](pub-get.html) command retrieves the packages that are
   listed as the dependencies for the application.
+
+* The [`pub deps`](pub-deps.html) command lists all of the dependencies
+  used by the package.
 
 * The [`pub upgrade`](pub-upgrade.html) command retrieves the latest
   versions of all the packages that are listed as dependencies

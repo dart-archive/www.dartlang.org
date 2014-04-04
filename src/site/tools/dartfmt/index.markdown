@@ -5,9 +5,10 @@ description: "A tool that makes your code follow the conventions in the
   Dart Style Guide."
 ---
 
+{% include toc.html %}
+
 # {{ page.title }} 
 
-{% include toc.html %}
 ---
 Use _dartfmt_ to format your Dart code according to the conventions in the
 [Dart Style Guide](/articles/style-guide/).

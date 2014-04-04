@@ -9,8 +9,8 @@ _Build_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
 {% prettify lang-sh %}
-$ pub build [--mode=<mode>] [<directories>]
-$ pub build [--mode=<mode>] [--all]
+$ pub build [--mode=<mode>] [<directories>] [--output=<directory>]
+$ pub build [--mode=<mode>] [--all] [--output=<directory>]
 {% endprettify %}
 
 Use `pub build` when you're ready to deploy your web app. When you run
@@ -63,9 +63,10 @@ For options that apply to all pub commands, see
 <dl>
 
 <dt><tt>&lt;directories&gt;</tt></dt>
-<dd>Optional. By default, `pub build` builds the contents of the
-`web` directory. You can specify one or more of the following
-top-level directories:
+<dd>Optional. Use this option to specify directories to build,
+in addition to the <tt>lib</tt> and <tt>asset</tt> directories
+(which are always built). The default value is <tt>web</tt>.
+Directories you might typically specify include the following:
 
 <ul>
 <li>benchmark</li>
@@ -78,19 +79,22 @@ top-level directories:
 For example, you might specify:
 
 <pre>
-pub build test benchmark example
+pub build test benchmark example/foo bar
 </pre>
 
-The <tt>asset</tt> and <tt>lib</tt> top-level directories are
-always served.</dd>
+In the preceding example, the <tt>test</tt>, <tt>benchmark</tt>,
+<tt>example/foo</tt>, and <tt>bar</tt> directories are built,
+as are the <tt>lib</tt> and <tt>asset</tt> directories.
+The <tt>web</tt> directory is not built because it isn't
+specified.</dd>
 
 <dt><tt>--all</tt></dt>
-<dd>Builds all of the buildable directories (benchmark, bin, example,
+<dd>Optional. Builds all of the buildable directories (benchmark, bin, example,
 test, and web) that are present.</dd>
 
 <dt><tt>--mode=&lt;mode&gt;</tt></dt>
-<dd>Specifies a transformation mode. Typical values are "debug" and "release",
-but any word is allowed.
+<dd>Optional. Specifies a transformation mode. Typical values are "debug"
+and "release", but any word is allowed.
 Transformers may use this to change how they behave.<br><br>
 
 If set to "release" pub generates minified JavaScript using dart2js.
@@ -100,6 +104,12 @@ been compiled to JavaScript. In any other mode, the raw Dart files are
 included.<br><br>
 
 If omitted, it defaults to "release".</dd>
+
+<dt><tt>--output=&lt;directory&gt;</tt> or <tt>-o &lt;directory&gt;</tt></dt>
+<dd>Optional. Specifies where to put the build output. The default is the
+top-level <tt>build</tt> directory. (This option will be available in
+the Dart 1.4 stable channel, and is now available in the bleeding edge
+channel.)</dd>
 
 </dl>
 

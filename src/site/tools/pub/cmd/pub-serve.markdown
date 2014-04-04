@@ -10,6 +10,7 @@ _Serve_ is one of the commands of the _pub_ tool.
 
 {% prettify lang-sh %}
 $ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [<directories>]
+$ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [--all]
 {% endprettify %}
 
 This command starts up a _development server_, or _dev server_,
@@ -57,10 +58,11 @@ For options that apply to all pub commands, see
 
 <dl>
 <dt><tt>&lt;directories&gt;</tt></dt>
-<dd>Optional. By default, <tt>pub serve</tt> serves the contents of the
-<tt>web</tt> and <tt>test</tt> directories. You can specify other
-directories at the command line, including any of the standard top-level
-directories:
+<dd>Optional. Use this option to specify directories to serve,
+in addition to the <tt>lib</tt> and <tt>asset</tt> directories
+(whcih are always served).
+The default values are <tt>web</tt> and <tt>test</tt>.
+Directories you might specify typically include the following:
 
 <ul>
 <li>benchmark</li>
@@ -71,17 +73,19 @@ directories:
 </ul>
 
 For example, you might specify:
+
 <pre>
-pub serve test benchmark example
+pub serve test benchmark example/foo bar
 </pre>
 
-However, any directory names are allowed:
-<pre>
-pub serve foo bar
-</pre>
+In the preceding example, the <tt>test</tt>, <tt>benchmark</tt>,
+<tt>example/foo</tt>, and <tt>bar</tt> directories are served,
+as are the <tt>lib</tt> and <tt>asset</tt> directories.
+The <tt>web</tt> directory is not served because it isn't specified.</dd>
 
-The <tt>asset</tt> and <tt>lib</tt> top-level directories are
-always served.</dd>
+<dt><tt>--all</tt></dt>
+<dd>Optional. Serves all of the buildable directories (benchmark, bin, example,
+test, and web) that are present.</dd>
 
 <dt><tt>--hostname=&lt;host&gt;</tt></dt>
 <dd>Optional. By default, the dev server listens on <tt>localhost</tt>.

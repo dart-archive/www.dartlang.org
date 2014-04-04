@@ -15,6 +15,11 @@ that your package needs in order to work. Dependencies are specified in your
 software that your package uses directly. Pub handles
 [transitive dependencies](glossary.html#transitive-dependency) for you.
 
+<aside class="alert alert-info">
+To see all the dependencies used by a package, use
+[`pub deps`](cmd/pub-deps.html).
+</aside>
+
 For each dependency, you specify the *name* of the package you depend on. For
 [library packages](glossary.html#library-package), you specify the *range of
 versions* of that package that you allow. You may also specify the
@@ -233,7 +238,7 @@ You can specify version parts as you want, and their ranges are intersected
 together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
 `2.0.0` excluding `2.0.0` itself.
 
-<aside class="alert alert-warning">
+<aside class="alert alert-info">
 
 Note that <code>&gt;</code> is also valid YAML syntax so you will want to quote
 the version string (like <code>'&lt;=1.2.3 &gt;2.0.0'</code>) if the version

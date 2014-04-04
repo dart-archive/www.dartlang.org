@@ -59,6 +59,8 @@ code from some other package, that package must be a dependency. Dependencies
 are specified in your package's [pubspec](pubspec.html) and described in
 [Pub Dependencies](dependencies.html).
 
+To see the dependencies used by a package, use [`pub deps`](cmd/pub-deps.html).
+
 ### Entrypoint {#entrypoint}
 
 "Entrypoint" is used to mean two things. In the general context of Dart, it is
