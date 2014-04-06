@@ -91,4 +91,4 @@ Google internal sales tool
   Written completely in Dart and uses Polymer Dart for much of the UI.
 
 [Do you speak as GEEK? (game)](http://game.juniorinternet.cz)
-: Hangman written in Dart. [CZ]
+: Hangman written in Dart.
