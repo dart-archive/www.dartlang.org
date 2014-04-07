@@ -475,21 +475,57 @@ We don't claim that all Dart code will run faster
 than handwritten JavaScript, when compiled to JavaScript. But we're working
 to make the common cases fast.
 
-### Q. Why not compile Dart to ASM.js instead of building a specialized VM?
+### Q. Why not compile Dart to asm.js instead of building a specialized VM?
 
-Dart is both about making web developers more productive and making the web
-faster.  ASM.js is only about making the web faster.
+Dart could have used asm.js in two ways; compiling Dart applications to asm.js,
+or compile the Dart VM to asm.js.
 
-The subset of JavaScript that ASM.js targets does not match what
-dart2js needs. For example:
+However, after careful consideration it becomes clear that both ways incur non-
+acceptable overhead which nullifies some of Dart’s value proposition: its fast
+start-up and better performance.
 
-* dart2js needs to verify the number of arguments match (calling convention).
-* dart2js needs to do bounds checks.
-* dart2js forbids unsafe accesses to non-existing fields.
+#### Compilation of a Dart application to asm.js
 
-The Dart VM can't be ported to ASM.js or emscripten because
-the VM emits machine code, which would require a complete x86 emulator for
-ASM.js.
+Asm.js is a very restricted subset of JavaScript best suited as a compilation
+target for C compilers. It does not include JavaScript objects, or direct
+access to the DOM. Essentially, it only allows arithmetic operations and
+manipulations on typed arrays.
+
+While it is possible to implement the dynamic features that are required by
+Dart, they would incur a large overhead in both speed and size, compared to
+relying on the already existing features provided by the underlying JS engine.
+For example, any JS machine comes with a garbage collector (henceforth GC), and
+implementing another one in asm.js would increase the output size, and be
+noticeably slower than the well-tuned GCs of modern JS VMs.
+
+Similarly, JS VMs have spent significant effort in making dynamic dispatch
+efficient, using a combination of dynamic code generation and self-modifying
+code.
+
+#### Compilation of the Dart VM to asm.js (for example via emscripten)
+
+Arguments in the preceding section also apply here. A Dart VM in asm.js would
+need to reimplement, on top of asm.js, many facilities that are already provided
+by the JS VMs. Furthermore, asm.js doesn’t allow direct access to all machine
+capabilities, like threading and specialized instruction sets.
+
+Shipping the Dart VM (compiled to asm.js) with every program would also add
+significant download size to every Dart program. Even cached, it would still
+take a long time to compile the Dart VM (as asm.js) program on the client,
+yielding significant start-up times.
+
+Furthermore you would have to rewrite the Dart VM backend to generate asm.js
+code, as the Dart VM relies on dynamic code generation to achieve peak
+performance. (In an additional step, the JS VM would then need to compile that
+code into assembly, adding to the latency.)
+
+The generated code would be restricted to the instruction set that is provided
+by asm.js, whereas a native VM can emit specialized instructions for the
+platform.
+
+That said, it would be amazing to see the Dart VM compiled to asm.js. This
+experiment would have little practical value, but it would be a nice
+achievement.
 
 ## Usage and tools
 
