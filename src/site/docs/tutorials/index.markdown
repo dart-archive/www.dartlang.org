@@ -332,10 +332,9 @@ from left to right...or choose just the ones you need.
 <aside class="alert alert-info" markdown="1">
 <strong>Do you like to learn by doing?</strong>
 
-Try our code labs:
+Try our code lab:
 
-* [Avast, Ye Pirates: Write a Web App](https://www.dartlang.org/codelabs/darrrt/)
-* [Weigh Anchor: Deploy a Server and App](https://www.dartlang.org/codelabs/deploy/)
+* [Avast, Ye Pirates: Write a Web App](/codelabs/darrrt/)
 
 </aside>
 
