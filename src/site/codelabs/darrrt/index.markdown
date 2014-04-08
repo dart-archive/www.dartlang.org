@@ -147,13 +147,14 @@ and run the app.
 In Dart Editor, expand the `1-blankbadge` directory
 by clicking the little arrow
 ![wee arrow](images/wee-arrow.png) to the left of its name.
-The directory contains two files, `piratebadge.html` and `piratebadge.dart`.
+The directory contains `piratebadge.html`, `piratebadge.dart`,
+and `piratebadge.css`.
 </div>
 
 ### <i class="fa fa-anchor"> </i> Open the files.
 
 <div class="trydart-step-details" markdown="1">
-Open both files, `piratebadge.html` and `piratebadge.dart`,
+Open `piratebadge.html` and `piratebadge.dart`,
 by double-clicking each filename in Dart Editor.
 </div>
 

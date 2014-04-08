@@ -292,7 +292,7 @@ from left to right...or choose just the ones you need.
 
         <div class="col-md-6">
           <section>
-          <h4 class="no-permalink"><a href="httpserver/"><img src="images/target.png" height="20" width="20">&nbsp;Write HTTP Clients & Servers</a></h4>
+          <h4 class="no-permalink"><a href="/docs/tutorials/httpserver/"><img src="images/target.png" height="20" width="20">&nbsp;Write HTTP Clients & Servers</a></h4>
           <p>Communicate over the internet.</p>
           <img src="httpserver/images/helloworldserver.png" width="350">
           </section>
