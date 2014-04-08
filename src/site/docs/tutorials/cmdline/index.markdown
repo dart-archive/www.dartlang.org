@@ -630,10 +630,11 @@ package for more classes, functions, and properties.
 
 ## What next? {#what-next}
 
-Try the [Weigh Anchor: Deploy a Server and App](/codelabs/deploy/) code lab
-to learn how to deploy your project to the Heroku hosting service.
+* If you are interested in server-side programming,
+check out the next tutorial,
+[Write HTTP Clients & Servers](/docs/tutorials/httpserver/).
 
-The [Get Input from a Form](/docs/tutorials/forms/) tutorial
+* The [Get Input from a Form](/docs/tutorials/forms/) tutorial
 features a client-server.
 The code for the server, which uses CORS headers and handles
 POST requests, is explained in detail.

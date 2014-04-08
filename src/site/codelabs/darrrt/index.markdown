@@ -1985,10 +1985,8 @@ Now that you've written your app, what do you do now? Here are some suggestions.
 
 <div class="trydart-step-details" markdown="1">
 
-If you are interested in server-side programming,
-you can learn to write a static file server and use it to deploy
-the pirate badge app to Heroku.
-Check out the [Weigh Anchor: Deploy a Server and App](/codelabs/deploy/) code lab.
+See the [Write HTTP Clients & Servers](/docs/tutorials/httpserver/)
+tutorial if you are interested in server-side programming.
 
 </div>
 

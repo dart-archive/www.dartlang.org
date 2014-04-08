@@ -29,11 +29,9 @@ you should be familiar with the techniques covered in
 Currently, the most common use of zones is
 to handle errors raised in asynchronously executed code.
 For example,
-the simple HTTP server in the
-[server code lab](/codelabs/deploy/)
-has the following code:
+a simple HTTP server
+might use the following code:
 
-<!-- https://github.com/dart-lang/deploy-codelab/archive/master.zip -->
 {% prettify dart %}
 [[highlight]]runZoned(() {[[/highlight]]
   HttpServer.bind('0.0.0.0', port).then((server) {

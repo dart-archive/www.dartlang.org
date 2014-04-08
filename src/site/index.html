@@ -198,7 +198,7 @@ Map famousDuos = { 'Han Solo': 'Chewbacca',      // Map literal.
 List myFriends = [ 'Seth', 'Kathy', 'Shailen' ]; // List literal.
 
 // Create lists and maps from <a href="#" class="dart-popover" data-toggle="popover" title="Iterables" data-html="true" data-trigger="hover focus" data-content="An Iterable object uses an Iterator to serve objects one at a time. Maps, lists, and sets are all examples of Iterable objects.">Iterable</a> objects.
-List shuffledSidekicks = new List.from(famousDuos.values)..shuffle();
+List shuffledSidekicks = new List.from(famousDuos.values)<a href="#" class="dart-popover" data-toggle="popover" title="Cascade Operator" data-html="true" data-trigger="hover focus" data-content="The cascade operator allows you to perform multiple operations on the members of a single object.">..</a>shuffle();
 Map mixedDuos = new Map.fromIterables(famousDuos.keys, shuffledSidekicks);
 
 // Iteration.

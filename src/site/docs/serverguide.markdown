@@ -127,13 +127,11 @@ various Dart libraries and packages.
 ### Servers
 
 * [Write HTTP Clients & Servers](/docs/tutorials/httpserver/) (a tutorial about using dart:io and http_server to write HTTP apps)
-* [Weigh Anchor: Deploy a Server and App](/codelabs/deploy/) (a code lab about deploying Dart code to Heroku)
 * [Get Input from a Form](/docs/tutorials/forms/)
 <img src="/docs/tutorials/images/target.png" height="16" width="16">
 (contains an HTTP server/client pair)
 * [Walkthrough: Dartiverse Search](/docs/dart-up-and-running/contents/ch05.html)
 (HTTP server, Web Sockets, logging, and routing)
-* [Deploy to Heroku](https://github.com/igrigorik/heroku-buildpack-dart)
 
 ### Shell scripting
 
