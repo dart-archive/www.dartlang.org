@@ -79,8 +79,11 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 #### Servers
 {:.no_toc}
 
-* [slambookserver](https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/slambook/)
 * [dartiverse_search](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt)
+* [hello_world_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/hello_world_server.dart)
+* [basic_writer_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/basic_writer_server.dart)
+* [static_file_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/static_file_server.dart)
+* [slambookserver](https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/slambook/)
 
 </div>
 <div class="col-md-7" markdown="1">
@@ -123,6 +126,7 @@ various Dart libraries and packages.
 
 ### Servers
 
+* [Write HTTP Clients & Servers](/docs/tutorials/httpserver/) (a tutorial about using dart:io and http_server to write HTTP apps)
 * [Weigh Anchor: Deploy a Server and App](/codelabs/deploy/) (a code lab about deploying Dart code to Heroku)
 * [Get Input from a Form](/docs/tutorials/forms/)
 <img src="/docs/tutorials/images/target.png" height="16" width="16">

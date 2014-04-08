@@ -112,7 +112,7 @@ You can use Dart for anything from scripts to web servers.
 Thanks to Heroku's support for third-party runtimes,
 you can run your server-side Dart app on Heroku's cloud.
 
-[Writing Command-Line Apps: A Programmer's Guide](serverguide.html)
+[Command-Line Apps: A Programmer's Guide](serverguide.html)
 : Provides a set of samples, tutorials, and articles that
 explain the APIs, tools, and techniques for writing and
 deploying command-line apps such as servers and scripts.
