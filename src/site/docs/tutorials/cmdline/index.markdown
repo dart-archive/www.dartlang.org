@@ -5,8 +5,8 @@ description: "Basics for command-line apps"
 has-permalinks: true
 tutorial:
   id: dart-io
-next:
-next-title: "Home"
+next: httpserver
+next-title: "Write HTTP Clients & Servers"
 prev: indexeddb/
 prev-title: "Use IndexedDB"
 ---
@@ -204,7 +204,7 @@ which uses ArgParser and ArgResults to parse and store its command-line argument
 <ol>
 <li markdown="1">
 Copy the sample file from the github repo:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/dcat.dart">dcat.dart</a>.
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/cmdline/dcat.dart">dcat.dart</a>.
 </li>
 
 <li markdown="1">

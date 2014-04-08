@@ -10,6 +10,8 @@ tutorial:
   id: tut-home
 next: get-started/
 next-title: "Get Started"
+header:
+  css: ["/docs/tutorials/tute_main_page.css"]
 ---
 
 {% capture content %}
@@ -39,7 +41,7 @@ from left to right...or choose just the ones you need.
     <li><a href="#polymer" data-toggle="tab">Polymer</a></li>
     <li><a href="#futures" data-toggle="tab">Async</a></li>
     <li><a href="#forms" data-toggle="tab">Forms & data</a></li>
-    <li><a href="#commandline" data-toggle="tab">Standalone apps</a></li>
+    <li><a href="#commandline" data-toggle="tab">Servers</a></li>
     <!--<li><a href="#mobile" data-toggle="tab">Mobile</a></li>-->
   </ul>
 
@@ -48,9 +50,11 @@ from left to right...or choose just the ones you need.
   <!-- BASICS TAB -->
     <div class="tab-pane active" id="basics">
 
-      Download the software and
-      discover which tools and libraries you get with the bundle.
-      Run two sample apps.
+      <div class="intro-para">
+        Download the software and
+        discover which tools and libraries you get with the bundle.
+        Run two sample apps.
+      </div>
 
       <div class="row">
 
@@ -96,13 +100,15 @@ from left to right...or choose just the ones you need.
   <!-- DOM TAB -->
     <div class="tab-pane" id="dom">
 
-      Web pages are programmed in HTML and represented
-      within the browser as a tree structure
-      called the DOM (Document Object Model).
-      Dart apps can modify the DOM programmatically,
-      thus dynamically changing the web page.
-      First, learn how to connect Dart and HTML.
-      Then learn how to add, move, and remove DOM elements.
+      <div class="intro-para">
+        Web pages are programmed in HTML and represented
+        within the browser as a tree structure
+        called the DOM (Document Object Model).
+        Dart apps can modify the DOM programmatically,
+        thus dynamically changing the web page.
+        First, learn how to connect Dart and HTML.
+        Then learn how to add, move, and remove DOM elements.
+      </div>
 
       <div class="row">
         <!-- Connect Dart & HTML -->
@@ -145,8 +151,10 @@ from left to right...or choose just the ones you need.
   <!-- PACKAGES TAB -->
     <div class="tab-pane" id="packages">
 
-      Dart developers have been busy creating code libraries that can help you be more productive.
-      Leverage that code or put your code out in the world to share with others.
+      <div class="intro-para">
+        Dart developers have been busy creating code libraries that can help you be more productive.
+        Leverage that code or put your code out in the world to share with others.
+      </div>
 
       <div class="row">
 
@@ -166,6 +174,12 @@ from left to right...or choose just the ones you need.
 
   <!-- POLYMER TAB -->
     <div class="tab-pane" id="polymer">
+
+      <div class="intro-para">
+        Polymer helps you build structured, encapsulated,
+        client-side web apps with web components.
+      </div>
+
       <div class="row">
 
         <div class="col-md-6">
@@ -184,6 +198,14 @@ from left to right...or choose just the ones you need.
 
   <!-- FUTURES & STREAMS TAB -->
     <div class="tab-pane" id="futures">
+
+      <div class="intro-para">
+        The Future and Stream classes provide API for performing tasks,
+        such as input/output, asynchronously, so as to avoid blocking your
+        program.
+        Futures and Streams are fundamental to most Dart programs.
+      </div>
+
       <div class="row">
 
         <div class="col-md-6">
@@ -207,11 +229,13 @@ from left to right...or choose just the ones you need.
   <!-- FORMS TAB -->
     <div class="tab-pane" id="forms">
 
-      Various classes in the Dart libraries help you get, send, receive,
-      and save user data.
-      You can use input elements within forms to get data from users.
-      You can use JSON to format data and HttpRequest to send requests and receive responses.
-      And, finally, you can save data on the client with IndexedDB.
+      <div class="intro-para">
+        Various classes in the Dart libraries help you get, send, receive,
+        and save user data.
+        You can use input elements within forms to get data from users.
+        You can use JSON to format data and HttpRequest to send requests and receive responses.
+        And, finally, you can save data on the client with IndexedDB.
+      </div>
 
       <div class="row">
 
@@ -250,6 +274,12 @@ from left to right...or choose just the ones you need.
 
     <!-- COMMAND-LINE APPS TAB -->
     <div class="tab-pane" id="commandline">
+
+      <div class="intro-para">
+        Dart isn't just for browser-based applications.
+        You can write standalone programs, such as servers and scripts, in Dart.
+      </div>
+
       <div class="row">
 
         <div class="col-md-6">
@@ -261,9 +291,16 @@ from left to right...or choose just the ones you need.
         </div>
 
         <div class="col-md-6">
+          <section>
+          <h4 class="no-permalink"><a href="httpserver/"><img src="images/target.png" height="20" width="20">&nbsp;Write HTTP Clients & Servers</a></h4>
+          <p>Communicate over the internet.</p>
+          <img src="httpserver/images/helloworldserver.png" width="350">
+          </section>
         </div>
 
       </div>
+
+
     </div>
 
   <!-- MOBILE TAB -->
@@ -289,6 +326,18 @@ from left to right...or choose just the ones you need.
   </div> <!-- end tab content-->
 </div> <!--end tabbable -->
 </div> <!-- end of tute-tabs -->
+
+<hr style="border:solid;border-color:Gainsboro">
+
+<aside class="alert alert-info" markdown="1">
+<strong>Do you like to learn by doing?</strong>
+
+Try our code labs:
+
+* [Avast, Ye Pirates: Write a Web App](https://www.dartlang.org/codelabs/darrrt/)
+* [Weigh Anchor: Deploy a Server and App](https://www.dartlang.org/codelabs/deploy/)
+
+</aside>
 
 {% endcapture %}
 

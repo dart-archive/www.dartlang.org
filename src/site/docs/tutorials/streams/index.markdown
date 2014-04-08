@@ -233,7 +233,7 @@ broadcastStream
 
 Another useful method is the `transform()` method, which takes a 
 `StreamTransformer` instance.  This allows you to modify the contents of the 
-stream.  The `StreamTransformer` constructor takes a `handleData` function, 
+stream.  The `StreamTransformer.fromHandlers` constructor takes a `handleData` function, 
 which is called for each value passed from the stream.  You can modify the value 
 as you wish, and add it back to the `StreamSink`, which results in the modified 
 values being output on the `transform()` method's own stream.  The example below 
@@ -242,7 +242,7 @@ values, `"Message n"` and `"Body n"`. Each string is placed onto the new stream.
 
 <!--- BEGIN(stream_transformer) -->{% prettify dart %}
 // define a stream transformer
-var transformer = new StreamTransformer(handleData: (value, sink) {
+var transformer = new StreamTransformer.fromHandlers(handleData: (value, sink) {
   // create two new values from the original value
   sink.add("Message: $value");
   sink.add("Body: $value");
