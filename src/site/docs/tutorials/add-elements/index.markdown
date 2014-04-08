@@ -369,6 +369,15 @@ automatically removes it from its previous parent.
 <img class="scale-img-max" src="images/anagram-move.png"
      alt="The mouse click handler adds the button to the word, thus moving it">
 
+The `+=` operator is a compound assignment operator,
+which combines an operation (`+`) with an assignment.
+
+The `scrabbleValues` variable is a
+<a href="https://api.dartlang.org/dart_core/Map.html" target="_blank">Map</a>&mdash;a
+data structure that contains key/value pairs.
+Use the square bracket syntax to retrieve a value by its key
+and the `length` property to get the number of pairs it contains.
+
 ##Other resources
 
 <ul>
