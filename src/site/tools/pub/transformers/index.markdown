@@ -99,7 +99,7 @@ String get allowedExtensions => ".md .markdown .mdown";
 <div class="step-details" markdown="1">
 {% prettify dart %}
 Future<bool> isPrimary(Asset input) {
-  input.path.startswith("sources/");
+  return input.id.path.startsWith("sources/");
 }
 {% endprettify %}
 </div>
