@@ -26,12 +26,15 @@ dependencies:
     - web/index2.html</b>
 </pre>
 
-A package's assets must be in one or more of the following directories:
-`lib`, `asset`, and `web`. After transformation by `pub build`, assets are
+A package's assets can be in any directory in the root package.
+However, if you want to make an asset available publicly (to other
+packages, or to multiple directories within your package), it needs
+to be in `lib`.
+
+After transformation by `pub build`, assets are
 available under a directory called `build`. Assets generated from
 files in a package's `lib` directory appear under a directory named
-<code>packages/<em>&lt;pkg_name></em></code>, and those from the package's
-`asset` directory appear under <code>assets/<em>&lt;pkg_name></em></code>.
+<code>packages/<em>&lt;pkg_name></em></code>.
 For details, see
 [Where to put assets](#where-to-put-assets) and
 [How to refer to assets](#how-to-refer-to-assets).
@@ -119,19 +122,21 @@ JavaScript, so your code can run in any modern browser.
 
 ## Where to put assets  {#where-to-put-assets}
 
-If you want a file to be an _asset_&mdash;to either be in or be used to
-generate files in the built version of your package&mdash;then you need to
-put it under one of the following directories:
+An asset can be in any root level directory of your package. However,
+assets located in the `lib` directory have additional visibilty:
 
-* `lib`: Dart libraries defining the package's public API. Visible in all
-  packages that use this package. Assets in `lib/src` are invisible
-  to other packages.
-* `asset`: Other public files. Visible in all packages that use this
-  package. This directory may be phased out in the future. For more
-  information, see
-  [issue 16647](https://code.google.com/p/dart/issues/detail?id=16647).
-* `web`: A web app's static content plus its main Dart file (the one that
-  defines `main()`). Visible _only_ to this package.
+* Assets of packages that you depend on need to be in `lib`.
+
+* Assets in your package that you want to access from other directories
+  within your package need to be in your package's `lib` directory.
+
+* Assets in `lib/src` are invisible to other packages.
+
+<aside class="alert alert-info" markdown="1">
+Prior to Dart 1.4, assets were also placed in the top-level
+<tt>asset</tt> directory. The <tt>asset</tt> directory is being deprecated
+and will be removed after 1.4.
+</aside>
 
 The following picture shows how you might structure your app's source assets,
 with your main Dart file under `web` and additional Dart files under `lib`.
@@ -140,15 +145,14 @@ with your main Dart file under `web` and additional Dart files under `lib`.
 <em>app</em>/
   lib/
     *.dart
+    *.png
+    *.html
+    ...
   packages/
     pck/
       lib/
         *.dart
         *.js
-      asset/
-        *.png
-        *.html
-        ...
   web/
     <em>app</em>.dart
     *.html
@@ -158,17 +162,29 @@ with your main Dart file under `web` and additional Dart files under `lib`.
 </pre>
 
 After transformation, `pub build` places generated assets under a directory
-named `build`, which we'll call the _build root_. The build root has two
-special subdirectories: `packages` and `assets`. The dev server simulates this
-hierarchy without generating files.
+named `build`, which we'll call the _build root_. Under the build root,
+a directory is created for each subdirectory that is built and a
+`packages` directory is created under each directory specified in the
+build command. For example, if your build command looks like the following:
 
-The following figure shows the source assets above, plus the generated assets
-produced by `pub build` if the only transformer is dart2js. In this example,
-all the source files have corresponding generated files, and all the Dart
-files have been compiled into a single JavaScript file.
+{% prettify yaml %}
+$ pub build test example/one example/two
+{% endprettify %}
 
-![under the build directory are assets/ and packages/ directories, plus a bunch of files derived from the web/ directory: app.dart.js, *.html, *.css, *.png, ...](/tools/images/input-and-output-assets.png)
+The resulting build directory looks like:
 
+{% prettify lang-sh %}
+build/
+  example/
+    one/
+      packages/
+    two/
+      packages/
+  test/
+    packages/
+{% endprettify %}
+
+The dev server simulates this hierarchy without generating files.
 
 ## How to refer to assets
 
@@ -183,10 +199,6 @@ for untransformed files:
   <tr>
     <td> <code>.../<em>&lt;your_pkg></em>/web/<em>&lt;path></em></code> </td>
     <td> <code>/<em>&lt;path></em></code> </td>
-  </tr>
-  <tr>
-    <td> <code>.../<em>&lt;pkg_name></em>/asset/<em>&lt;path></em></code> </td>
-    <td> <code>/assets/<em>&lt;pkg_name></em>/<em>&lt;path></em></code> </td>
   </tr>
   <tr>
     <td> <code>.../<em>&lt;pkg_name></em>/lib/<em>&lt;path></em></code> </td>
@@ -222,8 +234,17 @@ transformers:
     $exclude: "lib/foo.html"
 {% endprettify %}
 
-You must indent the `$exclude` line by at least 4 spaces and provide
-the file's location from the top of the package.
+You must provide the file's location from the top of the package.
+
+<aside class="alert alert-info" markdown="1">
+**Note**:
+To pass a value to the transformer,
+put a colon (<tt>:</tt>) after the transformer's name.
+Indent the next line by 4 spaces and use the form:
+<tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;parameter&gt;: &lt;value&gt;
+</tt>
+</aside>
 
 If you want a transformer to run _only_ on a particular file, you can
 use `$include`. The following example tells pub to run the transformer
@@ -271,6 +292,16 @@ transformers:
 
 This suppresses warnings when processing lib/lax_code.dart, but
 allows warnings when compiling all other Dart files.
+
+<aside class="alert alert-info" markdown="1">
+**Note**:
+To pass a value to the transformer,
+put a colon (<tt>:</tt>) after the transformer's name.
+Indent the next line by 4 spaces and use the form:
+<tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;parameter&gt;: &lt;value&gt;
+</tt>
+</aside>
 
 ## Writing a transformer {#writing-transformer}
 

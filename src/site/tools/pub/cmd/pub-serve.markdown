@@ -58,9 +58,9 @@ For options that apply to all pub commands, see
 
 <dl>
 <dt><tt>&lt;directories&gt;</tt></dt>
-<dd>Optional. Use this option to specify directories to serve,
-in addition to the <tt>lib</tt> and <tt>asset</tt> directories
-(whcih are always served).
+<dd>Optional. Use this option to specify the directories to use
+as input for the serve command, in addition to <tt>lib</tt>
+(which is always processed).
 The default values are <tt>web</tt> and <tt>test</tt>.
 Directories you might specify typically include the following:
 
@@ -79,8 +79,8 @@ pub serve test benchmark example/foo bar
 </pre>
 
 In the preceding example, the <tt>test</tt>, <tt>benchmark</tt>,
-<tt>example/foo</tt>, and <tt>bar</tt> directories are served,
-as are the <tt>lib</tt> and <tt>asset</tt> directories.
+<tt>example/foo</tt>, and <tt>bar</tt> directories are processed,
+as is the <tt>lib</tt> directory.
 The <tt>web</tt> directory is not served because it isn't specified.</dd>
 
 <dt><tt>--all</tt></dt>

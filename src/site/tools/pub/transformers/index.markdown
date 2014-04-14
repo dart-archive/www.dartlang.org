@@ -5,9 +5,9 @@ header:
   css: ["transformers.css"]
 ---
 
-# {{ page.title }}
-
 {% include toc.html %}
+
+# {{ page.title }}
 
 Every time you prepare a Dart app for testing or deployment, 
 you are using transformers behind the scenes. The [`pub`](/tools/pub/)
@@ -99,7 +99,7 @@ String get allowedExtensions => ".md .markdown .mdown";
 <div class="step-details" markdown="1">
 {% prettify dart %}
 Future<bool> isPrimary(Asset input) {
-  input.path.startswith("sources/");
+  return input.path.startswith("sources/");
 }
 {% endprettify %}
 </div>
@@ -239,8 +239,8 @@ pubspec, as described in [get barback](#get-barback).
 
 Assets can be in any directory in the package. However, if you want an
 asset to be publicly available to another package,
-it must be in the `lib` or `asset` directory.
-You can organize the assets underneath the `lib` or `asset` directory
+it must be in the `lib` directory.
+You can organize the assets underneath `lib`
 using any structure that you want. See
 [Where to put assets](/tools/pub/assets-and-transformers.html#where-to-put-assets)
 and

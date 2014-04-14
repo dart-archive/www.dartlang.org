@@ -5,8 +5,6 @@ title: "Writing a Pub Transformer: Examples"
 
 # {{ page.title }}
 
-{% include toc.html %}
-
 When _pub_ serves or builds an app, it can run one or more
 transformers. ([Learn more about pub](/tools/pub/).)
 
@@ -20,16 +18,17 @@ the [barback](http://pub.dartlang.org/packages/barback) package.
 See [Writing a Pub Transformer](/tools/pub/transformers/) for more information
 about these examples.
 
-* [SimpleTransformer](SimpleTransformer.zip)
+* [simple_transformer](simple_transformer.zip)
   inserts a copyright string at the beginning of a ".txt" file.
 
-* [MarkdownConverter](MarkdownConverter.zip)
+* [markdown_converter](markdown_converter.zip)
   converts a markdown file (with either a ".mdown", ".md", or
   a ".markdown" extension) to HTML. The output asset has
   an ".html" extension.
 
 Once you download and unzip these examples, you can run
-`pub build` to generate the assets. Sample input assets are
-included under the `asset` directory, and the output assets
+`pub build` to generate the assets, or `pub serve` to serve
+the assets. Sample input assets are
+included under the `web` directory, and the output assets
 (after running `pub build`) are placed under the `build`
 directory.

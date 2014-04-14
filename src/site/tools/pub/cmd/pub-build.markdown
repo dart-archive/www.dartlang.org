@@ -63,9 +63,9 @@ For options that apply to all pub commands, see
 <dl>
 
 <dt><tt>&lt;directories&gt;</tt></dt>
-<dd>Optional. Use this option to specify directories to build,
-in addition to the <tt>lib</tt> and <tt>asset</tt> directories
-(which are always built). The default value is <tt>web</tt>.
+<dd>Optional. Use this option to specify directories to use
+as input for the build command, in addition to <tt>lib</tt>
+(which is always processed).  The default value is <tt>web</tt>.
 Directories you might typically specify include the following:
 
 <ul>
@@ -83,10 +83,9 @@ pub build test benchmark example/foo bar
 </pre>
 
 In the preceding example, the <tt>test</tt>, <tt>benchmark</tt>,
-<tt>example/foo</tt>, and <tt>bar</tt> directories are built,
-as are the <tt>lib</tt> and <tt>asset</tt> directories.
-The <tt>web</tt> directory is not built because it isn't
-specified.</dd>
+<tt>example/foo</tt>, and <tt>bar</tt> directories are processed,
+as is the <tt>lib</tt> directory.
+The <tt>web</tt> directory is not built because it isn't specified.</dd>
 
 <dt><tt>--all</tt></dt>
 <dd>Optional. Builds all of the buildable directories (benchmark, bin, example,
