@@ -509,7 +509,7 @@ listenForRequests(_server) {
     }
   },
   onDone: () => print('No more requests.'),
-  onError: (_) => print('Server listen failed.') );
+  onError: (e) => print(e.toString()) );
 }
 {% endprettify %}
 <div class="prettify-filename">number_thinker.dart</div>
@@ -649,8 +649,7 @@ Run the server and client on the command line.
 First the server: 
 
 {% prettify bash %}
-$ dart basic_writer_server.dart
-...
+$ dart bin/httpserver/basic_writer_server.dart
 {% endprettify %}
   </li>
 
@@ -658,8 +657,7 @@ $ dart basic_writer_server.dart
 Then the client:
 
 {% prettify bash%}
-$ dart basic_writer_client.dart
-$
+$ dart bin/httpserver/basic_writer_client.dart
 {% endprettify %}
   </li>
 
@@ -699,11 +697,9 @@ and returns the second Future.
        'weakness': 'smuggling debts'
      };
   
-[[note]]1[[/note]]  new HttpClient().[[highlight]]post('127.0.0.1', 4049, '/file.txt')[[/highlight]]
+[[note]]1[[/note]]  new HttpClient().[[highlight]]post(InternetAddress.LOOPBACK_IP_V4.host, 4049, '/file.txt')[[/highlight]]
 [[note]]2[[/note]]      .then(([[highlight]]HttpClientRequest[[/highlight]] request) {
-
 [[note]]3[[/note]]      [[highlight]]request.headers.contentType = ContentType.JSON;[[/highlight]]
-
 [[note]]4[[/note]]      [[highlight]]request.write(JSON.encode(jsonData))[[/highlight]];
 [[note]]5[[/note]]      [[highlight]]return request.close();[[/highlight]]
        })
@@ -808,7 +804,7 @@ a server that follows this pattern.
 
    void main() {
     
-     HttpServer.bind('127.0.0.1', 4049).then((server) {
+     HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049).then((server) {
        server.listen((req) {
       
          ContentType contentType = req.headers.contentType;
@@ -832,7 +828,8 @@ a server that follows this pattern.
                  });
            });
          } else {
-           req.response.write('Unsupported request.');
+           req.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
+           req.response.write("Unsupported request: ${req.method}.");
            req.response.close();
          }
        });
@@ -926,8 +923,7 @@ It responds to all requests by returning the contents of the
 Run the server on the command line:
 
 {% prettify bash %}
-$ dart mini_file_server.dart
-...
+$ dart bin/httpserver/mini_file_server.dart
 {% endprettify %}
   </li>
 
@@ -946,7 +942,7 @@ Here's the code for mini file server:
 import 'dart:io';
 
 main() {
-  HttpServer.bind('127.0.0.1', 4044).then((server) {
+  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044).then((server) {
     server.listen((HttpRequest req) {
       File file = new File('index.html');
       file.exists().then((bool found) {
@@ -982,8 +978,7 @@ uses the `http_server` package.
 Run the server on the command line:
 
 {% prettify bash %}
-$ dart basic_file_server.dart
-...
+$ dart bin/httpserver/basic_file_server.dart
 {% endprettify %}
   </li>
 
@@ -1010,7 +1005,7 @@ void main() {
 
   VirtualDirectory staticFiles = new VirtualDirectory('.');
     
-  HttpServer.bind('127.0.0.1', 4046).then((server) {
+  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4046).then((server) {
     server.listen((req) {
       [[highlight]]staticFiles.serveFile(new File('index.html'), req);[[/highlight]]
     });
