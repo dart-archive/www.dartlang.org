@@ -100,12 +100,34 @@ Use emerging web standards, today.
 
 <hr>
 
+## Installation
+
+Get polymer.dart from [pub](http://pub.dartlang.org),
+the Dart package hosting service. Add the following to
+your `pubspec.yaml` file:
+
+    dependencies:
+      polymer: ">=0.9.0 <0.10.0"
+
+Then, run `pub get` to download the package and link it into your app.
+
+View the [polymer.dart pub page](http://pub.dartlang.org/packages/polymer)
+to learn more.
+
+<hr>
 ## Examples
 
 Along with this code, check out the Dart tutorial
 [Define a Custom Element](/docs/tutorials/polymer-intro/).
 It shows you how to define, implement, and instantiate
 a custom element.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The examples on this page reflect **polymer.dart 0.9.5**.
+For information about polymer.dart versions, see the Versions tab on the
+[polymer.dart pub page](https://pub.dartlang.org/packages/polymer).
+</aside>
 
 ### Custom elements
 
@@ -121,7 +143,7 @@ This HTML code defines a custom element:
 <!-- hello_world.html -->
 <polymer-element name="[[highlight]]hello-world[[/highlight]]" noscript>
   <template>
-    <p>Hello from inside a custom element!<p>
+    <p>Hello from inside a custom element!</p>
   </template>
 </polymer-element>
 {% endraw %}{% endprettify %}
@@ -356,21 +378,6 @@ and much more. Please [let us know](https://github.com/sethladd/dart-polymer-dar
 
 <hr>
 
-## Installation
-
-Get polymer.dart from [pub](http://pub.dartlang.org),
-the Dart package hosting service. Add the following to
-your `pubspec.yaml` file:
-
-    dependencies:
-      polymer: any
-
-Then, run `pub get` to download the package and link it into your app.
-
-View the [polymer.dart pub page](http://pub.dartlang.org/packages/polymer)
-to learn more.
-
-<hr>
 
 ## Tools
 
