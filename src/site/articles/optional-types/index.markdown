@@ -96,8 +96,8 @@ class Point {
 }
 
 main() {
-  var p1 = new Point(0, 0);
-  var p2 = new Point(10, 10);
+  Point p1 = new Point(0, 0);
+  Point p2 = new Point(10, 10);
 
   int n = p1 + p2;
 
@@ -111,7 +111,7 @@ The static checker will issue a warning in this case.
 
 
 
-<img src="imgs/static-warning.png" width="665" height="363"
+<img src="imgs/static-warning.png" width="744" height="435"
      alt="Static warning in Dart Editor"
      style="border: 1px solid gray; box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.25);">
 
