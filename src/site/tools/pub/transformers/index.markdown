@@ -31,17 +31,39 @@ MarkdownConverter, which you can find at
 
 A transformer is a Dart class that extends the Transformer class
 from the [barback](http://pub.dartlang.org/packages/barback) package.
-Typically, a transformer's code is in a file named `transformer.dart`
-that is in its package's `lib` directory.
-
-The barback package,
-developed by the Dart team and available at pub.dartlang.org,
+Barback, developed by the Dart team and available at pub.dartlang.org,
 provides a system for building assets.
+
+### Choose a file name and location {#choose}
+
+A transformer's code goes into one of the following locations:
+
+* For a package that only implements a transformer, you can put
+  the code into `<package>.dart` in the `lib` directory.
+
+* For a larger project where you want the transformer's code to be in a
+  library under `lib/src`, you can put the transformer code into
+  `lib/src/` and add the export statement for the library to
+  `lib/<package>.dart`. (This doesn't work in Dart releases
+  before 1.4.)
+
+* If the transformer can't coexist with the main package code,
+  you can put the code into a file named `transformer.dart`. For
+  example, let's say your client app depends on `dart:html` but the
+  transformer depends on `dart:io` because it makes an HTTP request.
+  In this case, put the code into `transformer.dart`, under
+  `lib` or `lib/src`, depending on your package.
+
+* You can also put your transformer code into another file,
+  such as `lib/stuff/myfile.dart`.
+
+The transformer's file name and location affect how you set
+up the pubspec.  See [Add the transformer](#add-transformer)
+for more details.
 
 ### Get barback {#get-barback}
 
-In your transformer's main Dart file (typically `lib/transformer.dart`),
-import the barback package:
+In your transformer's main Dart file, import the barback package:
 
 {% prettify dart %}
 import 'package:barback/barback.dart';
@@ -203,8 +225,8 @@ to the `pubspec.yaml` file.
 
 To apply a transformer to the assets in your package,
 list it in your pubspec.
-If your transformer is saved to `lib/transformer.dart`,
-add the following to your pubspec:
+If your transformer is implemented in `lib/<package>.dart` or
+`lib/transformer.dart`, add the following to your pubspec:
 
 {% prettify lang-sh %}
 transformers:
@@ -221,8 +243,8 @@ transformers:
 {% endprettify %}
 
 If you put your transformer class into a file other than
-`lib/transformer.dart`-for example,
-`lib/stuff/insert_copyright.dart`-you would add it to the
+`<package>.dart` or `transformer.dart`&mdash;for example,
+`lib/stuff/insert_copyright.dart`&mdash;you add it to the
 pubspec file like this:
 
 {% prettify lang-sh %}
