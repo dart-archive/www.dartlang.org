@@ -38,6 +38,11 @@ You can use Dartium to test and debug your Dart web applications.
 
 {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
 
+<aside class="alert alert-info" markdown="1">
+**Note:** Dart Editor requires Java version 6 or higher.
+Problems? See [Troubleshooting Dart Editor](editor/troubleshoot.html).
+</aside>
+
 Dart Editor can automatically update itself, along with the SDK and
 Dartium, whenever a new integration build is available. To enable
 automatic updates, go to **Preferences**, choose **Update**, and select

@@ -71,6 +71,11 @@ Unzip the ZIP file, which creates a directory called `dart`.
 </p>
 </div>
 
+<aside class="alert alert-info" markdown="1">
+**Note:** Dart Editor requires Java version 6 or higher.
+Problems? See [Troubleshooting Dart Editor](editor/troubleshoot.html).
+</aside>
+
 ### <i class="fa fa-anchor"> </i> Start the editor.
 
 <div class="trydart-step-details" markdown="1">
