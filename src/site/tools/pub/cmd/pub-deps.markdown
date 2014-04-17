@@ -47,7 +47,7 @@ markdown_converter 0.0.0
 ## Options {#options}
 
 For options that apply to all pub commands, see
-[Global options](index.html#global-options).
+[Global options](/tools/pub/cmd/#global-options).
 
 `--style=<style>` or `-s <style>`
 : Optional. How the output should be displayed. The options are:

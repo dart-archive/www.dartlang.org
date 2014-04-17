@@ -92,4 +92,4 @@ run `pub upgrade` again to upgrade to a later version.
 ## Options {#options}
 
 For options that apply to all pub commands, see
-[Global options](index.html#global-options).
+[Global options](/tools/pub/cmd/#global-options).

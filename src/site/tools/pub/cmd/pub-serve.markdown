@@ -54,14 +54,14 @@ information on:
 ## Options {#options}
 
 For options that apply to all pub commands, see
-[Global options](index.html#global-options).
+[Global options](/tools/pub/cmd/#global-options).
 
 <dl>
-<dt><tt>&lt;directories&gt;</tt></dt>
+<dt><code>&lt;directories&gt;</code></dt>
 <dd>Optional. Use this option to specify the directories to use
-as input for the serve command, in addition to <tt>lib</tt>
+as input for the serve command, in addition to <code>lib</code>
 (which is always processed).
-The default values are <tt>web</tt> and <tt>test</tt>.
+The default values are <code>web</code> and <code>test</code>.
 Directories you might specify typically include the following:
 
 <ul>
@@ -78,18 +78,18 @@ For example, you might specify:
 pub serve test benchmark example/foo bar
 </pre>
 
-In the preceding example, the <tt>test</tt>, <tt>benchmark</tt>,
-<tt>example/foo</tt>, and <tt>bar</tt> directories are processed,
-as is the <tt>lib</tt> directory.
-The <tt>web</tt> directory is not served because it isn't specified.</dd>
+In the preceding example, the <code>test</code>, <code>benchmark</code>,
+<code>example/foo</code>, and <code>bar</code> directories are processed,
+as is the <code>lib</code> directory.
+The <code>web</code> directory is not served because it isn't specified.</dd>
 
-<dt><tt>--all</tt></dt>
+<dt><code>--all</code></dt>
 <dd>Optional. Serves all of the buildable directories (benchmark, bin, example,
 test, and web) that are present.</dd>
 
-<dt><tt>--hostname=&lt;host&gt;</tt></dt>
-<dd>Optional. By default, the dev server listens on <tt>localhost</tt>.
-You can specify another host using the <tt>--hostname</tt> option. 
+<dt><code>--hostname=&lt;host&gt;</code></dt>
+<dd>Optional. By default, the dev server listens on <code>localhost</code>.
+You can specify another host using the <code>--hostname</code> option. 
 For example:
 <pre>
 $ pub serve --hostname=127.0.0.1
@@ -100,16 +100,16 @@ Build completed successfully
 </pre>
 </dd>
 
-<dt><tt>--port=&lt;number&gt;</tt></dt>
-<dd>Optional. By default, the dev server uses <tt>http://localhost:8080</tt>.
-To change the port number, use the <tt>--port</tt> option:
+<dt><code>--port=&lt;number&gt;</code></dt>
+<dd>Optional. By default, the dev server uses <code>http://localhost:8080</code>.
+To change the port number, use the <code>--port</code> option:
 <pre>
 $ pub serve --port=9080
 Serving helloworld web on http://localhost:9080
 </pre>
 </dd>
 
-<dt><tt>--mode=&lt;mode&gt;</tt></dt>
+<dt><code>--mode=&lt;mode&gt;</code></dt>
 <dd>Optional. Specifies a transformation mode. Typical values are
 "debug" and "release", but any word is allowed.
 Transformers may use this to change how they behave.<br><br>

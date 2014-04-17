@@ -58,14 +58,14 @@ development server that continuously generates and serves assets.
 ## Options {#options}
 
 For options that apply to all pub commands, see
-[Global options](index.html#global-options).
+[Global options](/tools/pub/cmd/#global-options).
 
 <dl>
 
-<dt><tt>&lt;directories&gt;</tt></dt>
+<dt><code>&lt;directories&gt;</code></dt>
 <dd>Optional. Use this option to specify directories to use
-as input for the build command, in addition to <tt>lib</tt>
-(which is always processed).  The default value is <tt>web</tt>.
+as input for the build command, in addition to <code>lib</code>
+(which is always processed).  The default value is <code>web</code>.
 Directories you might typically specify include the following:
 
 <ul>
@@ -82,16 +82,16 @@ For example, you might specify:
 pub build test benchmark example/foo bar
 </pre>
 
-In the preceding example, the <tt>test</tt>, <tt>benchmark</tt>,
-<tt>example/foo</tt>, and <tt>bar</tt> directories are processed,
-as is the <tt>lib</tt> directory.
-The <tt>web</tt> directory is not built because it isn't specified.</dd>
+In the preceding example, the <code>test</code>, <code>benchmark</code>,
+<code>example/foo</code>, and <code>bar</code> directories are processed,
+as is the <code>lib</code> directory.
+The <code>web</code> directory is not built because it isn't specified.</dd>
 
-<dt><tt>--all</tt></dt>
+<dt><code>--all</code></dt>
 <dd>Optional. Builds all of the buildable directories (benchmark, bin, example,
 test, and web) that are present.</dd>
 
-<dt><tt>--mode=&lt;mode&gt;</tt></dt>
+<dt><code>--mode=&lt;mode&gt;</code></dt>
 <dd>Optional. Specifies a transformation mode. Typical values are "debug"
 and "release", but any word is allowed.
 Transformers may use this to change how they behave.<br><br>
@@ -104,9 +104,10 @@ included.<br><br>
 
 If omitted, it defaults to "release".</dd>
 
-<dt><tt>--output=&lt;directory&gt;</tt> or <tt>-o &lt;directory&gt;</tt></dt>
+<dt><code>--output=&lt;directory&gt;</code> or
+    <code>-o &lt;directory&gt;</code></dt>
 <dd>Optional. Specifies where to put the build output. The default is the
-top-level <tt>build</tt> directory. (This option will be available in
+top-level <code>build</code> directory. (This option will be available in
 the Dart 1.4 stable channel, and is now available in the bleeding edge
 channel.)</dd>
 

@@ -72,7 +72,7 @@ for you to look over before it actually uploads your package.
 ## Options
 
 For options that apply to all pub commands, see
-[Global options](index.html#global-options).
+[Global options](/tools/pub/cmd/#global-options).
 
 ### `--dry-run` or `-n`
 

@@ -19,11 +19,11 @@ other uploaders for that package. It has two sub-commands,
 add/remove as an uploader. For example:
 
 {% prettify lang-sh %}
-~/code/transmogrify$ pub uploader add nweiz@google.com
-'nweiz@google.com' added as an uploader for package 'transmogrify'.
+~/code/transmogrify$ pub uploader add bob@example.com
+'bob@example.com' added as an uploader for package 'transmogrify'.
 
-~/code/transmogrify$ pub uploader remove nweiz@google.com
-'nweiz@google.com' is no longer an uploader for package 'transmogrify'.
+~/code/transmogrify$ pub uploader remove bob@example.com
+'bob@example.com' is no longer an uploader for package 'transmogrify'.
 {% endprettify %}
 
 If a package has only one uploader, that uploader can't be removed. You may
@@ -35,8 +35,8 @@ uploaders modified. You can also pass the `--package` flag to choose a
 package by name. For example:
 
 {% prettify lang-sh %}
-$ pub uploader --package=transmogrify add nweiz@google.com
-'nweiz@google.com' added as an uploader for package 'transmogrify'.
+$ pub uploader --package=transmogrify add bob@example.com
+'bob@example.com' added as an uploader for package 'transmogrify'.
 {% endprettify %}
 
 Note that uploaders are identified by their Google accounts, so use a Gmail or
@@ -45,4 +45,4 @@ Google Apps email address for any new uploaders.
 ## Options {#options}
 
 For options that apply to all pub commands, see
-[Global options](index.html#global-options).
+[Global options](/tools/pub/cmd/#global-options).
