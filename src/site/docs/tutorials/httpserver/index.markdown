@@ -811,8 +811,8 @@ a server that follows this pattern.
          BytesBuilder builder = new BytesBuilder();
 
          if (req.method == 'POST' &&
-[[note]]1[[/note]]          [[highlight]]contentType != null &&[[/highlight]])
-             [[highlight]]contentType.mimeType == 'application/json'[[/highlight]] {
+[[note]]1[[/note]]          [[highlight]]contentType != null &&[[/highlight]]
+             [[highlight]]contentType.mimeType == 'application/json'[[/highlight]]) {
            req.listen((buffer) {
 [[note]]2[[/note]]          [[highlight]]builder.add(buffer);[[/highlight]]
 [[note]]3[[/note]]        }, [[highlight]]onDone:[[/highlight]] {
