@@ -19,6 +19,13 @@ Here’s an example of running a Dart file on the command line:
 dart test.dart
 {% endprettify %}
 
+<aside class="alert alert-info" markdown="1">
+**Note:** You can't use <tt>dart</tt> to run web apps&mdash;apps
+that include <tt>dart:html</tt>, or that depend on libraries
+that use the browser environment. For more information, see
+[About Dart applications](/docs/tutorials/get-started/#what-is-app).
+</aside>
+
 #### Options {#options}
 
 Common command-line options for dart include:
