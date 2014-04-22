@@ -412,9 +412,9 @@ class Person {
   String name;
   String ssn;
   Person(this.name, this.ssn);
-  
-  bool operator ==(Person other) {
-    return ssn == other.ssn;
+
+  bool operator ==(Object other) {
+    return other is Person && ssn == other.ssn;
   }
 }
 
