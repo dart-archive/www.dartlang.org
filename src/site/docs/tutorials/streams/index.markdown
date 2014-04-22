@@ -225,7 +225,8 @@ broadcastStream
 
 broadcastStream
     .skipWhile((value) => value < 3) // skip while true
-    .listen((value) => print("skipWhile: $value")); // skipWhile: 4
+    .listen((value) => print("skipWhile: $value")); // skipWhile: 3
+                                                    // skipWhile: 4
                                                     // skipWhile: 5
 {% endprettify %}<!--- END(stream_subsets) -->
 
