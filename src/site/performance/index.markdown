@@ -55,6 +55,14 @@ Benchmark descriptions
   The main focus is on accessing numeric arrays,
   as well as doing floating-point arithmetic.
 
+  * [Havlak](https://github.com/dart-lang/ton80/tree/master/lib/src/Havlak)
+  is a loop recognition algorithm benchmark originally published at the
+  [Scala Days 2011 Workshop at Stanford](
+  https://code.google.com/p/multi-language-bench/source/browse/trunk/doc/scaladays2011-paper/main.pdf).
+  The Havlak algorithm is an extension of Tarjan's interval-finding
+  algorithm that deals with irreducible graphs, and constructs a
+  loop-nesting forest for an arbitrary flow graph.
+
   * [Richards](https://github.com/dart-lang/ton80/tree/master/lib/src/Richards)
   is an OS kernel simulation benchmark, originally written
   in BCPL by Martin Richards. The main focus in Richards is on property
