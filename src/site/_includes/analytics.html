@@ -5,12 +5,9 @@
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'UA-26406144-4', 'auto');  // Replace with your property ID.
+ga('create', 'UA-26406144-4',
+    {'cookieDomain': 'dartlang.org',
+     'siteSpeedSampleRate': 50});
 ga('send', 'pageview');
 
 </script>
-
-<!--
-  _gaq.push(['_setDomainName', 'dartlang.org']);
-  _gaq.push(['_setSiteSpeedSampleRate', 50]);
--->
