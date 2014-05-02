@@ -404,7 +404,7 @@ Again, we're trying to be pragmatic, and we think the outcome is reasonable.
 
 We're currently aiming to support the following browsers:
 
-* Internet Explorer, versions 9 and 10.
+* Internet Explorer, versions 9, 10, and 11.
 * Firefox, latest version.
 * Chrome, latest version.
 * Safari for desktop, version 6.
