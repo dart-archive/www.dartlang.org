@@ -27,6 +27,7 @@ would look like:
       pubspec.yaml
       pubspec.lock *
       README.md
+      CHANGELOG.md
       LICENSE
       benchmark/
         make_lunch.dart
@@ -106,6 +107,22 @@ the page for your package. This is the perfect place to introduce people to
 your code.
 
 If your README ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
+[Markdown][].
+
+[markdown]: http://daringfireball.net/projects/markdown/
+
+## CHANGELOG
+
+    enchilada/
+      CHANGELOG.md
+
+To show users the latest changes to your package, you can include a changelog 
+file where you can write a short note about the changes in your latest 
+release. When you upload your package to [pub.dartlang.org](http://pub.dartlang.org) 
+it will detect that your package contains a changelog file and will then show 
+it in the changelog tab.
+
+If your CHANGELOG ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
 [Markdown][].
 
 [markdown]: http://daringfireball.net/projects/markdown/
