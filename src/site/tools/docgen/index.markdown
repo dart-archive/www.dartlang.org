@@ -25,8 +25,8 @@ issues and requests on [dartbug.com](http://dartbug.com/new).
 
 ## Basic usage {#basic-usage}
 
-Docgen generates documentation from Dart code in the `lib` directory.
-The files are output in either JSON or YAML format.
+Docgen generates documentation from Dart code in the `lib` directory
+and creates the output in JSON format.
 When using the `--serve` option, docgen serves your files so you can
 see them locally in a browser.
 To deploy your documentation to the web,
@@ -84,20 +84,15 @@ To run docgen from the command line, you might want to
 
 Common command-line options for docgen include:
 
-`-j` or `--json`
-: Write the output as [JSON](http://json.org/) files.
-  This is the default format.
-
-`--no-json`
-: Write the output as [YAML](http://www.yaml.org/) files.
-            
 `--append`
 : Use the same format used the last time the docs were
   generated, as stated in `library_list.json`.
   Add the newly generated documentation to the docs directory,
   library_list.json, and index.txt.
-  When this flag is specified, the `--json` and `--no-json`
-  flags are ignored.
+
+`--indent-json`
+: Create indented JSON output instead of the default
+  (single line) output.
 
 `--out=<directory>`
 : Generate the output to `<directory>`.
