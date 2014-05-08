@@ -125,8 +125,6 @@ it in the changelog tab.
 If your CHANGELOG ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
 [Markdown][].
 
-[markdown]: http://daringfireball.net/projects/markdown/
-
 ## Public libraries
 
     enchilada/
