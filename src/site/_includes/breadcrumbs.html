@@ -1,0 +1,10 @@
+<div>
+<ol class="breadcrumb">
+{% for p in page.ancestors %}
+  <li><a href="{{ p.url | remove: 'index.html' }}">
+  {% if p.short-title %}{{p.short-title}}{% else %}{{p.title }}{% endif %}</a></li>
+{% endfor %}
+
+  <li class="active">{% if page.short-title %}{{page.short-title}}{% else %}{{page.title }}{% endif %}</li>
+</ol>
+</div>

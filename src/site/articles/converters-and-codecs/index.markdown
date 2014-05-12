@@ -13,6 +13,7 @@ header:
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 <p class="subtitle">**_How to write efficient conversions_**</p>

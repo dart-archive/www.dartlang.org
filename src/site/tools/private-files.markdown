@@ -5,6 +5,8 @@ description: "Your development tools generate a bunch of files. Not all of them 
 has-permalinks: true
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 When you put Dart source code in a repository,

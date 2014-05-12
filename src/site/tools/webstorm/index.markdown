@@ -1,11 +1,14 @@
 ---
 layout: default
-title: "Dart plugin for WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine"
+title: "Dart Plugin for WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine"
 description: "Use Dart with a variety of IDEs and editors from JetBrains."
 has-permalinks: false
+short-title: "Dart Plugin from JetBrains"
 ---
 
-# Dart plugin from JetBrains
+{% include breadcrumbs.html %}
+
+# Dart Plugin from JetBrains
 
 ## For WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine
 

@@ -7,6 +7,7 @@ rel:
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title}}
 

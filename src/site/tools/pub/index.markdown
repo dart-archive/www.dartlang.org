@@ -1,9 +1,11 @@
 ---
 layout: default
 title: "Pub Package and Asset Manager"
+short-title: "Pub"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

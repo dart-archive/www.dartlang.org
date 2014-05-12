@@ -4,6 +4,7 @@ title: "Glossary of Pub Terms"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

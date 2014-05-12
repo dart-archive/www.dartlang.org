@@ -3,6 +3,8 @@ layout: default
 title: "Configuring the Built-in dart2js Transformer"
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 The [pub serve](cmd/pub-serve.html) and [pub build](cmd/pub-build.html)

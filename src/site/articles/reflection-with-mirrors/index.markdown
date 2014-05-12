@@ -12,6 +12,7 @@ article:
   collection: libraries-and-apis
 ---
 
+{% include breadcrumbs.html %}
 # {{ page.title }}
 
 _Written by Gilad Bracha <br />

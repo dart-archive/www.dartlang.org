@@ -1,9 +1,12 @@
 ---
 layout: default
 title: "Tools FAQ"
+short-title: "FAQ"
 description: "FAQ and other tips for using Dart Tools."
 has-permalinks: false
 ---
+
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

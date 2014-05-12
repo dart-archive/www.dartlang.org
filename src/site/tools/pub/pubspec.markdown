@@ -4,6 +4,7 @@ title: "Pubspec Format"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

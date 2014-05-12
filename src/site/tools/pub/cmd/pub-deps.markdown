@@ -3,6 +3,8 @@ layout: default
 title: "pub deps"
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 _Deps_, introduced in Dart 1.4, is one of the commands of the _pub_ tool.

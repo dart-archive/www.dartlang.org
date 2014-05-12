@@ -4,6 +4,7 @@ title: "Pub Versioning Philosophy"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

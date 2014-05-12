@@ -41,6 +41,7 @@ that will contain the running version of the code sample.
 {% endcodesampleSetup %}
 
 {% include toc.html %} 
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

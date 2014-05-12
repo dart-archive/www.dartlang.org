@@ -4,6 +4,7 @@ title: "Pub Assets and Transformers"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

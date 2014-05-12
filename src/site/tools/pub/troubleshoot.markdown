@@ -4,6 +4,8 @@ title: "Troubleshooting Pub"
 description: "Common gotchas you might run into when using Pub."
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 <h4>Contents</h4>

@@ -1,11 +1,13 @@
 ---
 layout: default
 title: "dartfmt: The Dart Code Formatter"
+short-title: "dartfmt"
 description: "A tool that makes your code follow the conventions in the
   Dart Style Guide."
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }} 
 

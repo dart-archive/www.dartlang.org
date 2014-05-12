@@ -1,9 +1,11 @@
 ---
 layout: default
 title: "dart: The Standalone VM"
+short-title: "dart"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

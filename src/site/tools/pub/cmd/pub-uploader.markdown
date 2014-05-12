@@ -3,6 +3,8 @@ layout: default
 title: "pub uploader"
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 _Uploader_ is one of the commands of the _pub_ tool.

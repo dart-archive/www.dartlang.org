@@ -3,6 +3,8 @@ layout: default
 title: "pub get"
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 _Get_ is one of the commands of the _pub_ tool.

@@ -3,7 +3,7 @@ layout: default
 title: "Publishing a Package"
 ---
 
-{% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

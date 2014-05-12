@@ -4,6 +4,7 @@ title: "Pub Commands"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

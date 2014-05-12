@@ -14,6 +14,7 @@ See README comment in index.markdown for explanations of
 {% endcomment %}
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

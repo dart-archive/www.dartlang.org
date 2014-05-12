@@ -14,6 +14,7 @@ and \{\% codesample \%\}.
 {% endcomment %}
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 {: .no_toc}

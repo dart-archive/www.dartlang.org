@@ -2,6 +2,7 @@
 layout: default
 title: "Writing a Pub Transformer: Examples"
 ---
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

@@ -3,6 +3,8 @@ layout: default
 title: "pub serve"
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 _Serve_ is one of the commands of the _pub_ tool.

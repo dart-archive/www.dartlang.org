@@ -1,9 +1,11 @@
 ---
 layout: default
 title: "dart2js: The Dart-to-JavaScript Compiler"
+short-title: "dart2js"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }} 
 

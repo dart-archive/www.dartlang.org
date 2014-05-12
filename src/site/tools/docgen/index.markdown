@@ -1,11 +1,13 @@
 ---
 layout: default
 title: "docgen: The API Documentation Generator"
+short-title: "docgen"
 description: "A Dart tool that generates documentation and serves it to
 dartdoc-viewer."
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }} 
 

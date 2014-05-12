@@ -4,6 +4,7 @@ title: "Getting Started with Pub"
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

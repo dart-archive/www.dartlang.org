@@ -3,7 +3,7 @@ layout: default
 title: "Installing and Configuring Pub"
 ---
 
-{% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{ page.title }}
 

@@ -3,6 +3,8 @@ layout: default
 title: "pub build"
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 _Build_ is one of the commands of the _pub_ tool.

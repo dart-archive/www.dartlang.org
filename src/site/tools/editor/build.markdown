@@ -1,11 +1,13 @@
 ---
 layout: default
 title: "Build.dart and the Dart Editor Build System"
+short-title: "Build.dart"
 description: "Customize your Dart Editor build with build.dart."
 has-permalinks: false
 ---
 
 {% include toc.html %}
+{% include breadcrumbs.html %}
 
 # {{page.title}} 
 
