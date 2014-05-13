@@ -402,12 +402,13 @@ Again, we're trying to be pragmatic, and we think the outcome is reasonable.
 
 ### Q. What browsers do you support as JavaScript compilation targets?
 
-We're currently aiming to support the following browsers:
+We support the following browsers:
 
 * Internet Explorer, versions 9, 10, and 11.
 * Firefox, latest version.
 * Chrome, latest version.
 * Safari for desktop, version 6.
+* Safari for mobile, version 6.
 
 ### Q. Why doesn't Dart support IE8 or earlier?
 
