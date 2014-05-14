@@ -203,10 +203,11 @@ class ClickCounterElement extends PolymerElement {
 
 Use attributes to configure the custom element.
 
-In this sample, the `count` field of `ClickCounterElement` is
-bound to the `{% raw %}{{count}}{% endraw %}` placeholder in the custom
-element's `<template>`. When the `count` field changes, the text also
-changes.
+In this sample, you can set the `volume` field of `VolumeNobElement`
+using the custom `volume` attribute.
+As in the previous example, the `volume` field
+is also bound to a placeholder (`{% raw %}{{volume}}{% endraw %}`)
+in the custom element's template.
 
 {% prettify html %}{% raw %}
 <polymer-element name="volume-nob">
