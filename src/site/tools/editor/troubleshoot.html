@@ -20,15 +20,19 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
 <h4> Contents </h4>
 
 <ol class="toc">
-  <li> <a href="#download-dart-editor">Getting your system architecture</a> </li>
+  <li> <a href="#download-dart-editor">Getting your system
+          architecture</a> </li>
   <li> <a href="#launch-dart-editor">Launching Dart Editor</a> </li>
+  <li> <a href="#dart-editor-crashed">Dart Editor crashed and now I cannot
+          relaunch it</a> </li>
   <li> <a href="#dartium">Launching Dartium</a> </li>
   <li> <a href="#increasing-memory">Increasing memory</a> </li>
   <li> <a href="#eclipse">Using Eclipse</a> </li>
   <li> <a href="#pub-get-firewall">Running "pub get" behind a firewall</a> </li>
   <li> <a href="#breakpoints">Breakpoints not triggering</a> </li>
   <li> <a href="#clear">Clearing all settings</a> </li>
-  <li> <a href="#generating-heap-dumps">Collecting performance diagnostics</a> </li>
+  <li> <a href="#generating-heap-dumps">Collecting performance
+          diagnostics</a> </li>
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
 
@@ -299,6 +303,25 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   the <a href="#increasing-memory">memory issues</a>, edit the
   DartEditor.ini file, and insert a line <em>after</em>
   <code>-vmargs</code> that contains the string <code>-Xincgc</code>.</p>
+
+</section>
+
+<section id="dart-editor-crashed">
+
+  <h2> Dart Editor crashed and now I cannot relaunch it </h2>
+
+  <p>
+  In extremely rare cases, a Dart Editor crash will corrupt the workspace
+  data on disk, preventing Dart Editor from restarting. The workaround is
+  to delete the Dart Editor workspace directory (see
+  <a href="#clear">Clearing all settings</a>) and then
+  Dart Editor will be able to restart.</p>
+
+  <p>
+  That directory contains workspace and preference state information,
+  so if you have changed any Dart Editor preferences, you will need to
+  change those preferences again when you delete that folder and
+  restart Dart Editor.</p>
 
 </section>
 
