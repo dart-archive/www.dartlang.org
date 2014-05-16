@@ -33,6 +33,9 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   <li> <a href="#clear">Clearing all settings</a> </li>
   <li> <a href="#generating-heap-dumps">Collecting performance
           diagnostics</a> </li>
+  <div class="windows">
+    <li> <a href="#network-storage-problems">Network storage problems</a> </li>
+  </div>
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
 
@@ -498,6 +501,30 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     is available.
   </p>
 </section>
+
+<div class="windows">
+  <section id="network-storage-problems">
+    <h2> Network storage problems </h2>
+
+    <p>
+    Under some circumstances, network storage can prevent Dart Editor
+    form creating new projects (see
+    <a href="https://code.google.com/p/dart/issues/detail?id=9238">issue
+    9238</a>). The workaround is to modify your <tt>DartEditor.ini</tt>
+    file, changing the following entry:
+
+    <pre>
+    $user.home\DartEditor
+    </pre>
+
+    To something like the following:
+
+    <pre>
+    C:\DartEditor
+    </pre>
+
+  </section>
+</div>
 
 <section id="bugs">
   <h2> Other known issues </h2>
