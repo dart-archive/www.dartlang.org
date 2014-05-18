@@ -12,6 +12,9 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/dartlang.org). Thanks!
 
+[DartVoid](http://www.dartvoid.com)
+: Application hosting platform built and optimized for Dart. 
+
 Google internal sales tool
 : Built with AngularDart.
 
