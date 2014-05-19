@@ -86,6 +86,11 @@ On a Mac:
 * Edit, create docs as normal.
 * To run tests, run `./runtests.sh`.
 
+**Note:** If you see single-page breadcrumbs on pages such as http://localhost:8081/tools/pub/cmd/pub-build.html,
+make sure that you've installed the latest gem versions.
+(Run `sudo bundle install` and then `bundle install`.)
+
+
 ### Windows development tips
 
 You probably won't have **make** available on the command line by default.
