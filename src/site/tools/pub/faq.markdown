@@ -89,10 +89,10 @@ please include:
 ### How do I delete a package?
 
 Once a package is published, you're strongly discouraged from deleting it.
-After all, some user could already be depending on it! If you accidentally
-include your password or something similarly secret in the package,
-[file an issue][delete-request] and the Pub authors will take down your
-package. You'll need to use a different version when you re-upload it.
+After all, some user could already be depending on it! If, however, you really
+want your package deleted, [file an issue][delete-request] and the Pub authors
+will take down your package. You'll need to use a different version when you
+re-upload it.
 
 [delete-request]: http://code.google.com/p/dart/issues/entry?summary=Request%20to%20delete%20package%20from%20pub&status=Triaged&labels=Type-Task,Priority-Medium,Area-Pub,Pub-DeleteRequest
 
