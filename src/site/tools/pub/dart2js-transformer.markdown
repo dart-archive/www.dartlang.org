@@ -24,7 +24,7 @@ The following example ensures that pub minifies the app in all situations:
 {% prettify yaml %}
 transformers:
 - $dart2js:
-  minify: true
+    minify: true
 {% endprettify %}
 
 ## Options {#options}

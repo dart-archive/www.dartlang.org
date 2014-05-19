@@ -41,6 +41,7 @@ A transformer's code goes into one of the following locations:
 
 * For a package that only implements a transformer, you can put
   the code into `<package>.dart` in the `lib` directory.
+  This is what you want in most situations.
 
 * For a larger project where you want the transformer's code to be in a
   library under `lib/src`, you can put the transformer code into
@@ -127,7 +128,12 @@ Future<bool> isPrimary(Asset input) {
 {% endprettify %}
 </div>
 
-If you don't override either `allowedExtensions()` or `isPrimary()`,
+Note that defining `allowedExtensions` is shorthand for defining an
+`isPrimary` method that only checks the extension of the asset ID's path.
+If you need to perform any other checks, you must explicitly define
+`isPrimary()`.
+
+If you don't override either `allowedExtensions` or `isPrimary()`,
 then the transformer gets the opportunity to process all assets.
 
 ### Process input assets {#process-input-assets}
