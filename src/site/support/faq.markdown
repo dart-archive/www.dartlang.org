@@ -405,6 +405,7 @@ Again, we're trying to be pragmatic, and we think the outcome is reasonable.
 We support the following browsers:
 
 * Internet Explorer, versions 9, 10, and 11.
+  * Dart v1.5 will be the last release to support Internet Explorer 9.
 * Firefox, latest version.
 * Chrome, latest version.
 * Safari for desktop, version 6.
