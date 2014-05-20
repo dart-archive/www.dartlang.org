@@ -25,7 +25,7 @@ to familiarize yourself with assets, transformers, and how they
 relate to each other.
 
 This page uses two examples, SimpleTransformer and
-MarkdownConverter, which you can find at
+MarkdownConverter, which you can find through
 [Writing a Pub Transformer: Examples](examples/).
 
 ## Implementing a transformer {#implementing-transformer}
@@ -106,7 +106,7 @@ do this in one of two ways:
 
 * Implement `allowedExtensions` to return a
   space-separated list of file extensions. The following
-  code, from [MarkdownConverter](examples/MarkdownConverter.zip),
+  code, from [markdown_converter](examples/),
   limits input assets to those
   files with one of three Markdown file extensions:
 

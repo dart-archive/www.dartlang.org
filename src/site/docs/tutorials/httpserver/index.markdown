@@ -364,7 +364,7 @@ The form also specifies the URL, which includes the port number,
 and the kind of request (the _request method_).
 It might also include elements that build a query string.
 (To learn more about forms, see
-[Get Input from a Form](/docs/tutorials/forms.html).)
+[Get Input from a Form](/docs/tutorials/forms/).)
 
 Here's the HTML code for the form in make_a_guess.html:
 
@@ -1149,7 +1149,7 @@ request from a browser-based client using an HTML form.
 It also discusses the related server.
 
 * Be sure to investigate the other packages on
-<a href="https://pub.dartlang.org/packages/" target="_blank">pub.dartlang.org</a>.
+<a href="https://pub.dartlang.org/" target="_blank">pub.dartlang.org</a>.
 
 {% endcapture %}
 

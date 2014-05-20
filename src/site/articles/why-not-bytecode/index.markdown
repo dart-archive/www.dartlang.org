@@ -169,9 +169,9 @@ Of course, Scala and <a href='http://research.microsoft.com/en-us/um/cambridge/p
 developed for an existing VM, but it's possible to do that without bytecode: you
 can compile to source. Right now, if you want a new language that runs in the
 browser, compiling to JavaScript is your only option. <a
-href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> is the most
-prominent example of this today, but there are <a
-href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JavaScript">many others</a>. Dart itself compiles to JavaScript to
+href="https://github.com/jashkenas/coffeescript/wiki">CoffeeScript</a>
+is the most prominent example of this today, but there are many others.
+Dart itself compiles to JavaScript to
 let you use it on browsers that don't support Dart natively.
 
 Likewise, if you want a new language that runs on Dart's native VM, you

@@ -141,11 +141,15 @@ recommend pausing on all exceptions.
 
 To debug in Chrome:
 
-1. Open the Developer Tools window, as described in the [Chrome DevTools documentation](https://developers.google.com/chrome-developer-tools/docs/overview).
+1. Open the Developer Tools window, as described in the
+   [Chrome DevTools documentation](https://developer.chrome.com/devtools/index).
 
-2. Turn on source maps, as described in the video [SourceMaps in Chrome](http://bit.ly/YugIUY).
+2. Turn on source maps, as described in the video
+   [SourceMaps in Chrome](http://bit.ly/YugIUY).
 
-3. Enable debugging, either on all exceptions or only on uncaught exceptions, as described in [Pause on JavaScript exceptions](https://developers.google.com/chrome-developer-tools/docs/scripts-breakpoints#pause-on-exceptions).
+3. Enable debugging, either on all exceptions or only on uncaught exceptions,
+   as described in [Pause on Uncaught
+   Exceptions](https://developer.chrome.com/devtools/docs/javascript-debugging#pause-on-uncaught-exceptions).
 
 4. Reload your application.
             
