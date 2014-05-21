@@ -11,6 +11,10 @@ has-permalinks: false
 A variety of tools are available for Dart development:
 
 * Editor ([Get Dart Editor](/tools/download.html))
+* Observatory (Available in the
+    [Dart Editor](/tools/download.html#whole_enchilada),
+    [Dart SDK](/tools/download.html#a_la_carte), or
+    [Dartium](/tools/download.html#a_la_carte) bundles)
 * Plugins for IDEs and text editors
   ([Get the plugins](/tools/more_downloads.html))
 * Other tools ([Get the SDK](/tools/download.html#a_la_carte))
@@ -28,10 +32,26 @@ by the Dart community.
   <a class="pull-left" href="webstorm/">
     <img class="media-object"
          src="images/dart-logo-48.png"
-         alt="DartEditor logo" />
+         alt="Dart logo" />
   </a>
   <div class="media-body">
     <a href="editor/"><b>Dart Editor</b></a>
+  </div>
+</div>
+
+---
+
+<a name="observatory"></a>
+<h2>Observatory</h2>
+
+<div class="media">
+  <a class="pull-left" href="webstorm/">
+    <img class="media-object"
+         src="images/dart-logo-48.png"
+         alt="Dart logo" />
+  </a>
+  <div class="media-body">
+    <a href="observatory/"><b>Observatory</b></a>
   </div>
 </div>
 

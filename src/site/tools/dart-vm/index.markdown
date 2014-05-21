@@ -33,21 +33,63 @@ that use the browser environment. For more information, see
 Common command-line options for dart include:
 
 `-c` or `--checked`
-: Enable _both_ assertions and type checks (checked mode).
+: Enables _both_ assertions and type checks (checked mode).
 
 `-p <path>` or `-package-root=<path>`
-: Specify where to find imported libraries.
+: Specifies where to find imported libraries.
+
+`--old_gen_heap_size=<num>`
+: Sets the upper limit of
+  [old space](/tools/observatory/glossary.html#old-space) to `<num>` MB.
 
 `--version`
-: Display VM version information.
+: Displays VM version information.
 
 `-h` or `--help`
-: Display help. (Add `-v` for information about all options.)
+: Displays help. (Add `-v` for information about all options.)
+
+#### Observatory options {#observatory}
+
+Observatory is a tool for profiling and debugging your apps.
+You can use the following flags to enable Observatory and to
+instruct the VM to delay the start up, or the exit, of an isolate:
+
+`--enable-vm-service`
+: Enables Observatory on localhost port 8181.
+
+`--enable-vm-service=<port>`
+: Enables Observatory on localhost for the specific port.
+
+`--enable-vm-service=<port>/<IP address>`
+: Enables Observatory on an external network using the specified
+  IP address and port. For example:
+  <code>--enable-vm-service=9999/0.0.0.0</code>
+
+`--pause-isolates-on-exit`
+: Causes the VM to pause each isolate that would otherwise exit.
+  If your standalone app executes quickly,
+  it might exit before you can open Observatory. To avoid this situation,
+  specify this flag on startup.  You must explicitly release all isolates
+  in the Observatory UI.
+
+`--pause-isolates-on-start`
+: Causes the VM to pause before starting any isolate.
+  You must explicitly start each isolate in the Observatory UI. 
+
+The following is an example Observatory run:
+
+{% prettify lang-sh %}
+$ dart --enable-vm-service --pause-isolates-on-exit <script>.dart
+{% endprettify %}
+
+For more information, see [Observatory](/tools/observatory/).
+
+#### Snapshot option {#snapshots}
 
 You can also generate snapshots:
 
 `--snapshot=<filename>`
-: Generate a snapshot in the specified file. For information
+: Generates a snapshot in the specified file. For information
   on generating and running snapshots, see the article
   [Snapshots in Dart](/articles/snapshots/).
   

@@ -1,0 +1,8 @@
+/*
+ * Adds a black box around each image, one pixel thick.
+ */
+
+img {
+  border:1px solid #021a40;
+}
+
