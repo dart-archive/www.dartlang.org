@@ -2,6 +2,7 @@
 layout: default
 title: "Getting Started with Observatory"
 description: "How to use Observatory to profile and debug your Dart application."
+snippet_img: "images/AllocationProfileScreen.png"
 header:
   css: ["observatory.css"]
 ---

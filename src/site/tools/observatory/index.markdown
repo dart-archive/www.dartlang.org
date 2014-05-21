@@ -1,7 +1,9 @@
 ---
 layout: default
-title: "Observatory"
+title: "Observatory: A Profiler for Dart Apps"
 description: "Observatory is a tool for profiling and debugging your Dart application."
+snippet_img: "images/AllocationProfileScreen.png"
+short-title: "Observatory"
 header:
   css: ["observatory.css"]
 ---
