@@ -51,11 +51,6 @@ Don't have the source code?
 <h3>Communicate over the internet</h3>
 </div>
 
-<div markdown="1">
-<span class="beta-note">
-DRAFT</span> Please provide [feedback](http://dartbug.com/new).
-</div>
-
 <aside class="alert alert-info" markdown="1">
 <strong>Prerequisite:</strong>
 
