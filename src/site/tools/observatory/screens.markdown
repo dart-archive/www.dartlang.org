@@ -18,7 +18,7 @@ route to each one.
 
 ### Allocation Profile {#allocation-profile-screen}
 
-Shows an isolate's allocated memory and give an overview
+Shows an isolate's allocated memory and gives an overview
 of the state of [old space](glossary.html#old-space)
 and [new space](glossary.html#new-space) at the time of the last sample.
 

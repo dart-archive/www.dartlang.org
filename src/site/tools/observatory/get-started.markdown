@@ -49,6 +49,13 @@ How you enable Observatory depends on whether you are writing a
 standalone app or a web app, and how you prefer to work.
 No matter how you launch Observatory, its UI is exactly the same.
 
+<aside class="alert alert-info" markdown="1">
+**For Windows users:** Observatory's [CPU Profile](cpu-profile.html)
+screen is disabled by default.  Specify the
+[<tt>--profile</tt>](/tools/dart-vm/#observatory) option when
+you launch your app to enable it.
+</aside>
+
 ### Standalone apps from Dart Editor {#standalone-Dart-Editor}
 
 To enable Observatory from Dart Editor, select

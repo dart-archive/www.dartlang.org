@@ -31,6 +31,13 @@ in a ring buffer, called the _profile_, which can hold up to
 two minutes worth of data.  Once the buffer becomes full,
 the oldest samples are replaced with new samples.
 
+<aside class="alert alert-info" markdown="1">
+**For Windows users:** Observatory's [CPU Profile](cpu-profile.html)
+screen is disabled by default.  Specify the
+[<tt>--profile</tt>](/tools/dart-vm/#observatory) option when
+you launch your app to enable it.
+</aside>
+
 At the top of the screen, a summary tells you a bit about
 how the data was gathered:
 

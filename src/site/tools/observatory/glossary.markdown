@@ -25,7 +25,8 @@ causing it to crash.
 
 Garbage collection is performed automatically by the Dart VM.
 In Observatory, you can perform garbage collection on demand
-by clicking the **GC** button in the **Heap profile**.
+by clicking the **GC** button in the
+[Allocation Profile](screens.html#allocation-profile-screen) screen.
 
 ### Heap {#heap}
 Dart objects that are dynamically allocated live in a portion of

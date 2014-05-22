@@ -76,6 +76,11 @@ instruct the VM to delay the start up, or the exit, of an isolate:
 : Causes the VM to pause before starting any isolate.
   You must explicitly start each isolate in the Observatory UI. 
 
+`--profile`
+: On Windows, Observatory's
+  [CPU Profiler](/tools/observatory/cpu-profile.html) screen
+  is disabled by default. Use this option to enable it.
+
 The following is an example Observatory run:
 
 {% prettify lang-sh %}
