@@ -89,9 +89,9 @@ Google internal sales tool
 : Specialized in the design and implementation of online campaigns. Uses
   Dart for interactive experiences.
 
-[Chrome Dev Studio (Spark)](https://github.com/dart-lang/spark)
-: Open source IDE for developing Chrome packaged apps as well as web apps.
-  Written completely in Dart and uses Polymer Dart for much of the UI.
+[Spark](https://github.com/dart-lang/spark)
+: An open source IDE for developing Chrome packaged apps as well as Dart web apps.
+  Written in Dart, as a Chrome App, and uses Polymer for the UI.
 
 [Anionu](https://anionu.com)
 : Cloud surveillance and security platform using Dart and native WebRTC.
