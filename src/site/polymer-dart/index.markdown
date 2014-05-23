@@ -504,8 +504,8 @@ to Dart developers.
 | [Polymer Core](https://github.com/Polymer/polymer) | Tracking
 | Pointer events | Not started
 | Web animations | Not started
-| [Polymer base elements](https://github.com/Polymer/polymer-elements) | [Community effort](https://github.com/ErikGrimes/polymer_elements)
-| [Polymer UI elements](https://github.com/Polymer/polymer-ui-elements) | [Community effort](https://github.com/ErikGrimes/polymer_ui_elements)
+| [Polymer base elements](https://github.com/Polymer/polymer-elements) | [Community effort](https://github.com/bwu-dart/polymer_elements)
+| [Polymer UI elements](https://github.com/Polymer/polymer-ui-elements) | [Community effort](https://github.com/bwu-dart/polymer_ui_elements)
 {: .table}
 
 <hr>
