@@ -135,8 +135,9 @@ assets located in the `lib` directory have additional visibilty:
 
 <aside class="alert alert-info" markdown="1">
 Prior to Dart 1.4, assets were also placed in the top-level
-<tt>asset</tt> directory. The <tt>asset</tt> directory is being deprecated
-and will be removed after 1.4.
+<tt>asset</tt> directory. The <tt>asset</tt> directory is being deprecated.
+Pub prints a warning in 1.4 and the <tt>asset</tt> directory will be
+removed in 1.5.
 </aside>
 
 The following picture shows how you might structure your app's source assets,

@@ -109,9 +109,7 @@ If omitted, it defaults to "release".</dd>
 <dt><code>--output=&lt;directory&gt;</code> or
     <code>-o &lt;directory&gt;</code></dt>
 <dd>Optional. Specifies where to put the build output. The default is the
-top-level <code>build</code> directory. (This option will be available in
-the Dart 1.4 stable channel, and is now available in the bleeding edge
-channel.)</dd>
+top-level <code>build</code> directory.</dd>
 
 </dl>
 
