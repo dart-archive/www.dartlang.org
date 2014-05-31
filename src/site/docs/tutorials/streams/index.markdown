@@ -28,8 +28,8 @@ has-permalinks: true
 {% capture sample_links %}
 
 
-<p markdown="1"> This tutorial features these examples
-in the `bin` directory:</p>
+<p markdown="1"> This tutorial features these examples,
+which live under the **streams** directory:</p>
 
 * feet_wet_streams.dart
 * html_streams.dart

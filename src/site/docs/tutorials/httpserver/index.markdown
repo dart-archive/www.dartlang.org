@@ -26,7 +26,8 @@ header:
 
 {% capture sample_links %}
 
-<p> This tutorial features these examples:</p>
+This tutorial features these examples,
+which live under the **httpserver** directory:
 
 * hello_world_server.dart
 * number_thinker.dart

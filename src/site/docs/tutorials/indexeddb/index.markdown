@@ -124,13 +124,13 @@ Use the **Clear** button to delete all the milestones.
 
 <iframe class="running-app-frame"
         style="height:400px;width:600px;"
-        src="examples/count_down/out/web/count_down.html">
+        src="examples/count_down/web/count_down.html">
 </iframe>
 
 <aside class="alert">
 <strong>Version Note:</strong> The count_down app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.9</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10</a>.
 </aside>
 
 ###Using developer tools to look at the database

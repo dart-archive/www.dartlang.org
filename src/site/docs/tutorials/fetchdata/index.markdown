@@ -84,13 +84,13 @@ and check out the JSON format for each data type.
 
 <iframe class="running-app-frame"
         style="height:500px;width:700px;"
-        src="examples/its_all_about_you/out/web/index.html">
+        src="examples/its_all_about_you/web/index.html">
 </iframe>
 
 <aside class="alert">
 <strong>Version Note:</strong> The its_all_about_you app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.9</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10</a>.
 </aside>
 
 The dart:convert library contains two convenient functions
@@ -105,9 +105,9 @@ for working with JSON strings:
 To use these functions,
 you need to import dart:convert into your Dart code:
 
-{% highlight dart %}
+{% prettify dart %}
 import 'dart:convert';
-{% endhighlight %}
+{% endprettify %}
 
 The JSON.encode() and JSON.decode() functions can handle these Dart types automatically:
 <ul>
@@ -159,7 +159,7 @@ create Dart objects from a JSON string.
 The its_all_about_you example initially populates the values in the form
 from this JSON string:
 
-{% highlight dart %}
+{% prettify dart %}
 String jsonDataAsString = '''
 { "favoriteNumber":44,
   "valueOfPi":3.141592,
@@ -172,7 +172,7 @@ String jsonDataAsString = '''
 ''';
 
 Map jsonData = JSON.decode(jsonDataAsString);
-{% endhighlight %}
+{% endprettify %}
 
 This code calls the JSON.decode() function with a properly formatted JSON string.
 <strong>Note that Dart strings can use either single or double quotes to denote strings.
@@ -314,7 +314,7 @@ Let's take a look at how that works.
 
 
 Open the application directory in Dart Editor,
-select the portmanteaux_simple.html file, and run the program.
+select the web/portmanteaux_simple.html file, and run the program.
 Before doing anything else,
 notice the URI for the program in Dartium.
 
@@ -392,9 +392,9 @@ Let's take a look at the Dart code:
 
 The send() method sends the request to the server.
 
-{% highlight dart %}
+{% prettify dart %}
 httpRequest.send('');
-{% endhighlight %}
+{% endprettify %}
 
 Because the request in this example is a simple GET request,
 the code can send an empty string.
@@ -440,14 +440,14 @@ The data file in the portmanteaux example,
 portmanteaux.json,
 contains a JSON-formatted list of strings.
 
-{% highlight dart %}
+{% prettify dart %}
 [
   "portmanteau", "fantabulous", "spork", "smog",
   "spanglish", "gerrymander", "turducken", "stagflation",
   "Brangelina", "freeware", "oxbridge", "palimony",
   "brunch", "blog", "chortle", "Hassenpfeffer", "Schnitzelbank"
 ]
-{% endhighlight %}
+{% endprettify %}
 
 Upon request, the server reads this data from the file
 and sends it as a single string

@@ -28,14 +28,14 @@ rel:
 
 
 <p markdown="1"> This tutorial features these examples
-in the `bin` directory,
+in the `futures/bin` directory,
 all variations of the same example:</p>
 
-* futures1
-* futures2
-* futures3
-* futures4
-* futures5
+* futures1.dart
+* futures2.dart
+* futures3.dart
+* futures4.dart
+* futures5.dart
 
 <p>
 Don't have the source code?

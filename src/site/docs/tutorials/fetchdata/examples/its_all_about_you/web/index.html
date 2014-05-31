@@ -1,0 +1,215 @@
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file.
+--><!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>It's All About You</title>
+    
+    
+    
+  </head>
+  <body><style>
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p {
+  color: #333;
+}
+
+</style>
+
+<!--
+These two files are from the Polymer project:
+https://github.com/Polymer/platform/ and https://github.com/Polymer/polymer/.
+
+You can replace platform.js and polymer.html with different versions if desired.
+-->
+<!-- minified for deployment: -->
+
+
+
+<!-- unminfied for debugging:
+<script src="../../packages/web_components/platform.concat.js"></script>
+<script src="src/js/polymer/polymer.concat.js"></script>
+<link rel="import" href="src/js/polymer/polymer-body.html">
+-->
+
+<!-- Teach dart2js about Shadow DOM polyfill objects. -->
+
+<script src="packages/polymer/src/js/use_native_dartium_shadowdom.js"></script><script src="packages/web_components/platform.js"></script>
+<!-- <link rel="import" href="../polymer-dev/polymer.html"> -->
+
+<script src="packages/polymer/src/js/polymer/polymer.js"></script><polymer-element name="polymer-body" extends="body">
+
+  <script>
+
+  // upgrade polymer-body last so that it can contain other imported elements
+  document.addEventListener('polymer-ready', function() {
+    
+    Polymer('polymer-body', Platform.mixin({
+
+      created: function() {
+        this.template = document.createElement('template');
+        var body = wrap(document).body;
+        var c$ = body.childNodes.array();
+        for (var i=0, c; (c=c$[i]); i++) {
+          if (c.localName !== 'script') {
+            this.template.content.appendChild(c);
+          }
+        }
+        // snarf up user defined model
+        window.model = this;
+      },
+
+      parseDeclaration: function(elementElement) {
+        this.lightFromTemplate(this.template);
+      }
+
+    }, window.model));
+
+  });
+
+  </script>
+
+</polymer-element><script src="packages/web_components/dart_support.js"></script>
+    <meta charset="utf-8">
+    <title>It's All About You</title>
+    
+  <style>
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p {
+  color: #333;
+}
+
+</style>    
+    <polymer-element name="tute-its-all-about-you">
+ 
+      <template>
+
+        <style>
+          #sample_container_id {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            border: 1px solid #ccc;
+            background-color: #fff;
+          }
+          
+          .givemespace {
+            margin-top: 15px;
+          }
+          
+          table {
+            text-align: left;
+            border-spacing: 5px 15px
+          }
+          
+          .result {
+            background-color: Ivory;
+            padding: 5px 5px 5px 5px;
+            border: 1px solid black;
+          }
+          
+          input {
+            display: block;
+          }
+          
+          input[type="radio"] {
+            display: inline;
+          }
+          
+          #mapasjson {
+            background-color: Ivory;
+            padding: 5px 5px 5px 5px;
+            margin-top: 15px;
+            border: 1px solid black;
+            width: 500px;
+            height: 50px;
+            font-size:14px;
+          }
+          
+          label {
+            font-weight: bold;
+          }
+        </style>
+
+        <table>
+          <thead>
+          <tr>
+            <th> </th>
+            <th>Enter value</th>
+            <th>Data type</th>
+            <th>JSON string</th>
+          </tr>
+          </thead>
+        
+          <tbody>
+          <tr>
+            <td align="right">Favorite number:</td>
+            <td><input type="text" value="{{favoriteNumber}}" on-input="{{showJson}}"></td>
+            <td>integer</td>
+            <td><span class="result"> {{intAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">Do you know pi?</td>
+            <td><input type="text" value="{{valueOfPi}}" on-input="{{showJson}}"></td>
+            <td>double</td>
+            <td><span class="result"> {{doubleAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">What's your sign?</td>
+            <td><input type="text" value="{{horrorScope}}" on-input="{{showJson}}"></td>
+            <td>String</td>
+            <td><span class="result"> {{stringAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">A few of your favorite things?</td>
+            <td>
+              <input type="text" value="{{favOne}}" on-input="{{showJson}}">
+              <input type="text" value="{{favTwo}}" on-input="{{showJson}}">
+              <input type="text" value="{{favThree}}" on-input="{{showJson}}">
+            </td>
+            <td>List&lt;String&gt;</td>
+            <td><span class="result"> {{listAsJson}} </span></td>
+          </tr>
+          <tr>
+            <td align="right">I love chocolate!</td>
+            <td><input type="radio" on-change="{{showJson}}" name="chocolate" id="lovechocolate" checked="">True
+                <input type="radio" on-change="{{showJson}}" name="chocolate" id="noloveforchocolate">False
+            </td>
+            <td>bool</td>
+            <td><span class="result"> {{boolAsJson}} </span></td>
+          </tr>
+          </tbody>
+        </table>
+    
+        <div class="givemespace">
+          <label>All data together as a map</label><br>
+          <textarea id="mapasjson" readonly="">{{mapAsJson}}</textarea> 
+        </div>
+      </template>
+      
+    </polymer-element>
+
+
+    <h1>It's All About You</h1>
+
+    <tute-its-all-about-you></tute-its-all-about-you>
+    
+  
+
+<script src="index.html_bootstrap.dart.js"></script></body></html>

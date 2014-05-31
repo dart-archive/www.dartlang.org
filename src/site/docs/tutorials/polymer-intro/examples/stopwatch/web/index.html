@@ -1,0 +1,116 @@
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file.
+--><!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Stopwatch</title>
+    
+    
+    
+  </head>
+  
+  <body><style>
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14pt;
+  font-weight: normal;
+  margin: 15px;
+}
+
+p {
+  color: #333;
+}
+
+</style>
+
+<!--
+These two files are from the Polymer project:
+https://github.com/Polymer/platform/ and https://github.com/Polymer/polymer/.
+
+You can replace platform.js and polymer.html with different versions if desired.
+-->
+<!-- minified for deployment: -->
+
+
+
+<!-- unminfied for debugging:
+<script src="../../packages/web_components/platform.concat.js"></script>
+<script src="src/js/polymer/polymer.concat.js"></script>
+<link rel="import" href="src/js/polymer/polymer-body.html">
+-->
+
+<!-- Teach dart2js about Shadow DOM polyfill objects. -->
+
+<script src="packages/polymer/src/js/use_native_dartium_shadowdom.js"></script><script src="packages/web_components/platform.js"></script>
+<!-- <link rel="import" href="../polymer-dev/polymer.html"> -->
+
+<script src="packages/polymer/src/js/polymer/polymer.js"></script><polymer-element name="polymer-body" extends="body">
+
+  <script>
+
+  // upgrade polymer-body last so that it can contain other imported elements
+  document.addEventListener('polymer-ready', function() {
+    
+    Polymer('polymer-body', Platform.mixin({
+
+      created: function() {
+        this.template = document.createElement('template');
+        var body = wrap(document).body;
+        var c$ = body.childNodes.array();
+        for (var i=0, c; (c=c$[i]); i++) {
+          if (c.localName !== 'script') {
+            this.template.content.appendChild(c);
+          }
+        }
+        // snarf up user defined model
+        window.model = this;
+      },
+
+      parseDeclaration: function(elementElement) {
+        this.lightFromTemplate(this.template);
+      }
+
+    }, window.model));
+
+  });
+
+  </script>
+
+</polymer-element><script src="packages/web_components/dart_support.js"></script><polymer-element name="tute-stopwatch">
+
+  <template>
+    <style>
+      :host {
+        background-color: LemonChiffon;
+        text-align: center;
+        display: inline-block;
+        border: solid 1px;
+        padding: 10px 10px 10px 10px;
+      }
+    </style>
+    <div>
+      <div>
+        {{counter}}
+      </div>
+      <div>
+        <button on-click="{{start}}" id="startButton">Start</button>
+        <button on-click="{{stop}}" id="stopButton">Stop</button>
+        <button on-click="{{reset}}" id="resetButton">Reset</button>
+      </div>
+    </div>
+  </template>
+
+  
+
+</polymer-element>
+
+    
+    <h1>Stopwatch</h1>
+
+    <tute-stopwatch></tute-stopwatch>
+    
+    
+  
+
+<script src="index.html_bootstrap.dart.js"></script></body></html>

@@ -232,14 +232,14 @@ the server and the client in this example.
 Enter some data and push the **Submit** button.
 
 <iframe class="running-app-frame"
-        style="height:500px;width:525px;"
-        src="examples/slambook/out/web/slambook.html">
+        style="height:500px;width:550px;"
+        src="examples/slambook/web/slambook.html">
 </iframe>
 
 <aside class="alert">
 <strong>Version Note:</strong> The slambook app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.9</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10</a>.
 </aside>
 
 The request gives you an innocent stare and displays "No server"
@@ -265,15 +265,15 @@ Listening for GET and POST on http://127.0.0.1:4040
 
 Now, you can try submitting data again with the slambook app above.
 
-<aside class="alert">
-Note: If another program is already listening on localhost 4040,
+<aside class="alert alert-info">
+<b>Note:</b> If another program is already listening on localhost 4040,
 the server prints an error message and quits.
 The app running on this page expects slambookserver to be at localhost 4040,
 so for the app to work,
 you have to kill the other process and start slambookserver again.
 Alternatively,
 you can change the port number in both the client and the server code.
-Avoid using 3030 because Dart Editor listens there.
+(Avoid using 3030; Dart Editor listens there.)
 Then run both the client and the server locally on your machine.
 </aside>
 

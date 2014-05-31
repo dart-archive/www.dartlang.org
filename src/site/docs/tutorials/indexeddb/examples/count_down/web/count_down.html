@@ -1,0 +1,138 @@
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file.
+--><!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Sample app</title>
+    
+    
+    
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body><style>body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p {
+  color: #333;
+}
+
+button {
+  font-weight: bold;
+}
+</style>
+
+<!--
+These two files are from the Polymer project:
+https://github.com/Polymer/platform/ and https://github.com/Polymer/polymer/.
+
+You can replace platform.js and polymer.html with different versions if desired.
+-->
+<!-- minified for deployment: -->
+
+
+
+<!-- unminfied for debugging:
+<script src="../../packages/web_components/platform.concat.js"></script>
+<script src="src/js/polymer/polymer.concat.js"></script>
+<link rel="import" href="src/js/polymer/polymer-body.html">
+-->
+
+<!-- Teach dart2js about Shadow DOM polyfill objects. -->
+
+<script src="packages/polymer/src/js/use_native_dartium_shadowdom.js"></script><script src="packages/web_components/platform.js"></script>
+<!-- <link rel="import" href="../polymer-dev/polymer.html"> -->
+
+<script src="packages/polymer/src/js/polymer/polymer.js"></script><polymer-element name="polymer-body" extends="body">
+
+  <script>
+
+  // upgrade polymer-body last so that it can contain other imported elements
+  document.addEventListener('polymer-ready', function() {
+    
+    Polymer('polymer-body', Platform.mixin({
+
+      created: function() {
+        this.template = document.createElement('template');
+        var body = wrap(document).body;
+        var c$ = body.childNodes.array();
+        for (var i=0, c; (c=c$[i]); i++) {
+          if (c.localName !== 'script') {
+            this.template.content.appendChild(c);
+          }
+        }
+        // snarf up user defined model
+        window.model = this;
+      },
+
+      parseDeclaration: function(elementElement) {
+        this.lightFromTemplate(this.template);
+      }
+
+    }, window.model));
+
+  });
+
+  </script>
+
+</polymer-element><script src="packages/web_components/dart_support.js"></script>
+    
+     
+    <polymer-element name="tute-milestone" attributes="milestone">
+      <template>
+        <span>{{milestone.timeRemainingAsString}}</span> <button on-click="{{removeMilestone}}">-</button>
+      </template>
+      
+    </polymer-element>
+  
+
+
+    <polymer-element name="tute-count-down">
+        <template>
+          
+          <div>
+            <p>Enter a milestone</p>
+            
+            <input type="text" name="newMilestoneName" value="{{newMilestoneName}}">
+            <input type="date" name="newMilestoneDate" value="{{newMilestoneDate}}">
+            <input type="time" name="newMilestoneTime" value="{{newMilestoneTime}}">
+            <button on-click="{{addMilestone}}" id="addbutton">+</button>
+            
+            <ul>
+              <template bind="" if="{{appObj.hazMilestones}}">
+                <template repeat="{{appObj.milestones}}">
+                  <li>
+                    <tute-milestone milestone="{{}}">
+                    </tute-milestone>
+                  </li>
+                </template>
+              </template>
+            </ul>
+          </div>
+          <div>
+            <button on-click="{{clear}}" id="clearbutton">Clear</button>
+            <p style="color:red"> {{errorMsg}} </p>
+          </div>
+          
+        </template>
+        
+      
+    </polymer-element>
+  
+
+
+    <h1>Count down</h1>
+    
+    <!-- Insert the CountDownComponent, implemented in tute_countdown.html & tute_countdown.dart -->
+    <tute-count-down id="count_down"></tute-count-down>
+        
+  
+
+<script src="count_down.html_bootstrap.dart.js"></script></body></html>

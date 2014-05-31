@@ -1,0 +1,201 @@
+<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+     for details. All rights reserved. Use of this source code is governed by a
+     BSD-style license that can be found in the LICENSE file.
+--><!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Slambook</title>
+    
+    
+    
+  </head>
+  <body><style>body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p {
+  color: #333;
+}
+
+</style>
+
+<!--
+These two files are from the Polymer project:
+https://github.com/Polymer/platform/ and https://github.com/Polymer/polymer/.
+
+You can replace platform.js and polymer.html with different versions if desired.
+-->
+<!-- minified for deployment: -->
+
+
+
+<!-- unminfied for debugging:
+<script src="../../packages/web_components/platform.concat.js"></script>
+<script src="src/js/polymer/polymer.concat.js"></script>
+<link rel="import" href="src/js/polymer/polymer-body.html">
+-->
+
+<!-- Teach dart2js about Shadow DOM polyfill objects. -->
+
+<script src="packages/polymer/src/js/use_native_dartium_shadowdom.js"></script><script src="packages/web_components/platform.js"></script>
+<!-- <link rel="import" href="../polymer-dev/polymer.html"> -->
+
+<script src="packages/polymer/src/js/polymer/polymer.js"></script><polymer-element name="polymer-body" extends="body">
+
+  <script>
+
+  // upgrade polymer-body last so that it can contain other imported elements
+  document.addEventListener('polymer-ready', function() {
+    
+    Polymer('polymer-body', Platform.mixin({
+
+      created: function() {
+        this.template = document.createElement('template');
+        var body = wrap(document).body;
+        var c$ = body.childNodes.array();
+        for (var i=0, c; (c=c$[i]); i++) {
+          if (c.localName !== 'script') {
+            this.template.content.appendChild(c);
+          }
+        }
+        // snarf up user defined model
+        window.model = this;
+      },
+
+      parseDeclaration: function(elementElement) {
+        this.lightFromTemplate(this.template);
+      }
+
+    }, window.model));
+
+  });
+
+  </script>
+
+</polymer-element><script src="packages/web_components/dart_support.js"></script>   
+  
+  <polymer-element name="tute-slambook-form" extends="form">
+    <template>
+    <style>
+      #slambookform {
+        width: 500px;
+      }
+      
+      .entry {
+        float: left;
+        padding: 3px 3px 3px 3px;
+        width: 100%;
+      }
+      
+      .entry label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        vertical-align: middle;
+      }
+      
+      label.andrews {
+        width:auto;
+      }
+      
+      .submitarea {
+        padding: 10px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: SlateBlue;
+        clear: left;
+      }
+      
+      .responsetext {
+        padding: 5px 10px 10px 10px;
+        margin: 10px 10px 10px 10px;
+        clear: left;
+        background-color: WhiteSmoke;
+        width: 90%;
+        height: 70px;
+        resize: none;
+      }
+    </style>
+      <div id="slambookform">
+        <div class="entry">
+          <label>First name?</label>
+          <input type="text" value="{{theData['firstName']}}">
+        </div>
+        <div class="entry">
+          <label>Favorite quote?</label>
+          <!--<textarea value="{{theData['favoriteQuote']}}"></textarea>-->
+          <input type="text" value="{{theData['favoriteQuote']}}">
+        </div> 
+        <div class="entry">
+          <label>Favorite color?</label>
+          <input type="color" value="{{theData['favoriteColor']}}">
+        </div>
+        <div class="entry">
+          <label>Birthday?</label>
+          <input type="date" value="{{theData['birthday']}}">
+        </div>
+        <div class="entry">
+          <label>Favorite volume?</label>
+          <input type="range" value="{{theData['volume']}}" min="0" max="11">  
+        </div>
+        <div class="entry">
+          <label>Cat or dog?</label>
+          <input on-change="catOrDog" name="catOrDog" type="radio" value="cat">Cat
+          <input on-change="catOrDog" name="catOrDog" type="radio" value="dog" checked="">Dog
+          <input on-change="catOrDog" name="catOrDog" type="radio" value="iguana">Iguana
+        </div>
+        <div>
+          <label>Favorite type of music?</label>
+          <select selectedindex="{{theData['music']}}">
+            <option>Classical</option>
+            <option>Country</option>
+            <option>Rock</option>
+            <option>Silence</option>
+          </select>
+        </div>
+        <div class="entry">
+          <label for="zombies">Check for zombies. </label>
+          <input type="checkbox" checked="{{theData['zombies']}}" id="zombies">
+        </div>
+        <div class="entry">
+          <label>Favorite things?</label>
+          <input type="checkbox" checked="{{favoriteThings['kittens']}}" id="kittens">
+            <label for="kittens" class="andrews">Kittens</label>
+          <input type="checkbox" checked="{{favoriteThings['raindrops']}}" id="raindrops">
+            <label for="raindrops" class="andrews">Raindrops</label>
+          <input type="checkbox" checked="{{favoriteThings['mittens']}}" id="mittens">
+            <label for="mittens" class="andrews">Mittens</label>
+          <input type="checkbox" checked="{{favoriteThings['kettles']}}" id="kettles">
+            <label for="kettles" class="andrews">Kettles</label>
+        </div>
+  
+        <div class="submitarea">
+          <input type="submit" value="Submit" on-click="{{submitForm}}">
+          <input type="reset" value="Clear" on-click="{{resetForm}}"> <br>    
+          <textarea disabled="" class="responsetext" value="{{serverResponse}}"></textarea>
+          <!--<p class="responsetext"> {{serverResponse}} </p>-->
+        </div>
+      </div>
+    </template>
+      
+    
+  </polymer-element>
+
+  
+
+
+    <h1>SlamBook</h1>
+
+    <div class="container">
+      <form is="tute-slambook-form"></form>
+    </div>
+          
+        
+  
+
+<script src="slambook.html_bootstrap.dart.js"></script></body></html>

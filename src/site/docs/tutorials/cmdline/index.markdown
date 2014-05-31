@@ -24,9 +24,10 @@ prev-title: "Use IndexedDB"
 
 {% capture sample_links %}
 
-<p> This tutorial features these examples:</p>
-* helloworld
-* dcat
+This tutorial features the following example
+under the **cmdline/bin** directory:
+
+* dcat.dart
 
 <p>
 Don't have the source code?
@@ -204,19 +205,19 @@ which uses ArgParser and ArgResults to parse and store its command-line argument
 <ol>
 <li markdown="1">
 Copy the sample file from the github repo:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/cmdline/dcat.dart">dcat.dart</a>.
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/cmdline/bin/dcat.dart">dcat.dart</a>.
 </li>
 
 <li markdown="1">
-Run the program from the command line as shown by the highlighted text.
+Run the program from the command line as shown by the **boldface** text.
 
-{% prettify bash %}
-$ [[highlight]]dart dcat.dart -n quotes.txt[[/highlight]]
+<pre>
+$ <b>dart dcat.dart -n quotes.txt</b>
 1 Be yourself. Everyone else is taken. -Oscar Wilde
 2 Don't cry because it's over, smile because it happened. -Dr. Seuss
 3 You only live once, but if you do it right, once is enough. -Mae West
 ...
-{% endprettify %}
+</pre>
 
 The program displays the contents of the source code file and
 preceeds each line with a line number.
@@ -236,7 +237,6 @@ You can access other values with properties such as `rest`.
 Here's the code from `dcat` that deals with command-line arguments:
 
 <pre class="prettyprint lang-dart">
-
 ...
 <a href="#" class="dart-popover" data-toggle="popover" title="Parsed arguments" data-html="true" data-trigger="hover focus" data-content="This object contains parsed options and flags.">ArgResults argResults;</a>
 
