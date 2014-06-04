@@ -495,7 +495,7 @@ are fully compatible with Polymer.
 We actively encourage your feedback and questions.
 
 * Ask your [how-to questions][so] on StackOverflow
-* Join the [general discussion about polymer.dart][web-ui-list] on our mailing
+* Join the [general discussion about polymer.dart][web-list] on our mailing
   list
 * Send [feedback on the web components family of specifications][polymer-dev-list]
   to the polymer-dev mailing list
@@ -576,7 +576,7 @@ to instantiate document fragments with identical contents.
 
 [polymer]: http://www.polymer-project.org
 [so]: http://stackoverflow.com/tags/dart
-[web-ui-list]: https://groups.google.com/a/dartlang.org/forum/#!forum/web-ui
+[web-list]: https://groups.google.com/a/dartlang.org/forum/#!forum/web
 [polymer-dev-list]: https://groups.google.com/forum/?fromgroups=#!forum/polymer-dev
 [dartbug]: http://dartbug.com/new
 [custom-elements-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/custom/index.html
