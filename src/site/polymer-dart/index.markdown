@@ -60,9 +60,6 @@ hr {
 
 ## Features
 
-Polymer.dart is a port of _Polymer Foundation_
-and _Polymer Core_.
-
 <div class="row features">
 
 <div class="col-md-4 text-center">
@@ -90,7 +87,7 @@ Create live, two-way bindings between Dart objects and DOM nodes.
 
 <i class="fa fa-check"> </i>
 
-<h2 class="no-permalink">Standards</h2>
+<h2 class="no-permalink">Standards<br><br></h2>
 
 Use emerging web standards, today.
 
@@ -98,46 +95,113 @@ Use emerging web standards, today.
 
 </div>
 
-<hr>
+<p>
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The examples on this page reflect **polymer.dart 0.10.0**.
+For information about polymer.dart versions, see the Versions tab on the
+[polymer.dart pub page](https://pub.dartlang.org/packages/polymer).
+</aside>
+</p>
 
-## Installation
+<hr>
+## Installing polymer.dart
 
 Get polymer.dart from [pub](http://pub.dartlang.org),
 the Dart package hosting service. Add the following to
 your `pubspec.yaml` file:
 
-    dependencies:
-      polymer: ">=0.9.0 <0.10.0"
+{% prettify yaml %}
+dependencies:
+  polymer: ">=0.10.0 <0.11.0"
+{% endprettify %}
 
 Then, run `pub get` to download the package and link it into your app.
 
-View the [polymer.dart pub page](http://pub.dartlang.org/packages/polymer)
-to learn more.
 
 <hr>
-## Examples
+## Installing custom elements
 
-Along with this code, check out the Dart tutorial
+You can get polymer.dart custom elements with `pub`.
+
+First, edit your `pubspec.yaml` file.
+Add a dependency for each package containing the custom elements
+you want to use:
+
+<!-- from polymer-dart/get_element/pubspec.yaml -->
+{% prettify yaml %}
+name: my_app
+description: An application that uses a fancy button
+dependencies:
+  polymer: '>=0.10.0 <0.11.0'
+  [[highlight]]fancy_button: any[[/highlight]]
+{% endprettify %}
+
+Next, run `pub get`.
+
+{% comment %}
+PENDING: Talk about where you can find polymer.dart custom elements.
+Talk about Dart elements vs. JS elements?
+{% endcomment %}
+
+
+
+<hr>
+## Using custom elements
+
+To put a polymer.dart custom element into a web page,
+the HTML file for the web page needs to:
+
+* Import `polymer.html`
+* Import the HTML file that defines the custom element
+* Instantiate the element
+* Initialize Polymer
+
+Here's an example of using a custom element, `<hello-world>`,
+which is defined in a file named `hello_world.html`:
+
+{% prettify html %}
+<!-- In an HTML file -->
+<head>
+  ...
+  <link rel="import" href="packages/polymer/polymer.html">
+  <link rel="import" href="[[highlight]]hello_world.html[[/highlight]]">
+</head>
+
+<body>
+  [[highlight]]<hello-world></hello-world>[[/highlight]]
+  <script type="application/dart">export 'package:polymer/init.dart';</script>
+</body>
+{% endprettify %}
+
+Some custom elements extend native HTML elements.
+Instead of using a custom tag,
+you instantiate one of these elements by adding an `is` attribute
+to the native element.
+For example, instead of using `<fancy_button>`
+to instantiate a fancy button that extends the HTML `<button>` element,
+you use this code:
+
+{% prettify html %}
+<button [[highlight]]is="fancy-button"[[/highlight]]>Click me</button>
+{% endprettify %}
+
+<hr>
+## Creating custom elements
+
+Along with the following code, check out the Dart tutorial
 [Define a Custom Element](/docs/tutorials/polymer-intro/).
 It shows you how to define, implement, and instantiate
 a custom element.
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
-The examples on this page reflect **polymer.dart 0.9.5**.
-For information about polymer.dart versions, see the Versions tab on the
-[polymer.dart pub page](https://pub.dartlang.org/packages/polymer).
-</aside>
 
-### Custom elements
+### Define custom elements
 
 Extend the lexicon of HTML with your own custom elements.
 
 This sample shows a simple custom element. More advanced custom elements
 can contain their own styles, custom behavior, attributes,
 data binding, and more.
-
-This HTML code defines a custom element:
 
 {% prettify html %}{% raw %}
 <!-- hello_world.html -->
@@ -147,20 +211,6 @@ This HTML code defines a custom element:
   </template>
 </polymer-element>
 {% endraw %}{% endprettify %}
-
-This HTML code _uses_ the custom element:
-
-{% prettify html %}
-<head>
-  <link rel="import" href="[[highlight]]hello_world.html[[/highlight]]">
-  <script type="application/dart">export 'package:polymer/init.dart';</script>
-  <script src="packages/browser/dart.js"></script>
-</head>
-
-<body>
-  [[highlight]]<hello-world></hello-world>[[/highlight]]
-</body>
-{% endprettify %}
 
 
 ### Data binding
@@ -320,11 +370,11 @@ Subclass real DOM elements.
 <polymer-element name="fancy-button" [[highlight]]extends="button"[[/highlight]]>
   <template>
     <style>
-    .fancy {
-      color: pink;
+    :host {
+      background: pink;
     }
     </style>
-    <span class="fancy"><content></content></span>
+    <content></content>
   </template>
   <script type="application/dart" src="fancy_button.dart"></script>
 </polymer-element>
@@ -332,7 +382,7 @@ Subclass real DOM elements.
 
 {% prettify dart %}{% raw %}
 import 'package:polymer/polymer.dart';
-import 'dart:html';
+import 'dart:html' show ButtonElement;
 
 @CustomTag('fancy-button')
 class FancyButton [[highlight]]extends ButtonElement with Polymer, Observable[[/highlight]] {
@@ -343,39 +393,24 @@ class FancyButton [[highlight]]extends ButtonElement with Polymer, Observable[[/
 {% endraw %}{% endprettify %}
 
 {% prettify html %}{% raw %}
-<button [[highlight]]is="fancy-button"[[/highlight]]></button>
-{% endraw %}{% endprettify %}
-
-### Packaging
-
-Reuse and share custom elements with
-[pub](https://www.dartlang.org/docs/dart-up-and-running/contents/ch04-tools-pub.html),
-the Dart package manager.
-
-{% prettify bash %}{% raw %}
-> pub get fancy_button
-{% endraw %}{% endprettify %}
-
-{% prettify html %}{% raw %}
-<head>
-  <link [[highlight]]rel="import"[[/highlight]]
-    href="packages/fancy_button/fancy_button.html">
-</head>
-<body>
-  <button [[highlight]]is="fancy-button"[[/highlight]]>Click me!</button>
-</body>
+<button [[highlight]]is="fancy-button"[[/highlight]]>Click me</button>
 {% endraw %}{% endprettify %}
 
 
 ### More sample code
 
-You can find lots and lots of snippets and
-[sample code for polymer.dart](https://github.com/sethladd/dart-polymer-dart-examples).
+You can find lots of
+[sample code for polymer.dart](https://github.com/dart-lang/dart-samples/tree/master/polymer_mini_samples/web).
+
+{% comment %}
+We used to point to https://github.com/sethladd/dart-polymer-dart-examples.
+If we update that, point to it again.
 Learn how to
 [bind to a checkbox](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/bind_to_checkbox),
 [nest templates](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/nested_if_inside_repeat),
 [call a method on a custom element](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/call_method_on_custom_element),
 and much more. Please [let us know](https://github.com/sethladd/dart-polymer-dart-examples/issues?state=open) if you have a request for a sample.
+{% endcomment %}
 
 <hr>
 
@@ -445,7 +480,7 @@ provides a non-exhaustive set of tips to help you upgrade.
 
 ## Compatibility
 
-Polymer.dart is tested against IE9, IE10, Safari 6, latest Chrome,
+Polymer.dart is tested against IE10, IE11, Safari 6, latest Chrome,
 latest Firefox, and latest Chrome for Android.
 
 The Dart team collaborates with the Polymer team to
@@ -476,50 +511,19 @@ and its many component packages, at [dart.googlecode.com/](https://code.google.c
 [Get the source](https://code.google.com/p/dart/wiki/GettingTheSource)
 to inspect the code and contribute patches.
 
-<hr>
-
-## Status
-
-Polymer.dart is a work in progress, just like Polymer.
-
-### Web UI parity
-
-Web UI is the precursor to polymer.dart. We believe Polymer.dart
-is at feature-parity with Web UI.
-
-### Polymer parity
-
-One of our goals is to make all of Polymer available
-to Dart developers.
-
-| Feature | Parity with Polymer
-|--
-| Custom Elements | Tracking
-| Shadow DOM | Tracking
-| Observers | Tracking
-| Node.bind() | Tracking
-| Template Binding | Tracking
-| HTML imports | Tracking
-| Polymer Expressions | Tracking
-| [Polymer Core](https://github.com/Polymer/polymer) | Tracking
-| Pointer events | Not started
-| Web animations | Not started
-| [Polymer base elements](https://github.com/Polymer/polymer-elements) | [Community effort](https://github.com/bwu-dart/polymer_elements)
-| [Polymer UI elements](https://github.com/Polymer/polymer-ui-elements) | [Community effort](https://github.com/bwu-dart/polymer_ui_elements)
-{: .table}
 
 <hr>
 
 ## Tutorials
 
-[Define a Custom Element](/docs/tutorials/polymer-intro/),
-part of the
-[Dart tutorials](/docs/tutorials/),
-provides a detailed introduction to using Polymer.dart to create
-custom elements.
-You can also check out the other
-[examples](/docs/tutorials/polymer-intro/#what-next)
-in the tutorials that use Polymer.
+The [Dart tutorials](/docs/tutorials/) use polymer.dart:
+
+[Define a Custom Element](/docs/tutorials/polymer-intro/)
+: Provides a detailed introduction to using polymer.dart
+  to create custom elements.
+
+[Other examples](/docs/tutorials/polymer-intro/#what-next)
+: Lists other tutorials with examples that use Polymer.
 
 <hr>
 
@@ -530,16 +534,17 @@ the lower-level primitives and features of the polymer.dart libraries.
 
 ### Polymer
 
-* Read Polymer's [guiding principles](http://www.polymer-project.org/#guiding-principles)
-* Watch the [Hello, Polymer!](http://www.youtube.com/watch?v=irGDN5Ysi_A)
-  video featuring some of the lead members of Polymer.
+* Read the documentation at [polymer-project.org](http://www.polymer-project.org/).
+* Watch Matthew McNulty's [Introduction to Polymer](https://www.youtube.com/watch?v=8-Zq2KUN6jM)
+  or the complete video of SFHTML5's
+  [All About Polymer](http://www.meetup.com/sfhtml5/events/169452272/) event.
 
 ### Articles
 
 * [HTML5Rocks - Shadow DOM 101](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/)
 * [HTML5Rocks - Shadow DOM 201: CSS and Styling](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-201/)
 * [HTML5Rocks - Shadow DOM 301: Advanced Concepts & DOM APIs](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-301/)
-* [Custom elements - defining new elements in HTML](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/)
+* [HTML5Rocks - Custom Elements: Defining new elements in HTML](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/)
 
 ### Specifications
 

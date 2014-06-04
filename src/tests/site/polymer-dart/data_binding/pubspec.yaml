@@ -1,0 +1,7 @@
+name: data_binding
+description: A sample Polymer application
+dependencies:
+  polymer: ">=0.10.0 <0.11.0"
+transformers:
+- polymer:
+    entry_points: web/data_binding.html
