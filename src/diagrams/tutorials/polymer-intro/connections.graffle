@@ -488,7 +488,7 @@
     ...\
   &lt;/template&gt;\
 \
-  &lt;script type="application/dart;component=1"\
+  &lt;script type="application/dart"\
           src="tute_stopwatch.dart"&gt;\
   &lt;/script&gt;\
 \
@@ -1355,7 +1355,7 @@ class TuteStopwatch extends PolymerElement \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-05-29 13:18:04 +0000</string>
+	<string>2014-06-04 17:58:13 +0000</string>
 	<key>Modifier</key>
 	<string>Kathy Walrath</string>
 	<key>NotesVisible</key>
@@ -1460,7 +1460,7 @@ class TuteStopwatch extends PolymerElement \{\
 		<key>SidebarWidth</key>
 		<integer>144</integer>
 		<key>VisibleRegion</key>
-		<string>{{0, 44}, {742, 640}}</string>
+		<string>{{0, 44}, {729, 625}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
