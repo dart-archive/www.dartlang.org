@@ -99,6 +99,38 @@ to be publicly available as a loadable transformer plugin.
 MyTransformer.asPlugin();
 {% endprettify %}
 
+You can also define a single-argument `asPlugin(BarbackSettings)` constructor
+that you can use to pass information to the transformer.
+
+For example, say you want a transformer to execute when your app is deployed,
+but not during the development process, when you are debugging.
+You can achieve this by using the `mode` option.
+The `mode` value defaults to "debug" for `pub serve` and "release"
+for `pub build`, but the value can be configured to use any string
+for either command.
+
+The following code shows how this might look:
+
+{% prettify dart %}
+class InsertCopyright extends Transformer {
+  final BarbackSettings _settings;
+
+  InsertCopyright.asPlugin(this._settings);
+
+  Future apply(Transform transform) {
+    // Skip the transform in debug mode.
+    if (_settings.mode.name == 'debug') return;
+
+    // Apply the transform.
+    // ...
+  }
+}
+{% endprettify %}
+
+For more information on the mode option, see 
+[pub serve](/tools/pub/cmd/pub-serve.html#options) and
+[pub build](/tools/pub/cmd/pub-build.html#options).
+
 ### Claim input assets {#claim-input-assets}
 
 A transformer can limit which assets that it processes. It can
@@ -122,8 +154,8 @@ String get allowedExtensions => ".md .markdown .mdown";
 
 <div class="step-details" markdown="1">
 {% prettify dart %}
-Future<bool> isPrimary(Asset input) {
-  return input.path.startswith("sources/");
+Future<bool> isPrimary(AssetId id) {
+  return id.path.startswith("sources/");
 }
 {% endprettify %}
 </div>
@@ -284,7 +316,7 @@ For more information, see
 
 * [Writing a Pub Transformer: Examples](examples/)
 : Examples to get you started.
-* [barback library](https://api.dartlang.org/apidocs/channels/stable/#barback/barback)
+* [barback library](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/barback)
 : API docs for the barback package.
 * [Barback - Can We Build It? Yes, We Can!](https://docs.google.com/a/google.com/document/d/1juHkCRg-1YH6LvwhGPHgF2ihX-UQtR1fv-8aknO7t_4/edit?pli=1#)
 : A description of the barback asset system, written by a
