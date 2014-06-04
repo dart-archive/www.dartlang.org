@@ -3,3 +3,6 @@ description: An application that uses a fancy button
 dependencies:
   polymer: '>=0.10.0 <0.11.0'
   fancy_button: any
+transformers:
+- polymer:
+    entry_points: web/index.html
