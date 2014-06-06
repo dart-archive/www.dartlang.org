@@ -5,30 +5,14 @@
   publisher: Moises Belchin & Patricia Juberias
   cover: aprende-dart.jpg
   link: http://www.librodart.es
-  desc: 'Aprende Dart is the first book written in Spanish. It was written 
-        thinking in programmers who want to learn this new programming language 
-        but also thinking in web designers and how Dart can interoperate 
-        perfectly with HTML5 and CSS3.
-        With this book you will know the language, how the tools work and 
-        you will see the core functions and libraries. We will show you the 
-        history behind Dart and how it comes to us. We will develop some 
-        UI animations samples for web, work with web services, server side 
-        Dart programs and the new Polymer.dart library for the new HTML UI 
-        web components generation.
-
-        Aprende Dart es el primer libro escrito en Español para toda la 
-        comunidad de programadores de habla hispana que quieren conocer 
-        y aprender este nuevo lenguaje de programación. También se ha 
-        pensando en todos los diseñadores web que, cansados de pelear 
-        con JavaScript, quieran desarrollar sus proyectos con este nuevo 
-        lenguaje, que funciona en los navegadores web modernos y que 
-        interactúa perfectamente con HTML5 y CSS3.
-        Con este libro podrás conocer el lenguaje, aprenderás a manejar 
-        las herramientas y trabajaremos con las principales funciones y 
-        librería. Conocerás la historia que hay tras el lenguaje y cómo 
-        surge, crearemos algunos ejemplos de animaciones para interfaces 
-        gráficas en la web y trabajaremos con servicios web, veremos el 
-        potencial que nos brinda Dart trabajando en el lado servidor y 
+  desc: 'Aprende Dart is the first Spanish-language book about Dart.
+        Aprende Dart es el primer libro en Español para programadores 
+        y diseñadores web que quieran conocer el lenguaje, aprender a 
+        manejar las herramientas y trabajar con las principales 
+        funciones y librerías. Conocerás la historia que hay tras el 
+        lenguaje y cómo surge, crearemos animaciones para interfaces 
+        gráficas web y trabajaremos con servicios web, veremos el 
+        potencial que nos brinda Dart en el lado servidor y 
         comenzaremos a trabajar con Polymer.dart.'
 
 - title: The Dart Programming Language
