@@ -1,3 +1,20 @@
+- title: Aprende Dart
+  authors:
+    - Moises Belchin
+    - Patricia Juberias
+  publisher: Moises Belchin & Patricia Juberias
+  cover: aprende-dart.jpg
+  link: http://www.librodart.es
+  desc: 'Aprende Dart is the first Spanish-language book about Dart.
+        Aprende Dart es el primer libro en Español para programadores 
+        y diseñadores web que quieran conocer el lenguaje, aprender a 
+        manejar las herramientas y trabajar con las principales 
+        funciones y librerías. Conocerás la historia que hay tras el 
+        lenguaje y cómo surge, crearemos animaciones para interfaces 
+        gráficas web y trabajaremos con servicios web, veremos el 
+        potencial que nos brinda Dart en el lado servidor y 
+        comenzaremos a trabajar con Polymer.dart.'
+
 - title: The Dart Programming Language
   authors:
     - Gilad Bracha
