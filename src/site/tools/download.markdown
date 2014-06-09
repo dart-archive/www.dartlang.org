@@ -153,7 +153,6 @@ You can also download the latest **Dev Channel** build of
 <span class="linux">
 You can also download the latest **Dev Channel** build of
 <a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-x64-release.zip">Dartium for Linux 64-bit</a>
-dartium-linux-x64-release.zip
 or
 <a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-ia32-release.zip">Dartium for Linux 32-bit</a>.
 </span>
