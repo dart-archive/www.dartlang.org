@@ -8,6 +8,7 @@ $(document).ready(function() {
       var target = e.target;
       var href = '/' + target.attributes['href'].value;
       ga('send', 'pageview', href);
+      ga('dartlangTracker.send', 'pageview', href);
     });
   }
 });

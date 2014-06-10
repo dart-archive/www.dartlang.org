@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (link) {
 	link.addEventListener('click', function(e) {
 	  ga('send', 'event', 'In-Page Clicks', 'See code');
+	  ga('dartlangTracker.send', 'event', 'In-Page Clicks', 'See code');
 	});
   }
 });

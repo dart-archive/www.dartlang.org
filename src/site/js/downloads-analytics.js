@@ -31,6 +31,7 @@ function countClicksCallback(link, target) {
       var build = target.getAttribute('data-build') || 'unknown';
       var bitsAndBuild = build + '/' + bits;
       ga('send', 'event', downloadType, os, bitsAndBuild, 1);
+      ga('dartlangTracker.send', 'event', downloadType, os, bitsAndBuild, 1);
     });
   };
 }
