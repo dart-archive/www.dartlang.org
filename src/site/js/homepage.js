@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var link = document.querySelector('#see-code');
   if (link) {
 	link.addEventListener('click', function(e) {
-	  _gaq.push(['_trackEvent', 'In-Page Clicks', 'See code']);
+	  ga('send', 'event', 'In-Page Clicks', 'See code');
 	});
   }
 });

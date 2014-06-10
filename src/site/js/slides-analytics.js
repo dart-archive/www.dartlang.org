@@ -7,7 +7,7 @@ $(document).ready(function() {
     link.addEventListener('click', function(e) {
       var target = e.target;
       var href = '/' + target.attributes['href'].value;
-      _gaq.push(['_trackPageview', href]);
+      ga('send', 'pageview', href);
     });
   }
 });
