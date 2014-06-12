@@ -1,1 +1,63 @@
-import "dart:html" as k;class s{static const  t="Chrome";static const  u="Firefox";static const  v="Internet Explorer";static const  AB="Safari";final  o;final  minimumVersion;const s(this.o,[this.minimumVersion]);}class BB{const BB();}class CB{final  name;const CB(this.name);}class DB{const DB();}class EB{var GB;var HB;var IB;EB(){HB=k.query('#byte-content');IB=k.query('#byte-range');GB=k.query('#files');GB.onChange.listen((h){HB.text='';IB.text='';});var g=k.query('#read-bytes-buttons');g.onClick.listen(JB);} JB( j){var g=j.target;if(g is k.ButtonElement){var h=g.attributes['data-startbyte'];var i=g.attributes['data-endbyte'];KB(h!=null?int.parse(h):null,i!=null?int.parse(i):null);}} KB([ j, i]){var l=GB.files;if(l.length==0){k.window.alert('Please select a file!');return;}var h=l[0];var m=j!=null?j:0;var n=i!=null?i:h.size;var g=new k.FileReader();g.onLoad.listen((FB){HB.text=g.result;IB.text='Read bytes ${m+1} - ${n+1} of ${h.size}.';});var q=h.slice(m,n);g.readAsBinaryString(q);}} main(){new EB();}
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// This is a port of "Reading Files in JavaScript Using the File APIs" to Dart.
+// See: http://www.html5rocks.com/en/tutorials/file/dndfiles/
+
+import 'dart:html';
+
+class Slicing {
+  InputElement _fileInput;
+  Element _content;
+  Element _byteRange;
+
+  Slicing() {
+    _content = querySelector('#byte-content');
+    _byteRange = querySelector('#byte-range');
+
+    _fileInput = querySelector('#files');
+    _fileInput.onChange.listen((e) {
+      _content.text = '';
+      _byteRange.text = '';
+    });
+
+    var buttons = querySelector('#read-bytes-buttons');
+    buttons.onClick.listen(_onClick);
+  }
+
+  void _onClick(MouseEvent event) {
+    Element clicked = event.target;
+    if (clicked is ButtonElement) {
+      var start = clicked.attributes['data-startbyte'];
+      var end = clicked.attributes['data-endbyte'];
+      _readBlob(
+          start != null ? int.parse(start) : null,
+          end != null ? int.parse(end) : null);
+    }
+  }
+
+  void _readBlob([int startByte, int endByte]) {
+    var files = _fileInput.files;
+    if (files.length == 0) {
+      window.alert('Please select a file!');
+      return;
+    }
+
+    var file = files[0];
+    var start = startByte != null ? startByte : 0;
+    var end = endByte != null ? endByte : file.size;
+    var reader = new FileReader();
+    reader.onLoad.listen((e) {
+      _content.text = reader.result;
+      _byteRange.text =
+          'Read bytes ${start + 1} - ${end + 1} of ${file.size}.';
+    });
+    var slice = file.slice(start, end);
+    reader.readAsDataUrl(slice);
+  }
+}
+
+void main() {
+  new Slicing();
+}

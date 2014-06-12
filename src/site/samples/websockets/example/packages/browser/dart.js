@@ -4,21 +4,14 @@
 
 (function() {
 // Bootstrap support for Dart scripts on the page as this script.
-if (navigator.webkitStartDart) {
-  if (!navigator.webkitStartDart()) {
-    document.body.innerHTML = 'This build has expired.  Please download a new Dartium at http://www.dartlang.org/dartium/index.html';
-  }
-} else {
+if (navigator.userAgent.indexOf('(Dart)') === -1) {
   // TODO:
   // - Support in-browser compilation.
   // - Handle inline Dart scripts.
 
   // Fall back to compiled JS. Run through all the scripts and
   // replace them if they have a type that indicate that they source
-  // in Dart code.
-  //
-  //   <script type="application/dart" src="..."></script>
-  //
+  // in Dart code (type="application/dart").
   var scripts = document.getElementsByTagName("script");
   var length = scripts.length;
   for (var i = 0; i < length; ++i) {

@@ -1,1 +1,197 @@
-import "dart:web_audio" as m;import "dart:html" as o;import "dart:math" as EB;class FB{static const  GB="Chrome";static const  HB="Firefox";static const  IB="Internet Explorer";static const  JB="Safari";final  BB;final  minimumVersion;const FB(this.BB,[this.minimumVersion]);}class KB{const KB();}class LB{final  name;const LB(this.name);}class MB{const MB();}class NB{const NB();}typedef  v( bufferList);class OB{var i;var n;var u;var QB=0;var RB;OB(this.i,this.n,this.u){RB=new List<m.AudioBuffer>(n.length);} load(){for(var g=0;g<n.length;g++ ){SB(n[g],g);}} SB( h, j){var g=new o.HttpRequest();g.open("GET",h,async:true);g.responseType="arraybuffer";g.onLoad.listen((l)=>TB(g,h,j));g.onError.listen((l)=>o.window.alert("BufferLoader: XHR error"));g.send();} TB( h, l, j){i.decodeAudioData(h.response).then(( g){if(g==null){o.window.alert("Error decoding file data: ${l}");return;}RB[j]=g;if( ++QB==n.length)u(RB);});}}class AB{var q;var i;static const t=const{"example":"sounds/example.ogg"};AB(){q=new Map<String,m.AudioBuffer>();i=new m.AudioContext();UB();} UB(){var j=t.keys.toList();var CB=t.values.toList();var s=new OB(i,CB,( h){for(var g=0;g<h.length;g++ ){var DB=h[g];var l=j[g];q[l]=DB;}});s.load();}}class PB{final VB=5000;final WB=7000;final XB=30;var YB=false;var k;var ZB;var aB;PB(this.k){o.query("#play-pause-button").onClick.listen(( g){bB();});o.query("#enable-filter-checkbox").onChange.listen(( g){var j=(g.currentTarget as o.InputElement).checked;cB(j);});o.query("#frequency-range").onChange.listen(( g){var h=double.parse((g.currentTarget as o.InputElement).value);dB(h);});o.query("#quality-range").onChange.listen(( g){var h=double.parse((g.currentTarget as o.InputElement).value);eB(h);});} fB(){ZB=k.i.createBufferSource();ZB.buffer=k.q['example'];aB=k.i.createBiquadFilter();aB.type="lowpass";aB.frequency.value=VB;ZB.connectNode(aB,0,0);aB.connectNode(k.i.destination,0,0);ZB.start(0);ZB.loop=true;} gB(){ZB.stop(0);} bB(){YB?gB():fB();YB=!YB;} cB( g){ZB.disconnect(0);aB.disconnect(0);if(g){ZB.connectNode(aB,0,0);aB.connectNode(k.i.destination,0,0);}else{ZB.connectNode(k.i.destination,0,0);}} dB( l){var h=40;var g=k.i.sampleRate/2;var j=EB.log(g/h)/EB.LN2;var s=EB.pow(2,j*(l-1.0));aB.frequency.value=g*s;} eB( g){aB.Q.value=g*XB;}} main(){new PB(new AB());}
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the COPYING file.
+
+// This is a port of "Getting Started with the Web Audio API" (the filter
+// sample) to Dart. See: http://www.html5rocks.com/en/tutorials/webaudio/intro
+//
+// To run this code, you must use a web server. Dart Editor does this for you
+// automatically.
+
+import 'dart:html';
+import 'dart:math';
+import 'dart:web_audio';
+
+typedef void OnLoadCallback(List<AudioBuffer> bufferList);
+
+class BufferLoader {
+  AudioContext audioCtx;
+  List<String> urlList;
+  OnLoadCallback callback;
+  int _loadCount = 0;
+  List<AudioBuffer> _bufferList;
+
+  BufferLoader(this.audioCtx, this.urlList, this.callback) {
+    _bufferList = new List<AudioBuffer>(urlList.length);
+  }
+
+  void load() {
+    for (var i = 0; i < urlList.length; i++) {
+      _loadBuffer(urlList[i], i);
+    }
+  }
+
+  void _loadBuffer(String url, int index) {
+    // Load the buffer asynchronously.
+    var request = new HttpRequest();
+    request.open("GET", url, async: true);
+    request.responseType = "arraybuffer";
+    request.onLoad.listen((e) => _onLoad(request, url, index));
+
+    // Don't use alert in real life ;)
+    request.onError.listen((e) => window.alert("BufferLoader: XHR error"));
+
+    request.send();
+  }
+
+  void _onLoad(HttpRequest request, String url, int index) {
+    // Asynchronously decode the audio file data in request.response.
+    audioCtx.decodeAudioData(request.response).then((AudioBuffer buffer) {
+      if (buffer == null) {
+
+        // Don't use alert in real life ;)
+        window.alert("Error decoding file data: $url");
+
+        return;
+      }
+      _bufferList[index] = buffer;
+      if (++_loadCount == urlList.length) callback(_bufferList);
+    });
+  }
+}
+
+/**
+ * This is the global, application context.
+ *
+ * In the JavaScript version, this stuff was in a file called init.js. I'm
+ * keeping it separate of FilterSample in case we want to implement additional
+ * samples.
+ */
+class ApplicationContext {
+  // Keep track of all loaded buffers.
+  Map<String, AudioBuffer> buffers;
+
+  // Page-wide AudioContext.
+  AudioContext audioCtx;
+
+  // An object to track the buffers to load "{name: path}".
+  static const buffersToLoad = const {
+    // There is also example.ogg and example.wav.
+    "example": "sounds/example.ogg"
+  };
+
+  ApplicationContext() {
+    buffers = new Map<String, AudioBuffer>();
+    audioCtx = new AudioContext();
+    _loadBuffers();
+  }
+
+  // Loads all sound samples into the buffers object.
+  void _loadBuffers() {
+    List<String> names = buffersToLoad.keys.toList();
+    List<String> paths = buffersToLoad.values.toList();
+    var bufferLoader = new BufferLoader(audioCtx, paths, (List<AudioBuffer> bufferList) {
+      for (var i = 0; i < bufferList.length; i++) {
+        AudioBuffer buffer = bufferList[i];
+        String name = names[i];
+        buffers[name] = buffer;
+      }
+    });
+    bufferLoader.load();
+  }
+}
+
+class FilterSample {
+  final _FREQ = 5000;
+  final _FREQ_MUL = 7000;
+  final _QUAL_MUL = 30;
+  bool _playing = false;
+  ApplicationContext appCtx;
+  AudioBufferSourceNode _source;
+  BiquadFilterNode _filter;
+
+  FilterSample(this.appCtx) {
+    querySelector("#play-pause-button").onClick.listen((Event e) {
+      _toggle();
+    });
+    querySelector("#enable-filter-checkbox").onChange.listen((Event e) {
+      bool checked = (e.currentTarget as InputElement).checked;
+      _toggleFilter(checked);
+    });
+    querySelector("#frequency-range").onChange.listen((Event e) {
+      num value = double.parse((e.currentTarget as InputElement).value);
+      _changeFrequency(value);
+    });
+    querySelector("#quality-range").onChange.listen((Event e) {
+      num value = double.parse((e.currentTarget as InputElement).value);
+      _changeQuality(value);
+    });
+  }
+
+  void _play() {
+    // Create the source.
+    _source = appCtx.audioCtx.createBufferSource();
+    _source.buffer = appCtx.buffers['example'];
+
+    // Create the filter.
+    _filter = appCtx.audioCtx.createBiquadFilter();
+    _filter.type = "lowpass";
+    _filter.frequency.value = _FREQ;
+
+    // Connect everything.
+    _source.connectNode(_filter, 0, 0);
+    _filter.connectNode(appCtx.audioCtx.destination, 0, 0);
+
+    // Play!
+    _source.start(0);
+    _source.loop = true;
+  }
+
+  void _stop() {
+    _source.stop(0);
+  }
+
+  void _toggle() {
+    _playing ? _stop() : _play();
+    _playing = !_playing;
+  }
+
+  void _toggleFilter(bool checked) {
+    _source.disconnect(0);
+    _filter.disconnect(0);
+
+    // Check if we want to enable the filter.
+    if (checked) {
+      // Connect through the filter.
+      _source.connectNode(_filter, 0, 0);
+      _filter.connectNode(appCtx.audioCtx.destination, 0, 0);
+    } else {
+      // Otherwise, connect directly.
+      _source.connectNode(appCtx.audioCtx.destination, 0, 0);
+    }
+  }
+
+  void _changeFrequency(num value) {
+    // Clamp the frequency between the minimum value (40 Hz) and half of the
+    // sampling rate.
+    var minValue = 40;
+    var maxValue = appCtx.audioCtx.sampleRate / 2;
+
+    // Logarithm (base 2) to compute how many octaves fall in the range.
+    var numberOfOctaves = log(maxValue / minValue) / LN2;
+
+    // Compute a multiplier from 0 to 1 based on an exponential scale.
+    var multiplier = pow(2, numberOfOctaves * (value - 1.0));
+
+    // Get back to the frequency value between min and max.
+    _filter.frequency.value = maxValue * multiplier;
+  }
+
+  void _changeQuality(num value) {
+    _filter.Q.value = value * _QUAL_MUL;
+  }
+}
+
+void main() {
+  new FilterSample(new ApplicationContext());
+}

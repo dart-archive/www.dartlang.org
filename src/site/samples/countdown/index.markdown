@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Storing and Retrieving Data using IndexedDB
-live_example_url: /docs/tutorials/indexeddb/examples/count_down/out/web/count_down.html
+live_example_url: /docs/tutorials/indexeddb/examples/count_down/web/count_down.html
 header:
   css: ["/samples/samples.css"]
 ---

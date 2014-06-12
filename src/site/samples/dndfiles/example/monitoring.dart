@@ -1,1 +1,82 @@
-import "dart:async" as AB;import "dart:html" as i;import "dart:math" as k;class l{static const  m="Chrome";static const  n="Firefox";static const  o="Internet Explorer";static const  q="Safari";final  j;final  minimumVersion;const l(this.j,[this.minimumVersion]);}class s{const s();}class t{final  name;const t(this.name);}class u{const u();}class v{var BB;var CB;var DB;v(){CB=i.query('#progress-bar');BB=i.document.query('#files');BB.onChange.listen((g)=>EB());var h=i.query('#cancel-read');h.onClick.listen((g)=>FB());} GB( g){g=k.min(100,k.max(0,g));CB.style.width='${g}%';CB.text='${g}%';if(g==0||g==100){new AB.Timer(const Duration(milliseconds:2000),()=>CB.classes.remove('loading'));}} EB(){GB(0);CB.classes.remove('loading');var h=BB.files[0];DB=new i.FileReader();DB.onError.listen((g)=>HB());DB.onProgress.listen(IB);DB.onAbort.listen((g)=>i.window.alert('File read cancelled.'));DB.onLoadStart.listen((g)=>CB.classes.add('loading'));DB.onLoad.listen((g)=>GB(100));DB.readAsBinaryString(h);} FB(){if(DB!=null){DB.abort();}} IB( g){if(g.lengthComputable){var h=(100*g.loaded/g.total).round().toInt();GB(h);}} HB(){switch (DB.error.code){case i.FileError.NOT_FOUND_ERR:i.window.alert('File not found!');break;case i.FileError.NOT_READABLE_ERR:i.window.alert('File is not readable.');break;case i.FileError.ABORT_ERR:break;default:i.window.alert('An error occurred reading this file.');break;}}} main(){new v();}
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// This is a port of "Reading Files in JavaScript Using the File APIs" to Dart.
+// See: http://www.html5rocks.com/en/tutorials/file/dndfiles/
+
+import 'dart:html';
+import 'dart:math';
+import 'dart:async';
+
+class Monitoring {
+  InputElement _fileInput;
+  Element _progressBar;
+  FileReader _reader;
+
+  Monitoring() {
+    _progressBar = querySelector('#progress-bar');
+    _fileInput = document.querySelector('#files');
+    _fileInput.onChange.listen((e) => _onFilesSelected());
+    var cancelButton = querySelector('#cancel-read');
+    cancelButton.onClick.listen((e) => _onCancel());
+  }
+
+  void _setProgress(int value) {
+    value = min(100, max(0, value));
+    _progressBar.style.width = '${value}%';
+    _progressBar.text = '${value}%';
+    if (value == 0 || value == 100) {
+      new Timer(const Duration(milliseconds: 2000), () => _progressBar.classes.remove('loading'));
+    }
+  }
+
+  void _onFilesSelected() {
+    // Reset progress indicator on new file selection.
+    _setProgress(0);
+    _progressBar.classes.remove('loading');
+
+    // Set up handlers and begin reading the file.
+    var file = _fileInput.files[0];
+    _reader = new FileReader();
+    _reader.onError.listen((e) => _onError());
+    _reader.onProgress.listen(_onProgress);
+    _reader.onAbort.listen((e) => window.alert('File read cancelled.'));
+    _reader.onLoadStart.listen((e) => _progressBar.classes.add('loading'));
+    _reader.onLoad.listen((e) => _setProgress(100));
+    _reader.readAsText(file);
+  }
+
+  void _onCancel() {
+    if (_reader != null) {
+      _reader.abort();
+    }
+  }
+
+  void _onProgress(ProgressEvent event) {
+    if (event.lengthComputable) {
+      var percentLoaded = (100 * event.loaded / event.total).round().toInt();
+      _setProgress(percentLoaded);
+    }
+  }
+
+  void _onError() {
+    switch(_reader.error.code) {
+      case FileError.NOT_FOUND_ERR:
+        window.alert('File not found!');
+        break;
+      case FileError.NOT_READABLE_ERR:
+        window.alert('File is not readable.');
+        break;
+      case FileError.ABORT_ERR:
+        break;  // no-op.
+      default:
+        window.alert('An error occurred reading this file.');
+        break;
+    }
+  }
+}
+
+void main() {
+  new Monitoring();
+}

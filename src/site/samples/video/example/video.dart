@@ -1,1 +1,96 @@
-import "dart:html" as j;class t{const t();}class u{final  name;const u(this.name);}class v{const v();}class AB{const AB();}class BB{var DB;var EB;var FB;var GB;var HB;var IB,JB;var KB=false;final LB=100;final MB=4;BB(){var h=-2.0;DB=j.query('#video-canvas-fancy');EB=j.query('#canvas-copy-fancy');FB=j.query('#canvas-draw-fancy');GB=<num>[] ;HB=<num>[] ;for(var i=0;i<MB;i++ ){GB.add(0);HB.add(h);h+= 0.4;}DB.onCanPlay.listen((g)=>NB());DB.onPlay.listen((g)=>OB());DB.onPause.listen((g)=>PB());DB.onEnded.listen((g)=>PB());} NB(){EB.width=FB.width=DB.videoWidth;EB.height=DB.videoHeight;FB.height=DB.videoHeight+LB;IB=EB.context2D;JB=FB.context2D;} OB(){KB=true;QB();} QB(){if(!KB)return;var k=DB.videoWidth/MB;IB.drawImage(DB,0,0);JB.clearRect(0,0,FB.width,FB.height);for(var g=0;g<MB;g++ ){var l=g*k;var i=0;var h=k;var m=DB.videoHeight;var n=l;var o=GB[g]+i+LB;var q=h;var s=m;JB.drawImageScaledFromSource(EB,l,i,h,m,n,o,q,s);if((GB[g]+HB[g]).abs()<LB){GB[g]+=HB[g];}else{HB[g]=-HB[g];}}j.window.requestAnimationFrame(( CB){QB();return false;});} PB(){KB=false;}} main(){new BB();}
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+// This is a port of "HTML5 Video" to Dart.
+// See: http://www.html5rocks.com/en/tutorials/video/basics/
+
+// Note, the sound is very choppy when using dart2js and running on Google
+// Chrome (version 21 or 22). However, the sound is not choppy when running
+// under Dartium (version 23). It's not a bug in this code since the JavaScript
+// code has the same problem.
+// See also: http://code.google.com/p/chromium/issues/detail?id=141747#c15
+
+import 'dart:html';
+
+class VideoExample {
+  VideoElement _videoDom;
+  CanvasElement _canvasCopy;
+  CanvasElement _canvasDraw;
+  List<num> _offsets;
+  List<num> _inertias;
+  CanvasRenderingContext2D _ctxCopy, _ctxDraw;
+  bool _animationRunning = false;
+
+  final _outPadding = 100;
+  final _slices = 4;
+
+  VideoExample() {
+    var inertia = -2.0;
+
+    _videoDom = querySelector('#video-canvas-fancy');
+    _canvasCopy = querySelector('#canvas-copy-fancy');
+    _canvasDraw = querySelector('#canvas-draw-fancy');
+    _offsets = <num>[];
+    _inertias = <num>[];
+
+    for (var i = 0; i < _slices; i++) {
+      _offsets.add(0);
+      _inertias.add(inertia);
+      inertia += 0.4;
+    }
+
+    _videoDom.onCanPlay.listen((e) => _onCanPlay());
+    _videoDom.onPlay.listen((e) => _onPlay());
+    _videoDom.onPause.listen((e) => _stopAnimation());
+    _videoDom.onEnded.listen((e) => _stopAnimation());
+  }
+
+  void _onCanPlay() {
+    _canvasCopy.width = _canvasDraw.width = _videoDom.videoWidth;
+    _canvasCopy.height = _videoDom.videoHeight;
+    _canvasDraw.height = _videoDom.videoHeight + _outPadding;
+    _ctxCopy = _canvasCopy.context2D;
+    _ctxDraw = _canvasDraw.context2D;
+  }
+
+  void _onPlay() {
+    _animationRunning = true;
+    _processEffectFrame();
+  }
+
+  void _processEffectFrame() {
+    if (!_animationRunning) return;
+    var sliceWidth = _videoDom.videoWidth / _slices;
+    _ctxCopy.drawImage(_videoDom, 0, 0);
+    _ctxDraw.clearRect(0, 0, _canvasDraw.width, _canvasDraw.height);
+    for (var i = 0; i < _slices; i++) {
+      var sx = i * sliceWidth;
+      var sy = 0;
+      var sw = sliceWidth;
+      var sh = _videoDom.videoHeight;
+      var dx = sx;
+      var dy = _offsets[i] + sy + _outPadding;
+      var dw = sw;
+      var dh = sh;
+      _ctxDraw.drawImageScaledFromSource(_canvasCopy, sx, sy, sw, sh, dx, dy, dw, dh);
+      if ((_offsets[i] + _inertias[i]).abs() < _outPadding) {
+        _offsets[i] += _inertias[i];
+      } else {
+        _inertias[i] = -_inertias[i];
+      }
+    }
+    window.requestAnimationFrame((double time) {
+      _processEffectFrame();
+      return false;
+    });
+  }
+
+  void _stopAnimation() {
+    _animationRunning = false;
+  }
+}
+
+void main() {
+  new VideoExample();
+}

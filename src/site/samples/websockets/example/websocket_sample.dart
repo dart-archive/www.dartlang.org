@@ -1,1 +1,60 @@
-import "dart:html" as o;import "dart:async" as EB;class q{static const  s="Chrome";static const  t="Firefox";static const  u="Internet Explorer";static const  v="Safari";final  n;final  minimumVersion;const q(this.n,[this.minimumVersion]);}class AB{const AB();}class BB{final  name;const BB(this.name);}class CB{const CB();}class DB{const DB();}var i;j( k){var h=o.query('#output');var g=k;if(!h.text.isEmpty){g="${h.text}\n${g}";}h.text=g;} l([ h=2]){var k=false;j("Connecting to websocket");i=new o.WebSocket('ws://echo.websocket.org'); m(){if(!k){new EB.Timer(new Duration(milliseconds:1000*h),()=>l(h*2));}k=true;}i.onOpen.listen((g){j('Connected');i.send('Hello from Dart!');});i.onClose.listen((g){j('Websocket closed, retrying in ${h} seconds');m();});i.onError.listen((g){j("Error connecting to ws");m();});i.onMessage.listen(( g){j('Received message: ${g.data}');});} main(){l();}
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the COPYING file.
+
+// This is a simple example of using Websockets.
+// See: http://www.html5rocks.com/en/tutorials/websockets/basics/
+//      https://github.com/sethladd/Dart-Web-Sockets
+//
+// This has been tested under Chrome and Firefox.
+
+import 'dart:html';
+import 'dart:async';
+
+WebSocket ws;
+
+outputMsg(String msg) {
+  var output = querySelector('#output');
+  var text = msg;
+  if (!output.text.isEmpty) {
+    text = "${output.text}\n${text}";
+  }
+  output.text = text;
+}
+
+void initWebSocket([int retrySeconds = 2]) {
+  var reconnectScheduled = false;
+
+  outputMsg("Connecting to websocket");
+  ws = new WebSocket('ws://echo.websocket.org');
+
+  void scheduleReconnect() {
+    if (!reconnectScheduled) {
+      new Timer(new Duration(milliseconds: 1000 * retrySeconds), () => initWebSocket(retrySeconds * 2));
+    }
+    reconnectScheduled = true;
+  }
+
+  ws.onOpen.listen((e) {
+    outputMsg('Connected');
+    ws.send('Hello from Dart!');
+  });
+
+  ws.onClose.listen((e) {
+    outputMsg('Websocket closed, retrying in $retrySeconds seconds');
+    scheduleReconnect();
+  });
+
+  ws.onError.listen((e) {
+    outputMsg("Error connecting to ws");
+    scheduleReconnect();
+  });
+
+  ws.onMessage.listen((MessageEvent e) {
+    outputMsg('Received message: ${e.data}');
+  });
+}
+
+void main() {
+  initWebSocket();
+}

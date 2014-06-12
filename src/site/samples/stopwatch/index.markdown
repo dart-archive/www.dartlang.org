@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Defining a Custom Element
-live_example_url: /docs/tutorials/polymer-intro/examples/stopwatch/out/web/index.html
+live_example_url: /docs/tutorials/polymer-intro/examples/stopwatch/web/index.html
 header:
   css: ["/samples/samples.css"]
 ---

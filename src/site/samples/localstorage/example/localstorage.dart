@@ -1,1 +1,24 @@
-import "dart:html" as g;class n{static const  o="Chrome";static const  q="Firefox";static const  s="Internet Explorer";static const  t="Safari";final  l;final  minimumVersion;const n(this.l,[this.minimumVersion]);}class u{const u();}class v{final  name;const v(this.name);}class AB{const AB();}class BB{const BB();} main(){var h=g.query('#username');var m=g.query('#save');var i=g.query('#username-output');var j=g.window.localStorage;var k=j['username'];if(k!=null){i.text=k;}m.onClick.listen(( CB){i.text=h.value;j['username']=h.value;});}
+// Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
+import 'dart:html';
+
+void main() {
+  InputElement username = querySelector('#username');
+  InputElement submit = querySelector('#save');
+  Element output = querySelector('#username-output');
+  Storage localStorage = window.localStorage;
+
+  // Local storage is a Map, supporting string keys and values.
+  String savedUsername = localStorage['username'];
+
+  if (savedUsername != null) {
+    output.text = savedUsername;
+  }
+
+  submit.onClick.listen((Event e) {
+    output.text = username.value;
+    localStorage['username'] = username.value;
+  });
+}
