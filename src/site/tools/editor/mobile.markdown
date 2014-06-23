@@ -167,6 +167,10 @@ you will need to relaunch the app.
 
 ##  Problems? {#problems}
 
+If you have followed the steps and Dart Editor still cannot see your
+Android device (reporting "No mobile found or USB development not enabled
+on mobile"), try unplugging and plugging in the device again.
+
 If you launch your web application on the Android device and the device
 can't load the web page from the local server running on the development
 machine, then the browser on the device will be blank, and you will see
