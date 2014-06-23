@@ -1,0 +1,15 @@
+/*
+ * Adds a black box around each image, one pixel thick.
+ */
+
+img {
+  border:1px solid #021a40;
+}
+
+.step-details {
+    margin-left: 20px;
+}
+
+.step-details2 {
+    margin-left: 40px;
+}
