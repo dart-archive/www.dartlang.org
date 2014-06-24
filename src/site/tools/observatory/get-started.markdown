@@ -58,12 +58,26 @@ you launch your app to enable it.
 
 ### Standalone apps from Dart Editor {#standalone-Dart-Editor}
 
-To enable Observatory from Dart Editor, select
-**Run > Managed Launches** to bring up the **Managed Launches** dialog.
+You can open Observatory once launch your app.
+
+When you launch a standalone app in Dart Editor, it opens a console
+window to display the output.  An "Open Observatory" icon is available
+in the tool bar for the console window:
+
+<img src="images/OpenObservatoryButton.png" alt="The Observatory navigation bar">
+
+Clicking the icon opens a new tab in your default browser and displays
+Observatory's VM screen.
+
+To customize the launch configuration for your app, select
+**Run > Manage Launches** to bring up the **Manage Launches** dialog.
 
 <img src="images/DartEditorEnable.png" alt="The managed launches dialog in Dart Editor">
 
-Check **Open Observatory** to enable Observatory.
+Check the **Pause isolate on start** box if you want the root isolate
+to pause before executing&mdash; this is equivalent to specifying the
+`--pause-isolates-on-start` flag and is useful if you want to connect
+to Observatory before the isolate begins running.
 
 Check the **Pause isolate on exit** box if you want the root isolate
 to remain alive when execution has completed&mdash; this is
@@ -71,37 +85,13 @@ equivalent to specifying the `--pause-isolates-on-exit` flag and
 is useful for an application that might otherwise finish executing
 before you can connect it to Observatory.
 
-You can enter any other flags into the **VM arguments** text field&mdash;see
-the [dart](/tools/dart-vm/#observatory) reference page for a complete list.
+By default, neither of these boxes are checked.
 
-Once you have configured the **Managed Launches** dialog for your app,
-you can open Observatory in one of several ways. In each case,
-Observatory opens inside a tab in your default browser.
+You can also enter any other flags into the **VM arguments** text
+field&mdash;see the [dart](/tools/dart-vm/#observatory) reference page
+for a complete list.
 
-<ul>
-<li>Click <strong>Run</strong> from the <strong>Managed Launches</strong>
-    dialog.</li>
-
-<li>Use the green "Run" icon in Dart Editor's tool bar, the
-    <strong>Run > Run</strong> menu item, or the keyboard equivalent.</li>
-
-<li>Click the "Open Observatory" icon in the console window.
-    When Dart Editor executes a standalone app, it opens a console
-    window to display the output. 
-    An "Open Observatory" icon is available in the tool bar for the
-    console window:<br>
-
-<img src="images/OpenObservatoryButton.png" alt="The Observatory navigation bar"><br>
-    If the icon is not clickable, you have not configured your launch
-    correctly in <strong>Managed Launches</strong>.</li>
-</ul>
-
-<aside class="alert alert-info" markdown="1">
-**Note:** Clicking the Open Observatory icon does not launch a fresh
-instance of your application. It merely opens Observatory on the currently
-running app. If you have modified your code, save your changes,
-and use one of the first two options to relaunch your app.
-</aside>
+The next time you launch the app, it uses the specified configuration.
 
 ### Standalone apps from the command line {#standalone-command-line}
 
@@ -185,9 +175,12 @@ Every app has an initial isolate named _root_.
 
 <img src="images/VM-IsolateList.png" alt="List of isolates on the VM screen">
 
-For each isolate, some high-level statistics are displayed.
-For more information on the meaning of these statistics,
+For each isolate, a pie chart shows the breakdown of the activities of the
+VM. For more information on the meaning of these activities,
 see [User and VM Tags](tags.html).
+
+A list of links take you to various Observatory screens. For more
+information, see [Screens in Observatory](screens.html).
 
 Clicking the isolate's name (for example, "root") brings up an isolate screen,
 with detailed information about that isolate. 

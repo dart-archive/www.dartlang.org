@@ -20,20 +20,24 @@ root isolate:
 
 <img src="images/IsolateLinks.png" alt="A sample root isolate screen showing the links">
 
-This summary tells you whether the isolate is running (and what
-expression was being executed at the moment of sampling)  and provides 
+This summary tells you whether the isolate is running (and what expression,
+if any, was being executed at the moment of sampling)  and provides 
 links to screens for browsing aspects of the isolate,
 such as the state of the heap, the stack, and the CPU profile.
+
+A pie chart shows the breakdown of the activities of the
+VM. For more information on the meaning of these activities,
+see [User and VM Tags](tags.html).
 
 <aside class="alert alert-info" markdown="1">
 **Note:** The **breakpoints** feature is not yet implemented.
 For more information, see [Breakpoints](breakpoints.html).
 </aside>
 
-If you have paused the isolate&mdash;by specifying the
-`--pause-isolates-on-start` flag, for example&mdash; a **resume**
-link appears in the isolate screen.
-Clicking this link resumes the process.
+If you have paused the isolate&mdash;by specifying either the
+`--pause-isolates-on-start` or `--pause-isolates-on-exit` flag&mdash;
+a **resume** link appears in the isolate and
+VM screens. Clicking this link resumes the process.
 
 <img src="images/ResumeIsolateButton.png" alt="The link for resuming the isolate">
 

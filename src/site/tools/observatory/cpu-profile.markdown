@@ -148,7 +148,7 @@ Default node expanded to show the activity of the VM tags:
 
 <img src="images/VM-tags.png" alt="A list of the default VM tags">
 
-In the previous example, the VM has spent 37.04% of its time executing
+In the previous example, the VM has spent 35.26% of its time executing
 the application's Dart code. If you expand the Script node,
 the functions labeled with the Script tag are displayed, 
 listed from most CPU intensive to least. The following screenshot
@@ -157,8 +157,8 @@ shows the first 11 rows of the Script subtree:
 <img src="images/VM-tags-detail.png" alt="A list of the default VM tags, with the Script tag expanded">
 
 The first function listed under the script tag,
-`DynamicTree._query`, uses 6.53% of the entire Script category.
-Also, 2.42 of all samples were made while this function was executing.
+`DynamicTree._query`, used 11.23% of the entire Script category.
+Also, 3.96% of all samples were made while this function was executing.
 
 This is a rather flat profile tree where the activity is distributed
 throughout the category&mdash;no single function is using most of the CPU time.

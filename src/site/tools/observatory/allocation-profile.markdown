@@ -16,13 +16,6 @@ header:
   <li> <a href="#allocation-table">Allocation table</a> </li>
 </ol>
 
-<aside class="alert alert-info" markdown="1">
-**Note:** Observatory's UI uses the terms **Heap Profile** and
-**Allocation Profile** interchangeably.
-The documentation uses the term **Allocation Profile**
-([issue 18582](https://code.google.com/p/dart/issues/detail?id=18582)).
-</aside>
-
 Dynamically allocated Dart objects live in a portion of memory
 called the [_heap_](glossary.html#heap). Typically, when an object
 is first allocated, it is created in the part of the heap known as 

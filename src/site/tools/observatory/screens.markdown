@@ -23,7 +23,7 @@ of the state of [old space](glossary.html#old-space)
 and [new space](glossary.html#new-space) at the time of the last sample.
 
 Most direct route
-: Choose the **heap profile** link in an isolate screen, or from the
+: Choose the **allocation profile** link in an isolate screen, or from the
   isolate's pulldown menu in the blue bar.
 
 More information
@@ -44,6 +44,14 @@ fields, and functions.
 
 Most direct route
 : Click a class name from the list in a [library](#library-screen) screen.
+
+### Class hierarchy {#class-hierarchy-feature}
+
+Shows the class hierarchy for the app.
+
+Most direct route:
+: Choose the **class hierarchy** link on the [VM](#vm-screen) screen,
+  or from an [isolate](#isolate-screen) screen.
 
 ### Code {#code-screen}
 
@@ -71,8 +79,8 @@ More information
 Displays a sampled profile of an isolate.
 
 Most direct route
-: Choose the **profile** link on the [VM](#vm-screen) screen,
-  or the **cpu profile** link on an [isolate](#isolate-screen) screen.
+: Choose the **cpu profile** link on the [VM](#vm-screen) screen,
+  or from an [isolate](#isolate-screen) screen.
 
 More information
 : [CPU Profile](cpu-profile.html)
@@ -103,8 +111,8 @@ Most direct route
 Displays allocated memory as a color blocked image.
 
 Most direct route
-: Choose the **map** link on the [VM](#vm-screen) screen, or the
-  **heap map** link on an [isolate](#isolate-screen) screen.
+: Choose the **heap map** link on the [VM](#vm-screen) screen,
+  or from an [isolate](#isolate-screen) screen.
 
 More information
 : [Heap Map](heap-map.html)
@@ -140,7 +148,7 @@ into most aspects of your application.
 Most direct route
 : Choose the **library** link on the [VM](#vm-screen) screen.
   Also, you can also choose from a clickable list of libraries
-  on any [isolate](#isolate-screen) screen.
+  on an [isolate](#isolate-screen) screen.
 
 ### Script {#script-screen}
 

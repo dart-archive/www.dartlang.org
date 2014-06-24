@@ -79,8 +79,8 @@ tag added in the `main()` method:
 Observatory defines the following, default VM tags, which are used 
 throughout the UI:
 
-### Compile {#compile}
-Compiling Dart code.
+### CompileOptimized, CompileScanner, CompileTopLevel, CompileUnoptimized {#compile}
+Compiling Dart code. 
 
 ### GCNewSpace {#gcnewspace}
 Garbage collecting [new space](glossary.html#new-space).
