@@ -99,7 +99,6 @@ and the Dart libraries, the SDK bundle contains the command-line Dart tools:
   * [pub](/tools/pub/) - the Dart package manager
   * [docgen](docgen/) - the API documentation generator
 
-
 <p class="os-choices">
 {% include downloads/_sdk.html buttonclass="btn btn-primary btn-lg" %}
 </p>
@@ -115,9 +114,15 @@ The Dartium binary expires after 12 weeks.
 When that happens, you will need to download a new copy
 to continue using Dartium.
 
-<aside class="alert alert-info" markdown="1">
-**Early Adopter?**  
+<span class="linux">
+<p><strong>SDK for Debian Wheezy</strong></p>
+If you are writing server-side code for Debian Wheezy, you can get a
+<a href="http://storage.googleapis.com/dart-archive/channels/stable/release/latest/linux_packages/debian_wheezy/dart_1.4.3-1_amd64.deb">64-bit SDK for
+Debian Linux</a> package for easily installing the Dart VM and tools
+on a Debian Wheezy server.
 
+<aside class="alert alert-info" markdown="1">
+**Early Adopter?**
 <span class="windows">
 To get new features a few weeks earlier than the stable release,
 you can download the latest **Dev Channel** build of the
@@ -137,7 +142,10 @@ To get new features a few weeks earlier than the stable release,
 you can download the latest **Dev Channel** build of the
 <a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-x64-release.zip">SDK for Linux 64-bit</a>
 or
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-ia32-release.zip">SDK for Linux 32-bit</a>.
+<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-ia32-release.zip">SDK for Linux 32-bit</a>
+or
+<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/linux_packages/debian_wheezy/dart_1.5.0-dev.4.20-1_amd64.deb">Debian
+package SDK for Debian Wheezy 64-bit</a>.
 </span>
 
 <span class="windows">
