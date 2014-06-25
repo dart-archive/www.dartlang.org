@@ -27,6 +27,4 @@ email list.
 To learn more about writing server-side applications in Dart,
 read [writing HTTP Clients & Servers in Dart](/docs/tutorials/httpserver/).
 
-  <!--
-<iframe style="display:block;margin: 0 auto;" autowidth="400" height="225" src="//www.youtube.com/embed/ytT2-kL9v2o" frameborder="0" allowfullscreen></iframe>
--->
+<iframe style="display:block;margin: 0 auto;" width="560" height="315" src="//www.youtube.com/embed/UqolCJsvD_g" frameborder="0" allowfullscreen></iframe>
