@@ -49,7 +49,7 @@ within semantically meaningful HTML.
 <aside class="alert">
 <strong>Version Note:</strong> The code sample and the content
 of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10.</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.11.</a>.
 </aside>
 
 <aside class="alert alert-info">
@@ -94,7 +94,8 @@ Reset the stopwatch to 00:00 using the **Reset** button.
 
 Here's how to use this custom element in an HTML page:
 
-* Import `packages/polymer/polymer.html`.
+* Include the `packages/web_components/platform.js` script.
+* Include the `packages/web_components/dart_support.js` script.
 * Import the HTML file that has the custom element definition
   (`tute_stopwatch.html`).
 * Use the name of the element as an HTML tag
@@ -105,7 +106,8 @@ Here's how to use this custom element in an HTML page:
 For example:
 
 {% prettify html %}
-<link rel="import" href="packages/polymer/polymer.html">
+<script src="packages/web_components/platform.js"></script>
+<script src="packages/web_components/dart_support.js"></script>
 <link rel="import" href="tute_stopwatch.html">
 ...
 <tute-stopwatch></tute-stopwatch>
@@ -133,14 +135,15 @@ Three main source files implement the Stopwatch example:
   </dt>
   <dd>
     The primary HTML file for the app.
-    It imports HTML files for Polymer and the custom element,
-    and it instantiates the custom element.
+    It imports script files for Polymer, and the HTML file for the
+    custom element. It instantiates the custom element.
   </dd>
   <dt>
     tute_stopwatch.html
   </dt>
   <dd>
     The HTML code that defines the custom element.
+    It imports the HTML file for Polymer.
   </dd>
   <dt>
     tute_stopwatch.dart
@@ -153,15 +156,17 @@ Three main source files implement the Stopwatch example:
 The following diagram shows the structure of the example
 app and its use of custom elements:
 
-* <span style="background: rgb(249, 238, 172);">
+* <span style="background: rgb(235, 205, 255);">
+  Include the platform polyfills</span>
+* <span style="background: rgb(254, 237, 156);">
   Import Polymer</span>
 * <span style="background: rgb(190, 249, 221);">
   Import custom element definition</span>
-* <span style="background: rgb(209, 226, 254);">
+* <span style="background: rgb(190, 215, 255);">
   Define, implement, and instantiate custom element by name</span>
 * <span style="background: rgb(235,220,201);">
   Initialize Polymer</span>
-* <span style="background: rgb(242, 209, 235);">
+* <span style="background: rgb(254, 193, 231);">
   Associate Dart class with custom element definition</span>
 
 <img class="scale-img-max" src="images/connections.png"
@@ -189,7 +194,7 @@ by adding the package name, `polymer`, to the list.
 name: stopwatch
 description: A sample application
 dependencies:
-  <b>polymer: ">=0.10.0 &lt;0.11.0"</b>
+  <b>polymer: "&gt;=0.11.0 &lt;0.12.0"</b>
   </pre>
   </li>
 
@@ -224,16 +229,15 @@ Polymer apps have no <tty>main()</tty> function
 and do not use <tty>packages/browser/dart.js</tty>.
 </aside>
 
-* In the primary HTML file for your app,
+* In the HTML file for each custom element,
   import `packages/polymer/polymer.html`
-  in the the &lt;head&gt; section:
+  at the top of the file, before any &lt;polymer-element&gt; tag:
 
   <pre>
-&lt;head>
-  ...
-  <b>&lt;link rel="import" href="packages/polymer/polymer.html"></b>
-  ...
-&lt;/head>
+...
+<b>&lt;link rel="import" href="packages/polymer/polymer.html"></b>
+&lt;polymer-element name="tute-stopwatch">
+...
   </pre>
 
 * In your Dart code, import the Polymer library:
@@ -243,6 +247,19 @@ import 'dart:html';
 import 'dart:async';
 <b>import 'package:polymer/polymer.dart';</b>
 ...
+  </pre>
+
+* In the primary HTML file, include the `packages/web_components/platform.js`
+  and `packages/web_components/dart_support.js` scripts at the top of the
+  &lt;head&gt; tag, before any HTML imports:
+
+  <pre>
+&lt;head&gt;
+  ...
+  <b>&lt;script src="packages/web_components/platform.js">&lt;/script>
+  &lt;script src="packages/web_components/dart_support.js">&lt;/script></b>
+  ...
+&lt;/head&gt;
   </pre>
 
 ##Instantiating a custom element {#instantiating}
@@ -609,7 +626,7 @@ to specify the Polymer transformers:
 {% prettify yaml %}
 ...
 dependencies:
-  polymer: ">=0.10.0 <0.11.0"
+  polymer: ">=0.11.0 <0.12.0"
 transformers:
 - polymer
 {% endprettify %}

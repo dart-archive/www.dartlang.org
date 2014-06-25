@@ -239,7 +239,7 @@ Enter some data and push the **Submit** button.
 <aside class="alert">
 <strong>Version Note:</strong> The slambook app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.11</a>.
 </aside>
 
 The request gives you an innocent stare and displays "No server"

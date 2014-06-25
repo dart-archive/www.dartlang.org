@@ -98,7 +98,7 @@ Use emerging web standards, today.
 <p>
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The examples on this page reflect **polymer.dart 0.10.0**.
+The examples on this page reflect **polymer.dart 0.11.0**.
 For information about polymer.dart versions, see the Versions tab on the
 [polymer.dart pub page](https://pub.dartlang.org/packages/polymer).
 </aside>
@@ -113,7 +113,7 @@ your `pubspec.yaml` file:
 
 {% prettify yaml %}
 dependencies:
-  polymer: ">=0.10.0 <0.11.0"
+  polymer: ">=0.11.0 <0.12.0"
 {% endprettify %}
 
 Then, run `pub get` to download the package and link it into your app.
@@ -133,7 +133,7 @@ you want to use:
 name: my_app
 description: An application that uses a fancy button
 dependencies:
-  polymer: '>=0.10.0 <0.11.0'
+  polymer: '>=0.11.0 <0.12.0'
   [[highlight]]fancy_button: any[[/highlight]]
 {% endprettify %}
 
@@ -152,7 +152,8 @@ Talk about Dart elements vs. JS elements?
 To put a polymer.dart custom element into a web page,
 the HTML file for the web page needs to:
 
-* Import `polymer.html`
+* Include `platform.js` and `dart_support.js` at the top of the file,
+  before any HTML imports
 * Import the HTML file that defines the custom element
 * Instantiate the element
 * Initialize Polymer
@@ -164,7 +165,8 @@ which is defined in a file named `hello_world.html`:
 <!-- In an HTML file -->
 <head>
   ...
-  <link rel="import" href="packages/polymer/polymer.html">
+  <script src="packages/web_components/platform.js"></script>
+  <script src="packages/web_components/dart_support.js"></script>
   <link rel="import" href="[[highlight]]hello_world.html[[/highlight]]">
 </head>
 
@@ -203,8 +205,12 @@ This sample shows a simple custom element. More advanced custom elements
 can contain their own styles, custom behavior, attributes,
 data binding, and more.
 
+In each custom element, import `polymer.html` before the
+&lt;polymer-element&gt; tag.
+
 {% prettify html %}{% raw %}
 <!-- hello_world.html -->
+<link rel="import" href="../packages/polymer/polymer.html">
 <polymer-element name="[[highlight]]hello-world[[/highlight]]" noscript>
   <template>
     <p>Hello from inside a custom element!</p>
