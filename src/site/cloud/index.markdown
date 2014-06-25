@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Dart in the Google Cloud Platform"
-description: "Information on getting started with Dart in the Google Cloud Platform using Google Compute Engine, Google Cloud Datastore, and Google App Engine."
+title: "Dart on Google Cloud Platform"
+description: "Information on getting started with Dart in Google Cloud Platform using Google Compute Engine, Google Cloud Datastore, and Google App Engine."
 ---
 
 # {{ page.title }}
@@ -12,7 +12,7 @@ and at Google I/O we demonstrated running Dart in a custom runtime running on
  [Google App Engine](https://developers.google.com/appengine/)
 that runs on Managed VMs.
 
-Managed VMs and custom runtimes on the Google Cloud Platform are currently available in Limited Preview. You can find out more about Managed VMs from the [Google Cloud Platform Managed VMs](https://developers.google.com/cloud/managed-vms) documentation.
+Managed VMs and custom runtimes on Google Cloud Platform are currently available in Limited Preview. You can find out more about Managed VMs from [Google Cloud Platform Managed VMs](https://developers.google.com/cloud/managed-vms) documentation.
 
 To participate in the discussion on running Dart on the server, and to stay informed with news and announcements, sign up for the
 [cloud@dartlang.org](https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/cloud)
