@@ -217,8 +217,8 @@
 &lt;html&gt;\
   &lt;head&gt;\
     ...\
-    &lt;script src="packages/web_components/platform.js\'94&gt;&lt;/script&gt;\
-    &lt;script src="packages/web_components/dart_support.js&gt;&lt;/script&gt;\
+    &lt;script src="packages/web_components/platform.js"&gt;&lt;/script&gt;\
+    &lt;script src="packages/web_components/dart_support.js"&gt;&lt;/script&gt;\
     &lt;link rel="import" href="tute_stopwatch.html"&gt;\
   &lt;/head&gt;\
   \
@@ -1336,7 +1336,7 @@ class TuteStopwatch extends PolymerElement \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-06-25 05:07:38 +0000</string>
+	<string>2014-06-25 14:03:41 +0000</string>
 	<key>Modifier</key>
 	<string>shaza</string>
 	<key>NotesVisible</key>

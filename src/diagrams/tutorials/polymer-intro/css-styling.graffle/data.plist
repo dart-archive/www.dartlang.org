@@ -90,7 +90,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{187.19999581575394, 24.479999452829361}, {414, 332}}</string>
+			<string>{{185.75999584794044, 24.479999452829361}, {428, 332}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -130,7 +130,7 @@
 \deftab720
 \pard\pardeftab720
 
-\f0\fs24 \cf0 &lt;link rel=\'93import\'94 href=\'93packages/polymer/polymer.html\'94&gt;\
+\f0\fs24 \cf0 &lt;link rel= "import" href= "packages/polymer/polymer.html"&gt;\
 &lt;polymer-element name="tute-stopwatch"&gt;\
  \
   &lt;template&gt;\
@@ -183,8 +183,8 @@
 			<integer>34194</integer>
 			<key>Points</key>
 			<array>
-				<string>{170.3599997907877, 106.45708518816527}</string>
-				<string>{234, 106.02787899265289}</string>
+				<string>{170.3599997907877, 106.45576780950429}</string>
+				<string>{234, 106.02552014842347}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -346,8 +346,8 @@
 			<integer>34191</integer>
 			<key>Points</key>
 			<array>
-				<string>{478.19999581575394, 144.08912731343298}</string>
-				<string>{527, 141.92617921821346}</string>
+				<string>{478.19999581575394, 144.11631681989007}</string>
+				<string>{527, 141.96359491371777}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -538,7 +538,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-06-25 04:56:28 +0000</string>
+	<string>2014-06-25 14:06:29 +0000</string>
 	<key>Modifier</key>
 	<string>shaza</string>
 	<key>NotesVisible</key>
@@ -616,7 +616,7 @@
 		<key>Expanded_Canvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{218, 83}, {1440, 795}}</string>
+		<string>{{0, 83}, {1440, 795}}</string>
 		<key>ShowInfo</key>
 		<true/>
 		<key>ShowRuler</key>
