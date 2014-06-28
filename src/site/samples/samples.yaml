@@ -10,7 +10,7 @@ col1:
         title: Defining a custom element
         explanation_url: /docs/tutorials/polymer-intro
         tryit_url: stopwatch/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/stopwatch
         description: Install Polymer, define and use a simple custom element.
       -
         title: Searchable List
