@@ -117,7 +117,7 @@ to continue using Dartium.
 <span class="linux">
 <p><strong>SDK for Debian Wheezy</strong></p>
 If you are writing server-side code for Debian Wheezy, you can get a
-<a href="http://storage.googleapis.com/dart-archive/channels/stable/release/latest/linux_packages/debian_wheezy/dart_1.5.1-1_amd64.deb">64-bit SDK for
+<a href="http://storage.googleapis.com/dart-archive/channels/stable/release/latest/linux_packages/debian_wheezy/dart_1.5.2-1_amd64.deb">64-bit SDK for
 Debian Linux</a> package for easily installing the Dart VM and tools
 on a Debian Wheezy server.
 
@@ -144,7 +144,7 @@ you can download the latest **Dev Channel** build of the
 or
 <a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-ia32-release.zip">SDK for Linux 32-bit</a>
 or
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/linux_packages/debian_wheezy/dart_1.5.0-dev.4.23-1_amd64.deb">Debian
+<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/linux_packages/debian_wheezy/dart_1.6.0-dev.1.2-1_amd64.deb">Debian
 package SDK for Debian Wheezy 64-bit</a>.
 </span>
 
