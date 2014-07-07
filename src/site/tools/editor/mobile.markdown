@@ -51,16 +51,25 @@ Unless you are using a home network, you probably need to set up
 port forwarding. If you are wondering what port forwarding is,
 see [What is port forwarding and why might I need it?](#why-port-forwarding)
 
+<aside class="alert alert-info" markdown="1">
+**Note:** Chrome must run on both devices at all times while testing
+your app on Android. Chrome passes the packets back and forth between the
+devices, which is why you set up port forwarding in Chrome. (While it works
+to set up port forwarding in Dartium, we do not recommend using
+Dartium as your everyday browser.)
+</aside>
+
+  Check that the Recent Apps screen on your Android device shows that
+  Chrome is running:
+
+ <div class="step-details2" markdown="1">
+ <img src="images/AndroidRecentApps.jpg" alt="the Recent Apps screen on an Android device showing that Chrome is running">
+ </div>
+
 To set up port forwarding:
 
 * Launch Chrome on your Android device.
 * Launch Chrome on your computer and navigate to `chrome://inspect/#devices`.
-
-<aside class="alert alert-info" markdown="1">
-**Note:** Chrome must run on both devices at all times while testing
-your app on Android. Chrome passes the packets back and forth between the
-devices, which is why you set up port forwarding in Chrome and not Dartium.
-</aside>
 
   You should see the following:
 
@@ -185,7 +194,7 @@ If you choose to configure your mobile launch manually in the
 
 If you are using port forwarding, make sure that Chrome is running on
 both devices while testing your app. You set up port forwarding in Chrome
-(not Dartium) because Chrome is passing the packets between the devices.
+because Chrome is passing the packets between the devices.
 
 If you have followed the steps and Dart Editor still cannot see your
 Android device (reporting the message "No mobile found or USB development
