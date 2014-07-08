@@ -1,3 +1,69 @@
+- title: "Dart in Google Cloud"
+  short: dart-in-google-cloud
+  presenters:
+    - Søren Gjesse
+  date: 2014-06-25
+  video: https://www.youtube.com/watch?v=UqolCJsvD_g
+  event: Google I/O Bytes 2014
+
+- title: "Optimizing Dart Applications"
+  short: optimizing-dart-applications
+  presenters:
+    - John McCutchan
+  date: 2014-06-25
+  video: https://www.youtube.com/watch?v=Ww8ISWzZGRE
+  event: Google I/O Bytes 2014
+
+- title: "Making music mobile with the Web"
+  short: making-music-mobile
+  presenters:
+    - Justin Uberti
+    - Per Emanuelsson
+  date: 2014-06-25
+  video: https://www.youtube.com/watch?v=PMH1vM-dSc0
+  event: Google I/O 2014
+
+- title: "How we built Chrome Dev Editor with the Chrome platform"
+  short: how-we-built-chrome-dev-editor
+  presenters:
+    - Sriram Saroop
+    - Devon Carew
+  date: 2014-06-25
+  video: https://www.youtube.com/watch?v=NNLnTz6yIc4
+  event: Google I/O 2014
+
+- title: "Connecting Cloud and Web: Deploying end-to-end apps with Dart"
+  short: connecting-cloud-and-web
+  presenters:
+    - Kevin Moore
+  date: 2014-06-25
+  video: https://www.youtube.com/watch?v=49BH7nxbBmY
+  event: Google I/O 2014
+
+- title: "Building an Optimising Compiler for Dart"
+  short: building-an-optimising-compiler-for-dart
+  presenters:
+    - Vyacheslav Egorov
+  date: 2013-09-18
+  video: http://www.infoq.com/presentations/dart-compiler
+  event: Strangeloop 2013
+
+- title: "Dart for the Language Enthusiast"
+  short: dart-for-the-language-enthusiast
+  presenters:
+    - Bob Nystrom
+  date: 2013-09-18
+  video: http://www.infoq.com/presentations/dart-introduction
+  event: Strangeloop 2013
+
+- title: "Civilizing Web Programming with Dart"
+  short: civilizing-web-programming-with-dart
+  presenters:
+    - Gilad Bracha
+  date: 2014-02-02
+  video: http://www.infoq.com/presentations/dart-motivation-future
+  event: SPLASH 2014
+
 - title: "Developing Dart Editor"
   short: developing-dart-editor
   presenters:
