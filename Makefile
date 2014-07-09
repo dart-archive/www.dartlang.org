@@ -20,7 +20,7 @@ add_release:
 
 deploy: build
 	cd ./build && appcfg.py --oauth2 update .
-	@echo "Visit http://$(CURRENT_BRANCH).dart-lang.appspot.com"
+	@echo "Visit https://$(CURRENT_BRANCH)-dot-dartlang-www.appspot.com"
 
 server:
 ifeq ($(XDGOPEN),)
