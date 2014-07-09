@@ -1,0 +1,6 @@
+/* Site */
+URL: http://www.dartlang.org
+
+/* github release information */
+branch: CURRENT_BRANCH
+tree: https://github.com/dart-lang/dartlang.org/tree/LAST_COMMIT
