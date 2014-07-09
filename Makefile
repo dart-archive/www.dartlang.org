@@ -1,17 +1,22 @@
 CURRENT_BRANCH=$(shell git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+LAST_COMMIT=$(shell git log -n 1 --pretty=format:"%H")
 PWD=$(shell pwd)
 XDGOPEN=$(shell type xdg-open 2>/dev/null)
 
 clean:
 	rm -rf ./build
 
-build: copy add_version
+build: copy add_version add_release
 
 copy: clean
 	cd ./src/site && jekyll build && cd ../.. && cp -R ./src/appengine/* build/
 
 add_version:
 	ruby -p -i -e '$$_.gsub!(/CHANGEME/, "$(CURRENT_BRANCH)")' ./build/app.yaml
+
+add_release:
+	ruby -p -i -e '$$_.gsub!(/CURRENT_BRANCH/, "$(CURRENT_BRANCH)")' ./build/static/release.txt
+	ruby -p -i -e '$$_.gsub!(/LAST_COMMIT/, "$(LAST_COMMIT)")' ./build/static/release.txt
 
 deploy: build
 	cd ./build && appcfg.py --oauth2 update .
