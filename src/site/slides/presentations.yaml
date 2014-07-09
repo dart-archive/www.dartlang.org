@@ -40,22 +40,6 @@
   video: https://www.youtube.com/watch?v=49BH7nxbBmY
   event: Google I/O 2014
 
-- title: "Building an Optimising Compiler for Dart"
-  short: building-an-optimising-compiler-for-dart
-  presenters:
-    - Vyacheslav Egorov
-  date: 2013-09-18
-  video: http://www.infoq.com/presentations/dart-compiler
-  event: Strangeloop 2013
-
-- title: "Dart for the Language Enthusiast"
-  short: dart-for-the-language-enthusiast
-  presenters:
-    - Bob Nystrom
-  date: 2013-09-18
-  video: http://www.infoq.com/presentations/dart-introduction
-  event: Strangeloop 2013
-
 - title: "Civilizing Web Programming with Dart"
   short: civilizing-web-programming-with-dart
   presenters:
@@ -110,13 +94,21 @@
   event: Devoxx 2013
 
 - title: "Building Optimizing Compiler for Dart"
-  short: building-optimizing-compiler
+  short: building-an-optimising-compiler-for-dart
   presenters:
     - Vyacheslav Egorov
   date: 2013-09-18
   slides: http://s3.mrale.ph/StrangeLoop2013.pdf
   video: http://www.infoq.com/presentations/dart-compiler
   event: Strange Loop 2013
+
+- title: "Dart for the Language Enthusiast"
+  short: dart-for-the-language-enthusiast
+  presenters:
+    - Bob Nystrom
+  date: 2013-09-18
+  video: http://www.infoq.com/presentations/dart-introduction
+  event: Strangeloop 2013
 
 - title: "Dart and Web Components - Scalable, Structured Web Apps"
   short: javazone-2013
