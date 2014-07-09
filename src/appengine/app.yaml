@@ -1,6 +1,6 @@
-application: dartlang-www
+application: dart-lang
 version: CHANGEME
-# NOTE: URL is CHANGEME-dot-dartlang-www.appspot.com
+# NOTE: URL is CHANGEME-dot-dart-lang.appspot.com
 #       To specify a name, change 'CHANGEME' to something
 #       like 'prod-zone-article'.
 #
