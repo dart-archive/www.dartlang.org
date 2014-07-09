@@ -149,7 +149,7 @@ First, prepare:
 * Find a copy of the latest .xml files that make up dart-up-and-running.
   For example:
 
-    > ls ~/Spot/dartbook/GITHUB
+    > ls ~/Dart/dartbook/GITHUB
     LICENSE   bookinfo.xml  ch02.xml  ch05.xml  figs
     README.md ch00.xml  ch03.xml  code    foreword.xml
     book.xml  ch01.xml  ch04.xml  colo.xml
@@ -161,7 +161,7 @@ run the following command, specifying the directory that contains ch*.xml:
 
 Example:
 
-    make book BOOK_XML_DIR=~/Spot/dartbook/GITHUB
+    make book BOOK_XML_DIR=~/Dart/dartbook/GITHUB
 
 Wait 4-5 minutes for results.
 
