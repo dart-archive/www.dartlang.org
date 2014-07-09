@@ -12,6 +12,9 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/dartlang.org). Thanks!
 
+[Security Monkey from Netflix](https://github.com/Netflix/security_monkey)
+: Security Monkey monitors policy changes and alerts on insecure configurations in an AWS account.
+
 [DartVoid](http://www.dartvoid.com)
 : Application hosting platform built and optimized for Dart. 
 
