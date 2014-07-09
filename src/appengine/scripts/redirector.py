@@ -29,12 +29,6 @@ class ApiRedirectPage(RequestHandler):
     else:
         self.redirect('http://api.dartlang.org/dart_core/' + filename, permanent=True)
 
-class SpecRedirectPage(RequestHandler):
-  def get(self):
-    suffix = self.request.path.split('/docs/spec/dartLangSpec')[1]
-    if suffix == '.html' or suffix == '.pdf':
-        self.redirect('/docs/spec/latest/dart-language-specification' + suffix, permanent=True)
-
 class PubRedirectPage(RequestHandler):
   def get(self):
     filename = self.request.path.split('/docs/pub-package-manager/')[1]
@@ -124,7 +118,6 @@ def trailing_slash(handler, *args, **kwargs):
 
 application = WSGIApplication(
    [('/docs/api/.*', ApiRedirectPage),
-    ('/docs/spec/dartLangSpec.*', SpecRedirectPage),
     ('/news.*', NewsRedirectPage),
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
@@ -148,6 +141,8 @@ application = WSGIApplication(
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                 '_code': 302}),
+    Route('/docs/spec/<:.*>', RedirectHandler,
+      defaults={'_uri': '/docs/spec/'}),
     Route('/language-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html'}),
     Route('/docs/dart-up-and-running/contents/ch04-tools-dartdoc.html', RedirectHandler,
