@@ -50,5 +50,9 @@ versions.</dd>
 For example, if you follow a symlink in the <code>packages</code> directory
 and modify a package, this affects the canonical copy of that package in
 the system cache. The <code>pub cache repair</code> command performs a clean
-reinstall of all hosted and git packages in the system cache.
-Introduced in 1.4.</dd>
+reinstall of all hosted and git packages in the system cache.</dd>
+
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>

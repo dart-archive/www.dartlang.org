@@ -9,7 +9,7 @@ title: "Pub Commands"
 # {{ page.title }}
 
 Aside from managing packages, [pub](/tools/pub/) also has support for
-building web apps.
+building web and command line apps.
 
 If your web app's directory structure follows pub's [package layout
 conventions](/tools/pub/package-layout.html), you can use the pub
@@ -23,7 +23,9 @@ Quick links to the `pub` commands:
 * [`pub cache`](pub-cache.html)
 * [`pub deps`](pub-deps.html)
 * [`pub get`](pub-get.html)
+* [`pub global`](pub-global.html)
 * [`pub publish`](pub-lish.html)
+* [`pub run`](pub-run.html)
 * [`pub serve`](pub-serve.html)
 * [`pub upgrade`](pub-upgrade.html)
 * [`pub uploader`](pub-uploader.html)
@@ -37,14 +39,18 @@ Pub's commands fall into the following categories:
 
 ## App creation and maintenance
 
-`pub` provides two commands that support
+Pub provides a number of commands that support
 the creation and maintenance of a Dart application.
+
+* The [`pub cache`](pub-cache.html) command works with your system cache.
+  You can add new packages to your cache,
+  or perform a clean reinstall of all packages in your cache.
+
+* The [`pub deps`](pub-deps.html) command lists all of the dependencies
+  used by a package.
 
 * The [`pub get`](pub-get.html) command retrieves the packages that are
   listed as the dependencies for the application.
-
-* The [`pub deps`](pub-deps.html) command lists all of the dependencies
-  used by the package.
 
 * The [`pub upgrade`](pub-upgrade.html) command retrieves the latest
   versions of all the packages that are listed as dependencies
@@ -52,17 +58,37 @@ the creation and maintenance of a Dart application.
 
 ## Development
 
+Pub supports development for web-based apps and command-line apps.
+
+### Web-based apps
+
 During the development cycle of an application, the
 [`pub serve`](pub-serve.html)
 command is used to start up a development server.
 This server can be accessed via the browser on localhost and
 allows you to view your web-based app.
 
+Dart Editor also uses `pub serve` to serve all of the Dart scripts,
+and assets (HTML, images, CSS) to Dartium.
+
+### Command-line apps
+
+There are two commands that you can use to run Dart scripts
+from the command line. Each command first runs any needed
+transformers before invoking the specified script.
+
+* The [`pub run`](pub-run.html) command invokes a Dart script in your
+  package, or in one of its dependencies.
+
+* The [`pub global`](pub-global.html) command lets you work with globally
+  available packages that can be run when you are not currently inside
+  a package.
+
 ## Deployment
 
 When you are ready to deploy your app, the
 [`pub build`](pub-build.html) command
-creates the *build* directory, compiles the Dart code, and places 
+creates the `build` directory, compiles the Dart code, and places 
 the assets into the build directory.
 
 ## Publication

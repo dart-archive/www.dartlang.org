@@ -126,7 +126,7 @@ If omitted, it defaults to "debug".</dd>
 
 </dl>
 
-## What about Dart Editor's server?
-
-Dart Editor has its own dev server. We plan to unify it with the
-pub dev server soon.
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>

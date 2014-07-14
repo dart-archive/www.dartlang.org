@@ -7,7 +7,7 @@ title: "pub deps"
 
 # {{ page.title }}
 
-_Deps_, introduced in Dart 1.4, is one of the commands of the _pub_ tool.
+_Deps_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
 {% prettify lang-sh %}
@@ -55,3 +55,7 @@ For options that apply to all pub commands, see
 : Optional. How the output should be displayed. The options are:
 `compact`, `tree`, or `list`. The default is tree.
 
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>

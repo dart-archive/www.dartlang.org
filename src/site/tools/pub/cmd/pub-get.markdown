@@ -123,3 +123,8 @@ run [`pub upgrade`](pub-upgrade.html) to upgrade to a later version.
 
 For options that apply to all pub commands, see
 [Global options](/tools/pub/cmd/#global-options).
+
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>

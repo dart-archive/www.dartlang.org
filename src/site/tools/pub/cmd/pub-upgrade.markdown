@@ -11,7 +11,7 @@ _Upgrade_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
 {% prettify lang-sh %}
-$ pub upgrade [PACKAGE]
+$ pub upgrade [dependencies...]
 {% endprettify %}
 
 Without any additional arguments, `pub upgrade` gets the latest versions of
@@ -95,3 +95,8 @@ run `pub upgrade` again to upgrade to a later version.
 
 For options that apply to all pub commands, see
 [Global options](/tools/pub/cmd/#global-options).
+
+<aside class="alert alert-info" markdown="1">
+*Problems?*
+See [Troubleshooting Pub](../troubleshoot.html).
+</aside>
