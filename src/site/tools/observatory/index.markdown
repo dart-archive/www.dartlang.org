@@ -29,6 +29,10 @@ Some of Observatory's features allow you to:
 You can use Observatory to examine the internals of a running 
 Dart VM in real time, at any time.
 
+For a brief overview of Observatory, check out the following video.
+
+<iframe style="display:block;margin: 0 auto;" width="560" height="315" src="//www.youtube.com/embed/Ww8ISWzZGRE" frameborder="0" allowfullscreen></iframe>
+
 ## Using Observatory
 
 To get started with Observatory, read the following:

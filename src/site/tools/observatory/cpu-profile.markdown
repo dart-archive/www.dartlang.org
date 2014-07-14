@@ -23,6 +23,11 @@ header:
 
 The CPU profile tells you how the virtual
 machine (VM) has been spending its time when executing an isolate.
+The following video gives a brief overview of Observatory with some
+specific tips on how to use the profiling feature.
+
+<iframe style="display:block;margin: 0 auto;" width="560" height="315" src="//www.youtube.com/embed/Ww8ISWzZGRE" frameborder="0" allowfullscreen></iframe>
+
 Observatory achieves this by _sampling_ the isolate at regular intervals.
 The sampled data is aggregated and displayed in a _profile tree_.
 
