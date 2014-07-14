@@ -15,16 +15,6 @@ dartdoc-viewer."
 Use _docgen_ to generate, and serve,
 the documentation for your Dart package.
 
-<aside class="alert alert-warning" markdown="1">
-The _docgen_ tool is available in the Dart SDK as of the 1.2 release.
-
-Docgen replaces the _dartdoc_ tool, which was removed in revision
-[32387](https://code.google.com/p/dart/source/detail?r=32387).
-
-Docgen is in Early Preview. Please file
-issues and requests on [dartbug.com](http://dartbug.com/new).
-</aside>
-
 ## Basic usage {#basic-usage}
 
 Docgen generates documentation from Dart code in the `lib` directory
@@ -76,6 +66,11 @@ To deploy your documentation to the web, do the following:
 * Host the generated files, which must be in a directory
   named `docs` under the main URL.
 
+<aside class="alert alert-warning" markdown="1">
+Docgen replaces the _dartdoc_ tool, which was removed in revision
+[32387](https://code.google.com/p/dart/source/detail?r=32387).
+</aside>
+
 ## Options {#options}
 
 <aside class="alert alert-info" markdown="1">
@@ -86,35 +81,47 @@ To run docgen from the command line, you might want to
 
 Common command-line options for docgen include:
 
-`--append`
-: Use the same format used the last time the docs were
-  generated, as stated in `library_list.json`.
-  Add the newly generated documentation to the docs directory,
-  library_list.json, and index.txt.
+`--compile`
+: Clone the dartdoc-viewer locally, if needed, and compile with dart2js.
+  Use this version when you [deploy](#deploy) your documentation.
 
-`--indent-json`
-: Create indented JSON output instead of the default
-  (single line) output.
+`-h` or `--help`
+: Display help.
 
 `--out=<directory>`
 : Generate the output to `<directory>`.
   If not specified, the default is `docs`.
+  
+`--package-root`
+: Specifiy the package root of the library.
 
 `--serve`
 : After generating the docs, start the dartdoc-viewer.
   You can view the documentation in the browser at `localhost:8080`.
-
-`-h` or `--help`
-: Display help.
 
 `-v` or `--verbose`
 : Provide logging information.
 
 Some other handy options include:
 
+`--include-private`
+: Include private declarations, which are specified with a leading
+  underscore (<tt>_</tt>). For more information on private
+  identifiers, see
+  [Important Concepts](/docs/dart-up-and-running/contents/ch02.html#ch02-concepts)
+  in the [Dart language tour](/docs/dart-up-and-running/contents/ch02.html).
+
 `--introduction=<markdown file>`
 : Use the specified file as the introduction page for the generated
   documentation.
+
+`--no-docs`
+: Do not generate new documentation. If you have previously
+  generated your docs, use this option in conjunction with
+  `--compile` or `--serve` for faster start-up.
+
+`--no-include-dependent-packages`
+: Do not generate the documentation for dependent packages.
 
 `--start-page=<package>`
 : Use the documentation for the specified package as the starting page.
