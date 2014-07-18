@@ -2,15 +2,38 @@
 
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Fancy button</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Paper input element</title>
+    
     <script src="packages/web_components/platform.js"></script>
     <script src="packages/web_components/dart_support.js"></script>
-    <link rel="import" href="packages/fancy_button/fancy_button.html">
+    <link rel="import" href="packages/paper_elements/paper_input.html">
+    <link rel="import" href="packages/paper_elements/roboto.html">
+    <link rel="import" href="packages/core_elements/core_icons.html">
+    <link rel="import" href="packages/core_elements/core_icon.html">
+    
+    <style shim-shadowdom>
+      body {
+        font-family: Roboto, 'Helvetica Neue', Helvetica, Arial;
+        margin: 0;
+        padding: 24px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-touch-callout: none;
+      }
+    </style>
   </head>
-  <body>
-    <button is="fancy-button">Click me</button>
-
+  <body unresolved>
+    <paper-input label="Type something..."></paper-input>
+    
+    <div>
+      <core-icon icon="polymer"></core-icon>
+    </div>
+    
     <script type="application/dart">export 'package:polymer/init.dart';</script>
   </body>
 </html>

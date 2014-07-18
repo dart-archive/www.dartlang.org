@@ -7,102 +7,36 @@ and data binding for Dart web apps. A Dart port of Polymer."
 has-permalinks: true
 ---
 
-<style>
+{% include toc.html %}
 
-.features h2 {
-  color: gray;
-}
+<h1>
+  {{page.title}}
+  <img src="images/polymer-logo.svg" alt="Polymer logo"
+       style="vertical-align:baseline" height="35">
+</h1>
 
-.features i {
-  font-size: 5em;
-}
+Use polymer.dart—a Dart port of [Polymer](http://www.polymer-project.org)—to
+build structured, encapsulated, client-side web apps with Dart and
+web components.
 
-ol {
-  margin-left: 11px;
-}
+![Paper sampler on desktop](images/iconbutton-big.png){: .thinborder}
+![Paper sampler on mobile](images/iconbutton-small.png)
 
-hr {
-  margin: 44px 0;
-}
+With polymer.dart, you can:
 
-.jumbotron h1 {
-  margin-bottom: 22px;
-}
+* Use Polymer custom elements.
+* Design your own HTML tags to encapsulate style, structure, and behavior.
+* Create live, two-way bindings between Dart objects and DOM nodes.
+* Use emerging web standards—Custom Elements, HTML Imports, Shadow DOM,
+  and more—today.
 
-</style>
-
-<div class="jumbotron">
-      <h1> {{page.title}} </h1>
-      <p>
-        Build structured, encapsulated, client-side web apps with Dart and
-        web components.<br>
-        <em>A Dart port of
-        <a href="http://www.polymer-project.org">Polymer</a>.</em>
-      </p>
-</div>
-
-<div markdown="1">
-
-<div class="col-md-4" markdown="1">
-
-<div class="bs-sidebar hidden-print" data-spy="affix"
-    data-offset-top="310" data-offset-bottom="350" role="complementary"
-    markdown="1">
-
-1. ToC
-{:toc .toc .nav .bs-sidenav}
-
-</div>
-
-</div>
-
-<div class="col-md-8" markdown="1">
-
-## Features
-
-<div class="row features">
-
-<div class="col-md-4 text-center">
-
-<i class="fa fa-code"> </i>
-
-<h2 class="no-permalink">Custom tags</h2>
-
-Design your own HTML tags to encapsulate
-style, structure, and behavior.
-
-</div>
-
-<div class="col-md-4 text-center">
-
-<i class="fa fa-exchange"> </i>
-
-<h2 class="no-permalink">Data binding</h2>
-
-Create live, two-way bindings between Dart objects and DOM nodes.
-
-</div>
-
-<div class="col-md-4 text-center">
-
-<i class="fa fa-check"> </i>
-
-<h2 class="no-permalink">Standards<br><br></h2>
-
-Use emerging web standards, today.
-
-</div>
-
-</div>
-
-<p>
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The examples on this page reflect **polymer.dart 0.11.0**.
+The code samples on this page reflect **polymer.dart 0.11.0**.
 For information about polymer.dart versions, see the Versions tab on the
 [polymer.dart pub page](https://pub.dartlang.org/packages/polymer).
 </aside>
-</p>
+
 
 <hr>
 ## Installing polymer.dart
@@ -122,7 +56,7 @@ Then, run `pub get` to download the package and link it into your app.
 <hr>
 ## Installing custom elements
 
-You can get polymer.dart custom elements with `pub`.
+You can use `pub` to get many polymer.dart custom elements.
 
 First, edit your `pubspec.yaml` file.
 Add a dependency for each package containing the custom elements
@@ -131,19 +65,27 @@ you want to use:
 <!-- from polymer-dart/get_element/pubspec.yaml -->
 {% prettify yaml %}
 name: my_app
-description: An application that uses a fancy button
+description: An application that uses core and paper elements
 dependencies:
   polymer: '>=0.11.0 <0.12.0'
-  [[highlight]]fancy_button: any[[/highlight]]
+  [[highlight]]core_elements: ">=0.0.6 <0.1.0"[[/highlight]]
+  [[highlight]]paper_elements: ">=0.0.1 <0.1.0"[[/highlight]]
 {% endprettify %}
 
 Next, run `pub get`.
 
-{% comment %}
-PENDING: Talk about where you can find polymer.dart custom elements.
-Talk about Dart elements vs. JS elements?
-{% endcomment %}
-
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The [core_elements package](http://pub.dartlang.org/packages/core_elements)
+provides Dart wrappers around the Polymer project's
+[core elements](http://www.polymer-project.org/docs/elements/core-elements.html),
+which are general-purpose UI and non-UI elements.
+The [paper_elements package](http://pub.dartlang.org/packages/paper_elements)
+wraps the project's
+[paper elements](http://www.polymer-project.org/docs/elements/material.html)—elements that
+adhere to Google's _material design_ guidelines.
+**The core and paper elements are early access and still changing**.
+</aside>
 
 
 <hr>
@@ -152,36 +94,47 @@ Talk about Dart elements vs. JS elements?
 To put a polymer.dart custom element into a web page,
 the HTML file for the web page needs to:
 
-* Include `platform.js` and `dart_support.js` at the top of the file,
+* Include `platform.js` and `dart_support.js` near the top of the file,
   before any HTML imports
 * Import the HTML file that defines the custom element
 * Instantiate the element
 * Initialize Polymer
 
-Here's an example of using a custom element, `<hello-world>`,
-which is defined in a file named `hello_world.html`:
+Here's an example of using a `<paper-input>` element
+from the paper_elements package:
 
+<!-- from polymer-dart/get_element/web/index.html -->
 {% prettify html %}
 <!-- In an HTML file -->
 <head>
   ...
   <script src="packages/web_components/platform.js"></script>
   <script src="packages/web_components/dart_support.js"></script>
-  <link rel="import" href="[[highlight]]hello_world.html[[/highlight]]">
+  <link rel="import" href="[[highlight]]packages/paper_elements/paper_input.html[[/highlight]]">
+  ...
 </head>
-
-<body>
-  [[highlight]]<hello-world></hello-world>[[/highlight]]
+<body unresolved>
+  [[highlight]]<paper-input label="Type something..."></paper-input>[[/highlight]]
+  ...
   <script type="application/dart">export 'package:polymer/init.dart';</script>
 </body>
 {% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The `unresolved` attribute in the `<body>` tag
+ensures that no Polymer custom elements display
+before Polymer is ready.
+</aside>
 
 Some custom elements extend native HTML elements.
 Instead of using a custom tag,
 you instantiate one of these elements by adding an `is` attribute
 to the native element.
-For example, instead of using `<fancy_button>`
-to instantiate a fancy button that extends the HTML `<button>` element,
+For example, the fancy_button package
+defines an element that extends the HTML `<button>` element.
+To instantiate a fancy button,
+instead of using `<fancy_button>`
 you use this code:
 
 {% prettify html %}

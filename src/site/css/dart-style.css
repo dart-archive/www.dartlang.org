@@ -1516,3 +1516,8 @@ dd{
 .titlepage h3 {
   font: 400 26px/32px 'Montserrat', sans-serif;
 }
+
+/* Add a box; needed for some screenshot images. */
+.thinborder {
+    border:1px solid #021a40;
+}
