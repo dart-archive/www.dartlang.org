@@ -529,10 +529,6 @@ to instantiate document fragments with identical contents.
 : A way to include and reuse HTML documents in other HTML documents.
 
 
-</div>
-
-</div>
-
 [polymer]: http://www.polymer-project.org
 [so]: http://stackoverflow.com/tags/dart
 [web-list]: https://groups.google.com/a/dartlang.org/forum/#!forum/web
