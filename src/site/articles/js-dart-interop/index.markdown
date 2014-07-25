@@ -42,7 +42,6 @@ And add the following scripts:
 
 {% prettify html %}
 <script src="packages/browser/dart.js"></script>
-<script src="packages/browser/interop.js"></script>
 {% endprettify %}
 
 ## JsObject and the context getter
