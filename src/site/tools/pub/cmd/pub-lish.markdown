@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub publish"
+description: "Use pub publish to publish your Dart package to pub.dartlang.org."
 ---
 
 {% include breadcrumbs.html %}

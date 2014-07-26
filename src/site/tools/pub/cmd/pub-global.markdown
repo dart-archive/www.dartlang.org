@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "pub global"
-description: "Run Dart scripts from the command line, from anywhere on your machine."
+description: "Use pub global to run Dart scripts hosted on pub.dartlang.org from the command line."
 ---
 
 {% include breadcrumbs.html %}
@@ -23,15 +23,19 @@ $ pub global deactivate <package>
 {% endprettify %}
 
 Use this command to run Dart scripts from the command line when
-you are not currently inside a package. The scripts must be inside of
-a package hosted on [pub.dartlang.org](http://pub.dartlang.org/).
+you are not currently inside a package.
+Currently, you can only globally install a package that is hosted on 
+[pub.dartlang.org](http://pub.dartlang.org/). The functionality of
+this feature will expand in future releases.
 
-If you want to run a Dart script from your package or one you depend on,
+If you want to run a Dart script from within a package or one you depend on,
 see [pub run](pub-run.html).
 
 ## Activating a package
 
-Use `pub global activate` to make the package available locally.
+Use `pub global activate` to enable you to run a package's executables
+from anywhere on your machine.
+
 You can specify an optional constraint.
 The following example pulls the 0.6.0 version of the `markdown` package:
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub deps"
+description: "Use pub deps to print a dependency graph for a package."
 ---
 
 {% include breadcrumbs.html %}

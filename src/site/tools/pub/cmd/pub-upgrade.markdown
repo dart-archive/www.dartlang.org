@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub upgrade"
+description: "Use pub upgrade to get the latest versions of all dependencies used by your Dart application."
 ---
 
 {% include breadcrumbs.html %}
