@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Pub Assets and Transformers"
+description: Transforming and generating assets and files during development
+             and build time.
 ---
 
 {% include toc.html %}
@@ -35,7 +37,7 @@ to be in `lib`.
 After transformation by `pub build`, assets are
 available under a directory called `build`. Assets generated from
 files in a package's `lib` directory appear under a directory named
-<code>packages/<em>&lt;pkg_name></em></code>.
+<code>packages/<em>&lt;pkg_name&gt;</em></code>.
 For details, see
 [Where to put assets](#where-to-put-assets) and
 [How to refer to assets](#how-to-refer-to-assets).
@@ -135,8 +137,8 @@ assets located in the `lib` directory have additional visibilty:
 
 <aside class="alert alert-info" markdown="1">
 Prior to Dart 1.4, assets were also placed in the top-level
-<tt>asset</tt> directory. The <tt>asset</tt> directory is being deprecated.
-Pub prints a warning in 1.4 and the <tt>asset</tt> directory will be
+`asset` directory. The `asset` directory is deprecated.
+Pub prints a warning in 1.4 and the `asset` directory was
 removed in 1.5.
 </aside>
 
@@ -213,9 +215,9 @@ helloworld directory at `web/helloworld.html`. Running `pub build` produces a
 copy at `build/helloworld.html`. In the dev server, you can get the HTML file
 contents by using the URL `http://localhost:8080/helloworld.html`.
 
-Transformers might change any part of <em>&lt;path></em>, especially the
+Transformers might change any part of <em>&lt;path&gt;</em>, especially the
 filename, but they can't change the directory structure above
-<em>&lt;path></em>.
+<em>&lt;path&gt;</em>.
 
 [assets]: glossary.html#asset
 [transformers]: glossary.html#transformer
@@ -241,11 +243,10 @@ You must provide the file's location from the top of the package.
 <aside class="alert alert-info" markdown="1">
 **Note**:
 To pass a value to the transformer,
-put a colon (<tt>:</tt>) after the transformer's name.
+put a colon (`:`) after the transformer's name.
 Indent the next line by 4 spaces and use the form:
-<tt><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;parameter&gt;: &lt;value&gt;
-</tt>
+
+        <parameter>: <value>
 </aside>
 
 If you want a transformer to run _only_ on a particular file, you can
@@ -298,11 +299,10 @@ allows warnings when compiling all other Dart files.
 <aside class="alert alert-info" markdown="1">
 **Note**:
 To pass a value to the transformer,
-put a colon (<tt>:</tt>) after the transformer's name.
+put a colon (`:`) after the transformer's name.
 Indent the next line by 4 spaces and use the form:
-<tt><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;parameter&gt;: &lt;value&gt;
-</tt>
+
+        <parameter>: <value>
 </aside>
 
 ## Writing a transformer {#writing-transformer}

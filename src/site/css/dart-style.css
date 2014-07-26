@@ -563,6 +563,16 @@ i.sprite-icon-download-btn {
 
 /* ***** Code ***** */
 
+aside pre {
+  background-color: transparent;
+  border: 0;
+  margin-bottom: 0;
+}
+
+aside code {
+  background-color: transparent;
+}
+
 pre.prettyprint {
   background-color: #f8f8f8;
 }
