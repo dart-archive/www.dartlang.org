@@ -106,7 +106,7 @@ Some other handy options include:
 
 `--include-private`
 : Include private declarations, which are specified with a leading
-  underscore (<tt>_</tt>). For more information on private
+  underscore (`_`). For more information on private
   identifiers, see
   [Important Concepts](/docs/dart-up-and-running/contents/ch02.html#ch02-concepts)
   in the [Dart language tour](/docs/dart-up-and-running/contents/ch02.html).

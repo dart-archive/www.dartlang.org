@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub global"
+description: "Run Dart scripts from the command line, from anywhere on your machine."
 ---
 
 {% include breadcrumbs.html %}
@@ -8,7 +9,7 @@ title: "pub global"
 # {{ page.title }}
 
 <aside class="alert alert-info" markdown="1">
-**Note:** The <tt>global</tt> command for pub is coming in 1.6, but is available
+**Note:** The `global` command for pub is coming in 1.6, but is available
 now in the [Dev Channel download](https://www.dartlang.org/tools/download.html).
 </aside>
 

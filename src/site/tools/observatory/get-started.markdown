@@ -52,7 +52,7 @@ No matter how you launch Observatory, its UI is exactly the same.
 <aside class="alert alert-info" markdown="1">
 **For Windows users:** Observatory's [CPU Profile](cpu-profile.html)
 screen is disabled by default.  Specify the
-[<tt>--profile</tt>](/tools/dart-vm/#observatory) option when
+[<code>--profile</code>](/tools/dart-vm/#observatory) option when
 you launch your app to enable it.
 </aside>
 

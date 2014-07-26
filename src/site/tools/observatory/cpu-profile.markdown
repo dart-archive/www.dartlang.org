@@ -10,16 +10,11 @@ header:
 
 # {{ page.title }}
 
-<h4>Contents</h4>
-<ol class="toc">
-  <li> <a href="#profile-tree">Profile tree</a> </li>
-  <li> <a href="#tags">Tags</a>
-  <ol class="toc">
-    <li> <a href="#inspecting-vm-tags">Inspecting VM tags</a> </li>
-    <li> <a href="#defining-user-tags">Defining user tags</a> </li>
-    <li> <a href="#configuring-tag-display">Configuring tag display</a> </li>
-  </ol> </li>
-</ol>
+#### Contents
+{:.no_toc}
+
+1. ToC
+{:toc}
 
 The CPU profile tells you how the virtual
 machine (VM) has been spending its time when executing an isolate.
@@ -39,7 +34,7 @@ the oldest samples are replaced with new samples.
 <aside class="alert alert-info" markdown="1">
 **For Windows users:** Observatory's [CPU Profile](cpu-profile.html)
 screen is disabled by default.  Specify the
-[<tt>--profile</tt>](/tools/dart-vm/#observatory) option when
+[<code>--profile</code>](/tools/dart-vm/#observatory) option when
 you launch your app to enable it.
 </aside>
 

@@ -226,8 +226,8 @@ package's `lib` directory.
 
 <aside class="alert alert-info" markdown="1">
 Prior to Dart 1.4, assets were also placed in the top-level
-<tt>asset</tt> directory. The <tt>asset</tt> directory is being deprecated.
-Pub prints a warning in 1.4 and the <tt>asset</tt> directory will be
+`asset` directory. The `asset` directory is being deprecated.
+Pub prints a warning in 1.4 and the `asset` directory will be
 removed in 1.5.
 </aside>
 

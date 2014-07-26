@@ -8,7 +8,7 @@ title: "pub run"
 # {{ page.title }}
 
 <aside class="alert alert-info" markdown="1">
-**Note:** The <tt>run</tt> command for pub is coming in 1.6, but is available
+**Note:** The `run` command for pub is coming in 1.6, but is available
 now in the [Dev Channel download](https://www.dartlang.org/tools/download.html).
 </aside>
 

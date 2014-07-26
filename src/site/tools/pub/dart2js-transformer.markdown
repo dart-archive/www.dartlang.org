@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Configuring the Built-in dart2js Transformer"
+title: "Configuring the Built-in dart2js Transformer for Pub"
 ---
 
 {% include breadcrumbs.html %}

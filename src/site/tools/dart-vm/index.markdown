@@ -22,8 +22,8 @@ dart test.dart
 {% endprettify %}
 
 <aside class="alert alert-info" markdown="1">
-**Note:** You can't use <tt>dart</tt> to run web apps&mdash;apps
-that include <tt>dart:html</tt>, or that depend on libraries
+**Note:** You can't use `dart` to run web apps&mdash;apps
+that include `dart:html`, or that depend on libraries
 that use the browser environment. For more information, see
 [About Dart applications](/docs/tutorials/get-started/#what-is-app).
 </aside>
@@ -63,7 +63,7 @@ instruct the VM to delay the start up, or the exit, of an isolate:
 `--enable-vm-service=<port>/<IP address>`
 : Enables Observatory on an external network using the specified
   IP address and port. For example:
-  <code>--enable-vm-service=9999/0.0.0.0</code>
+  `--enable-vm-service=9999/0.0.0.0`
 
 `--pause-isolates-on-exit`
 : Causes the VM to pause each isolate that would otherwise exit.

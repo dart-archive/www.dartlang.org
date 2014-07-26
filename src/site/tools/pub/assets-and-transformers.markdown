@@ -196,18 +196,22 @@ Here's how source asset locations correlate to generated asset locations,
 for untransformed files:
 
 <table>
-  <tr>
-    <th> Source asset location </th>
-    <th> Generated asset location<br>(under the build root) </th>
-  </tr>
-  <tr>
-    <td> <code>.../<em>&lt;your_pkg></em>/web/<em>&lt;path></em></code> </td>
-    <td> <code>/<em>&lt;path></em></code> </td>
-  </tr>
-  <tr>
-    <td> <code>.../<em>&lt;pkg_name></em>/lib/<em>&lt;path></em></code> </td>
-    <td> <code>/packages/<em>&lt;pkg_name></em>/<em>&lt;path></em></code> </td>
-  </tr>
+  <thead>
+    <tr>
+      <th> Source asset location </th>
+      <th> Generated asset location<br>(under the build root) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <code>.../<em>&lt;your_pkg></em>/web/<em>&lt;path></em></code> </td>
+      <td> <code>/<em>&lt;path></em></code> </td>
+    </tr>
+    <tr>
+      <td> <code>.../<em>&lt;pkg_name></em>/lib/<em>&lt;path></em></code> </td>
+      <td> <code>/packages/<em>&lt;pkg_name></em>/<em>&lt;path></em></code> </td>
+    </tr>
+  </tbody>
 </table>
 
 For example, consider a helloworld app's HTML file, which is in the
