@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub uploader"
+description: "Use pub uploader to add or remove uploaders for your Dart package on pub.dartlang.org."
 ---
 
 {% include breadcrumbs.html %}

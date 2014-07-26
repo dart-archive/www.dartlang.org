@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub serve"
+Description: "Use pub serve to start up a development server for your Dart application."
 ---
 
 {% include breadcrumbs.html %}

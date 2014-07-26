@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub get"
+description: "Use pub get to retrieve the dependencies used by your Dart application."
 ---
 
 {% include breadcrumbs.html %}

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub run"
+description: "Use pub run to run a Dart script in your package."
 ---
 
 {% include breadcrumbs.html %}

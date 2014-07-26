@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Pub Commands"
+description: "Pub, a package and asset management tool for Dart, supports a variety of commands."
 ---
 
 {% include toc.html %}

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "pub build"
+description: "Use pub build to deploy your Dart application."
 ---
 
 {% include breadcrumbs.html %}
