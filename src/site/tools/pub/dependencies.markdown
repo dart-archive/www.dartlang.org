@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "Pub Dependencies"
+description: Add other packages to your app. Specify package locations,
+             version constraints, and more.
 ---
 
 {% include toc.html %}
@@ -208,28 +210,28 @@ semantic versioning tells you that it should work (at least) up to `2.0.0`.
 
 A version constraint is a series of:
 
-<code>any</code>
+`any`
 : The string "any" allows any version. This is equivalent to an empty
     version constraint, but is more explicit.
 
-<code>1.2.3</code>
+`1.2.3`
 : A concrete version number pins the dependency to only allow that
     <em>exact</em> version. Avoid using this when you can because it can cause
     version lock for your users and make it hard for them to use your package
     along with other packages that also depend on it.
 
-<code>&gt;=1.2.3</code>
+`>=1.2.3`
 : Allows the given version or any greater one. You'll typically use this.
 
-<code>&gt;1.2.3</code>
+`>1.2.3`
 : Allows any version greater than the specified one but <em>not</em> that
   version itself.
 
-<code>&lt;=1.2.3</code>
+`<=1.2.3`
 : Allows any version lower than or equal to the specified one. You
   <em>won't</em> typically use this.
 
-<code>&lt;1.2.3</code>
+`<1.2.3`
 : Allows any version lower than the specified one but <em>not</em> that
   version itself. This is what you'll usually use because it lets you specify
   the upper version that you know does <em>not</em> work with your package
@@ -241,8 +243,8 @@ together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
 
 <aside class="alert alert-info">
 
-Note that <code>&gt;</code> is also valid YAML syntax so you will want to quote
-the version string (like <code>'&lt;=1.2.3 &gt;2.0.0'</code>) if the version
+Note that `>` is also valid YAML syntax so you will want to quote
+the version string (like `'<=1.2.3 >2.0.0'`) if the version
 constraint starts with that.
 
 </aside>
@@ -326,17 +328,14 @@ may break your application.
 
 ---
 
-<!-- We can't use the built-in Markdown footnote syntax here because it
-     conflicts with the TOC header. -->
-<ol>
-<li id="fn:semver">
 
-Pub follows version <code>2.0.0-rc.1</code> of the semantic versioning spec,
+<aside id="fn:semver" class="footnote">
+
+[1] Pub follows version `2.0.0-rc.1` of the semantic versioning spec,
 because that version allows packages to use build identifiers (e.g.
-<code>+12345</code>) to differentiate versions. <a href="#fnref:semver">↩</a>
+`+12345`) to differentiate versions. <a href="#fnref:semver">↩</a>
 
-</li>
-</ol>
+</aside>
 
 [pubsite]: http://pub.dartlang.org
 [semantic versioning]: http://semver.org/spec/v2.0.0-rc.1.html

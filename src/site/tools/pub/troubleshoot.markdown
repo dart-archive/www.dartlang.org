@@ -8,13 +8,11 @@ description: "Common gotchas you might run into when using Pub."
 
 # {{ page.title }}
 
-<h4>Contents</h4>
-<ol class="toc">
-<li><a href="#pub-publish-403">Getting a "403" error when publishing
-     a package</a></li>
-<li><a href="#pub-get-fails">Pub build fails with HttpException
-     error</a></li>
-</ol>
+#### Contents
+{:.no_toc}
+
+1. ToC
+{:toc}
 
 ### Getting a "403" error when publishing a package {#pub-publish-403}
 

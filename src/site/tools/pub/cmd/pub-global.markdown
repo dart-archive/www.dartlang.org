@@ -9,7 +9,7 @@ description: "Use pub global to run Dart scripts hosted on pub.dartlang.org from
 # {{ page.title }}
 
 <aside class="alert alert-info" markdown="1">
-**Note:** The <tt>global</tt> command for pub is coming in 1.6, but is available
+**Note:** The `global` command for pub is coming in 1.6, but is available
 now in the [Dev Channel download](https://www.dartlang.org/tools/download.html).
 </aside>
 
