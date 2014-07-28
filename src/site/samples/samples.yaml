@@ -43,36 +43,6 @@ col1:
         source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/tracker/
         description: A full Polymer app with multiple custom elements.
   -
-    heading: angular.dart
-    anchor: angular_dart
-    screenshot: angular_todo.png
-    caption: "Angular Dart demo: Todo"
-    link: angular_todo/
-    examples:
-      -
-        title: Hello world
-        explanation_url: https://github.com/angular/angular.dart.tutorial/wiki/Creating-your-first-Angular-app
-        tryit_url: helloworld/
-        source_url: https://github.com/angular/angular.dart/tree/master/example/web/
-        description: A first app with Angular and Dart.
-      -
-        title: Todo
-        explanation_url: https://github.com/angular/angular.dart/tree/master/example/web/
-        tryit_url: angular_todo/
-        source_url: https://github.com/angular/angular.dart/tree/master/example/web/
-        description: A todo implementation in Angular and Dart.
-      -
-        title: Bouncing balls
-        explanation_url: https://github.com/angular/angular.dart/tree/master/example/web/
-        source_url: https://github.com/angular/angular.dart/tree/master/example/web/
-        description: Advanced demo with Controllers, Directives and Dependency Injection. Uses advanced features like scope and zone.
-      -
-        title: Recipe book tutorial app
-        explanation_url: https://github.com/angular/angular.dart.tutorial#welcome-to-the-angulardart-tutorial
-        tryit_url: recipe_book/
-        source_url: https://github.com/angular/angular.dart.tutorial
-        description: Part Six of a multipart Angular Dart tutorial.
-  -
     heading: Using JavaScript from Dart
     anchor: using_javascript_from_dart
     screenshot: google_maps.png
