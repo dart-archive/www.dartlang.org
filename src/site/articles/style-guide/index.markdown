@@ -690,8 +690,9 @@ Capitalized acronyms can be harder to read, and are ambiguous when you have
 multiple adjacent acronyms. Given the name `HTTPSFTPConnection`, there's no way
 to tell if that's an HTTPS FTP connection or an HTTP SFTP one.
 
-To avoid this, acronyms are capitalized like regular words, except for
-two-letter ones.
+To avoid this, acronyms and abbreviations are capitalized like regular words,
+except for two-letter acronyms. (Two-letter *abbreviations* like
+ID and Mr. are still capitalized like words.)
 
 <div class="good">
 {% prettify dart %}
@@ -699,8 +700,10 @@ HttpConnection
 uiHandler
 IOStream
 HttpRequest
-ID
+Id
 id
+Pt
+DB
 {% endprettify %}
 </div>
 
@@ -710,7 +713,9 @@ HTTPConnection
 UiHandler
 IoStream
 HTTPRequest
-Id
+ID
+PT
+Db
 {% endprettify %}
 </div>
 
