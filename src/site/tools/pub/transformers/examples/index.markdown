@@ -16,24 +16,31 @@ be part of a deployed package.
 
 The following are examples of custom transformers written using
 the [barback](http://pub.dartlang.org/packages/barback) package.
-See [Writing a Pub Transformer](/tools/pub/transformers/) for more information
-about these examples.
+The description for each example states where you can get more information
+about that particular example.
 
-simple_transformer
-: Inserts a copyright string at the beginning of a ".txt" file.
+aggregate_transformer
+: Combines partial HTML files contained in a "recipes" directory into a
+  single HTML file. See
+  [Writing an Aggregate Transformer](/tools/pub/transformers/aggregate.html)
+  for more information.
 
 markdown_converter
 : Converts a markdown file (with either a ".mdown", ".md", or
   a ".markdown" extension) to HTML. The output asset has
-  an ".html" extension.
+  an ".html" extension.  See
+  [Writing a Pub Transformer](/tools/pub/transformers/) for more information.
 
-You get both of these examples when you download the
+simple_transformer
+: Inserts a copyright string at the beginning of a ".txt" file. See
+  [Writing a Pub Transformer](/tools/pub/transformers/) for more information.
+
+You get all of these examples when you download the
 [`barback`](http://pub.dartlang.org/packages/barback) package.
 
 Once you download and open the barback package, these examples
 are under the `/example` directory.  You can run
 `pub build` to generate the assets, or `pub serve` to serve
 the assets. Sample input assets are
-included under the `web` directory, and the output assets
-(after running `pub build`) are placed under the `build`
-directory.
+included, and the output assets (after running `pub build`)
+are placed under the `build` directory.

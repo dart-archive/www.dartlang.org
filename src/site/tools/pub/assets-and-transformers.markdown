@@ -10,9 +10,11 @@ description: Transforming and generating assets and files during development
 
 # {{ page.title }}
 
-The [`pub serve`](cmd/pub-serve.html) and [`pub build`](cmd/pub-build.html)
-commands use [transformers][] to prepare a package's [assets][] to be served
-locally or to be deployed, respectively.
+The [`pub serve`](cmd/pub-serve.html), [`pub build`](cmd/pub-build.html)
+and [`pub run`](cmd/pub-run.html) commands use [transformers][]
+to prepare a package's [assets][] before serving the app,
+building the app for deployment, or executing the command line app, 
+as the case may be.
 
 Use the `pubspec.yaml` file to specify which transformers your package uses
 and, if necessary, to configure the transformers. (See
@@ -56,8 +58,8 @@ Although you specify which transformers to use, you don't explicitly say
 which transformers should be applied to which assets. Instead, each
 transformer determines which assets it can apply itself to. For `pub serve`,
 the transformers run when the dev server starts up and whenever a source
-asset changes. The `pub build` command runs the transformers once and
-then exits.
+asset changes. The `pub build` and `pub run` commands run the transformers
+once and then exit.
 
 As the following figure shows, source assets can pass through, untransformed,
 and become generated assets. Or a source asset can be transformed, such as a
@@ -89,8 +91,9 @@ dependencies:
 </pre>
 
 The following example configures the [dart2js](/tools/dart2js/)
-transformer, which is used by both [`pub serve`](cmd/pub-serve.html)
-and [`pub build`](cmd/pub-build.html), to analyze the code:
+transformer, which is used by [`pub serve`](cmd/pub-serve.html),
+[`pub build`](cmd/pub-build.html) and [`pub run`](pcmd/pub-run.html),
+to analyze the code:
 
 {% prettify yaml %}
 transformers:

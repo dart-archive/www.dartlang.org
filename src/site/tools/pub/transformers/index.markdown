@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Writing a Pub Transformer"
+description: How to write a Pub transformer that processes a single input asset.
 header:
   css: ["transformers.css"]
 ---
@@ -23,6 +24,14 @@ Before reading further, read
 [Pub Assets and Transformers](/tools/pub/assets-and-transformers.html)
 to familiarize yourself with assets, transformers, and how they
 relate to each other.
+
+You can write different kinds of transformers depending on the
+type of work you need to perform. A basic Pub transformer processes
+a single input asset. If you need to process multiple inputs with no single
+primary input&ndash;you want to combine several images into one image, 
+for example&ndash;you can write an _aggregate_ transformer.
+For more information, see
+[Writing an Aggregate Tranformer](aggregate.html).
 
 This page uses two examples, SimpleTransformer and
 MarkdownConverter, which you can find through
@@ -308,17 +317,20 @@ and
 [How to refer to assets](/tools/pub/assets-and-transformers.html#how-to-refer-to-assets)
 for specifics.
 
-The `pub build` and `pub serve` commands automatically run transformers.
-For more information, see
+The `pub build`, `pub serve`, and `pub run` commands automatically run
+transformers. For more information, see
 [How transformers work](/tools/pub/assets-and-transformers.html#how-transformers-work).
 
 ## More information {#more-info}
 
+* [Writing an Aggregate Transformer](aggregate.html)
+: How to write a transformer that combines multiple input assets
+  into a single output.
 * [Writing a Pub Transformer: Examples](examples/)
 : Examples to get you started.
 * [barback library](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/barback)
 : API docs for the barback package.
 * [Barback - Can We Build It? Yes, We Can!](https://docs.google.com/a/google.com/document/d/1juHkCRg-1YH6LvwhGPHgF2ihX-UQtR1fv-8aknO7t_4/edit?pli=1#)
 : A description of the barback asset system, written by a
-member of the Dart engineering team. 
+  member of the Dart engineering team. 
 
