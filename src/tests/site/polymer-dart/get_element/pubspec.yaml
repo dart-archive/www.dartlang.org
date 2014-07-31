@@ -1,7 +1,7 @@
 name: my_app
 description: An application that uses core and paper elements
 dependencies:
-  polymer: '>=0.11.0 <0.12.0'
+  polymer: '>=0.12.0 <0.13.0'
   core_elements: ">=0.0.6 <0.1.0"
   paper_elements: ">=0.0.1 <0.1.0"
 transformers:

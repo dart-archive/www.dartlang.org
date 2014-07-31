@@ -32,7 +32,7 @@ With polymer.dart, you can:
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The code samples on this page reflect **polymer.dart 0.11.0**.
+The code samples on this page reflect **polymer.dart 0.12.0**.
 For information about polymer.dart versions, see the Versions tab on the
 [polymer.dart pub page](https://pub.dartlang.org/packages/polymer).
 </aside>
@@ -47,7 +47,7 @@ your `pubspec.yaml` file:
 
 {% prettify yaml %}
 dependencies:
-  polymer: ">=0.11.0 <0.12.0"
+  polymer: ">=0.12.0 <0.13.0"
 {% endprettify %}
 
 Then, run `pub get` to download the package and link it into your app.
@@ -67,7 +67,7 @@ you want to use:
 name: my_app
 description: An application that uses core and paper elements
 dependencies:
-  polymer: '>=0.11.0 <0.12.0'
+  polymer: '>=0.12.0 <0.13.0'
   [[highlight]]core_elements: ">=0.0.6 <0.1.0"[[/highlight]]
   [[highlight]]paper_elements: ">=0.0.1 <0.1.0"[[/highlight]]
 {% endprettify %}
