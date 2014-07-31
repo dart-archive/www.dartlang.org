@@ -52,4 +52,8 @@ input[type="text"] {
   margin-bottom: 10pt;
   width: 12em;
 }
-
+@media all and (max-width: 500px) {
+  .badge {
+    margin-left: 0px;
+  }
+}

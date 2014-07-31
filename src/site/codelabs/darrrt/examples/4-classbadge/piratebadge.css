@@ -1,0 +1,59 @@
+
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+h1, p {
+  color: #333;
+}
+.widgets {
+  padding-bottom: 20pt;
+  float: left;
+}
+.badge {
+  border: 2px solid brown;
+  border-radius: 1em;
+  background: red;
+  font-size: 14pt;
+  width: 14em;
+  height: 7em;
+  text-align: center;
+  float: left;
+  margin-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.greeting {
+  color: white;
+  font-family: sans-serif;
+  padding: 0.5em;
+}
+.name {
+  color: black;
+  background: white;
+  font-family: "Marker Felt", cursive;
+  font-size: 25pt;
+  padding-top: 1.0em;
+  padding-bottom: 0.7em;
+  height: 16px;
+}
+#generateButton {
+  font-size: 12pt;
+  margin-top: 20px;
+}
+input[type="text"] {
+  font-size: 12pt;
+  margin-top: 10pt;
+  margin-bottom: 10pt;
+  width: 12em;
+}
+@media all and (max-width: 500px) {
+  .badge {
+    margin-left: 0px;
+  }
+}
