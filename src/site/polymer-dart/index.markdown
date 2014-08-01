@@ -67,9 +67,9 @@ you want to use:
 name: my_app
 description: An application that uses core and paper elements
 dependencies:
-  polymer: '>=0.12.0 <0.13.0'
-  [[highlight]]core_elements: ">=0.0.6 <0.1.0"[[/highlight]]
-  [[highlight]]paper_elements: ">=0.0.1 <0.1.0"[[/highlight]]
+  polymer: ">=0.12.0 <0.13.0"
+  [[highlight]]core_elements: ">=0.1.0 <0.2.0"[[/highlight]]
+  [[highlight]]paper_elements: ">=0.1.0 <0.2.0"[[/highlight]]
 {% endprettify %}
 
 Next, run `pub get`.
