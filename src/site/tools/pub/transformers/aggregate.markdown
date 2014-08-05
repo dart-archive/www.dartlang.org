@@ -57,15 +57,15 @@ available in the `apply` method through the `AggregateTransform`
 parameter.
 
 The following example, from aggregate_transformer,
-only accepts assets whose filename ends with the string `recipe.html`
+only accepts assets whose filename ends with the string `.recipe.html`
 For assets that it wants to process,
 it returns the path of the source directory, which is where
 it wants the output asset to be placed.
 
 {% prettify dart %}
 classifyPrimary(AssetId id) {
-    // Only process assets where the filename ends with "recipe.html".
-    if (!id.path.endsWith('recipe.html')) return null;
+    // Only process assets where the filename ends with ".recipe.html".
+    if (!id.path.endsWith('.recipe.html')) return null;
 
     // Return the path string, minus the recipe itself.
     // This is where the output asset will be written.
@@ -129,7 +129,7 @@ If you wish to request a specific secondary input, you can use the
 
 ## More information {#more-info}
 
-* [Writing a Pub Transformer](/tools/pub/transformer/)
+* [Writing a Pub Transformer](/tools/pub/transformers/)
 : How to write a Pub transformer that accepts a single primary input.
 * [Writing a Pub Transformer: Examples](examples/)
 : Examples to get you started.

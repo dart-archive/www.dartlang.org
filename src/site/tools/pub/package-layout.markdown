@@ -126,7 +126,15 @@ it in the changelog tab.
 If your CHANGELOG ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
 [Markdown][].
 
-## Public libraries
+## Public directories
+
+Two directories in your package are public to other packages: `lib` and
+`bin`. You place [public libraries](#public-libraries) in `lib` and
+[public tools](#public-tools) in `bin`.
+
+### Public libraries {#public-libraries}
+
+The following directory structure shows the `lib` portion of enchilada:
 
     enchilada/
       lib/
@@ -135,7 +143,7 @@ If your CHANGELOG ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
 
 Many packages are [*library packages*](glossary.html#library-package): they
 define Dart libraries that other packages can import and use. These public Dart
-library files go inside a directory called `lib`.
+library files go inside a directory called `lib`. 
 
 Most packages define a single library that users can import. In that case,
 its name should usually be the same as the name of the package, like
@@ -171,6 +179,19 @@ with a `main()` function&mdash;cannot go in `lib`. If you place a Dart script
 inside `lib`, you will discover that any `package:` imports it contains don't
 resolve. Instead, your entrypoints should go in the appropriate
 [entrypoint directory](glossary.html#entrypoint-directory).
+
+### Public tools {#public-tools}
+
+Dart scripts placed inside of the `bin` directory are public. Any package
+that depends on your package can run scripts from your package's `bin`
+directory using [`pub run`](cmd/pub-run). <em>Any</em> package can run scripts
+from your package's bin directory using [`pub global`](cmd/pub-global.html).
+
+If you intend for your package to be depended on,
+and you want your scripts to be private to your package, place them
+in the top-level `tool` directory.
+If you do not intend for your package to be depended on, you can leave your
+scripts in `bin`.
 
 ## Referencing packages
 

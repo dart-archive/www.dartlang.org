@@ -272,9 +272,9 @@ but it *ignores* the dev dependencies of any dependent packages. Pub only gets
 `transmogrify` it will get `transmogrify` but not `unittest`.
 
 The rule for deciding between a regular or dev dependency is simple: If
-the dependency is imported from something in your `lib` directory, it needs to
-be a regular dependency. If it's only imported from `test`, `example`, etc. it
-can and should be a dev dependency.
+the dependency is imported from something in your `lib` or `bin` directories,
+it needs to be a regular dependency. If it's only imported from `test`,
+`example`, etc. it can and should be a dev dependency.
 
 Using dev dependencies makes dependency graphs smaller. That makes `pub` run
 faster, and makes it easier to find a set of package versions that satisfies all
