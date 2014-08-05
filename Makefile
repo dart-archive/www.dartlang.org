@@ -9,7 +9,7 @@ clean:
 build: copy add_version add_release
 
 copy: clean
-	cd ./src/site && jekyll build && cd ../.. && cp -R ./src/appengine/* build/
+	cd ./src/site && bundle exec jekyll build && cd ../.. && cp -R ./src/appengine/* build/
 
 add_version:
 	ruby -p -i -e '$$_.gsub!(/CHANGEME/, "$(CURRENT_BRANCH)")' ./build/app.yaml
