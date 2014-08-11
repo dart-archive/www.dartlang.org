@@ -95,7 +95,7 @@ assert(lineCount == null);
         guide recommendation</a> of using <code class="literal">var</code>, rather than type annotations, for local
         variables.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-final-const"></a>Final and Const</h3></div></div></div><p>If you never intend to change a variable, use <code class="literal">final</code> or <code class="literal">const</code>, either instead of <code class="literal">var</code> or in addition to a type. A final variable
       can be set only once; a const variable is a compile-time
-      constant.</p><p>A local, top-level, or class variable that’s declared as <code class="literal">final</code> is initialized the first time it’s
+      constant.</p><p>A top-level or class variable that’s declared as <code class="literal">final</code> is initialized the first time it’s
       used:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>final name = 'Bob';   // Or: final String name = 'Bob';
 // name = 'Alice';    // Uncommenting this results in an error</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Lazy initialization of final variables helps apps start up
@@ -116,16 +116,16 @@ const atm = 1.01325 * bar; // Standard atmosphere</pre></div></div><div class="s
     <code class="literal">Map()</code> constructor to create a map, using code such as
     <code class="literal">new Map()</code>.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="numbers"></a>Numbers</h3></div></div></div><p>Dart numbers come in two flavors:</p><div class="variablelist"><dl class="variablelist"><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/int.html" target="_top">
           <code class="literal">int</code> </a></span></dt><dd><p>Integer values, which generally should be in the range
-            -2<sup>53</sup> to 2<sup>53</sup>
-            </p></dd><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/double.html" target="_top">
+            -2<sup>53</sup> to
+            2<sup>53</sup></p></dd><dt><span class="term"><a class="ulink" href="http://api.dartlang.org/dart_core/double.html" target="_top">
           <code class="literal">double</code> </a></span></dt><dd><p>64-bit (double-precision) floating-point numbers, as
             specified by the IEEE 754 standard</p></dd></dl></div><p>Both <code class="literal">int</code> and <code class="literal">double</code> are subtypes of <a class="ulink" href="http://api.dartlang.org/dart_core/num.html" target="_top"><code class="literal">num</code>.</a> The num type includes basic
       operators such as +, -, /, and *, as well as bitwise operators such as
       &gt;&gt;. The num type is also where you’ll find
       <code class="literal">abs()</code>,<code class="literal"> ceil()</code>, and
       <code class="literal">floor()</code>, among other methods. If num and its subtypes
-      don’t have what you’re looking for, the <a class="ulink" href="http://api.dartlang.org/dart_math.html" target="_top">Math</a> library might.
-      </p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>Integers outside of the -2<sup>53</sup> to
+      don’t have what you’re looking for, the <a class="ulink" href="http://api.dartlang.org/dart_math.html" target="_top">Math</a> library
+      might.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3><p>Integers outside of the -2<sup>53</sup> to
         2<sup>53</sup> range currently behave differently in
         JavaScript produced from Dart code than they do when the same Dart
         code runs in the Dart VM. The reason is that Dart is specified to have
@@ -752,7 +752,7 @@ assert(urlString.startsWith('https')); // Make sure this is an HTTPS URL.</pre><
     your own exceptions. However, Dart programs can throw any non-null
     object—not just Exception and Error objects—as an exception.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch02-exceptions-throw"></a>Throw</h3></div></div></div><p>Here’s an example of throwing, or <span class="emphasis"><em>raising</em></span>, an
       exception:</p><pre class="programlisting"><em><span class="remark">lang-dart
-</span></em>throw new ExpectException('Value must be greater than zero');</pre><p>You can also throw arbitrary objects:</p><pre class="programlisting"><em><span class="remark">lang-dart
+</span></em>throw new FormatException('expected at least one section');</pre><p>You can also throw arbitrary objects:</p><pre class="programlisting"><em><span class="remark">lang-dart
 </span></em>throw 'Out of llamas!';</pre><p>Because throwing an exception is an expression, you can throw
       exceptions in =&gt; statements, as well as anywhere else that allows
       expressions:</p><pre class="programlisting"><em><span class="remark">lang-dart
@@ -1588,14 +1588,12 @@ class Llama {
   }
 }</pre><p>In the generated documentation, <code class="literal">[Food]</code> becomes a link to the API docs for the
       Food class.</p><p>To parse Dart code and generate HTML documentation, you can use
-      the SDK’s
-      <a class="ulink" href="http://www.dartlang.org/tools/docgen/" target="_top">documentation generation tool.</a> For an example of generated
-      documentation, see the <a class="ulink" href="http://api.dartlang.org" target="_top">Dart API
-      documentation.</a> For advice on how to structure your comments, see
-      <a class="ulink" href="http://www.dartlang.org/articles/doc-comment-guidelines/" target="_top">Guidelines
+      the SDK’s <a class="ulink" href="http://www.dartlang.org/tools/docgen/" target="_top">documentation generation
+      tool.</a> For an example of generated documentation, see the <a class="ulink" href="http://api.dartlang.org" target="_top">Dart API documentation.</a> For advice
+      on how to structure your comments, see <a class="ulink" href="http://www.dartlang.org/articles/doc-comment-guidelines/" target="_top">Guidelines
       for Dart Doc Comments.</a></p></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ch02-summary"></a>Summary</h2></div></div></div><p>This chapter summarized the commonly used features in the Dart
-    language. More features are being implemented, but we expect
-    that they won’t break existing code. For more information, see the <a class="ulink" href="http://www.dartlang.org/docs/spec/" target="_top">Dart Language
+    language. More features are being implemented, but we expect that they
+    won’t break existing code. For more information, see the <a class="ulink" href="http://www.dartlang.org/docs/spec/" target="_top">Dart Language
     Specification</a> and <a class="ulink" href="http://www.dartlang.org/articles/" target="_top">articles</a> such as <a class="ulink" href="http://www.dartlang.org/articles/idiomatic-dart/" target="_top">Idiomatic Dart.</a></p></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.ch02-footnote-1" class="footnote"><p><a href="#ch02-footnote-1" class="para"><sup class="para">[1] </sup></a>URI stands for <em class="firstterm">uniform resource
           identifier</em>. URLs (<em class="firstterm">uniform resource
           locators</em>) are a common kind of URI.</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch01.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="ch03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter 1. Quick Start </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> Chapter 3. A Tour of the Dart Libraries</td></tr></table></div>

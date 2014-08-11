@@ -439,7 +439,7 @@ code/ch03/parseUri.dart
         <code class="literal">Uri()</code> <span class="keep-together">constructor</span>:</p><pre class="programlisting"><em><span class="remark">lang-dart
 code/ch03/uriFromComponents.dart
 </span></em>main() {
-  var uri = new Uri(scheme: 'http', host: 'example.org',
+  var uri = new Uri(scheme: 'http', host: 'example.org', 
                     path: '/foo/bar', fragment: 'frag');
   assert(uri.toString() == 'http://example.org/foo/bar#frag');
 }</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-dates-and-times"></a>Dates and Times</h3></div></div></div><p>A DateTime object is a point in time. The time zone is either UTC
@@ -709,9 +709,7 @@ var degrees = 30;
 var radians = degrees * (math.PI / 180);
 // radians is now 0.52359.
 var sinOf30degrees = math.sin(radians);
-
-// Truncate the decimal places to 2.
-assert(double.parse(sinOf30degrees.toStringAsPrecision(2)) == 0.5);</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>These functions use radians, not degrees!</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-maximum-and-minimum"></a>Maximum and Minimum</h3></div></div></div><p>The Math library provides <code class="literal">max()</code> and
+assert((sinOf30degrees - 0.5).abs() &lt; 0.01); // sin 30° = 0.5</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>These functions use radians, not degrees!</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-maximum-and-minimum"></a>Maximum and Minimum</h3></div></div></div><p>The Math library provides <code class="literal">max()</code> and
       <code class="literal">min()</code> methods:</p><pre class="screen"><em><span class="remark">lang-dart
 </span></em><em><span class="remark">ch03/math-tests.dart
 </span></em>assert(math.max(1, 1000) == 1000);
@@ -796,19 +794,22 @@ List&lt;Element&gt; elems3 = querySelectorAll('#id p.class');</pre></div><div cl
 </span></em><em><span class="remark">ch03_html/ch03_html.dart
 </span></em>&lt;!-- In HTML: --&gt;
 &lt;p&gt;
-  &lt;span class="os linux"&gt;Words for Linux&lt;/span&gt;
-  &lt;span class="os mac"&gt;Words for Mac&lt;/span&gt;
-  &lt;span class="os win"&gt;Words for Windows&lt;/span&gt;
+  &lt;span class="linux"&gt;Words for Linux&lt;/span&gt;
+  &lt;span class="macos"&gt;Words for Mac&lt;/span&gt;
+  &lt;span class="windows"&gt;Words for Windows&lt;/span&gt;
 &lt;/p&gt;
 <em><span class="remark">
 </span></em>// In Dart:
-final osList = ['mac', 'win', 'linux'];
+final osList = ['macos', 'windows', 'linux'];
 
 var userOs = 'linux'; // In real code you'd programmatically determine this.
 
 for (var os in osList) {            // For each possible OS...
   bool shouldShow = (os == userOs); // Does this OS match the user's OS?
-  for (var elem in querySelectorAll('.$os')) { // Find all elements for this OS.
+
+  // Find all elements with class=os. For example, if os == 'windows', call
+  // querySelectorAll('.windows') to find all elements with the class "windows".
+  for (var elem in querySelectorAll('.$os')) { // String interpolation ($os)
     elem.hidden = !shouldShow;      // Show or hide each element.
   }
 }</pre><p>When the right property isn’t available or convenient, you can
@@ -1010,7 +1011,7 @@ main() {
 
   var httpRequest = new HttpRequest();
   httpRequest.open('POST', dataUrl);
-  httpRequest.setRequestHeader('Content-type',
+  httpRequest.setRequestHeader('Content-type', 
                                'application/x-www-form-urlencoded');
   httpRequest.onLoadEnd.listen((e) =&gt; loadEnd(httpRequest));
   httpRequest.send(encodedData);
@@ -1020,13 +1021,13 @@ main() {
       data transmitted over a WebSocket can be a string, a blob, or an <a class="ulink" href="http://api.dartlang.org/html/ArrayBuffer.html" target="_top">ArrayBuffer.</a>
       Often, the data is a JSON-formatted string.</p><p>To use a WebSocket in your web app, first create a <a class="ulink" href="http://api.dartlang.org/html/WebSocket.html" target="_top">WebSocket</a>
       object, passing the WebSocket URL as an argument:</p><pre class="screen"><em><span class="remark">lang-dart
-github.com/dart-lang/dart-samples/.../html5/web/websockets/basics/websocket_sample.dart
+github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
 </span></em>var ws = new WebSocket('ws://echo.websocket.org');</pre><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-sending-data"></a>Sending data</h4></div></div></div><p>To send string data on the WebSocket, use the
         <code class="literal">send()</code> method:</p><pre class="screen"><em><span class="remark">lang-dart
-</span></em><em><span class="remark">github.com/dart-lang/dart-samples/.../html5/web/websockets/basics/websocket_sample.dart
+</span></em><em><span class="remark">github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
 </span></em>ws.send('Hello from Dart!');</pre></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="ch03-receiving-data"></a>Receiving data</h4></div></div></div><p>To receive data on the WebSocket, register a listener for
         message events:</p><pre class="screen"><em><span class="remark">lang-dart
-<em><span class="remark">github.com/dart-lang/dart-samples/.../html5/web/websockets/basics/websocket_sample.dart
+<em><span class="remark">github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
 </span></em></span></em>ws.onMessage.listen((MessageEvent e) {
   print('Received message: ${e.data}');
 });</pre><p>The message event handler receives a <a class="ulink" href="http://api.dartlang.org/html/MessageEvent.html" target="_top">MessageEvent</a>
@@ -1035,7 +1036,7 @@ github.com/dart-lang/dart-samples/.../html5/web/websockets/basics/websocket_samp
         error, and (as shown earlier) message. Here’s an example of a method
         that creates a WebSocket object and registers handlers for open,
         close, error, and message events:</p><pre class="screen"><em><span class="remark">lang-dart
-<em><span class="remark">github.com/dart-lang/dart-samples/.../html5/web/websockets/basics/websocket_sample.dart
+<em><span class="remark">github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
 </span></em></span></em>void initWebSocket([int retrySeconds = 2]) {
   var reconnectScheduled = false;
 
@@ -1044,7 +1045,7 @@ github.com/dart-lang/dart-samples/.../html5/web/websockets/basics/websocket_samp
 
   void scheduleReconnect() {
     if (!reconnectScheduled) {
-      new Timer(new Duration(milliseconds: 1000 * retrySeconds),
+      new Timer(new Duration(milliseconds: 1000 * retrySeconds), 
                 () =&gt; initWebSocket(retrySeconds * 2));
     }
     reconnectScheduled = true;
@@ -1152,7 +1153,7 @@ main() {
     .transform(UTF8.decoder)
     .transform(new LineSplitter())
     .listen(
-      (String line) {
+      (String line) { 
         print('Got ${line.length} characters from stream');
       },
       onDone: () { print('file is now closed'); },
@@ -1219,7 +1220,7 @@ main() {
   };
 
   HttpServer.bind('127.0.0.1', 8888).then((HttpServer server) {
-    server.listen((request) {
+    server.listen((request) { 
       print('Got request for ${request.uri.path}');
       if (request.uri.path == '/languages/dart') {
         dartHandler(request);
@@ -1330,7 +1331,7 @@ ch03/readFile.dart
   .transform(UTF8.decoder)
   .transform(new LineSplitter())
   .listen(
-    (String line) {
+    (String line) { 
       print('Read ${line.length} bytes from stream');
     });</pre><p>Use <code class="literal">UTF8.encode()</code> to encode a Dart string as a
       list of UTF8-encoded bytes:</p><pre class="screen"><em><span class="remark">lang-dart
@@ -1395,7 +1396,7 @@ ch03/mirrors.dart
   String firstName;
   String lastName;
   int age;
-
+  
   Person(this.firstName, this.lastName, this.age);
 
   String get fullName =&gt; '$firstName $lastName';
@@ -1421,7 +1422,7 @@ ch03/mirrors.dart
 </span></em>showConstructors(ClassMirror mirror) {
   var constructors = mirror.declarations.values
       .where((m) =&gt; m is MethodMirror &amp;&amp; m.isConstructor);
-
+  
   constructors.forEach((m) {
     print('The constructor ${m.simpleName} has '
           '${m.parameters.length} parameters.');
@@ -1469,7 +1470,7 @@ InstanceMirror mirror = reflect(p);
 // Get the value of a property.
 var fullName = mirror.getField(#fullName).reflectee;
 assert(fullName == 'Bob Smith');
-
+  
 // Set the value of a property.
 mirror.setField(#firstName, 'Mary');
 assert(p.firstName == 'Mary');</pre></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="ch03-more-information-mirrors"></a>More Information</h3></div></div></div><p>The article <a class="ulink" href="https://www.dartlang.org/articles/reflection-with-mirrors/" target="_top">Reflection

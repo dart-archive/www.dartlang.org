@@ -50,6 +50,12 @@ handlers:
 - url: /docs/dart-up-and-running/contents/ch04-tools-dartdoc.html
   script: scripts.redirector.application
 
+- url: /docs/dart-up-and-running/contents/ch04-tools-dart2js.html
+  script: scripts.redirector.application
+
+- url: /docs/dart-up-and-running/contents/ch04-tools-dart-vm.html
+  script: scripts.redirector.application
+
 - url: /mailing-list
   script: scripts.redirector.application
 
