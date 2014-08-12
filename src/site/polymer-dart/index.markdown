@@ -33,8 +33,8 @@ With polymer.dart, you can:
 <aside class="alert alert-info" markdown="1">
 **Note:**
 The code samples on this page reflect **polymer.dart 0.12.0**.
-For information about polymer.dart versions, see the Versions tab on the
-[polymer.dart pub page](https://pub.dartlang.org/packages/polymer).
+For information about polymer.dart versions, see the
+[Release Notes](/polymer-dart/reference/release-notes/).
 </aside>
 
 
