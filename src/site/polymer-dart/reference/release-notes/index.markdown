@@ -25,6 +25,21 @@ and the release announcements in the
 
 This release contains some new productivity features worth highlighting.
 
+To use Polymer 0.12.1, you must use **Dart 1.6**.
+
+
+### Using Dart 1.6
+
+Polymer 0.12.1 depends on Dart 1.6.
+(This dependence started with interim version 0.12.0+1.)
+Until 1.6 is stable,
+you can get 1.6 on the Dev Channel:
+
+<p class="text-center" markdown="1">
+[Get the Dev Channel build of Dart Editor or SDK](/tools/download.html)
+</p>
+
+
 ### Making error messages more useful
 
 **Visible warnings:**
