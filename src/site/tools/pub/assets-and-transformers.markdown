@@ -273,7 +273,7 @@ file type that it would not otherwise process.
 You can also specify a list of files for the include or exclude tags:
 
 {% prettify yaml %}
-$exclude ["lib/foo.html", "lib/bar.html"]
+$exclude: ["lib/foo.html", "lib/bar.html"]
 {% endprettify %}
 
 ## How to configure assets {#configure-assets}

@@ -63,13 +63,17 @@ it returns the path of the source directory, which is where
 it wants the output asset to be placed.
 
 {% prettify dart %}
+import 'package:path/path.dart' as path;
+
+...
+
 classifyPrimary(AssetId id) {
     // Only process assets where the filename ends with ".recipe.html".
     if (!id.path.endsWith('.recipe.html')) return null;
 
     // Return the path string, minus the recipe itself.
     // This is where the output asset will be written.
-    return p.url.dirname(id.path);
+    return path.url.dirname(id.path);
 }
 {% endprettify %}
 
