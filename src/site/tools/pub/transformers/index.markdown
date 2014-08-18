@@ -55,8 +55,7 @@ A transformer's code goes into one of the following locations:
 * For a larger project where you want the transformer's code to be in a
   library under `lib/src`, you can put the transformer code into
   `lib/src/` and add the export statement for the library to
-  `lib/<package>.dart`. (This doesn't work in Dart releases
-  before 1.4.)
+  `lib/<package>.dart`.
 
 * If the transformer can't coexist with the main package code,
   you can put the code into a file named `transformer.dart`. For

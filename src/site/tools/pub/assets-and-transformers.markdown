@@ -139,10 +139,8 @@ assets located in the `lib` directory have additional visibilty:
 * Assets in `lib/src` are invisible to other packages.
 
 <aside class="alert alert-info" markdown="1">
-Prior to Dart 1.4, assets were also placed in the top-level
-`asset` directory. The `asset` directory is deprecated.
-Pub prints a warning in 1.4 and the `asset` directory was
-removed in 1.5.
+In earlier releases, assets were also placed in the top-level
+`asset` directory. Pub no longer recognizes the `asset` directory.
 </aside>
 
 The following picture shows how you might structure your app's source assets,

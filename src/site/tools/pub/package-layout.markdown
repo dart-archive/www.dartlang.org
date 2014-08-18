@@ -246,10 +246,8 @@ containing the asset and `<path>` is the relative path to the asset within that
 package's `lib` directory.
 
 <aside class="alert alert-info" markdown="1">
-Prior to Dart 1.4, assets were also placed in the top-level
-`asset` directory. The `asset` directory is being deprecated.
-Pub prints a warning in 1.4 and the `asset` directory will be
-removed in 1.5.
+In earlier releases, assets were also placed in the top-level
+`asset` directory. Pub no longer recognizes the `asset` directory.
 </aside>
 
 For example, let's say your package wanted to use enchilada's `guacamole.css`
