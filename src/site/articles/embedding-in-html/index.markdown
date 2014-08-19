@@ -163,11 +163,11 @@ In JavaScript, additional script tags are used to import third party libraries
 (e.g., jQuery).  In Dart, this is not necessary: import is part of the language.
 
 Web components and HTML imports are an important caveat to the one
-script per document rule.  For example, the [Polymer.dart](/polymer-dart)
+script per document rule.  For example, the [Polymer.dart](/polymer/)
 framework uses HTML imports to allow developers to include HTML components into a
 Dart application.  Dart scripts in imported HTML documents are
 injected into the main application.  See the Polymer.dart
-[documentation](/polymer-dart) for more details.
+[documentation](/polymer/) for more details.
 
 ### Execution timing
 

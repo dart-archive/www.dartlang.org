@@ -53,7 +53,7 @@ and get many more using the
 [Articles](/articles/)
 : Look in the "Libraries and APIs" section
 for help using individual packages, libraries, and APIs such as
-[polymer.dart](/polymer-dart/),
+[polymer.dart](/polymer/),
 [unittest](/articles/dart-unit-tests/),
 and [Futures](/articles/using-future-based-apis/).
 
@@ -149,7 +149,7 @@ A basic, yet Darty, interface to the browser.
 
 A package that lets you use tomorrow's web APIs today.
 
-* [Polymer.dart homepage](/polymer-dart/)
+* [Polymer.dart homepage](/polymer/)
 * [pub.dartlang.org/packages/polymer](http://pub.dartlang.org/packages/polymer)
 * [Samples that use polymer.dart](/samples/#polymer_dart)
 

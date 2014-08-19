@@ -641,7 +641,7 @@ Many more have been released or are in development.
 [io]: /articles/io/
 [pub]: http://pub.dartlang.org
 [AngularDart]: http://pub.dartlang.org/packages/angular
-[Polymer.dart]: /polymer-dart/
+[Polymer.dart]: /polymer/
 [ppwsize]: http://work.j832.com/2012/11/excited-to-see-dart2js-minified-output.html
 [perf]: https://www.dartlang.org/performance/
 [chrome.dart]: https://github.com/dart-gde/chrome.dart

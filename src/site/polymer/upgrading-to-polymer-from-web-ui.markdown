@@ -8,7 +8,7 @@ has-permalinks: true
 # {{ page.title }}
 
 Here is a non-exhaustive list of tips for developers upgrading from
-Web UI to [polymer.dart](/polymer-dart/).
+Web UI to [polymer.dart](/polymer/).
 
 Do you have other tips for upgrading? Please send us a
 [pull request](https://github.com/dart-lang/dartlang.org)

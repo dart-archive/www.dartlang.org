@@ -57,7 +57,7 @@ of this tutorial are compatible with
 <a href="http://www.polymer-project.org/"
    target="_blank">Polymer</a>,
 a new type of library for the web based on Web Components.
-<a href="http://www.dartlang.org/polymer-dart/"
+<a href="/polymer/"
    target="_blank">Polymer.dart</a>
 is the Dart implementation of Polymer.
 </aside>
@@ -699,7 +699,7 @@ The generated files appear in the
 Use these other resources to learn more about Polymer:
 
 * The
-<a href="http://www.dartlang.org/polymer-dart/"
+<a href="/polymer/"
    target="_blank">Polymer.dart</a> homepage provides information
    specific to the Dart port of the Polymer project.
 

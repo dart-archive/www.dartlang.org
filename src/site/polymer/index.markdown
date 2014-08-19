@@ -34,7 +34,7 @@ With polymer.dart, you can:
 **Note:**
 The code samples on this page reflect **polymer.dart 0.12.0**.
 For information about polymer.dart versions, see the
-[Release Notes](/polymer-dart/reference/release-notes/).
+[Release Notes](/polymer/reference/release-notes/).
 </aside>
 
 
@@ -62,7 +62,7 @@ First, edit your `pubspec.yaml` file.
 Add a dependency for each package containing the custom elements
 you want to use:
 
-<!-- from polymer-dart/get_element/pubspec.yaml -->
+<!-- from polymer/get_element/pubspec.yaml -->
 {% prettify yaml %}
 name: my_app
 description: An application that uses core and paper elements
@@ -103,7 +103,7 @@ the HTML file for the web page needs to:
 Here's an example of using a `<paper-input>` element
 from the paper_elements package:
 
-<!-- from polymer-dart/get_element/web/index.html -->
+<!-- from polymer/get_element/web/index.html -->
 {% prettify html %}
 <!-- In an HTML file -->
 <head>

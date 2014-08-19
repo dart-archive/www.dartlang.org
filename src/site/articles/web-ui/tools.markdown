@@ -13,7 +13,7 @@ rel:
 
 <aside class="alert alert-danger" markdown="1">
 <strong>Web UI is deprecated.</strong>
-Instead, use [Polymer.dart](/polymer-dart/),
+Instead, use [Polymer.dart](/polymer/),
 which supersedes Web UI beginning with version 0.5
 and provides many fixes and improvements.
 We encourage Web UI users to upgrade to Polymer.dart.

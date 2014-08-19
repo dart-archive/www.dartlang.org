@@ -80,6 +80,12 @@ handlers:
 - url: /docs/pub-package-manager.*
   script: scripts.redirector.application
 
+- url: /polymer-dart/reference/release-notes/
+  script: scripts.redirector.application
+
+- url: /polymer-dart/
+  script: scripts.redirector.application
+
 - url: /tools/dartdoc/
   script: scripts.redirector.application
 
