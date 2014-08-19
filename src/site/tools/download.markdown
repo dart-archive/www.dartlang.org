@@ -7,6 +7,8 @@ has-permalinks: false
 
 # Getting and Installing Dart Is Easy!
 
+{% include default_toc.html %}
+
 <p class="os-choices">
 Confirm your platform: 
  {% include os-choices.html %}
@@ -54,25 +56,25 @@ automatic updates, go to **Preferences**, choose **Update**, and select
 <span class="windows downloads">
 To get new features a few weeks earlier than the stable release,
 you can download the latest <strong>Dev Channel</strong> build of
- <a data-tool="editor" class="download-link" data-bits="64" data-os="windows" data-build="continuous" href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-x64.zip">Dart Editor for
+ <a data-tool="editor" class="download-link" data-bits="64" data-os="windows" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-x64.zip">Dart Editor for
 Windows 64-bit</a> or
- <a data-tool="editor" class="download-link" data-bits="32" data-os="windows" data-build="continuous" href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-ia32.zip">Dart Editor for
+ <a data-tool="editor" class="download-link" data-bits="32" data-os="windows" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-ia32.zip">Dart Editor for
 Windows 32-bit</a>.
 </span>
 
 <span class="linux downloads">
 To get new features a few weeks earlier than the stable release,
 you can download the latest <strong>Dev Channel</strong> build of
- <a data-tool="editor" class="download-link" data-bits="64" data-os="linux" data-build="continuous" href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-x64.zip">Dart Editor for
+ <a data-tool="editor" class="download-link" data-bits="64" data-os="linux" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-x64.zip">Dart Editor for
 Linux 64-bit</a> or
- <a data-tool="editor" class="download-link" data-bits="32" data-os="linux" data-build="continuous" href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-ia32.zip">Dart Editor for
+ <a data-tool="editor" class="download-link" data-bits="32" data-os="linux" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-ia32.zip">Dart Editor for
 Linux 32-bit</a>.
 </span>
 
 <span class="macos downloads">
 To get new features a few weeks earlier than the stable release,
 you can download the latest <strong>Dev Channel</strong> build of
- <a data-tool="editor" class="download-link" data-bits="64" data-os="macos" data-build="continuous" href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-macos-x64.zip">Dart Editor for
+ <a data-tool="editor" class="download-link" data-bits="64" data-os="macos" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-macos-x64.zip">Dart Editor for
 Mac OS X</a>.
 </span>
 </aside>
@@ -99,6 +101,14 @@ and the Dart libraries, the SDK bundle contains the command-line Dart tools:
   * [pub](/tools/pub/) - the Dart package manager
   * [docgen](docgen/) - the API documentation generator
 
+Note that if you choose the à la carte option you have less to download, but
+you will occasionally need to perform a manual update when new
+versions of Dart are released.
+
+After downloading the software that you need, you may want to customize your
+IDE or text editor by [downloading a plugin](more_downloads.html) that
+supports Dart.
+
 <p class="os-choices">
 {% include downloads/_sdk.html buttonclass="btn btn-primary btn-lg" %}
 </p>
@@ -114,64 +124,56 @@ The Dartium binary expires after 12 weeks.
 When that happens, you will need to download a new copy
 to continue using Dartium.
 
-<span class="linux">
-<p><strong>SDK for Debian Wheezy</strong></p>
-If you are writing server-side code for Debian Wheezy, you can get a
-<a href="http://gsdview.appspot.com/dart-archive/channels/stable/release/latest/linux_packages/debian_wheezy/">64-bit SDK for
-Debian Linux</a> package for easily installing the Dart VM and tools
-on a Debian Wheezy server.
-
 <aside class="alert alert-info" markdown="1">
 **Early Adopter?**
 <span class="windows">
 To get new features a few weeks earlier than the stable release,
 you can download the latest **Dev Channel** build of the
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-x64-release.zip">SDK for Windows 64-bit</a>
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-x64-release.zip">SDK for Windows 64-bit</a>
 or 
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-ia32-release.zip">SDK for Windows 32-bit</a>.
-</span>
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-ia32-release.zip">SDK for Windows 32-bit</a>.
 
 <span class="macos">
 To get new features a few weeks earlier than the stable release,
 you can download the latest **Dev Channel** build of the
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-macos-x64-release.zip">SDK for Mac OS X</a>.
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-macos-x64-release.zip">SDK for Mac OS X</a>.
 </span>
 
 <span class="linux">
 To get new features a few weeks earlier than the stable release,
 you can download the latest **Dev Channel** build of the
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-x64-release.zip">SDK for Linux 64-bit</a>
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-x64-release.zip">SDK for Linux 64-bit</a>
 or
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-ia32-release.zip">SDK for Linux 32-bit</a>
-or
-<a href="http://gsdview.appspot.com/dart-archive/channels/dev/release/latest/linux_packages/debian_wheezy/">Debian
-package SDK for Debian Wheezy 64-bit</a>.
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-ia32-release.zip">SDK for Linux 32-bit</a>.
 </span>
 
 <span class="windows">
 You can also download the latest **Dev Channel** build of
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-windows-ia32-release.zip">Dartium for Windows</a>.
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-windows-ia32-release.zip">Dartium for Windows</a>.
 </span>
 
 <span class="macos">
 You can also download the latest **Dev Channel** build of
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac OS X</a>.
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac OS X</a>.
 </span>
 
 <span class="linux">
 You can also download the latest **Dev Channel** build of
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-x64-release.zip">Dartium for Linux 64-bit</a>
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-x64-release.zip">Dartium for Linux 64-bit</a>
 or
-<a href="http://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-ia32-release.zip">Dartium for Linux 32-bit</a>.
+<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-ia32-release.zip">Dartium for Linux 32-bit</a>.
 </span>
 </aside>
 
-Note that if you choose the à la carte option you have less to download, but
-you will occasionally need to perform a manual update when new
-versions of Dart are released.
+### Dart SDK for Debian
 
-You may now want to customize your IDE or text editor by
-[downloading a plugin](more_downloads.html) that supports Dart.
+If you are writing server-side code for Debian Wheezy, you can get a
+64-bit version of the SDK that allows for easy installation
+of the Dart VM and tools on a Debian Wheezy server.
+Choose either the **Stable Channel** or **Dev Channel** release.
+The dev channel allows you to try new features ahead of the stable release.
+
+{% include downloads/_debian.html buttonclass="btn btn-primary btn-lg" %}
 
 ------
 
