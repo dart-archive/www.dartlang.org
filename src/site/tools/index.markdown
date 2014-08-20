@@ -32,7 +32,7 @@ by the Dart community.
   <a class="pull-left" href="webstorm/">
     <img class="media-object"
          src="images/dart-logo-48.png"
-         alt="Dart logo" />
+         alt="Dart logo">
   </a>
   <div class="media-body">
     <a href="editor/"><b>Dart Editor</b></a>
@@ -68,7 +68,7 @@ by the Dart community.
       <a class="pull-left" href="webstorm/">
         <img class="media-object"
              src="images/IntellIJ-IDEA.png"
-             alt="IntelliJ logo" />
+             alt="IntelliJ logo">
       </a>
       <div class="media-body">
         <a href="webstorm/"><b>IntelliJ IDEA and WebStorm</b></a>
@@ -79,7 +79,7 @@ by the Dart community.
       <a class="pull-left" href="eclipse-plugin/">
         <img class="media-object"
              src="images/eclipse.png"
-             alt="Eclipse logo" />
+             alt="Eclipse logo">
       </a>
       <div class="media-body">
         <a href="eclipse-plugin/"><b>Eclipse</b></a> 
@@ -95,10 +95,10 @@ by the Dart community.
       <a class="pull-left" href="https://github.com/dart-lang/dart-sublime-bundle#readme">
         <img class="media-object"
              src="images/sublime.png"
-             alt="Sublime logo" />
+             alt="Sublime logo">
       </a>
       <div class="media-body">
-         <a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><b>Sublime Text 2</b></a> 
+         <a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><b>Sublime Text 3</b></a> 
       </div>
     </div>
 
@@ -106,7 +106,7 @@ by the Dart community.
       <a class="pull-left" href="https://github.com/nex3/dart-mode">
         <img class="media-object"
              src="images/emacs.png"
-             alt="Emacs logo" />
+             alt="Emacs logo">
       </a>
       <div class="media-body">
         <a href="https://github.com/nex3/dart-mode"><b>Emacs</b></a> 
@@ -117,7 +117,7 @@ by the Dart community.
       <a class="pull-left" href="https://github.com/dart-lang/dart-vim-plugin">
         <img class="media-object"
              src="images/vim.png"
-             alt="Vim logo" />
+             alt="Vim logo">
       </a>
       <div class="media-body">
         <a href="https://github.com/dart-lang/dart-vim-plugin"><b>Vim</b></a> 
