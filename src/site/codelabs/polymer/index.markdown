@@ -724,7 +724,7 @@ bool validateDescription() {
 * The validation code is pretty straightforward: each method checks a
   code lab field against the validation rules defined in the
   model.  If validation fails, the validator sets an error message and
-  return false. Otherwise it removes the error message and returns true.
+  returns false. Otherwise it removes the error message and returns true.
 
 </div></div>
 
@@ -1050,7 +1050,7 @@ You should see the following:
 
 ## Step 7: Editing a code lab {#edit-codelab}
 
-### Update the `codelab` element.
+### Update the `codelab-element` element.
 {:.no_toc}
 
 <div class="row"> <div class="col-md-7" markdown="1">
