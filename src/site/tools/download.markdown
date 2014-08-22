@@ -165,11 +165,11 @@ or
 </span>
 </aside>
 
-### Dart SDK for Debian
+### Dart SDK for Debian and Ubuntu
 
-If you are writing server-side code for Debian Wheezy, you can get a
-64-bit version of the SDK that allows for easy installation
-of the Dart VM and tools on a Debian Wheezy server.
+If you are writing server-side code for Debian or Ubuntu, you can get a
+Debian package with a 64-bit version of the SDK that allows for easy
+installation of the Dart VM and tools on Debian wheezy and Ubuntu machines.
 Choose either the **Stable Channel** or **Dev Channel** release.
 The dev channel allows you to try new features ahead of the stable release.
 
