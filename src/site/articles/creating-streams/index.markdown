@@ -496,7 +496,7 @@ keep these tips in mind:
 
   {% prettify dart %}
 subscription = stream.listen(handler);
-{% endprettify %}
+  {% endprettify %}
 
 * The `onListen`, `onPause`, `onResume`, and `onCancel`
   callbacks defined by StreamController are
