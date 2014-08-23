@@ -97,7 +97,7 @@ the stream.
 
 We'll look at the **consuming** a stream in this article as you're more likely 
 to come across streams as a consumer from existing APIs within Dart.  Populating
-a stream will be covered in a future article.
+a stream is covered in [Creating Streams in Dart](/articles/creating-streams/).
 
 ## Consuming a stream {#consuming-a-stream}
 
