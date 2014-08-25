@@ -102,6 +102,14 @@ $ pub global deactivate markdown
 You will no longer be able to invoke the package's scripts using
 `pub global run`.
 
+## Listing active packages {#listing-active-packages}
+
+{% prettify lang-sh %}
+$ pub global list
+{% endprettify %}
+
+Use `list` to list all currently active packages.
+
 ## Options {#options}
 
 For options that apply to all pub commands, see
