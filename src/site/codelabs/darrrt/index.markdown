@@ -38,7 +38,7 @@ This code lab assumes that you have some programming experience.
 * [Step 4: Create a class](#step-four)
 * [Step 5: Save to local storage](#step-five)
 * [Step 6: Read names from JSON file using HttpRequest](#step-six)
-* [Step 7: Build the app and run as JavaScript](#step-seven)
+* [Step 7: Build and run the app](#step-seven)
 * [What next?](#whatnext)
 * [Summary and resources](#resources)
 
@@ -1801,7 +1801,7 @@ Share your pirate name with the world.
 
 <hr>
 
-##Step 7: Build the app and run as JavaScript {#step-seven}
+##Step 7: Build and run the app {#step-seven}
 
 In this step, you use `pub build` to 
 generate the assets for the app
@@ -1895,21 +1895,18 @@ which builds everything under the `one-hour-codelab` directory.
 The output looks something like this:
 
 {% prettify bash %}
---- Jan 21, 2014 12:41:48 PM Running pub build ... ---
-Building avast_ye_pirates.....
+Loading source assets... (0.4s)
+Building avast_ye_pirates... (0.1s)
 [Info from Dart2JS]:
-Took 0:00:01.704695 to compile avast_ye_pirates|web/1-blankbadge/piratebadge.dart.
+Compiling avast_ye_pirates|web/1-blankbadge/piratebadge.dart...
 [Info from Dart2JS]:
-Took 0:00:05.535304 to compile avast_ye_pirates|web/2-inputnamebadge/piratebadge.dart.
+Took 0:00:01.590852 to compile avast_ye_pirates|web/1-blankbadge/piratebadge.dart.
+...
 [Info from Dart2JS]:
-Took 0:00:02.974628 to compile avast_ye_pirates|web/3-buttonbadge/piratebadge.dart.
+Compiling avast_ye_pirates|web/6-piratebadge/piratebadge.dart...
 [Info from Dart2JS]:
-Took 0:00:02.195714 to compile avast_ye_pirates|web/4-classbadge/piratebadge.dart.
-[Info from Dart2JS]:
-Took 0:00:01.938502 to compile avast_ye_pirates|web/5-localbadge/piratebadge.dart.
-[Info from Dart2JS]:
-Took 0:00:02.028974 to compile avast_ye_pirates|web/6-piratebadge/piratebadge.dart.
-Built 45 files!
+Took 0:00:02.137598 to compile avast_ye_pirates|web/6-piratebadge/piratebadge.dart.
+Built 412 files to "build".
 {% endprettify %}
 
 </div>
@@ -1921,7 +1918,7 @@ Built 45 files!
 <i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
 
 * The `pub build` command creates a `build` directory that contains
-  subdirectories for every step in the code lab.
+  subdirectories for each step in the code lab.
 
 * The `build` directory contains everything needed to deploy the
   entire project (all six steps).
@@ -1934,7 +1931,7 @@ Built 45 files!
 
 <div class="trydart-step-details" markdown="1">
 
-Expand the `build` directory.
+Expand the `build` directory, then expand the `web` directory.
 Note that it contains a subdirectory for each step of the code lab.
 Expand the `6-piratebadge` directory.
 
@@ -1953,20 +1950,19 @@ Expand the `6-piratebadge` directory.
 * Note that the directory contains no `piratebadge.dart` file.
   It is not needed to deploy the app to JavaScript.
 
-* Each subdirectory of `build` contains all of the files
+* Each subdirectory of `build/web` contains all of the files
   needed for the app to be deployed separately.
 
 </div></div>
 
-### <i class="fa fa-anchor"> </i> Run the app as JavaScript
+### <i class="fa fa-anchor"> </i> Run the app
 
 <div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details" markdown="1">
 
 Right click the `piratebadge.html` file
-and choose **Run as JavaScript** from the menu.
-Copy the URL and run the app in Firefox or Safari.
+and choose **Run in Browser** from the menu.
 
 </div>
 
