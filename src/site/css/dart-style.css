@@ -21,7 +21,8 @@ a:hover {
 
 /* place link target below the header bar. The top padding should match the
 header height */
-.has-permalink:target {
+.has-permalink:target,
+a[name]:target {
   padding-top: 65px;
 }
 
