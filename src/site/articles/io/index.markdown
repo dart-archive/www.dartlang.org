@@ -17,7 +17,7 @@ article:
 # {{ page.title }}
 
 _Written by Mads Ager <br />
-March 2012 (updated October 2012, February 2013 and Januart 2014)_
+March 2012 (updated October 2012, February 2013 and January 2014)_
 
 The [dart:io](http://api.dartlang.org/io.html) library
 is aimed at server-side code
