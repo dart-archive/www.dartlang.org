@@ -361,10 +361,11 @@ Here's one example for `getUserMedia`:
 
 {% prettify javascript %}
 // Traditionally:
-navigator.getMedia = ( navigator.getUserMedia ||
-                       navigator.webkitGetUserMedia ||
-                       navigator.mozGetUserMedia ||
-                       navigator.msGetUserMedia);
+navigator.getMedia = (
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
 {% endprettify %}
 
   </div>
@@ -372,7 +373,8 @@ navigator.getMedia = ( navigator.getUserMedia ||
 
 {% prettify dart %}
 // With Dart:
-window.navigator.getUserMedia(audio:true, video: true) ...
+window.navigator.getUserMedia(
+    audio:true, video: true) ...
 {% endprettify %}
 
   </div>
@@ -424,33 +426,37 @@ its new Future-based interface from Dart:
 
 {% prettify javascript %}
 // Traditionally:
-navigator.getMedia = ( navigator.getUserMedia ||
-                       navigator.webkitGetUserMedia ||
-                       navigator.mozGetUserMedia ||
-                       navigator.msGetUserMedia);
+navigator.getMedia = (
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia);
 
-navigator.getMedia (
- 
+navigator.getMedia(
+
    // constraints
    {
       video: true,
       audio: true
    },
- 
+
    // successCallback
-   function(localMediaStream) {
-      var video = document.querySelector('video');
-      video.src = window.URL.createObjectURL(localMediaStream);
+   function(mediaStream) {
+      var video = document.querySelector(
+          'video');
+      video.src = window.URL
+          .createObjectURL(mediaStream);
       video.onloadedmetadata = function(e) {
-         // Do something with the video here.
+         // Do something with video here.
       };
    },
- 
+
    // errorCallback
    function(err) {
-    console.log("The following error occured: " + err);
+     console.log(
+         "An error occured: " + err);
    }
- 
+
 );
 {% endprettify %}
 
@@ -459,12 +465,14 @@ navigator.getMedia (
 
 <!--- BEGIN(element_get_user_media) -->{% prettify dart %}
 // With Dart:
-window.navigator.getUserMedia(audio:true, video: true)
+window.navigator.getUserMedia(audio: true,
+                              video: true)
   .then((stream) {
     var video = new VideoElement()
       ..autoplay = true
       ..src = Url.createObjectUrl(stream)
-      ..onLoadedMetadata.listen((e) => print(e));
+      ..onLoadedMetadata.listen(
+          (e) => print(e));
     document.body.append(video);
   })
   .catchError(reportIssue);
@@ -485,7 +493,8 @@ window.indexedDB = window.indexedDB ||
                    window.webkitIndexedDB ||
                    window.msIndexedDB;
 
-var request = window.indexedDB.open("MyTestDatabase");
+var request = window.indexedDB.open(
+    "MyTestDatabase");
 request.onerror = function(event) {
   // Do something with request.errorCode!
 };
@@ -501,7 +510,8 @@ db.transaction("customers")
   .objectStore("customers")
   .get("444-44-4444")
   .onsuccess = function(event) {
-  alert("Name for SSN 444-44-4444 is " + event.target.result.name);
+  alert("Name for SSN 444-44-4444 is " +
+        event.target.result.name);
 };
 {% endprettify %}
 
@@ -510,16 +520,20 @@ db.transaction("customers")
 
 <!--- BEGIN(element_indexdb) -->{% prettify dart %}
 // With Dart:
-window.indexedDB.open(dbName, version: version,
+window.indexedDB.open(dbName,
+  version: version,
   onUpgradeNeeded: (e) {
     Database db = e.target.result;
-    if (!db.objectStoreNames.contains(storeName)) {  
+    if (!db.objectStoreNames.contains(
+        storeName)) {
       db.createObjectStore(storeName);
     }
   })
   .then((db) {
-    var txn = db.transaction("customers", "readwrite");
-    var store = txn.objectStore("customers");
+    var txn = db.transaction(
+        "customers", "readwrite");
+    var store = txn.objectStore(
+        "customers");
     return store.getObject("444-44-4444");
   })
   .then((obj) => displayObject(obj))
@@ -593,7 +607,8 @@ var button = new ButtonElement();
 button.id = 'register';
 button.classes.add('important');
 button.text = 'Click to Register';
-button.onClick.listen((e) => registerAccount());
+button.onClick.listen(
+    (e) => registerAccount());
 {% endprettify %}
 
   </div>
