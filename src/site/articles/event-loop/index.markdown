@@ -226,7 +226,7 @@ The **scheduleMicrotask()** function used to be named **runAsync()**.
 
 Examples of using these APIs are in the next section under
 [Event queue: new Future()](#event-queue-new-future) and
-[Microtask queue: scheduleMicrotask()](#microtask-queue).
+[Microtask queue: scheduleMicrotask()](#microtask-queue-schedulemicrotask).
 
 ### Use the appropriate queue (usually: the event queue)
 
@@ -463,7 +463,7 @@ new Future()—execute at a later time.
 Currently, if you comment out the first call to scheduleMicrotask(),
 then the callbacks for futures #2 and #3 execute before microtask #2.
 This is due to bugs 9001 and 9002, as discussed in
-[Microtask queue: scheduleMicrotask()](#microtask-queue).
+[Microtask queue: scheduleMicrotask()](#microtask-queue-schedulemicrotask).
 </aside>
 
 ### Question #2
