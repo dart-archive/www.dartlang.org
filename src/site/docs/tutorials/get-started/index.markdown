@@ -67,7 +67,7 @@ which you'll be using throughout this tutorial.
 (For more options, go to the [download page](/tools/download.html).)
 
 <div align="center">
-  {% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
+  {% include downloads/_dart-editor.html buttonclass="btn-primary" %}
 </div>
 
 <p class="os-choices" >

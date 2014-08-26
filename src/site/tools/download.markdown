@@ -38,7 +38,7 @@ You can use Dartium to test and debug your Dart web applications.
   * [pub](/tools/pub/) - the Dart package manager
   * [docgen](docgen/) - the API documentation generator
 
-{% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
+{% include downloads/_dart-editor.html buttonclass="btn-primary" %}
 
 <aside class="alert alert-info" markdown="1">
 **Note:** Dart Editor requires Java version 6 or higher.
