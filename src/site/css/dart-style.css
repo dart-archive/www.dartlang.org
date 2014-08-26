@@ -86,6 +86,12 @@ ul, li {
   }
 }
 
+@media print {
+  .container-page {
+    margin-bottom: 0px;
+  }
+}
+
 .nowrap {
   white-space: nowrap;
 }
