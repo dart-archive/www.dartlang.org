@@ -227,6 +227,12 @@ i.sprite-icon-download-btn {
   padding: 5px 15px;
 }
 
+@media print {
+  .nav>li>a {
+    padding: 1px 15px;
+  }
+}
+
 /* ***** Nav bar ***** */
 .navbar {
   min-height: 65px;
