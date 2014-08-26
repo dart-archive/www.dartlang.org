@@ -115,10 +115,10 @@ Class
   For more information, see [Evaluating Expressions](evaluate.html).
 
 Accumulator Size (New)
-: Total amount of memory used in new space since last GC cycle.
+: Total amount of memory used in new space since last accumulator reset.
 
 Accumulator (New)
-: Total number of objects in new space since last GC cycle.
+: Total number of objects in new space since last accumulator reset.
 
 Current Size (New)
 : Total amount of memory used by current objects in new space.
@@ -127,10 +127,10 @@ Current (New)
 : Total number of current objects in new space.
 
 Accumulator Size (Old)
-: Total amount of memory used in old space since last GC cycle.
+: Total amount of memory used in old space since last accumulator reset.
 
 Accumulator (Old)
-: Total number of objects in old space since last GC cycle.
+: Total number of objects in old space since last accumulator reset.
 
 Current Size (Old)
 : Total amount of memory used by current objects in old space.
