@@ -104,3 +104,6 @@ Google internal sales tool
 
 Google internal customer support tool
 : Built with Polymer.dart.
+
+[Quire](https://quire.io/)
+: Mobile-friendly task management.
