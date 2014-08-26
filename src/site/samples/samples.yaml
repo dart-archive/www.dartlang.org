@@ -22,7 +22,7 @@ col1:
         title: Get input from a form
         explanation_url: /docs/tutorials/forms
         tryit_url: slambook/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/slambook
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/slambook
         description: Use data binding to work with form data in Polymer.
       -
         title: TodoMVC
@@ -165,7 +165,7 @@ col1:
         title: Storing and retrieving data using IndexedDB
         explanation_url: /docs/tutorials/indexeddb/
         tryit_url: countdown/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/count_down
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/count_down
         description: Create milestones and count down to them. Uses IndexedDB to store the milestones.
       -
         title: Exploring the FileSystem APIs
