@@ -206,6 +206,11 @@ i.sprite-icon-close-x {
   background-position: -150px -200px;
 }
 
+.btn-large.download-btn {
+  padding: 10px 46px 10px 66px;
+  position: relative;
+}
+
 i.sprite-icon-download-btn {
   position: absolute;
   left: 40px;
@@ -697,7 +702,6 @@ pre.prettyprint {
   text-transform: uppercase;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  padding: 10px 46px 10px 66px;
   -webkit-transition: background ease-out 500ms;
   -moz-transition: background ease-out 500ms;
   -o-transition: background ease-out 500ms;
@@ -705,7 +709,6 @@ pre.prettyprint {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  position: relative;
 }
 
 .hero .download-btn:hover {
