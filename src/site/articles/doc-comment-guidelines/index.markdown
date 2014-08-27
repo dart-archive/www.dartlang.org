@@ -140,12 +140,14 @@ and **links** to documents that provide more information.
 
 ## Markup
 
-Format your text using the markup
-specified in section 19.1.2 of the
+Format your text using the markup specified in section 19.1.2 of the
 [Dart Language Specification](/docs/spec/).
-Although docgen currently recognizes some additional markdown
-(as noted below),
-it might not always.
+
+Additionally, the [docgen](/tools/docgen/) tool recognizes markdown formatting
+(detailed below). In general, standard markdown syntax should be supported. For
+more details, see the
+[markdown package](https://pub.dartlang.org/packages/markdown), which the
+docgen tool uses to format documentation comments.
 
 **When in doubt, format less.**
 You'll be less likely to break the docs, and someone else can always add formatting.
