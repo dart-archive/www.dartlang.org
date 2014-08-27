@@ -102,7 +102,7 @@ abstract class Collection<E> {
     forEach((E e) { result.add(f(e)); });
     return result;
   });
-  void forEach(Function void f(E element)) {
+  void forEach(void f(E element)) {
     // ...
   }
   void add(E element) {
