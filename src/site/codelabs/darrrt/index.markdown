@@ -522,7 +522,7 @@ Type in the input field.
 
 #### Problems?
 
-Check your code against the files in `2-inputbadge`.
+Check your code against the files in `2-inputnamebadge`.
 
 * [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/web/2-inputnamebadge/piratebadge.html)
 
@@ -929,7 +929,7 @@ instances of this class.
 
 <hr>
 
-Add two instance variables to class,
+Add two instance variables to the class,
 one for the first name and one for the appellation.
 </div>
 
@@ -1250,7 +1250,7 @@ class PirateName {
 
 * The constructor creates a new PirateName instance from a JSON-encoded string.
 
-* `PirateName.fromJson` is a named constructor.
+* `PirateName.fromJSON` is a named constructor.
 
 * `JSON.decode()` parses a JSON string and creates Dart objects from it.
 
