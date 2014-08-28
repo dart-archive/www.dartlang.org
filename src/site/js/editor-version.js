@@ -6,8 +6,7 @@ $(document).ready(function() {
 
   var updatePlaceholders = function(channel, version) {
     $('.editor-build-rev-' + channel).each(function(index, elem) {
-        var txt = document.createTextNode(version);
-        elem.innerText = txt.textContent;
+        $(elem).text(version);
     });
     var download = 'https://storage.googleapis.com/dart-archive/channels/' + channel + '/release/latest/linux_packages/debian_wheezy/dart_' + version + '-1_amd64.deb';
     if (channel == 'stable') {
