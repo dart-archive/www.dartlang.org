@@ -6,7 +6,7 @@ The www.dartlang.org site. Built with [Jekyll](https://github.com/mojombo/jekyll
 and hosted on App Engine.
 
 To give us feedback, please
-[file issues with the Dart project](https://code.google.com/p/dart/issues/entry?template=Documentation%20issue/feedback).
+[file issues on GitHub](https://github.com/dart-lang/dartlang.org/issues)
 
 Contributions welcome!
 (Just sign our [CLA](https://developers.google.com/open-source/cla/individual).)
@@ -32,30 +32,37 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
   This directory is transient, can be deleted. </dd>
 </dl>
 
+
 ## Configuring your system
 
-* Ensure you have Ruby 1.9.3. (Version 2.0.0p247 worked for me.)
+* Ensure you have Ruby 1.9.3 or 2.0.
 * Ensure you have Python 2.7.
-  * On a Mac? You might want the binary install of Python at http://www.python.org/download/releases/2.7.3/
-* Open a new Terminal.
-* Run `sudo gem install fast-stemmer -v '1.0.2'`.
-* Run `sudo gem install bundler`.
-* Run `sudo bundle install` from the root of your dartlang project.
-  * This gives you liquid, jekyll, and more.
-* If you see errors similar to `library X (at master) is not checked out. Please run 'bundle install'`, you should run `bundle install` (without the sudo).
-* Download and install the App Engine launcher: https://developers.google.com/appengine/downloads
-  * Tell App Engine to use Python 2.7 if it's not.
-    * It will say, in the log "you're using 2.6".
-    * On a Mac?
-      * Go to Preferences, and enter the direct path to the Python 2.7 binary,
-      which you downloaded from http://www.python.org/download/releases/2.7.3/.
-        * The full path is `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7`.
-  * Ask an admin to invite you to modify the Dart project on the Google App Engine.
+  * On a Mac? You might want the binary install of
+    [Python 2.7.3](http://www.python.org/download/releases/2.7.3/)
+* In a terminal, from the dartlang.org project root:
+  1. Run `sudo gem install fast-stemmer -v '1.0.2'`
+  2. Run `sudo gem install bundler`
+  3. Run `sudo bundle install`, which installs the gems listed in `Gemfile`
+    (liquid, jekyll, etc.).
+    * If you see errors like
+      `library X (at master) is not checked out. Please run 'bundle install'`,
+      then run `bundle install` without `sudo`.
+* Download and install the
+  [App Engine launcher](https://developers.google.com/appengine/downloads)
+  * Ensure App Engine is using Python 2.7. You will see "you're using 2.6" in
+    the log if it is not.
+    * If you are developing on a Mac, go to Preferences, and enter the direct
+      path to the Python 2.7 binary, which you downloaded from
+      [python.org](http://www.python.org/download/releases/2.7.3/).
+      The full path is `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7`.
+* Ask an admin to invite you to modify the Dart project on the Google App Engine.
+
 
 ### Tips for Windows
 
-* Install Python and Ruby using Windows installers.
-* Install ruby dev kit for Windows.
+* Install Python with the [Windows installer](https://www.python.org/download/windows/).
+* Install Ruby with the [RubyInstaller site](http://rubyinstaller.org/downloads/).
+* Install the Ruby DevKit from the [RubyInstaller site](http://rubyinstaller.org/downloads/)
 * Run `gem install bundler`.
 * Run `bundle install` from the root of your dartlang project.
 
@@ -79,15 +86,16 @@ On a Mac:
 
 ## Development
 
-* Make sure you are in the root of this project.
-* Run the server: `make server`
+* Open a terminal to the root of this project.
+* Run the server with `make server`, and leave it running while you edit files.
 * Your web browser opens to http://localhost:8081.
   * You may need to reload once.
 * Edit, create docs as normal.
 * To run tests, run `./runtests.sh`.
 
-**Note:** If you see single-page breadcrumbs on pages such as http://localhost:8081/tools/pub/cmd/pub-build.html,
-make sure that you've installed the latest gem versions.
+**Note:** If you see single-page breadcrumbs on pages such as
+http://localhost:8081/tools/pub/cmd/pub-build.html, make sure that you've
+installed the latest gem versions.
 (Run `sudo bundle install` and then `bundle install`.)
 
 
@@ -95,23 +103,24 @@ make sure that you've installed the latest gem versions.
 
 You probably won't have **make** available on the command line by default.
 
-* To just get up and running, run `jekyll` from the `src/site` folder.  
-* This starts up the Jekyll webserver and generates into build/static.
-* If Jekyll does not generate output, you need to type `chcp 65001` at the 
-  command prompt to change the code page to UTF-8. (Jekyll fails silently 
-  if this is not done.)
-* To **clean**, simply delete the contents of build/static and restart `jekyll`.
+* To just get up and running, run `jekyll` from the `src/site` folder.
+* This starts up the Jekyll webserver and generates into `build/static`.
+* If Jekyll does not generate output, you need to type `chcp 65001` at the
+  command prompt to change the code page to UTF-8.
+  (Jekyll fails silently if this is not done.)
+* To **clean**, simply delete the contents of `build/static` and restart `jekyll`.
 
 
 ## Deploying the site
 
 * Run `make clean && make deploy`.
-  * This builds the site and places everything into build/.
-  * This command also uses the current branch for the app engine version name.
-  * This command will then deploy the site.
-(Note: You can also run `make clean && make build` and then deploy using App Engine.)
-* You will probably need to generate an [App-specific password](https://sites.google.com/a/google.com/second-factor/application-specific-passwords-faq).
-  * Save this into the App Engine Launcher during the first deployment.
+  * This builds the site and places everything into `build/`, and then deploys
+    the site. (Note: You can also run
+    `make clean && make build` and then deploy manually using App Engine.)
+  * This command uses the current branch for the App Engine version name.
+* You will probably need to generate an
+  [App-specific password](https://sites.google.com/a/google.com/second-factor/application-specific-passwords-faq).
+  Save this password into the App Engine Launcher during the first deployment.
 
 ## Regenerating Dartisans playlists
 
@@ -130,46 +139,42 @@ Did you just run a Dartisans? Good for you! Here's what you need to do:
 
 ## Updating the book
 
-The files under docs/dart-up-and-running/contents are autogenerated
-from the DocBook files for _Dart: Up and Running._
-Here's how to update these files.
+The files under `docs/dart-up-and-running/contents` are autogenerated from the DocBook files for
+_Dart: Up and Running._ Here's how to update these files.
 
 First, prepare:
 
-* Make sure dart (the Dart VM) is in your PATH.
+* Make sure `dart` (the Dart VM) is in your `PATH`.
 
-    > which dart
-    /Users/me/dart/dart-sdk/bin/dart
+        > which dart
+        /Users/me/dart/dart-sdk/bin/dart
 
-* Make sure xsltproc is in your PATH.
+* Make sure `xsltproc` is in your `PATH`.
 
-    > which xsltproc
-    /usr/bin/xsltproc
+        > which xsltproc
+        /usr/bin/xsltproc
 
-* Find a copy of the latest .xml files that make up dart-up-and-running.
-  For example:
+* Find a copy of the latest .xml files that make up dart-up-and-running. For example:
 
-    > ls ~/Dart/dartbook/GITHUB
-    LICENSE   bookinfo.xml  ch02.xml  ch05.xml  figs
-    README.md ch00.xml  ch03.xml  code    foreword.xml
-    book.xml  ch01.xml  ch04.xml  colo.xml
+        > ls ~/Dart/dartbook/GITHUB
+        LICENSE   bookinfo.xml  ch02.xml  ch05.xml  figs
+        README.md ch00.xml  ch03.xml  code    foreword.xml
+        book.xml  ch01.xml  ch04.xml  colo.xml
 
 Now you're ready. From the top directory of this repo,
 run the following command, specifying the directory that contains ch*.xml:
 
     make book BOOK_XML_DIR=<dir-with-xml-files>
 
-Example:
+For example:
 
     make book BOOK_XML_DIR=~/Dart/dartbook/GITHUB
 
 Wait 4-5 minutes for results.
 
 *Very* carefully check the diffs, paying special attention to the headers
-at the top. Rerun the `make book` command if you aren't sure of the
-changes.
+at the top. Rerun the `make book` command if you aren't sure of the changes.
 
-(Yes, different runs of `make book` can have different results, even
-when the .xml files haven't changed. The problem I've noticed has been
-misnaming files or skipping them in the navigation. Reported as
-dartbug.com/8128.)
+(Yes, different runs of `make book` can have different results, even when the
+.xml files haven't changed. The problem I've noticed has been misnaming files
+or skipping them in the navigation. Reported as dartbug.com/8128.)
