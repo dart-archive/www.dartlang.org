@@ -42,13 +42,18 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * In a terminal, from the dartlang.org project root:
   1. Run `sudo gem install fast-stemmer -v '1.0.2'`
   2. Run `sudo gem install bundler`
-  3. Run `sudo bundle install`, which installs the gems listed in `Gemfile` (liquid, jekyll, etc.).
-    * If you see errors like `library X (at master) is not checked out. Please run 'bundle install'`,
+  3. Run `sudo bundle install`, which installs the gems listed in `Gemfile`
+    (liquid, jekyll, etc.).
+    * If you see errors like
+      `library X (at master) is not checked out. Please run 'bundle install'`,
       then run `bundle install` without `sudo`.
-* Download and install the [App Engine launcher](https://developers.google.com/appengine/downloads)
-  * Ensure App Engine is using Python 2.7. You will see "you're using 2.6" in the log if it is not.
-    * If you are developing on a Mac, go to Preferences, and enter the direct path to the Python 2.7
-      binary, which you downloaded from [python.org](http://www.python.org/download/releases/2.7.3/).
+* Download and install the
+  [App Engine launcher](https://developers.google.com/appengine/downloads)
+  * Ensure App Engine is using Python 2.7. You will see "you're using 2.6" in
+    the log if it is not.
+    * If you are developing on a Mac, go to Preferences, and enter the direct
+      path to the Python 2.7 binary, which you downloaded from
+      [python.org](http://www.python.org/download/releases/2.7.3/).
       The full path is `/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7`.
 * Ask an admin to invite you to modify the Dart project on the Google App Engine.
 
@@ -56,7 +61,7 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 ### Tips for Windows
 
 * Install Python with the [Windows installer](https://www.python.org/download/windows/).
-* Install Ruby with the [OneClick Installer](http://rubyinstaller.org/downloads/).
+* Install Ruby with the [RubyInstaller site](http://rubyinstaller.org/downloads/).
 * Install the Ruby DevKit from the [RubyInstaller site](http://rubyinstaller.org/downloads/)
 * Run `gem install bundler`.
 * Run `bundle install` from the root of your dartlang project.
@@ -90,7 +95,8 @@ On a Mac:
 
 **Note:** If you see single-page breadcrumbs on pages such as
 http://localhost:8081/tools/pub/cmd/pub-build.html, make sure that you've
-installed the latest gem versions.  (Run `sudo bundle install` and then `bundle install`.)
+installed the latest gem versions.
+(Run `sudo bundle install` and then `bundle install`.)
 
 
 ### Windows development tips
@@ -99,16 +105,18 @@ You probably won't have **make** available on the command line by default.
 
 * To just get up and running, run `jekyll` from the `src/site` folder.
 * This starts up the Jekyll webserver and generates into `build/static`.
-* If Jekyll does not generate output, you need to type `chcp 65001` at the command prompt to change
-  the code page to UTF-8. (Jekyll fails silently if this is not done.)
+* If Jekyll does not generate output, you need to type `chcp 65001` at the
+  command prompt to change the code page to UTF-8.
+  (Jekyll fails silently if this is not done.)
 * To **clean**, simply delete the contents of `build/static` and restart `jekyll`.
 
 
 ## Deploying the site
 
 * Run `make clean && make deploy`.
-  * This builds the site and places everything into `build/`, and then deploy the site. (Note: You can
-    also run `make clean && make build` and then deploy manually using App Engine.)
+  * This builds the site and places everything into `build/`, and then deploys
+    the site. (Note: You can also run
+    `make clean && make build` and then deploy manually using App Engine.)
   * This command uses the current branch for the App Engine version name.
 * You will probably need to generate an
   [App-specific password](https://sites.google.com/a/google.com/second-factor/application-specific-passwords-faq).
@@ -118,9 +126,10 @@ You probably won't have **make** available on the command line by default.
 
 Did you just run a Dartisans? Good for you! Here's what you need to do:
 
-1. Update the description to be present tense (instead of future), and remove the link to the
-   moderator page.
-1. Ensure the episode is added to the Dartisans playlist, owned by Google Developers channel.
+1. Update the description to be present tense (instead of future),
+   and remove the link to the moderator page.
+1. Ensure the episode is added to the Dartisans playlist, owned by
+   Google Developers channel.
 1. Sort the playlist by date.
 1. Ensure your episode explicitly sets a Recorded On date.
 1. Format your episode's title like this: "Dartisans ep. XX: Subtitle Here"
@@ -152,8 +161,8 @@ First, prepare:
         README.md ch00.xml  ch03.xml  code    foreword.xml
         book.xml  ch01.xml  ch04.xml  colo.xml
 
-Now you're ready. From the top directory of this repo, run the following command, specifying the
-directory that contains ch*.xml:
+Now you're ready. From the top directory of this repo,
+run the following command, specifying the directory that contains ch*.xml:
 
     make book BOOK_XML_DIR=<dir-with-xml-files>
 
@@ -163,9 +172,9 @@ For example:
 
 Wait 4-5 minutes for results.
 
-*Very* carefully check the diffs, paying special attention to the headers at the top. Rerun the
-`make book` command if you aren't sure of the changes.
+*Very* carefully check the diffs, paying special attention to the headers
+at the top. Rerun the `make book` command if you aren't sure of the changes.
 
-(Yes, different runs of `make book` can have different results, even when the .xml files haven't
-changed. The problem I've noticed has been misnaming files or skipping them in the navigation.
-Reported as dartbug.com/8128.)
+(Yes, different runs of `make book` can have different results, even when the
+.xml files haven't changed. The problem I've noticed has been misnaming files
+or skipping them in the navigation. Reported as dartbug.com/8128.)
