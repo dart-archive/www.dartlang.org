@@ -3,25 +3,12 @@
 
   <div class="{{ sdk.os }} downloads">
   {% if sdk.os == 'macos' %}
-    <a data-bits="32" data-os="{{ sdk.os }}" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
-    <button class="{{ include.buttonclass }}">
-      <i class="sprite-icon-download-btn"> </i>
-      DOWNLOAD DART SDK ({{ sdk.name | upcase }})
-    </button>
-    </a>
+    {% include downloads/_sdk-button.html name=sdk.name buttonclass=include.buttonclass bits="32" arch="ia32" %}
   {% else %}
-    <a data-bits="32" data-os="{{ sdk.os }}" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-x64-release.{{ sdk.ext }}">
-    <button class="{{ include.buttonclass }}">
-    	<i class="sprite-icon-download-btn"> </i>
-    	DOWNLOAD DART SDK (64-bit {{ sdk.name | upcase }})
-    </button>
-   	</a>
-    <a data-bits="32" data-os="{{ sdk.os }}" data-tool="sdk" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-ia32-release.{{ sdk.ext }}">
-    <button class="{{ include.buttonclass }}">
-      <i class="sprite-icon-download-btn"> </i>
-      DOWNLOAD DART SDK (32-bit {{ sdk.name | upcase }})
-    </button>
-    </a>
+    {% capture platform_name %}64-bit {{ sdk.name }}{% endcapture %}
+    {% include downloads/_sdk-button.html name=platform_name buttonclass=include.buttonclass bits="64" arch="x64" %}
+    {% capture platform_name %}32-bit {{ sdk.name }}{% endcapture %}
+    {% include downloads/_sdk-button.html name=platform_name buttonclass=include.buttonclass bits="32" arch="ia32" %}
   {% endif %}
   </div>
   {% endfor %}
