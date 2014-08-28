@@ -28,7 +28,7 @@ ifeq ($(XDGOPEN),)
 else
 	@xdg-open "http://localhost:8081/" &
 endif
-	cd ./src/site && jekyll serve -w --port=8081 --trace
+	cd ./src/site && bundle exec jekyll serve -w --port=8081 --trace
 
 optimize:
 	@find . -iname *.png | xargs -L 1 optipng -o7
