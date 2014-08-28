@@ -13,6 +13,7 @@ packages/
 *.js.deps
 _asset_bundler_cache
 
+!src/site/docs/spec/examples/lazyloader/packages/
 !src/site/samples/searchable_list/example/packages/
 !src/site/samples/tracker/example/packages/
 !src/site/samples/polymer_intl/example/packages/

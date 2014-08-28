@@ -19,7 +19,7 @@ parent.
 
 Read this [tutorial](/docs/tutorials/add-elements/#moving-elements) for
 more detail, or read the
-[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/anagram).
+[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/anagram).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

@@ -190,6 +190,14 @@ Polymer element representing a collection of `Codelab` objects.
 
 <div class="trydart-step-details" markdown="1">
 
+A Polymer element is a custom, reusable, complex HTML element.
+In Polymer Dart, the visual aspect of the element is implemented in HTML
+and CSS, and the element's behavior is implemented in Dart.
+You can use Polymer elements that others have created (such as
+[core elements](http://pub.dartlang.org/packages/core_elements) or
+[paper elements](http://pub.dartlang.org/packages/paper_elements)),
+or you can build your own.
+
 A Polymer element is defined in an HTML file (e.g. `codelab_list.html`). A
 Polymer element typically has the following three-part structure:
 

@@ -21,7 +21,8 @@ a:hover {
 
 /* place link target below the header bar. The top padding should match the
 header height */
-.has-permalink:target {
+.has-permalink:target,
+a[name]:target {
   padding-top: 65px;
 }
 
@@ -604,7 +605,7 @@ pre.prettyprint {
   padding:2px 3px;
 }
 
-.lang-dart .com, .lang-html .com {
+.lang-dart .com, .lang-html .com, .lang-java .com {
   color: #757575;
 }
 

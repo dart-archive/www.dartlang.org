@@ -54,7 +54,7 @@ The following snippet shows how to mark a piece of code with a tag
 named `MyTag`:
 
 {% prettify dart %}
-import 'dart:profile';
+import 'dart:profiler';
 
 var customTag = new UserTag('MyTag');
 

@@ -141,7 +141,7 @@ and **links** to documents that provide more information.
 ## Markup
 
 Format your text using the markup
-specified in section 15.1.2 of the
+specified in section 19.1.2 of the
 [Dart Language Specification](/docs/spec/).
 Although docgen currently recognizes some additional markdown
 (as noted below),

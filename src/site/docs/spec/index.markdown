@@ -30,3 +30,9 @@ or <span style="color:green">green</span> (for commentary).
      target="_blank">Async Await</a>
 * <a href="EnumsTC52draft.pdf"
      target="_blank">Enums</a>
+
+## Deferred loading
+
+Deferred loading of libraries is available in 1.6 as an experimental
+feature. For more information, see
+[Deferred Loading in Dart](deferred-loading.html).

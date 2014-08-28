@@ -102,3 +102,13 @@ Google internal sales tool
 [dartdocs.org](http://www.dartdocs.org)  
 : Automated documentation generation for Pub packages.
 
+Google internal customer support tool
+: Built with Polymer.dart.
+
+[Quire](https://quire.io/)
+: Mobile-friendly task management.
+
+Adwords for video
+: The application that advertisers use to promote video ads on YouTube
+  and other sites. Advertisers create accounts, setup campaigns, create ads,
+  target them to users, and see how users are finding their ads useful, etc.

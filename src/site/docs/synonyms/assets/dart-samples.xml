@@ -1036,8 +1036,8 @@ rand.nextInt(10);
     <title>Sine and Cosine</title>
     <code language="dart"><![CDATA[
 import 'dart:math' as Math;
-sin(Math.PI/2) // == 1.0
-cos(Math.PI) // == -1.0
+Math.sin(Math.PI/2) // == 1.0
+Math.cos(Math.PI) // == -1.0
 ]]></code>
   </synonym>
   <synonym id="syn-convert-a-string-to-a-number">
