@@ -61,7 +61,7 @@ Unzip the ZIP file, which creates a directory called `dart`.
 
 <!--style here is a hack to remove the arrow, which was only partially showing. -->
 <div style="padding-left: 10px"> 
-{% include downloads/_dart-editor.html buttonclass="btn btn-primary btn-lg" %}
+{% include downloads/_dart-editor.html buttonclass="btn-primary" %}
 </div>
 
 <p class="os-choices" markdown="1">

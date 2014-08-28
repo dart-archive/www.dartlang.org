@@ -1,4 +1,4 @@
---- 
+---
 layout: article
 title: "Mixins in Dart"
 description: "Mixins let you implement functionality once and use it in multiple classes."
@@ -101,6 +101,12 @@ abstract class Collection<E> {
     var result = newInstance();
     forEach((E e) { result.add(f(e)); });
     return result;
+  });
+  void forEach(void f(E element)) {
+    // ...
+  }
+  void add(E element) {
+    // ...
   }
 }
 
