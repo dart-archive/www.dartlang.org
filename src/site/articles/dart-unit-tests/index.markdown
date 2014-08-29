@@ -49,7 +49,20 @@ main changes to bear in mind:
 For those who want to jump right to it, let's start with an example.
 Let's say we are writing a quicksort algorithm in Dart and want to test it.
 Open the Dart editor, create a new application "quicksort",
-then change the "quicksort.dart" file to look as follows:
+and edit the "pubspec.yaml" file to import the unittest package:
+
+{% prettify yaml %}
+name: quicksort
+version: 0.0.1
+author: <you>
+description: A quicksort implementation
+dev_dependencies:
+  unittest: '>=0.10.0'
+{% endprettify %}
+
+Saving "pubspec.yaml" in the Dart editor should trigger a `pub get` command to
+install the unittest package for you. Now that the package is installed, change
+the "quicksort.dart" file to look as follows:
 
 {% prettify dart %}
 import 'package:unittest/unittest.dart';
