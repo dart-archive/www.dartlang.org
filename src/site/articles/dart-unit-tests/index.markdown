@@ -60,9 +60,9 @@ dev_dependencies:
   unittest: '>=0.10.0'
 {% endprettify %}
 
-Saving "pubspec.yaml" in the Dart editor should trigger a `pub get` command to
-install the unittest package for you. Now that the package is installed, change
-the "quicksort.dart" file to look as follows:
+Run `pub get` either on the command line or in your editor to install the
+unittest package. Once the package is installed, change the "quicksort.dart"
+file to look as follows:
 
 {% prettify dart %}
 import 'package:unittest/unittest.dart';
