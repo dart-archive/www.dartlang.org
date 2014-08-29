@@ -33,7 +33,7 @@ This section provides links to sources on github.
 This is a draft under construction.
 Your kindly worded
 <a
- href="http://code.google.com/p/dart/issues/entry?template=Tutorial%20feedback"
+ href="https://github.com/dart-lang/dartlang.org/issues"
  target="_blank">
 comments and suggestions
 </a>
