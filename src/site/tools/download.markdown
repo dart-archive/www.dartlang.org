@@ -51,8 +51,8 @@ automatic updates, go to **Preferences**, choose **Update**, and select
 **Download updates automatically**.
 
 <aside class="alert alert-info macos" markdown="1">
-**Note:** If you need a bigger heap or access to much more memory, download
-[the 64-bit Dart + Editor]({{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-macos-x64.zip)
+**Note:** If you need a bigger heap or access to much more memory, download the
+[64-bit Dart + Editor]({{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-macos-x64.zip)
 for Mac.
 </aside>
 
@@ -131,8 +131,8 @@ When that happens, you will need to download a new copy
 to continue using Dartium.
 
 <aside class="alert alert-info macos" markdown="1">
-**Note:** If you need a bigger heap or access to much more memory, download
-[the 64-bit Dart SDK]({{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip)
+**Note:** If you need a bigger heap or access to much more memory, download the
+[64-bit Dart SDK]({{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip)
 for Mac.
 </aside>
 
