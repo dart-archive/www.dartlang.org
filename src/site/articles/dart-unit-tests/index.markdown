@@ -54,7 +54,7 @@ and edit the "pubspec.yaml" file to import the unittest package:
 {% prettify yaml %}
 name: quicksort
 version: 0.0.1
-author: <you>
+author: First Last <email@example.com>
 description: A quicksort implementation
 dev_dependencies:
   unittest: '>=0.10.0'
