@@ -632,6 +632,9 @@ You can also make a test asynchronous by returning a Future.
 The test will only be considered complete after the Future is complete.
 You can combine returning a Future with calls to `expectAsync`, if necessary.
 
+Learn more about the aynchronous unit test functions from the
+[unittest documentation](http://www.dartdocs.org/documentation/unittest/latest).
+
 
 ## Matchers
 
