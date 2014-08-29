@@ -1,0 +1,12 @@
+<a
+    data-bits="{{ include.bits }}"
+    data-os="{{ editor.os }}"
+    data-build="integration"
+    data-tool="editor"
+    class="btn download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-{{ editor.os }}-{{ include.arch }}.{{ editor.editor-ext }}">
+  <button class="btn btn-lg download-btn {{ include.buttonclass }}">
+    <i class="sprite-icon-download-btn"> </i>
+    Download Dart + Editor ({{ include.name }})
+  </button>
+</a>
