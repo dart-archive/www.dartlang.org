@@ -6,7 +6,7 @@ The www.dartlang.org site. Built with [Jekyll](https://github.com/mojombo/jekyll
 and hosted on App Engine.
 
 To give us feedback, please
-[file issues on GitHub](https://github.com/dart-lang/dartlang.org/issues)
+[file issues on GitHub](https://github.com/dart-lang/dartlang.org/issues).
 
 Contributions welcome!
 (Just sign our [CLA](https://developers.google.com/open-source/cla/individual).)
