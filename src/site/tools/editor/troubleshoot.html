@@ -39,9 +39,10 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   <li> <a href="#bugs">Other known issues</a> </li>
 </ol>
 
-<section id="download-dart-editor">
+<section>
 
-  <h2> Getting your system architecture </h2>
+  <h2><a id="download-dart-editor"></a>
+    Getting your system architecture </h2>
 
   <div class="linux">
     <p>
@@ -71,9 +72,9 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
 
 </section>
 
-<section id="launch-dart-editor">
+<section>
 
-  <h2> Launching Dart Editor </h2>
+  <h2><a id="launch-dart-editor"> Launching Dart Editor </h2>
 
   <div class="windows">
     <p>
@@ -92,7 +93,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     <p>
     To determine which version of Java you are running, do one of the
     following:
-   
+
     <ul>
     <li>Go to <a href="http://www.java.com/verify/">Verify Java
         Version</a>. (If you have just installed Java,
@@ -140,7 +141,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
         </li>
     </ul>
 
-    <h3 id="security-preferences">Unidentified developer</h3>
+    <h3><a id="security-preferences"></a> Unidentified developer</h3>
 
     <p>
     If you're running Mac OS 10.8 (Mountain Lion),
@@ -178,7 +179,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     you can change the preference back to its previous setting.
     </p>
 
-    <h3 id="corruption">"DartEditor.app" is damaged (64-bit only)</h3>
+    <h3><a id="corruption"></a> "DartEditor.app" is damaged (64-bit only)</h3>
 
     <p>
     Sometimes when you try to launch a new, 64-bit build of Dart Editor,
@@ -196,7 +197,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     32-bit version of Dart Editor</a>.
     </p>
 
-    <h3 id="java-install">Java installation failure</h3>
+    <h3><a id="java-install"></a> Java installation failure</h3>
 
     <p>
     When you try to run Dart Editor but don't have a Java SE 6 runtime,
@@ -206,7 +207,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     <a href="http://support.apple.com/kb/DL1572">install Java yourself</a>.
     </p>
 
-    <h3 id="avstartup">Slow startup</h3>
+    <h3><a id="avstartup"></a> Slow startup</h3>
 
     <p>
     If you use Sophos Anti-Virus,
@@ -232,7 +233,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
         and click Open. </li>
     </ol>
 
-    <h3 id="mac-32bit">32-bit Mac</h3>
+    <h3><a id="mac-32bit"></a> 32-bit Mac</h3>
 
     <p>
     If you're using one of the increasingly rare 32-bit Macs,
@@ -255,7 +256,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
 
   </div> <!-- end of mac-only section -->
 
-  <h3 id="runtime">Specifying the Java runtime</h3>
+  <h3><a id="runtime"></a> Specifying the Java runtime</h3>
 
   <p>
   If necessary, you can specify the Java runtime that Dart Editor uses.
@@ -295,8 +296,8 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
 
 </section>
 
-<section id="increasing-memory">
-  <h3>Increasing memory</h3>
+<section>
+  <h3><a id="increasing-memory"></a> Increasing memory</h3>
 
   <p>
   When building larger Dart applications, Dart Editor needs more
@@ -307,19 +308,18 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   and change it to <code>-Xmx2000m</code>, or larger if you have more RAM
   available.</p>
 
-  <h3 id="java7-gc-changes">Java 7 garbage collection changes</h3>
+  <h3><a id="java7-gc-changes"></a> Java 7 garbage collection changes</h3>
+
   <p>
   Java 7 sports different garbage collection (GC) behavior than Java 6.
   If you see large pauses when editing files, and you have addressed
   the <a href="#increasing-memory">memory issues</a>, edit the
   DartEditor.ini file, and insert a line <em>after</em>
   <code>-vmargs</code> that contains the string <code>-Xincgc</code>.</p>
-
 </section>
 
-<section id="dart-editor-crashed">
-
-  <h2> Dart Editor crashed and now I cannot relaunch it </h2>
+<section>
+  <h2><a id="dart-editor-crashed"></a> Dart Editor crashed and now I cannot relaunch it</h2>
 
   <p>
   In extremely rare cases, a Dart Editor crash will corrupt the workspace
@@ -336,8 +336,8 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
 
 </section>
 
-<section id="dartium">
-  <h2>Launching Dartium</h2>
+<section>
+  <h2><a id="dartium"></a> Launching Dartium</h2>
 
   <p>
   By default,
@@ -360,7 +360,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   and substitute it for the copy that's in your
   Dart installation directory.
   </p>
-  
+
   <div class="linux">
     <p>
     If you're experiencing the error
@@ -372,8 +372,8 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
 </section>
 
 
-<section id="eclipse">
-  <h2>Using Eclipse</h2>
+<section>
+  <h2><a id="eclipse"></a> Using Eclipse</h2>
 
   <p>
   If Dart Editor and Eclipse
@@ -389,8 +389,8 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   </p>
 </section>
 
-<section id="pub-get-firewall">
-  <h2> Running "pub get" behind a proxy </h2>
+<section>
+  <h2><a id="pub-get-firewall"></a> Running "pub get" behind a proxy</h2>
 
   <p>
   When using <code>pub get</code> behind a proxy,
@@ -441,8 +441,8 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   </pre>
 </section>
 
-<section id="breakpoints">
-  <h2> Breakpoints not triggering </h2>
+<section>
+  <h2><a id="breakpoints"></a> Breakpoints not triggering</h2>
 
   <p>
   If your breakpoints are not being triggered, or you are seeing
@@ -453,8 +453,8 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   </p>
 </section>
 
-<section id="clear">
-  <h2> Clearing all settings </h2>
+<section>
+  <h2><a id="clear"></a> Clearing all settings</h2>
 
   <p>
   Dart Editor settings are in a platform-dependent directory,
@@ -491,8 +491,9 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   </table>
 </section>
 
-<section id="generating-heap-dumps">
-  <h2> Collecting performance diagnostics </h2>
+<section>
+  <h2><a id="generating-heap-dumps"></a>
+    Collecting performance diagnostics</h2>
 
   <p>
     To aid in debugging Dart Editor performance issues,
@@ -520,8 +521,8 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
 </section>
 
 <div class="windows">
-  <section id="network-storage-problems">
-    <h2> Network storage problems </h2>
+  <section>
+    <h2><a id="network-storage-problems"></a> Network storage problems</h2>
 
     <p>
     Under some circumstances, network storage can prevent Dart Editor
@@ -543,14 +544,14 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   </section>
 </div>
 
-<section id="bugs">
-  <h2> Other known issues </h2>
-  
+<section>
+  <h2><a id="bugs"></a> Other known issues</h2>
+
   <div class="linux">
     <p>
     Some of the more common problems on Linux include:
     </p>
-    
+
     <ul>
       <li> <a href="https://code.google.com/p/dart/issues/detail?id=10363#c6">Dart Editor crashes</a>
 	  on specific versions of Linux. </li>
@@ -559,7 +560,7 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
         on specific versions of Linux. </li>
     </ul>
   </div>
-  
+
   <p>
   <b><a href="https://code.google.com/p/dart/issues/list?can=2&amp;q=label:Area-Editor&amp;sort=-id">Dart Editor issues</a></b>
   lists all of the known bugs in Dart Editor.
