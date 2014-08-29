@@ -20,6 +20,39 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
+## 0.13.0 {#0-13-0}
+
+This new release updates polymer to match the current release (0.3.5) of
+polymer.js.
+
+### Polymer changes
+There should be no noticeable changes with this release.
+
+### Changes in platform.js
+
+Internally this release includes updates to the `web_components` package to
+version 0.6.0. This brings platform.js to the latest Javascript version
+(including changes in master for ShadowDOM at
+[57232d](https://github.com/Polymer/ShadowDOM/commit/57232dc6d07dd921009679dfbab622b52174df80)).
+This is because the polyfills at version 0.3.5
+had some bugs in IE that got fixed afterwards.
+
+One bug worth highlighting: platform.js also introduced a subtle bug on
+querySelector when children of a host node are not distributed to the shadow
+tree ([see details](https://github.com/Polymer/ShadowDOM/issues/495)). The
+situation when this happens is rare, so we expect few people will run into this,
+but we decided to bump our version as a breaking change just in case.
+
+### Core and paper elements
+
+Together with this release, we updated `core_elements` to 0.2.0+1, and
+`paper_elements` to 0.1.1+2. This brings the elements packages up to date with
+the changes in the Javascript version 0.3.5. The main highlights are that
+a new element was added (`core-dropdown`), and icons in `core_elements` moved
+two levels up in the directory layout. So for example, you now need to import
+`packages/core_elements/image_icons.html` instead of
+`packages/core_elements/core_icons/iconsets/image_icons.html`.
+
 
 ## 0.12.1 {#0-12-1}
 
