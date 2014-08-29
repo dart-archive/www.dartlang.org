@@ -49,7 +49,7 @@ within semantically meaningful HTML.
 <aside class="alert">
 <strong>Version Note:</strong> The code sample and the content
 of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.12.</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.13.</a>.
 </aside>
 
 <aside class="alert alert-info">
@@ -194,7 +194,7 @@ by adding the package name, `polymer`, to the list.
 name: stopwatch
 description: A sample application
 dependencies:
-  <b>polymer: "&gt;=0.12.0 &lt;0.13.0"</b>
+  <b>polymer: "&gt;=0.13.0 &lt;0.14.0"</b>
   </pre>
   </li>
 
@@ -626,7 +626,7 @@ to specify the Polymer transformers:
 {% prettify yaml %}
 ...
 dependencies:
-  polymer: ">=0.12.0 <0.13.0"
+  polymer: ">=0.13.0 <0.14.0"
 transformers:
 - polymer
 {% endprettify %}
