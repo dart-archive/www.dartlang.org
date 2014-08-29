@@ -707,6 +707,15 @@ pre.prettyprint {
   color: #fff;
 }
 
+.hero p {
+  color: #fff;
+}
+
+.hero a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .hero .download-btn {
   background: none;
   border: 1px solid #fff;
