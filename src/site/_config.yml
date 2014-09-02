@@ -4,7 +4,7 @@ source: .
 destination: ../../build/static
 markdown: kramdown
 permalink: /news/:year/:month/:day/:title.html
-pygments: false
+highlighter: null
 custom:
   downloads:
     dartarchive-be-url-prefix: "http://storage.googleapis.com/dart-archive/channels/be/raw"
