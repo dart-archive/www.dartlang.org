@@ -632,7 +632,7 @@ test('Double callback', () {
 We might have a callback that's called an undetermined number of times, where
 only a test can tell us when it's the last time.
 For these cases we can use `expectAsyncUntil()`.
-This function take a second predicate function argument
+This function takes a second predicate function argument
 that should return false if more callbacks are expected
 or true if all callbacks are done and the test can is considered complete.
 
