@@ -582,7 +582,7 @@ Say we have this code in our application:
 new Timer(new Duration(milliseconds:100), checkProgress);
 {% endprettify %}
 
-Also say that we want to test whether Timer calls the checkProgress function.
+Also say that we want to test whether Timer calls the `checkProgress` function.
 The following test would pass, but it wouldn't do what we want:
 
 {% prettify dart %}
@@ -592,25 +592,22 @@ test('Timer test', () {
 });
 {% endprettify %}
 
-The test has no assertion or other check to tell
-that checkProgress was ever fired.
-We need to have the test understand that
-it is testing asynchronous code,
-and then either succeed if the callback is executed
-or fail after some time has elapsed and nothing has happened.
-
-Here is an example of expectAsync0:
+The test has no assertion or other check to tell that `checkProgress` was ever
+called.  We need the test to understand that it is testing asynchronous code,
+and either succeed if the callback is called or fail if the callback is never
+called before some timeout.  The `expectAsync` function gives us exactly this
+behavior:
 
 {% prettify dart %}
 test('Window timeout test', () {
-  new Timer(new Duration(milliseconds:100), expectAsync0(checkProgress));
+  new Timer(new Duration(milliseconds:100), expectAsync(checkProgress));
 });
 {% endprettify %}
 
 When this test starts to run, it calls `new Timer` and passes a closure,
-created by `expectAsync0`, as the event handler.
+created by `expectAsync`, as the event handler.
 This closure will in turn call `checkProgress()`.
-If `checkProgress()` throws an exception
+If `checkProgress()` throws an exception,
 the closure catches it and marks the test as failed.
 The test is not considered complete until either
 the closure is executed or the test framework times out and fails the test.
@@ -619,79 +616,37 @@ that is handled by the unittest library itself at this time;
 it is normally implemented by test harnesses
 that manage the execution of tests.
 
-`expectAsyncN()` can take an additional count argument
+`expectAsync()` can take an additional named `count` argument
 to specify how many times the callback must be called
 before the test is considered complete.
 For example:
 
 {% prettify dart %}
 test('Double callback', () {
-  var callback = expectAsync0(foo, count: 2);
+  var callback = expectAsync(foo, count: 2);
   new Timer(new Duration(milliseconds:100), callback);
   new Timer(new Duration(milliseconds:100), callback);
 });
-{% endprettify %}
-
-There are times when we have callbacks that we don't expect to be called.
-For example, consider a function that takes two callback arguments,
-and only one of them will be called
-(for example, onSuccess and onFailure handlers).
-Even though we don't expect one of the callbacks to be called,
-we still need to guard the code
-so that the test library handles exceptions that may be thrown in that code.
-We can do this by wrapping the callback we don't expect to be called
-with `protectAsyncN()`.
-Note that in this case, if that callback was called,
-it would not terminate the test unless an exception was thrown,
-so it is a good idea in such cases
-to add a failing expectation in the callback:
-
-{% prettify dart %}
-test('two callbacks', () {
-  my_function(/* ... */,
-    successCallback:
-        expectAsync1(() {}),
-    errorCallback:
-        protectAsync1((e) =>
-            expect(true, isFalse, reason: 'Should not be reached')));
-});
-{% endprettify %}
-
-A call to the error callback would signify the end of this test,
-while a call to the success callback would not,
-unless an exception was thrown in that code.
-This is why it is a good idea to have a failing expectation in that code
-if the test will otherwise not terminate.
-
-An alternative is to use `guardAsync(fn)`,
-which executes the function `fn` within a try/catch block
-so that any exceptions are reported to the test library.
-For example we could have used:
-
-{% prettify dart %}
-errorCallback:
-    (e) => guardAsync(() {
-      expect(true, isFalse, reason: 'Should not be reached');
-    }));
 {% endprettify %}
 
 We might have a callback that's called an undetermined number of times, where
 only a test can tell us when it's the last time.
-For these cases we can use `expectAsyncUntilN()` (where N is 0, 1 or 2).
-These functions take a second predicate function argument
+For these cases we can use `expectAsyncUntil()`.
+This function take a second predicate function argument
 that should return false if more callbacks are expected
-or true if all callbacks are done.
+or true if all callbacks are done and the test can is considered complete.
 
-These functions can all take a named 'id' argument
-that will be used in error messages to identify the callback.
-This is particularly useful for anonymous closures or in minified code;
-for named functions or methods
-the framework will use the function or method name as the default id.
+Both functions can take a named `id` String argument that will be used in error
+messages to identify the callback.  This is particularly useful for anonymous
+closures or in minified code; for named functions or methods the framework will
+use the function or method name as the default `id`.
 
-In addition to the use of guarded callbacks,
-you can make a test asynchronous by returning a Future.
+You can also make a test asynchronous by returning a Future.
 The test will only be considered complete after the Future is complete.
-You can combine returning a Future with calls to expectAsyncN, if necessary.
+You can combine returning a Future with calls to `expectAsync`, if necessary.
+
+Learn more about the aynchronous unit test functions from the
+[unittest documentation](http://www.dartdocs.org/documentation/unittest/latest).
 
 
 ## Matchers
