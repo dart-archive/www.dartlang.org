@@ -104,10 +104,10 @@ printName();
     <title>Final variables</title>
     <code language="javascript"><![CDATA[
 // Javascript uses the 'const' declaration
-const name = "bob";
+const name = "Bob";
 
 // Trying to reassign the variable will fail
-name = "fred";
+name = "Fred";
 console.log(name)
 
 // Bob
