@@ -103,7 +103,14 @@ printName();
   <synonym id="syn-final-variables">
     <title>Final variables</title>
     <code language="javascript"><![CDATA[
-// no support
+// Javascript uses the 'const' declaration
+const name = "bob";
+
+// Trying to reassign the variable will fail
+name = "fred";
+console.log(name)
+
+// Bob
 ]]></code>
   </synonym>
 </theme>
