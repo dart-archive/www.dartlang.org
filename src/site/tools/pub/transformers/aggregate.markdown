@@ -11,11 +11,6 @@ header:
 
 # {{ page.title }}
 
-<aside class="alert alert-info" markdown="1">
-**Note:** Aggregate transformers are coming in 1.6, but are available
-now in the [Dev Channel download](https://www.dartlang.org/tools/download.html).
-</aside>
-
 An aggregate transformer processes multiple assets in a single
 pass&ndash;for example, collaging multiple images into a single image.
 
