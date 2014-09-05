@@ -155,24 +155,34 @@ You'll be less likely to break the docs, and someone else can always add formatt
 
 ### Links
 
-You can link to Dart identifiers,
-of which constructors are a special case,
-or to any URI you choose.
+Normal URI hyperlinks are supported, as well as automatic links to Dart identifiers.
 
 #### Identifier
 {:.no_toc}
 
 `[id]` _or_ `[id](uri)`
 
-If _id_ is the name of a class, the generated link points at the class,
-even if the class has a constructor of the same name.
-If you specify _uri_, it must be the URI of a dart library _L_,
-and _id_ must a name declared in the exported namespace of _L_.
+Both generate a hyperlink to a Dart identifier. This identifier can be a class,
+method, or property. For example:
+
+{% prettify none %}
+Throws a [StateError] if ...
+similar to [anotherMethod], but ...
+{% endprettify %}
+
+If you specify _uri_, it must be the URI of a dart library _L_, and _id_ must
+be a name declared in the exported namespace of _L_.
+
 
 #### Constructor
 {:.no_toc}
 
 `[new c]` _or_ `[new c](uri)`
+
+Both generate a hyperlink to the constructor for _c_.
+
+If you specify _uri_, it must be the URI of a dart library _L_, and _c_ must be
+a constructor of a class declared in the exported namespace of _L_.
 
 
 #### Hyperlink
@@ -180,8 +190,8 @@ and _id_ must a name declared in the exported namespace of _L_.
 
 `[text](uri)` _or_ `<uri>`
 
-Note: _uri_ is the URI to link to;
-_text_ is the string to be displayed instead of the URI.
+Both generate a hyperlink to `uri`. The first form uses _text_ as the link
+text. The second form uses _uri_ as the link text.
 
 
 ### Block styles
@@ -215,24 +225,31 @@ Example:
 #### Header
 {:.no_toc}
 
-<pre>## header text until newline</pre>
+{% prettify none %}
+## header text until newline
+{% endprettify %}
 
-Lower level heads (such as `###`)
+Lower level headers (such as `###`)
 are currently implemented but not specified.
 
 
 #### Bulleted (unordered) list item
 {:.no_toc}
 
-<pre>* item continues until next list item or blank line</pre>
+{% prettify none %}
+* item continues until next list item or blank line
+{% endprettify %}
 
 The line before the first bulleted list item must be blank.
 
 
 #### Numbered (ordered) list item
 {:.no_toc}
-<pre>1. item continues until next list item or blank line
-2. next item</pre>
+
+{% prettify none %}
+1. item continues until next list item or blank line
+2. next item
+{% endprettify %}
 
 The specification states that items aren't autonumbered.
 Use `2.` for item #2, `3.` for item #3, and so on.
