@@ -184,7 +184,7 @@ resolve. Instead, your entrypoints should go in the appropriate
 
 Dart scripts placed inside of the `bin` directory are public. Any package
 that depends on your package can run scripts from your package's `bin`
-directory using [`pub run`](cmd/pub-run). <em>Any</em> package can run scripts
+directory using [`pub run`](cmd/pub-run.html). <em>Any</em> package can run scripts
 from your package's bin directory using [`pub global`](cmd/pub-global.html).
 
 If you intend for your package to be depended on,
