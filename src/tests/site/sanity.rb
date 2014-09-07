@@ -1,7 +1,17 @@
+require "jekyll"
 require "selenium-webdriver"
 
 class SanityTest
-  def initialize(base)
+  def initialize(base = nil)
+    Dir.chdir("src/site")
+
+    if base.nil?
+      base = "http://localhost:8081/"
+      # Jekyll serve the local copy.
+      options = {"watch" => true, "port" => 8081}
+      @server, @server_thread = Jekyll::Commands::Serve.spin_off(options)
+    end
+
     @driver = Selenium::WebDriver.for :firefox
     @driver.navigate.to base
   end
@@ -13,6 +23,8 @@ class SanityTest
     puts "All sanity checks passed."
   ensure
     @driver.quit
+    @server.shutdown if @server
+    @server_thread.join if @server_thread
   end
 
   def expect(expected, actual, description="")
@@ -29,17 +41,17 @@ class SanityTest
   end
 
   def test_homepage
-    # Find each navigation link
+    # Find each navigation link.
     expect_text_at("GET STARTED", :xpath, "//ul[contains(@class,'nav')][1]/li[1]")
     expect_text_at("DOCS", :xpath, "//ul[contains(@class,'nav')][1]/li[2]")
     expect_text_at("TOOLS", :xpath, "//ul[contains(@class,'nav')][1]/li[3]")
     expect_text_at("RESOURCES", :xpath, "//ul[contains(@class,'nav')][1]/li[4]")
     expect_text_at("SUPPORT", :xpath, "//ul[contains(@class,'nav')][1]/li[5]")
 
-    # Find the download link at the top
+    # Find the download link at the top.
     @driver.find_element(:css, ".downloads a.download-link")
 
-    # Dart is new, yet familiar carousel
+    # Dart is new, yet familiar carousel.
     examples = @driver.find_elements(:css, ".dart-new-language .item")
     expect("block", examples[0].css_value("display"),
            "First new, yet familiar example should be shown.")
@@ -59,13 +71,17 @@ class SanityTest
   end
 
   def test_darrrt
+    # Click "Get Started".
     @driver.find_element(:css, ".nav li:first-child a").click
     Selenium::WebDriver::Wait.new.until {
       iframe = @driver.find_element(:css, ".running-app-frame")
     }
+
+    # Open the top iframe.
     step_6_src = @driver.find_element(:css, ".running-app-frame").attribute("src")
     @driver.navigate.to step_6_src
 
+    # When I type "Sam", I should see "Sam" in the badge.
     @driver.find_element(:id, "inputName").send_keys("Sam")
     badge_text = @driver.find_element(:id, "badgeName").text
     expect("Sam", badge_text.split(' ')[0], "Pirate badge should write my name")
@@ -73,10 +89,32 @@ class SanityTest
   end
 end
 
-if ARGV.size > 0
-  url = ARGV.shift
-else
-  url = "http://localhost:8081/"
+class Jekyll::Commands::Serve
+  class << self
+    def spin_off(options)
+      # All borrowed from Jekyll::Command::Server.init_with_program and .process
+      options["serving"] = true
+      options = Jekyll::Command.configuration_from_options(options)
+      destination = options["destination"]
+      Jekyll::Commands::Build.process(options)
+      setup(destination)
+
+      s = WEBrick::HTTPServer.new(webrick_options(options))
+      s.unmount("")
+
+      s.mount(
+        options['baseurl'],
+        WEBrick::HTTPServlet::FileHandler,
+        destination,
+        file_handler_options
+      )
+
+      Jekyll.logger.info "Server address:", server_address(s, options)
+      thread = Thread.new { s.start }
+
+      [s, thread]
+    end
+  end
 end
 
-SanityTest.new(url).test
+SanityTest.new(ARGV.shift).test
