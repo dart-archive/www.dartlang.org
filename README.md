@@ -111,6 +111,27 @@ You probably won't have **make** available on the command line by default.
 * To **clean**, simply delete the contents of `build/static` and restart `jekyll`.
 
 
+## Testing
+
+There are a variety of tests you can run:
+
+### Release Testing
+
+There is a `sanity-test` target that tests some very basic features of
+dartlang.org with some browser tests:
+
+```bash
+# launch the local copy of dartlang.org with `jekyll serve`, and test it:
+make sanity-test
+
+# test against the live dartlang.org site:
+make sanity-test-live
+
+# test against any staged copy of dartlang.org:
+bundle exec ruby src/tests/site/sanity.rb <URL>
+```
+
+
 ## Deploying the site
 
 * Run `make clean && make deploy`.

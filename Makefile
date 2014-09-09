@@ -72,3 +72,9 @@ compile-sample-apps: observables-samples
 
 observables-samples:
 	cd src/site/web-ui/observables/code && pub get && dart build.dart
+
+sanity-test:
+	bundle exec ruby src/tests/site/sanity.rb
+
+sanity-test-live:
+	bundle exec ruby src/tests/site/sanity.rb https://www.dartlang.org/
