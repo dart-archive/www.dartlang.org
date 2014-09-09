@@ -52,7 +52,12 @@ between `pub get` and [`pub upgrade`](pub-upgrade.html), which always tries to
 get the latest versions of all dependencies.
 
 <aside class="alert alert-info" markdown="1">
-**Note:** In earlier releases of Dart, _pub get_ was called _pub install_.
+**Note:** In some cases, `pub get` creates a `.pub` directory at
+the top-level of a package. This commonly happens with Polymer
+Dart apps, for example. Do not check this generated file into
+your repo&ndash;add it to the repo's `.gitignore` file.
+[What Not to Commit](/tools/private-files.html) has a complete list
+of files that should not be checked into the repo.
 </aside>
 
 ## Getting a new dependency
