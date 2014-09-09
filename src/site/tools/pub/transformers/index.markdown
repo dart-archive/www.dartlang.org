@@ -325,6 +325,8 @@ transformers. For more information, see
 * [Writing an Aggregate Transformer](aggregate.html)
 : How to write a transformer that combines multiple input assets
   into a single output.
+* [Writing a Lazy Transformer](lazy-transformer.html)
+: How to write a transformer that processes lazily, in the background.
 * [Writing a Pub Transformer: Examples](examples/)
 : Examples to get you started.
 * [barback library](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/barback)

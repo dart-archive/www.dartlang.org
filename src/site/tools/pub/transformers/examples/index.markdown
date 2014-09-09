@@ -6,7 +6,7 @@ title: "Writing a Pub Transformer: Examples"
 
 # {{ page.title }}
 
-When _pub_ serves or builds an app, it can run one or more
+When _pub_ serves, builds, or runs an app, it can run one or more
 transformers. ([Learn more about pub](/tools/pub/).)
 
 Transformers operate on _assets_, where an asset is a resource,
@@ -24,6 +24,10 @@ aggregate_transformer
   single HTML file. See
   [Writing an Aggregate Transformer](/tools/pub/transformers/aggregate.html)
   for more information.
+
+lazy_transformer
+: Lazily converts a text file using a ROT13 converter. See
+  [Writing a Lazy Transformer](/tools/pub/transformers/lazy-transformer.html)
 
 markdown_converter
 : Converts a markdown file (with either a ".mdown", ".md", or

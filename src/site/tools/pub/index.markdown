@@ -85,6 +85,7 @@ The following pages cover how to write a custom transformer:
 
 * [Writing a Pub Transformer](/tools/pub/transformers/) 
 * [Writing an Aggregate Transformer](/tools/pub/transformers/aggregate.html)
+* [Writing a Lazy Transformer](/tools/pub/transformers/lazy-transformer.html)
 * [Barback - Can We Build It? Yes, We Can!](https://docs.google.com/a/google.com/document/d/1juHkCRg-1YH6LvwhGPHgF2ihX-UQtR1fv-8aknO7t_4/edit?pli=1#)
 
 ## Troubleshooting {#troubleshooting}
