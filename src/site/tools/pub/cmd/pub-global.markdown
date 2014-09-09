@@ -8,13 +8,10 @@ description: "Use pub global to run Dart scripts hosted on pub.dartlang.org from
 
 # {{ page.title }}
 
-<aside class="alert alert-info" markdown="1">
-**Note:** The `global` command for pub is coming in 1.6, but is available
-now in the [Dev Channel download](https://www.dartlang.org/tools/download.html).
-</aside>
-
 _Global_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
+
+{% include coming-release.html %}
 
 **Contents**
 {% include default_toc.html %}

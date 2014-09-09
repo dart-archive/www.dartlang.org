@@ -15,4 +15,4 @@ The reference documentation will include the following:
 * Differences from JavaScript
 * Import Syntax
 * [Release Notes](release-notes/)
-* Warnings and Errors
+* [Error Messages](error-messages/)

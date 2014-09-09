@@ -35,28 +35,36 @@ are useful or essential when you deploy an app.
 **Don't commit** the following files and directories
 created by pub, Dart Editor, and dart2js:
 
-    packages/
-    pubspec.lock  // Except for application packages
-    .project
-    .buildlog
-    *.js_
-    *.js.deps
-    *.js.map
+{% prettify none %}
+build/
+packages/
+pubspec.lock  // Except for application packages
+.buildlog
+.project
+.pub/
+{% endprettify %}
 
 **Don't commit** files and directories
 dropped by other development environments.
 For example:
 
-    .project      // Eclipse
-    *.iml         // IntelliJ
-    *.ipr         // IntelliJ
-    *.iws         // IntelliJ
-    .idea/        // IntelliJ
-    .DS_Store     // Mac
+{% prettify none %}
+.project      // Eclipse
+*.iml         // IntelliJ
+*.ipr         // IntelliJ
+*.iws         // IntelliJ
+.idea/        // IntelliJ
+.DS_Store     // Mac
+{% endprettify %}
 
 **Avoid committing** generated JavaScript files:
 
-    *.dart.js
+{% prettify none %}
+*.dart.js
+*.js_
+*.js.deps
+*.js.map
+{% endprettify %}
 
 For more details, read on.
 

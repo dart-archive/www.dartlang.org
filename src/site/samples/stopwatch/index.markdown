@@ -30,7 +30,7 @@ elements on the HTML-side.
 
 Read this [tutorial](/docs/tutorials/polymer-intro) for
 more detail, or read the
-[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch).
+[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/stopwatch).
 
 
 <iframe class="running-app-frame"

@@ -29,7 +29,7 @@ In brief, to save a record in an IndexedDB:
 
 Read this [tutorial](/docs/tutorials/indexeddb) for
 more detail, or read the
-[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/stopwatch).
+[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/stopwatch).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

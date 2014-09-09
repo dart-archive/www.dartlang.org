@@ -3025,7 +3025,7 @@ Tv:function(a){var z,y
 z={}
 z.a=!1
 X.Vd("Connecting to websocket")
-y=W.pS("ws://echo.websocket.org",null)
+y=W.pS("wss://echo.websocket.org",null)
 $.Wz=y
 z=new X.Ur(z,a)
 y=H.VM(new W.RO(y,C.Mp.Ph,!1),[null])

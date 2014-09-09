@@ -29,7 +29,7 @@ and use Dart libraries to perform the action programmatically.
 
 Read this [tutorial](/docs/tutorials/forms) for
 more detail, or read the
-[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/slambook).
+[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/slambook).
 
 <iframe class="running-app-frame"
         style="height:550px;width:100%;"

@@ -19,7 +19,7 @@ changes, the web page refreshes.
 
 Read this [tutorial](/docs/tutorials/remove-elements/) for
 more detail, or read the
-[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete).
+[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/todo_with_delete).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

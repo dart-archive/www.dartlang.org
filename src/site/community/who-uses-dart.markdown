@@ -106,7 +106,7 @@ Google internal customer support tool
 : Built with Polymer.dart.
 
 [Quire](https://quire.io/)
-: Mobile-friendly task management.
+: A simple, collaborative, multi-level task management tool with both the client and server written in Dart.
 
 Adwords for video
 : The application that advertisers use to promote video ads on YouTube

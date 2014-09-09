@@ -603,8 +603,8 @@ pre.prettyprint {
   height: 450px;
 }
 
-.lang-dart, .lang-html, .lang-js, .lang-csharp, .lang-python,
-.lang-javascript {
+.lang-dart, .lang-html, .lang-js, .lang-csharp, .lang-none,
+.lang-python, .lang-javascript {
   max-width: 800px;
   text-align: left;
   margin-right: auto;
@@ -626,6 +626,11 @@ pre.prettyprint {
 
 .lang-dart .com, .lang-html .com, .lang-java .com {
   color: #757575;
+}
+
+.lang-none .com, .lang-none .kwd, .lang-none .lit,
+.lang-none .pln, .lang-none .pun {
+  color: #4D4D4D; /* color of .pln */
 }
 
 .lang-dart a span, .lang-html a span {

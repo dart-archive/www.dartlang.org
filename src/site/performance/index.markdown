@@ -42,7 +42,8 @@ Benchmark descriptions
   [Octane](https://developers.google.com/octane/)-inspired benchmarks
   DeltaBlue, Richards, Tracer, and FluidMotion. These benchmarks
   are tracked as part of the [ton80](https://github.com/dart-lang/ton80)
-  benchmarking suite.
+  benchmarking suite, which contains both the Dart code and the JavaScript
+  code used in these tests.
 
   * [DeltaBlue](https://github.com/dart-lang/ton80/tree/master/lib/src/DeltaBlue)
   is a one-way constraint solver, originally written in Smalltalk by

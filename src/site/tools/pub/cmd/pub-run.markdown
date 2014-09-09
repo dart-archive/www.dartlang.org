@@ -9,10 +9,7 @@ description: "Use pub run to run a Dart script in your package."
 # {{ page.title }}
 
 <aside class="alert alert-info" markdown="1">
-**Note:** The `run` command for pub is coming in 1.6, but is available
-now in the [Dev Channel download](https://www.dartlang.org/tools/download.html).
-<p></p>
-In 1.6, pub run starts up slowly. This will be significantly improved
+**Note:** In 1.6, pub run starts up slowly. This is significantly improved
 in the next release of the SDK.
 </aside>
 

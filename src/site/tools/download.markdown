@@ -3,6 +3,9 @@ layout: default
 title: "Download Dart"
 description: "The download bundles that support the Dart language."
 has-permalinks: false
+js:
+- url: /js/dev-channel.js
+  defer: true
 ---
 
 # Getting and Installing Dart Is Easy!
@@ -83,6 +86,8 @@ you can download the latest <strong>Dev Channel</strong> build of
  <a data-tool="editor" class="download-link" data-bits="64" data-os="macos" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-macos-x64.zip">Dart Editor for
 Mac OS X</a>.
 </span>
+
+The latest Dev Channel release is <span class="dev-channel"></span>.
 </aside>
 
 Once the download is complete, unzip the bundle. Dart is installed!
@@ -175,6 +180,8 @@ You can also download the latest **Dev Channel** build of
 or
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-ia32-release.zip">Dartium for Linux 32-bit</a>.
 </span>
+
+The latest Dev Channel release is <span class="dev-channel"></span>.
 </aside>
 
 ### Dart SDK for Debian and Ubuntu

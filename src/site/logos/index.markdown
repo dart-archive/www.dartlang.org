@@ -1,4 +1,4 @@
---- 
+---
 layout: default
 title: "Logos and Colors"
 description: "Dart logos and images."

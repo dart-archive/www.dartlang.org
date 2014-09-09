@@ -92,7 +92,7 @@ dependencies:
 
 The following example configures the [dart2js](/tools/dart2js/)
 transformer, which is used by [`pub serve`](cmd/pub-serve.html),
-[`pub build`](cmd/pub-build.html) and [`pub run`](pcmd/pub-run.html),
+[`pub build`](cmd/pub-build.html) and [`pub run`](cmd/pub-run.html),
 to analyze the code:
 
 {% prettify yaml %}
