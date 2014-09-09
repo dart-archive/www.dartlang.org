@@ -257,19 +257,19 @@ col1:
         title: Adding elements to the DOM
         explanation_url: /docs/tutorials/add-elements/
         tryit_url: todo/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/todo
         description: "A todo app using the dart:html library."
       -
         title: Moving elements within the DOM tree
         explanation_url: /docs/tutorials/add-elements/#moving-elements
         tryit_url: anagram/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/anagram
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/anagram
         description: "Build anagrams: a DOM manipulation demo."
       -
         title: Removing elements from the DOM
         explanation_url: /docs/tutorials/remove-elements
         tryit_url: todo_with_delete/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo_with_delete
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/todo_with_delete
         description: A todo app with a delete option.
       -
         title: Working with JSON

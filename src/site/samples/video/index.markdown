@@ -18,7 +18,7 @@ The example shows how to use the `<video>` tag with different video formats.
 You can open the example in Dart Editor and run it by clicking `index.html`.
 
 Read the
-[source](https://github.com/dart-lang/dart-samples/tree/master/web/html5/video/basics).
+[source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/video/basics).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

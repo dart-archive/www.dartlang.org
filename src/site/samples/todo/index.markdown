@@ -18,7 +18,7 @@ DOM tree. When the DOM tree changes, the web page refreshes.
 
 Read this [tutorial](/docs/tutorials/add-elements/) for
 more detail, or read the
-[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/web/todo).
+[source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/todo).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"
