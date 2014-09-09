@@ -90,7 +90,7 @@ layout: homepage
                 <div class="item active">
                   <p>You can probably already read and even write Dart code. <a href="/samples/">See more samples.</a> </p>
                   <div class="code-hldr">
-<pre class="prettyprint lang-dart">
+<pre class="prettyprint lang-dart allow-scroll">
 import 'dart:math' show Random;        // Import a class from a library.
 
 void main() {                          // The app starts executing here.
@@ -120,7 +120,7 @@ class Die {                            // Define a class.
                 <div class="item">
                   <p>Write less. Say more.</p>
                   <div class="code-hldr">
-<pre class="prettyprint lang-dart">
+<pre class="prettyprint lang-dart allow-scroll">
 import 'dart:math' show PI;
 
 List shapes = <a href="#" class="dart-popover" data-toggle="popover" title="Empty list literal" data-html="true" data-trigger="hover focus" data-content="Empty square brackets form an empty list literal, which creates a new, empty List object. This is equivalent to new List().">[]</a>;                     // Use literals to create lists.
@@ -152,7 +152,7 @@ class Ellipse extends Shape {
                   Or don’t. Dart is truly dynamic.</p>
                   <div class="code-hldr">
                           <div style="padding-top:20px;">While prototyping, code freely without worrying about types.</div>
-<pre class="prettyprint lang-dart">
+<pre class="prettyprint lang-dart allow-scroll">
 // A function without types.
 recalculate(origin, offset, estimate) {
   // ...
@@ -160,7 +160,7 @@ recalculate(origin, offset, estimate) {
 </pre>
                           <div style="padding-top:20px;">During production, use types to learn about errors early,
                           communicate intent, and get help with code completion.</div>
-<pre class="prettyprint lang-dart">
+<pre class="prettyprint lang-dart allow-scroll">
 // A function with types (and an optional parameter).
 num recalculate(Point origin, num offset, {bool estimate: false}) {
   // ...
@@ -200,7 +200,7 @@ num recalculate(Point origin, num offset, {bool estimate: false}) {
                 <div class="item active">
                   <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
                   <div class="code-hldr">        
-<pre class="prettyprint lang-dart">
+<pre class="prettyprint lang-dart allow-scroll">
 Map famousDuos = { 'Han Solo': 'Chewbacca',      // Map literal.
                    'Bonnie': 'Clyde',
                    'Laurel': 'Hardy' };
@@ -227,7 +227,7 @@ print(famousPeople.union(setOfMyFriends).length);
                 <div class="item">
                   <p>Dart's Future and Stream classes provide a consistent interface to values that aren’t yet available.</p>
                   <div class="code-hldr">   
-<pre class="prettyprint lang-dart">
+<pre class="prettyprint lang-dart allow-scroll">
 // Get a stream of key-press events from an element:
 querySelector('textarea').<a href="#" class="dart-popover" data-toggle="popover" title="onKeyPress" data-html="true" data-trigger="hover focus" data-content="The onKeyPress field of an element is an instance of ElementStream, which provides notifications about key press events on the element.">onKeyPress</a>
 
@@ -255,7 +255,7 @@ querySelector('textarea').<a href="#" class="dart-popover" data-toggle="popover"
                   <p>Dart’s HTML library unlocks the power of the modern browser, smoothing over browser differences.</p>
                   <div class="code-hldr">
 
-<pre class="prettyprint lang-dart">
+<pre class="prettyprint lang-dart allow-scroll">
 import 'dart:html';
 import 'dart:convert' show JSON;
 
