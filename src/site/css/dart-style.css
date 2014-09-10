@@ -231,6 +231,12 @@ i.sprite-icon-download-btn {
   background-position: -50px -250px;
 }
 
+.sha {
+  display: block;
+  font-size: 12px;
+  padding: 6px 0;
+}
+
 .nav>li>a {
   padding: 5px 15px;
 }

@@ -8,4 +8,22 @@ $(document).ready(function() {
                          .append($("<span></span>").text(", built on " + revDate))
                          .append($("<span></span>").text(", at revision " + data.revision));
   });
+
+  $(".has-sha").each(function() {
+    var button = $(this);
+    var shaUrl = button.attr("href") + ".sha256sum";
+    $.get(
+      shaUrl,
+      function( data ) {
+        var space = data.indexOf(" ");
+        if (space == -1) { return; }
+
+        var sha = data.substring(0, space);
+        $("<a></a>")
+          .attr("href", shaUrl)
+          .addClass("sha")
+          .text("SHA-256: " + sha)
+          .insertAfter(button);
+    });
+  });
 });
