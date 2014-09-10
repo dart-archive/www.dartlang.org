@@ -1059,11 +1059,6 @@ These are:
   but provides a richer layout;
   call `useHtmlEnhancedConfiguration()` to use this,
   and import `html_enhanced_config.dart`
-* `HtmlInteractiveConfiguration`,
-  which provides a rich in-browser layout
-  with the ability to enable/disable tests and rerun tests;
-  call `useHtmlInteractiveConfiguration()` to use this,
-  and import `html_enhanced_config.dart`
 
 For running tests in a continuous integration environment,
 the default or VM configurations are most useful.
