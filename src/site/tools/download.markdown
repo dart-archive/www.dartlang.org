@@ -4,7 +4,7 @@ title: "Download Dart"
 description: "The download bundles that support the Dart language."
 has-permalinks: false
 js:
-- url: /js/dev-channel.js
+- url: /js/download-info.js
   defer: true
 ---
 
