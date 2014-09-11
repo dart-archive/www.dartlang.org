@@ -1,3 +1,15 @@
+---
+layout: book
+title: "Tools"
+subsite: "Dart Up and Running"
+description: "Read Chapter 4. Tools of Dart: Up and Running, published by O'Reilly."
+---
+
+{% include toc.html %}
+{% include bookcrumbs.html %}
+
+# {{ page.title }}
+
 Tools
 =====
 

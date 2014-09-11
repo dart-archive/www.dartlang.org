@@ -1,3 +1,15 @@
+---
+layout: book
+title: "Walkthrough: Dartiverse Search"
+subsite: "Dart Up and Running"
+description: "Read Chapter 5. Walkthrough: Dartiverse Search of Dart: Up and Running, published by O'Reilly."
+---
+
+{% include toc.html %}
+{% include bookcrumbs.html %}
+
+# {{ page.title }}
+
 This chapter points out some of the useful and fun features of the Dart
 language and libraries that are used in Dartiverse Search, a
 client-server app. As ? shows, Dartiverse Search looks for a

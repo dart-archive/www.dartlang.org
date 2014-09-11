@@ -1,3 +1,15 @@
+---
+layout: book
+title: "A Tour of the Dart Libraries"
+subsite: "Dart Up and Running"
+description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Running, published by O'Reilly."
+---
+
+{% include toc.html %}
+{% include bookcrumbs.html %}
+
+# {{ page.title }}
+
 This chapter shows you how to use the major features in Dart’s
 libraries. It’s just an overview, and by no means comprehensive.
 Whenever you need more details about a class, consult the [Dart API

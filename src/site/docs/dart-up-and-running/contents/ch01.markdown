@@ -1,3 +1,15 @@
+---
+layout: book
+title: "Quick Start"
+subsite: "Dart Up and Running"
+description: "Read Chapter 1. Quick Start of Dart: Up and Running, published by O'Reilly."
+---
+
+{% include toc.html %}
+{% include bookcrumbs.html %}
+
+# {{ page.title }}
+
 Welcome to Dart, an open-source, batteries-included developer platform
 for building structured HTML5 web apps. This chapter tells you why
 Google created Dart, what’s cool about Dart, and how to write and run

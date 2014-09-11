@@ -1,3 +1,15 @@
+---
+layout: book
+title: "Preface"
+subsite: "Dart Up and Running"
+description: "Read Preface of Dart: Up and Running, published by O'Reilly."
+---
+
+{% include toc.html %}
+{% include bookcrumbs.html %}
+
+# {{ page.title }}
+
 You don’t need to be an expert web developer to build web apps. With
 Dart, you can be productive as you build high-performance apps for the
 modern web.
@@ -22,8 +34,7 @@ from the book.
 If you find an error in the sample code or text, please [create an
 issue.](https://github.com/dart-lang/dart-up-and-running-book/issues/new)
 
-Conventions Used in This Book
-=============================
+## Conventions Used in This Book
 
 The following typographical conventions are used in this book:
 

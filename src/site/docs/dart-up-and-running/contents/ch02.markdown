@@ -1,3 +1,15 @@
+---
+layout: book
+title: "A Tour of the Dart Language"
+subsite: "Dart Up and Running"
+description: "Read Chapter 2. A Tour of the Dart Language of Dart: Up and Running, published by O'Reilly."
+---
+
+{% include toc.html %}
+{% include bookcrumbs.html %}
+
+# {{ page.title }}
+
 This chapter shows you how to use each major Dart feature, from
 variables and operators to classes and libraries, with the assumption
 that you already know how to program in another language.
