@@ -1,0 +1,700 @@
+Tools
+=====
+
+Dart provides several tools to help you write and deploy your web and
+command-line apps. These tools include:
+
+[pub: The Dart package manager](#ch04-tools-pub)
+
+:   Download and install packages of libraries.
+
+[Dart Editor](#ch04-tools-editor)
+
+:   Edit, run, and debug web and command-line apps.
+
+[Dartium: Chromium with the Dart VM](#ch04-tools-dartium)
+
+:   Run Dart web apps. This is a special build of Chromium (the project
+    behind Google Chrome).
+
+[dart2js: The Dart-to-JavaScript compiler](#ch04-tools-dart2js)
+
+:   Convert your web app to JavaScript, so it can run in non-Dartium
+    browsers.
+
+[dart: The standalone Dart VM](#ch04-tools-dart-vm)
+
+:   Run your command-line apps—server-side scripts, programs, servers,
+    and any other apps that don’t run in a browser.
+
+[dartanalyzer: The Static Analyzer](#ch04-tools-dart_analyzer)
+
+:   Analyze your Dart source from the command line.
+
+All of these tools are in the Dart Editor bundle, since the editor uses
+them. You can also download Dartium separately, and you can download an
+SDK that includes pub, dart2js, dart, dartanalyzer, and more. See the
+[Tools page](http://www.dartlang.org/tools/) for links and details.
+
+The tools are in the `dart-sdk/bin` directory of your Dart installation
+directory. If you intend to use tools such as pub, dart2js, and dart
+from the command line, add the `bin` directory to your path.
+
+pub: The Dart Package Manager
+=============================
+
+You can use the *pub* tool to manage Dart packages. A Dart package is
+simply a directory containing any number of Dart libraries and a list of
+the library dependencies. A package can also contain resources for its
+libraries, such as documentation, tests, and images. If your app uses
+one or more packages, then your app itself must be a package.
+
+> **Note**
+>
+> Dart Editor offers support for using pub, including creating,
+> installing, updating, and publishing packages.
+
+A package can live anywhere. For example, some packages are on GitHub.
+The Dart team publishes packages at
+[pub.dartlang.org](http://pub.dartlang.org), and we hope you will, too.
+
+To use a library that’s in a Dart package, you need to do the following:
+
+1.  Create a pubspec (a file that lists package dependencies and
+    includes other metadata, such as a name for your package).
+
+2.  Use pub to get your package's dependencies.
+
+3.  Import the library.
+
+Creating a Pubspec
+------------------
+
+To use a package, your application must define a pubspec that lists
+dependencies and their download locations. The pubspec is a file named
+`pubspec.yaml`, and it must be in the top directory of your application.
+
+Here is an example of a pubspec that specifies the locations of two
+packages. First, it points to the js package that’s hosted on
+pub.dartlang.org, and then it points to the intl package in the Dart
+SDK:
+
+    lang-js
+    name: my_app
+    dependencies:
+      js: any
+      intl: any
+
+For details, see the [pubspec
+documentation](https://www.dartlang.org/tools/pub/pubspec.html) and the
+documentation for the packages you’re interested in using.
+
+Installing Packages
+-------------------
+
+Once you have a pubspec, you can run `pub
+      get` from the top directory of your application:
+
+    lang-sh
+    cd path/to/my_app
+    pub get
+
+This command determines which packages your app depends on, and puts
+them in a central cache. For git dependencies, pub clones the git
+repository. For hosted dependencies, pub downloads the package from
+pub.dartlang.org. Transitive dependencies are included, too. For
+example, if the js package depends on the unittest package, the pub tool
+grabs both the js package and the unittest package.
+
+Finally, pub creates a `packages` directory (under your app’s top
+directory) that has links to the packages that your app depends on.
+
+Importing Libraries from Packages
+---------------------------------
+
+To import libraries found in packages, use the `package:` prefix:
+
+    lang-dart
+    import 'package:js/js.dart' as js;
+    import 'package:intl/intl.dart';
+
+The Dart runtime takes everything after `package:` and looks it up
+within the `packages` directory for your app.
+
+More Information
+----------------
+
+Pub has support for building web apps. If your web app's directory
+structure follows pub's [package layout
+conventions,](https://www.dartlang.org/tools/pub/package-layout.html)
+you can use the pub development server (`pub serve`) to continuously
+build and serve the app's assets. Once you're ready to deploy the web
+app, use `pub
+      build` to generate the final files.
+
+For more information about pub, see the [pub
+documentation.](https://www.dartlang.org/tools/pub/get-started.html)
+
+Dart Editor
+===========
+
+We already introduced Dart Editor in ?. Here are some more tips on using
+Dart Editor, with information such as [specifying a
+browser](#ch04-editor-run-non-dartium) and [compiling to
+JavaScript](#ch04-editor-dart2js). If you run into a problem, see
+[Troubleshooting Dart
+Editor.](http://www.dartlang.org/tools/editor/troubleshoot.html) Dart
+Editor is updated frequently, so it probably looks different from what
+you see here. For the latest information, see the [Dart Editor
+documentation.](http://www.dartlang.org/editor)
+
+Viewing Samples
+---------------
+
+The Welcome page of Dart Editor (?) displays a few samples. To open a
+sample and look at its source code, click the sample’s image.
+
+If you don’t see the Welcome page, you probably closed it. Get it back
+with **Tools \> Welcome Page**.
+
+Managing the Files View
+-----------------------
+
+The Files view shows the files that implement the libraries included in
+Dart, installed packages, as well as all the apps that you create or
+open.
+
+### Adding apps
+
+Here’s how to open an app, which makes it appear in your Files view:
+
+1.  Go to the **File** menu, and choose **Open Existing Folder...**. Or
+    use the keyboard shortcut (**Ctrl+O** or, on Mac, **Cmd+O**).
+
+2.  Browse to the directory that contains the app’s files.
+
+3.  Click **Open**.
+
+The directory and all its files appear in the Files view.
+
+### Removing apps
+
+You can remove an app from the Files view, either with or without
+deleting its files.
+
+Right-click (or Ctrl+click) the directory and choose **Delete**. If you
+want to delete the app’s files permanently, then in the dialog that
+comes up, choose **Delete project contents on disk**.
+
+Creating Apps
+-------------
+
+It’s easy to create a simple web or command-line app from scratch:
+
+1.  Click the New Application button ![](figs/web/newapp.png) (at the
+    upper left of Dart Editor). Alternatively, choose **File \> New
+    Application** from the Dart Editor menu. A dialog appears.
+
+2.  Type in a name for your application—for example, `hello_web`. If you
+    don’t like the default parent directory, type in a new location or
+    browse to choose the location.
+
+3.  Unless you really don’t want files to be automatically created for
+    you, make sure **Generate sample content** is selected.
+
+4.  Select the kind of application you’re writing, such as command line,
+    web, or web using
+    [Polymer.dart.](http://www.dartlang.org/polymer-dart/)
+
+5.  Click **Finish** to create a directory with initial files for the
+    app.
+
+    A default Dart file appears in the Edit view, and its directory
+    appears in the Files view. Your Dart Editor window should look
+    something like ?.
+
+    ![A new app, pre-filled with basic, runnable
+    code](figs/web/daur_0401.png)
+
+Editing Apps
+------------
+
+Dart Editor provides the basic editing functionality you’d expect, plus
+features such as Dart code completion, API browsing, support for
+refactoring, and the ability to search multiple files.
+
+### Using autocomplete
+
+Autocomplete suggestions look something like ?. They appear when you
+either:
+
+-   Type a class or variable name, and then type a period.
+
+    For example, type `document.` or `DateTime.` and pause a moment.
+    Once the suggestions appear, continue typing to pare down the list.
+
+-   Type **Ctrl+Space**.
+
+    For example, type `Dat`, then Ctrl+Space to see a list of classes
+    that start with “Dat”.
+
+When the suggestions come up, you can click, type, or use the arrow keys
+to select the one you want. Press Enter or Return to choose a
+suggestion, or Esc to dismiss the panel.
+
+![Autocomplete suggestions](figs/web/daur_0402.png)
+
+### Browsing APIs
+
+With Dart Editor you can easily find where APIs are declared. You can
+also outline the contents of a Dart file.
+
+#### Finding out more about an API
+
+To get more information about an API item-variable, method, type,
+library, and so on-hover the mouse over the item in the Edit view. Dart
+Editor displays a popup that provides more information about that item.
+
+To go to the declaration of an API item, either within the same .dart
+file or in another file:
+
+1.  In the Edit view of a Dart file, click on an API item. Dart Editor
+    highlights the item and all other occurrences of the item.
+
+2.  Right click.
+
+3.  Choose **Open Declaration** in the menu.
+
+    The editor displays the file that declares the item. For example, if
+    you open the declaration for querySelector, the file that declares
+    the `querySelector()` function appears.
+
+#### Outlining a file’s contents
+
+Press **Alt+O** (**Option+O** on Mac) or right-click and choose
+**Outline File**.
+
+A panel comes up displaying the classes, methods, and fields declared in
+the current Dart file. For example, the outline for the Sunflower
+sample’s `sunflower.dart` file looks something like ?.
+
+![The Outline panel for the Sunflower sample](figs/web/daur_0403.png)
+
+You can reduce the size of the list by typing one or more characters.
+For example, if you type **c**, only the **center** and **context**
+variables appear.
+
+If you choose an item from the list—for example, **centerX**— the editor
+scrolls to its declaration.
+
+Alternatively, add a more permanent outline view by choosing **Tools \>
+Outline**.
+
+### Refactoring
+
+To change the name of an item throughout your code, put the cursor
+within (or double-click) the item’s name in the Edit view, and
+right-click and choose **Rename...**.
+
+You can rename almost anything—local variables, function parameters,
+fields, methods, types, top-level functions, library prefixes, top-level
+compilation units, and more. An example of renaming a top-level
+compilation unit is changing the name of a file that’s sourced by a
+library.
+
+### Searching
+
+The search field at the upper right of the Dart Editor window is an easy
+way to go directly to:
+
+-   Types
+
+-   Files
+
+-   Text inside of files
+
+The scope of a text search is every file in your Files view. Results for
+text searches come up in a Search view. Within that view, double-click a
+file to see it in the Edit view. All occurrences of the search string in
+the Edit view are highlighted.
+
+Running Apps
+------------
+
+To run any Dart app, click Dart Editor’s Run button
+![](figs/web/run.png) while a file in that app is selected. If you’re
+working on a web app, Dart Editor brings up a browser window that
+displays the app’s HTML page, with the app’s code running inside it.
+
+When you run a web application using Dart Editor, by default the app
+uses the copy of Dartium that’s included in the Dart Editor download,
+with the Dart code executing directly in the browser. If your launch
+configuration specifies a browser, then Dart Editor uses
+[dart2js](#ch04-tools-dart2js) to compile the Dart code to JavaScript
+that executes in the browser.
+
+### Specifying launch configurations
+
+Use **Run \> Manage Launches** to specify as many launch configurations
+as you like.
+
+For web apps, you can specify the following:
+
+-   HTML file or URL to open
+
+-   arguments to pass to the browser; for example,
+    `--allow-file-access-from-files`
+
+-   checked mode (Dartium only)
+
+-   enable experimental features (Dartium only)
+
+-   whether to show the browser’s stdout and stderr output (Dartium
+    only; useful for diagnosing Dartium crashes)
+
+For example, a web app might have a launch configuration for Dartium and
+several more configurations corresponding to additional browsers you
+want to test.
+
+You can specify the following for command-line apps:
+
+-   .dart file to execute
+
+-   working directory
+
+-   arguments to pass to the app
+
+-   checked mode
+
+### Running in production mode
+
+By default, apps run in checked mode. To run in production mode instead,
+disable checked mode in your app’s launch configuration:
+
+1.  Run your app at least once, so that it has a launch configuration.
+
+2.  Choose **Run \> Manage Launches**, or click the little arrow to the
+    right of the Run button ![](figs/web/run.png) and choose **Manage
+    Launches**.
+
+3.  In the Manage Launches dialog, find a launch configuration for your
+    app. Click it if it isn’t already selected.
+
+4.  Unselect **Run in checked mode** (see ?).
+
+    ![To run in production mode, unselect checked
+    mode](figs/web/daur_0404.png)
+
+5.  Click **Apply** to save your change, or **Run** to save it and run
+    your app.
+
+For details about checked mode and production mode, see ?.
+
+### Specifying a browser for JavaScript launches
+
+To specify the browser in which to run the JavaScript version of your
+web apps:
+
+1.  Choose **Dart Editor \> Preferences**.
+
+2.  Click **Run and Debug**.
+
+3.  Unless you want to use the default system browser, unselect **Use
+    default system browser** and specify the location of the browser you
+    want to use. *Example:* /Applications/Firefox.app
+
+4.  Click **OK** to save your changes.
+
+Now whenever you run an app as JavaScript, Dart Editor invokes your
+browser of choice.
+
+Alternatively, you can run your app as JavaScript using the default
+browser setting and then copy and paste the URL into a different
+browser.
+
+Debugging Apps
+--------------
+
+You can debug both command-line and web apps with Dart Editor. Some
+tips:
+
+-   Set breakpoints by double-clicking in the left margin of the Edit
+    view.
+
+-   Use the Debugger view to view your app’s state and control its
+    execution. By default, the Debugger view is to the right of the Edit
+    view and appears when you first hit a breakpoint (?).
+
+-   To see the value of a variable, mouse over it, look in the Debugger
+    view, or use an Expression ![](figs/web/watchlist_view.gif).
+
+-   To debug web apps, use Dart Editor with Dartium. While you’re
+    debugging, Dart Editor takes the place of the Dartium console. For
+    example, Dart Editor displays the output of`
+              print()` statements.
+
+![Using Dart Editor to debug the Sunflower sample
+app](figs/web/daur_0406.png)
+
+Compiling to JavaScript
+-----------------------
+
+You might not need to do anything to compile your code to JavaScript.
+When you run an app using a launch configuration that [specifies a
+browser](#ch04-editor-run-non-dartium), Dart Editor automatically
+compiles the app to JavaScript before executing it in the browser.
+
+However, you can also compile Dart code to JavaScript without running
+the app. Just choose **Tools \> Generate JavaScript**. Another option is
+using dart2js from the command line (see ?).
+
+Other Features
+--------------
+
+Dart Editor has many additional features, including customization and
+keyboard alternatives.
+
+### Customizing Dart Editor
+
+You can customize the editor’s font, margins, key bindings, and more
+using the Preferences dialog. To bring up the dialog, choose **Tools \>
+Preferences** (on Mac: **Dart Editor \> Preferences**).
+
+You can also customize which views you see in Dart Editor, as well as
+their size and position. To add views, use the **Tools** menu. To remove
+a view, click its **X**. To move a view, drag its tab to a different
+position, either within or outside of the Dart Editor window. To resize
+a view, drag its edges.
+
+### Keyboard alternatives
+
+To get a list of all keyboard alternatives, choose **Help \> Key
+Assist** (?).
+
+![Help \> Key Assist](figs/web/daur_0407.png)
+
+Dartium: Chromium with the Dart VM
+==================================
+
+This section tells you how to get and use Dartium, a Chromium-based
+browser that includes the Dart VM. This browser can execute Dart web
+apps directly, so you don’t have to compile your code to JavaScript
+until you’re ready to test on other browsers.
+
+> **Warning**
+>
+> This browser is a technical preview, and it might have security and
+> stability issues. **Do not use Dartium as your primary browser, and do
+> not distribute Dartium to users!**
+
+Downloading and Installing the Browser
+--------------------------------------
+
+If you have an up-to-date version of Dart Editor, you already have
+Dartium.
+
+If you don’t have Dart Editor or want a different version of Dartium,
+you can get it separately from the [Dartium
+page.](http://www.dartlang.org/downloads.html)
+
+You don’t usually need to do anything special to install Dartium: just
+unarchive the ZIP file. If you want Dart Editor to launch a particular
+copy of Dartium, then put that copy in the same directory as the
+`dart-sdk` directory of your Dart installation directory (see ?),
+replacing the original copy of Chromium.
+
+> **Note**
+>
+> The Dartium binary expires after a couple of months. When that
+> happens, you’ll need to download a new binary unless you're using the
+> Dartium binary that comes with Dart Editor. (Dart Editor automatically
+> updates its Dartium binary.)
+
+Launching the Browser
+---------------------
+
+To launch Dartium, navigate to its directory in your finder, and
+double-click the Chromium executable file. Or use Dart Editor as
+described in ? or the command line as described in ?.
+
+> **Warning**
+>
+> *If you already use Chromium:* If another version of Chromium is open,
+> then you could have a profile conflict. To avoid this, you can open
+> Dartium or Chromium from the command line with the [--user-data-dir
+> flag.](http://www.chromium.org/user-experience/user-data-directory)
+
+Filing Bugs
+-----------
+
+If you find a bug in Dartium, create an issue in the Dart project and
+use the [Dartium bug template.](http://bit.ly/WO0U32)
+
+Linking to Dart Source
+----------------------
+
+Use a script tag with a type `application/dart` to link to your Dart
+source file. Example:
+
+    lang-html
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <script type="application/dart" src="app.dart"></script>
+
+        <!-- Support for non-Dart browsers. -->
+        <script src="packages/browser/dart.js"></script>
+      </body>
+    </html>
+
+> **Note**
+>
+> Dart Editor automatically adds both the `application/dart` script tag
+> and the `dart.js` script tag into the project’s main HTML file.
+
+For more information on linking to source code, see the article
+[Embedding Dart in
+HTML.](https://www.dartlang.org/articles/embedding-in-html/)
+
+Detecting Dart Support
+----------------------
+
+You can check whether a browser supports Dart with this JavaScript code:
+
+    lang-js
+    // In JavaScript code:
+    if (navigator.userAgent.indexOf('(Dart)') == -1) {
+      // No native Dart support...
+      window.addEventListener("DOMContentLoaded", function (e) {
+          // ...Fall back to compiled JS...
+        }
+      }, false);
+    }
+
+Launching from the Command Line
+-------------------------------
+
+Because Dartium is based on Chromium, all [Chromium
+flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags)
+should work. In some cases, you might want to specify Dart-specific
+flags so that you can tweak the embedded Dart VM’s behavior. For
+example, while developing your web app, you might want the VM to verify
+type annotations and check assertions. To achieve that, you can enable
+checked mode (the VM’s `--checked` flag).
+
+On Linux, you can specify flags by starting Dartium as follows:
+
+    lang-sh
+    DART_FLAGS='--checked' path/chrome
+
+On Mac:
+
+    lang-sh
+    DART_FLAGS='--checked'              \
+      path/Chromium.app/Contents/MacOS/Chromium
+
+Or (also on Mac):
+
+    lang-sh
+    DART_FLAGS='--checked'              \
+       open path/Chromium.app
+
+> **Note**
+>
+> You can see the command-line flags and executable path of any
+> Chromium-based browser by going to `chrome://version`.
+
+dart2js: The Dart-to-JavaScript Compiler
+========================================
+
+The documentation for dart2js has moved to
+[www.dartlang.org/tools/dart2js/](/tools/dart2js/).
+
+dart: The Standalone VM
+=======================
+
+The documentation for dart has moved to
+[www.dartlang.org/tools/dart-vm/](/tools/dart-vm/).
+
+dartanalyzer: The Static Analyzer
+=================================
+
+You can use the *dartanalyzer* tool (`bin/dartanalyzer`) to statically
+analyze your code at the command line, checking for errors and warnings
+that are specified in the [Dart Language
+Specification.](http://www.dartlang.org/docs/spec/)
+
+> **Note**
+>
+> Dart Editor performs the same analysis that dartanalyzer does. A
+> previous static analyzer, called *dart\_analyzer*, is no longer
+> supported.
+
+Basic Usage
+-----------
+
+Here’s an example of testing a Dart file:
+
+    lang-sh
+    dartanalyzer --package-root=code/packages test.dart
+
+As ? shows, the exit code of dartanalyzer tells you whether the code
+passed analysis.
+
+  Exit code   Description
+  ----------- --------------------------------
+  0           No issues found
+  1           Warnings found (but no errors)
+  2           Errors found
+
+  : Exit codes for dartanalyzer
+
+Options
+-------
+
+You can use the following command-line options with dartanalyzer: {NOTE:
+I'm still not documenting --perf. It's displayed by --help but seems of
+limited use to most developers. I'm also not documenting the following,
+which I got from sdk/bin/dartanalyzer or pkg/analyzer/lib/options.dart
+but aren't displayed by help: -batch|--batch|-b (though -b doesn't seem
+to be treated specially by the script), --ignore-unrecognized-flags
+(doesn't seem to change the output), --fatal-warnings, --warnings (only
+for SDK developers?), --show-sdk-warnings (deprecated)}
+
+`--dart-sdk=`
+
+:   Specify the directory that contains the Dart SDK.
+
+`-p`*or*`--package-root=`
+
+:   Specify the directory to search for any libraries that are imported
+    using `package:`.
+
+`--package-warnings`
+
+:   Show warnings not only for code in the specified .dart file and
+    others in its library, but also for libraries imported with
+    `package:`.
+
+`--format=machine`
+
+:   Produce output in a format suitable for parsing.
+
+`--no-hints`
+
+:   Don't show hints for improving the code.
+
+`--version`
+
+:   Show the analyzer version.
+
+`-h`*or*`--help`
+
+:   Show all the command-line options.
+
+Summary
+=======
+
+This chapter covered the most commonly used Dart tools. All of them are
+available in the Dart Editor download, but you can also download Dartium
+or the SDK separately.
