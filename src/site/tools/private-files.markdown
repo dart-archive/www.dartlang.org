@@ -10,10 +10,10 @@ has-permalinks: true
 # {{ page.title }}
 
 When you put Dart source code in a repository,
-whether using [pub](/tools/pub) or [github](https://github.com/)
-or some other mechanism,
+whether using the [pub](/tools/pub) tool, [GitHub](https://github.com/)
+or another source code management system,
 you shouldn't include most of the files
-that Dart Editor, pub, and other tools create.
+that Dart Editor, the pub tool, and other tools generate.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -23,7 +23,7 @@ Some files that you wouldn't normally put in a repository
 are useful or essential when you deploy an app.
 </aside>
 
-1. [The rules](#the-rules)
+1. [The Rules](#the-rules)
 1. [Details](#details)
    1. [packages/](#packages)
    1. [pubspec.lock](#pubspeclock)
