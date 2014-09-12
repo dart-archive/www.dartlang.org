@@ -20,6 +20,40 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
+## 0.14.0 {#0-14-0}
+
+This new release updates polymer to match the current release (0.4.0) of
+polymer.js.
+
+### Polymer changes
+
+The polymer-specific polyfills have been moved from platform.js into the polymer
+package. This should be completely transparent.
+
+### Changes in platform.js
+
+This release updates the `web_components` package to version 0.7.0. This brings
+platform.js to the 0.4.0 release, with the addition of two cherrypicks,
+[3627e](https://github.com/Polymer/ShadowDOM/commit/36272eb15b3253f34af3080b2b181dac9a79451b)
+and
+[7c8b9](https://github.com/Polymer/ShadowDOM/commit/7c8b9084a5b192a48ec055f1bd32936e24257a1d).
+
+The platform.js script has been stripped down, and is no longer required in
+Chrome or Dartium. You can now remove this from your projects for development,
+and it will be injected when running pub build or pub serve.
+
+If you would like the option to not inject platform.js at all in the built
+output (if you are deploying to chrome exclusively), please star this
+bug http://dartbug.com/20865.
+
+### Core and paper elements
+
+Together with this release, we updated `core_elements` to 0.2.1, and
+`paper_elements` to 0.2.0. This brings the elements packages up to date with
+the changes in the Javascript version 0.4.0. Two new elements were added
+(`paper_dropdown` and `core_popup_menu`), and one was removed
+(`paper_menu_button_overlay`).
+
 ## 0.13.0 {#0-13-0}
 
 This new release updates polymer to match the current release (0.3.5) of
