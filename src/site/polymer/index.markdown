@@ -32,7 +32,7 @@ With polymer.dart, you can:
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The code samples on this page reflect **polymer.dart 0.13.0**.
+The code samples on this page reflect **polymer.dart 0.14.0**.
 For information about polymer.dart versions, see the
 [Release Notes](/polymer/reference/release-notes/).
 </aside>
@@ -47,7 +47,7 @@ your `pubspec.yaml` file:
 
 {% prettify yaml %}
 dependencies:
-  polymer: ">=0.13.0 <0.14.0"
+  polymer: ">=0.14.0 <0.15.0"
 {% endprettify %}
 
 Then, run `pub get` to download the package and link it into your app.
@@ -67,9 +67,9 @@ you want to use:
 name: my_app
 description: An application that uses core and paper elements
 dependencies:
-  polymer: ">=0.13.0 <0.14.0"
+  polymer: ">=0.14.0 <0.15.0"
   [[highlight]]core_elements: ">=0.2.0 <0.3.0"[[/highlight]]
-  [[highlight]]paper_elements: ">=0.1.0 <0.2.0"[[/highlight]]
+  [[highlight]]paper_elements: ">=0.2.0 <0.3.0"[[/highlight]]
 {% endprettify %}
 
 Next, run `pub get`.
@@ -94,7 +94,7 @@ adhere to Google's _material design_ guidelines.
 To put a polymer.dart custom element into a web page,
 the HTML file for the web page needs to:
 
-* Include `platform.js` and `dart_support.js` near the top of the file,
+* Include `dart_support.js` near the top of the file,
   before any HTML imports
 * Import the HTML file that defines the custom element
 * Instantiate the element
@@ -108,7 +108,6 @@ from the paper_elements package:
 <!-- In an HTML file -->
 <head>
   ...
-  <script src="packages/web_components/platform.js"></script>
   <script src="packages/web_components/dart_support.js"></script>
   <link rel="import" href="[[highlight]]packages/paper_elements/paper_input.html[[/highlight]]">
   ...

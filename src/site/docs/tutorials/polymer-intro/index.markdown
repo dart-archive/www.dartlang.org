@@ -49,7 +49,7 @@ within semantically meaningful HTML.
 <aside class="alert">
 <strong>Version Note:</strong> The code sample and the content
 of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.13.</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.14.</a>.
 </aside>
 
 <aside class="alert alert-info">
@@ -94,7 +94,6 @@ Reset the stopwatch to 00:00 using the **Reset** button.
 
 Here's how to use this custom element in an HTML page:
 
-* Include the `packages/web_components/platform.js` script.
 * Include the `packages/web_components/dart_support.js` script.
 * Import the HTML file that has the custom element definition
   (`tute_stopwatch.html`).
@@ -106,7 +105,6 @@ Here's how to use this custom element in an HTML page:
 For example:
 
 {% prettify html %}
-<script src="packages/web_components/platform.js"></script>
 <script src="packages/web_components/dart_support.js"></script>
 <link rel="import" href="tute_stopwatch.html">
 ...
@@ -194,7 +192,7 @@ by adding the package name, `polymer`, to the list.
 name: stopwatch
 description: A sample application
 dependencies:
-  <b>polymer: "&gt;=0.13.0 &lt;0.14.0"</b>
+  <b>polymer: "&gt;=0.14.0 &lt;0.15.0"</b>
   </pre>
   </li>
 
@@ -249,15 +247,14 @@ import 'dart:async';
 ...
   </pre>
 
-* In the primary HTML file, include the `packages/web_components/platform.js`
-  and `packages/web_components/dart_support.js` scripts at the top of the
+* In the primary HTML file, include the
+  `packages/web_components/dart_support.js` script at the top of the
   &lt;head&gt; tag, before any HTML imports:
 
   <pre>
 &lt;head&gt;
   ...
-  <b>&lt;script src="packages/web_components/platform.js">&lt;/script>
-  &lt;script src="packages/web_components/dart_support.js">&lt;/script></b>
+  <b>&lt;script src="packages/web_components/dart_support.js">&lt;/script></b>
   ...
 &lt;/head&gt;
   </pre>
@@ -626,7 +623,7 @@ to specify the Polymer transformers:
 {% prettify yaml %}
 ...
 dependencies:
-  polymer: ">=0.13.0 <0.14.0"
+  polymer: ">=0.14.0 <0.15.0"
 transformers:
 - polymer
 {% endprettify %}
