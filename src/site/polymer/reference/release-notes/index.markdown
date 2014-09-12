@@ -38,10 +38,10 @@ platform.js to the 0.4.0 release, with the addition of two cherrypicks,
 and
 [7c8b9](https://github.com/Polymer/ShadowDOM/commit/7c8b9084a5b192a48ec055f1bd32936e24257a1d).
 
-The platform.js script has been stripped down, and is no longer required in
+The `platform.js` script has been stripped down, and is no longer required in
 Chrome or Dartium. You can now remove this from your projects for development,
 and it will be injected when running pub build or pub serve. Note you still need
-to include dart\_support.js in your application.
+to include `dart_support.js` in your application.
 
 If you would like the option to not inject platform.js at all in the built
 output (if you are deploying to chrome exclusively), please star this
@@ -51,7 +51,7 @@ bug http://dartbug.com/20865.
 
 Together with this release, we updated `core_elements` to 0.2.1, and
 `paper_elements` to 0.2.0. This brings the elements packages up to date with
-the changes in the Javascript version 0.4.0. Two new elements were added
+the changes in the JavaScript version 0.4.0. Two new elements were added
 (`paper_dropdown` and `core_popup_menu`), and one was removed
 (`paper_menu_button_overlay`).
 
@@ -66,7 +66,7 @@ There should be no noticeable changes with this release.
 ### Changes in platform.js
 
 Internally this release includes updates to the `web_components` package to
-version 0.6.0. This brings platform.js to the latest Javascript version
+version 0.6.0. This brings platform.js to the latest JavaScript version
 (including changes in master for ShadowDOM at
 [57232d](https://github.com/Polymer/ShadowDOM/commit/57232dc6d07dd921009679dfbab622b52174df80)).
 This is because the polyfills at version 0.3.5
@@ -82,7 +82,7 @@ but we decided to bump our version as a breaking change just in case.
 
 Together with this release, we updated `core_elements` to 0.2.0+1, and
 `paper_elements` to 0.1.1+2. This brings the elements packages up to date with
-the changes in the Javascript version 0.3.5. The main highlights are that
+the changes in the JavaScript version 0.3.5. The main highlights are that
 a new element was added (`core-dropdown`), and icons in `core_elements` moved
 two levels up in the directory layout. So for example, you now need to import
 `packages/core_elements/image_icons.html` instead of
