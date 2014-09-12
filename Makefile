@@ -1,7 +1,13 @@
 CURRENT_BRANCH=$(shell git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
 LAST_COMMIT=$(shell git log -n 1 --pretty=format:"%H")
 PWD=$(shell pwd)
+LOCAL=http://localhost:8081/
 XDGOPEN=$(shell type xdg-open 2>/dev/null)
+ifeq ($(XDGOPEN),)
+OPEN=open $(LOCAL)
+else
+OPEN=xdg-open $(LOCAL)
+endif
 
 clean:
 	rm -rf ./build
@@ -23,11 +29,7 @@ deploy: build
 	@echo "Visit https://$(CURRENT_BRANCH)-dot-dart-lang.appspot.com"
 
 server:
-ifeq ($(XDGOPEN),)
-	@open "http://localhost:8081/" &
-else
-	@xdg-open "http://localhost:8081/" &
-endif
+	ruby -e 'sleep 3; 1.upto(30) { break if system("curl -I -s $(LOCAL)"); print "."; sleep 1 }; exec "$(OPEN)"' &
 	cd ./src/site && bundle exec jekyll serve -w --port=8081 --trace
 
 optimize:
