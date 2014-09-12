@@ -20,7 +20,8 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
-## 0.14.0 {#0-14-0}
+## 0.14.0
+{: #0-14-0}
 
 This new release updates polymer to match the current release (0.4.0) of
 polymer.js.
@@ -54,7 +55,8 @@ the changes in the Javascript version 0.4.0. Two new elements were added
 (`paper_dropdown` and `core_popup_menu`), and one was removed
 (`paper_menu_button_overlay`).
 
-## 0.13.0 {#0-13-0}
+## 0.13.0
+{: #0-13-0}
 
 This new release updates polymer to match the current release (0.3.5) of
 polymer.js.
@@ -88,7 +90,8 @@ two levels up in the directory layout. So for example, you now need to import
 `packages/core_elements/core_icons/iconsets/image_icons.html`.
 
 
-## 0.12.1 {#0-12-1}
+## 0.12.1
+{: #0-12-1}
 
 This release contains some new productivity features worth highlighting.
 
@@ -162,7 +165,8 @@ improve your experience developing with polymer.dart,
 do let us know and file a request in our bug tracker.
 
 
-## 0.12.0 {#0-12}
+## 0.12.0
+{: #0-12}
 
 We just uploaded a new stable version of
 the polymer, core, and paper packages,
@@ -247,7 +251,8 @@ Many of the examples have been updated to use some of the changes above
 (like the better js-interop features).
 
 
-## 0.11.0 {#0-11-0}
+## 0.11.0
+{: #0-11-0}
 
 This release has a few important changes that
 will affect you when you upgrade your project.
@@ -390,7 +395,8 @@ For more information about paths, see
 [dartbug.com/20076](http://dartbug.com/20076).
 
 
-## 0.10.0 {#0-10-0}
+## 0.10.0
+{: #0-10-0}
 
 Here is a summary of what changed since our last stable release (0.9.5+2).
 
