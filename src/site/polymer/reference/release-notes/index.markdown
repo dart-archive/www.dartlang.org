@@ -20,8 +20,7 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
-## 0.14.0
-{: #0-14-0}
+## Polymer 0.14.0
 
 This new release updates polymer to match the current release (0.4.0) of
 polymer.js.
@@ -41,7 +40,8 @@ and
 
 The platform.js script has been stripped down, and is no longer required in
 Chrome or Dartium. You can now remove this from your projects for development,
-and it will be injected when running pub build or pub serve.
+and it will be injected when running pub build or pub serve. Note you still need
+to include dart\_support.js in your application.
 
 If you would like the option to not inject platform.js at all in the built
 output (if you are deploying to chrome exclusively), please star this
@@ -55,8 +55,7 @@ the changes in the Javascript version 0.4.0. Two new elements were added
 (`paper_dropdown` and `core_popup_menu`), and one was removed
 (`paper_menu_button_overlay`).
 
-## 0.13.0
-{: #0-13-0}
+## Polymer 0.13.0
 
 This new release updates polymer to match the current release (0.3.5) of
 polymer.js.
@@ -90,8 +89,7 @@ two levels up in the directory layout. So for example, you now need to import
 `packages/core_elements/core_icons/iconsets/image_icons.html`.
 
 
-## 0.12.1
-{: #0-12-1}
+## Polymer 0.12.1
 
 This release contains some new productivity features worth highlighting.
 
@@ -165,8 +163,7 @@ improve your experience developing with polymer.dart,
 do let us know and file a request in our bug tracker.
 
 
-## 0.12.0
-{: #0-12}
+## Polymer 0.12.0
 
 We just uploaded a new stable version of
 the polymer, core, and paper packages,
@@ -251,8 +248,7 @@ Many of the examples have been updated to use some of the changes above
 (like the better js-interop features).
 
 
-## 0.11.0
-{: #0-11-0}
+## Polymer 0.11.0
 
 This release has a few important changes that
 will affect you when you upgrade your project.
@@ -395,8 +391,7 @@ For more information about paths, see
 [dartbug.com/20076](http://dartbug.com/20076).
 
 
-## 0.10.0
-{: #0-10-0}
+## Polymer 0.10.0
 
 Here is a summary of what changed since our last stable release (0.9.5+2).
 
