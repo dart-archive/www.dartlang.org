@@ -673,18 +673,27 @@ expect(foo, hasLength(equals(6));
 The following simple matchers take no arguments,
 and have mostly self-evident meanings:
 
-    isNull
-    isNotNull
-    isTrue
-    isFalse
-    isAnything
-    isEmpty
-    isZero
-    isNonZero
-    isPositive
-    isNonPositive
-    isNegative
-    isNonNegative
+{% prettify dart %}
+// General matchers
+anything
+isEmpty
+isTrue
+isFalse
+isNull
+isNotNull
+isList
+isMap
+
+// Numeric matchers
+isZero
+isNonZero
+isPositive
+isNonPositive
+isNegative
+isNonNegative
+isNaN
+isNotNaN
+{% endprettify %}
 
 Be careful with `isTrue` and `isFalse`.
 These test for equality with the corresponding Boolean values.
@@ -786,22 +795,26 @@ Custom matchers will be discussed in more detail later.
 As the usual case is to throw an exception,
 there are predefined matchers for a number of the core exception types and for functions that may throw them:
 
-    isException
-    throwsException
-    isFormatException
-    throwsFormatException
-    isArgumentError
-    throwsArgumentError
-    isRangeError
-    throwsRangeError
-    isNoSuchMethodError
-    throwsNoSuchMethodError
-    isUnimplementedError
-    throwsUnimplementedError
-    isStateError
-    throwsStateError
-    isUnsupportedError
-    throwsUnsupportedError
+{% prettify dart %}
+isException
+throwsException
+isFormatException
+throwsFormatException
+isArgumentError
+throwsArgumentError
+isRangeError
+throwsRangeError
+isNoSuchMethodError
+throwsNoSuchMethodError
+isNullThrownError
+throwsNullThrownError
+isUnimplementedError
+throwsUnimplementedError
+isStateError
+throwsStateError
+isUnsupportedError
+throwsUnsupportedError
+{% endprettify %}
 
 So for example we can write:
 
