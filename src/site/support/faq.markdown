@@ -618,8 +618,8 @@ Meanwhile, star this bug:
 
 ### Q. What CPU architectures does the Dart VM support?
 
-The Dart VM works on IA-32, x64, MIPS, and certain kinds of ARM processors
-(needs at least version 7 and VFP+SIMD).
+The Dart VM works on IA-32, x64, MIPS, ARMv5TE, ARMv6, ARMv7 and
+ARM64 processors.
 
 ### Q. What are some real-world production deployments of Dart?
 
