@@ -23,7 +23,7 @@ Some files that you wouldn't normally put in a repository
 are useful or essential when you deploy an app.
 </aside>
 
-1. [The Rules](#the-rules)
+1. [The rules](#the-rules)
 1. [Details](#details)
    1. [packages/](#packages)
    1. [pubspec.lock](#pubspeclock)
