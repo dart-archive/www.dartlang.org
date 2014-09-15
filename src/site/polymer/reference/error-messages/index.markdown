@@ -11,6 +11,8 @@ subsite: "Polymer.dart"
 description: "Details about error messages from polymer and related packages."
 ---
 
+{% include breadcrumbs.html %}
+
 # {{ page.title }}
 
 <style>
