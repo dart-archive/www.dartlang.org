@@ -29,21 +29,29 @@ package that your package depends on, see [pub run](pub-run.html).
 ## Activating a package {#activating-a-package}
 
 {% prettify lang-sh %}
-$ pub global activate <package> [constraint]
-$ pub global activate --source path <path>
+$ pub global activate <pub.dartlang package> [constraint]
+$ pub global activate --source git <Git URL> [constraint]
+$ pub global activate -sgit <Git URL> [constraint]
+$ pub global activate --source path <path> [constraint]
 {% endprettify %}
 
 Use `activate` to enable you to run a package's executables
 from anywhere on your machine.
 You can activate a package on [pub.dartlang.org](http://pub.dartlang.org/),
-or you can activate a package on your local machine.
+in a Git repository, or on your local machine.
 Once you have activated a package, see [Running a script](#running-a-script)
 to run scripts from the package's `bin` directory.
 
+In all cases, when you activate a package you can specify an
+optional constraint.
+If you specify a range, Pub picks the best version that meets the
+constraint.
+See the following section for examples.
+
 ### Activating a package on pub.dartlang.org
 
-Use `activate <package> [constraint]` to activate a package
-from pub.dartlang.org.  The optional constraint allows you to pull
+Use `activate <package>` to activate a package from pub.dartlang.org.
+The optional constraint allows you to pull
 in a specific version of the package. For example,
 the following command pulls the 0.6.0 version of the `markdown` package:
 
@@ -58,10 +66,23 @@ For example:
 pub global activate foo <3.0.0
 {% endprettify %}
 
+### Activating a package with Git
+
+{% include coming-release.html %}
+
+You can use `--source git` (or `-sgit`, for short) to activate
+a package in a Git repository. The following examples,
+which activate the `async_await` package on
+[GitHub](https://github.com/), are equivalent:
+
+{% prettify lang-sh %}
+pub global activate --source git https://github.com/dart-lang/async_await.git
+pub global activate -sgit https://github.com/dart-lang/async_await.git
+{% endprettify %}
+
 ### Activating a package on your local machine
 
-Use `activate --source <path>` to activate a package
-on your local machine.
+Use `activate --source <path>` to activate a package on your local machine.
 The following example activates the `stopwatch` package from the
 `~/dart` directory:
 
