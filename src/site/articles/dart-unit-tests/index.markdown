@@ -141,19 +141,23 @@ which matches against an Iterable object in index order.
 When we run this application in checked mode,
 we see output similar to this:
 
-    unittest-suite-wait-for-done
-    ERROR: QuickSort
-      Test failed: Caught type 'double' is not a subtype of type 'int' of 'pivotIndex'.
-      quicksort.dart 24:27  _quickSort
-      quicksort.dart 32:13  quickSort
-      quicksort.dart 38:21  main.<fn>
-      dart:async             _createTimer.<fn>
+{% prettify none %}
+unittest-suite-wait-for-done
+ERROR: QuickSort
+  Test failed: Caught type 'double' is not a subtype of type 'int' of 'pivotIndex'.
+  quicksort.dart 24:27  _quickSort
+  quicksort.dart 32:13  quickSort
+  quicksort.dart 38:21  main.<fn>
+  dart:async             _createTimer.<fn>
 
-    0 PASSED, 0 FAILED, 1 ERRORS
+0 PASSED, 0 FAILED, 1 ERRORS
+{% endprettify %}
 
 Following this is a line:
 
-    Uncaught Error: Exception: Some tests failed.
+{% prettify none %}
+Uncaught Error: Exception: Some tests failed.
+{% endprettify %}
 
 followed by a stack trace.
 We can ignore this for now;
@@ -187,10 +191,12 @@ int pivotIndex = left + ((right-left) ~/ 2);
 
 Running the test again, we see:
 
-    FAIL: QuickSort
-      Expected: equals [1, 2, 3, 4, 5] ordered
-        Actual: [3, 5, 2, 4, 1]
-         Which: was <3> instead of <1> at location [0]
+{% prettify none %}
+FAIL: QuickSort
+  Expected: equals [1, 2, 3, 4, 5] ordered
+    Actual: [3, 5, 2, 4, 1]
+     Which: was <3> instead of <1> at location [0]
+{% endprettify %}
 
 (We are omitting the initial line, stack dump,
 and summary details here for brevity).
@@ -228,9 +234,11 @@ void main() {
 
 If we run this again, we still see the first test fail, but now we also see:
 
-    FAIL: Partition
-      Expected: <1>
-        Actual: <0>
+{% prettify none %}
+FAIL: Partition
+  Expected: <1>
+    Actual: <0>
+{% endprettify %}
 
 So there is a problem with `_partition`.
 We did not get to the second `expect()`; the first one failed.
@@ -259,10 +267,12 @@ for (var i = left; i < right; i++) {
 
 After making that change and running the app again, we see happiness:
 
-    PASS: QuickSort
-    PASS: Partition
+{% prettify none %}
+PASS: QuickSort
+PASS: Partition
 
-    All 2 tests passed.
+All 2 tests passed.
+{% endprettify %}
 
 We can easily run this from the command line using the
 [standalone Dart virtual machine](/tools/dart-vm/).
@@ -284,7 +294,9 @@ See [Configuring the test environment](#configuring-the-test-environment)
 later for more details.
 You can run the test with the command:
 
-    dart Quicksort.dart
+{% prettify none %}
+dart Quicksort.dart
+{% endprettify %}
 
 If you prefer the Dart editor environment
 and want to run your tests in the browser, add this import:
@@ -374,13 +386,17 @@ When using a predicate form like the above,
 `expect()` has no useful information to do this with.
 So in the second case, the description will simply be:
 
-      Expected: true
-        Actual: <false>
+{% prettify none %}
+Expected: true
+  Actual: <false>
+{% endprettify %}
 
 while in the first case it is the more descriptive:
 
-      Expected: <5>
-        Actual: <4>
+{% prettify none %}
+Expected: <5>
+  Actual: <4>
+{% endprettify %}
 
 It is possible to pass an additional string argument to `expect()`
 (using either form) which will be appended to the output,
@@ -395,9 +411,11 @@ test('Addition test', () => expect(2 + 2 == 5, isTrue, reason:'Two twos are not 
 
 which results in:
 
-      Expected: true
-        Actual: <false>
-      Two twos are not five
+{% prettify none %}
+Expected: true
+  Actual: <false>
+Two twos are not five
+{% endprettify %}
 
 There are circumstances when the simple predicate form is sufficient.
 For example, if you have code that should be unreachable, then you can use:
@@ -516,12 +534,14 @@ group('outer', () {
 
 The output is:
 
-    outer test 1
-    outer setup 1, outer test 2, outer teardown 1
-    outer setup 2, outer test 3, outer teardown 2
-    outer setup 2, inner test 1, outer teardown 2
-    outer setup 2, inner setup 1, inner test 2, inner teardown, outer teardown 2
-    outer setup 2, inner setup 2, inner test 3, inner teardown, outer teardown 2
+{% prettify none %}
+outer test 1
+outer setup 1, outer test 2, outer teardown 1
+outer setup 2, outer test 3, outer teardown 2
+outer setup 2, inner test 1, outer teardown 2
+outer setup 2, inner setup 1, inner test 2, inner teardown, outer teardown 2
+outer setup 2, inner setup 2, inner test 3, inner teardown, outer teardown 2
+{% endprettify %}
 
 In the output above,
 all lines relating to a single test have been coalesced for brevity.
@@ -714,29 +734,35 @@ isNot(isTrue)
 
 To test equality or identity, respectively, we have these matchers:
 
-    equals(expected)
-    same(expected)
+{% prettify dart %}
+equals(expected)
+same(expected)
+{% endprettify %}
 
 For numeric inequality, we have:
 
-    greaterThan(v)
-    greaterThanOrEqualTo(v)
-    lessThan(v)
-    lessThanOrEqualTo(v)
-    closeTo(value, delta)
-    inInclusiveRange(low, high) // low <= actual <= high
-    inExclusiveRange(low, high) // low < actual < high
-    inOpenClosedRange(low, high) // low < actual <= high
-    inClosedOpenRange(low, high) // low <= actual < high
+{% prettify dart %}
+greaterThan(v)
+greaterThanOrEqualTo(v)
+lessThan(v)
+lessThanOrEqualTo(v)
+closeTo(value, delta)
+inInclusiveRange(low, high) // low <= actual <= high
+inExclusiveRange(low, high) // low < actual < high
+inOpenClosedRange(low, high) // low < actual <= high
+inClosedOpenRange(low, high) // low <= actual < high
+{% endprettify %}
 
 For string matching, we have:
 
-    equalsIgnoringCase(v)
-    equalsIgnoringWhitespace(v)
-    startsWith(prefix)
-    endsWith(suffix)
-    stringContainsInOrder(List<String> substrings)
-    matches(regexp)
+{% prettify dart %}
+equalsIgnoringCase(v)
+equalsIgnoringWhitespace(v)
+startsWith(prefix)
+endsWith(suffix)
+stringContainsInOrder(List<String> substrings)
+matches(regexp)
+{% endprettify %}
 
 `equalsIgnoringWhitespace(v)` normalizes whitespace runs to single spaces
 first and trims off leading and trailing whitespace.
@@ -744,16 +770,20 @@ first and trims off leading and trailing whitespace.
 
 For objects that have a length property, we have this matcher:
 
-    hasLength(m)
+{% prettify dart %}
+hasLength(m)
+{% endprettify %}
 
 m here can be a value or a matcher;
 e.g `hasLength(6)` or `hasLength(greaterThan(5))`.
 
 For testing whether functions throw exceptions, we have:
 
-    throws
-    throwsA(m)
-    returnsNormally
+{% prettify dart %}
+throws
+throwsA(m)
+returnsNormally
+{% endprettify %}
 
 `throwsA` takes a matcher argument which will be matched against the exception;
 an example is shown in the next paragraph.
@@ -763,7 +793,9 @@ with details of the inner exception including the stack trace.
 
 For type checking, we have:
 
-    new isInstanceOf<T>()
+{% prettify dart %}
+new isInstanceOf<T>()
+{% endprettify %}
 
 For example:
 
@@ -829,7 +861,9 @@ test('Range Error', () {
 For matching the inner content of compound objects,
 we have a number of matchers, starting with the ubiquitous `equals()`:
 
-    equals(object, [depth])
+{% prettify dart %}
+equals(object, [depth])
+{% endprettify %}
 
 This works with scalars, Maps, and iterables
 (which should match in order).
@@ -849,7 +883,9 @@ expect(JSON.parse('{"x": {"a":3, "b": -4.5}, "y":[{}], '
 
 For testing just a subpart of an object, we can use:
 
-    contains(m)
+{% prettify dart %}
+contains(m)
+{% endprettify %}
 
 This works with Strings (matches substrings),
 Maps (matches if the Map has that key),
@@ -862,8 +898,10 @@ expect([1, 2, 3, 4], contains(isNonZero));
 
 The converse matcher to `contains()` is `isIn()`.
 
-    everyElement(m)
-    someElement(m)
+{% prettify dart %}
+everyElement(m)
+someElement(m)
+{% endprettify %}
 
 These work on collections.
 m can be a value or a matcher.
@@ -875,22 +913,28 @@ expect(foo, someElement(greaterThan(10)));
 
 For any Iterable:
 
-    orderedEquals(Iterable expected)
-    unorderedEquals(Iterable expected)
+{% prettify dart %}
+orderedEquals(Iterable expected)
+unorderedEquals(Iterable expected)
+{% endprettify %}
 
 Note that `unorderedEquals` is O(n^2)
 and should be used with care on larger objects.
 
 For Maps:
 
-    containsValue(v)
-    containsPair(key, valueOrMatcher)
+{% prettify dart %}
+containsValue(v)
+containsPair(key, valueOrMatcher)
+{% endprettify %}
 
 There are some operators for combining or inverting matchers:
 
-    isNot(matcher)
-    allOf(List<Matcher> matchers)
-    anyOf(List<Matcher> matchers)
+{% prettify dart %}
+isNot(matcher)
+allOf(List<Matcher> matchers)
+anyOf(List<Matcher> matchers)
+{% endprettify %}
 
 The `allOf()` and `anyOf()` represent AND/OR operations.
 They can take a list of matchers or several individual matcher or scalar arguments (limited to 7 in the latter case).
@@ -898,7 +942,9 @@ They can take a list of matchers or several individual matcher or scalar argumen
 Finally, there is a `predicate` matcher,
 which allows you to use arbitrary functions:
 
-    predicate(fn, reason)
+{% prettify dart %}
+predicate(fn, reason)
+{% endprettify %}
 
 For example, an alternative way to create a type matcher is:
 
@@ -955,9 +1001,11 @@ There are three important parts to this:
 
 Recall a typical error message from `expect()` looks like:
 
-    Expected: <matcher description>
-      Actual: <value>
-       Which: <mismatch description>
+{% prettify dart %}
+Expected: <matcher description>
+  Actual: <value>
+   Which: <mismatch description>
+{% endprettify %}
 
 The `describe()` method of the matcher is used
 to build the “Expected:" part of the error message,
