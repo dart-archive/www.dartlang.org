@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Pub Assets and Transformers"
-description: Transforming and generating assets and files during development
-             and build time.
+title: "Assets and Transformers"
+description: How pub transforms and generates assets and files during
+             development and build time.
 ---
 
 {% include toc.html %}
@@ -20,16 +20,16 @@ Use the `pubspec.yaml` file to specify which transformers your package uses
 and, if necessary, to configure the transformers. (See
 [Specifying transformers](#specifying-transformers) for details.) For example:
 
-<pre>
+{% prettify yaml %}
 name: myapp
 dependencies:
-  <b>polymer: any</b>
-<b>transformers:
-- polymer:
-    entry_points:
-    - web/index.html
-    - web/index2.html</b>
-</pre>
+  [[highlight]]polymer: any
+transformers:
+- polymer:[[/highlight]]
+    [[highlight]]entry_points:[[/highlight]]
+    [[highlight]]- web/index.html[[/highlight]]
+    [[highlight]]- web/index2.html[[/highlight]]
+{% endprettify %}
 
 A package's assets can be in any directory in the root package.
 However, if you want to make an asset available publicly (to other
@@ -77,18 +77,18 @@ you can use Dartium while you're developing your app.
 
 To tell pub to apply a transformer to your package's assets, specify the
 transformer, as well as the package that contains the transformer, in your
-package's `pubspec.yaml` file. In the following pubspec, the bold lines
+package's `pubspec.yaml` file. In the following pubspec, the highlighted lines
 specify that this package requires the polymer transformer, which is in the
 polymer package (along with the rest of Polymer.dart):
 
-<pre>
+{% prettify yaml %}
 name: myapp
 dependencies:
-  <b>polymer: any</b>
-<b>transformers:
-- polymer:
-    entry_points: web/index.html</b>
-</pre>
+  [[highlight]]polymer: any[[/highlight]]
+[[highlight]]transformers:
+- polymer:[[/highlight]]
+    [[highlight]]entry_points: web/index.html[[/highlight]]
+{% endprettify %}
 
 The following example configures the [dart2js](/tools/dart2js/)
 transformer, which is used by [`pub serve`](cmd/pub-serve.html),
@@ -146,8 +146,8 @@ In earlier releases, assets were also placed in the top-level
 The following picture shows how you might structure your app's source assets,
 with your main Dart file under `web` and additional Dart files under `lib`.
 
-<pre>
-<em>app</em>/
+{% prettify none %}
+app/
   lib/
     *.dart
     *.png
@@ -159,12 +159,12 @@ with your main Dart file under `web` and additional Dart files under `lib`.
         *.dart
         *.js
   web/
-    <em>app</em>.dart
+    app.dart
     *.html
     *.css
     *.png
     ...
-</pre>
+{% endprettify %}
 
 After transformation, `pub build` places generated assets under a directory
 named `build`, which we'll call the _build root_. Under the build root,
@@ -172,13 +172,13 @@ a directory is created for each subdirectory that is built and a
 `packages` directory is created under each directory specified in the
 build command. For example, if your build command looks like the following:
 
-{% prettify yaml %}
+{% prettify lang-sh %}
 $ pub build test example/one example/two
 {% endprettify %}
 
 The resulting build directory looks like:
 
-{% prettify lang-sh %}
+{% prettify none %}
 build/
   example/
     one/
@@ -196,11 +196,12 @@ The dev server simulates this hierarchy without generating files.
 Here's how source asset locations correlate to generated asset locations,
 for untransformed files:
 
-<table>
+<table border="1" cellpadding="2">
   <thead>
     <tr>
-      <th> Source asset location </th>
-      <th> Generated asset location<br>(under the build root) </th>
+      <th valign="center">Source asset location</th>
+      <th valign="center">Generated asset location<br>
+                          (under the build root)</th>
     </tr>
   </thead>
   <tbody>
@@ -209,8 +210,8 @@ for untransformed files:
       <td> <code>/<em>&lt;path></em></code> </td>
     </tr>
     <tr>
-      <td> <code>.../<em>&lt;pkg_name></em>/lib/<em>&lt;path></em></code> </td>
-      <td> <code>/packages/<em>&lt;pkg_name></em>/<em>&lt;path></em></code> </td>
+      <td><code>.../<em>&lt;pkg_name></em>/lib/<em>&lt;path></em></code></td>
+      <td><code>/packages/<em>&lt;pkg_name></em>/<em>&lt;path></em></code></td>
     </tr>
   </tbody>
 </table>

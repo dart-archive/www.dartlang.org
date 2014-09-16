@@ -39,9 +39,9 @@ matching versions of a library.</dd>
 <dd>Optional. Use with <code>pub add</code> to install the best
 version matching the specified constraint. For example:
 
-<pre>
-$ pub cache add barback --version "&gt;=0.8.0 &lt;0.110"
-</pre>
+{% prettify lang-sh %}
+$ pub cache add barback --version "<=0.8.0 <0.110"
+{% endprettify %}
 
 If <code>--version</code> is omitted, pub installs the best of all known
 versions.</dd>

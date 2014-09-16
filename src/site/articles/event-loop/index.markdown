@@ -433,7 +433,7 @@ main() {
 
 The answer:
 
-<pre>
+{% prettify none %}
 main #1 of 2
 main #2 of 2
 microtask #1 of 2
@@ -441,7 +441,7 @@ microtask #2 of 2
 future #2 of 3
 future #3 of 3
 future #1 (delayed)
-</pre>
+{% endprettify %}
 
 That order should be what you expected,
 since the example’s code executes in three batches:
@@ -504,7 +504,7 @@ main() {
 
 The output, assuming bugs 9001/9002 aren't fixed:
 
-<pre>
+{% prettify none %}
 main #1 of 2
 main #2 of 2
 microtask #1 of 3
@@ -520,7 +520,7 @@ microtask #0 (from future #2b)
 future #3a (a new future)
 future #3b
 future #1 (delayed)
-</pre>
+{% endprettify %}
 
 <aside class="alert alert-info" markdown="1">
 **Note:**

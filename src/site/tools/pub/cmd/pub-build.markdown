@@ -81,9 +81,9 @@ Directories you might typically specify include the following:
 
 For example, you might specify:
 
-<pre>
+{% prettify lang-sh %}
 pub build test benchmark example/foo bar
-</pre>
+{% endprettify %}
 
 In the preceding example, the <code>test</code>, <code>benchmark</code>,
 <code>example/foo</code>, and <code>bar</code> directories are processed,

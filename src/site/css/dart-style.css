@@ -638,9 +638,8 @@ pre.prettyprint {
   color: #757575;
 }
 
-.lang-none .com, .lang-none .kwd, .lang-none .lit,
-.lang-none .pln, .lang-none .pun {
-  color: #4D4D4D; /* color of .pln */
+.lang-none * {
+  color: #4D4D4D !important; /* color of .pln */
 }
 
 .lang-dart a span, .lang-html a span {

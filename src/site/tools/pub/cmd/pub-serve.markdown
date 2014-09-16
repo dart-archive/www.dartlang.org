@@ -77,9 +77,9 @@ Directories you might specify typically include the following:
 
 For example, you might specify:
 
-<pre>
+{% prettify lang-sh %}
 pub serve test benchmark example/foo bar
-</pre>
+{% endprettify %}
 
 In the preceding example, the <code>test</code>, <code>benchmark</code>,
 <code>example/foo</code>, and <code>bar</code> directories are processed,
@@ -94,22 +94,22 @@ test, and web) that are present.</dd>
 <dd>Optional. By default, the dev server listens on <code>localhost</code>.
 You can specify another host using the <code>--hostname</code> option. 
 For example:
-<pre>
+{% prettify lang-sh %}
 $ pub serve --hostname=127.0.0.1
 Loading source assets... 
 Loading markdown_converter transformers... (1.3s)
 Serving markdown_converter web on http://127.0.0.1:8080
 Build completed successfully
-</pre>
+{% endprettify %}
 </dd>
 
 <dt><code>--port=&lt;number&gt;</code></dt>
 <dd>Optional. By default, the dev server uses <code>http://localhost:8080</code>.
 To change the port number, use the <code>--port</code> option:
-<pre>
+{% prettify lang-sh %}
 $ pub serve --port=9080
 Serving helloworld web on http://localhost:9080
-</pre>
+{% endprettify %}
 </dd>
 
 <dt><code>--mode=&lt;mode&gt;</code></dt>
