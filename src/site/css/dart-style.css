@@ -1493,8 +1493,12 @@ table.downloads tr.template td {
   border: 0;
 }
 
-table.downloads .sha {
-  padding: 0 0 6px;
+table.downloads td.archives div:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+table.downloads td.archives .sha {
+  padding: 0;
 }
 
 /* Spacing for definition lists. */

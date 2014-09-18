@@ -98,6 +98,7 @@ void addStableVersion(String channel, Map<String,String> version) {
           ..text = '  (rev ${version['revision']})'
           ..classes.add('muted');
       row.addCell()..text = version['version']
+          ..append(new Element.br())
           ..append(rev);
       row.addCell()..text = name;
       row.addCell()..text = width;
@@ -109,7 +110,7 @@ void addStableVersion(String channel, Map<String,String> version) {
           AnchorElement a = new AnchorElement()
               ..text = pa
               ..attributes['href']='$storageBase/channels/$channel/release/${version['revision']}/${directoryMap[pa]}/${archiveMap[pa]}-${archiveMap[name]}-${archiveMap[width]}-release.zip';
-          c.append(a);
+          c.append(new DivElement()..append(a));
           if (pa != 'Dart Editor' && int.parse(version['revision']) > 38976) {
             a.classes.add('has-sha');
             context.callMethod('getSha', [a]);

@@ -7788,6 +7788,9 @@ var $$ = {};
 }],
 ["dart.dom.html", "dart:html", , W, {
   "^": "",
+  _ElementFactoryProvider_createElement_tag: function(tag, typeExtension) {
+    return document.createElement(tag);
+  },
   HttpRequest_getString: function(url, onProgress, withCredentials) {
     return W.HttpRequest_request(url, null, null, onProgress, null, null, null, withCredentials).then$1(new W.HttpRequest_getString_closure());
   },
@@ -9495,6 +9498,7 @@ var $$ = {};
       t5 = J.getInterceptor$x(row);
       t6 = t5.addCell$0(row);
       t6.textContent = t3.$index(t2, "version");
+      t6.appendChild(W._ElementFactoryProvider_createElement_tag("br", null));
       t6.appendChild(rev);
       t5.addCell$0(row).textContent = t4;
       t5.addCell$0(row).textContent = width;
@@ -9508,7 +9512,7 @@ var $$ = {};
   addStableVersion___closure: {
     "^": "Closure:3;channel_5,version_6,name_7,width_8,archives_9,c_10",
     call$1: function(pa) {
-      var e, t1, t2;
+      var e, t1, t2, t3;
       if (J.contains$1$asx(this.archives_9, pa) === true) {
         e = document.createElement("a", null);
         e.textContent = pa;
@@ -9516,7 +9520,9 @@ var $$ = {};
         t1 = this.version_6;
         t2 = J.getInterceptor$asx(t1);
         e.setAttribute("href", "https://storage.googleapis.com/dart-archive/channels/" + this.channel_5 + "/release/" + H.S(t2.$index(t1, "revision")) + "/" + H.S(C.Map_JcPxK.$index(0, pa)) + "/" + H.S(C.Map_wsgCx.$index(0, pa)) + "-" + H.S(C.Map_wsgCx.$index(0, this.name_7)) + "-" + H.S(C.Map_wsgCx.$index(0, this.width_8)) + "-release.zip");
-        this.c_10.appendChild(e);
+        t3 = document.createElement("div", null);
+        t3.appendChild(e);
+        this.c_10.appendChild(t3);
         if (!J.$eq(pa, "Dart Editor") && J.$gt$n(H.Primitives_parseInt(t2.$index(t1, "revision"), null, null), 38976)) {
           J.get$classes$x(e).add$1(0, "has-sha");
           $.get$context().callMethod$2("getSha", [e]);
