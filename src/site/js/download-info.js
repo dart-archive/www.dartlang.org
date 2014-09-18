@@ -9,8 +9,11 @@ $(document).ready(function() {
                          .append($("<span></span>").text(", at revision " + data.revision));
   });
 
-  $(".has-sha").each(function() {
-    var button = $(this);
+  $(".has-sha").each(getSha);
+});
+
+function getSha(el) {
+    var button = $(el);
     var shaUrl = button.attr("href") + ".sha256sum";
     $.get(
       shaUrl,
@@ -24,6 +27,5 @@ $(document).ready(function() {
           .addClass("sha")
           .text("SHA-256: " + sha)
           .insertAfter(button);
-    });
-  });
-});
+    }).fail(function () {});
+}

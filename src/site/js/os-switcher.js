@@ -40,6 +40,7 @@ $(document).ready(function() {
 
   var defaultOs = detectPlatform();
   var defaultOsElem = document.getElementById(defaultOs);
+  $('.' + defaultOs+'-option').attr('selected', 'selected');
   if (defaultOsElem) {
     defaultOsElem.setAttribute('checked', 'checked');
     filterPlatformText(defaultOs);
