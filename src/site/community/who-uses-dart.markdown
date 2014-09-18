@@ -108,6 +108,9 @@ Google internal customer support tool
 [Quire](https://quire.io/)
 : A simple, collaborative, multi-level task management tool with both the client and server written in Dart.
 
+[DGLux5](http://www.dglogik.com/products/new-dglux5)
+: Visualizing the Internet of Things
+
 Adwords for video
 : The application that advertisers use to promote video ads on YouTube
   and other sites. Advertisers create accounts, setup campaigns, create ads,
