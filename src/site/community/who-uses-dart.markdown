@@ -27,8 +27,8 @@ Google internal sales tool
 [Soundtrap](https://www.soundtrap.com/)
 : Collaboratively record music with your browser, built with Dart and WebRTC.
 
-[blossom](https://www.blossom.io/)
-: Lean project management tool, built with Dart.
+[Blossom](https://www.blossom.io/)
+: Agile project management tool, built with Dart.
 
 [Ascentis](http://www.ascentis.com/)
 : SaaS for human capital management.
