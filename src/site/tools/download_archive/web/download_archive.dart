@@ -101,7 +101,7 @@ void addStableVersion(String channel, Map<String,String> version) {
           ..append(new Element.br())
           ..append(rev);
       row.addCell()..text = name;
-      row.addCell()..text = width;
+      row.addCell()..classes.add('nowrap')..text = width;
       List<String> possibleArchives = ['Dart SDK', 'Dartium', 'Dart Editor'];
       TableCellElement c = row.addCell()
           ..classes.add('archives');

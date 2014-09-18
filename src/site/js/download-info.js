@@ -22,10 +22,10 @@ function getSha(el) {
         if (space == -1) { return; }
 
         var sha = data.substring(0, space);
-        $("<a></a>")
+        var a = $("<a></a>")
           .attr("href", shaUrl)
           .addClass("sha")
-          .text("SHA-256: " + sha)
-          .insertAfter(button);
+          .text("SHA-256: " + sha);
+        button.after(' ').after(a).after(' ');
     }).fail(function () {});
 }
