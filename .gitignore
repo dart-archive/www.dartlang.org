@@ -12,6 +12,7 @@ pubspec.lock
 packages/
 *.js.deps
 _asset_bundler_cache
+.pub
 .idea
 
 !src/site/docs/spec/examples/lazyloader/packages/

@@ -19,8 +19,8 @@ Use polymer.dart—a Dart port of [Polymer](http://www.polymer-project.org)—to
 build structured, encapsulated, client-side web apps with Dart and
 web components.
 
-![Paper sampler on desktop](images/iconbutton-big.png){: .thinborder}
 ![Paper sampler on mobile](images/iconbutton-small.png)
+![Paper sampler on desktop](images/iconbutton-big.png){: .thinborder}
 
 With polymer.dart, you can:
 
@@ -30,18 +30,47 @@ With polymer.dart, you can:
 * Use emerging web standards—Custom Elements, HTML Imports, Shadow DOM,
   and more—today.
 
+{% comment %}
+PENDING: Talk about advantages of polymer.dart development process
+(why you should use it instead of polymer.js).
+{% endcomment %}
+
 <aside class="alert alert-info" markdown="1">
 **Note:**
 The code samples on this page reflect **polymer.dart 0.14.0**.
+{% comment %}
+UPDATE version each release
+{% endcomment %}
 For information about polymer.dart versions, see the
 [Release Notes](/polymer/reference/release-notes/).
 </aside>
 
+<hr>
+## Structuring your app
+
+Apps that use polymer.dart follow the
+[pub package layout conventions](/tools/pub/package-layout.html).
+As a consequence, the source code for a polymer.dart app
+starts with a top directory containing a
+`pubspec.yaml` file and a `web` directory:
+
+![app/pubspec.yaml, app/web/index.html](images/dir-simplest-structure.png)
+
+The `web` directory contains HTML files that are
+_entry points_—pages that users can visit.
+Other files (Dart files, CSS, images, and so on)
+can also be in the `web` directory.
+
+The `pubspec.yaml` file has metadata about the app,
+such as the pub packages that it depends on.
+
+Learn more at
+[Imports and Your App's Directory Structure](app-directories.html).
 
 <hr>
 ## Installing polymer.dart
 
-Get polymer.dart from [pub](http://pub.dartlang.org),
+Get polymer.dart from pub.dartlang.org,
 the Dart package hosting service. Add the following to
 your `pubspec.yaml` file:
 
@@ -49,63 +78,22 @@ your `pubspec.yaml` file:
 dependencies:
   polymer: ">=0.14.0 <0.15.0"
 {% endprettify %}
+{% comment %}
+UPDATE version each release
+{% endcomment %}
 
 Then, run `pub get` to download the package and link it into your app.
 
 
 <hr>
-## Installing custom elements
-
-You can use `pub` to get many polymer.dart custom elements.
-
-First, edit your `pubspec.yaml` file.
-Add a dependency for each package containing the custom elements
-you want to use:
-
-<!-- from polymer/get_element/pubspec.yaml -->
-{% prettify yaml %}
-name: my_app
-description: An application that uses core and paper elements
-dependencies:
-  polymer: ">=0.14.0 <0.15.0"
-  [[highlight]]core_elements: ">=0.2.0 <0.3.0"[[/highlight]]
-  [[highlight]]paper_elements: ">=0.2.0 <0.3.0"[[/highlight]]
-{% endprettify %}
-
-Next, run `pub get`.
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-The [core_elements package](http://pub.dartlang.org/packages/core_elements)
-provides Dart wrappers around the Polymer project's
-[core elements](http://www.polymer-project.org/docs/elements/core-elements.html),
-which are general-purpose UI and non-UI elements.
-The [paper_elements package](http://pub.dartlang.org/packages/paper_elements)
-wraps the project's
-[paper elements](http://www.polymer-project.org/docs/elements/material.html)—elements that
-adhere to Google's _material design_ guidelines.
-**The core and paper elements are early access and still changing**.
-</aside>
-
-
-<hr>
 ## Using custom elements
 
-To put a polymer.dart custom element into a web page,
-the HTML file for the web page needs to:
-
-* Include `dart_support.js` near the top of the file,
-  before any HTML imports
-* Import the HTML file that defines the custom element
-* Instantiate the element
-* Initialize Polymer
-
-Here's an example of using a `<paper-input>` element
+Here's an example of some HTML code
+that uses a `<paper-input>` element
 from the paper_elements package:
 
 <!-- from polymer/get_element/web/index.html -->
 {% prettify html %}
-<!-- In an HTML file -->
 <head>
   ...
   <script src="packages/web_components/dart_support.js"></script>
@@ -119,266 +107,27 @@ from the paper_elements package:
 </body>
 {% endprettify %}
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
-The `unresolved` attribute in the `<body>` tag
-ensures that no Polymer custom elements display
-before Polymer is ready.
-</aside>
+For more information, see [Using Custom Elements](using-elements/).
 
-Some custom elements extend native HTML elements.
-Instead of using a custom tag,
-you instantiate one of these elements by adding an `is` attribute
-to the native element.
-For example, the fancy_button package
-defines an element that extends the HTML `<button>` element.
-To instantiate a fancy button,
-instead of using `<fancy_button>`
-you use this code:
-
-{% prettify html %}
-<button [[highlight]]is="fancy-button"[[/highlight]]>Click me</button>
-{% endprettify %}
 
 <hr>
 ## Creating custom elements
 
-Along with the following code, check out the Dart tutorial
-[Define a Custom Element](/docs/tutorials/polymer-intro/).
-It shows you how to define, implement, and instantiate
-a custom element.
+You can extend the lexicon of HTML with your own custom elements,
+as described in
+[Creating Custom Elements](creating-elements/).
 
-
-### Define custom elements
-
-Extend the lexicon of HTML with your own custom elements.
-
-This sample shows a simple custom element. More advanced custom elements
-can contain their own styles, custom behavior, attributes,
-data binding, and more.
-
-In each custom element, import `polymer.html` before the
-&lt;polymer-element&gt; tag.
-
-{% prettify html %}{% raw %}
-<!-- hello_world.html -->
-<link rel="import" href="../packages/polymer/polymer.html">
-<polymer-element name="[[highlight]]hello-world[[/highlight]]" noscript>
-  <template>
-    <p>Hello from inside a custom element!</p>
-  </template>
-</polymer-element>
-{% endraw %}{% endprettify %}
-
-
-### Data binding
-
-Synchronize DOM nodes and object models using live, two-way data binding.
-
-In this sample, the `count` field of `ClickCounterElement` is
-bound to the `{% raw %}{{count}}{% endraw %}` placeholder in the custom
-element's `<template>`. When the `count` field changes, the text also
-changes.
-
-{% prettify html %}{% raw %}
-<polymer-element name="click-counter">
-  <template>
-    <button on-click="{{increment}}">Click Me</button>
-    <p>You clicked the button [[highlight]]{{count}}[[/highlight]] times.</p>
-  </template>
-  <script type="application/dart" src="click_counter.dart"></script>
-</polymer-element>
-{% endraw %}{% endprettify %}
-
-{% prettify dart %}
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-
-@CustomTag('click-counter')
-class ClickCounterElement extends PolymerElement {
-  [[highlight]]@observable int count[[/highlight]] = 0;
-
-  ClickCounterElement.created() : super.created();
-
-  void increment(Event e, var detail, Node target) {
-    count += 1;
-  }
-}
-{% endprettify %}
-
-
-### Custom attributes
-
-Use attributes to configure the custom element.
-
-In this sample, you can set the `volume` field of `VolumeNobElement`
-using the custom `volume` attribute.
-As in the previous example, the `volume` field
-is also bound to a placeholder (`{% raw %}{{volume}}{% endraw %}`)
-in the custom element's template.
-
-{% prettify html %}{% raw %}
-<polymer-element name="volume-nob">
-  <template>
-    <p>You turned the volume to {{volume}}.</p>
-  </template>
-  <script type="application/dart" src="volume_nob.dart"></script>
-</polymer-element>
-{% endraw %}{% endprettify %}
-
-{% prettify dart %}
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-
-@CustomTag('volume-nob')
-class VolumeNobElement extends PolymerElement {
-  // @published means 'this is an attribute', and it is observable.
-  [[highlight]]@published int volume[[/highlight]] = 0;
-
-  VolumeNobElement.created() : super.created();
-}
-{% endprettify %}
-
-Crank the volume like this:
-
-{% prettify html %}
-<volume-nob volume="11"></volume-nob>
-{% endprettify %}
-
-
-### Template conditionals
-
-Control the UI with declarative conditionals in templates.
-
-Template conditionals are part of the data binding infrastructure. If
-`count` changes, the templates are automatically re-evaluated.
-
-{% prettify html %}{% raw %}
-<polymer-element name="click-counter">
-  <template>
-    <button on-click="{{increment}}">Click Me</button>
-    <template [[highlight]]if="{{count <= 0}}"[[/highlight]]>
-      <p>Click the button. It's fun!</p>
-    </template>
-    <template [[highlight]]if="{{count > 0}}"[[/highlight]]>
-      <p>You clicked the button {{count}} times.</p>
-    </template>
-  </template>
-  <script type="application/dart" src="click_counter.dart"></script>
-</polymer-element>
-{% endraw %}{% endprettify %}
-
-{% prettify dart %}
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-
-@CustomTag('click-counter')
-class ClickCounterElement extends PolymerElement {
-  @observable int count = 0;
-
-  ClickCounterElement.created() : super.created();
-
-  void increment(Event e, var detail, Node target) {
-    count += 1;
-  }
-}
-{% endprettify %}
-
-
-### Template loops
-
-Loop through a collection, instantiating a template for every item in the
-collection.
-
-Template loops are part of the data binding infrastructure. If an item is
-added or removed from `fruits`, the contents of `<ul>` are automatically
-updated.
-
-{% prettify html %}{% raw %}
-<polymer-element name="fav-fruits">
-  <template>
-    <ul>
-      <template [[highlight]]repeat="{{fruit in fruits}}"[[/highlight]]>
-        <li>
-          I like {{ fruit }}.
-        </li>
-      </template>
-    </ul>
-  </template>
-  <script type="application/dart" src="fav_fruits.dart"></script>
-</polymer-element>
-{% endraw %}{% endprettify %}
-
-{% prettify dart %}
-import 'package:polymer/polymer.dart';
-
-@CustomTag('fav-fruits')
-class FavFruitsElement extends PolymerElement {
-  final List [[highlight]]fruits = toObservable[[/highlight]](['apples', 'pears', 'bananas']);
-
-  FavFruitsElement.created() : super.created();
-}
-{% endprettify %}
-
-### Extending DOM elements
-
-Subclass real DOM elements.
-
-{% prettify html %}{% raw %}
-<polymer-element name="fancy-button" [[highlight]]extends="button"[[/highlight]]>
-  <template>
-    <style>
-    :host {
-      background: pink;
-    }
-    </style>
-    <content></content>
-  </template>
-  <script type="application/dart" src="fancy_button.dart"></script>
-</polymer-element>
-{% endraw %}{% endprettify %}
-
-{% prettify dart %}{% raw %}
-import 'package:polymer/polymer.dart';
-import 'dart:html' show ButtonElement;
-
-@CustomTag('fancy-button')
-class FancyButton [[highlight]]extends ButtonElement with Polymer, Observable[[/highlight]] {
-  FancyButton.created() : super.created() {
-    polymerCreated();
-  }
-}
-{% endraw %}{% endprettify %}
-
-{% prettify html %}{% raw %}
-<button [[highlight]]is="fancy-button"[[/highlight]]>Click me</button>
-{% endraw %}{% endprettify %}
-
-
-### More sample code
-
-You can find lots of
-[sample code for polymer.dart](https://github.com/dart-lang/dart-samples/tree/master/polymer_mini_samples/web).
-
-{% comment %}
-We used to point to https://github.com/sethladd/dart-polymer-dart-examples.
-If we update that, point to it again.
-Learn how to
-[bind to a checkbox](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/bind_to_checkbox),
-[nest templates](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/nested_if_inside_repeat),
-[call a method on a custom element](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/call_method_on_custom_element),
-and much more. Please [let us know](https://github.com/sethladd/dart-polymer-dart-examples/issues?state=open) if you have a request for a sample.
-{% endcomment %}
 
 <hr>
-
-
 ## Tools
+
+Polymer.dart works well with Dart tools, such as Dart Editor and Pub.
 
 ### Generating warnings
 
 Polymer.dart offers a linter that reports syntax or usage warnings.
-The linter can be connected to Dart Editor to display warnings directly
+Using a special `build.dart` file,
+you can connect the linter to Dart Editor to display warnings directly
 at the source.
 
 Create a `build.dart` file at the root of your project:
@@ -391,8 +140,21 @@ void main(List<String> args) {
 }
 {% endprettify %}
 
+<aside class="alert alert-info" markdown="1">
+**Note:**
+As of polymer.dart 0.14.1, the `build.dart` file can be a single line:
+
+`export 'package:polymer/default_build.dart';`
+
+{% comment %}
+UPDATE for 0.15.0.
+{% endcomment %}
+</aside>
+
 Dart Editor runs `build.dart` after a file is saved, and
 displays warnings from the linter.
+
+Learn more about [Dart Editor](/tools/editor/).
 
 <img src="polymer-warning-in-editor.png">
 
@@ -402,9 +164,10 @@ Use `pub build` to compile your polymer.dart app into JavaScript so that
 it can run across the modern web. The build process also concatenates files
 for faster loading.
 
-First, add the polymer.dart _transformer_ to your `pubspec.yaml`. The
-`transformers` section should go at the end of the file, after the
-dependencies.
+You can use `entry_points` to specify which pages under `web`
+the user can navigate to.
+(By default, all pages under `web` are entry points.)
+For example:
 
 {% prettify yaml %}
 transformers:
@@ -412,7 +175,7 @@ transformers:
     entry_points: web/index.html
 {% endprettify %}
 
-Then, run `pub build` from the root of your project to generate a `build`
+Run `pub build` from the root of your project to generate a `build`
 directory.
 
 {% prettify bash %}
@@ -423,56 +186,11 @@ The `build` directory contains the HTML, JavaScript, and other assets
 required to run the application. You can then deploy the `build` directory
 to your favorite web server.
 
-Learn more about [pub build](http://pub.dartlang.org/doc/pub-build.html).
+Learn more about [pub build](/tools/pub/cmd/pub-build.html).
 
 <hr>
 
-## Upgrading from Web UI
-
-Polymer.dart is the next evolution of Web UI.
-
-[Upgrading to polymer.dart from Web UI](upgrading-to-polymer-from-web-ui.html)
-provides a non-exhaustive set of tips to help you upgrade.
-
-<hr>
-
-## Compatibility
-
-Polymer.dart is tested against IE10, IE11, Safari 6, latest Chrome,
-latest Firefox, and latest Chrome for Android.
-
-The Dart team collaborates with the Polymer team to
-ensure that polymer.dart elements and polyfills
-(code that implements features not yet built into a web browser)
-are fully compatible with Polymer.
-
-<hr>
-
-## Support
-
-We actively encourage your feedback and questions.
-
-* Ask your [how-to questions][so] on StackOverflow
-* Join the [general discussion about polymer.dart][web-list] on our mailing
-  list
-* Send [feedback on the web components family of specifications][polymer-dev-list]
-  to the polymer-dev mailing list
-  (Not Dart specific.)
-* Please file [bugs and feature requests][dartbug] for polymer.dart
-
-<hr>
-
-## Source code
-
-Polymer.dart is open source. You can view the source to polymer.dart,
-and its many component packages, at [dart.googlecode.com/](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/pkg/).
-[Get the source](https://code.google.com/p/dart/wiki/GettingTheSource)
-to inspect the code and contribute patches.
-
-
-<hr>
-
-## Tutorials
+## Tutorials and code labs
 
 The [Dart tutorials](/docs/tutorials/) use polymer.dart:
 
@@ -483,6 +201,11 @@ The [Dart tutorials](/docs/tutorials/) use polymer.dart:
 [Other examples](/docs/tutorials/polymer-intro/#what-next)
 : Lists other tutorials with examples that use Polymer.
 
+The following code lab uses polymer.dart:
+
+[Polymer Dart Code Lab](/codelabs/polymer/)
+: Walks you through building a single-page admin console
+and the custom elements it requires.
 <hr>
 
 ## Additional reading
@@ -537,3 +260,44 @@ to instantiate document fragments with identical contents.
 [shadow-dom-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
 [html-imports-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html
 [template-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html
+
+
+<hr>
+
+## Support and more
+
+We actively encourage your feedback and questions.
+
+* Ask your [how-to questions][so] on StackOverflow.
+* Join the [general discussion about polymer.dart][web-list] on our mailing
+  list.
+* Send [feedback on the web components family of specifications][polymer-dev-list]
+  to the polymer-dev mailing list.
+  (Note: That list isn't Dart specific.)
+* Please file [bugs and feature requests][dartbug] for polymer.dart.
+
+
+### Upgrading from Web UI
+
+Polymer.dart is the next evolution of Web UI.
+[Upgrading to Polymer.dart from Web UI](upgrading-to-polymer-from-web-ui.html)
+provides a non-exhaustive set of tips to help you upgrade.
+
+
+### Compatibility
+
+Polymer.dart is tested against IE10, IE11, Safari 6, latest Chrome,
+latest Firefox, and latest Chrome for Android.
+
+The Dart team collaborates with the Polymer team to
+ensure that polymer.dart elements and polyfills
+(code that implements features not yet built into a web browser)
+are fully compatible with Polymer.
+
+
+### Source code
+
+Polymer.dart is open source. You can view the source to polymer.dart,
+and its many component packages, at [dart.googlecode.com/](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/pkg/).
+[Get the source](https://code.google.com/p/dart/wiki/GettingTheSource)
+to inspect the code and contribute patches.

@@ -1,0 +1,33 @@
+<!-- import polymer-element's definition -->
+<link rel="import" href="../../../../packages/polymer/polymer.html">
+<link rel="import" href="../../a4.html">
+
+<polymer-element name="a-6" attributes="count">
+  <template>
+    <style>
+      div {
+        font-size: 24pt;
+        text-align: center;
+        border-style: solid;
+        border-width: 1px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      button {
+        font-size: 24pt;
+        margin-bottom: 20px;
+      }
+    </style>
+ <!-- QUESTION: what's the best way to style elements? Working in dev tools with shadow DOM is annoying. -->
+    <div>
+      <button on-click="{{increment}}">Click a6</button><br>
+      <span>(click count: {{count}})</span>
+      <p>
+      And here's the a4 click counter, for yuks:
+      </p>
+      <a-4></a-4>
+    </div>
+  </template>
+  <script type="application/dart" src="a6.dart"></script>
+</polymer-element>
+
