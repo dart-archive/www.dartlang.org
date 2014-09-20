@@ -36,6 +36,12 @@ PENDING: Talk about advantages of polymer.dart development process
 {% endcomment %}
 
 <aside class="alert alert-info" markdown="1">
+**Questions?**
+If you don't find your answers in these pages, check out the
+[Polymer FAQ](faq.html).
+</aside>
+
+<aside class="alert alert-info" markdown="1">
 **Note:**
 The code samples on this page reflect **polymer.dart 0.14.0**.
 {% comment %}
