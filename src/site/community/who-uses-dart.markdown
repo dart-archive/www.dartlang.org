@@ -12,6 +12,10 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/dartlang.org). Thanks!
 
+[SAP](http://www.sap.com/)
+: A number of administration tools for SAP data management utilizing both the 
+Dart VM for server-side and the full polymer.dart stack for client-side.
+
 [Security Monkey from Netflix](https://github.com/Netflix/security_monkey)
 : Security Monkey monitors policy changes and alerts on insecure configurations in an AWS account.
 
