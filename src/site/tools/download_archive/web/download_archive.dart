@@ -36,7 +36,6 @@ void filterTable(String channel, Event event) {
     String selector = 'tr';
     if (selectedVersion != 'all') { selector += '[data-version="$selectedVersion"]'; }
     if (selectedOs != 'all') { selector += '[data-os="$selectedOs"]'; }
-    print(selector);
     tables[channel].querySelectorAll('tr[data-version]').classes.add('hidden');
     tables[channel].querySelectorAll(selector).classes.remove('hidden');
   }

@@ -14,6 +14,9 @@ clean:
 
 build: copy add_version add_release
 
+build_apps:
+	cd ./src/site/tools/download_archive && pub deploy -o out
+
 copy: clean
 	cd ./src/site && bundle exec jekyll build && cd ../.. && cp -R ./src/appengine/* build/
 

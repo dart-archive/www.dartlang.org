@@ -4,12 +4,12 @@ title: "Download Archive"
 description: "Dart download archive"
 has-permalinks: false
 js:
-- url: web/download_archive.dart.js
+- url: out/web/download_archive.dart.js
   defer: true
 - url: /js/download-info.js
   defer: true
 css:
-- url: web/download_archive.css
+- url: out/web/download_archive.css
 ---
 
 # Download archive
