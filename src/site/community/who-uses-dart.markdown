@@ -12,6 +12,10 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/dartlang.org). Thanks!
 
+[SAP](http://www.sap.com/)
+: A number of administration tools for SAP data management utilizing both the 
+Dart VM for server-side and the full polymer.dart stack for client-side.
+
 [Security Monkey from Netflix](https://github.com/Netflix/security_monkey)
 : Security Monkey monitors policy changes and alerts on insecure configurations in an AWS account.
 
@@ -108,8 +112,8 @@ Google internal customer support tool
 [Quire](https://quire.io/)
 : A simple, collaborative, multi-level task management tool with both the client and server written in Dart.
 
-[DGLux5](http://www.dglogik.com/products/new-dglux5)
-: Visualizing the Internet of Things.
+[DGLogik](http://www.dglogik.com/)
+: IOT Application Platform, DGLux5, provides a visual drag and drop rapid application development environment.
 
 Adwords for video
 : The application that advertisers use to promote video ads on YouTube
@@ -122,3 +126,6 @@ Google internal tool for marketing
 
 [Statim APPcatalog](http://www.statim-appcatalog.com/en)
 : An interactive product catalog for tablets and smartphones. Built with Dart, Sencha Touch.
+
+[Centryl](http://www.centryl.com)
+: A cloud based ERP/CRM system built both server and client side with Dart. 

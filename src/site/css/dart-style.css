@@ -613,8 +613,8 @@ pre.prettyprint {
   height: 450px;
 }
 
-.lang-dart, .lang-html, .lang-js, .lang-csharp, .lang-none,
-.lang-python, .lang-javascript {
+.lang-dart, .lang-html, .lang-js, .lang-cpp, .lang-csharp, .lang-none,
+.lang-python, .lang-javascript, .lang-yaml {
   max-width: 800px;
   text-align: left;
   margin-right: auto;

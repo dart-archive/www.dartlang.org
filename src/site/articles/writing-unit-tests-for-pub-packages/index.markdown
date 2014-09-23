@@ -162,9 +162,11 @@ unittest library, try running `pub update`. (You can find it in Dart Editor's
 **Tools** menu.) You should see the following output
 in Dart Editor:
 
-    Running pub update ...
-    Resolving dependencies...
-    Dependencies updated!
+{% prettify none %}
+Running pub update ...
+Resolving dependencies...
+Dependencies updated!
+{% endprettify %}
 
 After running `pub update`, you should see a newly created `packages` symlink 
 in the `test` directory that gives your tests access to the unittest
@@ -175,12 +177,14 @@ Now run the tests by pressing the green arrow in Dart Editor, or pressing
 **Cmd+R** on a Mac, or typing `dart test/range_test.dart` on the
 command line. You should see the following output:
 
-    unittest-suite-wait-for-done
-    PASS: range() produces a list that starts at start
-    PASS: range() throws an exception when start > stop
-    
-    All 2 tests passed.
-    unittest-suite-success
+{% prettify none %}
+unittest-suite-wait-for-done
+PASS: range() produces a list that starts at start
+PASS: range() throws an exception when start > stop
+
+All 2 tests passed.
+unittest-suite-success
+{% endprettify %}
 
 We've made good progress, but our test coverage is still pretty limited. Let's
 add a few more tests and group them in a way that makes our testing strategy
@@ -227,16 +231,18 @@ Much better. We use nested calls to `group()` to organize our tests, and we pass
 descriptive string args to each `group()` call to indicate our intent. If
 you run the tests again, you should see:
 
-    unittest-suite-wait-for-done
-    PASS: range() produces a list that starts at start
-    PASS: range() produces a list that stops before stop
-    PASS: range() produces a list that has consecutive values if no step is given
-    PASS: range() produces a list that has non-consecutive values with step > 1
-    PASS: range() throws an exception when start > stop
-    PASS: range() throws an exception when start == stop
-    
-    All 6 tests passed.
-    unittest-suite-success
+{% prettify none %}
+unittest-suite-wait-for-done
+PASS: range() produces a list that starts at start
+PASS: range() produces a list that stops before stop
+PASS: range() produces a list that has consecutive values if no step is given
+PASS: range() produces a list that has non-consecutive values with step > 1
+PASS: range() throws an exception when start > stop
+PASS: range() throws an exception when start == stop
+
+All 6 tests passed.
+unittest-suite-success
+{% endprettify %}
 
 ## Summary
 

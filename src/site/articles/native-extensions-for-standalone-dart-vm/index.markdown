@@ -486,12 +486,16 @@ sample extension.
 
 On Linux, you can compile the code in the samples/sample_extension directory like this:
 
-	g++ -fPIC -m32 -I{path to SDK include directory} -c sample_extension.cc
+{% prettify none %}
+g++ -fPIC -m32 -I{path to SDK include directory} -c sample_extension.cc
+{% endprettify %}
 
 To create the shared library from the object file:
 
-    gcc -shared -m32 -Wl,-soname,libsample_extension.so -o
- 	 libsample_extension.so sample_extension.o
+{% prettify none %}
+gcc -shared -m32 -Wl,-soname,libsample_extension.so -o
+libsample_extension.so sample_extension.o
+{% endprettify %}
 
 Remove the -m32 to build a 64-bit library that runs with the 64-bit Dart standalone VM.
 

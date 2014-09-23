@@ -72,9 +72,11 @@ main() {
 
 Running this example at the command line, we get:
 
-    $ dart timer.dart 
-    end of main
-    timer
+{% prettify none %}
+$ dart timer.dart
+end of main
+timer
+{% endprettify %}
 
 Had we made the timer repeating by using the Timer.periodic() constructor,
 the VM would not terminate
