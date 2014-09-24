@@ -110,7 +110,7 @@ The following options control the analysis that dart2js performs on Dart code:
   You can inspect the generated file with the [viewer](http://dart-lang.github.io/dump-info-visualizer/build/web/viewer.html). 
 
 `--output-type=dart`
-: Output Dart code instead of JavaScript.     
+: Output Dart code instead of JavaScript. If you are looking for dart2dart, use this option.    
 
 ## Helping dart2js generate better code {#helping-dart2js-generate-efficient-code}
             
