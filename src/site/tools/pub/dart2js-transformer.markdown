@@ -43,6 +43,7 @@ transformers:
     suppressWarnings: true
     suppressHints: true
     terse: true
+    csp: true
 {% endprettify %}
 
 ## Excluding an asset {#exclude-assets}

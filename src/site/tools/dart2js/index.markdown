@@ -91,9 +91,26 @@ The following options control the analysis that dart2js performs on Dart code:
 : Like `--analyze-only`, but skip analysis of method bodies and field
   initializers.
 
+`--enable-diagnostic-colors`
+: Add colors to diagnostic messages.  
+
+`--show-package-warnings`
+: Show warnings and hints generated from packages.
+
+`--csp`
+: Disables dynamic generation of code in the generated output. This is
+  necessary to satisfy CSP restrictions (see [W3C Content Security Policy](http://www.w3.org/TR/CSP/)).
+
 `--categories=Server`
 : Use with `--analyze-only` to analyze a command-line app. The default
-  category is `Client`, which tells dart2js to expect a web app.
+  category is `Client`, which tells dart2js to expect a web app. This option is only for dart2dart.
+
+`--dump-info`
+: Generates an `out.info.json` file with information about the generated code.
+  You can inspect the generated file with the [viewer](http://dart-lang.github.io/dump-info-visualizer/build/web/viewer.html). 
+
+`--output-type=dart`
+: Output Dart code instead of JavaScript. If you are looking for dart2dart, use this option.    
 
 ## Helping dart2js generate better code {#helping-dart2js-generate-efficient-code}
             
