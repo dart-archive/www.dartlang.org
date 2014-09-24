@@ -203,6 +203,13 @@ See the <a href="faq.html">Tools FAQ</a> for more information.
 
 ------
 
+### Looking for previous versions?
+
+Previous versions of the Dart SDK, Dartium, and the Dart Editor are available
+at the [download archive](/tools/download_archive).
+
+------
+
 ## Feedback
 We welcome all of your feedback! Submit comments using the
 SEND FEEDBACK link in the upper right corner of the Dart Editor window,

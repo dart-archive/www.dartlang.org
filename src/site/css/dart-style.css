@@ -1424,7 +1424,7 @@ a.permalink {
  * implemented by using class="glyphicon glyphicon-new-window"
  * instead of this css.
  */
-a[href^="http"]:not(.btn):after {
+a[href^="http"]:not(a[href^="https://storage"]):not(.btn):after {
   content: "\e164";
   position: relative;
   top: 1px;
@@ -1464,6 +1464,51 @@ a[href^="http"]:not(.btn):after {
  */
 .download-buttons, .os-choices {
   display: none;
+}
+
+/* Tables in More downloads page.
+ */
+table.downloads th,
+table.downloads td {
+  border: solid 1px #999999;
+  padding: 2px 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table.downloads tr:not(.hidden):nth-child(even) td {
+  background-color: rgba(20, 133, 195, 0.10);
+}
+
+table.downloads .archives {
+  text-align: left;
+}
+
+table.downloads .muted {
+  color: #999999;
+  white-space: nowrap;
+}
+
+table.downloads .nowrap {
+  white-space: nowrap;
+}
+
+table.downloads tr.template td {
+  background-color: white !important;
+  border: 0;
+}
+
+table.downloads td.archives div:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+table.downloads .has-sha {
+  display: inline-block;
+  min-width: 80px;
+}
+
+table.downloads .sha {
+  display: inline;
 }
 
 /* Spacing for definition lists. */
