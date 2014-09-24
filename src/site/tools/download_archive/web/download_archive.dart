@@ -97,7 +97,6 @@ void addStableVersion(String channel, Map<String,String> version) {
           ..text = '  (rev ${version['revision']})'
           ..classes.add('muted');
       row.addCell()..text = version['version']
-          ..append(new Element.br())
           ..append(rev);
       row.addCell()..text = name;
       row.addCell()..classes.add('nowrap')..text = width;
@@ -106,14 +105,17 @@ void addStableVersion(String channel, Map<String,String> version) {
           ..classes.add('archives');
       possibleArchives.forEach((String pa) {
         if (archives.contains(pa)) {
-          AnchorElement a = new AnchorElement()
+          String uri = '$storageBase/channels/$channel/release/${version['revision']}/${directoryMap[pa]}/${archiveMap[pa]}-${archiveMap[name]}-${archiveMap[width]}-release.zip';
+          c.append(new AnchorElement()
               ..text = pa
-              ..attributes['href']='$storageBase/channels/$channel/release/${version['revision']}/${directoryMap[pa]}/${archiveMap[pa]}-${archiveMap[name]}-${archiveMap[width]}-release.zip';
-          c.append(new DivElement()..append(a));
+              ..attributes['href']= uri);
           if (pa != 'Dart Editor' && int.parse(version['revision']) > 38976) {
-            a.classes.add('has-sha');
-            context.callMethod('getSha', [a]);
+            c.append(new AnchorElement()
+                ..text = "(SHA-256)"
+                ..attributes['href'] = '$uri.sha256sum'
+                ..classes.add('sha'));
           }
+          c.append(new Element.br());
         }
       });
     });

@@ -1502,11 +1502,6 @@ table.downloads td.archives div:not(:last-child) {
   margin-bottom: 6px;
 }
 
-table.downloads td.archives a {
-  white-space: nowrap;
-  padding: 0;
-}
-
 table.downloads .has-sha {
   display: inline-block;
   min-width: 80px;
