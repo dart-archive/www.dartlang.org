@@ -36,12 +36,6 @@ PENDING: Talk about advantages of polymer.dart development process
 {% endcomment %}
 
 <aside class="alert alert-info" markdown="1">
-**Questions?**
-If you don't find your answers in these pages, check out the
-[Polymer FAQ](faq.html).
-</aside>
-
-<aside class="alert alert-info" markdown="1">
 **Note:**
 The code samples on this page reflect **polymer.dart 0.14.0**.
 {% comment %}
@@ -50,6 +44,30 @@ UPDATE version each release
 For information about polymer.dart versions, see the
 [Release Notes](/polymer/reference/release-notes/).
 </aside>
+
+
+<hr>
+## Where to start {#start}
+
+You can get a quick start with any of the following:
+
+[Polymer Dart Code Lab](/codelabs/polymer/)
+: Follow this if you like to learn by coding.
+This code lab walks you through building a single-page admin console and
+the custom elements that it requires.
+
+[Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
+: Read this if you like a more structured walkthrough.
+This tutorial provides a detailed introduction to using polymer.dart
+to create custom elements.
+
+[Frequently Asked Questions (FAQ)](faq.html)
+: Get the answers to common questions about polymer.dart.
+This page has up-to-the-minute information that
+hasn't yet made its way into the documentation.
+
+Still here? Keep reading!
+
 
 <hr>
 ## Structuring your app
@@ -194,78 +212,37 @@ to your favorite web server.
 
 Learn more about [pub build](/tools/pub/cmd/pub-build.html).
 
+
 <hr>
 
-## Tutorials and code labs
+## Source code
 
-The [Dart tutorials](/docs/tutorials/) use polymer.dart:
-
-[Define a Custom Element](/docs/tutorials/polymer-intro/)
-: Provides a detailed introduction to using polymer.dart
-  to create custom elements.
-
-[Other examples](/docs/tutorials/polymer-intro/#what-next)
-: Lists other tutorials with examples that use Polymer.
-
-The following code lab uses polymer.dart:
-
-[Polymer Dart Code Lab](/codelabs/polymer/)
-: Walks you through building a single-page admin console
-and the custom elements it requires.
-<hr>
-
-## Additional reading
-
-The cultured Dartisan studies the specifications and articles that cover
-the lower-level primitives and features of the polymer.dart libraries.
-
-### Polymer
-
-* Read the documentation at [polymer-project.org](http://www.polymer-project.org/).
-* Watch Matthew McNulty's [Introduction to Polymer](https://www.youtube.com/watch?v=8-Zq2KUN6jM)
-  or the complete video of SFHTML5's
-  [All About Polymer](http://www.meetup.com/sfhtml5/events/169452272/) event.
-
-### Articles
-
-* [HTML5Rocks - Shadow DOM 101](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/)
-* [HTML5Rocks - Shadow DOM 201: CSS and Styling](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-201/)
-* [HTML5Rocks - Shadow DOM 301: Advanced Concepts & DOM APIs](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-301/)
-* [HTML5Rocks - Custom Elements: Defining new elements in HTML](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/)
-
-### Specifications
-
-Much of polymer.dart is built upon new and emerging web specifications.
-Polymer.dart offers polyfills for the following features.
-
-Heads up: These are specs written for implementors. Lots of details ahead.
-
-[Custom elements][custom-elements-spec]
-: A method for enabling the author to define and use new types of DOM elements.
-
-[Shadow DOM][shadow-dom-spec]
-: An encapsulation primitive for DOM subtrees. It provides a method of
-establishing and maintaining functional boundaries between DOM trees and how
-these trees interact with each other within a document, thus enabling better
-functional encapsulation within the DOM.
-
-[Template element][template-spec]
-: A method for declaring inert DOM subtrees in HTML and manipulating them
-to instantiate document fragments with identical contents.
-
-[HTML Imports][html-imports-spec]
-: A way to include and reuse HTML documents in other HTML documents.
+You can view sample source code that _uses_ polymer.dart,
+as well as the source code that _implements_ polymer.dart.
 
 
-[polymer]: http://www.polymer-project.org
-[so]: http://stackoverflow.com/tags/dart
-[web-list]: https://groups.google.com/a/dartlang.org/forum/#!forum/web
-[polymer-dev-list]: https://groups.google.com/forum/?fromgroups=#!forum/polymer-dev
-[dartbug]: http://dartbug.com/new
-[custom-elements-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/custom/index.html
-[shadow-dom-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
-[html-imports-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html
-[template-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html
+### Samples
+
+Here are a couple of places to find polymer.dart sample code:
+
+{% comment %}
+{PENDING: introduce. point to more ways to find samples/source code.}
+{% endcomment %}
+
+[polymer-dart-snippets](https://github.com/dart-lang/polymer-dart-snippets)
+: Small, useful samples that show how to do things the polymer.dart way.
+
+[polymer-and-dart-codelab](https://github.com/dart-lang/polymer-and-dart-codelab)
+: A larger sample, implementing the app featured in
+[Polymer Dart Code Lab](/codelabs/polymer/).
+
+
+### Polymer.dart
+
+Polymer.dart is open source. You can view the source to polymer.dart,
+and its many component packages, at [code.google.com/p/dart](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/pkg/).
+[Get the source](https://code.google.com/p/dart/wiki/GettingTheSource)
+to inspect the code and contribute patches.
 
 
 <hr>
@@ -282,28 +259,10 @@ We actively encourage your feedback and questions.
   (Note: That list isn't Dart specific.)
 * Please file [bugs and feature requests][dartbug] for polymer.dart.
 
+[so]: http://stackoverflow.com/tags/dart
+[web-list]: https://groups.google.com/a/dartlang.org/forum/#!forum/web
+[polymer-dev-list]: https://groups.google.com/forum/?fromgroups=#!forum/polymer-dev
+[dartbug]: https://code.google.com/p/dart/issues/entry?template=Defect%20report%20for%20Polymer
 
-### Upgrading from Web UI
-
-Polymer.dart is the next evolution of Web UI.
-[Upgrading to Polymer.dart from Web UI](upgrading-to-polymer-from-web-ui.html)
-provides a non-exhaustive set of tips to help you upgrade.
-
-
-### Compatibility
-
-Polymer.dart is tested against IE10, IE11, Safari 6, latest Chrome,
-latest Firefox, and latest Chrome for Android.
-
-The Dart team collaborates with the Polymer team to
-ensure that polymer.dart elements and polyfills
-(code that implements features not yet built into a web browser)
-are fully compatible with Polymer.
-
-
-### Source code
-
-Polymer.dart is open source. You can view the source to polymer.dart,
-and its many component packages, at [dart.googlecode.com/](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/pkg/).
-[Get the source](https://code.google.com/p/dart/wiki/GettingTheSource)
-to inspect the code and contribute patches.
+Keep an eye on this page and the [FAQ](faq.html)
+for the latest information about polymer.dart.

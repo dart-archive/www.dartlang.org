@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: "Polymer Dart Code Lab"
+title: "Polymer.dart Code Lab"
 description: "Learn how to write a Dart app using Polymer GUI element"
 has-permalinks: true
 tutorial:
@@ -11,8 +11,8 @@ header:
 
 # {{ page.title }}
 
-This code lab introduces you to the Polymer Dart libraries,
-which help you to use custom elements to build a web app.
+This code lab introduces you to [polymer.dart](/polymer/),
+which helps you to use custom elements to build a web app.
 To complete this lab you should have programming experience,
 but you don't need experience
 with web programming or the Dart langauge.
@@ -191,7 +191,7 @@ Polymer element representing a collection of `Codelab` objects.
 <div class="trydart-step-details" markdown="1">
 
 A Polymer element is a custom, reusable, complex HTML element.
-In Polymer Dart, the visual aspect of the element is implemented in HTML
+In polymer.dart, the visual aspect of the element is implemented in HTML
 and CSS, and the element's behavior is implemented in Dart.
 You can use Polymer elements that others have created (such as
 [core elements](http://pub.dartlang.org/packages/core_elements) or
@@ -1683,8 +1683,8 @@ elements.
 
 [Web Components]: http://www.w3.org/wiki/WebComponents/
 
-* Polymer Dart is a port of polymer.js to Dart. You can look at
-[Polymer Dart code on GitHub](https://github.com/dart-lang/bleeding_edge/tree/master/dart/pkg/polymer).
+* Polymer.dart is a port of polymer.js to Dart. You can look at
+[polymer.dart code on GitHub](https://github.com/dart-lang/bleeding_edge/tree/master/dart/pkg/polymer).
 
 </div>
 

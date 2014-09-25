@@ -13,10 +13,8 @@ prev-title: "Install Shared Packages"
 
 {% capture whats_the_point %}
 
-* Polymer.dart is the next evolution of Web UI.
-* Everything in Polymer.dart is an element.
+* Use polymer.dart to build custom elements.
 * Custom elements provide semantically meaningful encapsulation.
-* Use Polymer.dart to build custom elements.
 * Bind Dart data to HTML elements.
 * Declaratively bind event handlers to elements.
 
@@ -43,28 +41,23 @@ Don't have the source code?
 </div>
 
 A custom element is an HTML element you can define yourself,
-encapsulating appearance and/or behavior
+encapsulating appearance or behavior (or both)
 within semantically meaningful HTML.
 
-<aside class="alert">
-<strong>Version Note:</strong> The code sample and the content
-of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.14.</a>.
-</aside>
+Custom elements are one feature of Polymer,
+a new type of library for the web based on Web Components.
+The Dart implementation of Polymer is called
+<a href="/polymer/" target="_blank">polymer.dart</a>.
 
 <aside class="alert alert-info">
-  Custom elements are one feature of
-<a href="http://www.polymer-project.org/"
-   target="_blank">Polymer</a>,
-a new type of library for the web based on Web Components.
-<a href="/polymer/"
-   target="_blank">Polymer.dart</a>
-is the Dart implementation of Polymer.
+<strong>Version note:</strong> The code sample and the content
+of this tutorial are compatible with
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.14</a>.
 </aside>
 
 * [An example](#an-example)
-* [Installing Polymer.dart](#getting-polymer-dart) 
-* [Including Polymer.dart in your application](#bootstrap)
+* [Installing polymer.dart](#getting-polymer-dart) 
+* [Including polymer.dart in your application](#bootstrap)
 * [Instantiating a custom element](#instantiating) 
 * [Defining a custom element](#define-element) 
 * [Providing a template for the custom element](#providing-a-template) 
@@ -171,9 +164,9 @@ app and its use of custom elements:
      alt="The connections between Dart and HTML">
 
 
-##Installing Polymer.dart {#getting-polymer-dart}
+##Installing polymer.dart {#getting-polymer-dart}
 
-To use the features provided by Polymer.dart,
+To use the features provided by polymer.dart,
 you need to install the Polymer package.
 If you are unfamiliar with installing packages,
 refer to
@@ -214,9 +207,9 @@ you can use the command `pub get`.
   </li>
 </ul>
 
-##Including Polymer.dart in your application {#bootstrap}
+##Including polymer.dart in your application {#bootstrap}
 
-To use Polymer.dart features such as custom elements,
+To use polymer.dart features such as custom elements,
 you need to include Polymer in both
 the HTML side and the Dart side of your app.
 
@@ -697,7 +690,7 @@ Use these other resources to learn more about Polymer:
 
 * The
 <a href="/polymer/"
-   target="_blank">Polymer.dart</a> homepage provides information
+   target="_blank">polymer.dart</a> homepage provides information
    specific to the Dart port of the Polymer project.
 
 * The Polymer project website

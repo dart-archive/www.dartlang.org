@@ -18,9 +18,28 @@ much of this will move out into formal documentation.
 {% include default_toc.html %}
 
 
-## Generating polymer code with pub run
+## The basics
 
-### Q. How do I generate a new polymer element?
+### Q. In which browsers can polymer.dart apps run?
+
+Polymer.dart is tested against IE10, IE11, Safari 6, latest Chrome,
+latest Firefox, and latest Chrome for Android.
+
+The Dart team collaborates with the Polymer team to
+ensure that polymer.dart elements and polyfills
+(code that implements features not yet built into a web browser)
+are fully compatible with Polymer.
+
+### Q. How do I change my Web UI app to use polymer.dart?
+
+Polymer.dart is the next evolution of Web UI.
+[Upgrading to Polymer.dart from Web UI](upgrading-to-polymer-from-web-ui.html)
+provides a non-exhaustive set of tips to help you upgrade.
+
+
+## Generating polymer.dart code
+
+### Q. How do I generate a new element?
 
 {% prettify lang-sh %}
 pub run polymer:new_element element-name [-o output_dir]
@@ -42,7 +61,7 @@ dependencies:
 {% endprettify %}
 
 
-### Q. How do I generate a new polymer entry point?
+### Q. How do I generate a new entry point?
 
 {% prettify lang-sh %}
 pub run polymer:new_entry path_to_entry_point
@@ -65,7 +84,7 @@ dependencies:
 
 ## Using polymer.dart from Dart code
 
-### Q. How do I instantiate a polymer element?
+### Q. How do I instantiate a Polymer element?
 
 Use the `new Element.tag()` constructor.
 For example, the following has the same effect as
@@ -115,7 +134,7 @@ contains your `main()` function:
 <script type="application/dart" src="main.dart"></script>
 {% endprettify %}
 
-Inside that Dart file, import polymer and call `initPolymer().run()`.
+Inside that Dart file, import polymer.dart and call `initPolymer().run()`.
 For example:
 
 {% prettify dart %}
@@ -133,13 +152,13 @@ main() {
 {% endprettify %}
 
 
-## Differences between the JavaScript and Dart versions of polymer
+## Differences between the JavaScript and Dart versions of Polymer
 
 This section covers some of the differences.
 You might find more in
 [issue 936](https://github.com/dart-lang/www.dartlang.org/issues/936).
 
-### Q. Where can I see JavaScript and Dart examples of the same polymer app?
+### Q. Where can I see JavaScript and Dart examples of the same Polymer app?
 
 Try these:
 
@@ -150,7 +169,7 @@ Try these:
   * [JavaScript](https://github.com/Polymer/paper-elements/blob/master/demo.html)
   * [Dart](https://github.com/dart-lang/paper-elements/blob/master/example/demo.html)
 {% comment %}
-* The [polymer project tutorial](http://www.polymer-project.org/docs/start/tutorial/intro.html) app
+* The [Polymer project tutorial](http://www.polymer-project.org/docs/start/tutorial/intro.html) app
   * [JavaScript](https://github.com/Polymer/polymer-tutorial/tree/master/finished)
   * [Dart](https://github.com/marycampione/polymer_paper_example)
 {% endcomment %}
@@ -163,7 +182,7 @@ which define standard directories such as
 {% endcomment %}
 
 
-### Q. How do you declare a polymer class?
+### Q. How do I declare a Polymer class?
 
 In JavaScript
 : Use `Polymer(...)`.
@@ -173,7 +192,7 @@ In Dart
 with `@CustomTag('name')`.
 
 
-### Q. How do you create an attribute that corresponds to a field?
+### Q. How do I create an attribute that corresponds to a field?
 
 In JavaScript
 : Use <code>attributes="<em>name</em>"</code> in HTML or, in JavaScript,
@@ -193,11 +212,23 @@ In Dart
 * In a `normal binding`, the UI is updated when changes to the 
   expression are detected.
 
-### Q. How do you make an expression show in the HTML?
+{% comment %}
+{PENDING: Either compare JS & Dart ways of doing things,
+or move this to another section.}
+{% endcomment %}
+
+
+### Q. How do I make an expression show in the HTML?
 
 Use bindings.
 
-### Q. When the value of an expression changes, how do you reflect that in the UI?
+{% comment %}
+{PENDING: Be more helpful, specific.
+Either compare JS & Dart ways of doing things,
+or move this to another section.}
+{% endcomment %}
+
+### Q. When the value of an expression changes, how can the UI reflect that?
 
 In JavaScript
 : It's completely automatic. All fields in JavaScript are automatically
@@ -205,7 +236,7 @@ In JavaScript
   binding expressions are not in the full JavaScript expression language.
   In fact, the binding expression language in Polymer.js is almost identical
   to the one in polymer.dart, except for the difference in
-  [specifying multiple arguments to a filter](#q-how-do-you-specify-multiple-arguments-to-a-filter).
+  [specifying multiple arguments to a filter](#q-how-do-i-specify-multiple-arguments-to-a-filter).
 
 In Dart
 : By marking some fields with the `@observable` annotation.
@@ -229,12 +260,21 @@ In Dart
 
 Annotate the property with `@published`.
 
+{% comment %}
+{PENDING: Either compare JS & Dart ways of doing things,
+or move this to another section.}
+{% endcomment %}
+
 ### Q. How do I use a published property in CSS?
 
 Annotate the property with `@PublishedProperty(reflect: true)`.
 
+{% comment %}
+{PENDING: Either compare JS & Dart ways of doing things,
+or move this to another section.}
+{% endcomment %}
 
-### Q. How do you make an attribute that corresponds to a field that is visible to CSS and other DOM APIs?
+### Q. How do I make an attribute that corresponds to a field that is visible to CSS and other DOM APIs?
 
 In JavaScript
 : Put it in the `publish` object and include the `reflect:true` value. 
@@ -243,7 +283,7 @@ In Dart
 : Annotate the field as `@PublishedProperty(reflect: true)`.
 
 
-### Q. How do you specify multiple arguments to a filter?
+### Q. How do I specify multiple arguments to a filter?
 
 In JavaScript
 :  {% prettify javascript %}
@@ -268,7 +308,8 @@ See the discussion in
 [this code review](https://codereview.appspot.com/122590043/diff2/30001:50001/example/core_icon.html?context=10&column_width=80).
 
 {% comment %}
-[PENDING: show the JS equivalent, like the previous answers.]
+{PENDING: Either compare JS & Dart ways of doing things,
+or move this to another section.}
 {% endcomment %}
 
 
@@ -287,3 +328,50 @@ We plan to move it into its own github repo soon.
 The Dart projects for the core and paper elements are on GitHub under
 [dart-lang/core-elements](https://github.com/dart-lang/core-elements) and
 [dart-lang/paper-elements](https://github.com/dart-lang/paper-elements).
+
+
+## The technologies behind polymer.dart
+
+### Q. Where can I learn about the original Polymer project?
+
+* Read the documentation at [polymer-project.org](http://www.polymer-project.org/).
+* Watch Matthew McNulty's [Introduction to Polymer](https://www.youtube.com/watch?v=8-Zq2KUN6jM)
+  or the complete video of SFHTML5's
+  [All About Polymer](http://www.meetup.com/sfhtml5/events/169452272/) event.
+
+### Q. What articles discuss the web technologies behind Polymer?
+
+* [HTML5Rocks - Shadow DOM 101](http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/)
+* [HTML5Rocks - Shadow DOM 201: CSS and Styling](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-201/)
+* [HTML5Rocks - Shadow DOM 301: Advanced Concepts & DOM APIs](http://www.html5rocks.com/tutorials/webcomponents/shadowdom-301/)
+* [HTML5Rocks - Custom Elements: Defining new elements in HTML](http://www.html5rocks.com/en/tutorials/webcomponents/customelements/)
+
+### Q. Which web specifications is Polymer built upon?
+
+Much of Polymer is built upon new and emerging web specifications.
+Polymer offers polyfills for the following features.
+
+Heads up: These are specs written for implementers. Lots of details ahead.
+
+[Custom elements][custom-elements-spec]
+: A method for enabling the author to define and use new types of DOM elements.
+
+[Shadow DOM][shadow-dom-spec]
+: An encapsulation primitive for DOM subtrees. It provides a method of
+establishing and maintaining functional boundaries between DOM trees and how
+these trees interact with each other within a document, thus enabling better
+functional encapsulation within the DOM.
+
+[Template element][template-spec]
+: A method for declaring inert DOM subtrees in HTML and manipulating them
+to instantiate document fragments with identical contents.
+
+[HTML Imports][html-imports-spec]
+: A way to include and reuse HTML documents in other HTML documents.
+
+
+[polymer]: http://www.polymer-project.org
+[custom-elements-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/custom/index.html
+[shadow-dom-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html
+[html-imports-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html
+[template-spec]: https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html
