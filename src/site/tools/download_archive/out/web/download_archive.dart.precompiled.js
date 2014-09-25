@@ -3993,7 +3993,7 @@ x=this.d
 w=J.U6(x)
 y.setAttribute("data-version",w.t(x,"version"))
 v=this.e
-y.setAttribute("data-os",C.KO.t(0,v))
+y.setAttribute("data-os",C.UK.t(0,v))
 u=document.createElement("span",null)
 u.textContent="  (rev "+H.d(w.t(x,"revision"))+")"
 J.pP(u).h(0,"muted")
@@ -4014,7 +4014,7 @@ MY:{
 $1:function(a){var z,y,x,w,v
 if(J.kE(this.Rm,a)===!0){z=this.UI
 y=J.U6(z)
-x="https://storage.googleapis.com/dart-archive/channels/"+this.f+"/release/"+H.d(y.t(z,"revision"))+"/"+H.d(C.dY.t(0,a))+"/"+H.d(C.KO.t(0,a))+"-"+H.d(C.KO.t(0,this.bK))+"-"+H.d(C.KO.t(0,this.Gq))+"-release.zip"
+x="https://storage.googleapis.com/dart-archive/channels/"+this.f+"/release/"+H.d(y.t(z,"revision"))+"/"+(H.d(C.dY.t(0,a))+"/"+H.d(C.UK.t(0,a))+"-"+H.d(C.UK.t(0,this.bK))+"-"+H.d(C.UK.t(0,this.Gq))+H.d(C.lE.t(0,a)))
 w=this.w3
 v=W.J6(null)
 v.textContent=a
@@ -4404,7 +4404,10 @@ I.uL=function(a){a.immutable$list=init
 a.fixed$length=init
 return a}
 C.xD=I.uL([])
+C.cV=I.uL(["Mac","Linux","Windows","32-bit","64-bit","Dart SDK","Dartium","Dart Editor"])
+C.UK=new H.LP(8,{Mac:"macos",Linux:"linux",Windows:"windows","32-bit":"ia32","64-bit":"x64","Dart SDK":"dartsdk",Dartium:"dartium","Dart Editor":"darteditor"},C.cV)
 C.IR=I.uL(["Dart SDK","Dartium","Dart Editor"])
+C.lE=new H.LP(3,{"Dart SDK":"-release.zip",Dartium:"-release.zip","Dart Editor":".zip"},C.IR)
 C.dY=new H.LP(3,{"Dart SDK":"sdk",Dartium:"dartium","Dart Editor":"editor"},C.IR)
 C.fi=I.uL(["Mac","Linux","Windows"])
 C.xW=I.uL(["32-bit","64-bit"])
@@ -4412,8 +4415,6 @@ C.f5=I.uL(["Dart SDK","Dart Editor"])
 C.Vz=new H.LP(2,{"32-bit":C.IR,"64-bit":C.f5},C.xW)
 C.ch=new H.LP(2,{"32-bit":C.IR,"64-bit":C.IR},C.xW)
 C.xO=new H.LP(3,{Mac:C.Vz,Linux:C.ch,Windows:C.Vz},C.fi)
-C.PV=I.uL(["Mac","Linux","Windows","32-bit","64-bit","Dart SDK","Dartium"])
-C.KO=new H.LP(7,{Mac:"macos",Linux:"linux",Windows:"windows","32-bit":"ia32","64-bit":"x64","Dart SDK":"dartsdk",Dartium:"dartium"},C.PV)
 C.Sv=H.Nv('DV')
 C.R5=H.Nv('b0')
 C.kt=H.Nv('uE')
