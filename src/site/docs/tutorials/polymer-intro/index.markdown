@@ -185,7 +185,7 @@ by adding the package name, `polymer`, to the list.
 name: stopwatch
 description: A sample application
 dependencies:
-  <b>polymer: "&gt;=0.14.0 &lt;0.15.0"</b>
+  <b>polymer: "&gt;=0.15.0 &lt;0.16.0"</b>
   </pre>
   </li>
 
@@ -616,7 +616,7 @@ to specify the Polymer transformers:
 {% prettify yaml %}
 ...
 dependencies:
-  polymer: ">=0.14.0 <0.15.0"
+  polymer: ">=0.15.0 <0.16.0"
 transformers:
 - polymer
 {% endprettify %}

@@ -1,7 +1,7 @@
 name: a
 description: polymer import syntax tests
 dependencies:
-  polymer: '>=0.13.0 <0.14.0'
+  polymer: '>=0.15.0 <0.16.0'
 transformers:
 - polymer:
     entry_points:

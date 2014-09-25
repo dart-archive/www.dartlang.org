@@ -37,7 +37,7 @@ PENDING: Talk about advantages of polymer.dart development process
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The code samples on this page reflect **polymer.dart 0.14.0**.
+The code samples on this page reflect **polymer.dart 0.15.0**.
 {% comment %}
 UPDATE version each release
 {% endcomment %}
@@ -100,7 +100,7 @@ your `pubspec.yaml` file:
 
 {% prettify yaml %}
 dependencies:
-  polymer: ">=0.14.0 <0.15.0"
+  polymer: ">=0.15.0 <0.16.0"
 {% endprettify %}
 {% comment %}
 UPDATE version each release
@@ -154,26 +154,12 @@ Using a special `build.dart` file,
 you can connect the linter to Dart Editor to display warnings directly
 at the source.
 
-Create a `build.dart` file at the root of your project:
+Create a `build.dart` file at the root of your project,
+and put the following code in it:
 
 {% prettify dart %}
-import 'package:polymer/builder.dart';
-
-void main(List<String> args) {
-  lint(entryPoints: ['web/index.html'], options: parseOptions(args));
-}
+export 'package:polymer/default_build.dart';
 {% endprettify %}
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-As of polymer.dart 0.14.1, the `build.dart` file can be a single line:
-
-`export 'package:polymer/default_build.dart';`
-
-{% comment %}
-UPDATE for 0.15.0.
-{% endcomment %}
-</aside>
 
 Dart Editor runs `build.dart` after a file is saved, and
 displays warnings from the linter.
