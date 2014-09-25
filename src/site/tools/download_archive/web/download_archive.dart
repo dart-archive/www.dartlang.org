@@ -62,11 +62,17 @@ void getStableListing(String channel, String respString) {
 const Map<String,String> archiveMap = const {
   'Mac': 'macos', 'Linux': 'linux', 'Windows': 'windows',
   '32-bit': 'ia32', '64-bit': 'x64',
-  'Dart SDK': 'dartsdk', 'Dartium': 'dartium',
+  'Dart SDK': 'dartsdk', 'Dartium': 'dartium', 'Dart Editor': 'darteditor',
 };
 
 const Map<String,String> directoryMap = const {
   'Dart SDK': 'sdk', 'Dartium': 'dartium', 'Dart Editor': 'editor',
+};
+
+const Map<String,String> suffixMap = const {
+  'Dart SDK': '-release.zip',
+  'Dartium': '-release.zip',
+  'Dart Editor': '.zip'
 };
 
 const Map<String,Object> platforms = const {
@@ -105,7 +111,8 @@ void addStableVersion(String channel, Map<String,String> version) {
           ..classes.add('archives');
       possibleArchives.forEach((String pa) {
         if (archives.contains(pa)) {
-          String uri = '$storageBase/channels/$channel/release/${version['revision']}/${directoryMap[pa]}/${archiveMap[pa]}-${archiveMap[name]}-${archiveMap[width]}-release.zip';
+          String uri = '$storageBase/channels/$channel/release/${version['revision']}/' +
+              '${directoryMap[pa]}/${archiveMap[pa]}-${archiveMap[name]}-${archiveMap[width]}${suffixMap[pa]}';
           c.append(new AnchorElement()
               ..text = pa
               ..attributes['href']= uri);
