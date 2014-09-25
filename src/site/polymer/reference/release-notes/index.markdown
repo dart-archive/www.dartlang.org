@@ -20,6 +20,40 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
+## Polymer 0.15.0
+
+This new release updates polymer to match the current release (0.4.1) of
+polymer.js.
+
+### Polymer changes
+
+  * Added Polymer.forceReady method. This forces a ready state regardless of
+    whether or not there are still polymer-element declarations waiting for
+    their class definitions to be loaded.
+  * Added Polymer.waitingFor method. This returns a list of all polymer-element
+    declarations that are still waiting for their class definitions to be
+    loaded.
+  * Add runtime checking of the waitingFor queue and print to the console if a
+    deadlock situation is suspected to help diagnose the white screen of death.
+  * Added injectBoundHTML instance method. This can be used to dynamically
+    inject html that is bound to your current element into a target element.
+
+### Core and paper elements
+
+Together with this release, we updated `core_elements` to 0.3.0 and
+`paper_elements` to 0.4.0. This brings the elements packages up to date with the
+changes in the JavaScript version 0.4.1.
+
+A number of elements were renamed, below is a summary:
+
+  * `core-dropdown` =>  `core-dropdown-menu`
+  * `core-popup-menu` => `core-dropdown`
+  * `core-popup-overlay` => `core-dropdown-overlay`
+  * `paper-dropdown` => `paper-dropdown-menu`
+
+There was also one new element added, `core-a11y-keys`. This element helps when
+dealing with key events, and manages all the browser differences for you.
+
 ## Polymer 0.14.0
 
 This new release updates polymer to match the current release (0.4.0) of
