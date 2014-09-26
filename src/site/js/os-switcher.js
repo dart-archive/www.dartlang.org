@@ -12,19 +12,20 @@ $(document).ready(function() {
     }
   }
 
-  function filterPlatformText(showId) {    
+  function filterPlatformText(showId) {
     // Get all the platform-specific elements.
     for (var i = 0; i < osList.length; i++) {
       var os = osList[i];
       var shouldShow = (os === showId);
-      $('.' + os).each(function(i, el) {      
-        if (shouldShow) {
-          $(el).show();
-        } else {
-          $(el).hide();
-        }
-      });
+      $('.' + os).each(function(i, el) { $(el).toggle(shouldShow); });
     }
+  }
+
+  function resetButtons(el) {
+    if (el.tagName == "BUTTON") {
+      $('.btn-group.os-choices button').removeClass('active').addClass('inactive');
+    }
+    $(el).removeClass('inactive').addClass('active');
   }
 
   function registerHandlers() {
@@ -33,18 +34,26 @@ $(document).ready(function() {
       if (os) {
         os.addEventListener('click', function(e) {
           filterPlatformText(e.target.id);
+          resetButtons(e.target);
         });
       }
     }
   }
 
   var defaultOs = detectPlatform();
-  var defaultOsElem = document.getElementById(defaultOs);
   $('.' + defaultOs+'-option').prop('selected', true);
-  if (defaultOsElem) {
-    defaultOsElem.setAttribute('checked', 'checked');
+  var defaultOsElem;
+  defaultOsElem = $('input#' + defaultOs);
+  if (defaultOsElem.length > 0) {
+    defaultOsElem.attr('checked', 'checked')
+  }
+
+  defaultOsElem = $('button#' + defaultOs);
+  if (defaultOsElem.length > 0) {
+    resetButtons(defaultOsElem[0]);
+  }
+  if (defaultOsElem.length > 0) {
     filterPlatformText(defaultOs);
     registerHandlers();
   }
-
 });

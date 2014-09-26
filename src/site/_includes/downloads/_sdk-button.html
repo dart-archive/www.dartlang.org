@@ -1,11 +1,13 @@
+<div class="downloads">
 <a
     data-bits="{{ include.bits }}"
     data-os="{{ sdk.os }}"
     data-tool="sdk"
-    class="btn download-link has-sha"
+    class="btn download-link"
     href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-{{ sdk.os }}-{{ include.arch }}-release.{{ sdk.ext }}">
-<button class="{{ include.buttonclass }}">
-  <i class="sprite-icon-download-btn"> </i>
-  Download Dart SDK ({{ include.name }})
-</button>
+  <button class="btn btn-primary btn-lg download-btn {{ include.buttonclass }}" style="text-transform: none;">
+    <i class="sprite-icon-download-btn"> </i>
+    Download Dart SDK ({{ include.name }})
+  </button>
 </a>
+</div>

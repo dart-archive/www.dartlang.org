@@ -613,8 +613,8 @@ pre.prettyprint {
   height: 450px;
 }
 
-.lang-dart, .lang-html, .lang-js, .lang-cpp, .lang-csharp, .lang-none,
-.lang-python, .lang-javascript, .lang-yaml {
+.lang-dart, .lang-html, .lang-js, .lang-bash, .lang-cpp, .lang-csharp,
+.lang-none, .lang-python, .lang-javascript, .lang-yaml {
   max-width: 800px;
   text-align: left;
   margin-right: auto;
@@ -644,6 +644,15 @@ pre.prettyprint {
 
 .lang-dart a span, .lang-html a span {
   color:#fff !important;
+}
+
+.lang-huge {
+  display: table;
+  font-size: 17px;   /* font-size of btn-lg */
+  line-height: 24px; /* line-height of btn-lg */
+  margin: 12px auto;
+  max-width: 800px;
+  padding: 12px !important;
 }
 
 .linenums li {
@@ -1464,6 +1473,38 @@ a[href^="http"]:not(a[href^="https://storage"]):not(.btn):after {
  */
 .download-buttons, .os-choices {
   display: none;
+}
+
+.btn-group.os-choices {
+  border-radius: 4px;
+  margin-top: 0;
+  margin-bottom: 20px; /* margin-bottom for h2 */
+}
+
+.btn-group.os-choices button {
+  /*background-color: rgba(0, 0, 0, 0.2);*/
+  background-color: rgba(255, 255, 255, 0.7);
+  text-transform: none;
+  font-size: 20px;
+  -webkit-backface-visibility: hidden;
+}
+
+.btn-group.os-choices button.inactive {
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.6);
+  opacity: 0.65;
+}
+
+.btn-group.os-choices button.active,
+.btn-group.os-choices button:hover {
+  background: 0;
+  color: white;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.download-link {
+  white-space: nowrap;
 }
 
 /* Tables in More downloads page.

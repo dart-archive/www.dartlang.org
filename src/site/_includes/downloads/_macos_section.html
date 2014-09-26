@@ -1,0 +1,47 @@
+## Install Dart with Homebrew
+
+We recommend that Homebrew be used to manage your Dart installation. To
+install the Dart SDK and Dartium with Homebrew, run:
+
+{% prettify huge %}
+brew install dart
+brew install dartium  # ignore if you're only building server apps
+{% endprettify %}
+
+At the very minimum, you need to download the Dart SDK. This is the only Dart
+bundle that you need. Besides the Dart VM, and the Dart libraries, the SDK
+bundle contains the command-line Dart tools: [dart](/tools/dart-vm/),
+[dart2js](/tools/dart2js/),
+[dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html),
+[pub](/tools/pub/), and [docgen](docgen/).
+
+If you are writing web-based apps, you should download Dartium.  Dartium is a
+special build of Chromium that includes a Dart VM so that you can test and
+debug your applications without first compiling them to JavaScript.
+
+## Manual Download
+
+If you are not using Homebrew, you can still download and install Dart manually:
+
+<a
+    data-bits="32" data-os="macos" data-tool="sdk"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-ia32-release.zip">
+  Download Dart SDK
+</a>
+for Mac. If you need a bigger heap or access to much more memory, download the
+<a
+    data-bits="64" data-os="macos" data-tool="sdk"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip">
+  64-bit Dart SDK
+</a>
+for Mac.
+
+<a
+    data-bits="32" data-os="macos" data-tool="dartium"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">
+  Download Dartium
+</a> for Mac. The Dartium binary expires after 12 weeks. When that happens,
+you will need to download a new copy to continue using Dartium.

@@ -1,0 +1,51 @@
+To get started with Dart development, you need the **Dart SDK** at a minimum.
+Besides the Dart VM, and the Dart libraries, the SDK bundle contains the
+command-line Dart tools: [dart](/tools/dart-vm/), [dart2js](/tools/dart2js/),
+[dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html),
+[pub](/tools/pub/), and [docgen](docgen/).
+
+If you are writing web-based apps, you should also download **Dartium**.
+Dartium is a special build of Chromium that includes a Dart VM so that you can
+test and debug your applications without first compiling them to JavaScript.
+
+## Using Debian?
+
+If you are writing server-side code for Debian or Ubuntu, you can get a Debian
+package with a 64-bit version of the SDK that allows for easy installation of
+the Dart VM and tools on Debian and Ubuntu machines:
+
+{% prettify bash %}
+# Enable HTTPS for apt.
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https
+# Get the Google Linux package signing key.
+$ sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
+# Set up the location of the stable repository.
+$ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+$ sudo apt-get update
+$ sudo apt-get install dart
+{% endprettify %}
+
+For more information about the Debian packages, visit the
+[Debian downloads page](/tools/debian.html).
+
+
+## Other Linux?
+
+In the case that you are not using a Debian-based Linux system, the Dart SDK
+and Dartium can also be manually downloaded and extracted from a zip file:
+
+<p class="os-choices">
+{% include downloads/_sdk.html buttonclass="btn btn-primary btn-lg" %}
+</p>
+
+{% include downloads/_dartium.html buttonclass="btn btn-primary btn-lg" %}
+
+The Dartium binary expires after 12 weeks.  When that happens, you will need to
+download a new copy to continue using Dartium.
+
+### Note for Compiling from Source
+
+If your system uses an older version of Ubuntu and you are compiling the SDK,
+you may need to update to GCC 4.6 or later. See the [Tools FAQ](/tools/faq.html)
+for more information.
