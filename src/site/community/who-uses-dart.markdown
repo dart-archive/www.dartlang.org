@@ -100,6 +100,9 @@ Google internal sales tool
 : An open source IDE for developing Chrome packaged apps as well as Dart web apps.
   Written in Dart, as a Chrome App, and uses Polymer for the UI.
 
+[Children of Ur](www.childrenofur.com)
+: A spritual sequel to the closed down 2D browser-based game called Glitch.
+
 [Anionu](https://anionu.com)
 : Cloud surveillance and security platform using Dart and native WebRTC.
   
