@@ -138,3 +138,6 @@ Google internal tool for marketing
 
 [Lumo] (http://lumo.sonardesign.com)
 : An online presentation service that allows you to create, present, and share presentations on any device.
+
+[Children of Ur](http://www.childrenofur.com/)
+: A community reboot of the closed massively multiplayer game called [Glitch](http://glitchthegame.com).
