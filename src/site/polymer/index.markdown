@@ -95,12 +95,17 @@ Learn more at
 ## Installing polymer.dart
 
 Get polymer.dart from pub.dartlang.org,
-the Dart package hosting service. Add the following to
-your `pubspec.yaml` file:
+the Dart package hosting service.
+
+Edit your `pubspec.yaml` file
+to depend on the `polymer` package and
+use the `polymer` transformer:
 
 {% prettify yaml %}
 dependencies:
   polymer: ">=0.15.0 <0.16.0"
+transformers:
+- polymer
 {% endprettify %}
 {% comment %}
 UPDATE version each release

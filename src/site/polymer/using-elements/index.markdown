@@ -31,6 +31,8 @@ dependencies:
   polymer: ">=0.15.0 <0.16.0"
   [[highlight]]core_elements: ">=0.3.0 <0.4.0"[[/highlight]]
   [[highlight]]paper_elements: ">=0.4.0 <0.5.0"[[/highlight]]
+transformers:
+- polymer
 {% endprettify %}
 {% comment %}
 UPDATE version #s for polymer (and core and paper, if need be) each release
