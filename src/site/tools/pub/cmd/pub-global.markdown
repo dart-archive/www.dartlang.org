@@ -2,6 +2,8 @@
 layout: default
 title: "pub global"
 description: "Use pub global to run Dart scripts hosted on pub.dartlang.org from the command line."
+header:
+  css: ["../transformers/transformers.css"]
 ---
 
 {% include breadcrumbs.html %}
@@ -23,16 +25,13 @@ You first [activate a package](#activating-a-package), then you can
 [Deactivating a package](#deactivating-a-package) removes it from
 your list of globally available packages.
 
-If you want to run a Dart script from within a package, or from a
+To run a Dart script from within a package, or from a
 package that your package depends on, see [pub run](pub-run.html).
 
 ## Activating a package {#activating-a-package}
 
 {% prettify lang-sh %}
-$ pub global activate <pub.dartlang package> [constraint]
-$ pub global activate --source git <Git URL> [constraint]
-$ pub global activate -sgit <Git URL> [constraint]
-$ pub global activate --source path <path> [constraint]
+$ pub global activate [--noexecutables] [--executable=<name>] [--overwrite] <package> [constraint]
 {% endprettify %}
 
 Use `activate` to enable you to run a package's executables
@@ -42,35 +41,29 @@ in a Git repository, or on your local machine.
 Once you have activated a package, see [Running a script](#running-a-script)
 to run scripts from the package's `bin` directory.
 
-In all cases, when you activate a package you can specify an
-optional constraint.
-If you specify a range, Pub picks the best version that meets the
-constraint.
-See the following section for examples.
+When you activate a package you can specify an optional constraint. See the
+[constraint](#options) flag for usage examples.
 
 ### Activating a package on pub.dartlang.org
 
-Use `activate <package>` to activate a package from pub.dartlang.org.
-The optional constraint allows you to pull
-in a specific version of the package. For example,
-the following command pulls the 0.6.0 version of the `markdown` package:
-
 {% prettify lang-sh %}
-$ pub global activate markdown 0.6.0
+$ pub global activate <pub.dartlang package>
 {% endprettify %}
 
-If you specify a range, Pub picks the best version that meets that constraint.
-For example:
+Specify a package on pub.dartlang.org to activate it. For example:
 
 {% prettify lang-sh %}
-pub global activate foo <3.0.0
+$ pub global activate markdown
 {% endprettify %}
 
 ### Activating a package with Git
 
-{% include coming-release.html %}
+{% prettify lang-sh %}
+$ pub global activate --source git <Git URL>
+$ pub global activate -sgit <Git URL>
+{% endprettify %}
 
-You can use `--source git` (or `-sgit`, for short) to activate
+Use `--source git` (or `-sgit`, for short) to activate
 a package in a Git repository. The following examples,
 which activate the `async_await` package on
 [GitHub](https://github.com/), are equivalent:
@@ -82,6 +75,10 @@ pub global activate -sgit https://github.com/dart-lang/async_await.git
 
 ### Activating a package on your local machine
 
+{% prettify lang-sh %}
+$ pub global activate --source path <path>
+{% endprettify %}
+
 Use `activate --source <path>` to activate a package on your local machine.
 The following example activates the `stopwatch` package from the
 `~/dart` directory:
@@ -90,7 +87,18 @@ The following example activates the `stopwatch` package from the
 pub global activate --source path ~/dart/stopwatch
 {% endprettify %}
 
+### Updating an activated package
+
+Once a package has been activated, you can upgrade it by activating the
+package again.
+
 ## Running a script {#running-a-script}
+
+You can run a script from an activated package explicitly using
+`pub global run`, or you can add it to your PATH so that you can run it
+directly at the command line.
+
+### Running a script using `pub global run`
 
 {% prettify lang-sh %}
 $ pub global run <package>:<executable> [args...]
@@ -98,11 +106,35 @@ $ pub global run <package>:<executable> [args...]
 
 Once you have [activated a package](#activating-a-package), use
 `run` to run a script from the package's `bin` directory.
-You can also specify optional arguments. For example:
+You can also specify arguments. The following command
+runs the `bin/bar.dart` script from the `foo` package,
+and passes in two arguments.
 
 {% prettify lang-sh %}
 $ pub global run foo:bar arg1 arg2
 {% endprettify %}
+
+### Running a script from your PATH {#running-a-script-from-your-path}
+
+A package may choose to expose some of its scripts as executables
+that can be run directly from the command line.
+When you globally activate a package, it creates a shell script for each
+entry listed in the `executables` section of the pubspec, and adds it to the
+`bin` directory in your [pub cache](glossary.html#system-cache) (located
+in `~/.pub-cache/bin` for Linux and Mac). If you want to activate a subset,
+use `--executable=<name>` (or `-x<name>`, for short).
+
+**You must manually add the pub cache `bin` directory to your PATH.**
+
+If the executable's name conflicts with a previously activated executable,
+it generates a warning. To force pub to install the new executable,
+use `--overwrite`. For example:
+
+{% prettify lang-sh %}
+$ pub global activate <package> --executable=<name> [[highlight]]--overwrite[[/highlight]]
+{% endprettify %}
+
+For more information on the these flags, see [Options](#options).
 
 ## Deactivating a package {#deactivating-a-package}
 
@@ -117,8 +149,8 @@ global packages. For example:
 $ pub global deactivate markdown
 {% endprettify %}
 
-You will no longer be able to invoke the package's scripts using
-`pub global run`.
+You can no longer invoke the package's scripts using `pub global run`,
+or at the command line.
 
 ## Listing active packages {#listing-active-packages}
 
@@ -132,6 +164,51 @@ Use `list` to list all currently active packages.
 
 For options that apply to all pub commands, see
 [Global options](/tools/pub/cmd/#global-options).
+
+`constraint` 
+: Optional for `pub global activate`. The constraint allows you to pull
+  in a specific version of the package. For example,
+  the following command pulls the 0.6.0 version of the `markdown` package:
+
+<div class="step-details" markdown="1">
+{% prettify lang-sh %}
+$ pub global activate markdown 0.6.0
+{% endprettify %}
+</div>
+
+  If you specify a range, pub picks the best version that meets that constraint.
+  For example:
+
+<div class="step-details" markdown="1">
+{% prettify lang-sh %}
+$ pub global activate foo <3.0.0
+{% endprettify %}
+</div>
+
+`--executable=<name>` or `-x<name>`
+: Optional for `pub global activate`.
+  Adds the specified executable to your PATH.
+  You can pass more than one of these flags.
+  For example, the following command adds `bar` and `baz` (but not
+  any other executables that `foo` might define) to your PATH.
+
+<div class="step-details" markdown="1">
+{% prettify lang-sh %}
+$ pub global activate foo -x bar -x baz
+{% endprettify %}
+</div>
+
+`--no-executables`
+: Optional for `pub global activate`.
+  Globally activates the package but doesn't put any
+  executables in `bin`. You have to use `pub global run` to
+  run any executables.
+
+`--overwrite`
+: Optional for `pub global activate`.
+  Normally, if executables from two global packages have a name collision,
+  the preexisting executable wins. If you specify this flag,
+  the new executable overwrites the previously activated executable.
 
 <aside class="alert alert-info" markdown="1">
 *Problems?*
