@@ -136,7 +136,7 @@ from the paper_elements package:
 </body>
 {% endprettify %}
 
-For more information, see [Using Custom Elements](using-elements/).
+For more information, see [Using Elements](using-elements/).
 
 
 <hr>
@@ -144,7 +144,7 @@ For more information, see [Using Custom Elements](using-elements/).
 
 You can extend the lexicon of HTML with your own custom elements,
 as described in
-[Creating Custom Elements](creating-elements/).
+[Creating Elements](creating-elements/).
 
 
 <hr>
@@ -220,7 +220,7 @@ Here are a couple of places to find polymer.dart sample code:
 {PENDING: introduce. point to more ways to find samples/source code.}
 {% endcomment %}
 
-[polymer-dart-snippets](https://github.com/dart-lang/polymer-dart-snippets)
+[polymer-dart-patterns](https://github.com/dart-lang/polymer-dart-patterns)
 : Small, useful samples that show how to do things the polymer.dart way.
 
 [polymer-and-dart-codelab](https://github.com/dart-lang/polymer-and-dart-codelab)
