@@ -42,51 +42,20 @@ download the latest **Dev Channel** builds of the Dart SDK and Dartium at the
 Previous versions of the Dart SDK, Dartium, and the Dart Editor are available
 at the [download archive](/tools/download_archive).
 
-## Pick an editor solution
+<div class="windows" markdown="1">
+## Other editor solutions
 
-You want a first-class experience when developing in Dart, right? There are
-many editor solutions that can make writing Dart apps an enjoyable experience
-from the get-go.
-
-### The Dart Editor
-
-The Dart Editor is a powerful tool for editing, debugging, and running Dart
-applications.
-
-<div class="downloads">
-<a class="btn download-link" href="somewhere">
-  <button class="btn btn-primary btn-lg download-btn" style="text-transform: none;">
-    <i class="sprite-icon-download-btn"> </i>
-    Download Dart Editor
-  </button>
-</a>
+{% include downloads/_other_editors.markdown %}
 </div>
 
-The Dart Editor can automatically update itself whenever a new integration
-build is available. To enable automatic updates, go to Preferences, choose
-Update, and select Download updates automatically.
+<div class="linux" markdown="1">
+## Pick an editor solution
 
-<div class="row">
-  <div class="col-md-6" markdown="1">
-### IDE Plugins
+{% include downloads/_pick_an_editor.markdown %}
+</div>
 
-[![IntelliJ logo](images/IntellIJ-IDEA.png)](webstorm/)
-[IntelliJ IDEA and WebStorm](webstorm/)
+<div class="macos" markdown="1">
+## Step 2: Pick an editor solution
 
-[![Eclipse logo](images/eclipse.png)](eclipse-plugin/)
-[Eclipse](eclipse-plugin/)
-  </div>
-
-  <div class="col-md-6" markdown="1">
-### Text Editor Plugins
-
-[![Sublime logo](images/sublime.png)](https://github.com/dart-lang/dart-sublime-bundle#readme)
-[Sublime Text 2](https://github.com/dart-lang/dart-sublime-bundle#readme)
-
-[![Emacs logo](images/emacs.png)](https://github.com/nex3/dart-mode)
-[Emacs](https://github.com/nex3/dart-mode)
-
-[![Vim logo](images/vim.png)](https://github.com/dart-lang/dart-vim-plugin)
-[Vim](https://github.com/dart-lang/dart-vim-plugin)
-  </div>
+{% include downloads/_pick_an_editor.markdown %}
 </div>

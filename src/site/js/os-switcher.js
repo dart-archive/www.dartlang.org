@@ -52,8 +52,8 @@ $(document).ready(function() {
   if (defaultOsElem.length > 0) {
     resetButtons(defaultOsElem[0]);
   }
-  if (defaultOsElem.length > 0) {
+  //if (defaultOsElem.length > 0) {
     filterPlatformText(defaultOs);
     registerHandlers();
-  }
+  //}
 });
