@@ -653,6 +653,7 @@ pre.prettyprint {
   margin: 12px auto;
   max-width: 800px;
   padding: 12px !important;
+  white-space: pre-wrap;
 }
 
 .linenums li {

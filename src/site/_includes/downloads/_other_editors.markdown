@@ -13,7 +13,7 @@
 ### Text Editor Plugins
 
 [![Sublime logo](images/sublime.png)](https://github.com/dart-lang/dart-sublime-bundle#readme)
-[Sublime Text 2](https://github.com/dart-lang/dart-sublime-bundle#readme)
+[Sublime Text 3](https://github.com/dart-lang/dart-sublime-bundle#readme)
 
 [![Emacs logo](images/emacs.png)](https://github.com/nex3/dart-mode)
 [Emacs](https://github.com/nex3/dart-mode)
