@@ -2279,7 +2279,7 @@ Dy:{
 $0:function(){this.d.In(this.c)}},
 MO:{
 "^":"a;"},
-nP:{
+Uf:{
 "^":"a;"},
 fI:{
 "^":"a;"},
@@ -3636,7 +3636,7 @@ $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
 ec:{
-"^":"zL+CS;",
+"^":"zL+Pb;",
 $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
@@ -3688,7 +3688,7 @@ $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
 x5:{
-"^":"dx+CS;",
+"^":"dx+Pb;",
 $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
@@ -3704,7 +3704,7 @@ $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
 rl:{
-"^":"hm+CS;",
+"^":"hm+Pb;",
 $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
@@ -3797,7 +3797,7 @@ DN:function(){var z=this.H2
 if(z!=null&&this.UU<=0)J.qV(this.J6,this.fA,z,this.el)},
 EO:function(){var z=this.H2
 if(z!=null)J.GJ(this.J6,this.fA,z,this.el)}},
-CS:{
+Pb:{
 "^":"a;",
 gA:function(a){return new W.W9(a,this.gB(a),-1,null)},
 Rz:function(a,b){throw H.b(P.f("Cannot remove from immutable List."))},
@@ -3920,27 +3920,48 @@ if(x&&y==="all")W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),nul
 else{w=!x?"tr"+("[data-version=\""+H.d(z)+"\"]"):"tr"
 if(y!=="all")w+="[data-os=\""+H.d(y)+"\"]"
 W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
-W.or(W.vD($.RQ().t(0,a).querySelectorAll(w),null).xa).Rz(0,"hidden")}},
-TA:function(a,b){var z,y
+W.or(W.vD($.RQ().t(0,a).querySelectorAll(w),null).xa).Rz(0,"hidden")}if(x)W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version]"),null).xa).Rz(0,"hidden")
+else{W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
+W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version=\""+H.d(z)+"\"]"),null).xa).Rz(0,"hidden")}},
+EK:function(a,b){var z,y
 z=H.HD(J.UQ(C.xr.kV(b),"prefixes"),"$iszM",[P.qU],"$aszM")
 y=J.w1(z)
-y.uk(z,new E.G6())
-P.pH(y.ez(z,new E.mr()).br(0),!1).ml(new E.ql(a))},
-Em:function(a,b){var z,y,x
+y.uk(z,new E.Mx())
+P.pH(y.ez(z,new E.fv()).br(0),!1).ml(new E.Tl(a))},
+Ub:function(a,b){var z,y,x,w,v,u,t,s
 z=W.oK("","",null,!1)
 y=J.U6(b)
 z.textContent=y.t(b,"version")
 z.setAttribute("value",y.t(b,"version"))
 J.OG($.cB().t(0,a)).h(0,z)
-C.xO.aN(0,new E.Te(a,b))
-x=W.vD($.RQ().t(0,a).querySelectorAll(".template"),null)
-x.aN(x,new E.Cj())},
+C.xO.aN(0,new E.b9(a,b))
+x=J.vd($.nP().t(0,a))
+x.toString
+x.setAttribute("data-version",y.t(b,"version"))
+w=document.createElement("span",null)
+w.textContent="  (rev "+H.d(y.t(b,"revision"))+")"
+J.pP(w).h(0,"muted")
+v=J.ae(x)
+v.textContent=y.t(b,"version")
+v.appendChild(w)
+u=x.insertCell(-1)
+u.toString
+new W.I4(u).h(0,"archives")
+t="https://storage.googleapis.com/dart-archive/channels/"+a+"/release/"+H.d(y.t(b,"revision"))+"/api-docs/dart-api-docs.zip"
+y=W.J6(null)
+y.textContent="JSON-formatted API Documentation"
+y.setAttribute("href",t)
+u.appendChild(y)
+s=W.vD($.RQ().t(0,a).querySelectorAll(".template"),null)
+s.aN(s,new E.wA())
+s=W.vD($.nP().t(0,a).querySelectorAll(".template"),null)
+s.aN(s,new E.zv())},
 em:{
 "^":"Tp:10;",
-$1:function(a){E.TA("stable",a)}},
+$1:function(a){E.EK("stable",a)}},
 Lb:{
 "^":"Tp:10;",
-$1:function(a){E.TA("dev",a)}},
+$1:function(a){E.EK("dev",a)}},
 QA:{
 "^":"Tp:23;",
 $1:function(a){E.oY("stable",a)}},
@@ -3953,37 +3974,37 @@ $1:function(a){E.oY("stable",a)}},
 wa:{
 "^":"Tp:23;",
 $1:function(a){E.oY("dev",a)}},
-G6:{
+Mx:{
 "^":"Tp:10;",
 $1:function(a){return J.kE(a,"latest")}},
-mr:{
+fv:{
 "^":"Tp:0;",
 $1:function(a){return W.Kn("https://storage.googleapis.com/dart-archive/"+H.d(a)+"VERSION",null,null)}},
-ql:{
+Tl:{
 "^":"Tp:24;a",
 $1:function(a){var z,y,x
-z=J.kl(J.qA(a),new E.kC()).br(0)
-H.ZE(z,0,z.length-1,new E.Um())
+z=J.kl(J.qA(a),new E.N9()).br(0)
+H.ZE(z,0,z.length-1,new E.nS())
 y=this.a
-H.bQ(z,new E.Rb(y))
+H.bQ(z,new E.y7(y))
 J.h6(J.UQ(J.Wy($.cB().t(0,y)),1),!0)
 y=$.cB().t(0,y)
 x=document.createEvent("Event")
 x.initEvent("change",!0,!0)
 y.dispatchEvent(x)}},
-kC:{
+N9:{
 "^":"Tp:10;",
 $1:function(a){return C.xr.kV(a)}},
-Um:{
+nS:{
 "^":"Tp:9;",
 $2:function(a,b){return-J.oE(J.UQ(a,"date"),J.UQ(b,"date"))}},
-Rb:{
+y7:{
 "^":"Tp:10;b",
-$1:function(a){E.Em(this.b,a)}},
-Te:{
+$1:function(a){E.Ub(this.b,a)}},
+b9:{
 "^":"Tp:25;a,b",
-$2:function(a,b){J.kH(b,new E.ms(this.a,this.b,a))}},
-ms:{
+$2:function(a,b){J.kH(b,new E.Ne(this.a,this.b,a))}},
+Ne:{
 "^":"Tp:26;c,d,e",
 $2:function(a,b){var z,y,x,w,v,u,t,s
 z=this.c
@@ -4008,8 +4029,8 @@ t.textContent=a
 s=y.insertCell(-1)
 s.toString
 new W.I4(s).h(0,"archives")
-H.bQ(["Dart SDK","Dartium","Dart Editor"],new E.MY(z,x,v,a,b,s))}},
-MY:{
+H.bQ(["Dart SDK","Dartium","Dart Editor"],new E.hf(z,x,v,a,b,s))}},
+hf:{
 "^":"Tp:0;f,UI,bK,Gq,Rm,w3",
 $1:function(a){var z,y,x,w,v
 if(J.kE(this.Rm,a)===!0){z=this.UI
@@ -4025,7 +4046,10 @@ z.textContent="(SHA-256)"
 z.setAttribute("href",x+".sha256sum")
 J.pP(z).h(0,"sha")
 w.appendChild(z)}w.appendChild(W.r3("br",null))}}},
-Cj:{
+wA:{
+"^":"Tp:10;",
+$1:function(a){J.Mp(a)}},
+zv:{
 "^":"Tp:10;",
 $1:function(a){J.Mp(a)}}},1],["","",,P,{
 "^":"",
@@ -4151,8 +4175,8 @@ y.$isa=z
 y=P.fR
 y.$isfR=z
 y.$isa=z
-y=P.nP
-y.$isnP=z
+y=P.Uf
+y.$isUf=z
 y.$isa=z
 y=P.b8
 y.$isb8=z
@@ -4460,6 +4484,7 @@ I.$lazy($,"undefinedLiteralPropertyPattern","A7","ko",function(){return H.cM(fun
 I.$lazy($,"scheduleImmediateClosure","lI","ej",function(){return P.xg()})
 I.$lazy($,"_toStringVisiting","nM","Ex",function(){return[]})
 I.$lazy($,"tables","aU","RQ",function(){return P.EF(["stable",document.querySelector("#stable"),"dev",document.querySelector("#dev")],null,null)})
+I.$lazy($,"apiTables","MR","nP",function(){return P.EF(["stable",document.querySelector("#stable-api"),"dev",document.querySelector("#dev-api")],null,null)})
 I.$lazy($,"versionSelectors","Jf","cB",function(){return P.EF(["stable",document.querySelector("#stable-versions"),"dev",document.querySelector("#dev-versions")],null,null)})
 I.$lazy($,"osSelectors","vw","P9",function(){return P.EF(["stable",document.querySelector("#stable-os"),"dev",document.querySelector("#dev-os")],null,null)})
 

@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
-import 'dart:js';
 
 const String storageApiBase = "https://www.googleapis.com/storage/v1/b/dart-archive/o";
 const String storageBase = "https://storage.googleapis.com/dart-archive";
 Map<String,TableElement> tables = { 'stable': querySelector("#stable"), 'dev': querySelector('#dev') };
+Map<String,TableElement> apiTables = { 'stable': querySelector("#stable-api"), 'dev': querySelector('#dev-api') };
 Map<String,SelectElement> versionSelectors = {
     'stable': querySelector('#stable-versions'),
     'dev': querySelector('#dev-versions')
@@ -17,9 +17,9 @@ Map<String,SelectElement> osSelectors = {
 
 void main() {
   HttpRequest.getString("$storageApiBase?prefix=channels/stable/release/&delimiter=/")
-      .then((resp) { getStableListing('stable', resp); });
+      .then((resp) { getListing('stable', resp); });
   HttpRequest.getString("$storageApiBase?prefix=channels/dev/release/&delimiter=/")
-      .then((resp) { getStableListing('dev', resp); });
+      .then((resp) { getListing('dev', resp); });
   
   versionSelectors['stable'].onChange.listen((Event event) { filterTable('stable', event); });
   versionSelectors['dev'].onChange.listen((Event event) { filterTable('dev', event); });
@@ -39,9 +39,16 @@ void filterTable(String channel, Event event) {
     tables[channel].querySelectorAll('tr[data-version]').classes.add('hidden');
     tables[channel].querySelectorAll(selector).classes.remove('hidden');
   }
+
+  if (selectedVersion == 'all') {
+    apiTables[channel].querySelectorAll('tr[data-version]').classes.remove('hidden');
+  } else {
+    apiTables[channel].querySelectorAll('tr[data-version]').classes.add('hidden');
+    apiTables[channel].querySelectorAll('tr[data-version="$selectedVersion"]').classes.remove('hidden');
+  }
 }
 
-void getStableListing(String channel, String respString) {
+void getListing(String channel, String respString) {
   Map<String,Object> resp = JSON.decode(respString);
   List<String> versions = (resp["prefixes"] as List<String>);
   versions.removeWhere((e) => e.contains('latest'));
@@ -53,7 +60,7 @@ void getStableListing(String channel, String respString) {
     List<String> versionStrings = versionStringsIter.toList();
     List<Map<String,String>> y = versionStrings.map((e) => JSON.decode(e)).toList();
     y.sort((a,b) => - a['date'].compareTo(b['date']));
-    y.forEach((v) { addStableVersion(channel, v); });
+    y.forEach((v) { addVersion(channel, v); });
     versionSelectors[channel].options[1].selected = true;
     versionSelectors[channel].dispatchEvent(new Event("change"));
   });
@@ -87,7 +94,7 @@ const Map<String,Object> platforms = const {
     '64-bit': const ['Dart SDK',            'Dart Editor'] },
 };
 
-void addStableVersion(String channel, Map<String,String> version) {
+void addVersion(String channel, Map<String,String> version) {
   OptionElement o = new OptionElement()
       ..text = version['version']
       ..attributes['value'] = version['version'];
@@ -127,7 +134,24 @@ void addStableVersion(String channel, Map<String,String> version) {
       });
     });
   });
-  
+
+  TableRowElement row = apiTables[channel].addRow()
+      ..attributes['data-version'] = version['version'];
+  SpanElement rev = new SpanElement()
+      ..text = '  (rev ${version['revision']})'
+      ..classes.add('muted');
+  row.addCell()..text = version['version']
+      ..append(rev);
+  TableCellElement c = row.addCell()
+      ..classes.add('archives');
+  String uri = '$storageBase/channels/$channel/release/${version['revision']}/' +
+      'api-docs/dart-api-docs.zip';
+  c.append(new AnchorElement()
+      ..text = 'JSON-formatted API Documentation'
+      ..attributes['href']= uri);
+
   List<Element> templateRows = tables[channel].querySelectorAll('.template');
+  if (templateRows != null) { templateRows.forEach((row) { row.remove(); }); }
+  templateRows = apiTables[channel].querySelectorAll('.template');
   if (templateRows != null) { templateRows.forEach((row) { row.remove(); }); }
 }

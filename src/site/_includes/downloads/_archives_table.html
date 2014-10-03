@@ -41,4 +41,22 @@
     <td>64-width</td>
     <td>Dart SDK | Dartium | Dart Editor</td>
   </tr>
+</table><br /><br />
+
+<table id="{{include.channel}}-api" class="downloads">
+  <tr>
+    <th style="min-width: 200px;">Version</th>
+    <th style="min-width: 250px;">API Documentation</th>
+  </tr>
+  <tr class="template">
+    <td colspan="2" style="height: 100px;"><img src="/imgs/spinner.gif" /></td>
+  </tr>
+  <tr style="visibility: hidden !important;" class="template">
+    {% if include.channel == 'stable' %}
+    <td>0.0.0 (rev 00000)</td>
+    {% else %}
+    <td>0.0.0-dev.0.0 (rev 00000)</td>
+    {% endif %}
+    <td>JSON-formatted API Documentation</td>
+  </tr>
 </table>
