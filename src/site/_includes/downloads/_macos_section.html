@@ -38,23 +38,7 @@ for Mac. If you need a bigger heap or access to much more memory, download the
 </a>
 for Mac.
 
-Once the download is complete, extract the Dart SDK, and add the extracted
-`bin/` directory to your `PATH`. For example, if the SDK was downloaded into
-your `Downloads/` directory, and you want to extract the SDK into your home
-directory, you can run:
-
-{% prettify bash %}
-$ unzip ~/Downloads/dartsdk-macos-ia32-release.zip -d ~
-$ ls ~/dart-sdk
-README        bin           include       lib           revision      util          version
-$ export PATH=~/dart-sdk/bin:$PATH
-$ which dart
-/Users/<username>/dart-sdk/bin/dart
-{% endprettify %}
-
-To permanently add the Dart SDK to your PATH, add the
-`export PATH=~/dart-sdk/bin:$PATH` line to your shell's startup file, such as
-`~/.bashrc`.
+Once the download is complete, unzip it, and add `<sdk>/bin` to your `PATH`.
 
 <a
     data-bits="32" data-os="macos" data-tool="dartium"
@@ -64,5 +48,4 @@ To permanently add the Dart SDK to your PATH, add the
 </a> for Mac. The Dartium binary expires after 12 weeks. When that happens,
 you will need to download a new copy to continue using Dartium.
 
-Once the download is complete, unzip the download to find the Dartium
-executable inside.
+Once the download is complete, unzip it to find the Dartium executable inside.
