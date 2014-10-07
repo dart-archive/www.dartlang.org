@@ -1,5 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -613,8 +614,8 @@ pre.prettyprint {
   height: 450px;
 }
 
-.lang-dart, .lang-html, .lang-js, .lang-csharp, .lang-none,
-.lang-python, .lang-javascript {
+.lang-dart, .lang-html, .lang-js, .lang-cpp, .lang-csharp, .lang-none,
+.lang-python, .lang-javascript, .lang-yaml {
   max-width: 800px;
   text-align: left;
   margin-right: auto;
@@ -638,9 +639,8 @@ pre.prettyprint {
   color: #757575;
 }
 
-.lang-none .com, .lang-none .kwd, .lang-none .lit,
-.lang-none .pln, .lang-none .pun {
-  color: #4D4D4D; /* color of .pln */
+.lang-none * {
+  color: #4D4D4D !important; /* color of .pln */
 }
 
 .lang-dart a span, .lang-html a span {
@@ -1425,7 +1425,7 @@ a.permalink {
  * implemented by using class="glyphicon glyphicon-new-window"
  * instead of this css.
  */
-a[href^="http"]:not(.btn):after {
+a[href^="http"]:not(a[href^="https://storage"]):not(.btn):after {
   content: "\e164";
   position: relative;
   top: 1px;
@@ -1465,6 +1465,51 @@ a[href^="http"]:not(.btn):after {
  */
 .download-buttons, .os-choices {
   display: none;
+}
+
+/* Tables in More downloads page.
+ */
+table.downloads th,
+table.downloads td {
+  border: solid 1px #999999;
+  padding: 2px 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table.downloads tr:not(.hidden):nth-child(even) td {
+  background-color: rgba(20, 133, 195, 0.10);
+}
+
+table.downloads .archives {
+  text-align: left;
+}
+
+table.downloads .muted {
+  color: #999999;
+  white-space: nowrap;
+}
+
+table.downloads .nowrap {
+  white-space: nowrap;
+}
+
+table.downloads tr.template td {
+  background-color: white !important;
+  border: 0;
+}
+
+table.downloads td.archives div:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+table.downloads .has-sha {
+  display: inline-block;
+  min-width: 80px;
+}
+
+table.downloads .sha {
+  display: inline;
 }
 
 /* Spacing for definition lists. */

@@ -7,6 +7,7 @@ description: "How we write doc comments for the Dart APIs."
 has-permalinks: true
 article:
   written_on: 2012-11-01
+  updated_on: 2014-09-22
   collection: everyday-dart
 ---
 
@@ -17,37 +18,38 @@ article:
 
 <em>Written by Kathy Walrath<br />
 <time pubdate date="2012-11-21">November 2012</time>
+(updated September 2014)
 </em>
 
 This document describes the conventions the Dart team
 has agreed upon for documentation comments.
 If you have suggestions for improving the conventions,
 [let us know](http://groups.google.com/a/dartlang.org).
+To produce documentation from comments,
+use the [docgen tool](/tools/docgen/).
 
 ## Examples
 
 Here's a typical comment for a function or method:
 
 <!-- BEGIN(min) -->{% prettify dart %}
-/**
- * Returns the lesser of two numbers.
- *
- * Returns NaN if either argument is NaN.
- * The lesser of -0.0 and 0.0 is -0.0.
- * If the arguments are otherwise equal (including int and doubles with the
- * same mathematical value) then it is unspecified which of the two arguments
- * is returned.
- *
- *     return min(100, value);
- */
-num min(num a, num b) {/*...*/}
+/// Returns the lesser of two numbers.
+///
+/// Returns NaN if either argument is NaN.
+/// The lesser of -0.0 and 0.0 is -0.0.
+/// If the arguments are otherwise equal
+/// (including int and doubles with the same mathematical value)
+/// then it is unspecified which of the two arguments is returned.
+///
+///     return min(100, value);
+num min(num a, num b) {...}
 {% endprettify %}<!-- END(min) -->
 
 And one for a variable or property:
 
 <!-- BEGIN(PI) -->{% prettify dart %}
-/// The PI constant.
-const double PI = 3.1415926535897932;
+/// The pi constant.
+const double pi = 3.1415926535897932;
 {% endprettify %}<!-- END(PI) -->
 
 For an example of a class description with example code, see Completer
@@ -210,16 +212,14 @@ which means **five spaces** after the * or /
 Example:
 
 {% prettify dart %}
-/**
- * ...
- * For example:
- *
- *     Future&lt;int> future = getFutureFromSomewhere();
- *     future.then((value) {
- *       print("I received the number $value");
- *     });
- * ...
- */
+/// ...
+/// For example:
+///
+///     Future&lt;int> future = getFutureFromSomewhere();
+///     future.then((value) {
+///       print("I received the number $value");
+///     });
+/// ...
 {% endprettify %}
 
 #### Header
@@ -290,12 +290,10 @@ and it's possible that a single asterisk will mean boldface.
 Here's an example of a warning:
 
 {% prettify dart %}
-/**
- * ...
- * **Warning:** This feature is not yet supported in all modern browsers.
- * See <http://caniuse.com/flexbox> for current status.
- * ...
- */
+/// ...
+/// **Warning:** This feature is not yet supported in all modern browsers.
+/// See <http://caniuse.com/flexbox> for current status.
+/// ...
 {% endprettify %}
 
 

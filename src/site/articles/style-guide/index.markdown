@@ -7,7 +7,7 @@ description: "Follow these guidelines for consistent, readable Dart code."
 has-permalinks: true
 article:
   written_on: 2011-10-01
-  updated_on: 2013-10-04
+  updated_on: 2014-09-23
   collection: everyday-dart
 ---
 
@@ -18,8 +18,9 @@ article:
 
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
-(updated October 2013)
+(updated September 2014)
 </em>
+
 
 As we build up an ecosystem of Dart code, it's helpful if it follows a
 consistent coding style. A dedicated style guide for Dart helps us make
@@ -39,9 +40,9 @@ libraries settle down.
 
 ## How to read this
 
-This guide is broken into a couple of sections roughly working from the macro
-scale down to the micro. Sections contain a list of guidelines. Each one starts
-with one of four words:
+This guide is broken into a few sections roughly working from the macro scale
+down to the micro. Sections contain a list of guidelines. Each guideline starts
+with one of these words:
 
 * **DO** guidelines describe practices that should always be followed. There
 will almost never be a valid reason to stray from them.
@@ -60,51 +61,16 @@ do.
 * **AVOID** guidelines are the dual to "prefer": stuff you shouldn't do but
 where there may be good reasons to on rare occasions.
 
+* **CONSIDER** guidelines are practices that you might or might not want to
+follow, depending on circumstances, precedents, and your own preference.
+
 This sounds like the style police are going to beat down your door if you don't
 have your laces tied correctly. Things aren't that bad. Most of the guidelines
 here are common sense and we're all reasonable people. The goal, as always, is
 nice, readable and maintainable code.
 
+
 ## Types
-
-#### AVOID creating classes that contain only static members.
-{:.no_toc}
-
-In Java and C#, all members must be in a class. In those languages, you
-occasionally encounter classes that are basically namespaces: just bags of
-static members. Dart, like Python and JavaScript, doesn't have this limitation.
-You are free to define variables and functions at the top level.
-
-Name collisions, when they occur, can be avoided by importing a library using a
-prefix. The advantage to this is that when collisions *don't* occur (which only
-the *user* of a library knows, not the creator), the user doesn't have to fully
-qualify the name at every callsite.
-
-This doesn't mean you shouldn't have *any* static members, but it should be rare
-to create classes that have *only* static members. Instead, those should be
-libraries. Most classes should represent things you can construct.
-
-<div class="good">
-{% prettify dart %}
-library utils;
-
-num distance(num x1, num y1, num x2, num y2) {
-  /* ... */
-}
-{% endprettify %}
-</div>
-
-<div class="bad">
-{% prettify dart %}
-library utils;
-
-class GeometryUtils {
-  static num distance(num x1, num y1, num x2, num y2) {
-    /* ... */
-  }
-}
-{% endprettify %}
-</div>
 
 #### AVOID defining a one-member abstract class when a simple function will do.
 {:.no_toc}
@@ -129,11 +95,11 @@ abstract class Predicate {
 {% endprettify %}
 </div>
 
+
 ## Members
 
 #### DO use constructors instead of static methods to create instances.
 {:.no_toc}
-
 
 Constructors are invoked using `new` or `const` which communicates clearly at
 the callsite that an object is being created. Named constructors and factory
@@ -163,9 +129,9 @@ class Point {
 {% endprettify %}
 </div>
 
+
 #### DO use `;` instead of `{}` for empty constructor bodies.
 {:.no_toc}
-
 
 In Dart, a constructor with an empty body can be terminated with just a
 semicolon. This is *required* for const constructors. For consistency and
@@ -189,9 +155,9 @@ class Point {
 {% endprettify %}
 </div>
 
+
 #### DO place the `super()` call last in a constructor initialization list.
 {:.no_toc}
-
 
 Field initializers are evaluated in the order that they appear in the
 constructor initialization list. If you place a `super()` call in the middle of
@@ -223,9 +189,9 @@ View(Style style, List children)
 {% endprettify %}
 </div>
 
+
 #### DO use a getter for operations that conceptually access a property.
 {:.no_toc}
-
 
 If the name of the method starts with `get` or is an adjective like `visible` or
 `empty` that's a sign you're better off using a getter. More specifically, you
@@ -255,9 +221,9 @@ window.refresh;                      // doesn't return a value
 {% endprettify %}
 </div>
 
+
 #### DO use a setter for operations that conceptually change a property.
 {:.no_toc}
-
 
 If the name of the method starts with `set` that's often a sign that it could be
 a setter. More specifically, use a setter instead of a method when it:
@@ -278,9 +244,9 @@ button.visible = false;
 {% endprettify %}
 </div>
 
+
 #### AVOID wrapping fields in getters and setters just to be "safe".
 {:.no_toc}
-
 
 In Java and C#, it's common to hide all fields behind getters and setters (or
 properties in C#), even if the implementation just forwards to the field. That
@@ -313,9 +279,9 @@ class Box {
 {% endprettify %}
 </div>
 
+
 #### PREFER using a public final field instead of a private field with a public getter.
 {:.no_toc}
-
 
 If you have a field that outside code should be able to see but not assign to
 (and you don't need to set it outside of the constructor), a simple solution
@@ -338,9 +304,9 @@ class Box {
 {% endprettify %}
 </div>
 
+
 #### CONSIDER using `=>` to define members whose body returns the result of a single expression.
 {:.no_toc}
-
 
 In addition to using `=>` for function expressions, Dart also lets you define
 members with them. They are a good fit for simple members that just calculate
@@ -358,9 +324,35 @@ Members that don't fit on one line can still use `=>`, but if you find yourself
 cramming a single expression into several continued lines, it is probably
 cleaner to just use a curly body with an explicit `return`.
 
+
+#### AVOID returning `this` from methods just to enable a fluent interface.
+{:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/754 -->
+
+Method cascades are a better solution for chaining method calls.
+
+<div class="good">
+{% prettify dart %}
+var buffer = new StringBuffer()
+  ..write("one")
+  ..write("two")
+  ..write("three");
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+var buffer = new StringBuffer();
+buffer
+  .write("one")
+  .write("two")
+  .write("three");
+{% endprettify %}
+</div>
+
+
 #### AVOID boolean arguments unless their meaning is completely obvious.
 {:.no_toc}
-
 
 Unlike other types, booleans are usually used in literal form. Things like
 numbers are usually wrapped in named constants, but we usually just pass around
@@ -386,11 +378,11 @@ new ListBox(scroll: true, showScrollbars: true);
 {% endprettify %}
 </div>
 
+
 ## Type annotations
 
 #### PREFER providing type annotations on public APIs.
 {:.no_toc}
-
 
 Type annotations are important documentation for how a library should be used.
 Annotating the parameter and return types of public methods and functions helps
@@ -406,7 +398,7 @@ annotate where you feel it helps, but don't feel that you *must* provide them.
 <div class="bad">
 {% prettify dart %}
 install(id, destPath) {
-  /* ... */
+  // ...
 }
 {% endprettify %}
 </div>
@@ -417,16 +409,16 @@ Here, it's unclear what `id` is. A string? And what is `destPath`? A string or a
 <div class="good">
 {% prettify dart %}
 Future<bool> install(PackageId id, String destPath) {
-  /* ... */
+  // ...
 }
 {% endprettify %}
 </div>
 
 With types, all of this is clarified.
 
+
 #### PREFER using `var` without a type annotation for local variables.
 {:.no_toc}
-
 
 Method bodies in modern code tend to be short, and the types of local variables
 are almost always trivially inferrable from the initializing expression, so
@@ -460,6 +452,7 @@ Map<int, List<Person>> groupByZip(Iterable<Person> people) {
 {% endprettify %}
 </div>
 
+
 #### PREFER using `double` or `int` instead of `num` for parameter type annotations in performance sensitive code.
 {:.no_toc}
 
@@ -474,9 +467,9 @@ to your function or method.
 When you use `num` as a type annotation, you are saying "either an int or
 a double can go here." This ambiguity it harder for Dart runtimes to optimize.
 
+
 #### DON'T type annotate initializing formals.
 {:.no_toc}
-
 
 If a constructor parameter is using `this.` to initialize a field, then the type
 of the parameter is understood to be the same type as the field.
@@ -499,9 +492,9 @@ class Point {
 {% endprettify %}
 </div>
 
+
 #### AVOID annotating types on function expressions.
 {:.no_toc}
-
 
 The value of function expressions is their brevity. If a function is complex
 enough that types are needed to understand it, it should probably be a function
@@ -522,9 +515,9 @@ var names = people.map((Person person) {
 {% endprettify %}
 </div>
 
+
 #### AVOID annotating with `dynamic` when not required.
 {:.no_toc}
-
 
 In most places in Dart, a type annotation can be omitted, in which case the type
 will automatically be `dynamic`. Thus, omitting the type annotation entirely is
@@ -550,9 +543,9 @@ dynamic lookUpOrDefault(String name, Map map, dynamic defaultValue) {
 {% endprettify %}
 </div>
 
+
 #### DO annotate with `Object` instead of `dynamic` to indicate any object is accepted.
 {:.no_toc}
-
 
 Some operations will work with any possible object. For example, a log method
 could take any object and call `toString()` on it. Two types in Dart permit all
@@ -581,11 +574,11 @@ bool convertToBool(arg) {
 {% endprettify %}
 </div>
 
+
 ## Names
 
 #### DO name types using `UpperCamelCase`.
 {:.no_toc}
-
 
 Classes and typedefs should capitalize the first letter of each word (including
 the first word), and use no separators.
@@ -604,18 +597,20 @@ typedef num Adder(num x, num y);
 {% endprettify %}
 </div>
 
-#### DO name constants using `ALL_CAPS_WITH_UNDERSCORES`.
+
+#### PREFER using `lowerCamelCase` for constant names.
 {:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/831 -->
 
+In new code, use `lowerCamelCase` for constant variables.
 
-Constants&mdash;variables declared using `const`&mdash;are special in Dart
-because they can be used in constant expressions, unlike `final` variables. To
-clarify this, they are given their own naming style.
+In existing code that uses `ALL_CAPS_WITH_UNDERSCORES` for constants, you
+may continue to use all caps to stay consistent.
 
 <div class="good">
 {% prettify dart %}
-const PI = 3.14;
-const DEFAULT_TIMEOUT = 1000;
+const pi = 3.14;
+const defaultTimeout = 1000;
 final urlScheme = new RegExp('^([a-z]+):');
 
 class Dice {
@@ -636,9 +631,16 @@ class Dice {
 {% endprettify %}
 </div>
 
+<aside class="alert alert-info" markdown="1">
+**Change note:** The rule used to be "DO name constants using
+`ALL_CAPS_WITH_UNDERSCORES`". We changed the rule because sometimes constants
+migrate from final to const. Also, few wanted to require enums to be
+ALL_CAPS.
+</aside>
+
+
 #### DO name other identifiers using `lowerCamelCase`.
 {:.no_toc}
-
 
 Class members, top-level definitions, variables, parameters, and named
 parameters should capitalize the first letter of each word *except* the first
@@ -656,9 +658,30 @@ align(clearItems) {
 {% endprettify %}
 </div>
 
+
+#### DO use `UpperCamelCase` names for classes intended to be used in metadata annotations.
+{:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/707 -->
+
+If the annotation takes no parameters, you might want to create a
+`lowerCamelCase` constant for it.
+
+<div class="good">
+{% prettify dart %}
+@Foo(anArg)
+class A { ... }
+
+@Foo()
+class B { ... }
+
+@foo
+class C { ... }
+{% endprettify %}
+</div>
+
+
 #### DO name libraries and source files using `lowercase_with_underscores`.
 {:.no_toc}
-
 
 Some file systems are not case-sensitive, so many projects require filenames to
 be all lowercase. Using a separate character allows names to still be readable
@@ -682,9 +705,68 @@ Bad:
 * `library peg-parser;`
 </div>
 
+
+#### DO use `lowercase_with_underscores` when specifying a library prefix.
+{:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/671 -->
+
+<div class="good">
+{% prettify dart %}
+import 'dart:math' as math;
+import 'dart:json' as json;
+import 'package:js/js.dart' as js;
+import 'package:javascript_utils/javascript_utils.dart' as js_utils;
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+import 'dart:math' as Math;
+import 'dart:json' as JSON;
+import 'package:js/js.dart' as JS;
+import 'package:javascript_utils/javascript_utils.dart' as jsUtils;
+{% endprettify %}
+</div>
+
+
+#### DO prefix library names with the package name and a dot-separated path.
+{:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/806 -->
+
+This guideline helps avoid the warnings you get when two libraries have the
+same name. Here are the rules we recommend:
+
+* Prefix all library names with the package name.
+* Make the entry library have the same name as the package.
+* For all other libraries in a package, after the package name add the
+  dot-separated path to the library's Dart file. For libraries under `lib`,
+  omit the top directory name.
+
+For example, say the package name is `my_package`. Here are the library names
+for various files in the package:
+
+<div class="good">
+{% prettify dart %}
+// In lib/my_package.dart
+library my_package;
+
+// In lib/other.dart
+library my_package.other;
+
+// In lib/foo/bar.dart
+library my_package.foo.bar;
+
+// In example/foo/bar.dart
+library my_package.example.foo.bar;
+
+// In lib/src/private.dart
+library my_package.src.private;
+{% endprettify %}
+</div>
+
+
 #### DO capitalize acronyms and abbreviations longer than two letters like words.
 {:.no_toc}
-
 
 Capitalized acronyms can be harder to read, and are ambiguous when you have
 multiple adjacent acronyms. Given the name `HTTPSFTPConnection`, there's no way
@@ -719,14 +801,15 @@ Db
 {% endprettify %}
 </div>
 
+
 ## Comments
 
-#### DO comment members and types using doc-style comments.
+#### DO comment members and types using doc comments.
 {:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/668 -->
 
-
-Dart supports two syntaxes of doc comments. Line doc comments start each line
-with `///`:
+Although Dart supports two syntaxes of doc comments (`///` and `/**`), we
+prefer using `///` for doc comments.
 
 <div class="good">
 {% prettify dart %}
@@ -741,26 +824,13 @@ void parse(List options) {
 {% endprettify %}
 </div>
 
-Block doc comments start with `/**`, end with `*/` and can span multiple lines:
-
-<div class="good">
-{% prettify dart %}
-/**
- * Parses a set of option strings.
- */
-void parse(List options) {
-  // ...
-}
-{% endprettify %}
-</div>
-
 Within a doc comment, you can use [markdown][] for formatting.
 
 [markdown]: http://daringfireball.net/projects/markdown/
 
-#### DO use line comments for everything else.
-{:.no_toc}
 
+#### DO use line comments everywhere.
+{:.no_toc}
 
 <div class="good">
 {% prettify dart %}
@@ -780,9 +850,12 @@ greet(name) {
 {% endprettify %}
 </div>
 
+You can use a block comment (`/* ... */`) to temporarily comment out a section
+of code.
+
+
 #### DO capitalize and punctuate comments like sentences.
 {:.no_toc}
-
 
 This doesn't mean that the comment must always be a complete sentence, though it
 usually should. "Returns the number of items." is an acceptable comment.
@@ -799,9 +872,9 @@ usually should. "Returns the number of items." is an acceptable comment.
 {% endprettify %}
 </div>
 
+
 #### DO use square brackets in doc comments for identifiers that are in scope.
 {:.no_toc}
-
 
 If you surround things like variable, method or type names in square brackets,
 then documentation generators can look up the name and cross-link the two
@@ -816,25 +889,22 @@ num greatestRoll(Dice a, Dice b) => max(a.roll(), b.roll());
 {% endprettify %}
 </div>
 
+
 #### DO describe method signatures in the prose of the documentation comment.
 {:.no_toc}
-
-
 
 Other languages use verbose tags and sections to describe what the parameters
 and returns of a method are.
 
 <div class="bad">
 {% prettify dart %}
-/**
- * Defines a flag with the given name and abbreviation.
- *
- * @param name The name of the flag.
- * @param abbr The abbreviation for the flag.
- * @returns The new flag.
- * @throws IllegalArgumentException If there is already an option with
- *     the given name or abbreviation.
- */
+/// Defines a flag with the given name and abbreviation.
+///
+/// @param name The name of the flag.
+/// @param abbr The abbreviation for the flag.
+/// @returns The new flag.
+/// @throws IllegalArgumentException If there is already an option with
+///     the given name or abbreviation.
 Flag addFlag(String name, String abbr) {
   // ...
 }
@@ -846,16 +916,38 @@ method and highlight parameters using square brackets.
 
 <div class="good">
 {% prettify dart %}
-/**
- * Defines a flag. Throws an [IllegalArgumentException] if there is
- * already an option named [name] or there is already an option using
- * abbreviation [abbr]. Returns the new flag.
- */
+/// Defines a flag.
+///
+/// Throws an [IllegalArgumentException] if there is already an option named
+/// [name] or there is already an option using abbreviation [abbr]. Returns
+/// the new flag.
 Flag addFlag(String name, String abbr) {
   // ...
 }
 {% endprettify %}
 </div>
+
+
+#### DO put doc comments before metadata annotations.
+{:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/964 -->
+
+<div class="good">
+{% prettify dart %}
+/// _Deprecated: Use [newMethod] instead._
+@deprecated
+oldMethod();
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+@deprecated
+/// _Deprecated: Use [newMethod] instead._
+oldMethod();
+{% endprettify %}
+</div>
+
 
 ## Whitespace
 
@@ -863,9 +955,9 @@ Like many languages, Dart ignores whitespace. However, *humans* don't. Having a
 consistent whitespace style helps ensure that human readers see code the same
 way the compiler does.
 
+
 #### DON'T use tabs.
 {:.no_toc}
-
 
 Using spaces for formatting ensures the code looks the same in everyone's
 editor. It also makes sure it looks the same when posted to blogs, or on code
@@ -877,9 +969,9 @@ sites like [Google Code][] or [GitHub][].
 Modern editors emulate the behavior of tabs while inserting spaces, giving you
 the easy editing of tabs and the consistency of spaces.
 
+
 #### AVOID lines longer than 80 characters.
 {:.no_toc}
-
 
 Readability studies show that long lines of text are harder to read because your
 eye has to travel farther when moving to the beginning of the next line. This is
@@ -890,9 +982,9 @@ experience is that your code is likely too verbose and could be a little more
 compact. Do you really need to call that class
 `AbstractWidgetFactoryManagerBuilder`?
 
+
 #### DO place the operator on the preceding line in a multi-line expression.
 {:.no_toc}
-
 
 There are valid arguments for both styles but most of our code seems to go this
 way, and consistency matters most.
@@ -923,9 +1015,9 @@ bobLikes()
 {% endprettify %}
 </div>
 
+
 #### DO place the `.` on the next line in a multi-line expression.
 {:.no_toc}
-
 
 This supercedes the previous rule. Unlike other operators, if you split an
 expression on a `.`, then put that at the beginning of the second line.
@@ -937,9 +1029,9 @@ someVeryLongVariable.withAVeryLongProperty
 {% endprettify %}
 </div>
 
+
 #### DO indent block bodies two spaces.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -949,9 +1041,9 @@ if (condition) {
 {% endprettify %}
 </div>
 
+
 #### DO indent continued lines with at least four spaces.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -969,9 +1061,25 @@ someLongObject.aReallyLongMethodName(longArg, anotherLongArg,
 {% endprettify %}
 </div>
 
+Note that this includes `=>` as well:
+
+<div class="good">
+{% prettify dart %}
+bobLikes() =>
+    isDeepFried || (hasPieCrust && !vegan) || containsBacon;
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+bobLikes() =>
+  isDeepFried || (hasPieCrust && !vegan) || containsBacon;
+{% endprettify %}
+</div>
+
+
 #### DON'T indent lines that are continued with a function expression.
 {:.no_toc}
-
 
 The one exception to the above rule is function expressions used within larger
 expressions, like being passed to methods. These are formatted like so:
@@ -992,9 +1100,9 @@ new Future.delayed(const Duration(seconds: 1), () {
 {% endprettify %}
 </div>
 
+
 #### DO place the opening curly brace (`{`) on the same line as what it follows.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -1010,9 +1118,9 @@ class Foo {
 {% endprettify %}
 </div>
 
+
 #### DO use curly braces for all flow control structures.
 {:.no_toc}
-
 
 Doing so avoids the [dangling else][] problem.
 
@@ -1045,9 +1153,9 @@ if (arg == null) return defaultValue;
 {% endprettify %}
 </div>
 
+
 #### DO indent switch cases two spaces and case bodies four spaces.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -1063,10 +1171,9 @@ switch (fruit) {
 {% endprettify %}
 </div>
 
+
 #### DO use spaces around binary and ternary operators, after commas, and not around unary operators.
 {:.no_toc}
-
-
 
 Note that `<` and `>` are considered binary operators when used as expressions,
 but not for specifying generic types. Both `is` and `is!` are considered single
@@ -1091,9 +1198,9 @@ if (obj is !SomeType) print('not SomeType');
 {% endprettify %}
 </div>
 
+
 #### DO place spaces around `in`, and after each `;` in a loop.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -1107,9 +1214,9 @@ for (final item in collection) {
 {% endprettify %}
 </div>
 
+
 #### DO use a space after flow-control keywords.
 {:.no_toc}
-
 
 This is unlike function and method calls, which do *not* have a space between
 the name and the opening parenthesis.
@@ -1128,9 +1235,9 @@ try {
 {% endprettify %}
 </div>
 
+
 #### DON'T use a space after `(`, `[`, and `{`, or before `)`, `]`, and `}`.
 {:.no_toc}
-
 
 Also, do not use a space when using `<` and `>` for generic types.
 
@@ -1140,9 +1247,9 @@ var numbers = <int>[1, 2, (3 + 4)];
 {% endprettify %}
 </div>
 
+
 #### DO use a space before `{` in function and method bodies.
 {:.no_toc}
-
 
 This is an exception to the above rule. When a `{` is used after a parameter
 list in a function or method, there should be a space between it and the `)`
@@ -1164,9 +1271,9 @@ getEmptyFn(a){
 {% endprettify %}
 </div>
 
+
 #### DO format constructor initialization lists with each field on its own line.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -1183,9 +1290,9 @@ Note that the `:` should be wrapped to the next line and indented four spaces.
 Fields should all line up (so all but the first field end up indented six
 spaces).
 
+
 #### DO use a space after `:` in named parameters and named arguments.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -1208,9 +1315,9 @@ new ListBox(showScrollbars : true);
 {% endprettify %}
 </div>
 
+
 #### DO use a spaces around `=` in optional positional parameters.
 {:.no_toc}
-
 
 <div class="good">
 {% prettify dart %}
@@ -1234,22 +1341,103 @@ class HttpServer {
 {% endprettify %}
 </div>
 
-#### DO use four spaces for method cascades
-{:.no_toc}
 
+#### DO indent method cascades at least two spaces.
+{:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/878 -->
 
 <div class="good">
 {% prettify dart %}
-var list = new List()
-    ..addAll([1, 2, 3])
-    ..addAll([4, 5, 6]);
+list = new List()
+  ..addAll([1, 2, 3])
+  ..addAll([4, 5, 6]);
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-var list = new List()
-  ..addAll([1, 2, 3])
-  ..addAll([4, 5, 6]);
+list = new List()
+    ..addAll([1, 2, 3])
+    ..addAll([4, 5, 6]);
+{% endprettify %}
+</div>
+
+<aside class="alert alert-info" markdown="1">
+**Change note:** This rule used to say "use four spaces," but a survey of
+published code showed that two-space indentation for cascades is much more
+common.
+</aside>
+
+
+#### DO indent the bodies of multi-line list and map literals at least two spaces, and place the closing `]` or `}` on the next line.
+{:.no_toc}
+<!-- https://github.com/dart-lang/www.dartlang.org/issues/658 -->
+
+Try to wrap multi-line list and map literals after the commas.
+
+Indent the closing `]` or `}` of a multi-line list or map literal so that it
+lines up with the surrounding code.
+
+<div class="good">
+{% prettify dart %}
+var simpleList = [1, 2, 3];
+var simpleMap = {'a': 1, 'b': 2, 'c': 3};
+
+var fooList = [
+  'a',
+  'b',
+  'c'
+];
+
+var barMap = {
+  'a': 'b',
+  'c': 'd'
+};
+
+var listInsideMap = {
+  'a': ['b', 'c', 'd'],
+  'e': [
+    'f',
+    'g',
+    'h'
+  ]
+};
+
+var mapInsideMap = {
+  'a': {'b': 'c', 'd': 'e'},
+  'f': {
+    'f': 'g',
+    'h': 'i'
+  }
+};
+
+var mapInsideList = [
+  {
+    'a': 'b',
+    'c': 'd'
+  },
+  {
+    'a': 'b',
+    'c': 'd'
+  },
+];
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+var fooList = [
+    1,
+    2,
+    3
+];
+
+var fooList = [
+  1,
+  2,
+  3];
+
+var fooList = [1, 2,
+  3, 4];
 {% endprettify %}
 </div>

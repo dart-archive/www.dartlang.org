@@ -238,11 +238,11 @@ it returns no value and takes an Event object as a parameter.
 [Install Shared Packages](/docs/tutorials/shared-pkgs),
 shows you how to use code written and shared by others.
 
-* One of those packages is Polymer.dart,
+* One of those packages is polymer.dart,
 which makes manipulating the DOM even easier
 with data binding, templates, and declarative event handlers.
 Check out [Define a Custom Element](/docs/tutorials/polymer-intro)
-for an introduction to Polymer.
+for an introduction to polymer.dart.
 
 {% endcapture %}
 

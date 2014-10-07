@@ -13,10 +13,8 @@ prev-title: "Install Shared Packages"
 
 {% capture whats_the_point %}
 
-* Polymer.dart is the next evolution of Web UI.
-* Everything in Polymer.dart is an element.
+* Use polymer.dart to build custom elements.
 * Custom elements provide semantically meaningful encapsulation.
-* Use Polymer.dart to build custom elements.
 * Bind Dart data to HTML elements.
 * Declaratively bind event handlers to elements.
 
@@ -43,28 +41,23 @@ Don't have the source code?
 </div>
 
 A custom element is an HTML element you can define yourself,
-encapsulating appearance and/or behavior
+encapsulating appearance or behavior (or both)
 within semantically meaningful HTML.
 
-<aside class="alert">
-<strong>Version Note:</strong> The code sample and the content
-of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.13.</a>.
-</aside>
+Custom elements are one feature of Polymer,
+a new type of library for the web based on Web Components.
+The Dart implementation of Polymer is called
+<a href="/polymer/" target="_blank">polymer.dart</a>.
 
 <aside class="alert alert-info">
-  Custom elements are one feature of
-<a href="http://www.polymer-project.org/"
-   target="_blank">Polymer</a>,
-a new type of library for the web based on Web Components.
-<a href="/polymer/"
-   target="_blank">Polymer.dart</a>
-is the Dart implementation of Polymer.
+<strong>Version note:</strong> The code sample and the content
+of this tutorial are compatible with
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.14</a>.
 </aside>
 
 * [An example](#an-example)
-* [Installing Polymer.dart](#getting-polymer-dart) 
-* [Including Polymer.dart in your application](#bootstrap)
+* [Installing polymer.dart](#getting-polymer-dart) 
+* [Including polymer.dart in your application](#bootstrap)
 * [Instantiating a custom element](#instantiating) 
 * [Defining a custom element](#define-element) 
 * [Providing a template for the custom element](#providing-a-template) 
@@ -94,7 +87,6 @@ Reset the stopwatch to 00:00 using the **Reset** button.
 
 Here's how to use this custom element in an HTML page:
 
-* Include the `packages/web_components/platform.js` script.
 * Include the `packages/web_components/dart_support.js` script.
 * Import the HTML file that has the custom element definition
   (`tute_stopwatch.html`).
@@ -106,7 +98,6 @@ Here's how to use this custom element in an HTML page:
 For example:
 
 {% prettify html %}
-<script src="packages/web_components/platform.js"></script>
 <script src="packages/web_components/dart_support.js"></script>
 <link rel="import" href="tute_stopwatch.html">
 ...
@@ -173,9 +164,9 @@ app and its use of custom elements:
      alt="The connections between Dart and HTML">
 
 
-##Installing Polymer.dart {#getting-polymer-dart}
+##Installing polymer.dart {#getting-polymer-dart}
 
-To use the features provided by Polymer.dart,
+To use the features provided by polymer.dart,
 you need to install the Polymer package.
 If you are unfamiliar with installing packages,
 refer to
@@ -194,7 +185,7 @@ by adding the package name, `polymer`, to the list.
 name: stopwatch
 description: A sample application
 dependencies:
-  <b>polymer: "&gt;=0.13.0 &lt;0.14.0"</b>
+  <b>polymer: "&gt;=0.15.0 &lt;0.16.0"</b>
   </pre>
   </li>
 
@@ -216,9 +207,9 @@ you can use the command `pub get`.
   </li>
 </ul>
 
-##Including Polymer.dart in your application {#bootstrap}
+##Including polymer.dart in your application {#bootstrap}
 
-To use Polymer.dart features such as custom elements,
+To use polymer.dart features such as custom elements,
 you need to include Polymer in both
 the HTML side and the Dart side of your app.
 
@@ -249,15 +240,14 @@ import 'dart:async';
 ...
   </pre>
 
-* In the primary HTML file, include the `packages/web_components/platform.js`
-  and `packages/web_components/dart_support.js` scripts at the top of the
+* In the primary HTML file, include the
+  `packages/web_components/dart_support.js` script at the top of the
   &lt;head&gt; tag, before any HTML imports:
 
   <pre>
 &lt;head&gt;
   ...
-  <b>&lt;script src="packages/web_components/platform.js">&lt;/script>
-  &lt;script src="packages/web_components/dart_support.js">&lt;/script></b>
+  <b>&lt;script src="packages/web_components/dart_support.js">&lt;/script></b>
   ...
 &lt;/head&gt;
   </pre>
@@ -626,7 +616,7 @@ to specify the Polymer transformers:
 {% prettify yaml %}
 ...
 dependencies:
-  polymer: ">=0.13.0 <0.14.0"
+  polymer: ">=0.15.0 <0.16.0"
 transformers:
 - polymer
 {% endprettify %}
@@ -700,7 +690,7 @@ Use these other resources to learn more about Polymer:
 
 * The
 <a href="/polymer/"
-   target="_blank">Polymer.dart</a> homepage provides information
+   target="_blank">polymer.dart</a> homepage provides information
    specific to the Dart port of the Polymer project.
 
 * The Polymer project website

@@ -20,7 +20,41 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
-## 0.14.0 {#0-14-0}
+## Polymer 0.15.0
+
+This new release updates polymer to match the current release (0.4.1) of
+polymer.js.
+
+### Polymer changes
+
+  * Added Polymer.forceReady method. This forces a ready state regardless of
+    whether or not there are still polymer-element declarations waiting for
+    their class definitions to be loaded.
+  * Added Polymer.waitingFor method. This returns a list of all polymer-element
+    declarations that are still waiting for their class definitions to be
+    loaded.
+  * Add runtime checking of the waitingFor queue and print to the console if a
+    deadlock situation is suspected to help diagnose the white screen of death.
+  * Added injectBoundHTML instance method. This can be used to dynamically
+    inject html that is bound to your current element into a target element.
+
+### Core and paper elements
+
+Together with this release, we updated `core_elements` to 0.3.0 and
+`paper_elements` to 0.4.0. This brings the elements packages up to date with the
+changes in the JavaScript version 0.4.1.
+
+A number of elements were renamed, below is a summary:
+
+  * `core-dropdown` =>  `core-dropdown-menu`
+  * `core-popup-menu` => `core-dropdown`
+  * `core-popup-overlay` => `core-dropdown-overlay`
+  * `paper-dropdown` => `paper-dropdown-menu`
+
+There was also one new element added, `core-a11y-keys`. This element helps when
+dealing with key events, and manages all the browser differences for you.
+
+## Polymer 0.14.0
 
 This new release updates polymer to match the current release (0.4.0) of
 polymer.js.
@@ -38,9 +72,10 @@ platform.js to the 0.4.0 release, with the addition of two cherrypicks,
 and
 [7c8b9](https://github.com/Polymer/ShadowDOM/commit/7c8b9084a5b192a48ec055f1bd32936e24257a1d).
 
-The platform.js script has been stripped down, and is no longer required in
+The `platform.js` script has been stripped down, and is no longer required in
 Chrome or Dartium. You can now remove this from your projects for development,
-and it will be injected when running pub build or pub serve.
+and it will be injected when running pub build or pub serve. Note you still need
+to include `dart_support.js` in your application.
 
 If you would like the option to not inject platform.js at all in the built
 output (if you are deploying to chrome exclusively), please star this
@@ -50,11 +85,11 @@ bug http://dartbug.com/20865.
 
 Together with this release, we updated `core_elements` to 0.2.1, and
 `paper_elements` to 0.2.0. This brings the elements packages up to date with
-the changes in the Javascript version 0.4.0. Two new elements were added
+the changes in the JavaScript version 0.4.0. Two new elements were added
 (`paper_dropdown` and `core_popup_menu`), and one was removed
 (`paper_menu_button_overlay`).
 
-## 0.13.0 {#0-13-0}
+## Polymer 0.13.0
 
 This new release updates polymer to match the current release (0.3.5) of
 polymer.js.
@@ -65,7 +100,7 @@ There should be no noticeable changes with this release.
 ### Changes in platform.js
 
 Internally this release includes updates to the `web_components` package to
-version 0.6.0. This brings platform.js to the latest Javascript version
+version 0.6.0. This brings platform.js to the latest JavaScript version
 (including changes in master for ShadowDOM at
 [57232d](https://github.com/Polymer/ShadowDOM/commit/57232dc6d07dd921009679dfbab622b52174df80)).
 This is because the polyfills at version 0.3.5
@@ -81,14 +116,14 @@ but we decided to bump our version as a breaking change just in case.
 
 Together with this release, we updated `core_elements` to 0.2.0+1, and
 `paper_elements` to 0.1.1+2. This brings the elements packages up to date with
-the changes in the Javascript version 0.3.5. The main highlights are that
+the changes in the JavaScript version 0.3.5. The main highlights are that
 a new element was added (`core-dropdown`), and icons in `core_elements` moved
 two levels up in the directory layout. So for example, you now need to import
 `packages/core_elements/image_icons.html` instead of
 `packages/core_elements/core_icons/iconsets/image_icons.html`.
 
 
-## 0.12.1 {#0-12-1}
+## Polymer 0.12.1
 
 This release contains some new productivity features worth highlighting.
 
@@ -162,7 +197,7 @@ improve your experience developing with polymer.dart,
 do let us know and file a request in our bug tracker.
 
 
-## 0.12.0 {#0-12}
+## Polymer 0.12.0
 
 We just uploaded a new stable version of
 the polymer, core, and paper packages,
@@ -247,7 +282,7 @@ Many of the examples have been updated to use some of the changes above
 (like the better js-interop features).
 
 
-## 0.11.0 {#0-11-0}
+## Polymer 0.11.0
 
 This release has a few important changes that
 will affect you when you upgrade your project.
@@ -390,7 +425,7 @@ For more information about paths, see
 [dartbug.com/20076](http://dartbug.com/20076).
 
 
-## 0.10.0 {#0-10-0}
+## Polymer 0.10.0
 
 Here is a summary of what changed since our last stable release (0.9.5+2).
 

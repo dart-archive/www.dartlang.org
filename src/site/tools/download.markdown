@@ -64,7 +64,7 @@ for Mac.
 
 <span class="windows downloads">
 To get new features a few weeks earlier than the stable release,
-you can download the latest <strong>Dev Channel</strong> build of
+you can download the latest <strong>dev channel</strong> build of
  <a data-tool="editor" class="download-link" data-bits="64" data-os="windows" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-x64.zip">Dart Editor for
 Windows 64-bit</a> or
  <a data-tool="editor" class="download-link" data-bits="32" data-os="windows" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-ia32.zip">Dart Editor for
@@ -73,7 +73,7 @@ Windows 32-bit</a>.
 
 <span class="linux downloads">
 To get new features a few weeks earlier than the stable release,
-you can download the latest <strong>Dev Channel</strong> build of
+you can download the latest <strong>dev channel</strong> build of
  <a data-tool="editor" class="download-link" data-bits="64" data-os="linux" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-x64.zip">Dart Editor for
 Linux 64-bit</a> or
  <a data-tool="editor" class="download-link" data-bits="32" data-os="linux" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-ia32.zip">Dart Editor for
@@ -82,12 +82,12 @@ Linux 32-bit</a>.
 
 <span class="macos downloads">
 To get new features a few weeks earlier than the stable release,
-you can download the latest <strong>Dev Channel</strong> build of
+you can download the latest <strong>dev channel</strong> build of
  <a data-tool="editor" class="download-link" data-bits="64" data-os="macos" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-macos-x64.zip">Dart Editor for
 Mac OS X</a>.
 </span>
 
-The latest Dev Channel release is <span class="dev-channel"></span>.
+The latest dev channel release is <span class="dev-channel"></span>.
 </aside>
 
 Once the download is complete, unzip the bundle. Dart is installed!
@@ -145,54 +145,48 @@ for Mac.
 **Early Adopter?**
 <span class="windows">
 To get new features a few weeks earlier than the stable release,
-you can download the latest **Dev Channel** build of the
+you can download the latest **dev channel** build of the
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-x64-release.zip">SDK for Windows 64-bit</a>
 or 
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-ia32-release.zip">SDK for Windows 32-bit</a>.
 
 <span class="macos">
 To get new features a few weeks earlier than the stable release,
-you can download the latest **Dev Channel** build of the
+you can download the latest **dev channel** build of the
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-macos-x64-release.zip">SDK for Mac OS X</a>.
 </span>
 
 <span class="linux">
 To get new features a few weeks earlier than the stable release,
-you can download the latest **Dev Channel** build of the
+you can download the latest **dev channel** build of the
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-x64-release.zip">SDK for Linux 64-bit</a>
 or
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-ia32-release.zip">SDK for Linux 32-bit</a>.
 </span>
 
 <span class="windows">
-You can also download the latest **Dev Channel** build of
+You can also download the latest **dev channel** build of
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-windows-ia32-release.zip">Dartium for Windows</a>.
 </span>
 
 <span class="macos">
-You can also download the latest **Dev Channel** build of
+You can also download the latest **dev channel** build of
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac OS X</a>.
 </span>
 
 <span class="linux">
-You can also download the latest **Dev Channel** build of
+You can also download the latest **dev channel** build of
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-x64-release.zip">Dartium for Linux 64-bit</a>
 or
 <a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-ia32-release.zip">Dartium for Linux 32-bit</a>.
 </span>
 
-The latest Dev Channel release is <span class="dev-channel"></span>.
+The latest dev channel release is <span class="dev-channel"></span>.
 </aside>
 
 ### Dart SDK for Debian and Ubuntu
-
-If you are writing server-side code for Debian or Ubuntu, you can get a
-Debian package with a 64-bit version of the SDK that allows for easy
-installation of the Dart VM and tools on Debian wheezy and Ubuntu machines.
-Choose either the **Stable Channel** or **Dev Channel** release.
-The dev channel allows you to try new features ahead of the stable release.
-
-{% include downloads/_debian.html buttonclass="btn btn-primary btn-lg" %}
+If you are using the Debian or Ubuntu platform, you might want to
+install the [Dart SDK for Debian and Ubuntu with Apt](debian.html).
 
 ------
 
@@ -200,6 +194,13 @@ The dev channel allows you to try new features ahead of the stable release.
 If your system uses an older version of Ubuntu and you are compiling the
 SDK, you may need to update to GCC 4.6 or later.
 See the <a href="faq.html">Tools FAQ</a> for more information.
+
+------
+
+### Looking for previous versions?
+
+Previous versions of the Dart SDK, Dartium, and the Dart Editor are available
+at the [download archive](/tools/download_archive).
 
 ------
 

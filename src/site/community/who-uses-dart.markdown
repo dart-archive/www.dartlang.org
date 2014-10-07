@@ -12,6 +12,10 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/dartlang.org). Thanks!
 
+[SAP](http://www.sap.com/)
+: A number of administration tools for SAP data management utilizing both the 
+Dart VM for server-side and the full polymer.dart stack for client-side.
+
 [Security Monkey from Netflix](https://github.com/Netflix/security_monkey)
 : Security Monkey monitors policy changes and alerts on insecure configurations in an AWS account.
 
@@ -27,8 +31,8 @@ Google internal sales tool
 [Soundtrap](https://www.soundtrap.com/)
 : Collaboratively record music with your browser, built with Dart and WebRTC.
 
-[blossom](https://www.blossom.io/)
-: Lean project management tool, built with Dart.
+[Blossom](https://www.blossom.io/)
+: Agile project management tool, built with Dart.
 
 [Ascentis](http://www.ascentis.com/)
 : SaaS for human capital management.
@@ -108,6 +112,9 @@ Google internal customer support tool
 [Quire](https://quire.io/)
 : A simple, collaborative, multi-level task management tool with both the client and server written in Dart.
 
+[DGLogik](http://www.dglogik.com/)
+: IOT Application Platform, DGLux5, provides a visual drag and drop rapid application development environment.
+
 Adwords for video
 : The application that advertisers use to promote video ads on YouTube
   and other sites. Advertisers create accounts, setup campaigns, create ads,
@@ -116,3 +123,21 @@ Adwords for video
 
 Google internal tool for marketing
 : Built with AngularDart.
+
+[Statim APPcatalog](http://www.statim-appcatalog.com/en)
+: An interactive product catalog for tablets and smartphones. Built with Dart, Sencha Touch.
+
+[Centryl](http://www.centryl.com)
+: A cloud based ERP/CRM system built both server and client side with Dart. 
+
+[Google Shopping Express](https://www.google.com/shopping/express/)
+: An enterprise tool to manage drivers/couriers, built with AngularDart.
+
+[SonarDesign](http://www.sonardesign.com)
+: A high-performance, HTML5 web app authoring and distribution platform built on and made for the modern web.
+
+[Lumo](http://lumo.sonardesign.com)
+: An online presentation service that allows you to create, present, and share presentations on any device.
+
+[Children of Ur](http://www.childrenofur.com/)
+: A community reboot of the closed massively multiplayer game called [Glitch](http://glitchthegame.com).

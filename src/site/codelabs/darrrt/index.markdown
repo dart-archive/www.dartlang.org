@@ -789,10 +789,10 @@ operations on the members of a single object.
 to set two properties on the button element.
 The result is the same as this more verbose code:
 
-<pre>
+{% prettify dart %}
 genButton.disabled = false;
 genButton.text = 'Aye! Gimme a name!';
-</pre>
+{% endprettify %}
 
 </div></div>
 

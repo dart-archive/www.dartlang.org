@@ -1,0 +1,23 @@
+<!-- import polymer-element's definition -->
+<link rel="import" href="../../packages/polymer/polymer.html">
+
+<polymer-element name="a-4" attributes="count">
+  <template>
+    <style>
+      div {
+        font-size: 24pt;
+        text-align: center;
+      }
+      button {
+        font-size: 24pt;
+        margin-bottom: 20px;
+      }
+    </style>
+    <div>
+      <button on-click="{{increment}}">Click a4</button><br>
+      <span>(click count: {{count}})</span>
+    </div>
+  </template>
+  <script type="application/dart" src="a4.dart"></script>
+</polymer-element>
+

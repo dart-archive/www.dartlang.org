@@ -10,9 +10,10 @@ has-permalinks: true
 
 # {{ page.title }}
 
-The reference documentation will include the following:
+The reference documentation includes the following:
 
-* Differences from JavaScript
-* Import Syntax
-* [Release Notes](release-notes/)
 * [Error Messages](error-messages/)
+* [Release Notes](release-notes/)
+
+Also see the [FAQ](/polymer/faq.html), including the section
+[Differences between the JavaScript and Dart versions of Polymer](/polymer/faq.html#differences-between-the-javascript-and-dart-versions-of-polymer).

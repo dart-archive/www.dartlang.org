@@ -86,9 +86,9 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     when you try to launch Dart Editor:
     </p>
 
-    <pre>
-    Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\client\jvm.dll
-    </pre>
+{% prettify none %}
+Failed to load the JNI shared library "C:\Program Files(x86)\Java\jre6\\bin\client\jvm.dll
+{% endprettify %}
 
     <p>
     To determine which version of Java you are running, do one of the
@@ -266,9 +266,10 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   <code>&#x2011;vmargs</code> line:
   </p>
 
-  <pre>-vm
-  <em>/full/path/to/java</em>
-  </pre>
+{% prettify none %}
+-vm
+/full/path/to/java
+{% endprettify %}
 
   <div class="windows">
     <p>
@@ -277,9 +278,10 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     as the directory separator:
     </p>
 
-    <pre>-vm
-    c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
-    </pre>
+{% prettify none %}
+-vm
+c:\\bin\\java_jdk1.7.0\\bin\\javaw.exe
+{% endprettify %}
     </div>
   </div>
 
@@ -287,12 +289,13 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   For example, <code>DartEditor.ini</code> might have:
   </p>
 
-  <pre>...
-  -vm
-  /usr/local/buildtools/java/jdk-64/bin/java
-  -vmargs
-  ...
-  </pre>
+{% prettify none %}
+...
+-vm
+/usr/local/buildtools/java/jdk-64/bin/java
+-vmargs
+...
+{% endprettify %}
 
 </section>
 
@@ -405,40 +408,40 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
   replace <code>9090</code> with the appropriate
   port for your proxy:
 
-  <pre>
-  http_proxy=http://&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
-  https_proxy=https://&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
-  no_proxy=localhost,127.0.0.1
-  </pre>
+{% prettify none %}
+http_proxy=http://&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+https_proxy=https://&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+no_proxy=localhost,127.0.0.1
+{% endprettify %}
 
   If your proxy needs authentication, the setup will look more
   like the following:
 
-  <pre>
-  http_proxy=http://&lt;username&gt;:&lt;password&gt;@&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
-  https_proxy=https://&lt;username&gt;:&lt;password&gt;@&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
-  </pre>
+{% prettify none %}
+http_proxy=http://&lt;username&gt;:&lt;password&gt;@&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+https_proxy=https://&lt;username&gt;:&lt;password&gt;@&lt;yourproxy&gt;.&lt;yourdomain&gt;.com:9090/
+{% endprettify %}
 
   <p>
   To enable Dart Editor to check for updates, add the following to the
   <code>DartEditor.ini</code> file:</p>
 
-  <pre>
-  -Dhttp.proxyHost=&lt;yourproxy&gt;.&lt;yourdomain&gt;.com
-  -Dhttp.proxyPort=9090
-  -Dhttps.proxyHost=&lt;yourproxy&gt;.&lt;yourdomain&gt;.com
-  -Dhttps.proxyPort=9090
-  </pre>
+{% prettify none %}
+-Dhttp.proxyHost=&lt;yourproxy&gt;.&lt;yourdomain&gt;.com
+-Dhttp.proxyPort=9090
+-Dhttps.proxyHost=&lt;yourproxy&gt;.&lt;yourdomain&gt;.com
+-Dhttps.proxyPort=9090
+{% endprettify %}
 
   <p>
   If you need a user name and password for authentication, add:
 
-  <pre>
-  -Dhttp.proxyUser=&lt;username&gt;
-  -Dhttp.proxyPassword=&lt;passwordstring&gt;
-  -Dhttps.proxyUser=&lt;username&gt;
-  -Dhttps.proxyPassword=&lt;passwordstring&gt;
-  </pre>
+{% prettify none %}
+-Dhttp.proxyUser=&lt;username&gt;
+-Dhttp.proxyPassword=&lt;passwordstring&gt;
+-Dhttps.proxyUser=&lt;username&gt;
+-Dhttps.proxyPassword=&lt;passwordstring&gt;
+{% endprettify %}
 </section>
 
 <section>
@@ -531,15 +534,15 @@ description: "Installing and running Dart Editor is easy. Except when it isn't."
     9238</a>). The workaround is to modify your <tt>DartEditor.ini</tt>
     file, changing the following entry:
 
-    <pre>
-    $user.home\DartEditor
-    </pre>
+{% prettify none %}
+$user.home\DartEditor
+{% endprettify %}
 
     To something like the following:
 
-    <pre>
-    C:\DartEditor
-    </pre>
+{% prettify none %}
+C:\DartEditor
+{% endprettify %}
 
   </section>
 </div>

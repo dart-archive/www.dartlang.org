@@ -99,7 +99,7 @@ Launch the app and open Observatory.
 The following output prints to the console when `main(['3'])`, followed by
 `main(['5'])`, is entered into the isolate's expression evaluation field:
 
-<pre>
+{% prettify none %}
 Observatory listening on http://127.0.0.1:61852
 Hello, World!
 That's all!
@@ -116,7 +116,7 @@ Hello, World!
 Hello, World!
 Hello, World!
 That's all!
-</pre>
+{% endprettify %}
 
 ## Example 2: Querying and setting variables {#example-2}
 
@@ -140,13 +140,13 @@ Launch the app and open Observatory.
 The [library screen](screens.html#library-screen) shows
 the following:
 
-<pre>
+{% prettify none %}
 variables (4)
     static String str    "Howdy!"
     static double db     null
     static double db2    null
     static List aList    _GrowableList(3)
-</pre>
+{% endprettify %}
 
 Use the expression evaluation field to modify the variables.
 Some examples are:

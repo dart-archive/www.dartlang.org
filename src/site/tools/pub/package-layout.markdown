@@ -261,6 +261,9 @@ When you run your application using [`pub serve`](cmd/pub-serve.html), or build
 it to something deployable using [`pub build`](cmd/pub-build.html), pub will
 copy over any referenced assets that your package depends on.
 
+For more information about using assets, see
+[Pub Assets and Transformers](assets-and-transformers.html).
+
 ## Implementation files
 
     enchilada/

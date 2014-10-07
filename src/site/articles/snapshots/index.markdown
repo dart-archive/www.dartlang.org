@@ -116,9 +116,9 @@ You can use the `--package_root` option
 to specify the location of packages used in imports
 (`import 'package:...'`).
 
-<pre>
-dart <em>[</em>--package_root=<em>path]</em> --snapshot=<em>out-file</em> <em>dart-script-file</em>
-</pre>
+{% prettify lang-sh %}
+dart [--package_root=<path>] --snapshot=<output_file> <dart_file>
+{% endprettify %}
 
 The `--snapshot` option writes
 a script snapshot of _dart-script-file_ to _out-file_.
@@ -126,7 +126,7 @@ For example, the following command creates
 a snapshot of the Dart script `dart2js.dart`,
 putting it into a file called `dart2js.snapshot`.
 
-{% prettify sh %}
+{% prettify lang-sh %}
 dart --snapshot=dart2js.snapshot \ 
     dart-sdk/lib/dart2js/lib/_internal/compiler/implementation/dart2js.dart
 {% endprettify %}
@@ -134,15 +134,15 @@ dart --snapshot=dart2js.snapshot \
 To execute a script from its snapshot,
 specify the snapshot file on the command line:
 
-<pre>
-dart <em>snapshot-file</em> <em>args</em>
-</pre>
+{% prettify lang-sh %}
+dart <snapshot_file> <args>
+{% endprettify %}
 
 Any _args_ you specify are passed to the script.
 For example, you can run dart2js like this,
 passing `myscript.dart -oout.js` as command-line arguments to dart2js:
 
-{% prettify sh %}
+{% prettify lang-sh %}
 dart dart2js.snapshot myscript.dart -oout.js
 {% endprettify %}
 
@@ -154,9 +154,9 @@ The gen_snapshot tool writes a full snapshot
 (corelibs, dart:uri, dart:io, dart:utf, dart:json, dart:isolate, ...)
 to _out-file_:
 
-<pre>
-gen_snapshot <em>[options]</em> --snapshot=<em>out-file</em>
-</pre>
+{% prettify lang-sh %}
+gen_snapshot [<options>] --snapshot=<out_file>
+{% endprettify %}
 
 You can use the following _options_:
 

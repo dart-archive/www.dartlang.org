@@ -97,7 +97,7 @@ created for the vector_victor application.
 The package name is required.
 You'll note that the pubspec.yaml file already
 lists a dependency on the browser package.
-Web applications that don't use Polymer
+Web applications that don't use polymer.dart
 need the browser package.
 
 {% comment %}
@@ -310,12 +310,12 @@ Note that you specify the filename, not the library name.
 
 ##What next? {#what-next}
 
-One package at pub.dartlang.org is Polymer.dart,
+One package at pub.dartlang.org is polymer.dart,
 which makes writing web applications easier
 with data binding, templates, and declarative event handlers.
 Check out the next tutorial,
 [Define a Custom Element](/docs/tutorials/polymer-intro),
-for an introduction to Polymer.
+for an introduction to polymer.dart.
 
 
 {% endcapture %}
