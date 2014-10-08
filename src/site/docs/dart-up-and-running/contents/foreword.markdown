@@ -42,3 +42,6 @@ with lots of code.
 _Dart: Up and Running_ is a practical guide that
 introduces the Dart programming language and teaches you how to build Dart
 applications. We hope you will enjoy the book and Dart.
+
+<hr>
+{% include book-nav.html %}
