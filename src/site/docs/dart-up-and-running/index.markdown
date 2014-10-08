@@ -2,6 +2,8 @@
 layout: default
 title: "Dart: Up and Running"
 description: "Excerpts from the O'Reilly book."
+next-chapter: contents/ch01.html
+next-chapter-title: "Quick Start"
 ---
 
 # {{ page.title }}
@@ -42,3 +44,4 @@ To find other books about Dart, see [Books on Dart](/books/).
 1. [Chapter 5. Walkthrough: Dartiverse Search](contents/ch05.html)
 {:.toc}
 
+{% include book-nav.html %}
