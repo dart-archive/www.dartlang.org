@@ -21,8 +21,8 @@ Its content is licensed under the
 United States License](http://creativecommons.org/licenses/by-nc-nd/3.0/us/)
 (CC BY-NC-ND).
 
-You can download [code samples](https://github.com/dart-lang/dart-up-and-running-book/tree/master/code) and other book files from the
-[GitHub project](https://github.com/dart-lang/dart-up-and-running-book).
+You can find the [code samples](https://github.com/dart-lang/dart-up-and-running-book/tree/master/code) on GitHub.
+The [text of this book](https://github.com/dart-lang/www.dartlang.org/tree/master/src/site/docs/dart-up-and-running) is also on GitHub.
 
 For purchase information, see the
 [O'Reilly book page](http://shop.oreilly.com/product/0636920025719.do).
@@ -32,8 +32,8 @@ To find other books about Dart, see [Books on Dart](/books/).
 #### Contents
 
 1. [Foreword](contents/foreword.html)
-1. [Preface](contents/preface.html)
-   (including [Content Updates](contents/preface.html#preface-updates)
+1. [Preface](contents/ch00.html)
+   (including [Content Updates](contents/ch00.html#preface-updates)
    since the book was published)
 1. [Chapter 1. Quick Start](contents/ch01.html)
 1. [Chapter 2. A Tour of the Dart Language](contents/ch02.html)

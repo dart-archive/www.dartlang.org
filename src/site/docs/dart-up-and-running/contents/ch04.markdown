@@ -3,15 +3,16 @@ layout: book
 title: "Tools"
 subsite: "Dart Up and Running"
 description: "Read Chapter 4. Tools of Dart: Up and Running, published by O'Reilly."
+prev-chapter: ch03.html
+prev-chapter-title: "Library Tour"
+next-chapter: ch05.html
+next-chapter-title: "Walkthrough"
 ---
 
 {% include toc.html %}
-{% include bookcrumbs.html %}
+{% include book-nav.html %}
 
 # {{ page.title }}
-
-Tools
-=====
 
 Dart provides several tools to help you write and deploy your web and
 command-line apps. These tools include:
@@ -52,8 +53,8 @@ The tools are in the `dart-sdk/bin` directory of your Dart installation
 directory. If you intend to use tools such as pub, dart2js, and dart
 from the command line, add the `bin` directory to your path.
 
-pub: The Dart Package Manager
-=============================
+
+## pub: The Dart Package Manager
 
 You can use the *pub* tool to manage Dart packages. A Dart package is
 simply a directory containing any number of Dart libraries and a list of
@@ -79,8 +80,9 @@ To use a library that’s in a Dart package, you need to do the following:
 
 3.  Import the library.
 
-Creating a Pubspec
-------------------
+
+### Creating a Pubspec
+{:.no_toc}
 
 To use a package, your application must define a pubspec that lists
 dependencies and their download locations. The pubspec is a file named
@@ -101,8 +103,9 @@ For details, see the [pubspec
 documentation](https://www.dartlang.org/tools/pub/pubspec.html) and the
 documentation for the packages you’re interested in using.
 
-Installing Packages
--------------------
+
+### Installing Packages
+{:.no_toc}
 
 Once you have a pubspec, you can run `pub
       get` from the top directory of your application:
@@ -121,8 +124,9 @@ grabs both the js package and the unittest package.
 Finally, pub creates a `packages` directory (under your app’s top
 directory) that has links to the packages that your app depends on.
 
-Importing Libraries from Packages
----------------------------------
+
+### Importing Libraries from Packages
+{:.no_toc}
 
 To import libraries found in packages, use the `package:` prefix:
 
@@ -133,8 +137,9 @@ To import libraries found in packages, use the `package:` prefix:
 The Dart runtime takes everything after `package:` and looks it up
 within the `packages` directory for your app.
 
-More Information
-----------------
+
+### More Information
+{:.no_toc}
 
 Pub has support for building web apps. If your web app's directory
 structure follows pub's [package layout
@@ -147,8 +152,8 @@ app, use `pub
 For more information about pub, see the [pub
 documentation.](https://www.dartlang.org/tools/pub/get-started.html)
 
-Dart Editor
-===========
+
+## Dart Editor
 
 We already introduced Dart Editor in ?. Here are some more tips on using
 Dart Editor, with information such as [specifying a
@@ -160,8 +165,9 @@ Editor is updated frequently, so it probably looks different from what
 you see here. For the latest information, see the [Dart Editor
 documentation.](http://www.dartlang.org/editor)
 
-Viewing Samples
----------------
+
+### Viewing Samples
+{:.no_toc}
 
 The Welcome page of Dart Editor (?) displays a few samples. To open a
 sample and look at its source code, click the sample’s image.
@@ -169,14 +175,16 @@ sample and look at its source code, click the sample’s image.
 If you don’t see the Welcome page, you probably closed it. Get it back
 with **Tools \> Welcome Page**.
 
-Managing the Files View
------------------------
+
+### Managing the Files View
+{:.no_toc}
 
 The Files view shows the files that implement the libraries included in
 Dart, installed packages, as well as all the apps that you create or
 open.
 
-### Adding apps
+#### Adding apps
+{:.no_toc}
 
 Here’s how to open an app, which makes it appear in your Files view:
 
@@ -189,7 +197,8 @@ Here’s how to open an app, which makes it appear in your Files view:
 
 The directory and all its files appear in the Files view.
 
-### Removing apps
+#### Removing apps
+{:.no_toc}
 
 You can remove an app from the Files view, either with or without
 deleting its files.
@@ -198,8 +207,9 @@ Right-click (or Ctrl+click) the directory and choose **Delete**. If you
 want to delete the app’s files permanently, then in the dialog that
 comes up, choose **Delete project contents on disk**.
 
-Creating Apps
--------------
+
+### Creating Apps
+{:.no_toc}
 
 It’s easy to create a simple web or command-line app from scratch:
 
@@ -228,14 +238,16 @@ It’s easy to create a simple web or command-line app from scratch:
     ![A new app, pre-filled with basic, runnable
     code](figs/web/daur_0401.png)
 
-Editing Apps
-------------
+
+### Editing Apps
+{:.no_toc}
 
 Dart Editor provides the basic editing functionality you’d expect, plus
 features such as Dart code completion, API browsing, support for
 refactoring, and the ability to search multiple files.
 
-### Using autocomplete
+#### Using autocomplete
+{:.no_toc}
 
 Autocomplete suggestions look something like ?. They appear when you
 either:
@@ -256,12 +268,13 @@ suggestion, or Esc to dismiss the panel.
 
 ![Autocomplete suggestions](figs/web/daur_0402.png)
 
-### Browsing APIs
+#### Browsing APIs
+{:.no_toc}
 
 With Dart Editor you can easily find where APIs are declared. You can
 also outline the contents of a Dart file.
 
-#### Finding out more about an API
+##### Finding out more about an API
 
 To get more information about an API item-variable, method, type,
 library, and so on-hover the mouse over the item in the Edit view. Dart
@@ -281,7 +294,7 @@ file or in another file:
     you open the declaration for querySelector, the file that declares
     the `querySelector()` function appears.
 
-#### Outlining a file’s contents
+##### Outlining a file’s contents
 
 Press **Alt+O** (**Option+O** on Mac) or right-click and choose
 **Outline File**.
@@ -303,6 +316,7 @@ Alternatively, add a more permanent outline view by choosing **Tools \>
 Outline**.
 
 ### Refactoring
+{:.no_toc}
 
 To change the name of an item throughout your code, put the cursor
 within (or double-click) the item’s name in the Edit view, and
@@ -315,6 +329,7 @@ compilation unit is changing the name of a file that’s sourced by a
 library.
 
 ### Searching
+{:.no_toc}
 
 The search field at the upper right of the Dart Editor window is an easy
 way to go directly to:
@@ -330,8 +345,9 @@ text searches come up in a Search view. Within that view, double-click a
 file to see it in the Edit view. All occurrences of the search string in
 the Edit view are highlighted.
 
-Running Apps
-------------
+
+### Running Apps
+{:.no_toc}
 
 To run any Dart app, click Dart Editor’s Run button
 ![](figs/web/run.png) while a file in that app is selected. If you’re
@@ -346,6 +362,7 @@ configuration specifies a browser, then Dart Editor uses
 that executes in the browser.
 
 ### Specifying launch configurations
+{:.no_toc}
 
 Use **Run \> Manage Launches** to specify as many launch configurations
 as you like.
@@ -379,6 +396,7 @@ You can specify the following for command-line apps:
 -   checked mode
 
 ### Running in production mode
+{:.no_toc}
 
 By default, apps run in checked mode. To run in production mode instead,
 disable checked mode in your app’s launch configuration:
@@ -403,6 +421,7 @@ disable checked mode in your app’s launch configuration:
 For details about checked mode and production mode, see ?.
 
 ### Specifying a browser for JavaScript launches
+{:.no_toc}
 
 To specify the browser in which to run the JavaScript version of your
 web apps:
@@ -424,8 +443,9 @@ Alternatively, you can run your app as JavaScript using the default
 browser setting and then copy and paste the URL into a different
 browser.
 
-Debugging Apps
---------------
+
+### Debugging Apps
+{:.no_toc}
 
 You can debug both command-line and web apps with Dart Editor. Some
 tips:
@@ -448,8 +468,9 @@ tips:
 ![Using Dart Editor to debug the Sunflower sample
 app](figs/web/daur_0406.png)
 
-Compiling to JavaScript
------------------------
+
+### Compiling to JavaScript
+{:.no_toc}
 
 You might not need to do anything to compile your code to JavaScript.
 When you run an app using a launch configuration that [specifies a
@@ -460,13 +481,15 @@ However, you can also compile Dart code to JavaScript without running
 the app. Just choose **Tools \> Generate JavaScript**. Another option is
 using dart2js from the command line (see ?).
 
-Other Features
---------------
+
+### Other Features
+{:.no_toc}
 
 Dart Editor has many additional features, including customization and
 keyboard alternatives.
 
 ### Customizing Dart Editor
+{:.no_toc}
 
 You can customize the editor’s font, margins, key bindings, and more
 using the Preferences dialog. To bring up the dialog, choose **Tools \>
@@ -479,14 +502,15 @@ position, either within or outside of the Dart Editor window. To resize
 a view, drag its edges.
 
 ### Keyboard alternatives
+{:.no_toc}
 
 To get a list of all keyboard alternatives, choose **Help \> Key
 Assist** (?).
 
 ![Help \> Key Assist](figs/web/daur_0407.png)
 
-Dartium: Chromium with the Dart VM
-==================================
+
+## Dartium: Chromium with the Dart VM
 
 This section tells you how to get and use Dartium, a Chromium-based
 browser that includes the Dart VM. This browser can execute Dart web
@@ -499,8 +523,9 @@ until you’re ready to test on other browsers.
 > stability issues. **Do not use Dartium as your primary browser, and do
 > not distribute Dartium to users!**
 
-Downloading and Installing the Browser
---------------------------------------
+
+### Downloading and Installing the Browser
+{:.no_toc}
 
 If you have an up-to-date version of Dart Editor, you already have
 Dartium.
@@ -522,8 +547,9 @@ replacing the original copy of Chromium.
 > Dartium binary that comes with Dart Editor. (Dart Editor automatically
 > updates its Dartium binary.)
 
-Launching the Browser
----------------------
+
+### Launching the Browser
+{:.no_toc}
 
 To launch Dartium, navigate to its directory in your finder, and
 double-click the Chromium executable file. Or use Dart Editor as
@@ -536,14 +562,16 @@ described in ? or the command line as described in ?.
 > Dartium or Chromium from the command line with the [--user-data-dir
 > flag.](http://www.chromium.org/user-experience/user-data-directory)
 
-Filing Bugs
------------
+
+### Filing Bugs
+{:.no_toc}
 
 If you find a bug in Dartium, create an issue in the Dart project and
 use the [Dartium bug template.](http://bit.ly/WO0U32)
 
-Linking to Dart Source
-----------------------
+
+### Linking to Dart Source
+{:.no_toc}
 
 Use a script tag with a type `application/dart` to link to your Dart
 source file. Example:
@@ -568,8 +596,9 @@ For more information on linking to source code, see the article
 [Embedding Dart in
 HTML.](https://www.dartlang.org/articles/embedding-in-html/)
 
-Detecting Dart Support
-----------------------
+
+### Detecting Dart Support
+{:.no_toc}
 
 You can check whether a browser supports Dart with this JavaScript code:
 
@@ -583,8 +612,9 @@ You can check whether a browser supports Dart with this JavaScript code:
       }, false);
     }
 
-Launching from the Command Line
--------------------------------
+
+### Launching from the Command Line
+{:.no_toc}
 
 Because Dartium is based on Chromium, all [Chromium
 flags](http://www.chromium.org/developers/how-tos/run-chromium-with-flags)
@@ -616,20 +646,20 @@ Or (also on Mac):
 > You can see the command-line flags and executable path of any
 > Chromium-based browser by going to `chrome://version`.
 
-dart2js: The Dart-to-JavaScript Compiler
-========================================
+
+## dart2js: The Dart-to-JavaScript Compiler
 
 The documentation for dart2js has moved to
 [www.dartlang.org/tools/dart2js/](/tools/dart2js/).
 
-dart: The Standalone VM
-=======================
+
+## dart: The Standalone VM
 
 The documentation for dart has moved to
 [www.dartlang.org/tools/dart-vm/](/tools/dart-vm/).
 
-dartanalyzer: The Static Analyzer
-=================================
+
+## dartanalyzer: The Static Analyzer
 
 You can use the *dartanalyzer* tool (`bin/dartanalyzer`) to statically
 analyze your code at the command line, checking for errors and warnings
@@ -642,8 +672,9 @@ Specification.](http://www.dartlang.org/docs/spec/)
 > previous static analyzer, called *dart\_analyzer*, is no longer
 > supported.
 
-Basic Usage
------------
+
+### Basic Usage
+{:.no_toc}
 
 Here’s an example of testing a Dart file:
 
@@ -661,8 +692,9 @@ passed analysis.
 
   : Exit codes for dartanalyzer
 
-Options
--------
+
+### Options
+{:.no_toc}
 
 You can use the following command-line options with dartanalyzer: {NOTE:
 I'm still not documenting --perf. It's displayed by --help but seems of
@@ -704,8 +736,8 @@ for SDK developers?), --show-sdk-warnings (deprecated)}
 
 :   Show all the command-line options.
 
-Summary
-=======
+
+## Summary
 
 This chapter covered the most commonly used Dart tools. All of them are
 available in the Dart Editor download, but you can also download Dartium

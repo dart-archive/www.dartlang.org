@@ -3,10 +3,14 @@ layout: book
 title: "Quick Start"
 subsite: "Dart Up and Running"
 description: "Read Chapter 1. Quick Start of Dart: Up and Running, published by O'Reilly."
+prev-chapter: ch00.html
+prev-chapter-title: "Preface"
+next-chapter: ch02.html
+next-chapter-title: "Language Tour"
 ---
 
 {% include toc.html %}
-{% include bookcrumbs.html %}
+{% include book-nav.html %}
 
 # {{ page.title }}
 
@@ -20,8 +24,7 @@ virtual machine (VM), a browser that can run Dart apps natively, and a
 compiler to JavaScript. Dart aims to be a more productive way to build
 the high-performance, modern apps that users demand.
 
-Why Google Created Dart
-=======================
+## Why Google Created Dart
 
 Google cares a lot about helping to make the web great. We write a lot
 of web apps, many of them quite sophisticated—think Gmail, Google
@@ -70,8 +73,8 @@ We expect Dart to help in two main ways:
     projects. Types can make APIs clearer and easier to use. Tools help
     you refactor, navigate, and debug code.
 
-A Quick Look at the Dart Language
-=================================
+
+## A Quick Look at the Dart Language
 
 It’s hard to talk about a language without seeing it. Here’s a peek at a
 small Dart program:
@@ -113,8 +116,8 @@ the browser is easy:
 You’ll learn about the Dart language and libraries in Chapters ? and ?
 respectively.
 
-What’s Cool About Dart
-======================
+
+## What’s Cool About Dart
 
 Dart may look familiar, but don’t let that fool you. Dart has lots of
 cool features to help give you a productive and fun experience building
@@ -185,8 +188,8 @@ under a BSD-style license. You can find the project’s [issue tracker and
 source repository](http://dart.googlecode.com) online. Maybe you’ll
 submit the next patch?
 
-Up and Running
-==============
+
+## Up and Running
 
 Now that you know something about Dart, get ready to code! These
 instructions feature the open-source Dart Editor tool. When you download
@@ -200,8 +203,8 @@ Dart-to-JavaScript compiler and a version of Chromium (nicknamed
 > [Troubleshooting Dart
 > Editor.](http://www.dartlang.org/tools/editor/troubleshoot.html)
 
-Step 1: Download and Install the Software
------------------------------------------
+
+### Step 1: Download and Install the Software
 
 In this step, you’ll install Dart Editor and, if necessary, a Java
 runtime environment. (To avoid having to modify the PATH environment
@@ -217,8 +220,8 @@ directory, in a subdirectory named `jre`.)
 3.  If you don’t already have a Java runtime, download and install it.
     Dart Editor requires Java version 6 or higher.
 
-Step 2: Launch the Editor
--------------------------
+
+### Step 2: Launch the Editor
 
 Go to your Dart installation directory, and double-click the
 **DartEditor** executable![](figs/web/Dart_Logo_21.png).
@@ -228,8 +231,8 @@ something like ?.
 
 ![Dart Editor and its Welcome page](figs/web/daur_0102.png)
 
-Step 3: Open and Run a Demo
----------------------------
+
+### Step 3: Open and Run a Demo
 
 The Dart Editor bundle comes with several demos and samples. In this
 step, you’ll open a web app and run it in Dartium.
@@ -254,8 +257,8 @@ step, you’ll open a web app and run it in Dartium.
 
     ![The Sunflower sample running in Dartium](figs/web/daur_0105.png)
 
-Step 4: Create and Run an App
------------------------------
+
+### Step 4: Create and Run an App
 
 It’s easy to create a simple web or command-line app from scratch. This
 step walks you through creating and running a command-line app.
@@ -287,13 +290,14 @@ step walks you through creating and running a command-line app.
     For command-line apps, the output of `print()` appears at the bottom
     right, in a new tab next to the Problems tab.
 
-What Next?
-----------
+
+### What Next?
 
 Now that you know the basics, you can learn more about Dart Editor and
 help improve it.
 
-### Follow a code lab
+#### Follow a code lab
+{:.no_toc}
 
 Go to [dartlang.org/codelabs](https://www.dartlang.org/codelabs/) to
 find the latest step-by-step instructions for writing an app. The first
@@ -301,17 +305,20 @@ code lab, [Try Dart,](https://www.dartlang.org/codelabs/darrrt/) guides
 you through using Dart Editor to build and run a pirate name badge
 generator.
 
-### Read tutorials
+#### Read tutorials
+{:.no_toc}
 
 [The Dart Tutorials](http://www.dartlang.org/docs/tutorials/) teach you
 how to build web applications using the Dart language, tools, and APIs.
 
-### Become a power user
+#### Become a power user
+{:.no_toc}
 
 Visit the [Dart Editor homepage](http://www.dartlang.org/editor/) for
 help on using Dart Editor’s expanding feature set.
 
-### Send feedback
+#### Send feedback
+{:.no_toc}
 
 Click the **SEND FEEDBACK** link (at the upper right of the Dart Editor
 window) whenever you notice a problem or have an idea for improving Dart

@@ -3,10 +3,14 @@ layout: book
 title: "A Tour of the Dart Libraries"
 subsite: "Dart Up and Running"
 description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Running, published by O'Reilly."
+prev-chapter: ch02.html
+prev-chapter-title: "Language Tour"
+next-chapter: ch04.html
+next-chapter-title: "Tools"
 ---
 
 {% include toc.html %}
-{% include bookcrumbs.html %}
+{% include book-nav.html %}
 
 # {{ page.title }}
 
@@ -15,15 +19,16 @@ libraries. It’s just an overview, and by no means comprehensive.
 Whenever you need more details about a class, consult the [Dart API
 reference.](http://api.dartlang.org/)
 
-dart:core - Numbers, Collections, Strings, and More
-===================================================
+
+## dart:core - Numbers, Collections, Strings, and More
 
 The Dart core library provides a small but critical set of built-in
 functionality. This library is automatically imported into every Dart
 program.
 
-Numbers
--------
+
+### Numbers
+{:.no_toc}
 
 The dart:core library defines the num, int, and double classes, which
 have some basic utilities for working with numbers.
@@ -79,8 +84,9 @@ For more information, see the API documentation for
 [double,](http://api.dartlang.org/dart_core/double.html) and
 [num.](http://api.dartlang.org/dart_core/num.html) Also see ?.
 
-Strings and Regular Expressions
--------------------------------
+
+### Strings and Regular Expressions
+{:.no_toc}
 
 A string in Dart is an immutable sequence of UTF-16 code units. The
 language tour has more information about [strings](#strings). You can
@@ -90,7 +96,8 @@ replace parts of strings.
 The String class defines such methods as `split()`, `contains()`,
 `startsWith()`, `endsWith()`, and more.
 
-### Searching inside a string
+#### Searching inside a string
+{:.no_toc}
 
 You can find particular locations within a string, as well as check
 whether a string begins with or ends with a particular pattern. For
@@ -110,7 +117,8 @@ example:
     // Find the location of a string inside a string.
     assert('Never odd or even'.indexOf('odd') == 6);
 
-### Extracting data from a string
+#### Extracting data from a string
+{:.no_toc}
 
 You can get the individual characters from a string as Strings or ints,
 respectively. To be precise, you actually get individual UTF-16 code
@@ -143,7 +151,8 @@ substrings:
     var codeUnitList = 'Never odd or even'.codeUnits.toList();
     assert(codeUnitList[0] == 78);
 
-### Converting to uppercase or lowercase
+#### Converting to uppercase or lowercase
+{:.no_toc}
 
 You can easily convert strings to their uppercase and lowercase
 variants:
@@ -161,7 +170,8 @@ variants:
 > These methods don't work for every language. For example, the Turkish
 > alphabet's dotless *I* is converted incorrectly.
 
-### Trimming and empty strings
+#### Trimming and empty strings
+{:.no_toc}
 
 Remove all leading and trailing white space with `trim()`. To check
 whether a string is empty (length is zero), use `isEmpty`.
@@ -177,7 +187,8 @@ whether a string is empty (length is zero), use `isEmpty`.
     // Strings with only white space are not empty.
     assert(!'  '.isEmpty);
 
-### Replacing part of a string
+#### Replacing part of a string
+{:.no_toc}
 
 Strings are immutable objects, which means you can create them but you
 can’t change them. If you look closely at the [String API
@@ -193,7 +204,8 @@ original String:
 
     assert(greeting != greetingTemplate); // greetingTemplate didn't change.
 
-### Building a string
+#### Building a string
+{:.no_toc}
 
 To programmatically generate a string, you can use StringBuffer. A
 StringBuffer doesn’t generate a new String object until `toString()` is
@@ -213,7 +225,8 @@ lets you specify a separator—in this case, a space.
     assert(fullString ==
         'Use a StringBuffer for efficient string creation.');
 
-### Regular expressions
+#### Regular expressions
+{:.no_toc}
 
 The RegExp class provides the same capabilities as JavaScript regular
 expressions. Use regular expressions for efficient searching and pattern
@@ -251,7 +264,8 @@ provides access to a regular expression match.
       print(match.group(0)); // 15, then 20
     }
 
-### More information
+#### More information
+{:.no_toc}
 
 Refer to the [String API
 docs](http://api.dartlang.org/dart_core/String.html) for a full list of
@@ -261,13 +275,15 @@ methods. Also see the API docs for
 [RegExp,](http://api.dartlang.org/dart_core/RegExp.html) and
 [Match.](http://api.dartlang.org/dart_core/Match.html)
 
-Collections
------------
+
+### Collections
+{:.no_toc}
 
 Dart ships with a core collections API, which includes classes for
 lists, sets, and maps.
 
-### Lists
+#### Lists
+{:.no_toc}
 
 As the language tour shows, you can use literals to create and
 initialize [lists](#lists). Alternatively, use one of the List
@@ -346,7 +362,8 @@ Refer to the [List API
 docs](http://api.dartlang.org/dart_core/List.html) for a full list of
 methods.
 
-### Sets
+#### Sets
+{:.no_toc}
 
 A set in Dart is an unordered collection of unique items. Because a set
 is unordered, you can’t get a set’s items by index (position).
@@ -395,7 +412,8 @@ An intersection is a set whose items are in two other sets.
 Refer to the [Set API docs](http://api.dartlang.org/dart_core/Set.html)
 for a full list of methods.
 
-### Maps
+#### Maps
+{:.no_toc}
 
 A map, commonly known as a *dictionary* or *hash*, is an unordered
 collection of key-value pairs. Maps associate a key to some value for
@@ -486,7 +504,8 @@ a function that returns the value.
 Refer to the [Map API docs](http://api.dartlang.org/dart_core/Map.html)
 for a full list of methods.
 
-### Common collection methods
+#### Common collection methods
+{:.no_toc}
 
 List, Set, and Map share common functionality found in many collections.
 Some of this common functionality is defined by the Iterable class,
@@ -576,8 +595,9 @@ For a full list of methods, refer to the [Iterable API
 docs,](http://api.dartlang.org/dart_core/Iterable.html) as well as those
 for List, Set, and Map.
 
-URIs
-----
+
+### URIs
+{:.no_toc}
 
 The [Uri class](http://api.dartlang.org/dart_core/Uri.html) provides
 functions to encode and decode strings for use in URIs (which you might
@@ -586,7 +606,8 @@ URIs, such as `&` and `=`. The Uri class also parses and exposes the
 components of a URI—host, port, scheme, and so on.{PENDING: show
 constructors: Uri.http, Uri.https, Uri.file, per floitsch's suggestion}
 
-### Encoding and Decoding Fully Qualified URIs
+#### Encoding and Decoding Fully Qualified URIs
+{:.no_toc}
 
 To encode and decode characters *except* those with special meaning in a
 URI (such as `/`, `:`, `&`, `#`), use the `encodeFull()` and
@@ -606,7 +627,8 @@ a fully qualified URI, leaving intact special URI characters.
 
 Notice how only the space between `some` and `message` was encoded.
 
-### Encoding and Decoding URI Components
+#### Encoding and Decoding URI Components
+{:.no_toc}
 
 To encode and decode all of a string’s characters that have special
 meaning in a URI, including (but not limited to) `/`, `&`, and `:`, use
@@ -626,7 +648,8 @@ the `encodeComponent()` and `decodeComponent()` methods.
 Notice how every special character is encoded. For example, `/` is
 encoded to `%2F`.
 
-### Parsing URIs
+#### Parsing URIs
+{:.no_toc}
 
 If you have a Uri object or a URI string, you can get its parts using
 Uri fields such as `path`. To create a Uri from a string, use the
@@ -647,7 +670,8 @@ Uri fields such as `path`. To create a Uri from a string, use the
 See the [Uri API docs](http://api.dartlang.org/dart_core/Uri.html) for
 more URI components that you can get.
 
-### Building URIs
+#### Building URIs
+{:.no_toc}
 
 You can build up a URI from individual parts using the `Uri()`
 constructor:
@@ -660,8 +684,9 @@ constructor:
       assert(uri.toString() == 'http://example.org/foo/bar#frag');
     }
 
-Dates and Times
----------------
+
+### Dates and Times
+{:.no_toc}
 
 A DateTime object is a point in time. The time zone is either UTC or the
 local time zone.
@@ -730,13 +755,15 @@ Refer to the API docs for
 [Duration](http://api.dartlang.org/dart_core/Duration.html) for a full
 list of methods.
 
-Utility Classes
----------------
+
+### Utility Classes
+{:.no_toc}
 
 The core library contains various utility classes, useful for sorting,
 mapping values, and iterating.
 
-### Comparing objects
+#### Comparing objects
+{:.no_toc}
 
 Implement the
 [Comparable](http://api.dartlang.org/dart_core/Comparable.html)
@@ -758,7 +785,8 @@ usually for sorting. The `compareTo()` method returns \< 0 for
       assert(short.compareTo(long) < 0);
     }
 
-### Implementing map keys
+#### Implementing map keys
+{:.no_toc}
 
 Each object in Dart automatically provides an integer hash code, and
 thus can be used as a key in a map. However, you can override the
@@ -803,7 +831,8 @@ convention, NaN != NaN.
       assert(p1 != p3);
     }
 
-### Iteration
+#### Iteration
+{:.no_toc}
 
 The [Iterable](http://api.dartlang.org/dart_core/Iterable.html) and
 [Iterator](http://api.dartlang.org/dart_core/Iterator.html) classes
@@ -837,8 +866,9 @@ loops. Implement Iterator to define the actual iteration ability.
       }
     }
 
-Exceptions
-----------
+
+### Exceptions
+{:.no_toc}
 
 The Dart core library defines many common exceptions and errors.
 Exceptions are considered conditions that you can plan ahead for and
@@ -870,8 +900,8 @@ implementing the Exception interface:
 For more information, see ? and the [Exception API
 docs.](http://api.dartlang.org/dart_core/Exception.html)
 
-dart:async - Asynchronous Programming
-=====================================
+
+## dart:async - Asynchronous Programming
 
 Asynchronous programming often uses callback functions, but Dart
 provides alternatives:
@@ -888,14 +918,16 @@ use it, import dart:async:
     lang-dart
     import 'dart:async';
 
-Future
-------
+
+### Future
+{:.no_toc}
 
 Future objects appear throughout the Dart libraries, often as the object
 returned by an asynchronous method. When a future *completes*, its value
 is ready to use.
 
-### Basic Usage
+#### Basic Usage
+{:.no_toc}
 
 Use `then()` to schedule code that runs when the future completes. For
 example, `HttpRequest.getString()` returns a Future, since HTTP requests
@@ -931,7 +963,8 @@ The `then().catchError()` pattern is the asynchronous version of
 > handle errors only from the original Future's computation, but not
 > from the handler registered by `then()`.
 
-### Chaining Multiple Asynchronous Methods
+#### Chaining Multiple Asynchronous Methods
+{:.no_toc}
 
 The `then()` method returns a Future, providing a useful way to run
 multiple asynchronous functions in a certain order. If the callback
@@ -956,7 +989,8 @@ In the preceding example, the methods run in the following order:
 
 3.  `lengthyComputation()`
 
-### Waiting for Multiple Futures
+#### Waiting for Multiple Futures
+{:.no_toc}
 
 Sometimes your algorithm needs to invoke many asynchronous functions and
 wait for them all to complete before continuing. Use the
@@ -973,14 +1007,16 @@ static method to manage multiple Futures and wait for them to complete:
       print('Done with all the long steps');
     });
 
-Stream
-------
+
+### Stream
+{:.no_toc}
 
 Stream objects appear throughout Dart APIs, representing sequences of
 data. For example, HTML events such as button clicks are delivered using
 streams. You can also read a file as a stream.
 
-### Listening for Stream Data
+#### Listening for Stream Data
+{:.no_toc}
 
 To get each value as it arrives, subscribe to the stream using the
 `listen()` method:
@@ -1005,7 +1041,8 @@ If you care about a subset of events, you can use methods such as
 `skip()`, `skipWhile()`, `take()`, `takeWhile()`, and `where()`.
 {PENDING: example}
 
-### Transforming Stream Data
+#### Transforming Stream Data
+{:.no_toc}
 
 Often, you need to change the format of a stream's data before you can
 use it. Use the `transform()` method to produce a stream with a
@@ -1029,8 +1066,9 @@ separate lines. These transformers are from the dart:convert library
 (see ?).{PENDING: add onDone and onError. (See "Streaming file
 contents".)}
 
-More Information
-----------------
+
+### More Information
+{:.no_toc}
 
 For some examples of using Future and Stream in command-line apps, see
 ?. Also see these articles and tutorials:
@@ -1050,8 +1088,8 @@ For some examples of using Future and Stream in command-line apps, see
 -   [Creating Streams in
     Dart](http://www.dartlang.org/articles/creating-streams/)
 
-dart:math - Math and Random
-===========================
+
+## dart:math - Math and Random
 
 The Math library provides common functionality such as sine and cosine,
 maximum and minimum, and constants such as *pi* and *e*. Most of the
@@ -1065,8 +1103,9 @@ and constants are from the Math library:
     ch03/math-tests.dart
     import 'dart:math' as math;
 
-Trigonometry
-------------
+
+### Trigonometry
+{:.no_toc}
 
 The Math library provides basic trigonometric functions:
 
@@ -1086,8 +1125,9 @@ The Math library provides basic trigonometric functions:
 >
 > These functions use radians, not degrees!
 
-Maximum and Minimum
--------------------
+
+### Maximum and Minimum
+{:.no_toc}
 
 The Math library provides `max()` and `min()` methods:
 
@@ -1096,8 +1136,9 @@ The Math library provides `max()` and `min()` methods:
     assert(math.max(1, 1000) == 1000);
     assert(math.min(1, -1000) == -1000);
 
-Math Constants
---------------
+
+### Math Constants
+{:.no_toc}
 
 Find your favorite constants—*pi*, *e*, and more—in the Math library:
 
@@ -1108,8 +1149,9 @@ Find your favorite constants—*pi*, *e*, and more—in the Math library:
     print(math.PI);    // 3.141592653589793
     print(math.SQRT2); // 1.4142135623730951
 
-Random Numbers
---------------
+
+### Random Numbers
+{:.no_toc}
 
 Generate random numbers with the
 [Random](http://api.dartlang.org/dart_math/Random.html) class. You can
@@ -1128,8 +1170,9 @@ You can even generate random booleans:
     var random = new math.Random();
     random.nextBool();  // true or false
 
-More Information
-----------------
+
+### More Information
+{:.no_toc}
 
 Refer to the [Math API
 docs](http://api.dartlang.org/dart_math/index.html) for a full list of
@@ -1138,8 +1181,8 @@ for[num,](http://api.dartlang.org/dart_core/num.html)
 [int,](http://api.dartlang.org/dart_core/int.html) and
 [double.](http://api.dartlang.org/dart_core/double.html)
 
-dart:html - Browser-Based Apps
-==============================
+
+## dart:html - Browser-Based Apps
 
 Use the [dart:html library](http://api.dartlang.org/dart_html.html) to
 program the browser, manipulate objects and elements in the DOM, and
@@ -1169,8 +1212,9 @@ To use the HTML library in your web app, import dart:html:
 > Parts of the dart:html library are experimental, as noted in the API
 > documentation.
 
-Manipulating the DOM
---------------------
+
+### Manipulating the DOM
+{:.no_toc}
 
 To use the DOM, you need to know about *windows*, *documents*,
 *elements*, and *nodes*.
@@ -1194,7 +1238,8 @@ elements, but they can also be attributes, text, comments, and other DOM
 types. Except for the root node, which has no parent, each node in the
 DOM has one parent and might have many children.
 
-### Finding elements
+#### Finding elements
+{:.no_toc}
 
 To manipulate an element, you first need an object that represents it.
 You can get this object using a query.
@@ -1222,7 +1267,8 @@ that match the selector.
     // that is inside an element with the ID 'id'.
     List<Element> elems3 = querySelectorAll('#id p.class');
 
-### Manipulating elements
+#### Manipulating elements
+{:.no_toc}
 
 You can use properties to change the state of an element. Node and its
 subtype Element define the properties that all elements have. For
@@ -1286,7 +1332,8 @@ example of setting an attribute’s value:
     ch03_html/ch03_html.dart
     elem.attributes['someAttribute'] = 'someValue';
 
-### Creating elements
+#### Creating elements
+{:.no_toc}
 
 You can add to existing HTML pages by creating new elements and
 attaching them to the DOM. Here’s an example of creating a paragraph
@@ -1316,7 +1363,8 @@ property.
     ch03_html/ch03_html.dart
     document.body.children.add(elem2);
 
-### Adding, replacing, and removing nodes
+#### Adding, replacing, and removing nodes
+{:.no_toc}
 
 Recall that elements are just a kind of node. You can find all the
 children of a node using the `nodes` property of Node, which returns a
@@ -1346,7 +1394,8 @@ To remove a node, use the Node `remove()` method:
     // Find a node by ID, and remove it from the DOM.
     querySelector('#expendable').remove();
 
-### Manipulating CSS styles
+#### Manipulating CSS styles
+{:.no_toc}
 
 CSS, or *cascading style sheets*, defines the presentation styles of DOM
 elements. You can change the appearance of an element by attaching ID
@@ -1389,7 +1438,8 @@ to the element:
         ..fontWeight = 'bold'
         ..fontSize = '3em';
 
-### Handling events
+#### Handling events
+{:.no_toc}
 
 To respond to external events such as clicks, changes of focus, and
 selections, add an event listener. You can add an event listener to any
@@ -1438,8 +1488,9 @@ subclasses. Some common events include:
 
 -   mouseUp
 
-Using HTTP Resources with HttpRequest
--------------------------------------
+
+### Using HTTP Resources with HttpRequest
+{:.no_toc}
 
 Formerly known as XMLHttpRequest, the
 [HttpRequest](http://api.dartlang.org/dart_html/HttpRequest.html) class
@@ -1456,7 +1507,8 @@ need to access resources that live on a different web server, you need
 to either use a technique called JSONP or enable CORS headers on the
 remote resources.
 
-### Getting data from the server
+#### Getting data from the server
+{:.no_toc}
 
 The HttpRequest static method `getString()` is an easy way to get data
 from a web server. Use `then()` after `getString()` to specify the
@@ -1553,7 +1605,8 @@ For example:
         ..onLoadEnd.listen((_) => requestComplete(httpRequest))
         ..send(encodedData);
 
-### Sending data to the server
+#### Sending data to the server
+{:.no_toc}
 
 HttpRequest can send data to the server using the HTTP method POST. For
 example, you might want to dynamically submit data to a form handler.
@@ -1596,8 +1649,9 @@ handler.
       httpRequest.send(encodedData);
     }
 
-Sending and Receiving Real-Time Data with WebSockets
-----------------------------------------------------
+
+### Sending and Receiving Real-Time Data with WebSockets
+{:.no_toc}
 
 A WebSocket allows your web app to exchange data with a server
 interactively—no polling necessary. A server creates the WebSocket and
@@ -1615,7 +1669,8 @@ the WebSocket URL as an argument:
     github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
     var ws = new WebSocket('ws://echo.websocket.org');
 
-### Sending data
+#### Sending data
+{:.no_toc}
 
 To send string data on the WebSocket, use the `send()` method:
 
@@ -1623,7 +1678,8 @@ To send string data on the WebSocket, use the `send()` method:
     github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
     ws.send('Hello from Dart!');
 
-### Receiving data
+#### Receiving data
+{:.no_toc}
 
 To receive data on the WebSocket, register a listener for message
 events:
@@ -1638,7 +1694,8 @@ The message event handler receives a
 [MessageEvent](http://api.dartlang.org/html/MessageEvent.html) object.
 This object’s `data` field has the data from the server.
 
-### Handling WebSocket events
+#### Handling WebSocket events
+{:.no_toc}
 
 Your app can handle the following WebSocket events: open, close, error,
 and (as shown earlier) message. Here’s an example of a method that
@@ -1684,8 +1741,9 @@ error, and message events:
 For more information and examples of using WebSockets, see the [Dart
 Code Samples.](http://www.dartlang.org/samples/)
 
-More information
-----------------
+
+### More information
+{:.no_toc}
 
 This section barely scratched the surface of using the dart:html
 library. For more information, see the documentation for
@@ -1697,8 +1755,8 @@ audio,](http://api.dartlang.org/dart_web_audio.html)
 [IndexedDB](http://api.dartlang.org/dart_indexed_db.html), and
 [WebGL](http://api.dartlang.org/dart_web_gl.html).
 
-dart:io - I/O for Command-Line Apps
-===================================
+
+## dart:io - I/O for Command-Line Apps
 
 The [dart:io library](http://api.dartlang.org/io.html) provides APIs to
 deal with files, directories, processes, sockets, WebSockets, and HTTP
@@ -1718,8 +1776,9 @@ with a Sync suffix on the method name. We don’t cover them here.
 >
 > Only command-line apps can import and use `dart:io`.
 
-Files and Directories
----------------------
+
+### Files and Directories
+{:.no_toc}
 
 The I/O library enables command-line apps to read and write files and
 browse directories. You have two choices for reading the contents of a
@@ -1728,7 +1787,8 @@ enough memory to store all the contents of the file. If the file is very
 large or you want to process it while reading it, you should use a
 Stream, as described in ?.
 
-### Reading a file as text
+#### Reading a file as text
+{:.no_toc}
 
 When reading a text file encoded using UTF-8, you can read the entire
 file contents with `readAsString()`. When the individual lines are
@@ -1754,7 +1814,8 @@ strings.
       });
     }
 
-### Reading a file as binary
+#### Reading a file as binary
+{:.no_toc}
 
 The following code reads an entire file as bytes into a list of ints.
 The call to `readAsBytes()` returns a Future, which provides the result
@@ -1772,7 +1833,8 @@ when it’s available.
       });
     }
 
-### Handling errors
+#### Handling errors
+{:.no_toc}
 
 To capture errors so they don't result in uncaught exceptions, you can
 register a `catchError` handler:
@@ -1790,7 +1852,8 @@ register a `catchError` handler:
       });
     }
 
-### Streaming file contents
+#### Streaming file contents
+{:.no_toc}
 
 Use a Stream to read a file, a little at a time. The `listen()` method
 specifies a handler to be called when data is available. When the Stream
@@ -1817,7 +1880,8 @@ is finished reading the file, the `onDone` callback executes.
           onError: (e) { print(e.toString()); });
     }
 
-### Writing file contents
+#### Writing file contents
+{:.no_toc}
 
 You can use an [IOSink](http://api.dartlang.org/dart_io/IOSink.html) to
 write data to a file. Use the File `openWrite()` method to get an IOSink
@@ -1840,7 +1904,8 @@ specify `FileMode.APPEND`:
 
 To write binary data, use `add(List<int> data)`.
 
-### Listing files in a directory
+#### Listing files in a directory
+{:.no_toc}
 
 Finding all files and subdirectories for a directory is an asynchronous
 operation. The `list()` method returns a Stream on which you can
@@ -1867,7 +1932,8 @@ directory is encountered.
       );
     }
 
-### Other common functionality
+#### Other common functionality
+{:.no_toc}
 
 The File and Directory classes contain other functionality, including
 but not limited to:
@@ -1884,13 +1950,15 @@ Refer to the API docs for [File](http://api.dartlang.org/io/File.html)
 and [Directory](http://api.dartlang.org/io/Directory.html) for a full
 list of methods.
 
-HTTP Clients and Servers
-------------------------
+
+### HTTP Clients and Servers
+{:.no_toc}
 
 The dart:io library provides classes that command-line apps can use for
 accessing HTTP resources, as well as running HTTP servers.
 
-### HTTP server
+#### HTTP server
+{:.no_toc}
 
 The [HttpServer](http://api.dartlang.org/dart_io/HttpServer.html) class
 provides the low-level functionality for building web servers. You can
@@ -1931,7 +1999,8 @@ Search sample, which implements a web server using dart:io and packages
 such as [http\_server](https://pub.dartlang.org/packages/http_server)
 and [route](http://pub.dartlang.org/packages/route).
 
-### HTTP client
+#### HTTP client
+{:.no_toc}
 
 The [HttpClient](http://api.dartlang.org/dart_io/HttpClient.html) class
 helps you connect to HTTP resources from your Dart command-line or
@@ -1963,8 +2032,9 @@ class](#ch03-httprequest). Here’s an example of using HttpClient:
         });
     }
 
-More Information
-----------------
+
+### More Information
+{:.no_toc}
 
 Besides the APIs discussed in this section, the dart:io library also
 provides APIs for [processes,](http://api.dartlang.org/io/Process.html)
@@ -1974,8 +2044,8 @@ sockets.](http://api.dartlang.org/io/WebSocket.html)
 For more examples of using dart:io, see the [Dart Code
 Samples.](http://www.dartlang.org/samples/)
 
-dart:convert - Decoding and Encoding JSON, UTF-8, and more
-==========================================================
+
+## dart:convert - Decoding and Encoding JSON, UTF-8, and more
 
 The [dart:convert library](http://api.dartlang.org/dart_convert.html)
 has converters for JSON and UTF-8, as well as support for creating
@@ -1987,8 +2057,9 @@ set.
 The dart:convert library works in both web apps and command-line apps.
 To use it, import dart:convert.
 
-Decoding and Encoding JSON
---------------------------
+
+### Decoding and Encoding JSON
+{:.no_toc}
 
 Decode a JSON-encoded string into a Dart object with `JSON.decode()`:
 
@@ -2044,8 +2115,9 @@ function that returns an object that is directly encodable. Your second
 option is to omit the second argument, in which case the encoder calls
 the object's `toJson()` method.
 
-Decoding and Encoding UTF-8 Characters
---------------------------------------
+
+### Decoding and Encoding UTF-8 Characters
+{:.no_toc}
 
 Use `UTF8.decode()` to decode UTF8-encoded bytes to a Dart string:
 
@@ -2100,15 +2172,16 @@ bytes:
       });
     }
 
-Other Functionality
--------------------
+
+### Other Functionality
+{:.no_toc}
 
 The dart:convert library also has converters for ASCII and ISO-8859-1
 (Latin1). For details, see the [API docs for the dart:convert
 library.](http://api.dartlang.org/dart_convert.html)
 
-dart:mirrors - Reflection
-=========================
+
+## dart:mirrors - Reflection
 
 The dart:mirrors library provides basic reflection abilities to Dart.
 Use mirrors to query the structure of your program and to dynamically
@@ -2128,8 +2201,9 @@ To use it, import dart:mirrors.
 > API documentation. This workaround is very likely to change, as the
 > dart:mirrors library is still under development.
 
-Symbols
--------
+
+### Symbols
+{:.no_toc}
 
 The mirror system represents the names of Dart declarations (classes,
 fields, and so on) by instances of the class
@@ -2164,8 +2238,9 @@ name, even if the code was minified.
     const className = #MyClass;
     assert('MyClass' == MirrorSystem.getName(className));
 
-Introspection
--------------
+
+### Introspection
+{:.no_toc}
 
 Use mirrors to introspect the running program's structure. You can
 inspect classes, libraries, instances, and more.
@@ -2191,7 +2266,8 @@ The examples in this section use the following Person class:
 To begin, you need to *reflect* on a class or object to get its
 *mirror*.
 
-### Class Mirrors
+#### Class Mirrors
+{:.no_toc}
 
 Reflect on a Type to get its ClassMirror.
 
@@ -2245,7 +2321,8 @@ Here is an example of listing all of the fields declared by a class.
 For a full list of methods, consult the [API docs for
 ClassMirror](http://api.dartlang.org/dart_mirrors/ClassMirror.html).
 
-### Instance Mirrors
+#### Instance Mirrors
+{:.no_toc}
 
 Reflect on an object to get an InstanceMirror.
 
@@ -2262,14 +2339,16 @@ reflects, use `reflectee`.
     var person = mirror.reflectee;
     assert(identical(p, person));
 
-Invocation
-----------
+
+### Invocation
+{:.no_toc}
 
 Once you have an InstanceMirror, you can invoke methods and call getters
 and setters. For a full list of methods, consult the [API docs for
 InstanceMirror](http://api.dartlang.org/dart_mirrors/InstanceMirror.html).
 
-### Invoke Methods
+#### Invoke Methods
+{:.no_toc}
 
 Use InstanceMirror's `invoke()` method to invoke a method on an object.
 The first parameter specifies the method to be invoked, and the second
@@ -2283,7 +2362,8 @@ parameter lets you specify named arguments.
 
     mirror.invoke(#greet, ['Shailen']);
 
-### Invoke Getters and Setters
+#### Invoke Getters and Setters
+{:.no_toc}
 
 Use InstanceMirror's `getField()` and `setField()` methods to get and
 set properties of an object.
@@ -2301,8 +2381,9 @@ set properties of an object.
     mirror.setField(#firstName, 'Mary');
     assert(p.firstName == 'Mary');
 
-More Information
-----------------
+
+### More Information
+{:.no_toc}
 
 The article [Reflection in Dart with
 Mirrors](https://www.dartlang.org/articles/reflection-with-mirrors/) has
@@ -2313,8 +2394,8 @@ more information and examples. Also see the API docs for
 and
 [InstanceMirror.](http://api.dartlang.org/dart_mirrors/InstanceMirror.html)
 
-Summary
-=======
+
+## Summary
 
 This chapter introduced you to the most commonly used functionality in
 many of Dart’s built-in libraries. It didn’t cover all the built-in

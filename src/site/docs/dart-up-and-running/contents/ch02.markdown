@@ -3,10 +3,14 @@ layout: book
 title: "A Tour of the Dart Language"
 subsite: "Dart Up and Running"
 description: "Read Chapter 2. A Tour of the Dart Language of Dart: Up and Running, published by O'Reilly."
+prev-chapter: ch01.html
+prev-chapter-title: "Quick Start"
+next-chapter: ch03.html
+next-chapter-title: "Library Tour"
 ---
 
 {% include toc.html %}
-{% include bookcrumbs.html %}
+{% include book-nav.html %}
 
 # {{ page.title }}
 
@@ -23,8 +27,8 @@ Consult the [Dart Language
 Specification](http://www.dartlang.org/docs/spec/) whenever you want
 more details about a language feature.
 
-A Basic Dart Program
-====================
+
+## A Basic Dart Program
 
 The following code uses many of Dart’s most basic features:
 
@@ -84,8 +88,8 @@ apps:
 > Guide.](http://www.dartlang.org/articles/style-guide/) For example, we
 > use two-space indentation.
 
-Important Concepts
-==================
+
+## Important Concepts
 
 As you learn about the Dart language, keep these facts and concepts in
 mind:
@@ -133,8 +137,9 @@ mind:
 -   Dart has two runtime modes: production and checked. Production is
     faster, but checked is helpful at development.
 
-Keywords
---------
+
+### Keywords
+{:.no_toc}
 
 ? lists the words that the Dart language treats specially.
 
@@ -162,8 +167,9 @@ added enum, rethrow. Dart reserved words: Section 16.1.1 of the spec
 lists reserved words; 12.31 has the identifier reference, which lists
 the built-in identifiers.
 
-Runtime Modes
--------------
+
+### Runtime Modes
+{:.no_toc}
 
 We recommend that you develop and debug in checked mode, and deploy to
 production mode.
@@ -176,8 +182,8 @@ statements](#assert) and static types.
 type errors during runtime. For example, if you assign a non-number to a
 variable declared as a `num`, then checked mode throws an exception.
 
-Variables
-=========
+
+## Variables
 
 Here’s an example of creating a variable and assigning a value to it:
 
@@ -187,8 +193,9 @@ Here’s an example of creating a variable and assigning a value to it:
 Variables are references. The variable called `name` contains a
 reference to a String object with a value of “Bob”.
 
-Default Value
--------------
+
+### Default Value
+{:.no_toc}
 
 Uninitialized variables have an initial value of `null`. Even variables
 with numeric types are initially null, because numbers are objects.
@@ -204,8 +211,9 @@ with numeric types are initially null, because numbers are objects.
 > `assert()` throws an exception unless condition is true. For details,
 > see ?.
 
-Optional Types
---------------
+
+### Optional Types
+{:.no_toc}
 
 You have the option of adding static types to your variable
 declarations:
@@ -223,8 +231,9 @@ completion and early warnings for bugs and code completion.
 > recommendation](http://www.dartlang.org/articles/style-guide/#type-annotations)
 > of using `var`, rather than type annotations, for local variables.
 
-Final and Const
----------------
+
+### Final and Const
+{:.no_toc}
 
 If you never intend to change a variable, use `final` or `const`, either
 instead of `var` or in addition to a type. A final variable can be set
@@ -251,8 +260,8 @@ variable, or the result of an arithmetic operation on constant numbers:
     const bar = 1000000;       // Unit of pressure (in dynes/cm2)
     const atm = 1.01325 * bar; // Standard atmosphere
 
-Built-in Types
-==============
+
+## Built-in Types
 
 The Dart language has special support for the following types:
 
@@ -278,8 +287,9 @@ of the built-in types have their own constructors. For example, you can
 use the `Map()` constructor to create a map, using code such as
 `new Map()`.
 
-Numbers
--------
+
+### Numbers
+{:.no_toc}
 
 Dart numbers come in two flavors:
 
@@ -351,8 +361,9 @@ The int type specifies the traditional bitwise shift (\<\<, \>\>), AND
     assert((3 >> 1) == 1);  // 0011 >> 1 == 0001
     assert((3 | 4)  == 7);  // 0011 | 0100 == 0111
 
-Strings
--------
+
+### Strings
+{:.no_toc}
 
 A Dart string is a sequence of UTF-16 code units. You can use either
 single or double quotes to create a string:
@@ -420,8 +431,9 @@ You can use Unicode escapes inside of strings:
 
 For more information on using strings, see ?.
 
-Booleans
---------
+
+### Booleans
+{:.no_toc}
 
 To represent boolean values, Dart has a type named `bool`. Only two
 objects have type bool: the boolean literals, `true` and `false`.
@@ -486,8 +498,9 @@ explicitly check for values. For example:
     var iMeantToDoThis = 0/0;
     assert(iMeantToDoThis.isNaN);
 
-Lists
------
+
+### Lists
+{:.no_toc}
 
 Perhaps the most common collection in nearly every programming language
 is the *array*, or ordered group of objects. In Dart, arrays are
@@ -513,8 +526,9 @@ JavaScript:
 The List type has many handy methods for manipulating lists. For more
 information about lists, see ? and ?.
 
-Maps
-----
+
+### Maps
+{:.no_toc}
 
 In general, a map is an object that associates keys and values. Both
 keys and values can be any type of object. Each *key* occurs only once,
@@ -581,8 +595,9 @@ Use `.length` to get the number of key-value pairs in the map:
 
 For more information about maps, see ? and ?.
 
-Symbols
--------
+
+### Symbols
+{:.no_toc}
 
 A [Symbol](http://api.dartlang.org/dart_core/Symbol.html) object
 represents an operator or identifier declared in a Dart program. You
@@ -599,8 +614,8 @@ To get the symbol for an identifier, use a symbol literal, which is just
 
 For more information on symbols, see ?.
 
-Functions
-=========
+
+## Functions
 
 Here’s an example of implementing a function:
 
@@ -649,8 +664,9 @@ A function can have two types of parameters: required and optional. The
 required parameters are listed first, followed by any optional
 parameters.
 
-Optional Parameters
--------------------
+
+### Optional Parameters
+{:.no_toc}
 
 Optional parameters can be either positional or named, but not both.
 
@@ -658,7 +674,8 @@ Both kinds of optional parameter can have default values. The default
 values must be compile-time constants such as literals. If no default
 value is provided, the value is `null`.
 
-### Optional named parameters
+#### Optional named parameters
+{:.no_toc}
 
 When calling a function, you can specify named parameters using `:
         `. For example:
@@ -688,7 +705,8 @@ Use a colon (`:`) to specify default values:
 
     enableFlags(bold: true); // bold will be true; hidden will be false.
 
-### Optional positional parameters
+#### Optional positional parameters
+{:.no_toc}
 
 Wrapping a set of function parameters in `[]` marks them as optional
 positional parameters:
@@ -731,8 +749,9 @@ Use `=` to specify default values:
 
     assert(say('Bob', 'Howdy') == 'Bob says Howdy with a carrier pigeon');
 
-The main() Function
--------------------
+
+### The main() Function
+{:.no_toc}
 
 Every app must have a top-level `main()` function, which serves as the
 entrypoint to the app. The `main()` function returns `void` and has an
@@ -770,8 +789,9 @@ takes arguments:
 You can use the [args library](http://api.dartlang.org/args.html) to
 define and parse command-line arguments.
 
-Functions as First-Class Objects
---------------------------------
+
+### Functions as First-Class Objects
+{:.no_toc}
 
 You can pass a function as a parameter to another function. For example:
 
@@ -789,8 +809,9 @@ You can also assign a function to a variable, such as:
     var loudify = (msg) => '!!! ${msg.toUpperCase()} !!!';
     assert(loudify('hello') == '!!! HELLO !!!');
 
-Lexical Scope
--------------
+
+### Lexical Scope
+{:.no_toc}
 
 Dart is a lexically scoped language, which means that the scope of
 variables is determined statically, simply by the layout of the code.
@@ -821,8 +842,9 @@ level:
 Notice how `nestedFunction()` can use variables from every level, all
 the way up to the top level.
 
-Lexical Closures
-----------------
+
+### Lexical Closures
+{:.no_toc}
 
 A *closure* is a function object that has access to variables in its
 lexical scope, even when the function is used outside of its original
@@ -850,8 +872,9 @@ returned function goes, it remembers `addBy`.
       assert(add4(3) == 7);
     }
 
-Testing Functions for Equality
-------------------------------
+
+### Testing Functions for Equality
+{:.no_toc}
 
 Here's an example of testing top-level functions, static methods, and
 instance methods for equality:
@@ -886,14 +909,15 @@ instance methods for equality:
       assert(v.baz != w.baz);
     }
 
-Return Values
--------------
+
+### Return Values
+{:.no_toc}
 
 All functions return a value. If no return value is specified, the
 statement `return null;` is implicitly appended to the function body.
 
-Operators
-=========
+
+## Operators
 
 Dart defines the operators shown in ?. You can override many of these
 operators, as described in ?.
@@ -947,8 +971,9 @@ way:
 > have a Vector object and a Point object, `aVector + aPoint` uses the
 > Vector version of +.
 
-Arithmetic Operators
---------------------
+
+### Arithmetic Operators
+{:.no_toc}
 
 Dart supports the usual arithmetic operators, as shown in ?.
 
@@ -1010,8 +1035,9 @@ Example:
     b = a--;         // Decrement a AFTER b gets its value.
     assert(a != b) ; // -1 != 0
 
-Equality and Relational Operators
----------------------------------
+
+### Equality and Relational Operators
+{:.no_toc}
 
   Operator   Meaning
   ---------- -----------------------------
@@ -1049,8 +1075,9 @@ operators:
     assert(3 >= 3);
     assert(2 <= 3);
 
-Type Test Operators
--------------------
+
+### Type Test Operators
+{:.no_toc}
 
 The `as`, `is`, and `is!` operators are handy for checking types at
 runtime.
@@ -1087,8 +1114,9 @@ You can make the code shorter using the `as` operator:
 > first example (with `is`) does nothing; the second (with `as`) throws
 > an exception.
 
-Assignment Operators
---------------------
+
+### Assignment Operators
+{:.no_toc}
 
 As you’ve already seen, you assign values using the `=` operator. You
 can also use compound assignment operators such as `+=`, which combine
@@ -1120,8 +1148,9 @@ operators:
     a *= 3;              // Assign and multiply: a = a * 3
     assert(a == 6);
 
-Logical Operators
------------------
+
+### Logical Operators
+{:.no_toc}
 
 You can invert or combine boolean expressions using the logical
 operators.
@@ -1141,8 +1170,9 @@ Here’s an example of using the logical operators:
       // ...Do something...
     }
 
-Bitwise and Shift Operators
----------------------------
+
+### Bitwise and Shift Operators
+{:.no_toc}
 
 You can manipulate the individual bits of numbers in Dart. Usually,
 you’d use these bitwise and shift operators with integers, as shown in
@@ -1172,8 +1202,9 @@ Here’s an example of using bitwise and shift operators:
     assert((value << 4)       == 0x220); // Shift left
     assert((value >> 4)       == 0x02);  // Shift right
 
-Other Operators
----------------
+
+### Other Operators
+{:.no_toc}
 
 A few operators remain, most of which you’ve already seen in other
 examples.
@@ -1188,8 +1219,8 @@ examples.
 
   : Other operators
 
-Control Flow Statements
-=======================
+
+## Control Flow Statements
 
 You can control the flow of your Dart code using any of the following:
 
@@ -1208,8 +1239,9 @@ You can control the flow of your Dart code using any of the following:
 You can also affect the control flow using `try-catch` and `throw`, as
 explained in ?.
 
-If and Else
------------
+
+### If and Else
+{:.no_toc}
 
 Dart supports `if` statements with optional `else` statements, as the
 next sample shows. Also see conditional expressions (?:), which are
@@ -1227,8 +1259,9 @@ covered in ?.
 Remember, unlike JavaScript, Dart treats all values other than `true` as
 `false`. See ? for more information.
 
-For Loops
----------
+
+### For Loops
+{:.no_toc}
 
 You can iterate with the standard `for` loop. For example:
 
@@ -1271,8 +1304,9 @@ iteration, which is described in ?:
       print(x);
     }
 
-While and Do-While
-------------------
+
+### While and Do-While
+{:.no_toc}
 
 A `while` loop evaluates the condition before the loop:
 
@@ -1288,8 +1322,9 @@ A `do`-`while` loop evaluates the condition *after* the loop:
       printLine();
     } while (!atEndOfPage());
 
-Break and Continue
-------------------
+
+### Break and Continue
+{:.no_toc}
 
 Use `break` to stop looping:
 
@@ -1318,8 +1353,9 @@ list or set:
     candidates.where((c) => c.yearsExperience >= 5)
               .forEach((c) => c.interview());
 
-Switch and Case
----------------
+
+### Switch and Case
+{:.no_toc}
 
 Switch statements in Dart compare integer, string, or compile-time
 constants using `==`. The compared objects must all be instances of the
@@ -1402,8 +1438,9 @@ a label:
 A `case` clause can have local variables, which are visible only inside
 the scope of that clause.
 
-Assert
-------
+
+### Assert
+{:.no_toc}
 
 Use an `assert` statement to disrupt normal execution if a boolean
 condition is false. You can find examples of assert statements
@@ -1426,8 +1463,8 @@ continues. If it's false, the assertion fails and an exception (an
 [AssertionError](http://api.dartlang.org/dart_core/AssertionError.html))
 is thrown.
 
-Exceptions
-==========
+
+## Exceptions
 
 Your Dart code can throw and catch exceptions. Exceptions are errors
 indicating that something unexpected happened. If the exception isn’t
@@ -1445,8 +1482,9 @@ types, as well as numerous predefined subtypes. You can, of course,
 define your own exceptions. However, Dart programs can throw any
 non-null object—not just Exception and Error objects—as an exception.
 
-Throw
------
+
+### Throw
+{:.no_toc}
 
 Here’s an example of throwing, or *raising*, an exception:
 
@@ -1464,8 +1502,9 @@ in =\> statements, as well as anywhere else that allows expressions:
     lang-dart
     distanceTo(Point other) => throw new UnimplementedError();
 
-Catch
------
+
+### Catch
+{:.no_toc}
 
 Catching, or capturing, an exception stops the exception from
 propagating. Catching an exception gives you a chance to handle it:
@@ -1497,8 +1536,9 @@ As the preceding code shows, you can use either `on` or `catch` or both.
 Use `on` when you need to specify the exception type. Use `catch` when
 your exception handler needs the exception object.
 
-Finally
--------
+
+### Finally
+{:.no_toc}
 
 To ensure that some code runs whether or not an exception is thrown, use
 a `finally` clause. If no `catch` clause matches the exception, the
@@ -1524,8 +1564,8 @@ The `finally` clause runs after any matching `catch` clauses:
 
 Learn more by reading ?.
 
-Classes
-=======
+
+## Classes
 
 Dart is an object-oriented language with classes and mixin-based
 inheritance. Every object is an instance of a class, and all classes
@@ -1585,8 +1625,9 @@ canonical instance:
 
 The following sections discuss how to implement classes.
 
-Instance Variables
-------------------
+
+### Instance Variables
+{:.no_toc}
 
 Here’s how you declare instance variables:
 
@@ -1623,8 +1664,9 @@ in a constructor or method), the value is set when the instance is
 created, which is before the constructor and its initializer list
 execute.
 
-Constructors
-------------
+
+### Constructors
+{:.no_toc}
 
 Declare a constructor by creating a function with the same name as its
 class (plus, optionally, an additional identifier as described in ?).
@@ -1663,19 +1705,22 @@ is so common, Dart has syntactic sugar to make it easy:
       Point(this.x, this.y);
     }
 
-### Default constructors
+#### Default constructors
+{:.no_toc}
 
 If you don’t declare a constructor, a default constructor is provided
 for you. The default constructor has no arguments and invokes the
 no-argument constructor in the superclass.
 
-### Constructors aren’t inherited
+#### Constructors aren’t inherited
+{:.no_toc}
 
 Subclasses don’t inherit constructors from their superclass. A subclass
 that declares no constructors has only the default (no argument, no
 name) constructor.
 
-### Named constructors
+#### Named constructors
+{:.no_toc}
 
 Use a named constructor to implement multiple constructors for a class
 or to provide extra clarity:
@@ -1700,7 +1745,8 @@ superclass’s named constructor is not inherited by a subclass. If you
 want a subclass to be created with a named constructor defined in the
 superclass, you must implement that constructor in the subclass.
 
-### Invoking a non-default superclass constructor
+#### Invoking a non-default superclass constructor
+{:.no_toc}
 
 By default, a constructor in a subclass calls the superclass’s unnamed,
 no-argument constructor. If the superclass doesn’t have such a
@@ -1749,7 +1795,8 @@ function call:
 > For example, arguments can call static methods but not instance
 > methods.
 
-### Initializer list
+#### Initializer list
+{:.no_toc}
 
 Besides invoking a superclass constructor, you can also initialize
 instance variables before the constructor body runs. Separate
@@ -1773,7 +1820,8 @@ initializers with commas.
 >
 > The right-hand side of an initializer does not have access to `this`.
 
-### Redirecting constructors
+#### Redirecting constructors
+{:.no_toc}
 
 Sometimes a constructor’s only purpose is to redirect to another
 constructor in the same class. A redirecting constructor’s body is
@@ -1789,7 +1837,8 @@ empty, with the constructor call appearing after a colon (:).
       Point.alongXAxis(num x) : this(x, 0); // Delegates to the main constructor.
     }
 
-### Constant constructors
+#### Constant constructors
+{:.no_toc}
 
 If your class produces objects that never change, you can make these
 objects compile-time constants. To do this, define a `const` constructor
@@ -1804,7 +1853,8 @@ and make sure that all instance variables are `final`.
       static final ImmutablePoint origin = const ImmutablePoint(0, 0);
     }
 
-### Factory constructors
+#### Factory constructors
+{:.no_toc}
 
 Use the `factory` keyword when implementing a constructor that doesn’t
 always create a new instance of its class. For example, a factory
@@ -1853,12 +1903,14 @@ To invoke a factory constructor, you use the `new` keyword:
     var logger = new Logger('UI');
     logger.log('Button clicked');
 
-Methods
--------
+
+### Methods
+{:.no_toc}
 
 Methods are functions that provide behavior for an object.
 
-### Instance methods
+#### Instance methods
+{:.no_toc}
 
 Instance methods on objects can access instance variables and `this`.
 The `distanceTo()` method in the following sample is an example of an
@@ -1880,7 +1932,8 @@ instance method:
       }
     }
 
-### Getters and setters
+#### Getters and setters
+{:.no_toc}
 
 Getters and setters are special methods that provide read and write
 access to an object’s properties. Recall that each instance variable has
@@ -1922,7 +1975,8 @@ wrapping them with methods, all without changing client code.
 > effects, the operator calls the getter exactly once, saving its value
 > in a temporary variable.
 
-### Abstract methods
+#### Abstract methods
+{:.no_toc}
 
 Instance, getter, and setter methods can be abstract, defining an
 interface but leaving its implementation up to other classes. To make a
@@ -1946,7 +2000,8 @@ Calling an abstract method results in a run-time error.
 
 Also see ?.
 
-### Overridable Operators
+#### Overridable Operators
+{:.no_toc}
 
 You can override the operators shown in ?. For example, if you define a
 Vector class, you might define a `+` method to add two vectors.
@@ -1993,8 +2048,9 @@ For an example of overriding `==` and `hashCode`, see ?.
 
 For more information on overriding, in general, see ?.
 
-Abstract Classes
-----------------
+
+### Abstract Classes
+{:.no_toc}
 
 Use the `abstract` modifier to define an abstract class—a class that
 can’t be instantiated. Abstract classes are useful for defining
@@ -2030,8 +2086,9 @@ though it defines an abstract method:
       void doSomething(); 
     }
 
-Implicit Interfaces
--------------------
+
+### Implicit Interfaces
+{:.no_toc}
 
 Every class implicitly defines an interface containing all the instance
 members of the class and of any interfaces it implements. If you want to
@@ -2073,8 +2130,9 @@ interfaces:
       // ...
     }
 
-Extending a Class
------------------
+
+### Extending a Class
+{:.no_toc}
 
 Use `extends` to create a subclass, and `super` to refer to the
 superclass:
@@ -2141,8 +2199,9 @@ avoid warnings:
 
 For more information on annotations, see ?.
 
-Adding Features to a Class: Mixins
-----------------------------------
+
+### Adding Features to a Class: Mixins
+{:.no_toc}
 
 Mixins are a way of reusing a class's code in multiple class
 hierarchies.
@@ -2187,12 +2246,14 @@ constructors, and has no calls to `super`. For example:
 For more information, see the article [Mixins in
 Dart.](http://www.dartlang.org/articles/mixins/)
 
-Class Variables and Methods
----------------------------
+
+### Class Variables and Methods
+{:.no_toc}
 
 Use the `static` keyword to implement class-wide variables and methods.
 
-### Static variables
+#### Static variables
+{:.no_toc}
 
 Static variables (class variables) are useful for class-wide state and
 constants:
@@ -2211,7 +2272,8 @@ constants:
 
 Static variables aren’t initialized until they’re used.
 
-### Static methods
+#### Static methods
+{:.no_toc}
 
 Static methods (class methods) do not operate on an instance, and thus
 do not have access to `this`. For example:
@@ -2247,8 +2309,8 @@ do not have access to `this`. For example:
 You can use static methods as compile-time constants. For example, you
 can pass a static method as a parameter to a constant constructor.
 
-Generics
-========
+
+## Generics
 
 If you look at the API documentation for the basic array type,
 [List,](http://api.dartlang.org/dart_core/List.html) you’ll see that the
@@ -2257,8 +2319,9 @@ type is actually `List<E>`. The \<...\> notation marks List as a
 parameters. By convention, type variables have single-letter names, such
 as E, T, S, K, and V.
 
-Why Use Generics?
------------------
+
+### Why Use Generics?
+{:.no_toc}
 
 Because types are optional in Dart, you never *have* to use generics.
 You might *want* to, though, for the same reason you might want to use
@@ -2314,8 +2377,9 @@ Instead, you can create a single interface that takes a type parameter:
 In this code, T is the stand-in type. It’s a placeholder that you can
 think of as a type that a developer will define later.
 
-Using Collection Literals
--------------------------
+
+### Using Collection Literals
+{:.no_toc}
 
 List and map literals can be parameterized. Parameterized literals are
 just like the literals you’ve already seen, except that you add `<>`
@@ -2331,8 +2395,9 @@ is example of using typed literals:
         'robots.txt':'Hints for web robots',
         'humans.txt':'We are people, not machines' };
 
-Using Parameterized Types with Constructors
--------------------------------------------
+
+### Using Parameterized Types with Constructors
+{:.no_toc}
 
 To specify one or more types when using a constructor, put the types in
 angle brackets (`<...>`) just after the class name. For example:
@@ -2348,8 +2413,9 @@ type View:
     lang-dart
     var views = new Map<int, View>();
 
-Generic Collections and the Types they Contain
-----------------------------------------------
+
+### Generic Collections and the Types they Contain
+{:.no_toc}
 
 Dart generic types are *reified*, which means that they carry their type
 information around at runtime. For example, you can test the type of a
@@ -2375,8 +2441,8 @@ each item’s type or wrap item-manipulation code in an exception handler
 For more information about generics, see [Optional Types in
 Dart.](http://www.dartlang.org/articles/optional-types/)
 
-Libraries and Visibility
-========================
+
+## Libraries and Visibility
 
 The `import`, `part`, and `library` directives can help you create a
 modular and shareable code base. Libraries not only provide APIs, but
@@ -2387,8 +2453,9 @@ if it doesn’t use a library directive.
 Libraries can be distributed using packages. See ? for information about
 pub, a package manager included in the SDK.
 
-Using Libraries
----------------
+
+### Using Libraries
+{:.no_toc}
 
 Use `import` to specify how a namespace from one library is used in the
 scope of another library.
@@ -2413,7 +2480,8 @@ manager such as the pub tool. For example:
     import 'package:mylib/mylib.dart';
     import 'package:utils/utils.dart';
 
-### Specifying a library prefix
+#### Specifying a library prefix
+{:.no_toc}
 
 If you import two libraries that have conflicting identifiers, then you
 can specify a prefix for one or both libraries. For example, if library1
@@ -2428,7 +2496,8 @@ this:
     var element1 = new Element();      // Uses Element from lib1.
     var element2 = new lib2.Element(); // Uses Element from lib2.
 
-### Importing only part of a library
+#### Importing only part of a library
+{:.no_toc}
 
 If you want to use only part of a library, you can selectively import
 the library. For example:
@@ -2438,8 +2507,9 @@ the library. For example:
     import 'package:lib1/lib1.dart' show foo; // Import only foo.
     import 'package:lib2/lib2.dart' hide foo; // Import all names EXCEPT foo.
 
-Implementing Libraries
-----------------------
+
+### Implementing Libraries
+{:.no_toc}
 
 Use `library` to name a library, and `part` to specify additional files
 in the library.
@@ -2450,7 +2520,8 @@ in the library.
 > main() function), but doing so lets you implement the app in multiple
 > files.
 
-### Declaring a library
+#### Declaring a library
+{:.no_toc}
 
 Use `library
         ` to specify the name of the current library:
@@ -2462,7 +2533,8 @@ Use `library
     import 'dart:html'; // This app uses the HTML library.
     // ...Code goes here...
 
-### Associating a file with a library
+#### Associating a file with a library
+{:.no_toc}
 
 To add an implementation file, put `part
         ` in the file that has the `library` statement, where *fileUri*
@@ -2505,7 +2577,8 @@ library:
 
     // ...Code goes here...
 
-### Re-exporting libraries
+#### Re-exporting libraries
+{:.no_toc}
 
 You can combine or repackage libraries by re-exporting part or all of
 them. For example, you might have a huge library that you implement as a
@@ -2532,8 +2605,8 @@ subset of methods from another library.
       goodbye(); //FAIL
     }
 
-Isolates
-========
+
+## Isolates
 
 Modern web browsers, even on mobile platforms, run on multi-core CPUs.
 To take advantage of all those cores, developers traditionally use
@@ -2544,8 +2617,8 @@ Instead of threads, all Dart code runs inside of *isolates*. Each
 isolate has its own memory heap, ensuring that no isolate’s state is
 accessible from any other isolate.
 
-Typedefs
-========
+
+## Typedefs
 
 In Dart, functions are objects, just like strings and numbers are
 objects. A *typedef*, or *function-type alias*, gives a function type a
@@ -2613,8 +2686,8 @@ of any function. For example:
       assert(sort is Compare);  // True!
     }
 
-Metadata
-========
+
+## Metadata
 
 Use metadata to give additional information about your code. A metadata
 annotation begins with the character `@`, followed by either a reference
@@ -2673,14 +2746,15 @@ declaration and before an import or export directive. If [issue
 by the time you read this, you can retrieve metadata at runtime using
 reflection.
 
-Comments
-========
+
+## Comments
 
 Dart supports single-line comments, multi-line comments, and
 documentation comments.
 
-Single-Line Comments
---------------------
+
+### Single-Line Comments
+{:.no_toc}
 
 A single-line comment begins with `//`. Everything between `//` and the
 end of line is ignored by the Dart compiler.
@@ -2691,8 +2765,9 @@ end of line is ignored by the Dart compiler.
       print('Welcome to my Llama farm!');
     }
 
-Multi-Line Comments
--------------------
+
+### Multi-Line Comments
+{:.no_toc}
 
 A multi-line comment begins with `/*` and ends with `*/`. Everything
 between `/*` and `*/` is ignored by the Dart compiler (unless the
@@ -2712,8 +2787,9 @@ comments can nest.
        */
     }
 
-Documentation Comments
-----------------------
+
+### Documentation Comments
+{:.no_toc}
 
 Documentation comments are multi-line or single-line comments that begin
 with `/**` or `///`. Using `///` on consecutive lines has the same
@@ -2766,8 +2842,8 @@ documentation.](http://api.dartlang.org) For advice on how to structure
 your comments, see [Guidelines for Dart Doc
 Comments.](http://www.dartlang.org/articles/doc-comment-guidelines/)
 
-Summary
-=======
+
+## Summary
 
 This chapter summarized the commonly used features in the Dart language.
 More features are being implemented, but we expect that they won’t break

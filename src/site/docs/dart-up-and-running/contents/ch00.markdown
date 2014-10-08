@@ -3,10 +3,14 @@ layout: book
 title: "Preface"
 subsite: "Dart Up and Running"
 description: "Read Preface of Dart: Up and Running, published by O'Reilly."
+prev-chapter: foreword.html
+prev-chapter-title: "Foreword"
+next-chapter: ch01.html
+next-chapter-title: "Quick Start"
 ---
 
 {% include toc.html %}
-{% include bookcrumbs.html %}
+{% include book-nav.html %}
 
 # {{ page.title }}
 
@@ -68,8 +72,7 @@ Constant width italic
 >
 > This icon indicates a warning or caution.
 
-Using Code Examples
-===================
+## Using Code Examples
 
 Supplemental material (code examples, exercises, etc.) is available for
 download at
@@ -95,82 +98,19 @@ If you feel your use of code examples falls outside fair use or the
 permission given above, feel free to contact us at
 <permissions@oreilly.com>.
 
-Safari® Books Online
-====================
 
-> **Note**
->
-> Safari Books Online
-> ([www.safaribooksonline.com](http://my.safaribooksonline.com/?portal=oreilly))
-> is an on-demand digital library that delivers expert
-> [content](http://www.safaribooksonline.com/content) in both book and
-> video form from the world’s leading authors in technology and
-> business.
-
-Technology professionals, software developers, web designers, and
-business and creative professionals use Safari Books Online as their
-primary resource for research, problem solving, learning, and
-certification training.
-
-Safari Books Online offers a range of [product
-mixes](http://www.safaribooksonline.com/subscriptions) and pricing
-programs for
-[organizations](http://www.safaribooksonline.com/organizations-teams),
-[government agencies](http://www.safaribooksonline.com/government), and
-[individuals](http://www.safaribooksonline.com/individuals). Subscribers
-have access to thousands of books, training videos, and prepublication
-manuscripts in one fully searchable database from publishers like
-O’Reilly Media, Prentice Hall Professional, Addison-Wesley Professional,
-Microsoft Press, Sams, Que, Peachpit Press, Focal Press, Cisco Press,
-John Wiley & Sons, Syngress, Morgan Kaufmann, IBM Redbooks, Packt, Adobe
-Press, FT Press, Apress, Manning, New Riders, McGraw-Hill, Jones &
-Bartlett, Course Technology, and dozens
-[more](http://www.safaribooksonline.com/publishers). For more
-information about Safari Books Online, please visit us
-[online](http://www.safaribooksonline.com/).
-
-How to Contact Us
-=================
-
-Please address comments and questions concerning this book to the
-publisher:
-
-O’Reilly Media, Inc.
-1005 Gravenstein Highway North
-Sebastopol, CA 95472
-800-998-9938 (in the United States or Canada)
-707-829-0515 (international or local)
-707-829-0104 (fax)
-We have a web page for this book, where we list errata, examples, and
-any additional information. You can access this page at
-[](http://oreil.ly/Dart_Up_and_Running).
-
-To comment or ask technical questions about this book, send email to
-<bookquestions@oreilly.com>.
-
-For more information about our books, courses, conferences, and news,
-see our website at [](http://www.oreilly.com).
-
-Find us on Facebook: [](http://facebook.com/oreilly)
-
-Follow us on Twitter: [](http://twitter.com/oreillymedia)
-
-Watch us on YouTube: [](http://www.youtube.com/oreillymedia)
-
-Content Updates
-===============
+## Content Updates {#preface-updates}
 
 This section gives details about how the book has changed between each
 of its printings, and how the online content has changed after the most
 recent printing.
 
-Changes After the Third Printing
---------------------------------
+
+### Changes After the Third Printing
 
 We've fixed a few bugs:
 
--   Deleted the dart-vm section, pointing to new docs at
-    [](http://www.dartlang.org/tools/dart-vm/).
+-   Deleted the dart-vm section, pointing to [new docs](/tools/dart-vm/).
 
 -   Stopped saying that local variables are lazily initialized.
 
@@ -183,8 +123,8 @@ We've fixed a few bugs:
 
 -   Updated a few links.
 
-Changes in the Third Printing: February 19, 2014
-------------------------------------------------
+
+### Changes in the Third Printing: February 19, 2014
 
 We've changed the text and examples to reflect these language changes:
 
@@ -302,7 +242,7 @@ tweaked existing coverage. In the language tour:
 
 -   Changed the doc comment example to match the latest guidelines, and
     pointed to [Guidelines for Dart Doc
-    Comments.](https://www.dartlang.org/articles/doc-comment-guidelines/)
+    Comments](/articles/doc-comment-guidelines/).
 
 In the library tour:
 
@@ -321,8 +261,8 @@ Throughout the book, we updated links to related topics.
 Finally, we completely rewrote ? to feature a new example (Dartiverse
 Search).
 
-Changes in the Second Printing: March 29, 2013
-----------------------------------------------
+
+### Changes in the Second Printing: March 29, 2013
 
 We’ve updated the content to reflect the following changes since the
 first printing:
@@ -360,7 +300,7 @@ first printing:
 -   Metadata support was added to the language. See ?.
 
 -   We added references to the [Web UI
-    package](http://www.dartlang.org/articles/web-ui/), which provides a
+    package](/articles/web-ui/), which provides a
     higher level, scalable approach to creating UIs for web apps.
 
 -   In M3, mixins were added to the language, enabling code re-use
@@ -383,8 +323,7 @@ first printing:
         now lazily-filled Iterables; you can use `toList()` or `toSet()`
         to force evaluation. We recommend *extending* Iterable rather
         than just implementing it, so you can take advantage of added
-        functionality. More details are in the article
-        [Iterables.](http://www.dartlang.org/articles/m3-whats-new/iterables.html)
+        functionality.
 
     -   The Iterator interface changed from `next()` and `hasNext()` to
         `current` and `moveNext()`.
@@ -454,8 +393,8 @@ We also added sections for some pre-existing features:
 
 Finally, ? now uses a more recent benchmark and has the latest numbers.
 
-Acknowledgments
-===============
+
+## Acknowledgments
 
 We’d like to thank the many people who contributed to this book. We hope
 we haven’t forgotten anyone, but we probably have.
