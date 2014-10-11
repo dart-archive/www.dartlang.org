@@ -93,11 +93,12 @@ packages. First, it points to the js package that’s hosted on
 pub.dartlang.org, and then it points to the intl package in the Dart
 SDK:
 
-    lang-js
-    name: my_app
-    dependencies:
-      js: any
-      intl: any
+{% prettify yaml %}
+name: my_app
+dependencies:
+  js: any
+  intl: any
+{% endprettify %}
 
 For details, see the [pubspec
 documentation](https://www.dartlang.org/tools/pub/pubspec.html) and the
@@ -108,11 +109,12 @@ documentation for the packages you’re interested in using.
 {:.no_toc}
 
 Once you have a pubspec, you can run `pub
-      get` from the top directory of your application:
+get` from the top directory of your application:
 
-    lang-sh
-    cd path/to/my_app
-    pub get
+{% prettify sh %}
+cd path/to/my_app
+pub get
+{% endprettify %}
 
 This command determines which packages your app depends on, and puts
 them in a central cache. For git dependencies, pub clones the git
@@ -130,9 +132,10 @@ directory) that has links to the packages that your app depends on.
 
 To import libraries found in packages, use the `package:` prefix:
 
-    lang-dart
-    import 'package:js/js.dart' as js;
-    import 'package:intl/intl.dart';
+{% prettify dart %}
+import 'package:js/js.dart' as js;
+import 'package:intl/intl.dart';
+{% endprettify %}
 
 The Dart runtime takes everything after `package:` and looks it up
 within the `packages` directory for your app.
@@ -146,8 +149,7 @@ structure follows pub's [package layout
 conventions,](https://www.dartlang.org/tools/pub/package-layout.html)
 you can use the pub development server (`pub serve`) to continuously
 build and serve the app's assets. Once you're ready to deploy the web
-app, use `pub
-      build` to generate the final files.
+app, use `pub build` to generate the final files.
 
 For more information about pub, see the [pub
 documentation.](https://www.dartlang.org/tools/pub/get-started.html)
@@ -235,8 +237,7 @@ It’s easy to create a simple web or command-line app from scratch:
     appears in the Files view. Your Dart Editor window should look
     something like ?.
 
-    ![A new app, pre-filled with basic, runnable
-    code](figs/web/daur_0401.png)
+    ![A new app, pre-filled with basic, runnable code](figs/web/daur_0401.png)
 
 
 ### Editing Apps
@@ -462,11 +463,9 @@ tips:
 
 -   To debug web apps, use Dart Editor with Dartium. While you’re
     debugging, Dart Editor takes the place of the Dartium console. For
-    example, Dart Editor displays the output of`
-              print()` statements.
+    example, Dart Editor displays the output of `print()` statements.
 
-![Using Dart Editor to debug the Sunflower sample
-app](figs/web/daur_0406.png)
+![Using Dart Editor to debug the Sunflower sample app](figs/web/daur_0406.png)
 
 
 ### Compiling to JavaScript
@@ -576,16 +575,17 @@ use the [Dartium bug template.](http://bit.ly/WO0U32)
 Use a script tag with a type `application/dart` to link to your Dart
 source file. Example:
 
-    lang-html
-    <!DOCTYPE html>
-    <html>
-      <body>
-        <script type="application/dart" src="app.dart"></script>
+{% prettify html %}
+<!DOCTYPE html>
+<html>
+  <body>
+    <script type="application/dart" src="app.dart"></script>
 
-        <!-- Support for non-Dart browsers. -->
-        <script src="packages/browser/dart.js"></script>
-      </body>
-    </html>
+    <!-- Support for non-Dart browsers. -->
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
+{% endprettify %}
 
 > **Note**
 >
@@ -602,15 +602,16 @@ HTML.](https://www.dartlang.org/articles/embedding-in-html/)
 
 You can check whether a browser supports Dart with this JavaScript code:
 
-    lang-js
-    // In JavaScript code:
-    if (navigator.userAgent.indexOf('(Dart)') == -1) {
-      // No native Dart support...
-      window.addEventListener("DOMContentLoaded", function (e) {
-          // ...Fall back to compiled JS...
-        }
-      }, false);
+{% prettify js %}
+// In JavaScript code:
+if (navigator.userAgent.indexOf('(Dart)') == -1) {
+  // No native Dart support...
+  window.addEventListener("DOMContentLoaded", function (e) {
+      // ...Fall back to compiled JS...
     }
+  }, false);
+}
+{% endprettify %}
 
 
 ### Launching from the Command Line
@@ -626,20 +627,23 @@ checked mode (the VM’s `--checked` flag).
 
 On Linux, you can specify flags by starting Dartium as follows:
 
-    lang-sh
-    DART_FLAGS='--checked' path/chrome
+{% prettify sh %}
+DART_FLAGS='--checked' path/chrome
+{% endprettify %}
 
 On Mac:
 
-    lang-sh
-    DART_FLAGS='--checked'              \
-      path/Chromium.app/Contents/MacOS/Chromium
+{% prettify sh %}
+DART_FLAGS='--checked'              \
+  path/Chromium.app/Contents/MacOS/Chromium
+{% endprettify %}
 
 Or (also on Mac):
 
-    lang-sh
-    DART_FLAGS='--checked'              \
-       open path/Chromium.app
+{% prettify sh %}
+DART_FLAGS='--checked'              \
+   open path/Chromium.app
+{% endprettify %}
 
 > **Note**
 >
@@ -678,8 +682,9 @@ Specification.](http://www.dartlang.org/docs/spec/)
 
 Here’s an example of testing a Dart file:
 
-    lang-sh
-    dartanalyzer --package-root=code/packages test.dart
+{% prettify sh %}
+dartanalyzer --package-root=code/packages test.dart
+{% endprettify %}
 
 As ? shows, the exit code of dartanalyzer tells you whether the code
 passed analysis.

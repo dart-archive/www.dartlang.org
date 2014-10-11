@@ -81,18 +81,22 @@ The client's UI is simple. It has a search field, implemented as an
 \<input\> element named "q". It displays output in two \<div\>s named
 "status" and "results".
 
-    <!-- In web/index.html: -->
+{% prettify html %}
+<!-- In web/index.html: -->
 
-    <input type="search" placeholder="Search" value="" id="q" disabled />
-    <div id="status"></div>
-    ...
-    <div id="results"></div>
+<input type="search" placeholder="Search" value="" id="q" disabled />
+<div id="status"></div>
+...
+  <div id="results"></div>
+{% endprettify %}
 
 A couple of \<script\> tags tell the browser to execute the client’s
 Dart or JavaScript code:
 
-    <script type="application/dart" src="client.dart"></script>
-    <script src="packages/browser/dart.js"></script>
+{% prettify html %}
+<script type="application/dart" src="client.dart"></script>
+<script src="packages/browser/dart.js"></script>
+{% endprettify %}
 
 The first line works in browsers that have an embedded Dart VM and so
 can execute Dart code; currently, only Dartium qualifies.
@@ -103,7 +107,9 @@ tags to use foo.dart.js instead of foo.dart, with the assumption that
 foo.dart.js is a JavaScript version of foo.dart. For non-Dartium
 browsers, dart.js changes the first \<script\> tag to the following:
 
-    <script src="client.dart.js"></script>
+{% prettify html %}
+<script src="client.dart.js"></script>
+{% endprettify %}
 
 You can get dart.js with the browser package from pub. See ? for more
 information about compiling Dart code into its JavaScript equivalent.
@@ -122,10 +128,12 @@ the DOM to find the div where the client displays messages.
 The client app uses dart:html’s top-level `querySelector()` function to
 get the client’s UI elements from the DOM:
 
-    web/client.dart
-    SearchInputElement searchElement = querySelector('#q');
-    DivElement statusElement = querySelector('#status');
-    DivElement resultsElement = querySelector('#results');
+<!-- web/client.dart -->
+{% prettify html %}
+SearchInputElement searchElement = querySelector('#q');
+DivElement statusElement = querySelector('#status');
+DivElement resultsElement = querySelector('#results');
+{% endprettify %}
 
 The `querySelector()` method uses a selector string that identifies an
 element in the DOM. See ? for more about selectors.
@@ -146,9 +154,11 @@ The client app uses `onChange.listen()` to register a handler that
 reacts to user input. Whenever the user presses Enter, the search field
 fires a change event, and the handler kicks off a search.
 
-    searchElement.onChange.listen((e) {
-      //...Start the search...
-    });
+{% prettify dart %}
+searchElement.onChange.listen((e) {
+  //...Start the search...
+});
+{% endprettify %}
 
 
 ### Getting and Setting Properties
@@ -157,8 +167,10 @@ fires a change event, and the handler kicks off a search.
 The change event handler gets and sets the text in the search field
 using the `value` property.
 
-    search(searchElement.value);
-    searchElement.value = '';
+{% prettify dart %}
+search(searchElement.value);
+searchElement.value = '';
+{% endprettify %}
 
 
 ### Adding DOM Elements
@@ -168,16 +180,18 @@ Every time the search client receives a result on the WebSocket, the
 client creates a new div (`result`) to display it. The client then adds
 that new div to the "results" div (`resultsElement`).
 
-    void addResult(String source, String title, String link) {
-      var result = new DivElement();
-      result.children.add(new HeadingElement.h2()..innerHtml = source);
-      result.children.add(
-          new AnchorElement(href: link)
-          ..innerHtml = title
-          ..target = '_blank');
-      result.classes.add('result');
-      resultsElement.children.add(result);
-    }
+{% prettify dart %}
+void addResult(String source, String title, String link) {
+  var result = new DivElement();
+  result.children.add(new HeadingElement.h2()..innerHtml = source);
+  result.children.add(
+      new AnchorElement(href: link)
+      ..innerHtml = title
+      ..target = '_blank');
+  result.classes.add('result');
+  resultsElement.children.add(result);
+}
+{% endprettify %}
 
 This code uses method cascades to avoid creating variables to
 temporarily hold the new HeadingElement and AnchorElement.
@@ -198,23 +212,27 @@ a Dart object.
 
 Here's the code that creates a JSON-encoded search request:
 
-    var request = {
-      'request': 'search',
-      'input': input
-    };
-    webSocket.send(JSON.encode(request));
+{% prettify dart %}
+var request = {
+  'request': 'search',
+  'input': input
+};
+webSocket.send(JSON.encode(request));
+{% endprettify %}
 
 Here’s how the client decodes and processes a JSON response from the
 server:
 
-    var json = JSON.decode(data);
-    var response = json['response'];
-    switch (response) {
-      case 'searchResult':
-        addResult(json['source'], json['title'], json['link']);
-        break;
-      ...
-    }
+{% prettify dart %}
+var json = JSON.decode(data);
+var response = json['response'];
+switch (response) {
+  case 'searchResult':
+    addResult(json['source'], json['title'], json['link']);
+    break;
+  ...
+}
+{% endprettify %}
 
 For more information, see ?.
 
@@ -228,63 +246,69 @@ event handlers for open and error events. The open event handler, in
 turn, registers handlers for message and close events. Here's the
 relevant code:
 
-    class Client {
-      ...
-      WebSocket webSocket;
-      ...
+{% prettify dart %}
+class Client {
+  ...
+  WebSocket webSocket;
+  ...
 
-      Client() {
-        ...
-        connect();
-      }
+  Client() {
+    ...
+    connect();
+  }
 
-      void connect() {
-        ...
-        webSocket = new WebSocket('ws://${Uri.base.host}:${Uri.base.port}/ws');
-        webSocket.onOpen.first.then((_) {
-          onConnected();
-          webSocket.onClose.first.then((_) {
-            print("Connection disconnected to ${webSocket.url}");
-            onDisconnected();
-          });
-        webSocket.onError.first.then((_) {...});
-      }
+  void connect() {
+    ...
+    webSocket = new WebSocket('ws://${Uri.base.host}:${Uri.base.port}/ws');
+    webSocket.onOpen.first.then((_) {
+      onConnected();
+      webSocket.onClose.first.then((_) {
+        print("Connection disconnected to ${webSocket.url}");
+        onDisconnected();
+      });
+    webSocket.onError.first.then((_) {...});
+  }
 
-      void onConnected() {
-        ...
-        webSocket.onMessage.listen((e) {
-          handleMessage(e.data);
-        });
-      }
-      ...
-    }
+  void onConnected() {
+    ...
+    webSocket.onMessage.listen((e) {
+      handleMessage(e.data);
+    });
+  }
+  ...
+}
+{% endprettify %}
 
 To send a message on the WebSocket connection, the client invokes
 WebSocket's `send()` method:
 
-    webSocket.send(JSON.encode(request));
+{% prettify dart %}
+webSocket.send(JSON.encode(request));
+{% endprettify %}
 
 When the client receives a message, it decodes the JSON data (as you saw
 before) and updates the UI to match:
 
-    void handleMessage(data) {
-      var json = JSON.decode(data);
-      var response = json['response'];
-      switch (response) {
-        case 'searchResult':
-          addResult(json['source'], json['title'], json['link']);
-          break;
+{% prettify dart %}
+void handleMessage(data) {
+  var json = JSON.decode(data);
+  var response = json['response'];
+  switch (response) {
+    case 'searchResult':
+      addResult(json['source'], json['title'], json['link']);
+      break;
 
-        case 'searchDone':
-          setStatus(resultsElement.children.isEmpty
-              ? "$mostRecentSearch: No results found"
-              : "$mostRecentSearch: ${resultsElement.children.length} results found");
-          break;
+    case 'searchDone':
+      setStatus(resultsElement.children.isEmpty
+          ? "$mostRecentSearch: No results found"
+          : "$mostRecentSearch: ${resultsElement.children.length} results found");
+      break;
 
-        default:
-          print("Invalid response: '$response'");
-      } 
-    }
+    default:
+      print("Invalid response: '$response'");
+  } 
+}
+{% endprettify %}
 
 
 ## The Server's Code
@@ -305,25 +329,27 @@ dart:io), and VirtualDirectory (from the http\_server package) to
 implement a basic web server. Here's the code that initializes the web
 server and serves static files:
 
-    var buildPath = Platform.script.resolve('../build').toFilePath();
-    ...
-    int port = 9223;
+{% prettify dart %}
+var buildPath = Platform.script.resolve('../build').toFilePath();
+...
+int port = 9223;
 
-    HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, port).then((server) {
-      ...
-      var router = new Router(server);
-      ...
-      var virDir = new http_server.VirtualDirectory(buildPath);
-      virDir.jailRoot = false;
-      virDir.allowDirectoryListing = true;
-      virDir.directoryHandler = (dir, request) {
-        var indexUri = new Uri.file(dir.path).resolve('index.html');
-        virDir.serveFile(new File(indexUri.toFilePath()), request);
-      };
-      ...
-      virDir.serve(router.defaultStream);
-      ...
-    });
+HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, port).then((server) {
+  ...
+  var router = new Router(server);
+  ...
+  var virDir = new http_server.VirtualDirectory(buildPath);
+  virDir.jailRoot = false;
+  virDir.allowDirectoryListing = true;
+  virDir.directoryHandler = (dir, request) {
+    var indexUri = new Uri.file(dir.path).resolve('index.html');
+    virDir.serveFile(new File(indexUri.toFilePath()), request);
+  };
+  ...
+  virDir.serve(router.defaultStream);
+  ...
+});
+{% endprettify %}
 
 The call to `HttpServer.bind()` creates a web server that handles HTTP
 requests to the address 127.0.0.1:9223 (also known as localhost:9223).
@@ -355,26 +381,30 @@ upgrade HTTP requests for /ws and to handle them as WebSocket
 connections. The code uses dart:io's WebSocketTransformer class to
 perform the conversion:
 
-    router.serve('/ws')
-      .transform(new WebSocketTransformer())
-      .listen(handleWebSocket);
+{% prettify dart %}
+router.serve('/ws')
+  .transform(new WebSocketTransformer())
+  .listen(handleWebSocket);
+{% endprettify %}
 
 Here's the custom `handleWebSocket()` method, which handles events on
 the WebSocket:
 
-    void handleWebSocket(WebSocket webSocket) {
-      webSocket
-        .map((string) => JSON.decode(string))
-        .listen((json) {
-          var request = json['request'];
-          switch (request) {
-            case 'search':
-              // ...Kick off searches, and register handlers for results...
-              break;
-            ...
-          }
-        }, onError: (error) {...});
-    }
+{% prettify dart %}
+void handleWebSocket(WebSocket webSocket) {
+  webSocket
+    .map((string) => JSON.decode(string))
+    .listen((json) {
+      var request = json['request'];
+      switch (request) {
+        case 'search':
+          // ...Kick off searches, and register handlers for results...
+          break;
+        ...
+      }
+    }, onError: (error) {...});
+}
+{% endprettify %}
 
 The call to `webSocket.map()` parses all the messages that the client
 sends over the WebSocket, converting each JSON-formatted message into an
@@ -384,24 +414,27 @@ searches on GitHub and StackOverflow.
 Here's the code from the 'search' case that starts the searches and
 handles results as they come in:
 
-    for (var engine in searchEngines) {
-      engine.search(input)
-        .listen((result) {
-          var response = {
-            'response': 'searchResult',
-            'source': engine.name,
-            'title': result.title,
-            'link': result.link
-          };
-          webSocket.add(JSON.encode(response));
-        }, onError: (error) {
-          ...
-        }, onDone: () {
-          done++;
-          if (done == searchEngines.length) {
-            webSocket.add(JSON.encode({ 'response': 'searchDone' }));
-          }
-        });
+{% prettify dart %}
+for (var engine in searchEngines) {
+  engine.search(input)
+    .listen((result) {
+      var response = {
+        'response': 'searchResult',
+        'source': engine.name,
+        'title': result.title,
+        'link': result.link
+      };
+      webSocket.add(JSON.encode(response));
+    }, onError: (error) {
+      ...
+    }, onDone: () {
+      done++;
+      if (done == searchEngines.length) {
+        webSocket.add(JSON.encode({ 'response': 'searchDone' }));
+      }
+    });
+{% endprettify %}
+<!-- TODO: check that code. add more }s? -->
 
 Each engine can return up to 3 results, but the WebSocket handler
 doesn't wait around for those results. Instead, a listener handles each
@@ -418,37 +451,39 @@ The GitHub and StackOverflow searches are implemented in `search()`
 methods that take an input string and return a stream of SearchResult
 objects. Here's an example from the GitHub `search()` method:
 
-    import 'package:http/http.dart' as http_client;
-    ...
-    Stream<SearchResult> search(String input) {
-      var query = {
-        'q': 'language:dart $input'
-      };
-      var searchUri = new Uri.https(
-          'api.github.com',
-          '/search/repositories',
-          query);
-      var controller = new StreamController();
-      http_client.get(searchUri)
-        .then((http_client.Response response) {
-          if (response.statusCode != HttpStatus.OK) {
-            throw "Bad status code: ${response.statusCode}, "
-                  "message: ${response.reasonPhrase}";
-          }
-          var json = JSON.decode(response.body);
-          json.putIfAbsent('items', () => []);
-          json['items']
-            .expand(/* Delete items with empty descriptions. */)
-            .take(3)
-            .forEach((item) {
-              controller.add(new SearchResult(
-                  item['description'], item['html_url']));
-            });
-        })
-        .catchError(controller.addError)
-        .whenComplete(controller.close);
-      return controller.stream;
-    }
+{% prettify dart %}
+import 'package:http/http.dart' as http_client;
+...
+Stream<SearchResult> search(String input) {
+  var query = {
+    'q': 'language:dart $input'
+  };
+  var searchUri = new Uri.https(
+      'api.github.com',
+      '/search/repositories',
+      query);
+  var controller = new StreamController();
+  http_client.get(searchUri)
+    .then((http_client.Response response) {
+      if (response.statusCode != HttpStatus.OK) {
+        throw "Bad status code: ${response.statusCode}, "
+              "message: ${response.reasonPhrase}";
+      }
+      var json = JSON.decode(response.body);
+      json.putIfAbsent('items', () => []);
+      json['items']
+        .expand(/* Delete items with empty descriptions. */)
+        .take(3)
+        .forEach((item) {
+          controller.add(new SearchResult(
+              item['description'], item['html_url']));
+        });
+    })
+    .catchError(controller.addError)
+    .whenComplete(controller.close);
+  return controller.stream;
+}
+{% endprettify %}
 
 This method first constructs a search URI, using the `Uri.https()`
 constructor from dart:core's Uri class. The third argument is a
@@ -485,29 +520,33 @@ implementation in `github_search_engine.dart` and
 `stack_overflow_search_engine.dart`. Here's the code that sets up the
 library:
 
-    // In search_engine.dart:
+{% prettify dart %}
+// In search_engine.dart:
 
-    library search_engine;
+library search_engine;
 
-    import 'dart:async';
-    import 'dart:convert' show JSON;
-    import 'dart:io' show HttpStatus;
-    import 'package:http/http.dart' as http_client;
+import 'dart:async';
+import 'dart:convert' show JSON;
+import 'dart:io' show HttpStatus;
+import 'package:http/http.dart' as http_client;
 
-    part 'github_search_engine.dart';
-    part 'stack_overflow_search_engine.dart';
+part 'github_search_engine.dart';
+part 'stack_overflow_search_engine.dart';
 
-    ...
+...
+{% endprettify %}
 
 The other files in the library don't have imports. They do, however,
 have `part of` statements, which let tools and programmers know which
 library relies on these files:
 
-    // In github_search_engine.dart and stack_overflow_search_engine.dart:
+{% prettify dart %}
+// In github_search_engine.dart and stack_overflow_search_engine.dart:
 
-    part of search_engine;
+part of search_engine;
 
-    ...
+...
+{% endprettify %}
 
 The implementation of the search\_engine library is split as follows:
 
@@ -541,36 +580,44 @@ package](http://pub.dartlang.org/packages/logging) to log messages at
 varying levels of severity. Here's the code from `bin/server.dart` that
 imports API from the logging package and creates a log:
 
-    import 'package:logging/logging.dart' show Logger, Level, LogRecord;
-    ...
-    final Logger log = new Logger('DartiverseSearch');
+{% prettify dart %}
+import 'package:logging/logging.dart' show Logger, Level, LogRecord;
+...
+final Logger log = new Logger('DartiverseSearch');
+{% endprettify %}
 
 The Logger class has many methods for logging messages at pre-defined
 levels. Here's an example of logging an informational message, which you
 might use for debugging:
 
-    log.info('New WebSocket connection');
+{% prettify dart %}
+log.info('New WebSocket connection');
+{% endprettify %}
 
 Here's an example of logging a warning:
 
-    log.warning("Invalid request: '$request'");
+{% prettify dart %}
+log.warning("Invalid request: '$request'");
+{% endprettify %}
 
 By default, the logging package doesn't do anything useful with the log
 messages. You must configure the logging level and add a handler for the
 log messages. Here's the code from `bin/server.dart` that creates and
 configures the Logger object:
 
-    final Logger log = new Logger('DartiverseSearch');
-    ...
+{% prettify dart %}
+final Logger log = new Logger('DartiverseSearch');
+...
 
-    void main() {
-      // Set up logger.
-      Logger.root.level = Level.ALL;
-      Logger.root.onRecord.listen((LogRecord rec) {
-        print('${rec.level.name}: ${rec.time}: ${rec.message}');
-      });
-      ...
-    }
+void main() {
+  // Set up logger.
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
+  ...
+}
+{% endprettify %}
 
 Setting the level to `Level.ALL` makes all logging messages appear in
 the onRecord stream. If you want only warnings to appear, you can set

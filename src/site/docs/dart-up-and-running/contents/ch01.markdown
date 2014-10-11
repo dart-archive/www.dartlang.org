@@ -79,39 +79,41 @@ We expect Dart to help in two main ways:
 It’s hard to talk about a language without seeing it. Here’s a peek at a
 small Dart program:
 
-    lang-dart
-    import 'dart:math';
+{% prettify dart %}
+import 'dart:math';
 
-    class Point {
-      num x, y;
-      Point(this.x, this.y);
-      num distanceTo(Point other) {
-        var dx = x - other.x;
-        var dy = y - other.y;
-        return sqrt(dx * dx + dy * dy);
-      }
-    }
+class Point {
+  num x, y;
+  Point(this.x, this.y);
+  num distanceTo(Point other) {
+    var dx = x - other.x;
+    var dy = y - other.y;
+    return sqrt(dx * dx + dy * dy);
+  }
+}
 
-    main() {
-      var p = new Point(2, 3);
-      var q = new Point(3, 4);
-      print('distance from p to q = ${p.distanceTo(q)}');
-    }
+main() {
+  var p = new Point(2, 3);
+  var q = new Point(3, 4);
+  print('distance from p to q = ${p.distanceTo(q)}');
+}
+{% endprettify %}
 
 Of course, Dart’s main use case is building modern web apps. Programming
 the browser is easy:
 
-    lang-dart
-    import 'dart:html';
+{% prettify dart %}
+import 'dart:html';
 
-    main() {
-      var button = new ButtonElement();
-      button..id = 'confirm'
-            ..text = 'Click to Confirm'
-            ..classes.add('important')
-            ..onClick.listen((e) => window.alert('Confirmed!'));
-      querySelector('#registration').children.add(button);
-    }
+main() {
+  var button = new ButtonElement();
+  button..id = 'confirm'
+        ..text = 'Click to Confirm'
+        ..classes.add('important')
+        ..onClick.listen((e) => window.alert('Confirmed!'));
+  querySelector('#registration').children.add(button);
+}
+{% endprettify %}
 
 You’ll learn about the Dart language and libraries in Chapters ? and ?
 respectively.

@@ -36,26 +36,29 @@ have some basic utilities for working with numbers.
 You can convert a string into an integer or double with the `parse()`
 methods of int and double, respectively:
 
-    lang-dart
-    ch03/number-tests.dart
-    assert(int.parse('42') == 42);
-    assert(int.parse('0x42') == 66);
-    assert(double.parse('0.50') == 0.5);
+<!-- ch03/number-tests.dart -->
+{% prettify dart %}
+assert(int.parse('42') == 42);
+assert(int.parse('0x42') == 66);
+assert(double.parse('0.50') == 0.5);
+{% endprettify %}
 
 Or use the parse() method of num, which creates an integer if possible
 and otherwise a double:
 
-    lang-dart
-    ch03/number-tests.dart
-    assert(num.parse('42') is int);
-    assert(num.parse('0x42') is int);
-    assert(num.parse('0.50') is double);
+<!-- ch03/number-tests.dart -->
+{% prettify dart %}
+assert(num.parse('42') is int);
+assert(num.parse('0x42') is int);
+assert(num.parse('0.50') is double);
+{% endprettify %}
 
 To specify the base of an integer, add a `radix` parameter:
 
-    lang-dart
-    ch03/number-tests.dart
-    assert(int.parse('42', radix: 16) == 66);
+<!-- ch03/number-tests.dart -->
+{% prettify dart %}
+assert(int.parse('42', radix: 16) == 66);
+{% endprettify %}
 
 Use the `toString()` method (defined by
 [Object](http://api.dartlang.org/dart_core/Object.html)) to convert an
@@ -64,20 +67,21 @@ of the decimal, use `toStringAsFixed()` (defined by num). To specify the
 number of significant digits in the string, use
 `toStringAsPrecision()`(also in num):
 
-    lang-dart
-    ch03/number-tests.dart
-    // Convert an int to a string.
-    assert(42.toString() == '42');
+<!-- ch03/number-tests.dart -->
+{% prettify dart %}
+// Convert an int to a string.
+assert(42.toString() == '42');
 
-    // Convert a double to a string.
-    assert(123.456.toString() == '123.456');
+// Convert a double to a string.
+assert(123.456.toString() == '123.456');
 
-    // Specify the number of digits after the decimal.
-    assert(123.456.toStringAsFixed(2) == '123.46');
+// Specify the number of digits after the decimal.
+assert(123.456.toStringAsFixed(2) == '123.46');
 
-    // Specify the number of significant figures.
-    assert(123.456.toStringAsPrecision(2) == '1.2e+2');
-    assert(double.parse('1.2e+2') == 120.0);
+// Specify the number of significant figures.
+assert(123.456.toStringAsPrecision(2) == '1.2e+2');
+assert(double.parse('1.2e+2') == 120.0);
+{% endprettify %}
 
 For more information, see the API documentation for
 [int,](http://api.dartlang.org/dart_core/int.html)
@@ -103,19 +107,20 @@ You can find particular locations within a string, as well as check
 whether a string begins with or ends with a particular pattern. For
 example:
 
-    lang-dart
-    ch03/string-tests.dart
-    // Check whether a string contains another string.
-    assert('Never odd or even'.contains('odd'));
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+// Check whether a string contains another string.
+assert('Never odd or even'.contains('odd'));
 
-    // Does a string start with another string?
-    assert('Never odd or even'.startsWith('Never'));
+// Does a string start with another string?
+assert('Never odd or even'.startsWith('Never'));
 
-    // Does a string end with another string?
-    assert('Never odd or even'.endsWith('even'));
+// Does a string end with another string?
+assert('Never odd or even'.endsWith('even'));
 
-    // Find the location of a string inside a string.
-    assert('Never odd or even'.indexOf('odd') == 6);
+// Find the location of a string inside a string.
+assert('Never odd or even'.indexOf('odd') == 6);
+{% endprettify %}
 
 #### Extracting data from a string
 {:.no_toc}
@@ -128,28 +133,29 @@ units; high-numbered characters such as the treble clef symbol
 You can also extract a substring or split a string into a list of
 substrings:
 
-    lang-dart
-    ch03/string-tests.dart
-    // Grab a substring.
-    assert('Never odd or even'.substring(6, 9) == 'odd');
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+// Grab a substring.
+assert('Never odd or even'.substring(6, 9) == 'odd');
 
-    // Split a string using a string pattern.
-    var parts = 'structured web apps'.split(' ');
-    assert(parts.length == 3);
-    assert(parts[0] == 'structured');
+// Split a string using a string pattern.
+var parts = 'structured web apps'.split(' ');
+assert(parts.length == 3);
+assert(parts[0] == 'structured');
 
-    // Get a UTF-16 code unit (as a string) by index.
-    assert('Never odd or even'[0] == 'N');
+// Get a UTF-16 code unit (as a string) by index.
+assert('Never odd or even'[0] == 'N');
 
-    // Use split() with an empty string parameter to get a list of
-    // all code units (as Strings); good for iterating.
-    for (var char in 'hello'.split('')) {
-      print(char);
-    }
+// Use split() with an empty string parameter to get a list of
+// all code units (as Strings); good for iterating.
+for (var char in 'hello'.split('')) {
+  print(char);
+}
 
-    // Get all the UTF-16 code units in the string.
-    var codeUnitList = 'Never odd or even'.codeUnits.toList();
-    assert(codeUnitList[0] == 78);
+// Get all the UTF-16 code units in the string.
+var codeUnitList = 'Never odd or even'.codeUnits.toList();
+assert(codeUnitList[0] == 78);
+{% endprettify %}
 
 #### Converting to uppercase or lowercase
 {:.no_toc}
@@ -157,13 +163,14 @@ substrings:
 You can easily convert strings to their uppercase and lowercase
 variants:
 
-    lang-dart
-    ch03/string-tests.dart
-    // Convert to uppercase.
-    assert('structured web apps'.toUpperCase() == 'STRUCTURED WEB APPS');
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+// Convert to uppercase.
+assert('structured web apps'.toUpperCase() == 'STRUCTURED WEB APPS');
 
-    // Convert to lowercase.
-    assert('STRUCTURED WEB APPS'.toLowerCase() == 'structured web apps');
+// Convert to lowercase.
+assert('STRUCTURED WEB APPS'.toLowerCase() == 'structured web apps');
+{% endprettify %}
 
 > **Note**
 >
@@ -176,16 +183,17 @@ variants:
 Remove all leading and trailing white space with `trim()`. To check
 whether a string is empty (length is zero), use `isEmpty`.
 
-    lang-dart
-    ch03/string-tests.dart
-    // Trim a string.
-    assert('  hello  '.trim() == 'hello');
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+// Trim a string.
+assert('  hello  '.trim() == 'hello');
 
-    // Check whether a string is empty.
-    assert(''.isEmpty);
+// Check whether a string is empty.
+assert(''.isEmpty);
 
-    // Strings with only white space are not empty.
-    assert(!'  '.isEmpty);
+// Strings with only white space are not empty.
+assert(!'  '.isEmpty);
+{% endprettify %}
 
 #### Replacing part of a string
 {:.no_toc}
@@ -197,12 +205,13 @@ none of the methods actually changes the state of a String. For example,
 the method `replaceAll()` returns a new String without changing the
 original String:
 
-    lang-dart
-    ch03/string-tests.dart
-    var greetingTemplate = 'Hello, NAME!';
-    var greeting = greetingTemplate.replaceAll(new RegExp('NAME'), 'Bob');
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+var greetingTemplate = 'Hello, NAME!';
+var greeting = greetingTemplate.replaceAll(new RegExp('NAME'), 'Bob');
 
-    assert(greeting != greetingTemplate); // greetingTemplate didn't change.
+assert(greeting != greetingTemplate); // greetingTemplate didn't change.
+{% endprettify %}
 
 #### Building a string
 {:.no_toc}
@@ -212,18 +221,19 @@ StringBuffer doesn’t generate a new String object until `toString()` is
 called. The `writeAll()` method has an optional second parameter that
 lets you specify a separator—in this case, a space.
 
-    lang-dart
-    ch03/string-tests.dart
-    var sb = new StringBuffer();
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+var sb = new StringBuffer();
 
-    sb..write('Use a StringBuffer ')
-      ..writeAll(['for', 'efficient', 'string', 'creation'], ' ')
-      ..write('.');
+sb..write('Use a StringBuffer ')
+  ..writeAll(['for', 'efficient', 'string', 'creation'], ' ')
+  ..write('.');
 
-    var fullString = sb.toString();
+var fullString = sb.toString();
 
-    assert(fullString ==
-        'Use a StringBuffer for efficient string creation.');
+assert(fullString ==
+    'Use a StringBuffer for efficient string creation.');
+{% endprettify %}
 
 #### Regular expressions
 {:.no_toc}
@@ -232,37 +242,39 @@ The RegExp class provides the same capabilities as JavaScript regular
 expressions. Use regular expressions for efficient searching and pattern
 matching of strings.
 
-    lang-dart
-    ch03/string-tests.dart
-    // Here's a regular expression for one or more digits.
-    var numbers = new RegExp(r'\d+');
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+// Here's a regular expression for one or more digits.
+var numbers = new RegExp(r'\d+');
 
-    var allCharacters = 'llamas live fifteen to twenty years';
-    var someDigits = 'llamas live 15 to 20 years';
+var allCharacters = 'llamas live fifteen to twenty years';
+var someDigits = 'llamas live 15 to 20 years';
 
-    // contains() can use a regular expression.
-    assert(!allCharacters.contains(numbers));
-    assert(someDigits.contains(numbers));
+// contains() can use a regular expression.
+assert(!allCharacters.contains(numbers));
+assert(someDigits.contains(numbers));
 
-    // Replace every match with another string.
-    var exedOut = someDigits.replaceAll(numbers, 'XX');
-    assert(exedOut == 'llamas live XX to XX years');
+// Replace every match with another string.
+var exedOut = someDigits.replaceAll(numbers, 'XX');
+assert(exedOut == 'llamas live XX to XX years');
+{% endprettify %}
 
 You can work directly with the RegExp class, too. The Match class
 provides access to a regular expression match.
 
-    lang-dart
-    ch03/string-tests.dart
-    var numbers = new RegExp(r'\d+');
-    var someDigits = 'llamas live 15 to 20 years';
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+var numbers = new RegExp(r'\d+');
+var someDigits = 'llamas live 15 to 20 years';
 
-    // Check whether the reg exp has a match in a string.
-    assert(numbers.hasMatch(someDigits));
+// Check whether the reg exp has a match in a string.
+assert(numbers.hasMatch(someDigits));
 
-    // Loop through all matches.
-    for (var match in numbers.allMatches(someDigits)) {
-      print(match.group(0)); // 15, then 20
-    }
+// Loop through all matches.
+for (var match in numbers.allMatches(someDigits)) {
+  print(match.group(0)); // 15, then 20
+}
+{% endprettify %}
 
 #### More information
 {:.no_toc}
@@ -290,43 +302,45 @@ initialize [lists](#lists). Alternatively, use one of the List
 constructors. The List class also defines several methods for adding
 items to and removing items from lists.
 
-    lang-dart
-    ch03/list-tests.dart
-    // Use a List constructor.
-    var vegetables = new List();
+<!-- ch03/list-tests.dart -->
+{% prettify dart %}
+// Use a List constructor.
+var vegetables = new List();
 
-    // Or simply use a list literal.
-    var fruits = ['apples', 'oranges'];
+// Or simply use a list literal.
+var fruits = ['apples', 'oranges'];
 
-    // Add to a list.
-    fruits.add('kiwis');
+// Add to a list.
+fruits.add('kiwis');
 
-    // Add multiple items to a list.
-    fruits.addAll(['grapes', 'bananas']);
+// Add multiple items to a list.
+fruits.addAll(['grapes', 'bananas']);
 
-    // Get the list length.
-    assert(fruits.length == 5);
+// Get the list length.
+assert(fruits.length == 5);
 
-    // Remove a single item.
-    var appleIndex = fruits.indexOf('apples');
-    fruits.removeAt(appleIndex);
-    assert(fruits.length == 4);
+// Remove a single item.
+var appleIndex = fruits.indexOf('apples');
+fruits.removeAt(appleIndex);
+assert(fruits.length == 4);
 
-    // Remove all elements from a list.
-    fruits.clear();
-    assert(fruits.length == 0);
+// Remove all elements from a list.
+fruits.clear();
+assert(fruits.length == 0);
+{% endprettify %}
 
 Use `indexOf()` to find the index of an object in a list:
 
-    lang-dart
-    ch03/list-tests.dart
-    var fruits = ['apples', 'oranges'];
+<!-- ch03/list-tests.dart -->
+{% prettify dart %}
+var fruits = ['apples', 'oranges'];
 
-    // Access a list item by index.
-    assert(fruits[0] == 'apples');
+// Access a list item by index.
+assert(fruits[0] == 'apples');
 
-    // Find an item in a list.
-    assert(fruits.indexOf('apples') == 0);
+// Find an item in a list.
+assert(fruits.indexOf('apples') == 0);
+{% endprettify %}
 
 Sort a list using the `sort()` method. You can provide a sorting
 function that compares two objects. This sorting function must return \<
@@ -335,28 +349,30 @@ example uses `compareTo()`, which is defined by
 [Comparable](http://api.dartlang.org/dart_core/Comparable.html) and
 implemented by String.
 
-    lang-dart
-    ch03/list-tests.dart
-    var fruits = ['bananas', 'apples', 'oranges'];
+<!-- ch03/list-tests.dart -->
+{% prettify dart %}
+var fruits = ['bananas', 'apples', 'oranges'];
 
-    // Sort a list.
-    fruits.sort((a, b) => a.compareTo(b));
-    assert(fruits[0] == 'apples');
+// Sort a list.
+fruits.sort((a, b) => a.compareTo(b));
+assert(fruits[0] == 'apples');
+{% endprettify %}
 
 Lists are parameterized types, so you can specify the type that a list
 should contain:
 
-    lang-dart
-    ch03/list-tests.dart
-    // This list should contain only strings.
-    var fruits = new List<String>();
+<!-- ch03/list-tests.dart -->
+{% prettify dart %}
+// This list should contain only strings.
+var fruits = new List<String>();
 
-    fruits.add('apples');
-    var fruit = fruits[0];
-    assert(fruit is String);
+fruits.add('apples');
+var fruit = fruits[0];
+assert(fruit is String);
 
-    // Generates static analysis warning, num is not a string.
-    fruits.add(5);  // BAD: Throws exception in checked mode.
+// Generates static analysis warning, num is not a string.
+fruits.add(5);  // BAD: Throws exception in checked mode.
+{% endprettify %}
 
 Refer to the [List API
 docs](http://api.dartlang.org/dart_core/List.html) for a full list of
@@ -368,46 +384,49 @@ methods.
 A set in Dart is an unordered collection of unique items. Because a set
 is unordered, you can’t get a set’s items by index (position).
 
-    lang-dart
-    ch03/set-tests.dart
-    var ingredients = new Set();
-    ingredients.addAll(['gold', 'titanium', 'xenon']);
-    assert(ingredients.length == 3);
+<!-- ch03/set-tests.dart -->
+{% prettify dart %}
+var ingredients = new Set();
+ingredients.addAll(['gold', 'titanium', 'xenon']);
+assert(ingredients.length == 3);
 
-    // Adding a duplicate item has no effect.
-    ingredients.add('gold');
-    assert(ingredients.length == 3);
+// Adding a duplicate item has no effect.
+ingredients.add('gold');
+assert(ingredients.length == 3);
 
-    // Remove an item from a set.
-    ingredients.remove('gold');
-    assert(ingredients.length == 2);
+// Remove an item from a set.
+ingredients.remove('gold');
+assert(ingredients.length == 2);
+{% endprettify %}
 
 Use `contains()` and `containsAll()` to check whether one or more
 objects are in a set:
 
-    lang-dart
-    ch03/set-tests.dart
-    var ingredients = new Set();
-    ingredients.addAll(['gold', 'titanium', 'xenon']);
+<!-- ch03/set-tests.dart -->
+{% prettify dart %}
+var ingredients = new Set();
+ingredients.addAll(['gold', 'titanium', 'xenon']);
 
-    // Check whether an item is in the set.
-    assert(ingredients.contains('titanium'));
+// Check whether an item is in the set.
+assert(ingredients.contains('titanium'));
 
-    // Check whether all the items are in the set.
-    assert(ingredients.containsAll(['titanium', 'xenon']));
+// Check whether all the items are in the set.
+assert(ingredients.containsAll(['titanium', 'xenon']));
+{% endprettify %}
 
 An intersection is a set whose items are in two other sets.
 
-    lang-dart
-    ch03/set-tests.dart
-    var ingredients = new Set();
-    ingredients.addAll(['gold', 'titanium', 'xenon']);
+<!-- ch03/set-tests.dart -->
+{% prettify dart %}
+var ingredients = new Set();
+ingredients.addAll(['gold', 'titanium', 'xenon']);
 
-    // Create the intersection of two sets.
-    var nobleGases = new Set.from(['xenon', 'argon']);
-    var intersection = ingredients.intersection(nobleGases);
-    assert(intersection.length == 1);
-    assert(intersection.contains('xenon'));
+// Create the intersection of two sets.
+var nobleGases = new Set.from(['xenon', 'argon']);
+var intersection = ingredients.intersection(nobleGases);
+assert(intersection.length == 1);
+assert(intersection.contains('xenon'));
+{% endprettify %}
 
 Refer to the [Set API docs](http://api.dartlang.org/dart_core/Set.html)
 for a full list of methods.
@@ -422,84 +441,89 @@ easy retrieval. Unlike in JavaScript, Dart objects are not maps.
 You can declare a map using a terse literal syntax, or you can use a
 traditional constructor:
 
-    lang-dart
-    ch03/map-1.dart
-    // Maps often use strings as keys.
-    var hawaiianBeaches = {
-      'oahu'       : ['waikiki', 'kailua', 'waimanalo'],
-      'big island' : ['wailea bay', 'pololu beach'],
-      'kauai'      : ['hanalei', 'poipu']
-    };
+<!-- ch03/map-1.dart -->
+{% prettify dart %}
+// Maps often use strings as keys.
+var hawaiianBeaches = {
+  'oahu'       : ['waikiki', 'kailua', 'waimanalo'],
+  'big island' : ['wailea bay', 'pololu beach'],
+  'kauai'      : ['hanalei', 'poipu']
+};
 
-    // Maps can be built from a constructor.
-    var searchTerms = new Map();
+// Maps can be built from a constructor.
+var searchTerms = new Map();
 
-    // Maps are parameterized types; you can specify what types
-    // the key and value should be.
-    var nobleGases = new Map<int, String>();
+// Maps are parameterized types; you can specify what types
+// the key and value should be.
+var nobleGases = new Map<int, String>();
+{% endprettify %}
 
 You add, get, and set map items using the bracket syntax. Use `remove()`
 to remove a key and its value from a map.
 
-    lang-dart
-    ch03/map-1.dart
-    var nobleGases = { 54: 'xenon' };
+<!-- ch03/map-1.dart -->
+{% prettify dart %}
+var nobleGases = { 54: 'xenon' };
 
-    // Retrieve a value with a key.
-    assert(nobleGases[54] == 'xenon');
+// Retrieve a value with a key.
+assert(nobleGases[54] == 'xenon');
 
-    // Check whether a map contains a key.
-    assert(nobleGases.containsKey(54));
+// Check whether a map contains a key.
+assert(nobleGases.containsKey(54));
 
-    // Remove a key and its value.
-    nobleGases.remove(54);
-    assert(!nobleGases.containsKey(54));
+// Remove a key and its value.
+nobleGases.remove(54);
+assert(!nobleGases.containsKey(54));
+{% endprettify %}
 
 You can retrieve all the values or all the keys from a map:
 
-    lang-dart
-    ch03/map-1.dart
-    var hawaiianBeaches = {
-      'oahu' : ['waikiki', 'kailua', 'waimanalo'],
-      'big island' : ['wailea bay', 'pololu beach'],
-      'kauai' : ['hanalei', 'poipu']
-    };
+<!-- ch03/map-1.dart -->
+{% prettify dart %}
+var hawaiianBeaches = {
+  'oahu' : ['waikiki', 'kailua', 'waimanalo'],
+  'big island' : ['wailea bay', 'pololu beach'],
+  'kauai' : ['hanalei', 'poipu']
+};
 
-    // Get all the keys as an unordered collection (an Iterable).
-    var keys = hawaiianBeaches.keys;
+// Get all the keys as an unordered collection (an Iterable).
+var keys = hawaiianBeaches.keys;
 
-    assert(keys.length == 3);
-    assert(new Set.from(keys).contains('oahu'));
+assert(keys.length == 3);
+assert(new Set.from(keys).contains('oahu'));
 
-    // Get all the values as an unordered collection (an Iterable of Lists).
-    var values = hawaiianBeaches.values;
-    assert(values.length == 3);
-    assert(values.any((v) => v.contains('waikiki')));
+// Get all the values as an unordered collection (an Iterable of Lists).
+var values = hawaiianBeaches.values;
+assert(values.length == 3);
+assert(values.any((v) => v.contains('waikiki')));
+{% endprettify %}
 
 To check whether a map contains a key, use `containsKey()`. Because map
 values can be null, you cannot rely on simply getting the value for the
 key and checking for null to determine the existence of a key.
 
-    lang-dart
-    ch03/map-1.dart
-    var hawaiianBeaches = {
-      'oahu' : ['waikiki', 'kailua', 'waimanalo'],
-      'big island' : ['wailea bay', 'pololu beach'],
-      'kauai' : ['hanalei', 'poipu']
-    };
+<!-- ch03/map-1.dart -->
+{% prettify dart %}
+var hawaiianBeaches = {
+  'oahu' : ['waikiki', 'kailua', 'waimanalo'],
+  'big island' : ['wailea bay', 'pololu beach'],
+  'kauai' : ['hanalei', 'poipu']
+};
 
-    assert(hawaiianBeaches.containsKey('oahu'));
-    assert(!hawaiianBeaches.containsKey('florida'));
+assert(hawaiianBeaches.containsKey('oahu'));
+assert(!hawaiianBeaches.containsKey('florida'));
+{% endprettify %}
 
 Use the `putIfAbsent()` method when you want to assign a value to a key
 if and only if the key does not already exist in a map. You must provide
 a function that returns the value.
 
-    lang-dart
-    ch03/map-1.dart
-    var teamAssignments = {};
-    teamAssignments.putIfAbsent('Catcher', () => pickToughestKid());
-    assert(teamAssignments['Catcher'] != null);
+<!-- ch03/map-1.dart -->
+{% prettify dart %}
+var teamAssignments = {};
+teamAssignments.putIfAbsent('Catcher', () => pickToughestKid());
+assert(teamAssignments['Catcher'] != null);
+{% endprettify %}
 
 Refer to the [Map API docs](http://api.dartlang.org/dart_core/Map.html)
 for a full list of methods.
@@ -518,39 +542,43 @@ which List and Set implement.
 
 Use `isEmpty` to check whether a list, set, or map has no items:
 
-    lang-dart
-    ch03/collection-isEmpty.dart
-    var teas = ['green', 'black', 'chamomile', 'earl grey'];
-    assert(!teas.isEmpty);
+<!-- ch03/collection-isEmpty.dart -->
+{% prettify dart %}
+var teas = ['green', 'black', 'chamomile', 'earl grey'];
+assert(!teas.isEmpty);
+{% endprettify %}
 
 To apply a function to each item in a list, set, or map, you can use
 `forEach()`:
 
-    lang-dart
-    ch03/collection-apply-function.dart
-    var teas = ['green', 'black', 'chamomile', 'earl grey'];
+<!-- ch03/collection-apply-function.dart -->
+{% prettify dart %}
+var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-    teas.forEach((tea) => print('I drink $tea'));
+teas.forEach((tea) => print('I drink $tea'));
+{% endprettify %}
 
 When you invoke `forEach()` on a map, your function must take two
 arguments (the key and value):
 
-    lang-dart
-    ch03/map-1.dart
-    hawaiianBeaches.forEach((k, v) {
-      print('I want to visit $k and swim at $v');
-      // I want to visit oahu and swim at [waikiki, kailua, waimanalo], etc.
-    });
+<!-- ch03/map-1.dart -->
+{% prettify dart %}
+hawaiianBeaches.forEach((k, v) {
+  print('I want to visit $k and swim at $v');
+  // I want to visit oahu and swim at [waikiki, kailua, waimanalo], etc.
+});
+{% endprettify %}
 
 Iterables provide the `map()` method, which gives you all the results in
 a single object:
 
-    lang-dart
-    ch03/collection-apply-function.dart
-    var teas = ['green', 'black', 'chamomile', 'earl grey'];
+<!-- ch03/collection-apply-function.dart -->
+{% prettify dart %}
+var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-    var loudTeas = teas.map((tea) => tea.toUpperCase());
-    loudTeas.forEach(print);
+var loudTeas = teas.map((tea) => tea.toUpperCase());
+loudTeas.forEach(print);
+{% endprettify %}
 
 > **Note**
 >
@@ -561,9 +589,10 @@ a single object:
 To force your function to be called immediately on each item, use
 `map().toList()` or `map().toSet()`:
 
-    lang-dart
-    ch03/collection-apply-function.dart
-    var loudTeaList = teas.map((tea) => tea.toUpperCase()).toList();
+<!-- ch03/collection-apply-function.dart -->
+{% prettify dart %}
+var loudTeaList = teas.map((tea) => tea.toUpperCase()).toList();
+{% endprettify %}
 
 Use Iterable’s `where()` method to get all the items that match a
 condition. Use Iterable’s `any()` and `every()` methods to check whether
@@ -571,25 +600,26 @@ some or all items match a condition. {PENDING: if time permits, change
 example as suggested by floitsch to have (maybe) cities instead of
 isDecaffeinated.}
 
-    lang-dart
-    ch03/collection-any-every.dart
-    var teas = ['green', 'black', 'chamomile', 'earl grey'];
+<!-- ch03/collection-any-every.dart -->
+{% prettify dart %}
+var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
-    // Chamomile is not caffeinated.
-    bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+// Chamomile is not caffeinated.
+bool isDecaffeinated(String teaName) => teaName == 'chamomile';
 
-    // Use where() to find only the items that return true
-    // from the provided function.
-    var decaffeinatedTeas = teas.where((tea) => isDecaffeinated(tea));
-    // or teas.where(isDecaffeinated)
+// Use where() to find only the items that return true
+// from the provided function.
+var decaffeinatedTeas = teas.where((tea) => isDecaffeinated(tea));
+// or teas.where(isDecaffeinated)
 
-    // Use any() to check whether at least one item in the collection
-    // satisfies a condition.
-    assert(teas.any(isDecaffeinated));
+// Use any() to check whether at least one item in the collection
+// satisfies a condition.
+assert(teas.any(isDecaffeinated));
 
-    // Use every() to check whether all the items in a collection
-    // satisfy a condition.
-    assert(!teas.every(isDecaffeinated));
+// Use every() to check whether all the items in a collection
+// satisfy a condition.
+assert(!teas.every(isDecaffeinated));
+{% endprettify %}
 
 For a full list of methods, refer to the [Iterable API
 docs,](http://api.dartlang.org/dart_core/Iterable.html) as well as those
@@ -614,16 +644,17 @@ URI (such as `/`, `:`, `&`, `#`), use the `encodeFull()` and
 `decodeFull()` methods. These methods are good for encoding or decoding
 a fully qualified URI, leaving intact special URI characters.
 
-    lang-dart
-    code/ch03/encodeUri.dart
-    main() {
-      var uri = 'http://example.org/api?foo=some message';
-      var encoded = Uri.encodeFull(uri);
-      assert(encoded == 'http://example.org/api?foo=some%20message');
+<!-- code/ch03/encodeUri.dart -->
+{% prettify dart %}
+main() {
+  var uri = 'http://example.org/api?foo=some message';
+  var encoded = Uri.encodeFull(uri);
+  assert(encoded == 'http://example.org/api?foo=some%20message');
 
-      var decoded = Uri.decodeFull(encoded);
-      assert(uri == decoded);
-    }
+  var decoded = Uri.decodeFull(encoded);
+  assert(uri == decoded);
+}
+{% endprettify %}
 
 Notice how only the space between `some` and `message` was encoded.
 
@@ -634,16 +665,17 @@ To encode and decode all of a string’s characters that have special
 meaning in a URI, including (but not limited to) `/`, `&`, and `:`, use
 the `encodeComponent()` and `decodeComponent()` methods.
 
-    lang-dart
-    code/ch03/encodeUriComponents.dart
-    main() {
-      var uri = 'http://example.org/api?foo=some message';
-      var encoded = Uri.encodeComponent(uri);
-      assert(encoded == 'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
+<!-- code/ch03/encodeUriComponents.dart -->
+{% prettify dart %}
+main() {
+  var uri = 'http://example.org/api?foo=some message';
+  var encoded = Uri.encodeComponent(uri);
+  assert(encoded == 'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
 
-      var decoded = Uri.decodeComponent(encoded);
-      assert(uri == decoded);
-    }
+  var decoded = Uri.decodeComponent(encoded);
+  assert(uri == decoded);
+}
+{% endprettify %}
 
 Notice how every special character is encoded. For example, `/` is
 encoded to `%2F`.
@@ -655,17 +687,18 @@ If you have a Uri object or a URI string, you can get its parts using
 Uri fields such as `path`. To create a Uri from a string, use the
 `parse()` static method:
 
-    lang-dart
-    code/ch03/parseUri.dart
-    main() {
-      var uri = Uri.parse('http://example.org:8080/foo/bar#frag');
+<!-- code/ch03/parseUri.dart -->
+{% prettify dart %}
+main() {
+  var uri = Uri.parse('http://example.org:8080/foo/bar#frag');
 
-      assert(uri.scheme   == 'http');
-      assert(uri.host     == 'example.org');
-      assert(uri.path     == '/foo/bar');
-      assert(uri.fragment == 'frag');
-      assert(uri.origin   == 'http://example.org:8080');
-    }
+  assert(uri.scheme   == 'http');
+  assert(uri.host     == 'example.org');
+  assert(uri.path     == '/foo/bar');
+  assert(uri.fragment == 'frag');
+  assert(uri.origin   == 'http://example.org:8080');
+}
+{% endprettify %}
 
 See the [Uri API docs](http://api.dartlang.org/dart_core/Uri.html) for
 more URI components that you can get.
@@ -676,13 +709,14 @@ more URI components that you can get.
 You can build up a URI from individual parts using the `Uri()`
 constructor:
 
-    lang-dart
-    code/ch03/uriFromComponents.dart
-    main() {
-      var uri = new Uri(scheme: 'http', host: 'example.org', 
-                        path: '/foo/bar', fragment: 'frag');
-      assert(uri.toString() == 'http://example.org/foo/bar#frag');
-    }
+<!-- code/ch03/uriFromComponents.dart -->
+{% prettify dart %}
+main() {
+  var uri = new Uri(scheme: 'http', host: 'example.org', 
+                    path: '/foo/bar', fragment: 'frag');
+  assert(uri.toString() == 'http://example.org/foo/bar#frag');
+}
+{% endprettify %}
 
 
 ### Dates and Times
@@ -693,56 +727,59 @@ local time zone.
 
 You can create DateTime objects using several constructors:
 
-    lang-dart
-    ch03/date.dart
-    // Get the current date and time.
-    var now = new DateTime.now();
+<!-- ch03/date.dart -->
+{% prettify dart %}
+// Get the current date and time.
+var now = new DateTime.now();
 
-    // Create a new DateTime with the local time zone.
-    var y2k = new DateTime(2000);   // January 1, 2000
+// Create a new DateTime with the local time zone.
+var y2k = new DateTime(2000);   // January 1, 2000
 
-    // Specify the month and day.
-    y2k = new DateTime(2000, 1, 2); // January 2, 2000
+// Specify the month and day.
+y2k = new DateTime(2000, 1, 2); // January 2, 2000
 
-    // Specify the date as a UTC time.
-    y2k = new DateTime.utc(2000);   // January 1, 2000, UTC
+// Specify the date as a UTC time.
+y2k = new DateTime.utc(2000);   // January 1, 2000, UTC
 
-    // Specify a date and time in milliseconds since the Unix epoch.
-    y2k = new DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
+// Specify a date and time in milliseconds since the Unix epoch.
+y2k = new DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
 
-    // Parse an ISO 8601 date.
-    y2k = DateTime.parse('2000-01-01T00:00:00Z');
+// Parse an ISO 8601 date.
+y2k = DateTime.parse('2000-01-01T00:00:00Z');
+{% endprettify %}
 
 The `millisecondsSinceEpoch` property of a date returns the number of
 milliseconds since the “Unix epoch”—January 1, 1970, UTC:
 
-    lang-dart
-    ch03/date.dart
-    var y2k = new DateTime.utc(2000);           // 1/1/2000, UTC
-    assert(y2k.millisecondsSinceEpoch == 946684800000);
-    var unixEpoch = new DateTime.utc(1970); // 1/1/1970, UTC
-    assert(unixEpoch.millisecondsSinceEpoch == 0);
+<!-- ch03/date.dart -->
+{% prettify dart %}
+var y2k = new DateTime.utc(2000);           // 1/1/2000, UTC
+assert(y2k.millisecondsSinceEpoch == 946684800000);
+var unixEpoch = new DateTime.utc(1970); // 1/1/1970, UTC
+assert(unixEpoch.millisecondsSinceEpoch == 0);
+{% endprettify %}
 
 Use the Duration class to calculate the difference between two dates and
 to shift a date forward or backward:
 
-    lang-dart
-    ch03/date.dart
-    var y2k = new DateTime.utc(2000);
+<!-- ch03/date.dart -->
+{% prettify dart %}
+var y2k = new DateTime.utc(2000);
 
-    // Add one year.
-    var y2001 = y2k.add(const Duration(days: 366));
-    assert(y2001.year == 2001);
+// Add one year.
+var y2001 = y2k.add(const Duration(days: 366));
+assert(y2001.year == 2001);
 
-    // Subtract 30 days.
-    var december2000 = y2001.subtract(const Duration(days: 30));
-    assert(december2000.year == 2000);
-    assert(december2000.month == 12);
+// Subtract 30 days.
+var december2000 = y2001.subtract(const Duration(days: 30));
+assert(december2000.year == 2000);
+assert(december2000.month == 12);
 
-    // Calculate the difference between two dates.
-    // Returns a Duration object.
-    var duration = y2001.difference(y2k);
-    assert(duration.inDays == 366); // y2k was a leap year.
+// Calculate the difference between two dates.
+// Returns a Duration object.
+var duration = y2001.difference(y2k);
+assert(duration.inDays == 366); // y2k was a leap year.
+{% endprettify %}
 
 > **Warning**
 >
@@ -771,19 +808,20 @@ interface to indicate that an object can be compared to another object,
 usually for sorting. The `compareTo()` method returns \< 0 for
 *smaller*, 0 for the *same*, and \> 0 for *bigger*.
 
-    lang-dart
-    ch03/comparable.dart
-    class Line implements Comparable {
-      final length;
-      const Line(this.length);
-      int compareTo(Line other) => length - other.length;
-    }
+<!-- ch03/comparable.dart -->
+{% prettify dart %}
+class Line implements Comparable {
+  final length;
+  const Line(this.length);
+  int compareTo(Line other) => length - other.length;
+}
 
-    main() {
-      var short = const Line(1);
-      var long = const Line(100);
-      assert(short.compareTo(long) < 0);
-    }
+main() {
+  var short = const Line(1);
+  var long = const Line(100);
+  assert(short.compareTo(long) < 0);
+}
+{% endprettify %}
 
 #### Implementing map keys
 {:.no_toc}
@@ -799,37 +837,39 @@ Note: There’s disagreement over whether to include identical() in the ==
 implementation. It might improve speed, at least when you need to
 compare many fields. They don’t do identical() automatically because, by
 convention, NaN != NaN.
-    lang-dart
-    ch03/map-keys.dart
-    class Person {
-      final String firstName, lastName;
 
-      Person(this.firstName, this.lastName);
+<!-- ch03/map-keys.dart -->
+{% prettify dart %}
+class Person {
+  final String firstName, lastName;
 
-      // Override hashCode using strategy from Effective Java, Chapter 11.
-      int get hashCode {
-        int result = 17;
-        result = 37 * result + firstName.hashCode;
-        result = 37 * result + lastName.hashCode;
-        return result;
-      }
+  Person(this.firstName, this.lastName);
 
-      // You should generally implement operator== if you override hashCode.
-      bool operator==(other) {
-        if (other is! Person) return false;
-        Person person = other;
-        return (person.firstName == firstName && person.lastName == lastName);
-      }
-    }
+  // Override hashCode using strategy from Effective Java, Chapter 11.
+  int get hashCode {
+    int result = 17;
+    result = 37 * result + firstName.hashCode;
+    result = 37 * result + lastName.hashCode;
+    return result;
+  }
 
-    main() {
-      var p1 = new Person('bob', 'smith');
-      var p2 = new Person('bob', 'smith');
-      var p3 = 'not a person';
-      assert(p1.hashCode == p2.hashCode);
-      assert(p1 == p2);
-      assert(p1 != p3);
-    }
+  // You should generally implement operator== if you override hashCode.
+  bool operator==(other) {
+    if (other is! Person) return false;
+    Person person = other;
+    return (person.firstName == firstName && person.lastName == lastName);
+  }
+}
+
+main() {
+  var p1 = new Person('bob', 'smith');
+  var p2 = new Person('bob', 'smith');
+  var p3 = 'not a person';
+  assert(p1.hashCode == p2.hashCode);
+  assert(p1 == p2);
+  assert(p1 != p3);
+}
+{% endprettify %}
 
 #### Iteration
 {:.no_toc}
@@ -840,31 +880,32 @@ support for-in loops. Extend (if possible) or implement Iterable
 whenever you create a class that can provide Iterators for use in for-in
 loops. Implement Iterator to define the actual iteration ability.
 
-    lang-dart
-    ch03/iterator.dart
-    class Process {
-      // Represents a process...
-    }
+<!-- ch03/iterator.dart -->
+{% prettify dart %}
+class Process {
+  // Represents a process...
+}
 
-    class ProcessIterator implements Iterator<Process> {
-      Process current;
-      bool moveNext() {
-        return false;
-      }
-    }
+class ProcessIterator implements Iterator<Process> {
+  Process current;
+  bool moveNext() {
+    return false;
+  }
+}
 
-    // A mythical class that lets you iterate through all processes.
-    // Extends a subclass of Iterable.
-    class Processes extends IterableBase<Process> {
-      final Iterator<Process> iterator = new ProcessIterator();
-    }
+// A mythical class that lets you iterate through all processes.
+// Extends a subclass of Iterable.
+class Processes extends IterableBase<Process> {
+  final Iterator<Process> iterator = new ProcessIterator();
+}
 
-    main() {
-      // Iterable objects can be used with for-in.
-      for (var process in new Processes()) {
-        // Do something with the process.
-      }
-    }
+main() {
+  // Iterable objects can be used with for-in.
+  for (var process in new Processes()) {
+    // Do something with the process.
+  }
+}
+{% endprettify %}
 
 
 ### Exceptions
@@ -889,13 +930,14 @@ Throwing an application-specific exception is a common way to indicate
 that an error has occurred. You can define a custom exception by
 implementing the Exception interface:
 
-    lang-dart
-    ch03/exceptions.dart
-    class FooException implements Exception {
-      final String msg;
-      const FooException([this.msg]);
-      String toString() => msg == null ? 'FooException' : msg;
-    }
+<!-- ch03/exceptions.dart -->
+{% prettify dart %}
+class FooException implements Exception {
+  final String msg;
+  const FooException([this.msg]);
+  String toString() => msg == null ? 'FooException' : msg;
+}
+{% endprettify %}
 
 For more information, see ? and the [Exception API
 docs.](http://api.dartlang.org/dart_core/Exception.html)
@@ -915,8 +957,9 @@ Future, Stream, and more are in the
 The dart:async library works in both web apps and command-line apps. To
 use it, import dart:async:
 
-    lang-dart
-    import 'dart:async';
+{% prettify dart %}
+import 'dart:async';
+{% endprettify %}
 
 
 ### Future
@@ -934,24 +977,26 @@ example, `HttpRequest.getString()` returns a Future, since HTTP requests
 can take a while. Using `then()` lets you run some code when that Future
 has completed and the promised string value is available:
 
-    lang-dart
-    ch03/ch03_4_async/web/ch03_4_async.dart
-    HttpRequest.getString(url)
-      .then((String result) {
-        print(result); });
-      // Should handle errors here
+<!-- ch03/ch03_4_async/web/ch03_4_async.dart -->
+{% prettify dart %}
+HttpRequest.getString(url)
+  .then((String result) {
+    print(result); });
+  // Should handle errors here
+{% endprettify %}
 
 Use `catchError()` to handle any errors or exceptions that a Future
 object might throw.
 
-    lang-dart
-    ch03/ch03_4_async/web/ch03_4_async.dart
-    HttpRequest.getString(url)
-      .then((String result) {  // callback function
-        print(result); })
-      .catchError((e) {
-        // Handle or ignore the error.
-      });
+<!-- ch03/ch03_4_async/web/ch03_4_async.dart -->
+{% prettify dart %}
+HttpRequest.getString(url)
+  .then((String result) {  // callback function
+    print(result); })
+  .catchError((e) {
+    // Handle or ignore the error.
+  });
+{% endprettify %}
 
 The `then().catchError()` pattern is the asynchronous version of
 `try`-`catch`.
@@ -972,14 +1017,15 @@ registered with `then()` returns a Future, `then()` returns an
 equivalent Future. If the callback returns a value of any other type,
 `then()` creates a new Future that completes with the value.
 
-    lang-dart
-    ch03/futures.dart
-    Future result = costlyQuery();
+<!-- ch03/futures.dart -->
+{% prettify dart %}
+Future result = costlyQuery();
 
-    return result.then((value) => expensiveWork())
-                 .then((value) => lengthyComputation())
-                 .then((value) => print('done!'))
-                 .catchError((exception) => print('DOH!'));
+return result.then((value) => expensiveWork())
+             .then((value) => lengthyComputation())
+             .then((value) => print('done!'))
+             .catchError((exception) => print('DOH!'));
+{% endprettify %}
 
 In the preceding example, the methods run in the following order:
 
@@ -997,15 +1043,16 @@ wait for them all to complete before continuing. Use the
 [`Future.wait()`](http://api.dartlang.org/dart_async/Future.html#wait)
 static method to manage multiple Futures and wait for them to complete:
 
-    lang-dart
-    ch03/futures.dart
-    Future deleteDone = deleteLotsOfFiles();
-    Future copyDone = copyLotsOfFiles();
-    Future checksumDone = checksumLotsOfOtherFiles();
+<!-- ch03/futures.dart -->
+{% prettify dart %}
+Future deleteDone = deleteLotsOfFiles();
+Future copyDone = copyLotsOfFiles();
+Future checksumDone = checksumLotsOfOtherFiles();
 
-    Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
-      print('Done with all the long steps');
-    });
+Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
+  print('Done with all the long steps');
+});
+{% endprettify %}
 
 
 ### Stream
@@ -1021,13 +1068,14 @@ streams. You can also read a file as a stream.
 To get each value as it arrives, subscribe to the stream using the
 `listen()` method:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    // Find a button by ID and add an event handler.
-    querySelector('#submitInfo').onClick.listen((e) {
-      // When the button is clicked, it runs this code.
-      submitData();
-    });
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+// Find a button by ID and add an event handler.
+querySelector('#submitInfo').onClick.listen((e) {
+  // When the button is clicked, it runs this code.
+  submitData();
+});
+{% endprettify %}
 
 In this example, the `onClick` property is a Stream object provided by
 the 'submitInfo' button.
@@ -1048,16 +1096,17 @@ Often, you need to change the format of a stream's data before you can
 use it. Use the `transform()` method to produce a stream with a
 different type of data:
 
-    lang-dart
-    ch03/readFile.dart
-    var config = new File('config.txt');
-    Stream<List<int>> inputStream = config.openRead();
+<!-- ch03/readFile.dart -->
+{% prettify dart %}
+var config = new File('config.txt');
+Stream<List<int>> inputStream = config.openRead();
 
-    inputStream
-      .transform(UTF8.decoder)
-      .transform(new LineSplitter())
-      .listen(
-        (String line) {...} ...);
+inputStream
+  .transform(UTF8.decoder)
+  .transform(new LineSplitter())
+  .listen(
+    (String line) {...} ...);
+{% endprettify %}
 
 This example uses two transformers. First it uses UTF8.decoder to
 transform the stream of integers into a stream of strings. Then it uses
@@ -1099,9 +1148,10 @@ To use the Math library in your app, import dart:math. The following
 examples use the prefix `math` to make clear which top-level functions
 and constants are from the Math library:
 
-    lang-dart
-    ch03/math-tests.dart
-    import 'dart:math' as math;
+<!-- ch03/math-tests.dart -->
+{% prettify dart %}
+import 'dart:math' as math;
+{% endprettify %}
 
 
 ### Trigonometry
@@ -1109,17 +1159,18 @@ and constants are from the Math library:
 
 The Math library provides basic trigonometric functions:
 
-    lang-dart
-    ch03/math-tests.dart
-    // Cosine
-    assert(math.cos(math.PI) == -1.0);
+<!-- ch03/math-tests.dart -->
+{% prettify dart %}
+// Cosine
+assert(math.cos(math.PI) == -1.0);
 
-    // Sine
-    var degrees = 30;
-    var radians = degrees * (math.PI / 180);
-    // radians is now 0.52359.
-    var sinOf30degrees = math.sin(radians);
-    assert((sinOf30degrees - 0.5).abs() < 0.01); // sin 30° = 0.5
+// Sine
+var degrees = 30;
+var radians = degrees * (math.PI / 180);
+// radians is now 0.52359.
+var sinOf30degrees = math.sin(radians);
+assert((sinOf30degrees - 0.5).abs() < 0.01); // sin 30° = 0.5
+{% endprettify %}
 
 > **Note**
 >
@@ -1131,10 +1182,11 @@ The Math library provides basic trigonometric functions:
 
 The Math library provides `max()` and `min()` methods:
 
-    lang-dart
-    ch03/math-tests.dart
-    assert(math.max(1, 1000) == 1000);
-    assert(math.min(1, -1000) == -1000);
+<!-- ch03/math-tests.dart -->
+{% prettify dart %}
+assert(math.max(1, 1000) == 1000);
+assert(math.min(1, -1000) == -1000);
+{% endprettify %}
 
 
 ### Math Constants
@@ -1142,12 +1194,13 @@ The Math library provides `max()` and `min()` methods:
 
 Find your favorite constants—*pi*, *e*, and more—in the Math library:
 
-    lang-dart
-    ch03/math-tests.dart
-    // See the Math library for additional constants.
-    print(math.E);     // 2.718281828459045
-    print(math.PI);    // 3.141592653589793
-    print(math.SQRT2); // 1.4142135623730951
+<!-- ch03/math-tests.dart -->
+{% prettify dart %}
+// See the Math library for additional constants.
+print(math.E);     // 2.718281828459045
+print(math.PI);    // 3.141592653589793
+print(math.SQRT2); // 1.4142135623730951
+{% endprettify %}
 
 
 ### Random Numbers
@@ -1157,18 +1210,20 @@ Generate random numbers with the
 [Random](http://api.dartlang.org/dart_math/Random.html) class. You can
 optionally provide a seed to the Random constructor.
 
-    lang-dart
-    ch03/math-tests.dart
-    var random = new math.Random();
-    random.nextDouble(); // Between 0.0 and 1.0: [0, 1)
-    random.nextInt(10);  // Between 0 and 9.
+<!-- ch03/math-tests.dart -->
+{% prettify dart %}
+var random = new math.Random();
+random.nextDouble(); // Between 0.0 and 1.0: [0, 1)
+random.nextInt(10);  // Between 0 and 9.
+{% endprettify %}
 
 You can even generate random booleans:
 
-    lang-dart
-    ch03/math-tests.dart
-    var random = new math.Random();
-    random.nextBool();  // true or false
+<!-- ch03/math-tests.dart -->
+{% prettify dart %}
+var random = new math.Random();
+random.nextBool();  // true or false
+{% endprettify %}
 
 
 ### More Information
@@ -1203,9 +1258,10 @@ dart:html, not command-line apps.
 
 To use the HTML library in your web app, import dart:html:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    import 'dart:html';
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+import 'dart:html';
+{% endprettify %}
 
 > **Note**
 >
@@ -1256,16 +1312,17 @@ The `querySelector()` function returns the first element that matches
 the selector, while `querySelectorAll()`returns a collection of elements
 that match the selector.
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    Element elem1 = querySelector('#an-id');           // Find an element by id (an-id).
-    Element elem2 = querySelector('.a-class');         // Find an element by class (a-class).
-    List<Element> elems1 = querySelectorAll('div');    // Find all elements by tag (<div>).
-    List<Element> elems2 = querySelectorAll('input[type="text"]'); // Find all text inputs.
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+Element elem1 = querySelector('#an-id');           // Find an element by id (an-id).
+Element elem2 = querySelector('.a-class');         // Find an element by class (a-class).
+List<Element> elems1 = querySelectorAll('div');    // Find all elements by tag (<div>).
+List<Element> elems2 = querySelectorAll('input[type="text"]'); // Find all text inputs.
 
-    // Find all elements with the CSS class 'class' inside of a <p>
-    // that is inside an element with the ID 'id'.
-    List<Element> elems3 = querySelectorAll('#id p.class');
+// Find all elements with the CSS class 'class' inside of a <p>
+// that is inside an element with the ID 'id'.
+List<Element> elems3 = querySelectorAll('#id p.class');
+{% endprettify %}
 
 #### Manipulating elements
 {:.no_toc}
@@ -1279,47 +1336,50 @@ define additional properties, such as the `href` property of
 
 Consider this example of specifying an anchor element in HTML:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    <a id="example" href="http://example.com">link text</a>
+<!-- ch03_html/ch03_html.dart -->
+{% prettify html %}
+<a id="example" href="http://example.com">link text</a>
+{% endprettify %}
 
 This \<a\> tag specifies an element with an `href` attribute and a text
 node (accessible via a `text` property) that contains the string
 “linktext”. To change the URL that the link goes to, you can use
 AnchorElement’s `href` property:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    querySelector('#example').href = 'http://dartlang.org';
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+querySelector('#example').href = 'http://dartlang.org';
+{% endprettify %}
 
 Often you need to set properties on multiple elements. For example, the
 following code sets the `hidden` property of all elements that have a
 class of “mac”, “win”, or “linux”. Setting the `hidden` property to true
 has the same effect as adding `display:none` to the CSS.
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    <!-- In HTML: -->
-    <p>
-      <span class="linux">Words for Linux</span>
-      <span class="macos">Words for Mac</span>
-      <span class="windows">Words for Windows</span>
-    </p>
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+<!-- In HTML: -->
+<p>
+  <span class="linux">Words for Linux</span>
+  <span class="macos">Words for Mac</span>
+  <span class="windows">Words for Windows</span>
+</p>
 
-    // In Dart:
-    final osList = ['macos', 'windows', 'linux'];
+// In Dart:
+final osList = ['macos', 'windows', 'linux'];
 
-    var userOs = 'linux'; // In real code you'd programmatically determine this.
+var userOs = 'linux'; // In real code you'd programmatically determine this.
 
-    for (var os in osList) {            // For each possible OS...
-      bool shouldShow = (os == userOs); // Does this OS match the user's OS?
+for (var os in osList) {            // For each possible OS...
+  bool shouldShow = (os == userOs); // Does this OS match the user's OS?
 
-      // Find all elements with class=os. For example, if os == 'windows', call
-      // querySelectorAll('.windows') to find all elements with the class "windows".
-      for (var elem in querySelectorAll('.$os')) { // String interpolation ($os)
-        elem.hidden = !shouldShow;      // Show or hide each element.
-      }
-    }
+  // Find all elements with class=os. For example, if os == 'windows', call
+  // querySelectorAll('.windows') to find all elements with the class "windows".
+  for (var elem in querySelectorAll('.$os')) { // String interpolation ($os)
+    elem.hidden = !shouldShow;      // Show or hide each element.
+  }
+}
+{% endprettify %}
 
 When the right property isn’t available or convenient, you can use
 Element’s `attributes` property. This property is a
@@ -1328,9 +1388,10 @@ attribute names and their meanings, see the [MDN Attributes
 page.](https://developer.mozilla.org/en/HTML/Attributes) Here’s an
 example of setting an attribute’s value:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    elem.attributes['someAttribute'] = 'someValue';
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+elem.attributes['someAttribute'] = 'someValue';
+{% endprettify %}
 
 #### Creating elements
 {:.no_toc}
@@ -1339,17 +1400,19 @@ You can add to existing HTML pages by creating new elements and
 attaching them to the DOM. Here’s an example of creating a paragraph
 (\<p\>) element:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    var elem = new ParagraphElement();
-    elem.text = 'Creating is easy!';
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+var elem = new ParagraphElement();
+elem.text = 'Creating is easy!';
+{% endprettify %}
 
 You can also create an element by parsing HTML text. Any child elements
 are also parsed and created.
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    var elem2 = new Element.html('<p>Creating <em>is</em> easy!</p>');
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+var elem2 = new Element.html('<p>Creating <em>is</em> easy!</p>');
+{% endprettify %}
 
 Note that elem2 is a ParagraphElement in the above example.
 
@@ -1359,9 +1422,10 @@ children. In the following example, `body` is an element, and its child
 elements are accessible (as a List\<Element\>) from the `children`
 property.
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    document.body.children.add(elem2);
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+document.body.children.add(elem2);
+{% endprettify %}
 
 #### Adding, replacing, and removing nodes
 {:.no_toc}
@@ -1375,24 +1439,27 @@ operators to manipulate the children of the node.
 To add a node as the last child of its parent, use the List `add()`
 method:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    // Find the parent by ID, and add elem as its last child.
-    querySelector('#inputs').nodes.add(elem);
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+// Find the parent by ID, and add elem as its last child.
+querySelector('#inputs').nodes.add(elem);
+{% endprettify %}
 
 To replace a node, use the Node `replaceWith()` method:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    // Find a node by ID, and replace it in the DOM.
-    querySelector('#status').replaceWith(elem);
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+// Find a node by ID, and replace it in the DOM.
+querySelector('#status').replaceWith(elem);
+{% endprettify %}
 
 To remove a node, use the Node `remove()` method:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    // Find a node by ID, and remove it from the DOM.
-    querySelector('#expendable').remove();
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+// Find a node by ID, and remove it from the DOM.
+querySelector('#expendable').remove();
+{% endprettify %}
 
 #### Manipulating CSS styles
 {:.no_toc}
@@ -1405,38 +1472,42 @@ Each element has a `classes` field, which is a list. Add and remove CSS
 classes simply by adding and removing strings from this collection. For
 example, the following sample adds the `warning` class to an element:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    var element = querySelector('#message');
-    element.classes.add('warning');
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+var element = querySelector('#message');
+element.classes.add('warning');
+{% endprettify %}
 
 It’s often very efficient to find an element by ID. You can dynamically
 set an element ID with the `id` property:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    var message = new DivElement();
-    message.id = 'message2';
-    message.text = 'Please subscribe to the Dart mailing list.';
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+var message = new DivElement();
+message.id = 'message2';
+message.text = 'Please subscribe to the Dart mailing list.';
+{% endprettify %}
 
 You can reduce the redundant text in this example by using method
 cascades:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    var message = new DivElement()
-        ..id = 'message2'
-        ..text = 'Please subscribe to the Dart mailing list.';
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+var message = new DivElement()
+    ..id = 'message2'
+    ..text = 'Please subscribe to the Dart mailing list.';
+{% endprettify %}
 
 While using IDs and classes to associate an element with a set of styles
 is best practice, sometimes you want to attach a specific style directly
 to the element:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    message.style
-        ..fontWeight = 'bold'
-        ..fontSize = '3em';
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+message.style
+    ..fontWeight = 'bold'
+    ..fontSize = '3em';
+{% endprettify %}
 
 #### Handling events
 {:.no_toc}
@@ -1453,23 +1524,25 @@ name and `` is the event handler.
 
 For example, here’s how you can handle clicks on a button:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    // Find a button by ID and add an event handler.
-    querySelector('#submitInfo').onClick.listen((e) {
-      // When the button is clicked, it runs this code.
-      submitData();
-    });
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+// Find a button by ID and add an event handler.
+querySelector('#submitInfo').onClick.listen((e) {
+  // When the button is clicked, it runs this code.
+  submitData();
+});
+{% endprettify %}
 
 Events can propagate up and down through the DOM tree. To discover which
 element originally fired the event, use `e.target`:
 
-    lang-dart
-    ch03_html/ch03_html.dart
-    document.body.onClick.listen((e) {
-      var clickedElem = e.target;
-      print('You clicked the ${clickedElem.id} element.');
-    });
+<!-- ch03_html/ch03_html.dart -->
+{% prettify dart %}
+document.body.onClick.listen((e) {
+  var clickedElem = e.target;
+  print('You clicked the ${clickedElem.id} element.');
+});
+{% endprettify %}
 
 To see all the events for which you can register an event listener, look
 for "onEventType" properties in the API docs for
@@ -1514,22 +1587,23 @@ The HttpRequest static method `getString()` is an easy way to get data
 from a web server. Use `then()` after `getString()` to specify the
 function that handles the string data.
 
-    lang-dart
-    ch03_html/ch03_2_html.dart
-    import 'dart:html';
-    import 'dart:async';
+<!-- ch03_html/ch03_2_html.dart -->
+{% prettify dart %}
+import 'dart:html';
+import 'dart:async';
 
-    // A JSON-formatted file in the same location as this page.
-    var uri = 'data.json';
+// A JSON-formatted file in the same location as this page.
+var uri = 'data.json';
 
-    main() {
-      // Read a JSON file.
-      HttpRequest.getString(uri).then(processString);
-    }
+main() {
+  // Read a JSON file.
+  HttpRequest.getString(uri).then(processString);
+}
 
-    processString(String jsonText) {
-      parseText(jsonText);
-    }
+processString(String jsonText) {
+  parseText(jsonText);
+}
+{% endprettify %}
 
 The function you specify (in the example, `processString()`) runs when
 the data at the specified URI is successfully retrieved. In this case,
@@ -1539,47 +1613,49 @@ is in ?.
 Add `.catchError()` after the call to `.then()` to specify an error
 handler:
 
-    lang-dart
-    ch03_html/ch03_2_html.dart
-    ...
-    HttpRequest.getString(uri)
-        .then(processString)
-        .catchError(handleError);
-    ...
-    handleError(error) {
-      print('Uh oh, there was an error.');
-      print(error.toString());
-    }
+<!-- ch03_html/ch03_2_html.dart -->
+{% prettify dart %}
+...
+HttpRequest.getString(uri)
+    .then(processString)
+    .catchError(handleError);
+...
+handleError(error) {
+  print('Uh oh, there was an error.');
+  print(error.toString());
+}
+{% endprettify %}
 
 If you need access to the HttpRequest, not just the text data it
 retrieves, you can use the `request()` static method instead of
 `getString()`. Here’s an example of reading XML data:
 
-    lang-dart
-    ch03_html/ch03_2_html.dart
-    import 'dart:html';
-    import 'dart:async';
+<!-- ch03_html/ch03_2_html.dart -->
+{% prettify dart %}
+import 'dart:html';
+import 'dart:async';
 
-    // An XML-formatted file in the same location as this page.
-    var xmlUri = 'data.xml';
+// An XML-formatted file in the same location as this page.
+var xmlUri = 'data.xml';
 
-    main() {
-      // Read an XML file.
-      HttpRequest.request(xmlUri)
-          .then(processRequest)
-          .catchError(handleError);
-    }
+main() {
+  // Read an XML file.
+  HttpRequest.request(xmlUri)
+      .then(processRequest)
+      .catchError(handleError);
+}
 
-    processRequest(HttpRequest request) {
-      var xmlDoc = request.responseXml;
-      try {
-        var license = xmlDoc.querySelector('license').text;
-        print('License: $license');
-      } catch(e) {
-        print('$xmlUri doesn\'t have correct XML formatting.');
-      }
-    }
-    ...
+processRequest(HttpRequest request) {
+  var xmlDoc = request.responseXml;
+  try {
+    var license = xmlDoc.querySelector('license').text;
+    print('License: $license');
+  } catch(e) {
+    print('$xmlUri doesn\'t have correct XML formatting.');
+  }
+}
+...
+{% endprettify %}
 
 You can also use the full API to handle more interesting cases. For
 example, you can set arbitrary headers.
@@ -1596,14 +1672,15 @@ The general flow for using the full API of HttpRequest is as follows:
 
 For example:
 
-    lang-dart
-    dart-tutorials-samples/web/portmanteaux/portmanteaux.dart
-    import 'dart:html';
-    ...
-    var httpRequest = new HttpRequest()
-        ..open('POST', dataUrl)
-        ..onLoadEnd.listen((_) => requestComplete(httpRequest))
-        ..send(encodedData);
+<!-- dart-tutorials-samples/web/portmanteaux/portmanteaux.dart -->
+{% prettify dart %}
+import 'dart:html';
+...
+var httpRequest = new HttpRequest()
+    ..open('POST', dataUrl)
+    ..onLoadEnd.listen((_) => requestComplete(httpRequest))
+    ..send(encodedData);
+{% endprettify %}
 
 #### Sending data to the server
 {:.no_toc}
@@ -1618,36 +1695,37 @@ You must also set the `Content-type` header to
 `application/x-www-form-urlencode` if you wish to send data to a form
 handler.
 
-    lang-dart
-    ch03/ch03/ch03_3_html/json-send-to-server.dart
-    import 'dart:html';
+<!-- ch03/ch03/ch03_3_html/json-send-to-server.dart -->
+{% prettify dart %}
+import 'dart:html';
 
-    String encodeMap(Map data) {
-      return data.keys.map((k) {
-        return '${Uri.encodeComponent(k)}=${Uri.encodeComponent(data[k])}';
-      }).join('&');
-    }
+String encodeMap(Map data) {
+  return data.keys.map((k) {
+    return '${Uri.encodeComponent(k)}=${Uri.encodeComponent(data[k])}';
+  }).join('&');
+}
 
-    loadEnd(HttpRequest request) {
-      if (request.status != 200) {
-        print('Uh oh, there was an error of ${request.status}');
-      } else {
-        print('Data has been posted');
-      }
-    }
+loadEnd(HttpRequest request) {
+  if (request.status != 200) {
+    print('Uh oh, there was an error of ${request.status}');
+  } else {
+    print('Data has been posted');
+  }
+}
 
-    main() {
-      var dataUrl = '/registrations/create';
-      var data = {'dart': 'fun', 'editor': 'productive'};
-      var encodedData = encodeMap(data);
+main() {
+  var dataUrl = '/registrations/create';
+  var data = {'dart': 'fun', 'editor': 'productive'};
+  var encodedData = encodeMap(data);
 
-      var httpRequest = new HttpRequest();
-      httpRequest.open('POST', dataUrl);
-      httpRequest.setRequestHeader('Content-type', 
-                                   'application/x-www-form-urlencoded');
-      httpRequest.onLoadEnd.listen((e) => loadEnd(httpRequest));
-      httpRequest.send(encodedData);
-    }
+  var httpRequest = new HttpRequest();
+  httpRequest.open('POST', dataUrl);
+  httpRequest.setRequestHeader('Content-type', 
+                               'application/x-www-form-urlencoded');
+  httpRequest.onLoadEnd.listen((e) => loadEnd(httpRequest));
+  httpRequest.send(encodedData);
+}
+{% endprettify %}
 
 
 ### Sending and Receiving Real-Time Data with WebSockets
@@ -1665,18 +1743,20 @@ To use a WebSocket in your web app, first create a
 [WebSocket](http://api.dartlang.org/html/WebSocket.html) object, passing
 the WebSocket URL as an argument:
 
-    lang-dart
-    github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
-    var ws = new WebSocket('ws://echo.websocket.org');
+<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+{% prettify dart %}
+var ws = new WebSocket('ws://echo.websocket.org');
+{% endprettify %}
 
 #### Sending data
 {:.no_toc}
 
 To send string data on the WebSocket, use the `send()` method:
 
-    lang-dart
-    github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
-    ws.send('Hello from Dart!');
+<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+{% prettify dart %}
+ws.send('Hello from Dart!');
+{% endprettify %}
 
 #### Receiving data
 {:.no_toc}
@@ -1684,11 +1764,12 @@ To send string data on the WebSocket, use the `send()` method:
 To receive data on the WebSocket, register a listener for message
 events:
 
-    lang-dart
-    github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
-    ws.onMessage.listen((MessageEvent e) {
-      print('Received message: ${e.data}');
-    });
+<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+{% prettify dart %}
+ws.onMessage.listen((MessageEvent e) {
+  print('Received message: ${e.data}');
+});
+{% endprettify %}
 
 The message event handler receives a
 [MessageEvent](http://api.dartlang.org/html/MessageEvent.html) object.
@@ -1702,41 +1783,42 @@ and (as shown earlier) message. Here’s an example of a method that
 creates a WebSocket object and registers handlers for open, close,
 error, and message events:
 
-    lang-dart
-    github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart
-    void initWebSocket([int retrySeconds = 2]) {
-      var reconnectScheduled = false;
+<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+{% prettify dart %}
+void initWebSocket([int retrySeconds = 2]) {
+  var reconnectScheduled = false;
 
-      print("Connecting to websocket");
-      ws = new WebSocket('ws://echo.websocket.org');
+  print("Connecting to websocket");
+  ws = new WebSocket('ws://echo.websocket.org');
 
-      void scheduleReconnect() {
-        if (!reconnectScheduled) {
-          new Timer(new Duration(milliseconds: 1000 * retrySeconds), 
-                    () => initWebSocket(retrySeconds * 2));
-        }
-        reconnectScheduled = true;
-      }
-
-      ws.onOpen.listen((e) {
-        print('Connected');
-        ws.send('Hello from Dart!');
-      });
-
-      ws.onClose.listen((e) {
-        print('Websocket closed, retrying in $retrySeconds seconds');
-        scheduleReconnect();
-      });
-
-      ws.onError.listen((e) {
-        print("Error connecting to ws");
-        scheduleReconnect();
-      });
-
-      ws.onMessage.listen((MessageEvent e) {
-        print('Received message: ${e.data}');
-      });
+  void scheduleReconnect() {
+    if (!reconnectScheduled) {
+      new Timer(new Duration(milliseconds: 1000 * retrySeconds), 
+                () => initWebSocket(retrySeconds * 2));
     }
+    reconnectScheduled = true;
+  }
+
+  ws.onOpen.listen((e) {
+    print('Connected');
+    ws.send('Hello from Dart!');
+  });
+
+  ws.onClose.listen((e) {
+    print('Websocket closed, retrying in $retrySeconds seconds');
+    scheduleReconnect();
+  });
+
+  ws.onError.listen((e) {
+    print("Error connecting to ws");
+    scheduleReconnect();
+  });
+
+  ws.onMessage.listen((MessageEvent e) {
+    print('Received message: ${e.data}');
+  });
+}
+{% endprettify %}
 
 For more information and examples of using WebSockets, see the [Dart
 Code Samples.](http://www.dartlang.org/samples/)
@@ -1796,23 +1878,24 @@ important, you can use `readAsLines()`. In both cases, a Future object
 is returned that provides the contents of the file as one or more
 strings.
 
-    lang-dart
-    ch03/textRead.dart
-    import 'dart:io';
+<!-- ch03/textRead.dart -->
+{% prettify dart %}
+import 'dart:io';
 
-    main() {
-      var config = new File('config.txt');
+main() {
+  var config = new File('config.txt');
 
-      // Put the whole file in a single string.
-      config.readAsString().then((String contents) {
-        print('The entire file is ${contents.length} characters long');
-      });
+  // Put the whole file in a single string.
+  config.readAsString().then((String contents) {
+    print('The entire file is ${contents.length} characters long');
+  });
 
-      // Put each line of the file into its own string.
-      config.readAsLines().then((List<String> lines) {
-        print('The entire file is ${lines.length} lines long');
-      });
-    }
+  // Put each line of the file into its own string.
+  config.readAsLines().then((List<String> lines) {
+    print('The entire file is ${lines.length} lines long');
+  });
+}
+{% endprettify %}
 
 #### Reading a file as binary
 {:.no_toc}
@@ -1821,17 +1904,18 @@ The following code reads an entire file as bytes into a list of ints.
 The call to `readAsBytes()` returns a Future, which provides the result
 when it’s available.
 
-    lang-dart
-    ch03/binaryRead.dart
-    import 'dart:io';
+<!-- ch03/binaryRead.dart -->
+{% prettify dart %}
+import 'dart:io';
 
-    main() {
-      var config = new File('config.txt');
+main() {
+  var config = new File('config.txt');
 
-      config.readAsBytes().then((List<int> contents) {
-        print('The entire file is ${contents.length} bytes long');
-      });
-    }
+  config.readAsBytes().then((List<int> contents) {
+    print('The entire file is ${contents.length} bytes long');
+  });
+}
+{% endprettify %}
 
 #### Handling errors
 {:.no_toc}
@@ -1839,18 +1923,19 @@ when it’s available.
 To capture errors so they don't result in uncaught exceptions, you can
 register a `catchError` handler:
 
-    lang-dart
-    ch03/fileErrors.dart
-    import 'dart:io';
+<!-- ch03/fileErrors.dart -->
+{% prettify dart %}
+import 'dart:io';
 
-    main() {
-      var config = new File('config.txt');
-      config.readAsString().then((String contents) {
-        print(contents);
-      }).catchError((e) {
-        print(e);
-      });
-    }
+main() {
+  var config = new File('config.txt');
+  config.readAsString().then((String contents) {
+    print(contents);
+  }).catchError((e) {
+    print(e);
+  });
+}
+{% endprettify %}
 
 #### Streaming file contents
 {:.no_toc}
@@ -1859,26 +1944,27 @@ Use a Stream to read a file, a little at a time. The `listen()` method
 specifies a handler to be called when data is available. When the Stream
 is finished reading the file, the `onDone` callback executes.
 
-    lang-dart
-    ch03/readFile.dart
-    import 'dart:io';
-    import 'dart:convert';
-    import 'dart:async';
+<!-- ch03/readFile.dart -->
+{% prettify dart %}
+import 'dart:io';
+import 'dart:convert';
+import 'dart:async';
 
-    main() {
-      var config = new File('config.txt');
-      Stream<List<int>> inputStream = config.openRead();
+main() {
+  var config = new File('config.txt');
+  Stream<List<int>> inputStream = config.openRead();
 
-      inputStream
-        .transform(UTF8.decoder)
-        .transform(new LineSplitter())
-        .listen(
-          (String line) { 
-            print('Got ${line.length} characters from stream');
-          },
-          onDone: () { print('file is now closed'); },
-          onError: (e) { print(e.toString()); });
-    }
+  inputStream
+    .transform(UTF8.decoder)
+    .transform(new LineSplitter())
+    .listen(
+      (String line) { 
+        print('Got ${line.length} characters from stream');
+      },
+      onDone: () { print('file is now closed'); },
+      onError: (e) { print(e.toString()); });
+}
+{% endprettify %}
 
 #### Writing file contents
 {:.no_toc}
@@ -1888,19 +1974,21 @@ write data to a file. Use the File `openWrite()` method to get an IOSink
 that you can write to. The default mode, `FileMode.WRITE`, completely
 overwrites existing data in the file.
 
-    lang-dart
-    ch03/writeFile.dart
-    var logFile = new File('log.txt');
-    var sink = logFile.openWrite();
-    sink.write('FILE ACCESSED ${new DateTime.now()}\n');
-    sink.close();
+<!-- ch03/writeFile.dart -->
+{% prettify dart %}
+var logFile = new File('log.txt');
+var sink = logFile.openWrite();
+sink.write('FILE ACCESSED ${new DateTime.now()}\n');
+sink.close();
+{% endprettify %}
 
 To add to the end of the file, use the optional `mode` parameter to
 specify `FileMode.APPEND`:
 
-    lang-dart
-    ch03/writeFile.dart
-    var sink = logFile.openWrite(mode: FileMode.APPEND); 
+<!-- ch03/writeFile.dart -->
+{% prettify dart %}
+var sink = logFile.openWrite(mode: FileMode.APPEND); 
+{% endprettify %}
 
 To write binary data, use `add(List<int> data)`.
 
@@ -1912,25 +2000,26 @@ operation. The `list()` method returns a Stream on which you can
 register handlers (using `listen()`) to be notified when a file or
 directory is encountered.
 
-    lang-dart
-    ch03/listFiles.dart
-    import 'dart:io';
-    import 'dart:async';
+<!-- ch03/listFiles.dart -->
+{% prettify dart %}
+import 'dart:io';
+import 'dart:async';
 
-    main() {
-      var dir = new Directory('/tmp');
-      var contentsStream = dir.list(recursive:true);
-      contentsStream.listen(
-        (FileSystemEntity f) {
-          if (f is File) {
-            print('Found file ${f.path}');
-          } else if (f is Directory) {
-            print('Found dir ${f.path}');
-          }
-        },
-        onError: (e) { print(e.toString()); }
-      );
-    }
+main() {
+  var dir = new Directory('/tmp');
+  var contentsStream = dir.list(recursive:true);
+  contentsStream.listen(
+    (FileSystemEntity f) {
+      if (f is File) {
+        print('Found file ${f.path}');
+      } else if (f is Directory) {
+        print('Found dir ${f.path}');
+      }
+    },
+    onError: (e) { print(e.toString()); }
+  );
+}
+{% endprettify %}
 
 #### Other common functionality
 {:.no_toc}
@@ -1970,29 +2059,30 @@ responding to requests for the path `/languages/dart`. All other
 requests are handled by the default request handler, which returns a
 response code of 404 (not found).
 
-    lang-dart
-    ch03/httpServer.dart
-    import 'dart:io';
+<!-- ch03/httpServer.dart -->
+{% prettify dart %}
+import 'dart:io';
 
-    main() {
-      dartHandler(HttpRequest request) {
-        request.response.headers.contentType = new ContentType('text', 'plain');
-        request.response.write('Dart is optionally typed');
+main() {
+  dartHandler(HttpRequest request) {
+    request.response.headers.contentType = new ContentType('text', 'plain');
+    request.response.write('Dart is optionally typed');
+    request.response.close();
+  };
+
+  HttpServer.bind('127.0.0.1', 8888).then((HttpServer server) {
+    server.listen((request) { 
+      print('Got request for ${request.uri.path}');
+      if (request.uri.path == '/languages/dart') {
+        dartHandler(request);
+      } else {
+        request.response.write('Not found');
         request.response.close();
-      };
-
-      HttpServer.bind('127.0.0.1', 8888).then((HttpServer server) {
-        server.listen((request) { 
-          print('Got request for ${request.uri.path}');
-          if (request.uri.path == '/languages/dart') {
-            dartHandler(request);
-          } else {
-            request.response.write('Not found');
-            request.response.close();
-          }
-        });
-      });
-    }
+      }
+    });
+  });
+}
+{% endprettify %}
 
 For a more comprehensive HTTP server, see ?. It features the Dartiverse
 Search sample, which implements a web server using dart:io and packages
@@ -2009,28 +2099,29 @@ and write data. The HttpClient class does not work in browser-based
 apps. When programming in the browser, use the [HttpRequest
 class](#ch03-httprequest). Here’s an example of using HttpClient:
 
-    lang-dart
-    ch03/httpClient.dart
-    import 'dart:io';
-    import 'dart:convert';
+<!-- ch03/httpClient.dart -->
+{% prettify dart %}
+import 'dart:io';
+import 'dart:convert';
 
-    main() {
-      var url = Uri.parse('http://127.0.0.1:8888/languages/dart');
-      var httpClient = new HttpClient();
-      httpClient.getUrl(url)
-        .then((HttpClientRequest request) {
-          print('have request');
-          return request.close();
-        })
-        .then((HttpClientResponse response) {
-          print('have response');
-          response.transform(UTF8.decoder).toList().then((data) {
-            var body = data.join('');
-            print(body);
-            httpClient.close();
-          });
-        });
-    }
+main() {
+  var url = Uri.parse('http://127.0.0.1:8888/languages/dart');
+  var httpClient = new HttpClient();
+  httpClient.getUrl(url)
+    .then((HttpClientRequest request) {
+      print('have request');
+      return request.close();
+    })
+    .then((HttpClientResponse response) {
+      print('have response');
+      response.transform(UTF8.decoder).toList().then((data) {
+        var body = data.join('');
+        print(body);
+        httpClient.close();
+      });
+    });
+}
+{% endprettify %}
 
 
 ### More Information
@@ -2063,47 +2154,49 @@ To use it, import dart:convert.
 
 Decode a JSON-encoded string into a Dart object with `JSON.decode()`:
 
-    lang-dart
-    ch03/jsonParse.dart
-    import 'dart:convert' show JSON;
+<!-- ch03/jsonParse.dart -->
+{% prettify dart %}
+import 'dart:convert' show JSON;
 
-    main() {
-      // NOTE: Be sure to use double quotes ("), not single quotes ('),
-      // inside the JSON string. This string is JSON, not Dart.
-      var jsonString = '''
-      [
-        {"score": 40},
-        {"score": 80}
-      ]
-      ''';
+main() {
+  // NOTE: Be sure to use double quotes ("), not single quotes ('),
+  // inside the JSON string. This string is JSON, not Dart.
+  var jsonString = '''
+  [
+    {"score": 40},
+    {"score": 80}
+  ]
+  ''';
 
-      var scores = JSON.decode(jsonString);
-      assert(scores is List);
+  var scores = JSON.decode(jsonString);
+  assert(scores is List);
 
-      var firstScore = scores[0];
-      assert(firstScore is Map);
-      assert(firstScore['score'] == 40);
-    }
+  var firstScore = scores[0];
+  assert(firstScore is Map);
+  assert(firstScore['score'] == 40);
+}
+{% endprettify %}
 
 Encode a supported Dart object into a JSON-formatted string with
 `JSON.encode()`:
 
-    lang-dart
-    ch03/jsonStringify.dart
-    import 'dart:convert' show JSON;
+<!-- ch03/jsonStringify.dart -->
+{% prettify dart %}
+import 'dart:convert' show JSON;
 
-    main() {
-      var scores = [
-        {'score': 40},
-        {'score': 80},
-        {'score': 100, 'overtime': true, 'special_guest': null}
-      ];
+main() {
+  var scores = [
+    {'score': 40},
+    {'score': 80},
+    {'score': 100, 'overtime': true, 'special_guest': null}
+  ];
 
-      var jsonText = JSON.encode(scores);
-      assert(jsonText == '[{"score":40},{"score":80},'
-                         '{"score":100,"overtime":true,'
-                         '"special_guest":null}]');
-    }
+  var jsonText = JSON.encode(scores);
+  assert(jsonText == '[{"score":40},{"score":80},'
+                     '{"score":100,"overtime":true,'
+                     '"special_guest":null}]');
+}
+{% endprettify %}
 
 Only objects of type int, double, String, bool, null, List, or Map (with
 string keys) are directly encodable into JSON. List and Map objects are
@@ -2121,56 +2214,59 @@ the object's `toJson()` method.
 
 Use `UTF8.decode()` to decode UTF8-encoded bytes to a Dart string:
 
-    lang-dart
-    ch03/decodeUtf8.dart
-    import 'dart:convert' show UTF8;
+<!-- ch03/decodeUtf8.dart -->
+{% prettify dart %}
+import 'dart:convert' show UTF8;
 
-    main() {
-      var string = UTF8.decode([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
-                                0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
-                                0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
-                                0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
-                                0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1]);
-      print(string); // 'Îñţérñåţîöñåļîžåţîờñ'
-    }
+main() {
+  var string = UTF8.decode([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
+                            0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
+                            0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
+                            0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
+                            0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1]);
+  print(string); // 'Îñţérñåţîöñåļîžåţîờñ'
+}
+{% endprettify %}
 
 To convert a stream of UTF-8 characters into a Dart string, specify
 `UTF8.decoder` to the Stream `transform()` method:
 
-    lang-dart
-    ch03/readFile.dart
-    inputStream
-      .transform(UTF8.decoder)
-      .transform(new LineSplitter())
-      .listen(
-        (String line) { 
-          print('Read ${line.length} bytes from stream');
-        });
+<!-- ch03/readFile.dart -->
+{% prettify dart %}
+inputStream
+  .transform(UTF8.decoder)
+  .transform(new LineSplitter())
+  .listen(
+    (String line) { 
+      print('Read ${line.length} bytes from stream');
+    });
+{% endprettify %}
 
 Use `UTF8.encode()` to encode a Dart string as a list of UTF8-encoded
 bytes:
 
-    lang-dart
-    ch03/encodeUtf8.dart
-    import 'dart:convert' show UTF8;
+<!-- ch03/encodeUtf8.dart -->
+{% prettify dart %}
+import 'dart:convert' show UTF8;
 
-    main() {
-      List<int> expected = [0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9, 0x72,
-                            0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xc3,
-                            0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4, 0xbc, 0xc3, 0xae,
-                            0xc5, 0xbe, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xe1,
-                            0xbb, 0x9d, 0xc3, 0xb1];
+main() {
+  List<int> expected = [0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9, 0x72,
+                        0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xc3,
+                        0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4, 0xbc, 0xc3, 0xae,
+                        0xc5, 0xbe, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xe1,
+                        0xbb, 0x9d, 0xc3, 0xb1];
 
-      List<int> encoded = UTF8.encode('Îñţérñåţîöñåļîžåţîờñ');
+  List<int> encoded = UTF8.encode('Îñţérñåţîöñåļîžåţîờñ');
 
-      assert(() {
-        if (encoded.length != expected.length) return false;
-        for (int i = 0; i < encoded.length; i++) {
-          if (encoded[i] != expected[i]) return false;
-        }
-        return true;
-      });
+  assert(() {
+    if (encoded.length != expected.length) return false;
+    for (int i = 0; i < encoded.length; i++) {
+      if (encoded[i] != expected[i]) return false;
     }
+    return true;
+  });
+}
+{% endprettify %}
 
 
 ### Other Functionality
@@ -2215,28 +2311,30 @@ literal. This way, repeated uses of the same symbol can use the same
 canonicalized instance. If the name of the symbol is determined
 dynamically at runtime, use the Symbol constructor.
 
-    lang-dart
-    ch03/mirrors.dart
-    import 'dart:mirrors';
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+import 'dart:mirrors';
 
-    // If the symbol name is known at compile time.
-    const className = #MyClass;
+// If the symbol name is known at compile time.
+const className = #MyClass;
 
-    // If the symbol name is dynamically determined.
-    var userInput = askUserForNameOfFunction();
-    var functionName = new Symbol(userInput);
+// If the symbol name is dynamically determined.
+var userInput = askUserForNameOfFunction();
+var functionName = new Symbol(userInput);
+{% endprettify %}
 
 During minification, a compiler might replace a symbol name with a
 different (often smaller) name. To convert from a symbol back to a
 string, use `MirrorSystem.getName()`. This function returns the correct
 name, even if the code was minified.
 
-    lang-dart
-    ch03/mirrors.dart
-    import 'dart:mirrors';
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+import 'dart:mirrors';
 
-    const className = #MyClass;
-    assert('MyClass' == MirrorSystem.getName(className));
+const className = #MyClass;
+assert('MyClass' == MirrorSystem.getName(className));
+{% endprettify %}
 
 
 ### Introspection
@@ -2247,21 +2345,22 @@ inspect classes, libraries, instances, and more.
 
 The examples in this section use the following Person class:
 
-    lang-dart
-    ch03/mirrors.dart
-    class Person {
-      String firstName;
-      String lastName;
-      int age;
-      
-      Person(this.firstName, this.lastName, this.age);
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+class Person {
+  String firstName;
+  String lastName;
+  int age;
+  
+  Person(this.firstName, this.lastName, this.age);
 
-      String get fullName => '$firstName $lastName';
+  String get fullName => '$firstName $lastName';
 
-      void greet(String other) {
-        print('Hello there, $other!');
-      }
-    }
+  void greet(String other) {
+    print('Hello there, $other!');
+  }
+}
+{% endprettify %}
 
 To begin, you need to *reflect* on a class or object to get its
 *mirror*.
@@ -2271,52 +2370,56 @@ To begin, you need to *reflect* on a class or object to get its
 
 Reflect on a Type to get its ClassMirror.
 
-    lang-dart
-    ch03/mirrors.dart
-    ClassMirror mirror = reflectClass(Person);
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+ClassMirror mirror = reflectClass(Person);
 
-    assert('Person' == MirrorSystem.getName(mirror.simpleName));
+assert('Person' == MirrorSystem.getName(mirror.simpleName));
+{% endprettify %}
 
 You can also call `runtimeType` to get a Type from an instance.
 
-    lang-dart
-    ch03/mirrors.dart
-    var person = new Person('Bob', 'Smith', 33);
-    ClassMirror mirror = reflectClass(person.runtimeType);
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+var person = new Person('Bob', 'Smith', 33);
+ClassMirror mirror = reflectClass(person.runtimeType);
 
-    assert('Person' == MirrorSystem.getName(mirror.simpleName));
+assert('Person' == MirrorSystem.getName(mirror.simpleName));
+{% endprettify %}
 
 Once you have a ClassMirror, you can get a class's constructors, fields,
 and more. Here is an example of listing the constructors of a class.
 
-    lang-dart
-    ch03/mirrors.dart
-    showConstructors(ClassMirror mirror) {
-      var constructors = mirror.declarations.values
-          .where((m) => m is MethodMirror && m.isConstructor);
-      
-      constructors.forEach((m) {
-        print('The constructor ${m.simpleName} has '
-              '${m.parameters.length} parameters.');
-      });
-    }
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+showConstructors(ClassMirror mirror) {
+  var constructors = mirror.declarations.values
+      .where((m) => m is MethodMirror && m.isConstructor);
+  
+  constructors.forEach((m) {
+    print('The constructor ${m.simpleName} has '
+          '${m.parameters.length} parameters.');
+  });
+}
+{% endprettify %}
 
 Here is an example of listing all of the fields declared by a class.
 
-    lang-dart
-    ch03/mirrors.dart
-    showFields(ClassMirror mirror) {
-      var fields = mirror.declarations.values.where((m) => m is VariableMirror);
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+showFields(ClassMirror mirror) {
+  var fields = mirror.declarations.values.where((m) => m is VariableMirror);
 
-      fields.forEach((VariableMirror m) {
-        var finalStatus = m.isFinal ? 'final' : 'not final';
-        var privateStatus = m.isPrivate ? 'private' : 'not private';
-        var typeAnnotation = m.type.simpleName;
+  fields.forEach((VariableMirror m) {
+    var finalStatus = m.isFinal ? 'final' : 'not final';
+    var privateStatus = m.isPrivate ? 'private' : 'not private';
+    var typeAnnotation = m.type.simpleName;
 
-        print('The field ${m.simpleName} is $privateStatus and $finalStatus '
-              'and is annotated as $typeAnnotation.');
-      });
-    }
+    print('The field ${m.simpleName} is $privateStatus and $finalStatus '
+          'and is annotated as $typeAnnotation.');
+  });
+}
+{% endprettify %}
 
 For a full list of methods, consult the [API docs for
 ClassMirror](http://api.dartlang.org/dart_mirrors/ClassMirror.html).
@@ -2326,18 +2429,20 @@ ClassMirror](http://api.dartlang.org/dart_mirrors/ClassMirror.html).
 
 Reflect on an object to get an InstanceMirror.
 
-    lang-dart
-    ch03/mirrors.dart
-    var p = new Person('Bob', 'Smith', 42);
-    InstanceMirror mirror = reflect(p);
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+var p = new Person('Bob', 'Smith', 42);
+InstanceMirror mirror = reflect(p);
+{% endprettify %}
 
 If you have an InstanceMirror and you want to get the object that it
 reflects, use `reflectee`.
 
-    lang-dart
-    ch03/mirrors.dart
-    var person = mirror.reflectee;
-    assert(identical(p, person));
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+var person = mirror.reflectee;
+assert(identical(p, person));
+{% endprettify %}
 
 
 ### Invocation
@@ -2355,12 +2460,13 @@ The first parameter specifies the method to be invoked, and the second
 is a list of positional arguments to the method. An optional third
 parameter lets you specify named arguments.
 
-    lang-dart
-    ch03/mirrors.dart
-    var p = new Person('Bob', 'Smith', 42);
-    InstanceMirror mirror = reflect(p);
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+var p = new Person('Bob', 'Smith', 42);
+InstanceMirror mirror = reflect(p);
 
-    mirror.invoke(#greet, ['Shailen']);
+mirror.invoke(#greet, ['Shailen']);
+{% endprettify %}
 
 #### Invoke Getters and Setters
 {:.no_toc}
@@ -2368,18 +2474,19 @@ parameter lets you specify named arguments.
 Use InstanceMirror's `getField()` and `setField()` methods to get and
 set properties of an object.
 
-    lang-dart
-    ch03/mirrors.dart
-    var p = new Person('Bob', 'Smith', 42);
-    InstanceMirror mirror = reflect(p);
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+var p = new Person('Bob', 'Smith', 42);
+InstanceMirror mirror = reflect(p);
 
-    // Get the value of a property.
-    var fullName = mirror.getField(#fullName).reflectee;
-    assert(fullName == 'Bob Smith');
-      
-    // Set the value of a property.
-    mirror.setField(#firstName, 'Mary');
-    assert(p.firstName == 'Mary');
+// Get the value of a property.
+var fullName = mirror.getField(#fullName).reflectee;
+assert(fullName == 'Bob Smith');
+  
+// Set the value of a property.
+mirror.setField(#firstName, 'Mary');
+assert(p.firstName == 'Mary');
+{% endprettify %}
 
 
 ### More Information
