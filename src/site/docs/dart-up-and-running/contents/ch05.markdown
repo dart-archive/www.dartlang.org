@@ -19,7 +19,9 @@ user-entered string in GitHub and StackOverflow. The app is
 asynchronous, adding results as they're found, so the UI is always
 responsive.
 
-![The client app UI](figs/web/daur_0501.png)
+<img src="figs/web/daur_0501.png"
+     alt="The client app UI"
+     class="thinborder">
 
 
 ## How to Run Dartiverse Search

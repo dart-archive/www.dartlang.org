@@ -278,8 +278,9 @@ step walks you through creating and running a command-line app.
     application** are selected. Then click **Finish** to create the
     initial files for the app.
 
-    ![Create command-line or web apps with Dart
-    Editor](figs/web/daur_0103.png)
+    <img src="figs/web/daur_0103.png"
+         alt="Create command-line or web apps with Dart Editor"
+         class="thinborder">
 
     A default Dart file appears in the Edit view, and its directory
     appears in the Files view. Your Dart Editor window should look
