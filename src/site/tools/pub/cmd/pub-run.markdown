@@ -71,16 +71,8 @@ All other directories are private.
 For options that apply to all pub commands, see
 [Global options](/tools/pub/cmd/#global-options).
 
-{% comment %}
-This is a reminds to remove this coming in 1.7 comment.
-{% include coming-release.html %}
-{% endcomment %}
-
 <code>--mode=&lt;mode&gt;</code>
-: This feature is coming in Dart 1.7, but is available
-  now in the [Dev Channel download](/tools/download.html).<br><br>
-
-  Optional. Specifies a transformation mode. Typical values are
+: Optional. Specifies a transformation mode. Typical values are
   "debug" and "release", but any word is allowed.
   Transformers may use this to change how they behave.
   If omitted, it defaults to "release" for dependencies and
