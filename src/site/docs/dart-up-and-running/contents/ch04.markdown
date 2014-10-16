@@ -516,11 +516,12 @@ browser that includes the Dart VM. This browser can execute Dart web
 apps directly, so you don’t have to compile your code to JavaScript
 until you’re ready to test on other browsers.
 
-> **Warning**
->
-> This browser is a technical preview, and it might have security and
-> stability issues. **Do not use Dartium as your primary browser, and do
-> not distribute Dartium to users!**
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+This browser is a technical preview, and it might have security and
+stability issues. **Do not use Dartium as your primary browser, and do
+not distribute Dartium to users!**
+</aside>
 
 
 ### Downloading and Installing the Browser
@@ -554,12 +555,13 @@ To launch Dartium, navigate to its directory in your finder, and
 double-click the Chromium executable file. Or use Dart Editor as
 described in ? or the command line as described in ?.
 
-> **Warning**
->
-> *If you already use Chromium:* If another version of Chromium is open,
-> then you could have a profile conflict. To avoid this, you can open
-> Dartium or Chromium from the command line with the [--user-data-dir
-> flag.](http://www.chromium.org/user-experience/user-data-directory)
+<aside class="alert alert-warning" markdown="1">
+**Warning if you already use Chromium:**
+If another version of Chromium is open,
+then you could have a profile conflict. To avoid this, you can open
+Dartium or Chromium from the command line with the [--user-data-dir
+flag.](http://www.chromium.org/user-experience/user-data-directory)
+</aside>
 
 
 ### Filing Bugs

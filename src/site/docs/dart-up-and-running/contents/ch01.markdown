@@ -250,10 +250,11 @@ step, you’ll open a web app and run it in Dartium.
 3.  Click the Run button ![](figs/web/run.png). Dart Editor launches
     Dartium, which displays *sunflower.html*.
 
-    > **Warning**
-    >
-    > Dartium is a technical preview, and it might have security and
-    > stability issues.*Do not use Dartium as your primary browser!*
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Dartium is a technical preview, and it might have security and
+stability issues. *Do not use Dartium as your primary browser!*
+</aside>
 
 4.  Move the slider to change the sunflower's display, as shown in ?.
 

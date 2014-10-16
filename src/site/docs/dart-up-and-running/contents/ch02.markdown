@@ -317,13 +317,14 @@ operators such as \>\>. The num type is also where you’ll find
 subtypes don’t have what you’re looking for, the
 [Math](http://api.dartlang.org/dart_math.html) library might.
 
-> **Warning**
->
-> Integers outside of the -2^53^ to 2^53^ range currently behave
-> differently in JavaScript produced from Dart code than they do when
-> the same Dart code runs in the Dart VM. The reason is that Dart is
-> specified to have arbitrary-precision integers, but JavaScript isn't.
-> See [issue 1533](http://dartbug.com/1533) for details.
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Integers outside of the -2^53^ to 2^53^ range currently behave
+differently in JavaScript produced from Dart code than they do when
+the same Dart code runs in the Dart VM. The reason is that Dart is
+specified to have arbitrary-precision integers, but JavaScript isn't.
+See [issue 1533](http://dartbug.com/1533) for details.
+</aside>
 
 Integers are numbers without a decimal point. Here are some examples of
 defining integer literals:
@@ -1013,12 +1014,13 @@ if ((n % i == 0) && (d % i == 0)) // Parens improve readability.
 if (n % i == 0 && d % i == 0)     // Harder to read, but equivalent.
 {% endprettify %}
 
-> **Warning**
->
-> For operators that work on two operands, the leftmost operand
-> determines which version of the operator is used. For example, if you
-> have a Vector object and a Point object, `aVector + aPoint` uses the
-> Vector version of +.
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+For operators that work on two operands, the leftmost operand
+determines which version of the operator is used. For example, if you
+have a Vector object and a Point object, `aVector + aPoint` uses the
+Vector version of +.
+</aside>
 
 
 ### Arithmetic Operators
@@ -1880,11 +1882,13 @@ class Employee extends Person {
 }
 {% endprettify %}
 
-> **Warning**
->
-> Arguments to the superclass constructor do not have access to `this`.
-> For example, arguments can call static methods but not instance
-> methods.
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Arguments to the superclass constructor do not have access to `this`.
+For example, arguments can call static methods but not instance
+methods.
+</aside>
+
 
 #### Initializer list
 {:.no_toc}
@@ -1908,9 +1912,11 @@ class Point {
 }
 {% endprettify %}
 
-> **Warning**
->
-> The right-hand side of an initializer does not have access to `this`.
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+The right-hand side of an initializer does not have access to `this`.
+</aside>
+
 
 #### Redirecting constructors
 {:.no_toc}

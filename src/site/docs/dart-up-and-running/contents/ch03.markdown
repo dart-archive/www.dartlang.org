@@ -781,11 +781,12 @@ var duration = y2001.difference(y2k);
 assert(duration.inDays == 366); // y2k was a leap year.
 {% endprettify %}
 
-> **Warning**
->
-> Using a Duration to shift a DateTime by days can be problematic, due
-> to clock shifts (to daylight saving time, for example). Use UTC dates
-> if you must shift days.
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Using a Duration to shift a DateTime by days can be problematic, due
+to clock shifts (to daylight saving time, for example). Use UTC dates
+if you must shift days.
+</aside>
 
 Refer to the API docs for
 [DateTime](http://api.dartlang.org/dart_core/DateTime.html) and
@@ -2286,16 +2287,17 @@ invoke functions or methods at runtime.
 The dart:mirrors library works in both web apps and command-line apps.
 To use it, import dart:mirrors.
 
-> **Warning**
->
-> Using dart:mirrors can cause dart2js to generate very large JavaScript
-> files.
->
-> The current workaround is to add a `@MirrorsUsed` annotation before
-> the import of dart:mirrors. For details, see the
-> [MirrorsUsed](http://api.dartlang.org/dart_mirrors/MirrorsUsed.html)
-> API documentation. This workaround is very likely to change, as the
-> dart:mirrors library is still under development.
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Using dart:mirrors can cause dart2js to generate very large JavaScript
+files.
+
+The current workaround is to add a `@MirrorsUsed` annotation before
+the import of dart:mirrors. For details, see the
+[MirrorsUsed](http://api.dartlang.org/dart_mirrors/MirrorsUsed.html)
+API documentation. This workaround is very likely to change, as the
+dart:mirrors library is still under development.
+</aside>
 
 
 ### Symbols

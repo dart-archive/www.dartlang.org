@@ -19,9 +19,7 @@ Dart, you can be productive as you build high-performance apps for the
 modern web.
 
 Our aim for this book is to be a useful introduction to the Dart
-language, libraries, and tools. Because this book is short and Dart is
-young, you might also need to refer to the Dart website at
-[](http://dartlang.org)—both for details and for updates. For the latest
+language, libraries, and tools. For the latest
 news, keep an eye on the [Dart page](http://google.com/+dartlang) on
 Google+.
 
@@ -42,35 +40,33 @@ issue.](https://github.com/dart-lang/dart-up-and-running-book/issues/new)
 
 The following typographical conventions are used in this book:
 
-*Italic*
+* _Italic_:
+  Indicates new terms, URLs, email addresses, filenames, and file
+  extensions.
 
-:   Indicates new terms, URLs, email addresses, filenames, and file
-    extensions.
+* `Constant width`:
+  Used for program listings, as well as within paragraphs to refer to
+  program elements such as variable or function names, databases, data
+  types, environment variables, statements, and keywords.
 
-`Constant width`
+* <b><code>Constant width bold</code></b>:
+  Shows commands or other text that should be typed literally by the
+  user.
 
-:   Used for program listings, as well as within paragraphs to refer to
-    program elements such as variable or function names, databases, data
-    types, environment variables, statements, and keywords.
-
-`Constant width
-        bold`
-
-:   Shows commands or other text that should be typed literally by the
-    user.
-
-Constant width italic
-
-:   Shows text that should be replaced with user-supplied values or by
-    values determined by context.
+* <em><code>Constant width italic</code></em>:
+  Shows text that should be replaced with user-supplied values or by
+  values determined by context.
 
 > **Note**
 >
-> This icon signifies a tip, suggestion, or general note.
+> A tip, suggestion, or general note.
 
-> **Caution**
->
-> This icon indicates a warning or caution.
+<!-- TODO: Make sure warnings are formatted as warnings. -->
+
+<aside class="alert alert-warning" markdown="1">
+  **Warning:**
+  A warning or caution.
+</aside>
 
 ## Using Code Examples
 
@@ -136,9 +132,9 @@ We've changed the text and examples to reflect these language changes:
 
 -   Keys in map literals no longer need to be strings.
 
--   Dart now has Symbols and symbol literals (`#`): ?.
+-   Dart now has Symbols and symbol literals (`#`).
 
--   Function equality testing is easier: ?.
+-   Function equality testing is easier.
 
 -   Bitwise operators have higher precedence than they used to.
 
@@ -149,7 +145,7 @@ We've also updated the content to reflect API changes. In dart:core:
     `toSet()`.
 
 -   The Collection class is gone, so we’ve changed the way we talked
-    about sets, lists, and maps in ?, and we talk more about Iterable.
+    about sets, lists, and maps, and we talk more about Iterable.
 
 -   The functionality in the former dart:uri library is now in the Uri
     class in dart:core. The top-level functions `encodeUri()`,
@@ -297,7 +293,7 @@ first printing:
     local copy, preferably one downloaded using the `browser` pub
     package.
 
--   Metadata support was added to the language. See ?.
+-   Metadata support was added to the language.
 
 -   We added references to the [Web UI
     package](/articles/web-ui/), which provides a
@@ -383,13 +379,13 @@ We corrected or clarified some text, such as:
 
 We also added sections for some pre-existing features:
 
--   Keywords (see ?)
+-   Keywords
 
--   Lexical scope (see ?)
+-   Lexical scope
 
--   Function equality (see ?)
+-   Function equality
 
--   The dart\_analyzer tool (see ?)
+-   The dart\_analyzer tool
 
 Finally, ? now uses a more recent benchmark and has the latest numbers.
 
