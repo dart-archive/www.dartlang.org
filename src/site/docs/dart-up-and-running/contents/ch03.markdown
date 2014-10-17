@@ -86,7 +86,8 @@ assert(double.parse('1.2e+2') == 120.0);
 For more information, see the API documentation for
 [int,](http://api.dartlang.org/dart_core/int.html)
 [double,](http://api.dartlang.org/dart_core/double.html) and
-[num.](http://api.dartlang.org/dart_core/num.html) Also see ?.
+[num.](http://api.dartlang.org/dart_core/num.html) Also see
+the [dart:math section](#dartmath---math-and-random).
 
 
 ### Strings and Regular Expressions
@@ -596,9 +597,12 @@ var loudTeaList = teas.map((tea) => tea.toUpperCase()).toList();
 
 Use Iterable’s `where()` method to get all the items that match a
 condition. Use Iterable’s `any()` and `every()` methods to check whether
-some or all items match a condition. {PENDING: if time permits, change
-example as suggested by floitsch to have (maybe) cities instead of
-isDecaffeinated.}
+some or all items match a condition.
+{% comment %}
+PENDING: Change example as suggested by floitsch to have (maybe)
+cities instead of isDecaffeinated.
+{% endcomment %}
+
 
 <!-- ch03/collection-any-every.dart -->
 {% prettify dart %}
@@ -633,8 +637,11 @@ The [Uri class](http://api.dartlang.org/dart_core/Uri.html) provides
 functions to encode and decode strings for use in URIs (which you might
 know as *URLs*). These functions handle characters that are special for
 URIs, such as `&` and `=`. The Uri class also parses and exposes the
-components of a URI—host, port, scheme, and so on.{PENDING: show
+components of a URI—host, port, scheme, and so on.
+{% comment %}
+{PENDING: show
 constructors: Uri.http, Uri.https, Uri.file, per floitsch's suggestion}
+{% endcomment %}
 
 #### Encoding and Decoding Fully Qualified URIs
 {:.no_toc}
@@ -834,10 +841,12 @@ also want to override the `==` operator. Objects that are equal (via
 `==`) must have identical hash codes. A hash code doesn’t have to be
 unique, but it should be well distributed.
 
+{% comment %}
 Note: There’s disagreement over whether to include identical() in the ==
 implementation. It might improve speed, at least when you need to
 compare many fields. They don’t do identical() automatically because, by
 convention, NaN != NaN.
+{% endcomment %}
 
 <!-- ch03/map-keys.dart -->
 {% prettify dart %}
@@ -940,7 +949,7 @@ class FooException implements Exception {
 }
 {% endprettify %}
 
-For more information, see ? and the [Exception API
+For more information, see [Exceptions](#exceptions) and the [Exception API
 docs.](http://api.dartlang.org/dart_core/Exception.html)
 
 
@@ -1084,11 +1093,15 @@ the 'submitInfo' button.
 If you care about only one event, you can get it using a property such
 as `first`, `last`, or `single`. To test the event before handling it,
 use a method such as `firstWhere()`, `lastWhere()`, or `singleWhere()`.
+{% comment %}
 {PENDING: example}
+{% endcomment %}
 
 If you care about a subset of events, you can use methods such as
 `skip()`, `skipWhile()`, `take()`, `takeWhile()`, and `where()`.
+{% comment %}
 {PENDING: example}
+{% endcomment %}
 
 #### Transforming Stream Data
 {:.no_toc}
@@ -1112,31 +1125,29 @@ inputStream
 This example uses two transformers. First it uses UTF8.decoder to
 transform the stream of integers into a stream of strings. Then it uses
 a LineSplitter to transform the stream of strings into a stream of
-separate lines. These transformers are from the dart:convert library
-(see ?).{PENDING: add onDone and onError. (See "Streaming file
-contents".)}
+separate lines. These transformers are from the dart:convert library (see the
+[dart:convert section](#dartconvert---decoding-and-encoding-json-utf-8-and-more)).
+{% comment %}
+  PENDING: add onDone and onError. (See "Streaming file contents".)
+{% endcomment %}
 
 
 ### More Information
 {:.no_toc}
 
-For some examples of using Future and Stream in command-line apps, see
-?. Also see these articles and tutorials:
+For some examples of using Future and Stream in command-line apps, see the
+[dart:io section](#dartio---io-for-command-line-apps).
+Also see these articles and tutorials:
 
--   [Use Future-Based
-    APIs](https://www.dartlang.org/docs/tutorials/futures/)
+-   [Use Future-Based APIs](/docs/tutorials/futures/)
 
--   [Futures and Error
-    Handling](http://www.dartlang.org/articles/futures-and-error-handling/)
+-   [Futures and Error Handling](/articles/futures-and-error-handling/)
 
--   [The Event Loop and
-    Dart](http://www.dartlang.org/articles/event-loop/)
+-   [The Event Loop and Dart](/articles/event-loop/)
 
--   [Use Streams for
-    Data](https://www.dartlang.org/docs/tutorials/streams/)
+-   [Use Streams for Data](/docs/tutorials/streams/)
 
--   [Creating Streams in
-    Dart](http://www.dartlang.org/articles/creating-streams/)
+-   [Creating Streams in Dart](/articles/creating-streams/)
 
 
 ## dart:math - Math and Random
@@ -1232,8 +1243,8 @@ random.nextBool();  // true or false
 
 Refer to the [Math API
 docs](http://api.dartlang.org/dart_math/index.html) for a full list of
-methods. Also see the API docs
-for[num,](http://api.dartlang.org/dart_core/num.html)
+methods. Also see the API docs for
+[num,](http://api.dartlang.org/dart_core/num.html)
 [int,](http://api.dartlang.org/dart_core/int.html) and
 [double.](http://api.dartlang.org/dart_core/double.html)
 
@@ -1254,7 +1265,7 @@ dart:html, not command-line apps.
 > **Note**
 >
 > For higher level approaches to web app UIs, see
-> [Polymer.dart](http://www.dartlang.org/polymer-dart/) and
+> [Polymer.dart](/polymer-dart/) and
 > [AngularDart](http://pub.dartlang.org/packages/angular).
 
 To use the HTML library in your web app, import dart:html:
@@ -1520,8 +1531,10 @@ subject; [research the
 details](http://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture)
 if you’re new to web programming.
 
-Add an event handler using `element.on.listen()`, where `` is the event
-name and `` is the event handler.
+Add an event handler using
+<code><em>element</em>.on<em>Event</em>.listen(<em>function</em>)</code>,
+where <code><em>Event</em></code> is the event
+name and <code><em>function</em></code> is the event handler.
 
 For example, here’s how you can handle clicks on a button:
 
@@ -1609,7 +1622,8 @@ processString(String jsonText) {
 The function you specify (in the example, `processString()`) runs when
 the data at the specified URI is successfully retrieved. In this case,
 we are dynamically loading a JSON file. Information about the JSON API
-is in ?.
+is in the
+[dart:convert section](#dartconvert---decoding-and-encoding-json-utf-8-and-more).
 
 Add `.catchError()` after the call to `.then()` to specify an error
 handler:
@@ -1691,7 +1705,8 @@ example, you might want to dynamically submit data to a form handler.
 Sending JSON data to a RESTful web service is another common example.
 
 Submitting data to a form handler requires you to provide name-value
-pairs as URI-encoded strings. (Information about the URI class is in ?.)
+pairs as URI-encoded strings. (Information about the URI class is in
+the [URIs section](#uris).)
 You must also set the `Content-type` header to
 `application/x-www-form-urlencode` if you wish to send data to a form
 handler.
@@ -1822,7 +1837,7 @@ void initWebSocket([int retrySeconds = 2]) {
 {% endprettify %}
 
 For more information and examples of using WebSockets, see the [Dart
-Code Samples.](http://www.dartlang.org/samples/)
+Code Samples.](/samples/)
 
 
 ### More information
@@ -1832,7 +1847,7 @@ This section barely scratched the surface of using the dart:html
 library. For more information, see the documentation for
 [dart:html](http://api.dartlang.org/dart_html.html) and the code and
 explanations in the [Dart Code
-Samples.](http://www.dartlang.org/samples/) Dart has additional
+Samples.](/samples/) Dart has additional
 libraries for more specialized web APIs, such as [web
 audio,](http://api.dartlang.org/dart_web_audio.html)
 [IndexedDB](http://api.dartlang.org/dart_indexed_db.html), and
@@ -1868,7 +1883,8 @@ browse directories. You have two choices for reading the contents of a
 file: all at once, or streaming. Reading a file all at once requires
 enough memory to store all the contents of the file. If the file is very
 large or you want to process it while reading it, you should use a
-Stream, as described in ?.
+Stream, as described in
+[Streaming file contents](#streaming-file-contents).
 
 #### Reading a file as text
 {:.no_toc}
@@ -2085,7 +2101,8 @@ main() {
 }
 {% endprettify %}
 
-For a more comprehensive HTTP server, see ?. It features the Dartiverse
+For a more comprehensive HTTP server, see
+[Chapter 5](ch05.html). It features the Dartiverse
 Search sample, which implements a web server using dart:io and packages
 such as [http\_server](https://pub.dartlang.org/packages/http_server)
 and [route](http://pub.dartlang.org/packages/route).
@@ -2134,7 +2151,7 @@ provides APIs for [processes,](http://api.dartlang.org/io/Process.html)
 sockets.](http://api.dartlang.org/io/WebSocket.html)
 
 For more examples of using dart:io, see the [Dart Code
-Samples.](http://www.dartlang.org/samples/)
+Samples.](/samples/)
 
 
 ## dart:convert - Decoding and Encoding JSON, UTF-8, and more
@@ -2495,7 +2512,7 @@ assert(p.firstName == 'Mary');
 {:.no_toc}
 
 The article [Reflection in Dart with
-Mirrors](https://www.dartlang.org/articles/reflection-with-mirrors/) has
+Mirrors](/articles/reflection-with-mirrors/) has
 more information and examples. Also see the API docs for
 [dart:mirror,](http://api.dartlang.org/dart_mirrors.html) especially
 [MirrorsUsed](http://api.dartlang.org/dart_mirrors/MirrorsUsed.html),

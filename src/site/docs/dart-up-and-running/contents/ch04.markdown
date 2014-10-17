@@ -17,37 +17,37 @@ next-chapter-title: "Walkthrough"
 Dart provides several tools to help you write and deploy your web and
 command-line apps. These tools include:
 
-[pub: The Dart package manager](#ch04-tools-pub)
+[pub: The Dart package manager](#pub-the-dart-package-manager)
 
 :   Download and install packages of libraries.
 
-[Dart Editor](#ch04-tools-editor)
+[Dart Editor](#dart-editor)
 
 :   Edit, run, and debug web and command-line apps.
 
-[Dartium: Chromium with the Dart VM](#ch04-tools-dartium)
+[Dartium: Chromium with the Dart VM](#dartium-chromium-with-the-dart-vm)
 
 :   Run Dart web apps. This is a special build of Chromium (the project
     behind Google Chrome).
 
-[dart2js: The Dart-to-JavaScript compiler](#ch04-tools-dart2js)
+[dart2js: The Dart-to-JavaScript compiler](#dart2js-the-dart-to-javascript-compiler)
 
 :   Convert your web app to JavaScript, so it can run in non-Dartium
     browsers.
 
-[dart: The standalone Dart VM](#ch04-tools-dart-vm)
+[dart: The standalone Dart VM](#dart-the-standalone-vm)
 
 :   Run your command-line apps—server-side scripts, programs, servers,
     and any other apps that don’t run in a browser.
 
-[dartanalyzer: The Static Analyzer](#ch04-tools-dart_analyzer)
+[dartanalyzer: The Static Analyzer](#dartanalyzer-the-static-analyzer)
 
 :   Analyze your Dart source from the command line.
 
 All of these tools are in the Dart Editor bundle, since the editor uses
 them. You can also download Dartium separately, and you can download an
 SDK that includes pub, dart2js, dart, dartanalyzer, and more. See the
-[Tools page](http://www.dartlang.org/tools/) for links and details.
+[Tools page](/tools/) for links and details.
 
 The tools are in the `dart-sdk/bin` directory of your Dart installation
 directory. If you intend to use tools such as pub, dart2js, and dart
@@ -101,7 +101,7 @@ dependencies:
 {% endprettify %}
 
 For details, see the [pubspec
-documentation](https://www.dartlang.org/tools/pub/pubspec.html) and the
+documentation](/tools/pub/pubspec.html) and the
 documentation for the packages you’re interested in using.
 
 
@@ -146,32 +146,34 @@ within the `packages` directory for your app.
 
 Pub has support for building web apps. If your web app's directory
 structure follows pub's [package layout
-conventions,](https://www.dartlang.org/tools/pub/package-layout.html)
+conventions,](/tools/pub/package-layout.html)
 you can use the pub development server (`pub serve`) to continuously
 build and serve the app's assets. Once you're ready to deploy the web
 app, use `pub build` to generate the final files.
 
 For more information about pub, see the [pub
-documentation.](https://www.dartlang.org/tools/pub/get-started.html)
+documentation.](/tools/pub/get-started.html)
 
 
 ## Dart Editor
 
-We already introduced Dart Editor in ?. Here are some more tips on using
+We already introduced Dart Editor in
+[Up and Running](ch01.html#up-and-running).
+Here are some more tips on using
 Dart Editor, with information such as [specifying a
 browser](#ch04-editor-run-non-dartium) and [compiling to
 JavaScript](#ch04-editor-dart2js). If you run into a problem, see
 [Troubleshooting Dart
-Editor.](http://www.dartlang.org/tools/editor/troubleshoot.html) Dart
+Editor.](/tools/editor/troubleshoot.html) Dart
 Editor is updated frequently, so it probably looks different from what
 you see here. For the latest information, see the [Dart Editor
-documentation.](http://www.dartlang.org/editor)
+documentation.](/editor)
 
 
 ### Viewing Samples
 {:.no_toc}
 
-The Welcome page of Dart Editor (?) displays a few samples. To open a
+The Welcome page of Dart Editor displays a few samples. To open a
 sample and look at its source code, click the sample’s image.
 
 If you don’t see the Welcome page, you probably closed it. Get it back
@@ -228,14 +230,14 @@ It’s easy to create a simple web or command-line app from scratch:
 
 4.  Select the kind of application you’re writing, such as command line,
     web, or web using
-    [Polymer.dart.](http://www.dartlang.org/polymer-dart/)
+    [Polymer.dart.](/polymer-dart/)
 
 5.  Click **Finish** to create a directory with initial files for the
     app.
 
     A default Dart file appears in the Edit view, and its directory
     appears in the Files view. Your Dart Editor window should look
-    something like ?.
+    something like the following screenshot.
 
     ![A new app, pre-filled with basic, runnable code](figs/web/daur_0401.png)
 
@@ -250,8 +252,11 @@ refactoring, and the ability to search multiple files.
 #### Using autocomplete
 {:.no_toc}
 
-Autocomplete suggestions look something like ?. They appear when you
-either:
+Autocomplete suggestions look something like the following figure.
+
+![Autocomplete suggestions](figs/web/daur_0402.png)
+
+Suggestions appear when you either:
 
 -   Type a class or variable name, and then type a period.
 
@@ -267,7 +272,6 @@ When the suggestions come up, you can click, type, or use the arrow keys
 to select the one you want. Press Enter or Return to choose a
 suggestion, or Esc to dismiss the panel.
 
-![Autocomplete suggestions](figs/web/daur_0402.png)
 
 #### Browsing APIs
 {:.no_toc}
@@ -302,7 +306,7 @@ Press **Alt+O** (**Option+O** on Mac) or right-click and choose
 
 A panel comes up displaying the classes, methods, and fields declared in
 the current Dart file. For example, the outline for the Sunflower
-sample’s `sunflower.dart` file looks something like ?.
+sample’s `sunflower.dart` file looks something like this:
 
 ![The Outline panel for the Sunflower sample](figs/web/daur_0403.png)
 
@@ -411,7 +415,7 @@ disable checked mode in your app’s launch configuration:
 3.  In the Manage Launches dialog, find a launch configuration for your
     app. Click it if it isn’t already selected.
 
-4.  Unselect **Run in checked mode** (see ?).
+4.  Unselect **Run in checked mode**.
 
     ![To run in production mode, unselect checked
     mode](figs/web/daur_0404.png)
@@ -419,7 +423,8 @@ disable checked mode in your app’s launch configuration:
 5.  Click **Apply** to save your change, or **Run** to save it and run
     your app.
 
-For details about checked mode and production mode, see ?.
+For details about checked mode and production mode, see
+[Runtime Modes](ch02.html#runtime-modes).
 
 ### Specifying a browser for JavaScript launches
 {:.no_toc}
@@ -456,7 +461,8 @@ tips:
 
 -   Use the Debugger view to view your app’s state and control its
     execution. By default, the Debugger view is to the right of the Edit
-    view and appears when you first hit a breakpoint (?).
+    view and appears when you first hit a breakpoint
+    (see the following figure).
 
 -   To see the value of a variable, mouse over it, look in the Debugger
     view, or use an Expression ![](figs/web/watchlist_view.gif).
@@ -478,7 +484,8 @@ compiles the app to JavaScript before executing it in the browser.
 
 However, you can also compile Dart code to JavaScript without running
 the app. Just choose **Tools \> Generate JavaScript**. Another option is
-using dart2js from the command line (see ?).
+using dart2js from the command line (see
+[dart2js: The Dart-to-JavaScript Compiler](/tools/dart2js/)).
 
 
 ### Other Features
@@ -504,7 +511,7 @@ a view, drag its edges.
 {:.no_toc}
 
 To get a list of all keyboard alternatives, choose **Help \> Key
-Assist** (?).
+Assist**.
 
 ![Help \> Key Assist](figs/web/daur_0407.png)
 
@@ -532,12 +539,12 @@ Dartium.
 
 If you don’t have Dart Editor or want a different version of Dartium,
 you can get it separately from the [Dartium
-page.](http://www.dartlang.org/downloads.html)
+page.](/downloads.html)
 
 You don’t usually need to do anything special to install Dartium: just
 unarchive the ZIP file. If you want Dart Editor to launch a particular
 copy of Dartium, then put that copy in the same directory as the
-`dart-sdk` directory of your Dart installation directory (see ?),
+`dart-sdk` directory of your [Dart installation directory](ch01.html#step-1-download-and-install-the-software),
 replacing the original copy of Chromium.
 
 > **Note**
@@ -553,7 +560,9 @@ replacing the original copy of Chromium.
 
 To launch Dartium, navigate to its directory in your finder, and
 double-click the Chromium executable file. Or use Dart Editor as
-described in ? or the command line as described in ?.
+described in [Running Apps](#running-apps)
+or the command line as described in
+[Launching from the Command Line](#launching-from-the-command-line).
 
 <aside class="alert alert-warning" markdown="1">
 **Warning if you already use Chromium:**
@@ -596,7 +605,7 @@ source file. Example:
 
 For more information on linking to source code, see the article
 [Embedding Dart in
-HTML.](https://www.dartlang.org/articles/embedding-in-html/)
+HTML.](/articles/embedding-in-html/)
 
 
 ### Detecting Dart Support
@@ -656,13 +665,13 @@ DART_FLAGS='--checked'              \
 ## dart2js: The Dart-to-JavaScript Compiler
 
 The documentation for dart2js has moved to
-[www.dartlang.org/tools/dart2js/](/tools/dart2js/).
+[/tools/dart2js/](/tools/dart2js/).
 
 
 ## dart: The Standalone VM
 
 The documentation for dart has moved to
-[www.dartlang.org/tools/dart-vm/](/tools/dart-vm/).
+[/tools/dart-vm/](/tools/dart-vm/).
 
 
 ## dartanalyzer: The Static Analyzer
@@ -670,7 +679,7 @@ The documentation for dart has moved to
 You can use the *dartanalyzer* tool (`bin/dartanalyzer`) to statically
 analyze your code at the command line, checking for errors and warnings
 that are specified in the [Dart Language
-Specification.](http://www.dartlang.org/docs/spec/)
+Specification.](/docs/spec/)
 
 > **Note**
 >
@@ -688,22 +697,26 @@ Here’s an example of testing a Dart file:
 dartanalyzer --package-root=code/packages test.dart
 {% endprettify %}
 
-As ? shows, the exit code of dartanalyzer tells you whether the code
+As the following table shows,
+the exit code of dartanalyzer tells you whether the code
 passed analysis.
 
-  Exit code   Description
-  ----------- --------------------------------
-  0           No issues found
-  1           Warnings found (but no errors)
-  2           Errors found
-
-  : Exit codes for dartanalyzer
+|-----------+--------------------------------
+| Exit code | Description
+|-----------+--------------------------------
+| 0         | No issues found
+| 1         | Warnings found (but no errors)
+| 2         | Errors found
+{:.table .table-striped}
 
 
 ### Options
 {:.no_toc}
 
-You can use the following command-line options with dartanalyzer: {NOTE:
+You can use the following command-line options with dartanalyzer:
+
+{% comment %}
+{NOTE:
 I'm still not documenting --perf. It's displayed by --help but seems of
 limited use to most developers. I'm also not documenting the following,
 which I got from sdk/bin/dartanalyzer or pkg/analyzer/lib/options.dart
@@ -711,12 +724,13 @@ but aren't displayed by help: -batch|--batch|-b (though -b doesn't seem
 to be treated specially by the script), --ignore-unrecognized-flags
 (doesn't seem to change the output), --fatal-warnings, --warnings (only
 for SDK developers?), --show-sdk-warnings (deprecated)}
+{% endcomment %}
 
 `--dart-sdk=`
 
 :   Specify the directory that contains the Dart SDK.
 
-`-p`*or*`--package-root=`
+`-p` *or* `--package-root=`
 
 :   Specify the directory to search for any libraries that are imported
     using `package:`.
@@ -739,7 +753,7 @@ for SDK developers?), --show-sdk-warnings (deprecated)}
 
 :   Show the analyzer version.
 
-`-h`*or*`--help`
+`-h` *or* `--help`
 
 :   Show all the command-line options.
 

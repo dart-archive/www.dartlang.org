@@ -20,21 +20,20 @@ modern web.
 
 Our aim for this book is to be a useful introduction to the Dart
 language, libraries, and tools. For the latest
-news, keep an eye on the [Dart page](http://google.com/+dartlang) on
-Google+.
+news, keep an eye on this site and
+[news.dartlang.org](http://news.dartlang.org/).
 
-Another important website is this book’s [GitHub
-project.](https://github.com/dart-lang/dart-up-and-running-book) The
-text for this work is available there under the [Creative Commons
+The text for this work is available at the
+[www.dartlang.org GitHub project](https://github.com/dart-lang/www.dartlang.org)
+(at [src/site/docs/dart-up-and-running/](https://github.com/dart-lang/www.dartlang.org/tree/master/src/site/docs/dart-up-and-running/contents))
+under the [Creative Commons
 Attribution-Noncommercial-No Derivative Works 3.0 United States
 License.](http://creativecommons.org/licenses/by-nc-nd/3.0/us/) Source
-code files for this book’s samples are also there, in the [`code/`
-subdirectory.](https://github.com/dart-lang/dart-up-and-running-book/tree/master/code)
-Downloading the sample code from GitHub is much easier than copying it
-from the book.
+code files for this book’s [samples](https://github.com/dart-lang/dart-up-and-running-book/tree/master/code)
+are also on GitHub.
 
 If you find an error in the sample code or text, please [create an
-issue.](https://github.com/dart-lang/dart-up-and-running-book/issues/new)
+issue.](https://github.com/dart-lang/www.dartlang.org/issues/new)
 
 ## Conventions Used in This Book
 
@@ -224,9 +223,12 @@ The sections that talk about tools have changed, too:
 We also added new coverage of previously undocumented features and
 tweaked existing coverage. In the language tour:
 
--   Added ?.
+-   Added the section
+    <a href="ch02.html#adding-features-to-a-class-mixins">Adding
+    Features to a Class: Mixins</a>.
 
--   In ?, marked which keywords are built-in identifiers and discussed
+-   In the <a href="ch02.html#keywords">keywords</a> section,
+    marked which keywords are built-in identifiers and discussed
     how they differ from reserved words.
 
 -   Added coverage of the + operator for strings.
@@ -242,7 +244,7 @@ tweaked existing coverage. In the language tour:
 
 In the library tour:
 
--   Added ?.
+-   Added <a href="ch03.html#dartmirrors---reflection">dart:mirrors - Reflection</a>.
 
 -   Added examples of parsing non-decimal numbers.
 
@@ -250,12 +252,13 @@ In the library tour:
 
 -   Removed coverage of Completer, which is no longer recommended.
 
--   Added ?.
+-   Added the <a href="ch03.html#stream">Stream</a> section.
 
 Throughout the book, we updated links to related topics.
 
-Finally, we completely rewrote ? to feature a new example (Dartiverse
-Search).
+Finally, we completely rewrote
+<a href="ch05.html">the final, walkthrough chapter</a>
+to feature a new example (Dartiverse Search).
 
 
 ### Changes in the Second Printing: March 29, 2013
@@ -331,8 +334,9 @@ first printing:
     -   Date is now named DateTime, and the `fromString()` constructor
         is now a static method named `parse()`.
 
-    -   Event-handler registration used to be `.on..add()`; now it’s
-        `.on.``listen`.
+    -   Event-handler registration used to be 
+        <code>.on.<em>event</em>.add()</code>; now it’s
+        <code>.on<em>Event</em>.listen</code>.
 
     -   The dart:html HttpRequest `get()` method was replaced by
         `getString()` and `request()`, which return Future\<String\> and
@@ -375,19 +379,20 @@ We corrected or clarified some text, such as:
 
 -   Bitwise operators are implemented in **int**, not num.
 
--   The `is` and `as` examples (in ?) aren’t completely equivalent.
+-   The `is` and `as` examples (in
+    <a href="ch02.html#type-test-operators">Type Test Operators</a>)
+    aren’t completely equivalent.
 
 We also added sections for some pre-existing features:
 
 -   Keywords
-
 -   Lexical scope
-
 -   Function equality
-
 -   The dart\_analyzer tool
 
-Finally, ? now uses a more recent benchmark and has the latest numbers.
+Finally, the first figure in
+<a href="ch01.html#why-google-created-dart">Why Google Created Dart</a>
+now uses a more recent benchmark and has the latest numbers.
 
 
 ## Acknowledgments
@@ -407,7 +412,8 @@ We’d especially like to thank the people who reviewed even bigger swaths
 of the book or contributed in other, large ways:
 
 -   JJ Behrens, whose careful look at the first draft of the book helped
-    us catch errors and inconsistencies, as well as rework ? to be more
+    us catch errors and inconsistencies, as well as rework
+    the walkthrough to be more
     interesting, and less of a laundry list. He also created a system
     for testing our samples.
 
@@ -433,8 +439,8 @@ of the book or contributed in other, large ways:
     making all the corners of the language understandable to all Dart
     programmers.
 
--   Anders Johnsen, who wrote the Dartiverse Search app and reviewed ?’s
-    walkthrough of that app.
+-   Anders Johnsen, who wrote the Dartiverse Search app and reviewed
+    Chapter 5's walkthrough of that app.
 
 Other Googlers helped, as well. Vivian Cromwell, the head of Chrome
 Developer Relations, supported our work on this book. Andres Ferrate,

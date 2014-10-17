@@ -21,7 +21,8 @@ that you already know how to program in another language.
 > **Note**
 >
 > To play with each feature, create a command-line application project
-> in Dart Editor, as described in ?.
+> in Dart Editor, as described in
+> [Up and Running](ch01.html#up-and-running).
 
 Consult the [Dart Language
 Specification](http://www.dartlang.org/docs/spec/) whenever you want
@@ -48,10 +49,11 @@ main() {
 Here’s what this program uses that applies to all (or almost all) Dart
 apps:
 
-`// `
+<code>// <em>This is a comment.</em> </code>
 
 :   Use // to indicate that the rest of the line is a comment.
-    Alternatively, use /\* ... \*/. For details, see ?.
+    Alternatively, use /\* ... \*/. For details, see
+    [Comments](#comments).
 
 `num`
 
@@ -69,15 +71,17 @@ apps:
 
 :   A string literal.
 
-`$` (or `${``}`)
+<code>$<em>variableName</em></code> (or <code>${<em>expression</em>}</code>)
 
 :   String interpolation: including a variable or expression’s string
-    equivalent inside of a string literal. For more information, see ?.
+    equivalent inside of a string literal. For more information, see
+    [Strings](#strings).
 
 `main()`
 
 :   The special, *required*, top-level function where app execution
-    starts. For more information, see ?.
+    starts. For more information, see
+    [The main() Function](#the-main-function).
 
 `var`
 
@@ -120,9 +124,10 @@ mind:
 
 -   Unlike Java, Dart doesn’t have the keywords `public`, `protected`,
     and `private`. If an identifier starts with an underscore (\_), it’s
-    private to its library. For details, see ?.
+    private to its library. For details, see
+    [Libraries and Visibility](#libraries-and-visibility).
 
--   Identifiers can start with a letter or \_, followed by any
+-   *Identifiers* can start with a letter or \_, followed by any
     combination of those characters plus digits.
 
 -   Sometimes it matters whether something is an *expression* or a
@@ -135,38 +140,34 @@ mind:
     from executing at all; a run-time error results in an
     [exception](#exceptions) being raised while the code executes.
 
--   Dart has two runtime modes: production and checked. Production is
+-   Dart has two *runtime modes*: production and checked. Production is
     faster, but checked is helpful at development.
 
 
 ### Keywords
 {:.no_toc}
 
-? lists the words that the Dart language treats specially.
+The following table lists the words that the Dart language treats specially.
 
-  ------------- ------------- ------------ --------------- ----------- ------------
-  abstract \*   continue      extends      implements \*   part \*     throw
-  as \*         default       factory \*   import \*       rethrow     true
-  assert        do            false        in              return      try
-  break         dynamic \*    final        is              set \*      typedef \*
-  case          else          finally      library \*      static \*   var
-  catch         enum          for          new             super       void
-  class         export \*     get \*       null            switch      while
-  const         external \*   if           operator \*     this        with
-  ------------- ------------- ------------ --------------- ----------- ------------
-
-  : Dart keywords
+| abstract&nbsp;\* | continue    | extends    | implements&nbsp;\* | part&nbsp;\*   | throw |
+| as&nbsp;\*       | default     | factory&nbsp;\* | import&nbsp;\*     | rethrow   | true  |
+| assert      | do          | false      | in            | return    | try   |
+| break       | dynamic&nbsp;\*  | final      | is            | set&nbsp;\*    | typedef&nbsp;\* |
+| case        | else        | finally    | library&nbsp;\*    | static&nbsp;\* | var   |
+| catch       | enum        | for        | new           | super     | void  |
+| class       | export&nbsp;\*   | get&nbsp;\*     | null          | switch    | while |
+| const       | external&nbsp;\* | if         | operator&nbsp;\*   | this      | with  |
+{:.table .table-striped}
 
 In the keyword table, words with an asterisk (\*) are *built-in
 identifiers*. Although you should generally treat built-in identifiers
 like reserved words, the only real restriction is that you can't use a
-built-in identifier as the name of a class or type. Having built-in
+built-in identifier as the name of a class or type.
+
+Having built-in
 identifiers enables easier porting from JavaScript to Dart. For example,
 say some JavaScript code has a variable named `factory`; you don't have
-to rename it when you port the code to Dart.NEW for October update:
-added enum, rethrow. Dart reserved words: Section 16.1.1 of the spec
-lists reserved words; 12.31 has the identifier reference, which lists
-the built-in identifiers.
+to rename it when you port the code to Dart.
 
 
 ### Runtime Modes
@@ -211,8 +212,9 @@ assert(lineCount == null);
 > **Note**
 >
 > The `assert()` call is ignored in production mode. In checked mode,
-> `assert()` throws an exception unless condition is true. For details,
-> see ?.
+> <code>assert(<em>condition</em>)</code>
+> throws an exception unless *condition* is true. For details,
+> see the [Assert](#assert) section.
 
 
 ### Optional Types
@@ -301,8 +303,8 @@ Dart numbers come in two flavors:
 
 [`int`](http://api.dartlang.org/dart_core/int.html)
 
-:   Integer values, which generally should be in the range -2^53^ to
-    2^53^
+:   Integer values, which generally should be in the range
+    -2<sup>53</sup> to 2<sup>53</sup>
 
 [`double`](http://api.dartlang.org/dart_core/double.html)
 
@@ -319,7 +321,8 @@ subtypes don’t have what you’re looking for, the
 
 <aside class="alert alert-warning" markdown="1">
 **Warning:**
-Integers outside of the -2^53^ to 2^53^ range currently behave
+Integers outside of the
+-2<sup>53</sup> to 2<sup>53</sup> range currently behave
 differently in JavaScript produced from Dart code than they do when
 the same Dart code runs in the Dart VM. The reason is that Dart is
 specified to have arbitrary-precision integers, but JavaScript isn't.
@@ -406,11 +409,11 @@ assert('That deserves all caps. ${s.toUpperCase()} is very handy!' ==
 > strings are equivalent if they contain the same sequence of code
 > units.
 
-You can concatenate strings using adjacent string literals or the ``
+You can concatenate strings using adjacent string literals or the `+`
 operator:
 
+<!-- adjacent_string_literals.dart -->
 {% prettify dart %}
-adjacent_string_literals.dart
 var s1 = 'String ' 'concatenation'
          " works even over line breaks.";
 assert(s1 == 'String concatenation works even over line breaks.');
@@ -446,7 +449,8 @@ You can use Unicode escapes inside of strings:
 print('Unicode escapes work: \u2665'); // Unicode escapes work: [heart]
 {% endprettify %}
 
-For more information on using strings, see ?.
+For more information on using strings, see
+[Strings and Regular Expressions](ch03.html#strings-and-regular-expressions).
 
 
 ### Booleans
@@ -497,7 +501,8 @@ if (1) {
 
 Dart’s treatment of booleans is designed to avoid the strange behaviors
 that can arise when many values can be treated as true. What this means
-for you is that, instead of using code like `if ()`, you should instead
+for you is that, instead of using code like
+<code>if (<em>nonbooleanValue</em>)</code>, you should instead
 explicitly check for values. For example:
 
 {% prettify dart %}
@@ -546,7 +551,8 @@ assert(list[1] == 2);
 {% endprettify %}
 
 The List type has many handy methods for manipulating lists. For more
-information about lists, see ? and ?.
+information about lists, see [Generics](#generics) and
+[Collections](ch03.html#collections).
 
 
 ### Maps
@@ -621,7 +627,9 @@ gifts['fourth'] = 'calling birds';
 assert(gifts.length == 2);
 {% endprettify %}
 
-For more information about maps, see ? and ?.
+For more information about maps, see
+[Generics](#generics) and
+[Maps](ch03.html#maps).
 
 
 ### Symbols
@@ -641,7 +649,8 @@ To get the symbol for an identifier, use a symbol literal, which is just
 #bar    // The symbol literal for an identifier named 'bar'.
 {% endprettify %}
 
-For more information on symbols, see ?.
+For more information on symbols, see
+[dart:mirrors - Reflection](ch03.html#dartmirrors---reflection).
 
 
 ## Functions
@@ -670,9 +679,8 @@ syntax:
 printNumber(number) => print('The number is $number.');
 {% endprettify %}
 
-The `=>
-    ;` syntax is a shorthand for `{ return
-    ;}`. In the `printNumber()` function above, the expression is the
+The <code>=> <em>expr</em>;</code> syntax is a shorthand for
+<code>{ return <em>expr</em>;}</code>. In the `printNumber()` function above, the expression is the
 call to the top-level `print()` function.
 
 > **Note**
@@ -711,15 +719,16 @@ value is provided, the value is `null`.
 #### Optional named parameters
 {:.no_toc}
 
-When calling a function, you can specify named parameters using `:
-        `. For example:
+When calling a function, you can specify named parameters using
+<code><em>paramName</em>: <em>value</em></code>. For example:
 
 {% prettify dart %}
 enableFlags(bold: true, hidden: false);
 {% endprettify %}
 
-When defining a function, use `{,
-        , …}` to specify named parameters:
+When defining a function, use
+<code>{<em>param1</em>, <em>param2</em>, …}</code>
+to specify named parameters:
 
 {% prettify dart %}
 /// Sets the [bold] and [hidden] flags to the values you specify.
@@ -812,7 +821,7 @@ main() {
 >
 > The `..` operator in the preceding code is a cascade operator, which
 > allows you to perform multiple operations on the members of a single
-> object. You'll find out more in ?.
+> object. You'll find out more in [Classes](#classes).
 
 Here's an example of the `main()` function for a command-line app that
 takes arguments:
@@ -967,28 +976,29 @@ statement `return null;` is implicitly appended to the function body.
 
 ## Operators
 
-Dart defines the operators shown in ?. You can override many of these
-operators, as described in ?.
+Dart defines the operators shown in the following table.
+You can override many of these operators, as described in
+[Overridable Operators](#overridable-operators).
 
-  Description                Operator
-  -------------------------- ----------------------------------------------------------------------------------
-  unary postfix              expr++    expr--    ()    []    .
-  unary prefix               -expr    !expr    \~expr    ++expr    --expr   
-  multiplicative             \*    /    %    \~/
-  additive                   +    -
-  shift                      \<\<    \>\>
-  bitwise AND                &
-  bitwise XOR                \^
-  bitwise OR                 |
-  relational and type test   \>=    \>    \<=    \<    as    is    is!
-  equality                   ==    !=   
-  logical AND                &&
-  logical OR                 ||
-  conditional                expr1 ? expr2 : expr3
-  cascade                    ..
-  assignment                 =    \*=    /=    \~/=    %=    +=    -=    \<\<=    \>\>=    &=    \^=    |=   
-
-  : Operators and their precedence
+|--------------------------+------------------------------------------------|
+|Description               | Operator                                       |
+|--------------------------|------------------------------------------------|
+| unary postfix            | <code><em>expr</em>++</code>    <code><em>expr</em>--</code>    `()`    `[]`    `.`             |
+| unary prefix             | <code>-<em>expr</em></code>    <code>!<em>expr</em></code>    <code>~<em>expr</em></code>    <code>++<em>expr</em></code>    <code>--<em>expr</em></code>   |
+| multiplicative           | `*`    `/`    `%`    `~/`                      |
+| additive                 | `+`    `-`                                     |
+| shift                    | `<<`    `>>`                                   |
+| bitwise AND              | `&`                                            |
+| bitwise XOR              | `^`                                            |
+| bitwise OR               | `|`                                            |
+| relational&nbsp;and&nbsp;type&nbsp;test | `>=`    `>`    `<=`    `<`    `as`    `is`    `is!`      |
+| equality                 | `==`    `!=`                                   |
+| logical AND              | `&&`                                           |
+| logical OR               | `||`                                           |
+| conditional              | <code><em>expr1</em> ? <em>expr2</em> : <em>expr3</em></code>        |
+| cascade                  | `..`                                           |
+| assignment               | `=`    `*=`    `/=`    `~/=`    `%=`    `+=`    `-=`    `<<=`    `>>=`    `&=`    `^=`    `|=`                 |
+{:.table .table-striped}
 
 When you use operators, you create expressions. Here are some examples
 of operator expressions:
@@ -998,11 +1008,12 @@ a++
 a + b
 a = b
 a == b
-a? b: c
+a ? b: c
 a is T
 {% endprettify %}
 
-In ?, each operator has higher precedence than the operators in the rows
+In the operator table above,
+each operator has higher precedence than the operators in the rows
 below it. For example, the multiplicative operator `%` has higher
 precedence than (and thus executes before) the equality operator `==`,
 which has higher precedence than the logical AND operator `&&`. That
@@ -1010,8 +1021,11 @@ precedence means that the following two lines of code execute the same
 way:
 
 {% prettify dart %}
-if ((n % i == 0) && (d % i == 0)) // Parens improve readability.
-if (n % i == 0 && d % i == 0)     // Harder to read, but equivalent.
+// 1: Parens improve readability.
+if ((n % i == 0) && (d % i == 0)) 
+
+// 2: Harder to read, but equivalent.
+if (n % i == 0 && d % i == 0)
 {% endprettify %}
 
 <aside class="alert alert-warning" markdown="1">
@@ -1026,19 +1040,19 @@ Vector version of +.
 ### Arithmetic Operators
 {:.no_toc}
 
-Dart supports the usual arithmetic operators, as shown in ?.
+Dart supports the usual arithmetic operators, as shown in the following table.
 
-  Operator   Meaning
-  ---------- --------------------------------------------------------------------------
-  +          Add
-  –          Subtract
-  -expr      Unary minus, also known as negation (reverse the sign of the expression)
-  \*         Multiply
-  /          Divide
-  \~/        Divide, returning an integer result
-  %          Get the remainder of an integer division (modulo)
-
-  : Arithmetic operators
+|-----------------------------+-------------------------------------------|
+| Operator                    | Meaning                                   |
+|-----------------------------+-------------------------------------------|
+| `+`                         | Add
+| `–`                         | Subtract
+| <code>-<em>expr</em></code> | Unary minus, also known as negation (reverse the sign of the expression)
+| `*`                         | Multiply
+| `/`                         | Divide
+| `~/`                        | Divide, returning an integer result
+| `%`                         | Get the remainder of an integer division (modulo)
+{:.table .table-striped}
 
 Example:
 
@@ -1057,14 +1071,14 @@ print('5/2 = ${5~/2} remainder ${5%2}'); // 5/2 = 2 remainder 1
 Dart also supports both prefix and postfix increment and decrement
 operators.
 
-  Operator   Meaning
-  ---------- ---------------------------------------------
-  ++var      var = var + 1 (expression value is var + 1)
-  var++      var = var + 1 (expression value is var)
-  --var      var = var – 1 (expression value is var – 1)
-  var--      var = var – 1 (expression value is var)
-
-  : Increment and decrement operators
+|-----------------------------+-------------------------------------------|
+| Operator                    | Meaning                                   |
+|-----------------------------+-------------------------------------------|
+| <code>++<em>var</em></code> | <code><em>var</em> = <em>var</em> + 1</code> (expression value is <code><em>var</em> + 1</code>)
+| <code><em>var</em>++</code> | <code><em>var</em> = <em>var</em> + 1</code> (expression value is <code><em>var</em></code>)
+| <code>--<em>var</em></code> | <code><em>var</em> = <em>var</em> – 1</code> (expression value is <code><em>var</em> – 1</code>)
+| <code><em>var</em>--</code> | <code><em>var</em> = <em>var</em> – 1</code> (expression value is <code><em>var</em></code>)
+{:.table .table-striped}
 
 Example:
 
@@ -1092,29 +1106,32 @@ assert(a != b) ; // -1 != 0
 ### Equality and Relational Operators
 {:.no_toc}
 
-  Operator   Meaning
-  ---------- -----------------------------
-  ==         Equal; see discussion below
-  !=         Not equal
-  \>         Greater than
-  \<         Less than
-  \>=        Greater than or equal to
-  \<=        Less than or equal to
-
-  : Equality and relational operators
+|-----------+-------------------------------------------|
+| Operator  | Meaning                                   |
+|-----------+-------------------------------------------|
+| `==`      |       Equal; see discussion below
+| `!=`      |       Not equal
+| `>`       |       Greater than
+| `<`       |       Less than
+| `>=`      |       Greater than or equal to
+| `<=`      |       Less than or equal to
+{:.table .table-striped}
 
 To test whether two objects x and y represent the same thing, use the
 `==` operator. (In the rare case where you need to know whether two
-objects are the exact same object, use the `` function instead.) Here’s
+objects are the exact same object, use the
+[identical()](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-core#id_identical) function instead.) Here’s
 how the `==` operator works:
 
-1.  If x or y is null, return true if both are null, and false if only
+1.  If *x* or *y* is null, return true if both are null, and false if only
     one is null.
 
-2.  Return the result of the method invocation `.==()`. (That’s right,
+2.  Return the result of the method invocation
+    <code><em>x</em>.==(<em>y</em>)</code>. (That’s right,
     operators such as `==` are methods that are invoked on their first
     operand. You can even override many operators, including `==`, as
-    you’ll see in ?.)
+    you’ll see in
+    [Overridable Operators](#overridable-operators).)
 
 Here’s an example of using each of the equality and relational
 operators:
@@ -1136,13 +1153,13 @@ assert(2 <= 3);
 The `as`, `is`, and `is!` operators are handy for checking types at
 runtime.
 
-  Operator   Meaning
-  ---------- --------------------------------------------
-  as         Typecast
-  is         True if the object has the specified type
-  is!        False if the object has the specified type
-
-  : Type test operators
+|-----------+-------------------------------------------|
+| Operator  | Meaning                                   |
+|-----------+-------------------------------------------|
+| `as`      | Typecast
+| `is`      | True if the object has the specified type
+| `is!`     | False if the object has the specified type
+{:.table .table-striped}
 
 The result of `obj is T` is true if `obj` implements the interface
 specified by `T`. For example, `obj is Object` is always true.
@@ -1178,23 +1195,18 @@ As you’ve already seen, you assign values using the `=` operator. You
 can also use compound assignment operators such as `+=`, which combine
 an operation with an assignment.
 
-  ---- ----- ------ ------- ------- -----
-  =    –=    /=     %=      \>\>=   \^=
-  +=   \*=   \~/=   \<\<=   &=      |=
-  ---- ----- ------ ------- ------- -----
-
-  : Assignment operators
+| `=`  | `–=` | `/=`  | `%=`  | `>>=` | `^=`
+| `+=` | `*=` | `~/=` | `<<=` | `&=`  | `|=`
+{:.table}
 
 Here’s how compound assignment operators work:
 
-  -----------------------------------------------------------------------
-                            Compound assignment   Equivalent expression
-  ------------------------- --------------------- -----------------------
-  **For an operator op:**   `a =                  `a = a
-                                          b`                     b`
-
-  **Example:**              `a += b`              `a = a + b`
-  -----------------------------------------------------------------------
+|-----------+----------------------+-----------------------|
+|           | Compound assignment  | Equivalent expression |
+|-----------+----------------------+-----------------------|
+|**For an operator <em>op</em>:** | <code>a <em>op</em>= b</code> | <code>a = a <em>op</em> b</code>
+|**Example:**                     |`a += b`                       | `a = a + b`
+{:.table}
 
 The following example uses both assignment and compound assignment
 operators:
@@ -1212,13 +1224,13 @@ assert(a == 6);
 You can invert or combine boolean expressions using the logical
 operators.
 
-  Operator   Meaning
-  ---------- --------------------------------------------------------------------------
-  !expr      inverts the following expression (changes false to true, and vice versa)
-  ||         logical OR
-  &&         logical AND
-
-  : Logical operators
+|-----------------------------+-------------------------------------------|
+| Operator                    | Meaning                                   |
+|-----------------------------+-------------------------------------------|
+| <code>!<em>expr</em></code> | inverts the following expression (changes false to true, and vice versa)
+| `||`                        | logical OR
+| `&&`                        | logical AND
+{:.table .table-striped}
 
 Here’s an example of using the logical operators:
 
@@ -1233,19 +1245,18 @@ if (!done && (col == 0 || col == 3)) {
 {:.no_toc}
 
 You can manipulate the individual bits of numbers in Dart. Usually,
-you’d use these bitwise and shift operators with integers, as shown in
-?.
+you’d use these bitwise and shift operators with integers.
 
-  Operator   Meaning
-  ---------- -------------------------------------------------------
-  &          AND
-  |          OR
-  \^         XOR
-  \~expr     Unary bitwise complement (0s become 1s; 1s become 0s)
-  \<\<       Shift left
-  \>\>       Shift right
-
-  : Bitwise and shift operators
+|-----------------------------+-------------------------------------------|
+| Operator                    | Meaning                                   |
+|-----------------------------+-------------------------------------------|
+| `&`                         | AND
+| `|`                         | OR
+| `^`                         | XOR
+| <code>~<em>expr</em></code> | Unary bitwise complement (0s become 1s; 1s become 0s)
+| `<<`                        | Shift left
+| `>>`                        | Shift right
+{:.table .table-striped}
 
 Here’s an example of using bitwise and shift operators:
 
@@ -1268,15 +1279,15 @@ assert((value >> 4)       == 0x02);  // Shift right
 A few operators remain, most of which you’ve already seen in other
 examples.
 
-  Operator                Name                   Meaning
-  ----------------------- ---------------------- --------------------------------------------------------------------------------------------------------
-  ()                      Function application   Represents a function call
-  []                      List access            Refers to the value at the specified index in the list
-  expr1 ? expr2 : expr3   Conditional            If expr1 is true, executes expr2; otherwise, executes expr3
-  .                       Member access          Refers to a property of an expression; example: `foo.bar` selects property `bar` from expression `foo`
-  ..                      Cascade                Allows you to perform multiple operations on the members of a single object; described in ?
-
-  : Other operators
+|----------+-------------------------------------------|
+| Operator | Name              |              Meaning                                   |
+|-----------+-------------------------------------------|
+| `()`     | Function application | Represents a function call
+| `[]`     | List access          | Refers to the value at the specified index in the list
+| <code><em>expr1</em> ? <em>expr2</em> : <em>expr3</em> | Conditional | If _expr1_ is true, executes _expr2_; otherwise, executes _expr3_
+| `.`      | Member access        | Refers to a property of an expression; example: `foo.bar` selects property `bar` from expression `foo`
+| `..`     | Cascade              | Allows you to perform multiple operations on the members of a single object; described in [Classes](#classes)
+{:.table .table-striped}
 
 
 ## Control Flow Statements
@@ -1296,7 +1307,7 @@ You can control the flow of your Dart code using any of the following:
 -   `assert`
 
 You can also affect the control flow using `try-catch` and `throw`, as
-explained in ?.
+explained in [Exceptions](#exceptions).
 
 
 ### If and Else
@@ -1304,7 +1315,7 @@ explained in ?.
 
 Dart supports `if` statements with optional `else` statements, as the
 next sample shows. Also see conditional expressions (?:), which are
-covered in ?.
+covered in [Other Operators](#other-operators).
 
 {% prettify dart %}
 if (isRaining()) {
@@ -1317,7 +1328,7 @@ if (isRaining()) {
 {% endprettify %}
 
 Remember, unlike JavaScript, Dart treats all values other than `true` as
-`false`. See ? for more information.
+`false`. See [Booleans](#booleans) for more information.
 
 
 ### For Loops
@@ -1348,8 +1359,9 @@ callbacks.forEach((c) => c());
 The output is `0` and then `1`, as expected. In contrast, the example
 would print `2` and then `2` in JavaScript.
 
-If the object that you are iterating over is an Iterable, you can use
-the `` method. Using `forEach()` is a good option if you don’t need to
+If the object that you are iterating over is an Iterable, you can use the
+<a href="https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-core.Iterable#id_forEach"><code>forEach()</code> method.</a>
+Using `forEach()` is a good option if you don’t need to
 know the current iteration counter:
 
 <!-- ch02/flow_for_loops.dart -->
@@ -1358,7 +1370,7 @@ candidates.forEach((candidate) => candidate.interview());
 {% endprettify %}
 
 Iterable classes such as List and Set also support the `for-in` form of
-iteration, which is described in ?:
+[iteration](ch03.html#iteration):
 
 <!-- ch02/flow_for_loops.dart -->
 {% prettify dart %}
@@ -1643,7 +1655,7 @@ try {
 }
 {% endprettify %}
 
-Learn more by reading ?.
+Learn more by reading the [Exceptions](ch03.html#exceptions) section.
 
 
 ## Classes
@@ -1655,9 +1667,9 @@ descend from [Object.](http://api.dartlang.org/dart_core/Object.html)
 Object) has exactly one superclass, a class body can be reused in
 multiple class hierarchies.
 
-To create an object, you can use the `new` keyword with a constructor
-for a class. Constructor names can be either *ClassName* or
-ClassName.identifier. For example:
+To create an object, you can use the `new` keyword with a *constructor*
+for a class. Constructor names can be either <code><em>ClassName</em></code> or
+<code><em>ClassName</em>.<em>identifier</em></code>. For example:
 
 {% prettify dart %}
 var jsonData = JSON.decode('{"x":1, "y":2}');
@@ -1666,8 +1678,8 @@ var p1 = new Point(2,2);               // Create a Point using Point().
 var p2 = new Point.fromJson(jsonData); // Create a Point using Point.fromJson().
 {% endprettify %}
 
-Objects have members consisting of functions and data (methods and
-instance variables, respectively). When you call a method, you *invoke*
+Objects have *members* consisting of functions and data (*methods* and
+*instance variables*, respectively). When you call a method, you *invoke*
 it on an object: the method has access to that object’s functions and
 data.
 
@@ -1728,9 +1740,9 @@ class Point {
 
 All uninitialized instance variables have the value `null`.
 
-All instance variables generate an implicit getter method. Non-final
-instance variables also generate an implicit setter method. For details,
-see ?.
+All instance variables generate an implicit *getter* method. Non-final
+instance variables also generate an implicit *setter* method. For details,
+see [Getters and Setters](#getters-and-setters).
 
 <!-- ch02/instance_variables.dart -->
 {% prettify dart %}
@@ -1757,7 +1769,8 @@ execute.
 {:.no_toc}
 
 Declare a constructor by creating a function with the same name as its
-class (plus, optionally, an additional identifier as described in ?).
+class (plus, optionally, an additional identifier as described in
+[Named constructors](#named-constructors)).
 The most common form of constructor, the generative constructor, creates
 a new instance of a class:
 
@@ -2102,23 +2115,21 @@ class EffectiveDoer extends Doer {
 
 Calling an abstract method results in a run-time error.
 
-Also see ?.
+Also see [Abstract Classes](#abstract-classes).
 
 #### Overridable Operators
 {:.no_toc}
 
-You can override the operators shown in ?. For example, if you define a
+You can override the operators shown in the following table.
+For example, if you define a
 Vector class, you might define a `+` method to add two vectors.
 
-  ----- ----- ------ -----
-  \<    +     |      []
-  \>    /     \^     []=
-  \<=   \~/   &      \~
-  \>=   \*    \<\<   ==
-  –     %     \>\>
-  ----- ----- ------ -----
-
-  : Operators that can be overridden
+`<`  | `+`  | `|`  | `[]`
+`>`  | `/`  | `^`  | `[]=`
+`<=` | `~/` | `&`  | `~`
+`>=` | `*`  | `<<` | `==`
+`–`  | `%`  | `>>`
+{:.table}
 
 Here’s an example of a class that overrides the `+` and `-` operators:
 
@@ -2148,16 +2159,18 @@ main() {
 }
 {% endprettify %}
 
-If you override ==, you should also override Object's `hashCode` getter.
-For an example of overriding `==` and `hashCode`, see ?.
+If you override `==`, you should also override Object's `hashCode` getter.
+For an example of overriding `==` and `hashCode`, see
+[Implementing Map Keys](ch03.html#implementing-map-keys).
 
-For more information on overriding, in general, see ?.
+For more information on overriding, in general, see
+[Extending a Class](#extending-a-class).
 
 
 ### Abstract Classes
 {:.no_toc}
 
-Use the `abstract` modifier to define an abstract class—a class that
+Use the `abstract` modifier to define an *abstract class*—a class that
 can’t be instantiated. Abstract classes are useful for defining
 interfaces, often with some implementation. If you want your abstract
 class to appear to be instantiable, define a [factory
@@ -2310,7 +2323,8 @@ class A {
 }
 {% endprettify %}
 
-For more information on annotations, see ?.
+For more information on annotations, see
+[Metadata](#metadata).
 
 
 ### Adding Features to a Class: Mixins
@@ -2503,9 +2517,10 @@ think of as a type that a developer will define later.
 {:.no_toc}
 
 List and map literals can be parameterized. Parameterized literals are
-just like the literals you’ve already seen, except that you add `<>`
-(for lists) or `<,
-      >` (for maps) before the opening bracket. You might use
+just like the literals you’ve already seen, except that you add
+<code>&lt;<em>type</em>></code> (for lists) or
+<code>&lt;<em>keyType</em>, <em>valueType</em>></code> (for maps)
+before the opening bracket. You might use
 parameterized literals when you want type warnings in checked mode. Here
 is example of using typed literals:
 
@@ -2555,7 +2570,7 @@ However, the `is` expression checks the type of the *collection*
 only—not of the objects inside it. In production mode, a `List<String>`
 might have some non-string items in it. The solution is to either check
 each item’s type or wrap item-manipulation code in an exception handler
-(see ?).
+(see [Exceptions](#exceptions)).
 
 > **Note**
 >
@@ -2575,7 +2590,9 @@ are a unit of privacy: identifiers that start with an underscore (\_)
 are visible only inside the library. *Every Dart app is a library*, even
 if it doesn’t use a library directive.
 
-Libraries can be distributed using packages. See ? for information about
+Libraries can be distributed using packages. See
+[/tools/pub/](Pub Package and Asset Manager)
+for information about
 pub, a package manager included in the SDK.
 
 
@@ -2594,8 +2611,9 @@ import like this:
 import 'dart:html';
 {% endprettify %}
 
-The only required argument to `import` is a URI[^1] specifying the
-library. For built-in libraries, the URI has the special `dart:` scheme.
+The only required argument to `import` is a URI specifying the
+library.
+For built-in libraries, the URI has the special `dart:` scheme.
 For other libraries, you can use a file system path or the `package:`
 scheme. The `package:` scheme specifies libraries provided by a package
 manager such as the pub tool. For example:
@@ -2606,6 +2624,12 @@ import 'dart:io';
 import 'package:mylib/mylib.dart';
 import 'package:utils/utils.dart';
 {% endprettify %}
+
+> **Note**
+> 
+> *URI* stands for uniform resource identifier.
+> *URLs* (uniform resource locators) are a common kind of URI.
+
 
 #### Specifying a library prefix
 {:.no_toc}
@@ -2652,8 +2676,8 @@ in the library.
 #### Declaring a library
 {:.no_toc}
 
-Use `library
-        ` to specify the name of the current library:
+Use <code>library <em>identifier</em></code>
+to specify the name of the current library:
 
 <!-- ch02/ballgame.dart -->
 {% prettify dart %}
@@ -2666,13 +2690,13 @@ import 'dart:html'; // This app uses the HTML library.
 #### Associating a file with a library
 {:.no_toc}
 
-To add an implementation file, put `part
-        ` in the file that has the `library` statement, where *fileUri*
-is the path to the implementation file. Then in the implementation file,
-put `part of
-        `, where *identifier* is the name of the library. The following
-example uses `part` and `part
-        of` to implement a library in three files.
+To add an implementation file, put
+<code>part <em>fileUri</em></code>
+in the file that has the `library` statement, where *fileUri*
+is the path to the implementation file. Then in the implementation file, put
+<code>part of <em>identifier</em></code>,
+where *identifier* is the name of the library. The following
+example uses `part` and `part of` to implement a library in three files.
 
 The first file, `ballgame.dart`, declares the ballgame library, imports
 other libraries it needs, and specifies that `ball.dart` and `util.dart`
@@ -2833,7 +2857,8 @@ constant constructor.
 
 Three annotations are available to all Dart code: `@deprecated`,
 `@override`, and `@proxy`. For examples of using `@override` and
-`@proxy`, see ?. Here’s an example of using the `@deprecated`
+`@proxy`, see [Extending a Class](#extending-a-class).
+Here’s an example of using the `@deprecated`
 annotation:
 
 <!-- ch02/ch02_meta/bin/ch02_meta.dart -->
@@ -2881,10 +2906,8 @@ void doSomething() {
 
 Metadata can appear before a library, class, typedef, type parameter,
 constructor, factory, function, field, parameter, or variable
-declaration and before an import or export directive. If [issue
-\#6614](https://code.google.com/p/dart/issues/detail?id=6614) is fixed
-by the time you read this, you can retrieve metadata at runtime using
-reflection.
+declaration and before an import or export directive. You can
+retrieve metadata at runtime using reflection.
 
 
 ## Comments
@@ -2994,9 +3017,6 @@ existing code. For more information, see the [Dart Language
 Specification](http://www.dartlang.org/docs/spec/) and
 [articles](http://www.dartlang.org/articles/) such as [Idiomatic
 Dart.](http://www.dartlang.org/articles/idiomatic-dart/)
-
-[^1]: URI stands for uniform resource identifier. URLs (uniform resource
-    locators) are a common kind of URI.
 
 
 <hr>

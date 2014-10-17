@@ -14,7 +14,9 @@ prev-chapter-title: "Tools"
 
 This chapter points out some of the useful and fun features of the Dart
 language and libraries that are used in Dartiverse Search, a
-client-server app. As ? shows, Dartiverse Search looks for a
+client-server app.
+
+As the screenshot shows, Dartiverse Search looks for a
 user-entered string in GitHub and StackOverflow. The app is
 asynchronous, adding results as they're found, so the UI is always
 responsive.
@@ -32,7 +34,13 @@ You can use Dart Editor to get and run Dartiverse Search.
     **Tools \> Welcome Page**.)
 
 2.  In the demo section, click **Dartiverse Search** to create a copy of
-    the dartiverse\_search package.[^1]
+    the dartiverse\_search package.
+
+    > **Note**
+    >
+    > If you aren’t using Dart Editor, you can find the Dartiverse
+    > Search source code in the [Dart project](http://code.google.com/p/dart)
+    > under `samples/dartiverse_search`.
 
 3.  Use **Tools \> Pub Build** to build the package.
 
@@ -40,8 +48,8 @@ You can use Dart Editor to get and run Dartiverse Search.
     see a message that the search server is running at
     http://127.0.0.1:9223/.
 
-5.  Click that URL or enter it into any modern browser. The search
-    client UI should appear in your default browser.
+5.  Enter that URL into any modern browser.
+    The search client UI should appear.
 
 
 ## How Dartiverse Search Works
@@ -57,7 +65,8 @@ listening for requests to the WebSocket: `ws://127.0.0.1:9223/ws`.
 Search clients can connect using that URL.
 
 The real communication between client and server happens when the user
-enters a search string. As ? shows, the client sends a JSON-encoded
+enters a search string. As the following diagram shows,
+the client sends a JSON-encoded
 search request to the server. The server extracts the search string from
 the request and sends it to a series of search engines. Each search
 engine searches a specific site—for example, GitHub—using whatever API
@@ -113,7 +122,8 @@ browsers, dart.js changes the first \<script\> tag to the following:
 <script src="client.dart.js"></script>
 {% endprettify %}
 
-You can get dart.js with the browser package from pub. See ? for more
+You can get dart.js with the browser package from pub. See the
+[dart2js documentation](/tools/dart2js/) for more
 information about compiling Dart code into its JavaScript equivalent.
 
 
@@ -138,7 +148,8 @@ DivElement resultsElement = querySelector('#results');
 {% endprettify %}
 
 The `querySelector()` method uses a selector string that identifies an
-element in the DOM. See ? for more about selectors.
+element in the DOM. See
+[Finding elements](ch03.html#finding-elements) for more about selectors.
 
 > **Note**
 >
@@ -236,7 +247,8 @@ switch (response) {
 }
 {% endprettify %}
 
-For more information, see ?.
+For more information, read about
+[dart:convert](ch03.html#dartconvert---decoding-and-encoding-json-utf-8-and-more).
 
 
 ### Communicating with WebSockets
@@ -640,16 +652,13 @@ pub.dartlang.org.
 
 If you'd like to continue exploring Dartiverse Search, consider
 improving its user interface or adding another search engine. If you'd
-like to look at other samples, you can find them in Dart Editor and at
-[](http://dartlang.org/samples).
+like to look at other samples, you can find them in Dart Editor and in
+[Dart Code Samples](/samples/).
 
-Our website has lots more information, including guides and tutorials.
-It's all at [](http://dartlang.org).
-
-[^1]: If you aren’t using Dart Editor, you can find the Dartiverse
-    Search source code in the [Dart
-    project](http://code.google.com/p/dart) under
-    `samples/dartiverse_search`.
+Check out the other resources on this website, including
+[code labs](/codelabs/),
+[tutorials](/docs/tutorials/), and the
+[programmer's guide](/docs/).
 
 
 <hr>

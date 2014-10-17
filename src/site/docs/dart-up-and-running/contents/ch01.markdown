@@ -35,12 +35,13 @@ the browser.
 
 As an example of Google’s commitment to the web, consider the Google
 Chrome browser. Google created it to spur competition at a time when the
-web platform seemed to be stagnating. It worked. As ? shows, browser
+web platform seemed to be stagnating. It worked.
+As the following figure shows, browser
 speed has increased immensely since Chrome’s introduction in 2008.
 
 > **Note**
 >
-> The JavaScript engine known as V8 is responsible for much of Chrome’s
+> The JavaScript engine known as _V8_ is responsible for much of Chrome’s
 > speed. Many of the V8 engineers are now working on the Dart project.
 
 ![Browser speed (V8 benchmark suite v7; higher numbers are
@@ -115,8 +116,7 @@ main() {
 }
 {% endprettify %}
 
-You’ll learn about the Dart language and libraries in Chapters ? and ?
-respectively.
+You’ll learn about the Dart language and libraries in Chapters 2 and 3.
 
 
 ## What’s Cool About Dart
@@ -229,7 +229,7 @@ Go to your Dart installation directory, and double-click the
 **DartEditor** executable![](figs/web/Dart_Logo_21.png).
 
 You should see the Dart Editor application window appear, looking
-something like ?.
+something like the following figure.
 
 ![Dart Editor and its Welcome page](figs/web/daur_0102.png)
 
@@ -256,7 +256,8 @@ Dartium is a technical preview, and it might have security and
 stability issues. *Do not use Dartium as your primary browser!*
 </aside>
 
-4.  Move the slider to change the sunflower's display, as shown in ?.
+4.  Move the slider to change the sunflower's display, as shown in
+    the following figure.
 
     ![The Sunflower sample running in Dartium](figs/web/daur_0105.png)
 
@@ -269,7 +270,8 @@ step walks you through creating and running a command-line app.
 1.  Click the New Application button ![](figs/web/newapp.png) (at the
     upper left of Dart Editor). Alternatively, choose **File \> New
     Application** from the Dart Editor menu, or click the **Create an
-    Application…** button in the Welcome page. A dialog appears (see ?).
+    Application…** button in the Welcome page. A dialog appears (see
+    the next figure).
 
 2.  Type in a name for your application—for example, `hello_world`. If
     you don’t like the default directory, type in a new location or
@@ -285,7 +287,7 @@ step walks you through creating and running a command-line app.
 
     A default Dart file appears in the Edit view, and its directory
     appears in the Files view. Your Dart Editor window should look
-    something like ?.
+    something like the following screenshot.
 
     ![Dart Editor displaying a new app’s files](figs/web/daur_0104.png)
 
