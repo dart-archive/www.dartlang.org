@@ -20,6 +20,14 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
+## Polymer 0.15.1
+
+This release updates polymer to match JavaScript's version 0.4.2.
+
+With this release, it is no longer necessary to write `dart_support.js` in
+entrypoint files. You can find more details
+[here](/polymer/reference/error-messages/#polymer_43).
+
 ## Polymer 0.15.0
 
 This new release updates polymer to match the current release (0.4.1) of

@@ -28,7 +28,7 @@ you want to use:
 name: my_app
 description: An application that uses core and paper elements
 dependencies:
-  polymer: ">=0.15.0 <0.16.0"
+  polymer: ">=0.15.1 <0.16.0"
   [[highlight]]core_elements: ">=0.3.0 <0.4.0"[[/highlight]]
   [[highlight]]paper_elements: ">=0.4.0 <0.5.0"[[/highlight]]
 transformers:
@@ -58,13 +58,6 @@ adhere to Google's _material design_ guidelines.
 To put a polymer.dart custom element into a web page,
 the HTML file for the web page needs to:
 
-* **Include `dart_support.js` near the top of the file,
-  before any HTML imports.**
-  <br>
-  This file makes polyfills work well with dart2js.
-  It also helps packages
-  (such as core_elements and paper_elements)
-  to provide Dart-y interfaces to JavaScript custom elements.
 * **Import the HTML file that defines the custom element.**
   <br>
   For help with import paths, see
@@ -80,7 +73,6 @@ from the paper_elements package:
 <!-- In an HTML file -->
 <head>
   ...
-  <script src="packages/web_components/dart_support.js"></script>
   <link rel="import" href="[[highlight]]packages/paper_elements/paper_input.html[[/highlight]]">
   ...
 </head>
@@ -96,6 +88,14 @@ from the paper_elements package:
 The `unresolved` attribute in the `<body>` tag
 ensures that no Polymer custom elements display
 before Polymer is ready.
+</aside>
+
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+In version 0.15.0 of polymer it was also necessary to include
+  `<script src="packages/web_components/dart_support.js"></script>`
+on your page. This is no longer needed as of version 0.15.1.
 </aside>
 
 ### Special case: Elements that extend native HTML elements
