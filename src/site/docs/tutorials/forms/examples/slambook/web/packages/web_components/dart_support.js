@@ -2,11 +2,14 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+// Teaches dart2js about the wrapping that is done by the Shadow DOM polyfill.
 (function() {
   var ShadowDOMPolyfill = window.ShadowDOMPolyfill;
   if (!ShadowDOMPolyfill) return;
 
-  if (navigator.userAgent.indexOf('(Dart)') !== -1) {
+  // TODO(sigmund): remove the userAgent check once 1.6 rolls as stable.
+  // See: dartbug.com/18463
+  if (navigator.dartEnabled || (navigator.userAgent.indexOf('(Dart)') !== -1)) {
     console.error("ShadowDOMPolyfill polyfill was loaded in Dartium. This " +
         "will not work. This indicates that Dartium's Chrome version is " +
         "not compatible with this version of web_components.");
@@ -15,11 +18,18 @@
   var needsConstructorFix = window.constructor === window.Window;
 
   // TODO(jmesserly): we need to wrap document somehow (a dart:html hook?)
-  window.dartExperimentalFixupGetTag = function(originalGetTag) {
+
+  // dartNativeDispatchHooksTransformer is described on initHooks() in
+  // sdk/lib/_internal/lib/native_helper.dart.
+  if (typeof window.dartNativeDispatchHooksTransformer == 'undefined')
+    window.dartNativeDispatchHooksTransformer = [];
+
+  window.dartNativeDispatchHooksTransformer.push(function(hooks) {
     var NodeList = ShadowDOMPolyfill.wrappers.NodeList;
     var ShadowRoot = ShadowDOMPolyfill.wrappers.ShadowRoot;
     var unwrapIfNeeded = ShadowDOMPolyfill.unwrapIfNeeded;
-    function getTag(obj) {
+    var originalGetTag = hooks.getTag;
+    hooks.getTag = function getTag(obj) {
       // TODO(jmesserly): do we still need these?
       if (obj instanceof NodeList) return 'NodeList';
       if (obj instanceof ShadowRoot) return 'ShadowRoot';
@@ -44,8 +54,7 @@
         if (ctor === unwrapped.constructor) {
           var name = ctor._ShadowDOMPolyfill$cacheTag_;
           if (!name) {
-            name = Object.prototype.toString.call(unwrapped);
-            name = name.substring(8, name.length - 1);
+            name = originalGetTag(unwrapped);
             ctor._ShadowDOMPolyfill$cacheTag_ = name;
           }
           return name;
@@ -55,7 +64,5 @@
       }
       return originalGetTag(obj);
     }
-
-    return getTag;
-  };
+  });
 })();

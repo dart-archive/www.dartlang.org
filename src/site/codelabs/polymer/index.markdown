@@ -230,8 +230,6 @@ The `index.html` file is this application's entry point:
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polymer: Build an Admin Console Using Dart</title>
-    <script src="packages/web_components/platform.js"></script>
-    <script src="packages/web_components/dart_support.js"></script>
     <link rel="import" href="codelab_list.html">
     <link rel="stylesheet" href="app.css">
     <script type="application/dart">export 'package:polymer/init.dart';</script>
@@ -243,15 +241,7 @@ The `index.html` file is this application's entry point:
 </html>
 {% endprettify %}
 
-The `platform.js` and `dart_support.js` scripts are required to
-support Polymer elements:
-
-{% prettify html %}
-<script src="packages/web_components/platform.js"></script>
-<script src="packages/web_components/dart_support.js"></script>
-{% endprettify %}
-
-And this line initializes Polymer:
+The following line initializes Polymer:
 
 {% prettify html %}
 <script type="application/dart">export 'package:polymer/init.dart';</script>

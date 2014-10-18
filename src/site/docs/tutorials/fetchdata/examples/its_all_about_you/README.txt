@@ -8,4 +8,4 @@ In this directory:
 
     rm -rf web
     mv .../dart-tutorials-samples/its_all_about_you/build/web .
-    rm web/*._data web/*precompiled.js
+    rm web/*precompiled.js web/*._buildLogs.1
