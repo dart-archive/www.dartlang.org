@@ -5,7 +5,6 @@ import 'dart:html';
 const String storageApiBase = "https://www.googleapis.com/storage/v1/b/dart-archive/o";
 const String storageBase = "https://storage.googleapis.com/dart-archive";
 Map<String,TableElement> tables = { 'stable': querySelector("#stable"), 'dev': querySelector('#dev') };
-Map<String,TableElement> apiTables = { 'stable': querySelector("#stable-api"), 'dev': querySelector('#dev-api') };
 Map<String,SelectElement> versionSelectors = {
     'stable': querySelector('#stable-versions'),
     'dev': querySelector('#dev-versions')
@@ -33,18 +32,12 @@ void filterTable(String channel, Event event) {
   if (selectedVersion == 'all' && selectedOs == 'all') {
     tables[channel].querySelectorAll('tr[data-version]').classes.remove('hidden');
   } else {
+    tables[channel].querySelectorAll('tr[data-version]').classes.add('hidden');
     String selector = 'tr';
     if (selectedVersion != 'all') { selector += '[data-version="$selectedVersion"]'; }
+    tables[channel].querySelectorAll(selector+'[data-os="api"]').classes.remove('hidden');
     if (selectedOs != 'all') { selector += '[data-os="$selectedOs"]'; }
-    tables[channel].querySelectorAll('tr[data-version]').classes.add('hidden');
     tables[channel].querySelectorAll(selector).classes.remove('hidden');
-  }
-
-  if (selectedVersion == 'all') {
-    apiTables[channel].querySelectorAll('tr[data-version]').classes.remove('hidden');
-  } else {
-    apiTables[channel].querySelectorAll('tr[data-version]').classes.add('hidden');
-    apiTables[channel].querySelectorAll('tr[data-version="$selectedVersion"]').classes.remove('hidden');
   }
 }
 
@@ -135,13 +128,16 @@ void addVersion(String channel, Map<String,String> version) {
     });
   });
 
-  TableRowElement row = apiTables[channel].addRow()
-      ..attributes['data-version'] = version['version'];
+  TableRowElement row = tables[channel].addRow()
+      ..attributes['data-version'] = version['version']
+      ..attributes['data-os'] = 'api';
   SpanElement rev = new SpanElement()
       ..text = '  (rev ${version['revision']})'
       ..classes.add('muted');
   row.addCell()..text = version['version']
       ..append(rev);
+  row.addCell()..text = '---';
+  row.addCell()..text = '---';
   TableCellElement c = row.addCell()
       ..classes.add('archives');
   String uri = '$storageBase/channels/$channel/release/${version['revision']}/' +
@@ -151,7 +147,5 @@ void addVersion(String channel, Map<String,String> version) {
       ..attributes['href']= uri);
 
   List<Element> templateRows = tables[channel].querySelectorAll('.template');
-  if (templateRows != null) { templateRows.forEach((row) { row.remove(); }); }
-  templateRows = apiTables[channel].querySelectorAll('.template');
   if (templateRows != null) { templateRows.forEach((row) { row.remove(); }); }
 }

@@ -20,12 +20,18 @@ historical downloads.
 
 ## Stable channel
 
-The stable channel includes historical downloads of previous stable Dart releases.
+You can download archived versions of Stable channel downloads of Dart tools
+and API reference documentation. To view the API documentation, unzip the
+archive and then view the JSON files using
+[dartdoc-viewer](https://github.com/dart-lang/dartdoc-viewer).
 
 {% include downloads/_archives_table.html channel="stable" %}
 
 ## Dev channel
 
-The dev channel includes historical downloads of unstable preview builds of Dart.
+You can download archived versions of Dev channel downloads of Dart tools
+and API reference documentation. To view the API documentation, unzip the
+archive and then view the JSON files using
+[dartdoc-viewer](https://github.com/dart-lang/dartdoc-viewer).
 
 {% include downloads/_archives_table.html channel="dev" %}

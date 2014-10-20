@@ -2279,7 +2279,7 @@ Dy:{
 $0:function(){this.d.In(this.c)}},
 MO:{
 "^":"a;"},
-Uf:{
+nP:{
 "^":"a;"},
 fI:{
 "^":"a;"},
@@ -3917,12 +3917,11 @@ z=J.Vs(J.UQ(J.IT($.cB().t(0,a)),0)).dA.getAttribute("value")
 y=J.Vs(J.UQ(J.IT($.P9().t(0,a)),0)).dA.getAttribute("value")
 x=z==="all"
 if(x&&y==="all")W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),null).xa).Rz(0,"hidden")
-else{w=!x?"tr"+("[data-version=\""+H.d(z)+"\"]"):"tr"
+else{W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
+w=!x?"tr"+("[data-version=\""+H.d(z)+"\"]"):"tr"
+W.or(W.vD($.RQ().t(0,a).querySelectorAll(w+"[data-os=\"api\"]"),null).xa).Rz(0,"hidden")
 if(y!=="all")w+="[data-os=\""+H.d(y)+"\"]"
-W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
-W.or(W.vD($.RQ().t(0,a).querySelectorAll(w),null).xa).Rz(0,"hidden")}if(x)W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version]"),null).xa).Rz(0,"hidden")
-else{W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
-W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version=\""+H.d(z)+"\"]"),null).xa).Rz(0,"hidden")}},
+W.or(W.vD($.RQ().t(0,a).querySelectorAll(w),null).xa).Rz(0,"hidden")}},
 EK:function(a,b){var z,y
 z=H.HD(J.UQ(C.xr.kV(b),"prefixes"),"$iszM",[P.qU],"$aszM")
 y=J.w1(z)
@@ -3935,15 +3934,18 @@ z.textContent=y.t(b,"version")
 z.setAttribute("value",y.t(b,"version"))
 J.OG($.cB().t(0,a)).h(0,z)
 C.xO.aN(0,new E.b9(a,b))
-x=J.vd($.nP().t(0,a))
+x=J.vd($.RQ().t(0,a))
 x.toString
 x.setAttribute("data-version",y.t(b,"version"))
+x.setAttribute("data-os","api")
 w=document.createElement("span",null)
 w.textContent="  (rev "+H.d(y.t(b,"revision"))+")"
 J.pP(w).h(0,"muted")
 v=J.ae(x)
 v.textContent=y.t(b,"version")
 v.appendChild(w)
+x.insertCell(-1).textContent="---"
+x.insertCell(-1).textContent="---"
 u=x.insertCell(-1)
 u.toString
 new W.I4(u).h(0,"archives")
@@ -3953,9 +3955,7 @@ y.textContent="JSON-formatted API Documentation"
 y.setAttribute("href",t)
 u.appendChild(y)
 s=W.vD($.RQ().t(0,a).querySelectorAll(".template"),null)
-s.aN(s,new E.wA())
-s=W.vD($.nP().t(0,a).querySelectorAll(".template"),null)
-s.aN(s,new E.zv())},
+s.aN(s,new E.wA())},
 em:{
 "^":"Tp:10;",
 $1:function(a){E.EK("stable",a)}},
@@ -4047,9 +4047,6 @@ z.setAttribute("href",x+".sha256sum")
 J.pP(z).h(0,"sha")
 w.appendChild(z)}w.appendChild(W.r3("br",null))}}},
 wA:{
-"^":"Tp:10;",
-$1:function(a){J.Mp(a)}},
-zv:{
 "^":"Tp:10;",
 $1:function(a){J.Mp(a)}}},1],["","",,P,{
 "^":"",
@@ -4175,8 +4172,8 @@ y.$isa=z
 y=P.fR
 y.$isfR=z
 y.$isa=z
-y=P.Uf
-y.$isUf=z
+y=P.nP
+y.$isnP=z
 y.$isa=z
 y=P.b8
 y.$isb8=z
@@ -4484,7 +4481,6 @@ I.$lazy($,"undefinedLiteralPropertyPattern","A7","ko",function(){return H.cM(fun
 I.$lazy($,"scheduleImmediateClosure","lI","ej",function(){return P.xg()})
 I.$lazy($,"_toStringVisiting","nM","Ex",function(){return[]})
 I.$lazy($,"tables","aU","RQ",function(){return P.EF(["stable",document.querySelector("#stable"),"dev",document.querySelector("#dev")],null,null)})
-I.$lazy($,"apiTables","MR","nP",function(){return P.EF(["stable",document.querySelector("#stable-api"),"dev",document.querySelector("#dev-api")],null,null)})
 I.$lazy($,"versionSelectors","Jf","cB",function(){return P.EF(["stable",document.querySelector("#stable-versions"),"dev",document.querySelector("#dev-versions")],null,null)})
 I.$lazy($,"osSelectors","vw","P9",function(){return P.EF(["stable",document.querySelector("#stable-os"),"dev",document.querySelector("#dev-os")],null,null)})
 
@@ -6736,11 +6732,11 @@ if(!"name" in MO)MO.name="MO"
 $desc=$collectedClasses.MO
 if($desc instanceof Array)$desc=$desc[1]
 MO.prototype=$desc
-function Uf(){}Uf.builtin$cls="Uf"
-if(!"name" in Uf)Uf.name="Uf"
-$desc=$collectedClasses.Uf
+function nP(){}nP.builtin$cls="nP"
+if(!"name" in nP)nP.name="nP"
+$desc=$collectedClasses.nP
 if($desc instanceof Array)$desc=$desc[1]
-Uf.prototype=$desc
+nP.prototype=$desc
 function fI(){}fI.builtin$cls="fI"
 if(!"name" in fI)fI.name="fI"
 $desc=$collectedClasses.fI
@@ -7465,11 +7461,6 @@ if(!"name" in wA)wA.name="wA"
 $desc=$collectedClasses.wA
 if($desc instanceof Array)$desc=$desc[1]
 wA.prototype=$desc
-function zv(){}zv.builtin$cls="zv"
-if(!"name" in zv)zv.name="zv"
-$desc=$collectedClasses.zv
-if($desc instanceof Array)$desc=$desc[1]
-zv.prototype=$desc
 function As(){}As.builtin$cls="As"
 if(!"name" in As)As.name="As"
 $desc=$collectedClasses.As
@@ -7496,4 +7487,4 @@ if(!"name" in GS)GS.name="GS"
 $desc=$collectedClasses.GS
 if($desc instanceof Array)$desc=$desc[1]
 GS.prototype=$desc
-return[qE,Gh,rK,fY,Mr,lJ,ct,nB,i3,it,Yf,IF,n6,Ny,nx,QQ,MA,y4,d7,Um,DG,HA,vH,hh,Em,NW,rV,K4,QF,hs,cm,Nh,cv,Fs,Ty,ea,D0,as,Aa,u5,Yu,iG,jP,FO,xf,xn,Vb,QH,ST,X2,zU,Vi,tb,pA,Mi,KD,Ln,HL,In,wP,eP,AL,Og,M6,El,mC,SV,aB,fJ,Ih,D8,Vh,rC,ZY,cx,Ee,Qb,PG,Hw,xI,Aj,oU,eY,KV,BH,KY,G7,l9,Ql,wL,bP,mX,SN,me,ni,rR,qj,nC,KR,ew,fs,M9,A6,MC,iQ,j2,Ea,lp,kd,I0,yN,Cp,ua,zD,Ul,KK,ii,fq,h4,qk,GI,Tb,Iv,BT,yY,kJ,FB,xV,FH,y6,RH,YK,Z2,w6,BR,r4,aG,fA,K5,Xg,UM,YC,hq,r0,yp,c1,Mq,Nf,Nc,rj,rh,Zv,nA,yK,Y0,ZJ,mU,ph,Bg,JY,Pq,kx,nV,Zc,ui,D6,DQ,Sm,xL,QU,es,jw,lv,pf,NV,W1,zo,wf,TU,ih,Nd,zp,Xu,lu,tk,US,oB,Ah,yu,MI,oa,bM,eW,Qy,ju,OE,f1,BA,d0,tp,rE,CC,PQ,uz,Yd,p8,AD,Gr,Gq,GH,To,NJ,qI,jf,rQ,Lx,d5,hy,r8,aS,CG,UN,jk,Rk,Eo,YS,o4,ZD,vt,wD,BD,vR,Ja,zI,hW,LQ,yR,HP,fa,l4,Et,QS,Pi,qO,xt,cO,P0,xl,Xr,Sl,Qm,ET,V6,eo,Gv,kn,YE,Ue,iC,is,Q,P,im,VA,O,PK,JO,O2,aX,NY,cC,RA,IY,JH,jl,Vg,Iy,JM,Ua,ns,yo,Bj,NO,II,fP,X1,HU,oo,OW,Tf,iY,yH,FA,Av,ku,ys,LP,hY,XR,FD,Zr,W0,az,vV,Am,XO,dr,TL,KX,uZ,OQ,Tp,Bp,v,Pe,Eq,lb,tD,hJ,cu,dC,wN,VX,tQ,aL,bX,a7,i1,xy,MH,A8,U5,SO,TN,Lj,Qr,IW,th,ha,C6,Ca,O6,b8,VN,ff,Pf,Zf,vs,da,pV,U7,rH,cX,ZL,rq,RW,YP,jZ,FZ,OM,qh,Sd,jv,bi,YJ,lz,Rl,Jb,M4,B5,PI,VV,Dy,MO,Uf,fI,dR,uR,QX,m0,pK,R8,hj,MK,pQ,FG,k6,oi,fG,EQ,YB,a1,db,i5,N6,b6,tj,zQ,Yp,u3,mW,LU,E9,lD,LG,Sw,o0,Ma,Vj,uw,A5,Uk,zF,by,QM,CL,a2,fR,CP,a6,P7,DW,Ge,LK,AT,bJ,ub,ds,lj,UV,VS,t7,HG,aE,kM,EH,KN,QV,An,zM,Z0,c8,lf,a,Od,mE,qU,Rn,wv,VG,DY,wz,B1,zL,ec,Kx,hH,bU,e7,dx,x5,xv,rp,hm,rl,tJ,i7,nF,FK,Si,vf,Fc,hD,I4,Fk,RO,Cq,xC,Pb,W9,O7,IU,b0,DV,Ob,GV,em,Lb,QA,Cv,ed,wa,Mx,fv,Tl,N9,nS,y7,b9,Ne,hf,wA,zv,As,GE,D7,hT,GS]}
+return[qE,Gh,rK,fY,Mr,lJ,ct,nB,i3,it,Yf,IF,n6,Ny,nx,QQ,MA,y4,d7,Um,DG,HA,vH,hh,Em,NW,rV,K4,QF,hs,cm,Nh,cv,Fs,Ty,ea,D0,as,Aa,u5,Yu,iG,jP,FO,xf,xn,Vb,QH,ST,X2,zU,Vi,tb,pA,Mi,KD,Ln,HL,In,wP,eP,AL,Og,M6,El,mC,SV,aB,fJ,Ih,D8,Vh,rC,ZY,cx,Ee,Qb,PG,Hw,xI,Aj,oU,eY,KV,BH,KY,G7,l9,Ql,wL,bP,mX,SN,me,ni,rR,qj,nC,KR,ew,fs,M9,A6,MC,iQ,j2,Ea,lp,kd,I0,yN,Cp,ua,zD,Ul,KK,ii,fq,h4,qk,GI,Tb,Iv,BT,yY,kJ,FB,xV,FH,y6,RH,YK,Z2,w6,BR,r4,aG,fA,K5,Xg,UM,YC,hq,r0,yp,c1,Mq,Nf,Nc,rj,rh,Zv,nA,yK,Y0,ZJ,mU,ph,Bg,JY,Pq,kx,nV,Zc,ui,D6,DQ,Sm,xL,QU,es,jw,lv,pf,NV,W1,zo,wf,TU,ih,Nd,zp,Xu,lu,tk,US,oB,Ah,yu,MI,oa,bM,eW,Qy,ju,OE,f1,BA,d0,tp,rE,CC,PQ,uz,Yd,p8,AD,Gr,Gq,GH,To,NJ,qI,jf,rQ,Lx,d5,hy,r8,aS,CG,UN,jk,Rk,Eo,YS,o4,ZD,vt,wD,BD,vR,Ja,zI,hW,LQ,yR,HP,fa,l4,Et,QS,Pi,qO,xt,cO,P0,xl,Xr,Sl,Qm,ET,V6,eo,Gv,kn,YE,Ue,iC,is,Q,P,im,VA,O,PK,JO,O2,aX,NY,cC,RA,IY,JH,jl,Vg,Iy,JM,Ua,ns,yo,Bj,NO,II,fP,X1,HU,oo,OW,Tf,iY,yH,FA,Av,ku,ys,LP,hY,XR,FD,Zr,W0,az,vV,Am,XO,dr,TL,KX,uZ,OQ,Tp,Bp,v,Pe,Eq,lb,tD,hJ,cu,dC,wN,VX,tQ,aL,bX,a7,i1,xy,MH,A8,U5,SO,TN,Lj,Qr,IW,th,ha,C6,Ca,O6,b8,VN,ff,Pf,Zf,vs,da,pV,U7,rH,cX,ZL,rq,RW,YP,jZ,FZ,OM,qh,Sd,jv,bi,YJ,lz,Rl,Jb,M4,B5,PI,VV,Dy,MO,nP,fI,dR,uR,QX,m0,pK,R8,hj,MK,pQ,FG,k6,oi,fG,EQ,YB,a1,db,i5,N6,b6,tj,zQ,Yp,u3,mW,LU,E9,lD,LG,Sw,o0,Ma,Vj,uw,A5,Uk,zF,by,QM,CL,a2,fR,CP,a6,P7,DW,Ge,LK,AT,bJ,ub,ds,lj,UV,VS,t7,HG,aE,kM,EH,KN,QV,An,zM,Z0,c8,lf,a,Od,mE,qU,Rn,wv,VG,DY,wz,B1,zL,ec,Kx,hH,bU,e7,dx,x5,xv,rp,hm,rl,tJ,i7,nF,FK,Si,vf,Fc,hD,I4,Fk,RO,Cq,xC,Pb,W9,O7,IU,b0,DV,Ob,GV,em,Lb,QA,Cv,ed,wa,Mx,fv,Tl,N9,nS,y7,b9,Ne,hf,wA,As,GE,D7,hT,GS]}

@@ -2279,7 +2279,7 @@ Dy:{
 $0:function(){this.d.In(this.c)}},
 MO:{
 "^":"a;"},
-Uf:{
+nP:{
 "^":"a;"},
 fI:{
 "^":"a;"},
@@ -3917,12 +3917,11 @@ z=J.Vs(J.UQ(J.IT($.cB().t(0,a)),0)).dA.getAttribute("value")
 y=J.Vs(J.UQ(J.IT($.P9().t(0,a)),0)).dA.getAttribute("value")
 x=z==="all"
 if(x&&y==="all")W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),null).xa).Rz(0,"hidden")
-else{w=!x?"tr"+("[data-version=\""+H.d(z)+"\"]"):"tr"
+else{W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
+w=!x?"tr"+("[data-version=\""+H.d(z)+"\"]"):"tr"
+W.or(W.vD($.RQ().t(0,a).querySelectorAll(w+"[data-os=\"api\"]"),null).xa).Rz(0,"hidden")
 if(y!=="all")w+="[data-os=\""+H.d(y)+"\"]"
-W.or(W.vD($.RQ().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
-W.or(W.vD($.RQ().t(0,a).querySelectorAll(w),null).xa).Rz(0,"hidden")}if(x)W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version]"),null).xa).Rz(0,"hidden")
-else{W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version]"),null).xa).h(0,"hidden")
-W.or(W.vD($.nP().t(0,a).querySelectorAll("tr[data-version=\""+H.d(z)+"\"]"),null).xa).Rz(0,"hidden")}},
+W.or(W.vD($.RQ().t(0,a).querySelectorAll(w),null).xa).Rz(0,"hidden")}},
 EK:function(a,b){var z,y
 z=H.HD(J.UQ(C.xr.kV(b),"prefixes"),"$iszM",[P.qU],"$aszM")
 y=J.w1(z)
@@ -3935,15 +3934,18 @@ z.textContent=y.t(b,"version")
 z.setAttribute("value",y.t(b,"version"))
 J.OG($.cB().t(0,a)).h(0,z)
 C.xO.aN(0,new E.b9(a,b))
-x=J.vd($.nP().t(0,a))
+x=J.vd($.RQ().t(0,a))
 x.toString
 x.setAttribute("data-version",y.t(b,"version"))
+x.setAttribute("data-os","api")
 w=document.createElement("span",null)
 w.textContent="  (rev "+H.d(y.t(b,"revision"))+")"
 J.pP(w).h(0,"muted")
 v=J.ae(x)
 v.textContent=y.t(b,"version")
 v.appendChild(w)
+x.insertCell(-1).textContent="---"
+x.insertCell(-1).textContent="---"
 u=x.insertCell(-1)
 u.toString
 new W.I4(u).h(0,"archives")
@@ -3953,9 +3955,7 @@ y.textContent="JSON-formatted API Documentation"
 y.setAttribute("href",t)
 u.appendChild(y)
 s=W.vD($.RQ().t(0,a).querySelectorAll(".template"),null)
-s.aN(s,new E.wA())
-s=W.vD($.nP().t(0,a).querySelectorAll(".template"),null)
-s.aN(s,new E.zv())},
+s.aN(s,new E.wA())},
 em:{
 "^":"Tp:10;",
 $1:function(a){E.EK("stable",a)}},
@@ -4047,9 +4047,6 @@ z.setAttribute("href",x+".sha256sum")
 J.pP(z).h(0,"sha")
 w.appendChild(z)}w.appendChild(W.r3("br",null))}}},
 wA:{
-"^":"Tp:10;",
-$1:function(a){J.Mp(a)}},
-zv:{
 "^":"Tp:10;",
 $1:function(a){J.Mp(a)}}},1],["","",,P,{
 "^":"",
@@ -4175,8 +4172,8 @@ y.$isa=z
 y=P.fR
 y.$isfR=z
 y.$isa=z
-y=P.Uf
-y.$isUf=z
+y=P.nP
+y.$isnP=z
 y.$isa=z
 y=P.b8
 y.$isb8=z
@@ -4484,7 +4481,6 @@ I.$lazy($,"undefinedLiteralPropertyPattern","A7","ko",function(){return H.cM(fun
 I.$lazy($,"scheduleImmediateClosure","lI","ej",function(){return P.xg()})
 I.$lazy($,"_toStringVisiting","nM","Ex",function(){return[]})
 I.$lazy($,"tables","aU","RQ",function(){return P.EF(["stable",document.querySelector("#stable"),"dev",document.querySelector("#dev")],null,null)})
-I.$lazy($,"apiTables","MR","nP",function(){return P.EF(["stable",document.querySelector("#stable-api"),"dev",document.querySelector("#dev-api")],null,null)})
 I.$lazy($,"versionSelectors","Jf","cB",function(){return P.EF(["stable",document.querySelector("#stable-versions"),"dev",document.querySelector("#dev-versions")],null,null)})
 I.$lazy($,"osSelectors","vw","P9",function(){return P.EF(["stable",document.querySelector("#stable-os"),"dev",document.querySelector("#dev-os")],null,null)})
 
