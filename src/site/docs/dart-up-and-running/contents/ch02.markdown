@@ -476,9 +476,9 @@ if (name) {
 
 If you run this code as JavaScript, it prints “You have a name!” because
 `name` is a non-null object. However, in Dart running in *production
-mode*, the above doesn’t print at all because `name` is converted to
+mode*, the preceding code doesn’t print at all because `name` is converted to
 `false` (because `name
-      != true`). In Dart running in *checked mode*, the above code
+      != true`). In Dart running in *checked mode*, the preceding code
 throws an exception because the `name` variable is not a bool.
 
 Here’s another example of code that behaves differently in JavaScript
@@ -680,7 +680,7 @@ printNumber(number) => print('The number is $number.');
 {% endprettify %}
 
 The <code>=> <em>expr</em>;</code> syntax is a shorthand for
-<code>{ return <em>expr</em>;}</code>. In the `printNumber()` function above, the expression is the
+<code>{ return <em>expr</em>;}</code>. In the `printNumber()` function, the expression is the
 call to the top-level `print()` function.
 
 > **Note**
@@ -1012,9 +1012,9 @@ a ? b: c
 a is T
 {% endprettify %}
 
-In the operator table above,
+In the preceding operator table,
 each operator has higher precedence than the operators in the rows
-below it. For example, the multiplicative operator `%` has higher
+that follow it. For example, the multiplicative operator `%` has higher
 precedence than (and thus executes before) the equality operator `==`,
 which has higher precedence than the logical AND operator `&&`. That
 precedence means that the following two lines of code execute the same
@@ -1105,6 +1105,8 @@ assert(a != b) ; // -1 != 0
 
 ### Equality and Relational Operators
 {:.no_toc}
+
+The following table lists the meanings of equality and relational operators.
 
 |-----------+-------------------------------------------|
 | Operator  | Meaning                                   |
@@ -2591,7 +2593,7 @@ are visible only inside the library. *Every Dart app is a library*, even
 if it doesn’t use a library directive.
 
 Libraries can be distributed using packages. See
-[/tools/pub/](Pub Package and Asset Manager)
+[Pub Package and Asset Manager](/tools/pub/)
 for information about
 pub, a package manager included in the SDK.
 

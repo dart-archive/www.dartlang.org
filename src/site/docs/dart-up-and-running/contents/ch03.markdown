@@ -643,7 +643,7 @@ components of a URI—host, port, scheme, and so on.
 constructors: Uri.http, Uri.https, Uri.file, per floitsch's suggestion}
 {% endcomment %}
 
-#### Encoding and Decoding Fully Qualified URIs
+#### Encoding and decoding fully qualified URIs
 {:.no_toc}
 
 To encode and decode characters *except* those with special meaning in a
@@ -665,7 +665,7 @@ main() {
 
 Notice how only the space between `some` and `message` was encoded.
 
-#### Encoding and Decoding URI Components
+#### Encoding and decoding URI components
 {:.no_toc}
 
 To encode and decode all of a string’s characters that have special
@@ -979,7 +979,7 @@ Future objects appear throughout the Dart libraries, often as the object
 returned by an asynchronous method. When a future *completes*, its value
 is ready to use.
 
-#### Basic Usage
+#### Basic usage
 {:.no_toc}
 
 Use `then()` to schedule code that runs when the future completes. For
@@ -1018,7 +1018,7 @@ The `then().catchError()` pattern is the asynchronous version of
 > handle errors only from the original Future's computation, but not
 > from the handler registered by `then()`.
 
-#### Chaining Multiple Asynchronous Methods
+#### Chaining multiple asynchronous methods
 {:.no_toc}
 
 The `then()` method returns a Future, providing a useful way to run
@@ -1045,7 +1045,7 @@ In the preceding example, the methods run in the following order:
 
 3.  `lengthyComputation()`
 
-#### Waiting for Multiple Futures
+#### Waiting for multiple futures
 {:.no_toc}
 
 Sometimes your algorithm needs to invoke many asynchronous functions and
@@ -1072,7 +1072,7 @@ Stream objects appear throughout Dart APIs, representing sequences of
 data. For example, HTML events such as button clicks are delivered using
 streams. You can also read a file as a stream.
 
-#### Listening for Stream Data
+#### Listening for stream data
 {:.no_toc}
 
 To get each value as it arrives, subscribe to the stream using the
@@ -1103,7 +1103,7 @@ If you care about a subset of events, you can use methods such as
 {PENDING: example}
 {% endcomment %}
 
-#### Transforming Stream Data
+#### Transforming stream data
 {:.no_toc}
 
 Often, you need to change the format of a stream's data before you can
@@ -1426,7 +1426,7 @@ are also parsed and created.
 var elem2 = new Element.html('<p>Creating <em>is</em> easy!</p>');
 {% endprettify %}
 
-Note that elem2 is a ParagraphElement in the above example.
+Note that elem2 is a ParagraphElement in the preceding example.
 
 Attach the newly created element to the document by assigning a parent
 to the element. You can add an element to any existing element’s
@@ -2102,8 +2102,8 @@ main() {
 {% endprettify %}
 
 For a more comprehensive HTTP server, see
-[Chapter 5](ch05.html). It features the Dartiverse
-Search sample, which implements a web server using dart:io and packages
+[Walkthrough: Dartiverse Search](ch05.html). It features a
+sample that implements a web server, using dart:io and packages
 such as [http\_server](https://pub.dartlang.org/packages/http_server)
 and [route](http://pub.dartlang.org/packages/route).
 
@@ -2384,7 +2384,7 @@ class Person {
 To begin, you need to *reflect* on a class or object to get its
 *mirror*.
 
-#### Class Mirrors
+#### Class mirrors
 {:.no_toc}
 
 Reflect on a Type to get its ClassMirror.
@@ -2443,7 +2443,7 @@ showFields(ClassMirror mirror) {
 For a full list of methods, consult the [API docs for
 ClassMirror](http://api.dartlang.org/dart_mirrors/ClassMirror.html).
 
-#### Instance Mirrors
+#### Instance mirrors
 {:.no_toc}
 
 Reflect on an object to get an InstanceMirror.
@@ -2471,7 +2471,7 @@ Once you have an InstanceMirror, you can invoke methods and call getters
 and setters. For a full list of methods, consult the [API docs for
 InstanceMirror](http://api.dartlang.org/dart_mirrors/InstanceMirror.html).
 
-#### Invoke Methods
+#### Invoke methods
 {:.no_toc}
 
 Use InstanceMirror's `invoke()` method to invoke a method on an object.
@@ -2487,7 +2487,7 @@ InstanceMirror mirror = reflect(p);
 mirror.invoke(#greet, ['Shailen']);
 {% endprettify %}
 
-#### Invoke Getters and Setters
+#### Invoke getters and setters
 {:.no_toc}
 
 Use InstanceMirror's `getField()` and `setField()` methods to get and

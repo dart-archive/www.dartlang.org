@@ -17,9 +17,10 @@ next-chapter-title: "Walkthrough"
 Dart provides several tools to help you write and deploy your web and
 command-line apps. These tools include:
 
-[pub: The Dart package manager](#pub-the-dart-package-manager)
+[pub: The Dart package and asset manager](#pub-the-dart-package-and-asset-manager)
 
-:   Download and install packages of libraries.
+:   Download and install packages of libraries,
+    prepare your app for deployment, and more.
 
 [Dart Editor](#dart-editor)
 
@@ -40,7 +41,7 @@ command-line apps. These tools include:
 :   Run your command-line apps—server-side scripts, programs, servers,
     and any other apps that don’t run in a browser.
 
-[dartanalyzer: The Static Analyzer](#dartanalyzer-the-static-analyzer)
+[dartanalyzer: The static analyzer](#dartanalyzer-the-static-analyzer)
 
 :   Analyze your Dart source from the command line.
 
@@ -54,105 +55,10 @@ directory. If you intend to use tools such as pub, dart2js, and dart
 from the command line, add the `bin` directory to your path.
 
 
-## pub: The Dart Package Manager
+## pub: The Dart Package and Asset Manager
 
-You can use the *pub* tool to manage Dart packages. A Dart package is
-simply a directory containing any number of Dart libraries and a list of
-the library dependencies. A package can also contain resources for its
-libraries, such as documentation, tests, and images. If your app uses
-one or more packages, then your app itself must be a package.
-
-> **Note**
->
-> Dart Editor offers support for using pub, including creating,
-> installing, updating, and publishing packages.
-
-A package can live anywhere. For example, some packages are on GitHub.
-The Dart team publishes packages at
-[pub.dartlang.org](http://pub.dartlang.org), and we hope you will, too.
-
-To use a library that’s in a Dart package, you need to do the following:
-
-1.  Create a pubspec (a file that lists package dependencies and
-    includes other metadata, such as a name for your package).
-
-2.  Use pub to get your package's dependencies.
-
-3.  Import the library.
-
-
-### Creating a Pubspec
-{:.no_toc}
-
-To use a package, your application must define a pubspec that lists
-dependencies and their download locations. The pubspec is a file named
-`pubspec.yaml`, and it must be in the top directory of your application.
-
-Here is an example of a pubspec that specifies the locations of two
-packages. First, it points to the js package that’s hosted on
-pub.dartlang.org, and then it points to the intl package in the Dart
-SDK:
-
-{% prettify yaml %}
-name: my_app
-dependencies:
-  js: any
-  intl: any
-{% endprettify %}
-
-For details, see the [pubspec
-documentation](/tools/pub/pubspec.html) and the
-documentation for the packages you’re interested in using.
-
-
-### Installing Packages
-{:.no_toc}
-
-Once you have a pubspec, you can run `pub
-get` from the top directory of your application:
-
-{% prettify sh %}
-cd path/to/my_app
-pub get
-{% endprettify %}
-
-This command determines which packages your app depends on, and puts
-them in a central cache. For git dependencies, pub clones the git
-repository. For hosted dependencies, pub downloads the package from
-pub.dartlang.org. Transitive dependencies are included, too. For
-example, if the js package depends on the unittest package, the pub tool
-grabs both the js package and the unittest package.
-
-Finally, pub creates a `packages` directory (under your app’s top
-directory) that has links to the packages that your app depends on.
-
-
-### Importing Libraries from Packages
-{:.no_toc}
-
-To import libraries found in packages, use the `package:` prefix:
-
-{% prettify dart %}
-import 'package:js/js.dart' as js;
-import 'package:intl/intl.dart';
-{% endprettify %}
-
-The Dart runtime takes everything after `package:` and looks it up
-within the `packages` directory for your app.
-
-
-### More Information
-{:.no_toc}
-
-Pub has support for building web apps. If your web app's directory
-structure follows pub's [package layout
-conventions,](/tools/pub/package-layout.html)
-you can use the pub development server (`pub serve`) to continuously
-build and serve the app's assets. Once you're ready to deploy the web
-app, use `pub build` to generate the final files.
-
-For more information about pub, see the [pub
-documentation.](/tools/pub/get-started.html)
+The documentation for pub has moved to
+[dartlang.org/tools/pub/](/tools/pub/).
 
 
 ## Dart Editor
@@ -363,7 +269,7 @@ When you run a web application using Dart Editor, by default the app
 uses the copy of Dartium that’s included in the Dart Editor download,
 with the Dart code executing directly in the browser. If your launch
 configuration specifies a browser, then Dart Editor uses
-[dart2js](#ch04-tools-dart2js) to compile the Dart code to JavaScript
+[dart2js](/tools/dart2js/) to compile the Dart code to JavaScript
 that executes in the browser.
 
 ### Specifying launch configurations
@@ -538,7 +444,7 @@ If you have an up-to-date version of Dart Editor, you already have
 Dartium.
 
 If you don’t have Dart Editor or want a different version of Dartium,
-you can get it separately from the [Dartium
+you can get it separately from the [download
 page.](/downloads.html)
 
 You don’t usually need to do anything special to install Dartium: just
@@ -549,7 +455,7 @@ replacing the original copy of Chromium.
 
 > **Note**
 >
-> The Dartium binary expires after a couple of months. When that
+> The Dartium binary expires after 12 weeks. When that
 > happens, you’ll need to download a new binary unless you're using the
 > Dartium binary that comes with Dart Editor. (Dart Editor automatically
 > updates its Dartium binary.)
@@ -665,13 +571,13 @@ DART_FLAGS='--checked'              \
 ## dart2js: The Dart-to-JavaScript Compiler
 
 The documentation for dart2js has moved to
-[/tools/dart2js/](/tools/dart2js/).
+[dartlang.org/tools/dart2js/](/tools/dart2js/).
 
 
 ## dart: The Standalone VM
 
 The documentation for dart has moved to
-[/tools/dart-vm/](/tools/dart-vm/).
+[dartlang.org/tools/dart-vm/](/tools/dart-vm/).
 
 
 ## dartanalyzer: The Static Analyzer
