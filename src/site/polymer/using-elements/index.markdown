@@ -65,6 +65,12 @@ the HTML file for the web page needs to:
 * **Instantiate the element.**
 * **Initialize Polymer.**
 
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Before version 0.15.1 of polymer.dart, your page needed to explicitly include
+`dart_support.js`. That is no longer true.
+</aside>
+
 Here's an example of using a `<paper-input>` element
 from the paper_elements package:
 
@@ -88,14 +94,6 @@ from the paper_elements package:
 The `unresolved` attribute in the `<body>` tag
 ensures that no Polymer custom elements display
 before Polymer is ready.
-</aside>
-
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-In version 0.15.0 of polymer it was also necessary to include
-  `<script src="packages/web_components/dart_support.js"></script>`
-on your page. This is no longer needed as of version 0.15.1.
 </aside>
 
 ### Special case: Elements that extend native HTML elements
