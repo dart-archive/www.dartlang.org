@@ -123,7 +123,7 @@ comes up, choose **Delete project contents on disk**.
 
 It’s easy to create a simple web or command-line app from scratch:
 
-1.  Click the New Application button ![](figs/web/newapp.png) (at the
+1.  Click the New Application button ![](images/newapp.png) (at the
     upper left of Dart Editor). Alternatively, choose **File \> New
     Application** from the Dart Editor menu. A dialog appears.
 
@@ -145,7 +145,7 @@ It’s easy to create a simple web or command-line app from scratch:
     appears in the Files view. Your Dart Editor window should look
     something like the following screenshot.
 
-    ![A new app, pre-filled with basic, runnable code](figs/web/daur_0401.png)
+    ![A new app, pre-filled with basic, runnable code](images/daur_0401.png)
 
 
 ### Editing Apps
@@ -160,7 +160,7 @@ refactoring, and the ability to search multiple files.
 
 Autocomplete suggestions look something like the following figure.
 
-![Autocomplete suggestions](figs/web/daur_0402.png)
+![Autocomplete suggestions](images/daur_0402.png)
 
 Suggestions appear when you either:
 
@@ -214,7 +214,7 @@ A panel comes up displaying the classes, methods, and fields declared in
 the current Dart file. For example, the outline for the Sunflower
 sample’s `sunflower.dart` file looks something like this:
 
-![The Outline panel for the Sunflower sample](figs/web/daur_0403.png)
+![The Outline panel for the Sunflower sample](images/daur_0403.png)
 
 You can reduce the size of the list by typing one or more characters.
 For example, if you type **c**, only the **center** and **context**
@@ -261,7 +261,7 @@ the Edit view are highlighted.
 {:.no_toc}
 
 To run any Dart app, click Dart Editor’s Run button
-![](figs/web/run.png) while a file in that app is selected. If you’re
+![](images/run.png) while a file in that app is selected. If you’re
 working on a web app, Dart Editor brings up a browser window that
 displays the app’s HTML page, with the app’s code running inside it.
 
@@ -315,7 +315,7 @@ disable checked mode in your app’s launch configuration:
 1.  Run your app at least once, so that it has a launch configuration.
 
 2.  Choose **Run \> Manage Launches**, or click the little arrow to the
-    right of the Run button ![](figs/web/run.png) and choose **Manage
+    right of the Run button ![](images/run.png) and choose **Manage
     Launches**.
 
 3.  In the Manage Launches dialog, find a launch configuration for your
@@ -324,7 +324,7 @@ disable checked mode in your app’s launch configuration:
 4.  Unselect **Run in checked mode**.
 
     ![To run in production mode, unselect checked
-    mode](figs/web/daur_0404.png)
+    mode](images/daur_0404.png)
 
 5.  Click **Apply** to save your change, or **Run** to save it and run
     your app.
@@ -371,13 +371,13 @@ tips:
     (see the following figure).
 
 -   To see the value of a variable, mouse over it, look in the Debugger
-    view, or use an Expression ![](figs/web/watchlist_view.gif).
+    view, or use an Expression ![](images/watchlist_view.gif).
 
 -   To debug web apps, use Dart Editor with Dartium. While you’re
     debugging, Dart Editor takes the place of the Dartium console. For
     example, Dart Editor displays the output of `print()` statements.
 
-![Using Dart Editor to debug the Sunflower sample app](figs/web/daur_0406.png)
+![Using Dart Editor to debug the Sunflower sample app](images/daur_0406.png)
 
 
 ### Compiling to JavaScript
@@ -419,7 +419,7 @@ a view, drag its edges.
 To get a list of all keyboard alternatives, choose **Help \> Key
 Assist**.
 
-![Help \> Key Assist](figs/web/daur_0407.png)
+![Help \> Key Assist](images/daur_0407.png)
 
 
 ## Dartium: Chromium with the Dart VM

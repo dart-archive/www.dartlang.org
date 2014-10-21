@@ -3,7 +3,7 @@ layout: book
 title: "Quick Start"
 subsite: "Dart Up and Running"
 description: "Read Chapter 1. Quick Start of Dart: Up and Running, published by O'Reilly."
-prev-chapter: ch00.html
+prev-chapter: preface.html
 prev-chapter-title: "Preface"
 next-chapter: ch02.html
 next-chapter-title: "Language Tour"
@@ -45,7 +45,7 @@ speed has increased immensely since Chrome’s introduction in 2008.
 > speed. Many of the V8 engineers are now working on the Dart project.
 
 ![Browser speed (V8 benchmark suite v7; higher numbers are
-better)](figs/web/daur_0101.png)
+better)](images/daur_0101.png)
 
 The number of new features in browsers has also increased, with APIs
 such as WebGL, FileSystem, Web workers, and WebSockets. Browsers now
@@ -226,12 +226,12 @@ directory, in a subdirectory named `jre`.)
 ### Step 2: Launch the Editor
 
 Go to your Dart installation directory, and double-click the
-**DartEditor** executable![](figs/web/Dart_Logo_21.png).
+**DartEditor** executable![](images/Dart_Logo_21.png).
 
 You should see the Dart Editor application window appear, looking
 something like the following figure.
 
-![Dart Editor and its Welcome page](figs/web/daur_0102.png)
+![Dart Editor and its Welcome page](images/daur_0102.png)
 
 
 ### Step 3: Open and Run a Demo
@@ -247,7 +247,7 @@ step, you’ll open a web app and run it in Dartium.
     directory,](http://code.google.com/p/dart/source/browse/trunk/dart/samples/sunflower/)
     and the Editor view displays the contents of *web/sunflower.dart*.
 
-3.  Click the Run button ![](figs/web/run.png). Dart Editor launches
+3.  Click the Run button ![](images/run.png). Dart Editor launches
     Dartium, which displays *sunflower.html*.
 
 <aside class="alert alert-warning" markdown="1">
@@ -259,7 +259,7 @@ stability issues. *Do not use Dartium as your primary browser!*
 4.  Move the slider to change the sunflower's display, as shown in
     the following figure.
 
-    ![The Sunflower sample running in Dartium](figs/web/daur_0105.png)
+    ![The Sunflower sample running in Dartium](images/daur_0105.png)
 
 
 ### Step 4: Create and Run an App
@@ -267,7 +267,7 @@ stability issues. *Do not use Dartium as your primary browser!*
 It’s easy to create a simple web or command-line app from scratch. This
 step walks you through creating and running a command-line app.
 
-1.  Click the New Application button ![](figs/web/newapp.png) (at the
+1.  Click the New Application button ![](images/newapp.png) (at the
     upper left of Dart Editor). Alternatively, choose **File \> New
     Application** from the Dart Editor menu, or click the **Create an
     Application…** button in the Welcome page. A dialog appears (see
@@ -281,7 +281,7 @@ step walks you through creating and running a command-line app.
     application** are selected. Then click **Finish** to create the
     initial files for the app.
 
-    <img src="figs/web/daur_0103.png"
+    <img src="images/daur_0103.png"
          alt="Create command-line or web apps with Dart Editor"
          class="thinborder">
 
@@ -289,9 +289,9 @@ step walks you through creating and running a command-line app.
     appears in the Files view. Your Dart Editor window should look
     something like the following screenshot.
 
-    ![Dart Editor displaying a new app’s files](figs/web/daur_0104.png)
+    ![Dart Editor displaying a new app’s files](images/daur_0104.png)
 
-4.  Click the Run button ![](figs/web/run.png) to run your new app.
+4.  Click the Run button ![](images/run.png) to run your new app.
 
     For command-line apps, the output of `print()` appears at the bottom
     right, in a new tab next to the Problems tab.

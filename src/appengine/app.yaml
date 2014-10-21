@@ -44,16 +44,7 @@ handlers:
 - url: /docs/tutorials/custom-elements/
   script: scripts.redirector.application
 
-- url: /docs/dart-up-and-running/ch0\d.html
-  script: scripts.redirector.application
-
-- url: /docs/dart-up-and-running/contents/ch04-tools-dartdoc.html
-  script: scripts.redirector.application
-
-- url: /docs/dart-up-and-running/contents/ch04-tools-dart2js.html
-  script: scripts.redirector.application
-
-- url: /docs/dart-up-and-running/contents/ch04-tools-dart-vm.html
+- url: /docs/dart-up-and-running/contents/.*
   script: scripts.redirector.application
 
 - url: /mailing-list

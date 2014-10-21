@@ -21,7 +21,7 @@ user-entered string in GitHub and StackOverflow. The app is
 asynchronous, adding results as they're found, so the UI is always
 responsive.
 
-<img src="figs/web/daur_0501.png"
+<img src="images/daur_0501.png"
      alt="The client app UI"
      class="thinborder">
 
@@ -73,7 +73,7 @@ engine searches a specific site—for example, GitHub—using whatever API
 that site supports. Whenever a search engine finds a result, the server
 forwards that result to the client, again using a JSON-encoded message.
 
-![Communication in Dartiverse Search](figs/web/daur_0502.png)
+![Communication in Dartiverse Search](images/daur_0502.png)
 
 The search server implements an HTTP server that both provides content
 for the client UI and listens for WebSocket requests.
