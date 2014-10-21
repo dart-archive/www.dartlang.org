@@ -1,0 +1,26 @@
+<div class="row">
+<div class="row-fluid">
+
+<!-- PREV -->
+<div class="col-md-4">
+{% if page.prev-chapter %}
+<a href="{{ page.prev-chapter }}"><i class="glyphicon glyphicon-chevron-left"> </i> {{ page.prev-chapter-title }}</a>
+{% endif %}
+</div>
+
+<!-- HOME -->
+<div class="col-md-4">
+{% if page.layout == "book" %}
+<a href="/docs/dart-up-and-running/"><img src="/docs/dart-up-and-running/front_cover_thumbnail.gif" height="36" alt="Dart: Up and Running" class="center-block"></a>
+{% endif %}
+</div>
+
+<!-- NEXT -->
+<div class="col-md-4">
+{% if page.next-chapter %}
+<a href="{{ page.next-chapter }}" class="pull-right">{{ page.next-chapter-title }} <i class="glyphicon glyphicon-chevron-right"></i></a>
+{% endif %}
+</div>
+
+</div> 
+</div> 

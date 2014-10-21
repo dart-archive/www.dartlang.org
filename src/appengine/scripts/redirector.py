@@ -1,3 +1,4 @@
+# import logging
 from webapp2 import *
 
 NEWS_POSTS = {
@@ -95,12 +96,6 @@ class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
 class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
-class BookRedirect(RequestHandler):
-  def get(self, *args, **kwargs):
-    self.redirect('/docs/dart-up-and-running/contents/ch0' + kwargs['num'] + '.html', permanent=True)
-  def head(self, *args, **kwargs):
-    self.redirect('/docs/dart-up-and-running/contents/ch0' + kwargs['num'] + '.html', permanent=True)
-
 class WebUiRedirect(RequestHandler):
   def get(self):
     filename = self.request.path.split('/articles/dart-web-components/')[1]
@@ -109,9 +104,37 @@ class WebUiRedirect(RequestHandler):
     else:
         self.redirect('/articles/web-ui/' + filename, permanent=True)
 
+class BookRedirect(RequestHandler):
+  # logging.info('in BookRedirect')
+  def get(self):
+    filename = self.request.path.split(
+                '/docs/dart-up-and-running/contents/')[1]
+    book_home = '/docs/dart-up-and-running/'
+    filenames = ['foreword.html', 'preface.html', 'ch01.html', 'ch02.html',
+                 'ch03.html', 'ch04.html', 'ch05.html']
+    if filename in filenames:
+        self.redirect(book_home + filename, permanent=True)
+    elif filename == 'ch04-tools-pub.html':
+        self.redirect('/tools/pub/', permanent=True)
+    elif filename == 'ch04-tools-editor.html':
+        self.redirect(book_home + 'ch04.html#dart-editor', permanent=True)
+    elif filename == 'ch04-tools-dartium.html':
+        self.redirect('/tools/dartium/', permanent=True)
+    elif filename == 'ch04-tools-dartdoc.html':
+        self.redirect('/tools/docgen/', permanent=True)
+    elif filename == 'ch04-tools-dart2js.html':
+        self.redirect('/tools/dart2js/', permanent=True)
+    elif filename == 'ch04-tools-dart-vm.html':
+        self.redirect('/tools/dart-vm/', permanent=True)
+    elif filename == 'ch04-tools-dart_analyzer.html':
+        self.redirect(book_home + 'ch04.html#dartanalyzer-the-static-analyzer', permanent=True)
+    else:
+        self.redirect(book_home)
+
+
 class CookbookRedirect(RequestHandler):
   def get(self):
-    self.redirect('/docs/dart-up-and-running/contents/ch03.html', permanent=True)
+    self.redirect('/docs/dart-up-and-running/ch03.html', permanent=True)
 
 def trailing_slash(handler, *args, **kwargs):
   return '/' + kwargs['path'] + '/'
@@ -122,6 +145,7 @@ application = WSGIApplication(
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
     ('/articles/dart-web-components/.*', WebUiRedirect),
+    ('/docs/dart-up-and-running/contents/.*', BookRedirect),
     Route('/editor/update/channels/be<path:.*>',
       EditorUpdateRedirectBeChannel),
     Route('/editor/update/channels/dev<path:.*>',
@@ -136,31 +160,24 @@ application = WSGIApplication(
     Route('/eclipse/update/channels/stable<path:.*>',
       EclipseUpdateRedirectStableChannel),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirectDevChannel),
-    Route('/docs/dart-up-and-running/ch0<num:\d>.html', BookRedirect),
     Route('/docs/cookbook/', CookbookRedirect),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                 '_code': 302}),
     Route('/docs/spec/<:.*>', RedirectHandler,
       defaults={'_uri': '/docs/spec/'}),
-    Route('/language-tour/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html'}),
-    Route('/docs/dart-up-and-running/contents/ch04-tools-dartdoc.html', RedirectHandler,
-      defaults={'_uri': '/tools/docgen/'}),
-    Route('/docs/dart-up-and-running/contents/ch04-tools-dart2js.html', RedirectHandler,
-      defaults={'_uri': '/tools/dart2js/'}),
-    Route('/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html', RedirectHandler,
-      defaults={'_uri': '/tools/dart-vm/'}),
     Route('/docs/technical-overview/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html'}),
+      defaults={'_uri': '/docs/dart-up-and-running/ch01.html'}),
     Route('/downloads.html', RedirectHandler,
       defaults={'_uri': '/tools/download.html'}),
     Route('/tools/dartdoc/', RedirectHandler,
       defaults={'_uri': '/tools/docgen/'}),
+    Route('/language-tour/', RedirectHandler,
+      defaults={'_uri': '/docs/dart-up-and-running/ch02.html'}),
     Route('/docs/language-tour/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html'}),
+      defaults={'_uri': '/docs/dart-up-and-running/ch02.html'}),
     Route('/docs/library-tour/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch03.html'}),
+      defaults={'_uri': '/docs/dart-up-and-running/ch03.html'}),
     Route('/eclipse/', RedirectHandler,
       defaults={'_uri': '/tools/eclipse-plugin/'}),
     Route('/dart2js-stripped-uri', RedirectHandler,
@@ -182,7 +199,7 @@ application = WSGIApplication(
     Route('/community/', RedirectHandler,
       defaults={'_uri': '/support/'}),
     Route('/docs/getting-started/editor/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html#ch01-editor'}),
+      defaults={'_uri': '/docs/dart-up-and-running/ch01.html#up-and-running'}),
     Route('/docs/getting-started/sdk/', RedirectHandler,
       defaults={'_uri': '/docs/sdk/'}),
     Route('/resources/', RedirectHandler,
@@ -202,11 +219,11 @@ application = WSGIApplication(
     Route('/articles/dart-js/', RedirectHandler,
       defaults={'_uri': '/articles/js-dart-interop/'}),
     Route('/docs/editor/getting-started/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch01.html#ch01-editor'}),
+      defaults={'_uri': '/docs/dart-up-and-running/ch01.html#up-and-running'}),
     Route('/docs/dart2js/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart2js.html'}),
+      defaults={'_uri': '/tools/dart2js/'}),
     Route('/docs/standalone-dart-vm/', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart-vm.html'}),
+      defaults={'_uri': '/tools/dart-vm/'}),
     Route('/events/2013/flight-school/', RedirectHandler,
       defaults={'_uri': '/events/2014/flight-school/'}),
     Route('/codelab', RedirectHandler,
@@ -222,17 +239,17 @@ application = WSGIApplication(
     Route('/codelabs/web-ui-writer/', RedirectHandler,
       defaults={'_uri': '/codelabs/'}),
     Route('/tools/analyzer', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html'}),
+      defaults={'_uri': '/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer'}),
     Route('/atom.xml', RedirectHandler,
       defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
     Route('/+lexicalscope', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch02.html#ch02-lexical-scope'}),
+      defaults={'_uri': '/docs/dart-up-and-running/ch02.html#lexical-scope'}),
     Route('/+pub', RedirectHandler,
       defaults={'_uri': 'https://pub.dartlang.org/'}),
     Route('/+dart2js', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch04-tools-dart2js.html'}),
+      defaults={'_uri': '/tools/dart2js/'}),
     Route('/+isolates', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/contents/ch03.html#ch03-dartisolate---concurrency-with-isolates'}),
+      defaults={'_uri': '/tools/observatory/isolate.html'}),
     Route('/+', RedirectHandler,
       defaults={'_uri': 'https://google.com/+dartlang'}),
     Route('/mailing-list', RedirectHandler,
