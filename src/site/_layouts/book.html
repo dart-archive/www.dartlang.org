@@ -2,25 +2,12 @@
 
 <div class="container-page">
   <div class="container">
-    <div class="container sub-page">
-
-      <div id="book-header">
-      An excerpt from <a href="/docs/dart-up-and-running/"><em>Dart: Up and Running</em></a>
+    <div class="container col-md-10 col-md-offset-1 sub-page">
+      <div{% if page.has-permalinks %} class="has-permalinks"{% endif %}>
+      {{ content }}
       </div>
-
-      <article class="up-and-running-contents{% if page.has-permalinks %} has-permalinks{% endif %}">
-        {{ content }}
-      </article>
-
-      {% capture license %}
-      The content of this page is licensed under the
-      <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">Creative
-      Commons Attribution-Noncommercial-No Derivative Works 3.0 United States
-      License</a>.
-      {% endcapture %}
-
     </div>
   </div>
-</div>  
+</div>
 
 {% include footer.html %}
