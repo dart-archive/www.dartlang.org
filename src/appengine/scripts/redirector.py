@@ -1,4 +1,4 @@
-import logging
+# import logging
 from webapp2 import *
 
 NEWS_POSTS = {
@@ -105,11 +105,13 @@ class WebUiRedirect(RequestHandler):
         self.redirect('/articles/web-ui/' + filename, permanent=True)
 
 class BookRedirect(RequestHandler):
-  logging.info('in BookRedirect')
+  # logging.info('in BookRedirect')
   def get(self):
-    filename = self.request.path.split('/docs/dart-up-and-running/contents/')[1]
+    filename = self.request.path.split(
+                '/docs/dart-up-and-running/contents/')[1]
     book_home = '/docs/dart-up-and-running/'
-    filenames = ['foreword.html', 'preface.html', 'ch01.html', 'ch02.html', 'ch03.html', 'ch04.html', 'ch05.html']
+    filenames = ['foreword.html', 'preface.html', 'ch01.html', 'ch02.html',
+                 'ch03.html', 'ch04.html', 'ch05.html']
     if filename in filenames:
         self.redirect(book_home + filename, permanent=True)
     elif filename == 'ch04-tools-pub.html':
