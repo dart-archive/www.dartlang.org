@@ -62,6 +62,9 @@ handlers:
 - url: /downloads.html
   script: scripts.redirector.application
 
+- url: /tools/download_archive.*
+  script: scripts.redirector.application
+
 - url: /docs/language-tour.*
   script: scripts.redirector.application
 

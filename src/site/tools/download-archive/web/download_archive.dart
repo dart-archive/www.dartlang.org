@@ -143,7 +143,7 @@ void addVersion(String channel, Map<String,String> version) {
   String uri = '$storageBase/channels/$channel/release/${version['revision']}/' +
       'api-docs/dart-api-docs.zip';
   c.append(new AnchorElement()
-      ..text = 'JSON-formatted API Documentation'
+      ..text = 'JSON-formatted API documentation'
       ..attributes['href']= uri);
 
   List<Element> templateRows = tables[channel].querySelectorAll('.template');

@@ -170,6 +170,8 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/dart-up-and-running/ch01.html'}),
     Route('/downloads.html', RedirectHandler,
       defaults={'_uri': '/tools/download.html'}),
+    Route('/tools/download_archive/', RedirectHandler,
+      defaults={'_uri': '/tools/download-archive/'}),
     Route('/tools/dartdoc/', RedirectHandler,
       defaults={'_uri': '/tools/docgen/'}),
     Route('/language-tour/', RedirectHandler,

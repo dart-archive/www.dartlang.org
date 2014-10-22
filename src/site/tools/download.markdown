@@ -30,16 +30,16 @@ The Dart Editor bundle includes:
 * Dart Editor - A powerful tool for editing, debugging, and running Dart
   applications.
 * Dartium - A special version of Chromium that includes the Dart VM.
-You can use Dartium to test and debug your Dart web applications.
-* SDK - The software developers kit includes the Dart Virtual Machine,
-  the Dart libraries, and all the command line tools used behind the
-  scenes by the Dart Editor:
+  You can use Dartium to test and debug your Dart web applications.
+* SDK - A software development kit that includes the Dart Virtual Machine,
+  the Dart libraries, and all the command-line tools used behind the
+  scenes by Dart Editor. The command-line tools include:
 
-  * [dart](/tools/dart-vm/) - the standalone VM
-  * [dart2js](/tools/dart2js/) - the Dart-to-JavaScript compiler
-  * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - the static analyzer
-  * [pub](/tools/pub/) - the Dart package manager
-  * [docgen](docgen/) - the API documentation generator
+  * [dart](/tools/dart-vm/) - The standalone VM
+  * [dart2js](/tools/dart2js/) - The Dart-to-JavaScript compiler
+  * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - The static analyzer
+  * [pub](/tools/pub/) - The Dart package manager
+  * [docgen](docgen/) - The API documentation generator
 
 {% include downloads/_dart-editor.html buttonclass="btn-primary" %}
 
@@ -60,7 +60,7 @@ for Mac.
 </aside>
 
 <aside class="alert alert-info" markdown="1">
-**Early Adopter?**  
+**Early adopter?**  
 
 <span class="windows downloads">
 To get new features a few weeks earlier than the stable release,
@@ -98,12 +98,12 @@ You can now work through the [Avast, Ye Pirates](/codelabs/darrrt/) code lab.
 
 ## Option 2: Choose only the software that you need {#a_la_carte}
 Perhaps you prefer to use a particular IDE or editor, and don't
-require the Dart Editor.
+require Dart Editor.
 
 No problem!
 
 At the very minimum, you need to download the Dart SDK.
-This is the only Dart bundle that you need. Besides the Dart VM,
+This is the only Dart bundle that you need. Besides the Dart VM
 and the Dart libraries, the SDK bundle contains the command-line Dart tools:
 
   * [dart](/tools/dart-vm/) - the standalone VM
@@ -142,7 +142,7 @@ for Mac.
 </aside>
 
 <aside class="alert alert-info" markdown="1">
-**Early Adopter?**
+**Early adopter?**
 <span class="windows">
 To get new features a few weeks earlier than the stable release,
 you can download the latest **dev channel** build of the
@@ -184,23 +184,23 @@ or
 The latest dev channel release is <span class="dev-channel"></span>.
 </aside>
 
-### Dart SDK for Debian and Ubuntu
-If you are using the Debian or Ubuntu platform, you might want to
-install the [Dart SDK for Debian and Ubuntu with Apt](debian.html).
-
 ------
 
-### Note for Linux Users
-If your system uses an older version of Ubuntu and you are compiling the
-SDK, you may need to update to GCC 4.6 or later.
+### Linux notes
+
+If you're using the Debian or Ubuntu platform, you might want to
+install the [Dart SDK for Debian and Ubuntu with Apt](debian.html).
+
+If you compile the SDK and are using an older version of Ubuntu,
+you might need to update to GCC 4.6 or later.
 See the <a href="faq.html">Tools FAQ</a> for more information.
 
 ------
 
 ### Looking for previous versions?
 
-Previous versions of the Dart SDK, Dartium, and the Dart Editor are available
-at the [download archive](/tools/download_archive).
+Previous versions of the Dart SDK, Dartium, and Dart Editor are available
+at the [download archive](/tools/download-archive/).
 
 ------
 
