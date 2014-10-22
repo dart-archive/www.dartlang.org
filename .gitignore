@@ -60,3 +60,4 @@ _asset_bundler_cache
 !src/site/docs/tutorials/remove-elements/examples/todo_with_delete/packages/
 
 !src/site/tools/download-archive/out/web/packages/
+!src/site/tools/download-archive/packages/
