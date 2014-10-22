@@ -130,7 +130,7 @@ Use the **Clear** button to delete all the milestones.
 <aside class="alert">
 <strong>Version Note:</strong> The count_down app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.15.1</a>.
 </aside>
 
 ###Using developer tools to look at the database

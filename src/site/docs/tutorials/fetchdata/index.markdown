@@ -90,7 +90,7 @@ and check out the JSON format for each data type.
 <aside class="alert">
 <strong>Version Note:</strong> The its_all_about_you app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.15.1</a>.
 </aside>
 
 The dart:convert library contains two convenient functions
