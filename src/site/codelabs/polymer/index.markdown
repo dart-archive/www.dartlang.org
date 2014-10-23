@@ -95,7 +95,7 @@ using one of the following options:
 <li markdown="1">
   Clone the repo. For example, from the command line:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 % git clone https://github.com/dart-lang/polymer-and-dart-codelab.git
 {% endprettify %}
 
