@@ -329,11 +329,8 @@ The `pub` application itself is one example: it's a simple shell script that
 invokes `pub.dart`.
 
 If your package defines code like this, put it in a directory named `bin`.
-
-<aside class="alert alert-note">
-At some point, pub will support automatically adding that directory to your
-system path so that these scripts can be easily invoked.
-</aside>
+You can run that script from anywhere on the command line, if you set it up
+using [pub global](cmd/pub-global.html#running-a-script-from-your-path).
 
 ## Tests and benchmarks
 
