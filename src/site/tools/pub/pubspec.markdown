@@ -16,34 +16,37 @@ the [YAML](http://www.yaml.org/) language.
 
 At the top level are a series of fields. The currently supported ones are:
 
-Name
+`name`
 : Required for every package.
 
-Version
+`version`
 : Required for packages that will be hosted on pub.dartlang.org.
 
-Description
+`description`
 : Required for packages that will be hosted on pub.dartlang.org.
 
-Author/Authors
+`author` or `authors`
 : Optional.
 
-Homepage
+`homepage`
 : Optional.
 
-Documentation
+`documentation`
 : Optional.
 
-Dependencies
+`dependencies`
 : Can be omitted if your package has no dependencies.
 
-Dev dependencies
+`dev_dependencies`
 : Can be omitted if your package has no dev dependencies.
 
-Dependency overrides
+`dependency_overrides`
 : Can be omitted if you do not need to override any dependencies.
 
-Transformers
+`executables`
+: Optional. Used to put a package's executables on your PATH.
+
+`transformers`
 : Optional. Used to configure dart2js or other transformers.
 For more information, see
 [Pub Assets and Transformers](assets-and-transformers.html) and
@@ -155,7 +158,6 @@ with that URL. If provided, a link to it will be shown on your package's page.
 
 ## Dependencies
 
-
 [Dependencies](glossary.html#dependency) are the pubspec's *raison d'être*.
 In this section you list each package that your package needs in order to work.
 
@@ -168,6 +170,33 @@ During the development process, you might need to temporarily override
 a dependency.  You can do so using `dependency_overrides`.
 
 For more information, see [Pub Dependencies](dependencies.html).
+
+## Executables
+
+A package may expose one or more of its scripts as executables that
+can be run directly from the command line. To make a script publicly
+available, list it under the `executables` field.
+Entries are listed as key/value pairs:
+
+{% prettify none %}
+<name-of-executable>: <Dart-script-from-bin>
+{% endprettify %}
+
+For example, the following pubspec entry lists two scripts:
+
+{% prettify yaml %}
+executables:
+  polymer-new-element: new_element
+  useful-script:
+{% endprettify %}
+
+Once the package is activated using `pub global activate`,
+typing `polymer-new-element` executes `bin/new_element.dart`.
+Typing `useful-script` executes `bin/useful-script.dart`.
+If you don't specify the value, it is inferred from the key.
+
+For more information, see 
+[pub global](cmd/pub-global.html#running-a-script-from-your-path).
 
 ## SDK constraints
 

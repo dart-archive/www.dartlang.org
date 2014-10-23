@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Creating Custom Elements"
+title: "Creating Elements"
 subsite: "Polymer.dart"
 description: "How to create your own custom polymer.dart elements"
 has-permalinks: true
@@ -227,15 +227,10 @@ class FancyButton [[highlight]]extends ButtonElement with Polymer, Observable[[/
 
 ## More sample code
 
-You can find lots of
-[sample code for polymer.dart](https://github.com/dart-lang/dart-samples/tree/master/polymer_mini_samples/web).
+You can find more sample code in the
+[polymer-dart-patterns project](https://github.com/dart-lang/polymer-dart-patterns).
 
 {% comment %}
-We used to point to https://github.com/sethladd/dart-polymer-dart-examples.
-If we update that, point to it again.
-Learn how to
-[bind to a checkbox](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/bind_to_checkbox),
-[nest templates](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/nested_if_inside_repeat),
-[call a method on a custom element](https://github.com/sethladd/dart-polymer-dart-examples/tree/master/web/call_method_on_custom_element),
-and much more. Please [let us know](https://github.com/sethladd/dart-polymer-dart-examples/issues?state=open) if you have a request for a sample.
+We used to point to https://github.com/sethladd/dart-polymer-dart-examples
+and then to https://github.com/dart-lang/dart-samples/tree/master/polymer_mini_samples/web, but they're obsolete.
 {% endcomment %}

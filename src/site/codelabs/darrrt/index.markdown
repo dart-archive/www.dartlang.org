@@ -89,10 +89,29 @@ Go to the `dart` directory and double-click **DartEditor**.
 ### <i class="fa fa-anchor"> </i> Get the sample code.
 
 <div class="trydart-step-details" markdown="1">
-<a href="https://github.com/dart-lang/one-hour-codelab/archive/master.zip">Download</a>
-the sample code.
-Unzip the ZIP file,
-which creates a directory called `one-hour-codelab`.
+Download the sample code from the
+[one-hour-codelab GitHub repo](https://github.com/dart-lang/one-hour-codelab)
+using one of the following options:
+
+<ul markdown="1">
+<li markdown="1">
+  Download the zip file, 
+  [one-hour-codelab-master.zip](https://github.com/dart-lang/one-hour-codelab/archive/master.zip).
+  Unzip the ZIP file, which creates a directory called
+  `one-hour-codelab-master`.
+</li>
+
+<li markdown="1">
+  Clone the repo. For example, from the command line:
+
+{% prettify sh %}
+% git clone https://github.com/dart-lang/one-hour-codelab.git
+{% endprettify %}
+
+This creates a directory named `one-hour-codelab`.
+</li>
+</ul>
+
 </div>
 
 ### <i class="fa fa-anchor"> </i> Open the one-hour-codelab sample.
@@ -176,7 +195,7 @@ Get familiar with the HTML and the Dart code for the skeleton version of the app
 <div class="row"> <div class="col-md-7">
 
 <div class="trydart-step-details" markdown="1">
-{% prettify html%}
+{% prettify html %}
 <html>
   <head>
     <meta charset="utf-8">

@@ -130,7 +130,7 @@ Use the **Clear** button to delete all the milestones.
 <aside class="alert">
 <strong>Version Note:</strong> The count_down app
 is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.10</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.15.1</a>.
 </aside>
 
 ###Using developer tools to look at the database
@@ -281,7 +281,7 @@ your app must import the IndexedDB library
 provided with the Dart SDK:
 
 {% prettify dart %}
-import 'dart:indexed_db';
+import 'dart:indexed_db' as idb;
 {% endprettify %}
 
 ##Checking for IndexedDB support {#checking-indexeddb}
@@ -394,13 +394,12 @@ This function creates an object store and an index.
 static const String MILESTONE_STORE = 'milestoneStore';
 static const String NAME_INDEX = 'name_index';
 
-void _initializeDatabase(VersionChangeEvent e) {
-  Database db = (e.target as Request).result;
+void _initializeDatabase(idb.VersionChangeEvent e) {
+  idb.Database db = (e.target as idb.Request).result;
   
   var objectStore = db.createObjectStore(MILESTONE_STORE,
       autoIncrement: true);
-  var index = objectStore.createIndex(NAME_INDEX, 'milestoneName',
-      unique: true);
+  objectStore.createIndex(NAME_INDEX, 'milestoneName', unique: true);
 }
 {% endprettify %}
 

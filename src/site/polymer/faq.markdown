@@ -20,10 +20,46 @@ much of this will move out into formal documentation.
 
 ## The basics
 
+### Q. What documentation exists for polymer.dart?
+
+On www.dartlang.org:
+
+* [Polymer.dart](/polymer/)
+  * [Imports and Your App’s Directory Structure](/polymer/app-directories.html)
+  * [Creating Elements](/polymer/creating-elements/)
+  * [Using Elements](/polymer/using-elements/)
+  * [Upgrading to Polymer.dart from Web UI](/polymer/upgrading-to-polymer-from-web-ui.html)
+  * [Reference](/polymer/reference/)
+    * [Error Messages](/polymer/reference/error-messages/)
+    * [Release Notes](/polymer/reference/release-notes/)
+* [Polymer.dart Code Lab](/codelabs/polymer/)
+* [Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
+
+{% comment %}
+{ TODO: autogenerate that list. Put it somewhere more visible.}
+{% endcomment %}
+
+On www.dartdocs.org, the API doc home for packages:
+
+* [polymer API reference](http://www.dartdocs.org/documentation/polymer/latest/index.html#polymer/polymer)
+* [core_elements API reference](http://www.dartdocs.org/documentation/core_elements/latest/)
+* [paper_elements API reference](http://www.dartdocs.org/documentation/paper_elements/latest/)
+
+On pub.dartlang.org:
+
+* [polymer package](https://pub.dartlang.org/packages/polymer)
+* [core_elements package](https://pub.dartlang.org/packages/core_elements)
+* [paper_elements package](https://pub.dartlang.org/packages/paper_elements)
+
+
 ### Q. In which browsers can polymer.dart apps run?
 
-Polymer.dart is tested against IE10, IE11, Safari 6, latest Chrome,
+Transformed, compiled polymer.dart code
+is tested against IE10, IE11, Safari 6, latest Chrome,
 latest Firefox, and latest Chrome for Android.
+Polymer.dart apps run natively,
+with no transformation or compilation needed,
+in [Dartium](/tools/dartium/).
 
 The Dart team collaborates with the Polymer team to
 ensure that polymer.dart elements and polyfills

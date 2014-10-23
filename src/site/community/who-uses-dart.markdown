@@ -132,3 +132,12 @@ Google internal tool for marketing
 
 [Google Shopping Express](https://www.google.com/shopping/express/)
 : An enterprise tool to manage drivers/couriers, built with AngularDart.
+
+[SonarDesign](http://www.sonardesign.com)
+: A high-performance, HTML5 web app authoring and distribution platform built on and made for the modern web.
+
+[Lumo](http://lumo.sonardesign.com)
+: An online presentation service that allows you to create, present, and share presentations on any device.
+
+[Children of Ur](http://www.childrenofur.com/)
+: A community reboot of the closed massively multiplayer game called [Glitch](http://glitchthegame.com).

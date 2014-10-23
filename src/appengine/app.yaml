@@ -44,16 +44,7 @@ handlers:
 - url: /docs/tutorials/custom-elements/
   script: scripts.redirector.application
 
-- url: /docs/dart-up-and-running/ch0\d.html
-  script: scripts.redirector.application
-
-- url: /docs/dart-up-and-running/contents/ch04-tools-dartdoc.html
-  script: scripts.redirector.application
-
-- url: /docs/dart-up-and-running/contents/ch04-tools-dart2js.html
-  script: scripts.redirector.application
-
-- url: /docs/dart-up-and-running/contents/ch04-tools-dart-vm.html
+- url: /docs/dart-up-and-running/contents/.*
   script: scripts.redirector.application
 
 - url: /mailing-list
@@ -69,6 +60,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /downloads.html
+  script: scripts.redirector.application
+
+- url: /tools/download_archive.*
   script: scripts.redirector.application
 
 - url: /docs/language-tour.*
@@ -183,6 +177,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /events/2013/flight-school/
+  script: scripts.redirector.application
+
+- url: /dart2js-stripped-uri
   script: scripts.redirector.application
 
 - url: /is-dartisans-live-now

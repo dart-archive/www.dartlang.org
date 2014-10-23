@@ -37,7 +37,7 @@ PENDING: Talk about advantages of polymer.dart development process
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The code samples on this page reflect **polymer.dart 0.15.0**.
+The code samples on this page reflect **polymer.dart 0.15.1**.
 {% comment %}
 UPDATE version each release
 {% endcomment %}
@@ -95,12 +95,17 @@ Learn more at
 ## Installing polymer.dart
 
 Get polymer.dart from pub.dartlang.org,
-the Dart package hosting service. Add the following to
-your `pubspec.yaml` file:
+the Dart package hosting service.
+
+Edit your `pubspec.yaml` file
+to depend on the `polymer` package and
+use the `polymer` transformer:
 
 {% prettify yaml %}
 dependencies:
-  polymer: ">=0.15.0 <0.16.0"
+  polymer: ">=0.15.1 <0.16.0"
+transformers:
+- polymer
 {% endprettify %}
 {% comment %}
 UPDATE version each release
@@ -120,7 +125,6 @@ from the paper_elements package:
 {% prettify html %}
 <head>
   ...
-  <script src="packages/web_components/dart_support.js"></script>
   <link rel="import" href="[[highlight]]packages/paper_elements/paper_input.html[[/highlight]]">
   ...
 </head>
@@ -131,7 +135,7 @@ from the paper_elements package:
 </body>
 {% endprettify %}
 
-For more information, see [Using Custom Elements](using-elements/).
+For more information, see [Using Elements](using-elements/).
 
 
 <hr>
@@ -139,7 +143,7 @@ For more information, see [Using Custom Elements](using-elements/).
 
 You can extend the lexicon of HTML with your own custom elements,
 as described in
-[Creating Custom Elements](creating-elements/).
+[Creating Elements](creating-elements/).
 
 
 <hr>
@@ -166,7 +170,8 @@ displays warnings from the linter.
 
 Learn more about [Dart Editor](/tools/editor/).
 
-<img src="polymer-warning-in-editor.png">
+![Polymer warning in Dart Editor](images/lint-warning.png)
+
 
 ### Building
 
@@ -215,7 +220,7 @@ Here are a couple of places to find polymer.dart sample code:
 {PENDING: introduce. point to more ways to find samples/source code.}
 {% endcomment %}
 
-[polymer-dart-snippets](https://github.com/dart-lang/polymer-dart-snippets)
+[polymer-dart-patterns](https://github.com/dart-lang/polymer-dart-patterns)
 : Small, useful samples that show how to do things the polymer.dart way.
 
 [polymer-and-dart-codelab](https://github.com/dart-lang/polymer-and-dart-codelab)

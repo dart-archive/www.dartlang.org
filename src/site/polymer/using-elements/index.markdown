@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Using Custom Elements"
+title: "Using Elements"
 subsite: "Polymer.dart"
 description: "How to use Polymer elements"
 has-permalinks: true
@@ -28,9 +28,11 @@ you want to use:
 name: my_app
 description: An application that uses core and paper elements
 dependencies:
-  polymer: ">=0.15.0 <0.16.0"
+  polymer: ">=0.15.1 <0.16.0"
   [[highlight]]core_elements: ">=0.3.0 <0.4.0"[[/highlight]]
   [[highlight]]paper_elements: ">=0.4.0 <0.5.0"[[/highlight]]
+transformers:
+- polymer
 {% endprettify %}
 {% comment %}
 UPDATE version #s for polymer (and core and paper, if need be) each release
@@ -56,13 +58,18 @@ adhere to Google's _material design_ guidelines.
 To put a polymer.dart custom element into a web page,
 the HTML file for the web page needs to:
 
-* Include `dart_support.js` near the top of the file,
-  before any HTML imports.
-* Import the HTML file that defines the custom element.
+* **Import the HTML file that defines the custom element.**
+  <br>
   For help with import paths, see
   [Imports and Your App's Directory Structure](/polymer/app-directories.html).
-* Instantiate the element.
-* Initialize Polymer.
+* **Instantiate the element.**
+* **Initialize Polymer.**
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Before version 0.15.1 of polymer.dart, your page needed to explicitly include
+`dart_support.js`. That is no longer true.
+</aside>
 
 Here's an example of using a `<paper-input>` element
 from the paper_elements package:
@@ -72,7 +79,6 @@ from the paper_elements package:
 <!-- In an HTML file -->
 <head>
   ...
-  <script src="packages/web_components/dart_support.js"></script>
   <link rel="import" href="[[highlight]]packages/paper_elements/paper_input.html[[/highlight]]">
   ...
 </head>
@@ -121,8 +127,7 @@ PaperItem item = new Element.tag('paper-item');
 
 Some libraries provide no-argument constructors that call
 `new Element.tag()` for you.
-For example, as of core_elements 0.2.2
-and paper_elements 0.3.0,
+For example,
 you can instantiate core and paper elements using code like this:
 
 {% prettify dart %}
@@ -133,13 +138,19 @@ PaperItem item = new PaperItem();
 TODO: Write test code for programmatically creating elements.
 {% endcomment %}
 
-When programmatically creating a custom element,
-you still need to use an HTML import to register the element type.
+Even if you always create a custom element programmatically,
+you still need to register the element type
+by importing it into an HTML file:
 {% comment %}
 You might eventually be able to register it in code only,
 perhaps using Polymer.register()
 (for example, `Polymer.register('paper-item', PaperItem)`).
 {% endcomment %}
+
+{% prettify html %}
+<!-- In an HTML file -->
+<link rel="import" href="packages/paper_elements/paper_input.html">
+{% endprettify %}
 
 
 ### Special case: Elements that extend native HTML elements
@@ -157,9 +168,9 @@ Element b = new Element.tag('button', 'fancy-button');
 {% endprettify %}
 
 
-## Initializing in Dart code
+## Using your own main() function
 
-If you need to run your own Dart initialization code, you can.
+If you need to provide a `main()` function, you can.
 However, because an HTML file can refer to only one Dart file,
 your Dart file must replace the `init.dart` file and
 contain code that initializes Polymer.
@@ -176,8 +187,7 @@ Replace it with something like this:
 <script type="application/dart" src="main.dart"></script>
 {% endprettify %}
 
-Initialize Polymer
-in your Dart file's `main()` function,
+Initialize Polymer in your Dart file's `main()` function,
 using code like this:
 
 {% prettify dart %}
@@ -209,4 +219,54 @@ main() {
 {% comment %}
 PENDING: Talk about the Polymer Zone,
 and how everything within run executes within that zone.
+{% endcomment %}
+
+
+{% comment %}
+## Passing values in attributes
+
+Often custom elements allow you to set values using HTML attributes.
+Attribute values are string values {PENDING: say more about types, conversion,...}.
+
+Here's an example of specifying... 
+{PENDING: something}.
+
+{% prettify dart %}
+{PENDING: code goes here}.
+{% endprettify %}
+
+Sometimes you need to pass more complicated values into a custom element,
+such as objects or arrays.
+Ultimately, it’s up to the element author to decide how to
+decode values passed in as attributes,
+but many Polymer elements understand attribute values that
+are a JSON-serialized object or array.
+For example:
+
+{% prettify dart %}
+<roster-list persons='[{"name": "John"}, {"name": "Bob"}]'></roster-list>
+{% endprettify %}
+
+You can find the expected type for each attribute listed in the
+[Elements reference](http://www.polymer-project.org/docs/elements/).
+If you pass the wrong type, it may be decoded incorrectly.
+
+## WSOD
+
+{% endcomment %}
+
+## Examples of using elements
+
+You can find sample code in the
+[polymer-dart-patterns project](https://github.com/dart-lang/polymer-dart-patterns),
+including examples of
+[using core elements](https://github.com/dart-lang/polymer-dart-patterns/tree/master/web/core_elements).
+
+{% comment %}
+
+{PENDING: put examples here; where should we talk about the two main app structures - 
+everything in a custom element, and the opposite}
+
+{PENDING: Link to polymer docs for CSS stuff (e.g. shim-shadowdom):
+https://www.polymer-project.org/docs/polymer/styling.html}
 {% endcomment %}
