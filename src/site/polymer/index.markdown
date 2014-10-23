@@ -170,7 +170,8 @@ displays warnings from the linter.
 
 Learn more about [Dart Editor](/tools/editor/).
 
-<img src="polymer-warning-in-editor.png">
+![Polymer warning in Dart Editor](images/lint-warning.png)
+
 
 ### Building
 
