@@ -35,12 +35,12 @@ Confirm your platform:
 
 To get new features a few weeks earlier than the stable release, you can
 download the latest **Dev Channel** builds of the Dart SDK and Dartium at the
-[download archive](/tools/download_archive).
+[download archive](/tools/download-archive).
 
 ### Looking for previous versions?
 
-Previous versions of the Dart SDK, Dartium, and the Dart Editor are available
-at the [download archive](/tools/download_archive).
+Previous versions of the Dart SDK, Dartium, and Dart Editor are available
+at the [download archive](/tools/download-archive).
 
 <div class="windows" markdown="1">
 ## Other editor solutions
