@@ -1476,7 +1476,7 @@ a[href^="http"]:not(a[href^="https://storage"]):not(.btn):after {
 }
 
 .btn-group.os-choices {
-  border-radius: 4px;
+  border-radius: 8px;
   margin-top: 0;
   margin-bottom: 20px; /* margin-bottom for h2 */
 }
@@ -1490,9 +1490,9 @@ a[href^="http"]:not(a[href^="https://storage"]):not(.btn):after {
 }
 
 .btn-group.os-choices button.inactive {
+  background-color: #EEE;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.6);
-  opacity: 0.65;
 }
 
 .btn-group.os-choices button.active,
