@@ -9,11 +9,11 @@ description: "The Dart language specification and proposed changes."
 Download _The Dart Programming Language Specification_ from
 the Ecma website:
 
-* <a href="http://www.ecma-international.org/publications/standards/Ecma-408.htm"
-   target="_blank">http://www.ecma-international.org/publications/standards/Ecma-408.htm</a>
+* <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-408.pdf"
+   target="_blank">http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-408.pdf</a>
 
 For a gentler introduction to the Dart language, see the
-[Dart language tour](/docs/dart-up-and-running/contents/ch02.html) or
+[Dart language tour](/docs/dart-up-and-running/ch02.html) or
 the [first Dart code lab](/codelabs/darrrt/).
 
 
