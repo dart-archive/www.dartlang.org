@@ -101,7 +101,7 @@ Observatory options when launching the dart VM. See the
 
 For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ dart --enable-vm-service --pause-isolates-on-start <script>.dart
 {% endprettify %}
 

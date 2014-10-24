@@ -11,7 +11,7 @@ description: "Use pub cache to manage your system cache."
 _Cache_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub cache add <package> [--version <constraint>] [--all]
 $ pub cache repair
 {% endprettify %}
@@ -39,7 +39,7 @@ matching versions of a library.</dd>
 <dd>Optional. Use with <code>pub add</code> to install the best
 version matching the specified constraint. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub cache add barback --version "<=0.8.0 <0.110"
 {% endprettify %}
 

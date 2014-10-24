@@ -94,7 +94,7 @@ That's it!
 When running the example (using [pub run](/tools/pub/cmd/pub-run.html),
 for example), you should see the following output:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub run bin/main
 Hello World, from the deferred library!
 {% endprettify %}

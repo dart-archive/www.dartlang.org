@@ -17,7 +17,7 @@ have the option to run command-line apps using [Dart Editor](/tools/editor/).
 
 Here’s an example of running a Dart file on the command line:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 dart test.dart
 {% endprettify %}
 
@@ -83,7 +83,7 @@ instruct the VM to delay the start up, or the exit, of an isolate:
 
 The following is an example Observatory run:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ dart --enable-vm-service --pause-isolates-on-exit <script>.dart
 {% endprettify %}
 
@@ -115,6 +115,6 @@ Assertions do not run in production mode.
 
 You can run the VM in checked mode with the `--checked` command-line flag:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 dart --checked test.dart
 {% endprettify %}

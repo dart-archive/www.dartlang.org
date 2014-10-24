@@ -18,7 +18,7 @@ description: "Common gotchas you might run into when using Pub."
 
 You receive the following error when running `pub publish`:
 
-{% prettify lang-sh %}
+{% prettify none %}
 HTTP error 403: Forbidden
 ...
 You aren't an uploader for package '<foo>'
@@ -29,7 +29,7 @@ publish a package, but the pub client registers you with another account.
 
 You can reset pub's authentication process by removing the credentials file:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 rm ~/.pub-cache/credentials.json
 {% endprettify %}
 
@@ -38,7 +38,7 @@ rm ~/.pub-cache/credentials.json
 You receive an HttpException error similar to the following when
 running `pub build`:
 
-{% prettify lang-sh %}
+{% prettify none %}
 Pub build failed, [1] IsolateSpawnException: 'HttpException: Connection closed while receiving data,
 ...
 library handler failed

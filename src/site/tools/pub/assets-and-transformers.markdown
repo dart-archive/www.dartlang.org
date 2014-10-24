@@ -172,7 +172,7 @@ a directory is created for each subdirectory that is built and a
 `packages` directory is created under each directory specified in the
 build command. For example, if your build command looks like the following:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub build test example/one example/two
 {% endprettify %}
 

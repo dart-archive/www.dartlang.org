@@ -11,7 +11,7 @@ description: "Use pub deps to print a dependency graph for a package."
 _Deps_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub deps [--style=<style>]
 {% endprettify %}
 
@@ -28,7 +28,7 @@ list.
 For example, the pubspec for the markdown_converter example specifies
 the following dependencies:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 dependencies:
   barback: any
   markdown: any
@@ -36,7 +36,7 @@ dependencies:
 
 Here's an example of the `pub deps` output for markdown_converter:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub deps
 markdown_converter 0.0.0
 |-- barback 0.11.1

@@ -11,7 +11,7 @@ description: "Use pub build to deploy your Dart application."
 _Build_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub build [--mode=<mode>] [<directories>] [--output=<directory>]
 $ pub build [--mode=<mode>] [--all] [--output=<directory>]
 {% endprettify %}
@@ -23,7 +23,7 @@ new directory named `build`.
 
 To use `pub build`, just run it in your package's root directory. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ cd ~/dart/helloworld
 $ pub build
 Building helloworld......
@@ -81,7 +81,7 @@ Directories you might typically specify include the following:
 
 For example, you might specify:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 pub build test benchmark example/foo bar
 {% endprettify %}
 

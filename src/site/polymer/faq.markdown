@@ -77,7 +77,7 @@ provides a non-exhaustive set of tips to help you upgrade.
 
 ### Q. How do I generate a new element?
 
-{% prettify lang-sh %}
+{% prettify sh %}
 pub run polymer:new_element element-name [-o output_dir]
 {% endprettify %}
 
@@ -86,7 +86,7 @@ has a `pubspec.yaml` file listing `polymer` as a dependency.
 
 For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 > cd my_polymer_app
 > less pubspec.yaml
 ...
@@ -99,7 +99,7 @@ dependencies:
 
 ### Q. How do I generate a new entry point?
 
-{% prettify lang-sh %}
+{% prettify sh %}
 pub run polymer:new_entry path_to_entry_point
 {% endprettify %}
 
@@ -108,7 +108,7 @@ has a `pubspec.yaml` file listing `polymer` as a dependency.
 
 For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 > cd my_polymer_app
 > less pubspec.yaml
 ...

@@ -132,7 +132,7 @@ Extra semicolons are removed, where possible.
 
 Here’s a simple example of using dartfmt on the command line:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 dartfmt test.dart
 {% endprettify %}
 

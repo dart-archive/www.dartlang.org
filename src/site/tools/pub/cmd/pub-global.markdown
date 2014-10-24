@@ -28,7 +28,7 @@ package that your package depends on, see [pub run](pub-run.html).
 
 ## Activating a package {#activating-a-package}
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate [--noexecutables] [--executable=<name>] [--overwrite] <package> [constraint]
 {% endprettify %}
 
@@ -44,19 +44,19 @@ When you activate a package you can specify an optional constraint. See the
 
 ### Activating a package on pub.dartlang.org
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate <pub.dartlang package>
 {% endprettify %}
 
 Specify a package on pub.dartlang.org to activate it. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate markdown
 {% endprettify %}
 
 ### Activating a package with Git
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate --source git <Git URL>
 $ pub global activate -sgit <Git URL>
 {% endprettify %}
@@ -66,14 +66,14 @@ a package in a Git repository. The following examples,
 which activate the `async_await` package on
 [GitHub](https://github.com/), are equivalent:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 pub global activate --source git https://github.com/dart-lang/async_await.git
 pub global activate -sgit https://github.com/dart-lang/async_await.git
 {% endprettify %}
 
 ### Activating a package on your local machine
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate --source path <path>
 {% endprettify %}
 
@@ -81,7 +81,7 @@ Use `activate --source <path>` to activate a package on your local machine.
 The following example activates the `stopwatch` package from the
 `~/dart` directory:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 pub global activate --source path ~/dart/stopwatch
 {% endprettify %}
 
@@ -98,7 +98,7 @@ directly at the command line.
 
 ### Running a script using `pub global run`
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global run <package>:<executable> [args...]
 {% endprettify %}
 
@@ -108,7 +108,7 @@ You can also specify arguments. The following command
 runs the `bin/bar.dart` script from the `foo` package,
 and passes in two arguments.
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global run foo:bar arg1 arg2
 {% endprettify %}
 
@@ -128,7 +128,7 @@ If the executable's name conflicts with a previously activated executable,
 it generates a warning. To force pub to install the new executable,
 use `--overwrite`. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate <package> --executable=<name> [[highlight]]--overwrite[[/highlight]]
 {% endprettify %}
 
@@ -136,14 +136,14 @@ For more information on the these flags, see [Options](#options).
 
 ## Deactivating a package {#deactivating-a-package}
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global deactivate <package> 
 {% endprettify %}
 
 Use `deactivate` to remove a package from the list of available
 global packages. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global deactivate markdown
 {% endprettify %}
 
@@ -152,7 +152,7 @@ or at the command line.
 
 ## Listing active packages {#listing-active-packages}
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global list
 {% endprettify %}
 
@@ -169,7 +169,7 @@ For options that apply to all pub commands, see
   the following command pulls the 0.6.0 version of the `markdown` package:
 
 <div class="step-details" markdown="1">
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate markdown 0.6.0
 {% endprettify %}
 </div>
@@ -178,7 +178,7 @@ $ pub global activate markdown 0.6.0
   For example:
 
 <div class="step-details" markdown="1">
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate foo <3.0.0
 {% endprettify %}
 </div>
@@ -191,7 +191,7 @@ $ pub global activate foo <3.0.0
   any other executables that `foo` might define) to your PATH.
 
 <div class="step-details" markdown="1">
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub global activate foo -x bar -x baz
 {% endprettify %}
 </div>

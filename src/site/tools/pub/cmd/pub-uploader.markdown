@@ -11,7 +11,7 @@ description: "Use pub uploader to add or remove uploaders for your Dart package 
 _Uploader_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub uploader [options] {add/remove} <email>
 {% endprettify %}
 
@@ -21,7 +21,7 @@ other uploaders for that package. It has two sub-commands,
 `add` and `remove`, that take the email address of the person to
 add/remove as an uploader. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 ~/code/transmogrify$ pub uploader add bob@example.com
 'bob@example.com' added as an uploader for package 'transmogrify'.
 
@@ -37,7 +37,7 @@ By default, the package in the current working directory will have its
 uploaders modified. You can also pass the `--package` flag to choose a
 package by name. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub uploader --package=transmogrify add bob@example.com
 'bob@example.com' added as an uploader for package 'transmogrify'.
 {% endprettify %}

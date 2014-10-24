@@ -11,7 +11,7 @@ description: "Use pub get to retrieve the dependencies used by your Dart applica
 _Get_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub get [--offline]
 {% endprettify %}
 
@@ -22,7 +22,7 @@ directory, as well as their
 and places them in a `packages` directory located next to the pubspec.
 For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub get
 Got dependencies!
 {% endprettify %}

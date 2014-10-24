@@ -82,7 +82,7 @@ import 'package:barback/barback.dart';
 In your package's `pubspec.yaml` file, add a dependency
 on the barback package:
 
-{% prettify lang-sh %}
+{% prettify yaml %}
 dependencies:
   barback: any
 {% endprettify %}
@@ -275,7 +275,7 @@ list it in your pubspec.
 If your transformer is implemented in `lib/<package>.dart` or
 `lib/transformer.dart`, add the following to your pubspec:
 
-{% prettify lang-sh %}
+{% prettify yaml %}
 transformers:
 - <pkgname>
 {% endprettify %}
@@ -284,7 +284,7 @@ SimpleTransformer's package name (as specified in the pubspec)
 is `simple_transformer`, so here's the pubspec entry that
 specifies running SimpleTransformer's transformer:
 
-{% prettify lang-sh %}
+{% prettify yaml %}
 transformers:
 - simple_transformer
 {% endprettify %}
@@ -294,7 +294,7 @@ If you put your transformer class into a file other than
 `lib/stuff/insert_copyright.dart`&mdash;you add it to the
 pubspec file like this:
 
-{% prettify lang-sh %}
+{% prettify yaml %}
 transformers:
 - simple_transformer/stuff/insert_copyright
 {% endprettify %}

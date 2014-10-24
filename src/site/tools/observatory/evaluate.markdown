@@ -219,7 +219,7 @@ closureFoo = (){print(counter);}
 
 As soon as the expression is evaluated, the output prints to the console:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 13903954684
 13903954685
 13903954686
@@ -238,7 +238,7 @@ closureFoo=() {if (counter.isEven) { print(counter); } }
 
 The output changes immediately:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 115296439424
 115296439426
 115296439428

@@ -34,7 +34,7 @@ code in the `lib` directory.
 Run this command from the top-level directory of your Dart package,
 after you have run `pub get` to get the dependencies:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 docgen .
 {% endprettify %}
 
@@ -48,7 +48,7 @@ this command.
 Here is a simple example of using docgen to generate, and then serve,
 the generated docs to the viewer.
 
-{% prettify lang-sh %}
+{% prettify sh %}
 docgen --serve .
 {% endprettify %}
 

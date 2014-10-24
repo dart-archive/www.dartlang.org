@@ -16,7 +16,7 @@ in the next release of the SDK.
 _Run_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub run [--mode=<mode>] <executable> [args...]
 {% endprettify %}
 
@@ -35,7 +35,7 @@ This is the simplest use case.
 From the root of a package that contains `foo.dart`
 in the `bin` directory, run the app using the following command:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub run foo arg1 arg2
 {% endprettify %}
 
@@ -49,7 +49,7 @@ bin directory (but within the package), prepend the path
 to the name of the script.
 For example, to run `foo.dart` in the `example/sub` directory:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub run example/sub/foo arg1 arg2
 {% endprettify %}
 
@@ -59,7 +59,7 @@ To run a script from the `bin` directory of a package that you depend on
 in the pubspec, specify the package name.
 For example, to run `bar.dart` in the foo package:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub run foo:bar arg
 {% endprettify %}
 

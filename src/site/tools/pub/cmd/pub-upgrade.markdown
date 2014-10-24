@@ -11,7 +11,7 @@ description: "Use pub upgrade to get the latest versions of all dependencies use
 _Upgrade_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub upgrade [dependencies...]
 {% endprettify %}
 
@@ -21,7 +21,7 @@ current working directory, as well as their [transitive
 dependencies](/tools/pub/glossary.html#transitive-dependency), to the `packages`
 directory located next to the pubspec. For example:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub upgrade
 Dependencies upgraded!
 {% endprettify %}

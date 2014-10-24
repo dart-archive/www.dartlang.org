@@ -24,41 +24,43 @@ To give you a picture of the whole enchilada, here's what a complete package
 (conveniently named `enchilada`) that uses every corner of these guidelines
 would look like:
 
-    enchilada/
-      pubspec.yaml
-      pubspec.lock *
-      README.md
-      CHANGELOG.md
-      LICENSE
-      benchmark/
-        make_lunch.dart
-        packages/ **
-      bin/
-        enchilada
-        packages/ **
-      doc/
-        getting_started.md
-      example/
-        lunch.dart
-        packages/ **
-      lib/
-        enchilada.dart
-        tortilla.dart
-        guacamole.css
-        src/
-          beans.dart
-          queso.dart
-      packages/ **
-      test/
-        enchilada_test.dart
-        tortilla_test.dart
-        packages/ **
-      tool/
-        generate_docs.dart
-      web/
-        index.html
-        main.dart
-        style.css
+{% prettify none %}
+enchilada/
+  pubspec.yaml
+  pubspec.lock *
+  README.md
+  CHANGELOG.md
+  LICENSE
+  benchmark/
+    make_lunch.dart
+    packages/ **
+  bin/
+    enchilada
+    packages/ **
+  doc/
+    getting_started.md
+  example/
+    lunch.dart
+    packages/ **
+  lib/
+    enchilada.dart
+    tortilla.dart
+    guacamole.css
+    src/
+      beans.dart
+      queso.dart
+  packages/ **
+  test/
+    enchilada_test.dart
+    tortilla_test.dart
+    packages/ **
+  tool/
+    generate_docs.dart
+  web/
+    index.html
+    main.dart
+    style.css
+{% endprettify %}
 
 \* The `pubspec.lock` will only be in source control if the package is an
 [application package](glossary.html#application-package).
@@ -68,9 +70,11 @@ would look like:
 
 ## The basics
 
-    enchilada/
-      pubspec.yaml
-      pubspec.lock
+{% prettify none %}
+enchilada/
+  pubspec.yaml
+  pubspec.lock
+{% endprettify %}
 
 Every package will have a [_pubspec_](pubspec.html), a file named
 `pubspec.yaml`, in the root directory of the package. That's what *makes* it a
@@ -82,9 +86,11 @@ upgrade`](cmd/pub-upgrade.html) on the package, you will also have a
 package](glossary.html#application-package), this will be checked into source
 control. Otherwise, it won't be.
 
-    enchilada/
-      packages/
-        ...
+{% prettify none %}
+enchilada/
+  packages/
+    ...
+{% endprettify %}
 
 Running pub will also generate a `packages` directory. You will *not* check
 this into source control, and you won't need to worry too much about its
@@ -98,8 +104,10 @@ For more information, see [Pubspec Format](pubspec.html).
 
 ## README
 
-    enchilada/
-      README.md
+{% prettify none %}
+enchilada/
+  README.md
+{% endprettify %}
 
 One file that's very common in open source is a README file that
 describes the project. This is especially important in pub. When you upload
@@ -114,8 +122,10 @@ If your README ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
 
 ## CHANGELOG
 
-    enchilada/
-      CHANGELOG.md
+{% prettify none %}
+enchilada/
+  CHANGELOG.md
+{% endprettify %}
 
 To show users the latest changes to your package, you can include a changelog 
 file where you can write a short note about the changes in your latest 
@@ -136,10 +146,12 @@ Two directories in your package are public to other packages: `lib` and
 
 The following directory structure shows the `lib` portion of enchilada:
 
-    enchilada/
-      lib/
-        enchilada.dart
-        tortilla.dart
+{% prettify none %}
+enchilada/
+  lib/
+    enchilada.dart
+    tortilla.dart
+{% endprettify %}
 
 Many packages are [*library packages*](glossary.html#library-package): they
 define Dart libraries that other packages can import and use. These public Dart
@@ -162,11 +174,13 @@ If you want to organize your public libraries, you can also create
 subdirectories inside `lib`. If you do that, users will specify that path when
 they import it. Say you have the following file hierarchy:
 
-    enchilada/
-      lib/
-        some/
-          path/
-            olives.dart
+{% prettify none %}
+enchilada/
+  lib/
+    some/
+      path/
+        olives.dart
+{% endprettify %}
 
 Users will import `olives.dart` as follows:
 
@@ -198,7 +212,7 @@ scripts in `bin`.
 You can, of course, reference a package from within your app.
 For example, say your source tree looks like this:
 
-{% prettify lang-sh %}
+{% prettify none %}
 myapp/
   example/
     one/
@@ -208,7 +222,7 @@ myapp/
 
 The resulting build directory has the following structure:
 
-{% prettify lang-sh %}
+{% prettify none %}
 build/
   example/
     one/
@@ -228,9 +242,11 @@ deploy your app.
 
 ## Public assets
 
-    enchilada/
-      lib/
-        guacamole.css
+{% prettify none %}
+enchilada/
+  lib/
+    guacamole.css
+{% endprettify %}
 
 While most library packages exist to let you reuse Dart code, you can also
 reuse other kinds of content. For example, a package for
@@ -266,11 +282,13 @@ For more information about using assets, see
 
 ## Implementation files
 
-    enchilada/
-      lib/
-        src/
-          beans.dart
-          queso.dart
+{% prettify none %}
+enchilada/
+  lib/
+    src/
+      beans.dart
+      queso.dart
+{% endprettify %}
 
 The libraries inside "lib" are publicly visible: other packages are free to
 import them. But much of a package's code is internal implementation libraries
@@ -297,11 +315,13 @@ your package in its [pubspec](pubspec.html).
 
 ## Web files
 
-    enchilada/
-      web/
-        index.html
-        main.dart
-        style.css
+{% prettify none %}
+enchilada/
+  web/
+    index.html
+    main.dart
+    style.css
+{% endprettify %}
 
 Dart is a web language, so many pub packages will be doing web stuff. That
 means HTML, CSS, images, and, heck, probably even some JavaScript. All of that
@@ -319,9 +339,11 @@ in `example` or `web`?" Put those in `example`.)
 
 ## Command-line apps
 
-    enchilada/
-      bin/
-        enchilada
+{% prettify none %}
+enchilada/
+  bin/
+    enchilada
+{% endprettify %}
 
 Some packages define programs that can be run directly from the command line.
 These can be shell scripts or any other scripting language, including Dart.
@@ -334,10 +356,12 @@ using [pub global](cmd/pub-global.html#running-a-script-from-your-path).
 
 ## Tests and benchmarks
 
-    enchilada/
-      test/
-        enchilada_test.dart
-        tortilla_test.dart
+{% prettify none %}
+enchilada/
+  test/
+    enchilada_test.dart
+    tortilla_test.dart
+{% endprettify %}
 
 Every package should have tests. With pub, the convention is
 that these go in a `test` directory (or some directory inside it if you like)
@@ -346,9 +370,11 @@ and have `_test` at the end of their file names.
 Typically, these use the [unittest](http://api.dartlang.org/unittest.html)
 package.
 
-    enchilada/
-      benchmark/
-        make_lunch.dart
+{% prettify none %}
+enchilada/
+  benchmark/
+    make_lunch.dart
+{% endprettify %}
 
 Packages that have performance critical code may also include *benchmarks*.
 These test the API not for correctness but for speed (or memory use, or maybe
@@ -356,9 +382,11 @@ other empirical metrics).
 
 ## Documentation
 
-    enchilada/
-      doc/
-        getting_started.md
+{% prettify none %}
+enchilada/
+  doc/
+    getting_started.md
+{% endprettify %}
 
 If you've got code and tests, the next piece you might want
 is good documentation. That goes inside a directory named `doc`. We don't
@@ -373,9 +401,11 @@ hand-authored documentation *in addition to* generated API references.
 
 ## Examples
 
-    enchilada/
-      example/
-        lunch.dart
+{% prettify none %}
+enchilada/
+  example/
+    lunch.dart
+{% endprettify %}
 
 Code, tests, docs, what else
 could your users want? Standalone example programs that use your package, of
@@ -389,9 +419,11 @@ like code outside of your package would look.
 
 ## Internal tools and scripts
 
-    enchilada/
-      tool/
-        generate_docs.dart
+{% prettify none %}
+enchilada/
+  tool/
+    generate_docs.dart
+{% endprettify %}
 
 Mature packages often have little helper scripts and programs that people
 run while developing the package itself. Think things like test runners,

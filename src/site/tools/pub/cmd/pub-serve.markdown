@@ -11,7 +11,7 @@ Description: "Use pub serve to start up a development server for your Dart appli
 _Serve_ is one of the commands of the _pub_ tool.
 [Learn more about pub](/tools/pub/).
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [<directories>]
 $ pub serve [--hostname=<host>] [--port=<number>] [--mode=<mode>] [--all]
 {% endprettify %}
@@ -23,7 +23,7 @@ that serves up your web app's [assets](/tools/pub/glossary.html#asset).
 Start the dev server from the directory that contains your web app's
 `pubspec.yaml` file:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 $ cd ~/dart/helloworld
 $ pub serve
 Serving helloworld on http://localhost:8080
@@ -77,7 +77,7 @@ Directories you might specify typically include the following:
 
 For example, you might specify:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 pub serve test benchmark example/foo bar
 {% endprettify %}
 
@@ -94,7 +94,7 @@ test, and web) that are present.</dd>
 <dd>Optional. By default, the dev server listens on <code>localhost</code>.
 You can specify another host using the <code>--hostname</code> option. 
 For example:
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub serve --hostname=127.0.0.1
 Loading source assets... 
 Loading markdown_converter transformers... (1.3s)
@@ -106,7 +106,7 @@ Build completed successfully
 <dt><code>--port=&lt;number&gt;</code></dt>
 <dd>Optional. By default, the dev server uses <code>http://localhost:8080</code>.
 To change the port number, use the <code>--port</code> option:
-{% prettify lang-sh %}
+{% prettify sh %}
 $ pub serve --port=9080
 Serving helloworld web on http://localhost:9080
 {% endprettify %}

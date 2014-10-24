@@ -27,7 +27,7 @@ on debugging the JavaScript that dart2js generates.
 
 Here’s an example of compiling a Dart file to JavaScript:
 
-{% prettify lang-sh %}
+{% prettify sh %}
 dart2js --out=test.js test.dart
 {% endprettify %}
 
