@@ -24,7 +24,7 @@ and start playing with Dart Editor.
 This one-hour code lab assumes you have some programming experience
 but no previous experience with either Dart or web apps.
 
-[Language Tour (_Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/contents/ch02.html)
+[Language Tour (_Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/ch02.html)
 : Shows each major Dart language feature, from variables to
 operators to classes and libraries.
 
@@ -44,10 +44,10 @@ You can also define your own libraries
 and get many more using the
 [pub package manager](http://pub.dartlang.org).
 
-[Libraries and Visibility (a section of _Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/contents/ch02.html#libraries)
+[Libraries and Visibility (a section of _Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/ch02.html#libraries-and-visibility)
 : Learn how to use and create libraries.
 
-[Library Tour (_Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html)
+[Library Tour (_Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/ch03.html)
 : Learn how to use the major features in each library that comes with Dart.
 
 [Articles](/articles/)
@@ -74,8 +74,8 @@ Closely tied to the Dart language,
 the Iterable class provides the interface used by for-in loops.
 Learn more:
 
-* [Collections (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html#ch03-collections)
-* [Iteration (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/contents/ch03.html#ch03-iteration)
+* [Collections (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/ch03.html#collections)
+* [Iteration (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/ch03.html#iteration)
 * [Iterable API documentation](http://api.dartlang.org/dart_core/Iterable.html)
 
 
@@ -198,7 +198,7 @@ provide support for testing your web or command-line app.
 If your code is open source,
 try drone.io for continuous testing.
 
-* [dartanalyzer: The Static Analyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html)
+* [dartanalyzer: The Static Analyzer](/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer)
 * [Writing Unit Tests for Pub Packages](/articles/writing-unit-tests-for-pub-packages/)
 * [Unit Testing with Dart](/articles/dart-unit-tests/)
 * [Dart Web Apps on Android](/tools/editor/mobile.html)

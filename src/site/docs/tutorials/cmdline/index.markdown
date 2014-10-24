@@ -618,7 +618,7 @@ Check out the [Command-line Apps Programmers' Guide](/docs/serverguide.html)
 to find more resources related to writing command-line apps.
 
 See the
-[Dartiverse Search walkthrough](/docs/dart-up-and-running/contents/ch05.html)
+[Dartiverse Search walkthrough](/docs/dart-up-and-running/ch05.html)
 for an example of another kind of command-line app: an HTTP server.
 
 Refer to the API docs for <a href="https://api.dartlang.org/dart_io.html" target="_blank">dart:io</a>,

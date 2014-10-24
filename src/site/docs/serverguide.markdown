@@ -130,7 +130,7 @@ various Dart libraries and packages.
 * [Get Input from a Form](/docs/tutorials/forms/)
 <img src="/docs/tutorials/images/target.png" height="16" width="16">
 (contains an HTTP server/client pair)
-* [Walkthrough: Dartiverse Search](/docs/dart-up-and-running/contents/ch05.html)
+* [Walkthrough: Dartiverse Search](/docs/dart-up-and-running/ch05.html)
 (HTTP server, Web Sockets, logging, and routing)
 
 ### Shell scripting

@@ -57,7 +57,7 @@ page has information on how to acquire and use the API keys.
 ## Using Dartium
 
 For details on using Dartium, read
-[Dartium: Chromium with the Dart VM](/docs/dart-up-and-running/contents/ch04-tools-dartium.html).
+[Dartium: Chromium with the Dart VM](/docs/dart-up-and-running/ch04.html#dartium-chromium-with-the-dart-vm).
 
 ## Filing bugs and feature requests
 

@@ -37,7 +37,7 @@ The Dart Editor bundle includes:
 
   * [dart](/tools/dart-vm/) - The standalone VM
   * [dart2js](/tools/dart2js/) - The Dart-to-JavaScript compiler
-  * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - The static analyzer
+  * [dartanalyzer](/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer) - The static analyzer
   * [pub](/tools/pub/) - The Dart package manager
   * [docgen](docgen/) - The API documentation generator
 
@@ -108,7 +108,7 @@ and the Dart libraries, the SDK bundle contains the command-line Dart tools:
 
   * [dart](/tools/dart-vm/) - the standalone VM
   * [dart2js](/tools/dart2js/) - the Dart-to-JavaScript compiler
-  * [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html) - the static analyzer
+  * [dartanalyzer](/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer) - the static analyzer
   * [pub](/tools/pub/) - the Dart package manager
   * [docgen](docgen/) - the API documentation generator
 

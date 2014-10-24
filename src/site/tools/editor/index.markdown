@@ -76,14 +76,14 @@ To get started with Dart Editor, read these:
    Gently introduces you to Dart Editor,
    from downloading it to creating and running apps.
 
-* [Up and Running](/docs/dart-up-and-running/contents/ch01.html#ch01-editor)
+* [Up and Running](/docs/dart-up-and-running/ch01.html#up-and-running)
   (a section from Chapter 1 of _Dart Up and Running_)<br>
   Quickly leads you through downloading Dart Editor, running a sample,
   and creating an app.
 
 For details on _using_ Dart Editor, read this:
 
-* [Dart Editor](/docs/dart-up-and-running/contents/ch04-tools-editor.html)
+* [Dart Editor](/docs/dart-up-and-running/ch04.html#dart-editor)
   (a section from Chapter 4 of _Dart Up and Running_)<br>
   Teaches how to use Dart Editor&mdash;for example,
   how to set up launches for different browsers.

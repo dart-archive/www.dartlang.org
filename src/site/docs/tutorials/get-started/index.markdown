@@ -569,7 +569,7 @@ when creating applications outside of Dart Editor.
 
 <ul>
   <li>
-    <a href="/docs/dart-up-and-running/contents/ch04-tools-editor.html">Dart Editor</a>,
+    <a href="/docs/dart-up-and-running/ch04.html#dart-editor">Dart Editor</a>,
     an excerpt from
     <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>,
     provides details about using Dart Editor.

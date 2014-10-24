@@ -147,6 +147,6 @@ For more information about hooking into the Dart Editor build, see
 [extension]: http://dart-lang.github.com/web-ui/extension/web_ui.crx
 [dartium]: /tools/dartium/
 [editor]: /tools/editor/
-[dart2js]: /docs/dart-up-and-running/contents/ch04-tools-dart2js.html
+[dart2js]: /tools/dart2js/
 [mb]: /support/faq.html#what-browsers-supported
 [sd]: http://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/shadow/index.html

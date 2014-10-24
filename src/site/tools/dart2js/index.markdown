@@ -17,7 +17,7 @@ and [`pub build`](/tools/pub/cmd/pub-build.html) options also use dart2js.
 
 The dart2js tool provides hints for improving your Dart code and removing
 unused code. You can get these hints for all kinds of code—even command-line
-apps. Also see [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html), which performs a similar analysis but,
+apps. Also see [dartanalyzer](/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer), which performs a similar analysis but,
 as of 1.0, has a different implementation.
 
 This page tells you how to use dart2js on the command line. It also give tips

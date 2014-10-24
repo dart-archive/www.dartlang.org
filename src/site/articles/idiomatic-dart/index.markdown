@@ -236,7 +236,7 @@ since they're terse but still easy to spot thanks to `=>`. We use anonymous
 functions frequently for event handlers and callbacks.
 
 Read more about
-[functions in Dart](/docs/dart-up-and-running/contents/ch02.html#functions).
+[functions in Dart](/docs/dart-up-and-running/ch02.html#functions).
 
 ### One-line methods
 

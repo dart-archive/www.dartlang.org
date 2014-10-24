@@ -109,7 +109,7 @@ the type system raise exceptions at runtime. In production mode, static type
 annotations have no effect.
 
 Assert statements are also enabled in checked mode. An
-[assert statement](/docs/dart-up-and-running/contents/ch02.html#assert)
+[assert statement](/docs/dart-up-and-running/ch02.html#assert)
 checks a boolean condition, raising an exception if the condition is false.
 Assertions do not run in production mode.
 

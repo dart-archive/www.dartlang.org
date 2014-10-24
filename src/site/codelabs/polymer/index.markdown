@@ -1689,11 +1689,11 @@ on our [Samples page](/samples/).
 * Learn more about Dart from
 the [Dart tutorials](/tutorials/).
 
-* [A Tour of the Dart Language](/docs/dart-up-and-running/contents/ch02.html)
+* [A Tour of the Dart Language](/docs/dart-up-and-running/ch02.html)
 shows you how to use each major Dart feature,
 from variables and operators to classes and libraries.
 
-* [A Tour of the Dart Libraries](/docs/dart-up-and-running/contents/ch03.html)
+* [A Tour of the Dart Libraries](/docs/dart-up-and-running/ch03.html)
 shows you how to use the major features in Dart’s libraries.
 
 </div>

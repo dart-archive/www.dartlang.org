@@ -612,5 +612,5 @@ As you write asynchronous code, you might find these resources helpful:
 
 * [Using Future Based APIs](/articles/using-future-based-apis/)
 * [Futures and Error Handling](/articles/futures-and-error-handling/)
-* [dart:async - Asynchronous Programming](/docs/dart-up-and-running/contents/ch03.html#ch03-asynchronous-programming) section of the library tour
+* [dart:async - Asynchronous Programming](/docs/dart-up-and-running/ch03.html#dartasync---asynchronous-programming) section of the library tour
 * [dart:async API reference](http://api.dartlang.org/dart_async.html)

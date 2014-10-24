@@ -108,8 +108,8 @@ Some other handy options include:
 : Include private declarations, which are specified with a leading
   underscore (`_`). For more information on private
   identifiers, see
-  [Important Concepts](/docs/dart-up-and-running/contents/ch02.html#ch02-concepts)
-  in the [Dart language tour](/docs/dart-up-and-running/contents/ch02.html).
+  [Important Concepts](/docs/dart-up-and-running/ch02.html#important-concepts)
+  in the [Dart language tour](/docs/dart-up-and-running/ch02.html).
 
 `--introduction=<markdown file>`
 : Use the specified file as the introduction page for the generated

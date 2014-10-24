@@ -500,7 +500,7 @@ for example, it sets the text color to Yellow.
     you can find the information you need there.
   </li>
   <li>
-    <a href="/docs/dart-up-and-running/contents/ch04-tools-editor.html">Dart Editor</a>,
+    <a href="/docs/dart-up-and-running/ch04.html#dart-editor">Dart Editor</a>,
     an excerpt from <em>Dart: Up and Running</em>,
     provides details about using Dart Editor.
     The excerpt includes, for example,

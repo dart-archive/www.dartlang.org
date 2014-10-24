@@ -25,7 +25,7 @@ news, keep an eye on this site and
 
 The text for this work is available at the
 [www.dartlang.org GitHub project](https://github.com/dart-lang/www.dartlang.org)
-(at [src/site/docs/dart-up-and-running/](https://github.com/dart-lang/www.dartlang.org/tree/master/src/site/docs/dart-up-and-running/contents))
+(at [src/site/docs/dart-up-and-running/](https://github.com/dart-lang/www.dartlang.org/tree/master/src/site/docs/dart-up-and-running/))
 under the [Creative Commons
 Attribution-Noncommercial-No Derivative Works 3.0 United States
 License.](http://creativecommons.org/licenses/by-nc-nd/3.0/us/) Source

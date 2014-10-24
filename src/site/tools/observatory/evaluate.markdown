@@ -179,7 +179,7 @@ This technique requires some minimal setup in your code. You must:
   is non-null, then execute it.
 
 A _closure_ is a function object. To learn more, read
-[Lexical Closures](/docs/dart-up-and-running/contents/ch02.html#ch02-functions-lexical-closures).
+[Lexical Closures](/docs/dart-up-and-running/ch02.html#lexical-closures).
 
 <aside class="alert alert-info" markdown="1">
 **Note:** Be aware that modifying your code can crash the application.

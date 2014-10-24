@@ -28,7 +28,7 @@ Otherwise, you can
 ## What's in the SDK
 
 The SDK directory includes a `lib` directory for the
-[Dart libraries](/docs/dart-up-and-running/contents/ch03.html)
+[Dart libraries](/docs/dart-up-and-running/ch03.html)
 and a `bin` directory that has these command-line tools:
 
 <div class="row"> <div class="col-md-6" markdown="1">
@@ -39,7 +39,7 @@ and a `bin` directory that has these command-line tools:
 [dart2js](/tools/dart2js/)
 : The Dart-to-JavaScript compiler
 
-[dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html)
+[dartanalyzer](/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer)
 : The static analyzer
 
 </div> <div class="col-md-6" markdown="1">

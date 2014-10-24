@@ -33,7 +33,7 @@ compiled to JavaScript or when run in the Dart VM.
 ## Quick start
 
 1. Compile your Dart app to JavaScript with
-   [dart2js](/docs/dart-up-and-running/contents/ch04-tools-dart2js.html).
+   [dart2js](/tools/dart2js/).
    If your Dart file is `app.dart` then name your JavaScript version `app.dart.js`.
 1. Load your Dart app with a `<script type="application/dart">` tag (only one per HTML page).
 1. Follow that tag with a &lt;script&gt; tag for the `dart.js` file.

@@ -248,7 +248,7 @@ TableElement table = new Element.html(
     '<table><tr><td>Hello <em>Dart!</em></table>');
 {% endprettify %}<!--- END(element_table) -->
 
-Dart's [named constructors](/docs/dart-up-and-running/contents/ch02.html#ch02-constructors-named)
+Dart's [named constructors](/docs/dart-up-and-running/ch02.html#named-constructors)
 make it easier to conjure up DOM objects in a
 variety of ways.
 
