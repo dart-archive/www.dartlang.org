@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: "Polymer.dart Code Lab"
-description: "Learn how to write a Dart app using Polymer GUI element"
+description: "Learn how to write a Dart app using Polymer GUI elements."
 has-permalinks: true
 tutorial:
   id: polymer
@@ -168,24 +168,21 @@ HTML imports.
 
 * `model.dart` contains the `Codelab` class.
 
-* `codelab_element.html` contains HTML code for a `<codelab-element>`, a
+* `codelab_element.html` and `codelab_element.dart` contain
+HTML and Dart code for `<codelab-element>`, a
 Polymer element representing a `Codelab` object.
 
-* `codelab_element.dart` contains Dart code for `<codelab-element>`.
-
-* `codelab_form.html` contains HTML code for a `<codelab-form>`, a
+* `codelab_form.html` and `codelab_form.dart` contain
+HTML and Dart code for `<codelab-form>`, a
 Polymer element representing a form for creating or updating a `Codelab`.
 
-* `codelab_form.dart` contains Dart code for `<codelab-form>`.
-
-* `codelab_list.html` contains HTML code for a `<codelab-list>`, a
+* `codelab_list.html` and `codelab_list.dart` contain
+HTML and Dart code for `<codelab-list>`, a
 Polymer element representing a collection of `Codelab` objects.
-
-* `codelab_list.dart` contains Dart code for `<codelab-list>`.
 
 </div>
 
-### Learn about the structure of a Polymer Element.
+### Learn about the structure of a Polymer element.
 {:.no_toc}
 
 <div class="trydart-step-details" markdown="1">
@@ -198,8 +195,9 @@ You can use Polymer elements that others have created (such as
 [paper elements](http://pub.dartlang.org/packages/paper_elements)),
 or you can build your own.
 
-A Polymer element is defined in an HTML file (e.g. `codelab_list.html`). A
-Polymer element typically has the following three-part structure:
+A Polymer element is defined in an HTML file
+(for example, `codelab_list.html`).
+A Polymer element typically has the following three-part structure:
 
 * The markup for the element goes inside `<template>` tags.
 * The CSS for the element goes inside `<style>` tags.
@@ -232,19 +230,13 @@ The `index.html` file is this application's entry point:
     <title>Polymer: Build an Admin Console Using Dart</title>
     <link rel="import" href="codelab_list.html">
     <link rel="stylesheet" href="app.css">
-    <script type="application/dart">export 'package:polymer/init.dart';</script>
   </head>
   <body>
     <h1>Polymer: Build an Admin Console Using Dart</h1>
     <codelab-list></codelab-list>
+    <script type="application/dart">export 'package:polymer/init.dart';</script>
   </body>
 </html>
-{% endprettify %}
-
-The following line initializes Polymer:
-
-{% prettify html %}
-<script type="application/dart">export 'package:polymer/init.dart';</script>
 {% endprettify %}
 
 The following line is an example of an **HTML import**,
@@ -262,8 +254,16 @@ documents. We use the `<codelab-list>` component imported from
 <body>
   ...
   <codelab-list></codelab-list>
+  ...
 </body>
 {% endprettify %}
+
+The following line initializes Polymer:
+
+{% prettify html %}
+<script type="application/dart">export 'package:polymer/init.dart';</script>
+{% endprettify %}
+
 
 </div>
 
