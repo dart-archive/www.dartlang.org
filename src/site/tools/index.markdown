@@ -29,7 +29,7 @@ by the Dart community.
 <h2>Editor</h2>
 
 <div class="media">
-  <a class="pull-left" href="webstorm/">
+  <a class="pull-left" href="editor/">
     <img class="media-object"
          src="images/dart-logo-48.png"
          alt="Dart logo">
@@ -45,7 +45,7 @@ by the Dart community.
 <h2>Observatory</h2>
 
 <div class="media">
-  <a class="pull-left" href="webstorm/">
+  <a class="pull-left" href="observatory/">
     <img class="media-object"
          src="images/dart-logo-48.png"
          alt="Dart logo" />
@@ -155,3 +155,23 @@ by the Dart community.
   </div>
 </div>
 
+---
+
+<a name="problem"></a>
+<h2>Curious about your generated JavaScript?</h2> 
+<p>
+If you are compiling your Dart code to JavaScript with dart2js, the Dump-Info
+Visualizer can give you insight into what is going on behind the scenes.
+Use it to analyze the generated code and see why that code is included in
+your build.
+
+<div class="media">
+  <a class="pull-left" href="https://github.com/dart-lang/dump-info-visualizer">
+    <img class="media-object"
+         src="images/dump-info-viewer.png"
+         alt="sample Dump-info visualizer output">
+  </a>
+  <div class="media-body">
+    <a href="https://github.com/dart-lang/dump-info-visualizer"><b>Dump-Info Visualizer</b></a>
+  </div>
+</div>
