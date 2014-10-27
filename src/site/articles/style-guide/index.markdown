@@ -6,8 +6,8 @@ rel:
 description: "Follow these guidelines for consistent, readable Dart code."
 has-permalinks: true
 article:
-  written_on: 2011-10-01
-  updated_on: 2014-09-23
+  written_on: 2011-10-27
+  updated_on: 2014-10-27
   collection: everyday-dart
 ---
 
@@ -18,7 +18,7 @@ article:
 
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
-(updated September 2014)
+(updated October 2014)
 </em>
 
 
@@ -98,33 +98,53 @@ abstract class Predicate {
 
 ## Members
 
-#### DO use constructors instead of static methods to create instances.
+#### PREFER using constructors instead of static methods to create instances.
 {:.no_toc}
 
-Constructors are invoked using `new` or `const` which communicates clearly at
-the callsite that an object is being created. Named constructors and factory
-constructors in Dart give you all of the flexibility of static methods in other
-languages, while still allowing the callsite to appear like a regular
-constructor invocation.
+Constructors are invoked using `new` or `const`, which communicates
+that the main purpose of the call is to return an instance of the class
+(or at least something that implements its interface).
 
+You never _need_ to use a static method to create an instance. Named
+constructors let you clarify how the object is created, and factory
+constructors let you construct instances of subclasses or
+subinterfaces when appropriate.
+
+Still, some methods that technically create a new object don't feel
+"constructor-like". For example,
+[`Uri.parse()`](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-core.Uri#id_parse)
+is a static method even though it creates a new URI from the given arguments.
+Likewise, classes implementing the
+[Builder pattern](http://en.wikipedia.org/wiki/Builder_pattern)
+may read better using static methods.
+
+But, in most cases, you should use a constructor even though it's more verbose.
+When users want a new instance of your class, they expect a constructor to be
+the normal way to create one.
+
+<!-- /src/tests/site/articles/style-guide/prefer-constructors-good.dart -->
 <div class="good">
 {% prettify dart %}
 class Point {
   num x, y;
   Point(this.x, this.y);
-  Point.zero()
-      : x = 0,
-        y = 0;
+  Point.polar(num theta, num radius)
+      : x = radius * math.cos(theta),
+        y = radius * math.sin(theta);
 }
 {% endprettify %}
 </div>
 
+<!-- /src/tests/site/articles/style-guide/prefer-constructors-bad.dart -->
 <div class="bad">
 {% prettify dart %}
 class Point {
   num x, y;
   Point(this.x, this.y);
-  static Point zero() => new Point(0, 0);
+  static Point polar(num theta, num radius) {
+    return new Point(radius * math.cos(theta),
+        radius * math.sin(theta));
+  }
 }
 {% endprettify %}
 </div>
