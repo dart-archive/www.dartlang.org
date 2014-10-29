@@ -17,7 +17,7 @@ The component is defined in `localized.html` and `localized.dart`, and the
 main entry point is `polymer_intl.html`.
 
 Read the
-[source](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/polymer_intl).
+[source](https://github.com/dart-lang/sample-polymer-intl).
 
 <iframe class="running-app-frame"
         style="height:400px;width:100%;"

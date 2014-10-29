@@ -1,16 +1,85 @@
-// Copyright (c) 2011, the Dart project authors.  Please see the AUTHORS file
+// Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-/**
- * Test controller logic - used by unit test harness to embed tests in
- * conent shell.
+/*
+ * The communication protocol between test_controller.js and the driving
+ * page are JSON encoded messages of the following form:
+ *   message = {
+ *      is_first_message: true/false,
+ *      is_status_update: true/false,
+ *      is_done: true/false,
+ *      message: message_content,
+ *   }
+ *
+ * The first message should have [is_first_message] set, the last message
+ * should have [is_done] set. Status updates should have [is_status_update] set.
+ *
+ * The [message_content] can be be any content. In our case it will a list of
+ * events encoded in JSON. See the next comment further down about what an event
+ * is.
  */
 
-// Clear the console before every test run - this is Firebug specific code.
-if (typeof console == "object" && typeof console.clear == "function") {
-  console.clear();
+/*
+ * We will collect testing driver specific events here instead of printing
+ * them to the DOM.
+ * Every entry will look like this:
+ *   {
+ *     'type' : 'sync_exception' / 'window_onerror' / 'script_onerror' / 'print'
+ *              'window_compilationerror' / 'message_received' / 'dom' / 'debug'
+ *     'value' : 'some content',
+ *     'timestamp' : TimestampInMs,
+ *   }
+ */
+var recordedEventList = [];
+var timestampOfFirstEvent = null;
+
+var STATUS_UPDATE_INTERVALL = 10000;
+
+function getCurrentTimestamp() {
+  if (timestampOfFirstEvent == null) {
+    timestampOfFirstEvent = new Date().getTime();
+  }
+  return (new Date().getTime() - timestampOfFirstEvent) / 1000.0;
 }
+
+function stringifyEvent(event) {
+  return JSON.stringify(event, null, 2);
+}
+
+function recordEvent(type, value) {
+  var event = {
+    type: type,
+    value: value,
+    timestamp: getCurrentTimestamp()
+  };
+  recordedEventList.push(event);
+  printToConsole(stringifyEvent(event));
+}
+
+function clearConsole() {
+  // Clear the console before every test run - this is Firebug specific code.
+  if (typeof console == 'object' && typeof console.clear == 'function') {
+    console.clear();
+  }
+}
+
+function printToDOM(message) {
+  var pre = document.createElement('pre');
+  pre.appendChild(document.createTextNode(String(message)));
+  document.body.appendChild(pre);
+  document.body.appendChild(document.createTextNode('\n'));
+}
+
+function printToConsole(message) {
+  var consoleAvailable = typeof console === 'object';
+
+  if (consoleAvailable) {
+    console.log(message);
+  }
+}
+
+clearConsole();
 
 // Some tests may expect and have no way to suppress global errors.
 var testExpectsGlobalError = false;
@@ -19,87 +88,132 @@ var testSuppressedGlobalErrors = [];
 // Set window onerror to make sure that we catch test harness errors across all
 // browsers.
 window.onerror = function (message, url, lineNumber) {
+  if (url) {
+    message = ('window.onerror called: \n\n' +
+        url + ':' + lineNumber + ':\n' + message + '\n\n');
+  }
   if (testExpectsGlobalError) {
     testSuppressedGlobalErrors.push({
       message: message
     });
     return;
   }
-  if (url) {
-    showErrorAndExit(
-        "\n\n" + url + ":" + lineNumber + ":\n" + message + "\n\n");
-  } else {
-    showErrorAndExit(message);
-  }
-  window.postMessage('unittest-suite-external-error', '*');
+  recordEvent('window_onerror', message);
+  notifyDone('FAIL');
 };
-
-// Start Dartium/content_shell, unless we are waiting for HTML Imports to load.
-// HTML Imports allows a document to link to other HTMLs documents via
-// <link rel=import>. It also allows for those other documents to contain
-// <script> tags, which must be run before scripts on the main page.
-// We have package:html_import to polyfill this feature, and it will handle
-// starting Dartium/content_shell in that case. HTML Imports is used by Polymer,
-// but it could be used by itself too. See the specification:
-// https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/imports/index.html
-if (navigator.webkitStartDart && !window.HTMLImports) {
-  navigator.webkitStartDart();
-}
 
 // testRunner is provided by content shell.
 // It is not available in browser tests.
 var testRunner = window.testRunner || window.layoutTestController;
+var isContentShell = testRunner;
 
 var waitForDone = false;
 
+var driverWindowCached = false;
+var driverWindow;
+var reportingDriverWindowError = false;
+
 // Returns the driving window object if available
+// This function occasionally returns null instead of the
+// parent on Android content shell, so we cache the value
+// to get a consistent answer.
 function getDriverWindow() {
   if (window != window.parent) {
     // We're running in an iframe.
-    return window.parent;
+    result = window.parent;
   } else if (window.opener) {
     // We were opened by another window.
-    return window.opener;
+    result = window.opener;
+  } else {
+    result = null;
   }
-  return null;
+  if (driverWindowCached) {
+    if (result != driverWindow) {
+      recordEvent('debug', 'Driver windows changed: was null == ' +
+           (driverWindow == null) + ', is null == ' + (result == null));
+      // notifyDone calls back into this function multiple times.  Avoid loop.
+      if (!reportingDriverWindowError) {
+        reportingDriverWindowError = true;
+        notifyDone('FAIL');
+      }
+    }
+  } else {
+    driverWindowCached = true;
+    driverWindow = result;
+  }
+  return driverWindow;
 }
 
-function notifyStart() {
-  var driver = getDriverWindow();
-  if (driver) {
-    driver.postMessage("STARTING", "*");
+function usingBrowserController() {
+  return getDriverWindow() != null;
+}
+
+function buildDomEvent() {
+  return {
+      type: 'dom',
+      value: '' + window.document.documentElement.innerHTML,
+      timestamp: getCurrentTimestamp()
+  };
+}
+
+function notifyUpdate(testOutcome, isFirstMessage, isStatusUpdate, isDone) {
+  // If we are not using the browser controller (e.g. in the none-drt
+  // configuration), we need to print 'testOutcome' as it is.
+  if (isDone && !usingBrowserController()) {
+    if (isContentShell) {
+      // We need this, since test.dart is looking for 'FAIL\n', 'PASS\n' in the
+      // DOM output of content shell.
+      printToDOM(testOutcome);
+    } else {
+      printToConsole('Test outcome: ' + testOutcome);
+    }
+  } else if (usingBrowserController()) {
+    // To support in browser launching of tests we post back start and result
+    // messages to the window.opener.
+    var driver = getDriverWindow();
+
+    recordEvent('debug', 'Sending events to driver page (isFirstMessage = ' +
+                isFirstMessage + ', isStatusUpdate = ' +
+                isStatusUpdate + ', isDone = ' + isDone + ')');
+    // Post the DOM and all events that happened.
+    var events = recordedEventList.slice(0);
+    events.push(buildDomEvent());
+
+    var message = JSON.stringify(events);
+    driver.postMessage(
+        JSON.stringify({
+          message: message,
+          is_first_message: isFirstMessage,
+          is_status_update: isStatusUpdate,
+          is_done: isDone
+        }), '*');
+  }
+  if (isDone) {
+    if (testRunner) testRunner.notifyDone();
   }
 }
+
+function notifyDone(testOutcome) {
+  notifyUpdate(testOutcome, false, false, true);
+}
+
+// Repeatedly send back the current status of this test.
+function sendStatusUpdate(isFirstMessage) {
+  notifyUpdate('', isFirstMessage, true, false);
+  setTimeout(function() {sendStatusUpdate(false)}, STATUS_UPDATE_INTERVALL);
+}
+
 // We call notifyStart here to notify the encapsulating browser.
-notifyStart();
-
-function notifyDone() {
-  if (testRunner) testRunner.notifyDone();
-
-  // TODO(ricow): REMOVE, debug info, see issue 13292
-  if (!testRunner) {
-    printMessage('Calling notifyDone()');
-  }
-  // To support in browser launching of tests we post back start and result
-  // messages to the window.opener.
-  var driver = getDriverWindow();
-  if (driver) {
-    driver.postMessage(window.document.body.innerHTML, "*");
-  }
-}
+recordEvent('debug', 'test_controller.js started');
+sendStatusUpdate(true);
 
 function processMessage(msg) {
-  if (typeof msg != 'string') return;
-  // TODO(ricow): REMOVE, debug info, see issue 13292
-  if (!testRunner) {
-    // Filter out ShadowDOM polyfill messages which are random floats.
-    if (msg != parseFloat(msg)) {
-      printMessage('processMessage(): ' + msg);
-    }
+  // Filter out ShadowDOM polyfill messages which are random floats.
+  if (msg != parseFloat(msg)) {
+    recordEvent('message_received', '' + msg);
   }
-  if (msg == 'unittest-suite-done') {
-    notifyDone();
-  } else if (msg == 'unittest-suite-wait-for-done') {
+  if (typeof msg != 'string') return;
+  if (msg == 'unittest-suite-wait-for-done') {
     waitForDone = true;
     if (testRunner) {
       testRunner.startedDartTest = true;
@@ -110,14 +224,13 @@ function processMessage(msg) {
     }
   } else if (msg == 'dart-main-done') {
     if (!waitForDone) {
-      printMessage('PASS');
-      notifyDone();
+      notifyDone('PASS');
     }
-  } else if (msg == 'unittest-suite-success') {
-    printMessage('PASS');
-    notifyDone();
+  } else if (msg == 'unittest-suite-success' ||
+             msg == 'unittest-suite-done') {
+    notifyDone('PASS');
   } else if (msg == 'unittest-suite-fail') {
-    showErrorAndExit('Some tests failed.');
+    notifyDone('FAIL');
   }
 }
 
@@ -129,52 +242,29 @@ if (testRunner) {
   testRunner.dumpAsText();
   testRunner.waitUntilDone();
 }
-window.addEventListener("message", onReceive, false);
-
-function showErrorAndExit(message) {
-  if (message) {
-    printMessage('Error: ' + String(message));
-  }
-  // dart/tools/testing/test_runner.dart is looking for either PASS or
-  // FAIL in a browser test's output.
-  printMessage('FAIL');
-  notifyDone();
-}
+window.addEventListener('message', onReceive, false);
 
 function onLoad(e) {
   // needed for dartium compilation errors.
   if (window.compilationError) {
-    showErrorAndExit(window.compilationError);
+    recordEvent('window_compilationerror',
+        'DOMContentLoaded event: window.compilationError = ' +
+        calledwindow.compilationError);
+    notifyDone('FAIL');
   }
 }
 
-window.addEventListener("DOMContentLoaded", onLoad, false);
+window.addEventListener('DOMContentLoaded', onLoad, false);
 
 // Note: before renaming this function, note that it is also included in an
-// inlined error handler in the HTML files that wrap DRT tests.
+// inlined error handler in generated HTML files, and manually in tests that
+// include an HTML file.
 // See: tools/testing/dart/browser_test.dart
-function externalError(e) {
-  // needed for dartium compilation errors.
-  showErrorAndExit(e && e.message);
-  window.postMessage('unittest-suite-external-error', '*');
+function scriptTagOnErrorCallback(e) {
+  var message = e && e.message;
+  recordEvent('script_onerror', 'script.onError called: ' + message);
+  notifyDone('FAIL');
 }
-
-document.addEventListener('readystatechange', function () {
-  if (document.readyState != "loaded") return;
-  // If 'startedDartTest' is not set, that means that the test did not have
-  // a chance to load. This will happen when a load error occurs in the VM.
-  // Give the machine time to start up.
-  setTimeout(function() {
-    // A window.postMessage might have been enqueued after this timeout.
-    // Just sleep another time to give the browser the time to process the
-    // posted message.
-    setTimeout(function() {
-      if (testRunner && !testRunner.startedDartTest) {
-        notifyDone();
-      }
-    }, 0);
-  }, 50);
-});
 
 // dart2js will generate code to call this function to handle the Dart
 // [print] method.
@@ -192,29 +282,25 @@ document.addEventListener('readystatechange', function () {
 //   dart-main-done:  signals that the dart [main] function has finished
 //   unittest-suite-wait-for-done:  signals the start of an asynchronous test
 //   unittest-suite-success:  signals the end of an asynchrounous test
+//   unittest-suite-fail:  signals that the asynchronous test failed
+//   unittest-suite-done:  signals the end of an asynchronous test, the outcome
+//                         is unknown
 //
 // These messages are used to communicate with the test and will be posted so
 // [processMessage] above can see it.
-function dartPrint(msg) {
-  if ((msg === 'unittest-suite-success')
-      || (msg === 'unittest-suite-done')
-      || (msg === 'unittest-suite-wait-for-done')
-      || (msg === 'dart-calling-main')
-      || (msg === 'dart-main-done')) {
-    window.postMessage(msg, '*');
+function dartPrint(message) {
+  recordEvent('print', message);
+  if ((message === 'unittest-suite-wait-for-done') ||
+      (message === 'unittest-suite-success') ||
+      (message === 'unittest-suite-fail') ||
+      (message === 'unittest-suite-done') ||
+      (message === 'dart-calling-main') ||
+      (message === 'dart-main-done')) {
+    // We have to do this asynchronously, in case error messages are
+    // already in the message queue.
+    window.postMessage(message, '*');
     return;
   }
-  printMessage(msg);
-}
-
-// Prints 'msg' to the console (if available) and to the body of the html
-// document.
-function printMessage(msg) {
-  if (typeof console === 'object') console.warn(msg);
-  var pre = document.createElement('pre');
-  pre.appendChild(document.createTextNode(String(msg)));
-  document.body.appendChild(pre);
-  document.body.appendChild(document.createTextNode('\n'));
 }
 
 // dart2js will generate code to call this function instead of calling
@@ -224,9 +310,8 @@ function dartMainRunner(main) {
   try {
     main();
   } catch (e) {
-    dartPrint(e);
-    if (e.stack) dartPrint(e.stack);
-    window.postMessage('unittest-suite-fail', '*');
+    recordEvent('sync_exception', 'Exception: ' + e + '\nStack: ' + e.stack);
+    notifyDone('FAIL');
     return;
   }
   dartPrint('dart-main-done');

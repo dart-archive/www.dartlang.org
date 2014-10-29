@@ -32,9 +32,9 @@ col1:
         description: A Polymer implementation of the the canonical todo app.
       -
         title: Polymer and internationalization
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/polymer_intl/README.md
+        explanation_url: https://github.com/dart-lang/sample-polymer-intl/blob/master/README.md
         tryit_url: polymer_intl/
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/polymer_intl/
+        source_url: https://github.com/dart-lang/sample-polymer-intl
         description: Simple demonstration of internationalization and localization with Polymer.
       -
         title: A task management tool
