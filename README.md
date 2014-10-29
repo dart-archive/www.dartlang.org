@@ -42,11 +42,8 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 * In a terminal, from the dartlang.org project root:
   1. Run `sudo gem install fast-stemmer -v '1.0.2'`
   2. Run `sudo gem install bundler`
-  3. Run `sudo bundle install`, which installs the gems listed in `Gemfile`
+  3. Run `bundle install`, which installs the gems listed in `Gemfile`
     (liquid, jekyll, etc.).
-    * If you see errors like
-      `library X (at master) is not checked out. Please run 'bundle install'`,
-      then run `bundle install` without `sudo`.
 * Download and install the
   [App Engine launcher](https://developers.google.com/appengine/downloads)
   * Ensure App Engine is using Python 2.7. You will see "you're using 2.6" in
