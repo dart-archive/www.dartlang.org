@@ -110,9 +110,6 @@ handlers:
 - url: /dartium/.*
   script: scripts.redirector.application
 
-- url: /tools/analyzer
-  script: scripts.redirector.application
-
 - url: /docs/editor/.*
   script: scripts.redirector.application
 

@@ -142,7 +142,7 @@ by the Dart community.
       <dd>The Dart-to-JavaScript compiler </dd>
   </div>
   <div class="col-md-4">
-    <dt> <a href="/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer">dartanalyzer</a> </dt>
+    <dt> <a href="/tools/analyzer">dartanalyzer</a> </dt>
       <dd>The static analyzer </dd>
     <dt> <a href="/tools/docgen/">docgen</a> </dt>
       <dd>The API documentation generator </dd>

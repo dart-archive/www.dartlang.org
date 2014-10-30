@@ -127,7 +127,7 @@ class BookRedirect(RequestHandler):
     elif filename == 'ch04-tools-dart-vm.html':
         self.redirect('/tools/dart-vm/', permanent=True)
     elif filename == 'ch04-tools-dart_analyzer.html':
-        self.redirect(book_home + 'ch04.html#dartanalyzer-the-static-analyzer', permanent=True)
+        self.redirect('/tools/analyzer/', permanent=True)
     else:
         self.redirect(book_home)
 
@@ -240,8 +240,6 @@ application = WSGIApplication(
       defaults={'_uri': '/codelabs/'}),
     Route('/codelabs/web-ui-writer/', RedirectHandler,
       defaults={'_uri': '/codelabs/'}),
-    Route('/tools/analyzer', RedirectHandler,
-      defaults={'_uri': '/docs/dart-up-and-running/ch04.html#dartanalyzer-the-static-analyzer'}),
     Route('/atom.xml', RedirectHandler,
       defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
     Route('/+lexicalscope', RedirectHandler,
