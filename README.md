@@ -91,7 +91,10 @@ On a Mac:
 * Add depot_tools to your PATH:
   $ export PATH="$PATH":`pwd`/depot_tools
   NOTE: You may want to add this to your .bashrc file or your shell's equivalent so that you don’t need to reset your $PATH manually each time you open a new shell.
-
+* Run `git cl config`. For the Rietveld server, specify `https://chromiumcodereview.appspot.com`.
+  * If you haven't used http://chromiumcodereview.appspot.com/ before, you'll be asked to specify an
+    [app-specific password](http://www.google.com/support/accounts/bin/answer.py?answer=185833).
+    Go ahead and create one. Your regular password won't work.
 
 ## Development
 
