@@ -83,8 +83,7 @@ To get started with Dart Editor, read these:
 
 For details on _using_ Dart Editor, read this:
 
-* [Dart Editor](/docs/dart-up-and-running/ch04.html#dart-editor)
-  (a section from Chapter 4 of _Dart Up and Running_)<br>
+* [Tips for Using Dart Editor](using.html)<br>
   Teaches how to use Dart Editor&mdash;for example,
   how to set up launches for different browsers.
 
