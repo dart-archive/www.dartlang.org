@@ -13,7 +13,7 @@ This sample uses `JSONP` and the `dart:js` library to retrieve data about
 Github repos belonging to the user dart-lang.
 
 Read the
-[source](https://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fsamples%2Fjsonp).
+[source](https://github.com/dart-lang/sample-jsonp).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"
