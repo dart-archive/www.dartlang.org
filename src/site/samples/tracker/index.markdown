@@ -11,7 +11,7 @@ header:
 Create, update, and delete tasks. Built using Polymer Dart.
 
 Read the
-[source](https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/tracker/)
+[source](https://github.com/dart-lang/sample-tracker)
 
 
 <iframe class="running-app-frame"
