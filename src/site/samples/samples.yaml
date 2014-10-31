@@ -63,9 +63,9 @@ col1:
         description: Intermediate level app that shows the use of JavaScript and Dart interoperability.
       -
         title: Fetching data using JSONP
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/README.md
+        explanation_url: https://github.com/dart-lang/sample-jsonp/blob/master/README.md
         tryit_url: jsonp/
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/jsonp/
+        source_url: https://github.com/dart-lang/sample-jsonp/
         description: Use JSONP to see the GitHub repos for dart-lang.
 
   -
