@@ -1,0 +1,76 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!--
+`core-list-dart` displays a virtual, 'infinite' list. The template inside the
+`core-list-dart` element represents the dom to create for each list item. The
+`data` property specifies an array of list item data. The `height` property
+represents the fixed height of a list item (variable height list items are
+not yet supported).
+
+`core-list-dart` manages a viewport of data based on the current scroll
+position.
+For performance reasons, not every item in the list is rendered at once.
+
+List item templates bind to a template model with the following structure:
+
+    class _ListModel extends Observable {
+      @observable int index;     // list index for this item
+      @observable bool selected; // selection state for this item
+      @observable var model;     // user data corresponding to data[index]
+      ...
+    }
+
+For example, given the following data:
+
+    data = toObservable([
+      new Person('Bob', true),
+      new Person('Tim', false),
+      ...
+    ])
+
+where `Person` is a model defined as:
+
+    class Person extends Observable{
+      @observable String name;
+      @observable bool checked;
+      Person(this.name, this.checked);
+    }
+
+The following code would render the list (note the `name` and `checked`
+properties are bound from the `model` object provided to the template
+scope):
+
+    <core-list-dart data="{{data}}" height="80">
+      <template>
+        <div class="{{ {selected: selected} }}">
+          List row: {{index}}, User data from model: {{model.name}}
+          <input type="checkbox" checked="{{model.checked}}">
+        </div>
+      </template>
+    </core-list-dart>
+
+By default, the list supports selection via tapping. Styling the selection 
+should be done via binding to the `selected` property of each model.
+
+@group Polymer Core Elements
+@element core-list-dart
+-->
+<link rel="import" href="../../packages/polymer/polymer.html">
+<link rel="import" href="core_selection.html">
+
+<polymer-element name="core-list-dart" on-tap="{{tapHandler}}">
+<template>
+  <core-selection id="selection" multi="{{multi}}"
+      on-core-select="{{selectedHandler}}"></core-selection>
+  <link rel="stylesheet" href="src/core-list/core-list.css">
+  <div id="viewport" class="core-list-viewport"><content></content></div>
+</template>
+<script type="application/dart" src="core_list_dart.dart"></script>
+</polymer-element>

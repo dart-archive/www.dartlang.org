@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><script src="packages/web_components/platform.js"></script>
+<script src="packages/web_components/dart_support.js"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -14,7 +15,7 @@ body {
 body {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
-  background: #eaeaea url(app/bg.png);
+  background: #eaeaea url(packages/todomvc/app/bg.png);
   color: #4d4d4d;
   width: 550px;
   margin: 0 auto;
@@ -209,7 +210,6 @@ hr {
     margin: 130px auto 40px auto;
   }
 }</style>
-    <script src="packages/web_components/dart_support.js"></script>
     
     
     
@@ -506,33 +506,28 @@ html /deep/ [segment], html /deep/ segment {
 <script src="src/js/polymer/polymer.concat.js"></script>
 -->
 
-<polymer-element name="polymer-localstorage">
-  <template>
-    <style>
-      @host {
-        * {
-          display: none;
-        }
-      }
-    </style>
-  </template>
-  
+
+<polymer-element name="core-localstorage-dart" attributes="name value useRaw autoSaveDisabled" hidden="">
+
 </polymer-element>
 
 <polymer-element name="td-model">
   
 </polymer-element>
+<script src="packages/web_components/interop_support.js"></script>
 
-<polymer-element name="polymer-selection" attributes="multi">
-  <template>
-    <style>
-      :host {
-        display: none !important;
-      }
-    </style>
-  </template>
+<!-- Dart note: load polymer for Dart and JS from the same place -->
+
+<script>
+// This empty script is here to workaround issue
+// https://github.com/dart-lang/core-elements/issues/11
+</script>
+
+
+
+<polymer-element name="core-selection" attributes="multi" hidden="">
   <script>
-    Polymer('polymer-selection', {
+    Polymer('core-selection', {
       /**
        * If true, multiple selections are allowed.
        *
@@ -551,7 +546,7 @@ html /deep/ [segment], html /deep/ segment {
        * Retrieves the selected item(s).
        * @method getSelection
        * @returns Returns the selected item(s). If the multi property is true,
-       * getSelection will return an array, otherwise it will return
+       * getSelection will return an array, otherwise it will return 
        * the selected item or undefined if there is no selection.
       */
       getSelection: function() {
@@ -576,7 +571,7 @@ html /deep/ [segment], html /deep/ segment {
               this.selection.splice(i, 1);
             }
           }
-          this.fire("polymer-select", {isSelected: isSelected, item: item});
+          this.fire("core-select", {isSelected: isSelected, item: item});
         }
       },
       /**
@@ -607,13 +602,17 @@ html /deep/ [segment], html /deep/ segment {
 </polymer-element>
 
 
-<polymer-element name="polymer-selector" attributes="selected multi valueattr selectedClass selectedProperty selectedItem selectedModel selectedIndex notap target itemsSelector activateEvent">
+<polymer-element name="core-selector" attributes="selected multi valueattr selectedClass selectedProperty selectedAttribute selectedItem selectedModel selectedIndex notap excludedLocalNames target itemsSelector activateEvent">
+
   <template>
-    <polymer-selection id="selection" multi="{{multi}}" on-polymer-select="{{selectionSelect}}"></polymer-selection>
+    <core-selection id="selection" multi="{{multi}}" on-core-select="{{selectionSelect}}"></core-selection>
     <content id="items" select="*"></content>
   </template>
+
   <script>
-    Polymer('polymer-selector', {
+
+    Polymer('core-selector', {
+
       /**
        * Gets or sets the selected element.  Default to use the index
        * of the item element.
@@ -623,21 +622,21 @@ html /deep/ [segment], html /deep/ segment {
        *
        * Example:
        *
-       *     <polymer-selector valueattr="label" selected="foo">
+       *     <core-selector valueattr="label" selected="foo">
        *       <div label="foo"></div>
        *       <div label="bar"></div>
        *       <div label="zot"></div>
-       *     </polymer-selector>
+       *     </core-selector>
        *
        * In multi-selection this should be an array of values.
        *
        * Example:
        *
-       *     <polymer-selector id="selector" valueattr="label" multi>
+       *     <core-selector id="selector" valueattr="label" multi>
        *       <div label="foo"></div>
        *       <div label="bar"></div>
        *       <div label="zot"></div>
-       *     </polymer-selector>
+       *     </core-selector>
        *
        *     this.$.selector.selected = ['foo', 'zot'];
        *
@@ -646,6 +645,7 @@ html /deep/ [segment], html /deep/ segment {
        * @default null
        */
       selected: null,
+
       /**
        * If true, multiple selections are allowed.
        *
@@ -654,6 +654,7 @@ html /deep/ [segment], html /deep/ segment {
        * @default false
        */
       multi: false,
+
       /**
        * Specifies the attribute to be used for "selected" attribute.
        *
@@ -662,77 +663,122 @@ html /deep/ [segment], html /deep/ segment {
        * @default 'name'
        */
       valueattr: 'name',
+
       /**
        * Specifies the CSS class to be used to add to the selected element.
-       *
+       * 
        * @attribute selectedClass
        * @type string
-       * @default 'polymer-selected'
+       * @default 'core-selected'
        */
-      selectedClass: 'polymer-selected',
+      selectedClass: 'core-selected',
+
       /**
        * Specifies the property to be used to set on the selected element
        * to indicate its active state.
        *
        * @attribute selectedProperty
        * @type string
+       * @default ''
+       */
+      selectedProperty: '',
+
+      /**
+       * Specifies the attribute to set on the selected element to indicate
+       * its active state.
+       *
+       * @attribute selectedAttribute
+       * @type string
        * @default 'active'
        */
-      selectedProperty: 'active',
+      selectedAttribute: 'active',
+
       /**
        * Returns the currently selected element. In multi-selection this returns
        * an array of selected elements.
-       *
+       * Note that you should not use this to set the selection. Instead use
+       * `selected`.
+       * 
        * @attribute selectedItem
        * @type Object
        * @default null
        */
       selectedItem: null,
+
       /**
        * In single selection, this returns the model associated with the
        * selected element.
-       *
+       * Note that you should not use this to set the selection. Instead use 
+       * `selected`.
+       * 
        * @attribute selectedModel
        * @type Object
        * @default null
        */
       selectedModel: null,
+
       /**
        * In single selection, this returns the selected index.
+       * Note that you should not use this to set the selection. Instead use
+       * `selected`.
        *
        * @attribute selectedIndex
        * @type number
        * @default -1
        */
       selectedIndex: -1,
+
       /**
-       * The target element that contains items.  If this is not set
-       * polymer-selector is the container.
+       * Nodes with local name that are in the list will not be included 
+       * in the selection items.  In the following example, `items` returns four
+       * `core-item`'s and doesn't include `h3` and `hr`.
        *
+       *     <core-selector excludedLocalNames="h3 hr">
+       *       <h3>Header</h3>
+       *       <core-item>Item1</core-item>
+       *       <core-item>Item2</core-item>
+       *       <hr>
+       *       <core-item>Item3</core-item>
+       *       <core-item>Item4</core-item>
+       *     </core-selector>
+       *
+       * @attribute excludedLocalNames
+       * @type string
+       * @default ''
+       */
+      excludedLocalNames: '',
+
+      /**
+       * The target element that contains items.  If this is not set 
+       * core-selector is the container.
+       * 
        * @attribute target
        * @type Object
        * @default null
        */
       target: null,
+
       /**
-       * This can be used to query nodes from the target node to be used for
-       * selection items.  Note this only works if the 'target' property is set.
+       * This can be used to query nodes from the target node to be used for 
+       * selection items.  Note this only works if `target` is set
+       * and is not `core-selector` itself.
        *
        * Example:
        *
-       *     <polymer-selector target="{{$.myForm}}" itemsSelector="input[type=radio]"></polymer-selector>
+       *     <core-selector target="{{$.myForm}}" itemsSelector="input[type=radio]"></core-selector>
        *     <form id="myForm">
        *       <label><input type="radio" name="color" value="red"> Red</label> <br>
        *       <label><input type="radio" name="color" value="green"> Green</label> <br>
        *       <label><input type="radio" name="color" value="blue"> Blue</label> <br>
        *       <p>color = {{color}}</p>
        *     </form>
-       *
-       * @attribute itemSelector
+       * 
+       * @attribute itemsSelector
        * @type string
        * @default ''
        */
       itemsSelector: '',
+
       /**
        * The event that would be fired from the item element to indicate
        * it is being selected.
@@ -742,44 +788,93 @@ html /deep/ [segment], html /deep/ segment {
        * @default 'tap'
        */
       activateEvent: 'tap',
+
+      /**
+       * Set this to true to disallow changing the selection via the
+       * `activateEvent`.
+       *
+       * @attribute notap
+       * @type boolean
+       * @default false
+       */
       notap: false,
+
+      defaultExcludedLocalNames: 'template',
+
       ready: function() {
         this.activateListener = this.activateHandler.bind(this);
+        this.itemFilter = this.filterItem.bind(this);
+        this.excludedLocalNamesChanged();
         this.observer = new MutationObserver(this.updateSelected.bind(this));
         if (!this.target) {
           this.target = this;
         }
       },
+
+      /**
+       * Returns an array of all items.
+       *
+       * @property items
+       */
       get items() {
-        var nodes = this.target !== this ? (this.itemsSelector ?
-            this.target.querySelectorAll(this.itemsSelector) :
+        if (!this.target) {
+          return [];
+        }
+        var nodes = this.target !== this ? (this.itemsSelector ? 
+            this.target.querySelectorAll(this.itemsSelector) : 
                 this.target.children) : this.$.items.getDistributedNodes();
-        return Array.prototype.filter.call(nodes || [], function(n) {
-          return n && n.localName !== 'template';
-        });
+        return Array.prototype.filter.call(nodes, this.itemFilter);
       },
+
+      filterItem: function(node) {
+        return !this._excludedNames[node.localName];
+      },
+
+      excludedLocalNamesChanged: function() {
+        this._excludedNames = {};
+        var s = this.defaultExcludedLocalNames;
+        if (this.excludedLocalNames) {
+          s += ' ' + this.excludedLocalNames;
+        }
+        s.split(/\s+/g).forEach(function(n) {
+          this._excludedNames[n] = 1;
+        }, this);
+      },
+
       targetChanged: function(old) {
         if (old) {
           this.removeListener(old);
           this.observer.disconnect();
+          this.clearSelection();
         }
         if (this.target) {
           this.addListener(this.target);
           this.observer.observe(this.target, {childList: true});
+          this.updateSelected();
         }
       },
+
       addListener: function(node) {
-        node.addEventListener(this.activateEvent, this.activateListener);
+        Polymer.addEventListener(node, this.activateEvent, this.activateListener);
       },
+
       removeListener: function(node) {
-        node.removeEventListener(this.activateEvent, this.activateListener);
+        Polymer.removeEventListener(node, this.activateEvent, this.activateListener);
       },
+
+      /**
+       * Returns the selected item(s). If the `multi` property is true,
+       * this will return an array, otherwise it will return 
+       * the selected item or undefined if there is no selection.
+       */
       get selection() {
         return this.$.selection.getSelection();
       },
+
       selectedChanged: function() {
         this.updateSelected();
       },
+
       updateSelected: function() {
         this.validateSelected();
         if (this.multi) {
@@ -791,13 +886,15 @@ html /deep/ [segment], html /deep/ segment {
           this.valueToSelection(this.selected);
         }
       },
+
       validateSelected: function() {
         // convert to an array for multi-selection
-        if (this.multi && !Array.isArray(this.selected) &&
+        if (this.multi && !Array.isArray(this.selected) && 
             this.selected !== null && this.selected !== undefined) {
           this.selected = [this.selected];
         }
       },
+
       clearSelection: function() {
         if (this.multi) {
           this.selection.slice().forEach(function(s) {
@@ -809,14 +906,17 @@ html /deep/ [segment], html /deep/ segment {
         this.selectedItem = null;
         this.$.selection.clear();
       },
+
       valueToSelection: function(value) {
-        var item = (value === null || value === undefined) ?
+        var item = (value === null || value === undefined) ? 
             null : this.items[this.valueToIndex(value)];
         this.$.selection.select(item);
       },
+
       updateSelectedItem: function() {
         this.selectedItem = this.selection;
       },
+
       selectedItemChanged: function() {
         if (this.selectedItem) {
           var t = this.selectedItem.templateInstance;
@@ -824,9 +924,10 @@ html /deep/ [segment], html /deep/ segment {
         } else {
           this.selectedModel = null;
         }
-        this.selectedIndex = this.selectedItem ?
+        this.selectedIndex = this.selectedItem ? 
             parseInt(this.valueToIndex(this.selected)) : -1;
       },
+
       valueToIndex: function(value) {
         // find an item with value == value and return it's index
         for (var i=0, items=this.items, c; (c=items[i]); i++) {
@@ -837,16 +938,19 @@ html /deep/ [segment], html /deep/ segment {
         // if no item found, the value itself is probably the index
         return value;
       },
+
       valueForNode: function(node) {
         return node[this.valueattr] || node.getAttribute(this.valueattr);
       },
-      // events fired from <polymer-selection> object
+
+      // events fired from <core-selection> object
       selectionSelect: function(e, detail) {
         this.updateSelectedItem();
         if (detail.item) {
-          this.applySelection(detail.item, detail.isSelected)
+          this.applySelection(detail.item, detail.isSelected);
         }
       },
+
       applySelection: function(item, isSelected) {
         if (this.selectedClass) {
           item.classList.toggle(this.selectedClass, isSelected);
@@ -854,7 +958,15 @@ html /deep/ [segment], html /deep/ segment {
         if (this.selectedProperty) {
           item[this.selectedProperty] = isSelected;
         }
+        if (this.selectedAttribute && item.setAttribute) {
+          if (isSelected) {
+            item.setAttribute(this.selectedAttribute, '');
+          } else {
+            item.removeAttribute(this.selectedAttribute);
+          }
+        }
       },
+
       // event fired from host
       activateHandler: function(e) {
         if (!this.notap) {
@@ -871,10 +983,11 @@ html /deep/ [segment], html /deep/ segment {
             } else {
               this.selected = s;
             }
-            this.asyncFire('polymer-activate', {item: item});
+            this.asyncFire('core-activate', {item: item});
           }
         }
       },
+
       addRemoveSelected: function(value) {
         var i = this.selected.indexOf(value);
         if (i >= 0) {
@@ -884,6 +997,7 @@ html /deep/ [segment], html /deep/ segment {
         }
         this.valueToSelection(value);
       },
+
       findDistributedTarget: function(target, nodes) {
         // find first ancestor of target (including itself) that
         // is in nodes, if any
@@ -894,10 +1008,48 @@ html /deep/ [segment], html /deep/ segment {
           }
           target = target.parentNode;
         }
+      },
+      
+      selectIndex: function(index) {
+        var item = this.items[index];
+        if (item) {
+          this.selected = this.valueForNode(item) || index;
+          return item;
+        }
+      },
+      
+      /**
+       * Selects the previous item.  This should be used in single selection only.
+       *
+       * @method selectPrevious
+       * @param {boolean} wrap if true and it is already at the first item, wrap to the end
+       * @returns the previous item or undefined if there is none
+       */
+      selectPrevious: function(wrap) {
+        var i = wrap && !this.selectedIndex ? this.items.length - 1 : this.selectedIndex - 1;
+        return this.selectIndex(i);
+      },
+      
+      /**
+       * Selects the next item.  This should be used in single selection only.
+       *
+       * @method selectNext
+       * @param {boolean} wrap if true and it is already at the last item, wrap to the front
+       * @returns the next item or undefined if there is none
+       */
+      selectNext: function(wrap) {
+        var i = wrap && this.selectedIndex >= this.items.length - 1 ? 0 : this.selectedIndex + 1;
+        return this.selectIndex(i);
       }
+      
     });
   </script>
 </polymer-element>
+
+
+
+
+
 
 
 <polymer-element name="simple-router">
@@ -1372,17 +1524,17 @@ label[for='toggle-all'] {
       <footer id="footer" hidden?="{{model.items.length == 0}}">
         <span id="todo-count"><strong>{{model.activeCount}}</strong>
             {{model.activeItemWord}} left</span>
-        <polymer-selector id="filters" selected="{{activeRoute}}">
+        <core-selector id="filters" selected="{{activeRoute}}">
           <li label="all">
-            <a _href="{{baseUri}}#/">All</a>
+            <a href="#/">All</a>
           </li>
           <li label="active">
-            <a _href="{{baseUri}}#/active">Active</a>
+            <a href="#/active">Active</a>
           </li>
           <li label="completed">
-            <a _href="{{baseUri}}#/completed">Completed</a>
+            <a href="#/completed">Completed</a>
           </li>
-        </polymer-selector>
+        </core-selector>
         <button hidden?="{{model.completedCount == 0}}" id="clear-completed" on-click="{{clearCompletedAction}}">Clear completed
             ({{model.completedCount}})</button>
       </footer>
@@ -1396,8 +1548,8 @@ label[for='toggle-all'] {
     <header>
       <h1>todos</h1>
     </header>
-    <polymer-localstorage id="storage" name="todos-polymer">
-    </polymer-localstorage>
+    <core-localstorage-dart id="storage" name="todos-polymer">
+    </core-localstorage-dart>
     <td-model id="model" storageid="storage"></td-model>
     <td-todos modelid="model"></td-todos>
     <footer id="info">
