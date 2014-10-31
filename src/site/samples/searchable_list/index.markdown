@@ -47,7 +47,7 @@ Any changes to `searchParam` trigger  `search()`. Here is the code for that
     onPropertyChange(this, #searchParam, search);
 
 Read the
-[source](https://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fsamples%2Fsearchable_list).
+[source](https://github.com/dart-lang/sample-searchable-list).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

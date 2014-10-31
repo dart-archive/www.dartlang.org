@@ -1,30 +1,12 @@
-<!DOCTYPE html><!--
-Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
-for details. All rights reserved. Use of this source code is governed by a
-BSD-style license that can be found in the LICENSE file.
---><html lang="en"><head><script src="packages/web_components/platform.js"></script>
-<script src="packages/web_components/dart_support.js"></script>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  
-  
-  
-  <title>Searchable list</title>
-</head>
-<body>
-
-
-
-
-<!-- unminfied for debugging:
-<link rel="import" href="src/js/polymer/layout.html">
-<script src="src/js/polymer/polymer.concat.js"></script>
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
-
-
-
-<style shim-shadowdom="">
+<style shim-shadowdom>
 /*******************************
           Flex Layout
 *******************************/
@@ -293,38 +275,4 @@ html /deep/ [segment], html /deep/ segment {
   border-radius: 5px 5px 5px 5px;
 }
 
-</style><script src="packages/polymer/src/js/polymer/polymer.js"></script><script>
-// TODO(sigmund): remove this script tag (dartbug.com/19650). This empty
-// script tag is necessary to work around a bug in Chrome 36.
-</script><polymer-element name="searchable-list">
-  <template>
-    <div class="container">
-      <input class="form-control" type="text" value="{{searchParam}}">
-      <template if="{{results.length > 0}}">
-        <ul class="list-unstyled">
-          <template repeat="{{result in results}}">
-            <li>{{result}}</li>
-          </template>
-        </ul>
-      </template>
-    </div>
-  </template>
-
-  
-</polymer-element>
-<polymer-element name="demo-app">
-  <template>
-    <style>
-      * {
-        margin: 10px;
-      }
-    </style>
-    <searchable-list data="{{fruits}}"></searchable-list>
-  </template>
-  
-</polymer-element>
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-  <demo-app></demo-app>
-
-
-<script src="index.html_bootstrap.dart.js" async=""></script></body></html>
+</style>
