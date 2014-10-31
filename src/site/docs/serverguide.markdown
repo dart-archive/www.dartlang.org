@@ -54,8 +54,8 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 
 ### Basic command-line apps
 
-* [dcat](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat/README.md)
-* [dgrep](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep/README.md)
+* [dcat](https://github.com/dart-lang/sample-dcat/blob/master/README.md)
+* [dgrep](https://github.com/dart-lang/sample-dgrep/blob/master/README.md)
 </div>
 <div class="col-md-7" markdown="1">
 

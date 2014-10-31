@@ -77,13 +77,13 @@ col1:
     examples:
       -
         title: Searching files for content
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep/README.md
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dgrep
+        explanation_url: https://github.com/dart-lang/sample-dgrep/blob/master/README.md
+        source_url: https://github.com/dart-lang/sample-dgrep/
         description: A short app that shows how to work with file and directories asynchronously.
       -
         title: Concatenating files
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat/README.md
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dcat
+        explanation_url: https://github.com/dart-lang/sample-dcat/blob/master/README.md
+        source_url: https://github.com/dart-lang/sample-dcat/
         description: Use streams to read files and process I/O.
       -
         title: A search app using HttpServer and WebSockets
