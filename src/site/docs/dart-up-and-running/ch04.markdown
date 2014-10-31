@@ -2,14 +2,13 @@
 layout: book
 title: "Tools"
 subsite: "Dart Up and Running"
-description: "Read Chapter 4. Tools of Dart: Up and Running, published by O'Reilly."
+description: "The remnants of Chapter 4. Tools of Dart: Up and Running, published by O'Reilly."
 prev-chapter: ch03.html
 prev-chapter-title: "Library Tour"
 next-chapter: ch05.html
 next-chapter-title: "Walkthrough"
 ---
 
-{% include toc.html %}
 {% include book-nav.html %}
 
 # {{ page.title }}
@@ -17,82 +16,40 @@ next-chapter-title: "Walkthrough"
 Dart provides several tools to help you write and deploy your web and
 command-line apps. These tools include:
 
-[pub: The Dart package and asset manager](#pub-the-dart-package-and-asset-manager)
+[pub: The Dart package and asset manager](/tools/pub/)
 
 :   Download and install packages of libraries,
     prepare your app for deployment, and more.
 
-[Dart Editor](#dart-editor)
+[Dart Editor](/tools/editor/)
 
 :   Edit, run, and debug web and command-line apps.
 
-[Dartium: Chromium with the Dart VM](#dartium-chromium-with-the-dart-vm)
+[Dartium: Chromium with the Dart VM](/tools/dartium/)
 
 :   Run Dart web apps. This is a special build of Chromium (the project
     behind Google Chrome).
 
-[dart2js: The Dart-to-JavaScript compiler](#dart2js-the-dart-to-javascript-compiler)
+[dart2js: The Dart-to-JavaScript compiler](/tools/dart2js/)
 
 :   Convert your web app to JavaScript, so it can run in non-Dartium
     browsers.
 
-[dart: The standalone Dart VM](#dart-the-standalone-vm)
+[dart: The standalone VM](/tools/dart-vm/)
 
 :   Run your command-line apps—server-side scripts, programs, servers,
     and any other apps that don’t run in a browser.
 
-[dartanalyzer: The static analyzer](#dartanalyzer-the-static-analyzer)
+[dartanalyzer: The static analyzer](/tools/analyzer/)
 
 :   Analyze your Dart source from the command line.
 
-All of these tools are in the Dart Editor bundle, since the editor uses
-them. You can also download Dartium separately, and you can download an
-SDK that includes pub, dart2js, dart, dartanalyzer, and more. See the
-[Tools page](/tools/) for links and details.
-
-The tools are in the `dart-sdk/bin` directory of your Dart installation
-directory. If you intend to use tools such as pub, dart2js, and dart
-from the command line, add the `bin` directory to your path.
-
-
-## pub: The Dart Package and Asset Manager
-
-The documentation for pub has moved to
-[dartlang.org/tools/pub/](/tools/pub/).
-
-
-## Dart Editor
-
-The documentation for Dart Editor has moved to
-[dartlang.org/tools/editor/](/tools/editor/).
-
-## Dartium: Chromium with the Dart VM
-
-The documentation for Dartium has moved to
-[dartlang.org/tools/dartium/](/tools/dartium/).
-
-## dart2js: The Dart-to-JavaScript Compiler
-
-The documentation for dart2js has moved to
-[dartlang.org/tools/dart2js/](/tools/dart2js/).
-
-
-## dart: The Standalone VM
-
-The documentation for dart has moved to
-[dartlang.org/tools/dart-vm/](/tools/dart-vm/).
-
-
-## dartanalyzer: The Static Analyzer
-
-The documentation for dartanalyzer has moved to
-[dartlang.org/tools/analyzer/](/tools/analyzer/).
-
-## Summary
-
-This chapter covered the most commonly used Dart tools. All of them are
+All of these tools are
 available in the Dart Editor download, but you can also download Dartium
 or the SDK separately.
+
+For information about these and other tools,
+see [Dart Tools](/tools/).
 
 
 <hr>

@@ -117,7 +117,7 @@ class BookRedirect(RequestHandler):
     elif filename == 'ch04-tools-pub.html':
         self.redirect('/tools/pub/', permanent=True)
     elif filename == 'ch04-tools-editor.html':
-        self.redirect(book_home + 'ch04.html#dart-editor', permanent=True)
+        self.redirect('/tools/editor', permanent=True)
     elif filename == 'ch04-tools-dartium.html':
         self.redirect('/tools/dartium/', permanent=True)
     elif filename == 'ch04-tools-dartdoc.html':
