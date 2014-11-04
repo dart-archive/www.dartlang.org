@@ -240,6 +240,8 @@ application = WSGIApplication(
       defaults={'_uri': '/codelabs/'}),
     Route('/codelabs/web-ui-writer/', RedirectHandler,
       defaults={'_uri': '/codelabs/'}),
+    Route('/codelabs/deploy/', RedirectHandler,
+      defaults={'_uri': '/codelabs/'}),
     Route('/atom.xml', RedirectHandler,
       defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
     Route('/+lexicalscope', RedirectHandler,
