@@ -244,7 +244,7 @@ step, you’ll open a web app and run it in Dartium.
 
 2.  In the Welcome tab, click the image labeled **Sunflower**. Dart
     Editor creates a copy of the [Sunflower app’s
-    directory,](http://code.google.com/p/dart/source/browse/trunk/dart/samples/sunflower/)
+    directory,](https://github.com/dart-lang/sample-sunflower)
     and the Editor view displays the contents of *web/sunflower.dart*.
 
 3.  Click the Run button ![](images/run.png). Dart Editor launches

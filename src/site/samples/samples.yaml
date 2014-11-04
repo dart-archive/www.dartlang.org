@@ -26,9 +26,9 @@ col1:
         description: Use data binding to work with form data in Polymer.
       -
         title: TodoMVC
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/README.md
+        explanation_url: https://github.com/dart-lang/sample-todomvc-polymer/blob/master/README.md
         tryit_url: todomvc/
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/
+        source_url: https://github.com/dart-lang/sample-todomvc-polymer/
         description: A Polymer implementation of the the canonical todo app.
       -
         title: Polymer and internationalization
@@ -88,8 +88,8 @@ col1:
       -
         title: A search app using HttpServer and WebSockets
         title: "Dartiverse Search: A search app using HttpServer and WebSockets"
-        explanation_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt
-        source_url: https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search
+        explanation_url: https://github.com/dart-lang/sample-dartiverse-search/blob/master/readme.txt
+        source_url: https://github.com/dart-lang/sample-dartiverse-search/
         description: A full app with a server and a client to search for Dart on  StackOverflow and GitHub.
   -
     heading: Animation and graphics

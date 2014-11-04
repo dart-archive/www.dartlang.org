@@ -11,7 +11,7 @@ header:
 An implementation of the familiar TodoMVC app in polymer.dart.
 
 Read the
-[source](https://github.com/dart-lang/bleeding_edge/tree/master/dart/samples/third_party/todomvc).
+[source](https://github.com/dart-lang/sample-todomvc-polymer/).
 
 <iframe class="running-app-frame"
         style="height:600px;width:100%;"

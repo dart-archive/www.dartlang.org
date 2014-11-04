@@ -79,7 +79,7 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 #### Servers
 {:.no_toc}
 
-* [dartiverse_search](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/dartiverse_search/readme.txt)
+* [dartiverse_search](https://github.com/dart-lang/sample-dartiverse-search/blob/master/readme.txt)
 * [hello_world_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/hello_world_server.dart)
 * [basic_writer_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/basic_writer_server.dart)
 * [static_file_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/static_file_server.dart)

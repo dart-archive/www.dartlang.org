@@ -39,8 +39,7 @@ You can use Dart Editor to get and run Dartiverse Search.
     > **Note**
     >
     > If you aren’t using Dart Editor, you can find the Dartiverse
-    > Search source code in the [Dart project](http://code.google.com/p/dart)
-    > under `samples/dartiverse_search`.
+    > Search source code in [GitHub](https://github.com/dart-lang/sample-dartiverse-search)
 
 3.  Use **Tools \> Pub Build** to build the package.
 
