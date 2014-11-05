@@ -13,7 +13,7 @@ description: How pub transforms and generates assets and files during
 The [`pub serve`](cmd/pub-serve.html), [`pub build`](cmd/pub-build.html)
 and [`pub run`](cmd/pub-run.html) commands use [transformers][]
 to prepare a package's [assets][] before serving the app,
-building the app for deployment, or executing the command line app, 
+building the app for deployment, or executing the command-line app, 
 as the case may be.
 
 Use the `pubspec.yaml` file to specify which transformers your package uses
@@ -37,9 +37,21 @@ packages, or to multiple directories within your package), it needs
 to be in `lib`.
 
 After transformation by `pub build`, assets are
-available under a directory called `build`. Assets generated from
-files in a package's `lib` directory appear under a directory named
-<code>packages/<em>&lt;pkg_name&gt;</em></code>.
+available somewhere under build. For example, consider the
+following directory structure:
+
+{% prettify none %}
+myapp/
+  example/
+    foo/
+      bar.txt
+{% endprettify %}
+
+When you build this example (`pub build example`), you end up with 
+`build/example/foo/bar.txt`.
+
+Assets generated from files in a package's `lib` directory appear
+under a directory named <code>packages/<em>&lt;pkg_name&gt;</em></code>.
 For details, see
 [Where to put assets](#where-to-put-assets) and
 [How to refer to assets](#how-to-refer-to-assets).
@@ -69,7 +81,7 @@ compiled to `.js`.
 ![a figure showing source assets and generated assets; the .html, .css, and .png files pass through, untransformed; the .dart file is transformed into a .js file (and, for pub serve only, the .dart file is passed through, as well)](/tools/images/assets-and-transformers.png)
 
 Dart files are a special case. The `pub build` command doesn't produce `.dart`
-files because browsers in the wild don't support Dart natively (yet). The `pub
+files because browsers in the wild don't support Dart natively. The `pub
 serve` command, on the other hand, does generate `.dart` assets, because
 you can use Dartium while you're developing your app.
 
@@ -92,7 +104,7 @@ dependencies:
 
 The following example configures the [dart2js](/tools/dart2js/)
 transformer, which is used by [`pub serve`](cmd/pub-serve.html),
-[`pub build`](cmd/pub-build.html) and [`pub run`](cmd/pub-run.html),
+[`pub build`](cmd/pub-build.html), and [`pub run`](cmd/pub-run.html),
 to analyze the code:
 
 {% prettify yaml %}
@@ -123,15 +135,15 @@ The `t1` and `t2` transformers run first, in parallel. The `t3` transformer
 runs in a separate phase, after `t1` and `t2` are finished, and can see the
 outputs of `t1` and `t2`.
 
-Pub implicitly appends a transformer that converts your Dart code to
+Pub build implicitly appends a transformer that converts your Dart code to
 JavaScript, so your code can run in any modern browser.
 
 ## Where to put assets  {#where-to-put-assets}
 
-An asset can be in any root level directory of your package. However,
-assets located in the `lib` directory have additional visibilty:
+An asset can be in any root-level directory of your package. However,
+assets located under the `lib` directory have additional visibilty:
 
-* Assets of packages that you depend on need to be in `lib`.
+* Assets that other packages depend on need to be in `lib`.
 
 * Assets in your package that you want to access from other directories
   within your package need to be in your package's `lib` directory.
@@ -167,10 +179,24 @@ app/
 {% endprettify %}
 
 After transformation, `pub build` places generated assets under a directory
-named `build`, which we'll call the _build root_. Under the build root,
-a directory is created for each subdirectory that is built and a
-`packages` directory is created under each directory specified in the
-build command. For example, if your build command looks like the following:
+named `build`. Underneath `build`, pub creates a directory of the same
+name as the root directory containing the source files. For example,
+for a web app (where the source files are in `/web`),
+pub creates a `build/web` directory.
+
+<aside class="alert alert-info" markdown="1">
+**Note**:
+By default, `pub build` assumes that you are building a web app.
+If you type `pub build` (with no arguments) but the package doesn't
+include a `web` directory, pub produces an error.
+
+You can build a command-line app (where the source files are in `bin`),
+for example, by specifying `pub build bin`.
+For more information, see [pub build](/tools/pub/cmd/pub-build.html).
+</aside>
+
+The following is an example of a build command for a more complex package
+layout:
 
 {% prettify sh %}
 $ pub build test example/one example/two
@@ -201,25 +227,32 @@ for untransformed files:
     <tr>
       <th valign="center">Source asset location</th>
       <th valign="center">Generated asset location<br>
-                          (under the build root)</th>
+                          (under <code>build</code>)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td> <code>.../<em>&lt;your_pkg></em>/web/<em>&lt;path></em></code> </td>
-      <td> <code>/<em>&lt;path></em></code> </td>
+      <td> <code>/web/<em>&lt;path></em></code> </td>
     </tr>
     <tr>
-      <td><code>.../<em>&lt;pkg_name></em>/lib/<em>&lt;path></em></code></td>
+      <td><code>.../<em>&lt;your_pkg></em>/lib/<em>&lt;path></em></code></td>
       <td><code>/packages/<em>&lt;pkg_name></em>/<em>&lt;path></em></code></td>
     </tr>
   </tbody>
 </table>
+<p></p>
 
 For example, consider a helloworld app's HTML file, which is in the
 helloworld directory at `web/helloworld.html`. Running `pub build` produces a
-copy at `build/helloworld.html`. In the dev server, you can get the HTML file
-contents by using the URL `http://localhost:8080/helloworld.html`.
+copy at `build/web/helloworld.html`. In the dev server,
+you can get the HTML file contents by using the URL
+`http://localhost:8080/helloworld.html`.
+
+Or, perhaps you are compiling the source for a my_game web app that includes
+a drawing library in the `lib/draw` directory. 
+If you build the `web` directory,
+the result is`build/web/packages/my_game/draw/...`.
 
 Transformers might change any part of <em>&lt;path&gt;</em>, especially the
 filename, but they can't change the directory structure above
