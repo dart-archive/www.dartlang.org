@@ -252,7 +252,7 @@ you can get the HTML file contents by using the URL
 Or, perhaps you are compiling the source for a my_game web app that includes
 a drawing library in the `lib/draw` directory. 
 If you build the `web` directory,
-the result is`build/web/packages/my_game/draw/...`.
+the result is `build/web/packages/my_game/draw/...`.
 
 Transformers might change any part of <em>&lt;path&gt;</em>, especially the
 filename, but they can't change the directory structure above
