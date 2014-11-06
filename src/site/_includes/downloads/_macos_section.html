@@ -1,0 +1,71 @@
+First install Dart, and then choose your editor.
+(Don't care which editor you use?
+Skip to [Step 2](#step-2-pick-an-editor-mac) and choose **Dart Editor**,
+which includes Dart.)
+
+
+## Step 1: Install Dart
+
+We recommend using [Homebrew](http://brew.sh/) to manage your Dart
+installation.
+To install Dart, run:
+
+{% prettify huge %}
+$ brew tap dart-lang/dart
+$ brew install dart dartium
+{% endprettify %}
+
+The **dart** package contains the [Dart SDK](/tools/sdk/),
+which includes the Dart VM, libraries, and command-line Dart tools such as
+[dart](/tools/dart-vm/), [dart2js](/tools/dart2js/),
+[dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html),
+[pub](/tools/pub/), and [docgen](docgen/).
+
+The **dartium** package contains a special build of Chromium
+(nicknamed [Dartium](/tools/dartium/)) that includes a Dart VM.
+Use it to test and
+debug Dart web apps without first compiling them to JavaScript.
+
+<aside class="alert alert-info" markdown="1">
+**Writing server-side code?**
+If you don't write Dart web apps,
+you don't need to install `dartium`.
+</aside>
+
+To update the software later, run:
+
+{% prettify huge %}
+$ brew upgrade dart dartium
+{% endprettify %}
+
+
+### Manual download
+
+An alternative to using Homebrew or Dart Editor
+is downloading Dart manually.
+You'll need to perform the following steps
+periodically to update your software.
+
+1. <a
+    data-bits="32" data-os="macos" data-tool="sdk"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-ia32-release.zip">
+  Download the Dart SDK.</a>
+  If you need a bigger heap or access to much more memory, download the
+<a
+    data-bits="64" data-os="macos" data-tool="sdk"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip">
+  64-bit Dart SDK</a>.
+  Unzip the downloaded file to get the SDK.
+
+2. Add `<sdk>/bin` to your `PATH`.
+
+3. If you're developing a web app, <a
+    data-bits="32" data-os="macos" data-tool="dartium"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">
+  download Dartium</a>.
+  Unzip it to get special version of Chromium with the Dart VM.
+  This binary expires after 12 weeks. When that happens,
+  you need to download a new copy to continue using Dartium.

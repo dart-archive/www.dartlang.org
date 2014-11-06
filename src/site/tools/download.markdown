@@ -7,204 +7,59 @@ js:
 - url: /js/download-info.js
   defer: true
 ---
+{% comment %}
+TODO: Figure out how to use a-b testing with this.
+E.g. blue note before or after brew commands.
+{% endcomment %}
 
-# Getting and Installing Dart Is Easy!
 
-{% include default_toc.html %}
+# Getting Dart Is Easy!
 
-<p class="os-choices">
-Confirm your platform: 
- {% include os-choices.html %}
-</p>
+<div class="btn-group hero-hldr btn-group-justified os-choices" style="display: table;">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default btn-lg" id="windows">Windows (Vista, 7, 8)</button>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default btn-lg" id="linux">Linux</button>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-default btn-lg" id="macos">Mac OS X</button>
+  </div>
+</div>
 
-You have two options for downloading Dart.
+{% for platform in site.custom.downloads.binaries %}
+{% capture partial %}downloads/_{{platform.os}}_section.html{% endcapture %}
+<div class="{{platform.os}}" markdown="1">
+{% include {{partial}} %}
+</div>
+{% endfor %}
 
-## Option 1: Choose the complete bundle {#whole_enchilada}
-
-When you download the Dart Editor bundle, you get everything you
-need to create, edit, test, and build both web-based and server-side
-applications.
-
-The Dart Editor bundle includes:
-
-* Dart Editor - A powerful tool for editing, debugging, and running Dart
-  applications.
-* Dartium - A special version of Chromium that includes the Dart VM.
-  You can use Dartium to test and debug your Dart web applications.
-* SDK - A software development kit that includes the Dart Virtual Machine,
-  the Dart libraries, and all the command-line tools used behind the
-  scenes by Dart Editor. The command-line tools include:
-
-  * [dart](/tools/dart-vm/) - The standalone VM
-  * [dart2js](/tools/dart2js/) - The Dart-to-JavaScript compiler
-  * [dartanalyzer](/tools/analyzer) - The static analyzer
-  * [pub](/tools/pub/) - The Dart package manager
-  * [docgen](docgen/) - The API documentation generator
-
-{% include downloads/_dart-editor.html buttonclass="btn-primary" %}
-
-<aside class="alert alert-info" markdown="1">
-**Note:** Dart Editor requires Java version 6 or higher.
-Problems? See [Troubleshooting Dart Editor](editor/troubleshoot.html).
+<aside class="alert-info alert" markdown="1">
+**Want another Dart version?**
+Use the [download archive.](/tools/download-archive)
+It lets you choose specific versions
+of the Dart downloads.
+It also has the latest **dev channel** builds,
+which let you try new features a few weeks earlier than the stable channel.
 </aside>
 
-Dart Editor can automatically update itself, along with the SDK and
-Dartium, whenever a new integration build is available. To enable
-automatic updates, go to **Preferences**, choose **Update**, and select
-**Download updates automatically**.
+<div class="windows" markdown="1">
+## Other editor solutions
 
-<aside class="alert alert-info macos" markdown="1">
-**Note:** If you need a bigger heap or access to much more memory, download the
-[64-bit Dart + Editor]({{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/editor/darteditor-macos-x64.zip)
-for Mac.
-</aside>
+Dart Editor isn't your only choice.
+The following plugins add Dart smarts to popular code editors.
 
-<aside class="alert alert-info" markdown="1">
-**Early adopter?**  
+{% include downloads/_other_editors.markdown %}
+</div>
 
-<span class="windows downloads">
-To get new features a few weeks earlier than the stable release,
-you can download the latest <strong>dev channel</strong> build of
- <a data-tool="editor" class="download-link" data-bits="64" data-os="windows" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-x64.zip">Dart Editor for
-Windows 64-bit</a> or
- <a data-tool="editor" class="download-link" data-bits="32" data-os="windows" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-windows-ia32.zip">Dart Editor for
-Windows 32-bit</a>.
-</span>
+<div class="linux" markdown="1">
+## Step 2: Pick an editor {#step-2-pick-an-editor-linux}
 
-<span class="linux downloads">
-To get new features a few weeks earlier than the stable release,
-you can download the latest <strong>dev channel</strong> build of
- <a data-tool="editor" class="download-link" data-bits="64" data-os="linux" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-x64.zip">Dart Editor for
-Linux 64-bit</a> or
- <a data-tool="editor" class="download-link" data-bits="32" data-os="linux" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-linux-ia32.zip">Dart Editor for
-Linux 32-bit</a>.
-</span>
+{% include downloads/_pick_an_editor.markdown %}
+</div>
 
-<span class="macos downloads">
-To get new features a few weeks earlier than the stable release,
-you can download the latest <strong>dev channel</strong> build of
- <a data-tool="editor" class="download-link" data-bits="64" data-os="macos" data-build="continuous" href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor/darteditor-macos-x64.zip">Dart Editor for
-Mac OS X</a>.
-</span>
+<div class="macos" markdown="1">
+## Step 2: Pick an editor {#step-2-pick-an-editor-mac}
 
-The latest dev channel release is <span class="dev-channel"></span>.
-</aside>
-
-Once the download is complete, unzip the bundle. Dart is installed!
-
-You can now work through the [Avast, Ye Pirates](/codelabs/darrrt/) code lab.
-
-------
-
-## Option 2: Choose only the software that you need {#a_la_carte}
-Perhaps you prefer to use a particular IDE or editor, and don't
-require Dart Editor.
-
-No problem!
-
-At the very minimum, you need to download the Dart SDK.
-This is the only Dart bundle that you need. Besides the Dart VM
-and the Dart libraries, the SDK bundle contains the command-line Dart tools:
-
-  * [dart](/tools/dart-vm/) - the standalone VM
-  * [dart2js](/tools/dart2js/) - the Dart-to-JavaScript compiler
-  * [dartanalyzer](/tools/analyzer) - the static analyzer
-  * [pub](/tools/pub/) - the Dart package manager
-  * [docgen](docgen/) - the API documentation generator
-
-Note that if you choose the à la carte option you have less to download, but
-you will occasionally need to perform a manual update when new
-versions of Dart are released.
-
-After downloading the software that you need, you may want to customize your
-IDE or text editor by [downloading a plugin](more_downloads.html) that
-supports Dart.
-
-<p class="os-choices">
-{% include downloads/_sdk.html buttonclass="btn btn-primary btn-lg" %}
-</p>
-
-If you are writing web-based apps, you should download Dartium.
-Dartium is a special build of Chromium that includes a Dart VM
-so that you can test and debug your applications without first
-compiling them to JavaScript.
-
-{% include downloads/_dartium.html buttonclass="btn btn-primary btn-lg" %}
-
-The Dartium binary expires after 12 weeks.
-When that happens, you will need to download a new copy
-to continue using Dartium.
-
-<aside class="alert alert-info macos" markdown="1">
-**Note:** If you need a bigger heap or access to much more memory, download the
-[64-bit Dart SDK]({{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip)
-for Mac.
-</aside>
-
-<aside class="alert alert-info" markdown="1">
-**Early adopter?**
-<span class="windows">
-To get new features a few weeks earlier than the stable release,
-you can download the latest **dev channel** build of the
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-x64-release.zip">SDK for Windows 64-bit</a>
-or 
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-windows-ia32-release.zip">SDK for Windows 32-bit</a>.
-
-<span class="macos">
-To get new features a few weeks earlier than the stable release,
-you can download the latest **dev channel** build of the
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-macos-x64-release.zip">SDK for Mac OS X</a>.
-</span>
-
-<span class="linux">
-To get new features a few weeks earlier than the stable release,
-you can download the latest **dev channel** build of the
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-x64-release.zip">SDK for Linux 64-bit</a>
-or
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/sdk/dartsdk-linux-ia32-release.zip">SDK for Linux 32-bit</a>.
-</span>
-
-<span class="windows">
-You can also download the latest **dev channel** build of
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-windows-ia32-release.zip">Dartium for Windows</a>.
-</span>
-
-<span class="macos">
-You can also download the latest **dev channel** build of
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac OS X</a>.
-</span>
-
-<span class="linux">
-You can also download the latest **dev channel** build of
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-x64-release.zip">Dartium for Linux 64-bit</a>
-or
-<a href="https://storage.googleapis.com/dart-archive/channels/dev/release/latest/dartium/dartium-linux-ia32-release.zip">Dartium for Linux 32-bit</a>.
-</span>
-
-The latest dev channel release is <span class="dev-channel"></span>.
-</aside>
-
-------
-
-### Linux notes
-
-If you're using the Debian or Ubuntu platform, you might want to
-install the [Dart SDK for Debian and Ubuntu with Apt](debian.html).
-
-If you compile the SDK and are using an older version of Ubuntu,
-you might need to update to GCC 4.6 or later.
-See the <a href="faq.html">Tools FAQ</a> for more information.
-
-------
-
-### Looking for previous versions?
-
-Previous versions of the Dart SDK, Dartium, and Dart Editor are available
-at the [download archive](/tools/download-archive/).
-
-------
-
-## Feedback
-We welcome all of your feedback! Submit comments using the
-SEND FEEDBACK link in the upper right corner of the Dart Editor window,
-or file a bug on [dartbug.com](http://dartbug.com).
+{% include downloads/_pick_an_editor.markdown %}
+</div>
