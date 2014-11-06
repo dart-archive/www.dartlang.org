@@ -1192,6 +1192,42 @@ switch (fruit) {
 </div>
 
 
+#### DON'T include a space between the declared name of a method, operator, or setter and its parameter list.
+{:.no_toc}
+
+<div class="good">
+{% prettify dart %}
+bool convertToBool(arg) { ... }
+bool operator ==(other) { ... }
+set contents(value) { ... }
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+bool convertToBool (arg) { ... }
+bool operator == (other) { ... }
+set contents (value) { ... }
+{% endprettify %}
+</div>
+
+
+#### DO include a space after the `operator` keyword.
+{:.no_toc}
+
+<div class="good">
+{% prettify dart %}
+bool operator ==(other) => ...;
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+bool operator==(other) => ...;
+{% endprettify %}
+</div>
+
+
 #### DO use spaces around binary and ternary operators, after commas, and not around unary operators.
 {:.no_toc}
 
