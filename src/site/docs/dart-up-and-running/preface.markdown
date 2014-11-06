@@ -35,7 +35,7 @@ are also on GitHub.
 If you find an error in the sample code or text, please [create an
 issue.](https://github.com/dart-lang/www.dartlang.org/issues/new)
 
-## Conventions Used in This Book
+## Conventions used in this book
 
 The following typographical conventions are used in this book:
 
@@ -67,7 +67,7 @@ The following typographical conventions are used in this book:
   A warning or caution.
 </aside>
 
-## Using Code Examples
+## Using code examples
 
 Supplemental material (code examples, exercises, etc.) is available for
 download at
@@ -94,14 +94,14 @@ permission given above, feel free to contact us at
 <permissions@oreilly.com>.
 
 
-## Content Updates {#preface-updates}
+## Content updates {#preface-updates}
 
 This section gives details about how the book has changed between each
 of its printings, and how the online content has changed after the most
 recent printing.
 
 
-### Changes After the Third Printing
+### Changes after the third printing
 
 We've fixed a few bugs:
 
@@ -119,7 +119,7 @@ We've fixed a few bugs:
 -   Updated a few links.
 
 
-### Changes in the Third Printing: February 19, 2014
+### Changes in the third printing: February 19, 2014
 
 We've changed the text and examples to reflect these language changes:
 
@@ -225,7 +225,7 @@ tweaked existing coverage. In the language tour:
 
 -   Added the section
     <a href="ch02.html#adding-features-to-a-class-mixins">Adding
-    Features to a Class: Mixins</a>.
+    features to a class: mixins</a>.
 
 -   In the <a href="ch02.html#keywords">keywords</a> section,
     marked which keywords are built-in identifiers and discussed
@@ -244,7 +244,7 @@ tweaked existing coverage. In the language tour:
 
 In the library tour:
 
--   Added <a href="ch03.html#dartmirrors---reflection">dart:mirrors - Reflection</a>.
+-   Added <a href="ch03.html#dartmirrors---reflection">dart:mirrors - reflection</a>.
 
 -   Added examples of parsing non-decimal numbers.
 
@@ -261,7 +261,7 @@ Finally, we completely rewrote
 to feature a new example (Dartiverse Search).
 
 
-### Changes in the Second Printing: March 29, 2013
+### Changes in the second printing: March 29, 2013
 
 We’ve updated the content to reflect the following changes since the
 first printing:
@@ -334,7 +334,7 @@ first printing:
     -   Date is now named DateTime, and the `fromString()` constructor
         is now a static method named `parse()`.
 
-    -   Event-handler registration used to be 
+    -   Event-handler registration used to be
         <code>.on.<em>event</em>.add()</code>; now it’s
         <code>.on<em>Event</em>.listen</code>.
 
@@ -380,7 +380,7 @@ We corrected or clarified some text, such as:
 -   Bitwise operators are implemented in **int**, not num.
 
 -   The `is` and `as` examples (in
-    <a href="ch02.html#type-test-operators">Type Test Operators</a>)
+    <a href="ch02.html#type-test-operators">Type test operators</a>)
     aren’t completely equivalent.
 
 We also added sections for some pre-existing features:
@@ -391,7 +391,7 @@ We also added sections for some pre-existing features:
 -   The dart\_analyzer tool
 
 Finally, the first figure in
-<a href="ch01.html#why-google-created-dart">Why Google Created Dart</a>
+<a href="ch01.html#why-google-created-dart">Why Google created Dart</a>
 now uses a more recent benchmark and has the latest numbers.
 
 

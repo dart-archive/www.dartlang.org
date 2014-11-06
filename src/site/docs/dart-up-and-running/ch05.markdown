@@ -26,7 +26,7 @@ responsive.
      class="thinborder">
 
 
-## How to Run Dartiverse Search
+## How to run Dartiverse Search {#how-to-run-dartiverse-search}
 
 You can use Dart Editor to get and run Dartiverse Search.
 
@@ -51,7 +51,7 @@ You can use Dart Editor to get and run Dartiverse Search.
     The search client UI should appear.
 
 
-## How Dartiverse Search Works
+## How Dartiverse Search works {#how-dartiverse-search-works}
 
 The search server is an HTTP server that provides a WebSocket interface.
 The search client uses that WebSocket interface as a bi-directional
@@ -85,7 +85,7 @@ code, thanks to the dart2js compiler. Any modern browser can run this
 JavaScript code.
 
 
-## The Client's HTML Code
+## The client's HTML code {#the-clients-html-code}
 
 The client's UI is simple. It has a search field, implemented as an
 \<input\> element named "q". It displays output in two \<div\>s named
@@ -126,14 +126,14 @@ You can get dart.js with the browser package from pub. See the
 information about compiling Dart code into its JavaScript equivalent.
 
 
-## The Client's Dart Code
+## The client's Dart code {#the-clients-dart-code}
 
 Dart code (`web/client.dart`) provides the client’s logic, using the DOM
 to interact with UI elements. For example, the client’s Dart code uses
 the DOM to find the div where the client displays messages.
 
 
-### Finding DOM Elements
+### Finding DOM elements {#finding-dom-elements}
 {:.no_toc}
 
 The client app uses dart:html’s top-level `querySelector()` function to
@@ -159,7 +159,7 @@ element in the DOM. See
 > specify types.
 
 
-### Handling Events
+### Handling events {#handling-events}
 {:.no_toc}
 
 The client app uses `onChange.listen()` to register a handler that
@@ -173,7 +173,7 @@ searchElement.onChange.listen((e) {
 {% endprettify %}
 
 
-### Getting and Setting Properties
+### Getting and setting properties {#getting-and-setting-properties}
 {:.no_toc}
 
 The change event handler gets and sets the text in the search field
@@ -185,7 +185,7 @@ searchElement.value = '';
 {% endprettify %}
 
 
-### Adding DOM Elements
+### Adding DOM elements {#adding-dom-elements}
 {:.no_toc}
 
 Every time the search client receives a result on the WebSocket, the
@@ -209,7 +209,7 @@ This code uses method cascades to avoid creating variables to
 temporarily hold the new HeadingElement and AnchorElement.
 
 
-### Encoding and Decoding Messages
+### Encoding and decoding messages {#encoding-and-decoding-messages}
 {:.no_toc}
 
 The dart:convert library's global `JSON` object lets you encode and
@@ -250,7 +250,7 @@ For more information, read about
 [dart:convert](ch03.html#dartconvert---decoding-and-encoding-json-utf-8-and-more).
 
 
-### Communicating with WebSockets
+### Communicating with WebSockets {#communicating-with-websockets}
 {:.no_toc}
 
 The search client connects to the WebSocket by calling the WebSocket
@@ -319,12 +319,12 @@ void handleMessage(data) {
 
     default:
       print("Invalid response: '$response'");
-  } 
+  }
 }
 {% endprettify %}
 
 
-## The Server's Code
+## The server's code {#the-servers-code}
 
 The main code for the search server is under the `bin` directory, in a
 file named `server.dart`. It's responsible for serving static files,
@@ -334,7 +334,7 @@ The code for performing the searches is in a custom library, called
 search\_engine, that's implemented in files under the `lib` directory.
 
 
-### Serving Static Files
+### Serving static files {#serving-static-files}
 {:.no_toc}
 
 The search server uses HttpServer (from dart:io), Platform (also from
@@ -384,7 +384,7 @@ every HTTP request that the router doesn't handle specially—for example,
 the stream doesn't include WebSocket connection requests.
 
 
-### Managing WebSocket Connections
+### Managing WebSocket connections {#managing-websocket-connections}
 {:.no_toc}
 
 The search server uses the Router class from the [route
@@ -457,7 +457,7 @@ have finished sending any results, the search server sends a
 'searchDone' message to the client.
 
 
-### Using Web APIs
+### Using web APIs {#using-web-apis}
 {:.no_toc}
 
 The GitHub and StackOverflow searches are implemented in `search()`
@@ -523,7 +523,7 @@ error, the stream closes and the search client's onDone handler
 executes.
 
 
-### Implementing a Library
+### Implementing a library {#implementing-a-library}
 {:.no_toc}
 
 The search server implements a library, named search\_engine, that
@@ -585,7 +585,7 @@ stack\_overflow\_search\_engine.dart
 The bulk of the code is in the SearchEngine subclasses.
 
 
-### Logging Messages
+### Logging messages {#logging-messages}
 {:.no_toc}
 
 The search server uses the [logging
@@ -642,7 +642,7 @@ documentation.](https://api.dartlang.org/logging/Level.html) See the
 for a list of methods that log messages.
 
 
-## What Next?
+## What next? {#what-next}
 
 You’ve seen how the Dartiverse Search sample uses both server-side and
 client-side Dart code to implement a web app. It makes use of both
