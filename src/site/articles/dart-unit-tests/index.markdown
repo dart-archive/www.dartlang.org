@@ -28,7 +28,7 @@ how to write and run tests, and how testing fits into the overall Dart
 ecosystem.
 
 For more information, see the
-[unit test library API documentation](http://api.dartlang.org/unittest.html).
+[unit test library API documentation](http://www.dartdocs.org/documentation/unittest/latest).
 
 ## Differences from the earlier library
 
