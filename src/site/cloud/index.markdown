@@ -65,15 +65,15 @@ will change and mature in future releases, use the following links:
 [API Overview](api.html)
 </li>
 <li markdown="1">
-[A Client-Server Example](clientserver.html)
+[A Client-Server Example](client-server/)
 </li>
 
 <ul markdown="a">
 <li markdown="1">
-[The Client Code Explained](clientcode.html)
+[The Client Code Explained](client-server/client-code.html)
 </li>
 <li markdown="1">
-[The Server Code Explained](servercode.html)
+[The Server Code Explained](client-server/server-code.html)
 </li>
 </ul>
 

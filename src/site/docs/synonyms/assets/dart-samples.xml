@@ -376,21 +376,18 @@ if (myNaN.isNaN) {
   <synonym id="syn-value-and-identity-equality">
     <title>Value and identity equality</title>
     <code language="dart"><![CDATA[
-/*
- * In Dart, == will check the following, in order:
- * 1) if either x or y is null, then return identical(x, y)
- * 2) otherwise, return x.==(y)
- */
 
-/*
- * This means:
- * a) use identical(a, b) instead of === (there is no ===)
- * b) when implementing ==() you don't have to worry about
- *    manually checking for null arg
- * c) you can't define your own type that considers itself
- *    equal to null
- * d) null == null
- */
+// In Dart, == will check the following, in order:
+// 1) if either x or y is null, then return identical(x, y)
+// 2) otherwise, return x.==(y)
+
+// This means:
+// a) use identical(a, b) instead of === (there is no ===)
+// b) when implementing ==() you don't have to worry about
+//    manually checking for null arg
+// c) you can't define your own type that considers itself
+//    equal to null
+// d) null == null
 
 // therefore, the following code will work:
 

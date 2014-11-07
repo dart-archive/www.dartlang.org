@@ -10,7 +10,7 @@ test1() {
 test2() {
 
   greet(name) {
-    /* Assume we have a valid name. */
+    // Assume we have a valid name.
     print('Hi, $name!');
   }
   

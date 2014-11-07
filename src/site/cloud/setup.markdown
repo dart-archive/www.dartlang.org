@@ -593,4 +593,4 @@ Your development environment is set up
 and you are ready to write some code.
 
 <p>Now, you can 
-  <a href="/cloud/run.html">create and run</a> HelloWorld.
+  <a href="run.html">create and run</a> HelloWorld.

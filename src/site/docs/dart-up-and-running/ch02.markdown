@@ -740,10 +740,8 @@ enableFlags({bool bold, bool hidden}) {
 Use a colon (`:`) to specify default values:
 
 {% prettify dart %}
-/**
- * Sets the [bold] and [hidden] flags to the values you specify,
- * defaulting to false.
- */
+/// Sets the [bold] and [hidden] flags to the values you specify,
+/// defaulting to false.
 enableFlags({bool bold: false, bool hidden: false}) {
   // ...
 }
@@ -2959,7 +2957,7 @@ main() {
 {:.no_toc}
 
 Documentation comments are multi-line or single-line comments that begin
-with `/**` or `///`. Using `///` on consecutive lines has the same
+with `///` or `/**`. Using `///` on consecutive lines has the same
 effect as a multi-line doc comment.
 
 Inside a documentation comment, the Dart compiler ignores all text

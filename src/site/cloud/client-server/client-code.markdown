@@ -139,7 +139,7 @@ Future restPost(String path, json) {
 ## What next?
 
 * If you are interested in how the server code works, check out
-<a href="/cloud/servercode.html">The Server Code Explained</a>.
+<a href="server-code.html">The Server Code Explained</a>.
 The server interacts with the App Engine Dart runtime to provide
 responses to HTTP requests.
 

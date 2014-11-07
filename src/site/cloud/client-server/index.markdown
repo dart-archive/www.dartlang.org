@@ -271,9 +271,9 @@ $ gcloud preview app deploy app.yaml index.yaml
 ## What next?
 
 * If you are interested in how the code works, check out
-<a href="/cloud/clientcode.html">The Client Code Explained</a>
+<a href="client-code.html">The Client Code Explained</a>
 and
-<a href="/cloud/servercode.html">The Server Code Explained</a>.
+<a href="server-code.html">The Server Code Explained</a>.
 
 * Or, go straight to
 <a href="/cloud/deploy.html">Deploy a Dart Application on App Engine</a>.

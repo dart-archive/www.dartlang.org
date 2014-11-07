@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "API Overview"
-short-title: "Dart Runtime APIs"
 description: "A brief overview of the libraries used for creating a Dart runtime instance on App Engine."
 header:
   css: ["/cloud/styles.css"]
@@ -117,6 +116,6 @@ Recently Used (LRU) policy.
 
 ## What next?
 
-Next, you can check out [A Client-Server Example](clientserver.html),
+Next, you can check out [A Client-Server Example](client-server/),
 which shows how to run and deploy a program with separate
 client and server programs.

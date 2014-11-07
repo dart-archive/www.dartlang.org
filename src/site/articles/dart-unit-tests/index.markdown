@@ -963,11 +963,11 @@ A matcher implements or extends the `Matcher` class:
 
 {% prettify dart %}
 abstract class Matcher {
-  /** This does the matching of the actual vs expected values. */
+  /// This does the matching of the actual vs expected values.
   bool matches(item, Map matchState);
-  /** This builds a textual description of the matcher. */
+  /// This builds a textual description of the matcher.
   Description describe(Description description);
-  /**This builds a textual description of a specific mismatch. */
+  /// This builds a textual description of a specific mismatch.
   Description describeMismatch(item, Description mismatchDescription,
       MatchState matchState, bool verbose) => mismatchDescription;
 }

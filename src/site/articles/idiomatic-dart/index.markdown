@@ -306,13 +306,11 @@ specify that function's signature. The following example is from Dart's Web UI
 library:
 
 {% prettify dart %}
-/** Function to set up the contents of a conditional template. */
+/// Function to set up the contents of a conditional template.
 typedef void ConditionalBodySetup(ConditionalTemplate template);
 
-/**
- * A template conditional like `<template instantiate="if test">` or
- * `<td template instantiate="if test">`.
- */
+/// A template conditional like `<template instantiate="if test">` or
+/// `<td template instantiate="if test">`.
 class ConditionalTemplate extends PlaceholderTemplate {
   bool isVisible = false;
   final ConditionalBodySetup bodySetup;
@@ -330,12 +328,10 @@ Why do this:
 {% prettify javascript %}
 // JavaScript w/ Closure compiler
 
-/**
- * @param {String} name
- * @return {String}
- */
+/// @param {String} name
+/// @return {String}
 makeGreeting = function(name) {
-  /** @type {String} */
+  // @type {String}
   var greeting = 'hello ' + name;
   return greeting;
 }
@@ -730,7 +726,7 @@ Compare and contrast Java and Dart comment styles:
   <div class="col-md-6">
 {% prettify java %}
 /**
- * Returns an Llama object that can then be petted. 
+ * Returns a Llama object that can then be petted. 
  * The age argument must specify an non-zero integer. The amount
  * argument is the amount of {@link Money} paid for the llama.
  * <p>
@@ -753,11 +749,9 @@ Compare and contrast Java and Dart comment styles:
   </div>
   <div class="col-md-6">
 {% prettify dart %}
-/**
- * Returns a Llama that can be petted.
- * An [ArgumentError] is thrown if age is less than zero, and
- * [NoMoreLlamasError] is thrown if they are all out of llamas.
- */
+/// Returns a Llama that can be petted.
+/// An [ArgumentError] is thrown if age is less than zero, and
+/// [NoMoreLlamasError] is thrown if they are all out of llamas.
 Llama buyLlama(int age, Money amount) {
   // ...
 }
@@ -771,17 +765,15 @@ Also, no need to embed HTML tags in your doc comments; Dart's docgen tool can
 understand a subset of markdown.
 
 {% prettify dart %}
-/**
- * ## Examples
- *
- * Getting the _value_:
- *
- *     Future<int> future = getFutureFromSomewhere();
- *     future.then((value) {
- *       print("I received the number $value");
- *     });
- * ...
- */ 
+/// ## Examples
+///
+/// Getting the _value_:
+///
+///     Future<int> future = getFutureFromSomewhere();
+///     future.then((value) {
+///       print("I received the number $value");
+///     });
+/// ...
 {% endprettify %}
 
 Learn more about [Dart's comment styles](/articles/doc-comment-guidelines/).

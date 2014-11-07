@@ -15,7 +15,7 @@ class View extends SuperView {
       : _children = children,
         super(style) {
 
-    /* ... */
+    // ...
   }
 
 }

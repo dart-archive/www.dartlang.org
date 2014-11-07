@@ -38,7 +38,7 @@ replace <i>&lt;my-project-name&gt;</i> with the name of your project.
 
   <li markdown="1">
   Change to the directory that contains the
-  <a href="/cloud/clientserver.html">Client/Server Example</a>
+  <a href="client-server/">Client/Server Example</a>
   you used previously and run `pub build`.
 
 <pre>

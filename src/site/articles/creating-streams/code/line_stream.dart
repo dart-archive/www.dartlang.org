@@ -1,23 +1,23 @@
 import 'dart:async';
 
-/** Combines incoming strings into a single stream and outputs its lines. */
+/// Combines incoming strings into a single stream and outputs its lines.
 class LineStream extends Stream<String> {
-  /** Input stream. */
+  /// Input stream.
   Stream<String> _source;
 
-  /** Subscription on [source] while subscribed. */
+  /// Subscription on [source] while subscribed.
   StreamSubscription<String> _subscription;
 
-  /** Controller for output stream. */
+  /// Controller for output stream.
   StreamController<String> _controller;
 
-  /** Count of lines sent out so far. */
+  /// Count of lines sent out so far.
   int _lineCount = 0;
 
-  /** The part of a string seen so far that didn't end with a newline. */
+  /// The part of a string seen so far that didn't end with a newline.
   String _remainder = '';
 
-  /** Creates a stream of lines from a stream of string parts. */
+  /// Creates a stream of lines from a stream of string parts.
   LineStream(Stream<String> source) : _source = source {
     _controller = new StreamController<String>(
       onListen: _onListen,
@@ -26,7 +26,7 @@ class LineStream extends Stream<String> {
       onCancel: _onCancel);
   }
 
-  /** The number of lines that have been output by this stream. */
+  /// The number of lines that have been output by this stream.
   int get lineCount => _lineCount;
 
   StreamSubscription<String> listen(void onData(String line),

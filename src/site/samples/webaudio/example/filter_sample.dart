@@ -60,13 +60,11 @@ class BufferLoader {
   }
 }
 
-/**
- * This is the global, application context.
- *
- * In the JavaScript version, this stuff was in a file called init.js. I'm
- * keeping it separate of FilterSample in case we want to implement additional
- * samples.
- */
+/// This is the global, application context.
+///
+/// In the JavaScript version, this stuff was in a file called init.js. I'm
+/// keeping it separate of FilterSample in case we want to implement additional
+/// samples.
 class ApplicationContext {
   // Keep track of all loaded buffers.
   Map<String, AudioBuffer> buffers;

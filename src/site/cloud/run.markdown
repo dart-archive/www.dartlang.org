@@ -236,7 +236,8 @@ This diagram shows how the app runs in the App Engine development server.
 
 For this simple example, you don't need to worry about `pub serve`.
 You'll learn more about the role that `pub serve` plays in
-[Get the client/server code and run it locally](clientserver.html#get-the-code).
+[Get the client/server code and run it
+locally](client-server/#get-the-code).
 
 ## Deploying to App Engine
 
@@ -260,7 +261,7 @@ links to learn more:
   [API overview](api.html)
   </li>
   <li markdown="1">
-  [A client-server example](clientserver.html)
+  [A client-server example](client-server/)
   </li>
   <li markdown="1">
   [Deploy a Dart app to App Engine](deploy.html)

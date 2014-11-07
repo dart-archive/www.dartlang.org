@@ -107,7 +107,7 @@ into a single event, using transform() with a
 [StreamEventTransformer](http://api.dartlang.org/dart_async/StreamEventTransformer.html) subclass:
 
 {% prettify dart %}
-/** Combines strings, breaking them at 80 characters. */
+/// Combines strings, breaking them at 80 characters.
 class BlockBreaker extends StreamEventTransformer<String, String> {
   String carry = '';
   void handleData(String data, EventSink<String> output) {

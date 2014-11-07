@@ -3,23 +3,22 @@
 import "dart:convert";
 import "dart:html";
 
-// Abstract class defines the interface of our JSON data structure
+/// Abstract class defines the interface of our JSON data structure
 abstract class Language {
   String language;
   List targets;
   Map website;
 }
 
-/** Implementation class extends JsonObject, and uses the structure
- *  defined by implementing the Language abstract class. 
- *  JsonObject's noSuchMethod() function provides the actual underlying
- *  implementation.
- */
+/// Implementation class extends JsonObject, and uses the structure
+/// defined by implementing the Language abstract class. 
+/// JsonObject's noSuchMethod() function provides the actual underlying
+/// implementation.
 class LanguageImpl /*extends JsonObject*/ implements Language {
   LanguageImpl(); 
   
   factory LanguageImpl.fromJsonString(string) {
-    /*return new JsonObject.fromJsonString(string, new LanguageImpl());*/
+    //return new JsonObject.fromJsonString(string, new LanguageImpl());
   }
 
   String language;

@@ -7,7 +7,7 @@ class PackageId {
 test1() {
 
   install(id, destPath) {
-    /* ... */
+    // ...
   }
 
 }
@@ -15,7 +15,7 @@ test1() {
 test2() {
 
   Future<bool> install(PackageId id, String destPath) {
-    /* ... */
+    // ...
   }
 
 }
