@@ -1660,3 +1660,29 @@ dd{
 .thinborder {
     border:1px solid #021a40;
 }
+
+/*
+ * Because Bootstrap doesn't have a responsive button group yet.
+ */
+@media (max-width: 768px) {
+  .btn-group-responsive .btn-group {
+    display: block;
+    width: 100%;
+  }
+
+  .btn-group-responsive .btn-group + .btn-group {
+    margin-left: 0;
+  }
+
+  .btn-group-responsive > .btn-group:first-child:not(:last-child) > .btn {
+    border-radius: 6px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .btn-group-responsive > .btn-group:last-child:not(:first-child) > .btn {
+    border-radius: 6px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
