@@ -15,7 +15,7 @@ E.g. blue note before or after brew commands.
 
 # Getting Dart Is Easy!
 
-<div class="btn-group hero-hldr btn-group-justified os-choices" style="display: table;">
+<div class="btn-group-responsive btn-group hero-hldr btn-group-justified os-choices" style="display: table;">
   <div class="btn-group">
     <button type="button" class="btn btn-default btn-lg" id="windows">Windows (Vista, 7, 8)</button>
   </div>
