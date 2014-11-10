@@ -1,3 +1,14 @@
+- title: Dart Cookbook
+  authors:
+    - Ivo Balbaert
+  publisher: Packt Publishing
+  cover: dart-cookbook.jpg
+  link: https://www.packtpub.com/application-development/dart-cookbook
+  desc: 'This book is a pragmatic guide that will increase your expertise
+        in writing all kinds of applications,
+	including web apps, scripts, and server-side apps.
+	It provides rich insights on how to extend your Dart programming skills.'
+
 - title: Aprende Dart
   authors:
     - Moises Belchin
@@ -108,16 +119,3 @@
          simple scripts to complex apps, running on both the client and the server.
          With this book, you’ll learn how Dart can help you architect and develop
          HTML5 apps for the modern Web.'
-
-- title: What is Dart?
-  authors:
-    - Kathy Walrath
-    - Seth Ladd
-  publisher: O'Reilly
-  cover: what-is-dart.png
-  link: http://shop.oreilly.com/product/0636920025887.do
-  desc: 'This short, free ebook from March 2012
-        describes the Dart language,
-        libraries, and tools that help you develop structured,
-        fast, and maintainable web
-        apps that run in any modern browser.'

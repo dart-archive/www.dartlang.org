@@ -7,7 +7,7 @@ description: Read all about it! Here's a collection of books about Dart.
 # Books on Dart
 
 Here's a collection of books about Dart.
-[Let us know](http://dartbug.com/new)
+[Let us know](https://github.com/dart-lang/www.dartlang.org/issues)
 if you find another book that we should add.
 
 {% injectdata books books/books.yaml %}
