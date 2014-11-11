@@ -42,7 +42,6 @@ version: helloworld
 [[highlight]]runtime: custom[[/highlight]]
 [[highlight]]vm: true[[/highlight]]
 api_version: 1
-threadsafe: true
 {% endprettify %}
 
 The `version` field in the `app.yaml` file is the way that App Engine
