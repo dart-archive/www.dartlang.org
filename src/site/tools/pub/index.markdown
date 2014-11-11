@@ -15,11 +15,18 @@ applications.
 When you [download](/tools/download.html) either Dart Editor or
 the Dart SDK, one of the tools that you get is `pub`.
 
+<aside class="alert alert-info" markdown="1">
+**Hey!**
+Want to make your Dart script available from the command line? 
+You can do this using `pub global activate`. For more information, see
+[Running a script from your PATH](cmd/pub-global.html#running-a-script-from-your-path).
+</aside>
+
 You can access the `pub` commands either through Dart Editor or
 the command line, so use whatever approach is most convenient.
 
 <aside class="alert alert-info" markdown="1">
-*Problems?*
+**Problems?**
 See [Troubleshooting Pub](troubleshoot.html).
 </aside>
 
