@@ -8,50 +8,53 @@ has-permalinks: false
 
 # {{ page.title }}
 
-A variety of tools are available for Dart development:
-
-* Editor ([Get Dart Editor](/tools/download.html))
-* Observatory (Available in the
-    [Dart Editor](/tools/download.html#whole_enchilada),
-    [Dart SDK](/tools/download.html#a_la_carte), or
-    [Dartium](/tools/download.html#a_la_carte) bundles)
-* Plugins for IDEs and text editors
-  ([Get the plugins](/tools/more_downloads.html))
-* Other tools ([Get the SDK](/tools/download.html#a_la_carte))
-
-Note that this is not an exhaustive list of tools available
-for Dart development and does not reflect tools developed
-by the Dart community.
+A variety of tools are available for Dart development.
+You can get most of these tools, and the Dart SDK,
+from the [download page](/tools/download.html).
 
 ---
 
-<a name="editor"></a>
-<h2>Editor</h2>
+<a name="tools"></a>
+<h2>Tools</h2>
 
-<div class="media">
-  <a class="pull-left" href="editor/">
-    <img class="media-object"
-         src="images/dart-logo-48.png"
-         alt="Dart logo">
-  </a>
-  <div class="media-body">
-    <a href="editor/"><b>Dart Editor</b></a>
+<div class="row">
+  <div class="col-md-4">
+    <div class="media">
+      <a class="pull-left" href="editor/">
+        <img class="media-object"
+             src="images/dart-logo-48.png"
+             alt="Dart logo">
+      </a>
+      <div class="media-body">
+        <a href="editor/"><b>Dart Editor</b></a>
+      </div>
+    </div>
   </div>
-</div>
 
----
+  <div class="col-md-4">
+    <div class="media">
+      <a class="pull-left" href="dartium/">
+        <img class="media-object"
+             src="images/dartium-logo-48.jpg"
+             alt="Dart logo" />
+      </a>
+      <div class="media-body">
+        <a href="dartium/"><b>Dartium</b></a>
+      </div>
+    </div>
+  </div>
 
-<a name="observatory"></a>
-<h2>Observatory</h2>
-
-<div class="media">
-  <a class="pull-left" href="observatory/">
-    <img class="media-object"
-         src="images/dart-logo-48.png"
-         alt="Dart logo" />
-  </a>
-  <div class="media-body">
-    <a href="observatory/"><b>Observatory</b></a>
+  <div class="col-md-4">
+    <div class="media">
+      <a class="pull-left" href="observatory/">
+        <img class="media-object"
+             src="images/dart-logo-48.png"
+             alt="Dart logo" />
+      </a>
+      <div class="media-body">
+        <a href="observatory/"><b>Observatory</b></a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -132,7 +135,7 @@ by the Dart community.
 ---
 
 <a name="other-tools"></a>
-<h2>Other tools</h2> 
+<h2>Command-line tools</h2> 
 
 <div class="row">
   <div class="col-md-4">
@@ -157,7 +160,15 @@ by the Dart community.
 
 ---
 
-<a name="problem"></a>
+This is not an exhaustive list of tools available
+for Dart development and does not reflect many fine tools developed
+by the Dart community.
+
+Also see the <a href="/tools/faq.html">Tools FAQ</a>.
+
+---
+
+<a name="dump-info-visualizer"></a>
 <h2>Curious about your generated JavaScript?</h2> 
 <p>
 If you are compiling your Dart code to JavaScript with dart2js, the Dump-Info
