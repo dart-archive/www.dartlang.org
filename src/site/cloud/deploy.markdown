@@ -46,6 +46,17 @@ $ cd appengine_samples/clientserver
 $ pub build
 $ gcloud preview app deploy app.yaml
 </pre>
+
+Note that the `deploy` command can take awhile.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+If you are using custom datastore indices, you also need to specify index.yaml:
+<pre>
+$ gcloud preview app deploy app.yaml index.yaml
+</pre>
+</aside>
+
   </li>
 
   <li markdown="1">

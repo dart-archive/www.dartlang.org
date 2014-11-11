@@ -112,7 +112,7 @@ Navigate to `http://localhost:8080/`.
 Enter some items in the list.
 You should see something like this:
 
-<img src="images/clientserverview.png" style="display:block;margin: 0 auto;">
+<img src="/cloud/images/clientserverview.png" style="display:block;margin: 0 auto;">
   </li>
 
 ## The source files
@@ -248,7 +248,7 @@ refresh the browser, and immediately see the changes.
 The App Engine development server uses `pub serve` to get assets
 for your Dart App Engine app.
 
-<img src="images/deployment.png" style="display:block;margin: 0 auto;" alt="Interaction of various tools and systems during deployment">
+<img src="/cloud/images/deployment.png" style="display:block;margin: 0 auto;" alt="Interaction of various tools and systems during deployment">
 
 Run `pub build web` manually before deploying, like this:
 
@@ -259,6 +259,7 @@ $ gcloud preview app deploy app.yaml
 
 This generates all required resources into a directory as static files,
 which can then be deployed to a server.
+Note that the `deploy` command can take awhile.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**

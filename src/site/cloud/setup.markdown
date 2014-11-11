@@ -415,7 +415,7 @@ Give it a unique name.
 <pre>
 > gcloud auth login
 > gcloud config set project <i>my-project-name</i>
-> gcloud components update
+> gcloud components update app
 </pre>
   </li>
 
@@ -479,7 +479,7 @@ $ sudo chmod 755 /usr/local/bin/docker
 Run the following commands to configure boot2docker:
 
 <pre>
-$ mdkir ~/.boot2docker
+$ mkdir ~/.boot2docker
 $ echo 'ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.3.0/boot2docker.iso"' > ~/.boot2docker/profile
 $ boot2docker init
 $ boot2docker up
@@ -563,7 +563,7 @@ Give it a unique name.
 <pre>
 $ gcloud auth login
 $ gcloud config set project <i>my-project-name</i>
-$ gcloud components update
+$ gcloud components update app
 </pre>
   </li>
 

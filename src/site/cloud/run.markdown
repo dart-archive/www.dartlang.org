@@ -123,7 +123,7 @@ Your directory structure should look like this:
     The server also sends its response through the
     HttpRequest object's `response` member.
     For more information about Dart servers refer to
-    [Write HTTP Clients & Servers](/docs/tutorials/httpserver.html).
+    [Write HTTP Clients & Servers](/docs/tutorials/httpserver/).
 
 ## Run pub get
 
@@ -247,6 +247,8 @@ command:
 <pre>
 $ gcloud preview app deploy app.yaml
 </pre>
+
+Note that this command can take awhile.
 
 Then navigate to `http://helloworld.my_project_name.appspot.com/`
 and you should see "Hello, world!"
