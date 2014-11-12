@@ -2,7 +2,7 @@
 layout: book
 title: "A Tour of the Dart Libraries"
 subsite: "Dart Up and Running"
-description: "Read Chapter 3. A Tour of the Dart Libraries of Dart: Up and Running, published by O'Reilly."
+description: "Read Chapter 3, A Tour of the Dart Libraries (from Dart: Up and Running, published by O'Reilly)."
 prev-chapter: ch02.html
 prev-chapter-title: "Language Tour"
 next-chapter: ch04.html

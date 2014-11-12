@@ -2,7 +2,7 @@
 layout: book
 title: "Foreword"
 subsite: "Dart Up and Running"
-description: "Read Foreword of Dart: Up and Running, published by O'Reilly."
+description: "Read the foreword of Dart: Up and Running (published by O'Reilly)."
 next-chapter: preface.html
 next-chapter-title: "Preface"
 ---

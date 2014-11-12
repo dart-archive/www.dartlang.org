@@ -2,7 +2,7 @@
 layout: book
 title: "A Tour of the Dart Language"
 subsite: "Dart Up and Running"
-description: "Read Chapter 2. A Tour of the Dart Language of Dart: Up and Running, published by O'Reilly."
+description: "Read Chapter 2, A Tour of the Dart Language of Dart (from Dart: Up and Running, published by O'Reilly)."
 prev-chapter: ch01.html
 prev-chapter-title: "Quick Start"
 next-chapter: ch03.html
@@ -140,49 +140,125 @@ mind:
     from executing at all; a run-time error results in an
     [exception](#exceptions) being raised while the code executes.
 
--   Dart has two *runtime modes*: production and checked. Production is
-    faster, but checked is helpful at development.
+<ul>
+  <li id="runtime-modes" class="no_toc" markdown="1">
+  Dart has two <em id="runtime-modes">runtime modes</em>:
+  production and checked. We recommend that
+  you develop and debug in checked mode, and deploy to production mode.
 
+  *Production mode* is the default runtime mode of a Dart program,
+  optimized for speed. Production mode ignores [assert
+  statements](#assert) and static types.
 
-### Keywords {#keywords}
-{:.no_toc}
+  *Checked mode* is a developer-friendly mode that helps you catch some
+  type errors during runtime. For example, if you assign a non-number to a
+  variable declared as a `num`, then checked mode throws an exception.
+  </li>
+</ul>
+
+## Keywords {#keywords}
 
 The following table lists the words that the Dart language treats specially.
 
-| abstract&nbsp;\* | continue    | extends    | implements&nbsp;\* | part&nbsp;\*   | throw |
-| as&nbsp;\*       | default     | factory&nbsp;\* | import&nbsp;\*     | rethrow   | true  |
-| assert      | do          | false      | in            | return    | try   |
-| break       | dynamic&nbsp;\*  | final      | is            | set&nbsp;\*    | typedef&nbsp;\* |
-| case        | else        | finally    | library&nbsp;\*    | static&nbsp;\* | var   |
-| catch       | enum        | for        | new           | super     | void  |
-| class       | export&nbsp;\*   | get&nbsp;\*     | null          | switch    | while |
-| const       | external&nbsp;\* | if         | operator&nbsp;\*   | this      | with  |
-{:.table .table-striped}
+{% assign bii = '&nbsp;<sup title="built-in-identifier" alt="built-in-identifier"><span class="glyphicon glyphicon-star"></span></sup>' %}
+{% assign lrw = '&nbsp;<sup title="limited reserved word" alt="limited reserved word"><span class="glyphicon glyphicon-asterisk"></span></sup>' %}
 
-In the keyword table, words with an asterisk (\*) are *built-in
-identifiers*. Although you should generally treat built-in identifiers
-like reserved words, the only real restriction is that you can't use a
-built-in identifier as the name of a class or type.
 
-Having built-in
-identifiers enables easier porting from JavaScript to Dart. For example,
-say some JavaScript code has a variable named `factory`; you don't have
+| abstract{{bii}}   | continue          | false             | new               | this              |
+| as{{bii}}         | default           | final             | null              | throw             |
+| assert            | deferred{{bii}}   | finally           | operator{{bii}}   | true              |
+| async{{lrw}}      | do                | for               | part{{bii}}       | try               |
+| async*{{lrw}}     | dynamic{{bii}}    | get{{bii}}        | rethrow           | typedef{{bii}}    |
+| await{{lrw}}      | else              | if                | return            | var               |
+| break             | enum              | implements{{bii}} | set{{bii}}        | void              |
+| case              | export{{bii}}     | import{{bii}}     | static{{bii}}     | while             |
+| catch             | external{{bii}}   | in                | super             | with              |
+| class             | extends           | is                | switch            | yield{{lrw}}      |
+| const             | factory{{bii}}    | library{{bii}}    | sync*{{lrw}}      | yield*{{lrw}}     |
+{:.table .table-striped .nowrap}
+
+In the keyword table, words with a star
+(<span title="built-in-identifier" alt="built-in-identifier" style="font-size:smaller"><span
+class="glyphicon glyphicon-star"></span></span>)
+are *built-in identifiers*. Avoid using
+built-in identifiers as identifiers, and never use
+them for class or type names. Built-in identifiers exist to ease
+porting from JavaScript to Dart. For example,
+if some JavaScript code has a variable named `factory`, you don't have
 to rename it when you port the code to Dart.
 
+Words with an asterisk
+(<span title="built-in-identifier" alt="built-in-identifier" style="font-size:smaller"><span
+class="glyphicon glyphicon-asterisk"></span></span>)
+are newer, limited reserved words related to asynchrony support
+that's being added after Dart's 1.0 release.
+You can't use `async`, `await`, or `yield` as
+an identifier in any function body marked with `async`, `async*`, or `sync*`.
+For more information, see
+[Dart Language Asynchrony Support: Phase 1](/articles/await-async/)
+and the [Dart Language Specification](/docs/spec/).
 
-### Runtime modes {#runtime-modes}
-{:.no_toc}
+All other words in the keyword table are <em>reserved words</em>.
+You can't use reserved words as identifiers.
 
-We recommend that you develop and debug in checked mode, and deploy to
-production mode.
-
-*Production mode* is the default runtime mode of a Dart program,
-optimized for speed. Production mode ignores [assert
-statements](#assert) and static types.
-
-*Checked mode* is a developer-friendly mode that helps you catch some
-type errors during runtime. For example, if you assign a non-number to a
-variable declared as a `num`, then checked mode throws an exception.
+{% comment %}
+TODO: DELETE THIS ONCE TABLE WORK IS DONE.
+| abstract{{bii}}   |
+| as{{bii}}         |
+| assert            |
+| async{{lrw}}      |
+| async*{{lrw}}     |
+| await{{lrw}}      |
+| break             |
+| case              |
+| catch             |
+| class             |
+| const             |
+continue          |
+default           |
+deferred{{bii}}   |
+do                |
+dynamic{{bii}}    |
+else              |
+enum              |
+export{{bii}}     |
+external{{bii}}   |
+extends           |
+factory{{bii}}    |
+false             |
+final             |
+finally           |
+for               |
+get{{bii}}        |
+if                |
+implements{{bii}} |
+import{{bii}}     |
+in                |
+is                |
+library{{bii}}    |
+new               |
+null              |
+operator{{bii}}   |
+part{{bii}}       |
+rethrow           |
+return            |
+set{{bii}}        |
+static{{bii}}     |
+super             |
+switch            |
+sync*{{lrw}}      |
+this              |
+throw             |
+true              |
+try               |
+typedef{{bii}}    |
+var               |
+void              |
+while             |
+with              |
+yield{{lrw}}      |
+yield*{{lrw}}     |
+{% endcomment %}
 
 
 ## Variables {#variables}

@@ -2,7 +2,7 @@
 layout: book
 title: "Walkthrough: Dartiverse Search"
 subsite: "Dart Up and Running"
-description: "Read Chapter 5. Walkthrough: Dartiverse Search of Dart: Up and Running, published by O'Reilly."
+description: "Read Chapter 5, Walkthrough: Dartiverse Search (from Dart: Up and Running, published by O'Reilly)."
 prev-chapter: ch04.html
 prev-chapter-title: "Tools"
 ---

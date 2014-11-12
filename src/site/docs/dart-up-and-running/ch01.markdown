@@ -2,7 +2,7 @@
 layout: book
 title: "Quick Start"
 subsite: "Dart Up and Running"
-description: "Read Chapter 1. Quick Start of Dart: Up and Running, published by O'Reilly."
+description: "Read Chapter 1, Quick Start (from Dart: Up and Running, published by O'Reilly)."
 prev-chapter: preface.html
 prev-chapter-title: "Preface"
 next-chapter: ch02.html

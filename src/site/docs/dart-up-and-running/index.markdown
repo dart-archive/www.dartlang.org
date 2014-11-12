@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Dart: Up and Running"
-description: "Excerpts from the O'Reilly book."
+description: "An online version of the O'Reilly book."
 next-chapter: ch01.html
 next-chapter-title: "Quick Start"
 ---

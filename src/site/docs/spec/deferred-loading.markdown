@@ -188,12 +188,6 @@ file multiple times.
 If you prefer, you can maintain state to ensure that `loadLibrary`
 is called only once for each library.
 
-<aside class="alert alert-info" markdown="1">
-**Note:** At the time of publication, when running this example in Dartium,
-the app works fine when the first library is loaded,
-but it crashes Dartium when the second library is loaded. See
-[issue 20605](https://code.google.com/p/dart/issues/detail?id=20605).
-</aside>
 
 ## Fun facts about deferred loading
 
