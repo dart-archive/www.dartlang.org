@@ -12,13 +12,17 @@
   <div class="col-md-6" markdown="1">
 ### Text Editor Plugins
 
-[![Sublime logo](images/sublime.png)](https://github.com/dart-lang/dart-sublime-bundle#readme)
-[Sublime Text 3](https://github.com/dart-lang/dart-sublime-bundle#readme)
+<a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><img
+  alt="Sublime logo" src="images/sublime.png">
+  Sublime Text 3</a>
 
-[![Emacs logo](images/emacs.png)](https://github.com/nex3/dart-mode)
-[Emacs](https://github.com/nex3/dart-mode)
+<a href="https://github.com/nex3/dart-mode"><img
+  alt="Emacs logo" src="images/emacs.png">
+  Emacs</a>
 
-[![Vim logo](images/vim.png)](https://github.com/dart-lang/dart-vim-plugin)
-[Vim](https://github.com/dart-lang/dart-vim-plugin)
+<a href="https://github.com/dart-lang/dart-vim-plugin"><img
+  alt="Vim logo" src="images/vim.png">
+  Vim</a>
+
   </div>
 </div>

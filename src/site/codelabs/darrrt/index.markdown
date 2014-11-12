@@ -2040,7 +2040,7 @@ Here's where to go to learn more.
 
 #### The Dart language
 
-<a href="https://www.dartlang.org/docs/dart-up-and-running/ch02.html">
+<a href="/docs/dart-up-and-running/ch02.html">
 A Tour of the Dart Language</a>
 shows you how to use each major Dart feature,
 from variables and operators to classes and libraries.
@@ -2072,7 +2072,7 @@ all of which are covered in more detail in the language tour.
 
 #### The Dart libraries
 
-* <a href="https://www.dartlang.org/docs/dart-up-and-running/ch03.html">
+* <a href="/docs/dart-up-and-running/ch03.html">
 A Tour of the Dart Libraries</a>
 shows you how to use the major features in Dart’s libraries.
 

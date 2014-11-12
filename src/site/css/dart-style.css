@@ -1434,7 +1434,7 @@ a.permalink {
  * implemented by using class="glyphicon glyphicon-new-window"
  * instead of this css.
  */
-a[href^="http"]:not(a[href^="https://storage"]):not(.btn):after {
+a[href^="http"]:not([href^="https://storage"]):not(.btn):after {
   content: "\e164";
   position: relative;
   top: 1px;
