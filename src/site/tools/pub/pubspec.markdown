@@ -81,10 +81,10 @@ dependency_overrides:
 Every package needs a name.  It's how other packages will refer to yours,
 and how it will appear to the world, should you publish it.
 
-It should be all lowercase, with underscores to separate words,
-`just_like_this`. Only basic Latin letters and Arabic digits are allowed in package names:
-`[a-z0-9_]`, also ensure that it's a valid Dart identifier (i.e. doesn't start
-with digits and isn't a reserved word).
+The name should be all lowercase, with underscores to separate words,
+`just_like_this`. Use only basic Latin letters and Arabic digits:
+`[a-z0-9_]`. Also, make sure the name is a valid Dart identifier—that it
+doesn't start with digits and isn't a [reserved word](/docs/dart-up-and-running/ch02.html#keywords).
 
 Try to pick a name that is clear, terse, and not already in use.
 A quick search of packages on
