@@ -62,10 +62,10 @@ enchilada/
     style.css
 {% endprettify %}
 
-\* The `pubspec.lock` will only be in source control if the package is an
-[application package](glossary.html#application-package).
+\* The `pubspec.lock` file is only entered into source control if the package
+is an [application package](glossary.html#application-package).
 
-\** The `packages` directories will exist locally after you've run
+\** The `packages` directories exists locally after you've run
 `pub get`, but won't be checked into source control.
 
 ## The basics
@@ -76,7 +76,7 @@ enchilada/
   pubspec.lock
 {% endprettify %}
 
-Every package will have a [_pubspec_](pubspec.html), a file named
+Every package has a [_pubspec_](pubspec.html), a file named
 `pubspec.yaml`, in the root directory of the package. That's what *makes* it a
 package.
 
@@ -92,7 +92,7 @@ enchilada/
     ...
 {% endprettify %}
 
-Running pub will also generate a `packages` directory. You will *not* check
+Running pub also generates a `packages` directory. You will *not* check
 this into source control, and you won't need to worry too much about its
 contents. Consider it pub magic, but not scary magic.
 
@@ -111,11 +111,11 @@ enchilada/
 
 One file that's very common in open source is a README file that
 describes the project. This is especially important in pub. When you upload
-to [pub.dartlang.org](http://pub.dartlang.org), your README will be shown on
+to [pub.dartlang.org](http://pub.dartlang.org), your README is shown on
 the page for your package. This is the perfect place to introduce people to
 your code.
 
-If your README ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
+If your README ends in `.md`, `.markdown`, or `.mdown`, it is parsed as
 [Markdown][].
 
 [markdown]: http://daringfireball.net/projects/markdown/
@@ -129,11 +129,12 @@ enchilada/
 
 To show users the latest changes to your package, you can include a changelog 
 file where you can write a short note about the changes in your latest 
-release. When you upload your package to [pub.dartlang.org](http://pub.dartlang.org) 
-it will detect that your package contains a changelog file and will then show 
+release. When you upload your package to
+[pub.dartlang.org](http://pub.dartlang.org) 
+it detects that your package contains a changelog file and shows 
 it in the changelog tab.
 
-If your CHANGELOG ends in `.md`, `.markdown`, or `.mdown`, it will be parsed as
+If your CHANGELOG ends in `.md`, `.markdown`, or `.mdown`, it is parsed as
 [Markdown][].
 
 ## Public directories
@@ -182,7 +183,7 @@ enchilada/
         olives.dart
 {% endprettify %}
 
-Users will import `olives.dart` as follows:
+Users import `olives.dart` as follows:
 
 {% prettify dart %}
 import "package:enchilada/some/path/olives.dart";
@@ -274,8 +275,8 @@ styles. In an HTML file in your package, you can add:
 {% endprettify %}
 
 When you run your application using [`pub serve`](cmd/pub-serve.html), or build
-it to something deployable using [`pub build`](cmd/pub-build.html), pub will
-copy over any referenced assets that your package depends on.
+it to something deployable using [`pub build`](cmd/pub-build.html), pub 
+copies over any referenced assets that your package depends on.
 
 For more information about using assets, see
 [Pub Assets and Transformers](assets-and-transformers.html).

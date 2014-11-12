@@ -115,11 +115,25 @@ $ pub global run foo:bar arg1 arg2
 ### Running a script from your PATH {#running-a-script-from-your-path}
 
 A package may choose to expose some of its scripts as executables
-that can be run directly from the command line.
-When you globally activate a package, it creates a shell script for each
-entry listed in the `executables` section of the pubspec, and adds it to the
-`bin` directory in your [pub cache](glossary.html#system-cache) (located
-in `~/.pub-cache/bin` for Linux and Mac). If you want to activate a subset,
+that can be run directly from the command line.  The script must
+be listed in the [`executables`](/tools/pub/pubspec.html#executables)
+entry of the pubspec file.  For example, the following pubspec file
+identifies `bin/helloworld.dart` as an executable for the helloworld package:
+
+{% prettify yaml %}
+name: helloworld
+
+executables:
+  helloworld:
+{% endprettify %}
+
+When you globally activate a package using any of the `pub global activate`
+options, pub creates a shell script for each
+entry listed in the `executables` section of the pubspec,
+and adds it to the `bin` directory in your
+[pub cache](/tools/pub/glossary.html#system-cache).
+For Linux and Mac, this file is located in `~/.pub-cache/bin`.)
+If you want to activate a subset of the list of executables,
 use `--executable=<name>` (or `-x<name>`, for short).
 
 **You must manually add the pub cache `bin` directory to your PATH.**
@@ -131,6 +145,8 @@ use `--overwrite`. For example:
 {% prettify sh %}
 $ pub global activate <package> --executable=<name> [[highlight]]--overwrite[[/highlight]]
 {% endprettify %}
+
+You can now run `helloworld` at the command line.
 
 For more information on the these flags, see [Options](#options).
 
