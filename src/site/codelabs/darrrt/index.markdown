@@ -1117,7 +1117,7 @@ class PirateName {
 
 </div><div class="col-md-5" markdown="1">
 
-* Calling the `toString()` function will return pirateName when used.
+* Calling the `toString()` function returns pirateName when used.
 
 </div></div>
 
