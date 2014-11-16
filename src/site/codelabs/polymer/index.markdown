@@ -948,7 +948,7 @@ addCodelab(Event e, var detail, Node sender) {
 
 <ul markdown="1">
 <li markdown="1">
-  You added a `codelabs` field to `CodelabFormElement` and made it
+  You added a `codelabs` field to `CodelabList` and made it
   observable. This is the definitive collection of code labs in this app.
 </li>
 
