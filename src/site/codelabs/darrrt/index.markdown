@@ -1099,6 +1099,38 @@ lets you easily build strings from other objects.
 
 <hr>
 
+Override the toString() method.
+</div>
+
+<div class="row"> <div class="col-md-7">
+
+<div class="trydart-step-details">
+{% prettify dart %}
+class PirateName {
+  ...
+[[highlight]]  String toString() => pirateName;[[/highlight]]
+}
+{% endprettify %}
+</div>
+
+<div class="trydart-filename">piratebadge.dart</div>
+
+</div><div class="col-md-5" markdown="1">
+
+* Because the Object implementation of `toString()` doesn't give much information,
+  many classes override `toString()`.
+
+* When you call `print(anObject)` for any non-String, it prints the value
+  returned by `anObject.toString()`.
+
+* Overriding `toString()` can be especially helpful for debugging or logging.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
 Modify the function `setBadgeName()` to use a PirateName instead of a String:
 </div>
 
