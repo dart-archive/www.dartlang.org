@@ -1687,7 +1687,7 @@ elements.
 on our [Samples page](/samples/).
 
 * Learn more about Dart from
-the [Dart tutorials](/tutorials/).
+the [Dart tutorials](/docs/tutorials/).
 
 * [A Tour of the Dart Language](/docs/dart-up-and-running/ch02.html)
 shows you how to use each major Dart feature,
