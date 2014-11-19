@@ -77,7 +77,7 @@ pub global activate -sgit https://github.com/dart-lang/async_await.git
 $ pub global activate --source path <path>
 {% endprettify %}
 
-Use `activate --source <path>` to activate a package on your local machine.
+Use `activate --source path <path>` to activate a package on your local machine.
 The following example activates the `stopwatch` package from the
 `~/dart` directory:
 
@@ -132,7 +132,7 @@ options, pub creates a shell script for each
 entry listed in the `executables` section of the pubspec,
 and adds it to the `bin` directory in your
 [pub cache](/tools/pub/glossary.html#system-cache).
-For Linux and Mac, this file is located in `~/.pub-cache/bin`.)
+For Linux and Mac, this file is located in `~/.pub-cache/bin`.
 If you want to activate a subset of the list of executables,
 use `--executable=<name>` (or `-x<name>`, for short).
 

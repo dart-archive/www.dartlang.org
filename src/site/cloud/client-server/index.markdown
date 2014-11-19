@@ -84,9 +84,13 @@ refresh your client, and immediately see the changes.
 
 For App Engine managed VM apps, `pub serve` needs to listen on
 an adapter shared by all docker containers.
-On a Mac, the address on the host is 192.168.59.3.
-Use 0.0.0.0 for other machines.
-
+In most cases, this will be located at IP 192.168.59.3.
+If this address fails, use `ifconfig` (Mac and Linux) or
+`ipconfig` (Windows) to determine which IP should be used.
+The ifconfig output typically lists the adapter as `vboxnet1`.
+The ipconfig output has the heading `VirtualBox Host-Only Ethernet Adapter`.
+For more information, see
+[boot2docker configuration](https://github.com/boot2docker/boot2docker-cli#configuration).
   </li>
 
   <li markdown="1">
