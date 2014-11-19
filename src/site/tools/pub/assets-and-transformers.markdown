@@ -261,7 +261,17 @@ filename, but they can't change the directory structure above
 [assets]: glossary.html#asset
 [transformers]: glossary.html#transformer
 
-## How to exclude assets {#exclude-assets}
+## How to control which assets are processed {#exclude-assets}
+
+You can use `$exclude` to tell a transformer _not_ to process one
+or more assets. You can use `$include` to tell a transformer
+to process _only_ one or more assets. As of the 1.8 release, you 
+can use glob syntax to make it easier to include, or exclude,
+a group of assets, including entire directories.
+
+{% include coming-release.html %}
+
+### Excluding assets {#excluding-assets}
 
 If you have an asset that you do not want a transformer to process,
 you can exclude it, by name, in the pubspec. For example, a transformer
@@ -288,6 +298,8 @@ Indent the next line by 4 spaces and use the form:
         <parameter>: <value>
 </aside>
 
+### Processing specific assets {#specified-assets}
+
 If you want a transformer to run _only_ on a particular file, you can
 use `$include`. The following example tells pub to run the transformer
 only on lib/foo.html, assuming that foo.html is a file type that it
@@ -302,10 +314,45 @@ transformers:
 You can't use the include tag to force a transformer to operate on a
 file type that it would not otherwise process.
 
-You can also specify a list of files for the include or exclude tags:
+### Using glob syntax {#glob-syntax}
+
+You can specify a list of files for the include or exclude tags:
 
 {% prettify yaml %}
 $exclude: ["lib/foo.html", "lib/bar.html"]
+{% endprettify %}
+
+Or you can use _glob_ syntax to specify a group of files.
+
+For example, you can instruct the transformer to process any file that
+ends with `.txt`, across all directories in the package, using `**.txt`:
+
+{% prettify yaml %}
+transformers:
+- my_transformer:
+    $include: **.txt
+{% endprettify %}
+
+You can also specify an entire directory for inclusion or exclusion.
+For example, you can instruct the transformer to ignore any files in
+the `lib/untransformed` directory like this:
+
+{% prettify yaml %}
+transformers:
+- my_transformer:
+    $exclude: lib/untransformed
+{% endprettify %}
+
+For more information on how to use glob syntax,
+see the [glob](https://pub.dartlang.org/packages/glob) package.
+
+If you publish a package that uses the glob syntax, be aware that
+earlier versions of pub will not understand. To ensure that a
+compatible version of pub is used, add an SDK contraint to your pubspec:
+
+{% prettify yaml %}
+environment:
+    sdk: ">=1.8.0 <2.0.0"
 {% endprettify %}
 
 ## How to configure assets {#configure-assets}
