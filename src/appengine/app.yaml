@@ -182,6 +182,9 @@ handlers:
 - url: /dart2js-stripped-uri
   script: scripts.redirector.application
 
+- url: /dart2js-reflection
+  script: scripts.redirector.application
+
 - url: /is-dartisans-live-now
   script: scripts.is_dartisans_live.application
 
