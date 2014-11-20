@@ -61,3 +61,4 @@ _asset_bundler_cache
 
 !src/site/tools/download-archive/out/web/packages/
 !src/site/tools/download-archive/packages/
+src/site/events/2015/summit/node_modules
