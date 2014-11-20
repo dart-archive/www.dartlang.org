@@ -141,3 +141,6 @@ Google internal tool for marketing
 
 [Children of Ur](http://www.childrenofur.com/)
 : A community reboot of the closed massively multiplayer game called [Glitch](http://glitchthegame.com).
+
+[Issue Mover for GitHub](https://github-issue-mover.appspot.com/)
+: A tool that makes it easy to move issues between GitHub repos.
