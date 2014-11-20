@@ -12,13 +12,18 @@ short-title: "dart2js"
 ---
 Use the _dart2js_ tool to compile Dart code to JavaScript.
 [Dart Editor](/tools/editor/) uses dart2js behind the scenes whenever Dart
-Editor compiles to JavaScript. The [`pub serve`](/tools/pub/cmd/pub-serve.html)
-and [`pub build`](/tools/pub/cmd/pub-build.html) options also use dart2js.
+Editor compiles to JavaScript. The [`pub serve`](/tools/pub/cmd/pub-serve.html),
+[`pub run`](/tools/pub/cmd/pub-run.html), and
+[`pub build`](/tools/pub/cmd/pub-build.html) commands also use dart2js.
+If you are using dart2js through one of the pub commands, see [Configuring
+the Built-in dart2js Transformer for Pub](/tools/pub/dart2js-transformer.html)
+for information on how to specify dart2js flags in your pubspec file.
 
 The dart2js tool provides hints for improving your Dart code and removing
 unused code. You can get these hints for all kinds of code—even command-line
-apps. Also see [dartanalyzer](/tools/analyzer/), which performs a similar analysis but,
-as of 1.0, has a different implementation.
+apps. Also see [dartanalyzer](/tools/analyzer/),
+which performs a similar analysis but, as of 1.0,
+has a different implementation.
 
 This page tells you how to use dart2js on the command line. It also give tips
 on debugging the JavaScript that dart2js generates.
@@ -98,8 +103,21 @@ The following options control the analysis that dart2js performs on Dart code:
 : Show warnings and hints generated from packages.
 
 `--csp`
-: Disables dynamic generation of code in the generated output. This is
-  necessary to satisfy CSP restrictions (see [W3C Content Security Policy](http://www.w3.org/TR/CSP/)).
+: If true, disables dynamic generation of code in the generated output.
+  This is necessary to satisfy CSP restrictions
+  (see [W3C Content Security Policy](http://www.w3.org/TR/CSP/)).
+  The default is false.
+
+<aside class="alert alert-info" markdown="1">
+**Version note:**Prior to Dart 1.8, the CSP version of JavaScript was generated
+automatically, and saved with the extension `precompiled.js`.
+As of the 1.8 release, you must specify the CSP format using the `--csp` flag,
+and the resulting file is saved with the normal `.js` extension.
+
+See [Configuring the Built-in dart2js Transformer for
+Pub](/tools/pub/dart2js-transformer.html) for information on how to
+configure the pubspec file to use this, and other, flags.
+</aside>
 
 `--categories=Server`
 : Use with `--analyze-only` to analyze a command-line app. The default
