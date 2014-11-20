@@ -1,0 +1,101 @@
+/* TODO(paullewis) Remove on launch of sessions */
+.sessions {
+	height: 168px;
+	position: relative;
+	z-index: 1;
+}
+
+.sessions__coming-soon {
+	@include typo-base();
+	font-weight: 400;
+	width: 100%;
+	line-height: 1;
+	text-align: center;
+	color: rgba(255,255,255,0.56);
+	position: absolute;
+	top: 78%;
+	font-size: 16px;
+}
+
+.sessions .card__container {
+	background: $color-accent;
+
+	&:after, &:before {
+		background: $color-accent;
+	}
+}
+
+.sessions .card__logo {
+	width: 112px;
+	height: 112px;
+	left: calc(50% - 16px);
+	top: calc(50% - 36px);
+	background: url(../images/icon-sessions.svg) top left no-repeat;
+	background-size: contain;
+}
+
+.sessions.card--expanded {
+	.card__logo {
+		width: 112px;
+		height: 112px;
+		left: calc(50% - 16px);
+		top: 70px;
+	}
+
+	.card__content-wrapper {
+		top: 208px;
+	}
+}
+
+@media (min-width: 475px) {
+
+	.sessions {
+		height: 210px;
+	}
+
+	.sessions .card__logo {
+		width: 142px;
+		height: 142px;
+		left: calc(50% - 20px);
+		top: calc(50% - 46px);
+	}
+
+	.sessions__coming-soon {
+		font-size: 18px;
+	}
+}
+
+@media (min-width: 600px) {
+	.sessions {
+		height: 484px
+	}
+
+	.sessions .card__content-wrapper {
+		top: 581px;
+	}
+
+	.sessions .card__logo {
+		width: 224px;
+		height: 224px;
+		left: calc(50% - 35px);
+		top: calc(50% - 76px);
+	}
+
+	.sessions__coming-soon {
+		top: 70%;
+		font-size: 24px;
+		font-weight: 300;
+	}
+
+}
+
+@media (min-width: 960px) {
+	.sessions.card--right-half {
+		width: calc(50% - 4px);
+		margin-right: 4px;
+	}
+}
+
+.sessions .sessions__card .card__container {
+	background: $color-action;
+}

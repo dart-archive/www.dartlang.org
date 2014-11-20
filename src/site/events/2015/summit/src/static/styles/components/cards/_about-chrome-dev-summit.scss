@@ -1,0 +1,83 @@
+.about-chrome-dev-summit.card {
+	margin: 4px 0;
+}
+
+.about-chrome-dev-summit .card__container {
+	background: $color-action;
+
+	&:after, &:before {
+		background: $color-action;
+	}
+}
+
+.about-chrome-dev-summit .card__logo {
+	@include typo-base();
+	font-weight: 300;
+	font-size: 16px;
+	color: darken($color-action, 32%);
+	line-height: 1.45;
+	padding: 40px 16px 10px 16px;
+}
+
+.about-chrome-dev-summit.card--expanded {
+	.card__logo {
+		top: 40px;
+	}
+}
+
+.about-chrome-dev-summit .card__content-wrapper {
+	border-top: 166px solid $color-action;
+	padding: 16px;
+}
+
+@media (min-width: 475px) {
+
+	.about-chrome-dev-summit .card__logo {
+		font-size: 20px;
+		padding-right: 90px;
+		top: 10px;
+	}
+}
+
+@media (min-width: 600px) {
+
+	.about-chrome-dev-summit.card {
+		clear: both;
+	}
+
+	.about-chrome-dev-summit .card__logo {
+		font-size: 22px;
+		padding-right: 70px;
+	}
+}
+
+@media (min-width: 800px) {
+	.about-chrome-dev-summit.card {
+		width: calc(50% - 2px);
+		margin: 0 0 0 4px;
+		float: left;
+		clear: none;
+	}
+
+	.about-chrome-dev-summit .card__logo {
+		font-size: 22px;
+		padding-right: 0;
+		width: 470px;
+	}
+
+	.about-chrome-dev-summit.card--expanded .card__logo {
+		width: 680px;
+	}
+}
+
+@media (min-width: 900px) {
+	.about-chrome-dev-summit.card--expanded .card__logo {
+		left: calc(50% - 286px);
+	  	width: 570px;
+	    color: lighten($color-action, 32%);
+	}
+
+	.about-chrome-dev-summit .card__content-wrapper {
+		border-top: 166px solid darken($color-action, 20%);
+	}
+}

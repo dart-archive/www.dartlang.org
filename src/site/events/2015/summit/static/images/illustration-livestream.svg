@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="304px" height="304px" viewBox="0 0 304 304" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8053) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 54 + Path 3 + Rectangle 57 + Rectangle 59 + Rectangle 60</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="42.5088516%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0.099779212" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-Superwide" sketch:type="MSArtboardGroup" transform="translate(-836.000000, -2024.000000)">
+            <g id="Rectangle-54-+-Path-3-+-Rectangle-57-+-Rectangle-59-+-Rectangle-60" sketch:type="MSLayerGroup" transform="translate(836.000000, 2024.000000)">
+                <rect id="Rectangle-54" fill="#4CBB47" sketch:type="MSShapeGroup" x="0" y="0" width="304" height="304"></rect>
+                <g id="Path-3-+-Rectangle-57" transform="translate(84.000000, 111.000000)" fill="url(#linearGradient-1)" sketch:type="MSShapeGroup">
+                    <path d="M-0.5,79.2871094 L114.706645,193.493754 L220.701625,193.493754 L220.701625,83.3958174 L137.103641,-0.202166285 L118.929403,19.9720717 L99.550242,0.592910136 L-0.5,79.2871094 Z" id="Path-3"></path>
+                </g>
+                <g id="Rectangle-59-+-Rectangle-60" transform="translate(82.000000, 110.000000)" fill="#FFFFFF" sketch:type="MSShapeGroup">
+                    <rect id="Rectangle-59" x="0" y="0" width="105.043213" height="84.0345703" rx="8"></rect>
+                    <path d="M138.48394,83.6872611 C139.353058,84.3736999 140.057617,84.0382272 140.057617,82.934109 L140.057617,1.06222335 C140.057617,-0.0401699025 139.360586,-0.377667248 138.499664,0.309272045 L78.5896424,48.1121557 C77.7292087,48.7987054 77.0316895,48.4667615 77.0316895,47.3503517 L77.0316895,37.1565177 C77.0316895,36.0492352 77.7395002,35.7106421 78.6053667,36.3945129 L138.48394,83.6872611 Z" id="Rectangle-60"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
