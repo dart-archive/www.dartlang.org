@@ -179,6 +179,9 @@ handlers:
 - url: /events/2013/flight-school/
   script: scripts.redirector.application
 
+- url: /events/2015/summit
+  script: scripts.redirector.application
+
 - url: /dart2js-stripped-uri
   script: scripts.redirector.application
 
