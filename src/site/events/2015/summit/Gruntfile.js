@@ -46,6 +46,38 @@ module.exports = function(grunt) {
           ],
           dest: './'
         }]
+      },
+
+      fakeCardsHtml: {
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: [
+            'index.html'
+          ],
+          dest: 'get-involved/'
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: [
+            'index.html'
+          ],
+          dest: 'attendee-information/'
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: [
+            'index.html'
+          ],
+          dest: 'about-dart-summit/'
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: [
+            'index.html'
+          ],
+          dest: 'schedule/'
+        }]
       }
     },
 
