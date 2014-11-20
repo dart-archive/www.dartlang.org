@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="74px" height="56px" viewBox="0 0 74 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1 (8751) - http://www.bohemiancoding.com/sketch -->
+    <title>camera-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="74" height="56"></rect>
+        <linearGradient x1="0%" y1="42.5088516%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#000000" stop-opacity="0.099779212" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="mobile-v2" sketch:type="MSArtboardGroup" transform="translate(-17.000000, -335.000000)">
+            <g id="Livestream-2" sketch:type="MSLayerGroup" transform="translate(0.000000, 315.000000)">
+                <g id="camera-icon" transform="translate(17.000000, 20.000000)">
+                    <g id="Path-3-+-Rectangle-57">
+                        <mask id="mask-2" sketch:name="Rectangle 59" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <path d="M4.18867925,28.1763697 L38.7164295,61.6 L67.303149,61.6 L67.0188679,33.6502117 L40.1659483,7.65598808 L36.8706321,13.0848141 L31.48349,7 L4.18867925,28.1763697 Z" id="Path-3" fill="url(#linearGradient-3)" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+                    </g>
+                    <g id="Rectangle-59-+-Rectangle-60" transform="translate(2.000000, 5.000000)" fill="#FFFFFF" sketch:type="MSShapeGroup">
+                        <rect id="Rectangle-59" x="0" y="0" width="29" height="23" rx="2"></rect>
+                        <path d="M36.4647143,21.966854 C37.316148,22.6693143 38.0063714,22.3474396 38.0063714,21.2439067 L38.0063714,3.19265186 C38.0063714,2.09091874 37.3208937,1.76912918 36.4647143,2.48274953 L24.0601756,12.821858 C23.2087419,13.5315229 22.5185185,13.2055543 22.5185185,12.1131207 L22.5185185,12.4544908 C22.5185185,11.3534011 23.2039963,11.0263329 24.0601756,11.7327085 L36.4647143,21.966854 Z" id="Rectangle-60"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

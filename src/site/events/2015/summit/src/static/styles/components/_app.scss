@@ -1,0 +1,62 @@
+html.locked,
+html.locked body {
+	overflow: hidden;
+	height: 100%;
+}
+
+.app.locked {
+	overflow: hidden;
+}
+
+.app-sections {
+	background: #FFF;
+}
+
+.app-sections__card-breaker {
+	clear: both;
+	display: block;
+
+	&:after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+}
+
+@media (min-width: 600px) {
+	.app-sections__card-breaker {
+		clear: none;
+		display: none;
+	}
+}
+
+@media (min-width: 960px) {
+
+	.app-sections {
+		background: none;
+	}
+
+	.app__group {
+		background: #FFF;
+		max-width: 960px;
+		margin: 0 auto 20px auto;
+		border-radius: 3px;
+		@include shadow-z2();
+
+		&:after {
+			content: '';
+			clear: both;
+			display: table;
+		}
+	}
+
+	.app__group--bottom {
+		padding-top: 4px;
+		margin-bottom: 155px;
+	}
+
+	.app__group--livestream {
+		border-radius: 3px;
+		overflow: hidden;
+	}
+}

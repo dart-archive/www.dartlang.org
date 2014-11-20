@@ -1,0 +1,95 @@
+.livestream {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	position: relative;
+	background: $color-primary;
+}
+
+.livestream:after {
+	content: '';
+	height: 4px;
+	width: 100%;
+	background: #FFF;
+	display: block;
+	z-index: 2;
+	position: absolute;
+	bottom: 0;
+}
+
+.livestream__image {
+	width: 100%;
+	height: 320px;
+	background-size: cover;
+	position: relative;
+}
+
+.livestream__image--image-1 {
+	background-image: url(../images/masthead-1.png);
+}
+
+.livestream__image--image-2 {
+	background-image: url(../images/masthead-2.png);
+	background-position: center top;
+}
+
+.livestream__image--image-3 {
+	background-image: url(../images/masthead-3.png);
+	background-position: 65% top;
+}
+
+.livestream__image--image-4 {
+  background-image: url(../images/masthead-4.png);
+  background-position: 60% top
+}
+
+.livestream__image--image-5 {
+  background-image: url(../images/masthead-5.png);
+  background-position: 60% top
+}
+
+.livestream__anchor {
+	position: relative;
+	padding: 17px 40px 0 76px;
+	display: block;
+	height: 80px;
+	width: 100%;
+	color: #FFF;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.375;
+	background: $color-action url(../images/icon-camera.svg) 15px 20px no-repeat;
+}
+
+@media (min-width: 445px) {
+	.livestream__anchor {
+		padding-top: 0;
+		line-height: 76px;
+	}
+}
+
+@media (min-width: 600px) {
+	.livestream__anchor {
+		font-size: 18px;
+	}
+
+	.livestream__image {
+		height: 360px;
+	}
+}
+
+@media (min-width: 830px) {
+	.livestream__image {
+		height: 468px;
+	}
+}
+
+@media (min-width: 960px) {
+	.livestream {
+		border-radius: 3px;
+	}
+
+	.livestream:after {
+		display: none;
+	}
+}

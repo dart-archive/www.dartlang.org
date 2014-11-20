@@ -1,0 +1,23 @@
+@mixin keyline-72l() {
+	padding-left: 72px;
+}
+
+@mixin keyline-24l() {
+	padding-left: 24px;
+}
+
+@mixin keyline-16l() {
+	padding-left: 16px;
+}
+
+@mixin keyline-72() {
+	padding: 0 72px 0 72px;
+}
+
+@mixin keyline-24() {
+	padding: 0 24px 0 24px;
+}
+
+@mixin keyline-16() {
+	padding: 0 16px 0 16px;
+}
