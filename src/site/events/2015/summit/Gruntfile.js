@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     /** Setup tasks **/
 
     clean: {
-      dist: ["form/", "static", "index.html", "sw.js"],
+      dist: ["static", "index.html", "sw.js"],
       concatenatedjsfile: ["src/static/scripts/cds.concat.js"]
     },
 
