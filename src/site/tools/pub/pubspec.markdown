@@ -20,19 +20,19 @@ At the top level are a series of fields. The currently supported ones are:
 : Required for every package.
 
 `version`
-: Required for packages that will be hosted on pub.dartlang.org.
+: Required for packages that are hosted on pub.dartlang.org.
 
 `description`
-: Required for packages that will be hosted on pub.dartlang.org.
+: Required for packages that are hosted on pub.dartlang.org.
 
 `author` or `authors`
-: Optional.
+: Optional. 
 
 `homepage`
 : Optional.
 
 `documentation`
-: Optional.
+: Optional. Can be used to automatically create documentation.
 
 `dependencies`
 : Can be omitted if your package has no dependencies.
@@ -52,7 +52,7 @@ For more information, see
 [Pub Assets and Transformers](assets-and-transformers.html) and
 [Configuring the Built-in dart2js Compiler](dart2js-transformer.html).
 
-All other fields will be ignored. A simple but complete pubspec looks something
+All other fields are ignored. A simple but complete pubspec looks something
 like the following:
 
 {% prettify yaml %}
@@ -78,8 +78,8 @@ dependency_overrides:
 
 ## Name
 
-Every package needs a name.  It's how other packages will refer to yours,
-and how it will appear to the world, should you publish it.
+Every package needs a name.  It's how other packages refer to yours,
+and how it appears to the world, should you publish it.
 
 The name should be all lowercase, with underscores to separate words,
 `just_like_this`. Use only basic Latin letters and Arabic digits:
@@ -101,7 +101,7 @@ Versioning is necessary for reusing code while letting it evolve quickly. A
 version number is three numbers separated by dots, like `0.2.43`. It can also
 optionally have a build (`+hotfix.oopsie`) or pre-release (`-alpha.12`) suffix.
 
-Each time you publish your package, you will publish it at a specific version.
+Each time you publish your package, you publish it at a specific version.
 Once that's been done, consider it hermetically sealed: you can't touch it
 anymore. To make more changes, you'll need a new version.
 
@@ -116,7 +116,7 @@ publish your package you must provide a description. This should
 be relatively short&mdash;a few sentences, maybe a whole paragraph&mdash;and
 tells a casual reader what they might want to know about your package.
 
-Think of the description as the sales pitch for your package. Users will see it
+Think of the description as the sales pitch for your package. Users see it
 when they [browse for packages](http://pub.dartlang.org/packages).
 It should be simple plain text: no markdown or HTML.
 That's what your README is for.
@@ -136,14 +136,14 @@ authors:
 - Bob Nystrom <rnystrom@google.com>
 {% endprettify %}
 
-If anyone uploads your package to pub.dartlang.org, your email address will be
+If anyone uploads your package to pub.dartlang.org, your email address is
 public.
 
 ## Homepage
 
 This should be a URL pointing to the website for your package.
 For [hosted packages](dependencies.html#hosted-packages),
-this URL will be linked from the package's page.
+this URL is linked from the package's page.
 While this is technically optional *please do* provide one. It
 helps users understand where your package is coming from. If nothing else, you
 can always use the URL where you host the source code:
@@ -154,7 +154,11 @@ whatever.
 
 Some packages may have a site that hosts documentation separate from the main
 homepage. If your package has that, you can also add a `documentation:` field
-with that URL. If provided, a link to it will be shown on your package's page.
+with that URL. If provided, a link to it is shown on your package's page.
+
+If you specify the `documentation:` field with a blank value,
+documentation is created automatically for you, and is linked to from
+[pub.dartlang.com](https://pub.dartlang.org/).
 
 ## Dependencies
 
@@ -216,7 +220,7 @@ environment:
   sdk: ">=0.3.4"
 {% endprettify %}
 
-Pub will try to find the latest version of a package whose SDK constraint works
+Pub tries to find the latest version of a package whose SDK constraint works
 with the version of the Dart SDK that you have installed.
 
 [pubsite]: http://pub.dartlang.org
