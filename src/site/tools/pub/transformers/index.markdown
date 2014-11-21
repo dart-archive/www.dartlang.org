@@ -35,7 +35,7 @@ For more information, see
 
 This page uses two examples, SimpleTransformer and
 MarkdownConverter, which you can find through
-[Writing a Pub Transformer: Examples](examples/).
+[Examples of Transformer Code](examples/).
 
 ## Implementing a transformer {#implementing-transformer}
 
@@ -327,7 +327,7 @@ transformers. For more information, see
   into a single output.
 * [Writing a Lazy Transformer](lazy-transformer.html)
 : How to write a transformer that processes lazily, in the background.
-* [Writing a Pub Transformer: Examples](examples/)
+* [Examples of Transformer Code](examples/)
 : Examples to get you started.
 * [barback library](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/barback)
 : API docs for the barback package.
