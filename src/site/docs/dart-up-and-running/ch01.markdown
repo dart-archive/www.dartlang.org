@@ -39,10 +39,11 @@ web platform seemed to be stagnating. It worked.
 As the following figure shows, browser
 speed has increased immensely since Chrome’s introduction in 2008.
 
-> **Note**
->
-> The JavaScript engine known as _V8_ is responsible for much of Chrome’s
-> speed. Many of the V8 engineers are now working on the Dart project.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The JavaScript engine known as _V8_ is responsible for much of Chrome’s
+speed. Many of the V8 engineers are now working on the Dart project.
+</aside>
 
 ![Browser speed (V8 benchmark suite v7; higher numbers are
 better)](images/daur_0101.png)
@@ -199,12 +200,12 @@ Dart, you not only get Dart Editor, but also tools such as the
 Dart-to-JavaScript compiler and a version of Chromium (nicknamed
 *Dartium*) that includes the Dart VM.
 
-> **Note**
->
-> If you run into trouble installing and using Dart Editor, see
-> [Troubleshooting Dart
-> Editor.](/tools/editor/troubleshoot.html)
-
+<aside class="alert alert-info" markdown="1">
+**Note:**
+If you run into trouble installing and using Dart Editor, see
+[Troubleshooting Dart
+Editor.](/tools/editor/troubleshoot.html)
+</aside>
 
 ### Step 1: Download and install the software {#step-1-download-and-install-the-software}
 

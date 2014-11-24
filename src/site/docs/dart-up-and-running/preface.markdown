@@ -56,9 +56,10 @@ The following typographical conventions are used in this book:
   Shows text that should be replaced with user-supplied values or by
   values determined by context.
 
-> **Note**
->
-> A tip, suggestion, or general note.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+A tip, suggestion, or general note.
+</aside>
 
 <!-- TODO: Make sure warnings are formatted as warnings. -->
 
@@ -103,20 +104,32 @@ recent printing.
 
 ### Changes after the third printing
 
-We've fixed a few bugs:
+We updated the [Keywords](ch02.html#keywords) section
+to add the following words,
+which are associated with proposed features:
 
--   Deleted the dart-vm section, pointing to [new docs](/tools/dart-vm/).
+- async
+- async*
+- await
+- deferred
+- sync*
+- yield
+- yield*
+
+The contents of [Chapter 4 (Tools)](ch04.html) have moved out of the book,
+and into [Dart Tools](/tools/).
+
+We fixed a few bugs:
 
 -   Stopped saying that local variables are lazily initialized.
-
 -   Improved the code for the sin() example.
-
 -   Improved the comments and code for the hide elements example.
-
 -   Changed an example to use FormatException instead of the
     non-existent ExpectException.
-
 -   Updated a few links.
+
+We also went through all the code samples and made them comply with the latest
+[Dart Style Guide](/articles/style-guide/) recommendations.
 
 
 ### Changes in the third printing: February 19, 2014

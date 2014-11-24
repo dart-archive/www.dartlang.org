@@ -173,10 +173,12 @@ assert('structured web apps'.toUpperCase() == 'STRUCTURED WEB APPS');
 assert('STRUCTURED WEB APPS'.toLowerCase() == 'structured web apps');
 {% endprettify %}
 
-> **Note**
->
-> These methods don't work for every language. For example, the Turkish
-> alphabet's dotless *I* is converted incorrectly.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+These methods don't work for every language. For example, the Turkish
+alphabet's dotless *I* is converted incorrectly.
+</aside>
+
 
 #### Trimming and empty strings {#trimming-and-empty-strings}
 {:.no_toc}
@@ -446,9 +448,9 @@ traditional constructor:
 {% prettify dart %}
 // Maps often use strings as keys.
 var hawaiianBeaches = {
-  'oahu'       : ['waikiki', 'kailua', 'waimanalo'],
-  'big island' : ['wailea bay', 'pololu beach'],
-  'kauai'      : ['hanalei', 'poipu']
+  'oahu'      : ['waikiki', 'kailua', 'waimanalo'],
+  'big island': ['wailea bay', 'pololu beach'],
+  'kauai'     : ['hanalei', 'poipu']
 };
 
 // Maps can be built from a constructor.
@@ -464,7 +466,7 @@ to remove a key and its value from a map.
 
 <!-- ch03/map-1.dart -->
 {% prettify dart %}
-var nobleGases = { 54: 'xenon' };
+var nobleGases = {54: 'xenon'};
 
 // Retrieve a value with a key.
 assert(nobleGases[54] == 'xenon');
@@ -482,9 +484,9 @@ You can retrieve all the values or all the keys from a map:
 <!-- ch03/map-1.dart -->
 {% prettify dart %}
 var hawaiianBeaches = {
-  'oahu' : ['waikiki', 'kailua', 'waimanalo'],
-  'big island' : ['wailea bay', 'pololu beach'],
-  'kauai' : ['hanalei', 'poipu']
+  'oahu'      : ['waikiki', 'kailua', 'waimanalo'],
+  'big island': ['wailea bay', 'pololu beach'],
+  'kauai'     : ['hanalei', 'poipu']
 };
 
 // Get all the keys as an unordered collection (an Iterable).
@@ -506,9 +508,9 @@ key and checking for null to determine the existence of a key.
 <!-- ch03/map-1.dart -->
 {% prettify dart %}
 var hawaiianBeaches = {
-  'oahu' : ['waikiki', 'kailua', 'waimanalo'],
-  'big island' : ['wailea bay', 'pololu beach'],
-  'kauai' : ['hanalei', 'poipu']
+  'oahu'      : ['waikiki', 'kailua', 'waimanalo'],
+  'big island': ['wailea bay', 'pololu beach'],
+  'kauai'     : ['hanalei', 'poipu']
 };
 
 assert(hawaiianBeaches.containsKey('oahu'));
@@ -536,10 +538,11 @@ List, Set, and Map share common functionality found in many collections.
 Some of this common functionality is defined by the Iterable class,
 which List and Set implement.
 
-> **Note**
->
-> Although Map doesn’t implement Iterable, you can get Iterables from it
-> using the Map `keys` and `values` properties.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Although Map doesn’t implement Iterable, you can get Iterables from it
+using the Map `keys` and `values` properties.
+</aside>
 
 Use `isEmpty` to check whether a list, set, or map has no items:
 
@@ -581,11 +584,12 @@ var loudTeas = teas.map((tea) => tea.toUpperCase());
 loudTeas.forEach(print);
 {% endprettify %}
 
-> **Note**
->
-> The object returned by `map()` is an Iterable that’s *lazily
-> evaluated*: your function isn’t called until you ask for an item from
-> the returned object.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The object returned by `map()` is an Iterable that’s *lazily
+evaluated*: your function isn’t called until you ask for an item from
+the returned object.
+</aside>
 
 To force your function to be called immediately on each item, use
 `map().toList()` or `map().toSet()`:
@@ -746,10 +750,11 @@ var y2k = new DateTime(2000);   // January 1, 2000
 y2k = new DateTime(2000, 1, 2); // January 2, 2000
 
 // Specify the date as a UTC time.
-y2k = new DateTime.utc(2000);   // January 1, 2000, UTC
+y2k = new DateTime.utc(2000);   // 1/1/2000, UTC
 
-// Specify a date and time in milliseconds since the Unix epoch.
-y2k = new DateTime.fromMillisecondsSinceEpoch(946684800000, isUtc: true);
+// Specify a date and time in ms since the Unix epoch.
+y2k = new DateTime.fromMillisecondsSinceEpoch(
+    946684800000, isUtc: true);
 
 // Parse an ISO 8601 date.
 y2k = DateTime.parse('2000-01-01T00:00:00Z');
@@ -760,9 +765,12 @@ milliseconds since the “Unix epoch”—January 1, 1970, UTC:
 
 <!-- ch03/date.dart -->
 {% prettify dart %}
-var y2k = new DateTime.utc(2000);           // 1/1/2000, UTC
+// 1/1/2000, UTC
+y2k = new DateTime.utc(2000);
 assert(y2k.millisecondsSinceEpoch == 946684800000);
-var unixEpoch = new DateTime.utc(1970); // 1/1/1970, UTC
+
+// 1/1/1970, UTC
+var unixEpoch = new DateTime.utc(1970);
 assert(unixEpoch.millisecondsSinceEpoch == 0);
 {% endprettify %}
 
@@ -778,7 +786,8 @@ var y2001 = y2k.add(const Duration(days: 366));
 assert(y2001.year == 2001);
 
 // Subtract 30 days.
-var december2000 = y2001.subtract(const Duration(days: 30));
+var december2000 = y2001.subtract(
+    const Duration(days: 30));
 assert(december2000.year == 2000);
 assert(december2000.month == 12);
 
@@ -863,8 +872,8 @@ class Person {
     return result;
   }
 
-  // You should generally implement operator== if you override hashCode.
-  bool operator==(other) {
+  // You should generally implement operator == if you override hashCode.
+  bool operator ==(other) {
     if (other is! Person) return false;
     Person person = other;
     return (person.firstName == firstName && person.lastName == lastName);
@@ -967,6 +976,7 @@ Future, Stream, and more are in the
 The dart:async library works in both web apps and command-line apps. To
 use it, import dart:async:
 
+<!-- ch03/futures.dart -->
 {% prettify dart %}
 import 'dart:async';
 {% endprettify %}
@@ -989,10 +999,10 @@ has completed and the promised string value is available:
 
 <!-- ch03/ch03_4_async/web/ch03_4_async.dart -->
 {% prettify dart %}
-HttpRequest.getString(url)
-  .then((String result) {
-    print(result); });
-  // Should handle errors here
+HttpRequest.getString(url).then((String result) {
+  print(result);
+});
+// Should handle errors here.
 {% endprettify %}
 
 Use `catchError()` to handle any errors or exceptions that a Future
@@ -1000,23 +1010,23 @@ object might throw.
 
 <!-- ch03/ch03_4_async/web/ch03_4_async.dart -->
 {% prettify dart %}
-HttpRequest.getString(url)
-  .then((String result) {  // callback function
-    print(result); })
-  .catchError((e) {
-    // Handle or ignore the error.
-  });
+HttpRequest.getString(url).then((String result) {
+  print(result);
+}).catchError((e) {
+  // Handle or ignore the error.
+});
 {% endprettify %}
 
 The `then().catchError()` pattern is the asynchronous version of
 `try`-`catch`.
 
-> **Note**
->
-> Be sure to invoke `catchError()` on the result of `then()`—not on the
-> result of the original Future. Otherwise, the `catchError()` can
-> handle errors only from the original Future's computation, but not
-> from the handler registered by `then()`.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Be sure to invoke `catchError()` on the result of `then()`—not on the
+result of the original Future. Otherwise, the `catchError()` can
+handle errors only from the original Future's computation, but not
+from the handler registered by `then()`.
+</aside>
 
 #### Chaining multiple asynchronous methods {#chaining-multiple-asynchronous-methods}
 {:.no_toc}
@@ -1116,10 +1126,15 @@ var config = new File('config.txt');
 Stream<List<int>> inputStream = config.openRead();
 
 inputStream
-  .transform(UTF8.decoder)
-  .transform(new LineSplitter())
-  .listen(
-    (String line) {...} ...);
+    .transform(UTF8.decoder)
+    .transform(new LineSplitter())
+    .listen((String line) {
+      print('Got ${line.length} characters from stream');
+    }, onDone: () {
+      print('file is now closed');
+    }, onError: (e) {
+      print(e.toString());
+    });
 {% endprettify %}
 
 This example uses two transformers. First it uses UTF8.decoder to
@@ -1184,9 +1199,10 @@ var sinOf30degrees = math.sin(radians);
 assert((sinOf30degrees - 0.5).abs() < 0.01); // sin 30° = 0.5
 {% endprettify %}
 
-> **Note**
->
-> These functions use radians, not degrees!
+<aside class="alert alert-info" markdown="1">
+**Note:**
+These functions use radians, not degrees!
+</aside>
 
 
 ### Maximum and minimum {#maximum-and-minimum}
@@ -1263,11 +1279,12 @@ HTML5 (and dart:html) has many
 additional APIs that this section doesn’t cover. Only web apps can use
 dart:html, not command-line apps.
 
-> **Note**
->
-> For higher level approaches to web app UIs, see
-> [Polymer.dart](/polymer-dart/) and
-> [AngularDart](http://pub.dartlang.org/packages/angular).
+<aside class="alert alert-info" markdown="1">
+**Note:**
+For higher level approaches to web app UIs, see
+[Polymer.dart](/polymer/) and
+[AngularDart](https://angulardart.org).
+</aside>
 
 To use the HTML library in your web app, import dart:html:
 
@@ -1276,10 +1293,11 @@ To use the HTML library in your web app, import dart:html:
 import 'dart:html';
 {% endprettify %}
 
-> **Note**
->
-> Parts of the dart:html library are experimental, as noted in the API
-> documentation.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Parts of the dart:html library are experimental, as noted in the API
+documentation.
+</aside>
 
 
 ### Manipulating the DOM {#manipulating-the-dom}
@@ -1327,13 +1345,21 @@ that match the selector.
 
 <!-- ch03_html/ch03_html.dart -->
 {% prettify dart %}
-Element elem1 = querySelector('#an-id');           // Find an element by id (an-id).
-Element elem2 = querySelector('.a-class');         // Find an element by class (a-class).
-List<Element> elems1 = querySelectorAll('div');    // Find all elements by tag (<div>).
-List<Element> elems2 = querySelectorAll('input[type="text"]'); // Find all text inputs.
+// Find an element by id (an-id).
+Element elem1 = querySelector('#an-id');
 
-// Find all elements with the CSS class 'class' inside of a <p>
-// that is inside an element with the ID 'id'.
+// Find an element by class (a-class).
+Element elem2 = querySelector('.a-class');
+
+// Find all elements by tag (<div>).
+List<Element> elems1 = querySelectorAll('div');
+
+// Find all text inputs.
+List<Element> elems2 = querySelectorAll('input[type="text"]');
+
+// Find all elements with the CSS class 'class'
+// inside of a <p> that is inside an element with
+// the ID 'id'.
 List<Element> elems3 = querySelectorAll('#id p.class');
 {% endprettify %}
 
@@ -1631,11 +1657,11 @@ handler:
 
 <!-- ch03_html/ch03_2_html.dart -->
 {% prettify dart %}
-...
+// ...
 HttpRequest.getString(uri)
     .then(processString)
     .catchError(handleError);
-...
+// ...
 handleError(error) {
   print('Uh oh, there was an error.');
   print(error.toString());
@@ -1666,11 +1692,11 @@ processRequest(HttpRequest request) {
   try {
     var license = xmlDoc.querySelector('license').text;
     print('License: $license');
-  } catch(e) {
+  } catch (e) {
     print('$xmlUri doesn\'t have correct XML formatting.');
   }
 }
-...
+// ...
 {% endprettify %}
 
 You can also use the full API to handle more interesting cases. For
@@ -1691,7 +1717,7 @@ For example:
 <!-- dart-tutorials-samples/web/portmanteaux/portmanteaux.dart -->
 {% prettify dart %}
 import 'dart:html';
-...
+// ...
 var httpRequest = new HttpRequest()
     ..open('POST', dataUrl)
     ..onLoadEnd.listen((_) => requestComplete(httpRequest))
@@ -1760,7 +1786,7 @@ To use a WebSocket in your web app, first create a
 [WebSocket](http://api.dartlang.org/html/WebSocket.html) object, passing
 the WebSocket URL as an argument:
 
-<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+<!-- github.com/dart-lang/dart-samples/html5/web/websockets/basics/websocket_sample.dart -->
 {% prettify dart %}
 var ws = new WebSocket('ws://echo.websocket.org');
 {% endprettify %}
@@ -1770,7 +1796,7 @@ var ws = new WebSocket('ws://echo.websocket.org');
 
 To send string data on the WebSocket, use the `send()` method:
 
-<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+<!-- github.com/dart-lang/dart-samples/html5/web/websockets/basics/websocket_sample.dart -->
 {% prettify dart %}
 ws.send('Hello from Dart!');
 {% endprettify %}
@@ -1781,7 +1807,7 @@ ws.send('Hello from Dart!');
 To receive data on the WebSocket, register a listener for message
 events:
 
-<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+<!-- github.com/dart-lang/dart-samples/html5/web/websockets/basics/websocket_sample.dart -->
 {% prettify dart %}
 ws.onMessage.listen((MessageEvent e) {
   print('Received message: ${e.data}');
@@ -1800,7 +1826,7 @@ and (as shown earlier) message. Here’s an example of a method that
 creates a WebSocket object and registers handlers for open, close,
 error, and message events:
 
-<!-- github.com/dart-lang/dart-samples/.../web/html5/websockets/basics/websocket_sample.dart -->
+<!-- github.com/dart-lang/dart-samples/html5/web/websockets/basics/websocket_sample.dart -->
 {% prettify dart %}
 void initWebSocket([int retrySeconds = 2]) {
   var reconnectScheduled = false;
@@ -1871,9 +1897,10 @@ Node.js.
 The few synchronous methods in the dart:io library are clearly marked
 with a Sync suffix on the method name. We don’t cover them here.
 
-> **Note**
->
-> Only command-line apps can import and use `dart:io`.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Only command-line apps can import and use `dart:io`.
+</aside>
 
 
 ### Files and directories {#files-and-directories}
@@ -2025,17 +2052,16 @@ import 'dart:async';
 
 main() {
   var dir = new Directory('/tmp');
-  var contentsStream = dir.list(recursive:true);
-  contentsStream.listen(
-    (FileSystemEntity f) {
-      if (f is File) {
-        print('Found file ${f.path}');
-      } else if (f is Directory) {
-        print('Found dir ${f.path}');
-      }
-    },
-    onError: (e) { print(e.toString()); }
-  );
+  var contentsStream = dir.list(recursive: true);
+  contentsStream.listen((FileSystemEntity f) {
+    if (f is File) {
+      print('Found file ${f.path}');
+    } else if (f is Directory) {
+      print('Found dir ${f.path}');
+    }
+  }, onError: (e) {
+    print(e.toString());
+  });
 }
 {% endprettify %}
 
@@ -2086,7 +2112,7 @@ main() {
     request.response.headers.contentType = new ContentType('text', 'plain');
     request.response.write('Dart is optionally typed');
     request.response.close();
-  };
+  }
 
   HttpServer.bind('127.0.0.1', 8888).then((HttpServer server) {
     server.listen((request) {
@@ -2128,18 +2154,18 @@ main() {
   var url = Uri.parse('http://127.0.0.1:8888/languages/dart');
   var httpClient = new HttpClient();
   httpClient.getUrl(url)
-    .then((HttpClientRequest request) {
-      print('have request');
-      return request.close();
-    })
-    .then((HttpClientResponse response) {
-      print('have response');
-      response.transform(UTF8.decoder).toList().then((data) {
-        var body = data.join('');
-        print(body);
-        httpClient.close();
+      .then((HttpClientRequest request) {
+        print('have request');
+        return request.close();
+      })
+      .then((HttpClientResponse response) {
+        print('have response');
+        response.transform(UTF8.decoder).toList().then((data) {
+          var body = data.join('');
+          print(body);
+          httpClient.close();
+        });
       });
-    });
 }
 {% endprettify %}
 

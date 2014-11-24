@@ -36,10 +36,11 @@ You can use Dart Editor to get and run Dartiverse Search.
 2.  In the demo section, click **Dartiverse Search** to create a copy of
     the dartiverse\_search package.
 
-    > **Note**
-    >
-    > If you aren’t using Dart Editor, you can find the Dartiverse
-    > Search source code in [GitHub](https://github.com/dart-lang/sample-dartiverse-search)
+    <aside class="alert alert-info" markdown="1">
+    **Note:**
+    If you aren’t using Dart Editor, find the [Dartiverse
+    Search source code in GitHub](https://github.com/dart-lang/sample-dartiverse-search).
+    </aside>
 
 3.  Use **Tools \> Pub Build** to build the package.
 
@@ -150,13 +151,14 @@ The `querySelector()` method uses a selector string that identifies an
 element in the DOM. See
 [Finding elements](ch03.html#finding-elements) for more about selectors.
 
-> **Note**
->
-> This code could just use `var` instead of specifying types
-> ([SearchInputElement](https://api.dartlang.org/dart_html/SearchInputElement.html)
-> and [DivElement](https://api.dartlang.org/dart_html/DivElement.html))
-> for the elements. Whoever writes the code gets to choose whether to
-> specify types.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+This code could just use `var` instead of specifying types
+([SearchInputElement](https://api.dartlang.org/dart_html/SearchInputElement.html)
+and [DivElement](https://api.dartlang.org/dart_html/DivElement.html))
+for the elements. Whoever writes the code gets to choose whether to
+specify types.
+</aside>
 
 
 ### Handling events {#handling-events}
@@ -168,7 +170,7 @@ fires a change event, and the handler kicks off a search.
 
 {% prettify dart %}
 searchElement.onChange.listen((e) {
-  //...Start the search...
+  // ...Start the search...
 });
 {% endprettify %}
 
@@ -242,7 +244,7 @@ switch (response) {
   case 'searchResult':
     addResult(json['source'], json['title'], json['link']);
     break;
-  ...
+  // ...
 }
 {% endprettify %}
 
@@ -261,17 +263,17 @@ relevant code:
 
 {% prettify dart %}
 class Client {
-  ...
+  // ...
   WebSocket webSocket;
-  ...
+  // ...
 
   Client() {
-    ...
+    // ...
     connect();
   }
 
   void connect() {
-    ...
+    // ...
     webSocket = new WebSocket('ws://${Uri.base.host}:${Uri.base.port}/ws');
     webSocket.onOpen.first.then((_) {
       onConnected();
@@ -279,16 +281,16 @@ class Client {
         print("Connection disconnected to ${webSocket.url}");
         onDisconnected();
       });
-    webSocket.onError.first.then((_) {...});
+    webSocket.onError.first.then((_) {/*...*/});
   }
 
   void onConnected() {
-    ...
+    // ...
     webSocket.onMessage.listen((e) {
       handleMessage(e.data);
     });
   }
-  ...
+  // ...
 }
 {% endprettify %}
 
@@ -344,13 +346,13 @@ server and serves static files:
 
 {% prettify dart %}
 var buildPath = Platform.script.resolve('../build').toFilePath();
-...
+// ...
 int port = 9223;
 
 HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, port).then((server) {
-  ...
+  // ...
   var router = new Router(server);
-  ...
+  // ...
   var virDir = new http_server.VirtualDirectory(buildPath);
   virDir.jailRoot = false;
   virDir.allowDirectoryListing = true;
@@ -358,9 +360,9 @@ HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, port).then((server) {
     var indexUri = new Uri.file(dir.path).resolve('index.html');
     virDir.serveFile(new File(indexUri.toFilePath()), request);
   };
-  ...
+  // ...
   virDir.serve(router.defaultStream);
-  ...
+  // ...
 });
 {% endprettify %}
 
@@ -413,9 +415,9 @@ void handleWebSocket(WebSocket webSocket) {
         case 'search':
           // ...Kick off searches, and register handlers for results...
           break;
-        ...
+        // ...
       }
-    }, onError: (error) {...});
+    }, onError: (error) {/*...*/});
 }
 {% endprettify %}
 
@@ -439,7 +441,7 @@ for (var engine in searchEngines) {
       };
       webSocket.add(JSON.encode(response));
     }, onError: (error) {
-      ...
+      // ...
     }, onDone: () {
       done++;
       if (done == searchEngines.length) {
@@ -466,7 +468,7 @@ objects. Here's an example from the GitHub `search()` method:
 
 {% prettify dart %}
 import 'package:http/http.dart' as http_client;
-...
+// ...
 Stream<SearchResult> search(String input) {
   var query = {
     'q': 'language:dart $input'
@@ -546,7 +548,7 @@ import 'package:http/http.dart' as http_client;
 part 'github_search_engine.dart';
 part 'stack_overflow_search_engine.dart';
 
-...
+// ...
 {% endprettify %}
 
 The other files in the library don't have imports. They do, however,
@@ -558,7 +560,7 @@ library relies on these files:
 
 part of search_engine;
 
-...
+// ...
 {% endprettify %}
 
 The implementation of the search\_engine library is split as follows:
@@ -595,7 +597,7 @@ imports API from the logging package and creates a log:
 
 {% prettify dart %}
 import 'package:logging/logging.dart' show Logger, Level, LogRecord;
-...
+// ...
 final Logger log = new Logger('DartiverseSearch');
 {% endprettify %}
 
@@ -620,7 +622,7 @@ configures the Logger object:
 
 {% prettify dart %}
 final Logger log = new Logger('DartiverseSearch');
-...
+// ...
 
 void main() {
   // Set up logger.
@@ -628,7 +630,7 @@ void main() {
   Logger.root.onRecord.listen((LogRecord rec) {
     print('${rec.level.name}: ${rec.time}: ${rec.message}');
   });
-  ...
+  // ...
 }
 {% endprettify %}
 
