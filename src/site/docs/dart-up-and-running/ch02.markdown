@@ -163,9 +163,8 @@ mind:
 
 The following table lists the words that the Dart language treats specially.
 
-{% assign bii = '&nbsp;<sup title="built-in-identifier" alt="built-in-identifier"><span class="glyphicon glyphicon-star"></span></sup>' %}
-{% assign lrw = '&nbsp;<sup title="limited reserved word" alt="limited reserved word"><span class="glyphicon glyphicon-asterisk"></span></sup>' %}
-
+{% assign bii = '&nbsp;<sup title="built-in-identifier" alt="built-in-identifier">1</sup>' %}
+{% assign lrw = '&nbsp;<sup title="limited reserved word" alt="limited reserved word">2</sup>' %}
 
 | abstract{{bii}}   | continue          | false             | new               | this              |
 | as{{bii}}         | default           | final             | null              | throw             |
@@ -180,9 +179,7 @@ The following table lists the words that the Dart language treats specially.
 | const             | factory{{bii}}    | library{{bii}}    | sync*{{lrw}}      | yield*{{lrw}}     |
 {:.table .table-striped .nowrap}
 
-In the keyword table, words with a star
-(<span title="built-in-identifier" alt="built-in-identifier" style="font-size:smaller"><span
-class="glyphicon glyphicon-star"></span></span>)
+<sup>1</sup> Words with the superscript **1**
 are *built-in identifiers*. Avoid using
 built-in identifiers as identifiers, and never use
 them for class or type names. Built-in identifiers exist to ease
@@ -190,9 +187,7 @@ porting from JavaScript to Dart. For example,
 if some JavaScript code has a variable named `factory`, you don't have
 to rename it when you port the code to Dart.
 
-Words with an asterisk
-(<span title="built-in-identifier" alt="built-in-identifier" style="font-size:smaller"><span
-class="glyphicon glyphicon-asterisk"></span></span>)
+<sup>2</sup> Words with the superscript **2**
 are newer, limited reserved words related to asynchrony support
 that's being added after Dart's 1.0 release.
 You can't use `async`, `await`, or `yield` as
