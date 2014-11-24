@@ -895,7 +895,7 @@ void main(List<String> arguments) {
 }
 {% endprettify %}
 
-You can use the [args library](http://api.dartlang.org/args.html) to
+You can use the [args library](https://pub.dartlang.org/packages/args) to
 define and parse command-line arguments.
 
 
