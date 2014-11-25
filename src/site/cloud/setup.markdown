@@ -85,97 +85,9 @@ $ export PATH=${PATH}:<i>&lt;installation directory&gt;</i>/dart/dart-sdk/bin
 
 ## Setup instructions
 
-<p class="os-choices">
-  Below are the
-  instructions for
-  {% include os-choices.html %}
-</p>
+{% include docker-setup.html %}
 
-<!--------------------- MAC ------------------------------------>
-
-<div class="macos" markdown="1">
-
-### Download and install Docker and related tools
-{: .no_toc}
-
-  Run the boot2docker installer from
-  <a href="https://github.com/boot2docker/osx-installer/releases" target="_blank">Github</a>.
-  This downloads and installs the following tools on your development machine:
-
-* VirtualBox (installed in `Applications` folder)
-* `boot2docker` command (installed in `/usr/local/bin`)
-* `docker` command (installed in `/usr/local/bin`)
-
-<aside class="alert alert-warning" markdown="1">
-**Note:**
-These instructions assume that v1.3.1 of Docker and boot2docker 
-are installed on your machine.
-However, Docker 1.3.0 is required inside the boot2docker VM.
-The configuration of boot2docker below handles this.
-</aside>
-
-### Configure Docker
-{: .no_toc}
-
-  <ol markdown="1">
-  <li markdown="1">Run the following commands to configure `boot2docker`.
-<pre>
-$ mkdir ~/.boot2docker
-$ echo 'ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.3.0/boot2docker.iso"' > ~/.boot2docker/profile
-$ boot2docker init
-</pre>
-  </li>
-  <li>Run the following command to launch boot2docker.
-<pre>
-$ boot2docker up
-</pre>
-
-When successful, the command prints some setup information.
-You don't need to type these commands if you use the command in the
-following section.
-  </li>
-
-  <aside class="alert alert-info" markdown="1">
-  **Tip:** After running this command, launch VirtualBox.
-  You should be able to see boot2docker running.
-  </aside>
-  </ol>
-
-### Get the Docker images
-{: .no_toc}
-
-<ol markdown="1">
-  <li markdown="1">Call the following script to set the required environment
-      variables: `DOCKER_TLS_VERIFY`, `DOCKER_HOST`, and `DOCKER_CERT_PATH`.
-
-<pre>
-$ $(boot2docker shellinit)
-</pre>
-  </li>
-  <li>Run the following command to download a number of Docker images.
-      This can take awhile.
-<pre>
-$ docker pull google/docker-registry
-</pre>
-  </li>
-
-  <li>Check to make sure that you have some images:
-<pre>
-$ docker images
-</pre>
-  This command lists a number of images.
-  </li>
-
-  <li>Run the following command which prints version information about the
-      Dart VM. This requires that the boot2docker VM is running.
-
-<pre>
-$ docker run google/dart /usr/bin/dart --version
-</pre>
-  </li>
-</ol>
-
-### Set up a cloud project {#set-up-a-cloud-project-mac}
+### Set up a cloud project {#set-up-a-cloud-project}
 {: .no_toc}
 
 You need an App Engine project to develop and deploy
@@ -197,9 +109,9 @@ The command launches a browser with a list of permissions
 for you to grant.
 
 The list is sufficient to use any of the tools included in the Cloud SDK.
-Your credentials do not expire (that is, you do not need to re-run this command),
-but you can repeat this process as many times as you'd like to add more accounts.
-Use `gcloud config set account` to set the active one.
+Your credentials do not expire (that is, you do not need to re-run this
+command), but you can repeat this process as many times as you'd like to
+add more accounts.  Use `gcloud config set account` to set the active one.
 
 <ol markdown="1">
   <li>To install the Google Cloud SDK, follow the instructions
@@ -238,6 +150,8 @@ user_output_enabled = True
 </pre>
   </li>
 </ol>
+<<<<<<< HEAD
+=======
 </div>
 
 <!--------------------- WINDOWS ------------------------------------>
@@ -586,6 +500,7 @@ user_output_enabled = True
 
 
 </div>
+>>>>>>> master
 
 ## What's next? {#what-next}
 
@@ -594,3 +509,4 @@ and you are ready to write some code.
 
 <p>Now, you can 
   <a href="run.html">create and run</a> HelloWorld.
+
