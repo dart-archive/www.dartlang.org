@@ -311,7 +311,7 @@ to SSH into the VM instead.
 First, run the following command:
 
 <pre>
-> "%ProgramFiles%\Boot2Docker for Windows\boot2docker.exe" ssh
+> "%ProgramFiles%\Boot2Docker for Windows\boot2docker.exe" shellinit
 </pre>
 
 This prints three lines like this:
