@@ -110,7 +110,7 @@ The following options control the analysis that dart2js performs on Dart code:
 
 <aside class="alert alert-info" markdown="1">
 **Version note:**Prior to Dart 1.8, the CSP version of JavaScript was generated
-automatically, and saved with the extension `precompiled.js`.
+automatically, and saved with the extension `.precompiled.js`.
 As of the 1.8 release, you must specify the CSP format using the `--csp` flag,
 and the resulting file is saved with the normal `.js` extension.
 
