@@ -150,9 +150,6 @@ user_output_enabled = True
 </pre>
   </li>
 </ol>
-<<<<<<< HEAD
-=======
-</div>
 
 <!--------------------- WINDOWS ------------------------------------>
 <div class="windows" markdown="1">
@@ -500,7 +497,7 @@ user_output_enabled = True
 
 
 </div>
->>>>>>> master
+
 
 ## What's next? {#what-next}
 
