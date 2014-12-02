@@ -265,11 +265,9 @@ filename, but they can't change the directory structure above
 
 You can use `$exclude` to tell a transformer _not_ to process one
 or more assets. You can use `$include` to tell a transformer
-to process _only_ one or more assets. As of the 1.8 release, you 
+to process _only_ one or more assets. You 
 can use glob syntax to make it easier to include, or exclude,
 a group of assets, including entire directories.
-
-{% include coming-release.html %}
 
 ### Excluding assets {#excluding-assets}
 
