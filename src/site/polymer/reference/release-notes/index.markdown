@@ -20,6 +20,14 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
+## Polymer 0.15.2
+
+This release updates polymer to match JavaScript's version 0.5.1.
+
+With this release, `platform.js` and `platform.concat.js` have been renamed
+`webcomponents.min.js` and `webcomponents.js`. Also, `polymer.concat.js` is
+now `polymer.js`, and the minified version is `polymer.min.js`.
+
 ## Polymer 0.15.1
 
 This release updates polymer to match JavaScript's version 0.4.2.
