@@ -661,7 +661,7 @@ but assign the value to true.
 
 ----
 
-### "dart_support.js" not necessary [#43](#polymer_43)
+### "dart_support.js" injected automatically [#43](#polymer_43)
 {: #polymer_43}
 
 {% raw %}The script `packages/web_components/dart_support.js` is still used, but you no
@@ -669,7 +669,7 @@ longer need to put it in your application's entrypoint.
 
 In the past this file served two purposes:
 
-  * to make dart2js work well with the platform polyfills, and
+  * to make dart2js work well with the web_components polyfills, and
   * to support registering Dart APIs for JavaScript custom elements.
 
 Now, the code from `dart_support.js` is split in two halves. The half for
@@ -701,6 +701,33 @@ Should turn into:
 And `foo.html` should look like:
 
     <script type="application/dart" src="foo.dart"></script>
+{% endraw %}
+
+----
+
+### "webcomponents.js" injected automatically [#45](#polymer_45)
+{: #polymer_45}
+
+{% raw %}The script `packages/web_components/webcomponents.js` is still used, but you no
+longer need to put it in your application's entrypoint.
+
+The polyfills provided by this file are no longer required in chrome and will
+automatically be added during `pub build` and `pub serve`.
+{% endraw %}
+
+----
+
+### "platform.js" renamed to "webcomponents.js". [#46](#polymer_46)
+{: #polymer_46}
+
+{% raw %}The script `packages/web_components/platform.js` has been renamed to
+`packages/web_components/webcomponents.js`. This is automatically fixed in
+`pub serve` and `pub build` but we may remove this functionality in the next
+breaking version of Polymer.
+
+In addition, it is no longer required that you include this file directly, as
+`pub build` and `pub serve` will inject it for you, and its not required when
+running in dartium with a local server.
 {% endraw %}
 
 ----
