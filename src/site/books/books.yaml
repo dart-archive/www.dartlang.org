@@ -1,3 +1,17 @@
+- title: Mastering Dart
+  authors:
+    - Sergey Akopkokhyants
+  cover: mastering-dart.jpg
+  link: https://www.packtpub.com/web-development/mastering-dart
+  desc: 'Starting with a discussion about the basic features of Dart, we
+         will dive into the more complicated concepts such as generics,
+         annotation with reflection, errors and exceptions, which will
+         help us improve our code. Moving on, you will learn how and when
+         to create objects and also advanced techniques that will help you
+         execute asynchronous code. You will also learn about the collection
+         framework and how to communicate with the different programs written
+         in JavaScript using Dart.'
+
 - title: Dart Cookbook
   authors:
     - Ivo Balbaert
@@ -7,7 +21,8 @@
   desc: 'This book is a pragmatic guide that will increase your expertise
         in writing all kinds of applications,
 	including web apps, scripts, and server-side apps.
-	It provides rich insights on how to extend your Dart programming skills.'
+	It provides rich insights on how to extend your Dart programming
+        skills.'
 
 - title: Aprende Dart
   authors:
