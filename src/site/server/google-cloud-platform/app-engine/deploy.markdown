@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Deploy a Dart Application on App Engine"
-short-title: "Deploy a Dart Application"
+short-title: "Deploy a Dart App"
 description: "How to deploy a Dart application to the cloud on App Engine Managed VMs"
 header:
   css: ["/cloud/styles.css"]

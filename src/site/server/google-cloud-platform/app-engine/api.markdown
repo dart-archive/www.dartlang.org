@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "API Overview"
+short-title: "API"
 description: "A brief overview of the libraries used for creating a Dart runtime instance on App Engine."
 header:
   css: ["/cloud/styles.css"]

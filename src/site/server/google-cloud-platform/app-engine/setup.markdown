@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Set Up for App Engine Development"
-short-title: "App Engine Setup"
+short-title: "Setup"
 description: "How to set up App Engine Managed VMs to run Dart programs."
 header:
   css: ["/cloud/styles.css"]
@@ -62,26 +62,7 @@ Google Cloud SDK
 
 ## Download and install Dart
 
-  [Download Dart](https://www.dartlang.org/tools/download.html)
-  and unzip the ZIP file,
-  which creates a `dart` directory.
-
-  Put `dart/dart-sdk/bin` in your PATH.
-
-On Mac OS:
-<pre>
-$ export PATH=$PATH:<i>&lt;installation directory&gt;</i>/dart/dart-sdk/bin
-</pre>
-
-On Windows:
-<pre>
-&gt; set PATH=%PATH%;C:<i>&lt;installation directory</i>&gt;/dart/dart-sdk/bin
-</pre>
-
-On Linux:
-<pre>
-$ export PATH=${PATH}:<i>&lt;installation directory&gt;</i>/dart/dart-sdk/bin
-</pre>
+{% include download-dart-configure-path.html %}
 
 ## Setup instructions
 

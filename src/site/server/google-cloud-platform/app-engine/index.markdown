@@ -1,6 +1,7 @@
 ---
 layout: default
-title: "Dart and Google Cloud Platform"
+title: "Dart on App Engine Managed VMs"
+short-title: "App Engine"
 description: "An introduction to Dart App Engine Managed VMs and runtimes."
 has-permalinks: false
 header:

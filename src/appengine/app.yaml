@@ -34,6 +34,45 @@ handlers:
 
 - url: /\+
   script: scripts.redirector.application
+  
+- url: /cloud/api.*
+  script: scripts.redirector.application
+
+- url: /cloud/deploy.*
+  script: scripts.redirector.application
+
+- url: /cloud/run.*
+  script: scripts.redirector.application
+
+- url: /cloud/setup.*
+  script: scripts.redirector.application
+
+- url: /cloud/client-server
+  script: scripts.redirector.application
+
+- url: /cloud/client-server/
+  script: scripts.redirector.application
+
+- url: /cloud/client-server/index.html
+  script: scripts.redirector.application
+
+- url: /cloud/client-server/server-code.html
+  script: scripts.redirector.application
+
+- url: /cloud/client-server/client-code.html
+  script: scripts.redirector.application
+
+- url: /cloud/
+  script: scripts.redirector.application
+
+- url: /cloud
+  script: scripts.redirector.application
+
+- url: /cloud/client-server
+  script: scripts.redirector.application
+
+- url: /cloud/client-server/
+  script: scripts.redirector.application
 
 - url: /docs/tutorials/web-ui/
   script: scripts.redirector.application

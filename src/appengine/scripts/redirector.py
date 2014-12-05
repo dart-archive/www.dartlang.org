@@ -132,6 +132,43 @@ class BookRedirect(RequestHandler):
         self.redirect(book_home)
 
 
+class CloudRedirect(RequestHandler):
+  # logging.info('in CloudRedirect')
+  def get(self):
+    filename = self.request.path.split('/cloud')[1]
+    app_engine_home = '/server/google-cloud-platform/app-engine/'
+    if filename == '' or filename == '/':
+        self.redirect(app_engine_home, permanent=True)
+
+class CloudFilesRedirect(RequestHandler):
+  # logging.info('in CloudFilesRedirect')
+  def get(self):
+    filename = self.request.path.split('/cloud/')[1]
+    app_engine_home = '/server/google-cloud-platform/app-engine/'
+    filenames = ['api.html', 'deploy.html', 'index.html' 'run.html',
+                 'setup.html', 'client-server']
+    if filename in filenames:
+        self.redirect(app_engine_home + filename, permanent=True)
+
+class ClientServerRedirect(RequestHandler):
+  # logging.info('in ClientServerRedirect')
+  def get(self):
+    filename = self.request.path.split('/cloud/clientserver')[1]
+    client_server_home = '/server/google-cloud-platform/app-engine/client-server/'
+    if filename == '' or filename == '/':
+        self.redirect(client_server_home, permanent=True)
+
+class ClientServerFilesRedirect(RequestHandler):
+  # logging.info('in ClientServerFilesRedirect')
+  def get(self):
+    filename = self.request.path.split('/cloud/client-server/')[1]
+    client_server_home = '/server/google-cloud-platform/app-engine/client-server/'
+    filenames = ['client-code.html', 'server-code.html']
+    if filename == '' or filename == 'index.html':
+        self.redirect(client_server_home)
+    elif filename in filenames:
+        self.redirect(client_server_home + filename, permanent=True)
+
 class CookbookRedirect(RequestHandler):
   def get(self):
     self.redirect('/docs/dart-up-and-running/ch03.html', permanent=True)
@@ -146,6 +183,9 @@ application = WSGIApplication(
     ('/docs/pub-package-manager/.*', PubRedirectPage),
     ('/articles/dart-web-components/.*', WebUiRedirect),
     ('/docs/dart-up-and-running/contents/.*', BookRedirect),
+    ('/cloud/client-server/.*', ClientServerFilesRedirect),
+    ('/cloud/', CloudRedirect),
+    ('/cloud/.*', CloudFilesRedirect),
     Route('/editor/update/channels/be<path:.*>',
       EditorUpdateRedirectBeChannel),
     Route('/editor/update/channels/dev<path:.*>',
