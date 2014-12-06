@@ -948,7 +948,7 @@ addCodelab(Event e, var detail, Node sender) {
 
 <ul markdown="1">
 <li markdown="1">
-  You added a `codelabs` field to `CodelabFormElement` and made it
+  You added a `codelabs` field to `CodelabList` and made it
   observable. This is the definitive collection of code labs in this app.
 </li>
 
@@ -1121,10 +1121,11 @@ cancelEditing(Event e, var detail, Node sender) {
   editing = false;
 }
 
-copyCodelab(source, destination) {
-  source.title = destination.title;
-  source.description = destination.description;
-  source.level = destination.level;
+// TODO(michals): consider Codelab.copyFrom(Codelab other) method instead
+copyCodelab(destination, source) {
+  destination.title = source.title;
+  destination.description = source.description;
+  destination.level = source.level;
 }
 {% endprettify %}
 
