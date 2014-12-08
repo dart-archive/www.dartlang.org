@@ -948,7 +948,7 @@ addCodelab(Event e, var detail, Node sender) {
 
 <ul markdown="1">
 <li markdown="1">
-  You added a `codelabs` field to `CodelabFormElement` and made it
+  You added a `codelabs` field to `CodelabList` and made it
   observable. This is the definitive collection of code labs in this app.
 </li>
 
@@ -1111,13 +1111,13 @@ updateCodelab(Event e, var detail, Node sender) {
 startEditing(Event e, var detail, Node sender) {
   e.preventDefault();
   _cachedCodelab = new Codelab();
-  copyCodelab(_cachedCodelab, codelab);
+  copyCodelab(codelab, _cachedCodelab);
   editing = true;
 }
 
 cancelEditing(Event e, var detail, Node sender) {
   e.preventDefault();
-  copyCodelab(codelab, _cachedCodelab);
+  copyCodelab(_cachedCodelab, codelab);
   editing = false;
 }
 
