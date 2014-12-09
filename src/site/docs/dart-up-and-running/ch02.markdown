@@ -296,21 +296,16 @@ const atm = 1.01325 * bar; // Standard atmosphere
 
 The Dart language has special support for the following types:
 
--   numbers
-
--   strings
-
--   booleans
-
--   lists (also known as *arrays*)
-
--   maps
-
--   symbols
+- numbers
+- strings
+- booleans
+- lists (also known as *arrays*)
+- maps
+- symbols
 
 You can initialize an object of any of these special types using a
-literal. For example, `'this is a
-    string'` is a string literal, and `true` is a boolean literal.
+literal. For example, `'this is a string'` is a string literal,
+and `true` is a boolean literal.
 
 Because every variable in Dart refers to an object—an instance of a
 *class*—you can usually use *constructors* to initialize variables. Some
@@ -1526,6 +1521,14 @@ Switch statements in Dart compare integer, string, or compile-time
 constants using `==`. The compared objects must all be instances of the
 same class (and not of any of its subtypes), and the class must not
 override `==`.
+[Enumerated types](#enums), introduced in Dart 1.8,
+work well in `switch` statements.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Switch statements in Dart are intended for limited circumstances,
+such as in interpreters or scanners.
+</aside>
 
 Each non-empty `case` clause ends with a `break` statement, as a rule.
 Other valid ways to end a non-empty `case` clause are a `continue`,
@@ -1557,7 +1560,7 @@ switch (command) {
 }
 {% endprettify %}
 
-The following example omits the `break` statement in the `case` clause,
+The following example omits the `break` statement in a `case` clause,
 thus generating an error:
 
 <!-- ch02/flow_switch_case.dart -->
@@ -1566,7 +1569,7 @@ var command = 'OPEN';
 switch (command) {
   case 'OPEN':
     executeOpen();
-    // ERROR: Missing break causes an exception to be thrown!!
+    // ERROR: Missing break causes an exception!!
 
   case 'CLOSED':
     executeClosed();
@@ -2438,6 +2441,115 @@ For more information on annotations, see
 [Metadata](#metadata).
 
 
+### Enumerated types {#enums}
+{:.no_toc}
+
+Enumerated types, often called _enumerations_ or _enums_,
+are a special kind of class used to represent
+a fixed number of constant values.
+
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Enumerated types are a new feature
+first implemented in 1.8.
+If you use them,
+[let us know](http://dartbug.com)
+about any implementation issues you discover.
+</aside>
+
+#### Opting in to enum support {#enum-opt-in}
+{:.no_toc}
+
+To use enums in Dart Editor, `dartanalyzer`, or `dart2js`, you must opt in.
+The Dart VM (`dart`) supports enums without opt-in.
+
+In Dart Editor, go to **Preferences**, click **Experimental**, and select
+**Enable Enum Support**.
+
+<aside class="alert alert-warning" markdown="1">
+**Note:**
+See [issue 21823](https://code.google.com/p/dart/issues/detail?id=21823)
+for details on how to make Dart Editor
+generate JavaScript from Dart code that uses enums.
+</aside>
+
+In `dartanalyzer` or `dart2js`, use the `--enable-enum` command-line flag:
+
+{% prettify sh %}
+dartanalyzer --enable-enum enum_switch.dart
+dart2js --enable-enum main.dart
+{% endprettify %}
+
+
+#### Using enums {#using-enums}
+{:.no_toc}
+
+Declare an enumerated type using the `enum` keyword:
+
+<!-- ch02/enum_switch.dart -->
+{% prettify dart %}
+enum Color {
+  red,
+  green,
+  blue
+}
+{% endprettify %}
+
+Each value in an enum has an `index` getter,
+which returns the zero-based position of the value in the enum declaration.
+For example, the first value has index 0,
+and the second value has index 1.
+
+<!-- ch02/enum_switch.dart -->
+{% prettify dart %}
+assert(Color.red.index == 0);
+assert(Color.green.index == 1);
+assert(Color.blue.index == 2);
+{% endprettify %}
+
+To get a list of all of the values in the enum,
+use the enum's `values` constant.
+
+<!-- ch02/enum_switch.dart -->
+{% prettify dart %}
+List<Color> colors = Color.values;
+assert(colors[2] == Color.blue);
+{% endprettify %}
+
+You can use enums in [switch statements](#switch-and-case).
+If the _e_ in <code>switch (<em>e</em>)</code> is explicitly typed as an enum,
+then you're warned if you don't handle all of the enum's values:
+
+<!-- ch02/enum_switch.dart -->
+{% prettify dart %}
+enum Color {
+  red,
+  green,
+  blue
+}
+// ...
+Color aColor = Color.blue;
+switch (aColor) {
+  case Color.red:
+    print('Red as roses!');
+    break;
+  case Color.green:
+    print('Green as grass!');
+    break;
+  default: // Without this, you see a WARNING.
+    print(aColor);  // 'Color.blue'
+}
+{% endprettify %}
+
+Enumerated types have the following limits:
+
+* You can't subclass, mix in, or implement an enum.
+* You can't explicitly instantiate an enum.
+
+For more information, see the
+[Dart Language Specification](/docs/spec/).
+
+
 ### Adding features to a class: mixins {#adding-features-to-a-class-mixins}
 {:.no_toc}
 
@@ -2716,7 +2828,7 @@ The `import`, `part`, and `library` directives can help you create a
 modular and shareable code base. Libraries not only provide APIs, but
 are a unit of privacy: identifiers that start with an underscore (\_)
 are visible only inside the library. *Every Dart app is a library*, even
-if it doesn’t use a library directive.
+if it doesn’t use a `library` directive.
 
 Libraries can be distributed using packages. See
 [Pub Package and Asset Manager](/tools/pub/)
@@ -2788,6 +2900,67 @@ the library. For example:
 import 'package:lib1/lib1.dart' show foo; // Import only foo.
 import 'package:lib2/lib2.dart' hide foo; // Import all names EXCEPT foo.
 {% endprettify %}
+
+#### Lazily loading a library {#deferred-loading}
+{:.no_toc}
+
+_Deferred loading_ (also called _lazy loading_)
+allows an application to load a library on demand,
+if and when it's needed.
+Here are some cases when you might use deferred loading:
+
+* To reduce an app's initial startup time.
+* To perform A/B testing—trying out
+  alternative implementations of an algorithm, for example.
+* To load rarely used functionality, such as optional screens and dialogs.
+
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Deferred loading is a new feature
+first implemented in 1.6.
+If you use it,
+[let us know](http://dartbug.com)
+about any implementation issues you discover.
+</aside>
+
+To lazily load a library, you must first
+import it using `deferred as`.
+
+<!-- ch02/libraries/ch02/deferred/bin/main.dart -->
+{% prettify dart %}
+import 'package:deferred/hello.dart' deferred as hello;
+{% endprettify %}
+
+When you need the library, invoke
+`loadLibrary()` on the library's identifier.
+
+<!-- ch02/libraries/ch02/deferred/bin/main.dart -->
+{% prettify dart %}
+hello.loadLibrary().then((_) {
+  hello.printGreeting();
+});
+{% endprettify %}
+
+The call to `then()` specifies a function to run
+once the library is loaded.
+This layer of indirection is necessary because the
+`loadLibrary()` method is asynchronous,
+returning before the library is loaded.
+
+Another way to write the same code is to use
+the new [asynchrony support](#asynchrony):
+
+<!-- ch02/libraries/ch02/deferred/bin/main.dart -->
+{% prettify dart %}
+greet() async {
+  if (await hello.loadLibrary()) {
+    hello.printGreeting();
+  }
+}
+{% endprettify %}
+
+You can invoke `loadLibrary()` multiple times on a library without problems.
+The library is loaded only once.
 
 
 ### Implementing libraries {#implementing-libraries}
@@ -2893,6 +3066,171 @@ void main() {
   goodbye(); //FAIL
 }
 {% endprettify %}
+
+
+## Asynchrony support {#asynchrony}
+
+Dart has started adding new language features
+to support asynchronous programming.
+The most commonly used of these features are
+`async` functions and `await` expressions.
+
+Dart libraries are full of functions that
+return Future objects.
+These functions are _asynchronous_:
+they return immediately after setting up
+a possibly time-consuming operation,
+such as performing I/O.
+
+When you need to use the result of one of these asynchronous functions,
+you have two options:
+
+* Use `async` and `await`
+* Use the [Future API](ch03.html#future)
+
+Code that uses `async` and `await` is asynchronous,
+but it looks a lot like synchronous code.
+For example, here's some code that uses `await`
+to wait for the result of an asynchronous function:
+
+<!-- ch02/async_await.dart -->
+{% prettify dart %}
+await lookUpVersion()
+{% endprettify %}
+
+To use `await`, code must be in a function marked as `async`:
+
+<!-- ch02/async_await.dart -->
+{% prettify dart %}
+checkVersion() async {
+  if (await lookUpVersion() == expectedVersion) {
+    // Do something.
+  } else {
+    // Do something else.
+  }
+}
+{% endprettify %}
+
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+Async functions and await expressions are new features
+first implemented in 1.8.
+[Let us know](http://dartbug.com)
+about any implementation issues you discover.
+</aside>
+
+### Opting in to asynchrony support {#async-opt-in}
+{:.no_toc}
+
+To use asynchrony support in Dart Editor, `dartanalyzer`,
+or the Dart VM (`dart`), you must opt in.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The Dart-to-JS compiler (`dart2js`) doesn't currently support asynchrony
+([21411](https://code.google.com/p/dart/issues/detail?id=21411)).
+However, you can try out asynchrony in your Dart web app by using the
+[async-await pub transformer](https://github.com/dart-lang/async_await#async-await-transformer)
+when building the JavaScript version of your app.
+</aside>
+
+To opt into asynchrony support in Dart Editor,
+go to **Preferences**, click **Experimental**, and select
+**Enable Async Support**.
+
+In `dart` and `dartanalyzer`, use the `--enable-async` command-line flag:
+
+{% prettify sh %}
+dart --enable-async async_await.dart
+dartanalyzer --enable-async async_await.dart
+{% endprettify %}
+
+
+### Declaring async functions {#async}
+{:.no_toc}
+
+An _async function_ is a function whose body is marked with
+the `async` modifier.
+Although an async function might perform time-consuming operations,
+it returns immediately.
+
+<!-- ch02/async_await.dart -->
+{% prettify dart %}
+checkVersion() async {
+  // ...
+}
+
+lookUpVersion() async => '1.0.0';
+{% endprettify %}
+
+Adding the `async` keyword to a function makes its return type Future.
+For example, consider this synchronous function,
+which returns a String:
+
+<!-- ch02/async_await.dart -->
+{% prettify dart %}
+String lookUpVersionSync() => '1.0.0';
+{% endprettify %}
+
+If you change it to be an async function,
+its return type changes to `Future<String>`:
+
+<!-- ch02/async_await.dart -->
+{% prettify dart %}
+Future<String> lookUpVersion() async => '1.0.0';
+{% endprettify %}
+
+Note that the function's body doesn't need to use the Future API.
+Dart creates the Future object if necessary.
+
+
+### Using await expressions {#await}
+{:.no_toc}
+
+An await expression has the following form:
+
+<pre>
+<b>await</b> <em>expression</em>
+</pre>
+
+You can use `await` multiple times in an async function.
+For example, the following code waits three times
+for the results of functions:
+
+<!-- ch03/async_await.dart -->
+{% prettify dart %}
+var entrypoint = await findEntrypoint();
+var exitCode = await runExecutable(entrypoint, args);
+await flushThenExit(exitCode);
+{% endprettify %}
+
+The value of <code><em>expression</em></code> should have type Future,
+indicating a promise to return an object.
+The value of <code>await <em>expression</em></code> is that returned object.
+The await expression makes execution pause until that object is available.
+
+<aside class="alert alert-info" markdown="1">
+**Tip:**
+If `await` doesn't work,
+make sure it's in an async function.
+</aside>
+
+For example, say you want to call an asynchronous function
+from your app's `main()` function.
+
+<!-- ch02/async_await.dart -->
+{% prettify dart %}
+main() async {
+  checkVersion();
+  print('In main: version is ${await lookUpVersion()}');
+}
+{% endprettify %}
+
+For more information about asynchronous programming, see the
+[dart:async](ch03.html#dartasync---asynchronous-programming)
+section of the library tour.
+Also see the article
+[Dart Language Asynchrony Support: Phase 1](/articles/await-async/).
 
 
 ## Isolates {#isolates}

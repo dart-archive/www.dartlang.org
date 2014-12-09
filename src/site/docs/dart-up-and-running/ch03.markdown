@@ -973,6 +973,13 @@ future. A Stream is a way to get a sequence of values, such as events.
 Future, Stream, and more are in the
 [dart:async](http://api.dartlang.org/dart_async.html) library.
 
+<aside class="alert alert-info" markdown="1">
+**Note:**
+As of 1.8, Dart has language support for asynchronous coding.
+See [Asynchrony support](ch02.html#asynchrony) in the language tour
+for details.
+</aside>
+
 The dart:async library works in both web apps and command-line apps. To
 use it, import dart:async:
 
@@ -988,6 +995,47 @@ import 'dart:async';
 Future objects appear throughout the Dart libraries, often as the object
 returned by an asynchronous method. When a future *completes*, its value
 is ready to use.
+
+#### Using await {#future-async-await}
+{:.no_toc}
+
+Before you directly use the Future API,
+consider using `await` instead.
+Code that uses await expressions can be easier to understand
+than code that uses the Future API.
+
+Consider the following function.
+It uses Future's `then()` method
+to execute three asynchronous functions in a row,
+waiting for each one to complete before executing the next one.
+
+<!-- ch03/async_await.dart -->
+{% prettify dart %}
+runUsingFuture() {
+  //...
+  findEntrypoint().then((entrypoint) {
+    return runExecutable(entrypoint, args);
+  }).then(flushThenExit);
+}
+{% endprettify %}
+
+The equivalent code with await expressions
+looks more like synchronous code:
+
+<!-- ch03/async_await.dart -->
+{% prettify dart %}
+runUsingAsyncAwait() async {
+  //...
+  var entrypoint = await findEntrypoint();
+  var exitCode = await runExecutable(entrypoint, args);
+  await flushThenExit(exitCode);
+}
+{% endprettify %}
+
+For more information on using `await` and related
+Dart language features, see
+[Asynchrony support](ch02.html#asynchrony).
+
 
 #### Basic usage {#basic-usage}
 {:.no_toc}

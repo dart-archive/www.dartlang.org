@@ -104,9 +104,15 @@ recent printing.
 
 ### Changes after the third printing
 
-We updated the [Keywords](ch02.html#keywords) section
+Added documentation for language features introduced after 1.0:
+
+- [Enumerated types](ch02.html#enums)
+- [Deferred loading](ch02.html#deferred-loading)
+- [Asynchrony support](ch02.html#asynchrony)
+
+Updated the [Keywords](ch02.html#keywords) section
 to add the following words,
-which are associated with proposed features:
+which are associated with new or proposed features:
 
 - async
 - async*
@@ -116,10 +122,10 @@ which are associated with proposed features:
 - yield
 - yield*
 
-The contents of [Chapter 4 (Tools)](ch04.html) have moved out of the book,
+Moved the contents of [Chapter 4 (Tools)](ch04.html) out of the book,
 and into [Dart Tools](/tools/).
 
-We fixed a few bugs:
+Fixed a few bugs:
 
 -   Stopped saying that local variables are lazily initialized.
 -   Improved the code for the sin() example.
@@ -128,7 +134,7 @@ We fixed a few bugs:
     non-existent ExpectException.
 -   Updated a few links.
 
-We also went through all the code samples and made them comply with the latest
+Went through all the code samples and made them comply with the latest
 [Dart Style Guide](/articles/style-guide/) recommendations.
 
 
