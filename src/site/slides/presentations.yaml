@@ -12,6 +12,7 @@
     - John McCutchan
   date: 2014-06-25
   video: https://www.youtube.com/watch?v=Ww8ISWzZGRE
+  slides: 2014/06/optimizing-dart-applications-google-io-2014.pdf
   event: Google I/O Bytes 2014
 
 - title: "Making music mobile with the Web"
