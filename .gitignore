@@ -9,7 +9,7 @@ scripts/packages
 .buildlog
 *.pyc
 pubspec.lock
-packages/
+packages
 *.js.deps
 _asset_bundler_cache
 .pub
@@ -60,5 +60,4 @@ _asset_bundler_cache
 !src/site/docs/tutorials/remove-elements/examples/todo_with_delete/packages/
 
 !src/site/tools/download-archive/out/web/packages/
-!src/site/tools/download-archive/packages/
 src/site/events/2015/summit/node_modules
