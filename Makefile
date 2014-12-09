@@ -14,6 +14,9 @@ clean:
 
 build: copy add_version add_release
 
+pubget:
+	find . -name pubspec.yaml -exec bash -c ' cd $$(dirname {});pwd;pub get' \;
+
 build_apps:
 	cd ./src/site/tools/download-archive && pub deploy -o out
 
