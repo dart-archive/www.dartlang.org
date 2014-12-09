@@ -4,7 +4,7 @@ Skip to [Step 2](#step-2-pick-an-editor-mac) and choose **Dart Editor**,
 which includes Dart.)
 
 
-## Step 1: Install Dart
+## Step 1: Install Dart {#install-dart}
 
 We recommend using [Homebrew](http://brew.sh/) to manage your Dart
 installation.
@@ -35,9 +35,28 @@ you don't need to install `dartium`.
 To update the software later, run:
 
 {% prettify huge %}
+$ brew update
 $ brew upgrade dart dartium
 {% endprettify %}
 
+
+### Download to another location
+
+By default, Homebrew downloads to `/usr/local`. This requires using
+`sudo` to handle issues with file permissions. If you prefer, you can
+download to another location where you have write permissions, such
+as your home directory. The following example creates a copy
+of Homebrew and Dart under `~/homebrew`.
+
+{% prettify sh %}
+$ cd ~
+$ git clone https://github.com/Homebrew/homebrew.git
+{% endprettify %}
+
+Add `~/homebrew/bin` to your PATH.
+
+Then follow the `brew` instructions at the beginning of
+[Step 1](#install-dart). Dart is installed under `~/homebrew`.
 
 ### Manual download
 
