@@ -5,7 +5,7 @@ short-title: "App Engine"
 description: "An introduction to Dart App Engine Managed VMs and runtimes."
 has-permalinks: false
 header:
-  css: ["/cloud/styles.css"]
+  css: ["styles.css"]
 ---
 
 # {{ page.title }}

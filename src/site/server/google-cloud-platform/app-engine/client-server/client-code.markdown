@@ -4,7 +4,7 @@ title: "The Client Code Explained"
 short-title: "Client Code"
 description: "Learn about the appengine APIs used by the client"
 header:
-  css: ["/cloud/styles.css"]
+  css: ["../styles.css"]
 ---
 
 {% include breadcrumbs.html %}
@@ -144,4 +144,4 @@ The server interacts with the App Engine Dart runtime to provide
 responses to HTTP requests.
 
 * Or, go straight to
-<a href="/cloud/deploy.html">Deploy a Dart Application on App Engine</a>.
+<a href="../deploy.html">Deploy a Dart Application on App Engine</a>.

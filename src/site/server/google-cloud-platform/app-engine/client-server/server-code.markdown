@@ -4,7 +4,7 @@ title: "The Server Code Explained"
 short-title: "Server Code"
 description: "Learn about the appengine APIs used by the server"
 header:
-  css: ["/cloud/styles.css"]
+  css: ["../styles.css"]
 ---
 
 {% include breadcrumbs.html %}
@@ -155,5 +155,5 @@ rootKey() {
 ## What next?
 
 It's time to deploy your application:
-<a href="/cloud/deploy.html">Deploy a Dart Application on App Engine</a>.
+<a href="../deploy.html">Deploy a Dart Application on App Engine</a>.
 

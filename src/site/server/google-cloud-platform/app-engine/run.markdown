@@ -4,7 +4,7 @@ title: "Create and Run HelloWorld"
 short-title: "HelloWorld"
 description: "Create a simple HelloWorld Dart app."
 header:
-  css: ["/cloud/styles.css"]
+  css: ["styles.css"]
 ---
 
 {% include breadcrumbs.html %}

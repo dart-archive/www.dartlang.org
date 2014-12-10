@@ -4,7 +4,7 @@ title: "Set Up for App Engine Development"
 short-title: "Setup"
 description: "How to set up App Engine Managed VMs to run Dart programs."
 header:
-  css: ["/cloud/styles.css"]
+  css: ["styles.css"]
 ---
 
 {% include breadcrumbs.html %}

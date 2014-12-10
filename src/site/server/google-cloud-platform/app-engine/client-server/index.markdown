@@ -4,7 +4,7 @@ title: "A Client-Server Example"
 short-title: "Client-Server Example"
 description: "Learn to write a client and a server together"
 header:
-  css: ["/cloud/styles.css"]
+  css: ["../styles.css"]
 ---
 
 {% include breadcrumbs.html %}
@@ -116,7 +116,7 @@ Navigate to `http://localhost:8080/`.
 Enter some items in the list.
 You should see something like this:
 
-<img src="/cloud/images/clientserverview.png" style="display:block;margin: 0 auto;">
+<img src="images/clientserverview.png" style="display:block;margin: 0 auto;">
   </li>
 
 ## The source files
@@ -252,7 +252,7 @@ refresh the browser, and immediately see the changes.
 The App Engine development server uses `pub serve` to get assets
 for your Dart App Engine app.
 
-<img src="/cloud/images/deployment.png" style="display:block;margin: 0 auto;" alt="Interaction of various tools and systems during deployment">
+<img src="images/deployment.png" style="display:block;margin: 0 auto;" alt="Interaction of various tools and systems during deployment">
 
 Run `pub build web` manually before deploying, like this:
 
@@ -281,4 +281,4 @@ and
 <a href="server-code.html">The Server Code Explained</a>.
 
 * Or, go straight to
-<a href="/cloud/deploy.html">Deploy a Dart Application on App Engine</a>.
+<a href="../deploy.html">Deploy a Dart Application on App Engine</a>.
