@@ -13,14 +13,17 @@ has-permalinks: false
 
 You can use the *dartanalyzer* tool (`bin/dartanalyzer`) to statically
 analyze your code at the command line, checking for errors and warnings
-that are specified in the [Dart Language
-Specification.](/docs/spec/)
+that are specified in the [Dart Language Specification](/docs/spec/).
+Dart Editor performs the same analysis that dartanalyzer does.
 
 <aside class="alert alert-info" markdown="1">
-**Note:**
-Dart Editor performs the same analysis that dartanalyzer does. A
-previous static analyzer, called *dart\_analyzer*, is no longer
-supported.
+**Support for new language features:**
+To use the dart tool with code that uses language support for asynchrony
+(such as async functions and await expressions) or enumerated types,
+you must opt in.
+
+For code that uses asynchrony, specify the `--enable-async` flag.
+For code that uses enumerated types, specify the `--enable-enum` flag.
 </aside>
 
 ## Basic usage
@@ -60,35 +63,36 @@ for SDK developers?), --show-sdk-warnings (deprecated)}
 {% endcomment %}
 
 `--dart-sdk=`
-
-:   Specify the directory that contains the Dart SDK.
+: Specify the directory that contains the Dart SDK.
 
 `-p` *or* `--package-root=`
-
-:   Specify the directory to search for any libraries that are imported
-    using `package:`.
+: Specify the directory to search for any libraries that are imported
+  using `package:`.
 
 `--package-warnings`
+: Show warnings not only for code in the specified .dart file and
+  others in its library, but also for libraries imported with
+  `package:`.
 
-:   Show warnings not only for code in the specified .dart file and
-    others in its library, but also for libraries imported with
-    `package:`.
+`--enable-async`
+: Enable using async functions and await expressions. For more
+  information on these features, see
+  [Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony).
+
+`--enable-enum`
+: Enable using enumerated types in your code. For more information on
+  this feature, see
+  [Enumerated types](/docs/dart-up-and-running/ch02.html#enums).
 
 `--format=machine`
-
-:   Produce output in a format suitable for parsing.
+: Produce output in a format suitable for parsing.
 
 `--no-hints`
-
-:   Don't show hints for improving the code.
+: Don't show hints for improving the code.
 
 `--version`
-
-:   Show the analyzer version.
+: Show the analyzer version.
 
 `-h` *or* `--help`
-
-:   Show all the command-line options.
-
-
+: Show all the command-line options.
 

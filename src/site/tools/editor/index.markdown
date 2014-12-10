@@ -16,6 +16,15 @@ For an overview, watch this short video on how to use Dart Editor.
     src="//www.youtube.com/embed/VQLdm8BY1Ao?vq=hd720" frameborder="0"
     allowfullscreen></iframe>
 
+<p></p>
+<aside class="alert alert-info" markdown="1">
+**Support for new language features:**
+To use new language support for asynchrony (such as async functons
+and await expressions) or for enumerated types, you must opt in.
+For more information, see
+[the troubleshooting page](troubleshoot.html#new-features).
+</aside>
+
 ## Installing Dart Editor
 
 [Download Dart Editor](/tools/download.html), if you haven't already.
@@ -189,5 +198,5 @@ To see existing issues or create a new one directly, go to the
 
 [Troubleshooting Dart Editor](troubleshoot.html)
 gives solutions to problems you might encounter
-when installing and launching Dart Editor.
+when installing, launching, and using Dart Editor.
 

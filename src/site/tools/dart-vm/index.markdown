@@ -12,6 +12,13 @@ short-title: "dart"
 You can use the _dart_ tool (`bin/dart`) to run Dart command-line apps such as
 server-side scripts, programs, and servers. During development, you also
 have the option to run command-line apps using [Dart Editor](/tools/editor/).
+
+<aside class="alert alert-info" markdown="1">
+**Support for new language features:**
+To use the dart tool with code that uses language support for asynchrony
+(such as async functions and await expressions), you must opt in.
+For code that uses asynchrony, specify the `--enable-async` flag.
+</aside>
     
 ### Basic usage {#basic-usage}
 
@@ -37,6 +44,11 @@ Common command-line options for dart include:
 
 `-p <path>` or `-package-root=<path>`
 : Specifies where to find imported libraries.
+
+`--enable-async`
+: Enables the dart tool to run code that uses async functions and await
+  expressions. For more information on these language features, see
+  [Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony).
 
 `--old_gen_heap_size=<num>`
 : Sets the upper limit of

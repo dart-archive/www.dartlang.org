@@ -25,10 +25,23 @@ apps. Also see [dartanalyzer](/tools/analyzer/),
 which performs a similar analysis but, as of 1.0,
 has a different implementation.
 
+<aside class="alert alert-info" markdown="1">
+**Support for new language features:**
+dart2js doesn't currently support async functions or await expressions.
+However, you can try out asynchrony in your Dart web app by using the
+[async-await pub transformer](https://github.com/dart-lang/async_await#async-await-transformer)
+when you build the JavaScript version of your app.
+For more information on this feature, see
+[Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony).
+
+To use dart2js on code that includes enumerated types, opt in by specifying
+the `--enable-enum` flag.
+</aside>
+
 This page tells you how to use dart2js on the command line. It also give tips
 on debugging the JavaScript that dart2js generates.
 
-## Basic usage {#basicusage}
+## Basic usage {#basic-usage}
 
 Here’s an example of compiling a Dart file to JavaScript:
 
@@ -39,6 +52,13 @@ dart2js --out=test.js test.dart
 This command produces a file that contains the JavaScript equivalent of your
 Dart code. It also produces a source map, which can help you debug the
 JavaScript version of the app more easily.
+
+## Usage in pubspec {#pubspec-usage}
+
+You can also configure dart2js options in the pubspec file.
+For more information, see
+[Configuring the Built-in dart2js Transformer for
+Pub](/tools/pub/dart2js-transformer.html).
 
 ## Options {#options}
 
@@ -64,6 +84,11 @@ Some other handy options include:
 
 `-D<flag>=<value>`
 : Define an environment variable.
+
+`--enable-enum`
+: Enable support for enumerated types. For more information on this
+  language feature, see
+  [Enumerated types](/docs/dart-up-and-running/ch02.html#enumerated-types).
 
 `--version`
 : Display version information for dart2js.
@@ -109,14 +134,10 @@ The following options control the analysis that dart2js performs on Dart code:
   The default is false.
 
 <aside class="alert alert-info" markdown="1">
-**Version note:**Prior to Dart 1.8, the CSP version of JavaScript was generated
+**Version note:** Before Dart 1.8, the CSP version of JavaScript was generated
 automatically, and saved with the extension `.precompiled.js`.
 As of the 1.8 release, you must specify the CSP format using the `--csp` flag,
 and the resulting file is saved with the normal `.js` extension.
-
-See [Configuring the Built-in dart2js Transformer for
-Pub](/tools/pub/dart2js-transformer.html) for information on how to
-configure the pubspec file to use this, and other, flags.
 </aside>
 
 `--categories=Server`
