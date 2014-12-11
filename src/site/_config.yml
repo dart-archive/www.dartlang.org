@@ -5,6 +5,7 @@ destination: ../../build/static
 markdown: kramdown
 permalink: /news/:year/:month/:day/:title.html
 highlighter: null
+url: https://www.dartlang.org
 custom:
   downloads:
     dartarchive-be-url-prefix: "https://storage.googleapis.com/dart-archive/channels/be/raw"
@@ -29,3 +30,5 @@ asset_bundler:
   compress:
     js: yui
     css: yui
+gems:
+  - jekyll-sitemap
