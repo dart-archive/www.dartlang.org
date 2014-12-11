@@ -2932,7 +2932,7 @@ import 'package:deferred/hello.dart' deferred as hello;
 {% endprettify %}
 
 When you need the library, invoke
-`loadLibrary()` on the library's identifier.
+`loadLibrary()` using the library's identifier.
 
 <!-- ch02/libraries/ch02/deferred/bin/main.dart -->
 {% prettify dart %}
@@ -2953,15 +2953,24 @@ the new [asynchrony support](#asynchrony):
 <!-- ch02/libraries/ch02/deferred/bin/main.dart -->
 {% prettify dart %}
 greet() async {
-  if (await hello.loadLibrary()) {
-    hello.printGreeting();
-  }
+  await hello.loadLibrary();
+  hello.printGreeting();
 }
 {% endprettify %}
 
 You can invoke `loadLibrary()` multiple times on a library without problems.
 The library is loaded only once.
 
+Keep in mind the following when you use deferred loading:
+
+* A deferred library's constants aren't constants in the importing file.
+  Remember, these constants don't exist until the deferred library is loaded.
+* You can't use types from a deferred library in the importing file.
+  Instead, consider moving interface types to a library imported by
+  both the deferred library and the importing file.
+* Dart implicitly inserts `loadLibrary()` into the namespace that you define
+  using <code>deferred as <em>namespace</em></code>.
+  The `loadLibrary()` function returns a [Future](ch03.html#future).
 
 ### Implementing libraries {#implementing-libraries}
 {:.no_toc}
@@ -3103,7 +3112,8 @@ To use `await`, code must be in a function marked as `async`:
 <!-- ch02/async_await.dart -->
 {% prettify dart %}
 checkVersion() async {
-  if (await lookUpVersion() == expectedVersion) {
+  var version = await lookUpVersion();
+  if (version == expectedVersion) {
     // Do something.
   } else {
     // Do something else.
@@ -3160,7 +3170,7 @@ checkVersion() async {
   // ...
 }
 
-lookUpVersion() async => '1.0.0';
+lookUpVersion() async => /* ... */;
 {% endprettify %}
 
 Adding the `async` keyword to a function makes its return type Future.
@@ -3172,8 +3182,9 @@ which returns a String:
 String lookUpVersionSync() => '1.0.0';
 {% endprettify %}
 
-If you change it to be an async function,
-its return type changes to `Future<String>`:
+If you change it to be an async function—for example,
+because a future implementation will be time consuming—the
+return type changes to `Future<String>`:
 
 <!-- ch02/async_await.dart -->
 {% prettify dart %}
@@ -3209,14 +3220,9 @@ indicating a promise to return an object.
 The value of <code>await <em>expression</em></code> is that returned object.
 The await expression makes execution pause until that object is available.
 
-<aside class="alert alert-info" markdown="1">
-**Tip:**
-If `await` doesn't work,
-make sure it's in an async function.
-</aside>
-
-For example, say you want to call an asynchronous function
-from your app's `main()` function.
+**If `await` doesn't work, make sure it's in an async function.**
+For example, to use `await` in your app's `main()` function,
+the body of `main()` must be marked as `async`:
 
 <!-- ch02/async_await.dart -->
 {% prettify dart %}

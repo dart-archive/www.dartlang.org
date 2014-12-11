@@ -32,15 +32,17 @@ The 2<sup>nd</sup> edition includes information about
 the following proposed language features:
 
 * Enumerations (`enum`)<br>
-  Implemented in 1.8.
+  Implemented in 1.8. For details, see the language tour:
+  [Enumerated types](/docs/dart-up-and-running/ch02.html#enums).
 
 * Asynchrony support (`async`, `await`, and more)<br>
-  Partially implemented in 1.8, as described in
-  [Dart Language Asynchrony Support: Phase 1](/articles/await-async/).
+  Partially implemented in 1.8.
+  For details, see the language tour:
+  [Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony).
 
 * Deferred loading (`import ... deferred as`)<br>
-  Implemented in 1.6, as described in
-  [Deferred Loading in Dart](deferred-loading.html).
+  Implemented in 1.6. For details, see the language tour:
+  [Lazily loading a library](/docs/dart-up-and-running/ch02.html#deferred-loading).
 
 {% comment %}
 In the following documents,
