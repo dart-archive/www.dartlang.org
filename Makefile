@@ -18,7 +18,7 @@ pubget:
 	find . -name pubspec.yaml -exec bash -c ' cd $$(dirname {});pwd;pub get' \;
 
 build_apps:
-	cd ./src/site/tools/download-archive && pub deploy -o out
+	cd ./src/site/tools/download-archive && pub get && pub build -o out
 
 copy: clean
 	cd ./src/site && bundle exec jekyll build && cd ../.. && cp -R ./src/appengine/* build/
