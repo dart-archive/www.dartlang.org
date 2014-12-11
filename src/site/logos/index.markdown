@@ -16,6 +16,11 @@ These logos and files are licensed under
 * [dart-logo-wordmark.png](dart-logo-wordmark.png)
 * [dart-logo-wordmark.svg](dart-logo-wordmark.svg)
 
+## Illustrations
+
+* [dart-bird.svg](dart-bird.svg)
+* [dart-bird-flower.svg](dart-bird-flower.svg)
+
 ## Colors
 
 Blues:
