@@ -13,7 +13,7 @@ Web UI to [polymer.dart](/polymer/).
 Do you have other tips for upgrading? Please send us a
 [pull request](https://github.com/dart-lang/dartlang.org)
 for this page, or email your tips to
-[web-ui@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/web-ui).
+[web@dartlang.org](https://groups.google.com/a/dartlang.org/forum/#!forum/web).
 Thanks in advance!
 
 ### Getting Started
@@ -31,7 +31,7 @@ Thanks in advance!
   to a library scope, but you can instantiate a template by setting the
   [model](http://api.dartlang.org/docs/releases/latest/dart_html/Element.html#model)
   to a Dart object.
-  
+
   The template of a polymer element *will* be instantiate automatically with
   itself as the model, providing convenient access to its fields, exactly like
   Web UI.

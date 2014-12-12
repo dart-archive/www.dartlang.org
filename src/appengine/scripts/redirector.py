@@ -96,14 +96,6 @@ class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
 class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
   prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
-class WebUiRedirect(RequestHandler):
-  def get(self):
-    filename = self.request.path.split('/articles/dart-web-components/')[1]
-    if filename == '' or filename == 'index.html':
-        self.redirect('/articles/web-ui/', permanent=True)
-    else:
-        self.redirect('/articles/web-ui/' + filename, permanent=True)
-
 class BookRedirect(RequestHandler):
   # logging.info('in BookRedirect')
   def get(self):
@@ -181,7 +173,6 @@ application = WSGIApplication(
     ('/news.*', NewsRedirectPage),
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
-    ('/articles/dart-web-components/.*', WebUiRedirect),
     ('/docs/dart-up-and-running/contents/.*', BookRedirect),
     ('/cloud/client-server/.*', ClientServerFilesRedirect),
     ('/cloud/', CloudRedirect),
@@ -208,6 +199,12 @@ application = WSGIApplication(
       defaults={'_uri': '/docs/dart-up-and-running/ch02.html#deferred-loading'}),
     Route('/docs/spec/<:.*>', RedirectHandler,
       defaults={'_uri': '/docs/spec/'}),
+    Route('/articles/dart-web-components/', RedirectHandler,
+      defaults={'_uri': '/polymer/upgrading-to-polymer-from-web-ui.html'}),
+    Route('/articles/web-ui/', RedirectHandler,
+      defaults={'_uri': '/polymer/upgrading-to-polymer-from-web-ui.html'}),
+    Route('/web-ui/observables/', RedirectHandler,
+      defaults={'_uri': '/polymer/upgrading-to-polymer-from-web-ui.html'}),
     Route('/docs/technical-overview/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch01.html'}),
     Route('/downloads.html', RedirectHandler,

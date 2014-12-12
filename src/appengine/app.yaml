@@ -34,7 +34,7 @@ handlers:
 
 - url: /\+
   script: scripts.redirector.application
-  
+
 - url: /cloud/api.*
   script: scripts.redirector.application
 
@@ -210,6 +210,12 @@ handlers:
   script: scripts.redirector.application
 
 - url: /codelabs/web-ui-writer/
+  script: scripts.redirector.application
+
+- url: /articles/web-ui/
+  script: scripts.redirector.application
+
+- url: /web-ui/observables/
   script: scripts.redirector.application
 
 - url: /codelabs/deploy/
