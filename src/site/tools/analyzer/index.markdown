@@ -28,10 +28,11 @@ For code that uses enumerated types, specify the `--enable-enum` flag.
 
 ## Basic usage
 
-Here’s an example of testing a Dart file:
+Run the analyzer from the top directory of the package.
+Here’s an example of testing a Dart file.
 
 {% prettify sh %}
-dartanalyzer --package-root=code/packages test.dart
+dartanalyzer bin/test.dart
 {% endprettify %}
 
 As the following table shows,
@@ -66,8 +67,8 @@ for SDK developers?), --show-sdk-warnings (deprecated)}
 : Specify the directory that contains the Dart SDK.
 
 `-p` *or* `--package-root=`
-: Specify the directory to search for any libraries that are imported
-  using `package:`.
+: **Deprecated.** Specify the directory to search for any libraries that are
+  imported using `package:`.
 
 `--package-warnings`
 : Show warnings not only for code in the specified .dart file and
