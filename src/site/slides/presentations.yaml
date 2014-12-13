@@ -33,6 +33,7 @@
   date: 2014-06-25
   video: https://www.youtube.com/watch?v=NNLnTz6yIc4
   event: Google I/O 2014
+  slides: 2014/06/building-apps-on-the-chrome-platform-google-io-2014.pdf
 
 - title: "Connecting Cloud and Web: Deploying end-to-end apps with Dart"
   short: connecting-cloud-and-web
