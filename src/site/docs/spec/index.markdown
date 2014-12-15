@@ -10,26 +10,17 @@ Download the _Dart Programming Language Specification_ from
 the Ecma website:
 
 * <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-408.pdf"
-   target="_blank">Dart Programming Language Specification</a>
+   target="_blank">Dart Programming Language Specification, 2<sup>nd</sup> Edition</a>
 
 For a gentler introduction to the Dart language, see the
 [Dart language tour](/docs/dart-up-and-running/ch02.html) or
 the [first Dart code lab](/codelabs/darrrt/).
 
 
-## Proposed specification changes
+## Changes in the 2<sup>nd</sup> edition
 
-Here is the newest version of the specification,
-approved by
-<a href="http://www.ecma-international.org/memento/TC52.htm"
-   target = "_blank">TC52</a>
-(but not yet by the Ecma General Assembly):
-
-* <a href="proposedDartLangSpec.pdf" target="_blank">Draft:
-  Dart Programming Language Specification, 2<sup>nd</sup> Edition</a>
-
-The 2<sup>nd</sup> edition includes information about
-the following proposed language features:
+The 2<sup>nd</sup> edition of the specification added information about
+the following new language features:
 
 * Enumerations (`enum`)<br>
   Implemented in 1.8. For details, see the language tour:
@@ -43,6 +34,9 @@ the following proposed language features:
 * Deferred loading (`import ... deferred as`)<br>
   Implemented in 1.6. For details, see the language tour:
   [Lazily loading a library](/docs/dart-up-and-running/ch02.html#deferred-loading).
+
+You can find both editions of the specification at
+[Standard ECMA-408](http://www.ecma-international.org/publications/standards/Ecma-408.htm).
 
 {% comment %}
 In the following documents,

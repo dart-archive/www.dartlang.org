@@ -92,6 +92,9 @@ handlers:
 - url: /docs/spec/dartLangSpec.*
   script: scripts.redirector.application
 
+- url: /docs/spec/proposedDartLangSpec.pdf
+  script: scripts.redirector.application
+
 - url: /docs/spec/deferred-loading.html
   script: scripts.redirector.application
 

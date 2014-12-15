@@ -197,6 +197,8 @@ application = WSGIApplication(
                 '_code': 302}),
     Route('/docs/spec/deferred-loading.html', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch02.html#deferred-loading'}),
+    Route('/docs/spec/proposedDartLangSpec.pdf', RedirectHandler,
+      defaults={'_uri': '/docs/spec/'}),
     Route('/docs/spec/<:.*>', RedirectHandler,
       defaults={'_uri': '/docs/spec/'}),
     Route('/articles/dart-web-components/', RedirectHandler,
