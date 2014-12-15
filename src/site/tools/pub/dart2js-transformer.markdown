@@ -67,6 +67,9 @@ transformers:
     csp: true
 {% endprettify %}
 
+For command-line options not covered in this list,
+such as `--enable-enum`, see [Special-case options](#additional-options).
+
 ## Excluding an asset {#exclude-assets}
 
 You can also exclude a particular asset, or set of assets,
@@ -77,11 +80,26 @@ For more information, see
 [How to exclude assets](assets-and-transformers.html#exclude-assets) in
 [Pub Assets and Transformers](assets-and-transformers.html).
 
-## Special-case option {#additional-options}
+## Special-case options {#additional-options}
 
 `commandLineOptions: [...args...]`
 
 In addition to the options previously listed, `commandLineOptions`
-is available as a fallback for cases where a new command line option has
+is available as a fallback for cases where a new command-line option has
 been added to dart2js, but a corresponding configuration option has not
 yet been added to pub.
+
+An example of this is the `--enable-enum` option. 
+
+{% prettify yaml %}
+dependencies:
+  polymer: '>=0.14.0 <0.15.0'
+  core_elements: any
+  browser: any
+  range:
+transformers:
+- polymer:
+    entry_points: web/index.html
+[[highlight]]- $dart2js:
+    commandLineOptions: [--enable-enum][[/highlight]]
+{% endprettify %}
