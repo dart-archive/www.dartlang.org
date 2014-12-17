@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6" markdown="1">
-### IDE Plugins
+#### IDE Plugins
 
 [![IntelliJ logo](images/IntellIJ-IDEA.png)](webstorm/)
 [IntelliJ IDEA and WebStorm](webstorm/)
@@ -10,7 +10,7 @@
   </div>
 
   <div class="col-md-6" markdown="1">
-### Text Editor Plugins
+#### Text Editor Plugins
 
 <a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><img
   alt="Sublime logo" src="images/sublime.png">
