@@ -70,6 +70,7 @@ The following reference pages cover each command in detail:
 * [`pub build`](cmd/pub-build.html)
 * [`pub cache`](cmd/pub-cache.html)
 * [`pub deps`](cmd/pub-deps.html)
+* [`pub downgrade`](cmd/pub-downgrade.html)
 * [`pub get`](cmd/pub-get.html)
 * [`pub global`](cmd/pub-global.html)
 * [`pub publish`](cmd/pub-lish.html)

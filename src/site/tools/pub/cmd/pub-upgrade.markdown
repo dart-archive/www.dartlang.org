@@ -84,7 +84,7 @@ However, by default, pub always tries to go online when you upgrade if you
 have any hosted dependencies so that it can see if newer versions of them are
 available. If you don't want it to do that, pass the `--offline` flag when
 running pub. In this mode, it only looks in your local package cache and
-try to find a set of versions that work with your package from what's already
+tries to find a set of versions that work with your package from what's already
 available.
 
 Keep in mind that pub *will* generate a lockfile after it does this. If the

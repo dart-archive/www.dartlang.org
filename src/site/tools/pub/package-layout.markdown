@@ -80,8 +80,9 @@ Every package has a [_pubspec_](pubspec.html), a file named
 `pubspec.yaml`, in the root directory of the package. That's what *makes* it a
 package.
 
-Once you've run [`pub get`](cmd/pub-get.html) or [`pub
-upgrade`](cmd/pub-upgrade.html) on the package, you will also have a
+Once you've run [`pub get`](cmd/pub-get.html),
+[`pub upgrade`](cmd/pub-upgrade.html), or
+[`pub downgrade`](cmd/pub-downgrade.html) on the package, you will also have a
 **lockfile**, named `pubspec.lock`. If your package is an [application
 package](glossary.html#application-package), this will be checked into source
 control. Otherwise, it won't be.

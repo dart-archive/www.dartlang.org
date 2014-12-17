@@ -23,6 +23,7 @@ Quick links to the `pub` commands:
 * [`pub build`](pub-build.html)
 * [`pub cache`](pub-cache.html)
 * [`pub deps`](pub-deps.html)
+* [`pub downgrade`](pub-downgrade.html)
 * [`pub get`](pub-get.html)
 * [`pub global`](pub-global.html)
 * [`pub publish`](pub-lish.html)
@@ -49,6 +50,11 @@ the creation and maintenance of a Dart application.
 
 * The [`pub deps`](pub-deps.html) command lists all of the dependencies
   used by a package.
+
+* The [`pub downgrade`](pub-downgrade.html) command retrieves the lowest
+  versions of all the packages that are listed as dependencies
+  used by the application. This is useful for testing the lower range
+  of your package's dependencies.
 
 * The [`pub get`](pub-get.html) command retrieves the packages that are
   listed as the dependencies for the application.
