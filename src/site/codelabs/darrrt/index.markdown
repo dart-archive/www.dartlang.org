@@ -247,7 +247,8 @@ Get familiar with the HTML and the Dart code for the skeleton version of the app
 
 * The Dart Virtual Machine (Dart VM) runs Dart code natively.
   The Dart VM is built into Dartium,
-  a special build of the Chromium browser in which you can run Dart apps natively.
+  a special build of the Chromium browser in which you can run Dart apps
+  natively.
 
 * The `packages/browser/dart.js` script checks for native Dart support
   and either bootstraps the Dart VM or loads compiled JavaScript instead.
@@ -1997,9 +1998,6 @@ Expand the `6-piratebadge` directory.
   When deployed, this file runs in the browser.
 
 * The `packages` directory contains the package dependencies.
-
-* Note that the directory contains no `piratebadge.dart` file.
-  It is not needed to deploy the app to JavaScript.
 
 * Each subdirectory of `build/web` contains all of the files
   needed for the app to be deployed separately.
