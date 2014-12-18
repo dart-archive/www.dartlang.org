@@ -209,6 +209,21 @@ To debug in Chrome:
 
 4. Reload your application.
             
+### Internet Explorer {#dart2js-debugging-ie}
+
+To debug in Internet Explorer:
+
+1. Update to the latest version of Internet Explorer. (Source-map support
+   was added to IE in April 2014).
+
+2. Load **Developer Tools** (**F12**). For more information, see
+   [Using the F12 developer tools](http://msdn.microsoft.com/library/ie/bg182326(v=vs.85)).
+
+3. Reload the application. The **debugger** tab shows source-mapped files.
+
+4. Exception behavior can be controlled through **Ctrl+Shift+E**;
+   the default is **Break on unhandled exceptions**.
+
 ### Firefox {#dart2js-debugging-firefox}
 
 Firefox doesn’t yet support source maps (see [bug #771597](https://bugzilla.mozilla.org/show_bug.cgi?id=771597)).
