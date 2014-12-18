@@ -824,7 +824,7 @@ Db
 
 ## Comments
 
-#### DO comment members and types using doc comments.
+#### DO use doc comments when commenting members and types.
 {:.no_toc}
 <!-- https://github.com/dart-lang/www.dartlang.org/issues/668 -->
 
