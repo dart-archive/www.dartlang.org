@@ -137,6 +137,8 @@ from the [download page](/tools/download.html).
 <a name="other-tools"></a>
 <h2>Command-line tools</h2> 
 
+These tools are available in the [Dart SDK](/tools/sdk).
+
 <div class="row">
   <div class="col-md-4">
     <dt> <a href="/tools/dart-vm">dart</a> </dt>

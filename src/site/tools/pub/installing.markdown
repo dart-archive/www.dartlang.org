@@ -3,32 +3,46 @@ layout: default
 title: "Installing and Configuring Pub"
 ---
 
+{% include toc.html %}
 {% include breadcrumbs.html %}
 
 # {{ page.title }}
 
 [Pub](/tools/pub/) is in the [Dart SDK](/tools/sdk/),
 which you can download by itself or as part of
-[Dart Editor](/tools/editor/).
-You can use pub through
+[Dart Editor](/tools/editor/). You can use pub through
 [Dart Editor](/tools/editor/), or through the
 `pub` command-line app, which lives inside the `bin` directory of the Dart SDK.
 
-To use pub and other tools on the command line,
-you might want to add the SDK's `bin` directory to your system path.
-For example, on Mac and Linux:
+## Get pub
 
-    export PATH=$PATH:<path to sdk>/bin
+{% include download-dart-configure-path.html %}
 
-Here, `<path to sdk>` is the absolute path
-to the main directory of the SDK. For example,
-if you install Dart Editor in
-`/home/me/dart`, then add the following to your PATH:
+## Optional environment variables
 
-    /home/me/dart/dart-sdk/bin
+Environment variables allow you to customize pub to suit your needs.
 
-On Windows, you can set the system PATH environment variable through the
-Control Panel. A quick
-[search](https://www.google.com/search?q=windows+set+environment+variable)
-should find the instructions for your version of Windows.
+`PUB_CACHE`:
+Some of pub's dependencies are downloaded to the pub cache.
+By default, this directory is located under `.pub_cache`
+in your home directory. You can use the `PUB_CACHE` environmant
+variable to specify another location. For more information, see
+[The system package cache](/tools/pub/cmd/pub-get.html).
 
+`PUB_HOSTED_URL`:
+Pub downloads dependencies from `pub.dartlang.org`. To specify the
+location of a particular mirror server,
+use the `PUB_HOSTED_URL` environment variable. For example:
+
+{% prettify sh %}
+PUB_HOSTED_URL = http://user:password@177.0.0.1:9999
+{% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+If you are attempting to use `pub get` behind a corporate firewall
+and it fails, please see
+[`pub get` fails from behind a corporate firewall](/tools/pub/troubleshoot.html#pub-get-fails-from-behind-a-corporate-firewall)
+for information on how to set up the proxy environment variables for
+your platform.
+</aside>

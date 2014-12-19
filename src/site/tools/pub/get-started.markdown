@@ -112,13 +112,15 @@ dependencies:
 
 Let's say that your package is laid out as follows:
 
-    transmogrify/
-      lib/
-        transmogrify.dart
-        parser.dart
-      test/
-        parser/
-          parser_test.dart
+{% prettify none %}
+transmogrify/
+  lib/
+    transmogrify.dart
+    parser.dart
+  test/
+    parser/
+      parser_test.dart
+{% endprettify %}
 
 The `parser_test` file *could* import `parser.dart` like this:
 
@@ -153,13 +155,17 @@ code when you deploy your app to production.
 
 When you are ready to upgrade your dependencies to the latest versions, do:
 
-    $ pub upgrade
+{% prettify sh %}
+$ pub upgrade
+{% endprettify %}
 
 This tells pub to regenerate the lockfile using the newest available versions of
 your package's dependencies. If you only want to upgrade a specific dependency,
 you can specify that too:
 
-    $ pub upgrade transmogrify
+{% prettify sh %}
+$ pub upgrade transmogrify
+{% endprettify %}
 
 This upgrades `transmogrify` to the latest version but leaves everything else
 the same.

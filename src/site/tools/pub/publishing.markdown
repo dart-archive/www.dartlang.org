@@ -11,7 +11,9 @@ title: "Publishing a Package"
 your packages with the world. Once you've written some useful code and you want
 everyone else to be able to use it, just run:
 
-    $ pub publish
+{% prettify sh %}
+$ pub publish
+{% endprettify %}
 
 Pub will check to make sure that your package follows the [pubspec
 format](pubspec.html) and [package layout conventions](package-layout.html),

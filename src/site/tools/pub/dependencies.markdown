@@ -242,12 +242,38 @@ together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
 `2.0.0` excluding `2.0.0` itself.
 
 <aside class="alert alert-info">
-
 Note that `>` is also valid YAML syntax so you will want to quote
 the version string (like `'<=1.2.3 >2.0.0'`) if the version
 constraint starts with that.
-
 </aside>
+
+### Carrot syntax
+
+_Carrot syntax_ provides a more compact way of expressing the most common
+sort of version constraint.
+`^version` means "the range of all versions guaranteed to be backwards
+compatible with the specified version", and follows pub's convention for
+[semantic versioning](/tools/pub/versioning.html#semantic-versions).
+For example, `^1.2.3` is equivalent to `'>=1.2.3 <2.0.0'`, and
+`^0.1.2` is equivalent to `'>=0.1.2 <0.2.0'`.
+The following is an example of carrot syntax:
+
+{% prettify yaml %}
+dependencies:
+  path: ^1.3.0
+  collection: ^1.1.0
+  string_scanner: ^0.1.2
+{% endprettify %}
+
+Note that carrot syntax was added in Dart 1.8.3. Older versions of Dart
+don't understand it, so you'll need to include an SDK constraint (using
+traditional syntax) to ensure that older versions of pub will not try
+to process it. For example:
+
+{% prettify yaml %}
+environment:
+  sdk: '>=1.8.3 <2.0.0'
+{% endprettify %}
 
 ## Dev dependencies {#dev-dependencies}
 
