@@ -170,11 +170,20 @@ Quickly find all callers for a method, and easily jump to these locations.
 ## Customizing the build
 
 You can add behavior to the Dart Editor build process
-by creating a build.dart file. For example,
-Web UI uses a build.dart file to run custom tools over Dart and HTML files
-and to map from the original files to the generated files.
+by creating a build.dart file. 
 See [Build.dart and the Dart Editor Build System](build.html)
 for details on implementing your own build.dart file.
+
+<aside class="alert alert-info" markdown="1">
+**Note**:
+For the most part, `build.dart` has been replaced by pub transformers.
+Pub uses transformers to transform a package's assets before serving the app.
+
+To learn how to use transformers, see
+[Assets and Transformers](/tools/pub/assets-and-transformers.html).
+To learn how to write a transformer, see
+[Writing a Pub Transformer](/tools/pub/transformers/).
+</aside>
 
 ## Filing bugs and feature requests
 

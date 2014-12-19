@@ -20,6 +20,19 @@ You can use build.dart to post-process changed files,
 generate other files,
 or drive other aspects of the build system.  
 
+<aside class="alert alert-info" markdown="1">
+**Note**:
+For the most part, `build.dart` (which is used only by Dart Editor)
+has been replaced by pub transformers (which are used by `pub serve`,
+`pub run`, `pub build`, _and_ Dart Editor).
+Pub uses transformers to transform a package's assets before serving the app.
+
+To learn how to use transformers, see
+[Assets and Transformers](/tools/pub/assets-and-transformers.html).
+To learn how to write transformers, see
+[Writing a Pub Transformer](/tools/pub/transformers/).
+</aside>
+
 ## Flags
 
 Dart Editor can invoke build.dart with
@@ -196,11 +209,8 @@ to
 : An absolute or script relative file path
 
 
-## More examples
+## Another example
 
-You might find the following examples of build files helpful:
+You might find the following to be helpful:
 
 * [dart/samples/build_dart/build.dart](https://code.google.com/p/dart/source/browse/trunk/dart/samples/build_dart/build.dart)
-* Web UI: 
-   * [build.dart](https://github.com/dart-lang/web-ui/blob/master/build.dart)
-   * [component_build.dart](https://github.com/dart-lang/web-ui/blob/master/lib/component_build.dart)
