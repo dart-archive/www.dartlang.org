@@ -52,36 +52,30 @@ Well, no. Depending on specific versions works fine when your dependency
 packages, and those things in turn have their own dependencies and so on, that
 all works fine as long as none of those dependencies *overlap*.
 
-But let's consider an example:
+But consider the following example:
 
-          myapp
-          /   \
-         /     \
-    widgets  templates
-        \      /
-         \    /
-       collections
+<img src="images/PubConstraintsDiagram.png" alt="diagram showing my_app has dependencies on widgets and templates which both have a dependency on collection">
 
 So your app uses `widgets` and `templates`, and *both* of those use
-`collections`. This is called a **shared dependency**. Now what happens when
-`widgets` wants to use `collections 2.3.5` and `templates` wants
-`collections 2.3.7`? What if they don't agree on a version?
+`collection`. This is called a **shared dependency**. Now what happens when
+`widgets` wants to use `collection 2.3.5` and `templates` wants
+`collection 2.3.7`? What if they don't agree on a version?
 
 One option is to just let the app use both
-versions of `collections`. It will have two copies of the library at different
+versions of `collection`. It will have two copies of the library at different
 versions and `widgets` and `templates` will each get the one they want.
 
 This is what [npm][] does for node.js. Would it work for Dart? Consider this
 scenario:
 
- 1. `collections` defines some `Dictionary` class.
- 2. `widgets` gets an instance of it from its copy of `collections` (`2.3.5`).
-    It then passes it up to `myapp`.
- 3. `myapp` sends the dictionary over to `templates`.
- 4. That in turn sends it down to *its* version of `collections` (`2.3.7`).
+ 1. `collection` defines some `Dictionary` class.
+ 2. `widgets` gets an instance of it from its copy of `collection` (`2.3.5`).
+    It then passes it up to `my_app`.
+ 3. `my_app` sends the dictionary over to `templates`.
+ 4. That in turn sends it down to *its* version of `collection` (`2.3.7`).
  5. The method that takes it has a `Dictionary` type annotation for that object.
 
-As far as Dart is concerned, `collections 2.3.5` and `collections 2.3.7` are
+As far as Dart is concerned, `collection 2.3.5` and `collection 2.3.7` are
 entirely unrelated libraries. If you take an instance of class `Dictionary`
 from one and pass it to a method in the other, that's a completely different
 `Dictionary` type. That means it will fail to match a `Dictionary` type
@@ -102,21 +96,21 @@ has to agree on which version to use. If they don't, you get an error.
 That doesn't actually solve your problem though. When you *do* get that error,
 you need to be able to resolve it. So let's say you've gotten yourself into
 that situation in the previous example. You want to use `widgets` and
-`templates`, but they are using different versions of `collections`. What do
+`templates`, but they are using different versions of `collection`. What do
 you do?
 
 The answer is to try to upgrade one of those. `templates` wants
-`collections 2.3.7`. Is there a later version of `widgets` that you can upgrade
+`collection 2.3.7`. Is there a later version of `widgets` that you can upgrade
 to that works with that version?
 
 In many cases, the answer will be "no". Look at it from the perspective of the
 people developing `widgets`. They want to put out a new version with new changes
 to *their* code, and they want as many people to be able to upgrade to it it as
-possible. If they stick to their *current* version of `collections` then anyone
+possible. If they stick to their *current* version of `collection` then anyone
 who is using the current version `widgets` will be able to drop in this new one
 too.
 
-If they were to upgrade *their* dependency on `collections` then everyone who
+If they were to upgrade *their* dependency on `collection` then everyone who
 upgrades `widgets` would have to as well, *whether they want to or not.* That's
 painful, so you end up with a disincentive to upgrade dependencies. That's
 called **version lock**: everyone wants to move their dependencies forward, but
@@ -126,7 +120,7 @@ no one can take the first step because it forces everyone else to as well.
 
 To solve version lock, we loosen the constraints that packages place on their
 dependencies. If `widgets` and `templates` can both indicate a *range* of
-versions for `collections` that they will work with, then that gives us enough
+versions for `collection` that they will work with, then that gives us enough
 wiggle room to move our dependencies forward to newer versions. As long as there
 is overlap in their ranges, we can still find a single version that makes them
 both happy.
@@ -137,10 +131,10 @@ of versions that you can accept. If the pubspec for `widgets` looked like this:
 
 {% prettify yaml %}
 dependencies:
-  collections: '>=2.3.5 <2.4.0'
+  collection: '>=2.3.5 <2.4.0'
 {% endprettify %}
 
-Then we could pick version `2.3.7` for `collections` and then both `widgets`
+Then we could pick version `2.3.7` for `collection` and then both `widgets`
 and `templates` have their constraints satisfied by a single concrete version.
 
 ## Semantic versions
@@ -160,7 +154,7 @@ like:
 
 {% prettify yaml %}
 dependencies:
-  collections: '>=2.3.5 <3.0.0'
+  collection: '>=2.3.5 <3.0.0'
 {% endprettify %}
 
 To make this work, then, we need to come up with that set of promises.
@@ -200,14 +194,14 @@ solve them. (Basically, it intersects their ranges.) Then it looks at the
 actual versions that have been released for that package and selects the best
 (most recent) one that meets all of those constraints.
 
-For example, let's say our dependency graph contains `collections`, and three
+For example, let's say our dependency graph contains `collection`, and three
 packages depend on it. Their version constraints are:
 
     >=1.7.0
     >=1.4.0 <2.0.0
     <1.9.0
 
-The developers of `collections` have released these versions of it:
+The developers of `collection` have released these versions of it:
 
     1.7.0
     1.7.1
@@ -218,7 +212,7 @@ The developers of `collections` have released these versions of it:
 
 The highest version number that fits in all of those ranges is `1.8.2`, so pub
 picks that. That means your app *and every package your app uses* will all use
-`collections 1.8.2`.
+`collection 1.8.2`.
 
 ## Constraint context
 
@@ -240,7 +234,7 @@ dependencies:
 name: other_app
 dependencies:
   widgets:
-  collections: '<1.5.0'
+  collection: '<1.5.0'
 {% endprettify %}
 
 They both depend on `widgets`, whose pubspec is:
@@ -248,22 +242,87 @@ They both depend on `widgets`, whose pubspec is:
 {% prettify yaml %}
 name: widgets
 dependencies:
-  collections: '>=1.0.0 <2.0.0'
+  collection: '>=1.0.0 <2.0.0'
 {% endprettify %}
 
-The `other_app` package uses depends directly on `collections` itself. The
+The `other_app` package uses depends directly on `collection` itself. The
 interesting part is that it happens to have a different version constraint on
 it than `widgets` does.
 
 What this means is that you can't just look at the `widgets` package in
-isolation to figure out what version of `collections` it will use. It depends
-on the context. In `my_app`, `widgets` will be using `collections 1.9.9`. But
-in `other_app`, `widgets` will get saddled with `collections 1.4.9` because of
+isolation to figure out what version of `collection` it will use. It depends
+on the context. In `my_app`, `widgets` will be using `collection 1.9.9`. But
+in `other_app`, `widgets` will get saddled with `collection 1.4.9` because of
 the *other* constraint that `otherapp` places on it.
 
 This is why each app gets its own "packages" directory: The concrete version
 selected for each package depends on the entire dependency graph of the
 containing app.
+
+## Constraint solving for exported dependencies
+
+Package authors must define package contraints with care.
+Consider the following scenario:
+
+<img src="images/PubExportedConstraints.png" alt="diagram showing bookshelf package has a dependency on widges which has a dependency on collection">
+
+The `bookshelf` package depends on `widgets`.
+The `widgets` package, currently at 1.2.0,
+[exports](/docs/dart-up-and-running/ch02.html#re-exporting-libraries)
+`collection` via `export "package:collection/collection.dart"`, and is
+at 2.4.0. The pubspec files are as follows:
+
+{% prettify yaml %}
+name: bookshelf
+dependencies:
+  widgets:  '>=1.2.0 <2.0.0'
+{% endprettify %}
+
+{% prettify yaml %}
+name: widgets
+dependencies:
+  collection:  '>=2.4.0 <3.0.0'
+{% endprettify %}
+
+The `collection` package is then updated to 2.5.0.
+The 2.5.0 verion of `collection` includes a new method called `sortBackwards`.
+`bookshelf` may call `sortBackwards`, 
+because it's part of the API exposed by `widgets`,
+despite `bookshelf` having only a transitive dependency on `collection`.
+
+Because `widgets` has an API that is not reflected in its version number,
+the app that uses the `bookshelf` package and calls `sortBackwards` may crash.
+
+Exporting an API causes that API to be treated as if it is
+defined in the package itself, but it can't increase the version number when
+the API adds features. This means that `bookshelf` has no way of declaring
+that it needs a version of `widgets` that supports `sortBackwards`.
+
+For this reason, when dealing with exported packages,
+it's recommended that the package's author keeps a tighter
+limit on the upper and lower bounds of a dependency.
+In this case, the range for the `widgets` package should be narrowed:
+
+{% prettify yaml %}
+name: bookshelf
+dependencies:
+  widgets:  '>=1.2.0 <1.3.0'
+{% endprettify %}
+
+{% prettify yaml %}
+name: widgets
+dependencies:
+  collection:  '>=2.4.0 <2.5.0'
+{% endprettify %}
+
+This translates to a lower bound of 1.2.0 for `widgets` and 2.4.0
+for `collection`.
+When the 2.5.0 version of `collection` is released,
+then `widgets` is also updated to 1.3.0 and the corresponding constraints
+are also updated.
+
+Using this convention ensures that users have the correct version of
+both packages, even if one is not a direct dependency.
 
 ## Lockfiles
 
@@ -302,7 +361,7 @@ You might run into one of the following problems:
 ### You can have disjoint constraints
 
 Lets say your app uses `widgets` and
-`templates` and both use `collections`. But `widgets` asks for a version
+`templates` and both use `collection`. But `widgets` asks for a version
 of it between `1.0.0` and `2.0.0` and `templates` wants something
 between `3.0.0` and `4.0.0`. Those ranges don't even overlap. There's no
 possible version that would work.
