@@ -20,33 +20,32 @@ the [barback](http://pub.dartlang.org/packages/barback) package.
 The description for each example states where you can get more information
 about that particular example.
 
-[aggregate_transformer](https://code.google.com/p/dart/source/browse/trunk/dart/pkg/barback/example/aggregate_transformer)
+[aggregate_transformer](https://github.com/dart-lang/barback/tree/master/example/aggregate_transformer)
 : Combines partial HTML files contained in a "recipes" directory into a
   single HTML file. See
   [Writing an Aggregate Transformer](/tools/pub/transformers/aggregate.html)
   for more information.
 
-[lazy_transformer](https://code.google.com/p/dart/source/browse/trunk/dart/pkg/barback/example/lazy_transformer)
+[lazy_transformer](https://github.com/dart-lang/barback/tree/master/example/lazy_transformer)
 : Lazily converts a text file using a ROT13 converter. See
   [Writing a Lazy Transformer](/tools/pub/transformers/lazy-transformer.html)
   for more information.
 
-[markdown_converter](https://code.google.com/p/dart/source/browse/trunk/dart/pkg/barback/example/markdown_converter)
+[markdown_converter](https://github.com/dart-lang/barback/tree/master/example/markdown_converter)
 : Converts a markdown file (with either a ".mdown", ".md", or
   a ".markdown" extension) to HTML. The output asset has
   an ".html" extension.  See
   [Writing a Pub Transformer](/tools/pub/transformers/) for more information.
 
-[simple_transformer](https://code.google.com/p/dart/source/browse/trunk/dart/pkg/barback/example/simple_transformer)
+[simple_transformer](https://github.com/dart-lang/barback/tree/master/example/simple_transformer)
 : Inserts a copyright string at the beginning of a ".txt" file. See
   [Writing a Pub Transformer](/tools/pub/transformers/) for more information.
 
-All of these examples live in the main
-[dart repo](https://code.google.com/p/dart/). For more information, see
-[Getting the Source](https://code.google.com/p/dart/wiki/GettingTheSource).
+All of these examples are part of the
+[barback](https://github.com/dart-lang/barback) repo on GitHub.
 
-Once you download the Dart source code, copy the examples from the
-`pkg/barback/example` directory to another location. Within an example's
-package, create an empty `web` directory, and run `pub build` to generate
-the assets. Pub transforms the sample assets (located in `lib`)
+To run an example, first clone or download the barback repo.
+Then under the <code>example/<em>example_name</em></code> directory,
+create an empty `web` directory, and run `pub build` to generate the assets.
+Pub transforms the sample assets (located in `lib`)
 and places them under `build`.
