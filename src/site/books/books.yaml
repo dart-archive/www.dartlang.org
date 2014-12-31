@@ -1,3 +1,63 @@
+- title: Web Programming with Dart
+  authors:
+    - Moises Belchin
+    - Patricia Juberias
+  publisher: Apress
+  cover: web-programming-with-dart.jpg
+  link: http://www.apress.com/9781484205570
+  desc: 'Web Programming with Dart is for programmers who want to master the new 
+         Dart programming language from Google, and also web developers who want
+         to understand how Dart can integrate perfectly with HTML5 and CSS3. With
+         this book you will understand the ins and outs of the language, how the
+         tools work, and how to get the most from the core functions and libraries.
+         Web Programming with Dart is a practical, example-led book, with case
+         studies involving developing UI animations for the web, working with
+         web services such as JSON, server side Dart applications, and the new
+         Polymer.dart library for advanced HTML UI web components generation.'  
+
+- title: Mastering Dart
+  authors:
+    - Sergey Akopkokhyants
+  cover: mastering-dart.jpg
+  link: https://www.packtpub.com/web-development/mastering-dart
+  desc: 'Starting with a discussion about the basic features of Dart, we
+         will dive into the more complicated concepts such as generics,
+         annotation with reflection, errors and exceptions, which will
+         help us improve our code. Moving on, you will learn how and when
+         to create objects and also advanced techniques that will help you
+         execute asynchronous code. You will also learn about the collection
+         framework and how to communicate with the different programs written
+         in JavaScript using Dart.'
+
+- title: Dart Cookbook
+  authors:
+    - Ivo Balbaert
+  publisher: Packt Publishing
+  cover: dart-cookbook.jpg
+  link: https://www.packtpub.com/application-development/dart-cookbook
+  desc: 'This book is a pragmatic guide that will increase your expertise
+        in writing all kinds of applications,
+  including web apps, scripts, and server-side apps.
+  It provides rich insights on how to extend your Dart programming
+        skills.'
+
+- title: Aprende Dart
+  authors:
+    - Moises Belchin
+    - Patricia Juberias
+  publisher: Moises Belchin & Patricia Juberias
+  cover: aprende-dart.jpg
+  link: http://www.librodart.es
+  desc: 'Aprende Dart is the first Spanish-language book about Dart.
+        Aprende Dart es el primer libro en Español para programadores 
+        y diseñadores web que quieran conocer el lenguaje, aprender a 
+        manejar las herramientas y trabajar con las principales 
+        funciones y librerías. Conocerás la historia que hay tras el 
+        lenguaje y cómo surge, crearemos animaciones para interfaces 
+        gráficas web y trabajaremos con servicios web, veremos el 
+        potencial que nos brinda Dart en el lado servidor y 
+        comenzaremos a trabajar con Polymer.dart.'
+
 - title: The Dart Programming Language
   authors:
     - Gilad Bracha
@@ -91,16 +151,3 @@
          simple scripts to complex apps, running on both the client and the server.
          With this book, you’ll learn how Dart can help you architect and develop
          HTML5 apps for the modern Web.'
-
-- title: What is Dart?
-  authors:
-    - Kathy Walrath
-    - Seth Ladd
-  publisher: O'Reilly
-  cover: what-is-dart.png
-  link: http://shop.oreilly.com/product/0636920025887.do
-  desc: 'This short, free ebook from March 2012
-        describes the Dart language,
-        libraries, and tools that help you develop structured,
-        fast, and maintainable web
-        apps that run in any modern browser.'
