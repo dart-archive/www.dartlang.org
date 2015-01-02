@@ -829,9 +829,11 @@ handleOnClick(Event e) {
   // ...
 }
 
-// Or, if the handler does not take an event
-
+// Or, if the handler does not take an event:
 element.onClick.listen((e) => subscribeToService());
+
+// Or, if you need to attach to a dynamically-named event:
+element.on['dynamicName'].listen((e) => print('dynamic'));
 ]]></code>
   </synonym>
   <synonym id="syn-remove-an-event-handler">
