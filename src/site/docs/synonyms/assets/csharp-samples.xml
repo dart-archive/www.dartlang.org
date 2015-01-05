@@ -169,7 +169,7 @@ var numbers = new List<double>{ 42, 2.1, 5, 0.1, 391 };
 numbers.Sort((a, b) => a.CompareTo(b));
 // == [0.1, 2.1, 5, 42, 391];
 
-// Or with LINQ
+// Or produce new LINQ sequence without modifying numbers
 numbers.OrderBy(n => n);
 ]]></code>
   </synonym>
@@ -415,27 +415,43 @@ if (double.IsNaN(nan))
   <synonym id="syn-value-and-identity-equality">
     <title>Value and identity equality</title>
     <code language="csharp"><![CDATA[
-// C# handles equality differently for reference types and value types
+// C# handles equality differently for reference types
+//   and for value types.
 
 // Reference Types
+// Use Equals() for logical equality.
+// Operator == will default to reference equality unless the
+//   class has overloaded it.
+// Use Object.ReferenceEquals() to ensure reference equality
+//   semantics.
 var c1 = new MyClass(5);
 var c2 = new MyClass(5);
 
-c1 == c2 // False, even if identical internally.
+c1.Equals(c2)                  // True
+c1 == c2                       // True if == overridden
+Object.ReferenceEquals(c1, c2) // False
 
 c1 = c2;
-c1 == c2; // True
+Object.ReferenceEquals(c1, c2) // True
 
 // Value Types
+// Many types overload operator ==. If possible == is best
+//   way to check logical equality.
+// Can also use IEquatable<T>.Equals(T), but avoid
+//   Object.Equals(Object) for performace.
+// DON'T use Object.ReferenceEquals, because boxed values
+//   will never be equal.
 var v1 = 5;
 var v2 = 5;
 
-v1 == v2; // True
+v1 == v2                       // True
+v1.Equals(v2)                  // True
+Object.ReferenceEquals(v1, v2) // False!!!
 
-v1 = v2;
-v1 == v2; // True
-
-// You can implement the == operator and override the Equals() method in your own classes or structs.
+// Operator == is static and can be overloaded.
+// Object.Equals() is virtual and can be overridden.
+// IEquatable<T>.Equals() avoid boxing value types, and
+//   indicates type supports equality.
 ]]></code>
   </synonym>
 </theme>
@@ -589,15 +605,21 @@ data.ToList()
   <synonym id="syn-closures-and-counters-in-loops">
     <title>Closures and counters in loops</title>
     <code language="csharp"><![CDATA[
+// C# reuses for loop variables, so capture a local variable
 var callbacks = new List<Action>();
-
 for (var i = 0; i < 2; i++)
 {
-    callbacks.Add(() => Console.WriteLine(i));
+    int captured = i;
+    callbacks.Add(() => Console.WriteLine("i:{0} capt:{1}",
+        i, captured));
 }
 
-callbacks[0](); // == 0
-callbacks[1](); // == 1
+callbacks[0](); // i:2 capt:0
+callbacks[1](); // i:2 capt:1
+
+// Avoid closing over foreach loop variable, because C# 5
+// introduced a breaking change. Previously the foreach loop
+// variable was reused, but now it is "fresh" for each loop.
 ]]></code>
   </synonym>
 </theme>
@@ -913,7 +935,7 @@ void Events()
     };
 
     // fire the event
-    myEvent.Invoke(this, new EventArgs());
+    myEvent(this, new EventArgs());
 }
 
 ]]></code>
@@ -923,6 +945,9 @@ void Events()
     <code language="csharp"><![CDATA[
 dynamic document = HtmlPage.Document;
 document.removeEventListener("click", handleOnClick, false);
+
+// For general-purpose events:
+myEvent -= Click;
 ]]></code>
   </synonym>
 </theme>

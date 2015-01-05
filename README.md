@@ -69,9 +69,9 @@ You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
 
 ### Tips for Windows
 
-* Install Python with the [Windows installer](https://www.python.org/download/windows/).
-* Install Ruby with the [RubyInstaller site](http://rubyinstaller.org/downloads/).
-* Install the Ruby DevKit from the [RubyInstaller site](http://rubyinstaller.org/downloads/)
+* Install Python with the [Windows installer](https://www.python.org/download/windows/) or `choco install python2`.
+* Install Ruby with the [RubyInstaller site](http://rubyinstaller.org/downloads/) or `choco install ruby`.
+* Install the Ruby DevKit from the [RubyInstaller site](http://rubyinstaller.org/downloads/) or `choco install ruby2.devkit`.
 * Run `gem install bundler`.
 * Run `bundle install` from the root of your dartlang project.
 
@@ -115,7 +115,7 @@ installed the latest gem versions.
 
 You probably won't have **make** available on the command line by default.
 
-* To just get up and running, run `jekyll` from the `src/site` folder.
+* To just get up and running, run `jekyll serve` from the `src/site` folder.
 * This starts up the Jekyll webserver and generates into `build/static`.
 * If Jekyll does not generate output, you need to type `chcp 65001` at the
   command prompt to change the code page to UTF-8.
