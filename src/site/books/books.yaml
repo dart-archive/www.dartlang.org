@@ -1,3 +1,20 @@
+- title: Web Programming with Dart
+  authors:
+    - Moises Belchin
+    - Patricia Juberias
+  publisher: Apress
+  cover: web-programming-with-dart.jpg
+  link: http://www.apress.com/9781484205570
+  desc: 'Web Programming with Dart is for programmers who want to master the new 
+         Dart programming language from Google, and also web developers who want
+         to understand how Dart can integrate perfectly with HTML5 and CSS3. With
+         this book you will understand the ins and outs of the language, how the
+         tools work, and how to get the most from the core functions and libraries.
+         Web Programming with Dart is a practical, example-led book, with case
+         studies involving developing UI animations for the web, working with
+         web services such as JSON, server side Dart applications, and the new
+         Polymer.dart library for advanced HTML UI web components generation.'  
+
 - title: Mastering Dart
   authors:
     - Sergey Akopkokhyants
