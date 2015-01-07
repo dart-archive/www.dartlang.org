@@ -81,6 +81,7 @@ We expect Dart to help in two main ways:
 It’s hard to talk about a language without seeing it. Here’s a peek at a
 small Dart program:
 
+<!-- ch01/simple_point.dart -->
 {% prettify dart %}
 import 'dart:math';
 
@@ -104,15 +105,17 @@ main() {
 Of course, Dart’s main use case is building modern web apps. Programming
 the browser is easy:
 
+<!-- ch01/web_app/web/web_app.dart -->
 {% prettify dart %}
 import 'dart:html';
 
 main() {
   var button = new ButtonElement();
-  button..id = 'confirm'
-        ..text = 'Click to Confirm'
-        ..classes.add('important')
-        ..onClick.listen((e) => window.alert('Confirmed!'));
+  button
+    ..id = 'confirm'
+    ..text = 'Confirm'
+    ..classes.add('important')
+    ..onClick.listen((e) => window.alert('Confirmed!'));
   querySelector('#registration').children.add(button);
 }
 {% endprettify %}

@@ -147,8 +147,9 @@ assert(parts[0] == 'structured');
 // Get a UTF-16 code unit (as a string) by index.
 assert('Never odd or even'[0] == 'N');
 
-// Use split() with an empty string parameter to get a list of
-// all code units (as Strings); good for iterating.
+// Use split() with an empty string parameter to get
+// a list of all characters (as Strings); good for
+// iterating.
 for (var char in 'hello'.split('')) {
   print(char);
 }
@@ -167,10 +168,12 @@ variants:
 <!-- ch03/string-tests.dart -->
 {% prettify dart %}
 // Convert to uppercase.
-assert('structured web apps'.toUpperCase() == 'STRUCTURED WEB APPS');
+assert('structured web apps'.toUpperCase() ==
+    'STRUCTURED WEB APPS');
 
 // Convert to lowercase.
-assert('STRUCTURED WEB APPS'.toLowerCase() == 'structured web apps');
+assert('STRUCTURED WEB APPS'.toLowerCase() ==
+    'structured web apps');
 {% endprettify %}
 
 <aside class="alert alert-info" markdown="1">
@@ -211,9 +214,11 @@ original String:
 <!-- ch03/string-tests.dart -->
 {% prettify dart %}
 var greetingTemplate = 'Hello, NAME!';
-var greeting = greetingTemplate.replaceAll(new RegExp('NAME'), 'Bob');
+var greeting = greetingTemplate
+    .replaceAll(new RegExp('NAME'), 'Bob');
 
-assert(greeting != greetingTemplate); // greetingTemplate didn't change.
+assert(greeting !=
+    greetingTemplate); // greetingTemplate didn't change.
 {% endprettify %}
 
 #### Building a string {#building-a-string}
@@ -227,9 +232,8 @@ lets you specify a separator—in this case, a space.
 <!-- ch03/string-tests.dart -->
 {% prettify dart %}
 var sb = new StringBuffer();
-
-sb..write('Use a StringBuffer ')
-  ..writeAll(['for', 'efficient', 'string', 'creation'], ' ')
+sb..write('Use a StringBuffer for ')
+  ..writeAll(['efficient', 'string', 'creation'], ' ')
   ..write('.');
 
 var fullString = sb.toString();
@@ -448,16 +452,16 @@ traditional constructor:
 {% prettify dart %}
 // Maps often use strings as keys.
 var hawaiianBeaches = {
-  'oahu'      : ['waikiki', 'kailua', 'waimanalo'],
-  'big island': ['wailea bay', 'pololu beach'],
-  'kauai'     : ['hanalei', 'poipu']
+  'Oahu'      : ['Waikiki', 'Kailua', 'Waimanalo'],
+  'Big Island': ['Wailea Bay', 'Pololu Beach'],
+  'Kauai'     : ['Hanalei', 'Poipu']
 };
 
 // Maps can be built from a constructor.
 var searchTerms = new Map();
 
-// Maps are parameterized types; you can specify what types
-// the key and value should be.
+// Maps are parameterized types; you can specify what
+// types the key and value should be.
 var nobleGases = new Map<int, String>();
 {% endprettify %}
 
@@ -484,21 +488,23 @@ You can retrieve all the values or all the keys from a map:
 <!-- ch03/map-1.dart -->
 {% prettify dart %}
 var hawaiianBeaches = {
-  'oahu'      : ['waikiki', 'kailua', 'waimanalo'],
-  'big island': ['wailea bay', 'pololu beach'],
-  'kauai'     : ['hanalei', 'poipu']
+  'Oahu'      : ['Waikiki', 'Kailua', 'Waimanalo'],
+  'Big Island': ['Wailea Bay', 'Pololu Beach'],
+  'Kauai'     : ['Hanalei', 'Poipu']
 };
 
-// Get all the keys as an unordered collection (an Iterable).
+// Get all the keys as an unordered collection
+// (an Iterable).
 var keys = hawaiianBeaches.keys;
 
 assert(keys.length == 3);
-assert(new Set.from(keys).contains('oahu'));
+assert(new Set.from(keys).contains('Oahu'));
 
-// Get all the values as an unordered collection (an Iterable of Lists).
+// Get all the values as an unordered collection
+// (an Iterable of Lists).
 var values = hawaiianBeaches.values;
 assert(values.length == 3);
-assert(values.any((v) => v.contains('waikiki')));
+assert(values.any((v) => v.contains('Waikiki')));
 {% endprettify %}
 
 To check whether a map contains a key, use `containsKey()`. Because map
@@ -508,13 +514,13 @@ key and checking for null to determine the existence of a key.
 <!-- ch03/map-1.dart -->
 {% prettify dart %}
 var hawaiianBeaches = {
-  'oahu'      : ['waikiki', 'kailua', 'waimanalo'],
-  'big island': ['wailea bay', 'pololu beach'],
-  'kauai'     : ['hanalei', 'poipu']
+  'Oahu'      : ['Waikiki', 'Kailua', 'Waimanalo'],
+  'Big Island': ['Wailea Bay', 'Pololu Beach'],
+  'Kauai'     : ['Hanalei', 'Poipu']
 };
 
-assert(hawaiianBeaches.containsKey('oahu'));
-assert(!hawaiianBeaches.containsKey('florida'));
+assert(hawaiianBeaches.containsKey('Oahu'));
+assert(!hawaiianBeaches.containsKey('Florida'));
 {% endprettify %}
 
 Use the `putIfAbsent()` method when you want to assign a value to a key
@@ -524,7 +530,8 @@ a function that returns the value.
 <!-- ch03/map-1.dart -->
 {% prettify dart %}
 var teamAssignments = {};
-teamAssignments.putIfAbsent('Catcher', () => pickToughestKid());
+teamAssignments.putIfAbsent(
+    'Catcher', () => pickToughestKid());
 assert(teamAssignments['Catcher'] != null);
 {% endprettify %}
 
@@ -569,7 +576,8 @@ arguments (the key and value):
 {% prettify dart %}
 hawaiianBeaches.forEach((k, v) {
   print('I want to visit $k and swim at $v');
-  // I want to visit oahu and swim at [waikiki, kailua, waimanalo], etc.
+  // I want to visit Oahu and swim at
+  // [Waikiki, Kailua, Waimanalo], etc.
 });
 {% endprettify %}
 
@@ -596,7 +604,9 @@ To force your function to be called immediately on each item, use
 
 <!-- ch03/collection-apply-function.dart -->
 {% prettify dart %}
-var loudTeaList = teas.map((tea) => tea.toUpperCase()).toList();
+var loudTeaList = teas
+    .map((tea) => tea.toUpperCase())
+    .toList();
 {% endprettify %}
 
 Use Iterable’s `where()` method to get all the items that match a
@@ -613,19 +623,21 @@ cities instead of isDecaffeinated.
 var teas = ['green', 'black', 'chamomile', 'earl grey'];
 
 // Chamomile is not caffeinated.
-bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+bool isDecaffeinated(String teaName) =>
+    teaName == 'chamomile';
 
 // Use where() to find only the items that return true
 // from the provided function.
-var decaffeinatedTeas = teas.where((tea) => isDecaffeinated(tea));
+var decaffeinatedTeas = teas
+    .where((tea) => isDecaffeinated(tea));
 // or teas.where(isDecaffeinated)
 
-// Use any() to check whether at least one item in the collection
-// satisfies a condition.
+// Use any() to check whether at least one item in the
+// collection satisfies a condition.
 assert(teas.any(isDecaffeinated));
 
-// Use every() to check whether all the items in a collection
-// satisfy a condition.
+// Use every() to check whether all the items in a
+// collection satisfy a condition.
 assert(!teas.every(isDecaffeinated));
 {% endprettify %}
 
@@ -657,14 +669,14 @@ a fully qualified URI, leaving intact special URI characters.
 
 <!-- code/ch03/encodeUri.dart -->
 {% prettify dart %}
-main() {
-  var uri = 'http://example.org/api?foo=some message';
-  var encoded = Uri.encodeFull(uri);
-  assert(encoded == 'http://example.org/api?foo=some%20message');
+var uri = 'http://example.org/api?foo=some message';
 
-  var decoded = Uri.decodeFull(encoded);
-  assert(uri == decoded);
-}
+var encoded = Uri.encodeFull(uri);
+assert(encoded ==
+    'http://example.org/api?foo=some%20message');
+
+var decoded = Uri.decodeFull(encoded);
+assert(uri == decoded);
 {% endprettify %}
 
 Notice how only the space between `some` and `message` was encoded.
@@ -678,14 +690,14 @@ the `encodeComponent()` and `decodeComponent()` methods.
 
 <!-- code/ch03/encodeUriComponents.dart -->
 {% prettify dart %}
-main() {
-  var uri = 'http://example.org/api?foo=some message';
-  var encoded = Uri.encodeComponent(uri);
-  assert(encoded == 'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
+var uri = 'http://example.org/api?foo=some message';
 
-  var decoded = Uri.decodeComponent(encoded);
-  assert(uri == decoded);
-}
+var encoded = Uri.encodeComponent(uri);
+assert(encoded ==
+    'http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message');
+
+var decoded = Uri.decodeComponent(encoded);
+assert(uri == decoded);
 {% endprettify %}
 
 Notice how every special character is encoded. For example, `/` is
@@ -700,15 +712,13 @@ Uri fields such as `path`. To create a Uri from a string, use the
 
 <!-- code/ch03/parseUri.dart -->
 {% prettify dart %}
-main() {
-  var uri = Uri.parse('http://example.org:8080/foo/bar#frag');
+var uri = Uri.parse('http://example.org:8080/foo/bar#frag');
 
-  assert(uri.scheme   == 'http');
-  assert(uri.host     == 'example.org');
-  assert(uri.path     == '/foo/bar');
-  assert(uri.fragment == 'frag');
-  assert(uri.origin   == 'http://example.org:8080');
-}
+assert(uri.scheme   == 'http');
+assert(uri.host     == 'example.org');
+assert(uri.path     == '/foo/bar');
+assert(uri.fragment == 'frag');
+assert(uri.origin   == 'http://example.org:8080');
 {% endprettify %}
 
 See the [Uri API docs](http://api.dartlang.org/dart_core/Uri.html) for
@@ -722,11 +732,10 @@ constructor:
 
 <!-- code/ch03/uriFromComponents.dart -->
 {% prettify dart %}
-main() {
-  var uri = new Uri(scheme: 'http', host: 'example.org',
-                    path: '/foo/bar', fragment: 'frag');
-  assert(uri.toString() == 'http://example.org/foo/bar#frag');
-}
+var uri = new Uri(scheme: 'http', host: 'example.org',
+                  path: '/foo/bar', fragment: 'frag');
+assert(uri.toString() ==
+    'http://example.org/foo/bar#frag');
 {% endprettify %}
 
 
@@ -864,7 +873,8 @@ class Person {
 
   Person(this.firstName, this.lastName);
 
-  // Override hashCode using strategy from Effective Java, Chapter 11.
+  // Override hashCode using strategy from Effective Java,
+  // Chapter 11.
   int get hashCode {
     int result = 17;
     result = 37 * result + firstName.hashCode;
@@ -872,11 +882,13 @@ class Person {
     return result;
   }
 
-  // You should generally implement operator == if you override hashCode.
+  // You should generally implement operator == if you
+  // override hashCode.
   bool operator ==(other) {
     if (other is! Person) return false;
     Person person = other;
-    return (person.firstName == firstName && person.lastName == lastName);
+    return (person.firstName == firstName &&
+        person.lastName == lastName);
   }
 }
 
@@ -912,10 +924,11 @@ class ProcessIterator implements Iterator<Process> {
   }
 }
 
-// A mythical class that lets you iterate through all processes.
-// Extends a subclass of Iterable.
+// A mythical class that lets you iterate through all
+// processes. Extends a subclass of Iterable.
 class Processes extends IterableBase<Process> {
-  final Iterator<Process> iterator = new ProcessIterator();
+  final Iterator<Process> iterator =
+      new ProcessIterator();
 }
 
 main() {
@@ -1117,9 +1130,10 @@ Future deleteDone = deleteLotsOfFiles();
 Future copyDone = copyLotsOfFiles();
 Future checksumDone = checksumLotsOfOtherFiles();
 
-Future.wait([deleteDone, copyDone, checksumDone]).then((List values) {
-  print('Done with all the long steps');
-});
+Future.wait([deleteDone, copyDone, checksumDone])
+    .then((List values) {
+      print('Done with all the long steps');
+    });
 {% endprettify %}
 
 
@@ -1244,7 +1258,8 @@ var degrees = 30;
 var radians = degrees * (math.PI / 180);
 // radians is now 0.52359.
 var sinOf30degrees = math.sin(radians);
-assert((sinOf30degrees - 0.5).abs() < 0.01); // sin 30° = 0.5
+// sin 30° = 0.5
+assert((sinOf30degrees - 0.5).abs() < 0.01);
 {% endprettify %}
 
 <aside class="alert alert-info" markdown="1">
@@ -1391,7 +1406,7 @@ The `querySelector()` function returns the first element that matches
 the selector, while `querySelectorAll()`returns a collection of elements
 that match the selector.
 
-<!-- ch03_html/ch03_html.dart -->
+<!-- ch03_html/web/ch03_html.dart -->
 {% prettify dart %}
 // Find an element by id (an-id).
 Element elem1 = querySelector('#an-id');
@@ -1403,7 +1418,8 @@ Element elem2 = querySelector('.a-class');
 List<Element> elems1 = querySelectorAll('div');
 
 // Find all text inputs.
-List<Element> elems2 = querySelectorAll('input[type="text"]');
+  List<Element> elems2 =
+      querySelectorAll('input[type="text"]');
 
 // Find all elements with the CSS class 'class'
 // inside of a <p> that is inside an element with
@@ -1443,7 +1459,7 @@ following code sets the `hidden` property of all elements that have a
 class of “mac”, “win”, or “linux”. Setting the `hidden` property to true
 has the same effect as adding `display:none` to the CSS.
 
-<!-- ch03_html/ch03_html.dart -->
+<!-- ch03_html/web/ch03_html.dart -->
 {% prettify dart %}
 <!-- In HTML: -->
 <p>
@@ -1455,15 +1471,18 @@ has the same effect as adding `display:none` to the CSS.
 // In Dart:
 final osList = ['macos', 'windows', 'linux'];
 
-var userOs = 'linux'; // In real code you'd programmatically determine this.
+// In real code you'd programmatically determine userOs.
+var userOs = 'linux';
 
-for (var os in osList) {            // For each possible OS...
-  bool shouldShow = (os == userOs); // Does this OS match the user's OS?
+for (var os in osList) { // For each possible OS...
+  bool shouldShow = (os == userOs); // Matches user OS?
 
-  // Find all elements with class=os. For example, if os == 'windows', call
-  // querySelectorAll('.windows') to find all elements with the class "windows".
-  for (var elem in querySelectorAll('.$os')) { // String interpolation ($os)
-    elem.hidden = !shouldShow;      // Show or hide each element.
+  // Find all elements with class=os. For example, if
+  // os == 'windows', call querySelectorAll('.windows')
+  // to find all elements with the class "windows".
+  // Note that '.$os' uses string interpolation.
+  for (var elem in querySelectorAll('.$os')) {
+    elem.hidden = !shouldShow; // Show or hide.
   }
 }
 {% endprettify %}
@@ -1496,9 +1515,10 @@ elem.text = 'Creating is easy!';
 You can also create an element by parsing HTML text. Any child elements
 are also parsed and created.
 
-<!-- ch03_html/ch03_html.dart -->
+<!-- ch03_html/web/ch03_html.dart -->
 {% prettify dart %}
-var elem2 = new Element.html('<p>Creating <em>is</em> easy!</p>');
+var elem2 =
+    new Element.html('<p>Creating <em>is</em> easy!</p>');
 {% endprettify %}
 
 Note that elem2 is a ParagraphElement in the preceding example.
@@ -1681,7 +1701,7 @@ function that handles the string data.
 import 'dart:html';
 import 'dart:async';
 
-// A JSON-formatted file in the same location as this page.
+// A JSON-formatted file next to this page.
 var uri = 'data.json';
 
 main() {
@@ -1720,12 +1740,12 @@ If you need access to the HttpRequest, not just the text data it
 retrieves, you can use the `request()` static method instead of
 `getString()`. Here’s an example of reading XML data:
 
-<!-- ch03_html/ch03_2_html.dart -->
+<!-- ch03_html/web/app.dart -->
 {% prettify dart %}
 import 'dart:html';
 import 'dart:async';
 
-// An XML-formatted file in the same location as this page.
+// An XML-formatted file next to this page.
 var xmlUri = 'data.xml';
 
 main() {
@@ -1741,7 +1761,7 @@ processRequest(HttpRequest request) {
     var license = xmlDoc.querySelector('license').text;
     print('License: $license');
   } catch (e) {
-    print('$xmlUri doesn\'t have correct XML formatting.');
+    print("$xmlUri doesn't have correct XML formatting.");
   }
 }
 // ...
@@ -1753,11 +1773,8 @@ example, you can set arbitrary headers.
 The general flow for using the full API of HttpRequest is as follows:
 
 1.  Create the HttpRequest object.
-
 2.  Open the URL with either `GET` or `POST`.
-
 3.  Attach event handlers.
-
 4.  Send the request.
 
 For example:
@@ -1766,9 +1783,9 @@ For example:
 {% prettify dart %}
 import 'dart:html';
 // ...
-var httpRequest = new HttpRequest()
+var request = new HttpRequest()
     ..open('POST', dataUrl)
-    ..onLoadEnd.listen((_) => requestComplete(httpRequest))
+    ..onLoadEnd.listen((_) => requestComplete(request))
     ..send(encodedData);
 {% endprettify %}
 
@@ -1792,13 +1809,14 @@ import 'dart:html';
 
 String encodeMap(Map data) {
   return data.keys.map((k) {
-    return '${Uri.encodeComponent(k)}=${Uri.encodeComponent(data[k])}';
+    return '${Uri.encodeComponent(k)}=' +
+           '${Uri.encodeComponent(data[k])}';
   }).join('&');
 }
 
 loadEnd(HttpRequest request) {
   if (request.status != 200) {
-    print('Uh oh, there was an error of ${request.status}');
+    print('Uh oh, error: ${request.status}');
   } else {
     print('Data has been posted');
   }
@@ -1811,9 +1829,11 @@ main() {
 
   var httpRequest = new HttpRequest();
   httpRequest.open('POST', dataUrl);
-  httpRequest.setRequestHeader('Content-type',
-                               'application/x-www-form-urlencoded');
-  httpRequest.onLoadEnd.listen((e) => loadEnd(httpRequest));
+  httpRequest.setRequestHeader(
+      'Content-type',
+      'application/x-www-form-urlencoded');
+  httpRequest.onLoadEnd
+      .listen((e) => loadEnd(httpRequest));
   httpRequest.send(encodedData);
 }
 {% endprettify %}
@@ -1874,7 +1894,7 @@ and (as shown earlier) message. Here’s an example of a method that
 creates a WebSocket object and registers handlers for open, close,
 error, and message events:
 
-<!-- github.com/dart-lang/dart-samples/html5/web/websockets/basics/websocket_sample.dart -->
+<!-- https://github.com/dart-lang/dart-samples/blob/master/html5/web/websockets/basics/websocket_sample.dart -->
 {% prettify dart %}
 void initWebSocket([int retrySeconds = 2]) {
   var reconnectScheduled = false;
@@ -1884,8 +1904,9 @@ void initWebSocket([int retrySeconds = 2]) {
 
   void scheduleReconnect() {
     if (!reconnectScheduled) {
-      new Timer(new Duration(milliseconds: 1000 * retrySeconds),
-                () => initWebSocket(retrySeconds * 2));
+      new Timer(
+          new Duration(milliseconds: 1000 * retrySeconds),
+          () => initWebSocket(retrySeconds * 2));
     }
     reconnectScheduled = true;
   }
@@ -1896,7 +1917,8 @@ void initWebSocket([int retrySeconds = 2]) {
   });
 
   ws.onClose.listen((e) {
-    print('Websocket closed, retrying in $retrySeconds seconds');
+    print('Websocket closed, retrying in ' +
+          '$retrySeconds seconds');
     scheduleReconnect();
   });
 
@@ -1980,12 +2002,14 @@ main() {
 
   // Put the whole file in a single string.
   config.readAsString().then((String contents) {
-    print('The entire file is ${contents.length} characters long');
+    print('The entire file is ${contents.length} ' +
+          'characters long');
   });
 
   // Put each line of the file into its own string.
   config.readAsLines().then((List<String> lines) {
-    print('The entire file is ${lines.length} lines long');
+    print('The entire file is ${lines.length} ' +
+          'lines long');
   });
 }
 {% endprettify %}
@@ -2005,7 +2029,8 @@ main() {
   var config = new File('config.txt');
 
   config.readAsBytes().then((List<int> contents) {
-    print('The entire file is ${contents.length} bytes long');
+    print('The entire file is ${contents.length} ' +
+          'bytes long');
   });
 }
 {% endprettify %}
@@ -2157,22 +2182,25 @@ import 'dart:io';
 
 main() {
   dartHandler(HttpRequest request) {
-    request.response.headers.contentType = new ContentType('text', 'plain');
+    request.response.headers.contentType =
+        new ContentType('text', 'plain');
     request.response.write('Dart is optionally typed');
     request.response.close();
   }
 
-  HttpServer.bind('127.0.0.1', 8888).then((HttpServer server) {
-    server.listen((request) {
-      print('Got request for ${request.uri.path}');
-      if (request.uri.path == '/languages/dart') {
-        dartHandler(request);
-      } else {
-        request.response.write('Not found');
-        request.response.close();
-      }
-    });
-  });
+  HttpServer
+      .bind('127.0.0.1', 8888)
+      .then((HttpServer server) {
+        server.listen((request) {
+          print('Got request for ${request.uri.path}');
+          if (request.uri.path == '/languages/dart') {
+            dartHandler(request);
+          } else {
+            request.response.write('Not found');
+            request.response.close();
+          }
+        });
+      });
 }
 {% endprettify %}
 
@@ -2199,20 +2227,24 @@ import 'dart:io';
 import 'dart:convert';
 
 main() {
-  var url = Uri.parse('http://127.0.0.1:8888/languages/dart');
+  var url = Uri.parse(
+      'http://127.0.0.1:8888/languages/dart');
   var httpClient = new HttpClient();
-  httpClient.getUrl(url)
+  httpClient
+      .getUrl(url)
       .then((HttpClientRequest request) {
         print('have request');
         return request.close();
-      })
-      .then((HttpClientResponse response) {
+      }).then((HttpClientResponse response) {
         print('have response');
-        response.transform(UTF8.decoder).toList().then((data) {
-          var body = data.join('');
-          print(body);
-          httpClient.close();
-        });
+        response
+            .transform(UTF8.decoder)
+            .toList()
+            .then((data) {
+              var body = data.join('');
+              print(body);
+              httpClient.close();
+            });
       });
 }
 {% endprettify %}
@@ -2253,8 +2285,9 @@ Decode a JSON-encoded string into a Dart object with `JSON.decode()`:
 import 'dart:convert' show JSON;
 
 main() {
-  // NOTE: Be sure to use double quotes ("), not single quotes ('),
-  // inside the JSON string. This string is JSON, not Dart.
+  // NOTE: Be sure to use double quotes ("),
+  // not single quotes ('), inside the JSON string.
+  // This string is JSON, not Dart.
   var jsonString = '''
   [
     {"score": 40},
@@ -2313,11 +2346,13 @@ Use `UTF8.decode()` to decode UTF8-encoded bytes to a Dart string:
 import 'dart:convert' show UTF8;
 
 main() {
-  var string = UTF8.decode([0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
-                            0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
-                            0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
-                            0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
-                            0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1]);
+  var string = UTF8.decode([
+    0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
+    0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
+    0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
+    0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
+    0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1
+  ]);
   print(string); // 'Îñţérñåţîöñåļîžåţîờñ'
 }
 {% endprettify %}
@@ -2344,11 +2379,13 @@ bytes:
 import 'dart:convert' show UTF8;
 
 main() {
-  List<int> expected = [0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9, 0x72,
-                        0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xc3,
-                        0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4, 0xbc, 0xc3, 0xae,
-                        0xc5, 0xbe, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3, 0xae, 0xe1,
-                        0xbb, 0x9d, 0xc3, 0xb1];
+  List<int> expected = [
+    0xc3, 0x8e, 0xc3, 0xb1, 0xc5, 0xa3, 0xc3, 0xa9,
+    0x72, 0xc3, 0xb1, 0xc3, 0xa5, 0xc5, 0xa3, 0xc3,
+    0xae, 0xc3, 0xb6, 0xc3, 0xb1, 0xc3, 0xa5, 0xc4,
+    0xbc, 0xc3, 0xae, 0xc5, 0xbe, 0xc3, 0xa5, 0xc5,
+    0xa3, 0xc3, 0xae, 0xe1, 0xbb, 0x9d, 0xc3, 0xb1
+  ];
 
   List<int> encoded = UTF8.encode('Îñţérñåţîöñåļîžåţîờñ');
 
@@ -2469,7 +2506,8 @@ Reflect on a Type to get its ClassMirror.
 {% prettify dart %}
 ClassMirror mirror = reflectClass(Person);
 
-assert('Person' == MirrorSystem.getName(mirror.simpleName));
+assert('Person' ==
+    MirrorSystem.getName(mirror.simpleName));
 {% endprettify %}
 
 You can also call `runtimeType` to get a Type from an instance.
@@ -2478,8 +2516,8 @@ You can also call `runtimeType` to get a Type from an instance.
 {% prettify dart %}
 var person = new Person('Bob', 'Smith', 33);
 ClassMirror mirror = reflectClass(person.runtimeType);
-
-assert('Person' == MirrorSystem.getName(mirror.simpleName));
+assert('Person' ==
+    MirrorSystem.getName(mirror.simpleName));
 {% endprettify %}
 
 Once you have a ClassMirror, you can get a class's constructors, fields,
@@ -2503,18 +2541,20 @@ Here is an example of listing all of the fields declared by a class.
 <!-- ch03/mirrors.dart -->
 {% prettify dart %}
 showFields(ClassMirror mirror) {
-  var fields = mirror.declarations.values.where((m) => m is VariableMirror);
+  var fields = mirror.declarations.values
+      .where((m) => m is VariableMirror);
 
   fields.forEach((VariableMirror m) {
     var finalStatus = m.isFinal ? 'final' : 'not final';
-    var privateStatus = m.isPrivate ? 'private' : 'not private';
+    var privateStatus = m.isPrivate ?
+        'private' : 'not private';
     var typeAnnotation = m.type.simpleName;
 
-    print('The field ${m.simpleName} is $privateStatus and $finalStatus '
-          'and is annotated as $typeAnnotation.');
+    print('The field ${m.simpleName} is $privateStatus ' +
+          'and $finalStatus and is annotated as ' +
+          '$typeAnnotation.');
   });
-}
-{% endprettify %}
+}{% endprettify %}
 
 For a full list of methods, consult the [API docs for
 ClassMirror](http://api.dartlang.org/dart_mirrors/ClassMirror.html).
