@@ -142,18 +142,25 @@ and **links** to documents that provide more information.
 
 ## Markup
 
-Format your text using the markup specified in section 19.1.2 of the
-[Dart Language Specification](/docs/spec/).
-
-Additionally, the [docgen](/tools/docgen/) tool recognizes formatting inspired
-by markdown (detailed below). Most common markdown syntax is supported, as well
-as some docgen-specific markup. For more details, see the
-[markdown package](https://pub.dartlang.org/packages/markdown), which the
-docgen tool uses to format documentation comments.
+The [docgen](/tools/docgen/) tool currently recognizes markdown formatting,
+as well as some docgen-specific markup.
 
 **When in doubt, format less.**
-You'll be less likely to break the docs, and someone else can always add formatting.
+You'll be less likely to break the docs,
+and someone else can always add formatting.
+In particular, **don't use HTML formatting**.
+For details on markdown, see the
+[markdown package](https://pub.dartlang.org/packages/markdown), which the
+docgen tool currently uses to format documentation comments.
 
+<aside class="alert alert-info" markdown="1">
+**Note:**
+The name and implementation of the docgen tool
+are likely to change. See
+[issue 21144](https://code.google.com/p/dart/issues/detail?id=21144) and other
+[docgen issues](https://code.google.com/p/dart/issues/list?q=label:Pkg-DocGen)
+for details.
+</aside>
 
 ### Links
 
@@ -229,8 +236,7 @@ Example:
 ## header text until newline
 {% endprettify %}
 
-Lower level headers (such as `###`)
-are currently implemented but not specified.
+Lower level headers (such as `###`) also work.
 
 
 #### Bulleted (unordered) list item
@@ -251,7 +257,8 @@ The line before the first bulleted list item must be blank.
 2. next item
 {% endprettify %}
 
-The specification states that items aren't autonumbered.
+Although items are currently autonumbered,
+they might not always be.
 Use `2.` for item #2, `3.` for item #3, and so on.
 
 
@@ -274,8 +281,6 @@ Avoid code font unless it’s (1) a big chunk of code or
 _or_
 `*single asterisk*`
 
-It's possible that when the specification is clarified,
-a single asterisk will mean boldface.
 
 #### Boldface
 {:.no_toc}
@@ -284,23 +289,25 @@ a single asterisk will mean boldface.
 _or_
 `__double underscore__`
 
-The specification doesn't include double asterisk and underscore,
-and it's possible that a single asterisk will mean boldface.
-
 Here's an example of a warning:
 
 {% prettify dart %}
 /// ...
+///
 /// **Warning:** This feature is not yet supported in all modern browsers.
 /// See <http://caniuse.com/flexbox> for current status.
+///
 /// ...
 {% endprettify %}
 
 
 ## Word choice, punctuation, and so on
 
-* Keep it short, direct, and clear. This doc is for users, not implementers.
-* Avoid abbreviations such as “i.e.” and “e.g.” (Many people don’t know what they mean.) Just say “that is” and “for example” if necessary.
+* Keep it short, direct, and clear.
+  Doc comments are for the API's users, not its implementers.
+* Avoid abbreviations such as “i.e.” and “e.g.”
+  (Many people don’t know what they mean.)
+  Just say “that is” and “for example” if necessary.
 * Use single quotes (') instead of double quotes (") in code samples
   unless you have a reason to do the opposite.
   (Just be consistent.)
