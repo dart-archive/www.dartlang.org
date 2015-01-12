@@ -19,6 +19,9 @@ Dart VM for server-side and the full polymer.dart stack for client-side.
 [Security Monkey from Netflix](https://github.com/Netflix/security_monkey)
 : Security Monkey monitors policy changes and alerts on insecure configurations in an AWS account.
 
+[EasyInsure](https://www.easy.insure)
+: EasyInsure is a Web application that allows searching the database of 190K+ insurance agents, see their ratings and specialities, rate the agents, and get instant insurance quotes online.
+
 [DartVoid](http://www.dartvoid.com)
 : Application hosting platform built and optimized for Dart. 
 
