@@ -641,7 +641,7 @@ class Dice {
 
 <div class="bad">
 {% prettify dart %}
-const pi = 3.14;
+const PI = 3.14;
 const kDefaultTimeout = 1000;
 final URL_SCHEME = new RegExp('^([a-z]+):');
 
