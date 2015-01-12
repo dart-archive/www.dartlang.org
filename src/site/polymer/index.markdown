@@ -230,11 +230,16 @@ Here are a couple of places to find polymer.dart sample code:
 
 ### Polymer.dart
 
-Polymer.dart is open source. You can view the source to polymer.dart,
-and its many component packages, at [code.google.com/p/dart](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/pkg/).
-[Get the source](https://code.google.com/p/dart/wiki/GettingTheSource)
-to inspect the code and contribute patches.
+Polymer.dart is open source. You can view and contribute to the source of
+polymer.dart and its many component packages on github.
 
+  * [Polymer.dart](https://github.com/dart-lang/polymer-dart)
+  * [Template Binding](https://github.com/dart-lang/template-binding)
+  * [Polymer Expressions](https://github.com/dart-lang/polymer-expressions)
+  * [Web Components](https://github.com/dart-lang/web-components)
+  * [Observe](https://github.com/dart-lang/observe)
+  * [Core Elements](https://github.com/dart-lang/core-elements)
+  * [Paper Elements](https://github.com/dart-lang/paper-elements)
 
 <hr>
 
@@ -248,12 +253,12 @@ We actively encourage your feedback and questions.
 * Send [feedback on the web components family of specifications][polymer-dev-list]
   to the polymer-dev mailing list.
   (Note: That list isn't Dart specific.)
-* Please file [bugs and feature requests][dartbug] for polymer.dart.
+* Please file [bugs and feature requests][new-issue] for polymer.dart.
 
 [so]: http://stackoverflow.com/tags/dart
 [web-list]: https://groups.google.com/a/dartlang.org/forum/#!forum/web
 [polymer-dev-list]: https://groups.google.com/forum/?fromgroups=#!forum/polymer-dev
-[dartbug]: https://code.google.com/p/dart/issues/entry?template=Defect%20report%20for%20Polymer
+[new-issue]: https://github.com/dart-lang/polymer-dart/issues/new
 
 Keep an eye on this page and the [FAQ](faq.html)
 for the latest information about polymer.dart.
