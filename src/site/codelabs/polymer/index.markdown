@@ -1122,9 +1122,9 @@ cancelEditing(Event e, var detail, Node sender) {
 }
 
 copyCodelab(source, destination) {
-  source.title = destination.title;
-  source.description = destination.description;
-  source.level = destination.level;
+  destination.title = source.title;
+  destination.description = source.description;
+  destination.level = source.level;
 }
 {% endprettify %}
 
@@ -1669,7 +1669,7 @@ elements.
 
 * Read more about Polymer at [polymer-project.org](http://www.polymer-project.org/).
 
-* Polymer implements the the [Web Components][] stack.
+* Polymer implements the [Web Components][] stack.
 
 [Web Components]: http://www.w3.org/wiki/WebComponents/
 
