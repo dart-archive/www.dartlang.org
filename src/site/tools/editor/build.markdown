@@ -144,7 +144,7 @@ that contains error and warning messages:
 
 [{"method":"warning","params":{"file":"foo.html","line":23,"message":"no ID found"}}]
 
-[{"method":"error","params":{"file":"foo.html","line":23,"message":"no ID found","charStart"=123,"charEnd"=130}}]
+[{"method":"error","params":{"file":"foo.html","line":23,"message":"no ID found","charStart":123,"charEnd":130}}]
 {% endprettify %}
 
 The JSON RPC method name for these messages
