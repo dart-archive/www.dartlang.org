@@ -61,7 +61,7 @@ version: 1.2.3
 description: >
   Have you been turned into a newt?  Would you like to be?
   This package can help: it has all of the
-  newt-transmogrification functionality you've been looking
+  newt-transmogrification functionality you have been looking
   for.
 author: Nathan Weizenbaum <nweiz@google.com>
 homepage: http://newtify.dartlang.org
