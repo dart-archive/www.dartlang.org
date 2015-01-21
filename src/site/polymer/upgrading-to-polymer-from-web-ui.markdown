@@ -92,22 +92,22 @@ Thanks in advance!
 ### Data Binding
 
 * Objects **must** be Observable to have changes detected. See the
-  [observe](http://api.dartlang.org/docs/releases/latest/observe.html)
+  [observe](http://api.dartlang.org/docs/releases/latest/observe/index.html)
   library for more information.
 
 * Data binding expressions are now
   [Polymer Expressions](http://pub.dartlang.org/packages/polymer_expressions)
   instead of Dart expressions. Polymer Expressions are a powerful data binding
-  language which offers null safety and convenient filterting operations.
+  language which offers null safety and convenient filtering operations.
 
 * Getters are no longer observable. Instead, use
-  [onPropertyChange](http://api.dartlang.org/docs/releases/latest/observe.html#onPropertyChange) and
-  [notifyProperty](http://api.dartlang.org/docs/releases/latest/observe.html#notifyProperty)
+  [onPropertyChange](http://www.dartdocs.org/documentation/observe/latest/index.html#observe/observe@id_onPropertyChange) and
+  [notifyPropertyChange](http://www.dartdocs.org/documentation/observe/0.12.2/index.html#observe/observe.ChangeNotifier@id_notifyPropertyChange)
   in the `created` callback to let the system know that the computed getter has
   changed whenever its dependencies have changed. You can use other helpers from
   the observe library too, such as
-  [PathObserver](http://api.dartlang.org/docs/releases/latest/observe/PathObserver.html)
-  and [ListPathObserver](http://api.dartlang.org/docs/releases/latest/observe/ListPathObserver.html).
+  [PathObserver](http://www.dartdocs.org/documentation/observe/0.12.2/index.html#observe/observe.PathObserver)
+  and [ListPathObserver](http://www.dartdocs.org/documentation/observe/0.12.2/index.html#observe/observe.ListPathObserver).
 
 * The name of the modified
   [field](http://api.dartlang.org/docs/releases/latest/observe/PropertyChangeRecord.html#field)
