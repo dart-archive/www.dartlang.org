@@ -113,7 +113,7 @@ class BookRedirect(RequestHandler):
     elif filename == 'ch04-tools-dartium.html':
         self.redirect('/tools/dartium/', permanent=True)
     elif filename == 'ch04-tools-dartdoc.html':
-        self.redirect('/tools/docgen/', permanent=True)
+        self.redirect('/tools/dartdocgen/', permanent=True)
     elif filename == 'ch04-tools-dart2js.html':
         self.redirect('/tools/dart2js/', permanent=True)
     elif filename == 'ch04-tools-dart-vm.html':
@@ -214,7 +214,9 @@ application = WSGIApplication(
     Route('/tools/download_archive/', RedirectHandler,
       defaults={'_uri': '/tools/download-archive/'}),
     Route('/tools/dartdoc/', RedirectHandler,
-      defaults={'_uri': '/tools/docgen/'}),
+      defaults={'_uri': '/tools/dartdocgen/'}),
+    Route('/tools/docgen/', RedirectHandler,
+      defaults={'_uri': '/tools/dartdocgen/'}),
     Route('/language-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch02.html'}),
     Route('/docs/language-tour/', RedirectHandler,

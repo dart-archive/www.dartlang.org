@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "docgen: The API Documentation Generator"
-short-title: "docgen"
+title: "dartdocgen: The API Documentation Generator"
+short-title: "dartdocgen"
 description: "A Dart tool that generates documentation and serves it to
 dartdoc-viewer."
 ---
@@ -12,14 +12,21 @@ dartdoc-viewer."
 # {{ page.title }} 
 
 ---
-Use _docgen_ to generate, and serve,
+Use _dartdocgen_ to generate, and serve,
 the documentation for your Dart package.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+**dartdocgen** used to be called **docgen**.
+We renamed it to avoid confusion with documentation generators for
+other languages.
+</aside>
 
 ## Basic usage {#basic-usage}
 
-Docgen generates documentation from Dart code in the `lib` directory
+Dartdocgen generates documentation from Dart code in the `lib` directory
 and creates the output in JSON format.
-When using the `--serve` option, docgen serves your files so you can
+When using the `--serve` option, dartdocgen serves your files so you can
 see them locally in a browser.
 To deploy your documentation to the web,
 host the viewer on your server, compiled to JavaScript,
@@ -27,7 +34,7 @@ along with your generated files.
 
 ### Generate documentation {#generate}
 
-Here is a simple example of using docgen to generate docs
+Here is a simple example of using dartdocgen to generate docs
 on the command line. The docs are generated from the source
 code in the `lib` directory.
 
@@ -35,7 +42,7 @@ Run this command from the top-level directory of your Dart package,
 after you have run `pub get` to get the dependencies:
 
 {% prettify sh %}
-docgen .
+dartdocgen .
 {% endprettify %}
 
 This command generates documentation, in the JSON
@@ -45,11 +52,11 @@ this command.
 
 ### View docs locally {#view-locally}
 
-Here is a simple example of using docgen to generate, and then serve,
+Here is a simple example of using dartdocgen to generate, and then serve,
 the generated docs to the viewer.
 
 {% prettify sh %}
-docgen --serve .
+dartdocgen --serve .
 {% endprettify %}
 
 After generating the documentation,
@@ -66,20 +73,15 @@ To deploy your documentation to the web, do the following:
 * Host the generated files, which must be in a directory
   named `docs` under the main URL.
 
-<aside class="alert alert-warning" markdown="1">
-Docgen replaces the _dartdoc_ tool, which was removed in revision
-[32387](https://code.google.com/p/dart/source/detail?r=32387).
-</aside>
-
 ## Options {#options}
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-To run docgen from the command line, you might want to
+To run dartdocgen from the command line, you might want to
 [add the SDK's bin directory to your system path](/tools/pub/installing.html).
 </aside>
 
-Common command-line options for docgen include:
+Common command-line options for dartdocgen include:
 
 `--compile`
 : Clone the dartdoc-viewer locally, if needed, and compile with dart2js.
@@ -129,7 +131,7 @@ Some other handy options include:
 `--exclude-lib=<library>`
 : Exclude the specified library from the generated documentation.
 
-Docgen includes a number of options that apply only to generating
+Dartdocgen includes a number of options that apply only to generating
 the Dart SDK documentation. Those are not documented here, but
-you can obtain a list by using the `docgen -h` command.
+you can obtain a list by using the `dartdocgen -h` command.
 

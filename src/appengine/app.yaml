@@ -74,6 +74,12 @@ handlers:
 - url: /cloud/client-server/
   script: scripts.redirector.application
 
+- url: /tools/docgen
+  script: scripts.redirector.application
+
+- url: /tools/docgen/
+  script: scripts.redirector.application
+
 - url: /docs/tutorials/web-ui/
   script: scripts.redirector.application
 

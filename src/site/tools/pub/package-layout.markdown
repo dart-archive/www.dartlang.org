@@ -396,7 +396,7 @@ currently have any guidelines about format or organization within that. Use
 whatever markup format that you prefer.
 
 This directory should *not* just contain docs generated automatically
-from your source code using [docgen](/tools/docgen/). Since that's
+from your source code using [dartdocgen](/tools/dartdocgen/). Since that's
 pulled directly from the code already in the package, putting those docs in
 here would be redundant. Instead, this is for tutorials, guides, and other
 hand-authored documentation *in addition to* generated API references.

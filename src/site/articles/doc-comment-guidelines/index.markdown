@@ -26,7 +26,7 @@ has agreed upon for documentation comments.
 If you have suggestions for improving the conventions,
 [let us know](http://groups.google.com/a/dartlang.org).
 To produce documentation from comments,
-use the [docgen tool](/tools/docgen/).
+use the [dartdocgen tool](/tools/dartdocgen/).
 
 ## Examples
 
@@ -142,8 +142,8 @@ and **links** to documents that provide more information.
 
 ## Markup
 
-The [docgen](/tools/docgen/) tool currently recognizes markdown formatting,
-as well as some docgen-specific markup.
+The [dartdocgen](/tools/dartdocgen/) tool currently recognizes markdown
+formatting, as well as some dartdocgen-specific markup.
 
 **When in doubt, format less.**
 You'll be less likely to break the docs,
@@ -151,15 +151,12 @@ and someone else can always add formatting.
 In particular, **don't use HTML formatting**.
 For details on markdown, see the
 [markdown package](https://pub.dartlang.org/packages/markdown), which the
-docgen tool currently uses to format documentation comments.
+dartdocgen tool currently uses to format documentation comments.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The name and implementation of the docgen tool
-are likely to change. See
-[issue 21144](https://code.google.com/p/dart/issues/detail?id=21144) and other
-[docgen issues](https://code.google.com/p/dart/issues/list?q=label:Pkg-DocGen)
-for details.
+A new version of the documentation generator is being developed.
+For details, see the [dartdoc project](https://github.com/dart-lang/dartdoc).
 </aside>
 
 ### Links

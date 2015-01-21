@@ -149,7 +149,7 @@ These tools are available in the [Dart SDK](/tools/sdk).
   <div class="col-md-4">
     <dt> <a href="/tools/analyzer">dartanalyzer</a> </dt>
       <dd>The static analyzer </dd>
-    <dt> <a href="/tools/docgen/">docgen</a> </dt>
+    <dt> <a href="/tools/dartdocgen/">dartdocgen</a> </dt>
       <dd>The API documentation generator </dd>
   </div>
   <div class="col-md-4">

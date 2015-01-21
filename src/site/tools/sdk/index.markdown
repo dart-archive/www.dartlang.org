@@ -44,7 +44,7 @@ and a `bin` directory that has these command-line tools:
 
 </div> <div class="col-md-6" markdown="1">
 
-[docgen](/tools/docgen/)
+[dartdocgen](/tools/dartdocgen/)
 : The API documentation generator
 
 [pub](/tools/pub/)
@@ -78,6 +78,6 @@ Here are some handy searches:
 * [dart (VM) issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-VM)
 * [dart2js issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Dart2JS)
 * [dartanalyzer issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Analyzer)
-* [docgen issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-DartDoc)
+* [dartdocgen issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-DartDoc)
 * [pub issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Pub)
 * [issues for the SDK as a whole](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-SDK)
