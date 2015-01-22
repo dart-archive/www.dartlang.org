@@ -94,16 +94,16 @@ layout: homepage
 import 'dart:math' show Random;        // Import a class from a library.
 
 void main() {                          // The app starts executing here.
-  print(new Die(<a href="#" class="dart-popover" data-toggle="popover" title="Named parameters" data-html="true" data-trigger="hover focus" data-content="Set the value of a named optional parameter. In this case, set the number of sides for a new Die object to 12.">n: 12</a>).roll());       // Print a new object's value. Chain method calls.
+  print(new Dice(<a href="#" class="dart-popover" data-toggle="popover" title="Named parameters" data-html="true" data-trigger="hover focus" data-content="Set the value of a named optional parameter. In this case, set the number of sides for a new Die object to 12.">n: 12</a>).roll());       // Print a new object's value. Chain method calls.
 }
 
-class Die {                            // Define a class.
+class Dice {                            // Define a class.
   static Random shaker = new Random(); // Define a class variable.
   int sides, value;                    // Define instance variables.
 
   String toString() => '<a href="#" class="dart-popover" data-toggle="popover" title="String interpolation" data-html="true" data-trigger="hover focus" data-content="Use $identifier to insert the value of an identifier (in this case, the integer value of 'value') into a string.">$value</a>';      // Define a method using shorthand syntax.
 
-  Die(<a href="#" class="dart-popover" data-toggle="popover" title="Optional named parameters" data-html="true" data-trigger="hover focus" data-content="Parameters within curly brackets are optional. Set them by name when you call the function, method or, in this case, constructor. Here, the default value of 'n' is set to 6.">{int n: 6}</a>) {                   // Define a constructor.
+  Dice(<a href="#" class="dart-popover" data-toggle="popover" title="Optional named parameters" data-html="true" data-trigger="hover focus" data-content="Parameters within curly brackets are optional. Set them by name when you call the function, method or, in this case, constructor. Here, the default value of 'n' is set to 6.">{int n: 6}</a>) {                   // Define a constructor.
     if (4 <= n && n <= 20) {
       sides = n;
     } else {
