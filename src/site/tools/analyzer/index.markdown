@@ -39,12 +39,13 @@ As the following table shows,
 the exit code of dartanalyzer tells you whether the code
 passed analysis.
 
-|-----------+--------------------------------
+|-----------+----------------------------------------
 | Exit code | Description
-|-----------+--------------------------------
+|-----------+----------------------------------------
 | 0         | No issues found
-| 1         | Warnings found (but no errors)
-| 2         | Errors found
+| 1         | Hints found (but no warnings or errors)
+| 2         | Warnings found
+| 3         | Errors found
 {:.table .table-striped}
 
 
