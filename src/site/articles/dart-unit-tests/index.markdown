@@ -875,7 +875,7 @@ The default depth is 100.
 Here is an example, taken from the JSON parse tests:
 
 {% prettify dart %}
-expect(JSON.parse('{"x": {"a":3, "b": -4.5}, "y":[{}], '
+expect(JSON.decode('{"x": {"a":3, "b": -4.5}, "y":[{}], '
                '"z":"hi","w":{"c":null,"d":true}, "v":null}'),
   equals({"x": {"a":3, "b": -4.5}, "y":[{}],
                "z":"hi","w":{"c":null,"d":true}, "v":null}));
