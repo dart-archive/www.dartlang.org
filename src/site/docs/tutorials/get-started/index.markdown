@@ -28,7 +28,7 @@ This tutorial features two examples
 provided by Dart Editor:
 
 * helloworld
-* clickme
+* simple
 
 {% endcapture %}
 
@@ -144,7 +144,7 @@ contains the following:
     The samples directory contains the complete source code
     for several Dart web applications.
     You can experiment with
-    these examples in Dart Editor.
+    these examples in Dart Editor or your favorite IDE.
     </div>
   </div>
   <hr>
@@ -171,11 +171,8 @@ in your Dart installation directory
 
 Dart Editor displays its Welcome Page
 in a tab in the **Editor pane**.
-The following diagram highlights
-some of the features of the editor.
 
-<img class="scale-img-max" src="images/dart-editor-items.png"
-     alt="Dart Editor's basic features">
+On startup, Dart Editor includes the following features:
 
 Send feedback button
 : Allows you to share bugs and requests
@@ -280,7 +277,7 @@ You can run your Dart web app from Dart Editor
 by clicking the Run button
 <img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
-By default, Dart Editor will invoke Dartium,
+By default, Dart Editor invokes Dartium,
 which has the Dart VM embedded in it,
 and loads your HTML file,
 which in turn loads your app.
@@ -289,7 +286,7 @@ which in turn loads your app.
      alt="Run a web application directly in a Dart-savvy browser">
 
 If you want to see your web app in a browser
-that does not yet support Dart,
+that does not support Dart,
 you can compile your Dart code to JavaScript
 using the Dart-to-JavaScript compiler,
 which is in the `dart-sdk/bin` directory in your Dart installation directory.
@@ -310,10 +307,7 @@ and then a web application.
 In Dart Editor, choose **File->New Application** from the menu
 or click the New Application button
 <img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
-A dialog appears that looks like this:
-
-<img class="scale-img-max" src="images/new-helloworld.png"
-     alt="Create a new command-line application"/>
+A dialog appears asking you to fill out a simple form.
 
 <ol>
 <li markdown="1">
@@ -338,7 +332,7 @@ the sample code implements the standard 'Hello World' program.
 </li>
 
 <li markdown="1">
-Select **Command-line application** from the list.
+Select **Console Application** from the list.
 </li>
 
 <li markdown="1">
@@ -351,29 +345,30 @@ and boilerplate files for a small command-line app.
 The **Files view** displays
 the file hierarchy for the application.
 
-<img class="scale-img-max" src="images/helloworld-files.png"
-     alt="Dart Editor with new command-line app files"/>
-
 Some of the files and directories in the helloworld application
 include the following:
 
 helloworld
-: Contains boilerplate files and directories for a
-simple command-line app.
+: Contains boilerplate files and directories
+  for a simple command-line app.
+  This directory is called the `application directory.`
 
 pubspec.yaml
 : Declares which libraries
-your application needs.
-The `packages` directories contain those libraries.
-The `pubspec.lock` file specifies the version numbers
-of the libraries on which the application depends.
+  your application needs.
+  The `packages` directories contain those libraries.
+  The `pubspec.lock` file specifies the version numbers
+  of the libraries on which the application depends.
+  These files are referred to as the `package dependencies`.
 
 bin
 : Contains the source files for the application.
-The main source file for this example is `helloworld.dart`.
+  The main source file for this example is `helloworld.dart`.
+  This directory is called the `source code directory.`
 
 helloworld.dart
 : Contains the Dart source code for this app.
+  This is the main Dart source file.
 
 The **Editor pane** shows
 the contents of `helloworld.dart`.
@@ -397,79 +392,79 @@ Dart Editor opens a new panel,
 called the **Output view**,
 and displays the output of the helloworld app.
 
-<img class="scale-img-max" src="images/helloworld-output.png"
-     alt="Dart Editor with helloworld output view"/>
-
 ##Create a web app {#create-web-app}
 
 Now let's create a web application.
 As you did when creating a command-line application,
 click the **New Application** button
 <img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
-Name the application `clickme`.
-This time you are creating a web app,
-so select **Web application** from the list
-in the New Application dialog window:
 
-<img class="scale-img-max" src="images/new-click-me.png"
-     alt="Create a new web application"/>
+<ol>
+<li markdown="1">
+Type `simple` in the application name text field.
+</li>
 
-Dart Editor creates the directory and files needed
-for a boilerplate web application.
+<li markdown="1">
+Type or browse to the directory where you want to save the files.
+</li>
 
-<img class="scale-img-max" src="images/click-me-files.png"
-     alt="Dart Editor with new web application files"/>
+<li markdown="1">
+Select **Generate sample content**.
+</li>
+
+<li markdown="1">
+Select **Uber Simple Web Application** from the list.
+</li>
+
+<li markdown="1">
+Click **Finish**.
+</li>
+</ol>
+
+Dart Editor creates the directory and files needed for the most
+basic boilerplate web application which prints "Your Dart app is running"
+in the browser window.
 
 As before, the directory is named after your application.
-So is the Dart source file that contains the main() function.
-In addition, Dart Editor creates an HTML file that hosts the app.
+So is the Dart source file that contains the main() function is
+called main.dart.
+In addition, Dart Editor creates an HTML file, called index.html,
+underneath the `web` directory, that hosts the app.
 
-The main() function in the clickme app
+The main() function in the simple app
 contains Dart code 
-that puts text on the browser page
-and registers an *event handler*&mdash;a function
-that responds to user-generated events like a mouse click.
+that puts text on the browser page.
 This code uses API defined in the dart:html library.
 
 In the next tutorial,
 you will build a mini app from scratch,
 creating the Dart source, the HTML source,
 and the CSS source yourself.
-Afterward, you can re-visit the code for clickme.
 
 ##Run a web app {#run-web-app}
 
-To run the clickme app from Dart Editor:
+To run the simple app from Dart Editor:
 
-* Select `clickme.html`.
+* Select `index.html`.
 * Click the Run button
 <img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 
 Dart Editor invokes Dartium providing it with
-the URL for the clickme app's HTML file.
-Dartium loads the clickme app's HTML file
-and the embedded app, which looks like this:
-
-<iframe class="running-app-frame"
-        style="height:510px;width:500px;"
-        src="examples/clickme/clickme.html">
-</iframe>
+the URL for the simple app's HTML file.
+Dartium loads the simple app's HTML file
+and the embedded app, which prints "Your Dart app is running" in the browser.
 
 ###Run as JavaScript
 
 You can run Dart web applications in other browsers
 by compiling to JavaScript.
 Dart Editor provides a convenient menu option for doing so.
-Right click on `clickme.html`
+Right click on `index.html`
 and select **Run as JavaScript** from the menu.
 
-<img class="scale-img-max" src="images/run-as-javascript-screenshot.png"
-     alt="Run a web app as JavaScript"/>
-
 Dart Editor compiles the app to JavaScript and
-invokes your default browser,
-which runs the app.
+invokes your default browser, which runs the app.
 
 ##About the HTML, CSS and Dart triumvirate {#source-files}
 
@@ -515,7 +510,7 @@ namely the main() function.
 The two apps you've seen in this tutorial have other top-level functions.
 The Hello World example calls print(),
 a top-level function defined in dart:core.
-And the clickme app defines a top-level function called reverseText().
+And the simple app calls querySelector().text to print text in the browser.
 
 A function declaration
 has two parts: a _signature_ and a _body_.
@@ -569,15 +564,8 @@ when creating applications outside of Dart Editor.
 
 <ul>
   <li>
-    <a href="/docs/dart-up-and-running/ch04.html#dart-editor">Dart Editor</a>,
-    an excerpt from
-    <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>,
-    provides details about using Dart Editor.
-    The excerpt includes, for example,
-    how to set up run-time environments,
-    how to use power features such as autocompletion,
-    debugging, refactoring,
-    and so on.
+    The <a href="/tools/editor">Dart Editor</a> page
+    provides more information about this tool.
   </li>
   <li>
     The <a href="/docs/">Programmer's Guide</a>
@@ -592,10 +580,11 @@ when creating applications outside of Dart Editor.
 * Get the code for all of the Dart tutorials samples.
   <a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
   Download the ZIP file</a>, unzip it,
-  and open `dart-tutorials-samples` in Dart Editor.
+  and open `dart-tutorials-samples-master` in Dart Editor.
 
-* Go to the next tutorial, [Connect Dart & HTML](/docs/tutorials/connect-dart-html/),
-which steps you through writing a tiny web app from scratch.
+* Go to the next tutorial,
+  [Connect Dart & HTML](/docs/tutorials/connect-dart-html/),
+  which steps you through writing a tiny web app from scratch.
 
 {% endcapture %}
 
