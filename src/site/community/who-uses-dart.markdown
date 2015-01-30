@@ -44,7 +44,7 @@ Google internal sales tool
 : Photobook editing, built with Dart.
 
 [WebStorm](http://blog.jetbrains.com/webstorm/2013/11/webstorm-7-0-2-is-available/)
-: Rich IDE from JetBrains includes a Dart plugin.
+: Rich IDE from JetBrains that includes a Dart plugin.
 
 [Hapara](http://hapara.com/)
 : Optimizes Google Apps for schools. Client built with Dart.
