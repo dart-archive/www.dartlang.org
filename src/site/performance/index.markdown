@@ -106,7 +106,7 @@ System setup
 : The benchmarks are run on an Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz
   processor running the Ubuntu 12.04 LTS x64 operating system.
   While the code runs on a 64-bit operating system, we’re
-  running the 32-bit version the V8 and Dart VMs.
+  running the 32-bit version of both the V8 and Dart VMs.
 
 
 
