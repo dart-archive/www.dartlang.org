@@ -265,5 +265,5 @@ main() async {
 {% endprettify %}
 
 Here the code is self explanatory. While the animation is running, we
-compute a frame. The choice is yours; pick whever version you find
+compute a frame. The choice is yours; pick whichever version you find
 easier to understand.
