@@ -44,7 +44,7 @@ Google internal sales tool
 : Photobook editing, built with Dart.
 
 [WebStorm](http://blog.jetbrains.com/webstorm/2013/11/webstorm-7-0-2-is-available/)
-: Rich IDE from JetBrains includes a Dart plugin.
+: Rich IDE from JetBrains that includes a Dart plugin.
 
 [Hapara](http://hapara.com/)
 : Optimizes Google Apps for schools. Client built with Dart.
@@ -147,3 +147,5 @@ Google internal tool for marketing
 
 [Issue Mover for GitHub](https://github-issue-mover.appspot.com/)
 : A tool that makes it easy to move issues between GitHub repos. Uses Dart on both the Client and Server side and is hosted on Google App Engine.
+
+[OSIRIS-REx](http://www.asteroidmission.org/) Science Processing and Operations Center (SPOC): Web tools use Angular.dart and Redstone.dart
