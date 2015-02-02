@@ -422,14 +422,11 @@ Dart Editor creates the directory and files needed for a basic
 web application that prints "Your Dart app is running"
 in the browser window.
 
-As before, the directory is named after your application.
+As before, the top-level directory is named after your application.
 The Dart source file that contains the main() function is
-called main.dart.
-In addition, Dart Editor `web/index.html`,
-underneath the `web` directory, that hosts the app.
+located in `web/main.dart` and the `web/index.html` file hosts the app.
 
-The main() function in the simple app
-contains Dart code 
+The main() function in the simple app contains Dart code 
 that puts text on the browser page.
 This code uses API defined in the dart:html library.
 
@@ -508,7 +505,7 @@ The two apps you've seen in this tutorial have other top-level functions.
 The Hello World example calls print(),
 a top-level function defined in dart:core.
 And the simple app calls querySelector().text, a top-level function
-defined in dart.html.
+defined in dart:html.
 
 A function declaration
 has two parts: a _signature_ and a _body_.
