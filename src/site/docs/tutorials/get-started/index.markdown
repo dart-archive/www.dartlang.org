@@ -169,10 +169,13 @@ in your Dart installation directory
 <img class="scale-img-max" src="/imgs/Dart_Logo_21.png"
      width="21" height="21" alt="Dart Editor icon">.
 
+<img class="scale-img-max" src="images/dart-editor-ui.png"
+     alt="Dart Editor startup screen with call outs.">
+
 Dart Editor displays its Welcome Page
 in a tab in the **Editor pane**.
 
-On startup, Dart Editor includes the following features:
+Dart Editor includes the following features:
 
 Send feedback button
 : Allows you to share bugs and requests
@@ -313,8 +316,7 @@ A dialog appears asking you to fill out a simple form.
 <li markdown="1">
 Type `helloworld` in the **Application Name** text field.
 By convention, application names are lowercase.
-This name is used for the app's directory
-and the basename for the files it creates.
+This name is used for the app's directory.
 </li>
 
 <li markdown="1">
@@ -351,7 +353,6 @@ include the following:
 helloworld
 : Contains boilerplate files and directories
   for a simple command-line app.
-  This directory is called the `application directory.`
 
 pubspec.yaml
 : Declares which libraries
@@ -359,19 +360,15 @@ pubspec.yaml
   The `packages` directories contain those libraries.
   The `pubspec.lock` file specifies the version numbers
   of the libraries on which the application depends.
-  These files are referred to as the `package dependencies`.
 
 bin
 : Contains the source files for the application.
-  The main source file for this example is `helloworld.dart`.
-  This directory is called the `source code directory.`
+  The main source file for this example is `main.dart`.
 
-helloworld.dart
+main.dart
 : Contains the Dart source code for this app.
-  This is the main Dart source file.
 
-The **Editor pane** shows
-the contents of `helloworld.dart`.
+The **Editor pane** shows the contents of `main.dart`.
 The program prints
 'Hello, World!' to the standard output stream
 using the print() function,
@@ -383,7 +380,7 @@ are automatically available to all Dart applications.
 
 To run the helloworld app from Dart Editor:
 
-* Select the helloworld.dart file in the **Files view**.
+* Select the main.dart file in the **Files view**.
 * Click the Run button
 <img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
@@ -421,14 +418,14 @@ Click **Finish**.
 </li>
 </ol>
 
-Dart Editor creates the directory and files needed for the most
-basic boilerplate web application which prints "Your Dart app is running"
+Dart Editor creates the directory and files needed for a basic
+web application that prints "Your Dart app is running"
 in the browser window.
 
 As before, the directory is named after your application.
-So is the Dart source file that contains the main() function is
+The Dart source file that contains the main() function is
 called main.dart.
-In addition, Dart Editor creates an HTML file, called index.html,
+In addition, Dart Editor `web/index.html`,
 underneath the `web` directory, that hosts the app.
 
 The main() function in the simple app
@@ -510,7 +507,8 @@ namely the main() function.
 The two apps you've seen in this tutorial have other top-level functions.
 The Hello World example calls print(),
 a top-level function defined in dart:core.
-And the simple app calls querySelector().text to print text in the browser.
+And the simple app calls querySelector().text, a top-level function
+defined in dart.html.
 
 A function declaration
 has two parts: a _signature_ and a _body_.
@@ -547,18 +545,6 @@ When creating an application with Dart Editor,
 you are asked to provide an application name.
 By convention, application names,
 and thus, the related files and directories, are lowercase.
-
-As you saw,
-Dart Editor uses the application name for:
-
-* the name of the app's directory
-* the basename of the main Dart file
-(the Dart file that contains the main() function)
-* the basename of the primary HTML file
-* the basename of the primary CSS file
-
-You should also follow these conventions
-when creating applications outside of Dart Editor.
 
 ##Other resources
 
