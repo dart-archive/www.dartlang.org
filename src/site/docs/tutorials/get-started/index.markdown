@@ -424,7 +424,7 @@ in the browser window.
 
 As before, the top-level directory is named after your application.
 The Dart source file that contains the main() function is
-located in `web/main.dart` and the `web/index.html` file hosts the app.
+located in `web/main.dart`, and the `web/index.html` file hosts the app.
 
 The main() function in the simple app contains Dart code 
 that puts text on the browser page.
