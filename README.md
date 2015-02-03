@@ -149,7 +149,7 @@ bundle exec ruby src/tests/site/sanity.rb <URL>
     the site. (Note: You can also run `make build` and then deploy manually
     using App Engine.)
   * This command uses the current branch for the App Engine version name.
-    If you need to change the version name, create a new branch that has
+    If you need to change the version name, create a new local branch that has
     the name you want—for example, prod-style-guide-update. Switch to that
     branch and, after making sure it has all the changes you need, run `make
     deploy`.
