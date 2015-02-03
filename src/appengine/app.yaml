@@ -1,16 +1,8 @@
 application: dart-lang
 version: CHANGEME
-# NOTE: URL is CHANGEME-dot-dart-lang.appspot.com
-#       To specify a name, change 'CHANGEME' to something
-#       like 'prod-zone-article'.
-#
-#       To deploy to dartlang.org (only from a clean master workspace)
-#       change CHANGEME to a date string: YYYY-MM-DD.
-#       For more information on making changes, see goto/dartsiteupdate.
-#
-# IMPORTANT: AFTER changing the version, DO THIS:
-#       make clean
-#       make build
+# DO NOT EDIT THE VERSION!
+# The build automatically changes the version to the name of your branch.
+# For more information, see README.md.
 
 runtime: python27
 api_version: 1
