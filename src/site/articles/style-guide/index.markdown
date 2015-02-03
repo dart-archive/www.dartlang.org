@@ -38,6 +38,12 @@ follow the latest style, or places where the style guide is ambiguous or
 open-ended. Bear with us and it will get better as the language and its
 libraries settle down.
 
+See also these related articles:
+
+* [API Naming Guide](/articles/api-naming-guide/)
+* [Guidelines for Doc Comments](/articles/doc-comment-guidelines/)
+
+
 ## How to read this
 
 This guide is broken into a few sections roughly working from the macro scale

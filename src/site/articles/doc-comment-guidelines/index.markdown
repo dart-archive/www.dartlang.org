@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "Guidelines for Dart Doc Comments"
+title: "Guidelines for Doc Comments"
 rel:
   author: kathy-walrath
 description: "How we write doc comments for the Dart APIs."
@@ -27,6 +27,12 @@ If you have suggestions for improving the conventions,
 [let us know](http://groups.google.com/a/dartlang.org).
 To produce documentation from comments,
 use the [dartdocgen tool](/tools/dartdocgen/).
+
+See also these related articles:
+
+* [Dart Style Guide](/articles/style-guide/)
+* [API Naming Guide](/articles/api-naming-guide/)
+
 
 ## Examples
 

@@ -224,7 +224,9 @@ recommended in these documents:
 
 * [Idiomatic Dart](/articles/idiomatic-dart/)
 * [Dart Style Guide](/articles/style-guide/)
-* [Guidelines for Dart Doc Comments](/articles/doc-comment-guidelines/)
+* [API Naming Guide](/articles/api-naming-guide/)
+* [Guidelines for Doc Comments](/articles/doc-comment-guidelines/)
+
 
 ### Issues and feature requests
 
