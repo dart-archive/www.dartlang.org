@@ -20,7 +20,7 @@ see [Dart Tools](/tools/).
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-Your version of Eclipse must be **3.7 or higher**.
+Your version of Eclipse must be **3.7, 3.8, or 4.X**.
 </aside>
 
 
