@@ -68,7 +68,7 @@ comes up, choose **Delete project contents on disk**.
 
 It’s easy to create a simple web or command-line app from scratch:
 
-1.  Click the New Application button ![](images/newapp.png) (at the
+1.  Click the New Project button ![](images/newapp.png) (at the
     upper left of Dart Editor). Alternatively, choose **File \> New
     Application** from the Dart Editor menu. A dialog appears.
 

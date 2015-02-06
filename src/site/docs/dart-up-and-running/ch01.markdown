@@ -271,23 +271,17 @@ stability issues. *Do not use Dartium as your primary browser!*
 It’s easy to create a simple web or command-line app from scratch. This
 step walks you through creating and running a command-line app.
 
-1.  Click the New Application button ![](images/newapp.png) (at the
+1.  Click the New Project button ![](images/newapp.png) (at the
     upper left of Dart Editor). Alternatively, choose **File \> New
-    Application** from the Dart Editor menu, or click the **Create an
-    Application…** button in the Welcome page. A dialog appears (see
-    the next figure).
+    Project** from the Dart Editor menu, or click the **Create an
+    Application…** button in the Welcome page. A dialog appears.
 
 2.  Type in a name for your application—for example, `hello_world`. If
     you don’t like the default directory, type in a new location or
     browse to choose the location.
 
-3.  Make sure **Generate sample content** and **Command-line
-    application** are selected. Then click **Finish** to create the
-    initial files for the app.
-
-    <img src="images/daur_0103.png"
-         alt="Create command-line or web apps with Dart Editor"
-         class="thinborder">
+3.  Make sure that **Console Application** is selected.
+    Then click **Finish** to create the initial files for the app.
 
     A default Dart file appears in the Edit view, and its directory
     appears in the Files view. Your Dart Editor window should look
@@ -299,7 +293,6 @@ step walks you through creating and running a command-line app.
 
     For command-line apps, the output of `print()` appears at the bottom
     right, in a new tab next to the Problems tab.
-
 
 ### What next? {#what-next}
 

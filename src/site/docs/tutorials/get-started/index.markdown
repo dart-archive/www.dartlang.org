@@ -193,11 +193,11 @@ Run button
 : Runs the application associated with the file
 that is currently selected in the **Files view**.
 
-New application button
+New project button
 : Creates a directory and, within it,
 the files for a new application.
 Alternatively, you can use the
-**File > New Application** menu item
+**File > New Project** menu item
 or the **Create an application** button
 on the Welcome page.
 
@@ -307,9 +307,9 @@ and then a web application.
 
 ##Create a command-line app {#create-cmd-line}
 
-In Dart Editor, choose **File->New Application** from the menu
-or click the New Application button
-<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
+In Dart Editor, choose **File > New Project** from the menu
+or click the New Project button
+<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New Project button"/>.
 A dialog appears asking you to fill out a simple form.
 
 <ol>
@@ -323,14 +323,6 @@ This name is used for the app's directory.
 Type or browse to the directory where you want to save the files.
 By default, Dart Editor creates a new directory named `dart`
 in your home directory.
-</li>
-
-<li markdown="1">
-Select **Generate sample content**.
-Dart Editor generates sample code
-appropriate for the type of application you are creating.
-For a command-line application,
-the sample code implements the standard 'Hello World' program.
 </li>
 
 <li markdown="1">
@@ -393,8 +385,8 @@ and displays the output of the helloworld app.
 
 Now let's create a web application.
 As you did when creating a command-line application,
-click the **New Application** button
-<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New App button"/>.
+click the **New Project** button
+<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New Project button"/>.
 
 <ol>
 <li markdown="1">
@@ -403,10 +395,6 @@ Type `simple` in the application name text field.
 
 <li markdown="1">
 Type or browse to the directory where you want to save the files.
-</li>
-
-<li markdown="1">
-Select **Generate sample content**.
 </li>
 
 <li markdown="1">

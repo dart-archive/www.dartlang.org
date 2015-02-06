@@ -154,14 +154,16 @@ like you did in the previous tutorial,
 [Get Started](/docs/tutorials/get-started/).
 Name the app `mini`.
 
-<img class="scale-img-max" src="images/new-app-mini.png"
-     alt="New Application dialog window">
+1. Type `mini` in the application name field.
+2. Use the suggested parent directory or specify an alternate.
+3. Select **Uber Simple Web Application** from the project template list.
+4. Click **Finish**.
 
 ##Edit the HTML file {#create-html}
 
 When Dart Editor created the application,
 it created boilerplate HTML code.
-Double click `mini.html` to open it.
+Double click `index.html` to open it.
 Then replace the code with the following,
 simplied HTML.
 
@@ -177,7 +179,7 @@ simplied HTML.
     <p id="RipVanWinkle">
       RipVanWinkle paragraph.
     </p>
-    <script type="application/dart" src="mini.dart"></script>
+    <script type="application/dart" src="main.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
 </html>
@@ -210,10 +212,9 @@ The first script includes your mini app.
 The `type` attribute specifies that the script has
 the type `application/dart`,
 which is a new type created by the Dart team.
-Currently, only the Dartium build of Chromium supports
-`application/dart`.
+Only the Dartium build of Chromium supports `application/dart`.
 The `src` attribute provides the URL to the source file of the script.
-In this case, it is the Dart source file `mini.dart`,
+In this case, it is the Dart source file `main.dart`,
 which you provide in the next step.
 The Dart file should be in the same directory as its host HTML file.
 
@@ -223,7 +224,7 @@ as well as compatibility with non-Dart browsers.
 
 ##Edit Dart source code {#dart-editor-happiness}
 
-Open `mini.dart` and modify the source code
+Open `main.dart` and modify the source code
 to look like this:
 
 {% prettify dart %}
@@ -340,7 +341,7 @@ dynamically displaying the text on the browser page.
 ##Summary of HTML and Dart connections {#summary}
 
 This diagram summarizes the connections
-between `mini.dart` and `mini.html`.
+between `main.dart` and `index.html`.
 
 <img class="scale-img-max" src="images/dart-html-connect.png"
      alt="The connection between the HTML file and the Dart file">
@@ -348,20 +349,18 @@ between `mini.dart` and `mini.html`.
 ##Run the mini web app {#run-mini}
 
 In Dart Editor,
-select `mini.html` and then click the Run button
+select `index.html` and then click the Run button
 <img class="scale-img-max" src="images/run.png" width="16" height="16"
      alt="Run button">.
 Dart Editor invokes Dartium
-and loads `mini.html` in it.
+and loads `index.html` in it.
 Below is mini app running in a frame.
 The app displays the text provided by Dart code,
 namely "Wake up, sleepy head!",
-not the text provided in the HTML file.
+not the text provided in the HTML file, as shown in the following screen shot.
 
-<iframe class="running-app-frame"
-        style="height:150px;width:300px;"
-        src="examples/mini/mini.html">
-</iframe>
+<img style="border:1px solid #000000" src="images/mini-app.png"
+     border="5" alt="output of the mini app">
 
 The Dart web app changed
 the text in the browser window dynamically at runtime.
@@ -377,7 +376,7 @@ Most HTML uses cascading style sheets (CSS) to define _styles_
 that control the appearance of page elements.
 Let's customize the CSS for the mini app.
 
-In Dart Editor, edit the file named `mini.css`
+In Dart Editor, edit the file named `styles/main.css`
 and replace the contents of the file with
 the following CSS code:
 
@@ -396,21 +395,20 @@ This defines a style
 for the page element
 with the ID RipVanWinkle.
 To use this style sheet,
-edit `mini.html` and add the line shown in bold below:
+edit `index.html` and add the line shown in bold below:
 
 <img class="scale-img-max" src="images/html-with-css.png"
      alt="HTML with CSS">
 
 Save your files and run the app again.
 
-Below is the revised mini app,
+The following screen shot shows
+the output of the revised mini app,
 which is slightly more colorful
 but still neither interactive nor interesting.
 
-<iframe class="running-app-frame"
-        style="height:150px;width:300px;"
-        src="examples/mini_with_style/mini_with_style.html">
-</iframe>
+<img style="border:1px solid #000000" src="images/mini-app-with-styling.png"
+     alt="output of the mini app with CSS styling">
 
 ##About CSS selectors {#about-css-selectors}
 
