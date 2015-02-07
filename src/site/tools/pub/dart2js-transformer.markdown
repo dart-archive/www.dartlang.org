@@ -56,15 +56,16 @@ work, see the [documentation](/tools/dart2js/#options) for dart2js:
 {% prettify yaml %}
 transformers:
 - $dart2js:
-    checked: true
-    minify: true
-    verbose: true
-    environment: {name: value, ...}
     analyzeAll: true
-    suppressWarnings: true
-    suppressHints: true
-    terse: true
+    checked: true
     csp: true
+    environment: {name: value, ...}
+    minify: true
+    sourceMaps: true
+    suppressHints: true
+    suppressWarnings: true
+    terse: true
+    verbose: true
 {% endprettify %}
 
 For command-line options not covered in this list,
@@ -89,7 +90,7 @@ is available as a fallback for cases where a new command-line option has
 been added to dart2js, but a corresponding configuration option has not
 yet been added to pub.
 
-An example of this is the `--enable-enum` option. 
+An example of this is the `--enable-enum` option.
 
 {% prettify yaml %}
 dependencies:
