@@ -61,6 +61,7 @@ transformers:
     verbose: true
     environment: {name: value, ...}
     analyzeAll: true
+    sourceMaps: true
     suppressWarnings: true
     suppressHints: true
     terse: true
