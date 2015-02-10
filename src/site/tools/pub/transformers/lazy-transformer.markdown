@@ -68,8 +68,8 @@ which gives the transformer access to the primary input's id.
 For example:
 
 {% prettify dart %}
-Future declareOutputs(DeclaringTransform transform) {
-  return new Future.value(transform.primaryId
+void declareOutputs(DeclaringTransform transform) {
+  transform.declareOutput(transform.primaryId
                                    .changeExtension('.shhhhh'));
 }
 {% endprettify %}
