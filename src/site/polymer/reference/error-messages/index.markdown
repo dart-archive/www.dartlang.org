@@ -648,14 +648,51 @@ before it finishes loading. See <http://goo.gl/iN03Pj> for more info.
 
 {% raw %}Css files are inlined by default, but if you import the same one in multiple
 places you probably want to override this behavior to prevent duplicate code.
-To do this, use the following pattern to update your pubspec.yaml:
+
+There are two typical options for dealing with this:
+
+1. Use the `core-style` element from the `core_elements` package.
+
+  The easiest way to do this is change your `*.css` file into a `*.html` file,
+  andwrap the entire thing in a `core-style` with an id, something like the
+  following:
+
+    <core-style id="my-theme">
+      p {
+        color: red;
+      }
+    </core-style>
+
+  Now, in the files where you were previously including the
+  <link rel="stylesheet"> tag, add an html import to the top of your document
+  pointing to the new html file. Once that is done, replace the <link> tag with
+  a <core-style> tag which has a `ref` attribute that is the same as the `id`
+  attribute on the <core-style> you created. So you original html:
+
+    <polymer-element name="my-element">
+      <template>
+        <link rel="stylesheet" href="my_theme.css">
+      </template>
+    </polymer-element>
+
+  Becomes:
+
+    <link rel="import" href="my_theme.html">
+    <polymer-element name="my-element">
+      <template>
+        <core-style ref="my-theme"></core-style>
+      </template>
+    </polymer-element>
+
+2. The alternative option is to use the following pattern to update your
+  pubspec.yaml so this file is not inlined at all:
 
     transformers:
     - polymer:
         inline_stylesheets:
           web/my_file.css: false
 
-If you would like to hide this warning and keep it inlined, do the same thing
+  If you would like to hide this warning and keep it inlined, do the same thing
 but assign the value to true.
 {% endraw %}
 
