@@ -89,11 +89,8 @@ We use _simple JSON_ throughout this article to refer to
 the default object JSON serialization representation used in JavaScript.
 When using JSON in JavaScript, objects are serialized by default to
 a map of their properties with certain special cases.
-(For example, a JavaScript Date is represented by an ISO8601 string.)
-<span class="remark">
-  [PENDING: I changed "attributes" to "properties",
-  since that appears to be the JS name for fields.]
-</span>
+(For example, JavaScript Dates are serialized to ISO8601 strings,
+by default.)
 
 We are calling this _simple JSON_, and not just _JSON_,
 to differentiate it from other JSON-based serialization formats.
@@ -116,13 +113,9 @@ Object complexity:
   All of the objects to be serialized are
   [data transfer objects](http://en.wikipedia.org/wiki/Data_transfer_object)
   (DTOs)
-  with a no-argument constructor and only public attributes.
-  <span class="remark">
-    [PENDING: Can we be more precise than "attributes"?
-    "fields"? "properties"?]
-  </span>
+  with a [default constructor](/docs/dart-up-and-running/ch02.html#default-constructors).
 * Complex:
-  Some or all of the objects to be serialized have cycle dependencies,
+  Some or all of the objects to be serialized have cycles,
   can't be created with no-argument constructors,
   or have special setter methods.
 
@@ -161,9 +154,8 @@ Data format stability:
 
 Identifying your criteria is important because
 no serialization library or data format works in every scenario.
-Some criteria are even mutually exclusive;
-for example, simple JSON cannot represent
-objects with circular dependencies.
+Some criteria are even mutually exclusive—for example,
+simple JSON cannot represent objects with circular dependencies.
 
 
 ## Reviews
@@ -196,14 +188,23 @@ Several Dart packages offer simple JSON serialization,
 but a significant advantage of dartson is that
 it doesn't require mirrors.
 Instead, it provides a
-[transformer](/tools/pub/assets-and-transformers.html)
+[pub transformer](/tools/pub/assets-and-transformers.html)
 that generates static serialization rules.
+
+You can provide custom serialization rules
+using _type transformers_—dartson-specific
+classes not to be confused with pub transformers.
+For example, the dartson package supplies a DateTime type transformer,
+implemented in
+[transformers/date_time.dart](https://github.com/eredo/dartson/blob/master/lib/transformers/date_time.dart).
+You can create your own serialization rules by subclassing
+[TypeTransformer](http://www.dartdocs.org/documentation/dartson/latest/index.html#dartson/dartson-type_transformer.TypeTransformer).
 
 During development,
 you can use dartson's mirrors-based implementation
 to avoid waiting for builds.
 When you're ready to deploy,
-building with the transformer replaces the mirrors-based implementation
+building with the pub transformer replaces the mirrors-based implementation
 with statically generated rules.
 
 Pros:
@@ -220,15 +221,19 @@ Cons:
 
 * Must know the class that the object is being serialized into.
 * Must use only public classes.
+* Except for basic types
+  (numbers, booleans, strings, lists, and maps),
+  must either annotate each serializable class as `@Entity` or
+  provide a type transformer.
 * Can't always infer the type of objects when deserializing.
-  For example, if a field declared as List<Person> is actually a
-  a List<Superhero>, then you lose the type information about Superhero.
+  For example, if a field declared as `List<Person>` is actually
+  a `List<Superhero>`, then you lose the type information about Superhero.
 * Can't serialize some complex objects.
   For example, you can't serialize objects with cycles
   (objects that point to themselves, directly or indirectly),
   objects with fields defined using abstract classes
   (abstract classes can't be instantiated),
-  and objects that can be created only by using constructors with arguments.
+  and objects that declare constructors.
 
 If you are looking for alternatives to
 [dartson](#dartson-review)
@@ -269,12 +274,11 @@ This package handles the following cases transparently:
 * Object graphs with relationships, including cycles
 * Inheritance
 * Final fields
-* Objects with constructors
+* Objects with declared constructors
 * Private fields with getter/setter pairs
 * Not knowing ahead of time which classes the serialized data uses
 
-By default, the serialization package uses a
-custom Map/JSON-based representation.
+By default, the serialization package uses a custom representation.
 However, the serialization package is pluggable to some extent, so
 you can customize the serialization format.
 For example, the serialization package can serialize to simple JSON
@@ -293,7 +297,6 @@ Pros:
 * Pluggable, so you can define custom output formats.
 * Supports simple JSON
   (but not for deserialization).
-* Compiles to smaller JavaScript code than options that use mirrors.
 
 Cons:
 
@@ -316,7 +319,8 @@ For more information about the serialization package, see these resources:
 Recommended use cases:
 
 * Persisting objects to a database
-* Communication with a web service using protocol buffers as the data format
+* Communication with a web service that expects
+  protocol buffers as the data format
 * Communication between a web client and a server written in
   different languages
 
@@ -356,10 +360,9 @@ because only new classes generated by protoc can be serialized.
 
 Pros:
 
-* Supports the [protocol
-  buffer](https://developers.google.com/protocol-buffers/)
-  serialization format.
-* Compiles to small JavaScript code, compared to options that use mirrors.
+* Supports the protocol buffer serialization format,
+  which is compact and supported by Google APIs such as
+  [Google Cloud Datastore](https://cloud.google.com/datastore/docs/concepts/overview).
 * Very good cross-language support.
 * Well-defined, stable, backward-compatible format.
 
@@ -381,7 +384,7 @@ For more information about using protocol buffers, see these resources:
 ## Examples {#examples}
 
 This section shows how to quickly get started with
-each of the serialization libraries,
+the reviewed libraries,
 featuring code from examples in
 [this GitHub repo](https://github.com/nicolasgarnier/dart-serialization-samples).
 
@@ -417,11 +420,11 @@ Person bob = new Person()
   ..children = (new List()..add(jerome)..add(sarah));
 {% endprettify %}
 
-The serialized `bob` object,
-using simple JSON,
+The `bob` object,
+when serialized using simple JSON,
 looks something like this:
 
-{% prettify json %}
+{% prettify yaml %}
 {
     "id": 123,
     "name": "Bob Dole",
@@ -445,7 +448,7 @@ looks something like this:
 <ol markdown="1">
 <li markdown="1">
   Edit the project's `pubspec.yaml`,
-  adding a dependency on the dartson package and its transformer:
+  adding a dependency on the dartson package and its pub transformer:
 
 {% prettify yaml %}
 ...
@@ -468,11 +471,8 @@ class Person {
 </li>
 
 <li markdown="1">
-  Import `dartson.dart` and the libraries for any transformers you need.
-  The dartson package supplies
-  [DateTimeTransformer](http://www.dartdocs.org/documentation/dartson/latest/index.html#dartson/dartson-transformers-DateTime.DateTimeParser).
-  You can create more transformers by subclassing
-  [TypeTransformer](http://www.dartdocs.org/documentation/dartson/latest/index.html#dartson/dartson-type_transformer.TypeTransformer).
+  Import `dartson.dart` and the libraries for any type transformers
+  that you need.
 
 {% prettify dart %}
 import 'package:dartson/dartson.dart';
@@ -483,7 +483,7 @@ import 'package:dartson/transformers/date_time.dart';
 <li markdown="1">
   Create an instance of
   [Dartson](http://www.dartdocs.org/documentation/dartson/latest/index.html#dartson/dartson.Dartson),
-  and add any transformers you need:
+  and add any type transformers you need:
 
 {% prettify dart %}
 var dson = new Dartson.JSON();
@@ -504,7 +504,7 @@ print("Serialized Person: $personString");
 
   Here's the output of that print:
 
-{% prettify %}
+{% prettify sh %}
 Serialized Person: {"id":123,"name":"Bob Dole","dateOfBirth":"1980-03-16T00:00:00Z","children":[{"id":228,"name":"Jerome Dole","dateOfBirth":"2013-01-19T00:00:00Z"},{"id":201,"name":"Sarah Dole","dateOfBirth":"2011-04-09T00:00:00Z"}]}
 {% endprettify %}
 </li>
@@ -557,7 +557,7 @@ for the latest details.
   The `.proto` file describes the data types.
   For example, here is a simple `.proto` file for Person objects:
 
-{% prettify %}
+{% prettify dart %}
 message Person {
     required int32 id = 1;
     required string name = 2;
@@ -566,11 +566,11 @@ message Person {
 }
 {% endprettify %}
 
-Note that it doesn't understand DateTime.
-Instead, it uses a 64-bit integer for the field.
+Note that the Person object can't use DateTime.
+Instead, the `.proto` file uses a 64-bit integer for the field.
 The Dart code for creating a Person object looks like this:
 
-{% prettify %}
+{% prettify dart %}
 Person bob = new Person()
   ..id = 123
   ..name = "Bob Dole"
@@ -593,7 +593,7 @@ dependencies:
 <li markdown="1">
   Compile your `.proto` file:
 
-{% prettify %}
+{% prettify sh %}
 protoc --dart_out=. person.proto
 {% endprettify %}
 
@@ -637,10 +637,12 @@ Person deserializedPerson2 = new Person.fromJson(personJson);
 
 The serialization solution you choose affects not only the size
 of serialized objects,
-but also the size of the JavaScript generated for web apps
-that serialize or deserialize those objects.
+but also the size of the JavaScript generated (for web apps
+that serialize or deserialize).
 The tables in this section show size measurements
-for the example apps described in the [Examples](#examples) section.
+for the example apps described in the [Examples](#examples) section
+(source code is [on
+GitHub](https://github.com/nicolasgarnier/dart-serialization-samples)).
 
 The following table matters only if you're writing code for web apps.
 It shows the size of the example app,
@@ -648,11 +650,11 @@ after dart2js compiles the app into JavaScript.
 
 | Serialization technique               | Generated JavaScript code size |
 |---------------------------------------|----------------------------------:|
-| **dartson** using transformers                                   |  56 KB |
+| **dartson** using a pub transformer                              |  56 KB |
 | **dartson** using mirrors                                        | 133 KB |
 | **protobuf** using the binary formatter                          | 100 KB |
 | **protobuf** using the JSON-based formatter                      |  81 KB |
-| **serialization** using transformers                             |  74 KB |
+| **serialization** using a pub transformer                        |  74 KB |
 | **serialization** using mirrors and @MirrorsUsed() annotation    | 154 KB |
 | **serialization** using mirrors without @MirrorsUsed() annotation| 785 KB |
 {: .table .table-striped}
@@ -664,41 +666,31 @@ that the examples create using each solution.
 |-------------------------------------|-----------------------:|-------------:|
 | **dartson**\*                       | 227 bytes              | 163 bytes    |
 | **protobuf** (binary format)        |  68 bytes              | n/a          |
-| **protobuf** (JSON-based format)\*  | 138 bytes              | 120 bytes    |
-| **serialization** with transformers | 405 bytes              | 199 bytes    |
+| **protobuf** (JSON-based format)    | 138 bytes              | 120 bytes    |
+| **serialization** with transformer  | 405 bytes              | 199 bytes    |
 | **serialization** with mirrors\*\*  | 948 bytes              | 302 bytes    |
 {: .table .table-striped}
 
-\* To decrease the output size of JSON-based formats,
-you could choose shorter names for fields—for example,
+\* Unoptimized. You can decrease the output size
+by choosing shorter names for fields—for example,
 "dob" instead of "dateOfBirth".
-<span class="remark">
-[PENDING: Did I get that right?
-Is it both dartson and protobuf/json that would be affected by
-reducing field name size?
-"field" seemed more correct to me than "attribute", btw. OK by you?]
-</span>
 
 \*\* The mirror-based implementation of the serialization package
-produces different output than its transformer-based implementation.
-
-You can find the source code for these examples [on
-GitHub](https://github.com/nicolasgarnier/dart-serialization-samples).
-<span class="remark">
-  [PENDING: How did you generate the source code? Especially for the mirror
-  versions of serialization?]
-</span>
+produces different output than the pub-transformer-based implementation.
 
 
 ## Summary
 
 Serialization sounds simple at first,
 but no solution fits every situation.
-For example, a web app should, as a rule,
-avoid solutions that require mirrors,
-which can bloat the app's generated JavaScript code.
+Factors in choosing a solution include
+the complexity of serialized objects,
+the serialization format,
+the stability of that format,
+the need for cross-language support,
+and the desire to generate small JavaScript.
 
-This article covered only three solutions,
-but many more exist.
-[Search pub.dartlang.org for serialization](https://pub.dartlang.org/search?q=serialization)
-to see other possible solutions.
+This article covered three solutions,
+recommending dartson as a starting point.
+To find more solutions,
+[search pub.dartlang.org for serialization](https://pub.dartlang.org/search?q=serialization).
