@@ -685,7 +685,7 @@ There are three typical options for dealing with this:
           </template>
         </polymer-element>
 
-2. *Acceptable*: Opt out of the inlining for this file in your pubspec.yaml:
+2. Opt out of the inlining for this file in your pubspec.yaml:
 
         transformers:
         - polymer:
@@ -696,7 +696,7 @@ There are three typical options for dealing with this:
     shadow-dom. Polymer will do an xhr request for the stylesheet and inject an
     inline style with its contents in each place this stylesheet occurs.
 
-3. *Worst*: Opt into multiple inlining in your pubspec.yaml:
+3. Opt into multiple inlining in your pubspec.yaml:
 
         transformers:
         - polymer:
