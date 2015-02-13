@@ -651,7 +651,8 @@ places you probably want to change this behavior to prevent duplicate code.
 
 There are three typical options for dealing with this:
 
-1. *Recommended*: Use the `core-style` element from the `core_elements` package.
+1. **Recommended**: Use the `core-style` element from the `core_elements`
+    package.
 
     The easiest way to do this is change your `*.css` file into a `*.html` file,
     and wrap the entire thing in a `core-style` with an id, something like the
@@ -692,7 +693,7 @@ There are three typical options for dealing with this:
             inline_stylesheets:
               web/my_file.css: false
 
-    *Warning*: `<link rel="stylesheet">` tags are not natively supported in
+    **Warning**: `<link rel="stylesheet">` tags are not natively supported in
     shadow-dom. Polymer will do an xhr request for the stylesheet and inject an
     inline style with its contents in each place this stylesheet occurs.
 
@@ -703,7 +704,7 @@ There are three typical options for dealing with this:
             inline_stylesheets:
               web/my_file.css: true
 
-    *Warning*: You should only ever do this if your stylesheet is very small.
+    **Warning**: You should only ever do this if your stylesheet is very small.
     Even then stylesheets tend to grow quickly and almost never decrease in size
     so this method is highly discouraged.
 {% endraw %}
