@@ -59,31 +59,23 @@ dependencies:
 
 ## Important files
 
-When you publish your package to [pub.dartlang.org](https://pub.dartlang.org/),
-it gets its very own page at pub.dartlang.org/packages/<your_package>. This
-page uses content from files in your package, and contains several sections:
+Pub strictly uses the [package layout conventions](package-layout.html) to find
+files that will go into your projects Pub package. Review the conventions to
+understand what Pub will publish.
 
-* **README**: If your package includes a README file, then it will be shown as
-  the main content at your package's pub.dartlang.org URL.
+In particular, Pub uses the contents of a few files to create a page for your
+package at pub.dartlang.org/packages/<your_package>. Here are the files that
+will affect how your package's page will look:
 
-* **CHANGLOG**: If your package includes a CHANGELOG file, that will be listed
-  as one of the tabs at the top of the page.
-
-* **Installing**: The "Installing" tab is generated based on the latest version
-  of your package that has been published, giving users a nice recommendation
-  of how to include it in their `pubspec.yaml` file.
-
-* **Versions**: The "Versions" tab shows a history of all versions of your
-  package that have ever been published, with links to their documentation,
-  hosted at [dartdocs.org](https://dartdocs.org), and an archive `.tar.gz`
-  file.
-
-* **Sidebar**: The sidebar at your package's pub.dartlang.org URL includes
-  information drawn from your `pubspec.yaml` file, including the description,
-  author(s), homepage, documentation URL, and a list of uploaders.
-
-For more information about how to write your README and CHANGELOG, take a look
-at the [package layout conventions](package-layout.html).
+* **README**: The README file (`README`, `README.md`, `README.mdown`,
+  `README.markdown`) is the main content featured in your package's page.
+* **CHANGELOG**: Your package's CHANGELOG (`CHANGELOG`, `CHANGELOG.md`,
+  `CHANGELOG.mdown`, `CHANGELOG.markdown`), if found, will also be featured in a
+  tab on your package's page, so that developers can read it right from
+  pub.dartlang.org.
+* **The pubspec**: Your package's `pubspec.yaml` file is used to fill out
+  details about your package on the right-side of your package's page, like its
+  description, authors, etc.
 
 ## Publishing is forever
 
