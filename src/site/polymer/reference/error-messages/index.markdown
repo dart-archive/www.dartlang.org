@@ -647,53 +647,65 @@ before it finishes loading. See <http://goo.gl/iN03Pj> for more info.
 {: #polymer_42}
 
 {% raw %}Css files are inlined by default, but if you import the same one in multiple
-places you probably want to override this behavior to prevent duplicate code.
+places you probably want to change this behavior to prevent duplicate code.
 
-There are two typical options for dealing with this:
+There are three typical options for dealing with this:
 
-1. Use the `core-style` element from the `core_elements` package.
+1. *Recommended*: Use the `core-style` element from the `core_elements` package.
 
-  The easiest way to do this is change your `*.css` file into a `*.html` file,
-  andwrap the entire thing in a `core-style` with an id, something like the
-  following:
+    The easiest way to do this is change your `*.css` file into a `*.html` file,
+    and wrap the entire thing in a `core-style` with an id, something like the
+    following:
 
-    <core-style id="my-theme">
-      p {
-        color: red;
-      }
-    </core-style>
+        <core-style id="my-theme">
+          p {
+            color: red;
+          }
+        </core-style>
 
-  Now, in the files where you were previously including the
-  <link rel="stylesheet"> tag, add an html import to the top of your document
-  pointing to the new html file. Once that is done, replace the <link> tag with
-  a <core-style> tag which has a `ref` attribute that is the same as the `id`
-  attribute on the <core-style> you created. So you original html:
+    Now, in the files where you were previously including the
+    `<link rel="stylesheet">` tag, add an html import to the top of your
+    document pointing to the new html file. Once that is done, replace the
+    `<link>` tag with a `<core-style>` tag which has a `ref` attribute that is
+    the same as the `id` attribute on the `<core-style>` you created. So your
+    original html:
 
-    <polymer-element name="my-element">
-      <template>
-        <link rel="stylesheet" href="my_theme.css">
-      </template>
-    </polymer-element>
+        <polymer-element name="my-element">
+          <template>
+            <link rel="stylesheet" href="my_theme.css">
+          </template>
+        </polymer-element>
 
-  Becomes:
+    Becomes:
 
-    <link rel="import" href="my_theme.html">
-    <polymer-element name="my-element">
-      <template>
-        <core-style ref="my-theme"></core-style>
-      </template>
-    </polymer-element>
+        <link rel="import" href="my_theme.html">
+        <polymer-element name="my-element">
+          <template>
+            <core-style ref="my-theme"></core-style>
+          </template>
+        </polymer-element>
 
-2. The alternative option is to use the following pattern to update your
-  pubspec.yaml so this file is not inlined at all:
+2. *Acceptable*: Opt out of the inlining for this file in your pubspec.yaml:
 
-    transformers:
-    - polymer:
-        inline_stylesheets:
-          web/my_file.css: false
+        transformers:
+        - polymer:
+            inline_stylesheets:
+              web/my_file.css: false
 
-  If you would like to hide this warning and keep it inlined, do the same thing
-but assign the value to true.
+    *Warning*: `<link rel="stylesheet">` tags are not natively supported in
+    shadow-dom. Polymer will do an xhr request for the stylesheet and inject an
+    inline style with its contents in each place this stylesheet occurs.
+
+3. *Worst*: Opt into multiple inlining in your pubspec.yaml:
+
+        transformers:
+        - polymer:
+            inline_stylesheets:
+              web/my_file.css: true
+
+    *Warning*: You should only ever do this if your stylesheet is very small.
+    Even then stylesheets tend to grow quickly and almost never decrease in size
+    so this method is highly discouraged.
 {% endraw %}
 
 ----
