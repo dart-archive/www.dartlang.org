@@ -395,7 +395,8 @@ Duration({days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0, microsecon
 
 <aside class="alert alert-info" markdown="1">
 **Dart language note:**
-You can't use both positional and named parameters in the same function.
+You can't use both positional and named optional parameters in the same 
+function.
 For example, we'd like to add `{bool isUtc:false}` to `DateTime()`,
 but we can't.
 A result can be inconsistencies when two similar functions use
