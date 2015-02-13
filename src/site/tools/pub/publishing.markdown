@@ -23,7 +23,7 @@ to [pub.dartlang.org](https://pub.dartlang.org). Pub will also show you all of
 the files it intends to "publish". Here's an example of publishing a package
 named `transmogrify`:
 
-{% prettify %}
+{% prettify none %}
 Publishing transmogrify 1.0.0 to https://pub.dartlang.org:
     .gitignore
     CHANGELOG.md
