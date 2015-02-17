@@ -7,7 +7,7 @@ description: "Follow these guidelines for consistent, readable Dart code."
 has-permalinks: true
 article:
   written_on: 2011-10-27
-  updated_on: 2014-10-27
+  updated_on: 2015-02-17
   collection: everyday-dart
 ---
 
@@ -18,7 +18,7 @@ article:
 
 <em>Written by Bob Nystrom<br />
 <time pubdate date="2011-10-27">October 2011</time>
-(updated October 2014)
+(updated February 2015)
 </em>
 
 
@@ -1501,5 +1501,29 @@ var fooList = [
 
 var fooList = [1, 2,
   3, 4];
+{% endprettify %}
+</div>
+
+
+## Strings
+
+#### AVOID using curly braces in interpolation when not needed.
+{:.no_toc}
+
+If you're just interpolating a simple identifier that's not immediately
+followed by more alphanumeric text, the `{}` can and should be omitted.
+
+<div class="good">
+{% prettify dart %}
+'Hi, $name!'
+"Wear your wildest $decade's outfit."
+'Wear your wildest ${decade}s outfit.'
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+'Hi, ${name}!'
+"Wear your wildest ${decade}'s outfit."
 {% endprettify %}
 </div>
