@@ -43,10 +43,10 @@ class SanityTest
   def test_homepage
     # Find each navigation link.
     expect_text_at("GET STARTED", :xpath, "//ul[contains(@class,'nav')][1]/li[1]")
-    expect_text_at("DOCS", :xpath, "//ul[contains(@class,'nav')][1]/li[2]")
-    expect_text_at("TOOLS", :xpath, "//ul[contains(@class,'nav')][1]/li[3]")
-    expect_text_at("RESOURCES", :xpath, "//ul[contains(@class,'nav')][1]/li[4]")
-    expect_text_at("SUPPORT", :xpath, "//ul[contains(@class,'nav')][1]/li[5]")
+    expect_text_at("FUNDAMENTALS", :xpath, "//ul[contains(@class,'nav')][1]/li[2]")
+    expect_text_at("BROWSER", :xpath, "//ul[contains(@class,'nav')][1]/li[3]")
+    expect_text_at("SERVER", :xpath, "//ul[contains(@class,'nav')][1]/li[4]")
+    expect_text_at("MORE", :xpath, "//ul[contains(@class,'nav')][1]/li[5]")
 
     # Find the download link at the top.
     @driver.find_element(:css, ".downloads a.download-link")
@@ -73,6 +73,12 @@ class SanityTest
   def test_darrrt
     # Click "Get Started".
     @driver.find_element(:css, ".nav li:first-child a").click
+    Selenium::WebDriver::Wait.new.until {
+      iframe = @driver.find_element(:css, ".nav li:first-child ul a:first-child")
+    }
+
+    # Click "Learn Dart in Minutes".
+    @driver.find_element(:css, ".nav li:first-child ul a:first-child").click
     Selenium::WebDriver::Wait.new.until {
       iframe = @driver.find_element(:css, ".running-app-frame")
     }
