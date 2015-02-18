@@ -177,9 +177,10 @@ Recommended use cases:
 * Communication between between a web client and a server written in
   different languages
 
-<aside class="alert alert-warning">
-**Disclaimer:**
-Dartson is not an official Google project.
+<aside class="alert alert-info">
+**Note:**
+Dartson is a community project started by
+[Eric Schneller](https://google.com/+EricSchneller).
 </aside>
 
 Dartson allows serializing to and deserializing from
@@ -259,8 +260,8 @@ Recommended use case:
 * Sending objects between a Dart client and a Dart server
   that are built and deployed together
 
-<aside class="alert alert-warning">
-**Disclaimer:**
+<aside class="alert alert-info">
+**Note:**
 The serialization package is a community contribution from Google, but
 it's not part of the Dart SDK.
 </aside>
@@ -324,8 +325,8 @@ Recommended use cases:
 * Communication between a web client and a server written in
   different languages
 
-<aside class="alert alert-warning">
-**Disclaimer:**
+<aside class="alert alert-info">
+**Note:**
 The protobuf package is a community contribution from Google, but
 it's not part of the Dart SDK.
 </aside>
