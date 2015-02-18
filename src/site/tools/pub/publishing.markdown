@@ -12,7 +12,7 @@ It also allows you to share your packages with the world. If you have a useful
 project and you want others to be able to use it, use the `pub publish`
 command. For your first time around, you can perform a dry run like so:
 
-{% prettify sh %}
+{% prettify none %}
 $ pub publish --dry-run
 {% endprettify %}
 
@@ -40,14 +40,14 @@ Publishing transmogrify 1.0.0 to https://pub.dartlang.org:
 Package has 0 warnings.
 {% endprettify %}
 
-To publish your package for reals, remove the `--dry-run` argument:
+When you're ready to publish your package, remove the `--dry-run` argument:
 
-{% prettify sh %}
+{% prettify none %}
 $ pub publish
 {% endprettify %}
 
 After your package has been successfully uploaded to
-[pub.dartlang.org](https://pub.dartlang.org/), any Pub user will be able to
+[pub.dartlang.org](https://pub.dartlang.org/), any pub user will be able to
 download it or depend on it in their projects. For example, if you just
 published version 1.0.0 of your `transmogrify` package, then another Dart
 developer can add it as a dependency in their `pubspec.yaml`:
@@ -59,12 +59,11 @@ dependencies:
 
 ## Important files
 
-Pub strictly uses the [package layout conventions](package-layout.html) to find
-files that will go into your projects Pub package. Review the conventions to
-understand what Pub will publish.
+Pub will include all files in the current directory (excluding generated files,
+like `packages/, `test/packages/`, `pubspec.lock`) in the uploaded package.
 
-In particular, Pub uses the contents of a few files to create a page for your
-package at pub.dartlang.org/packages/<your_package>. Here are the files that
+Pub also uses the contents of a few files to create a page for your
+package at `pub.dartlang.org/packages/<your_package>`. Here are the files that
 will affect how your package's page will look:
 
 * **README**: The README file (`README`, `README.md`, `README.mdown`,
@@ -74,14 +73,14 @@ will affect how your package's page will look:
   tab on your package's page, so that developers can read it right from
   pub.dartlang.org.
 * **The pubspec**: Your package's `pubspec.yaml` file is used to fill out
-  details about your package on the right-side of your package's page, like its
+  details about your package on the right side of your package's page, like its
   description, authors, etc.
 
 ## Publishing is forever
 
 Keep in mind that publishing is forever. As soon as you publish your package,
 users will be able to depend on it. Once they start doing that, removing
-the package would break theirs. To avoid that, Pub strongly discourages
+the package would break theirs. To avoid that, pub strongly discourages
 deleting packages. You can always upload new versions of your package, but
 old ones will continue to be available for users that aren't ready to
 upgrade yet.
