@@ -54,9 +54,8 @@ A _No stack_ message occurs if the isolate is paused.
 
 A web app, by definition, displays inside of a browser.
 The browser, not Dart, performs the drawing code.
-Perhaps you have an app that performs animations and you are using
-Observatory inside of Dartium to examine your app.
-The CPU is likely to spend more time performing the
+If you have an app that performs animations, 
+the CPU is likely to spend more time performing the
 drawing for the animation than it spends inside your Dart code. 
 
 A _No stack_ message occurs if the request is made while the CPU
@@ -65,3 +64,4 @@ a stack trace eventually appears if that isolate is still performing work.
 
 {% include observatory_new_fyi.html %}
 
+{% include observatory_footer.html %}

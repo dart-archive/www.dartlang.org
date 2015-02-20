@@ -17,3 +17,6 @@ If you select the **breakpoints** link in the UI, you will see a
 `FormatException` error.
 
 {% include observatory_new_fyi.html %}
+
+{% include observatory_footer.html %}
+

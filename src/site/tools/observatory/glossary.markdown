@@ -100,3 +100,5 @@ modern browser.
 
 {% include observatory_new_fyi.html %}
 
+{% include observatory_footer.html %}
+

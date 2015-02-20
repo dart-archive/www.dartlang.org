@@ -30,18 +30,18 @@ header:
 ## Get Observatory {#get-observatory}
 
 To get Observatory, just download 
-[Dart Editor](/tools/download.html#whole_enchilada),
-[Dart SDK](/tools/download.html#a_la_carte),
-or [Dartium](/tools/download.html#a_la_carte). All of those
-downloads include both the Dart VM and the Observatory tool.
+[Dart SDK](/tools/download.html#a_la_carte) or
+[Dart Editor](/tools/download.html#whole_enchilada).
+Both of those downloads include the Observatory tool.
 
 You can use Dart to create two kinds of applications: standalone
 applications (including servers), and web applications
 (which run in a browser).
 For standalone apps, Observatory can be enabled either at the command
 line or from Dart Editor. For browser-based apps, Observatory
-can be enabled from the browser,
-so you can use it to profile and debug any Dart application.
+can be opened in any browser using information obtained when launching
+your app in Dartium from the command line.
+So you can use Observatory to profile and debug any Dart application.
 
 ## Start Observatory {#start-observatory}
 
@@ -58,7 +58,7 @@ you launch your app to enable it.
 
 ### Standalone apps from Dart Editor {#standalone-Dart-Editor}
 
-You can open Observatory once launch your app.
+You can open Observatory once you launch your app.
 
 When you launch a standalone app in Dart Editor, it opens a console
 window to display the output.  An "Open Observatory" icon is available
@@ -75,12 +75,12 @@ To customize the launch configuration for your app, select
 <img src="images/DartEditorEnable.png" alt="The managed launches dialog in Dart Editor">
 
 Check the **Pause isolate on start** box if you want the root isolate
-to pause before executing&mdash; this is equivalent to specifying the
+to pause before executing&mdash;this is equivalent to specifying the
 `--pause-isolates-on-start` flag and is useful if you want to connect
 to Observatory before the isolate begins running.
 
 Check the **Pause isolate on exit** box if you want the root isolate
-to remain alive when execution has completed&mdash; this is
+to remain alive when execution has completed&mdash;this is
 equivalent to specifying the `--pause-isolates-on-exit` flag and
 is useful for an application that might otherwise finish executing
 before you can connect it to Observatory.
@@ -109,10 +109,46 @@ Open a browser to `localhost:8181` to see the Observatory UI.
 
 ### Web apps {#web-launch}
 
-Launch your app in Dartium. 
+<aside class="alert alert-info" markdown="1">
+Prior to 1.9, you launched Observatory from DevTools within Dartium.
+As of 1.9, you launch Observatory in any browser using the URL
+obtained when launching Dartium from the command line.
 
-Bring up the **Tools > Developer Tools** menu item and select the
-**Observatory** tab.
+Launching Observatory for web apps will be more streamlined in
+a future release.
+</aside>
+
+From the command-line, launch your app in Dartium. For example,
+the following command launches a local copy of the Sunflower demo:
+
+Mac OS:
+
+{% prettify sh %}
+$ cd <path-to-demo>/sunflower/web
+$ <path-to-Dartium>/Chromium.app/Contents/MacOS/Chromium sunflower.html
+{% endprettify %}
+
+Windows:
+
+{% prettify sh %}
+> cd <path-to-demo>\sunflower\web
+> <path-to-Dartium>\Chromium\Application\chromium.exe sunflower.html
+{% endprettify %}
+
+Linux:
+
+{% prettify sh %}
+$ cd <path-to-demo>/sunflower/web
+$ <path-to-Dartium>/chromium-browser sunflower.html
+{% endprettify %}
+
+The command-line output includes a line similar to the following:
+
+{% prettify sh %}
+Observatory listening on http://127.0.0.1:49621
+{% endprettify %}
+
+Open this URL in any browser to bring up Observatory.
 
 ## Observatory UI {#observatory-ui}
 
@@ -219,3 +255,6 @@ Want a stack trace?
 
 Want to know the state of the root isolate or another isolate?
 : [Isolate](isolate.html)
+
+{% include observatory_footer.html %}
+

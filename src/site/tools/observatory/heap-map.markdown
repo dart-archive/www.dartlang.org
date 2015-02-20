@@ -76,3 +76,4 @@ see [Evaluating Expressions](evaluate.html).
 
 {% include observatory_new_fyi.html %}
 
+{% include observatory_footer.html %}
