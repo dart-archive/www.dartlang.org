@@ -156,6 +156,9 @@ bundle exec ruby src/tests/site/sanity.rb <URL>
     (This matters because at least one external program relies on the App Engine
     version matching the text in www.dartlang.org/release.txt, and the contents
     of /release.txt are generated using the name of the current branch.)
+  * If you see the error `/bin/sh: appcfg.py: command not found`, try launching
+    GoogleAppEngineLauncher. If it hasn't yet set up links for its commands,
+    it'll automatically do so, fixing the problem.
 * You will probably need to generate an
   [App-specific password](https://sites.google.com/a/google.com/second-factor/application-specific-passwords-faq).
   Save this password into the App Engine Launcher during the first deployment.
