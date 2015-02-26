@@ -606,8 +606,8 @@ bool convertToBool(arg) {
 #### DO name types using `UpperCamelCase`.
 {:.no_toc}
 
-Classes and typedefs should capitalize the first letter of each word (including
-the first word), and use no separators.
+Classes, enums, and typedefs should capitalize the first letter of each word
+(including the first word), and use no separators.
 
 <div class="good" markdown="1">
 {% prettify dart %}
@@ -628,7 +628,8 @@ typedef num Adder(num x, num y);
 {:.no_toc}
 <!-- https://github.com/dart-lang/www.dartlang.org/issues/831 -->
 
-In new code, use `lowerCamelCase` for constant variables.
+In new code, use `lowerCamelCase` for constant variables, including enum
+values.
 
 In existing code that uses `ALL_CAPS_WITH_UNDERSCORES` for constants, you
 may continue to use all caps to stay consistent.
@@ -1009,7 +1010,7 @@ compact. Do you really need to call that class
 `AbstractWidgetFactoryManagerBuilder`?
 
 
-#### DO place the operator on the preceding line in a multi-line expression.
+#### DO place binary operators on the preceding line in a multi-line expression.
 {:.no_toc}
 
 There are valid arguments for both styles but most of our code seems to go this
@@ -1038,6 +1039,31 @@ bobLikes() =>
 {% prettify dart %}
 bobLikes()
     => isDeepFried || (hasPieCrust && !vegan) || containsBacon;
+{% endprettify %}
+</div>
+
+
+#### DO place ternary operators on the next line in a multi-line expression.
+{:.no_toc}
+
+Also, if you break the line before one of the operators, prefer breaking
+around both.
+
+<div class="good">
+{% prettify dart %}
+return someCondition
+    ? whenTrue
+    : whenFalse;
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+return someCondition ?
+    whenTrue :
+    whenFalse;
+return someCondition
+    ? whenTrue : whenFalse;
 {% endprettify %}
 </div>
 
@@ -1525,5 +1551,67 @@ followed by more alphanumeric text, the `{}` can and should be omitted.
 {% prettify dart %}
 'Hi, ${name}!'
 "Wear your wildest ${decade}'s outfit."
+{% endprettify %}
+</div>
+
+
+## Ordering
+
+#### DO specify dart: imports, then package: imports, and then relative imports
+{:.no_toc}
+
+Separate import sections from each other with a single blank line.
+
+Within each section, prefer sorting alphabetically. If you use a
+`package:` import to import from your own package, consider putting
+that import in the relative import section.
+
+<div class="good">
+{% prettify dart %}
+import 'dart:async';
+import 'dart:convert' show JSON;
+import 'dart:html';
+
+import 'package:bar/bar.dart'
+import 'package:bar/foo.dart'
+import 'package:foo/bar.dart'
+
+import 'a.dart';
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+import 'dart:html';
+import 'dart:async';
+import 'dart:convert' show JSON;
+
+import 'a.dart';
+import 'package:bar/bar.dart'
+import 'package:foo/bar.dart'
+import 'package:bar/foo.dart'
+{% endprettify %}
+</div>
+
+#### PREFER specifying exports in a separate section after all imports
+{:.no_toc}
+
+Put a single blank line above the exports section.
+
+<div class="good">
+{% prettify dart %}
+import 'src/error.dart';
+import 'src/string_source.dart';
+
+export 'src/error.dart';
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+import 'src/error.dart';
+export 'src/error.dart';
+
+import 'src/string_source.dart';
 {% endprettify %}
 </div>
