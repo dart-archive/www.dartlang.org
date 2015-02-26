@@ -209,6 +209,8 @@ application = WSGIApplication(
       defaults={'_uri': '/polymer/upgrading-to-polymer-from-web-ui.html'}),
     Route('/docs/technical-overview/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch01.html'}),
+    Route('/tools/download-editor.html', RedirectHandler,
+      defaults={'_uri': '/tools/download.html'}),
     Route('/downloads.html', RedirectHandler,
       defaults={'_uri': '/tools/download.html'}),
     Route('/tools/download_archive/', RedirectHandler,

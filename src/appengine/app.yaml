@@ -105,6 +105,9 @@ handlers:
 - url: /downloads.html
   script: scripts.redirector.application
 
+- url: /tools/download-editor.html
+  script: scripts.redirector.application
+
 - url: /tools/download_archive.*
   script: scripts.redirector.application
 
