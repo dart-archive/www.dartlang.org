@@ -127,7 +127,7 @@ Adwords for video
 Google internal tool for marketing
 : Built with AngularDart.
 
-[Statim APPcatalog](http://www.statim-appcatalog.com/en)
+[Prime APPcatalog](http://www.primeapp.it/en)
 : An interactive product catalog for tablets and smartphones. Built with Dart, Sencha Touch.
 
 [Centryl](http://www.centryl.com)
