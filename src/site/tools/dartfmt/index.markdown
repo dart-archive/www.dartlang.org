@@ -16,117 +16,39 @@ Use _dartfmt_ to format your Dart code according to the conventions in the
 [Dart Style Guide](/articles/style-guide/).
 
 <aside class="alert alert-warning" markdown="1">
-The _dartfmt_ tool is available in the Dart SDK and in Dart Editor
-as of the 1.2 release.
-
-Dartfmt is in Early Preview. Please file
-issues and requests on [dartbug.com](http://dartbug.com/new).
+Dartfmt has been re-written for the 1.9 release.
+Please file issues and requests on the
+[dart_style](https://github.com/dart-lang/dart_style/issues)
+repo on GitHub.
 </aside>
 
 To format your code in Dart Editor, right-click in
 the editor pane to bring up the menu, and select the **Format** option.
-This runs the [code transform](#code-transform-formatting) level of formatting.
 
-## Two levels of formatting
+The formatter fixes indentation and white space, and inserts line
+breaks where appropriate. Only white space is affected.
+Dartfmt is safe to run automatically. We encourage you to add it to your
+build scripts.
 
-Dartfmt provides two levels of formatting.
-
-### Basic formatting
-The basic level of formatting cleans up indentation and white space,
-and inserts line breaks where appropriate.
-This level of formatting affects white space only.
-
-The basic level of formatting is the default when running dartfmt
-from the command line.
-
-The following example breaks several conventions in the
-[Dart Style Guide](/articles/style-guide/),
-including the position of the curly braces,
-using tabs for indentation, and the lack of white space around
-an operator.
+The following example shows a complex expression, with most
+white space removed, and the code that results when using dartfmt.
 
 {% prettify dart %}
 // BEFORE formatting
-if (dayOfWeek==3)
-{
-        print("It's Donut Day!");
-  }
+if (tag=='style'||tag=='script'&&(type==null||type == TYPE_JS
+      ||type==TYPE_DART)||
+  tag=='link'&&(rel=='stylesheet'||rel=='import')) {}
 {% endprettify %}
 
 Dartfmt converts this to:
 
 {% prettify dart %}
 // AFTER formatting
-if (dayOfWeek == 3) {
-  print("It's Donut Day!");
-}
+if (tag == 'style' ||
+    tag == 'script' &&
+        (type == null || type == TYPE_JS || type == TYPE_DART) ||
+    tag == 'link' && (rel == 'stylesheet' || rel == 'import')) {}
 {% endprettify %}
-
-### Code transform formatting {#code-transform-formatting}
-
-The second level of formatting applies transforms to the code
-to perform light cleanup.
-This level of formatting is the default in Dart Editor and is
-enabled using the `--transform` option at the command line.
-
-Code transform formatting involves enclosing control blocks, terminating
-empty constructors, and removing empty statements.
-
-#### Enclosing control blocks
-
-Dartfmt ensures that all flow control structures are enclosed with
-curly braces, with the exception of a single-line `if` statement
-with no corresponding `else`.
-
-For example, consider this code:
-
-{% prettify dart %}
-// BEFORE formatting
-if (dayOfWeek == 3) print('Donut Day!');
-else
-  print('Kale Day!');
-{% endprettify %}
-
-After code transform formatting, it becomes this:
-
-{% prettify dart %}
-// AFTER formatting
-if (dayOfWeek == 3) {
-  print('Donut Day!');
-} else {
-  print('Kale Day!');
-}
-{% endprettify %}
-
-#### Terminating empty constructors
-
-In an empty constructor that is written using curly braces, `{}`,
-the braces are replaced with a semicolon.
-
-For example, consider this code:
-
-{% prettify dart %}
-// BEFORE formatting
-class Point {
-  int x, y;
-  Point(this.x, this.y) {}
-}
-{% endprettify %}
-
-After code transform formatting, it becomes this:
-
-{% prettify dart %}
-// AFTER formatting
-class Point {
-  int x, y;
-  Point(this.x, this.y);
-}
-{% endprettify %}
-
-#### Removing empty statements
-
-Extra semicolons are removed, where possible.
-
 
 ## Basic usage {#basic-usage}
 
@@ -157,18 +79,9 @@ Common command-line options for dartfmt include:
 : Write the output back into the source file.
   By default, the output goes to standard output.
             
-`-t` or `--transform`
-: Perform code transformations, as described in
-  [Code transform formatting](#code-transform-formatting).
-  This mode is disabled, by default.
-
-`-m` or `--machine`
-: Produce output with explicit line breaks that can be parsed.
-
 `-l <value>` or `--max_line_length=<value>`
-: Wrap any lines longer than the specified value. To never wrap,
-  specify "Infinity" or "Inf".  The default value is 80.
-  Comments are not affected.
+: Wrap any lines longer than the specified value.
+  The default value is 80.  Comments are not affected.
 
 `-h` or `--help`
 : Display help.
