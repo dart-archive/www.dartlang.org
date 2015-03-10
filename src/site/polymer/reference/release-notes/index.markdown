@@ -148,9 +148,9 @@ the Dart script tags that were contained in those imports.
 
 There was a lot of work to make this happen, and for those interested we have
 made the original design docs available here:
-  * [Transparently consuming elements in Dart](https://docs.google.com/document/d/19ina_tZKlG08UFjGYuiKjwJZWq-jx7Ij_peeK8hAyq4)
-  * [Dart to html imports via @HtmlImport](https://docs.google.com/document/d/1JEyJFZwT8h0dXD5CiYKWsgBGdaYAf5XaACXWH5GDBAc)
-  * [Declarative initializers](https://docs.google.com/document/d/1DYcFTBWQaUQjt13yKAvXT06reOaya2FS2T9jBtin88E/)
+  * [Transparently consuming elements in Dart](https://github.com/dart-lang/polymer-dart/wiki/Transparently-consume-material-elements-in-Dart)
+  * [Dart to html imports via @HtmlImport](https://github.com/dart-lang/polymer-dart/wiki/Dart-to-HTML-imports)
+  * [Declarative initializers](https://github.com/dart-lang/polymer-dart/wiki/Declarative-initializers)
     (General solution which now powers @HtmlImport, @CustomTag, @CustomElement,
     and @initMethod).
 
