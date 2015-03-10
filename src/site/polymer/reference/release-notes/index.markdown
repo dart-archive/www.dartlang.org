@@ -115,9 +115,8 @@ In order to use these features outside of polymer, you will need to import
 
 #### The `web_components` transformer
 
-We are happy to announce the web_components transformer, which is essentially
-the same as the original Polymer transformer, but with all the Polymer specific
-logic ripped out. Use it just like the Polymer transformer:
+This is essentially the same as the original Polymer transformer, but with all
+the Polymer specific logic ripped out. Use it just like the Polymer transformer:
 
     transformers:
     - web_components:
