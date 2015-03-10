@@ -91,20 +91,6 @@ Up to this point, some features from the `web_components` package (such as HTML
 imports) have not been very useable outside of Polymer. As of this release we
 have made big strides towards removing this restriction.
 
-#### The `web_components` transformer
-
-We are happy to announce the web_components transformer, which is essentially
-the same as the original Polymer transformer, but with all the Polymer specific
-logic ripped out. Use it just like the Polymer transformer:
-
-    transformers:
-    - web_components:
-        entry_points:
-          - web/index.html
-
-This will inline all your HTML imports and bootstrap your application with all
-the Dart script tags that were contained in those imports.
-
 #### Declarative custom element registration with @CustomElement
 
 @CustomElement works just like @CustomTag from Polymer, except it just registers
@@ -127,6 +113,20 @@ In order to use these features outside of polymer, you will need to import
 `package:initialize/initialize.dart` and call the `run` method. This is the
 `web_components` equivalent to `initPolymer()`.
 
+#### The `web_components` transformer
+
+We are happy to announce the web_components transformer, which is essentially
+the same as the original Polymer transformer, but with all the Polymer specific
+logic ripped out. Use it just like the Polymer transformer:
+
+    transformers:
+    - web_components:
+        entry_points:
+          - web/index.html
+
+This will inline all your HTML imports and bootstrap your application with all
+the Dart script tags that were contained in those imports.
+
 ### Breaking changes
 
   * The `initPolymer()` method now returns a `Future<Zone>` instead of a `Zone`.
@@ -136,10 +136,9 @@ In order to use these features outside of polymer, you will need to import
   * The transformer has been heavily refactored and may behave slightly
     differently. Please file any bugs related to this
     [here](https://github.com/dart-lang/polymer-dart/issues/new).
-
     * One example of this is the way that annotations are found. The whole
       program is recursively crawled for annotations, where before only the top
-      level library loaded from any given script tag was crawled.
+      level library loaded from each script tag was processed.
     * The registration order of elements is likely to be different if using a
       mix of regular html imports and @HtmlImport annotations. This should not
       affect applications because the same guarantees exist (your dependencies
