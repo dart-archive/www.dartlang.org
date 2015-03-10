@@ -20,6 +20,142 @@ and the release announcements in the
 
 {% include default_toc.html %}
 
+## Polymer 0.16.0
+
+There were two primary goals of this update:
+
+  * Make elements more consumable from pure Dart programs, without direct
+    knowledge of html imports or web components technologies.
+  * Decouple web components technologies from Polymer.
+
+### Making elements more consumable
+
+Starting from this release, it is now possible to consume core and paper
+elements using only Dart imports. For example, the following app has no HTML
+imports:
+
+{% prettify html %}
+<paper-button>click here</paper-button>
+<script type=”application/dart”>
+    import ‘packages/paper_elements/paper_button.dart’;
+    export ‘packages/polymer/init.dart’;
+</script>
+{% endprettify %}
+
+This is possible because of a new annotation which allows you to declare your
+HTML dependencies inside your Dart files. Simply add @HtmlImport to your library
+declaration, and supply it a relative or `package:` style path:
+
+{% prettify dart %}
+// Note: For package imports, use `package:` just like a normal dart import.
+@HtmlImport(‘my_element.html’)
+library my_element;
+
+@CustomTag(‘my-element’)
+class MyElement extends PolymerElement { … }
+{% endprettify %}
+
+In Dartium, `initPolymer` will inject an HTML import into the document
+dynamically. For deployment, a transformer will inline these into the main
+document just like normal HTML imports.
+
+By buying into this system throughout your entire app, you can remove all manual
+HTML imports and replace them with Dart imports. This has the benefit of
+allowing your program to be completely driven by Dart code, instead of both HTML
+and Dart. This in turn paves the way towards future support of deferred imports.
+
+**Note:** The main `package:polymer/polymer.dart` file loads `polymer.html` this
+way, which means that you no longer need to include an HTML import to
+`packages/polymer/polymer.html`.
+
+**Caveat:** Dartium does not support script tags in dynamically injected HTML
+imports. Even if the script is already loaded by your main program, it will
+still show a warning (see [22712](http://dartbug.com/)). If you would like to
+build an element today which can be imported through either HTML or Dart without
+warnings, you can use
+[this pattern](https://gist.github.com/jakemac53/6db65176335242581b4e) which the
+new core and paper elements packages follow.
+
+### New single page app example
+
+We are also releasing a new Polymer example which demonstrates how to use core
+and paper elements to make a responsive single page app with very little css and
+no HTML imports. See the tutorial [here](https://www.dartlang.org/polymer/spa/),
+live demo [here](http://dart-lang.github.io/polymer-spa-example/final/), and the
+code [here](https://github.com/dart-lang/polymer-spa-example).
+
+
+### Decoupling Web Components from Polymer
+
+Up to this point, some features from the `web_components` package (such as HTML
+imports) have not been very useable outside of Polymer. As of this release we
+have made big strides towards removing this restriction.
+
+#### The `web_components` transformer
+
+We are happy to announce the web_components transformer, which is essentially
+the same as the original Polymer transformer, but with all the Polymer specific
+logic ripped out. Use it just like the Polymer transformer:
+
+    transformers:
+    - web_components:
+        entry_points:
+          - web/index.html
+
+This will inline all your HTML imports and bootstrap your application with all
+the Dart script tags that were contained in those imports.
+
+#### Declarative custom element registration with @CustomElement
+
+@CustomElement works just like @CustomTag from Polymer, except it just registers
+the element directly with the document via `document.registerElement(...)`.
+
+{% prettify dart %}
+@CustomElement(‘my-element’)
+class CustomElement extends HtmlElement {
+  CustomElement.created() : super.created();
+}
+{% endprettify %}
+
+This provides a declarative method of creating normal custom elements, without
+having to pay for all the Polymer features such as template binding and
+observables if you don’t need them.
+
+#### Initializing pure `web_components` apps
+
+In order to use these features outside of polymer, you will need to import
+`package:initialize/initialize.dart` and call the `run` method. This is the
+`web_components` equivalent to `initPolymer()`.
+
+### Breaking changes
+
+  * The `initPolymer()` method now returns a `Future<Zone>` instead of a `Zone`.
+    This is not completed until all @HtmlImport imports have finished loading.
+    See the [changelog](https://pub.dartlang.org/packages/polymer#changelog) for
+    more information and a few example migration paths.
+  * The transformer has been heavily refactored and may behave slightly
+    differently. Please file any bugs related to this
+    [here](https://github.com/dart-lang/polymer-dart/issues/new).
+
+    * One example of this is the way that annotations are found. The whole
+      program is recursively crawled for annotations, where before only the top
+      level library loaded from any given script tag was crawled.
+    * The registration order of elements is likely to be different if using a
+      mix of regular html imports and @HtmlImport annotations. This should not
+      affect applications because the same guarantees exist (your dependencies
+      will run before you).
+  * Requires the `1.9.0-dev.7.1` sdk or higher.
+
+### Under the hood
+
+There was a lot of work to make this happen, and for those interested we have
+made the original design docs available here:
+  * [Transparently consuming elements in Dart](https://docs.google.com/document/d/19ina_tZKlG08UFjGYuiKjwJZWq-jx7Ij_peeK8hAyq4)
+  * [Dart to html imports via @HtmlImport](https://docs.google.com/document/d/1JEyJFZwT8h0dXD5CiYKWsgBGdaYAf5XaACXWH5GDBAc)
+  * [Declarative initializers](https://docs.google.com/document/d/1DYcFTBWQaUQjt13yKAvXT06reOaya2FS2T9jBtin88E/)
+    (General solution which now powers @HtmlImport, @CustomTag, @CustomElement,
+    and @initMethod).
+
 ## Polymer 0.15.2
 
 This release updates polymer to match JavaScript's version 0.5.1.
