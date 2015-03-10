@@ -148,6 +148,7 @@ the Dart script tags that were contained in those imports.
 
 There was a lot of work to make this happen, and for those interested we have
 made the original design docs available here:
+
   * [Transparently consuming elements in Dart](https://github.com/dart-lang/polymer-dart/wiki/Transparently-consume-material-elements-in-Dart)
   * [Dart to html imports via @HtmlImport](https://github.com/dart-lang/polymer-dart/wiki/Dart-to-HTML-imports)
   * [Declarative initializers](https://github.com/dart-lang/polymer-dart/wiki/Declarative-initializers)
