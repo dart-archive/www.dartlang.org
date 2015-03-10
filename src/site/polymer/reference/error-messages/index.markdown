@@ -782,3 +782,92 @@ running in dartium with a local server.
 
 ----
 
+### Missing Dart script tag in entry point. [#47](#polymer_47)
+{: #polymer_47}
+
+{% raw %}All entry points should have a dart script file. This can sometimes happen if
+you are using the default entry_points value in your polymer transformer
+configuration but have files which are not entry points in your `web` or `test`
+directory. Moving these files to your `lib` folder or specifying all your entry
+points in your configuration will fix this.
+{% endraw %}
+
+----
+
+### polymer.dart not imported. [#48](#polymer_48)
+{: #polymer_48}
+
+{% raw %}It is required that your application contains an import to
+`package:polymer/polymer.dart`.
+{% endraw %}
+
+----
+
+## Messages from package `web_components`
+
+----
+
+### URL to a script file might be incorrect [#0](#web_components_0)
+{: #web_components_0}
+
+{% raw %}An error occurred trying to read a script tag on a given URL. This is often the
+result of a broken URL in a `<script src="...">`.
+{% endraw %}
+
+----
+
+### Dart script file included more than once. [#1](#web_components_1)
+{: #web_components_1}
+
+{% raw %}Duplicate dart scripts often happen if you have multiple html imports that
+include the same script. The simplest workaround for this is to move your dart
+script to its own html file, and import that instead of the script (html imports
+are automatically deduped).
+
+For example:
+
+    <script type="application/dart" src="foo.dart"></script>
+
+Should turn into:
+
+    <link rel="import" href="foo.html">
+
+And `foo.html` should look like:
+
+    <script type="application/dart" src="foo.dart"></script>
+{% endraw %}
+
+----
+
+### Each entry point html file should contain exactly one dart script tag. [#2](#web_components_2)
+{: #web_components_2}
+
+{% raw %}Each entry point html file should contain exactly one dart script tag.{% endraw %}
+
+----
+
+### Internal error: don't know how to include a URL [#3](#web_components_3)
+{: #web_components_3}
+
+{% raw %}Sorry, you just ran into a bug in the web_components transformer code. Please
+file a bug at <https://github.com/dart-lang/web-components/issues/new>
+including, if possible, some example code that can help the team reproduce the
+issue.
+{% endraw %}
+
+----
+
+### Error while inlining an import [#4](#web_components_4)
+{: #web_components_4}
+
+{% raw %}An error occurred while inlining an import in the web_components build. This is
+often the result of a broken HTML import.
+
+One possible cause is using an @HtmlImport containing a relative path from
+within an inline script tag, see http://goo.gl/ZgrhaV. The workaround currently
+is to use a `package:` url instead, move the code to a dart file, or simply
+adding a real html import (since you are already in an html file).
+{% endraw %}
+
+----
+
