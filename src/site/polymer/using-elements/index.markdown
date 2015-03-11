@@ -28,9 +28,9 @@ you want to use:
 name: my_app
 description: An application that uses core and paper elements
 dependencies:
-  polymer: ">=0.15.1 <0.16.0"
-  [[highlight]]core_elements: ">=0.3.0 <0.4.0"[[/highlight]]
-  [[highlight]]paper_elements: ">=0.4.0 <0.5.0"[[/highlight]]
+  polymer: ">=0.15.1 <0.17.0"
+  [[highlight]]core_elements: ">=0.6.0 <0.7.0"[[/highlight]]
+  [[highlight]]paper_elements: ">=0.6.0 <0.7.0"[[/highlight]]
 transformers:
 - polymer
 {% endprettify %}

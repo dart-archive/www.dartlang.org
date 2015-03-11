@@ -24,16 +24,17 @@ much of this will move out into formal documentation.
 
 On www.dartlang.org:
 
+* [Polymer.dart Code Lab](/codelabs/polymer/)
+* [Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
 * [Polymer.dart](/polymer/)
+  * [Using Elements](/polymer/using-elements/)
+  * [Building Single Page Apps using Polymer.dart](/polymer/spa/)
   * [Imports and Your App’s Directory Structure](/polymer/app-directories.html)
   * [Creating Elements](/polymer/creating-elements/)
-  * [Using Elements](/polymer/using-elements/)
   * [Upgrading to Polymer.dart from Web UI](/polymer/upgrading-to-polymer-from-web-ui.html)
   * [Reference](/polymer/reference/)
     * [Error Messages](/polymer/reference/error-messages/)
     * [Release Notes](/polymer/reference/release-notes/)
-* [Polymer.dart Code Lab](/codelabs/polymer/)
-* [Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
 
 {% comment %}
 { TODO: autogenerate that list. Put it somewhere more visible.}
@@ -91,10 +92,13 @@ For example:
 > less pubspec.yaml
 ...
 dependencies:
-    polymer: ">=0.14.0 <0.15.0"
+    polymer: ">=0.15.1 <0.17.0"
 ...
 > pub run polymer:new_element knitting-chart -o lib
 {% endprettify %}
+{% comment %}
+UPDATE version each release
+{% endcomment %}
 
 
 ### Q. How do I generate a new entry point?
@@ -113,10 +117,13 @@ For example:
 > less pubspec.yaml
 ...
 dependencies:
-    polymer: ">=0.14.0 <0.15.0"
+    polymer: ">=0.15.1 <0.17.0"
 ...
 > pub run polymer:new_entry web/index.html
 {% endprettify %}
+{% comment %}
+UPDATE version each release
+{% endcomment %}
 
 ## Using polymer.dart from Dart code
 

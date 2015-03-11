@@ -37,7 +37,7 @@ PENDING: Talk about advantages of polymer.dart development process
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The code samples on this page reflect **polymer.dart 0.15.1**.
+The code samples on this page reflect **polymer.dart 0.16**.
 {% comment %}
 UPDATE version each release
 {% endcomment %}
@@ -103,7 +103,7 @@ use the `polymer` transformer:
 
 {% prettify yaml %}
 dependencies:
-  polymer: ">=0.15.1 <0.16.0"
+  polymer: ">=0.15.1 <0.17.0"
 transformers:
 - polymer
 {% endprettify %}

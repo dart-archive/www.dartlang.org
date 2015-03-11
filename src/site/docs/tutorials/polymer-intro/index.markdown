@@ -52,7 +52,10 @@ The Dart implementation of Polymer is called
 <aside class="alert alert-info">
 <strong>Version note:</strong> The code sample and the content
 of this tutorial are compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.15.1</a>.
+<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.16</a>.
+{% comment %}
+UPDATE version each release
+{% endcomment %}
 </aside>
 
 * [An example](#an-example)
@@ -181,8 +184,11 @@ by adding the package name, `polymer`, to the list.
 name: stopwatch
 description: A sample application
 dependencies:
-  <b>polymer: "&gt;=0.15.1 &lt;0.16.0"</b>
+  <b>polymer: "&gt;=0.15.1 &lt;0.17.0"</b>
   </pre>
+{% comment %}
+UPDATE version each release
+{% endcomment %}
   </li>
 
 <aside class="alert alert-warning">
@@ -600,10 +606,13 @@ to specify the Polymer transformers:
 {% prettify yaml %}
 ...
 dependencies:
-  polymer: ">=0.15.1 <0.16.0"
+  polymer: ">=0.15.1 <0.17.0"
 transformers:
 - polymer
 {% endprettify %}
+{% comment %}
+UPDATE version each release
+{% endcomment %}
 
 By default, Polymer assumes that all HTML files under `web` can be
 _entry points_—files that define pages to be served,
