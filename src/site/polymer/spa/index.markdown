@@ -25,21 +25,21 @@ paper-button.blue:hover {
   <a href="http://dart-lang.github.io/polymer-spa-example/final/" target="_blank"><img src="images/screenshot.png" style="width:300px;"></a>
 </p>
 
-In this article,
-we show you how to build a full-featured single page application that:
+This page shows you how to build a full-featured single page
+application that:
 
 - Is built using Polymer's
   [core elements](https://www.polymer-project.org/docs/elements/core-elements.html)
 - Practices responsive design
-- Transitions between views using data-binding features
+- Transitions between views that use data-binding features
 - Features URL routing and deep linking
 - Is keyboard accessible
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-This page is based on the Polymer article,
-[Building single page apps using web components](https://www.polymer-project.org/articles/spa.html),
-and shows how to implement the same single-page app (SPA) example using Dart.
+This page is based on the Polymer article
+[Building single page apps using web components](https://www.polymer-project.org/articles/spa.html).
+It shows how to implement the same single-page app (SPA) example using Dart.
 
 The code samples used by this page reflect **polymer.dart 0.16**.
 For information about polymer.dart versions, see the
@@ -62,15 +62,19 @@ For an introduction to Polymer.dart see the
 If you like to eat dessert first,
 you can find the files for the finished demo,
 [polymer-spa-example](https://github.com/dart-lang/polymer-spa-example),
-on GitHub. This page references three branches from the GitHub repo
-where each one builds on the previous example:
+on GitHub. This page uses three branches from the GitHub repo,
+where each branch builds on the previous one:
 
 * [example-1-styles](https://github.com/dart-lang/polymer-spa-example/tree/example-1-styles):
-  The basic example uses HTML only.
+  The basic example uses only one file, index.html.
+  The [App structure](#app-structure) section uses this example.
 * [example-2](https://github.com/dart-lang/polymer-spa-example/tree/example-2):
   The intermediate example uses Dart and implements data binding. 
+  The [Creating views](#creating-views) section uses this example.
 * [master](https://github.com/dart-lang/polymer-spa-example):
   The completed example adds URL routing and keyboard navigation.
+  The [Setting up URL Routing](#routing) section (and beyond) uses
+  this example.
 
 ## App structure
 {:style="clear:both"}
@@ -78,19 +82,20 @@ where each one builds on the previous example:
 Designing a layout is one of the first tasks when starting a project.
 As part of its
 [core element collection](https://www.polymer-project.org/docs/elements/core-elements.html),
-Polymer has several [layout elements](https://www.polymer-project.org/docs/elements/layout-elements.html)
-(`<core-header-panel>`, `<core-drawer-panel>`, `<core-toolbar>`)
+Polymer has several
+[layout elements](https://www.polymer-project.org/docs/elements/layout-elements.html)
 for scaffolding an application's structure.
 These components are useful by themselves,
-but for an even quicker start, we're going to focus on `<core-scaffold>`.
+but for a quick start,
+we're going to focus on the `<core-scaffold>` layout element.
 It starts you off with a responsive mobile layout by assembling several
 of the foundational elements.
 
 `<core-scaffold>`'s children are arranged by specifying attributes
 or using specific tags. For example, using a `<nav>` element creates
 the app drawer. Alternatively, you can use the `navigation` attribute on
-any element (e.g `<core-header-panel navigation>`).
-The toolbar is designated with the `tool` attribute.
+any element (for example, `<core-header-panel navigation>`).
+The `tool` attribute identifies the toolbar.
 All other children end up in the main content area.
 
 The following HTML shows the overall structure:
@@ -98,15 +103,15 @@ The following HTML shows the overall structure:
 {% prettify html %}
 <body unresolved fullbleed>
   <core-scaffold id="scaffold">
-    <nav>Left drawer</nav>
-    <core-toolbar tool>Application</core-toolbar>
-    <div>Main content</div>
+    <nav>...Left drawer...</nav>
+    <core-toolbar tool>...Application...</core-toolbar>
+    <div>...Main content...</div>
   </core-scaffold>
 </body>
 {% endprettify %}
 
-The following Dart imports add support for the core elements used,
-and the export initializes the Polymer application.
+The following Dart imports add support for the core elements used;
+the export initializes the Polymer application.
 
 {% prettify dart %}
 <script type="application/dart">
@@ -143,8 +148,8 @@ drawer.  For our purposes, we'll stick with a heading
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-Right now, `<core-menu selected="0">` is hard-coded to select the first item.
-We'll [make that dynamic](#databinding) later.
+Right now, `<core-menu selected="0">` is hard coded to select the
+first item.  We'll [make that dynamic](#databinding) later.
 </aside>
 
 ### Toolbar
@@ -173,10 +178,10 @@ A `<div>` is perfectly fine:
 {% endprettify %}
 
 The `fit` attribute instructs the main area to take up the full width
-and height of its parent and `layout horizontal center-center`
-centers that content horizontally and vertically using flexbox.
+and height of its parent. The `layout horizontal center-center` attributes
+center that content horizontally and vertically using flexbox.
 
-## Creating "views"
+## Creating views
 
 Multiple views (or pages) can be created with `<core-pages>` or
 `<core-animated-pages>`. Both elements are useful for displaying
@@ -185,7 +190,7 @@ is that it provides more defaults and slick transitions between pages.
 
 The demo uses `<core-animated-pages>` with the `slide-from-right`
 transition. The first thing to do is import the element definition
-_and_ the `slide-from-right` transition. 
+and the `slide-from-right` transition. 
 
 First import the necessary packages:
 
@@ -216,7 +221,7 @@ Then drop in your content. The following code is from
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-Right now, `<core-animated-pages selected="0">` is hard-coded to
+Right now, `<core-animated-pages selected="0">` is hard coded to
 select the first page. We'll [make that dynamic](#databinding) later.
 </aside>
 
@@ -247,14 +252,14 @@ turns the app into something beautiful.
 </p>
 
 <p layout horizontal center-center>
-<a href="https://github.com/dart-lang/polymer-spa-example/blob/example-1-styles/web/index.css" target="_blank">
+<a href="https://github.com/dart-lang/polymer-spa-example/blob/example-1-styles/web/index.html" target="_blank">
 
   <paper-button raised class="blue">
     <core-icon icon="arrow-forward"></core-icon>See the HTML 
   </paper-button>
 </a>
 
-<a href="https://github.com/Polymer/docs/blob/master/articles/demos/spa/styles.css" target="_blank">
+<a href="https://github.com/dart-lang/polymer-spa-example/blob/example-1-styles/web/index.css" target="_blank">
   <paper-button raised class="blue">
     <core-icon icon="arrow-forward"></core-icon>See the CSS
   </paper-button>
@@ -264,7 +269,7 @@ turns the app into something beautiful.
 ### Using data binding {#databinding}
 
 We have an app, but it's nothing to write home about.
-It's far from D.R.Y. (Don't Repeat Yourself.)
+It's far from D.R.Y. (Don't Repeat Yourself).
 Similar markup is repeated all over the place:
 
 {% prettify js %}
@@ -288,7 +293,7 @@ Similar markup is repeated all over the place:
 {% endprettify %}
 
 It's also not dynamic.
-When a user selects a menu item the view doesn't update.
+When a user selects a menu item, the view doesn't update.
 Luckily, both of these problems are easily solved by
 creating a top-level element, as shown in the following section.
 
@@ -296,10 +301,10 @@ creating a top-level element, as shown in the following section.
 
 To implement data binding in your app,
 create a top-level element that extends `PolymerElement`.
-This element represents the entire app&mdash;only one exists
-at a time and all other elements are children of this element.
+This element represents the entire app&mdash;only one top-level element
+exists at a time, and all other elements are children of this element.
 
-The following steps show how to do this:
+Here's how to implement the top-level element:
 
 <ol markdown="1">
 <li markdown="1"> Move the contents of the original HTML body to an
@@ -317,8 +322,10 @@ The following steps show how to do this:
 {% endprettify %}
 </li>
 
-<li markdown="1"> Rename `index.css` to `example_app.css`
-     and reference it inside the template in `example_app.html`.
+<li markdown="1"> Rename `index.css` to `example_app.css`,
+     and reference it inside an HTML template.
+     We created an `example_app.html` file and referenced 
+     the CSS like this:
 
 {% prettify html %}
 <polymer-element name="example-app">
@@ -331,7 +338,7 @@ The following steps show how to do this:
 </li>
 
 <li markdown="1"> Move the imports from the old inline script tag into
-     `example_app.dart` and add an `@HtmlImport` annotation to
+     `example_app.dart`, and add an `@HtmlImport` annotation to
      `example_app.html`.
 
 {% prettify html %}
@@ -472,7 +479,7 @@ class ExampleApp extends PolymerElement {
   /// The path of the current [Page].
   @observable var route;
 
-  /// The [Router] which is going to control the app.
+  /// The [Router] that controls the app.
   final Router router = new Router(useFragment: true);
 
   domReady() {
@@ -512,7 +519,7 @@ Keyboard support is not only important for accessibility
 but also makes your SPA feel more like an app.
 
 The following code shows how keyboard support is implemented.
-`<core-ally-keys>` is a drop-in component, provided
+`<core-a11y-keys>` is a drop-in component, provided
 by Polymer, for normalizing browser keyboard events.
 
 HTML:
@@ -546,15 +553,15 @@ When one of those combinations is pressed, `<core-a11y-keys>` fires a
 `keys-pressed` event and invokes your callback.
 
 The handler for the keys-pressed event uses `CoreAnimatedPage`'s
-`selectNext` and `selectPrevious` API to advance to the next page or go back
-to the previous page:
+`selectNext()` and `selectPrevious()` methods to advance to the
+next page or go back to the previous page:
 
 {% prettify dart %}
 CoreAnimatedPages get corePages => $['pages'];
 
 /// Handler for key events.
 void keyHandler(e) {
-  var detail = new JsObject.fromBrowserObject(e)['detail'];
+  var detail = new [[highlight]]JsObject[[/highlight]].fromBrowserObject(e)['detail'];
 
   switch (detail['key']) {
     case 'left':
@@ -579,15 +586,20 @@ void keyHandler(e) {
       route = pages[num - 1].path;
     }
     return;
-  } catch(e) {}
+  } catch (e) {}
 }
 {% endprettify %}
+
+The `JsObject` class is part of the
+[js-interop](https://github.com/dart-lang/js-interop) package.
+This package provides high-level interoperability between Dart and
+JavaScript.
 
 ## Finishing touches {#extras}
 
 Use these final tips to polish your app.
 
-### When a menu item is clicked, close the app drawer
+### Clicking a menu item closes the app drawer 
 {:.no_toc}
 
 HTML:
@@ -629,7 +641,7 @@ Dart:
 class ExampleApp extends PolymerElement {
   ...
 
-  /// Cycle pages on click.
+  /// Cycles pages on click.
   void cyclePages(Event e, detail, sender) {
     var event = new JsObject.fromBrowserObject(e);
     // Clicks on links should not cycle pages.
@@ -646,8 +658,8 @@ class ExampleApp extends PolymerElement {
 
 ## Completed example
 
-And that's it! You can see the final source code, or play with
-the example, at the following links.
+And that's it! You can see the final source code or play with
+the example at the following links.
 
 <p layout horizontal center-center>
 <a href="http://dart-lang.github.io/polymer-spa-example/final/" target="_blank">
@@ -662,6 +674,6 @@ the example, at the following links.
   </paper-button>
 </a></p>
 
-Please file issues and requests on
-[GitHub](https://github.com/dart-lang/polymer-spa-example/issues).
+If you find bugs in the code, or have a question, please 
+[file an issue](https://github.com/dart-lang/polymer-spa-example/issues).
 

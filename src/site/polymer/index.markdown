@@ -214,7 +214,7 @@ as well as the source code that _implements_ polymer.dart.
 
 ### Samples
 
-Here are a couple of places to find polymer.dart sample code:
+Here are a few places to find polymer.dart sample code:
 
 {% comment %}
 {PENDING: introduce. point to more ways to find samples/source code.}
@@ -222,6 +222,11 @@ Here are a couple of places to find polymer.dart sample code:
 
 [polymer-dart-patterns](https://github.com/dart-lang/polymer-dart-patterns)
 : Small, useful samples that show how to do things the polymer.dart way.
+
+[polymer-spa-example](https://github.com/dart-lang/polymer-spa-example)
+: A simple example of a full polymer app with multiple pages.
+  Learn more about the example at [Building Single Page Apps using
+  Polymer.dart](/polymer/spa/).
 
 [polymer-and-dart-codelab](https://github.com/dart-lang/polymer-and-dart-codelab)
 : A larger sample, implementing the app featured in
