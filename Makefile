@@ -12,7 +12,7 @@ endif
 clean:
 	rm -rf ./build
 
-build: copy add_version add_release
+build: copy remove_node_modules add_version add_release
 
 pubget:
 	find . -name pubspec.yaml -exec bash -c ' cd $$(dirname {});pwd;pub get' \;
@@ -22,6 +22,9 @@ build_apps:
 
 copy: clean
 	cd ./src/site && bundle exec jekyll build && cd ../.. && cp -R ./src/appengine/* build/
+
+remove_node_modules: copy
+	rm -rf build/static/events/2015/summit/node_modules
 
 add_version:
 	ruby -p -i -e '$$_.gsub!(/CHANGEME/, "$(CURRENT_BRANCH)")' ./build/app.yaml

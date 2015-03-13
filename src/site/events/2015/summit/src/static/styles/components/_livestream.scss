@@ -1,80 +1,162 @@
+/**
+ * Copyright 2014 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 .livestream {
-	width: 100%;
-	max-width: 960px;
-	margin: 0 auto;
-	position: relative;
-	background: $color-primary;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  background: $color-primary;
 }
 
 .livestream:after {
-	content: '';
-	height: 4px;
-	width: 100%;
-	background: #FFF;
-	display: block;
-	z-index: 2;
-	position: absolute;
-	bottom: 0;
+  content: '';
+  height: 4px;
+  width: 100%;
+  background: #FFF;
+  display: block;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
 }
 
 .livestream__image {
-	width: 100%;
-	height: 320px;
-	background-size: cover;
-	position: relative;
+  width: 100%;
+  height: 380px;
+  background-size: cover;
+  position: relative;
+}
+
+.livestream--embedded {
+
+  & .livestream__image {
+    background: $color-primary;
+    padding-top: 64px;
+  }
 }
 
 .livestream__image--image-1 {
-	background-image: url(../images/masthead-1.jpg);
+  background-image: url(../images/masthead-1.jpg);
 }
 
 .livestream__image--image-2 {
-	background-image: url(../images/masthead-2.jpg);
-	background-position: center top;
+  background-image: url(../images/masthead-2.jpg);
+  background-position: center top;
+}
+
+.livestream__image--image-3 {
+  background-image: url(../images/masthead-3.jpg);
+  background-position: 65% top;
+}
+
+.livestream__image--image-4 {
+  background-image: url(../images/masthead-4.jpg);
+  background-position: 60% top
 }
 
 .livestream__anchor {
-	position: relative;
-	padding: 17px 40px 0 76px;
-	display: block;
-	height: 80px;
-	width: 100%;
-	color: #FFF;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 1.375;
-	background: $color-action url(../images/icon-camera.svg) 15px 20px no-repeat;
+  position: relative;
+  padding: 17px 40px 0 76px;
+  display: block;
+  height: 80px;
+  width: 100%;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.375;
+  background: $color-action url(../images/icon-camera.svg) 15px 20px no-repeat;
+}
+
+.livestream__anchor_register {
+  position: relative;
+  padding: 26px 40px 0 76px;
+  display: block;
+  height: 80px;
+  width: 100%;
+  color: #FFF;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.375;
+  background: $color-action url(../images/ic_person_add_24px.svg) 15px 15px no-repeat;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+@media (min-resolution: 2.0dppx), (-webkit-min-device-pixel-ratio: 2), (min-width: 600px) {
+  .livestream__image--image-1 {
+    background-image: url(../images/masthead-1@2x.jpg);
+  }
+
+  .livestream__image--image-2 {
+    background-image: url(../images/masthead-2@2x.jpg);
+  }
+
+  .livestream__image--image-3 {
+    background-image: url(../images/masthead-3@2x.jpg);
+  }
+
+  .livestream__image--image-4 {
+    background-image: url(../images/masthead-4@2x.jpg);
+  }
 }
 
 @media (min-width: 445px) {
-	.livestream__anchor {
-		padding-top: 0;
-		line-height: 76px;
-	}
+  .livestream__anchor {
+    padding-top: 0;
+    line-height: 76px;
+  }
 }
 
 @media (min-width: 600px) {
-	.livestream__anchor {
-		font-size: 18px;
-	}
+  .livestream__anchor {
+    font-size: 18px;
+  }
 
-	.livestream__image {
-		height: 360px;
-	}
+  .livestream__image {
+    height: 460px;
+  }
 }
 
 @media (min-width: 830px) {
-	.livestream__image {
-		height: 468px;
-	}
+  .livestream__image {
+    height: 560px;
+  }
 }
 
 @media (min-width: 960px) {
-	.livestream {
-		border-radius: 3px;
-	}
 
-	.livestream:after {
-		display: none;
-	}
+
+  .livestream--embedded {
+
+    margin-bottom: 0;
+
+    & > .livestream__image {
+      background: $color-primary;
+      padding-top: 0;
+    }
+  }
+
+  .livestream {
+    border-radius: 3px;
+  }
+
+  .livestream:after {
+    display: none;
+  }
 }
