@@ -1042,6 +1042,15 @@ pre li {
     font-weight: bold;
 }
 
+/* Second level of nav */
+.bs-sidebar .nav ol {
+  display: none;
+}
+
+.bs-sidebar .nav>.active>ol {
+  display: block;
+}
+
 /* Show and affix the side nav when space allows it */
 @media (min-width: 992px) {
     .bs-sidebar .nav > .active > ul {
