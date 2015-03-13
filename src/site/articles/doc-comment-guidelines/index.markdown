@@ -36,6 +36,12 @@ See also these related articles:
 
 ## Examples
 
+Dart supports two syntaxes for doc comments (`///` and `/**`), but we
+prefer using `///`. The `///` is more compact. ('/**' and '*/' add two
+"blank" lines to a multiline doc comment). It is also easier to read
+in some situations, such as a doc comment that contains a Markdown list
+bulleted with `*`.
+
 Here's a typical comment for a function or method:
 
 <!-- BEGIN(min) -->{% prettify dart %}
@@ -58,9 +64,9 @@ And one for a variable or property:
 const double pi = 3.1415926535897932;
 {% endprettify %}<!-- END(PI) -->
 
-For an example of a class description with example code, see Completer
-([generated doc](http://api.dartlang.org/dart_async/Completer.html),
-[source code](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/sdk/lib/async/future.dart)).
+For an example of a library with doc comments, see the `path` library.
+([generated doc](http://www.dartdocs.org/documentation/path/1.3.3/index.html),
+[source code](https://github.com/dart-lang/path/blob/1.3.3/lib/path.dart)).
 
 
 ## Content
