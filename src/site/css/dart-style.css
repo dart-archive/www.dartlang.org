@@ -1047,6 +1047,10 @@ pre li {
   display: none;
 }
 
+.bs-sidebar .nav ol a {
+  display: block; /* Maintain correct pointer on hover */
+}
+
 .bs-sidebar .nav>.active>ol {
   display: block;
 }
