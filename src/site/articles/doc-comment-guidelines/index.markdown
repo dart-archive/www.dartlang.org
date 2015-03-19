@@ -58,10 +58,17 @@ And one for a variable or property:
 const double pi = 3.1415926535897932;
 {% endprettify %}<!-- END(PI) -->
 
-For an example of a class description with example code, see Completer
-([generated doc](http://api.dartlang.org/dart_async/Completer.html),
-[source code](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/sdk/lib/async/future.dart)).
+For an example of a library with doc comments, see the `path` library.
+([generated doc](http://www.dartdocs.org/documentation/path/1.3.3/index.html#path/path),
+[source code](https://github.com/dart-lang/path/blob/1.3.3/lib/path.dart)).
 
+<aside class="alert alert-info" markdown="1">
+<b>Style note:</b>
+Dart supports two syntaxes for doc comments: `///` and `/**`.
+This document follows the
+[style guide recommendation](/articles/style-guide/#do-use-doc-comments-when-commenting-members-and-types)
+of using `///`. Older source code tends to use `/**`.
+</aside>
 
 ## Content
 

@@ -835,8 +835,11 @@ Db
 {:.no_toc}
 <!-- https://github.com/dart-lang/www.dartlang.org/issues/668 -->
 
-Although Dart supports two syntaxes of doc comments (`///` and `/**`), we
-prefer using `///` for doc comments.
+Although Dart supports two syntaxes of doc comments (`///` and `/**`), we prefer
+using `///` for doc comments. The `///` is more compact. ('/**' and '*/' add two
+"blank" lines to a multiline doc comment.) It is also easier to read in some
+situations, such as a doc comment that contains a Markdown list bulleted with
+`*`.
 
 <div class="good">
 {% prettify dart %}
