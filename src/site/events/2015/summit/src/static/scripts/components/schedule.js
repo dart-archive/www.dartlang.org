@@ -1,315 +1,361 @@
+/**
+ * Copyright 2014 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 CDS.Schedule = (function() {
 
-	"use strict";
+  "use strict";
 
-	var dPR = window.devicePixelRatio;
-	var card = CDS.Cards['/events/2015/summit/schedule/'];
-	var rootElement = card.getRootElement();
-	var container = rootElement.querySelector('.schedule__overview-container');
-	var canvas = rootElement.querySelector('canvas');
-	var day1Button = rootElement.querySelector('.schedule__day-1');
-	var day2Button = rootElement.querySelector('.schedule__day-2');
-	var ctx = canvas.getContext('2d');
+  var dPR = window.devicePixelRatio;
+  var card = CDS.Cards['/events/2015/summit/schedule/'];
+  var rootElement = card.getRootElement();
+  var container = rootElement.querySelector('.schedule__overview-container');
+  var canvas = rootElement.querySelector('canvas');
+  var day1Button = rootElement.querySelector('.schedule__day-1');
+  var day2Button = rootElement.querySelector('.schedule__day-2');
+  var ctx = canvas.getContext('2d');
 
-	var padding = {
-		top: 82,
-		bottom: 74,
-		left: 16,
-		right: 54
-	};
-	var lineOvershoot = 10;
-	var rootWidth = 0;
-	var rootHeight = 0;
-	var labelWidth = 165;
-	var availableWidth = 0;
-	var availableHeight = 0;
-	var selectedDay = 0;
-	var today = new Date();
-	var day1HitArea = {
-		x: 0, y: 0,
-		width: 50, height: 26
-	};
-	var day2HitArea = {
-		x: 0, y: 0,
-		width: 50, height: 26
-	};
+  var padding = {
+    top: 82,
+    bottom: 74,
+    left: 16,
+    right: 54
+  };
+  var lineOvershoot = 10;
+  var rootWidth = 0;
+  var rootHeight = 0;
+  var labelWidth = 165;
+  var availableWidth = 0;
+  var availableHeight = 0;
+  var selectedDay = 0;
+  var today = new Date();
+  var day1HitArea = {
+    x: 0, y: 0,
+    width: 50, height: 26
+  };
+  var day2HitArea = {
+    x: 0, y: 0,
+    width: 50, height: 26
+  };
 
-	var WHITE = '#FFF';
-	var PURPLE = '#362A6C';
-	var BLUE = '#4A90E2';
+  var WHITE = '#FFF';
+  var PURPLE = '#362A6C';
+  var BLUE = '#4A90E2';
 
-	var days = [{
-		"Breakfast": [{
-			start: 8, duration: 1
-		}],
-		"Keynote": [{
-			start: 9, duration: 0.5
-		},{
-			start: 17, duration: 0.25
-		}],
-		"Sessions": [{
-			start: 9.5, duration: 1.5
-		}, {
-			start: 11.5, duration: 1.5
-		},{
-			start: 14.5, duration: 1.5
-		},{
-			start: 16.5, duration: 0.5
-		}],
-		"Break": [{
-			start: 11, duration: 0.5
-		},{
-			start: 13, duration: 1.5
-		},{
-			start: 16, duration: 0.5
-		}],
-		"After Party": [{
-			start: 17.25, duration: 4.75
-		}]
-	},
-	{
-		"Breakfast": [{
-			start: 8, duration: 1
-		}],
-		"Sessions": [{
-			start: 9, duration: 1.5
-		},{
-			start: 11.75, duration: 0.75
-		},{
-			start: 13.75, duration: 1.5
-		},{
-			start: 16, duration: 1
-		}],
-		"Breakout Discussion": [{
-			start: 10.5, duration: 1.25
-		}],
-		"Break": [{
-			start: 12.5, duration: 1.25
-		},{
-			start: 15.25, duration: 0.75
-		}]
-	}];
-	var dayData = {};
+  var days = [{
+    "Registration": [{
+      start: 8.5, duration: 1
+    }],
+    "Keynote": [{
+      start: 9.5, duration: 0.5
+    }],
+    "Sessions": [{
+      start: 10, duration: 0.5
+    }, {
+      start: 11, duration: 1
+    },{
+      start: 12.5, duration: 0.5
+    },{
+      start: 14.5, duration: 1
+    }, {
+      start: 16.5, duration: 1
+    }],
+    "Interactive": [{
+      start: 12, duration: 0.5,
+    }, {
+      start: 15.5, duration: 0.5
+    }],
+    "Break": [{
+      start: 10.5, duration: 0.5
+    },{
+      start: 13, duration: 1.5
+    },{
+      start: 16, duration: 0.5
+    }],
+    "Lightning Talks": [{
+      start: 17.5, duration: 0.5
+    }],
+    "After Party": [{
+      start: 18, duration: 4
+    }]
+  },
+  {
+    "Registration": [{
+      start: 8.5, duration: 1
+    }],
+    "Keynote": [{
+      start: 9.5, duration: 0.5
+    }],
+    "Sessions": [{
+      start: 10, duration: 0.5
+    }, {
+      start: 11, duration: 1
+    },{
+      start: 12.5, duration: 0.5
+    },{
+      start: 14.5, duration: 1
+    }, {
+      start: 16.5, duration: 1
+    }],
+    "Interactive": [{
+      start: 12, duration: 0.5,
+    }, {
+      start: 15.5, duration: 0.5
+    }],
+    "Break": [{
+      start: 10.5, duration: 0.5
+    },{
+      start: 13, duration: 1.5
+    },{
+      start: 16, duration: 0.5
+    }]
+  }];
+  var dayData = {};
 
-	function getHoursRange(dayId) {
-		var min = Number.POSITIVE_INFINITY;
-		var max = Number.NEGATIVE_INFINITY;
-		var day = days[dayId];
-		var section, blocks, block;
+  function getHoursRange(dayId) {
+    var min = Number.POSITIVE_INFINITY;
+    var max = Number.NEGATIVE_INFINITY;
+    var day = days[dayId];
+    var section, blocks, block;
 
-		if (dayData[dayId])
-			return dayData[dayId];
+    if (dayData[dayId])
+      return dayData[dayId];
 
-		var sections = Object.keys(day);
-		for (var s = 0; s < sections.length; s++) {
-			section = sections[s];
-			for (var t = 0; t < day[section].length; t++) {
-				blocks = day[section];
+    var sections = Object.keys(day);
+    for (var s = 0; s < sections.length; s++) {
+      section = sections[s];
+      for (var t = 0; t < day[section].length; t++) {
+        blocks = day[section];
 
-				for (var b = 0; b < blocks.length; b++) {
-					block = blocks[b];
-					if (block.start < min)
-						min = block.start;
-					if (block.start + block.duration > max)
-						max = block.start + block.duration;
-				}
-			}
-		}
+        for (var b = 0; b < blocks.length; b++) {
+          block = blocks[b];
+          if (block.start < min)
+            min = block.start;
+          if (block.start + block.duration > max)
+            max = block.start + block.duration;
+        }
+      }
+    }
 
-		dayData[dayId] = {
-			min: min,
-			max: max
-		};
+    dayData[dayId] = {
+      min: min,
+      max: max
+    };
 
-		return dayData[dayId];
-	}
+    return dayData[dayId];
+  }
 
-	function onResize() {
+  function onResize() {
 
-		rootWidth = rootElement.offsetWidth;
-		rootHeight = rootElement.offsetHeight;
+    rootWidth = rootElement.offsetWidth;
+    rootHeight = rootElement.offsetHeight;
 
-		canvas.width = rootWidth * dPR;
-		canvas.height = rootHeight * dPR;
+    canvas.width = rootWidth * dPR;
+    canvas.height = rootHeight * dPR;
 
-		ctx.scale(dPR, dPR);
+    ctx.scale(dPR, dPR);
 
-		canvas.style.width = rootWidth + 'px';
+    canvas.style.width = rootWidth + 'px';
     canvas.style.height = rootHeight + 'px';
 
-		availableWidth = rootWidth - labelWidth - padding.left - padding.right;
-		availableHeight = rootHeight - padding.top - padding.bottom;
+    availableWidth = rootWidth - labelWidth - padding.left - padding.right;
+    availableHeight = rootHeight - padding.top - padding.bottom;
 
-		day1HitArea.x = rootWidth - 136;
-		day1HitArea.y = 20;
+    day1HitArea.x = rootWidth - 136;
+    day1HitArea.y = 20;
 
-		day2HitArea.x = rootWidth - 66;
-		day2HitArea.y = 20;
+    day2HitArea.x = rootWidth - 66;
+    day2HitArea.y = 20;
 
-		draw();
-	}
+    draw();
+  }
 
-	function clear() {
-		ctx.clearRect(0, 0, rootWidth, rootHeight);
-		// ctx.fillStyle = PURPLE;
-		// ctx.fillRect(padding.left + labelWidth, padding.top,
-		// 		availableWidth, availableHeight);
-	}
+  function clear() {
+    ctx.clearRect(0, 0, rootWidth, rootHeight);
+    // ctx.fillStyle = PURPLE;
+    // ctx.fillRect(padding.left + labelWidth, padding.top,
+    //    availableWidth, availableHeight);
+  }
 
-	function draw() {
+  function draw() {
 
-		clear();
-		var timeRange = getHoursRange(selectedDay);
-		drawLinesAndTimes(timeRange);
-		drawBlocksAndLabels(timeRange);
-		updateDayLabels();
-	}
+    clear();
+    var timeRange = getHoursRange(selectedDay);
+    drawLinesAndTimes(timeRange);
+    drawBlocksAndLabels(timeRange);
+    updateDayLabels();
+  }
 
-	function updateDayLabels() {
+  function updateDayLabels() {
 
-		if (selectedDay === 0)
-			day1Button.classList.remove('schedule__day-1--inactive');
-		else
-			day1Button.classList.add('schedule__day-1--inactive');
+    if (selectedDay === 0)
+      day1Button.classList.remove('schedule__day-1--inactive');
+    else
+      day1Button.classList.add('schedule__day-1--inactive');
 
-		if (selectedDay === 1)
-			day2Button.classList.remove('schedule__day-2--inactive');
-		else
-			day2Button.classList.add('schedule__day-2--inactive');
-	}
+    if (selectedDay === 1)
+      day2Button.classList.remove('schedule__day-2--inactive');
+    else
+      day2Button.classList.add('schedule__day-2--inactive');
+  }
 
-	function drawLinesAndTimes(timeRange) {
+  function drawLinesAndTimes(timeRange) {
 
-		var range = timeRange.max - timeRange.min;
-		var step = Math.floor(availableWidth / range);
-		var x, time;
-		var lineHeight = availableHeight + lineOvershoot * 2;
+    var range = timeRange.max - timeRange.min;
+    var step = Math.floor(availableWidth / range);
+    var x, time;
+    var lineHeight = availableHeight + lineOvershoot * 2;
 
-		ctx.save();
-		ctx.translate(padding.left + labelWidth + 0.5,
-				padding.top + 0.5 - lineOvershoot);
-		ctx.fillStyle = '#FFF';
-		ctx.strokeStyle = '#FFF';
-		ctx.globalAlpha = 0.3;
-		ctx.textAlign = 'center';
-		ctx.textBaseline = 'top';
+    ctx.save();
+    ctx.translate(padding.left + labelWidth + 0.5,
+        padding.top + 0.5 - lineOvershoot);
+    ctx.fillStyle = '#FFF';
+    ctx.strokeStyle = '#FFF';
+    ctx.globalAlpha = 0.3;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
 
-		for (var r = 0; r <= range; r++) {
+    var crossedNoon = false;
 
-			x = r * step;
-			time = (timeRange.min + r) % 12;
+    for (var r = 0; r <= range; r++) {
 
-			if (r === 0)
-				time += 'AM';
-			else if (time === 0)
-				time = '12PM';
+      x = r * step;
+      time = (timeRange.min + r);
 
-			ctx.beginPath();
-			ctx.moveTo(x, 0);
-			ctx.lineTo(x, lineHeight);
-			ctx.stroke();
-			ctx.closePath();
+      if (time >= 13) {
+        time = time - 12;
+      }
 
-			ctx.font = '500 16px/1 Roboto';
-			ctx.fillText(time, x, lineHeight + 5);
-		}
-		ctx.restore();
-	}
+      if (time % 1 == 0.5) {
+        time = (time - (time % 1)) + ':30';
+      }
 
-	function drawBlocksAndLabels(timeRange) {
+      if (r === 0)
+        time += 'AM';
+      
+      if (!crossedNoon && (timeRange.min + r) >= 12) {
+        time += 'PM';
+        crossedNoon = true;
+      }
 
-		var range = timeRange.max - timeRange.min;
-		var day = days[selectedDay];
-		var height = 10;
-		var halfHeight = height * 0.5;
-		var section, blocks, block, x, y, width;
-		var sections = Object.keys(day);
-		var widthStep = Math.floor(availableWidth / range);
-		var heightStep = (availableHeight - height) / (sections.length - 1);
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, lineHeight);
+      ctx.stroke();
+      ctx.closePath();
 
-		ctx.save();
-		ctx.textAlign = 'left';
-		ctx.textBaseline = 'top';
-		ctx.translate(padding.left, padding.top);
+      ctx.font = '500 14px/1 Roboto';
+      ctx.fillText(time, x, lineHeight + 5);
+    }
+    ctx.restore();
+  }
 
-		for (var s = 0; s < sections.length; s++) {
+  function drawBlocksAndLabels(timeRange) {
 
-			section = sections[s];
-			y = Math.floor(s * heightStep);
+    var range = timeRange.max - timeRange.min;
+    var day = days[selectedDay];
+    var height = 10;
+    var halfHeight = height * 0.5;
+    var section, blocks, block, x, y, width;
+    var sections = Object.keys(day);
+    var widthStep = Math.floor(availableWidth / range);
+    var heightStep = (availableHeight - height) / (sections.length - 1);
 
-			ctx.fillStyle = WHITE;
-			ctx.globalAlpha = 0.56;
-			ctx.font = '300 16px/1 Roboto';
-			ctx.fillText(section, 0, y - halfHeight);
+    ctx.save();
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.translate(padding.left, padding.top);
 
-			ctx.fillStyle = BLUE;
-			ctx.globalAlpha = 1;
+    for (var s = 0; s < sections.length; s++) {
 
-			ctx.save();
-			ctx.translate(labelWidth, 0);
+      section = sections[s];
+      y = Math.floor(s * heightStep);
 
-			for (var t = 0; t < day[section].length; t++) {
-				blocks = day[section];
+      ctx.fillStyle = WHITE;
+      ctx.globalAlpha = 0.56;
+      ctx.font = '300 16px/1 Roboto';
+      ctx.fillText(section, 0, y - halfHeight);
 
-				for (var b = 0; b < blocks.length; b++) {
-					block = blocks[b];
+      ctx.fillStyle = BLUE;
+      ctx.globalAlpha = 1;
 
-					x = Math.floor((block.start - timeRange.min) * widthStep);
-					width = Math.round(block.duration * widthStep);
+      ctx.save();
+      ctx.translate(labelWidth, 0);
 
-					ctx.fillRect(x, y, width, height);
-				}
-			}
+      for (var t = 0; t < day[section].length; t++) {
+        blocks = day[section];
 
-			ctx.restore();
-		}
+        for (var b = 0; b < blocks.length; b++) {
+          block = blocks[b];
 
-		ctx.restore();
+          x = Math.floor((block.start - timeRange.min) * widthStep);
+          width = Math.round(block.duration * widthStep);
 
-	}
+          ctx.fillRect(x, y, width, height);
+        }
+      }
 
-	function onDay1ButtonClick(evt) {
-		evt.preventDefault();
-		selectedDay = 0;
-		draw();
-	}
+      ctx.restore();
+    }
 
-	function onDay2ButtonClick(evt) {
-		evt.preventDefault();
-		selectedDay = 1;
-		draw();
-	}
+    ctx.restore();
 
-	function onExpand() {
-		container.classList.add('schedule__overview-container--hidden');
-	}
+  }
 
-	function onCollapse() {
-		container.classList.remove('schedule__overview-container--hidden');
-	}
+  function onDay1ButtonClick(evt) {
+    evt.preventDefault();
+    selectedDay = 0;
+    draw();
+  }
 
-	function onLoad() {
-		draw();
-	}
+  function onDay2ButtonClick(evt) {
+    evt.preventDefault();
+    selectedDay = 1;
+    draw();
+  }
 
-	if (today.getMonth() === 10 &&
-			today.getDate() === 20 &&
-			today.getFullYear() === 2014) {
-		selectedDay = 1;
-	}
+  function onExpand() {
+    container.classList.add('schedule__overview-container--hidden');
+  }
 
-	(function init() {
+  function onCollapse() {
+    container.classList.remove('schedule__overview-container--hidden');
+  }
 
-		day1Button.addEventListener('click', onDay1ButtonClick);
-		day2Button.addEventListener('click', onDay2ButtonClick);
+  function onLoad() {
+    draw();
+  }
 
-		card.addEventListener('expand', onExpand);
-		card.addEventListener('collapse', onCollapse);
-		onResize();
-		clear();
-	})();
+  if (today.getMonth() === 10 &&
+      today.getDate() === 20 &&
+      today.getFullYear() === 2014) {
+    selectedDay = 1;
+  }
 
-	CDS.EventPublisher.add('resize', onResize);
-	CDS.EventPublisher.add('load', onLoad);
+  (function init() {
+
+    day1Button.addEventListener('click', onDay1ButtonClick);
+    day2Button.addEventListener('click', onDay2ButtonClick);
+
+    card.addEventListener('expand', onExpand);
+    card.addEventListener('collapse', onCollapse);
+    onResize();
+    clear();
+  })();
+
+  CDS.EventPublisher.add('resize', onResize);
+  CDS.EventPublisher.add('load', onLoad);
 
 })();

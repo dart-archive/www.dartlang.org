@@ -18,6 +18,7 @@
                         <mask id="mask-2" sketch:name="Rectangle 59" fill="white">
                             <use xlink:href="#path-1"></use>
                         </mask>
+                        <use id="Rectangle-59" fill="#55DDCA" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
                         <path d="M4.18867925,28.1763697 L38.7164295,61.6 L67.303149,61.6 L67.0188679,33.6502117 L40.1659483,7.65598808 L36.8706321,13.0848141 L31.48349,7 L4.18867925,28.1763697 Z" id="Path-3" fill="url(#linearGradient-3)" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
                     </g>
                     <g id="Rectangle-59-+-Rectangle-60" transform="translate(2.000000, 5.000000)" fill="#FFFFFF" sketch:type="MSShapeGroup">

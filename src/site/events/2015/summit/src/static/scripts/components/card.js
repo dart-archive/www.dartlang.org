@@ -1,459 +1,518 @@
+/**
+ * Copyright 2014 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 CDS.Card = function(element) {
 
-	"use strict";
+  "use strict";
 
-	this.elements_ = {
-		root: element,
-		seeMoreLink: element.querySelector('.card__see-more'),
-		container: element.querySelector('.card__container'),
-		title: element.querySelector('.card__title'),
-		logo: element.querySelector('.card__logo'),
-		contentWrapper: element.querySelector('.card__content-wrapper'),
-		collapseButton: element.querySelector('.card__collapse-button'),
-	};
+  this.elements_ = {
+    root: element,
+    seeMoreLink: element.querySelector('.card__see-more'),
+    container: element.querySelector('.card__container'),
+    title: element.querySelector('.card__title'),
+    logo: element.querySelector('.card__logo'),
+    contentWrapper: element.querySelector('.card__content-wrapper'),
+    collapseButton: element.querySelector('.card__collapse-button')
+  };
 
-	// Go with lofi for anything that isn't Chrome because clipping
-	// causes slow paths everywhere.
-	this.runLoFiAnimations_ = !CDS.Util.isChrome();
-	this.expanded_ = false;
-	this.boxPositionOnExpand_ = null;
+  // Go with lofi for anything that can't run fast clip animations.
+  this.runLoFiAnimations_ = !CDS.Util.canRunFastClipAnimations();
+  this.expanded_ = false;
+  this.boxPositionOnExpand_ = null;
+  this.preventChangesToTitleScale_ =
+      this.elements_.root.classList.contains('card--no-title-scale');
+  this.preventChangesToTitleOpacityOnScroll_ =
+      this.elements_.root.classList
+          .contains('card--no-title-opacity-during-scroll');
 
-	// We need to disable fixed position navigation on cards for iOS
-	// as it causes judder during scrolls.
-	if (CDS.Util.isIOS())
-		this.elements_.root.classList.add('card__no-fixed-header');
+  // We need to disable fixed position navigation on cards for iOS
+  // as it causes judder during scrolls.
+  if (CDS.Util.isIOS())
+    this.elements_.root.classList.add('card__no-fixed-header');
 
-	this.parts_ = Object.keys(this.elements_);
-	this.properties_ = [
-			'left', 'top', 'width', 'height', 'scaleX', 'scaleY', 'opacity'];
-	this.collapsedPositions_ = CDS.Util.makeObject(this.parts_, null);
-	this.expandedPositions_ = CDS.Util.makeObject(this.parts_, null);
+  this.parts_ = Object.keys(this.elements_);
+  this.properties_ = [
+      'left', 'top', 'width', 'height', 'scaleX', 'scaleY', 'opacity'];
+  this.collapsedPositions_ = CDS.Util.makeObject(this.parts_, null);
+  this.expandedPositions_ = CDS.Util.makeObject(this.parts_, null);
+  this.contentColor_ = window.getComputedStyle(
+      this.elements_.container).backgroundColor;
 
-	this.diffs_ = {
-		root: CDS.Util.makeObject(this.properties_, 0),
-		seeMoreLink: CDS.Util.makeObject(this.properties_, 0),
-		container: CDS.Util.makeObject(this.properties_, 0),
-		title: CDS.Util.makeObject(this.properties_, 0),
-		logo: CDS.Util.makeObject(this.properties_, 0),
-		contentWrapper: CDS.Util.makeObject(this.properties_, 0),
-		collapseButton: CDS.Util.makeObject(this.properties_, 0)
-	};
+  this.diffs_ = {
+    root: CDS.Util.makeObject(this.properties_, 0),
+    seeMoreLink: CDS.Util.makeObject(this.properties_, 0),
+    container: CDS.Util.makeObject(this.properties_, 0),
+    title: CDS.Util.makeObject(this.properties_, 0),
+    logo: CDS.Util.makeObject(this.properties_, 0),
+    contentWrapper: CDS.Util.makeObject(this.properties_, 0),
+    collapseButton: CDS.Util.makeObject(this.properties_, 0)
+  };
 
-	this.events_ = {
-		expand: new signals.Signal(),
-		collapse: new signals.Signal(),
-		transitionend: new signals.Signal()
-	};
+  this.events_ = {
+    expand: new signals.Signal(),
+    collapse: new signals.Signal(),
+    transitionend: new signals.Signal()
+  };
 
-	// Ensure there is a copy of the callback functions per card.
-	this.onSeeMoreLinkClick_ = this.onSeeMoreLinkClick_.bind(this);
-	this.onCollapseButtonClick_ = this.onCollapseButtonClick_.bind(this);
-	this.onCollapseTransitionEnd_ = this.onCollapseTransitionEnd_.bind(this);
-	this.onExpandTransitionEnd_ = this.onExpandTransitionEnd_.bind(this);
-	this.onCardContentScroll_ = this.onCardContentScroll_.bind(this);
-	this.onKeyUp_ = this.onKeyUp_.bind(this);
-	this.disableTabbingToLinks_ = this.disableTabbingToLinks_.bind(this);
+  // Ensure there is a copy of the callback functions per card.
+  this.onSeeMoreLinkClick_ = this.onSeeMoreLinkClick_.bind(this);
+  this.onCollapseButtonClick_ = this.onCollapseButtonClick_.bind(this);
+  this.onCollapseTransitionEnd_ = this.onCollapseTransitionEnd_.bind(this);
+  this.onExpandTransitionEnd_ = this.onExpandTransitionEnd_.bind(this);
+  this.onCardContentScroll_ = this.onCardContentScroll_.bind(this);
+  this.onWindowResize_ = this.onWindowResize_.bind(this);
+  this.disableTabbingToLinks_ = this.disableTabbingToLinks_.bind(this);
 
-	this.elements_.seeMoreLink.addEventListener('click',
-			this.onSeeMoreLinkClick_);
-	this.elements_.collapseButton.addEventListener('click',
-			this.onCollapseButtonClick_);
+  this.elements_.seeMoreLink.addEventListener('click',
+      this.onSeeMoreLinkClick_);
+  this.elements_.collapseButton.addEventListener('click',
+      this.onCollapseButtonClick_);
 
-	this.elements_.container.addEventListener('scroll',
-			this.onCardContentScroll_);
+  this.elements_.container.addEventListener('scroll',
+      this.onCardContentScroll_);
 
-	CDS.EventPublisher.add('keyup', this.onKeyUp_);
+  CDS.EventPublisher.add('resize', this.onWindowResize_);
 
-	this.disableTabbingToLinks_();
+  this.disableTabbingToLinks_();
 };
 
 CDS.Card.prototype = {
 
-	onKeyUp_: function(evt) {
+  onWindowResize_: function(evt) {
 
-		// We only care about the user hitting escape
-		// to collapse the card down.
-		if (evt.keyCode !== 27)
-			return;
+    if (!this.expanded_)
+      return;
 
-		if (!this.expanded_)
-			return;
+    this.onCardContentScroll_(evt);
+  },
 
-		this.onCollapseButtonClick_();
-	},
+  onExpandTransitionEnd_: function(evt) {
 
-	onExpandTransitionEnd_: function(evt) {
+    if (typeof evt !== 'undefined' &&
+        evt.target !== this.elements_.container)
+      return;
 
-		if (typeof evt !== 'undefined' &&
-				evt.target !== this.elements_.container)
-			return;
+    this.elements_.container.classList.add('card__container--scrollable');
+    this.elements_.root.classList.remove('card--animatable');
 
-		this.elements_.container.classList.add('card__container--scrollable');
-		this.elements_.root.classList.remove('card--animatable');
+    if (this.runLoFiAnimations_)
+      this.elements_.container.classList.remove(
+          'card__container--lofi-animations');
 
-		if (this.runLoFiAnimations_)
-			this.elements_.container.classList.remove(
-					'card__container--lofi-animations');
+    this.resetElementTransformsAndOpacity_();
+    this.resetElementClip_();
 
-		this.resetElementTransformsAndOpacity_();
-		this.resetElementClip_();
+    this.elements_.container.removeEventListener('transitionend',
+        this.onExpandTransitionEnd_);
+    this.elements_.container.removeEventListener('webkittransitionend',
+        this.onExpandTransitionEnd_);
 
-		this.elements_.container.removeEventListener('transitionend',
-				this.onExpandTransitionEnd_);
-		this.elements_.container.removeEventListener('webkittransitionend',
-				this.onExpandTransitionEnd_);
+    this.enableTabbingToLinksAndFocusBackButton_();
+    this.events_.transitionend.dispatch(this);
+  },
 
-		this.enableTabbingToLinksAndFocusBackButton_();
-		this.events_.transitionend.dispatch();
-	},
+  onCollapseTransitionEnd_: function(evt) {
 
-	onCollapseTransitionEnd_: function(evt) {
+    if (typeof evt !== 'undefined' &&
+        evt.target !== this.elements_.contentWrapper)
+      return;
 
-		if (typeof evt !== 'undefined' &&
-				evt.target !== this.elements_.contentWrapper)
-			return;
+    this.expanded_ = false;
+    this.elements_.root.classList.remove('card--expanded');
+    this.elements_.root.classList.remove('card--collapsing');
+    this.elements_.root.classList.remove('card--animatable');
 
-		this.expanded_ = false;
-		this.elements_.root.classList.remove('card--expanded');
-		this.elements_.root.classList.remove('card--collapsing');
-		this.elements_.root.classList.remove('card--animatable');
+    this.resetElementTransformsAndOpacity_();
+    this.resetElementClip_();
 
-		this.resetElementTransformsAndOpacity_();
-		this.resetElementClip_();
+    this.elements_.contentWrapper.removeEventListener('transitionend',
+        this.onCollapseTransitionEnd_);
+    this.elements_.contentWrapper.removeEventListener('webkittransitionend',
+        this.onCollapseTransitionEnd_);
 
-		this.elements_.contentWrapper.removeEventListener('transitionend',
-				this.onCollapseTransitionEnd_);
-		this.elements_.contentWrapper.removeEventListener('webkittransitionend',
-				this.onCollapseTransitionEnd_);
+    this.disableTabbingToLinks_();
+    this.events_.transitionend.dispatch(this);
+  },
 
-		this.disableTabbingToLinks_();
-		this.events_.transitionend.dispatch();
-	},
+  onCardContentScroll_: function(evt) {
 
-	onCardContentScroll_: function(evt) {
+    var range = 50;
+    var y = this.elements_.container.scrollTop;
+    var width = window.innerWidth;
+    var target = width < 900 ? this.elements_.logo : this.elements_.title;
 
+    if (y < 0)
+      return;
 
-		var range = 50;
-		var y = this.elements_.container.scrollTop;
+    if (this.preventChangesToTitleOpacityOnScroll_)
+      return;
 
-		if (y < 0)
-			return;
+    this.elements_.logo.style.opacity = 1;
+    this.elements_.title.style.opacity = 1;
 
-		this.elements_.logo.style.opacity = 1 - Math.min(1, Math.max(0, y / range));
+    target.style.opacity = 1 - Math.min(1, Math.max(0, y / range));
 
-	},
+    if (width > 900) {
+      this.elements_.container.classList.remove('card--navbar-shadow');
+      return;
+    }
 
-	onSeeMoreLinkClick_: function(evt) {
+    if (y > 145)
+      this.elements_.container.classList.add('card--navbar-shadow');
+    else
+      this.elements_.container.classList.remove('card--navbar-shadow');
+  },
 
-		CDS.History.forth(this.elements_.seeMoreLink.href);
+  onSeeMoreLinkClick_: function(evt) {
 
-		evt.preventDefault();
-		evt.stopImmediatePropagation();
-	},
+    CDS.History.forth(this.elements_.seeMoreLink.href);
 
-	onCollapseButtonClick_: function(evt) {
+    evt.preventDefault();
+    evt.stopImmediatePropagation();
+  },
 
-		CDS.History.forth('../');
+  onCollapseButtonClick_: function(evt) {
 
-		if (typeof evt === 'undefined')
-			return;
+    CDS.History.forth('../');
 
-		evt.preventDefault();
-		evt.stopImmediatePropagation();
-	},
+    if (typeof evt === 'undefined')
+      return;
 
-	disableTabbingToLinks_: function() {
+    evt.preventDefault();
+    evt.stopImmediatePropagation();
+  },
 
-		this.elements_.collapseButton.setAttribute('tabindex', -1);
+  disableTabbingToLinks_: function() {
 
-		var contentLinks = this.elements_.contentWrapper.querySelectorAll('a');
-		for (var i = 0; i < contentLinks.length; i++) {
-			contentLinks[i].setAttribute('tabindex', -1);
-		}
+    this.elements_.collapseButton.setAttribute('tabindex', -1);
 
-	},
+    var contentLinks = this.elements_.contentWrapper.querySelectorAll('a');
+    for (var i = 0; i < contentLinks.length; i++) {
+      contentLinks[i].setAttribute('tabindex', -1);
+    }
 
-	enableTabbingToLinksAndFocusBackButton_: function() {
+  },
 
-		this.elements_.collapseButton.focus();
-		this.elements_.collapseButton.setAttribute('tabindex', 1);
+  enableTabbingToLinksAndFocusBackButton_: function() {
 
-		var contentLinks = this.elements_.contentWrapper.querySelectorAll('a');
-		for (var i = 0; i < contentLinks.length; i++) {
-			contentLinks[i].setAttribute('tabindex', (i + 2));
-		}
-	},
+    this.elements_.collapseButton.focus();
+    this.elements_.collapseButton.setAttribute('tabindex', 1);
 
-	applyClipRect_: function() {
-		if (!this.expanded_)
-			return;
+    var contentLinks = this.elements_.contentWrapper.querySelectorAll('a');
+    for (var i = 0; i < contentLinks.length; i++) {
+      contentLinks[i].setAttribute('tabindex', (i + 2));
+    }
+  },
 
-		var contentLocation = this.elements_.container.getBoundingClientRect();
-		this.elements_.container.style.clip = 'rect(0, ' +
-				contentLocation.width + 'px, ' +
-				contentLocation.height + 'px, 0)';
-	},
+  applyClipRect_: function() {
+    if (!this.expanded_)
+      return;
 
-	getRootElement: function() {
-		return this.elements_.root;
-	},
+    var contentLocation = this.elements_.container.getBoundingClientRect();
+    this.elements_.container.style.clip = 'rect(0, ' +
+        contentLocation.width + 'px, ' +
+        contentLocation.height + 'px, 0)';
+  },
 
-	addEventListener: function(name, callback, addOnce) {
-		if (!this.events_[name])
-			throw "Unknown event type: " + name;
+  getContentColor: function() {
+    return this.contentColor_;
+  },
 
-		if (addOnce)
-			this.events_[name].addOnce(callback);
-		else
-			this.events_[name].add(callback);
-	},
+  getRootElement: function() {
+    return this.elements_.root;
+  },
 
-	expand: function(opt_disableAnimations) {
+  isExpanded: function() {
+    return this.expanded_;
+  },
 
-		if (typeof opt_disableAnimations === 'undefined')
-			opt_disableAnimations = false;
+  addEventListener: function(name, callback, addOnce) {
+    if (!this.events_[name])
+      throw "Unknown event type: " + name;
 
-		if (this.expanded_)
-			return;
+    if (addOnce)
+      this.events_[name].addOnce(callback);
+    else
+      this.events_[name].add(callback);
+  },
 
-		this.boxPositionOnExpand_ = this.elements_.root.getBoundingClientRect();
-		this.expanded_ = true;
+  expand: function(opt_disableAnimations) {
 
-		// Read the viewport position of the card and elements.
-		this.collectProperties_(this.collapsedPositions_);
+    if (typeof opt_disableAnimations === 'undefined')
+      opt_disableAnimations = false;
 
-		// Set the expanded class
-		this.elements_.root.classList.add('card--expanded');
+    if (this.expanded_)
+      return;
 
-		// Now read a value to trigger layout.
-		var readValue1 = this.elements_.root.offsetTop;
+    this.boxPositionOnExpand_ = this.elements_.root.getBoundingClientRect();
+    this.expanded_ = true;
 
-		// Read them in their expanded positions.
-		this.collectProperties_(this.expandedPositions_);
+    // Read the viewport position of the card and elements.
+    this.collectProperties_(this.collapsedPositions_);
 
-		// Calculate the position differences.
-		this.calculatePositionDiffs_();
+    // Set the expanded class
+    this.elements_.root.classList.add('card--expanded');
+    this.elements_.container.classList.add('card__container--scrollable');
 
-		// Bail here if we're not animating.
-		if (opt_disableAnimations) {
+    // Read them in their expanded positions.
+    this.collectProperties_(this.expandedPositions_);
 
-			// Set the positions and clip on exit.
-			this.setElementTransformsToZeroAndClipToExpanded_();
-			this.onExpandTransitionEnd_();
-			this.events_.expand.dispatch();
-			return;
-		}
+    // Calculate the position differences.
+    this.calculatePositionDiffs_();
 
-		// Set them all back to collapsed.
-		this.setElementPositionsAndClipToCollapsed_();
+    // Bail here if we're not animating.
+    if (opt_disableAnimations) {
 
-		// Read again to force the style change to take hold.
-		var readValue2 = this.elements_.root.offsetTop;
+      // Set the positions and clip on exit.
+      this.setElementTransformsToZeroAndClipToExpanded_();
+      this.onExpandTransitionEnd_();
+      this.events_.expand.dispatch(this);
+      return;
+    }
 
-		// Switch on animations.
-		this.elements_.root.classList.add('card--animatable');
+    // Set them all back to collapsed.
+    this.setElementTransformsToStartAndClipToCollapsed_();
 
-		// Now expand.
-		this.setElementTransformsToZeroAndClipToExpanded_();
+    // Read again to force the style change to take hold.
+    var readValue2 = this.elements_.root.offsetTop;
 
-		this.elements_.container.addEventListener('transitionend',
-				this.onExpandTransitionEnd_);
-		this.elements_.container.addEventListener('webkittransitionend',
-				this.onExpandTransitionEnd_);
+    // Switch on animations.
+    this.elements_.root.classList.add('card--animatable');
 
-		this.events_.expand.dispatch();
+    // Now expand.
+    this.setElementTransformsToZeroAndClipToExpanded_();
 
-		CDS.Analytics.track('card', 'expand', this.elements_.seeMoreLink.href);
-	},
+    this.elements_.container.addEventListener('transitionend',
+        this.onExpandTransitionEnd_);
+    this.elements_.container.addEventListener('webkittransitionend',
+        this.onExpandTransitionEnd_);
 
-	collapse: function(opt_disableAnimations) {
+    this.events_.expand.dispatch(this);
 
-		if (typeof opt_disableAnimations === 'undefined')
-			opt_disableAnimations = false;
+    CDS.Analytics.track('card', 'expand', this.elements_.seeMoreLink.href);
+  },
 
-		if (!this.expanded_)
-			return;
+  collapse: function(opt_disableAnimations) {
 
-		this.applyClipRect_();
-		this.elements_.root.classList.add('card--collapsing');
-		this.elements_.root.classList.add('card--animatable');
+    if (typeof opt_disableAnimations === 'undefined')
+      opt_disableAnimations = false;
 
-		if (this.runLoFiAnimations_) {
+    if (!this.expanded_)
+      return;
 
-			this.elements_.container.classList.add(
-					'card__container--lofi-animations');
-		}
+    this.applyClipRect_();
+    this.elements_.root.classList.add('card--collapsing');
+    this.elements_.root.classList.add('card--animatable');
 
-		this.elements_.container.scrollTop = 0;
-		this.elements_.container.classList.remove('card__container--scrollable');
+    if (this.runLoFiAnimations_) {
 
-		this.elements_.contentWrapper.addEventListener('transitionend',
-				this.onCollapseTransitionEnd_);
-		this.elements_.contentWrapper.addEventListener('webkittransitionend',
-				this.onCollapseTransitionEnd_);
+      this.elements_.container.classList.add(
+          'card__container--lofi-animations');
+    }
 
-		this.setElementPositionsAndClipToCollapsed_();
+    this.elements_.container.scrollTop = 0;
+    this.elements_.container.classList.remove('card__container--scrollable');
 
-		this.events_.collapse.dispatch();
+    this.elements_.contentWrapper.addEventListener('transitionend',
+        this.onCollapseTransitionEnd_);
+    this.elements_.contentWrapper.addEventListener('webkittransitionend',
+        this.onCollapseTransitionEnd_);
 
-		CDS.Analytics.track('card', 'collapse', this.elements_.seeMoreLink.href);
+    this.setElementTransformsToStartAndClipToCollapsed_();
 
-	},
+    this.events_.collapse.dispatch(this);
 
-	resetElementTransformsAndOpacity_: function() {
-		var part;
-		for (var p = 0; p < this.parts_.length; p++) {
-			part = this.parts_[p];
+    CDS.Analytics.track('card', 'collapse', this.elements_.seeMoreLink.href);
 
-			this.setElementTransformAndOpacity_(this.elements_[part], '', '');
-		}
-	},
+  },
 
-	resetElementClip_: function() {
-		this.elements_.container.style.clip = '';
-	},
+  resetElementTransformsAndOpacity_: function() {
+    var part;
+    for (var p = 0; p < this.parts_.length; p++) {
+      part = this.parts_[p];
 
-	setElementPositionsAndClipToCollapsed_: function() {
+      this.setElementTransformAndOpacity_(this.elements_[part], '', '');
+    }
+  },
 
-		// Work out if the root element has moved and adjust
-		// the values for the animation correspondingly.
-		var currentBoxPosition = this.elements_.root.getBoundingClientRect();
-		var leftDifference = currentBoxPosition.left -
-				this.boxPositionOnExpand_.left;
-		var topDifference = currentBoxPosition.top -
-				this.boxPositionOnExpand_.top;
+  resetElementClip_: function() {
+    this.elements_.container.style.clip = '';
+  },
 
-		var part;
-		for (var p = 0; p < this.parts_.length; p++) {
-			part = this.parts_[p];
+  setElementTransformsToStartAndClipToCollapsed_: function() {
 
-			// We don't need or want to move the container or the root
-			// element during this animation so ignore them.
-			if (part === 'container' || part === 'root')
-				continue;
+    // Work out if the root element has moved and adjust
+    // the values for the animation correspondingly.
+    var currentBoxPosition = this.elements_.root.getBoundingClientRect();
+    var leftDifference = currentBoxPosition.left -
+        this.boxPositionOnExpand_.left;
+    var topDifference = currentBoxPosition.top -
+        this.boxPositionOnExpand_.top;
 
-			// Adjust for changes in scroll position since the card expanded.
-			this.diffs_[part].top += topDifference;
-			this.diffs_[part].left += leftDifference;
+    var part;
+    for (var p = 0; p < this.parts_.length; p++) {
+      part = this.parts_[p];
 
-			this.setElementTransformAndOpacity_(this.elements_[part],
-					this.diffs_[part], this.diffs_[part].opacity);
-		}
+      // We don't need or want to move the container or the root
+      // element during this animation so ignore them.
+      if (part === 'container' || part === 'root')
+        continue;
 
-		if (this.runLoFiAnimations_) {
+      // Adjust for changes in scroll position since the card expanded.
+      this.diffs_[part].top += topDifference;
+      this.diffs_[part].left += leftDifference;
 
-			this.diffs_.container.top += topDifference;
-			this.diffs_.container.left += leftDifference;
+      this.setElementTransformAndOpacity_(this.elements_[part],
+          this.diffs_[part], this.diffs_[part].opacity);
+    }
 
-			this.elements_.container.classList.add(
-					'card__container--lofi-animations');
-			this.setElementTransformAndOpacity_(this.elements_.container,
-					this.diffs_.container);
+    if (this.runLoFiAnimations_) {
 
-			return;
+      this.diffs_.container.top += topDifference;
+      this.diffs_.container.left += leftDifference;
 
-		}
+      this.elements_.container.classList.add(
+          'card__container--lofi-animations');
+      this.setElementTransformAndOpacity_(this.elements_.container,
+          this.diffs_.container);
 
-		var clipLeft = this.collapsedPositions_.container.left + leftDifference;
-		var clipRight = this.collapsedPositions_.container.right + leftDifference;
-		var clipTop = this.collapsedPositions_.container.top + topDifference;
-		var clipBottom = this.collapsedPositions_.container.bottom + topDifference;
+      return;
 
-		this.elements_.container.style.clip = 'rect(' +
-				clipTop + 'px, ' +
-				clipRight + 'px, ' +
-				clipBottom + 'px, ' +
-				clipLeft + 'px)';
+    }
 
-	},
+    var clipLeft = this.collapsedPositions_.container.left + leftDifference;
+    var clipRight = this.collapsedPositions_.container.right + leftDifference;
+    var clipTop = this.collapsedPositions_.container.top + topDifference;
+    var clipBottom = this.collapsedPositions_.container.bottom + topDifference;
 
-	setElementTransformsToZeroAndClipToExpanded_: function() {
+    this.elements_.container.style.clip = 'rect(' +
+        clipTop + 'px, ' +
+        clipRight + 'px, ' +
+        clipBottom + 'px, ' +
+        clipLeft + 'px)';
 
-		var part;
-		for (var p = 0; p < this.parts_.length; p++) {
-			part = this.parts_[p];
+  },
 
-			if (part === 'container' && !this.runLoFiAnimations_)
-				continue;
+  setElementTransformsToZeroAndClipToExpanded_: function() {
 
-			if (part === 'root')
-				continue;
+    var part;
+    for (var p = 0; p < this.parts_.length; p++) {
+      part = this.parts_[p];
 
-			this.setElementTransformAndOpacity_(this.elements_[part],
-					'translate(0,0) scale(1)',
-					this.expandedPositions_[part].opacity);
-		}
+      if (part === 'container' && !this.runLoFiAnimations_)
+        continue;
 
-		this.elements_.container.style.clip = 'rect(' +
-				this.expandedPositions_.container.top + 'px, ' +
-				this.expandedPositions_.container.right + 'px, ' +
-				this.expandedPositions_.container.bottom + 'px, ' +
-				this.expandedPositions_.container.left + 'px)';
+      if (part === 'root')
+        continue;
 
-	},
+      this.setElementTransformAndOpacity_(this.elements_[part],
+          'translate(0,0) scale(1)',
+          this.expandedPositions_[part].opacity);
+    }
 
-	setElementTransformAndOpacity_: function(element, transform, opacity) {
+    this.elements_.container.style.clip = 'rect(' +
+        this.expandedPositions_.container.top + 'px, ' +
+        this.expandedPositions_.container.right + 'px, ' +
+        this.expandedPositions_.container.bottom + 'px, ' +
+        this.expandedPositions_.container.left + 'px)';
 
-		var transformString = transform;
+  },
 
-		if (typeof transform !== 'string') {
-			transformString = 'translate(' +
-					transform.left + 'px,' +
-					transform.top + 'px)';
+  setElementTransformAndOpacity_: function(element, transform, opacity) {
 
-			if (element !== this.elements_.contentWrapper &&
-					element !== this.elements_.content)
-				transformString += ' scale(' +
-						transform.scaleX + ', ' +
-						transform.scaleY + ')';
-		}
+    var transformString = transform;
 
-		element.style.webkitTransform = transformString;
-		element.style.transform = transformString;
+    if (typeof transform !== 'string') {
+      transformString = 'translate(' +
+          transform.left + 'px,' +
+          transform.top + 'px)';
 
-		if (typeof opacity !== 'undefined')
-			element.style.opacity = opacity;
-	},
+      if (element !== this.elements_.contentWrapper &&
+          element !== this.elements_.content)
+        transformString += ' scale(' +
+            transform.scaleX + ', ' +
+            transform.scaleY + ')';
+    }
 
-	collectProperties_: function(target) {
-		var part;
-		for (var p = 0; p < this.parts_.length; p++) {
-			part = this.parts_[p];
-			target[part] = this.elements_[part].getBoundingClientRect();
-			target[part].opacity = parseFloat(window.getComputedStyle(
-					this.elements_[part]).opacity);
-		}
-	},
+    element.style.webkitTransform = transformString;
+    element.style.transform = transformString;
 
-	calculatePositionDiffs_: function() {
+    if (typeof opacity !== 'undefined')
+      element.style.opacity = opacity;
+  },
 
-		var part;
-		for (var p = 0; p < this.parts_.length; p++) {
-			part = this.parts_[p];
+  collectProperties_: function(target) {
+    var part, rect;
+    for (var p = 0; p < this.parts_.length; p++) {
+      part = this.parts_[p];
+      rect = this.elements_[part].getBoundingClientRect();
 
-			this.diffs_[part].left = this.collapsedPositions_[part].left -
-					this.expandedPositions_[part].left;
+      // We need to make a copy here because the gBCR call
+      // gives us an immutable object.
+      target[part] = {
+        left: rect.left,
+        top: rect.top,
+        width: rect.width,
+        height: rect.height,
+        right: rect.right,
+        bottom: rect.bottom
+      };
 
-			this.diffs_[part].top = this.collapsedPositions_[part].top -
-					this.expandedPositions_[part].top;
+      target[part].opacity = parseFloat(window.getComputedStyle(
+          this.elements_[part]).opacity);
 
-			this.diffs_[part].width = this.collapsedPositions_[part].width -
-					this.expandedPositions_[part].width;
+      // We need to limit the size for browsers that
+      // allow bleed past the edge of the viewport.
+      target[part].width = Math.min(target[part].width, window.innerWidth);
+      target[part].height = Math.min(target[part].height, window.innerHeight);
+    }
+  },
 
-			this.diffs_[part].height = this.collapsedPositions_[part].height -
-					this.expandedPositions_[part].height;
+  calculatePositionDiffs_: function() {
 
-			this.diffs_[part].scaleX = this.collapsedPositions_[part].width /
-					this.expandedPositions_[part].width;
+    var part;
+    for (var p = 0; p < this.parts_.length; p++) {
+      part = this.parts_[p];
 
-			this.diffs_[part].scaleY = this.collapsedPositions_[part].height /
-					this.expandedPositions_[part].height;
+      this.diffs_[part].left = this.collapsedPositions_[part].left -
+          this.expandedPositions_[part].left;
 
-			this.diffs_[part].opacity = 1 - (this.expandedPositions_[part].opacity -
-					this.collapsedPositions_[part].opacity);
+      this.diffs_[part].top = this.collapsedPositions_[part].top -
+          this.expandedPositions_[part].top;
 
-		}
+      this.diffs_[part].width = this.collapsedPositions_[part].width -
+          this.expandedPositions_[part].width;
 
-	}
+      this.diffs_[part].height = this.collapsedPositions_[part].height -
+          this.expandedPositions_[part].height;
+
+      this.diffs_[part].scaleX = this.collapsedPositions_[part].width /
+          this.expandedPositions_[part].width;
+
+      this.diffs_[part].scaleY = this.collapsedPositions_[part].height /
+          this.expandedPositions_[part].height;
+
+      if (part === 'title' && this.preventChangesToTitleScale_)
+        this.diffs_[part].scaleX = this.diffs_[part].scaleY = 1;
+
+      this.diffs_[part].opacity = 1 - (this.expandedPositions_[part].opacity -
+          this.collapsedPositions_[part].opacity);
+
+    }
+
+  }
 
 };

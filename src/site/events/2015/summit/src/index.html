@@ -1,3 +1,20 @@
+<!--
+
+Copyright 2014 Google Inc. All rights reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
 <!doctype html>
 <html itemscope itemtype="http://schema.org/Event">
   <head>
@@ -12,6 +29,8 @@
     <meta itemprop="image" content="https://www.dartlang.org/events/2015/summit/static/images/masthead-1.jpg">
     <meta itemprop="image" content="https://www.dartlang.org/events/2015/summit/static/images/dart-logo.png">
     <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/events/2015/summit/images/dart-logo-192x192.png">
+    <meta id="theme-color" name="theme-color" content="#362A6C">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,8 +45,10 @@
     <link href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/events/2015/summit/static/styles/cds.min.css">
 
+    <link rel="manifest" href="/devsummit/manifest.json">
+
   </head>
-  <body>
+  <body  class="{{ deeplink_class }}">
 
     <header class="masthead ">
       <div class="masthead__color-block"></div>
@@ -44,7 +65,8 @@
           var randomInt = Math.floor((Math.random() * 2) + 1);
           document.write('<div class="livestream__image livestream__image--image-'+ randomInt +'"></div>');
         </script>
-        <div class="livestream__anchor">Live stream starts April 28 at 9 am, Pacific Time (4 pm UTC).</div>
+        <!-- <div class="livestream__anchor">Live stream starts April 28 at 9 am, Pacific Time (4 pm UTC).</div> -->
+        <div class="livestream__anchor_register"><a href="https://dartdevelopersummit.eventfarm.com/?page=7fff46cb-0000-454c-af46-680c1534a707">REGISTER NOW</a></div>
       </section>
     </div>
 
@@ -64,19 +86,10 @@
 
                 <div class="schedule__block">
                   <div class="schedule__block-title">
-                    Breakfast
-                  </div>
-                  <div class="schedule__block-time">
-                    8 am - 9 am
-                  </div>
-                </div>
-
-                <div class="schedule__block">
-                  <div class="schedule__block-title">
                     Keynote
                   </div>
                   <div class="schedule__block-time">
-                    9 am - 9:30 am
+                    9:30 am - 10:00 am
                   </div>
                 </div>
 
@@ -85,7 +98,7 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    9:30 am - 11 am
+                    10:00 am - 10:30 am
                   </div>
                 </div>
 
@@ -94,7 +107,7 @@
                     Break
                   </div>
                   <div class="schedule__block-time">
-                    11 am - 11:30 am
+                    10:30 am - 11:00 am
                   </div>
                 </div>
 
@@ -103,7 +116,25 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    11:30 am - 1 pm
+                    11:00 am - 12 pm
+                  </div>
+                </div>
+
+                <div class="schedule__block">
+                  <div class="schedule__block-title">
+                    Breakouts
+                  </div>
+                  <div class="schedule__block-time">
+                    12:00 pm - 12:30 pm
+                  </div>
+                </div>
+
+                <div class="schedule__block">
+                  <div class="schedule__block-title">
+                    Sessions
+                  </div>
+                  <div class="schedule__block-time">
+                    12:30 pm - 1 pm
                   </div>
                 </div>
 
@@ -121,7 +152,16 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    2:30 pm - 4 pm
+                    2:30 pm - 3:30 pm
+                  </div>
+                </div>
+
+                <div class="schedule__block">
+                  <div class="schedule__block-title">
+                    Breakouts
+                  </div>
+                  <div class="schedule__block-time">
+                    3:30 pm - 4:00 pm
                   </div>
                 </div>
 
@@ -130,7 +170,7 @@
                     Break
                   </div>
                   <div class="schedule__block-time">
-                    4 pm - 4:30 pm
+                    4:00 pm - 4:30 pm
                   </div>
                 </div>
 
@@ -139,16 +179,16 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    4:30 pm - 5 pm
+                    4:30 pm - 5:30 pm
                   </div>
                 </div>
 
                 <div class="schedule__block">
                   <div class="schedule__block-title">
-                    Closing keynote
+                    Lightning Talks
                   </div>
                   <div class="schedule__block-time">
-                    5 pm - 5:15 pm
+                    5:30 pm - 6:00 pm
                   </div>
                 </div>
 
@@ -157,7 +197,7 @@
                     After party
                   </div>
                   <div class="schedule__block-time">
-                    5:15 pm - Late
+                    6 pm - 10pm
                   </div>
                 </div>
 
@@ -169,10 +209,10 @@
 
                 <div class="schedule__block">
                   <div class="schedule__block-title">
-                    Breakfast
+                    Keynote
                   </div>
                   <div class="schedule__block-time">
-                    8 am - 9 am
+                    9:30 am - 10:00 am
                   </div>
                 </div>
 
@@ -181,16 +221,16 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    9 am - 10:30 am
+                    10:00 am - 10:30 am
                   </div>
                 </div>
 
                 <div class="schedule__block">
                   <div class="schedule__block-title">
-                    Breakout discussions
+                    Break
                   </div>
                   <div class="schedule__block-time">
-                    10:30 am - 11:45 am
+                    10:30 am - 11:00 am
                   </div>
                 </div>
 
@@ -199,7 +239,25 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    11:45 am - 12:30 pm
+                    11:00 am - 12 pm
+                  </div>
+                </div>
+
+                <div class="schedule__block">
+                  <div class="schedule__block-title">
+                    Breakouts
+                  </div>
+                  <div class="schedule__block-time">
+                    12:00 pm - 12:30 pm
+                  </div>
+                </div>
+
+                <div class="schedule__block">
+                  <div class="schedule__block-title">
+                    Sessions
+                  </div>
+                  <div class="schedule__block-time">
+                    12:30 pm - 1 pm
                   </div>
                 </div>
 
@@ -208,7 +266,7 @@
                     Lunch
                   </div>
                   <div class="schedule__block-time">
-                    12:30 pm - 1:45 pm
+                    1 pm - 2:30 pm
                   </div>
                 </div>
 
@@ -217,16 +275,25 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    1:45 pm - 3:15 pm
+                    2:30 pm - 3:30 pm
                   </div>
                 </div>
 
                 <div class="schedule__block">
                   <div class="schedule__block-title">
-                    Break and discussion with engineers
+                    Breakouts
                   </div>
                   <div class="schedule__block-time">
-                    3:15 pm - 4 pm
+                    3:30 pm - 4:00 pm
+                  </div>
+                </div>
+
+                <div class="schedule__block">
+                  <div class="schedule__block-title">
+                    Break
+                  </div>
+                  <div class="schedule__block-time">
+                    4:00 pm - 4:30 pm
                   </div>
                 </div>
 
@@ -235,7 +302,16 @@
                     Sessions
                   </div>
                   <div class="schedule__block-time">
-                    4 pm - 5 pm
+                    4:30 pm - 5:30 pm
+                  </div>
+                </div>
+
+                <div class="schedule__block">
+                  <div class="schedule__block-title">
+                    Lightning Talks
+                  </div>
+                  <div class="schedule__block-time">
+                    5:30 pm - 6:00 pm
                   </div>
                 </div>
 
@@ -253,11 +329,563 @@
       </div>
 
       <div class="app__group app__group--bottom">
-        <section class="sessions card--right-half">
+        <section class="sessions card card--right-half">
           <div class="card__container">
+            <a href="/events/2015/summit/sessions/" class="card__see-more">See more</a>
+            <a href="/events/2015/summit/" class="card__collapse-button">Back</a>
+
             <div class="card__title">Sessions</div>
             <div class="card__logo"></div>
-            <div class="sessions__coming-soon">(Coming soon)</div>
+            <div class="card__content-wrapper">
+              <section class="sessions__day">
+                <h1>Day 1</h1>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/keynote/" class="card__see-more" tabindex="2">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="3">Back</a>
+
+                    <div class="card__title">Keynote: Dart today and tomorrow <span class="card__subtitle">09:30 - 10:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image keynote"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Keynote</h1>
+                        <h2 class="session__header-time-and-location">09:30 - 10:00</h2>
+                      </div>
+                      <!-- <button data-embed="//www.youtube.com/embed/lboyR-A1woU" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Lars Bak and Kasper Lund, Software Engineers, Google</h3>
+                        <p>
+                          Dart co-founders Lars Bak and Kasper Lund
+                          kick off the summit with a tour of Dart today
+                          and tomorrow.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/async-in-dart/" class="card__see-more" tabindex="4">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="5">Back</a>
+
+                    <div class="card__title">Async in Dart <span class="card__subtitle">10:00 - 10:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image async-in-dart"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Async in Dart</h1>
+                        <h2 class="session__header-time-and-location">10:00 - 10:30</h2>
+                      </div>
+                     <!--  <button data-embed="//www.youtube.com/embed/v0xRTEf-ytE" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Florian Loitsch, Software Engineer, Google</h3>
+                        <p>
+                          This talk presents Dart's asynchronous features.
+                          We will start with a small introduction of Dart's async library and show how Dart's async/await feature makes using the library easy.
+                          A more advanced part of the talk will discuss ways to debug asynchronous programs and highlight how zones can be used to implement interesting features in this context.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/space-frugal-reflection/" class="card__see-more" tabindex="6">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="7">Back</a>
+
+                    <div class="card__title">Space Frugal Reflection <span class="card__subtitle">11:00 - 11:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image space-frugal-reflection"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Space Frugal Reflection</h1>
+                        <h2 class="session__header-time-and-location">11:00 - 11:30</h2>
+                      </div>
+
+                     <!--  <button data-embed="//www.youtube.com/embed/QbuLq4f6DGQ" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Erik Ernst, Software Engineer, Google</h3>
+                        <p>
+                          Dynamic languages define the culture of web programming, and Dart web programming tends to use reflection.  However, static analysis of reflection is difficult, and hence very little can be omitted from programs via tree shaking during compilation.  Consequently, the size of dart2js generated code causes performance problems during software download and startup.  Reflectable is an upcoming package with a transformer that empowers programmers to statically specify how they use reflection, based on metadata.  Reflection can then be avoided entirely; it is replaced by a statically generated, customized version of the reflection library, resulting in a considerably smaller compiler output.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/dart-at-60fps/" class="card__see-more" tabindex="8">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="9">Back</a>
+
+                    <div class="card__title">Dart at 60FPS <span class="card__subtitle">11:30 - 12:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image dart-at-60fps"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Dart at 60FPS</h1>
+                        <h2 class="session__header-time-and-location">11:30 - 12:00</h2>
+                      </div>
+
+                      <!-- <button data-embed="//www.youtube.com/embed/3dAwZVsS8wo" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Ross Smith and Arturs Vitols, Willowbrite</h3>
+                        <p>
+                          This talk explores the creation of an interactive game editor and real-time simulator made in Dart running at 60FPS in the context of a Chrome App.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/debugging-and-profiling-dart-programs-with-observatory/" class="card__see-more" tabindex="10">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="11">Back</a>
+
+                    <div class="card__title">Debugging and Profiling Dart Programs with Observatory <span class="card__subtitle">12:30 - 13:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image debugging-and-profiling-dart-programs-with-observatory"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Debugging and Profiling Dart Programs with Observatory</h1>
+                        <h2 class="session__header-time-and-location">12:30 - 13:00</h2>
+                      </div>
+
+                      <!-- <button data-embed="//www.youtube.com/embed/tfSiXRy1vEw" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">John McCutchan, Software Engineer, Google</h3>
+                        <p>
+                          An Introduction to Observatory, the Dart VM's built-in development tool. Observatory is a new class of development tools with a focus on live immediate reporting of data. Observatory includes tools for profiling memory CPU usage of Dart programs. Starting with Dart 1.9 Observatory includes a full debugger.  Session will include an Observatory overview, followed by a deep dive into the brand new debugger and updated CPU profile tools.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/dart-for-the-web-state-of-the-union/" class="card__see-more" tabindex="12">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="13">Back</a>
+
+                    <div class="card__title">Dart for the Web State of the Union<span class="card__subtitle">14:30 - 15:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image dart-for-the-web-state-of-the-union"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Dart for the Web State of the Union</h1>
+                        <h2 class="session__header-time-and-location">14:30 - 15:00</h2>
+                      </div>
+
+                      <!-- <button data-embed="//www.youtube.com/embed/RCFQu0hK6bU" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Dan Grove and Kevin Moore, Software Engineers, Google</h3>
+                        Learn about the current state of the art for Dart for the Web.
+                        We will present our new advances for Dart to JavaScript compilation,
+                        new UI frameworks for Dart for the Web,
+                        and a roadmap for Dart for the Web.
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/getting-the-most-out-of-dart2js/" class="card__see-more" tabindex="14">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="15">Back</a>
+
+                    <div class="card__title">Getting the most out of dart2js <span class="card__subtitle">15:00 - 15:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image getting-the-most-out-of-dart2js"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Getting the most out of dart2js</h1>
+                        <h2 class="session__header-time-and-location">15:00 - 15:30</h2>
+                      </div>
+
+                      <!-- <button data-embed="//www.youtube.com/embed/ayD0LiZkWLQ" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Stephen Adams, Software Engineer, Google</h3>
+                        <p>
+                          How you write Dart code and what Dart features you use can have a large impact on the size and speed of the JavaScript code generated by dart2js optimizing compiler.
+                          You will learn how various Dart features affect the output code quality, what to look for in the compiler diagnostics and outputs, what coding styles tend to generate good code and what compiler command line flags are available to help you.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/switching-to-dart/" class="card__see-more" tabindex="16">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="17">Back</a>
+
+                    <div class="card__title">Switching to Dart: Faster development for Workiva <span class="card__subtitle">16:30 - 17:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image switching-to-dart"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Switching to Dart: Faster development for Workiva</h1>
+                        <h2 class="session__header-time-and-location">16:30 - 17:00</h2>
+                      </div>
+
+                      <!-- <button data-embed="//www.youtube.com/embed/6vcQlD-jadk" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">John Ryan, Workiva</h3>
+                        <p>
+                          How the Dart platform allowed our team to move quickly
+                          and focus on our product. How our team uses IDE features, code
+                          coverage, continuous integration, package management, and the Dart
+                          language.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/migrating-trustwaves-large-customer-portal-to-dart/" class="card__see-more" tabindex="18">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="19">Back</a>
+
+                    <div class="card__title">Migrating Trustwave's Large Customer Portal to Dart <span class="card__subtitle">17:00 - 17:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image migrating-trustwaves-large-customer-portal-to-dart"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Migrating a Large Customer Portal to Dart</h1>
+                        <h2 class="session__header-time-and-location">17:00 - 17:30</h2>
+                      </div>
+
+                      <!-- <button data-embed="//www.youtube.com/embed/0LT6W5QVCJI" class="paper-button session__fab">
+                        <div class="session__fab-inner">
+                          <div class="button__ripple" style="width: 96px; height: 96px;"></div>Watch session
+                        </div>
+                      </button> -->
+
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Eric Woerner, Director of Software Architecture, Trustwave</h3>
+                        <p>
+                          TrustKeeper is a web portal for all of Trustwave's cloud security offerings.  Consisting of over 35 distinct modules (applications), the portal was originally written in Adobe Flex, and is now being redesigned and rewritten using Dart and Angular.  This talk highlights the reasons we chose Dart, and describes how we approached practical problems, including:
+                        </p>
+                        <ul>
+                          <li>Dynamically loading and integrating multiple application modules</li>
+                          <li>Serializing data to/from existing Java back-end services</li>
+                          <li>Providing a common development framework for app dev teams</li>
+                          <li>Supporting Flex interoperability for legacy applications</li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </section>
+
+              <section class="sessions__day">
+                <h1>Day 2</h1>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/keynote-ads-and-dart/" class="card__see-more" tabindex="26">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="27">Back</a>
+
+                    <div class="card__title">Keynote: Ads and Dart <span class="card__subtitle">09:30 - 10:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image keynote-ads-and-dart"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Keynote: Ads and Dart</h1>
+                        <h2 class="session__header-time-and-location">09:30 - 10:30</h2>
+                      </div>
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Ferhat Buyukkokten, Software Engineer, Google</h3>
+                        <p>
+                          Google's Ads team highlights how they use Dart
+                          to build sophisticated web applications at scale.
+                        </p>
+
+                        <!-- <button data-url="https://www.google.com/moderator/#15/e=216720&t=216720.42" class="session__ask-a-question paper-button shadow-z2">Ask A Question<div class="button__ripple"></div></button> -->
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/building-production-dart-apps-with-a-pure-open-source-workflow/" class="card__see-more" tabindex="28">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="29">Back</a>
+
+                    <div class="card__title">Building production Dart apps with a pure Open Source workflow: How we built Dart Pad <span class="card__subtitle">11:00 - 11:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image building-production-dart-apps-with-a-pure-open-source-workflow"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Building production Dart apps with a pure Open Source workflow: How we built Dart Pad</h1>
+                        <h2 class="session__header-time-and-location">11:00 - 11:30</h2>
+                      </div>
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Devon Carew and Luke Church, Software Engineers, Google</h3>
+                        <p>
+                          We built Dart Pad, a friction-free Dart experience,
+                          as open source and <em>with</em> open source.
+                          In this session, we'll show you how to unit test,
+                          measure code coverage, trigger Continuous Integration,
+                          and deploy to the cloud, all with open source tools
+                          and libraries.
+                        </p>
+
+                        <!-- <button data-url="https://www.google.com/moderator/#15/e=216720&t=216720.43" class="session__ask-a-question paper-button shadow-z2">Ask A Question<div class="button__ripple"></div></button> -->
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/building-an-awesome-ecosystem/" class="card__see-more" tabindex="30">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="31">Back</a>
+
+                    <div class="card__title">Building an Awesome Ecosystem <span class="card__subtitle">11:30 - 12:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image building-an-awesome-ecosystem"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Building an Awesome Ecosystem</h1>
+                        <h2 class="session__header-time-and-location">11:30 - 12:00</h2>
+                      </div>
+                      <div class="session__abstract">
+                        <h3 class="session__speaker">Bob Nystrom, Software Engineer, Google</h3>
+                        <p>
+                          We all like to build things, and as software people we tend to focus on the code we build. In this talk, I'll try to convince you that the most important artifact for us to produce is the community of people that surround that code: its members, relationships, and culture.
+                        </p>
+
+                        <p>
+                          I'll talk about what it means to grow a healthy, vibrant community and your part in it. It may be a bit touchy-feely but I promise to go easy on the incense and folk songs.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/google-fiber-and-dart/" class="card__see-more" tabindex="32">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="33">Back</a>
+
+                    <div class="card__title">Google Fiber and Dart <span class="card__subtitle">12:30 - 13:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image google-fiber-and-dart"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Google Fiber and Dart</h1>
+                        <h2 class="session__header-time-and-location">12:30 - 13:00</h2>
+                      </div>
+                      <div class="session__abstract">
+                      <h3 class="session__speaker">Jason Daly, Software Engineer, Google</h3>
+                        <p>
+                          In this session, we will detail how we used Dart to bring beautiful UIs and streaming video to Google Fiber customers. We'll also talk about how we use the Dart VM on some of our set-top boxes.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/dart-for-internet-of-things/" class="card__see-more" tabindex="34">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="35">Back</a>
+
+                    <div class="card__title">Dart for Internet of Things <span class="card__subtitle">14:30 - 15:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image dart-for-internet-of-things"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Dart for Internet of Things</h1>
+                        <h2 class="session__header-time-and-location">14:30 - 15:00</h2>
+                      </div>
+                      <div class="session__abstract">
+                      <h3 class="session__speaker">Dennis Khvostionov, CTO from DGLogik</h3>
+                        <p>
+                          With the new and exciting world of IoT, many companies and developers are focused on building solutions that solve the integration and inter-operation of various devices, services and applications. Dart is well positioned to be the language of choice for these solutions. Join us for an interactive and detailed demonstration of a complete end-to-end, open source IoT platform (DSA) sporting a complete Dart implementation. With dartVM running on a device and dart2js in the browser, DSA provides all of the functionality necessary for building out IoT networks and solutions. Learn how to become part of the rapidly growing IoT revolution. 
+                        </p>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/moving-from-node-js-to-dart/" class="card__see-more" tabindex="34">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="35">Back</a>
+
+                    <div class="card__title">Moving from Node.js to Dart <span class="card__subtitle">15:00 - 15:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image moving-from-node-js-to-dart"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Moving from Node.js to Dart</h1>
+                        <h2 class="session__header-time-and-location">15:00 - 15:30</h2>
+                      </div>
+                      <div class="session__abstract">
+                      <h3 class="session__speaker">Faisal Abid, League Inc.</h3>
+                        <p>
+                          In moving from Node.js to Dart, we will explore how to take a production API built in Node.js and port it over to Dart. 
+
+                          You will learn about the differences between each platform for server-side APIs, and the challenges you will face when moving away from the Node platform to Dart. 
+
+                          We will go over the advantages of developing in Dart and why it is the best bet for the future of server side development.
+                        </p>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/dart-for-mobile/" class="card__see-more" tabindex="34">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="35">Back</a>
+
+                    <div class="card__title">Dart for Mobile <span class="card__subtitle">16:30 - 17:00</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image dart-for-mobile"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Dart for Mobile</h1>
+                        <h2 class="session__header-time-and-location">16:30 - 17:00</h2>
+                      </div>
+                      <div class="session__abstract">
+                      <h3 class="session__speaker">Kasper Lund, Software Engineer, Google</h3>
+                        <p>
+                          A deep dive into how we run Dart on Android and iOS, and how we power native apps built with native UIs.
+                        </p>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sessions__session-detail card card--no-title-scale card--no-title-opacity-during-scroll">
+
+                  <div class="card__container">
+                    <a href="/events/2015/summit/sessions/sky/" class="card__see-more" tabindex="34">See more</a>
+                    <a href="/events/2015/summit/sessions/" class="card__collapse-button" tabindex="35">Back</a>
+
+                    <div class="card__title">Sky: An experiment writing for Android with Dart <span class="card__subtitle">17:00 - 17:30</span></div>
+                    <div class="card__logo"></div>
+                    <div class="card__content-wrapper">
+
+                      <div class="session__header-image sky"></div>
+                      <div class="session__header-headline">
+                        <h1 class="session__header-name">Sky: An experiment writing for Android with Dart</h1>
+                        <h2 class="session__header-time-and-location">17:00 - 17:30</h2>
+                      </div>
+                      <div class="session__abstract">
+                      <h3 class="session__speaker">Eric Seidel, Software Engineer, Google</h3>
+                        <p>
+                          Sky is an experimental open-source framework for writing mobile applications in Dart. Sky brings continuous deployment, fast development cycles, and designed-for-small-screen 60Hz user experiences to Dart developers on Android.
+                        </p>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
         </section>
 
@@ -272,6 +900,11 @@
             <div class="card__title">Attendee Information</div>
             <div class="card__logo"></div>
             <div class="card__content-wrapper">
+              <section class="card__content-block">
+                <h1>Registration</h1>
+
+                <p>You can now <a href="https://dartdevelopersummit.eventfarm.com/?page=7fff46cb-0000-454c-af46-680c1534a707" target="_blank">register for the summit</a>.</p>
+              </section>
               <section class="card__content-block">
                 <h1>Getting to the Dart Developer Summit</h1>
                 <p>The Dart Developer Summit will be taking place at <a href="https://plus.google.com/115368641896760000800" target="_blank">Google's San Francisco office</a>:</p>
@@ -308,12 +941,6 @@
               </section>
 
               <section class="card__content-block">
-                <h1>Registration</h1>
-
-                <p>You can now <a href="https://dartdevelopersummit.eventfarm.com/?page=7fff46cb-0000-454c-af46-680c1534a707" target="_blank">register for the summit</a>.</p>
-              </section>
-
-              <section class="card__content-block">
                 <h1>Contact</h1>
 
                 <p>Feel free to send any questions you may have to:<br><a href="mailto:dart-summit-questions@googlegroups.com">dart-summit-questions@googlegroups.com</a></p>
@@ -333,17 +960,22 @@
             <div class="card__logo"></div>
             <div class="card__content-wrapper">
               <section class="card__content-block">
+                <h1>Registration</h1>
+
+                <p>You can now <a href="https://dartdevelopersummit.eventfarm.com/?page=7fff46cb-0000-454c-af46-680c1534a707" target="_blank">register for the summit</a>.</p>
+              </section>
+              <section class="card__content-block">
                 <h1>Ask the questions that matter to you</h1>
                 <p>The Dart Developer Summit is a fantastic opportunity to ask Dart
                   engineers the questions you want answered. It's also your
                   chance to tell us exactly what you think about anything from
-                  performance to tooling, client to server-side.</p>
+                  performance to tooling, client to server.</p>
 
               </section>
               <section class="card__content-block">
                 <h1>Join the conversation</h1>
                 <p>If you have questions for the Dart team, please add them to the <a target="_blank" href="https://www.google.com/moderator/#15/e=213316&t=213316.40">Dart Summit Q&A</a>.</p>
-                <p>You'd like to present something? That would be awesome. Please <a href="https://docs.google.com/a/google.com/forms/d/1pEL1f_b7eE3ZWKqbGlSbxH8H9wL05qTY2sZZSGlIlTc/viewform" target="_blank">submit a proposal for your talk</a> and we'll get back to you. </p>
+                <p>You'd like to present something? That would be awesome.</p>
               </section>
               <section class="card__content-block">
                 <h1>Community</h1>
@@ -370,14 +1002,31 @@
             <a href="/events/2015/summit/" class="card__collapse-button">Back</a>
             <div class="card__title">About the Dart Developer Summit</div>
             <div class="card__logo">
-              Two days of sharing insight and experience building and deploying apps with Dart. Learn about the platform from Dart's founders and engineers, and connect with your fellow Dartisans.
+              Connect with Dartisans and Dart engineers to share insight and
+              experiencing building Dart apps and the ecosystem.
             </div>
             <div class="card__content-wrapper">
+            <p>The Dart Developer Summit brings together Dart developers
+              and Dart engineers for two days of sessions,
+              conversations, technical
+              discussions, and collaboration. Developers from inside and
+              outside of Google are attending, as is the entire Dart team.</p>
 
-              <p>Summit presentations will focus on real-world experiences,
+            <p>Attendees will learn how Dart is used to build web apps,
+              server apps, embedded apps, IoT apps, and more. Speakers from
+              the Dart ecosystem (as well as Googlers building and using Dart),
+              will share their stories.</p>
+
+              <p>Summit presentations are focused on real-world experiences,
                 future platform features, how to optimize Dart apps, and more.
-                We'll also have breakouts and panels for topics that Dartisans
-                want to discuss.</p>
+
+                We'll also have breakouts and plenty of time for developers
+                to meet with Dart engineers.</p>
+
+              <p>The Summit is a single-track event, with short presentations
+                to ensure everyone is part of an engaging conversation.</p>
+
+              <p>Of course, don't forget about the party on the first night!</p>
 
               <p class="strong">Join us in San Francisco or via the live video
                 streams.</p>
@@ -396,9 +1045,6 @@
         </span>
         <span class="footer__code-of-conduct">
           <a target="_blank" href="https://www.google.com/events/policy/anti-harassmentpolicy.html">Code of Conduct</a>
-        </span>
-        <span class="footer__logo">
-          <img src="/events/2015/summit/static/images/hummingbird.svg">
         </span>
       </div>
     </section>
