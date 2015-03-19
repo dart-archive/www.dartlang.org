@@ -153,3 +153,6 @@ Google internal tool for marketing
 
 [CreeperHost](http://www.creeperhost.net/)
 : Web based tools for managing virtual servers and the services running on them. As well as some internal tools and processes.
+
+[Tisíc knih](http://tisicknih.cz/)
+: Czech book recommendation engine based on library data. Built with Polymer.dart.
