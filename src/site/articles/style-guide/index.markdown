@@ -836,14 +836,16 @@ Db
 <!-- https://github.com/dart-lang/www.dartlang.org/issues/668 -->
 
 Although Dart supports two syntaxes of doc comments (`///` and `/**`), we prefer
-using `///` for doc comments. The `///` is more compact. ('/**' and '*/' add two
-"blank" lines to a multiline doc comment.) It is also easier to read in some
-situations, such as a doc comment that contains a Markdown list bulleted with
-`*`.
+using `///` because it's more compact. (`/**` and `*/` add two
+content-free lines to a multiline doc comment.) The `///` syntax is also easier
+to read in some situations, such as when a doc comment contains a bulleted list
+that uses `*` to mark list items.
 
 <div class="good">
 {% prettify dart %}
-/// Parses a set of option strings. For each option:
+/// Parses a set of option strings.
+///
+/// For each option:
 ///
 /// * If it is `null`, then it is ignored.
 /// * If it is a string, then [validate] is called on it.
