@@ -124,6 +124,11 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/',
           src: 'index.html',
+          dest: 'sessions/dart-for-the-web-state-of-the-union/'
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: 'index.html',
           dest: 'sessions/debugging-and-profiling-dart-programs-with-observatory/'
         },{
           expand: true,
@@ -150,6 +155,11 @@ module.exports = function(grunt) {
           cwd: 'src/',
           src: 'index.html',
           dest: 'sessions/migrating-trustwaves-large-customer-portal-to-dart/'
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: 'index.html',
+          dest: 'sessions/moving-from-node-js-to-dart/'
         },{
           expand: true,
           cwd: 'src/',
