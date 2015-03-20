@@ -24,7 +24,7 @@ and start playing with Dart Editor.
 This one-hour code lab assumes you have some programming experience
 but no previous experience with either Dart or web apps.
 
-[Language Tour (_Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/ch02.html)
+[A Tour of the Dart Language](/docs/dart-up-and-running/ch02.html) (the language tour)
 : Shows each major Dart language feature, from variables to
 operators to classes and libraries.
 
@@ -42,12 +42,12 @@ but remember them for the future.
 The Dart download includes several libraries.
 You can also define your own libraries
 and get many more using the
-[pub package manager](http://pub.dartlang.org).
+[pub package and asset manager](/tools/pub/).
 
-[Libraries and Visibility (a section of _Dart: Up and Running_, Chapter 2)](/docs/dart-up-and-running/ch02.html#libraries-and-visibility)
+[Libraries and Visibility](/docs/dart-up-and-running/ch02.html#libraries-and-visibility) (part of the language tour)
 : Learn how to use and create libraries.
 
-[Library Tour (_Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/ch03.html)
+[A Tour of the Dart Libraries](/docs/dart-up-and-running/ch03.html) (the library tour)
 : Learn how to use the major features in each library that comes with Dart.
 
 [Articles](/articles/)
@@ -74,8 +74,10 @@ Closely tied to the Dart language,
 the Iterable class provides the interface used by for-in loops.
 Learn more:
 
-* [Collections (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/ch03.html#collections)
-* [Iteration (a section of _Dart: Up and Running_, Chapter 3)](/docs/dart-up-and-running/ch03.html#iteration)
+* [Collections](/docs/dart-up-and-running/ch03.html#collections)
+  (part of the library tour)
+* [Iteration](/docs/dart-up-and-running/ch03.html#iteration)
+  (part of the library tour)
 * [Iterable API documentation](http://api.dartlang.org/dart_core/Iterable.html)
 
 
@@ -87,7 +89,8 @@ returns a Future&lt;String>,
 which you can use to get the file's entire contents as a string.
 Learn more:
 
-* [Using Future Based APIs](/articles/using-future-based-apis/)
+* [Using Future-Based APIs](/docs/tutorials/futures/)
+  (part of the Dart tutorials)
 * [Futures and Error Handling](/articles/futures-and-error-handling/)
 * [Future API documentation](http://api.dartlang.org/dart_async/Future.html)
 
@@ -103,6 +106,7 @@ the dart:io File class's openRead() method.
 Learn more:
 
 * [Use Streams for Data](/docs/tutorials/streams/)
+  (part of the Dart tutorials)
 * [Creating Streams in Dart](/articles/creating-streams/)
 * [Stream API documentation](http://api.dartlang.org/dart_async/Stream.html)
 
