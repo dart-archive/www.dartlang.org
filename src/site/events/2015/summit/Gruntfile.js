@@ -99,6 +99,11 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/',
           src: 'index.html',
+          dest: 'sessions/how-we-built-instill-io-with-dart-and-polymer/'
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: 'index.html',
           dest: 'sessions/building-an-awesome-ecosystem/'
         },{
           expand: true,
