@@ -23,26 +23,13 @@ These features are coming online gradually. In this article, we'll discuss
 the most basic additions: `await` expressions and `async` methods.
 These are the most commonly used features related to asynchrony.
 
-<aside class="alert alert-warning" markdown="1">
-**Caveat emptor**
-
-The features described in this article are still under development.
-Not all the parts of the system necessarily comply with the spec.
-Early adopters may need to import
-[dart:async](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-async)
-for these features to work. Ultimately, `Future` should move to
-dart:core and be universally available.
-
-Overall, you should regard this article as a heads up for early adopters.
-You should be reasonably familiar with existing ways of asynchronous
+<aside class="alert alert-info" markdown="1">
+**Note:**
+To use these asynchrony features, you may need to import
+[dart:async](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-async).
+Ultimately, `Future` should move to dart:core and be universally available.
+This article assumes that you are already familiar with asynchronous
 programming in Dart.
-
-For up-to-the-minute information on what features are supported and
-how to enable them, follow these issues:
-[Dart VM](https://code.google.com/p/dart/issues/detail?id=21404),
-[dart2js](https://code.google.com/p/dart/issues/detail?id=21411),
-[WebStorm](https://youtrack.jetbrains.com/issue/WEB-13187),
-[Dart Editor](https://code.google.com/p/dart/issues/detail?id=21412).
 </aside>
 
 ## Async functions
@@ -267,3 +254,9 @@ main() async {
 Here the code is self explanatory. While the animation is running, we
 compute a frame. The choice is yours; pick whichever version you find
 easier to understand.
+
+## More information
+
+For information on more advanced asynchrony topics, such as **async\***,
+**sync\***, and **yield\***, see
+[Dart Language Asynchrony Support: Phase 2](/articles/beyond-async).
