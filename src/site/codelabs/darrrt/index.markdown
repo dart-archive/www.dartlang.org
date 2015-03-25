@@ -265,8 +265,7 @@ Get familiar with the HTML and the Dart code for the skeleton version of the app
 {% prettify dart %}
 [[highlight]]void main() {
   // Your app starts here.
-}
-[[/highlight]]
+}[[/highlight]]
 {% endprettify %}
 </div>
 <div class="trydart-filename">piratebadge.dart</div>
@@ -1659,10 +1658,10 @@ Add two static functions to the PirateName class:
 class PirateName {
   ...
 
-  [[highlight]]static Future readyThePirates() {
-    var path = 'piratenames.json';
-    return HttpRequest.getString(path)
-        .then(_parsePirateNamesFromJSON);
+  [[highlight]]static Future readyThePirates() async {
+    String path = 'piratenames.json';
+    String jsonString = await HttpRequest.getString(path);
+    _parsePirateNamesFromJSON(jsonString);
   }
   
   static _parsePirateNamesFromJSON(String jsonString) {
@@ -1678,21 +1677,26 @@ class PirateName {
 
 </div> <div class="col-md-5" markdown="1">
 
+* `readyThePirates` is marked with the `async` keyword. An async
+  function returns a Future immediately,
+  so the caller has the opportunity to do
+  something else while waiting for the function to complete its work.
+
 * `HttpRequest` is a utility for retrieving data from a URL.
 
 * `getString()` is a convenience method for doing a simple
-GET request that returns a string.
+  GET request that returns a string.
 
-* The code uses a `Future` to perform the GET asynchronously.
+* `getString()` is asynchronous. It sets up the GET request
+  and returns a Future that _completes_ when the GET request is
+  finished.
 
-* The callback function for `.then()` is called when
-the Future completes successfully.
+* The `await` expression, which can only be used in an async
+  function, causes execution to pause until the GET request is
+  finished (when the Future returned by `getString()` completes).
 
-* When the Future completes successfully,
-the pirate names are read from the JSON file.
-
-* `readyThePirates` returns the Future so the main program has the
-opportunity to do something after the file is read.
+* After the GET request returns a JSON string, the code extracts
+  pirate names and appellations from the string.
 
 </div> </div>
 
@@ -1762,20 +1766,19 @@ handling both success and failure.
 
 <div class="trydart-step-details">
 {% prettify dart %}
-void main() {
+main() [[highlight]]async[[/highlight]] {
   ...
   
-[[highlight]]  PirateName.readyThePirates()
-    .then((_) {
-      //on success
-      inputField.disabled = false; //enable
-      genButton.disabled = false;  //enable[[/highlight]]
-      setBadgeName(getBadgeNameFromStorage());
-    [[highlight]]})
-    .catchError((arrr) {
-      print('Error initializing pirate names: $arrr');
-      badgeNameElement.text = 'Arrr! No names.';
-    });[[/highlight]]
+[[highlight]]  try {
+    await PirateName.readyThePirates();
+    //on success
+    inputField.disabled = false; //enable
+    genButton.disabled = false; //enable
+    setBadgeName(getBadgeNameFromStorage());
+  } catch (arrr) {
+    print('Error initializing pirate names: $arrr');
+    badgeNameElement.text = 'Arrr! No names.';
+  }[[/highlight]]
 }
 {% endprettify %}
 </div>
@@ -1784,24 +1787,19 @@ void main() {
 
 </div> <div class="col-md-5" markdown="1">
 
-* Call the `readyThePirates()` function,
-which returns a Future.
+* Mark the function body with `async`, so this function can use the
+  `await` keyword.
 
-* When the Future successfully completes,
-the `then()` callback function is called.
+* Call the `readyThePirates()` function, which immediately returns
+  a Future.
 
-* Using underscore (`_`) as a parameter name
-indicates that the parameter is ignored.
+* Use the `await` keyword to make execution pause until that Future
+  completes.
 
-* The callback function enables the UI
-and gets the stored name.
+* When the Future returned by `readyThePirates()` successfully completes,
+  set up the UI.
 
-* If the Future encounters an error
-the `catchError` callback function is called
-and the program displays an error message,
-leaving the UI disabled.
-
-* The callback functions for `then()` and `catchError` are defined inline.
+* Use `try` and `catch` to detect and handle errors.
 
 </div> </div>
 
@@ -2091,8 +2089,7 @@ all of which are covered in more detail in the language tour.
 * typecasting with `as` (`(e.target as InputElement)`)
 * import, and import with `show` (`import 'dart:math' show Random;`)
 * generics
-* streams (`inputField.onInput.listen(...);`)
-* futures (`HttpRequest.getString(path).then(...);`)
+* asynchrony support (`async` and `await`)
 </div>
 
 ### <i class="fa fa-anchor"> </i> Online documentation
