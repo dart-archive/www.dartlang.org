@@ -6,12 +6,12 @@ class Rot extends Codec<List<int>, List<int>> {
   final key;
   const Rot(this.key);
 
-  List<int> encode(List<int> data, { int key }) {
+  List<int> encode(List<int> data, {int key}) {
     if (key == null) key = this.key;
     return new RotConverter(key).convert(data);
   }
 
-  List<int> decode(List<int> data, { int key }) {
+  List<int> decode(List<int> data, {int key}) {
     if (key == null) key = this.key;
     return new RotConverter(-key).convert(data);
   }
@@ -20,16 +20,17 @@ class Rot extends Codec<List<int>, List<int>> {
   RotConverter get decoder => new RotConverter(-key);
 }
 
-abstract class CipherSink
-    extends ChunkedConversionSink<List<int>> {
-  void addModifiable(List<int> data) { add(data); }
+abstract class CipherSink extends ChunkedConversionSink<List<int>> {
+  void addModifiable(List<int> data) {
+    add(data);
+  }
 }
 
 class RotConverter extends Converter<List<int>, List<int>> {
   final _key;
   const RotConverter(this._key);
 
-  List<int> convert(List<int> data, { int key }) {
+  List<int> convert(List<int> data, {int key}) {
     if (key == null) key = this._key;
     var result = new List<int>(data.length);
     for (int i = 0; i < data.length; i++) {
@@ -39,7 +40,8 @@ class RotConverter extends Converter<List<int>, List<int>> {
   }
 
   /// Works more efficiently if given a CipherSink as argument.
-  CipherSink startChunkedConversion(ChunkedConversionSink<List<int>> sink) {
+  CipherSink startChunkedConversion(
+      ChunkedConversionSink<List<int>> sink) {
     if (sink is! CipherSink) sink = new _CipherSinkAdapter(sink);
     return new _RotSink(_key, sink);
   }
@@ -49,9 +51,15 @@ class _CipherSinkAdapter implements CipherSink {
   ChunkedConversionSink<List<int>> sink;
   _CipherSinkAdapter(this.sink);
 
-  void add(data) { sink.add(data); }
-  void addModifiable(data) { sink.add(data); }
-  void close() { sink.close(); }
+  void add(data) {
+    sink.add(data);
+  }
+  void addModifiable(data) {
+    sink.add(data);
+  }
+  void close() {
+    sink.close();
+  }
 }
 
 class _RotSink extends CipherSink {
@@ -86,8 +94,12 @@ class ToModifiableSink extends ChunkedConversionSink<List<int>> {
   final CipherSink sink;
   ToModifiableSink(this.sink);
 
-  void add(List<int> data) { sink.addModifiable(data); }
-  void close() { sink.close(); }
+  void add(List<int> data) {
+    sink.addModifiable(data);
+  }
+  void close() {
+    sink.close();
+  }
 }
 
 const Rot ROT128 = const Rot(128);
@@ -100,7 +112,8 @@ main2() {
   print(ROT1.decode(ROT1.encode([0, 128, 255, 1])));
   print(ROT128.decode(ROT128.encode([0, 128, 255, 1])));
 
-  var outSink = new ChunkedConversionSink<List<int>>.withCallback((chunks) {
+  var outSink = new ChunkedConversionSink<List<int>>.withCallback(
+      (chunks) {
     print(chunks);
   });
   var inSink = new RotConverter(30).startChunkedConversion(outSink);
@@ -113,11 +126,15 @@ main8(args) {
   String inFile = args[0];
   String outFile = args[1];
   int key = int.parse(args[2]);
-  new File(inFile).openRead().transform(new RotConverter(key)).pipe(new File(outFile).openWrite());
+  new File(inFile)
+      .openRead()
+      .transform(new RotConverter(key))
+      .pipe(new File(outFile).openWrite());
 }
 
 main4() {
-  var outSink = new ChunkedConversionSink<List<int>>.withCallback((chunks) {
+  var outSink = new ChunkedConversionSink<List<int>>.withCallback(
+      (chunks) {
     print(chunks);
   });
   var inSink = new RotConverter(30).startChunkedConversion(outSink);
@@ -132,7 +149,8 @@ main5(args) {
   int key = int.parse(args[2]);
   new File(inFile)
       .openRead()
-      .transform(new ToModifiableConverter().fuse(new RotConverter(key)))
+      .transform(
+          new ToModifiableConverter().fuse(new RotConverter(key)))
       .pipe(new File(outFile).openWrite());
 }
 
@@ -141,11 +159,10 @@ main(args) {
   String outFile = args[1];
   int key = int.parse(args[2]);
   var transformer = new ToModifiableConverter()
-       .fuse(new RotConverter(key))
-       .fuse(new RotConverter(key));
+      .fuse(new RotConverter(key))
+      .fuse(new RotConverter(key));
   new File(inFile)
       .openRead()
       .transform(transformer)
       .pipe(new File(outFile).openWrite());
 }
-

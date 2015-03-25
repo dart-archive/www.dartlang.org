@@ -7,6 +7,7 @@ rel:
 has-permalinks: true
 article:
   written_on: 2014-02-06
+  updated_on: 2015-03-17
   collection: libraries-and-apis
 header:
   css: ["/articles/converters-and-codecs/styles.css"]
@@ -18,8 +19,10 @@ header:
 # {{ page.title }}
 <p class="subtitle">**_How to write efficient conversions_**</p>
 
-_Written by Florian Loitsch <br />
-February 2014_
+<em>Written by Florian Loitsch <br />
+<time pubdate date="2014-02-06">February 2014</time>
+(updated March 2015)
+</em>
 
 Converting data between different representations is a common task in computer
 engineering. Dart is no exception and comes with
@@ -55,7 +58,6 @@ A codec is a combination of two converters where one encodes
 and the other one decodes:
 
 {% prettify dart %}
-
 abstract class Codec<S, T> {
   const Codec();
 
@@ -68,7 +70,6 @@ abstract class Codec<S, T> {
   Codec<S, dynamic> fuse(Codec<T, dynamic> other) { .. }
   Codec<T, S> get inverted => ...;
 }
-
 {% endprettify %}
 
 As can be seen, codecs provide convenience methods such as `encode()` and
@@ -197,27 +198,27 @@ represents one line.
 import 'dart:convert';
 import 'dart:async';
 
-main() {
+main() async {
   // HtmlEscape synchronously converts Strings to Strings.
-  print(const HtmlEscape().convert("foo"));  // "foo".
+  print(const HtmlEscape().convert("foo")); // "foo".
   // When used in a chunked way it converts from Strings
   // to Strings.
-  new Stream.fromIterable(["f", "o", "o"])
-      .transform(const HtmlEscape())
-      .toList().then(print);  // ["f", "o", "o"].
+  var stream = new Stream.fromIterable(["f", "o", "o"]);
+  print(await (stream.transform(const HtmlEscape())
+                     .toList()));    // ["f", "o", "o"].
 
   // LineSplitter synchronously converts Strings to Lists of String.
-  print(const LineSplitter().convert("foo\nbar"));  // ["foo", "bar"]
+  print(const LineSplitter().convert("foo\nbar")); // ["foo", "bar"]
   // However, asynchronously it converts from Strings to Strings (and
   // not Lists of Strings).
-  new Stream.fromIterable(["fo", "o\nb", "ar"])
-      .transform(const LineSplitter())
-      .toList().then(print);  // ["foo", "bar"].
+  var stream2 = new Stream.fromIterable(["fo", "o\nb", "ar"]);
+  print("${await (stream2.transform(const LineSplitter())
+                          .toList())}");
 }
 {% endprettify %}
 
-In general, the type of the chunked conversion is determined by the most useful case
-when used as a StreamTransformer.
+In general, the type of the chunked conversion is determined by the most
+useful case when used as a StreamTransformer.
 
 ### ChunkedConversionSink
 
@@ -255,17 +256,17 @@ import 'dart:convert';
 
 main() {
   var outSink = new ChunkedConversionSink.withCallback((chunks) {
-    print(chunks.single);  // 𝅘𝅥𝅯
+    print(chunks.single); // 𝅘𝅥𝅯
   });
 
   var inSink = UTF8.decoder.startChunkedConversion(outSink);
   var list = [0xF0, 0x9D];
   inSink.addSlice(list, 0, 2, false);
-  list[0] = 0x85;  // Reusing the same list.
+  // Since we used `addSlice` we are allowed to reuse the list.
+  list[0] = 0x85;
   list[1] = 0xA1;
   inSink.addSlice(list, 0, 2, true);
 }
-
 {% endprettify %}
 
 As a user of the chunked conversion sink (which is used both as input and output

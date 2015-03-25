@@ -2,7 +2,7 @@ import 'dart:convert';
 
 main() {
   var outSink = new ChunkedConversionSink.withCallback((chunks) {
-    print(chunks.single);  // 𝅘𝅥𝅯
+    print(chunks.single); // 𝅘𝅥𝅯
   });
 
   var inSink = UTF8.decoder.startChunkedConversion(outSink);
