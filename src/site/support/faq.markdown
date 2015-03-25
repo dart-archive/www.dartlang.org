@@ -11,7 +11,7 @@ has-permalinks: true
 
 # {{ page.title }}
 
-_Updated December 2014_
+_Updated March 2015_
 
 This page collects some of the top questions we've heard from the community
 since Dart was open sourced. For more details, read the

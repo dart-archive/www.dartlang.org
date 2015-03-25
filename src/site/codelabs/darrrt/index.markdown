@@ -592,7 +592,7 @@ the Dart code can get the element.
 
 </div> </div>
 
-### <i class="fa fa-anchor"> </i> Edit piragebadge.dart.
+### <i class="fa fa-anchor"> </i> Edit piratebadge.dart.
 
 <div class="trydart-step-details" markdown="1">
 Below the import, declare a top-level variable to hold the `ButtonElement`.
