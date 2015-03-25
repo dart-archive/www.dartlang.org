@@ -306,6 +306,14 @@ Until then, you can use the code above as an idiom
 and provide your own code for the body of the processString() function
 and your own code to handle the error.
 
+<aside class="alert-info" markdown="1">
+**Note:**
+The examples in this section use the `async` and `await` keywords.
+If you are not familiar with these keywords, see
+[Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony)
+in the [language tour](/docs/dart-up-and-running/ch02.html).
+</aside>
+
 ###Using a relative URI
 
 The URI used for the GET request specifies just the name of
@@ -384,6 +392,17 @@ creates an HttpRequest object,
 configures it with a URI and callback function,
 and then sends the request.
 Let's take a look at the Dart code:
+
+{% prettify dart %}
+void makeRequest(Event e) {
+  var path = 'portmanteaux.json';
+  var httpRequest = new HttpRequest();
+  httpRequest
+    ..open('GET', path)
+    ..onLoadEnd.listen((e) => requestComplete(httpRequest))
+    ..send('');
+}
+{% endprettify %}
 
 <img class="scale-img-max" src="images/portmanteaux-code.png"
      alt="Making an HTTP GET request">
