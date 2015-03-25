@@ -435,10 +435,8 @@ Dart applications directly from within Dart Editor.
 
 ### Q. Will the Dart VM get into Chrome?
 
-The Dart team is working on integrating the VM into Chrome. We don't have a
-timeline, but you can follow open-source projects such as [Oilpan] and
-[Dartium] for a sense of progress. Meanwhile, Dart
-is designed to compile to JavaScript to run across the modern web, and the
+[No.](http://news.dartlang.org/2015/03/dart-for-entire-web.html)
+Dart is designed to compile to JavaScript to run across the modern web, and the
 dart2js compiler is a top priority for the team.
 
 ### Q. Why is the code for "Hello, World" so big, compared to the original Dart code, after compilation to JavaScript?
