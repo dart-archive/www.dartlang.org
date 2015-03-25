@@ -16,6 +16,8 @@ This chapter points out some of the useful and fun features of the Dart
 language and libraries that are used in Dartiverse Search, a
 client-server app.
 
+{% include async-await-conversion-pending.html %}
+
 As the screenshot shows, Dartiverse Search looks for a
 user-entered string in GitHub and StackOverflow. The app is
 asynchronous, adding results as they're found, so the UI is always
@@ -24,7 +26,6 @@ responsive.
 <img src="images/daur_0501.png"
      alt="The client app UI"
      class="thinborder">
-
 
 ## How to run Dartiverse Search {#how-to-run-dartiverse-search}
 
