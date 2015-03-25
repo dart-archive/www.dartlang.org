@@ -211,12 +211,11 @@ copyright string at the beginning of the input asset:
 String copyright =
   "Copyright (c) 2014, the Example project authors.\n";
 
-Future apply(Transform transform) {
-  return transform.primaryInput.readAsString().then((content) {
-    var id = transform.primaryInput.id;
-    String newContent = copyright + content;
-    transform.addOutput(new Asset.fromString(id, newContent));
-  });
+Future apply(Transform transform) async {
+  var content = await transform.primaryInput.readAsString();
+  var id = transform.primaryInput.id;
+  var newContent = copyright + content;
+  transform.addOutput(new Asset.fromString(id, newContent));
 }
 {% endprettify %}
 

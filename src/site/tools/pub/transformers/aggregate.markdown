@@ -98,28 +98,22 @@ the assets' ID, and creates an output asset with
 the recipes compiled into a complete HTML file.
 
 {% prettify dart %}
-Future apply(AggregateTransform transform) {
+Future apply(AggregateTransform transform) async {
   var buffer = new StringBuffer()..write('<html><body>');
 
-  return transform.primaryInputs.toList().then((assets) {
-    // The order of [transform.primaryInputs] is not guaranteed
-    // to be stable across multiple runs of the transformer.
-    // Therefore, alphabetically sort the assets by ID string.
-    assets.sort((x, y) => x.id.compareTo(y.id));
-    return Future.wait(assets.map((asset) {
-      return asset.readAsString().then((content) {
-        buffer.write(content);
-        buffer.write('<hr>');
-      });
-    }));
-  }).then((_) {
-    buffer.write('</body></html>');
-    // Write the output back to the same directory as the source files,
-    // into a file named recipes.html.
-    var id = new AssetId(transform.package,
-                         transform.key + "recipes.html");
-    transform.addOutput(new Asset.fromString(id, buffer.toString()));
-  });
+  var assets = await transform.primaryInputs.toList();
+  assets.sort((x, y) => x.id.compareTo(y.id));
+  for (var asset in assets) {
+    var content = await asset.readAsString();
+    buffer.write(content);
+    buffer.write('<hr>');
+  }
+  buffer.write('</body></html>');
+  // Write the output back to the same directory,
+  // in a file named recipes.html.
+  var id = new AssetId(
+      transform.package, p.url.join(transform.key, "recipes.html"));
+  transform.addOutput(new Asset.fromString(id, buffer.toString()));
 }
 {% endprettify %}
 
