@@ -1527,8 +1527,7 @@ Switch statements in Dart compare integer, string, or compile-time
 constants using `==`. The compared objects must all be instances of the
 same class (and not of any of its subtypes), and the class must not
 override `==`.
-[Enumerated types](#enums), introduced in Dart 1.8,
-work well in `switch` statements.
+[Enumerated types](#enums) work well in `switch` statements.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -3278,8 +3277,9 @@ main() async {
 For more information about asynchronous programming, see the
 [dart:async](ch03.html#dartasync---asynchronous-programming)
 section of the library tour.
-Also see the article
-[Dart Language Asynchrony Support: Phase 1](/articles/await-async/)
+Also see the articles
+[Dart Language Asynchrony Support: Phase 1](/articles/await-async/) and
+[Dart Language Asynchrony Support: Phase 2](/articles/beyond-async/),
 and the [Dart language specification](/docs/spec/).
 
 

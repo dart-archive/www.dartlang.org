@@ -989,7 +989,7 @@ Future, Stream, and more are in the
 <aside class="alert alert-info" markdown="1">
 **Note:**
 You don't always need to use the Future or Stream APIs directly.
-In 1.8, Dart introduced language support for asynchronous coding,
+In 1.9, Dart added language support for asynchronous coding,
 using keywords such as `async` and `await`.
 See [Asynchrony support](ch02.html#asynchrony) in the language tour
 for details.
