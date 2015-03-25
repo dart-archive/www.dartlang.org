@@ -988,7 +988,9 @@ Future, Stream, and more are in the
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-As of 1.8, Dart has language support for asynchronous coding.
+You don't always need to use the Future or Stream APIs directly.
+In 1.8, Dart introduced language support for asynchronous coding,
+using keywords such as `async` and `await`.
 See [Asynchrony support](ch02.html#asynchrony) in the language tour
 for details.
 </aside>
@@ -1045,6 +1047,29 @@ runUsingAsyncAwait() async {
 }
 {% endprettify %}
 
+An async function can treat errors from Futures as exceptions.
+For example:
+
+<!-- dart-tutorials-samples/count_down/tute_countdown.dart -->
+{% prettify dart %}
+attached() async {
+  super.attached();
+  try {
+    await appObject.start();
+  } catch (e) {
+    //...handle the error...
+  }
+}
+{% endprettify %}
+
+<aside class="alert alert-warning" markdown="1">
+**Important:**
+Async functions return Futures.
+If you don't want your function to return a future,
+then use a different solution.
+For example, you might call an async function from your function.
+</aside>
+
 For more information on using `await` and related
 Dart language features, see
 [Asynchrony support](ch02.html#asynchrony).
@@ -1053,7 +1078,11 @@ Dart language features, see
 #### Basic usage {#basic-usage}
 {:.no_toc}
 
-Use `then()` to schedule code that runs when the future completes. For
+{% comment %}
+[PENDING: Delete much of the following content in favor of the tutorial coverage?]
+{% endcomment %}
+
+You can use `then()` to schedule code that runs when the future completes. For
 example, `HttpRequest.getString()` returns a Future, since HTTP requests
 can take a while. Using `then()` lets you run some code when that Future
 has completed and the promised string value is available:
@@ -1081,8 +1110,8 @@ HttpRequest.getString(url).then((String result) {
 The `then().catchError()` pattern is the asynchronous version of
 `try`-`catch`.
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
+<aside class="alert alert-warning" markdown="1">
+**Important:**
 Be sure to invoke `catchError()` on the result of `then()`—not on the
 result of the original Future. Otherwise, the `catchError()` can
 handle errors only from the original Future's computation, but not
@@ -1111,10 +1140,9 @@ return result.then((value) => expensiveWork())
 In the preceding example, the methods run in the following order:
 
 1.  `costlyQuery()`
-
 2.  `expensiveWork()`
-
 3.  `lengthyComputation()`
+
 
 #### Waiting for multiple futures {#waiting-for-multiple-futures}
 {:.no_toc}
@@ -1144,11 +1172,84 @@ Stream objects appear throughout Dart APIs, representing sequences of
 data. For example, HTML events such as button clicks are delivered using
 streams. You can also read a file as a stream.
 
+
+#### Using an asynchronous for loop {#stream-async-await-for}
+{:.no_toc}
+
+Sometimes you can use an asynchronous for loop (`await for`)
+instead of using the Stream API.
+
+Consider the following function.
+It uses Stream's `listen()` method
+to subscribe to a list of files,
+passing in a function literal that searches each file or directory.
+
+<!-- OLD dart-tutorials-samples/cmdline/bin/dgrep.dart -->
+{% prettify dart %}
+void main(List<String> arguments) {
+  ...
+  FileSystemEntity.isDirectory(searchPath).then((isDir) {
+    if (isDir) {
+      final startingDir = new Directory(searchPath);
+      startingDir
+          .list(
+              recursive: argResults[RECURSIVE],
+              followLinks: argResults[FOLLOW_LINKS])
+          .listen((entity) {
+        if (entity is File) {
+          searchFile(entity, searchTerms);
+        }
+      });
+    } else {
+      searchFile(new File(searchPath), searchTerms);
+    }
+  });
+}
+{% endprettify %}
+
+The equivalent code with await expressions,
+including an asynchronous for loop (`await for`),
+looks more like synchronous code:
+
+<!-- dart-tutorials-samples/cmdline/bin/dgrep.dart -->
+{% prettify dart %}
+main(List<String> arguments) async {
+  ...
+  if (await FileSystemEntity.isDirectory(searchPath)) {
+    final startingDir = new Directory(searchPath);
+    await for (var entity in startingDir.list(
+        recursive: argResults[RECURSIVE],
+        followLinks: argResults[FOLLOW_LINKS])) {
+      if (entity is File) {
+        searchFile(entity, searchTerms);
+      }
+    }
+  } else {
+    searchFile(new File(searchPath), searchTerms);
+  }
+}
+{% endprettify %}
+
+<aside class="alert alert-warning" markdown="1">
+**Important:**
+Before using `await for`, make sure that it makes the code clearer
+and that you really do want to wait for all of the stream's results.
+For example, you usually should **not** use `await for` for DOM event listeners,
+because the DOM sends endless streams of events.
+If you use `await for` to register two DOM event listeners in a row,
+then the second kind of event is never handled.
+</aside>
+
+For more information on using `await` and related
+Dart language features, see
+[Asynchrony support](ch02.html#asynchrony).
+
+
 #### Listening for stream data {#listening-for-stream-data}
 {:.no_toc}
 
-To get each value as it arrives, subscribe to the stream using the
-`listen()` method:
+To get each value as it arrives, either use `await for` or
+subscribe to the stream using the `listen()` method:
 
 <!-- ch03_html/ch03_html.dart -->
 {% prettify dart %}
@@ -1160,7 +1261,7 @@ querySelector('#submitInfo').onClick.listen((e) {
 {% endprettify %}
 
 In this example, the `onClick` property is a Stream object provided by
-the 'submitInfo' button.
+the "submitInfo" button.
 
 If you care about only one event, you can get it using a property such
 as `first`, `last`, or `single`. To test the event before handling it,
@@ -1175,12 +1276,65 @@ If you care about a subset of events, you can use methods such as
 {PENDING: example}
 {% endcomment %}
 
+
 #### Transforming stream data {#transforming-stream-data}
 {:.no_toc}
 
 Often, you need to change the format of a stream's data before you can
 use it. Use the `transform()` method to produce a stream with a
 different type of data:
+
+<!-- ch03/readFile.dart -->
+{% prettify dart %}
+var stream = inputStream
+    .transform(UTF8.decoder)
+    .transform(new LineSplitter());
+{% endprettify %}
+
+This example uses two transformers. First it uses UTF8.decoder to
+transform the stream of integers into a stream of strings. Then it uses
+a LineSplitter to transform the stream of strings into a stream of
+separate lines. These transformers are from the dart:convert library (see the
+[dart:convert section](#dartconvert---decoding-and-encoding-json-utf-8-and-more)).
+{% comment %}
+  PENDING: add onDone and onError. (See "Streaming file contents".)
+{% endcomment %}
+
+
+#### Handling errors and completion
+
+How you specify error and completion handling code
+depends on whether you use an asynchronous for loop (`await for`)
+or the Stream API.
+
+If you use an asynchronous for loop,
+then use try-catch to handle errors.
+Code that executes after the stream is closed
+goes after the asynchronous for loop.
+
+<!-- ch03/readFile.dart -->
+{% prettify dart %}
+readFileAwaitFor() async {
+  var config = new File('config.txt');
+  Stream<List<int>> inputStream = config.openRead();
+
+  var lines = inputStream
+      .transform(UTF8.decoder)
+      .transform(new LineSplitter());
+  [[highlight]]try {[[/highlight]]
+    await for (var line in lines) {
+      print('Got ${line.length} characters from stream');
+    }
+    print('file is now closed');
+  [[highlight]]}[[/highlight]] [[highlight]]catch (e) {[[/highlight]]
+    print(e);
+  [[highlight]]}[[/highlight]]
+}{% endprettify %}
+
+If you use the Stream API,
+then handle errors by registering an `onError` listener.
+Run code after the stream is closed by registering
+an `onDone` listener.
 
 <!-- ch03/readFile.dart -->
 {% prettify dart %}
@@ -1192,21 +1346,12 @@ inputStream
     .transform(new LineSplitter())
     .listen((String line) {
       print('Got ${line.length} characters from stream');
-    }, onDone: () {
+    }, [[highlight]]onDone: () {[[/highlight]]
       print('file is now closed');
-    }, onError: (e) {
-      print(e.toString());
-    });
+    [[highlight]]}[[/highlight]], [[highlight]]onError: (e) {[[/highlight]]
+      print(e);
+    [[highlight]]}[[/highlight]]);
 {% endprettify %}
-
-This example uses two transformers. First it uses UTF8.decoder to
-transform the stream of integers into a stream of strings. Then it uses
-a LineSplitter to transform the stream of strings into a stream of
-separate lines. These transformers are from the dart:convert library (see the
-[dart:convert section](#dartconvert---decoding-and-encoding-json-utf-8-and-more)).
-{% comment %}
-  PENDING: add onDone and onError. (See "Streaming file contents".)
-{% endcomment %}
 
 
 ### More information {#more-information-async}
@@ -1693,10 +1838,10 @@ remote resources.
 {:.no_toc}
 
 The HttpRequest static method `getString()` is an easy way to get data
-from a web server. Use `then()` after `getString()` to specify the
-function that handles the string data.
+from a web server. Use `await` with the `getString()` call
+to ensure that you have the data before continuing execution.
 
-<!-- ch03_html/ch03_2_html.dart -->
+<!-- ch03_html/ch03_2_html/web/app.dart -->
 {% prettify dart %}
 import 'dart:html';
 import 'dart:async';
@@ -1704,9 +1849,10 @@ import 'dart:async';
 // A JSON-formatted file next to this page.
 var uri = 'data.json';
 
-main() {
+main() async {
   // Read a JSON file.
-  HttpRequest.getString(uri).then(processString);
+  var data = await HttpRequest.getString(uri);
+  processString(data);
 }
 
 processString(String jsonText) {
@@ -1714,21 +1860,23 @@ processString(String jsonText) {
 }
 {% endprettify %}
 
-The function you specify (in the example, `processString()`) runs when
-the data at the specified URI is successfully retrieved. In this case,
-we are dynamically loading a JSON file. Information about the JSON API
-is in the
+Information about the JSON API is in the
 [dart:convert section](#dartconvert---decoding-and-encoding-json-utf-8-and-more).
 
-Add `.catchError()` after the call to `.then()` to specify an error
-handler:
+{% comment %}
+{PENDING: convert to async exception catcher?}
+{% endcomment %}
 
-<!-- ch03_html/ch03_2_html.dart -->
+Use try-catch to specify an error handler:
+
+<!-- ch03_html/ch03_2_html/web/app.dart -->
 {% prettify dart %}
-// ...
-HttpRequest.getString(uri)
-    .then(processString)
-    .catchError(handleError);
+try {
+  data = await HttpRequest.getString(jsonUri);
+  processString(data);
+} catch (e) {
+  handleError(e);
+}
 // ...
 handleError(error) {
   print('Uh oh, there was an error.');
@@ -1740,7 +1888,7 @@ If you need access to the HttpRequest, not just the text data it
 retrieves, you can use the `request()` static method instead of
 `getString()`. Here’s an example of reading XML data:
 
-<!-- ch03_html/web/app.dart -->
+<!-- ch03_2_html/web/app.dart -->
 {% prettify dart %}
 import 'dart:html';
 import 'dart:async';
@@ -1748,11 +1896,14 @@ import 'dart:async';
 // An XML-formatted file next to this page.
 var xmlUri = 'data.xml';
 
-main() {
+main() async {
   // Read an XML file.
-  HttpRequest.request(xmlUri)
-      .then(processRequest)
-      .catchError(handleError);
+  try {
+    var data = await HttpRequest.request(xmlUri);
+    processRequest(data);
+  } catch (e) {
+    handleError(e);
+  }
 }
 
 processRequest(HttpRequest request) {
@@ -1764,7 +1915,6 @@ processRequest(HttpRequest request) {
     print("$xmlUri doesn't have correct XML formatting.");
   }
 }
-// ...
 {% endprettify %}
 
 You can also use the full API to handle more interesting cases. For
@@ -1822,7 +1972,7 @@ loadEnd(HttpRequest request) {
   }
 }
 
-main() {
+main() async {
   var dataUrl = '/registrations/create';
   var data = {'dart': 'fun', 'editor': 'productive'};
   var encodedData = encodeMap(data);
@@ -1832,11 +1982,15 @@ main() {
   httpRequest.setRequestHeader(
       'Content-type',
       'application/x-www-form-urlencoded');
-  httpRequest.onLoadEnd
-      .listen((e) => loadEnd(httpRequest));
   httpRequest.send(encodedData);
+  await httpRequest.onLoadEnd.first;
+  loadEnd(httpRequest);
 }
 {% endprettify %}
+
+{% comment %}
+[PENDING: Test the above code!!! ]
+{% endcomment %}
 
 
 ### Sending and receiving real-time data with WebSockets {#sending-and-receiving-real-time-data-with-websockets}
@@ -1997,22 +2151,20 @@ strings.
 {% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   var config = new File('config.txt');
+  var contents;
 
   // Put the whole file in a single string.
-  config.readAsString().then((String contents) {
-    print('The entire file is ${contents.length} ' +
-          'characters long');
-  });
+  contents = await config.readAsString();
+  print('The entire file is ${contents.length} characters long.');
 
   // Put each line of the file into its own string.
-  config.readAsLines().then((List<String> lines) {
-    print('The entire file is ${lines.length} ' +
-          'lines long');
-  });
+  contents = await config.readAsLines();
+  print('The entire file is ${contents.length} lines long.');
 }
 {% endprettify %}
+
 
 #### Reading a file as binary {#reading-a-file-as-binary}
 {:.no_toc}
@@ -2025,13 +2177,11 @@ when it’s available.
 {% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   var config = new File('config.txt');
 
-  config.readAsBytes().then((List<int> contents) {
-    print('The entire file is ${contents.length} ' +
-          'bytes long');
-  });
+  var contents = await config.readAsBytes();
+  print('The entire file is ${contents.length} bytes long');
 }
 {% endprettify %}
 
@@ -2039,28 +2189,30 @@ main() {
 {:.no_toc}
 
 To capture errors so they don't result in uncaught exceptions, you can
-register a `catchError` handler:
+register a `catchError` handler on the Future,
+or (in an async function) use try-catch:
 
 <!-- ch03/fileErrors.dart -->
 {% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   var config = new File('config.txt');
-  config.readAsString().then((String contents) {
+  try {
+    var contents = await config.readAsString();
     print(contents);
-  }).catchError((e) {
+  } catch (e) {
     print(e);
-  });
+  }
 }
 {% endprettify %}
 
 #### Streaming file contents {#streaming-file-contents}
 {:.no_toc}
 
-Use a Stream to read a file, a little at a time. The `listen()` method
-specifies a handler to be called when data is available. When the Stream
-is finished reading the file, the `onDone` callback executes.
+Use a Stream to read a file, a little at a time.
+You can use either the [Stream API](#stream) or `await for`,
+part of Dart's [asynchrony support](ch02.html#asynchrony).
 
 <!-- ch03/readFile.dart -->
 {% prettify dart %}
@@ -2068,19 +2220,21 @@ import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
 
-main() {
+main() async {
   var config = new File('config.txt');
   Stream<List<int>> inputStream = config.openRead();
 
-  inputStream
-    .transform(UTF8.decoder)
-    .transform(new LineSplitter())
-    .listen(
-      (String line) {
-        print('Got ${line.length} characters from stream');
-      },
-      onDone: () { print('file is now closed'); },
-      onError: (e) { print(e.toString()); });
+  var lines = inputStream
+      .transform(UTF8.decoder)
+      .transform(new LineSplitter());
+  try {
+    await for (var line in lines) {
+      print('Got ${line.length} characters from stream');
+    }
+    print('file is now closed');
+  } catch (e) {
+    print(e);
+  }
 }
 {% endprettify %}
 
@@ -2110,33 +2264,36 @@ var sink = logFile.openWrite(mode: FileMode.APPEND);
 
 To write binary data, use `add(List<int> data)`.
 
+
 #### Listing files in a directory {#listing-files-in-a-directory}
 {:.no_toc}
 
 Finding all files and subdirectories for a directory is an asynchronous
-operation. The `list()` method returns a Stream on which you can
-register handlers (using `listen()`) to be notified when a file or
-directory is encountered.
+operation. The `list()` method returns a Stream that emits an object
+when a file or directory is encountered.
 
 <!-- ch03/listFiles.dart -->
 {% prettify dart %}
 import 'dart:io';
-import 'dart:async';
 
-main() {
+main() async {
   var dir = new Directory('/tmp');
-  var contentsStream = dir.list(recursive: true);
-  contentsStream.listen((FileSystemEntity f) {
-    if (f is File) {
-      print('Found file ${f.path}');
-    } else if (f is Directory) {
-      print('Found dir ${f.path}');
+
+  try {
+    var dirList = dir.list();
+    await for (FileSystemEntity f in dirList) {
+      if (f is File) {
+        print('Found file ${f.path}');
+      } else if (f is Directory) {
+        print('Found dir ${f.path}');
+      }
     }
-  }, onError: (e) {
+  } catch (e) {
     print(e.toString());
-  });
+  }
 }
 {% endprettify %}
+
 
 #### Other common functionality {#other-common-functionality}
 {:.no_toc}
@@ -2180,7 +2337,7 @@ response code of 404 (not found).
 {% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   dartHandler(HttpRequest request) {
     request.response.headers.contentType =
         new ContentType('text', 'plain');
@@ -2188,19 +2345,16 @@ main() {
     request.response.close();
   }
 
-  HttpServer
-      .bind('127.0.0.1', 8888)
-      .then((HttpServer server) {
-        server.listen((request) {
-          print('Got request for ${request.uri.path}');
-          if (request.uri.path == '/languages/dart') {
-            dartHandler(request);
-          } else {
-            request.response.write('Not found');
-            request.response.close();
-          }
-        });
-      });
+  var requests = await HttpServer.bind('127.0.0.1', 8888);
+  await for (var request in requests) {
+    print('Got request for ${request.uri.path}');
+    if (request.uri.path == '/languages/dart') {
+      dartHandler(request);
+    } else {
+      request.response.write('Not found');
+      request.response.close();
+    }
+  }
 }
 {% endprettify %}
 
@@ -2226,26 +2380,18 @@ Here’s an example of using HttpClient:
 import 'dart:io';
 import 'dart:convert';
 
-main() {
+main() async {
   var url = Uri.parse(
       'http://127.0.0.1:8888/languages/dart');
   var httpClient = new HttpClient();
-  httpClient
-      .getUrl(url)
-      .then((HttpClientRequest request) {
-        print('have request');
-        return request.close();
-      }).then((HttpClientResponse response) {
-        print('have response');
-        response
-            .transform(UTF8.decoder)
-            .toList()
-            .then((data) {
-              var body = data.join('');
-              print(body);
-              httpClient.close();
-            });
-      });
+  var request = await httpClient.getUrl(url);
+  print('have request');
+  var response = await request.close();
+  print('have response');
+  var data = await response.transform(UTF8.decoder).toList();
+  var body = data.join('');
+  print(body);
+  httpClient.close();
 }
 {% endprettify %}
 
@@ -2362,13 +2508,13 @@ To convert a stream of UTF-8 characters into a Dart string, specify
 
 <!-- ch03/readFile.dart -->
 {% prettify dart %}
-inputStream
-  .transform(UTF8.decoder)
-  .transform(new LineSplitter())
-  .listen(
-    (String line) {
-      print('Read ${line.length} bytes from stream');
-    });
+var lines = inputStream
+    .transform(UTF8.decoder)
+    .transform(new LineSplitter());
+try {
+  await for (var line in lines) {
+    print('Got ${line.length} characters from stream');
+  }
 {% endprettify %}
 
 Use `UTF8.encode()` to encode a Dart string as a list of UTF8-encoded

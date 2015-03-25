@@ -193,8 +193,7 @@ that's being added after Dart's 1.0 release.
 You can't use `async`, `await`, or `yield` as
 an identifier in any function body marked with `async`, `async*`, or `sync*`.
 For more information, see
-[Dart Language Asynchrony Support: Phase 1](/articles/await-async/)
-and the [Dart Language Specification](/docs/spec/).
+[Asynchrony support](#asynchrony).
 
 All other words in the keyword table are <em>reserved words</em>.
 You can't use reserved words as identifiers.
@@ -969,7 +968,7 @@ lexical scope, even when the function is used outside of its original
 scope.
 
 Functions can close over variables defined in surrounding scopes. In the
-following example, `adder()` captures the variable `addBy`. Wherever the
+following example, `makeAdder()` captures the variable `addBy`. Wherever the
 returned function goes, it remembers `addBy`.
 
 <!-- ch02/function_closure.dart -->
@@ -2497,39 +2496,6 @@ Enumerated types, often called _enumerations_ or _enums_,
 are a special kind of class used to represent
 a fixed number of constant values.
 
-<aside class="alert alert-warning" markdown="1">
-**Warning:**
-Enumerated types are a new feature
-first implemented in 1.8.
-If you use them,
-[let us know](http://dartbug.com)
-about any implementation issues you discover.
-</aside>
-
-#### 1.8 only: Opting in to enum support {#enum-opt-in}
-{:.no_toc}
-
-To use enums in Dart Editor, `dartanalyzer`, or `dart2js` before 1.9,
-you must opt in.
-The 1.8 Dart VM (`dart`) supports enums without opt-in.
-
-In Dart Editor, go to **Preferences**, click **Experimental**, and select
-**Enable Enum Support**.
-
-<aside class="alert alert-warning" markdown="1">
-**Note:**
-See [issue 21823](https://code.google.com/p/dart/issues/detail?id=21823)
-for details on how to make Dart Editor
-generate JavaScript from Dart code that uses enums.
-</aside>
-
-In `dartanalyzer` or `dart2js`, use the `--enable-enum` command-line flag:
-
-{% prettify sh %}
-dartanalyzer --enable-enum enum_switch.dart
-dart2js --enable-enum main.dart
-{% endprettify %}
-
 
 #### Using enums {#using-enums}
 {:.no_toc}
@@ -2992,27 +2958,16 @@ When you need the library, invoke
 
 <!-- ch02/libraries/ch02/deferred/bin/main.dart -->
 {% prettify dart %}
-hello.loadLibrary().then((_) {
-  hello.printGreeting();
-});
-{% endprettify %}
-
-The call to `then()` specifies a function to run
-once the library is loaded.
-This layer of indirection is necessary because the
-`loadLibrary()` method is asynchronous,
-returning before the library is loaded.
-
-Another way to write the same code is to use
-the new [asynchrony support](#asynchrony):
-
-<!-- ch02/libraries/ch02/deferred/bin/main.dart -->
-{% prettify dart %}
 greet() async {
   await hello.loadLibrary();
   hello.printGreeting();
 }
 {% endprettify %}
+
+In the preceding code,
+the `await` keyword pauses execution until the library is loaded.
+For more information about `async` and `await`,
+see [asynchrony support](#asynchrony).
 
 You can invoke `loadLibrary()` multiple times on a library without problems.
 The library is loaded only once.
@@ -3139,23 +3094,30 @@ void main() {
 
 ## Asynchrony support {#asynchrony}
 
-Dart has started adding new language features
+Dart has added new language features
 to support asynchronous programming.
 The most commonly used of these features are
 `async` functions and `await` expressions.
 
 Dart libraries are full of functions that
-return Future objects.
+return Future or Stream objects.
 These functions are _asynchronous_:
-they return immediately after setting up
-a possibly time-consuming operation,
-such as performing I/O.
+they return after setting up
+a possibly time-consuming operation
+(such as I/O),
+without waiting for that operation to complete.
 
-When you need to use the result of one of these asynchronous functions,
+When you need to use a value represented by a Future,
 you have two options:
 
 * Use `async` and `await`
 * Use the [Future API](ch03.html#future)
+
+Similarly, when you need to get values from a Stream,
+you have two options:
+
+* Use `async` and an _asynchronous for loop_ (`await for`)
+* Use the [Stream API](ch03.html#stream)
 
 Code that uses `async` and `await` is asynchronous,
 but it looks a lot like synchronous code.
@@ -3181,38 +3143,16 @@ checkVersion() async {
 }
 {% endprettify %}
 
-<aside class="alert alert-warning" markdown="1">
-**Warning:**
-Async functions and await expressions are new features
-first implemented in 1.8.
-[Let us know](http://dartbug.com)
-about any implementation issues you discover.
-</aside>
+You can use `try`, `catch`, and `finally`
+to handle errors and cleanup in code that uses `await`:
 
-### 1.8 only: Opting in to asynchrony support {#async-opt-in}
-{:.no_toc}
-
-To use asynchrony support in Dart Editor, `dartanalyzer`,
-or the Dart VM (`dart`) before 1.9, you must opt in.
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-The 1.8 Dart-to-JS compiler (`dart2js`) doesn't support asynchrony
-([21411](https://code.google.com/p/dart/issues/detail?id=21411)).
-However, you can try out asynchrony in a 1.8 web app by using the
-[async-await pub transformer](https://github.com/dart-lang/async_await#async-await-transformer)
-when building the JavaScript version of the app.
-</aside>
-
-To opt into asynchrony support in Dart Editor,
-go to **Preferences**, click **Experimental**, and select
-**Enable Async Support**.
-
-In `dart` and `dartanalyzer`, use the `--enable-async` command-line flag:
-
-{% prettify sh %}
-dart --enable-async async_await.dart
-dartanalyzer --enable-async async_await.dart
+<!-- dart-tutorials-samples/httpserver/bin/mini_file_server.dart -->
+{% prettify dart %}
+try {
+  server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
+} catch (e) {
+  // React to inability to bind to the port...
+}
 {% endprettify %}
 
 
@@ -3222,7 +3162,8 @@ dartanalyzer --enable-async async_await.dart
 An _async function_ is a function whose body is marked with
 the `async` modifier.
 Although an async function might perform time-consuming operations,
-it returns immediately.
+it returns immediately—before
+any of its body executes.
 
 <!-- ch02/async_await.dart -->
 {% prettify dart %}
@@ -3233,7 +3174,7 @@ checkVersion() async {
 lookUpVersion() async => /* ... */;
 {% endprettify %}
 
-Adding the `async` keyword to a function makes its return type Future.
+Adding the `async` keyword to a function makes it return a Future.
 For example, consider this synchronous function,
 which returns a String:
 
@@ -3244,7 +3185,7 @@ String lookUpVersionSync() => '1.0.0';
 
 If you change it to be an async function—for example,
 because a future implementation will be time consuming—the
-return type changes to `Future<String>`:
+returned value is a Future:
 
 <!-- ch02/async_await.dart -->
 {% prettify dart %}
@@ -3255,7 +3196,7 @@ Note that the function's body doesn't need to use the Future API.
 Dart creates the Future object if necessary.
 
 
-### Using await expressions {#await}
+### Using await expressions with Futures {#await}
 {:.no_toc}
 
 An await expression has the following form:
@@ -3275,8 +3216,10 @@ var exitCode = await runExecutable(entrypoint, args);
 await flushThenExit(exitCode);
 {% endprettify %}
 
-The value of <code><em>expression</em></code> should have type Future,
-indicating a promise to return an object.
+In <code>await <em>expression</em></code>,
+the value of <code><em>expression</em></code> is usually a Future;
+if it isn't, then the value is automatically wrapped in a Future.
+This Future object indicates a promise to return an object.
 The value of <code>await <em>expression</em></code> is that returned object.
 The await expression makes execution pause until that object is available.
 
@@ -3292,11 +3235,52 @@ main() async {
 }
 {% endprettify %}
 
+### Using asynchronous for loops with Streams {#await}
+{:.no_toc}
+
+An asynchronous for loop has the following form:
+
+<pre>
+<b>await for</b> (<em>variable declaration</em> in <em>expression</em>) {
+  // Executes each time the stream emits a value.
+}
+</pre>
+
+The value of <code><em>expression</em></code> must have type Stream.
+Execution proceeds as follows:
+
+1. Wait until the stream emits a value.
+2. Execute the body of the for loop,
+   with the variable set to that emitted value.
+3. Repeat 1 and 2 until the stream is closed.
+
+To stop listening to the stream,
+you can use a `break` or `return` statement,
+which breaks out of the for loop
+and unsubscribes from the stream.
+
+**If an asynchronous for loop doesn't work,
+make sure it's in an async function.**
+For example, to use an asynchronous for loop in your app's `main()` function,
+the body of `main()` must be marked as `async`:
+
+<!-- dart-tutorials-samples/httpserver/number_thinker.dart -->
+{% prettify dart %}
+main() async {
+  ...
+  await for (var request in requestServer) {
+    handleRequest(request);
+  }
+  ...
+}
+{% endprettify %}
+
 For more information about asynchronous programming, see the
 [dart:async](ch03.html#dartasync---asynchronous-programming)
 section of the library tour.
 Also see the article
-[Dart Language Asynchrony Support: Phase 1](/articles/await-async/).
+[Dart Language Asynchrony Support: Phase 1](/articles/await-async/)
+and the [Dart language specification](/docs/spec/).
 
 
 ## Isolates {#isolates}
