@@ -17,7 +17,8 @@ article:
 # {{ page.title }}
 
 _Written by Mads Ager <br />
-March 2012 (updated October 2012, February 2013 and January 2014)_
+March 2012 (updated October 2012, February 2013, January 2014,
+and March 2015)_
 
 The [dart:io](http://api.dartlang.org/io.html) library
 is aimed at server-side code
@@ -28,7 +29,7 @@ by going through a couple of examples.
 
 Dart is a single-threaded programming language.
 If an operation blocks the Dart thread,
-the application will make no progress before that operation completes.
+the application makes no progress before that operation completes.
 For scalability it is therefore crucial that no I/O operations block.
 Instead of blocking on I/O operations,
 dart:io uses an asynchronous programming model inspired by
@@ -65,7 +66,7 @@ and the VM terminates.
 import 'dart:async';
 
 main() {
-  new Timer(new Duration(seconds:1), () => print('timer'));
+  new Timer(new Duration(seconds: 1), () => print('timer'));
   print('end of main');
 }
 {% endprettify %}<!--- END(io_timer) -->
@@ -99,16 +100,15 @@ import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
 
-main() {
+main() async {
   var file = new File(Platform.script.toFilePath());
-  Future<String> finishedReading = file.readAsString(encoding: ASCII);
-  finishedReading.then((text) => print(text));
+  print("${await (file.readAsString(encoding: ASCII))}");
 }
 {% endprettify %}<!--- END(io_file_system) -->
 
 Notice that the readAsString() method is asynchronous;
 it returns a [Future](http://api.dartlang.org/dart_async/Future.html)
-that will return the contents of the file
+that returns the contents of the file
 once the file has been read from the underlying system.
 This asynchronicity allows the Dart thread to perform other work
 while waiting for the I/O operation to complete.
@@ -129,27 +129,28 @@ until it encounters the char code for ';'.
 <!--- BEGIN(io_random_access) -->{% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   var semicolon = ';'.codeUnitAt(0);
   var result = [];
 
-  new File(Platform.script.toFilePath()).open(mode: FileMode.READ).then((RandomAccessFile file) {
-    // Callback to deal with each byte.
-    void onByte(int byte) {
-      result.add(byte);
-      if (byte == semicolon) {
-        print(new String.fromCharCodes(result));
-        file.close();
-      } else {
-        file.readByte().then(onByte);
-      }
+  File script = new File(Platform.script.toFilePath());
+  RandomAccessFile file = await script.open(mode: FileMode.READ);
+
+  // Callback to deal with each byte.
+  onByte(int byte) async {
+    result.add(byte);
+    if (byte == semicolon) {
+      print(new String.fromCharCodes(result));
+      file.close();
+    } else {
+      onByte(await file.readByte());
     }
-    file.readByte().then(onByte);
-  });
+  }
+  onByte(await file.readByte());
 }
 {% endprettify %}<!--- END(io_random_access) -->
 
-When you see a use of `then()`, you are seeing a Future in action.
+When you see a use of `async` or `await`, you are seeing a Future in action.
 Both the `open()` and `readByte()` methods return a Future object.
 
 This code is, of course,
@@ -160,33 +161,35 @@ seeking to a given position, truncating, and so on.
 Let's implement a version using a stream.
 The following code opens the file for reading presenting the content
 as a stream of lists of bytes. Like all streams in Dart you listen on
-this stream and the data is given in chunks. You can always stop
-reading more from the file by cancelling the subscription.
+this stream (using `await for`) and the data is given in chunks.
 
 <!--- BEGIN(io_stream) -->{% prettify dart %}
 import 'dart:io';
 import 'dart:async';
 
-main() {
+main() async {
   List result = [];
 
-  Stream<List<int>> stream = new File(Platform.script.toFilePath()).openRead();
+  Stream<List<int>> stream =
+      new File(Platform.script.toFilePath()).openRead();
   int semicolon = ';'.codeUnitAt(0);
-  StreamSubscription subscription;
-  subscription = stream.listen((data) {
+
+  await for (var data in stream) {
     for (int i = 0; i < data.length; i++) {
       result.add(data[i]);
       if (data[i] == semicolon) {
         print(new String.fromCharCodes(result));
-        subscription.cancel();
         return;
       }
     }
-  });
+  }
 }
 {% endprettify %}<!--- END(io_stream) -->
 
-[Stream<List<int>>] is used in multiple places in dart:io:
+The stream subscription is implicitly handled by `await for`.
+Exiting from the function that contains `await for` cancels the subscription.
+
+`Stream<List<int>>` is used in multiple places in dart:io:
 when working with stdin, files, sockets, HTTP connections, and so on.
 Similarly, [IOSink](http://api.dartlang.org/dart_io/IOSink.html)s
 are used to stream data to
@@ -203,12 +206,11 @@ need interactive control over the process.
 <!--- BEGIN(io_process) -->{% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   // List all files in the current directory,
   // in UNIX-like operating systems.
-  Process.run('ls', ['-l']).then((ProcessResult results) {
-    print(results.stdout);
-  });
+  ProcessResult results = await Process.run('ls', ['-l']);
+  print(results.stdout);
 }
 {% endprettify %}<!--- END(io_process) -->
 
@@ -235,16 +237,17 @@ which splits the strings at line boundaries.
 import 'dart:io';
 import 'dart:convert';
 
-main() {
-  Process.start('ls', ['-l']).then((process) {
-    process.stdout.transform(new Utf8Decoder())
-                  .transform(new LineSplitter())
-                  .listen((String line) => print(line));
-    process.stderr.listen((data) { });
-    process.exitCode.then((exitCode) {
-      print('exit code: $exitCode');
-    });
-  });
+main() async {
+  Process process = await Process.start('ls', ['-l']);
+  var lineStream = process.stdout
+      .transform(new Utf8Decoder())
+      .transform(new LineSplitter());
+  await for (var line in lineStream) {
+    print(line);
+  }
+
+  process.stderr.drain();
+  print('exit code: ${await process.exitCode}');
 }
 {% endprettify %}<!--- END(io_process_transform) -->
 
@@ -252,7 +255,8 @@ Notice that exitCode can complete before all of the lines of output
 have been processed. Also note
 that we do not explicitly close the process. In order to
 not leak resources we have to drain both the stderr and the stdout
-streams. To do that we set a listener to drain the stderr stream.
+streams. To do that we set a listener (using `await for`)
+to drain the stderr stream.
 
 Instead of printing the output to stdout,
 we can use the streaming classes
@@ -261,15 +265,12 @@ to pipe the output of the process to a file.
 <!--- BEGIN(io_process_stdio) -->{% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   var output = new File('output.txt').openWrite();
-  Process.start('ls', ['-l']).then((process) {
-    process.stdout.pipe(output);
-    process.stderr.listen((data) { });
-    process.exitCode.then((exitCode) {
-        print('exit code: $exitCode');
-    });
-  });
+  Process process = await Process.start('ls', ['-l']);
+  process.stdout.pipe(output);
+  process.stderr.drain();
+  print('exit code: ${await process.exitCode}');
 }
 {% endprettify %}<!--- END(io_process_stdio) -->
 
@@ -280,7 +281,7 @@ dart:io makes it easy to write HTTP servers and clients.
 To write a simple web server,
 all you have to do is create an
 [HttpServer](http://api.dartlang.org/dart_io/HttpServer.html)
-and hook up a listener to its stream of `HttpRequest`s.
+and hook up a listener (using `await for`) to its stream of `HttpRequest`s.
 
 Here is a simple web server
 that just answers 'Hello, world' to any request.
@@ -288,13 +289,12 @@ that just answers 'Hello, world' to any request.
 <!--- BEGIN(io_http_server) -->{% prettify dart %}
 import 'dart:io';
 
-main() {
-  HttpServer.bind('127.0.0.1', 8080).then((server) {
-    server.listen((HttpRequest request) {
-      request.response.write('Hello, world');
-      request.response.close();
-    });
-  });
+main() async {
+  HttpServer server = await HttpServer.bind('127.0.0.1', 8082);
+  await for (HttpRequest request in server) {
+    request.response.write('Hello, world');
+    request.response.close();
+  }
 }
 {% endprettify %}<!--- END(io_http_server) -->
 
@@ -320,24 +320,23 @@ _sendNotFound(HttpResponse response) {
   response.close();
 }
 
-startServer(String basePath) {
-  HttpServer.bind('127.0.0.1', 8080).then((server) {
-    server.listen((HttpRequest request) {
-      final String path = request.uri.toFilePath();
-      // PENDING: Do more security checks here.
-      final String resultPath = path == '/' ? '/index.html' : path;
-      final File file = new File('${basePath}${resultPath}');
-      file.exists().then((bool found) {
-        if (found) {
-          file.openRead()
-              .pipe(request.response)
-              .catchError((e) { });
-        } else {
-          _sendNotFound(request.response);
-        }
-      });
-    });
-  });
+startServer(String basePath) async {
+  HttpServer server = await HttpServer.bind('127.0.0.1', 8082);
+  await for (HttpRequest request in server) {
+    final String path = request.uri.toFilePath();
+    // PENDING: Do more security checks here.
+    final String resultPath = path == '/' ? '/index.html' : path;
+    final File file = new File('${basePath}${resultPath}');
+    if (await file.exists()) {
+      try {
+        await file.openRead().pipe(request.response);
+      } catch (e) {
+        print(e);
+      }
+    } else {
+      _sendNotFound(request.response);
+    }
+  }
 }
 
 main() {

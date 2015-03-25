@@ -3,9 +3,8 @@ import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
 
-main() {
+main() async {
   var file = new File(Platform.script.toFilePath());
-  Future<String> finishedReading = file.readAsString(encoding: ASCII);
-  finishedReading.then((text) => print(text));
+  print("${await (file.readAsString(encoding: ASCII))}");
 }
 // END(io_file_system)

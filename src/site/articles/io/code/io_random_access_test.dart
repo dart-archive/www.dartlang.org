@@ -1,22 +1,23 @@
 // BEGIN(io_random_access)
 import 'dart:io';
 
-main() {
+main() async {
   var semicolon = ';'.codeUnitAt(0);
   var result = [];
 
-  new File(Platform.script.toFilePath()).open(mode: FileMode.READ).then((RandomAccessFile file) {
-    // Callback to deal with each byte.
-    void onByte(int byte) {
-      result.add(byte);
-      if (byte == semicolon) {
-        print(new String.fromCharCodes(result));
-        file.close();
-      } else {
-        file.readByte().then(onByte);
-      }
+  File script = new File(Platform.script.toFilePath());
+  RandomAccessFile file = await script.open(mode: FileMode.READ);
+
+  // Callback to deal with each byte.
+  onByte(int byte) async {
+    result.add(byte);
+    if (byte == semicolon) {
+      print(new String.fromCharCodes(result));
+      file.close();
+    } else {
+      onByte(await file.readByte());
     }
-    file.readByte().then(onByte);
-  });
+  }
+  onByte(await file.readByte());
 }
 // END(io_random_access)

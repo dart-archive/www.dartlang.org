@@ -1,11 +1,10 @@
 // BEGIN(io_process)
 import 'dart:io';
 
-main() {
+main() async {
   // List all files in the current directory,
   // in UNIX-like operating systems.
-  Process.run('ls', ['-l']).then((ProcessResult results) {
-    print(results.stdout);
-  });
+  ProcessResult results = await Process.run('ls', ['-l']);
+  print(results.stdout);
 }
 // END(io_process)
