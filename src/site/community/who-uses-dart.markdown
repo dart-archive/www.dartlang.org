@@ -155,4 +155,4 @@ Google internal tool for marketing
 : Web based tools for managing virtual servers and the services running on them. As well as some internal tools and processes.
 
 [FxSimulator](http://fxsimulator.com/)
-: Web based forex trading simulator
+: Forex trading simulator based on StageXL.
