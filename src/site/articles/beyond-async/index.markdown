@@ -161,7 +161,7 @@ the stream pushes the value to the listener function at its pleasure.
 As a variant, consider
 
 {% prettify dart %}
-[[highlight]]get[[/highlight]] Stream naturals [[highlight]]async*[[/highlight]] { 
+Stream [[highlight]]get[[/highlight]] naturals [[highlight]]async*[[/highlight]] { 
   int k = 0; [[highlight]]while[[/highlight]] ([[highlight]]true[[/highlight]]) { [[highlight]]yield await[[/highlight]] k++; } 
 }
 {% endprettify %}
