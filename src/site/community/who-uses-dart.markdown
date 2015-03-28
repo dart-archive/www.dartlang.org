@@ -155,4 +155,4 @@ Google internal tool for marketing
 : Web based tools for managing virtual servers and the services running on them. As well as some internal tools and processes.
 
 [DAVID](https://github.com/ins0m/DAVID)
-: Dynamic Analysis and Visualization of Interconnected Data - a tool for interactive visual exploration of complex linked data. 
+: Dynamic Analysis and Visualization of Interconnected Data, a tool for interactive visual exploration of complex linked data. 
