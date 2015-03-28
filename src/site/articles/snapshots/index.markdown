@@ -62,7 +62,7 @@ The Dart VM uses the following kinds of snapshots:
   This is used by the Dart VM for
   fast startup and initialization of
   the entire Dart core library and other libraries
-  such as dart:uri, dart:io, dart:utf, dart:json, dart:isolate, and so on.
+  such as dart:convert, dart:io, dart:isolate, and so on.
 
 * A **script snapshot**,
   which is a complete representation of

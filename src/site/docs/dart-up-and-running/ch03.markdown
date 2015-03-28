@@ -1302,6 +1302,7 @@ separate lines. These transformers are from the dart:convert library (see the
 
 
 #### Handling errors and completion
+{:.no_toc}
 
 How you specify error and completion handling code
 depends on whether you use an asynchronous for loop (`await for`)
