@@ -107,7 +107,7 @@ anymore. To make more changes, you'll need a new version.
 
 When you select a version, follow [semantic versioning][].
 
-[semantic versioning]: http://semver.org/spec/v2.0.0-rc.1.html
+[semantic versioning]: http://semver.org/spec/v2.0.0.html
 
 ## Description
 
