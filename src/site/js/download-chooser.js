@@ -2,12 +2,12 @@ $(document).ready(function() {
   var downloadList = ['editor', 'sdk'];
 
   function registerDownloadHandlers() {
+    filterDownloadText('sdk'); // Make SDK the default download.
     for (var i = 0; i < downloadList.length; i++) {
       var download = downloadList[i];
       var downloadButton = document.getElementById(download);
       if (downloadButton) {
         downloadButton.addEventListener('click', function(e) {
-          console.log('click: '+e.target.id);
           filterDownloadText(e.target.id);
           highlightDownload(e.target.id);
         });
