@@ -1,28 +1,17 @@
-<div class="downloads download-buttons">
-  <span class="windows">
-    <a data-bits="32" data-os="windows" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-windows-ia32-release.zip">
-      <button class="btn btn-lg download-btn {{ include.buttonclass }}">
-        <i class="sprite-icon-download-btn"> </i>
-        Download Dartium (Windows)
-      </button>
-    </a>
-  </span>
+{% comment %}
+  Add the following div around one or more of these buttons:
 
-  <span class="macos">
-    <a data-bits="32" data-os="macos" data-tool="dartium" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">
-      <button class="btn btn-lg download-btn {{ include.buttonclass }}">
-        <i class="sprite-icon-download-btn"> </i>
-        Download Dartium (Mac)
-      </button>
-    </a>
-  </span>
+  <div class="downloads download-buttons">
+{% endcomment %}
 
-  <span class="linux">
-    <a data-bits="32" data-os="linux" data-tool="dartium" class="download-link btn" href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-linux-x64-release.zip">
-      <button class="btn btn-lg download-btn {{ include.buttonclass }}">
-        <i class="sprite-icon-download-btn"> </i>
-        Download Dartium (Linux)
-      </button>
-    </a>
-  </span>
-</div>
+<a
+    data-bits="{{ include.bits }}"
+    data-os="{{ include.os }}"
+    data-tool="dartium"
+    class="btn download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-{{ include.os }}-{{ include.arch }}-release.zip">
+  <button class="btn btn-primary btn-lg download-btn {{ include.buttonclass }}">
+    <i class="sprite-icon-download-btn"> </i>
+    Download Dartium ({{ include.name }})
+  </button>
+</a>
