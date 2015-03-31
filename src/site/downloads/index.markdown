@@ -32,14 +32,14 @@ js:
   <div class="col-md-6" markdown="1">
 
   <p align="center">
-  <button id="editor" class="btn btn-lg btn-primary download-choices" style="width:100%">
+  <button id="editor" class="btn btn-lg download-choices" style="width:100%">
   Editor + SDK
   </button>
   </p>
 
   <p>
-  When you download Dart Editor, you also get the SDK,
-  Dartium, and the ability to auto-update.
+  When you download Dart Editor, you also get the SDK
+  and the ability to auto-update.
   </p>
 
   </div>
@@ -55,7 +55,24 @@ js:
   for example—all you need is the SDK.
 
   </div>
+
+
+{% comment %}
+TODO:
+* Make choosing a download trigger an analytics event.
+* Change styling to be closer to platform buttons.
+  Larger font.
+  Selected state should use bold font and
+  maybe a green bg like Mac OS X.
+  Unselected state should perhaps have a lighter gray bg.
+{% endcomment %}
+
 </div>
+
+--------------------
+
+**Need a specific version or another download?**
+See the [Dart Download Archive](archive/).
 
 <div class="editor" style="display:none" markdown="1">
 
@@ -80,11 +97,3 @@ js:
 {% endfor %}
 
 </div>
-
-
-{% comment %}
-TODO:
-* Make choosing a download trigger an analytics event.
-* Change styling to be closer to platform buttons when you choose a download
-  (bold, larger font, maybe green like Mac OS X).
-{% endcomment %}

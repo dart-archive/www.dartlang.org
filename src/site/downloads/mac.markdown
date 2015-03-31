@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Installing Dart on Mac"
+title: "Installing the Dart SDK on Mac"
 description: "Installing and updating Dart on your Mac."
 ---
 
@@ -10,17 +10,15 @@ description: "Installing and updating Dart on your Mac."
 
 We recommend using Homebrew
 to manage your Dart installation.
-
-{% comment %}
-[PENDING: link to other options. Put everything under a download directory? test dev channel info]
-{% endcomment %}
+Another option is [downloading Dart manually](#zip).
 
 
 ## Using Homebrew {#homebrew}
 
 If you have [Homebrew](http://brew.sh/),
 installing and updating Dart is easy.
-You can also specify a custom location for Dart.
+You can use the default location or
+[specify a custom location for Dart](#homebrew-custom-location).
 
 
 ### Installing Dart {#homebrew-install-dart}
@@ -67,9 +65,9 @@ $ brew upgrade dart dartium
 {% endprettify %}
 
 
-### Specifying a custom location
+### Specifying a custom location {#homebrew-custom-location}
 
-By default, Homebrew downloads to `/usr/local`. This requires using
+By default, Homebrew downloads to `/usr/local`, which might require using
 `sudo` to handle issues with file permissions. If you prefer, you can
 download to another location where you have write permissions, such
 as your home directory.
@@ -79,7 +77,7 @@ as your home directory.
    For example, if you want Homebrew and Dart to live under
    `~/homebrew`, go to `~`.
 
-   {% prettify sh %}
+   {% prettify none %}
    $ cd ~    # The directory that will contain Homebrew and Dart
    {% endprettify %}
 
@@ -91,11 +89,12 @@ as your home directory.
 
 3. Add the `homebrew/bin` directory to your PATH.
 
-4. Follow the `brew` instructions at the beginning of
-[Step 1](#install-dart). Dart will be installed under `homebrew`.
+4. Follow the `brew` instructions in
+[Installing Dart](#homebrew-install-dart).
+Dart will be installed under `homebrew`.
 
 
-## Downloading Dart manually
+## Downloading Dart manually {#zip}
 
 You'll need to perform the following steps
 periodically to update your software.
@@ -126,7 +125,7 @@ periodically to update your software.
     class="download-link"
     href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">
   download Dartium</a>.
-  Unzip it to get special version of
+  Unzip it to get a special version of
   [Chromium with the Dart VM](/tools/dartium/).
   This binary expires after 1 year. When that happens,
-  you need to download a new copy to continue using Dartium.
+  you'll need to download a new copy to continue using Dartium.
