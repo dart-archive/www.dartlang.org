@@ -10,7 +10,7 @@ has-permalinks: false
 
 A variety of tools are available for Dart development.
 You can get most of these tools, and the Dart SDK,
-from the [download page](/tools/download.html).
+from the [download page](/downloads/).
 
 ---
 

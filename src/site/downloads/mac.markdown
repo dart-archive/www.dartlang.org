@@ -116,7 +116,7 @@ periodically to update your software.
     href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip">
    64-bit Dart SDK</a>.
    You can download other releases from the
-   [download archive](/tools/download-archive/).
+   [download archive](/downloads/archive/).
    </aside>
 
 2. Add `<sdk>/bin` to your `PATH`.

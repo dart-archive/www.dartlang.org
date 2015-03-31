@@ -110,7 +110,7 @@ You can manually download and extract the Dart SDK from a zip file:
 <aside class="alert alert-info" markdown="1">
  **Other versions:**
  You can download other releases from the
- [download archive](/tools/download-archive/).
+ [download archive](/downloads/archive/).
 </aside>
 
 If you're creating Dart web apps, also download Dartium:
