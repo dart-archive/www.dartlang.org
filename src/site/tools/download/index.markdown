@@ -53,7 +53,6 @@ js:
 
   If you already have a favorite editor—WebStorm or Sublime,
   for example—all you need is the SDK.
-  (And maybe Dartium, but you can get that later.)
 
   </div>
 </div>
@@ -83,8 +82,9 @@ js:
 </div>
 
 
-## TODO
-
-Make choosing a download trigger an analytics event.
-Change styling to be closer to platform buttons when you choose a download
-(bold, larger font, maybe green like Mac OS X).
+{% comment %}
+TODO:
+* Make choosing a download trigger an analytics event.
+* Change styling to be closer to platform buttons when you choose a download
+  (bold, larger font, maybe green like Mac OS X).
+{% endcomment %}

@@ -1,53 +1,10 @@
-### Step 1: Install Dart {#install-dart}
+If you're using Debian/Ubuntu,
+we recommend using Debian packages
+or the Advanced Packaging Tool (apt)
+to install and update Dart.
+Other options are downloading Dart manually or
+compiling Dart from source.
 
-Choose either:
-
-* [Server-side development for Debian/Ubuntu](#debian)
-* [Other Linux development](#other)
-
-If you want to build Dart from scratch, see
-[Compiling from source](#compiling-from-source).
-
-#### Installing for server-side development on Debian/Ubuntu {#debian}
-
-Get a 64-bit version of the Dart SDK that's easy to update:
-
-{% prettify sh %}
-# Enable HTTPS for apt.
-$ sudo apt-get update
-$ sudo apt-get install apt-transport-https
-# Get the Google Linux package signing key.
-$ sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-# Set up the location of the stable repository.
-$ sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
-$ sudo apt-get update
-$ sudo apt-get install dart
-{% endprettify %}
-
-For more information about other options for Debian, visit the
-[Dart Debian downloads page](/tools/debian.html).
-
-
-#### Installing on other Linux distros {#other}
-
-You can manually download and extract the Dart SDK from a zip file:
-
-<p class="os-choices">
-{% include downloads/_sdk.html buttonclass="btn btn-primary btn-lg" %}
+<p class="text-center" markdown="1">
+  [Installing Dart on Linux](/tools/download/linux.html)
 </p>
-
-If you're creating Dart web apps, also download Dartium:
-
-<p>
-{% include downloads/_dartium.html buttonclass="btn btn-primary btn-lg download-btn" %}
-</p>
-
-The Dartium binary expires after 12 weeks.  When that happens, you need to
-download a new copy to continue using Dartium.
-
-#### Compiling from source
-
-You can [build the SDK](https://code.google.com/p/dart/wiki/Building) yourself.
-If your system uses an older version of Ubuntu,
-you might need to update to GCC 4.6 or later.
-See the [Tools FAQ](/tools/faq.html) for more information.
