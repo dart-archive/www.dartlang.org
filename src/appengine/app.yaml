@@ -237,6 +237,9 @@ handlers:
 - url: /dart2js-reflection
   script: scripts.redirector.application
 
+- url: /redirects/.*
+  script: scripts.redirector.application
+
 - url: /is-dartisans-live-now
   script: scripts.is_dartisans_live.application
 

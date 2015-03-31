@@ -303,6 +303,10 @@ application = WSGIApplication(
       defaults={'_uri': 'https://google.com/+dartlang'}),
     Route('/mailing-list', RedirectHandler,
       defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!forum/misc'}),
+    Route('/redirects/sdk-download-stable', RedirectHandler,
+          defaults={'_uri': '/tools/download-archive/'}),
+    Route('/redirects/sdk-download-dev', RedirectHandler,
+          defaults={'_uri': '/tools/download-archive/'}),
     Route('/<path:[^.]*[^/]$>', RedirectHandler,
       defaults={'_uri': trailing_slash})],
    debug=True)
