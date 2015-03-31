@@ -17,7 +17,7 @@ css:
 Use this page to download specific versions of the Dart SDK, Dartium,
 Dart Editor, and the Dart API documentation.
 If you're a new user or looking for an easy way to install Dart,
-visit the [main Dart download page](/tools/download.html).
+visit the [main Dart download page](/downloads/).
 
 
 ## Stable channel

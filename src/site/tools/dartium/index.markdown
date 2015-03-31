@@ -30,7 +30,7 @@ see [Dart Tools](/tools/).
 If you have an up-to-date version of [Dart Editor](/tools/editor/),
 you already have Dartium.
 
-Otherwise, you can <a href="/tools/download.html">download Dartium</a> directly.
+Otherwise, you can <a href="/downloads/">download Dartium</a> directly.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**

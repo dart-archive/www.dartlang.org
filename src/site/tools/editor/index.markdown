@@ -27,7 +27,7 @@ For more information, see
 
 ## Installing Dart Editor
 
-[Download Dart Editor](/tools/download.html), if you haven't already.
+[Download Dart Editor](/downloads/), if you haven't already.
 
 Dart Editor requires the Java runtime.
 [Download the JRE](http://www.oracle.com/technetwork/java/javase/downloads/),

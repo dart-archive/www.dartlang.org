@@ -12,7 +12,7 @@ short-title: "Pub"
 You can use the `pub` tool to manage Dart packages and assets.
 Pub also includes commands for creating, developing, and deploying Dart
 applications.
-When you [download](/tools/download.html) either Dart Editor or
+When you [download](/downloads/) either Dart Editor or
 the Dart SDK, one of the tools that you get is `pub`.
 
 <aside class="alert alert-info" markdown="1">

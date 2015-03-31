@@ -64,7 +64,7 @@ create and run two small applications.
 Get Dart.
 The Dart download includes <a href="/tools/editor/">Dart Editor</a>,
 which you'll be using throughout this tutorial.
-(For more options, go to the [download page](/tools/download.html).)
+(For more options, go to the [download page](/downloads/).)
 
 <div align="center">
   {% include downloads/_dart-editor.html buttonclass="btn-primary" %}
