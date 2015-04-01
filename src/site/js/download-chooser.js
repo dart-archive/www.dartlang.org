@@ -10,6 +10,7 @@ $(document).ready(function() {
         downloadButton.addEventListener('click', function(e) {
           filterDownloadText(e.target.id);
           highlightDownload(e.target.id);
+          recordDownloadChoice(e.target.id);
         });
       }
     }
@@ -17,7 +18,6 @@ $(document).ready(function() {
 
   function highlightDownload(buttonId) {
     for (var i = 0; i < downloadList.length; i++) {
-      // e.target.addClass('btn-primary');
       if (downloadList[i] != buttonId) {
         $('#' + downloadList[i]).removeClass('btn-primary');
       } else {
@@ -27,13 +27,18 @@ $(document).ready(function() {
   }
 
   function filterDownloadText(showId) {
-    console.log(showId);
     // Get all the platform-specific elements.
     for (var i = 0; i < downloadList.length; i++) {
       var download = downloadList[i];
       var shouldShow = (download === showId);
       $('.' + download).each(function(i, el) { $(el).toggle(shouldShow); });
     }
+  }
+
+  function recordDownloadChoice(buttonId) {
+    var downloadChoice = buttonId;
+    ga('send', 'event', 'Download Choice', downloadChoice, 1);
+    ga('dartlangTracker.send', 'event', 'Download Choice', downloadChoice, 1);
   }
 
   registerDownloadHandlers();
