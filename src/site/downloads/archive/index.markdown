@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Dart Download Archive"
+title: "Index of Downloads"
 description: "Download specific stable and dev channel versions of the Dart SDK, Dartium, Dart Editor, and the Dart API documentation."
 has-permalinks: false
 js:
@@ -16,10 +16,21 @@ css:
 
 # {{page.title}}
 
-Use this page to download specific versions of the Dart SDK, Dartium,
+Use this index to download specific versions of the Dart SDK, Dartium,
 Dart Editor, and the Dart API documentation.
-If you're a new user or want an easier way to install or update Dart,
-visit the [main Dart download page](/downloads/).
+
+<aside class="alert alert-warning" markdown="1">
+  With the exception of Dart Editor,
+  **these downloads don't auto-update.**
+
+  If you're installing [on Mac](/downloads/mac.html) or
+  [on Linux](/downloads/linux.html),
+  you can use tools such as Homebrew and apt-get
+  to install **and update** the Dart SDK and Dartium.
+</aside>
+
+Don't need a specific version of Dart?
+Go to the [main Dart download page](/downloads/).
 
 
 ## Stable channel

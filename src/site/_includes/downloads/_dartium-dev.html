@@ -1,0 +1,17 @@
+{% comment %}
+  Add the following div around one or more of these buttons:
+
+  <div class="downloads download-buttons">
+{% endcomment %}
+
+<a
+    data-bits="{{ include.bits }}"
+    data-os="{{ include.os }}"
+    data-tool="dartium"
+    class="btn download-link"
+    href="{{ site.custom.downloads.dartarchive-dev-url-prefix }}/latest/dartium/dartium-{{ include.os }}-{{ include.arch }}-release.zip">
+  <button class="btn btn-primary btn-lg download-btn {{ include.buttonclass }}">
+    <i class="sprite-icon-download-btn"> </i>
+    Download Dartium ({{ include.name }})
+  </button>
+</a>

@@ -45,6 +45,9 @@ Otherwise, you can download Dartium directly:
     class="download-link"
     href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac</a>
 
+For other versions of Dartium, including dev channel releases, see the
+[download index](/downloads/archive/).
+
 <aside class="alert alert-info" markdown="1">
 **Note:**
 The Dartium binary expires after 1 year. When that happens,

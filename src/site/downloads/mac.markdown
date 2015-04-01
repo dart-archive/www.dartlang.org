@@ -15,20 +15,15 @@ Another option is [downloading Dart manually](#zip).
 
 ## Using Homebrew {#homebrew}
 
-If you have [Homebrew](http://brew.sh/),
+With [Homebrew](http://brew.sh/),
 installing and updating Dart is easy.
 You can use the default location or
 [specify a custom location for Dart](#homebrew-custom-location).
+If you're developing a web app,
+you should also [install Dartium](#homebrew-install-dartium).
 
 
-### Installing Dart {#homebrew-install-dart}
-
-To install Dart, run:
-
-{% prettify huge %}
-$ brew tap dart-lang/dart
-$ brew install dart dartium
-{% endprettify %}
+### Installing the Dart SDK {#homebrew-install-dart}
 
 The **dart** package contains the [Dart SDK](/tools/sdk/),
 which includes the Dart VM, libraries, and command-line Dart tools such as
@@ -36,32 +31,55 @@ which includes the Dart VM, libraries, and command-line Dart tools such as
 [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html),
 [pub](/tools/pub/), and [dartdocgen](/tools/dartdocgen/).
 
+To install Dart, run:
+
+{% prettify huge %}
+$ brew tap dart-lang/dart
+$ brew install dart
+{% endprettify %}
+
 <aside class="alert alert-info" markdown="1">
 **Want the dev channel?**
 To install dev channel releases instead of stable releases,
-add `--devel` after `brew` commands:
+add `--devel`:
 `brew install dart --devel`
 </aside>
+
+
+### Updating the Dart SDK {#homebrew-update-dart}
+
+To update Dart once you've installed it using Homebrew, run:
+
+{% prettify huge %}
+$ brew update
+$ brew upgrade dart
+{% endprettify %}
+
+
+### Installing Dartium {#homebrew-install-dartium}
 
 The **dartium** package contains a special build of Chromium
 (nicknamed [Dartium](/tools/dartium/)) that includes a Dart VM.
 Use it to test and
 debug Dart web apps without first compiling them to JavaScript.
 
+To install Dartium, run:
+
+{% prettify huge %}
+$ brew tap dart-lang/dart
+$ brew install dartium
+{% endprettify %}
+
 <aside class="alert alert-info" markdown="1">
-**Writing server-side code?**
-If you don't write Dart web apps,
-you don't need to install `dartium`.
+**Want the dev channel?**
+`brew install dartium --devel`
 </aside>
 
-
-### Updating Dart {#homebrew-update-dart}
-
-To update Dart once you've installed it using Homebrew, run:
+To update Dartium, run:
 
 {% prettify huge %}
 $ brew update
-$ brew upgrade dart dartium
+$ brew upgrade dartium
 {% endprettify %}
 
 
@@ -94,10 +112,11 @@ as your home directory.
 Dart will be installed under `homebrew`.
 
 
-## Downloading Dart manually {#zip}
+## Downloading the Dart SDK manually {#zip}
 
-You'll need to perform the following steps
-periodically to update your software.
+Follow these steps to download Dart manually.
+You'll need to download it again
+whenever you need the latest APIs and bug fixes.
 
 1. <a
     data-bits="32" data-os="macos" data-tool="sdk"
@@ -115,7 +134,7 @@ periodically to update your software.
     href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip">
    64-bit Dart SDK</a>.
    You can download other releases from the
-   [download archive](/downloads/archive/).
+   [download index](/downloads/archive/).
    </aside>
 
 2. Add `<sdk>/bin` to your `PATH`.

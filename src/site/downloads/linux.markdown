@@ -94,7 +94,7 @@ $ sudo apt-get install dart=1.7.0-dev.0.1.*
 {% endprettify %}
 
 
-## Downloading as a Debian package {#download-Debian-package}
+## Downloading as a Debian package {#download-debian-package}
 
 Use one of the following buttons to download the stable or
 dev channel release in the `.deb` package format.
@@ -118,7 +118,7 @@ You can manually download and extract the Dart SDK from a zip file:
 <aside class="alert alert-info" markdown="1">
  **Other versions:**
  You can download other releases from the
- [download archive](/downloads/archive/).
+ [download index](/downloads/archive/).
 </aside>
 
 If you're creating Dart web apps, also download Dartium:

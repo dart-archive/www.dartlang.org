@@ -83,7 +83,7 @@ js:
 
 --------------------
 Need a specific version or another download?
-See the [Dart Download Archive](archive/).
+See the [Index of Downloads](archive/).
 
 
 {% comment %}
