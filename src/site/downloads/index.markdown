@@ -88,7 +88,6 @@ See the [Dart Download Archive](archive/).
 
 {% comment %}
 TODO:
-* Make choosing a download trigger an analytics event.
 * Change styling to be closer to platform buttons.
   Larger font.
   Selected state should use bold font and
