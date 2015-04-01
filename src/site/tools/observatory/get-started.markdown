@@ -29,9 +29,8 @@ header:
 
 ## Get Observatory {#get-observatory}
 
-To get Observatory, just download 
-[Dart SDK](/tools/download.html#a_la_carte) or
-[Dart Editor](/tools/download.html#whole_enchilada).
+To get Observatory, just [download](/downloads/) the
+Dart SDK or Dart Editor.
 Both of those downloads include the Observatory tool.
 
 You can use Dart to create two kinds of applications: standalone

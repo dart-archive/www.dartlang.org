@@ -968,6 +968,8 @@ pre li {
 
 .editor-current-version {
   margin-bottom: 20px;
+  padding-left: 12px;
+  font-style: italic;
 }
 
 @media (max-width: 992px) {
@@ -1480,13 +1482,13 @@ a[href^="http"]:not([href^="https://storage"]):not(.btn):after {
   display: none;
 }
 
-.btn-group.os-choices {
+.btn-group.os-choices, .btn-group.download-choices {
   border-radius: 8px;
   margin-top: 0;
   margin-bottom: 20px; /* margin-bottom for h2 */
 }
 
-.btn-group.os-choices button {
+.btn-group.os-choices button, .btn-group.download-choices button {
   /*background-color: rgba(0, 0, 0, 0.2);*/
   background-color: rgba(255, 255, 255, 0.7);
   text-transform: none;
@@ -1494,7 +1496,7 @@ a[href^="http"]:not([href^="https://storage"]):not(.btn):after {
   -webkit-backface-visibility: hidden;
 }
 
-.btn-group.os-choices button.inactive {
+.btn-group.os-choices button.inactive, .btn-group.download-choices button.inactive {
   background-color: #EEE;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.6);

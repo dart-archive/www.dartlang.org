@@ -23,7 +23,7 @@ It's in the `dart-sdk` subdirectory
 of the Dart installation directory.
 
 Otherwise, you can 
-[download the SDK](/tools/download.html) directly.
+[download the SDK](/downloads/) directly.
 
 ## What's in the SDK
 

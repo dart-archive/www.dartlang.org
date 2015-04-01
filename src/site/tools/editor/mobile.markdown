@@ -29,7 +29,7 @@ For a more complete description of the requirements, see
 
 ##  Step 1: Set up your computer {#set-up-computer}
 
-[Download Dart Editor](/tools/download.html), which comes bundled with
+[Download Dart Editor](/downloads/), which comes bundled with
 the Android Debug Bridge (adb) and Dart Content Shell for Android.
 
 ## Step 2: Set up your Android device {#set-up-android-device}

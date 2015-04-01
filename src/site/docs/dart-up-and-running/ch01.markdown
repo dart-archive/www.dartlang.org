@@ -217,7 +217,7 @@ runtime environment. (To avoid having to modify the PATH environment
 variable, you can install the JRE under your Dart installation
 directory, in a subdirectory named `jre`.)
 
-1.  [Download Dart Editor](/tools/download.html).
+1.  [Download Dart Editor](/downloads/).
 
 2.  Unarchive the file you downloaded. The resulting directory, which
     we’ll call your *Dart installation directory*, contains the
