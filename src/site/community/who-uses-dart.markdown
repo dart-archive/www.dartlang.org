@@ -160,3 +160,5 @@ Google internal tool for marketing
 [Tisíc knih](http://tisicknih.cz/)
 : Czech book recommendation engine based on library data. Built with Polymer.dart.
 
+[FxSimulator](http://fxsimulator.com/)
+: Forex trading simulator based on StageXL.
