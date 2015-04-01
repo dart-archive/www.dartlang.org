@@ -25,19 +25,6 @@ apps. Also see [dartanalyzer](/tools/analyzer/),
 which performs a similar analysis but, as of 1.0,
 has a different implementation.
 
-<aside class="alert alert-info" markdown="1">
-**Support for new language features:**
-dart2js doesn't currently support async functions or await expressions.
-However, you can try out asynchrony in your Dart web app by using the
-[async-await pub transformer](https://github.com/dart-lang/async_await#async-await-transformer)
-when you build the JavaScript version of your app.
-For more information on this feature, see
-[Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony).
-
-To use dart2js on code that includes enumerated types, opt in by specifying
-the `--enable-enum` flag.
-</aside>
-
 This page tells you how to use dart2js on the command line. It also give tips
 on debugging the JavaScript that dart2js generates.
 

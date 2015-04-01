@@ -54,7 +54,7 @@ restart Eclipse.
 To run and debug Dart applications natively,
 you must install a copy of [Dartium](/tools/dartium/)
 (a Chromium build with a Dart VM) into Eclipse.
-The Dartium executable expires within 12 weeks, and a new stable version
+The Dartium executable expires after 1 year, and a new stable version
 of Dart is released approximately every 6 weeks,
 so you should update Dartium, the plugin, and the SDK periodically.
 

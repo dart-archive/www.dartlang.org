@@ -34,10 +34,10 @@ Otherwise, you can <a href="/tools/download.html">download Dartium</a> directly.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The Dartium binary expires after 12 weeks. When that
-happens, you’ll need to download a new binary unless you're using the
-Dartium binary that comes with Dart Editor. (Dart Editor automatically
-updates its Dartium binary.)
+The Dartium binary expires after 1 year. When that happens,
+you’ll need to download a new binary unless you're using the
+Dartium binary that comes with Dart Editor.
+(Dart Editor automatically updates its Dartium binary.)
 </aside>
 
 ## Installing Dartium

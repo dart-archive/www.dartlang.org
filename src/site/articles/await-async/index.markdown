@@ -25,9 +25,6 @@ These are the most commonly used features related to asynchrony.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-To use these asynchrony features, you may need to import
-[dart:async](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-async).
-Ultimately, `Future` should move to dart:core and be universally available.
 This article assumes that you are already familiar with asynchronous
 programming in Dart.
 </aside>
