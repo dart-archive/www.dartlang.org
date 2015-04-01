@@ -55,24 +55,7 @@ js:
   for example—all you need is the SDK.
 
   </div>
-
-
-{% comment %}
-TODO:
-* Make choosing a download trigger an analytics event.
-* Change styling to be closer to platform buttons.
-  Larger font.
-  Selected state should use bold font and
-  maybe a green bg like Mac OS X.
-  Unselected state should perhaps have a lighter gray bg.
-{% endcomment %}
-
 </div>
-
---------------------
-
-**Need a specific version or another download?**
-See the [Dart Download Archive](archive/).
 
 <div class="editor" style="display:none" markdown="1">
 
@@ -97,3 +80,18 @@ See the [Dart Download Archive](archive/).
 {% endfor %}
 
 </div>
+
+--------------------
+Need a specific version or another download?
+See the [Dart Download Archive](archive/).
+
+
+{% comment %}
+TODO:
+* Make choosing a download trigger an analytics event.
+* Change styling to be closer to platform buttons.
+  Larger font.
+  Selected state should use bold font and
+  maybe a green bg like Mac OS X.
+  Unselected state should perhaps have a lighter gray bg.
+{% endcomment %}
