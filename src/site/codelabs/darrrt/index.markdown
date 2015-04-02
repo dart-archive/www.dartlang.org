@@ -57,7 +57,7 @@ In this step, you download Dart and get the sample code.
 <div class="trydart-step-details" markdown="1">
 If you haven't already done so, get the Dart download.
 Unzip the ZIP file, which creates a directory called `dart`.
-(For more options, go to the [download page](/tools/download.html).)
+(For more options, go to the [download page](/downloads/).)
 
 <!--style here is a hack to remove the arrow, which was only partially showing. -->
 <div style="padding-left: 10px"> 

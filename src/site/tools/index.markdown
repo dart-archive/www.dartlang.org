@@ -9,13 +9,17 @@ has-permalinks: false
 # {{ page.title }}
 
 A variety of tools are available for Dart development.
-You can get most of these tools, and the Dart SDK,
-from the [download page](/tools/download.html).
 
 ---
 
 <a name="tools"></a>
 <h2>Tools</h2>
+
+You can get Dart Editor and the Dart SDK,
+both of which include Observatory,
+from the [download page](/downloads/).
+
+<br>
 
 <div class="row">
   <div class="col-md-4">
@@ -62,6 +66,9 @@ from the [download page](/tools/download.html).
 
 <a name="plugins"></a>
 <h2>Plugins</h2>
+
+Download the plugin for your favorite IDE or editor.
+
 <div class="row">
   <div class="col-md-6">
 
@@ -85,7 +92,7 @@ from the [download page](/tools/download.html).
              alt="Eclipse logo">
       </a>
       <div class="media-body">
-        <a href="eclipse-plugin/"><b>Eclipse</b></a> 
+        <a href="eclipse-plugin/"><b>Eclipse</b></a>
       </div>
     </div>
   </div>
@@ -101,7 +108,7 @@ from the [download page](/tools/download.html).
              alt="Sublime logo">
       </a>
       <div class="media-body">
-         <a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><b>Sublime Text 3</b></a> 
+         <a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><b>Sublime Text 3</b></a>
       </div>
     </div>
 
@@ -112,7 +119,7 @@ from the [download page](/tools/download.html).
              alt="Emacs logo">
       </a>
       <div class="media-body">
-        <a href="https://github.com/nex3/dart-mode"><b>Emacs</b></a> 
+        <a href="https://github.com/nex3/dart-mode"><b>Emacs</b></a>
       </div>
     </div>
 
@@ -123,19 +130,23 @@ from the [download page](/tools/download.html).
              alt="Vim logo">
       </a>
       <div class="media-body">
-        <a href="https://github.com/dart-lang/dart-vim-plugin"><b>Vim</b></a> 
+        <a href="https://github.com/dart-lang/dart-vim-plugin"><b>Vim</b></a>
       </div>
+
+<p>
+  <sup>*</sup> These plugins are unsupported and available as open source.
+</p>
+
     </div>
 
   </div>
 </div>
 
-<sup>*</sup> These plugins are unsupported and available as open source.
 
 ---
 
 <a name="other-tools"></a>
-<h2>Command-line tools</h2> 
+<h2>Command-line tools</h2>
 
 These tools are available in the [Dart SDK](/tools/sdk).
 
@@ -171,7 +182,7 @@ Also see the <a href="/tools/faq.html">Tools FAQ</a>.
 ---
 
 <a name="dump-info-visualizer"></a>
-<h2>Curious about your generated JavaScript?</h2> 
+<h2>Curious about your generated JavaScript?</h2>
 <p>
 If you are compiling your Dart code to JavaScript with dart2js, the Dump-Info
 Visualizer can give you insight into what is going on behind the scenes.

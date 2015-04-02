@@ -30,7 +30,23 @@ see [Dart Tools](/tools/).
 If you have an up-to-date version of [Dart Editor](/tools/editor/),
 you already have Dartium.
 
-Otherwise, you can <a href="/tools/download.html">download Dartium</a> directly.
+Otherwise, you can download Dartium directly:
+
+* <a
+    data-bits="32" data-os="windows" data-tool="dartium"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-windows-ia32-release.zip">Dartium for Windows</a>
+* <a
+    data-bits="64" data-os="linux" data-tool="dartium"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-linux-x64-release.zip">Dartium for Linux</a>
+* <a
+    data-bits="32" data-os="macos" data-tool="dartium"
+    class="download-link"
+    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">Dartium for Mac</a>
+
+For other versions of Dartium, including dev channel releases, see the
+[download index](/downloads/archive/).
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -120,7 +136,7 @@ if (navigator.userAgent.indexOf('(Dart)') == -1) {
 
 ### Setting API keys
 
-To use some features in the Google APIs, such as geolocation 
+To use some features in the Google APIs, such as geolocation
 from the Google Maps API, you need to set the API keys in Dartium.
 You can either build a special version of Dartium with the API
 keys baked in, or you can specify the keys at runtime.

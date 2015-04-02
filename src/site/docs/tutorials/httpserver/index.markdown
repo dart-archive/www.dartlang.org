@@ -68,11 +68,8 @@ and
 for information about using these classes.
 
 * Although you can use `dart` on the command line to run the samples,
-this tutorial uses Dart Editor.
-Make sure that you have the version of the Dart SDK
-that includes Dart Editor:
-[Choose the complete bundle](https://www.dartlang.org/tools/download.html#a_al_carte).
-
+this tutorial uses Dart Editor,
+which you can [download](/downloads/) if you don't already have it.
 </aside>
 
 HTTP (Hyper-Text Transfer Protocol) is a communication protocol used

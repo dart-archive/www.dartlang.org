@@ -188,7 +188,7 @@ Later, you'll see an example of how to use them in your Dart program.
 <dd> The Dart Editor bundle contains everything you need to create,
 edit, test, and build your web-based or server-side application in Dart.
 You can get Dart Editor and other Dart downloads from
-<a href="https://www.dartlang.org/tools/download.html">the download page</a>.
+<a href="/downloads/">the download page</a>.
 </dd>
 
 </dl>

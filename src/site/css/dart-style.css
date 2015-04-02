@@ -968,6 +968,8 @@ pre li {
 
 .editor-current-version {
   margin-bottom: 20px;
+  padding-left: 12px;
+  font-style: italic;
 }
 
 @media (max-width: 992px) {
@@ -1480,28 +1482,34 @@ a[href^="http"]:not([href^="https://storage"]):not(.btn):after {
   display: none;
 }
 
-.btn-group.os-choices {
+.btn-group.os-choices, .download-choices {
   border-radius: 8px;
   margin-top: 0;
   margin-bottom: 20px; /* margin-bottom for h2 */
 }
 
 .btn-group.os-choices button {
-  /*background-color: rgba(0, 0, 0, 0.2);*/
   background-color: rgba(255, 255, 255, 0.7);
   text-transform: none;
   font-size: 20px;
   -webkit-backface-visibility: hidden;
 }
 
-.btn-group.os-choices button.inactive {
+.download-choices button {
+  text-transform: none;
+  font-size: 20px;
+}
+
+.btn-group.os-choices button.inactive, .download-choices button.inactive {
   background-color: #EEE;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.6);
 }
 
 .btn-group.os-choices button.active,
-.btn-group.os-choices button:hover {
+.btn-group.os-choices button:hover,
+.btn-group.download-choices button.active,
+.btn-group.download-choices button:hover {
   background: 0;
   color: white;
   font-weight: 600;
