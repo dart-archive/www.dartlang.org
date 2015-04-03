@@ -19,9 +19,9 @@ $(document).ready(function() {
   function highlightDownload(buttonId) {
     for (var i = 0; i < downloadList.length; i++) {
       if (downloadList[i] != buttonId) {
-        $('#' + downloadList[i]).removeClass('active');
+        $('#' + downloadList[i]).removeClass('btn-primary');
       } else {
-        $('#' + downloadList[i]).addClass('inactive');
+        $('#' + downloadList[i]).addClass('btn-primary');
       }
     }
   }

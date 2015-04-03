@@ -1495,23 +1495,26 @@ a[href^="http"]:not([href^="https://storage"]):not(.btn):after {
   -webkit-backface-visibility: hidden;
 }
 
-.download-choices button {
-  text-transform: none;
-  font-size: 20px;
-}
-
-.btn-group.os-choices button.inactive, .download-choices button.inactive {
+.btn-group.os-choices button.inactive {
   background-color: #EEE;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.6);
 }
 
-.btn-group.os-choices button.active,
-.btn-group.os-choices button:hover,
-.btn-group.download-choices button.active,
-.btn-group.download-choices button:hover {
+.btn-group.os-choices button.active {
   background: 0;
   color: white;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.download-choices button {
+  text-transform: none;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.download-choices button.btn-primary {
   font-weight: 600;
   opacity: 1;
 }
