@@ -32,7 +32,7 @@ js:
   <div class="col-md-6" markdown="1">
 
   <p align="center">
-  <button id="editor" class="btn btn-lg download-choices inactive" style="width:100%">
+  <button id="editor" class="btn download-choices" style="width:100%">
   Editor + SDK
   </button>
   </p>
@@ -46,7 +46,7 @@ js:
 
   <div class="col-md-6" markdown="1">
   <p align="center">
-  <button id="sdk" class="btn btn-lg download-choices active" style="width:100%">
+  <button id="sdk" class="btn download-choices btn-primary" style="width:100%">
   SDK only
   </button>
   </p>
