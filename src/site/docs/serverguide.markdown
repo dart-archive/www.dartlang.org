@@ -79,11 +79,11 @@ and illustrate a variety of APIs specific to command-line apps and servers.
 #### Servers
 {:.no_toc}
 
-* [dartiverse_search](https://github.com/dart-lang/sample-dartiverse-search/blob/master/readme.txt)
-* [hello_world_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/hello_world_server.dart)
-* [basic_writer_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/basic_writer_server.dart)
-* [static_file_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/static_file_server.dart)
-* [slambookserver](https://github.com/dart-lang/dart-tutorials-samples/blob/master/web/slambook/)
+* [dartiverse_search](https://github.com/dart-lang/sample-dartiverse-search)
+* [hello_world_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/bin/hello_world_server.dart)
+* [basic_writer_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/bin/basic_writer_server.dart)
+* [static_file_server](https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/bin/static_file_server.dart)
+* [slambookserver](https://github.com/dart-lang/dart-tutorials-samples/tree/master/slambook)
 
 </div>
 <div class="col-md-7" markdown="1">
