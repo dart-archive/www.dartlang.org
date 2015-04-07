@@ -26,12 +26,6 @@ you should be able to improve their startup time
 by generating your own snapshots,
 following the instructions in this article.
 
-If you write web apps, you don’t need to do anything:
-browsers with the Dart VM can snapshot your app automatically.
-The next time your web app runs,
-the browser can retrieve the snapshot from the browser cache
-and use it to start your app faster.
-
 ## What is a snapshot?
 
 A snapshot is a sequence of bytes
@@ -53,7 +47,7 @@ The Dart VM uses snapshots for two main reasons:
 
 * **Passing objects**
   from one isolate to another isolate.
- 
+
 The Dart VM uses the following kinds of snapshots:
 
 * A **full snapshot**,
@@ -79,21 +73,6 @@ The Dart VM uses the following kinds of snapshots:
   is implemented in the Dart VM by
   creating a snapshot of the Dart object
   that needs to be sent to the other isolate.
-
-
-## How the browser can use snapshots
-
-A browser that contains the Dart VM uses
-a full snapshot for fast startup and initialization
-of the main Dart isolate.
-This snapshot contains the entire Dart core library and other libraries
-such as dart:uri, dart:utf, dart:json, dart:isolate, and dart:html.
-
-In addition, the browser could potentially generate
-a script snapshot of an application that has been loaded
-and cache it in the browser cache.
-This cached script snapshot could then be used for
-subsequent reloads of the application for faster application startup.
 
 
 ## How to generate and use script snapshots
@@ -127,7 +106,7 @@ a snapshot of the Dart script `dart2js.dart`,
 putting it into a file called `dart2js.snapshot`.
 
 {% prettify sh %}
-dart --snapshot=dart2js.snapshot \ 
+dart --snapshot=dart2js.snapshot \
     dart-sdk/lib/dart2js/lib/_internal/compiler/implementation/dart2js.dart
 {% endprettify %}
 
