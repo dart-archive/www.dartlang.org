@@ -26,12 +26,6 @@ you should be able to improve their startup time
 by generating your own snapshots,
 following the instructions in this article.
 
-If you write web apps, you don’t need to do anything:
-browsers with the Dart VM can snapshot your app automatically.
-The next time your web app runs,
-the browser can retrieve the snapshot from the browser cache
-and use it to start your app faster.
-
 ## What is a snapshot?
 
 A snapshot is a sequence of bytes
