@@ -59,19 +59,19 @@ class CloudStorageRedirect(RequestHandler):
   def head(self, *args, **kwargs):
     self.redirect_to_cloud_storage(kwargs['path'])
   def redirect_to_cloud_storage(self, path):
-    self.redirect(self.prefix + path, permanent=False)
+    self.redirect(self.request.scheme + '://' + self.prefix + path, permanent=False)
 
 class EditorUpdateRedirect(CloudStorageRedirect):
-  prefix = 'https://storage.googleapis.com/dart-editor-archive-integration'
+  prefix = 'storage.googleapis.com/dart-editor-archive-integration'
 
 class EditorUpdateRedirectBeChannel(CloudStorageRedirect):
-  prefix = 'https://storage.googleapis.com/dart-archive/channels/be/raw'
+  prefix = 'storage.googleapis.com/dart-archive/channels/be/raw'
 
 class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
-  prefix = 'https://storage.googleapis.com/dart-archive/channels/dev/release'
+  prefix = 'storage.googleapis.com/dart-archive/channels/dev/release'
 
 class EditorUpdateRedirectStableChannel(CloudStorageRedirect):
-  prefix = 'https://storage.googleapis.com/dart-archive/channels/stable/release'
+  prefix = 'storage.googleapis.com/dart-archive/channels/stable/release'
 
 class EclipseUpdateRedirectBase(CloudStorageRedirect):
   def get(self, *args, **kwargs):
