@@ -11,7 +11,7 @@ has-permalinks: true
 
 # {{ page.title }}
 
-_Updated March 2015_
+_Updated April 2015_
 
 This page collects some of the top questions we've heard from the community
 since Dart was open sourced. For more details, read the
@@ -59,19 +59,21 @@ directly with C++?  People face different engineering tradeoffs and choose
 different languages to meet them.  Ultimately, we think client-side developers
 should have this kind of flexibility.
 
-### Q. Is Google planning to put Dart under the control of a standards body?
+### Q. Is Dart under the control of a standards body?
 
-In December 2013, [Ecma formed TC52][tc52] to publish a standard specification
-of the Dart language.
+Yes. As of December 2013, [Ecma TC52][tc52] has been put in charge to own, 
+evolve, and publish the [standard specification][spec] of the Dart language. 
+In addition to TC52, we have also introduced a process for submitting 
+Dart enhancement proposals ([DEP][DEP]), because we wanted to make it easier 
+to contribute to and follow the evolvement of Dart.
 
-### Q. Until that point, how are you taking input on changes to Dart?
+### Q. How are you taking input on changes to the Dart repository?
 
-We handle it like the V8 project.  We listen to feedback and issues,
-and we review patches from outside contributors.  A contributor with a good
-track record can become a committer to the repository.  Google engineers will
-also be working in the public repository, making visible changes. The project
-is lucky to have received many external patches and has welcomed distributed
-committers.
+We listen to feedback and issues, and we review patches from contributors.  
+A contributor with a good track record can become a committer to the repository.
+Google engineers will also be working in the public repository, making visible 
+changes. The project is lucky to have received many external patches and has 
+welcomed distributed committers.
 
 ### Q. Why didn't Google make Dart an open standard right from the start?
 
@@ -657,3 +659,5 @@ See [Who Uses Dart] for more.
 [Dart Tools]: /tools/
 [Dart and Google Cloud Platform]: /server/google-cloud-platform/
 [Who Uses Dart]: /community/who-uses-dart.html
+[spec]: http://www.ecma-international.org/publications/standards/Ecma-408.htm 
+[DEP]: https://github.com/dart-lang/dart_enhancement_proposals
