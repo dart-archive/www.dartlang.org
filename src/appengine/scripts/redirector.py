@@ -59,23 +59,19 @@ class CloudStorageRedirect(RequestHandler):
   def head(self, *args, **kwargs):
     self.redirect_to_cloud_storage(kwargs['path'])
   def redirect_to_cloud_storage(self, path):
-    self.redirect(self.prefix + path, permanent=False)
+    self.redirect(self.request.scheme + '://' + self.prefix + path, permanent=False)
 
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirect(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-editor-archive-integration'
+  prefix = 'storage.googleapis.com/dart-editor-archive-integration'
 
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirectBeChannel(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw'
+  prefix = 'storage.googleapis.com/dart-archive/channels/be/raw'
 
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirectDevChannel(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release'
+  prefix = 'storage.googleapis.com/dart-archive/channels/dev/release'
 
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EditorUpdateRedirectStableChannel(CloudStorageRedirect):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release'
+  prefix = 'storage.googleapis.com/dart-archive/channels/stable/release'
 
 class EclipseUpdateRedirectBase(CloudStorageRedirect):
   def get(self, *args, **kwargs):
@@ -84,17 +80,14 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
       filename = '/index.html'
     self.redirect_to_cloud_storage(filename)
 
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
 
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
 
-# XXX DO NOT USE SSL here. The editor can't handle redirects to SSL
 class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
-  prefix = 'http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
+  prefix = 'https://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
 class BookRedirect(RequestHandler):
   # logging.info('in BookRedirect')
