@@ -255,5 +255,5 @@ easier to understand.
 ## More information
 
 For information on more advanced asynchrony topics, such as **async\***,
-**sync\***, and **yield\***, see
+**sync\***, **yield**, and **yield\***, see
 [Dart Language Asynchrony Support: Phase 2](/articles/beyond-async).
