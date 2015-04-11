@@ -81,13 +81,13 @@ class EclipseUpdateRedirectBase(CloudStorageRedirect):
     self.redirect_to_cloud_storage(filename)
 
 class EclipseUpdateRedirectBeChannel(EclipseUpdateRedirectBase):
-  prefix = 'https://storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
+  prefix = 'storage.googleapis.com/dart-archive/channels/be/raw/latest/editor-eclipse-update'
 
 class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
-  prefix = 'https://storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
+  prefix = 'storage.googleapis.com/dart-archive/channels/dev/release/latest/editor-eclipse-update'
 
 class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
-  prefix = 'https://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
+  prefix = 'storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
 class BookRedirect(RequestHandler):
   # logging.info('in BookRedirect')
