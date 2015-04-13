@@ -23,6 +23,13 @@ WebStorm and other JetBrains IDEs provide integration with VCS, configurable
 deployment, and a smart code editor with support for a wide range of
 technologies for web development.
 
+## Reporting feedback
+
+Please report issues and feedback via the official
+[JetBrains issue tracker](http://youtrack.jetbrains.com/).
+Include details of the expected behavior, the actual behavior,
+and screenshots if appropriate.
+
 ## Plugin Features
 
 ### Intelligent syntax highlighting and code completion
