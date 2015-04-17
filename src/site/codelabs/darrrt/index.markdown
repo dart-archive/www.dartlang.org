@@ -1789,6 +1789,10 @@ main() [[highlight]]async[[/highlight]] {
 
 * Mark the function body with `async`, so this function can use the
   `await` keyword.
+  
+* Remove `void` as the return type for `main()`.
+  Asynchronous functions must return a Future,
+  so you can either specify a Future return type or leave it blank.
 
 * Call the `readyThePirates()` function, which immediately returns
   a Future.
@@ -1940,7 +1944,7 @@ In Dart Editor, expand the `packages` directory.
 <div class="trydart-step-details" markdown="1">
 
 Select `pubspec.yaml`
-then select **Tools > Pub Build**,
+then select **Tools > Pub Build - Minified**,
 which builds everything under the `one-hour-codelab` directory.
 The output looks something like this:
 
@@ -1969,6 +1973,10 @@ Built 412 files to "build".
 
 * The `pub build` command creates a `build` directory that contains
   subdirectories for each step in the code lab.
+
+* You can select either **Pub Build - Minified** or **Pub Build - Debug**.
+  When building minified JavaScript, all whitespace and extraneous characters
+  are removed, creating a more compact file, but one that is less readable.
 
 * The `build` directory contains everything needed to deploy the
   entire project (all six steps).
