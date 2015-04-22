@@ -288,7 +288,7 @@ libraries&mdash;it doesn't actually need `unittest`. In this case, it specifies
 
 {% prettify yaml %}
 dev_dependencies:
-  unittest: '>=0.5.0'
+  unittest: '>=0.5.0 <0.12.0'
 {% endprettify %}
 
 Pub gets every package that your package depends on, and everything *those*

@@ -26,7 +26,7 @@ At the top level are a series of fields. The currently supported ones are:
 : Required for packages that are hosted on pub.dartlang.org.
 
 `author` or `authors`
-: Optional. 
+: Optional.
 
 `homepage`
 : Optional.
@@ -70,7 +70,7 @@ dependencies:
   efts: '>=2.0.4 <3.0.0'
   transmogrify: '>=0.4.0 <1.0.0'
 dev_dependencies:
-  unittest: '>=0.6.0'
+  unittest: '>=0.6.0 <0.12.0'
 dependency_overrides:
   transmogrify:
     path: ../transmogrify_patch/
@@ -199,7 +199,7 @@ typing `polymer-new-element` executes `bin/new_element.dart`.
 Typing `useful-script` executes `bin/useful-script.dart`.
 If you don't specify the value, it is inferred from the key.
 
-For more information, see 
+For more information, see
 [pub global](cmd/pub-global.html#running-a-script-from-your-path).
 
 ## SDK constraints

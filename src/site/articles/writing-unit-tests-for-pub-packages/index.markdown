@@ -26,15 +26,15 @@ This article shows you how to create a really simple Dart
 package. Because we would never want to write a package without testing
 the code in it, this article also introduces you to the excellent unittest library.
 
-[Pub](http://pub.dartlang.org/) is Dart's package mananger. After working 
+[Pub](http://pub.dartlang.org/) is Dart's package mananger. After working
 through this post, you will be able to bundle your Dart libraries and share
 them with others on pub.dartlang.org.
 
 For the purposes of this post, our basic package consists of
 a single `range()` function modeled roughly on the Python builtin function with
-the same name.  
+the same name.
 
-`range()` has the following signature: 
+`range()` has the following signature:
 
 {% prettify dart %}
 List<num> range(num start, num stop, [num step = 1]);
@@ -52,20 +52,20 @@ Let's get started.
 
 ## Create a simple package
 
-Open up Dart Editor, and create a new application called **range**. This new 
+Open up Dart Editor, and create a new application called **range**. This new
 application is not a web project, so uncheck **Generate content for a
-basic web app**.  But do make sure that **Add Pub support** is checked.  
+basic web app**.  But do make sure that **Add Pub support** is checked.
 
 ![Creating a new non-web Dart application](imgs/creating_a_dart_app.jpg)
 
 Delete the automatically created `bin` directory. You don't need it.
 
 Create a top-level `lib` directory. Inside `lib`, create a `range.dart` file;
-the code for `range()` goes in here. (We'll get rid of the automatically 
+the code for `range()` goes in here. (We'll get rid of the automatically
 created `class Range {}` code when we define our `range()` function.)
 
 We should create other directories and files, as well—a
-LICENSE, a `doc` directory for documentation, an `example` directory with examples 
+LICENSE, a `doc` directory for documentation, an `example` directory with examples
 showing usage of our package, and so on—but our focus here is on how to write
 unit tests, so we'll skip over those files and directories for now. To know
 what else we should be doing to make this a _respectable_ package, see the
@@ -74,11 +74,11 @@ excellent writeup of
 
 ## Add the unittest package to your library
 
-With the basic files created for our package, let's open up `pubspec.yaml` 
+With the basic files created for our package, let's open up `pubspec.yaml`
 and add some metadata for our pub package, following the
 [pubspec format](http://pub.dartlang.org/doc/pubspec.html).
 Every package **must** contain a `pubspec.yaml`; in fact, it is this file
-that makes it a package. 
+that makes it a package.
 
 Add a simple description for the package and specify its only dependency,
 the unittest package. Your `pubspec.yaml` should look like this:
@@ -86,23 +86,23 @@ the unittest package. Your `pubspec.yaml` should look like this:
 {% prettify dart %}
 name: range
 description: An approximate implementation of the Python range() function.
-    
+
 dependencies:
-  unittest: any
+  unittest: '>=0.11.0 <0.12.0'
 {% endprettify %}
 
-Saving `pubspec.yaml` in Dart Editor automatically triggers a call to 
+Saving `pubspec.yaml` in Dart Editor automatically triggers a call to
 `pub get`; this creates a `pubspec.lock` file and a bunch of symlinks
-that are necessary for the plumbing to work correctly. Fortunately, 
-`pub` handles all these details for us. 
+that are necessary for the plumbing to work correctly. Fortunately,
+`pub` handles all these details for us.
 
 ## Write some code
 
 Let's create a bare-bones implementation for `range()`. Your `lib/range.dart`
 should look like this:
-    
+
 {% prettify dart %}
-library range; 
+library range;
 
 List<int> range(int start, int stop, [int step=1]) {
   if (start >= stop) {
@@ -110,7 +110,7 @@ List<int> range(int start, int stop, [int step=1]) {
   }
 
   List<int> list = [];
-  
+
   for (var i = start; i < stop; i+= step) {
     list.add(i);
   }
@@ -118,15 +118,15 @@ List<int> range(int start, int stop, [int step=1]) {
   return list;
 }
 {% endprettify %}
-    
+
 ## Write some tests
 
 Create a top-level `test` directory. Inside `test`, create a `range_test.dart`
 file; our tests go in here. Remove the `class RangeTest {}` code from this file.
 We won't be needing it for this simple example.
 
-Before we can run our tests, `test/range_test.dart` needs access to the 
-`unittest` package and the `range` library. At the top of `range_test.dart`, 
+Before we can run our tests, `test/range_test.dart` needs access to the
+`unittest` package and the `range` library. At the top of `range_test.dart`,
 add these import statements:
 
 {% prettify dart %}
@@ -148,14 +148,14 @@ void main() {
 
   test("range() throws an exception when start > stop", () {
     expect(() => range(5, 2), throwsA(new isInstanceOf<ArgumentError>()));
-  });      
+  });
 }
 {% endprettify %}
 
 An individual test goes inside `test()`. The `expect()` function
 evaluates the equality
 between the expected and actual values. A string argument to `test()` describes
-the purpose of the test. 
+the purpose of the test.
 
 If you run the tests now and get an error because Dart Editor cannot locate the
 unittest library, try running `pub update`. (You can find it in Dart Editor's
@@ -168,12 +168,12 @@ Resolving dependencies...
 Dependencies updated!
 {% endprettify %}
 
-After running `pub update`, you should see a newly created `packages` symlink 
+After running `pub update`, you should see a newly created `packages` symlink
 in the `test` directory that gives your tests access to the unittest
-library. (`pub update` recursively creates symlinks in every subdirectory of 
+library. (`pub update` recursively creates symlinks in every subdirectory of
 `/test`, `/web`, and `/bin`; it does _not_ create symlinks in `lib`.)
 
-Now run the tests by pressing the green arrow in Dart Editor, or pressing 
+Now run the tests by pressing the green arrow in Dart Editor, or pressing
 **Cmd+R** on a Mac, or typing `dart test/range_test.dart` on the
 command line. You should see the following output:
 
@@ -249,9 +249,9 @@ unittest-suite-success
 We created a minimal Dart package, made it (barely) good enough
 to put on pub.dartlang.org, and wrote a few tests.  This is a good start, of course, but
 we have only scratched the surface of how we should test our packages. For a
-very thorough explanation of how the unittest framework works in Dart, I 
-highly recommend a careful reading of 
-[Unit Testing with Dart](/articles/dart-unit-tests/) by 
+very thorough explanation of how the unittest framework works in Dart, I
+highly recommend a careful reading of
+[Unit Testing with Dart](/articles/dart-unit-tests/) by
 Graham Wheeler. He goes into considerable detail about writing tests, defining
 `setUp()` and `tearDown()`, running asynchronous tests, using and creating
 matchers, and configuring your test environment.
