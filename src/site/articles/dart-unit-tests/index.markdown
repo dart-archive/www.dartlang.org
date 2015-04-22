@@ -57,7 +57,7 @@ version: 0.0.1
 author: First Last <email@example.com>
 description: A quicksort implementation
 dev_dependencies:
-  unittest: '>=0.10.0'
+  unittest: '>=0.10.0 <0.12.0'
 {% endprettify %}
 
 Run `pub get` either on the command line or in your editor to install the
