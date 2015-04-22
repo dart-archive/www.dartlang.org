@@ -180,6 +180,11 @@ module.exports = function(grunt) {
           cwd: 'src/',
           src: 'index.html',
           dest: 'sessions/switching-to-dart/'
+        },{
+          expand: true,
+          cwd: 'src/',
+          src: 'index.html',
+          dest: 'sessions/lightning-talks/'
         }
         ]
       }
