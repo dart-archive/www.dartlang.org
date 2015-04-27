@@ -595,8 +595,9 @@ verify that it's running.
 
 <div class="trydart-step-details" markdown="1">
 
-Unless you're using tools (such as Dart Editor or Webstorm)
-that automatically check the code for errors using `dartanalyzer`.
+Use `dartanalyzer` to check the code for errors
+(unless you're using a tool, such as Dart Editor or WebStorm
+that automatically analyzes code).
 To run [dartanalyzer](/tools/analyzer/) from the command line,
 do the following from the `working-dir` directory:
 
@@ -1176,7 +1177,7 @@ Future main() async {
   // (the protocol includes the ':').
   var protocol = window.location.protocol;
   [[highlight]]_api = new PiratesApi(_client, rootUrl: '$protocol//$_serverUrl');[[/highlight]]
-  [[highlight]]_shanghaier = new PirateShanghaier();[[/highlight]]
+  _shanghaier = new PirateShanghaier();
 
   ...
 }
@@ -1231,7 +1232,7 @@ Future removeAllBadges(Event e) async {
 }
 
 void generateBadge(Event e) {
-  [[highlight]]var pirate = _shanghaier.shanghaiAPirate();[[/highlight]]
+  var pirate = _shanghaier.shanghaiAPirate();
   setBadgeName(pirate);
 }
 
@@ -1547,7 +1548,7 @@ Update the dependencies.
 pub get
 {% endprettify %}
 
-Run dart analyzer on the code, if your IDE or editor didn't already do so.
+Run the analyzer on the code, if your IDE or editor didn't already do so.
 
 {% prettify lang-sh %}
 dartanalyzer bin/piratesnest.dart
@@ -1656,9 +1657,9 @@ You learned:
 
 <div class="trydart-step-details" markdown="1">
 
-Please provide feedback using the appropriate link.
+Please provide feedback to the appropriate repo:
 
-* [this code lab](https://github.com/dart-lang/www.dartlang.org/issues)
+* [www.dartlang.org repo](https://github.com/dart-lang/www.dartlang.org/issues)
 * [one-hour-codelab repo](https://github.com/dart-lang/one-hour-codelab/issues)
 * [rpc repo](https://github.com/dart-lang/rpc/issues)
 
