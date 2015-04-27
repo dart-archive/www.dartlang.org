@@ -15,6 +15,10 @@ writing Dart code.
 : Learn Dart language and library features while you
   build a pirate badge generator that runs in any modern browser.
 
+[Beware the Nest o' Pirates: Write a Server App](server/)
+: Learn how to use the RPC package to write a RESTful server that
+  you can message from the command line or from a client app.
+
 [Polymer Dart Code Lab](polymer/)
 : Learn how to use custom Polymer elements to build a single-page
   admin console for code labs.
