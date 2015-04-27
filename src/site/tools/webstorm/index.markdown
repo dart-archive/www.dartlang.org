@@ -1,93 +1,198 @@
 ---
 layout: default
-title: "Dart Plugin for WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine"
 description: "Use Dart with a variety of IDEs and editors from JetBrains."
 has-permalinks: false
-short-title: "Dart Plugin from JetBrains"
+title: "Dart Plugin from JetBrains"
 ---
 
+{% include toc.html %}
 {% include breadcrumbs.html %}
 
-# Dart Plugin from JetBrains
+# {{ page.title }}
 
-## For WebStorm, IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine
+The Dart plugin adds Dart support to JetBrains IDEs such as
+WebStorm and IntelliJ IDEA.
+WebStorm is an IDE for client-side development.
+IntelliJ IDEA is an intelligent Java IDE
+with support for many other languages and frameworks.
 
-The [Dart plugin][plugin] for [WebStorm][ws] JavaScript IDE offers advanced support
-for the Dart language. This plugin is also available for other IntelliJ
-Platform-based IDEs: IntelliJ IDEA, PhpStorm, PyCharm, and RubyMine. It provides
-intelligent coding assistance for Dart and allows developers to debug, run and
-test Dart applications right in the IDE.
+Whichever JetBrains IDE you choose for Dart development,
+this page has resources to help you get started quickly
+and find more information when you need it.
 
-For developers looking for a more complete development experience with Dart,
-WebStorm and other JetBrains IDEs provide integration with VCS, configurable
-deployment, and a smart code editor with support for a wide range of
-technologies for web development.
 
-## Reporting feedback
+## Getting started
+
+The Dart plugin is built into WebStorm,
+but not into IntelliJ IDEA.
+Once your IDE has the Dart plugin,
+you just need to tell it where to find the Dart SDK and
+(optionally) Dartium.
+
+
+### Downloading the IDE
+
+Before starting, download a JetBrains IDE if you don't already have one:
+
+* <a target="_blank"
+     href="http://www.jetbrains.com/webstorm/">Download WebStorm</a>
+  <br>_or_
+* <a target="_blank"
+     href="http://www.jetbrains.com/idea/download/">Download IntelliJ IDEA</a>
+
+<aside class="alert alert-info" markdown="1">
+  **Note:**
+  The Community Edition of IntelliJ IDEA has limited functionality.
+  For example, it doesn't support debugging.
+  It also has very little support for JavaScript, HTML, CSS, and YAML.
+</aside>
+
+
+### Downloading the Dart SDK
+
+If you don't already have the Dart SDK,
+you need to download it.
+If you're using Dart to develop web apps,
+we recommend downloading Dartium, as well.
+
+* [Download the Dart SDK](/downloads/)
+* [Download Dartium](/tools/dartium/) (optional)
+
+
+### Configuring Dart support
+
+Here's one way to configure Dart support:
+
+<ol>
+<li>
+  <p>
+    <b>IntelliJ IDEA only:</b>
+    Start IntelliJ IDEA, install the <b>Dart</b> plugin, and restart IntelliJ IDEA.
+    To find the Dart plugin, from the Welcome screen choose <b>Configure > Plugins</b>,
+    and then browse repositories for <b>Dart</b>.
+  </p>
+</li>
+
+<li>
+  <p>
+    Create a new Dart project:
+  </p>
+
+  <ol type="a">
+    <li> From the Welcome screen, click <b>Create New Project</b>. </li>
+    <li> In the next dialog, click <b>Dart</b>.</li>
+  </ol>
+  </li>
+</li>
+<br>
+
+<li>
+  <p>
+    If you don't see values for the <b>Dart SDK</b> path and
+    (optional) <b>Dartium</b> path, enter them.
+  </p>
+
+  <p>
+    For example, the SDK path might be
+    <code><em>&lt;dart installation directory></em>/dart/dart-sdk</code>,
+    and the Dartium path might be
+    <code><em>&lt;dartium installation directory></em>/Chromium</code>.
+  </p>
+
+<aside class="alert alert-info" markdown="1">
+  <b>Note:</b>
+  The <b>Dart SDK</b> path specifies the directory that
+  contains the SDK's `bin` and `lib` directories;
+  the `bin` directory contains tools such as `dart` and `dart2js`.
+  The <b>Dartium</b> path specifies the full path to the
+  `Chromium` executable that contains the Dart VM.
+  The IDE ensures that the paths are valid.
+</aside>
+</li>
+</ol>
+
+An alternative to Step 2 is to open an existing Dart project,
+and then open its `pubspec.yaml` file or any of its Dart files.
+
+
+{% comment %}
+
+NOTE TO EDITORS OF THIS FILE:
+To reset to the initial WebStorm experience,
+delete the IDE settings
+by removing the directories specified in
+https://www.jetbrains.com/webstorm/help/project-and-ide-settings.html.
+On Mac, this worked for me:
+
+rm -rf ~/Library/*/WebStorm10
+
+{% endcomment %}
+
+
+## Running a web app
+
+To run a web app in Dartium, right-click the main HTML file
+(for example, `web/index.html`),
+and choose **Run 'index.html'**.
+
+To run a web app in another browser (or in Dartium),
+right-click the main HTML file
+(for example, `web/index.html`)
+and choose **Open in browser**.
+Then choose the browser you want to run the app.
+A browser window opens and,
+after the app is compiled to JavaScript,
+displays the app.
+
+<aside class="alert alert-info" markup="1">
+  **Workaround:**
+  The first time you try to run a Dart web app
+  after starting the IDE,
+  you might get an error from Pub Serve with the message
+  "Failed to create server socket (OS Error: Address already in use, errno = 48)".
+  Eventually the browser window displays "502 Bad Gateway".
+
+  Run the app again, and it should work.
+  See [issue WEB-16199](https://youtrack.jetbrains.com/issue/WEB-16199)
+  for more information.
+</aside>
+
+
+{% comment %}
+
+## Creating an app from a template
+
+## Debugging a web app
+
+  PENDING: What other common tasks do we want to cover? Some guesses:
+  * updating the Dart SDK
+  * auto-completion?
+  * updating the IDE?
+  * updating the plugin?
+{% endcomment %}
+
+
+## Reporting issues
 
 Please report issues and feedback via the official
-[JetBrains issue tracker](http://youtrack.jetbrains.com/).
+[JetBrains issue tracker for Dart](https://youtrack.jetbrains.com/issues/WEB?q=Subsystem%3A+Dart).
 Include details of the expected behavior, the actual behavior,
 and screenshots if appropriate.
 
-## Plugin Features
+Your questions are welcome in the
+[IntelliJ IDEA forum](https://devnet.jetbrains.com/community/idea/ideacommunity?view=discussions).
 
-### Intelligent syntax highlighting and code completion
 
-IDE understands Dart syntax and automatically provides appropriate code
-completion. Custom settings can be added for the formatting and highlighting of
-Dart code:
+## More information
 
-![Code completion](imgs/1completion.png)
+See the JetBrains website for more information.
 
-### Debugging Dart web apps with Dartium
-
-Start debugging Dart web apps in just one click from the file context menu. The
-IDE will start Dartium and give you access to the full-featured debugger.
-
-![Debugging](imgs/2debug.png)
-
-### Package management
-
-Use the pub tool without leaving the IDE: Upgrade Dependencies and Build actions
-are available in the context menu of the pubspec.yaml file:
-
-![Package management](imgs/3dependencies.png)
-
-### Smart refactorings
-
-Smart refactorings for Dart allow you to do safe rename, extract methods,
-variables and constants:
-
-![Refactoring](imgs/4refactoring.png)
-
-### Code navigation
-
-Powerful code navigation features in the IDE include: Go to declaration and Find
-usages for classes, variables, methods and functions, Go to implementation, Go
-to symbol, Go to Class, and Structure view:
-
-![Code navigation](imgs/5navigation.png)
-
-### Code validation and quick-fix options
-
-The static code analyzer will detect errors in your code on the fly and suggest
-quick-fix options:
-
-![Code analysis](imgs/6analyzer.png)
-
-### Dart-to-JS compiler
-
-Compilation of Dart code to JavaScript is available from the Dart file context
-menu. As an additional option you can select code minification:
-
-![Compile Dart to JavaScript](imgs/7dart2js.png)
-
-### Dart unit test support
-
-IDE provides support for Dart unit testing:
-
-![Unit tests](imgs/8dartunit.png)
-
-[ws]: http://www.jetbrains.com/webstorm/
-[plugin]: http://plugins.jetbrains.com/plugin/?idea&id=6351
+* [WebStorm](https://www.jetbrains.com/webstorm/)
+  * [Getting started with Dart](https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart)
+  * [Features](https://www.jetbrains.com/webstorm/features/)
+  * [Quick start](https://www.jetbrains.com/webstorm/quickstart/)
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+  * [Dart support](https://www.jetbrains.com/idea/help/dart-support.html)
+  * [Features](https://www.jetbrains.com/idea/features/)
+  * [Quick start](https://www.jetbrains.com/idea/help/intellij-idea-quick-start-guide.html)
+* [Dart Plugin by JetBrains](https://plugins.jetbrains.com/plugin/6351)
