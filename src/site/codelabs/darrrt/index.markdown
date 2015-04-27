@@ -119,39 +119,42 @@ This creates a directory named `one-hour-codelab`.
 <div class="trydart-step-details" markdown="1">
 In Dart Editor,
 use **File > Open Existing Folder...**
-to open the `one-hour-codelab` directory.
+to open the `darrrt` directory under `one-hour-codelab`.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
-![The files and directories in the piratebadge directory.](images/filesanddirs.png)
+![The files and directories in the darrrt directory.](images/filesanddirs.png)
 
 <div class="trydart-note" markdown="1">
 <strong>Note:</strong>
 If you see <span style="color:red">red X's</span> at the left of the
-filenames or if the `packages` directory is missing,
+filenames or if a `packages` directory is missing,
 the packages are not properly installed.
 Right click `pubspec.yaml` and select **Pub Get**.
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
-
-* The `packages` directory, as well as the `pubspec.yaml` and `pubspec.lock` files are
-  related to package dependencies.
-  This project has all the dependencies set up for you.
-  Dart Editor automatically installs the necessary packages.
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * Several numbered directories contain the completed code for each step.
   `1-blankbadge` contains the skeletal version of the app that you begin with.
   `6-piratebadge` contains the final version of the app.
 
+* Each numbered directory contains a complete project that includes:
+  * a `packages` directory containing libraries and other files from
+    packages that the app depends on
+  * `pubspec.yaml` and `pubspec.lock` files that specify package dependencies
+  This project has all the dependencies set up for you.
+  Dart Editor automatically installs the necessary packages.
+
 * **Dart SDK** contains the source code for all of the functions,
   variables, and classes provided by the Dart Software Development Kit.
 
-* **Installed Packages** contains the source code for all of the functions,
-  variables, and classes for the additional libraries that this application depends on.
+* **Referenced Packages** contains the source code for all of the functions,
+  variables, and classes for the additional libraries that this application
+  depends on.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -168,17 +171,17 @@ and run the app.
 ### <i class="fa fa-anchor"> </i> Expand the 1-blankbadge directory.
 
 <div class="trydart-step-details" markdown="1">
-In Dart Editor, expand the `1-blankbadge` directory
+In Dart Editor, expand the `web` directory under `1-blankbadge`
 by clicking the little arrow
 ![wee arrow](images/wee-arrow.png) to the left of its name.
-The directory contains `piratebadge.html`, `piratebadge.dart`,
-and `piratebadge.css`.
+The directory contains `piratebadge.css`, `piratebadge.dart`,
+and `piratebadge.html`.
 </div>
 
 ### <i class="fa fa-anchor"> </i> Open the files.
 
 <div class="trydart-step-details" markdown="1">
-Open `piratebadge.html` and `piratebadge.dart`,
+Open `piratebadge.dart` and `piratebadge.html`,
 by double-clicking each filename in Dart Editor.
 </div>
 
@@ -230,7 +233,7 @@ Get familiar with the HTML and the Dart code for the skeleton version of the app
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * During this code lab,
   all the changes you make to `piratebadge.html` are within
@@ -348,7 +351,7 @@ within the `widgets` &lt;div&gt;.
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * The ID for the input element is `inputName`.
 Dart uses CSS selectors, such as `#inputName`,
@@ -543,9 +546,9 @@ Type in the input field.
 
 Check your code against the files in `2-inputnamebadge`.
 
-* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/web/2-inputnamebadge/piratebadge.html)
+* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/2-inputnamebadge/web/piratebadge.html)
 
-* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/web/2-inputnamebadge/piratebadge.dart)
+* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/2-inputnamebadge/web/piratebadge.dart)
 </div>
 
 
@@ -585,7 +588,7 @@ Add the &lt;button&gt; tag below the input field.
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * The button has the ID `generateButton` so
 the Dart code can get the element.
@@ -840,9 +843,9 @@ Click the button.
 
 Check your code against the files in `3-buttonbadge`.
 
-* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/web/3-buttonbadge/piratebadge.html)
+* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/3-buttonbadge/web/piratebadge.html)
 
-* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/web/3-buttonbadge/piratebadge.dart)
+* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/3-buttonbadge/web/piratebadge.dart)
 
 </div>
 
@@ -878,7 +881,7 @@ import 'dart:html';
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * Using the `show` keyword,
 you can import only the classes, functions, or properties you need.
@@ -1229,9 +1232,9 @@ Click the button.
 
 Check your code against the files in `4-classbadge`.
 
-* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/web/4-classbadge/piratebadge.html)
+* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/4-classbadge/web/piratebadge.html)
 
-* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/web/4-classbadge/piratebadge.dart)
+* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/4-classbadge/web/piratebadge.dart)
 
 </div>
 
@@ -1267,7 +1270,7 @@ import 'dart:convert' show JSON;[[/highlight]]
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * `JSON` provides convenient access to the most common JSON use cases.
 
@@ -1482,9 +1485,9 @@ Start the app again by duplicating this window.
 
 Check your code against the files in `5-localbadge`.
 
-* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/web/5-localbadge/piratebadge.html)
+* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/5-localbadge/web/piratebadge.html)
 
-* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/web/5-localbadge/piratebadge.dart)
+* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/5-localbadge/web/piratebadge.dart)
 
 </div>
 
@@ -1542,7 +1545,7 @@ Put the file in `1-blankbadge` alongside the Dart and HTML files you've been edi
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * The file contains a JSON-encoded map,
 which contains two lists of strings.
@@ -1831,9 +1834,9 @@ Compare your app to the final version running below.
 
 Check your code against the files in `6-piratebadge`.
 
-* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/web/6-piratebadge/piratebadge.html)
+* [piratebadge.html](https://github.com/dart-lang/one-hour-codelab/blob/master/6-piratebadge/web/piratebadge.html)
 
-* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/web/6-piratebadge/piratebadge.dart)
+* [piratebadge.dart](https://github.com/dart-lang/one-hour-codelab/blob/master/6-piratebadge/web/piratebadge.dart)
 
 </div>
 
@@ -1893,7 +1896,7 @@ dependencies:
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * A `pubspec.yaml` file in a directory identifies the directory
   and its contents as an application.
@@ -1915,7 +1918,7 @@ dependencies:
 
 <div class="trydart-step-details" markdown="1">
 
-In Dart Editor, expand the `packages` directory.
+In Dart Editor, expand the `packages` directory under `1-blankbadge`.
 
 ![Packages contains the code for the package dependencies](images/packagesfiles.png)
 
@@ -1923,7 +1926,7 @@ In Dart Editor, expand the `packages` directory.
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 *  The `packages` directory contains the code for all of the dependencies
    listed in the `pubspec.yaml` file.
@@ -1949,18 +1952,13 @@ which builds everything under the `one-hour-codelab` directory.
 The output looks something like this:
 
 {% prettify bash %}
-Loading source assets... (0.4s)
-Building avast_ye_pirates... (0.1s)
+Loading source assets...
+Building avast_ye_pirates...
 [Info from Dart2JS]:
-Compiling avast_ye_pirates|web/1-blankbadge/piratebadge.dart...
+Compiling avast_ye_pirates|web/piratebadge.dart...
 [Info from Dart2JS]:
-Took 0:00:01.590852 to compile avast_ye_pirates|web/1-blankbadge/piratebadge.dart.
-...
-[Info from Dart2JS]:
-Compiling avast_ye_pirates|web/6-piratebadge/piratebadge.dart...
-[Info from Dart2JS]:
-Took 0:00:02.137598 to compile avast_ye_pirates|web/6-piratebadge/piratebadge.dart.
-Built 412 files to "build".
+Took 0:00:08.671410 to compile avast_ye_pirates|web/piratebadge.dart.
+Built 6 files to "build".
 {% endprettify %}
 
 </div>
@@ -1969,17 +1967,15 @@ Built 412 files to "build".
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* The `pub build` command creates a `build` directory that contains
-  subdirectories for each step in the code lab.
+* The `pub build` command creates a `build` directory.
 
 * You can select either **Pub Build - Minified** or **Pub Build - Debug**.
   When building minified JavaScript, all whitespace and extraneous characters
   are removed, creating a more compact file, but one that is less readable.
 
-* The `build` directory contains everything needed to deploy the
-  entire project (all six steps).
+* The `build` directory contains everything needed to deploy the project.
 
 </div></div>
 
@@ -1989,24 +1985,21 @@ Built 412 files to "build".
 
 <div class="trydart-step-details" markdown="1">
 
-Expand the `build` directory, then expand the `web` directory.
-Note that it contains a subdirectory for each step of the code lab.
-Expand the `6-piratebadge` directory.
+In the `1-blankbadge` directory where you have been working,
+expand the `build` directory, then expand the `web` directory.
 
 ![The build directory contains everything you need to deploy.](images/builddir.png)
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* `build/web` contains all of the files
+  needed for the app to be deployed separately.
 
 * The `piratebadge.dart.js` file is a JavaScript file that has been minified.
   When deployed, this file runs in the browser.
-
-* The `packages` directory contains the package dependencies.
-
-* Each subdirectory of `build/web` contains all of the files
-  needed for the app to be deployed separately.
 
 </div></div>
 
@@ -2023,7 +2016,7 @@ and choose **Run in Browser** from the menu.
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-key key-header"> </i> <strong> Key Information </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * The app runs on localhost.
   To share your app with others,
@@ -2038,11 +2031,15 @@ and choose **Run in Browser** from the menu.
 
 Now that you've written your app, what do you do now? Here are some suggestions.
 
+
 ### <i class="fa fa-anchor"> </i> Deploy a server and your app
 
 <div class="trydart-step-details" markdown="1">
 
-See the [Write HTTP Clients & Servers](/docs/tutorials/httpserver/)
+The [server side code lab](/codelabs/server/) allows you
+create a pirate crew by storing pirate names to a RESTful Dart server.
+
+Also, see the [Write HTTP Clients & Servers](/docs/tutorials/httpserver/)
 tutorial if you are interested in server-side programming.
 
 </div>
@@ -2144,7 +2141,9 @@ shows you how to use the major features in Dart’s libraries.
 
 <div class="trydart-step-details" markdown="1">
 
-Please provide feedback at [dartbug.com](http://dartbug.com/new).
+Please provide feedback on the
+[dartlang repo](https://github.com/dart-lang/www.dartlang.org/issues)
+on GitHub.
 
 </div>
 
