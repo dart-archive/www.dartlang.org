@@ -110,18 +110,16 @@ CDS.Schedule = (function() {
       start: 16.5, duration: 1
     }],
     "Interactive": [{
-      start: 12, duration: 0.5
-    }, {
-      start: 15.5, duration: 0.5
+      start: 15.5, duration: 1
     }, {
       start: 17.5, duration: 0.5
     }],
     "Break": [{
       start: 10.5, duration: 0.5
     },{
+      start: 12, duration: 0.5
+    }, {
       start: 13, duration: 1.5
-    },{
-      start: 16, duration: 0.5
     }]
   }];
   var dayData = {};
@@ -246,7 +244,7 @@ CDS.Schedule = (function() {
 
       if (r === 0)
         time += 'AM';
-      
+
       if (!crossedNoon && (timeRange.min + r) >= 12) {
         time += 'PM';
         crossedNoon = true;
