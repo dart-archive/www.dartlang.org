@@ -69,7 +69,7 @@ transformers:
 {% endprettify %}
 
 For command-line options not covered in this list,
-such as `--enable-enum`, see [Special-case options](#additional-options).
+see [Special-case options](#additional-options).
 
 ## Excluding an asset {#exclude-assets}
 
@@ -90,7 +90,8 @@ is available as a fallback for cases where a new command-line option has
 been added to dart2js, but a corresponding configuration option has not
 yet been added to pub.
 
-An example of this is the `--enable-enum` option.
+The following example illustrates how to specify an `--enable-foo`
+configuration option:
 
 {% prettify yaml %}
 dependencies:
@@ -102,5 +103,5 @@ transformers:
 - polymer:
     entry_points: web/index.html
 [[highlight]]- $dart2js:
-    commandLineOptions: [--enable-enum][[/highlight]]
+    commandLineOptions: [--enable-foo][[/highlight]]
 {% endprettify %}

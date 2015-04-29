@@ -72,11 +72,6 @@ Some other handy options include:
 `-D<flag>=<value>`
 : Define an environment variable.
 
-`--enable-enum`
-: Enable support for enumerated types. For more information on this
-  language feature, see
-  [Enumerated types](/docs/dart-up-and-running/ch02.html#enumerated-types).
-
 `--version`
 : Display version information for dart2js.
 
