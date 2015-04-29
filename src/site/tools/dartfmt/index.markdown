@@ -75,17 +75,20 @@ To run dartfmt from the command line, you might want to
 
 Common command-line options for dartfmt include:
 
-`-w ` or `--write`
-: Write the output back into the source file.
-  By default, the output goes to standard output.
-            
+`-h` or `--help`
+: Display help.
+
 `-l <value>` or `--max_line_length=<value>`
 : Wrap any lines longer than the specified value.
   The default value is 80.  Comments are not affected.
 
-`-h` or `--help`
-: Display help.
+`-n ` or `--dry-run`
+: Show which files would be modified, but make no changes.
 
+`-w ` or `--overwrite`
+: Write the output back into the source file.
+  By default, the output goes to standard output.
+            
 ## More information
 
 * [Dart Style Guide](/articles/style-guide/)
