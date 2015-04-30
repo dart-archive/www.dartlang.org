@@ -35,7 +35,7 @@ you just need to tell it where to find the Dart SDK and
 Before starting, download a JetBrains IDE if you don't already have one:
 
 * <a target="_blank"
-     href="http://www.jetbrains.com/webstorm/">Download WebStorm</a>
+     href="http://www.jetbrains.com/webstorm/download/">Download WebStorm</a>
   <br>_or_
 * <a target="_blank"
      href="http://www.jetbrains.com/idea/download/">Download IntelliJ IDEA</a>
@@ -43,7 +43,7 @@ Before starting, download a JetBrains IDE if you don't already have one:
 <aside class="alert alert-info" markdown="1">
   **Note:**
   The Community Edition of IntelliJ IDEA has limited functionality.
-  For example, it doesn't support debugging.
+  For example, it doesn't support debugging web apps.
   It also has very little support for JavaScript, HTML, CSS, and YAML.
 </aside>
 
@@ -67,9 +67,12 @@ Here's one way to configure Dart support:
 <li>
   <p>
     <b>IntelliJ IDEA only:</b>
-    Start IntelliJ IDEA, install the <b>Dart</b> plugin, and restart IntelliJ IDEA.
-    To find the Dart plugin, from the Welcome screen choose <b>Configure > Plugins</b>,
-    and then browse repositories for <b>Dart</b>.
+    Start IntelliJ IDEA, and install the <b>Dart</b> plugin.
+    To find the Dart plugin, from the Welcome screen
+    choose <b>Configure > Plugins</b>,
+    then click <b>Install JetBrains plugin</b>,
+    and then search or scroll down until you find <b>Dart</b>.
+    Once you've installed the Dart plugin, restart IntelliJ IDEA.
   </p>
 </li>
 
