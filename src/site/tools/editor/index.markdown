@@ -7,7 +7,7 @@ has-permalinks: false
 
 {% include toc.html %}
 {% include breadcrumbs.html %}
-  
+
 # {{ page.title }}
 
 For an overview, watch this short video on how to use Dart Editor.
@@ -17,12 +17,13 @@ For an overview, watch this short video on how to use Dart Editor.
     allowfullscreen></iframe>
 
 <p></p>
-<aside class="alert alert-info" markdown="1">
-**Support for new language features:**
-To use new language support for asynchrony (such as async functons
-and await expressions) or for enumerated types, you must opt in.
-For more information, see
-[the troubleshooting page](troubleshoot.html#new-features).
+<aside class="alert alert-warning" markdown="1">
+**1.10 is the last release for Dart Editor.**
+We recommend using
+[DartPad](https://dartpad.dartlang.org) to play with Dart and
+[WebStorm](/tools/webstorm/) to develop with Dart.
+For more information, see the
+[announcement](http://news.dartlang.org/2015/04/the-present-and-future-of-editors-and.html).
 </aside>
 
 ## Installing Dart Editor
@@ -170,7 +171,7 @@ Quickly find all callers for a method, and easily jump to these locations.
 ## Customizing the build
 
 You can add behavior to the Dart Editor build process
-by creating a build.dart file. 
+by creating a build.dart file.
 See [Build.dart and the Dart Editor Build System](build.html)
 for details on implementing your own build.dart file.
 
