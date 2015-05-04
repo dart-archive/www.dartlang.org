@@ -24,11 +24,9 @@ from the [download page](/downloads/).
 <div class="row">
   <div class="col-md-4">
     <div class="media">
-      <a class="pull-left" href="editor/">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/dart-logo-48.png"
              alt="Dart logo">
-      </a>
       <div class="media-body">
         <a href="editor/"><b>Dart Editor</b></a>
       </div>
@@ -37,11 +35,9 @@ from the [download page](/downloads/).
 
   <div class="col-md-4">
     <div class="media">
-      <a class="pull-left" href="dartium/">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/dartium-logo-48.jpg"
              alt="Dart logo" />
-      </a>
       <div class="media-body">
         <a href="dartium/"><b>Dartium</b></a>
       </div>
@@ -50,11 +46,9 @@ from the [download page](/downloads/).
 
   <div class="col-md-4">
     <div class="media">
-      <a class="pull-left" href="observatory/">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/dart-logo-48.png"
              alt="Dart logo" />
-      </a>
       <div class="media-body">
         <a href="observatory/"><b>Observatory</b></a>
       </div>
@@ -67,7 +61,7 @@ from the [download page](/downloads/).
 <a name="plugins"></a>
 <h2>Plugins</h2>
 
-Download the plugin for your favorite IDE or editor.
+Download the Dart plugin for your favorite IDE or editor.
 
 <div class="row">
   <div class="col-md-6">
@@ -75,22 +69,18 @@ Download the plugin for your favorite IDE or editor.
     <h3>IDE plugins</h3>
 
     <div class="media">
-      <a class="pull-left" href="webstorm/">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/IntellIJ-IDEA.png"
              alt="IntelliJ logo">
-      </a>
       <div class="media-body">
         <a href="webstorm/"><b>IntelliJ IDEA and WebStorm</b></a>
       </div>
     </div>
 
     <div class="media">
-      <a class="pull-left" href="eclipse-plugin/">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/eclipse.png"
              alt="Eclipse logo">
-      </a>
       <div class="media-body">
         <a href="eclipse-plugin/"><b>Eclipse</b></a>
       </div>
@@ -102,42 +92,36 @@ Download the plugin for your favorite IDE or editor.
     <h3>Text editor plugins<sup>*</sup></h3>
 
     <div class="media">
-      <a class="pull-left" href="https://github.com/dart-lang/dart-sublime-bundle#readme">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/sublime.png"
              alt="Sublime logo">
-      </a>
       <div class="media-body">
          <a href="https://github.com/dart-lang/dart-sublime-bundle#readme"><b>Sublime Text 3</b></a>
       </div>
     </div>
 
     <div class="media">
-      <a class="pull-left" href="https://github.com/nex3/dart-mode">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/emacs.png"
              alt="Emacs logo">
-      </a>
       <div class="media-body">
         <a href="https://github.com/nex3/dart-mode"><b>Emacs</b></a>
       </div>
     </div>
 
     <div class="media">
-      <a class="pull-left" href="https://github.com/dart-lang/dart-vim-plugin">
-        <img class="media-object"
+        <img class="pull-left media-object"
              src="images/vim.png"
              alt="Vim logo">
-      </a>
       <div class="media-body">
         <a href="https://github.com/dart-lang/dart-vim-plugin"><b>Vim</b></a>
       </div>
-
-<p>
-  <sup>*</sup> These plugins are unsupported and available as open source.
-</p>
-
     </div>
+
+    <br>
+      <p>
+        <sup>*</sup> These plugins are unsupported and available as open source.
+      </p>
 
   </div>
 </div>
@@ -190,11 +174,9 @@ Use it to analyze the generated code and see why that code is included in
 your build.
 
 <div class="media">
-  <a class="pull-left" href="https://github.com/dart-lang/dump-info-visualizer">
-    <img class="media-object"
+      <img class="pull-left media-object"
          src="images/dump-info-viewer.png"
          alt="sample Dump-info visualizer output">
-  </a>
   <div class="media-body">
     <a href="https://github.com/dart-lang/dump-info-visualizer"><b>Dump-Info Visualizer</b></a>
   </div>

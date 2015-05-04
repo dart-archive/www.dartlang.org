@@ -38,7 +38,9 @@ js:
   </p>
 
   <p>
-  When you download Dart Editor, you also get the SDK
+  When you download
+  <a href="/tools/editor/">Dart Editor</a>, you also get the
+  <a href="/tools/sdk/">SDK</a>
   and the ability to auto-update.
   </p>
 
@@ -51,8 +53,12 @@ js:
   </button>
   </p>
 
-  If you already have a favorite editor—WebStorm or Sublime,
-  for example—all you need is the SDK.
+  <p>
+  If you already have a <a href="/tools/#plugins">favorite
+  editor</a>—WebStorm or Sublime,
+  for example—all you need is the
+  <a href="/tools/sdk/">SDK</a>.
+  </p>
 
   </div>
 </div>

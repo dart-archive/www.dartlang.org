@@ -8,16 +8,14 @@ layout: homepage
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <h1>End-to-end productivity with Dart</h1>
-	    <p>
-	    Dart is a cohesive, scalable platform for building apps that
-            run on the <b>web</b>
-            (where you can use <a href="/polymer/">Polymer</a>)
-	    or on <b>servers</b>
-            (such as with <a href="/server/google-cloud-platform/app-engine/">Google Cloud Platform</a>).
-	    Use the Dart language, libraries, and tools to
-	    write anything from simple scripts to full-featured apps.
-	    </p>
-            {% include downloads/_dart-editor.html buttonclass="btn-default" %}
+        	    <p>
+        	    Dart is a cohesive, scalable platform for building apps that
+              run on the <b>web</b>
+        	    or on <b>servers</b>.
+        	    Use the Dart language, libraries, and tools to
+        	    write anything from simple scripts to full-featured apps.
+        	    </p>
+              {% include downloads/_dart.html buttonclass="btn-default" %}
           </div>
         </div>
       </div>
@@ -29,7 +27,7 @@ layout: homepage
     </div>
 
     <div class="container dart-container">
-      
+
       <section class="dart-ctas">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
@@ -171,7 +169,7 @@ num recalculate(Point origin, num offset, {bool estimate: false}) {
                 <div class="item">
                   <p>Structure that scales. Organize your code with functions,
                   classes, mixins, and libraries.</p>
-                  <div class="code-hldr">  
+                  <div class="code-hldr">
   <img src="imgs/modular.png">
                   </div>
                 </div>
@@ -181,7 +179,7 @@ num recalculate(Point origin, num offset, {bool estimate: false}) {
           </div>
         </div>
       </section>
-      
+
       <section class="dart-libraries">
         <div class="row">
           <div class="col-md-10 col-md-offset-1" id="libraries">
@@ -199,7 +197,7 @@ num recalculate(Point origin, num offset, {bool estimate: false}) {
               <div class="carousel-inner">
                 <div class="item active">
                   <p>Every app can use lists, sets, and maps, all provided by Dart's core library.</p>
-                  <div class="code-hldr">        
+                  <div class="code-hldr">
 <pre class="prettyprint lang-dart allow-scroll">
 Map famousDuos = { 'Han Solo': 'Chewbacca',      // Map literal.
                    'Bonnie': 'Clyde',
@@ -226,7 +224,7 @@ print(famousPeople.union(setOfMyFriends).length);
                 </div>
                 <div class="item">
                   <p>Dart's Future and Stream classes provide a consistent interface to values that aren’t yet available.</p>
-                  <div class="code-hldr">   
+                  <div class="code-hldr">
 <pre class="prettyprint lang-dart allow-scroll">
 // Get a stream of key-press events from an element:
 querySelector('textarea').<a href="#" class="dart-popover" data-toggle="popover" title="onKeyPress" data-html="true" data-trigger="hover focus" data-content="The onKeyPress field of an element is an instance of ElementStream, which provides notifications about key press events on the element.">onKeyPress</a>
@@ -376,7 +374,7 @@ main() {
            <h4>&ldquo;We took a team of developers unfamiliar with Dart and were able to ship a sales force automation application in under six months. I think that's pretty amazing productivity.&rdquo;</h4>
                   <p class="person"><span class="title"></span></p>
                   <p class="company">Google CRM</p>
-                  
+
                 </div>
                 <div class="item">
            <h4>&ldquo;Being able to work well at scale is extremely important, and Dart is instrumental to this effort.&rdquo;</h4>
@@ -408,12 +406,10 @@ main() {
         <div class="row">
           <div class="col-md-12" id="tools">
             <h2>Dart’s tools help you be productive</h2>
-            <img src="/imgs/dart-editor.png" alt="Image of Dart Editor">
-            <p>Dart Editor is the easiest way to get started, helping you edit,
-              debug, and run Dart apps.
-              When you download Dart, you get
-              <a href="/tools/editor/">Dart Editor</a> and
-              <a href="/tools/">other tools</a>, as well:</p>
+            <p>Use whichever IDE or editor you like.
+              <a href="/tools/">Dart plugins</a> exist for WebStorm, Eclipse,
+              Sublime Text, and more.
+            </p>
           </div>
         </div>
         <div class="row productivity-tools-options">
@@ -424,8 +420,8 @@ main() {
                 <p>The easiest way to get and share Dart code, pub keeps your packages up to date, handling versioning and dependency.</p>
               </div>
               <div class="col-md-4">
-                <h4>Dev Server</h4>
-                <p>Automatically generate assets using pub’s dev server.</p>
+                <h4>Dev server</h4>
+                <p>Automatically generate assets using pub’s development server.</p>
               </div>
               <div class="col-md-4">
                 <h4>Dartium</h4>
@@ -434,23 +430,16 @@ main() {
             </div>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-12">
-          (For more download options, go to the
-           <a href="/downloads/">download page</a>.)
-
-
-          {% include downloads/_dart-editor.html buttonclass="btn-primary" %}
+          {% include downloads/_dart.html buttonclass="btn-primary" %}
           </div>
           <aside class="alert alert-info os-choices col-md-8 col-md-offset-2">
             <b>Note:</b>
             You can write Dart apps using any recent version of
-            {% include os-choices.html %}
+            Windows, Linux, or Mac.
             The Dart development tools <b>do not&nbsp;support Windows XP</b>.
-            Dart Editor requires Java version 6 or higher. Problems?
-            See <a href="tools/editor/troubleshoot.html">Troubleshooting
-            Dart Editor</a>.
           </aside>
         </div>
       </section>
