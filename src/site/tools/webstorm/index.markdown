@@ -183,7 +183,7 @@ Include details of the expected behavior, the actual behavior,
 and screenshots if appropriate.
 
 Your questions are welcome in the
-[IntelliJ IDEA forum](https://devnet.jetbrains.com/community/idea/ideacommunity?view=discussions).
+[Dart plugin for WebStorm/IntelliJ editors mailing list](https://groups.google.com/a/dartlang.org/forum/#!forum/jetbrains-dart-plugin-discuss).
 
 
 ## More information
@@ -199,3 +199,4 @@ See the JetBrains website for more information.
   * [Features](https://www.jetbrains.com/idea/features/)
   * [Quick start](https://www.jetbrains.com/idea/help/intellij-idea-quick-start-guide.html)
 * [Dart Plugin by JetBrains](https://plugins.jetbrains.com/plugin/6351)
+* [FAQ for Eclipse users migrating to WebStorm/IntelliJ](https://www.jetbrains.com/idea/documentation/migration_faq.html)
