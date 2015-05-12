@@ -93,7 +93,7 @@ Note that the executable is called Chromium on your file system.
 
 <div class="trydart-step-details" markdown="1">
 Download the sample code from the
-[one-hour-codelab GitHub repo](https://github.com/dart-lang/one-hour-codelab/tree/server2)
+[one-hour-codelab GitHub repo](https://github.com/dart-lang/one-hour-codelab)
 using one of the following options:
 
 <ul markdown="1">
