@@ -12,6 +12,10 @@ header:
 
 # {{ page.title }}
 
+<!-- Devon's final version:
+  https://dartpad.dartlang.org/778dc0945330263cf7c7 -->
+<!-- initial Dartpad version:
+  https://dartpad.dartlang.org/48c51101261818c66083 -->
 
 In this code lab,
 you build a pirate badge generator from a skeleton app.
@@ -37,7 +41,7 @@ This code lab assumes that you have some programming experience.
 * [Step 3: Add a button](#step-three)
 * [Step 4: Create a class](#step-four)
 * [Step 5: Save to local storage](#step-five)
-* [Step 6: Read names from JSON file using HttpRequest](#step-six)
+* [Step 6: Convert names to Strings from JSON format](#step-six)
 * [Step 7: Build and run the app](#step-seven)
 * [What next?](#whatnext)
 * [Summary and resources](#resources)
@@ -47,44 +51,12 @@ This code lab assumes that you have some programming experience.
 
 <hr>
 
-## Step 0: Set up {#set-up}
+##Step 0: Set up {#set-up}
 
-In this step, you download Dart and get the sample code.
-
-
-### <i class="fa fa-anchor"> </i> Get Dart.
-
-<div class="trydart-step-details" markdown="1">
-If you haven't already done so, get the Dart download.
-Unzip the ZIP file, which creates a directory called `dart`.
-(For more options, go to the [download page](/downloads/).)
-
-<!--style here is a hack to remove the arrow, which was only partially showing. -->
-<div style="padding-left: 10px"> 
-{% include downloads/_dart-editor.html buttonclass="btn-primary" %}
-</div>
-
-<p class="os-choices" markdown="1">
-  The Dart tools
-  work in recent versions of
-  {% include os-choices.html %}
-</p>
-</div>
-
-<aside class="alert alert-info" markdown="1">
-**Note:** Dart Editor requires Java version 6 or higher.
-Problems? See [Troubleshooting Dart Editor](/tools/editor/troubleshoot.html).
-</aside>
-
-### <i class="fa fa-anchor"> </i> Start the editor.
-
-<div class="trydart-step-details" markdown="1">
-Go to the `dart` directory and double-click **DartEditor**.
-
-**Got questions? Having trouble?** Go to the
-[Troubleshooting Dart Editor](/tools/editor/troubleshoot.html) page.
-
-</div>
+In this step, you get a copy of the sample code from GitHub.
+This code is for your reference. If you get stuck in this code lab,
+you can debug the problem, or you can use the code from the
+relevant directory in this repo.
 
 ### <i class="fa fa-anchor"> </i> Get the sample code.
 
@@ -114,53 +86,38 @@ This creates a directory named `one-hour-codelab`.
 
 </div>
 
-### <i class="fa fa-anchor"> </i> Open the one-hour-codelab sample.
+### <i class="fa fa-anchor"> </i> Look at the one-hour-codelab sample.
 
 <div class="trydart-step-details" markdown="1">
-In Dart Editor,
-use **File > Open Existing Folder...**
-to open the `darrrt` directory under `one-hour-codelab`.
+The `darrrt` directory contains the following files and directories:
+
+`1-blankbadge`
+: xxx
+
+`2-inputnamebadge`
+: xxx
+
+`3-buttonbadge`
+: xxx
+
+`4-classbadge`
+: xxx
+
+`5-localbadge`
+: xxx
+
+`6-piratebadge`
+: xxx
+
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
-![The files and directories in the darrrt directory.](images/filesanddirs.png)
-
-<div class="trydart-note" markdown="1">
-<strong>Note:</strong>
-If you see <span style="color:red">red X's</span> at the left of the
-filenames or if a `packages` directory is missing,
-the packages are not properly installed.
-Right click `pubspec.yaml` and select **Pub Get**.
-</div>
-
 </div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* Several numbered directories contain the completed code for each step.
-  `1-blankbadge` contains the skeletal version of the app that you begin with.
-  `6-piratebadge` contains the final version of the app.
-
-* Each numbered directory contains a complete project that includes:
-  * a `packages` directory containing libraries and other files from
-    packages that the app depends on
-  * `pubspec.yaml` and `pubspec.lock` files that specify package dependencies
-  This project has all the dependencies set up for you.
-  Dart Editor automatically installs the necessary packages.
-
-* **Dart SDK** contains the source code for all of the functions,
-  variables, and classes provided by the Dart Software Development Kit.
-
-* **Referenced Packages** contains the source code for all of the functions,
-  variables, and classes for the additional libraries that this application
-  depends on.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
 </div> </div>
-
-<hr>
 
 ##Step 1: Run the skeleton app {#step-one}
 
@@ -1495,8 +1452,9 @@ Check your code against the files in `5-localbadge`.
 <hr>
 
 
-##Step 6: Read names from JSON-encoded file {#step-six}
+##Step 6: Convert names to Strings from JSON format {#step-six}
 
+xxx
 In this step, you change the PirateName class to get
 the list of names and appellations from a JSON file.
 This gives you a chance to add more names and
@@ -1684,8 +1642,6 @@ class PirateName {
   function returns a Future immediately,
   so the caller has the opportunity to do
   something else while waiting for the function to complete its work.
-
-* `HttpRequest` is a utility for retrieving data from a URL.
 
 * `getString()` is a convenience method for doing a simple
   GET request that returns a string.
@@ -2117,7 +2073,6 @@ shows you how to use the major features in Dart’s libraries.
 <a href="https://api.dartlang.org/dart_html/InputElement.html" target="_blank">InputElement</a>,
 <a href="https://api.dartlang.org/dart_html/ButtonElement.html" target="_blank">ButtonElement</a>,
 <a href="https://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a>,
-<a href="https://api.dartlang.org/dart_html/HttpRequest.html" target="_blank">HttpRequest</a>
 <a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a>, and
 <a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Stream</a>
 
@@ -2129,10 +2084,9 @@ shows you how to use the major features in Dart’s libraries.
 <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a>, and
 <a href="https://api.dartlang.org/dart_convert.html" target="_blank">dart:convert</a>
 
-#### API documentation for JSON and local storage
+#### API documentation for JSON
 
-* <a href="https://api.dartlang.org/dart_html/Window.html#localStorage" target="_blank">LocalStorage</a>, and
-<a href="https://api.dartlang.org/dart_convert.html#JSON" target="_blank">JSON</a>
+* <a href="https://api.dartlang.org/dart_convert.html#JSON" target="_blank">JSON</a>
 
 
 </div>
