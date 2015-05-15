@@ -160,7 +160,7 @@ You have many options. Here are a few:
 * [Heroku](https://github.com/igrigorik/heroku-buildpack-dart)  
 * [Dartvoid](http://www.dartvoid.com/)
 
-Of course, Dart runs on your favorite cloud provider, such as
+Of course, Dart runs nearly any cloud provider, such as
 Amazon's EC2, Digital Ocean, and more.
 
 [dart_io_libs]: https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart:io
