@@ -259,6 +259,9 @@ handlers:
   script: scripts.is_dartisans_live.application
   login: admin
 
+- url: /docs/serverguide.html
+  script: scripts.redirector.application
+
 - url: /bundles
   expiration: 7d
   static_dir: static/bundles

@@ -1133,7 +1133,7 @@ for further details about the classes and libraries discussed in this tutorial.
 
 ##What next? {#what-next}
 
-* [Command-Line Apps](/docs/serverguide.html)
+* [Dart for the Server](/server/)
 links to resources for writing standalone Dart applications,
 including servers.
 
