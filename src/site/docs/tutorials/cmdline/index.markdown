@@ -614,7 +614,7 @@ In addition, this tutorial covers two classes that help with command-line argume
 
 ## Other resources {#other-resources}
 
-Check out the [Command-line Apps Programmers' Guide](/docs/serverguide.html)
+Check out the [Dart for Server](/server/)
 to find more resources related to writing command-line apps.
 
 See the

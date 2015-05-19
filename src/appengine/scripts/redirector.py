@@ -300,6 +300,8 @@ application = WSGIApplication(
       defaults={'_uri': '/tools/dart2js/'}),
     Route('/+isolates', RedirectHandler,
       defaults={'_uri': '/tools/observatory/isolate.html'}),
+    Route('/docs/serverguide.html', RedirectHandler,
+      defaults={'_uri': '/server/'}),
     Route('/+', RedirectHandler,
       defaults={'_uri': 'https://google.com/+dartlang'}),
     Route('/mailing-list', RedirectHandler,
