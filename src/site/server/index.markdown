@@ -5,6 +5,8 @@ description: "Information on server-side programming for Dart."
 has-permalinks: false
 ---
 
+{% include toc.html %}
+
 # {{ page.title }}
 
 Dart is a great fit for server applications.
@@ -17,7 +19,7 @@ Dart is a great fit for server applications.
 The Dart VM runs anywhere you can get a Linux, Windows, or Mac prompt.
 It has been ported to i32, x64, ARM, ARM64, and MIPS.
 
-You can access files, UDP and TCP sockets, HTTP, Web sockets, and more with the
+You can access files, UDP and TCP sockets, HTTP, WebSockets, and more with the
 [dart:io libraries][dart_io_libs]. Write a server, connect to a REST service,
 parse JSON, and more.
 
@@ -59,7 +61,7 @@ main() async {
 }
 {% endprettify %}
 
-Server Web sockets:
+Server WebSockets:
 
 {% prettify dart %}
 import 'dart:io';
@@ -103,7 +105,7 @@ Start with our [tutorials](/docs/tutorials). Once you're coding, consult the
 * [Tutorial: Write Command-Line Apps](/docs/tutorials/cmdline/)
 * [Tutorial: Write HTTP Clients & Servers](/docs/tutorials/httpserver/)
 * [Walkthrough of a working sample server][walkthrough] complete with
-  HTTP server, web sockets, logging, and routing
+  HTTP server, WebSockets, logging, and routing
 
 ### Get support
 
@@ -120,18 +122,18 @@ And of course, we welcome [bug reports](http://dartbug.com/new).
 ### Libraries
 
 There are lots of options for building server-side and command-line
-apps with Dart. Here are just some of our favorites:
+apps with Dart. Here are just some of our favorites.
 
-* [dart:io][dart_io_libs] - core functionality, such as files, directories,
-  sockets, HTTP, and lots more
-* [shelf][shelf]: middleware system for web servers, with a robust plugin system
-* [redstone][redstone]: server-side microframework for Dart
-* [MySQL driver][mysql]: connect to MySQL from Dart
-* [PostgreSQL driver][postgres]: connect to PostgreSQL from Dart
-* [args][args]: configurable parsing of command-line args
-* [http][http]: easily connect to HTTP resources
-* Check [pub.dartlang.org][pub] for more options and libraries, including
-ORM, Redis, Mongo, authentication, Google APIs, and more
+[dart:io][dart_io_libs] provides core functionality, such as files, directories,
+sockets, HTTP, and lots more. [Shelf][shelf] is a middleware system for
+web servers, with a robust plugin system. [Redstone][redstone] is a
+server-side microframework for Dart. [MySQL driver][mysql] helps you 
+connect to MySQL from Dart. [PostgreSQL driver][postgres] helps you
+connect to PostgreSQL from Dart. [Args][args] is a configurable parser of
+command-line args. [Http][http] helps you easily connect to HTTP resources.
+
+Check [pub.dartlang.org][pub] for more options and libraries, including
+ORM, Redis, Mongo, authentication, Google APIs, and more.
 
 ### Learn more
 
@@ -145,9 +147,6 @@ and other documentation.
 
 * [Articles on a variety of Dart subjects](/articles/),
    many written by Dart engineers
-* [Dart for the Server](/server/)&mdash;a
-  collection of links to examples, tools, and other documentation
-  of interest to server-side programmers
 * [Dart by Example][examples] has tons of small code snippets for servers
   and consoles
 
@@ -160,7 +159,7 @@ You have many options. Here are a few:
 * [Heroku](https://github.com/igrigorik/heroku-buildpack-dart)  
 * [Dartvoid](http://www.dartvoid.com/)
 
-Of course, Dart runs nearly any cloud provider, such as
+In addition, Dart runs on most cloud providers, such as
 Amazon's EC2, Digital Ocean, and more.
 
 [dart_io_libs]: https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart:io
