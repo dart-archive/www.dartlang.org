@@ -104,8 +104,8 @@ Start with our [tutorials](/docs/tutorials). Once you're coding, consult the
 
 * [Tutorial: Write Command-Line Apps](/docs/tutorials/cmdline/)
 * [Tutorial: Write HTTP Clients & Servers](/docs/tutorials/httpserver/)
-* [Walkthrough of a working sample server][walkthrough] complete with
-  HTTP server, WebSockets, logging, and routing
+* [Walkthrough of a working sample server](/docs/dart-up-and-running/ch05.html)
+  complete with HTTP server, WebSockets, logging, and routing
 
 ### Get support
 
