@@ -14,7 +14,7 @@ mobile device or a laptop such as the Chrome Pixel that supports touch
 gestures and experiment with drawing with multiple fingers.
 
 Read the
-[source](https://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fsamples%2Fmulti_touch).
+[source](https://github.com/dart-lang/sample-multi-touch).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

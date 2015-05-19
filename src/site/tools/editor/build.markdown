@@ -67,7 +67,7 @@ any of the following command-line flags:
   Used only for the <a href="/polymer/">Polymer.dart</a>
   linter and build tool.
   You can find more information in the polymer library file
-  [builder.dart](https://code.google.com/p/dart/source/browse/trunk/dart/pkg/polymer/lib/builder.dart).
+  [builder.dart](https://github.com/dart-lang/polymer-dart/blob/master/lib/builder.dart).
 
 Currently, the editor always passes the `--machine` flag
 into the build script.
@@ -94,7 +94,7 @@ Here is a sample build.dart file
 that processes all .foo files into .foobar files.
 {% comment %}
 NOTE: This sample is based on
-https://code.google.com/p/dart/source/browse/trunk/dart/samples/build_dart_simple/build.dart
+https://github.com/dart-lang/sdk/blob/master/samples/build_dart_simple/build.dart
 {% endcomment %}
 
 {% prettify dart %}
@@ -213,4 +213,4 @@ to
 
 You might find the following to be helpful:
 
-* [dart/samples/build_dart/build.dart](https://code.google.com/p/dart/source/browse/trunk/dart/samples/build_dart/build.dart)
+* [samples/build_dart/build.dart](https://github.com/dart-lang/sdk/blob/master/samples/build_dart/build.dart)

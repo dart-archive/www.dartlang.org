@@ -136,7 +136,7 @@ download a new copy to continue using Dartium.
 
 ## Compiling from source {#compiling}
 
-You can [build the SDK](https://code.google.com/p/dart/wiki/Building) yourself.
+You can [build the SDK](https://github.com/dart-lang/sdk/wiki/Building) yourself.
 If your system uses an older version of Ubuntu,
 you might need to update to GCC 4.6 or later.
 See the [Tools FAQ](/tools/faq.html) for more information.

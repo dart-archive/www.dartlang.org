@@ -611,7 +611,7 @@ Here is a summary of what changed since our last stable release (0.9.5+2).
       <link rel="import" href="packages/polymer/polymer.html">
 
   (See the
-  [todomvc example](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/samples/third_party/todomvc/web/index.html?r=36852),
+  [todomvc example](https://github.com/dart-lang/sample-todomvc-polymer),
   or check out the
   [tutorial](https://www.dartlang.org/docs/tutorials/polymer-intro/).)
 

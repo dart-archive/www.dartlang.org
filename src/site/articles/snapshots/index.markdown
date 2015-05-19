@@ -166,7 +166,7 @@ You can use the following _options_:
 
 You can find more information about snapshots
 and how they are implemented by browsing the files in the
-[dart/runtime/vm directory](http://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fruntime%2Fvm).
+[runtime/vm directory](https://github.com/dart-lang/sdk/tree/master/runtime/vm).
 Start by looking for "Snapshot" in
-[snapshot.h](http://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/runtime/vm/snapshot.h).
+[snapshot.h](https://github.com/dart-lang/sdk/blob/master/runtime/vm/snapshot.h).
 Note that the code might move as the implementation changes.

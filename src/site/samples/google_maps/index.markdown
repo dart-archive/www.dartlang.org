@@ -22,7 +22,7 @@ Read the [dart:js API
 docs](http://api.dartlang.org/docs/releases/latest/dart_js.html).
 
 Read the
-[source](https://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fsamples%2Fgoogle_maps).
+[source](https://github.com/dart-lang/sample-google-maps).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

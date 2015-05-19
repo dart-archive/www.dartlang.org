@@ -360,10 +360,8 @@ or move this to another section.}
 
 ### Q. Where is the source code for polymer.dart?
 
-It's currently in the
-[Dart project](https://code.google.com/p/dart/) under
-[pkg/polymer](https://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fpkg%2Fpolymer).
-We plan to move it into its own github repo soon.
+The polymer.dart project is on GitHub under
+[dart-lang/polymer-dart](https://github.com/dart-lang/polymer-dart).
 
 
 ### Q. Where is the source code for core and paper elements?

@@ -15,7 +15,7 @@ If you are using a keyboard, spin the figure with the left and
 right arrow keys. On touch devices, use swipe gestures.
 
 Read the
-[source](https://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fsamples%2Fswipe).
+[source](https://github.com/dart-lang/sample-swipe).
 
 <iframe class="running-app-frame"
         style="height:500px;width:100%;"

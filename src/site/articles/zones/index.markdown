@@ -784,14 +784,16 @@ The source code for the stack_trace package
   uses zones to form chains of stack traces
   for debugging asynchronous code.
   Zone features used include error handling, zone-local values, and callbacks.
-  You can find the stack_trace source code in the Dart project under
-  [pkg/stack_trace/lib/src](https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/pkg/stack_trace/lib/#lib%2Fsrc).
+  You can find the stack_trace source code in the
+  [stack_trace GitHub project](https://github.com/dart-lang/stack_trace).
 
 The source code for dart:html and dart:async
 : These two SDK libraries implement APIs featuring asynchronous callbacks,
   and thus they deal with zones.
-  You can browse or download their source code using the
-  [Source tab of the Dart project](https://code.google.com/p/dart/wiki/GettingTheSource?tm=4).
+  You can browse or download their source code under the
+  [sdk/lib directory](https://github.com/dart-lang/sdk/tree/master/sdk/lib)
+  of the
+  [Dart GitHub project](https://github.com/dart-lang/sdk).
 
 
 _Thanks to Anders Johnsen and Lasse Reichstein Nielsen

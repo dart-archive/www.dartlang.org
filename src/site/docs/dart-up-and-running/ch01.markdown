@@ -191,7 +191,7 @@ from across the web and enterprise.
 
 *Dart is open source.* Dart was born for the web, and it’s available
 under a BSD-style license. You can find the project’s [issue tracker and
-source repository](http://dart.googlecode.com) online. Maybe you’ll
+source repository](https://github.com/dart-lang/sdk) online. Maybe you’ll
 submit the next patch?
 
 

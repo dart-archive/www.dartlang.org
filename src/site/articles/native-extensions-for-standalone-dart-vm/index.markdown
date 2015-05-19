@@ -46,7 +46,7 @@ Dart library.
 ###Example code
 
 The code for the sample extensions featured in this article is in the
-[samples/sample_extension](http://dart.googlecode.com/svn/trunk/dart/samples/sample_extension)
+[samples/sample_extension](https://github.com/dart-lang/sdk/tree/master/samples/sample_extension)
 directory of the Dart repository.
 
 The sample extensions call the C standard library's rand() and srand()
@@ -58,8 +58,8 @@ Dart files provide examples of using and testing the asynchronous and
 synchronous extensions.
 
 The shared library (native code) for the extensions shown in this article is
-called sample_extension. Its C++ file, [sample_extension.cc](http://dart.googlec
-ode.com/svn/trunk/dart/samples/sample_extension/sample_extension.cc), contains
+called sample_extension. Its C++ file,
+[sample_extension.cc](https://github.com/dart-lang/sdk/blob/master/samples/sample_extension/sample_extension.cc), contains
 six functions that are called from Dart:
 
 sample_extension_Init():
@@ -121,14 +121,12 @@ sample_synchronous_extension.dart starts running:
   for all native functions in the library sample_extension.dart. We'll see what
   the name resolver does when we look at synchronous native functions, below.
 
-<aside>
-  <div class="alert alert-info">
-    <strong>Note:</strong>
+<aside class="alert alert-info">
+<strong>Note:</strong>
 The filename of the shared library depends on the platform. On Windows,
 the VM loads sample_extension.dll, on Linux it loads libsample_extension.so,
 and on Mac it loads libsample_extension.dylib. We show how to build and link
 these shared libraries in an appendix at the end of the article.
-  </div>
 </aside>
 
 ###Using the Dart Embedding API from native code
@@ -149,13 +147,13 @@ same in all Dart native extensions.
 The functions in the native library use the Dart Embedding API to communicate
 with the VM, so the native code includes the header <b>dart_api.h</b>, which
 is in the SDK at dart-sdk/include/dart_api.h or in the repository at
-[runtime/include/dart_api.h](http://dart.googlecode.com/svn/trunk/dart/runtime/include/dart_api.h).
+[runtime/include/dart_api.h](https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_api.h).
 The Dart Embedding API is the interface that embedders use to include the Dart
 VM in a web browser or in the standalone VM for the command line. It consists
 of about 100 function interfaces and many data type and data structure
 definitions. These are all shown, with comments, in dart_api.h. Examples of
 using them are in the unit test file
-[runtime/vm/dart_api_impl_test.cc](http://code.google.com/p/dart/source/browse/trunk/dart/runtime/vm/dart_api_impl_test.cc).
+[runtime/vm/dart_api_impl_test.cc](https://github.com/dart-lang/sdk/blob/master/runtime/vm/dart_api_impl_test.cc).
 
 A native function to be called from Dart must have the
 type **Dart\_NativeFunction**, which is defined in dart_api.h as:
@@ -349,7 +347,7 @@ To call this from Dart, we put it in a wrapper that unpacks the Dart_CObject
 containing seed and length, and that packs the result values into a
 Dart_CObject.  A Dart_CObject can hold an integer (of various sizes), a double,
 a string, or an array of Dart_CObjects. It is implemented in
-[dart_api.h](http://dart.googlecode.com/svn/trunk/dart/runtime/include/dart_api.h)
+[dart_api.h](https://github.com/dart-lang/sdk/blob/master/runtime/include/dart_api.h)
 as a struct
 containing a union. Look in dart_api.h to see the fields and tags used to access
 the union's members. After the Dart_CObject is posted, it and all its resources

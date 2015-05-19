@@ -115,12 +115,11 @@ development. If you would like to see specific features, please
 already been requested yet. If it has, star it so we know what things are
 important to users.
 
-Also, patches are more than welcome! Pub is [open source][] and we love outside
+Also, patches are more than welcome! Pub is open source, and we love outside
 contributions. Both the [client][] and [server][] are well-tested,
 well-documented, and, we hope, easy to contribute to.
 
-[open source]: https://code.google.com/p/dart/wiki/GettingTheSource?tm=4
-[client]: https://code.google.com/p/dart/source/browse/#svn%2Fbranches%2Fbleeding_edge%2Fdart%2Fsdk%2Flib%2F_internal%2Fpub
+[client]: https://github.com/dart-lang/sdk/tree/master/sdk/lib/_internal/pub
 [server]: https://github.com/dart-lang/pub-dartlang
 
 ### What is the roadmap for pub?
