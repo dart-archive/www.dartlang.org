@@ -220,6 +220,8 @@ application = WSGIApplication(
       defaults={'_uri': '/tools/dartdocgen/'}),
     Route('/tools/docgen/', RedirectHandler,
       defaults={'_uri': '/tools/dartdocgen/'}),
+    Route('/tools/editor/mobile.html', RedirectHandler,
+      defaults={'_uri': '/mobile/'}),
     Route('/language-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch02.html'}),
     Route('/docs/language-tour/', RedirectHandler,
