@@ -205,7 +205,6 @@ try drone.io for continuous testing.
 * [dartanalyzer: The Static Analyzer](/tools/analyzer)
 * [Writing Unit Tests for Pub Packages](/articles/writing-unit-tests-for-pub-packages/)
 * [Unit Testing with Dart](/articles/dart-unit-tests/)
-* [Dart Web Apps on Android](/tools/editor/mobile.html)
 * [drone.io](http://drone.io)
 
 ## Other resources
