@@ -161,3 +161,7 @@ Google internal tool for marketing
 
 [FxSimulator](http://fxsimulator.com/)
 : Forex trading simulator based on StageXL.
+
+[Connecting Dartisans](http://connecting.dartisans.net/)
+: Map of all Dartisans in the world. Built with Polymer.dart.
+
