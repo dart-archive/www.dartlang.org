@@ -179,30 +179,23 @@ Normal URI hyperlinks are supported, as well as automatic links to Dart identifi
 #### Identifier
 {:.no_toc}
 
-`[id]` _or_ `[id](uri)`
+`[id]`
 
-Both generate a hyperlink to a Dart identifier. This identifier can be a class,
-method, or property. For example:
+This generates a hyperlink to a Dart identifier. This identifier can be a class,
+method, or property inside the current library. For example:
 
 {% prettify none %}
 Throws a [StateError] if ...
 similar to [anotherMethod], but ...
 {% endprettify %}
 
-If you specify _uri_, it must be the URI of a dart library _L_, and _id_ must
-be a name declared in the exported namespace of _L_.
-
 
 #### Constructor
 {:.no_toc}
 
-`[new c]` _or_ `[new c](uri)`
+`[new c]`
 
-Both generate a hyperlink to the constructor for _c_.
-
-If you specify _uri_, it must be the URI of a dart library _L_, and _c_ must be
-a constructor of a class declared in the exported namespace of _L_.
-
+This generates a hyperlink to the constructor for _c_.
 
 #### Hyperlink
 {:.no_toc}
