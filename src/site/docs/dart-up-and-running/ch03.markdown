@@ -2797,7 +2797,7 @@ can get yet more libraries by using the pub tool, discussed in the next
 chapter. The [args,](http://pub.dartlang.org/packages/args)
 [logging,](http://api.dartlang.org/logging.html)
 [polymer,](http://pub.dartlang.org/packages/polymer) and
-[unittest](http://api.dartlang.org/unittest.html) libraries are just a
+[test](https://pub.dartlang.org/packages/test) libraries are just a
 sampling of what you can install using pub.
 
 

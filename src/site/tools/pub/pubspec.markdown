@@ -70,7 +70,7 @@ dependencies:
   efts: '>=2.0.4 <3.0.0'
   transmogrify: '>=0.4.0 <1.0.0'
 dev_dependencies:
-  unittest: '>=0.6.0 <0.12.0'
+  test: '>=0.6.0 <0.12.0'
 dependency_overrides:
   transmogrify:
     path: ../transmogrify_patch/

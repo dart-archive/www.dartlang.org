@@ -281,21 +281,21 @@ Pub supports two flavors of dependencies: regular dependencies and *dev
 dependencies.* Dev dependencies differ from regular dependencies in that *dev
 dependencies of packages you depend on are ignored*. Here's an example:
 
-Say the `transmogrify` package uses the `unittest` package in its tests and only
+Say the `transmogrify` package uses the `test` package in its tests and only
 in its tests. If someone just wants to use `transmogrify`&mdash;import its
-libraries&mdash;it doesn't actually need `unittest`. In this case, it specifies
-`unittest` as a dev dependency. Its pubspec will have something like:
+libraries&mdash;it doesn't actually need `test`. In this case, it specifies
+`test` as a dev dependency. Its pubspec will have something like:
 
 {% prettify yaml %}
 dev_dependencies:
-  unittest: '>=0.5.0 <0.12.0'
+  test: '>=0.5.0 <0.12.0'
 {% endprettify %}
 
 Pub gets every package that your package depends on, and everything *those*
 packages depend on, transitively. It also gets your package's dev dependencies,
 but it *ignores* the dev dependencies of any dependent packages. Pub only gets
 *your* package's dev dependencies. So when your package depends on
-`transmogrify` it will get `transmogrify` but not `unittest`.
+`transmogrify` it will get `transmogrify` but not `test`.
 
 The rule for deciding between a regular or dev dependency is simple: If
 the dependency is imported from something in your `lib` or `bin` directories,

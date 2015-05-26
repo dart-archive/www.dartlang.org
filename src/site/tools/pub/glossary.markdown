@@ -77,7 +77,7 @@ entrypoint in that context.
 
 A package can be an entrypoint in some contexts and not in others. Lets say your
 app uses a library package A. When you run your app, A is not the entrypoint
-package. However, if you go over to A and execute its unit tests, in that
+package. However, if you go over to A and execute its tests, in that
 context, it *is* the entrypoint since your app isn't involved.
 
 ### Entrypoint directory {#entrypoint-directory}
