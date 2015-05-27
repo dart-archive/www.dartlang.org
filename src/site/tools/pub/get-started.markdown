@@ -79,8 +79,8 @@ command determines which packages your app depends on, and
 puts them in a central cache. For git dependencies, pub clones the git
 repository. For hosted dependencies, pub downloads the package from
 pub.dartlang.org. Transitive dependencies are included, too. For
-example, if the js package depends on the unittest package, `pub`
-grabs both the js package and the unittest package.
+example, if the js package depends on the test package, `pub`
+grabs both the js package and the test package.
 
 Finally, pub creates a <code class="literal">packages</code>
 directory (under your app’s top directory) that has links to the

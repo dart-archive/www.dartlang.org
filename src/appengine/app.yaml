@@ -192,6 +192,15 @@ handlers:
 - url: /articles/using-future-based-apis/
   script: scripts.redirector.application
 
+- url: /articles/dart-unit-tests/
+  script: scripts.redirector.application
+
+- url: /articles/mocking-with-dart/
+  script: scripts.redirector.application
+
+- url: /articles/writing-unit-tests-for-pub-packages/
+  script: scripts.redirector.application
+
 - url: /articles/feet-wet-streams/
   script: scripts.redirector.application
 

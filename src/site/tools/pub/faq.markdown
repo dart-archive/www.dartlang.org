@@ -41,13 +41,13 @@ simple rewriting rule:
 For example, if you app's entrypoint is `/dev/myapp/web/main.dart` then:
 
 {% prettify dart %}
-import 'package:unittest/unittest.dart';
+import 'package:test/test.dart';
 {% endprettify %}
 
 Magically turns into:
 
 {% prettify dart %}
-import '/dev/myapp/web/packages/unittest/unittest.dart';
+import '/dev/myapp/web/packages/test/test.dart';
 {% endprettify %}
 
 Then Dart loads that as normal. This behavior is a [specified][spec] part of

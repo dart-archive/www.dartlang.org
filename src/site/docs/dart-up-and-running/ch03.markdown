@@ -2363,7 +2363,7 @@ For a more comprehensive HTTP server, see
 [Walkthrough: Dartiverse Search](ch05.html). It features a
 sample that implements a web server, using dart:io and packages
 such as [http\_server](https://pub.dartlang.org/packages/http_server)
-and [route](http://pub.dartlang.org/packages/route).
+and [route](https://pub.dartlang.org/packages/route).
 
 #### HTTP client {#http-client}
 {:.no_toc}
@@ -2794,10 +2794,10 @@ libraries, however. Others that you might want to look into include
 [dart:js,](http://api.dartlang.org/dart_js.html) and
 [dart:typed\_data.](http://api.dartlang.org/dart_typed_data.html) You
 can get yet more libraries by using the pub tool, discussed in the next
-chapter. The [args,](http://pub.dartlang.org/packages/args)
-[logging,](http://api.dartlang.org/logging.html)
-[polymer,](http://pub.dartlang.org/packages/polymer) and
-[unittest](http://api.dartlang.org/unittest.html) libraries are just a
+chapter. The [args,](https://pub.dartlang.org/packages/args)
+[logging,](https://pub.dartlang.org/packages/logging)
+[polymer,](https://pub.dartlang.org/packages/polymer) and
+[test](https://pub.dartlang.org/packages/test) libraries are just a
 sampling of what you can install using pub.
 
 

@@ -63,14 +63,14 @@ description: >
   This package can help: it has all of the
   newt-transmogrification functionality you have been looking
   for.
-author: Nathan Weizenbaum <nweiz@google.com>
+author: Natalie Weizenbaum <nweiz@google.com>
 homepage: http://newtify.dartlang.org
 documentation: http://docs.newtify.com
 dependencies:
   efts: '>=2.0.4 <3.0.0'
   transmogrify: '>=0.4.0 <1.0.0'
 dev_dependencies:
-  unittest: '>=0.6.0 <0.12.0'
+  test: '>=0.6.0 <0.12.0'
 dependency_overrides:
   transmogrify:
     path: ../transmogrify_patch/
@@ -126,13 +126,13 @@ That's what your README is for.
 You're encouraged to use these fields to describe the author(s) of your package
 and provide contact information. `author` should be used if your package has a
 single author, while `authors` should be used with a YAML list if more than one
-person wrote the package. Each author can either be a single name (e.g. `Nathan
-Weizenbaum`) or a name and an email address (e.g. `Nathan Weizenbaum
+person wrote the package. Each author can either be a single name (e.g. `Natalie
+Weizenbaum`) or a name and an email address (e.g. `Natalie Weizenbaum
 <nweiz@google.com>`). For example:
 
 {% prettify yaml %}
 authors:
-- Nathan Weizenbaum <nweiz@google.com>
+- Natalie Weizenbaum <nweiz@google.com>
 - Bob Nystrom <rnystrom@google.com>
 {% endprettify %}
 

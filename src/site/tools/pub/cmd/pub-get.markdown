@@ -28,10 +28,10 @@ Got dependencies!
 {% endprettify %}
 
 Once the dependencies are acquired, they may be referenced in Dart code. For
-example, if a package depends on `unittest`:
+example, if a package depends on `test`:
 
 {% prettify dart %}
-import "package:unittest/unittest.dart;
+import "package:test/test.dart;
 {% endprettify %}
 
 When `pub get` gets new dependencies, it writes a

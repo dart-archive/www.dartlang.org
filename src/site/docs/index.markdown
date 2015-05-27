@@ -53,8 +53,7 @@ and get many more using the
 [Articles](/articles/)
 : Look in the "Libraries and APIs" section
 for help using individual packages, libraries, and APIs such as
-[polymer.dart](/polymer/),
-[unittest](/articles/dart-unit-tests/),
+[polymer.dart](/polymer/)
 and [Futures](/articles/using-future-based-apis/).
 
 [API Reference](http://api.dartlang.org)
@@ -197,14 +196,13 @@ plus links to downloads.
 
 ## Testing
 
-A static analyzer and unit testing library
+A static analyzer and testing library
 provide support for testing your web or command-line app.
 If your code is open source,
 try drone.io for continuous testing.
 
 * [dartanalyzer: The Static Analyzer](/tools/analyzer)
-* [Writing Unit Tests for Pub Packages](/articles/writing-unit-tests-for-pub-packages/)
-* [Unit Testing with Dart](/articles/dart-unit-tests/)
+* [testing library](https://pub.dartlang.org/packages/test)
 * [drone.io](http://drone.io)
 
 ## Other resources

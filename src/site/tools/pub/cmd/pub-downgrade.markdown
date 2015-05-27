@@ -44,7 +44,7 @@ lowest version while leaving the rest of the dependencies alone as much as
 possible. For example:
 
 {% prettify sh %}
-$ pub downgrade unittest
+$ pub downgrade test
 Resolving dependencies... 
   barback 0.15.2+2
   bot 0.27.0+2
@@ -56,7 +56,7 @@ Resolving dependencies...
   source_span 1.0.2
 < stack_trace 0.9.2 (was 1.1.1)
   stagexl 0.10.2
-< unittest 0.10.0 (was 0.11.4)
+< test 0.10.0 (was 0.11.4)
 These packages are no longer being depended on:
 - matcher 0.11.3
 Changed 3 dependencies!

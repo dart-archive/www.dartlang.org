@@ -50,7 +50,7 @@ It's possible to tell `pub upgrade` to upgrade specific dependencies to the
 latest version while leaving the rest of the dependencies alone as much as
 possible. For example:
 
-    $ pub upgrade unittest args
+    $ pub upgrade test args
     Dependencies upgraded!
 
 Upgrading a dependency upgrades its transitive dependencies to their latest
