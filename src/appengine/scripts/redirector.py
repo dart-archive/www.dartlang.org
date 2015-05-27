@@ -261,7 +261,7 @@ application = WSGIApplication(
     Route('/articles/dart-unit-tests/', RedirectHandler,
       defaults={'_uri': 'https://pub.dartlang.org/packages/test'}),
     Route('/articles/mocking-with-dart/', RedirectHandler,
-      defaults={'_uri': 'https://pub.dartlang.org/packages/test'}),
+      defaults={'_uri': 'https://pub.dartlang.org/packages/mockito'}),
     Route('/articles/writing-unit-tests-for-pub-packages/', RedirectHandler,
       defaults={'_uri': 'https://pub.dartlang.org/packages/test'}),
     Route('/articles/using-future-based-apis/', RedirectHandler,
