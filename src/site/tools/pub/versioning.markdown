@@ -149,13 +149,21 @@ To solve that, you need to agree on what a version number *means*. Imagine that
 the developers of a package you depend on say, "If we make any backwards
 incompatible change, then we promise to increment the major version number."
 If you trust them, then if you know your package works with `2.5.7` of theirs,
-you can rely on it working all the way up to `3.0.0`. So you can set your range
-like:
+you can rely on it working all the way up to `3.0.0`.
+You can set your range like:
 
 {% prettify yaml %}
 dependencies:
-  collection: '>=2.3.5 <3.0.0'
+  collection: ^2.3.5
 {% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+This example uses _caret syntax_ to express a range of versions.
+The string `^2.3.5` means "the range of all versions from 2.3.5
+to 3.0.0, not including 3.0.0." For more information, see
+[Caret syntax](dependencies.html#caret-syntax).
+</aside>
 
 To make this work, then, we need to come up with that set of promises.
 Fortunately, other smart people have done the work of figuring this all out and
@@ -198,7 +206,7 @@ For example, let's say our dependency graph contains `collection`, and three
 packages depend on it. Their version constraints are:
 
     >=1.7.0
-    >=1.4.0 <2.0.0
+    ^1.4.0
     <1.9.0
 
 The developers of `collection` have released these versions of it:
@@ -275,13 +283,13 @@ at 2.4.0. The pubspec files are as follows:
 {% prettify yaml %}
 name: bookshelf
 dependencies:
-  widgets:  '>=1.2.0 <2.0.0'
+  widgets:  ^1.2.0
 {% endprettify %}
 
 {% prettify yaml %}
 name: widgets
 dependencies:
-  collection:  '>=2.4.0 <3.0.0'
+  collection:  ^2.4.0
 {% endprettify %}
 
 The `collection` package is then updated to 2.5.0.

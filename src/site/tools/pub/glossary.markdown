@@ -198,9 +198,8 @@ existing uploader and ask them to add you as another uploader.
 
 A constraint placed on each [dependency](#dependency) of a package that
 specifies which versions of that dependency the package is expected to work
-with. This can be a single version (e.g. `0.3.0`), a range of versions (e.g.
-`">=1.2.1 <2.0.0"`), or `any` (or just empty) to specify that any version is
-allowed.
+with. This can be a single version (`0.3.0`) or a range of versions (`^1.2.1`). 
+While `any` is also allowed, for performance reasons we don't recommend it.
 
 For more information, see
 [Version constraints](dependencies.html#version-constraints).

@@ -43,6 +43,10 @@ At the top level are a series of fields. The currently supported ones are:
 `dependency_overrides`
 : Can be omitted if you do not need to override any dependencies.
 
+`environment`
+: Optional. Can be used to require a specific version of the Dart SDK.
+  See [SDK constraints](#sdk-constraints).
+
 `executables`
 : Optional. Used to put a package's executables on your PATH.
 
@@ -67,8 +71,8 @@ author: Natalie Weizenbaum <nweiz@google.com>
 homepage: http://newtify.dartlang.org
 documentation: http://docs.newtify.com
 dependencies:
-  efts: '>=2.0.4 <3.0.0'
-  transmogrify: '>=0.4.0 <1.0.0'
+  efts: ^2.0.4
+  transmogrify: ^0.4.0
 dev_dependencies:
   test: '>=0.6.0 <0.12.0'
 dependency_overrides:
@@ -88,7 +92,7 @@ doesn't start with digits and isn't a [reserved word](/docs/dart-up-and-running/
 
 Try to pick a name that is clear, terse, and not already in use.
 A quick search of packages on
-[pub.dartlang.org](http://pub.dartlang.org/packages)
+[pub.dartlang.org](https://pub.dartlang.org/packages)
 to make sure that nothing else is using your name is recommended.
 
 ## Version
@@ -117,7 +121,7 @@ be relatively short&mdash;a few sentences, maybe a whole paragraph&mdash;and
 tells a casual reader what they might want to know about your package.
 
 Think of the description as the sales pitch for your package. Users see it
-when they [browse for packages](http://pub.dartlang.org/packages).
+when they [browse for packages](https://pub.dartlang.org/packages).
 It should be simple plain text: no markdown or HTML.
 That's what your README is for.
 
@@ -126,9 +130,9 @@ That's what your README is for.
 You're encouraged to use these fields to describe the author(s) of your package
 and provide contact information. `author` should be used if your package has a
 single author, while `authors` should be used with a YAML list if more than one
-person wrote the package. Each author can either be a single name (e.g. `Natalie
-Weizenbaum`) or a name and an email address (e.g. `Natalie Weizenbaum
-<nweiz@google.com>`). For example:
+person wrote the package. Each author can either be a single name
+(`Natalie Weizenbaum`) or a name and an email address
+(`Natalie Weizenbaum <nweiz@google.com>`). For example:
 
 {% prettify yaml %}
 authors:
@@ -202,7 +206,7 @@ If you don't specify the value, it is inferred from the key.
 For more information, see
 [pub global](cmd/pub-global.html#running-a-script-from-your-path).
 
-## SDK constraints
+## SDK constraints {#sdk-constraints}
 
 A package can indicate which versions of its dependencies it supports, but there
 is also another implicit dependency all packages have: the Dart SDK itself.
@@ -223,5 +227,5 @@ environment:
 Pub tries to find the latest version of a package whose SDK constraint works
 with the version of the Dart SDK that you have installed.
 
-[pubsite]: http://pub.dartlang.org
+[pubsite]: https://pub.dartlang.org
 [semantic versioning]: http://semver.org/spec/v2.0.0-rc.1.html

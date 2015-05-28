@@ -94,12 +94,13 @@ will be of this form, as shown in the following example:
 
 {% prettify yaml %}
 dependencies:
-  transmogrify: '>=0.4.0 <1.0.0'
+  transmogrify: ^0.4.0
 {% endprettify %}
 
-This specifies that your package depends on a hosted package named
-"transmogrify" and will work with any version from 0.4.0 to 1.0.0 (but not
-1.0.0 itself).
+This example, which uses [caret syntax](#caret-syntax),
+specifies that your package depends on a hosted package named
+"transmogrify" and will work with any version from 0.4.0 to 1.0.0
+(but not 1.0.0 itself). 
 
 If you want to use your own package server, you can use a description that
 specifies its URL:
@@ -110,7 +111,7 @@ dependencies:
     hosted:
       name: transmogrify
       url: http://your-package-server.com
-    version: '>=0.4.0 <1.0.0'
+    version: ^0.4.0
 {% endprettify %}
 
 ### Git packages {#git-packages}
@@ -212,7 +213,8 @@ A version constraint is a series of:
 
 `any`
 : The string "any" allows any version. This is equivalent to an empty
-    version constraint, but is more explicit.
+  version constraint, but is more explicit. **While `any` is allowed,
+  we do not recommend it for performance reasons.**
 
 `1.2.3`
 : A concrete version number pins the dependency to only allow that
@@ -239,7 +241,8 @@ A version constraint is a series of:
 
 You can specify version parts as you want, and their ranges are intersected
 together. For example, `>=1.2.3 <2.0.0` allows any version from `1.2.3` to
-`2.0.0` excluding `2.0.0` itself.
+`2.0.0` excluding `2.0.0` itself. An easier way to express this range is
+by using [caret syntax](#caret-syntax), or `^1.2.3`.
 
 <aside class="alert alert-info">
 Note that `>` is also valid YAML syntax so you will want to quote
@@ -325,7 +328,7 @@ The pubspec would look something like the following:
 {% prettify yaml %}
 name: my_app
 dependencies:
-  transmogrify: '>= 1.2.0 <2.0.0'
+  transmogrify: ^1.2.0
 dependency_overrides:
   transmogrify:
     path: ../transmogrify_patch/
@@ -341,7 +344,7 @@ version of a package:
 {% prettify yaml %}
 name: my_app
 dependencies:
-  transmogrify: '>= 1.2.0 <2.0.0'
+  transmogrify: ^1.2.0
 dependency_overrides:
   transmogrify: '3.2.1'
 {% endprettify %}
@@ -358,8 +361,8 @@ may break your application.
 <aside id="fn:semver" class="footnote">
 
 [1] Pub follows version `2.0.0-rc.1` of the semantic versioning spec,
-because that version allows packages to use build identifiers (e.g.
-`+12345`) to differentiate versions. <a href="#fnref:semver">↩</a>
+because that version allows packages to use build identifiers (`+12345`)
+to differentiate versions. <a href="#fnref:semver">↩</a>
 
 </aside>
 
