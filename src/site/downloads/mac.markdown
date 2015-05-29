@@ -45,6 +45,13 @@ add `--devel`:
 `brew install dart --devel`
 </aside>
 
+#### SDK location
+
+Many tools, such as editors, ask you to specify the Dart SDK
+installation directory. If you installed Dart SDK via homebrew,
+you should use `HOMEBREW_INSTALL/opt/dart/libexec` as the SDK
+directory. Be sure to replace `HOMEBREW_INSTALL` with the location
+where homebrew installs software, which is often `/usr/local`.
 
 ### Updating the Dart SDK {#homebrew-update-dart}
 
