@@ -99,11 +99,14 @@ void addVersion(String channel, Map<String,String> version) {
       TableRowElement row = tables[channel].addRow()
           ..attributes['data-version'] = version['version']
           ..attributes['data-os'] = archiveMap[name];
-      SpanElement rev = new SpanElement()
+
+      var versionCell = row.addCell()..text = version['version'];
+      if (version.containsKey('revision')) {
+        versionCell.append(new SpanElement()
           ..text = '  (rev ${version['revision']})'
-          ..classes.add('muted');
-      row.addCell()..text = version['version']
-          ..append(rev);
+          ..classes.add('muted'));
+      }
+
       row.addCell()..text = name;
       row.addCell()..classes.add('nowrap')..text = width;
       List<String> possibleArchives = ['Dart SDK', 'Dartium', 'Dart Editor'];
@@ -111,8 +114,22 @@ void addVersion(String channel, Map<String,String> version) {
           ..classes.add('archives');
       possibleArchives.forEach((String pa) {
         if (archives.contains(pa)) {
-          String uri = '$storageBase/channels/$channel/release/${version['revision']}/' +
-              '${directoryMap[pa]}/${archiveMap[pa]}-${archiveMap[name]}-${archiveMap[width]}${suffixMap[pa]}';
+          /// Use the revision number for anything <= 1.11.0-dev.0.0 (rev 45519)
+          /// and the version string for later ones.
+          String versionString;
+          try {
+            if (version.containsKey('revision') &&
+                int.parse(version['revision']) <= 45519) {
+              versionString = version['revision'];
+            } else {
+              versionString = version['version'];
+            }
+          } catch(e) {
+            versionString = version['version'];
+          }
+          String uri = '$storageBase/channels/$channel/release/$versionString' +
+              '/${directoryMap[pa]}/${archiveMap[pa]}-${archiveMap[name]}-'
+              '${archiveMap[width]}${suffixMap[pa]}';
           c.append(new AnchorElement()
               ..text = pa
               ..attributes['href']= uri);
