@@ -21,7 +21,7 @@ This code lab assumes that you have some programming experience.
 <strong>Build this app!</strong>
 
 <iframe class="running-app-frame"
-        style="height:220px;width:550px;"
+        style="height:220px;width:600px;"
         src="examples/6-piratebadge/piratebadge.html">
 </iframe>
 
@@ -538,7 +538,7 @@ Compare your app to the one running below.
 Type in the input field.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:550px;"
+        style="height:220px;width:600px;"
         src="examples/2-inputnamebadge/piratebadge.html">
 </iframe>
 
@@ -834,7 +834,7 @@ Remove the text from the input field.
 Click the button.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:550px;"
+        style="height:220px;width:600px;"
         src="examples/3-buttonbadge/piratebadge.html">
 </iframe>
 
@@ -1223,7 +1223,7 @@ Remove the text from the input field.
 Click the button.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:550px;"
+        style="height:220px;width:600px;"
         src="examples/4-classbadge/piratebadge.html">
 </iframe>
 
@@ -1476,7 +1476,7 @@ Click the button to put a name on the badge.
 Start the app again by duplicating this window.
 
 <iframe class="running-app-frame"
-        style="height:220px;width:550px;"
+        style="height:220px;width:600px;"
         src="examples/5-localbadge/piratebadge.html">
 </iframe>
 
@@ -1825,7 +1825,7 @@ Compare your app to the final version running below.
 
 
 <iframe class="running-app-frame"
-        style="height:220px;width:550px;"
+        style="height:220px;width:600px;"
         src="examples/6-piratebadge/piratebadge.html">
 </iframe>
 
