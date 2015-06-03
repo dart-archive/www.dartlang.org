@@ -307,6 +307,9 @@ handlers:
   static_files: static\1
   upload: static
   secure: always
+  http_headers:
+    Access-Control-Allow-Origin: "*"
+    Access-Control-Allow-Methods: GET
 
 - url: .*
   script: scripts.redirector.application
