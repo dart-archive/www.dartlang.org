@@ -182,9 +182,7 @@ void addVersion(String channel, Map<String, String> version) {
           /// Use the revision number for anything <= 1.11.0-dev.0.0 (rev 45519)
           /// and the version string for later ones.
           String versionString;
-          if (version.containsKey('revision') &&
-              parsedRevision != null &&
-              parsedRevision <= 45519) {
+          if (version.containsKey('revision') && parsedRevision != null) {
             versionString = version['revision'];
           } else {
             versionString = version['version'];
