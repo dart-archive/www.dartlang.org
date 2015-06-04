@@ -485,7 +485,7 @@ sample extension.
 On Linux, you can compile the code in the samples/sample_extension directory like this:
 
 {% prettify none %}
-g++ -fPIC -m32 -I{path to SDK include directory} -c sample_extension.cc
+g++ -fPIC -m32 -I{path to SDK include directory} -DDART_SHARED_LIB -c sample_extension.cc
 {% endprettify %}
 
 To create the shared library from the object file:
@@ -504,6 +504,7 @@ Remove the -m32 to build a 64-bit library that runs with the 64-bit Dart standal
 3. Make the following changes in Project/Edit Project Settings, choosing the Build tab and All Configurations in the dialog box:
    1. In section Linking, line Other Linker Flags, add -undefined dynamic_lookup.
    2. In section Search Paths, line Header Search Paths, add the path to dart_api.h in the SDK download or the Dart repository checkout.
+   3. In section Preprocessing, line Preprocessor Macros, add DART_SHARED_LIB=1
 4. Choose the correct architecture (i386 or x86_64), and build by choosing Build/Build.
 
 The resulting lib[extension_name].dylib will be in the <b>build/</b> subdirectory of your project location, so copy it to the desired location (probably the location of the Dart library part of the extension).
