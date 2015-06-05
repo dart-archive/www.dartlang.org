@@ -94,15 +94,15 @@ If the analyzer detects problems, errors and warnings appear
 at the bottom of the screen.
 
 <aside class="alert alert-info" markdown="1">
-<div markdown="1">
+<p markdown="1">
 **Tip:** 
 If you want to abandon your changes and return to the original code,
 here's how to reset DartPad:
+</p>
 
 1. Click **New Pad...** in the upper left corner.
 1. Click **Discard** from the pop-up window.
 1. Use the browser's back arrow to return the pad to its original state.
-</div>
 </aside>
 
 <hr>
@@ -386,9 +386,9 @@ The name badge updates to display what you've typed.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/1-blankbadge/DART" target="_blank">Dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/DART" target="_blank">Dart</a>
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/1-blankbadge/HTML" target="_blank">HTML</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/HTML" target="_blank">HTML</a>
 
 Or
 <a href="https://dartpad.dartlang.org/4935601e769397702f42" target="_blank">open the solution in DartPad</a>.
