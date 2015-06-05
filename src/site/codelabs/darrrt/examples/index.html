@@ -11,14 +11,17 @@
     <title>Pirate badge</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="piratebadge.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <h1>Pirate badge</h1>
-    
+
     <div class="widgets">
       <div>
-        <input type="text" id="inputName" maxlength="15">
+        <input type="text" id="inputName" maxlength="15" disabled>
+      </div>
+      <div>
+        <button id="generateButton" disabled>Aye! Gimme a name!</button>
       </div>
     </div>
     <div class="badge">
@@ -29,7 +32,9 @@
         <span id="badgeName"> </span>
       </div>
     </div>
-    <script type="application/dart" src="piratebadge.dart"></script>
+    <script type="application/dart" src="main.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
 </html>
+
+

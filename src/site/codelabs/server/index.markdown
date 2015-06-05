@@ -98,7 +98,7 @@ using one of the following options:
 
 <ul markdown="1">
 <li markdown="1">
-  Download the zip file, 
+  Download the ZIP file, 
   [one-hour-codelab-master.zip](https://github.com/dart-lang/one-hour-codelab/archive/master.zip).
   Unzip the ZIP file, which creates a directory called
   `one-hour-codelab-master`.
