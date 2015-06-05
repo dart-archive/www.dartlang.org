@@ -196,6 +196,12 @@ VM
 None
 : Hides all tags. The functions are displayed from most CPU intensive to least.
 
+## Stubs
+
+### InlineCacheStub / SubtypeTestCacheStub
+
+The first time a function is run, it is compiled without optimizations. Each call site or type test has a cache that remembers the results of method lookup or type tests for the concrete classes actually encountered. This avoids repeated lookups and collects type feedback for the optimizing compiler. If these stubs are high on your profile, your program is spending a lot of time in unoptimized code. This could be because your program executes a lot of different code with a low frequency that doesn’t trigger optimization. Or it could be because something about your program caused the optimizing compiler to bail out (try --trace_deoptimization).
+
 {% include observatory_new_fyi.html %}
 
 {% include observatory_footer.html %}
