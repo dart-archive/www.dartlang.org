@@ -3802,7 +3802,7 @@ return z},zc:function(){var z=0,y=new P.S(),x=1,w,v,u,t
 function zc(a,b){if(a===1){w=b
 z=x}while(true)switch(z){case 0:t=C.xr
 z=2
-return H.AZ(W.Kn("https://cors-permissions-dot-dart-lang.appspot.com/codelabs/darrrt/examples/6-piratebadge/piratenames.json",null,null),zc,y)
+return H.AZ(W.Kn("https://www.dartlang.org/codelabs/darrrt/files/piratenames.json",null,null),zc,y)
 case 2:v=t.kV(b)
 u=J.U6(v)
 $.XR=u.p(v,"names")

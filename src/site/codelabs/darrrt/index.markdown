@@ -387,7 +387,6 @@ The name badge updates to display what you've typed.
 Check your code against the solution.
 
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/DART" target="_blank">Dart</a>
-
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/HTML" target="_blank">HTML</a>
 
 Or
@@ -660,7 +659,6 @@ Click the button.
 Check your code against the solution.
 
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/DART" target="_blank">Dart</a>
-
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/HTML" target="_blank">HTML</a>
 
 Or
@@ -1016,7 +1014,6 @@ Click the button.
 Check your code against the solution.
 
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/DART" target="_blank">Dart</a>
-
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/HTML" target="_blank">HTML</a>
 
 Or
@@ -1328,7 +1325,6 @@ Click the button.
 Check your code against the solution.
 
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/DART" target="_blank">Dart</a>
-
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/HTML" target="_blank">HTML</a>
 
 Or
