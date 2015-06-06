@@ -1361,7 +1361,7 @@ Once you are ready to use a real editor or IDE, like
 [WebStorm](/tools/webstorm/), you need a version of the app that
 runs in a real world environment.
 Such a version of the pirate app is available on
-<a href="https://github.com/dart-lang/one-hour-codelab/tree/dartpad-darrrt/darrrt/piratebadge" target="_blank">GitHub</a>.
+<a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/piratebadge" target="_blank">GitHub</a>.
 The Dart code for both is exactly the same,
 but the real world version includes:
 
