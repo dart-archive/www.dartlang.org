@@ -13,7 +13,7 @@ to be included in this list, please open a
 [pull request](https://github.com/dart-lang/www.dartlang.org/blob/master/src/site/community/who-uses-dart.markdown). Thanks!
 
 [Pick & School](https://www.picknschool.com)
-: An Online Catalog of studies in French Higher Education.
+: An online catalog of studies in French higher education.
 
 [AdSense performance reports](http://adsense.blogspot.co.uk/2015/04/new-adsense-performance-reports.html)
 : With the redesigned Performance tab, you now have more control and flexibility, allowing you to better understand your AdSense earnings and performance.
