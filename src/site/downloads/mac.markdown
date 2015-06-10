@@ -19,41 +19,66 @@ With [Homebrew](http://brew.sh/),
 installing and updating Dart is easy.
 You can use the default location or
 [specify a custom location for Dart](#homebrew-custom-location).
-If you're developing a web app,
-you should also [install Dartium](#homebrew-install-dartium).
 
 
-### Installing the Dart SDK {#homebrew-install-dart}
+### Installing Dart {#homebrew-install-dart}
 
 The **dart** package contains the [Dart SDK](/tools/sdk/),
 which includes the Dart VM, libraries, and command-line Dart tools such as
 [dart](/tools/dart-vm/), [dart2js](/tools/dart2js/),
 [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html),
 [pub](/tools/pub/), and [dartdocgen](/tools/dartdocgen/).
+Optionally, you can add two more tools:
 
-To install Dart, run:
+* [Dartium](/tools/dartium/):
+  A special build of Chromium that includes a Dart VM.
+  Use it to interactively test and debug Dart web apps
+  without first compiling them to JavaScript.
+* The content shell:
+  Headless Dartium for automated testing.
+
+For client-side Dart work, you might want to download all the tools:
+
+{% prettify huge %}
+$ brew tap dart-lang/dart
+$ brew install dart --with-content-shell --with-dartium
+{% endprettify %}
+
+If you're working on server-side Dart,
+all you need is `dart`:
 
 {% prettify huge %}
 $ brew tap dart-lang/dart
 $ brew install dart
 {% endprettify %}
 
-<aside class="alert alert-info" markdown="1">
-**Want the dev channel?**
-To install dev channel releases instead of stable releases,
-add `--devel`:
-`brew install dart --devel`
-</aside>
+To choose the dev channel version of whatever Dart software you install,
+use `--devel`:
 
-#### SDK location
+{% prettify huge %}
+$ brew install dart --devel
+{% endprettify %}
+
+You can use any combination of the
+`--devel`,
+`--with-dartium`, and
+`--with-content-shell` options.
+
+
+#### Installation locations
 
 Many tools, such as editors, ask you to specify the Dart SDK
-installation directory. If you installed Dart SDK via homebrew,
-you should use `HOMEBREW_INSTALL/opt/dart/libexec` as the SDK
-directory. Be sure to replace `HOMEBREW_INSTALL` with the location
-where homebrew installs software, which is often `/usr/local`.
+installation directory and the location of Dartium.
+Homebrew uses the following locations,
+where you replace `HOMEBREW_INSTALL` with the
+the homebrew installation directory
+(which you can get using `brew --prefix`):
 
-### Updating the Dart SDK {#homebrew-update-dart}
+* SDK directory: `HOMEBREW_INSTALL/opt/dart/libexec`
+* Dartium: `HOMEBREW_INSTALL/opt/dart/Chromium.app`
+
+
+### Updating Dart {#homebrew-update-dart}
 
 To update Dart once you've installed it using Homebrew, run:
 
@@ -62,39 +87,18 @@ $ brew update
 $ brew upgrade dart
 {% endprettify %}
 
-
-### Installing Dartium {#homebrew-install-dartium}
-
-The **dartium** package contains a special build of Chromium
-(nicknamed [Dartium](/tools/dartium/)) that includes a Dart VM.
-Use it to test and
-debug Dart web apps without first compiling them to JavaScript.
-
-To install Dartium, run:
-
-{% prettify huge %}
-$ brew tap dart-lang/dart
-$ brew install dartium
-{% endprettify %}
-
-<aside class="alert alert-info" markdown="1">
-**Want the dev channel?**
-`brew install dartium --devel`
-</aside>
-
-To update Dartium, run:
-
-{% prettify huge %}
-$ brew update
-$ brew upgrade dartium
-{% endprettify %}
+{% comment %}
+PENDING: clarify what arguments you should supply,
+depending on what arguments you used before.
+{% endcomment %}
 
 
 ### Specifying a custom location {#homebrew-custom-location}
 
-By default, Homebrew downloads to `/usr/local`, which might require using
-`sudo` to handle issues with file permissions. If you prefer, you can
-download to another location where you have write permissions, such
+By default, Homebrew downloads to `/usr/local`.
+If your Mac is set up so that installing to `/usr/local` requires
+using `sudo`, we recommend
+downloading to another location where you have write permissions, such
 as your home directory.
 
 1. Go to the directory above where you want

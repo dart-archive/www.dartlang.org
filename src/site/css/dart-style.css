@@ -661,6 +661,10 @@ pre.prettyprint {
   white-space: pre-wrap;
 }
 
+.lang-huge span.kwd {
+  color: #4d4d4d !important /* avoid kwd colors in huge blocks */;
+}
+
 .linenums li {
   list-style-type: decimal !important;
 }
