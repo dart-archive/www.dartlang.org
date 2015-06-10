@@ -48,13 +48,6 @@ How you enable Observatory depends on whether you are writing a
 standalone app or a web app, and how you prefer to work.
 No matter how you launch Observatory, its UI is exactly the same.
 
-<aside class="alert alert-info" markdown="1">
-**For Windows users:** Observatory's [CPU Profile](cpu-profile.html)
-screen is disabled by default.  Specify the
-[<code>--profile</code>](/tools/dart-vm/#observatory) option when
-you launch your app to enable it.
-</aside>
-
 ### Standalone apps from Dart Editor {#standalone-Dart-Editor}
 
 You can open Observatory once you launch your app.
@@ -101,10 +94,25 @@ Observatory options when launching the dart VM. See the
 For example:
 
 {% prettify sh %}
-$ dart --enable-vm-service --pause-isolates-on-start <script>.dart
+$ dart --observe example.dart
 {% endprettify %}
 
-Open a browser to `localhost:8181` to see the Observatory UI.
+Open a browser to `http://localhost:8181` to see the Observatory UI.
+
+By default, the VM service binds to localhost, i.e. only accepts connections coming from the same machine. To access a VM running on another machine, you'll need to forward the port the VM service is bound to. If the target machine is Linux or Mac running sshd, you can forward the port over ssh like so:
+
+{% prettify sh %}
+$ ssh -L8181:localhost:8181 user@targetmachine
+{% endprettify %}
+
+You can also retroactively enable the VM service for a running process on Linux or Mac by sending the process SIGQUIT (perhaps you have a long-running server that started misbehaving and you want to investigate why). The process will then display port the VM service is bound to on its stdout.
+
+{% prettify sh %}
+$ ps ax | grep dart
+<pid> pts/61   Sl+    0:01 dart example.dart
+$ kill -s SIGQUIT <pid>
+Observatory listening on http://127.0.0.1:<port>
+{% endprettify %}
 
 ### Web apps {#web-launch}
 
