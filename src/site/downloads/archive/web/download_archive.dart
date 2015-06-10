@@ -83,7 +83,7 @@ DateTime parseDateTime(String date) {
   throw 'unrecognized DateTime format: $date';
 }
 
-void getListing(String channel, String respString) {
+Future getListing(String channel, String respString) async {
   Map<String, Object> resp = JSON.decode(respString);
   List<String> versions = (resp["prefixes"] as List<String>);
   versions.removeWhere((e) => e.contains('latest'));
@@ -91,19 +91,18 @@ void getListing(String channel, String respString) {
   // Format is lines of "channels/stable/release/\d+/".
   Iterable<Future> versionRequests = versions.map(
       (String path) => HttpRequest.getString("$storageBase/${path}VERSION"));
-  Future versionResponses = Future.wait(versionRequests.toList());
-  versionResponses.then((Iterable versionStringsIter) {
-    List<String> versionStrings = versionStringsIter.toList();
-    List<Map<String, String>> y =
-        versionStrings.map((e) => JSON.decode(e)).toList();
-    y.sort((a, b) =>
-        -(parseDateTime(a['date']).compareTo(parseDateTime(b['date']))));
-    y.forEach((v) {
-      addVersion(channel, v);
-    });
-    versionSelectors[channel].options[1].selected = true;
-    versionSelectors[channel].dispatchEvent(new Event("change"));
+
+  List versionStringsIter = await Future.wait(versionRequests.toList());
+  List<String> versionStrings = versionStringsIter.toList();
+  List<Map<String, String>> y =
+      versionStrings.map((e) => JSON.decode(e)).toList();
+  y.sort((a, b) =>
+      -(parseDateTime(a['date']).compareTo(parseDateTime(b['date']))));
+  y.forEach((v) {
+    addVersion(channel, v);
   });
+  versionSelectors[channel].options[1].selected = true;
+  versionSelectors[channel].dispatchEvent(new Event("change"));
 }
 
 const Map<String, String> archiveMap = const {
@@ -113,34 +112,31 @@ const Map<String, String> archiveMap = const {
   '32-bit': 'ia32',
   '64-bit': 'x64',
   'Dart SDK': 'dartsdk',
-  'Dartium': 'dartium',
-  'Dart Editor': 'darteditor',
+  'Dartium': 'dartium'
 };
 
 const Map<String, String> directoryMap = const {
   'Dart SDK': 'sdk',
-  'Dartium': 'dartium',
-  'Dart Editor': 'editor',
+  'Dartium': 'dartium'
 };
 
 const Map<String, String> suffixMap = const {
   'Dart SDK': '-release.zip',
-  'Dartium': '-release.zip',
-  'Dart Editor': '.zip'
+  'Dartium': '-release.zip'
 };
 
 const Map<String, Object> platforms = const {
   'Mac': const {
-    '32-bit': const ['Dart SDK', 'Dartium', 'Dart Editor'],
-    '64-bit': const ['Dart SDK', 'Dart Editor']
+    '32-bit': const ['Dart SDK', 'Dartium'],
+    '64-bit': const ['Dart SDK']
   },
   'Linux': const {
-    '32-bit': const ['Dart SDK', 'Dartium', 'Dart Editor'],
-    '64-bit': const ['Dart SDK', 'Dartium', 'Dart Editor']
+    '32-bit': const ['Dart SDK', 'Dartium'],
+    '64-bit': const ['Dart SDK', 'Dartium']
   },
   'Windows': const {
-    '32-bit': const ['Dart SDK', 'Dartium', 'Dart Editor'],
-    '64-bit': const ['Dart SDK', 'Dart Editor']
+    '32-bit': const ['Dart SDK', 'Dartium'],
+    '64-bit': const ['Dart SDK']
   },
 };
 
@@ -168,7 +164,7 @@ void addVersion(String channel, Map<String, String> version) {
       row.addCell()
         ..classes.add('nowrap')
         ..text = width;
-      List<String> possibleArchives = ['Dart SDK', 'Dartium', 'Dart Editor'];
+      List<String> possibleArchives = ['Dart SDK', 'Dartium'];
       TableCellElement c = row.addCell()..classes.add('archives');
       possibleArchives.forEach((String pa) {
         if (archives.contains(pa)) {
@@ -193,8 +189,7 @@ void addVersion(String channel, Map<String, String> version) {
           c.append(new AnchorElement()
             ..text = pa
             ..attributes['href'] = uri);
-          if (pa != 'Dart Editor' &&
-              (parsedRevision == null || parsedRevision > 38976)) {
+          if (parsedRevision == null || parsedRevision > 38976) {
             c.append(new AnchorElement()
               ..text = "(SHA-256)"
               ..attributes['href'] = '$uri.sha256sum'
