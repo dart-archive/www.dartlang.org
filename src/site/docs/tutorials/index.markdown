@@ -162,7 +162,7 @@ from left to right...or choose just the ones you need.
         <div class="col-md-6">
           <section>
           <h4 class="no-permalink"><a href="shared-pkgs/"><img src="images/target.png" height="20" width="20">&nbsp;Install Shared Packages</a></h4>
-          <p>Organize and share code at <a href="http://pub.dartlang.org/">pub.dartlang.org</a>.</p>
+          <p>Organize and share code at <a href="https://pub.dartlang.org/">pub.dartlang.org</a>.</p>
           <img src="images/add-packages-screenshot.png" width="300">
           </section>
         </div>

@@ -102,7 +102,7 @@ the assets into the build directory.
 
 If you want to share your Dart packages with the world, you can
 use the [`pub publish`](pub-lish.html) command to upload your package to 
-[pub.dartlang.org](http://pub.dartlang.org). The
+[pub.dartlang.org](https://pub.dartlang.org). The
 [`pub uploader`](pub-uploader.html) command enables specific users
 to modify and upload new versions of your package.
 

@@ -43,7 +43,7 @@ A lazy transformer implements [LazyTransformer][]
 from the [barback][] package.
 
 [LazyTransformer]: http://www.dartdocs.org/documentation/barback/0.15.0+1/index.html#barback/barback.LazyTransformer
-[barback]: http://pub.dartlang.org/packages/barback
+[barback]: https://pub.dartlang.org/packages/barback
 
 ### Implement `LazyTransformer` {#extend-transformer}
 

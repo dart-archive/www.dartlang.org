@@ -219,7 +219,7 @@ Other API changes include:
     `querySelector()` and `querySelectorAll()`, respectively.
 
 -   The dart:crypto library moved out of the SDK (to
-    <http://pub.dartlang.org/packages/crypto>).
+    <https://pub.dartlang.org/packages/crypto>).
 
 -   The AsyncError class was removed (from dart:async).
 

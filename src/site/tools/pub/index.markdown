@@ -61,7 +61,7 @@ application package.
 The `pub` tool provides commands for a variety of purposes.
 One command installs packages, another starts up an HTTP server for testing,
 another prepares your app for deployment, and another
-publishes your package to [pub.dartlang.org](http://pub.dartlang.org).
+publishes your package to [pub.dartlang.org](https://pub.dartlang.org).
 
 For an overview of these commands, see [Pub Commands](cmd/index.html).
 

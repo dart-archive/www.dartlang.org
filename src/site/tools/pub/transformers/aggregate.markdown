@@ -29,7 +29,7 @@ An aggregate transformer extends the Dart class, [AggregateTransform][],
 from the [barback][] package.
 
 [AggregateTransform]: https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/barback/barback.AggregateTransform
-[barback]: http://pub.dartlang.org/packages/barback
+[barback]: https://pub.dartlang.org/packages/barback
 
 ### Extend `AggregateTransformer` {#extend-transformer}
 

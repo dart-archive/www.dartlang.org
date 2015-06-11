@@ -391,7 +391,7 @@ the stream doesn't include WebSocket connection requests.
 {:.no_toc}
 
 The search server uses the Router class from the [route
-package](http://pub.dartlang.org/packages/route) to serve dynamic
+package](https://pub.dartlang.org/packages/route) to serve dynamic
 content. In this app, the main purpose of the router is to filter out
 upgrade HTTP requests for /ws and to handle them as WebSocket
 connections. The code uses dart:io's WebSocketTransformer class to
@@ -592,7 +592,7 @@ The bulk of the code is in the SearchEngine subclasses.
 {:.no_toc}
 
 The search server uses the [logging
-package](http://pub.dartlang.org/packages/logging) to log messages at
+package](https://pub.dartlang.org/packages/logging) to log messages at
 varying levels of severity. Here's the code from `bin/server.dart` that
 imports API from the logging package and creates a log:
 

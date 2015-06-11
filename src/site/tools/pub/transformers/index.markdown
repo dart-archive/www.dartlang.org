@@ -40,7 +40,7 @@ MarkdownConverter, which you can find through
 ## Implementing a transformer {#implementing-transformer}
 
 A transformer is a Dart class that extends the Transformer class
-from the [barback](http://pub.dartlang.org/packages/barback) package.
+from the [barback](https://pub.dartlang.org/packages/barback) package.
 Barback, developed by the Dart team and available at pub.dartlang.org,
 provides a system for building assets.
 

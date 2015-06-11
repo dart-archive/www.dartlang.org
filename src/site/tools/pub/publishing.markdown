@@ -41,8 +41,8 @@ are a few additional requirements for uploading a package:
   dependencies do.
 
 Be aware that the email address associated with your Google account is
-displayed on [pub.dartlang.org](http://pub.dartlang.org) along with any packages
-you upload.
+displayed on [pub.dartlang.org](https://pub.dartlang.org) along with any
+packages you upload.
 
 ### Important files
 

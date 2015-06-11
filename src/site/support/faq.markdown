@@ -642,7 +642,7 @@ See [Who Uses Dart] for more.
 [editor]: /tools/editor/
 [sourcemaps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [io]: /articles/io/
-[pub]: http://pub.dartlang.org
+[pub]: https://pub.dartlang.org
 [AngularDart]: https://angulardart.org
 [Polymer.dart]: /polymer/
 [ppwsize]: http://work.j832.com/2012/11/excited-to-see-dart2js-minified-output.html

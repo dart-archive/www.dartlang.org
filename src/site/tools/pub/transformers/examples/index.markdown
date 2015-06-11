@@ -16,7 +16,7 @@ be part of a deployed package.
 ([Learn more about assets and transformers](/tools/pub/assets-and-transformers.html).)
 
 The following are examples of custom transformers written using
-the [barback](http://pub.dartlang.org/packages/barback) package.
+the [barback](https://pub.dartlang.org/packages/barback) package.
 The description for each example states where you can get more information
 about that particular example.
 

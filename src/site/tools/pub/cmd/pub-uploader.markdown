@@ -16,7 +16,7 @@ $ pub uploader [options] {add/remove} <email>
 {% endprettify %}
 
 This command allows [uploaders](/tools/pub/glossary.html#uploader) of a
-package on [pub.dartlang.org](http://pub.dartlang.org) to add or remove
+package on [pub.dartlang.org](https://pub.dartlang.org) to add or remove
 other uploaders for that package. It has two sub-commands,
 `add` and `remove`, that take the email address of the person to
 add/remove as an uploader. For example:

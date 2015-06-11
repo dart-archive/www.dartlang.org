@@ -153,7 +153,7 @@ A basic, yet Darty, interface to the browser.
 A package that lets you use tomorrow's web APIs today.
 
 * [Polymer.dart homepage](/polymer/)
-* [pub.dartlang.org/packages/polymer](http://pub.dartlang.org/packages/polymer)
+* [pub.dartlang.org/packages/polymer](https://pub.dartlang.org/packages/polymer)
 * [Samples that use polymer.dart](/samples/#polymer_dart)
 
 ### AngularDart
@@ -161,7 +161,7 @@ A package that lets you use tomorrow's web APIs today.
 A port of the Angular framework to Dart.
 
 * [AngularDart tutorial](https://github.com/angular/angular.dart.tutorial/wiki)
-* [pub.dartlang.org/packages/angular](http://pub.dartlang.org/packages/angular)
+* [pub.dartlang.org/packages/angular](https://pub.dartlang.org/packages/angular)
 * [Samples that use AngularDart](/samples/#angular_dart)
 
 ### Dart and JavaScript

@@ -42,11 +42,11 @@ Next, run `pub get`.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The [core_elements package](http://pub.dartlang.org/packages/core_elements)
+The [core_elements package](https://pub.dartlang.org/packages/core_elements)
 provides Dart wrappers around the Polymer project's
 [core elements](http://www.polymer-project.org/docs/elements/core-elements.html),
 which are general-purpose UI and non-UI elements.
-The [paper_elements package](http://pub.dartlang.org/packages/paper_elements)
+The [paper_elements package](https://pub.dartlang.org/packages/paper_elements)
 wraps the project's
 [paper elements](http://www.polymer-project.org/docs/elements/material.html)—elements that
 adhere to Google's _material design_ guidelines.

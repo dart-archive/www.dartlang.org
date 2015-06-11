@@ -483,7 +483,7 @@ HTML5 widgets, check out the Forms tutorial section
 [Two-way data binding using Polymer](/docs/tutorials/forms/#binding-data).
 
 You can use expressions within the double curly brackets.
-<a href="http://pub.dartlang.org/packages/polymer_expressions"
+<a href="https://pub.dartlang.org/packages/polymer_expressions"
    target="_blank">Polymer expressions</a>
 provide the default syntax. Examples of allowable expressions include:
 
@@ -635,7 +635,7 @@ so take care to indent the <tty>entry_points</tty> field as shown.
 </aside>
 
 For more information on using the Polymer transformers, see the
-[Polymer package documentation](http://pub.dartlang.org/packages/polymer).
+[Polymer package documentation](https://pub.dartlang.org/packages/polymer).
 
 ###Testing the JavaScript version
 

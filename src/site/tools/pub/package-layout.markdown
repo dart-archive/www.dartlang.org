@@ -112,7 +112,7 @@ enchilada/
 
 One file that's very common in open source is a README file that
 describes the project. This is especially important in pub. When you upload
-to [pub.dartlang.org](http://pub.dartlang.org), your README is shown on
+to [pub.dartlang.org](https://pub.dartlang.org), your README is shown on
 the page for your package. This is the perfect place to introduce people to
 your code.
 
@@ -131,7 +131,7 @@ enchilada/
 To show users the latest changes to your package, you can include a changelog 
 file where you can write a short note about the changes in your latest 
 release. When you upload your package to
-[pub.dartlang.org](http://pub.dartlang.org) 
+[pub.dartlang.org](https://pub.dartlang.org) 
 it detects that your package contains a changelog file and shows 
 it in the changelog tab.
 

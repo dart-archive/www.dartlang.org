@@ -26,7 +26,7 @@ Dart Editor offers support for using pub, including creating,
 installing, updating, and publishing packages.
 </aside>
 
-A package can live anywhere. For example, some packages are on GitHub. The Dart team publishes packages at [pub.dartlang.org](http://pub.dartlang.org), and we
+A package can live anywhere. For example, some packages are on GitHub. The Dart team publishes packages at [pub.dartlang.org](https://pub.dartlang.org), and we
 hope you will, too.
 
 To use a library that is in a Dart package, you need to do the

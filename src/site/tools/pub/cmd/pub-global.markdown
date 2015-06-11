@@ -34,7 +34,7 @@ $ pub global activate [--noexecutables] [--executable=<name>] [--overwrite] <pac
 
 Use `activate` to enable you to run a package's executables
 from anywhere on your machine.
-You can activate a package on [pub.dartlang.org](http://pub.dartlang.org/),
+You can activate a package on [pub.dartlang.org](https://pub.dartlang.org/),
 in a Git repository, or on your local machine.
 Once you have activated a package, see [Running a script](#running-a-script)
 to run scripts from the package's `bin` directory.

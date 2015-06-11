@@ -96,7 +96,7 @@ directory in `bin/`, `test/`, and `example/`, as well as their subdirectories.
 
 Dependencies are not physically stored in the `packages` directory that pub
 creates. Dependencies downloaded over the internet, such as those from Git and
-[pub.dartlang.org](http://pub.dartlang.org), are stored in a system-wide cache
+[pub.dartlang.org](https://pub.dartlang.org), are stored in a system-wide cache
 and linked to from the `packages` directory. This means that if multiple
 packages use the same version of the same dependency, it will only need to be
 downloaded and stored locally once. It also means that it's safe to delete the

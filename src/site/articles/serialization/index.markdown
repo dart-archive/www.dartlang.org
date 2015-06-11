@@ -63,7 +63,7 @@ try dartson first.
 {: .table}
 
 Other compelling options are likely to exist on
-[pub.dartlang.org](http://pub.dartlang.org/),
+[pub.dartlang.org](https://pub.dartlang.org/),
 so we encourage you to look around.
 We focused on these solutions because they
 are all dart2js-friendly—they

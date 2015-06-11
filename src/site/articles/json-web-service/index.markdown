@@ -354,7 +354,7 @@ req.send(json);
 {% endprettify %}
 
 You can include JsonObject in your project by using the
-[pub](http://pub.dartlang.org) package manager.
+[pub](https://pub.dartlang.org) package manager.
 Simply specify the following dependency:
 
 {% prettify yaml %}
@@ -389,7 +389,7 @@ the automatically generated URL of apps launched from the Dart editor.
 The second, older way, that only works for GET requests is to use a workaround 
 called JSONP, which makes use of JavaScript callbacks.  
 The Dart - JavaScript interop libraries in the [js 
-interop package](http://pub.dartlang.org/packages/js) available on pub
+interop package](https://pub.dartlang.org/packages/js) available on pub
 are suitable for JavaScript callbacks:
 
 {% prettify dart %}

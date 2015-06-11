@@ -103,7 +103,7 @@ where App Engine has run slowly for us and other users, leading to some
 timeouts. If this happens, send us a note on the [mailing list][] and we'll
 look into it. Usually it resolves itself in a few hours.
 
-[pub package server]: http://pub.dartlang.org
+[pub package server]: https://pub.dartlang.org
 [app engine]: https://appengine.google.com
 [mailing list]: https://groups.google.com/a/dartlang.org/forum/?fromgroups#!forum/misc
 

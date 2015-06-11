@@ -77,7 +77,7 @@ Java’s _thread-local storage_
 also has some similarities.
 Closest of all is Brian Ford's JavaScript port of Dart zones,
 [zone.js](https://github.com/btford/zone.js/), which he describes in
-[this video](http://www.youtube.com/watch?v=3IqtmUscE_U).
+[this video](https://www.youtube.com/watch?v=3IqtmUscE_U).
 
 
 ## Zone basics
@@ -764,7 +764,7 @@ stack_trace
 : With the stack_trace library's
   [Chain class](https://api.dartlang.org/apidocs/channels/stable/#stack_trace/stack_trace.Chain)
   you can get better stack traces for asynchronously executed code.
-  See the [stack_trace package](http://pub.dartlang.org/packages/stack_trace)
+  See the [stack_trace package](https://pub.dartlang.org/packages/stack_trace)
   at pub.dartlang.org for more information.
 
 
@@ -780,7 +780,7 @@ The task_interceptor example
   without yielding to the event loop.
 
 The source code for the stack_trace package
-: The [stack_trace package](http://pub.dartlang.org/packages/stack_trace)
+: The [stack_trace package](https://pub.dartlang.org/packages/stack_trace)
   uses zones to form chains of stack traces
   for debugging asynchronous code.
   Zone features used include error handling, zone-local values, and callbacks.

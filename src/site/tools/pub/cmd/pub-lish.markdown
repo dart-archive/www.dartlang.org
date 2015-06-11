@@ -16,7 +16,7 @@ $ pub publish [--dry-run] [--force] [--server <url>]
 {% endprettify %}
 
 This command publishes your package on
-[pub.dartlang.org](http://pub.dartlang.org) for anyone to download and depend
+[pub.dartlang.org](https://pub.dartlang.org) for anyone to download and depend
 on. For information on how to prepare your package for publishing,
 and what files you should include or exclude,
 see [Publishing a Package](../publishing.html).
@@ -51,7 +51,7 @@ package to that server. It assumes the server supports the same HTTP API that
 This can be useful if you're running your own local package server for testing.
 The main pub server is itself open source and available [here][pub repo].
 
-[pubsite]: http://pub.dartlang.org
+[pubsite]: https://pub.dartlang.org
 [pub repo]: https://github.com/dart-lang/pub-dartlang
 
 <aside class="alert alert-info" markdown="1">

@@ -191,8 +191,8 @@ A Polymer element is a custom, reusable, complex HTML element.
 In polymer.dart, the visual aspect of the element is implemented in HTML
 and CSS, and the element's behavior is implemented in Dart.
 You can use Polymer elements that others have created (such as
-[core elements](http://pub.dartlang.org/packages/core_elements) or
-[paper elements](http://pub.dartlang.org/packages/paper_elements)),
+[core elements](https://pub.dartlang.org/packages/core_elements) or
+[paper elements](https://pub.dartlang.org/packages/paper_elements)),
 or you can build your own.
 
 A Polymer element is defined in an HTML file

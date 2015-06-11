@@ -366,5 +366,5 @@ to differentiate versions. <a href="#fnref:semver">↩</a>
 
 </aside>
 
-[pubsite]: http://pub.dartlang.org
+[pubsite]: https://pub.dartlang.org
 [semantic versioning]: http://semver.org/spec/v2.0.0-rc.1.html

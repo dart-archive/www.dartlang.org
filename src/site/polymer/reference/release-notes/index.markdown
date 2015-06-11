@@ -14,7 +14,7 @@ has-permalinks: true
 This page describes each stable release of polymer.dart, starting with 0.10.
 For information about earlier releases and interim versions,
 see the CHANGELOG.md tab of the
-[polymer.dart pub page](http://pub.dartlang.org/packages/polymer)
+[polymer.dart pub page](https://pub.dartlang.org/packages/polymer)
 and the release announcements in the
 [Dart web forum](https://groups.google.com/a/dartlang.org/forum/#!forum/web).
 
@@ -417,7 +417,7 @@ The syntax of property path changed.
 This is only relevant if you are not using polymer expressions, 
 but use template-binding directly with its default syntax.
 (See the changelog for
-[observe](http://pub.dartlang.org/packages/observe) 0.11.0)
+[observe](https://pub.dartlang.org/packages/observe) 0.11.0)
 
 ###Many bug fixes
 
@@ -585,7 +585,7 @@ Here is a summary of what changed since our last stable release (0.9.5+2).
 * Interop with polymer-js elements works!
 
 * Polymer polyfills are now consolidated in the
-  [web_components package](http://pub.dartlang.org/packages/web_components).
+  [web_components package](https://pub.dartlang.org/packages/web_components).
   Instead of our own `shadow_dom.js`,
   we now can simply use a `platform.js` from
   [polymer-project.org](http://polymer-project.org).
@@ -629,5 +629,5 @@ Here is a summary of what changed since our last stable release (0.9.5+2).
   but if you don't use our transformers and
   you use observe or polymer_expressions on their own,
   you'll need to do something special in your app
-  (see [observe's changelog](http://pub.dartlang.org/packages/observe)
+  (see [observe's changelog](https://pub.dartlang.org/packages/observe)
   for a simple workaround).
