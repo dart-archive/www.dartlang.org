@@ -11,7 +11,7 @@ title: "Dart Plugin from JetBrains"
 # {{ page.title }}
 
 The Dart plugin adds Dart support to JetBrains IDEs such as
-WebStorm and IntelliJ IDEA.
+**WebStorm** and **IntelliJ IDEA**.
 WebStorm is an IDE for client-side development.
 IntelliJ IDEA is an intelligent Java IDE
 with support for many other languages and frameworks.
@@ -43,7 +43,8 @@ Before starting, download a JetBrains IDE if you don't already have one:
 <aside class="alert alert-info" markdown="1">
   **Note:**
   The Community Edition of IntelliJ IDEA has limited functionality.
-  For example, it doesn't support debugging web apps.
+  For example, it doesn't directly support debugging web apps,
+  although you can debug using the Chrome DevTools that are built into Dartium.
   It also has very little support for JavaScript, HTML, CSS, and YAML.
 </aside>
 

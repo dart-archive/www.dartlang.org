@@ -20,8 +20,9 @@ that you already know how to program in another language.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-To play with each feature, create a command-line application project
-in Dart Editor, as described in
+You can play with most of these features using
+<a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>,
+as described in
 [Up and running](ch01.html#up-and-running).
 </aside>
 
@@ -2709,7 +2710,7 @@ annotate your code, making your intent clearer.
 
 For example, if you intend for a list to contain only strings, you can
 declare it as `List<String>` (read that as “list of string”). That way
-you, your fellow programmers, and your tools (such as Dart Editor and
+you, your fellow programmers, and your tools (such as your IDE and
 the Dart VM in checked mode) can detect that assigning a non-string to
 the list is probably a mistake. Here’s an example:
 

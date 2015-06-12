@@ -16,7 +16,16 @@ This chapter points out some of the useful and fun features of the Dart
 language and libraries that are used in Dartiverse Search, a
 client-server app.
 
-{% include async-await-conversion-pending.html %}
+<aside class="alert alert-info" markdown="1">
+  **Note:**
+  This chapter should be updated or deleted.
+  It describes an
+  [old version of Dartiverse Search](https://github.com/dart-lang/sample-dartiverse-search/tree/eff1219dad03e61bc6d0849995fe990fd75760e7)
+  that doesn't use Dart's new `async` and `await` keywords,
+  and it depends on Dart Editor,
+  which is [retired as of 1.11](http://news.dartlang.org/2015/04/the-present-and-future-of-editors-and.html).
+  Pull requests [welcome!](https://github.com/dart-lang/www.dartlang.org/issues/1286)
+</aside>
 
 As the screenshot shows, Dartiverse Search looks for a
 user-entered string in GitHub and StackOverflow. The app is

@@ -21,10 +21,6 @@ command-line apps. These tools include:
 :   Download and install packages of libraries,
     prepare your app for deployment, and more.
 
-[Dart Editor](/tools/editor/)
-
-:   Edit, run, and debug web and command-line apps.
-
 [Dartium: Chromium with the Dart VM](/tools/dartium/)
 
 :   Run Dart web apps. This is a special build of Chromium (the project
@@ -44,9 +40,8 @@ command-line apps. These tools include:
 
 :   Analyze your Dart source from the command line.
 
-All of these tools are
-available in the Dart Editor download, but you can also download Dartium
-or the SDK separately.
+Except for Dartium, all of these tools are in the Dart SDK.
+Dartium is a separate download.
 
 For information about these and other tools,
 see [Dart Tools](/tools/).

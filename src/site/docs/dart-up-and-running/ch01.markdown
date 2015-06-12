@@ -146,11 +146,12 @@ standalone on the command line. With built-in library support for files,
 directories, sockets, and even web servers, you can use Dart for full
 end-to-end apps.
 
-*Dart comes with a lightweight editor.* You can use Dart Editor to
-write, launch, and debug Dart apps. The editor can help you with code
-completion, detecting potential bugs, debugging both command-line and
-web apps, and even refactoring. Dart Editor isn’t required for writing
-Dart; it’s just a tool that can help you write better code faster.
+*Dart has great tools.* The Dart SDK has all the command-line tools you
+need to write, launch, and debug Dart apps, including the Dart analyzer
+and the pub package manager. Dart plugins for external
+tools—such as WebStorm, IntelliJ IDEA, and Sublime Text—allow them to
+support features such as Dart code completion, detecting potential bugs,
+debugging, and refactoring.
 
 *Dart supports types, without requiring them.* You can omit types when
 you want to move very quickly, aren’t sure what structure to take, or
@@ -167,7 +168,7 @@ compiler, building the seed of a web app is often a fun experience of
 writing a few functions just to experiment. As the idea grows, you can
 add more code and structure. Thanks to Dart’s support for top-level
 functions, optional types, classes, and libraries, your Dart programs
-can start small and grow over time. Tools such as Dart Editor help you
+can start small and grow over time. Dart plugins to IDEs help you
 refactor and navigate your code as it evolves.
 
 *Dart has a wide array of built-in libraries.* The core library supports
@@ -198,135 +199,179 @@ submit the next patch?
 ## Up and running {#up-and-running}
 
 Now that you know something about Dart, get ready to code! These
-instructions feature the open-source Dart Editor tool. When you download
-Dart, you not only get Dart Editor, but also tools such as the
-Dart-to-JavaScript compiler and a version of Chromium (nicknamed
-*Dartium*) that includes the Dart VM.
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-If you run into trouble installing and using Dart Editor, see
-[Troubleshooting Dart
-Editor.](/tools/editor/troubleshoot.html)
-</aside>
-
-### Step 1: Download and install the software {#step-1-download-and-install-the-software}
-
-In this step, you’ll install Dart Editor and, if necessary, a Java
-runtime environment. (To avoid having to modify the PATH environment
-variable, you can install the JRE under your Dart installation
-directory, in a subdirectory named `jre`.)
-
-1.  [Download Dart Editor](/downloads/).
-
-2.  Unarchive the file you downloaded. The resulting directory, which
-    we’ll call your *Dart installation directory*, contains the
-    `DartEditor` executable and several subdirectories.
-
-3.  If you don’t already have a Java runtime, download and install it.
-    Dart Editor requires Java version 6 or higher.
+instructions feature the open-source DartPad tool,
+which runs in any modern browser.
 
 
-### Step 2: Launch the editor {#step-2-launch-the-editor}
+### Step 1: Open DartPad, and run some samples {#step-1-open-and-run}
 
-Go to your Dart installation directory, and double-click the
-**DartEditor** executable![](images/Dart_Logo_21.png).
+<ol markdown="1">
+  <li markdown="1">
+  Go to <a href="https://dartpad.dartlang.org/" target="_blank">dartpad.dartlang.org/</a>.
 
-You should see the Dart Editor application window appear, looking
-something like the following figure.
+  A sample appears on the left, with its output on the right.
+  If you've played with DartPad before,
+  you can click **New Pad** to get back to the original sample.
 
-![Dart Editor and its Welcome page](images/daur_0102.png)
+  <aside class="alert alert-info" markdown="1">
+  **What about mobile?**
+  DartPad has a slightly different user interface on mobile devices.
+  To run an app, click the red button, which takes you to the output.
+  </aside>
+  </li>
+
+  <li markdown="1">
+  Click **Run**.
+
+  The sample runs again, updating the output.
+  </li>
+
+  <li markdown="1">
+  Choose an HTML sample, using the **Samples** list at the upper right.
+
+  For example, choose **Hello World HTML**.
+  Again, the output appears to the right.
+  By default, you see the HTML output—what you'd see in a browser.
+  </li>
+
+  <li markdown="1">
+  Click **CONSOLE** to view the sample's console output.
+  </li>
+
+  <li markdown="1">
+  Click the **HTML** tab to view the sample's HTML markup.
+  </li>
+</ol>
+
+### Step 2: Create a command-line app {#step-2-server}
+
+To create a simple command-line app, use **New Pad**.
+
+<ol markdown="1">
+  <li markdown="1">
+  Click the **New Pad** button.
+
+  The source code for the Hello World app appears
+  under the DART tab.
+  </li>
+
+  <li markdown="1">
+  Change the code. For example, change the `main()` function
+  to contain this code:
+
+<!-- ch03/string-tests.dart -->
+{% prettify dart %}
+for (var char in 'hello'.split('')) {
+  print(char);
+}
+{% endprettify %}
+
+  As you type, DartPad shows hints, documentation,
+  and autocomplete suggestions.
+  </li>
+
+  <li markdown="1">
+  Run your app.
+  </li>
+
+  <li markdown="1">
+  If you didn't happen to have any bugs while you were entering the code,
+  try introducing a bug.
+
+  For example, if you change `split` to `spit`,
+  you get warnings at the bottom of the window and in the Run button.
+  If you run the app, you'll see output from an uncaught exception.
+  </li>
+
+  <li markdown="1">
+  Save your app by clicking **Share**.
+
+  DartPad gives you links to the app,
+  both in DartPad and in gist.github.com.
+</li>
+</ol>
 
 
-### Step 3: Open and run a demo {#step-3-open-and-run-a-demo}
+### Step 3: Create a web app {#step-3-web}
 
-The Dart Editor bundle comes with several demos and samples. In this
-step, you’ll open a web app and run it in Dartium.
+To create a simple web app, start with the Hello World HTML sample.
 
-1.  Click the **Welcome** tab. Or choose **Welcome Page** from the
-    **Tools** menu.
+<ol>
+  <li>
+    Click <b>Sample</b>, and choose <b>Hello World HTML</b>.
+    If you've already edited Hello World HTML,
+    click <b>Reset</b> to restore the original version.
+  </li>
 
-2.  In the Welcome tab, click the image labeled **Sunflower**. Dart
-    Editor creates a copy of the [Sunflower app’s
-    directory,](https://github.com/dart-lang/sample-sunflower)
-    and the Editor view displays the contents of *web/sunflower.dart*.
+  <li>
+    Edit the HTML:
+    <ol>
+      <li>
+        Click <b>HTML</b> to view the HTML code.
+      </li>
+      <li>
+        Change the text inside the h2 element
+        from <code>Hello world</code> to something else—perhaps
+        <b>Hola mundo</b>.
+      </li>
+    </ol>
+    <p>
+      The display under HTML OUTPUT updates as you type.
+    </p>
+  </li>
 
-3.  Click the Run button ![](images/run.png). Dart Editor launches
-    Dartium, which displays *sunflower.html*.
+  <li>
+    Edit the Dart code:
+    <ol>
+      <li>
+        Click <b>DART</b> to view the Dart code.
+      </li>
+      <li>
+        Change the value displayed by <code>count.text</code>.
+        For example, change <code>'${i}'</code> to <code>'#${i}'</code>.
+      </li>
+      <li>
+        Click <b>Run</b> to compile and run the Dart code,
+        updating the HTML OUTPUT display.
+      </li>
+    </ol>
+  </li>
+</ol>
 
-<aside class="alert alert-warning" markdown="1">
-**Warning:**
-Dartium is a technical preview, and it might have security and
-stability issues. *Do not use Dartium as your primary browser!*
-</aside>
 
-4.  Move the slider to change the sunflower's display, as shown in
-    the following figure.
+## What next? {#what-next}
 
-    ![The Sunflower sample running in Dartium](images/daur_0105.png)
+Now that you know the basics, you can learn more about Dart.
 
-
-### Step 4: Create and run an app {#step-4-create-and-run-an-app}
-
-It’s easy to create a simple web or command-line app from scratch. This
-step walks you through creating and running a command-line app.
-
-1.  Click the New Project button ![](images/newapp.png) (at the
-    upper left of Dart Editor). Alternatively, choose **File \> New
-    Project** from the Dart Editor menu, or click the **Create an
-    Application…** button in the Welcome page. A dialog appears.
-
-2.  Type in a name for your application—for example, `hello_world`. If
-    you don’t like the default directory, type in a new location or
-    browse to choose the location.
-
-3.  Make sure that **Console Application** is selected.
-    Then click **Finish** to create the initial files for the app.
-
-    A default Dart file appears in the Edit view, and its directory
-    appears in the Files view. Your Dart Editor window should look
-    something like the following screenshot.
-
-    ![Dart Editor displaying a new app’s files](images/daur_0104.png)
-
-4.  Click the Run button ![](images/run.png) to run your new app.
-
-    For command-line apps, the output of `print()` appears at the bottom
-    right, in a new tab next to the Problems tab.
-
-### What next? {#what-next}
-
-Now that you know the basics, you can learn more about Dart Editor and
-help improve it.
-
-#### Follow a code lab {#follow-a-code-lab}
+### Follow a code lab {#follow-a-code-lab}
 {:.no_toc}
 
 Go to [dartlang.org/codelabs](/codelabs/) to
-find the latest step-by-step instructions for writing an app. The first
-code lab, [Try Dart,](/codelabs/darrrt/) guides
-you through using Dart Editor to build and run a pirate name badge
+find step-by-step instructions for writing apps. The
+[first code lab](/codelabs/darrrt/) guides
+you through using DartPad to build and run a pirate name badge
 generator.
 
-#### Read tutorials {#read-tutorials}
+### Download Dart {#download-dart}
+{:.no_toc}
+
+Go to [dartlang.org/downloads](/downloads/) to
+download the Dart SDK.
+Try it with your favorite IDE or editor.
+[WebStorm](/tools/webstorm/) comes with the Dart plugin,
+or you can [install a Dart plugin](/tools/) into another IDE or editor.
+
+### Read tutorials {#read-tutorials}
 {:.no_toc}
 
 [The Dart Tutorials](/docs/tutorials/) teach you
 how to build web applications using the Dart language, tools, and APIs.
 
-#### Become a power user {#become-a-power-user}
+### Join the community {#join-community}
 {:.no_toc}
 
-Visit the [Dart Editor homepage](/editor/) for
-help on using Dart Editor’s expanding feature set.
-
-#### Send feedback {#send-feedback}
-{:.no_toc}
-
-Click the **SEND FEEDBACK** link (at the upper right of the Dart Editor
-window) whenever you notice a problem or have an idea for improving Dart
-Editor. We’ll open a new issue for you, if appropriate, without
-disclosing your sensitive or personally identifiable information.
+Visit [dartlang.org/support](/support/) to find mailing lists
+and other ways to get help and learn more about Dart.
 
 
 <hr>
