@@ -37,7 +37,7 @@ When nothing points to an object, it is considered to be _dead_.
 When an object is pointed to by another object, it is _live_.
 
 See the [dart](/tools/dart-vm/#options) reference page for information
-on how to increase the size of old space.
+on how to increase the size of old generation.
 
 ### Isolates {#isolates}
 Dart supports concurrent execution by way of _isolates_,
@@ -60,7 +60,7 @@ and can lead to an out of memory exception.
 
 You can find memory fragmentation using Observatory's **Heap map**.
 This feature displays an image where free space is indicated
-by white blocks. 
+by white blocks.
 Many small white areas sprinkled throughout the colored areas
 suggest that the application is experiencing memory
 fragmentation. For more information, see [Heap Map](heap-map.html).
@@ -75,19 +75,20 @@ so it takes up space in the heap and contributes to
 Memory leaks put unnecessary pressure on the VM
 and can be difficult to debug.
 
-### New space {#new-space}
+### New generation {#new-generation}
 Most newly created objects (unless they are very large) are allocated in
-a part of the heap named _new space_. New space is particularly suited for
-objects that are temporary and short lived&mdash;it is small and is designed
-to be garbage collected quickly.
+a part of the heap named _new generation_.
+New generation is particularly suited for
+objects that are temporary and short lived&mdash;it is small and
+is designed to be garbage collected quickly.
 
-### Old space {#old-space}
+### Old generation {#old-generation}
 When an object has been around awhile and has survived a
 garbage collection cycle, it is typically promoted to a part of the heap
-named _old space_, freeing up _new space_ for newly created objects.
+named _old generation_, freeing up _new generation_ for newly created objects.
 
 The heap map feature of Observatory gives you a way to visually browse
-old space. For more information, see [Heap Map](heap-map.html).
+old generation. For more information, see [Heap Map](heap-map.html).
 
 ### Virtual machine (VM) {#virtual-machine}
 The Dart _virtual machine_ is a piece of software that can directly execute

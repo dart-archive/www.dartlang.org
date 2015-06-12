@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "CPU Profile"
-description: "Observatory's CPU profile feature shows where the VM is spending its time so you can debug bottlenecks in your Dart code."
+description: "Observatory's CPU profile feature shows where the VM is spending its time so you can find bottlenecks in your Dart code."
 header:
   css: ["observatory.css"]
 ---
@@ -21,9 +21,9 @@ machine (VM) has been spending its time when executing an isolate.
 The following video gives a brief overview of Observatory with some
 specific tips on how to use the profiling feature.
 
-<iframe style="display:block;margin: 0 auto;" width="560" height="315" src="//www.youtube.com/embed/Ww8ISWzZGRE" frameborder="0" allowfullscreen></iframe>
+<iframe style="display:block;margin: 0 auto;" width="560" height="315" src="//www.youtube.com/embed/Ww8ISWzZGRE" frameborder="0" allowfullscreen></iframe><br>
 
-Observatory achieves this by _sampling_ the isolate at regular intervals.
+Observatory profiles an app by _sampling_ the isolate at regular intervals.
 The sampled data is aggregated and displayed in a _profile tree_.
 
 When Observatory samples the isolate, it saves the sampled data
@@ -31,43 +31,26 @@ in a ring buffer, called the _profile_, which can hold up to
 two minutes worth of data.  Once the buffer becomes full,
 the oldest samples are replaced with new samples.
 
-<aside class="alert alert-info" markdown="1">
-**For Windows users:** Observatory's [CPU Profile](cpu-profile.html)
-screen is disabled by default.  Specify the
-[<code>--profile</code>](/tools/dart-vm/#observatory) option when
-you launch your app to enable it.
-</aside>
-
 At the top of the screen, a summary tells you a bit about
 how the data was gathered:
 
 <img src="images/CPU-profile.png" alt="CPU profile screen">
 
-Timestamp
+Refreshed at
 : The time of the last profile refresh.
 
-Time span
-: The time span of the profile data. The profile buffer holds a maximum
-  of two minutes worth of samples.
+Profile contains
+: The number of samples in the profile in the specified time span.
+  The profile buffer holds a maximum of two minutes worth of samples.
 
-Sample count
-: The number of samples in the profile.
-
-Sample rate
+Sampling
 : How often the isolate is sampled. The default, 1000 Hz, samples the
   isolate once per millisecond.
 
-Sample depth
-: How many levels into the stack the sampling is performed.
-  The default is 8 stack frames deep. Sampling begins at the
-  currently executing (bottommost) stack frame and walks up
-  the stack towards `main()`.
+Mode
+: Presents the data by `Function` (default) or by `Code`.
 
-Display cutoff
-: If a function or tag uses less of the CPU than this percentage,
-  it is not displayed.  The default display cutoff is 0.02%.
-
-Tags
+Tag Order
 : Tags represent the different activities of the VM.
   This pulldown lets you control whether you want to see tags and
   how they should be displayed. For more information, see
@@ -93,21 +76,45 @@ so that only function calls are displayed.
 
 <img src="images/ProfileTree-NoTags.png" alt="A profile tree with tags suppressed">
 
-<aside class="alert alert-info" markdown="1">
-**Note:** Hovering over a row in the tree brings up a tool tip with more
-information about that entry. In the previous screenshot,
-the tool tip gives information about the top entry.
-</aside>
+Clicking the information button,
+<img style="border:0px" src="images/InformationButton.png" alt="the letter I inside a circle">,
+to the right of an entry brings up detailed information about that entry.
 
-Because tags are hidden in the previous example,
-each row contains a function. The functions
+The letter code, or codes, following each entry in the profile tree
+indicates how the processing work for that entry is categorized:
+
+`D`
+: Dart code
+
+`I`
+: inlined code
+
+`N`
+: native code
+
+`O`
+: optimized code
+
+`S`
+: stub code
+
+{% comment %}
+`T`
+: xxx - can't figure it out, so leave it off for now
+{% endcomment %}
+
+`U`
+: unoptimized code
+
+Because tags are hidden in the previous screenshot,
+each row lists a function. The functions
 are listed in order from most CPU intensive to least.
 
-The first row in the previous screenshot shows the
-`ContactSolver.solveVelocityConstraints` function.
+The selected row in the previous screenshot shows the
+`DynamicTree.query` function.
 The percentage on the left shows that
-this function used 4.12% of the root isolate's CPU time.
-The percentage on the right shows that 4.12% of the samples
+this function used .49% of the root isolate's CPU time.
+The percentage on the right shows that .49% of the samples
 were taken while this function was active.
 
 Note that, for the topmost level of the tree, the percentages
@@ -134,9 +141,9 @@ are custom tags that you create in your Dart code.
 
 Observatory sorts the VM's activities into categories of
 execution by labeling each activity with a predefined tag,
-called a VM tag. (These are also called Default tags.)
+called a VM tag.
 
-The only VM tag that you have direct control over is the Script tag,
+The only VM tag that you have direct control over is the Dart tag,
 which indicates time spent executing your Dart code.  The other categories
 (Native, Compile, VM, Runtime, GCNewSpace, and GCOldSpace)
 are activities performed by the VM on behalf of your application,
@@ -148,25 +155,22 @@ Default node expanded to show the activity of the VM tags:
 
 <img src="images/VM-tags.png" alt="A list of the default VM tags">
 
-In the previous example, the VM has spent 35.26% of its time executing
-the application's Dart code. If you expand the Script node,
-the functions labeled with the Script tag are displayed, 
+In the previous screenshot, the VM has spent 99.73% of its time executing
+the application's Dart code. If you expand the Dart node,
+the functions labeled with the Dart tag are displayed, 
 listed from most CPU intensive to least. The following screenshot
-shows the first 11 rows of the Script subtree:
+shows the the Script subtree:
 
 <img src="images/VM-tags-detail.png" alt="A list of the default VM tags, with the Script tag expanded">
 
-The first function listed under the script tag,
-`DynamicTree._query`, used 11.23% of the entire Script category.
-Also, 3.96% of all samples were made while this function was executing.
-
-This is a rather flat profile tree where the activity is distributed
-throughout the category&mdash;no single function is using most of the CPU time.
+The first function listed under the Dart tag,
+`unitOfWork`, used 97.05% of the entire Dart category.
+Also, 96.79% of all samples were made while this function was executing.
 
 ### Defining user tags {#defining-user-tags}
 
 You can also label your code with custom tags, called _user tags_, using the
-[dart:profiler](https://api.dartlang.org/apidocs/channels/be/dartdoc-viewer/dart-profiler) library.
+[dart:developer](https://api.dartlang.org/apidocs/channels/be/dartdoc-viewer/dart-developer) library.
 
 For more information, see [User and VM tags](tags.html).
 
@@ -188,13 +192,34 @@ intensive to least.
 
 VM > User
 : Lists the VM tags only at the top level. When you expand a VM tag,
-you see both default and user tags listed.
+you see user tags listed.
 
 VM
 : Lists the VM tags only. User tags are hidden.
 
 None
 : Hides all tags. The functions are displayed from most CPU intensive to least.
+
+## Stub code
+
+Stubs are shared pieces of code used to implement common operations that are
+higher level than machine code operations, such as method lookup or allocation,
+or for transitioning between compiled Dart code and the C++ runtime. We
+expect a well-behaved Dart program we expect to spend most of its time
+in compiled Dart code or GC. If stubs are high in a profile,
+the program is likely spending a lot
+of time in unoptimized code or the runtime.
+
+### InlineCacheStub / SubtypeTestCacheStub
+
+The first time a function is run, it is compiled without optimizations.
+Each call site or type test has a cache that remembers the results of
+method lookup or type tests for the concrete classes actually encountered.
+This avoids repeated lookups and collects type feedback for the optimizing
+compiler. If these stubs are high on your profile,
+your program is spending a lot of time in unoptimized code.
+This could be because your program executes a lot of different code
+with a low frequency that doesn’t trigger optimization.
 
 {% include observatory_new_fyi.html %}
 

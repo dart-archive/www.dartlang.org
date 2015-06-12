@@ -14,7 +14,7 @@ header:
 Observatory uses tags to identify categories of execution.
 Most of the predefined (default) tags identify VM activities that you don't
 have direct control over, such as garbage collection.
-An exception is the Script tag, which identifies the execution of Dart code,
+An exception is the Dart tag, which identifies the execution of Dart code,
 including your Dart code and the Dart code in libraries that you use.
 The predefined tags are explained in [VM tags](#vm-tags).
 
@@ -24,9 +24,9 @@ when using the [CPU Profile](cpu-profile.html) screen.
 ## User tags {#user-tags}
 
 Observatory samples a running application and, when Dart code is executing,
-labels those samples with the Script tag.
+labels those samples with the Dart tag.
 When you view the resulting data in the
-[profile tree](cpu-profile.html#profile-tree), the Script percentage tells
+[profile tree](cpu-profile.html#profile-tree), the Dart percentage tells
 you how your code has performed compared to other VM tasks.
 
 This information is somewhat useful,
@@ -42,7 +42,7 @@ to make the effort worthwhile?
 This sort of performance tuning requires more finely grained reporting.
 You can achieve this when you label your code with
 custom tags, called _user tags_, using the
-[dart:profiler](https://api.dartlang.org/apidocs/channels/be/dartdoc-viewer/dart-profiler) library.
+[dart:developer](https://api.dartlang.org/apidocs/channels/be/dartdoc-viewer/dart-developer) library.
 
 ### Defining user tags {#defining-user-tags}
 
@@ -54,7 +54,7 @@ The following snippet shows how to mark a piece of code with a tag
 named `MyTag`:
 
 {% prettify dart %}
-import 'dart:profiler';
+import 'dart:developer';
 
 var customTag = new UserTag('MyTag');
 
@@ -83,10 +83,10 @@ throughout the UI:
 Compiling Dart code. 
 
 ### GCNewSpace {#gcnewspace}
-Garbage collecting [new space](glossary.html#new-space).
+Garbage collecting [new generation](glossary.html#new-generation).
 
 ### GCOldSpace {#gcoldspace}
-Garbage collecting [old space](glossary.html#old-space).
+Garbage collecting [old generation](glossary.html#old-generation).
 
 ### Idle {#idle}
 Not a VM tag, per se, the **Idle** label often appears alongside
@@ -103,7 +103,7 @@ example, the C++ code used by the dart:io library.
 ### Runtime {#runtime}
 Executing runtime code.
 
-### Script {#script}
+### Dart {#script}
 Executing your Dart code.
 
 ### VM {#vm}

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Allocation Profile"
-description: "Observatory's Allocation Profile feature lets you examine memory use in old space and new space in your Dart application."
+description: "Observatory's Allocation Profile feature lets you examine memory use in old generation and new generation in your Dart application."
 header:
   css: ["observatory.css"]
 ---
@@ -19,14 +19,14 @@ header:
 Dynamically allocated Dart objects live in a portion of memory
 called the [_heap_](glossary.html#heap). Typically, when an object
 is first allocated, it is created in the part of the heap known as 
-[_new space_](glossary.html#new-space). This area is ideally suited
+[_new generation_](glossary.html#new-generation). This area is ideally suited
 for objects that are smaller and short-lived, such as local variables.
-Garbage collection (GC) is performed frequently in new space.
+Garbage collection (GC) is performed frequently in new generation.
 
-Longer lived objects that survive garbage collection in new space are 
-promoted to [_old space_](glossary.html#old-space). Old space is larger
-than new space and is well suited for larger objects or objects that
-are longer lived.
+Longer lived objects that survive garbage collection in new generation are 
+promoted to [_old generation_](glossary.html#old-generation).
+Old generation is larger than new generation and is well suited for
+larger objects or objects that are longer lived.
 
 Observatory's Allocation Profile screen lets you peek at how an
 isolate is using memory at a given moment.  This screen also provides
@@ -41,8 +41,8 @@ Allocation Profile screen has two additional buttons:
 <img src="images/AccumulatorButtons.png" alt="Buttons specific to the Accumulator Profile screen">
 
 GC
-: Initiates a garbage collection pass for both old space and new space
-  and refreshes the displayed data.
+: Initiates a garbage collection pass for both old generation and
+  new generation and refreshes the displayed data.
 
 Reset Accumulator
 : Zeroes out the Accumulator columns in the allocation table and
@@ -55,33 +55,30 @@ and these graphs can change dramatically from sample to sample.
 ## Allocation statistics {#allocation-statistics}
 
 At the top of the Allocation Profile screen, two pie charts, along with some
-statistics, provide a high-level glimpse into new space and old space.
+statistics, provide a high-level glimpse into new generation and old generation.
 
-The following screenshot shows the activity in new space for a root isolate:
+The following screenshot shows the activity in new generation for a root
+isolate:
 
-<img src="images/NewSpacePieChart.png" alt="Pie chart showing usage of new space">
+<img src="images/NewSpacePieChart.png" alt="Pie chart showing usage of new generation">
 
-At the time of the sample, 67.8% of new space is used and the garbage collector
-has passed over new space 598 times, requiring a total of 1.26 seconds of
-CPU time. The following screenshot shows the activity of old space,
+At the time of the sample, 62.9% of new generation is used and the
+garbage collector has passed over new generation once,
+requiring a total of 0 seconds of CPU time.
+The following screenshot shows the activity of old generation,
 sampled at the same moment:
 
-<img src="images/OldSpacePieChart.png" alt="Pie chart showing usage of old space">
+<img src="images/OldSpacePieChart.png" alt="Pie chart showing usage of old generation">
 
-The data shows that old space is 90% used. Also, garbage collection
-has been performed once in the same amount of time that new space
-has been garbage collected 598 times. An average GC cycle for new space
-requires 2.11 milliseconds compared to 14.84 milliseconds for a
-single pass over old space.
-Because old space is much larger than new space, it is unsurprising that 
-garbage collection of old space requires more time.
+The data shows that old generation is 93.3% used and garbage collection
+has not yet occurred. 
 
 ## Allocation table {#allocation-table}
 
 The table below the pie charts contains detailed information about
 allocated objects, aggregated by class.
 
-<img src="images/AllocatedMemoryList.png" alt="List of objects allocated and in old space">
+<img src="images/AllocatedMemoryList.png" alt="List of objects allocated and in old generation">
 
 Note that four columns list Accumulator information and 
 four columns list Current information.
@@ -115,28 +112,28 @@ Class
   For more information, see [Evaluating Expressions](evaluate.html).
 
 Accumulator Size (New)
-: Total amount of memory used in new space since last accumulator reset.
+: Total amount of memory used in new generation since last accumulator reset.
 
-Accumulator (New)
-: Total number of objects in new space since last accumulator reset.
+Accumulator Instances (New)
+: Total number of objects in new generation since last accumulator reset.
 
 Current Size (New)
-: Total amount of memory used by current objects in new space.
+: Total amount of memory used by current objects in new generation.
 
-Current (New)
-: Total number of current objects in new space.
+Current Instances (New)
+: Total number of current objects in new generation.
 
 Accumulator Size (Old)
-: Total amount of memory used in old space since last accumulator reset.
+: Total amount of memory used in old generation since last accumulator reset.
 
-Accumulator (Old)
-: Total number of objects in old space since last accumulator reset.
+Accumulator Instances (Old)
+: Total number of objects in old generation since last accumulator reset.
 
 Current Size (Old)
-: Total amount of memory used by current objects in old space.
+: Total amount of memory used by current objects in old generation.
 
-Current (Old)
-: Total number of current objects in old space.
+Current Instances (Old)
+: Total number of current objects in old generation.
 
 By default, the table is sorted by the Accumulator Size (New) column,
 from largest value to smallest,

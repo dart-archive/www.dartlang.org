@@ -70,11 +70,16 @@ instruct the VM to delay the start up, or the exit, of an isolate:
   If your standalone app executes quickly,
   it might exit before you can open Observatory. To avoid this situation,
   specify this flag on startup.  You must explicitly release all isolates
-  in the Observatory UI.
+  in the [Observatory debugger](/tools/observatory/debugger.html).
 
 `--pause-isolates-on-start`
 : Causes the VM to pause before starting any isolate.
-  You must explicitly start each isolate in the Observatory UI. 
+  You must explicitly start each isolate in the
+  [Observatory debugger](/tools/observatory/debugger.html). 
+
+`--observe`
+: A shortcut that combines `--enable-vm-service` and
+  `--pause-isolates-on-exit`.
 
 `--profile`
 : On Windows, Observatory's
@@ -84,7 +89,7 @@ instruct the VM to delay the start up, or the exit, of an isolate:
 The following is an example Observatory run:
 
 {% prettify sh %}
-$ dart --enable-vm-service --pause-isolates-on-exit <script>.dart
+$ dart --observe <script>.dart
 {% endprettify %}
 
 For more information, see [Observatory](/tools/observatory/).

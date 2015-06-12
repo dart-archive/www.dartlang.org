@@ -10,12 +10,6 @@ header:
 
 # {{ page.title }}
 
-<h4>Contents</h4>
-<ol class="toc">
-  <li> <a href="#enable-code-coverage">Enabling code coverage</a> </li>
-  <li> <a href="#refresh-code-coverage">Refreshing code coverage</a> </li>
-</ol>
-
 The code coverage feature gives you visual feedback on whether code
 has executed. For example:
 
@@ -33,19 +27,7 @@ to execute a piece of code. It tells you if code has, or has not, executed.
 The code coverage feature is available from every
 [_Script_](screens.html#script-screen) screen.
 
-## Enabling code coverage {#enable-code-coverage}
-
-Code coverage is disabled by default. To enable it, hover your cursor
-over the name of the Dart file in the breadcrumb trail. This brings
-up the **Show Coverage Data** checkbox.
-
-<img src="images/CodeCoverageCheckBox.png" alt="Check box for enabling code coverage">
-
-Check the box to immediately display the code coverage.
-
-## Refreshing code coverage {#refresh-code-coverage}
-
-You can refresh the code coverage data at any time by clicking
+To see, or refresh, the code coverage data at any time, click
 the **Refresh Coverage** button in the blue bar:
 
 <img src="images/RefreshCoverageButton.png" alt="Button for refreshing code coverage data">

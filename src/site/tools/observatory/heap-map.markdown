@@ -18,7 +18,7 @@ header:
 </ol>
 
 Observatory's _heap map_ allows you to peek into the 
-[old space](glossary.html#old-space) portion of the memory heap
+[old generation](glossary.html#old-generation) portion of the memory heap
 at a single moment in time for a particular isolate.
 
 The heap map displays blocks of memory in colors. A page of memory
@@ -40,7 +40,7 @@ As you hover the cursor over the map, the status bar at the top displays
 information about the object represented by the pixel under the cursor.
 The displayed information includes the type, size, and address of that object.
 In the previous example, the cursor
-hovers over a `_List` object using 112 bytes of old space, and located at
+hovers over a `_List` object using 112 bytes of old generation, and located at
 address `0x1c26cc58`.
 
 ## How to use this screen {#how-to-use}

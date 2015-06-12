@@ -16,7 +16,6 @@ header:
   <li> <a href="#get-observatory">Get Observatory</a> </li>
   <li> <a href="#start-observatory">Start Observatory</a>
   <ol class="toc">
-    <li> <a href="#standalone-Dart-Editor">Standalone apps from Dart Editor</a> </li>
     <li> <a href="#standalone-command-line">Standalone apps from the command line</a> </li>
     <li> <a href="#web-launch">Web apps</a> </li>
   </ol> </li>
@@ -29,16 +28,17 @@ header:
 
 ## Get Observatory {#get-observatory}
 
-To get Observatory, just [download](/downloads/) the
-Dart SDK or Dart Editor.
-Both of those downloads include the Observatory tool.
+Observatory is one of the tools in the Dart SDK. To get it,
+you only have to [download](/downloads/) the SDK.
 
-You can use Dart to create two kinds of applications: standalone
-applications (including servers), and web applications
-(which run in a browser).
-For standalone apps, Observatory can be enabled either at the command
-line or from Dart Editor. For browser-based apps, Observatory
-can be opened in any browser using information obtained when launching
+You can use Dart to create two kinds of applications:
+standalone applications (including servers),
+and web applications (which run in a browser).
+For standalone apps,
+Observatory can be enabled at the command line.
+For browser-based apps,
+Observatory can be opened in any browser
+using information obtained when launching
 your app in Dartium from the command line.
 So you can use Observatory to profile and debug any Dart application.
 
@@ -47,50 +47,6 @@ So you can use Observatory to profile and debug any Dart application.
 How you enable Observatory depends on whether you are writing a
 standalone app or a web app, and how you prefer to work.
 No matter how you launch Observatory, its UI is exactly the same.
-
-<aside class="alert alert-info" markdown="1">
-**For Windows users:** Observatory's [CPU Profile](cpu-profile.html)
-screen is disabled by default.  Specify the
-[<code>--profile</code>](/tools/dart-vm/#observatory) option when
-you launch your app to enable it.
-</aside>
-
-### Standalone apps from Dart Editor {#standalone-Dart-Editor}
-
-You can open Observatory once you launch your app.
-
-When you launch a standalone app in Dart Editor, it opens a console
-window to display the output.  An "Open Observatory" icon is available
-in the tool bar for the console window:
-
-<img src="images/OpenObservatoryButton.png" alt="The Observatory navigation bar">
-
-Clicking the icon opens a new tab in your default browser and displays
-Observatory's VM screen.
-
-To customize the launch configuration for your app, select
-**Run > Manage Launches** to bring up the **Manage Launches** dialog.
-
-<img src="images/DartEditorEnable.png" alt="The managed launches dialog in Dart Editor">
-
-Check the **Pause isolate on start** box if you want the root isolate
-to pause before executing&mdash;this is equivalent to specifying the
-`--pause-isolates-on-start` flag and is useful if you want to connect
-to Observatory before the isolate begins running.
-
-Check the **Pause isolate on exit** box if you want the root isolate
-to remain alive when execution has completed&mdash;this is
-equivalent to specifying the `--pause-isolates-on-exit` flag and
-is useful for an application that might otherwise finish executing
-before you can connect it to Observatory.
-
-By default, neither of these boxes are checked.
-
-You can also enter any other flags into the **VM arguments** text
-field&mdash;see the [dart](/tools/dart-vm/#observatory) reference page
-for a complete list.
-
-The next time you launch the app, it uses the specified configuration.
 
 ### Standalone apps from the command line {#standalone-command-line}
 
@@ -101,49 +57,79 @@ Observatory options when launching the dart VM. See the
 For example:
 
 {% prettify sh %}
-$ dart --enable-vm-service --pause-isolates-on-start <script>.dart
+$ dart --observe <script>.dart
 {% endprettify %}
 
-Open a browser to `localhost:8181` to see the Observatory UI.
+Open a browser to `http://localhost:8181` to see the Observatory UI.
+
+By default, the VM service binds to localhost&mdash;it only accepts
+connections coming from the same machine. 
+To access a VM running on another machine, you need to forward the
+port the VM service is bound to. If the target machine is Linux or Mac
+running ssdh, you can forward the port over ssh like so:
+
+{% prettify sh %}
+ssh -L8181:localhost:8181 user@targetmachine
+{% endprettify %}
+
+You can also retroactively enable the VM service for a running
+process on Linux or Mac by sending the process `SIGQUIT`
+(perhaps you have a long-running server that started misbehaving
+and you want to investigate why). The process then displays the
+port that the VM service is bound to on its stdout.
+
+{% prettify sh %}
+$ ps ax | grep dart
+<pid> pts/61   Sl+    0:01 dart example.dart
+$ kill -s SIGQUIT <pid>
+Observatory listening on http://127.0.0.1:<port>
+{% endprettify %}
 
 ### Web apps {#web-launch}
 
-<aside class="alert alert-info" markdown="1">
-Prior to 1.9, you launched Observatory from DevTools within Dartium.
-As of 1.9, you launch Observatory in any browser using the URL
-obtained when launching Dartium from the command line.
+Launch your app in Dartium. You can do this in WebStorm, for example,
+by right-clicking `index.html` and selecting
+**Run 'index.html'** from the pop-up menu.
 
-Launching Observatory for web apps will be more streamlined in
-a future release.
-</aside>
+In Dartium, select **View > Developer > JavaScript Console**
+to bring up the console. You will see something like the following:
 
-From the command-line, launch your app in Dartium. For example,
-the following command launches a local copy of the Sunflower demo:
+{% prettify sh %}
+Observatory listening on http://127.0.0.1:56246
+{% endprettify %}
+
+Clicking the URL opens Observatory in a new tab.
+
+You can also launch your web app in Dartium from the command line.
+The following example launches Dartium with the sunflower sample and
+specifies several flags that are useful for Observatory.
+For more information,
+see the [dart reference](/tools/dart-vm/#observatory) page.
 
 Mac OS:
 
 {% prettify sh %}
-$ cd <path-to-demo>/sunflower/web
-$ <path-to-Dartium>/Chromium.app/Contents/MacOS/Chromium sunflower.html
+cd <path-to-demo>/sunflower/web
+<path-to-Dartium>/Chromium.app/Contents/MacOS/Chromium --DART_FLAGS="--steal_breakpoints --pause-isolates-on-start" sunflower.html
 {% endprettify %}
 
 Windows:
 
 {% prettify sh %}
-> cd <path-to-demo>\sunflower\web
-> <path-to-Dartium>\Chromium\Application\chromium.exe sunflower.html
+cd <path-to-demo>\sunflower\web
+<path-to-Dartium>\Chromium\Application\chromium.exe --DART_FLAGS="--steal_breakpoints --pause-isolates-on-start" sunflower.html
 {% endprettify %}
 
 Linux:
 
 {% prettify sh %}
-$ cd <path-to-demo>/sunflower/web
-$ <path-to-Dartium>/chromium-browser sunflower.html
+cd <path-to-demo>/sunflower/web
+<path-to-Dartium>/chromium-browser --DART_FLAGS="--steal_breakpoints --pause-isolates-on-start" sunflower.html
 {% endprettify %}
 
 The command-line output includes a line similar to the following:
 
-{% prettify sh %}
+{% prettify none %}
 Observatory listening on http://127.0.0.1:49621
 {% endprettify %}
 
@@ -155,10 +141,11 @@ Observatory uses a browser-based UI&mdash;the UI is the same no
 matter how it is launched.
 
 A solid blue bar appears at the top of most screens. The word
-**Observatory** is on the left and a **Refresh** button is on the right.
-You can resample the information in any screens, at any time,
-using the Refresh button. (Some screens in Observatory
-provide additional buttons next to the Refresh button.)
+**Observatory** is on the left. In some screens,
+a **Refresh** button is on the right.
+You can resample the information at any time using the Refresh button.
+There may also be other buttons on the right that are specific to
+a particular screen, such as the **Clear** button in the CPU Profile screen.
 
 <img src="images/ObservatoryBar.png" alt="The Observatory navigation bar">
 
@@ -168,8 +155,9 @@ navigate to other parts of the UI.
 
 If you hover over the items in the breadcrumb bar, drop-down menus
 provide additional functionality for each screens. As shown in the
-following screenshot, hovering over **root** brings up a menu that includes
-_stack trace_, _cpu profile_, and _heap map_.
+following screenshot, hovering over the root isolate, `profile.dart$main`
+in this example, brings up a menu that includes
+_debugger_, _cpu profile_, _allocation profile_, and _heap map_.
 
 <img src="images/ObservatoryBreadCrumb.png" alt="A sample Observatory breadcrumb trail">
 
@@ -196,8 +184,14 @@ The displayed information includes:
 version
 : When the VM was built and for which architecture.
 
+started at
+: The time stamp when the VM was started.
+
 uptime
 : How long the VM has been running.
+
+refreshed at
+: When the data was last sampled.
 
 type checks enabled
 : True if the VM is checking for type errors.
@@ -205,8 +199,11 @@ type checks enabled
 asserts enabled
 : True if assertion statements are evaluated by the VM.
 
+pid
+: The process ID.
+
 Below the VM information is a list of isolates.
-Every app has an initial isolate named _root_.
+Every app has an initial isolate named `<file>.dart$main`.
 
 <img src="images/VM-IsolateList.png" alt="List of isolates on the VM screen">
 
@@ -217,7 +214,7 @@ see [User and VM Tags](tags.html).
 A list of links take you to various Observatory screens. For more
 information, see [Screens in Observatory](screens.html).
 
-Clicking the isolate's name (for example, "root") brings up an isolate screen,
+Clicking the isolate's name brings up an isolate screen,
 with detailed information about that isolate. 
 For more information, see [Isolate](isolate.html).
 
@@ -237,6 +234,12 @@ Want to see where your app is spending its time?
 And dive into "power" profiling?
 : [User and VM Tags](tags.html)
 
+Want to set breakpoints?
+: [Debugger](debugger.html)
+
+Or collect metrics about your app?
+: [Metrics](metrics.html)
+
 Curious about memory allocation?
 : [Allocation Profile](allocation-profile.html)<br>
 
@@ -250,7 +253,7 @@ Want to see if your code has executed?
 : [Code Coverage](code-coverage.html)
 
 Want a stack trace?
-: [Stack Trace](stack-trace.html)
+: [Debugger](debugger.html)
 
 Want to know the state of the root isolate or another isolate?
 : [Isolate](isolate.html)
