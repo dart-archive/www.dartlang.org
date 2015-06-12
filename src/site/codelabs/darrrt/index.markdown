@@ -69,8 +69,8 @@ In this step, you run the skeleton version of the app in DartPad.
 
 <a href="https://dartpad.dartlang.org/f4fdb4ac33f25fd81fee" target="_blank">Open the skeleton app in DartPad.</a>
 
-Click the **Run** button.
-You should see a red-and-white name badge, plus some text,
+Click the **Run** button and make sure that the **HTML OUTPUT** tab
+is selected. You should see a red-and-white name badge, plus some text,
 as shown in the following screenshot:
 
 <img src="images/InitialDartPad.png" alt="A screenshot of the output created in the skeleton app">
@@ -92,18 +92,6 @@ Output appears on the right under the
 You can always restart the app using the **Run** button.
 If the analyzer detects problems, errors and warnings appear
 at the bottom of the screen.
-
-<aside class="alert alert-info" markdown="1">
-<p markdown="1">
-**Tip:** 
-If you want to abandon your changes and return to the original code,
-here's how to reset DartPad:
-</p>
-
-1. Click **New Pad...** in the upper left corner.
-1. Click **Discard** from the pop-up window.
-1. Use the browser's back arrow to return the pad to its original state.
-</aside>
 
 <hr>
 
