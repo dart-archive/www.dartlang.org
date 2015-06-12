@@ -42,14 +42,17 @@ for the Dart VM's optimizer.
 
 The harness is available as a pub package and is incredibly easy to use.
 
-1\. Add the following to your pubspec.yaml, and run `pub get`:
+<ol markdown="1">
+<li markdown="1">Add the following to your pubspec.yaml, and run `pub get`:
 
 {% prettify yaml %}
 dependencies:
   benchmark_harness: ">=1.0.0 <2.0.0"
 {% endprettify %}
+</li>
 
-2\. Copy the following template, which creates a class extending `BenchmarkBase`:
+<li markdown="1">Copy the following template, which creates a class extending
+    `BenchmarkBase`:
 
 {% prettify dart %}
 // Import BenchmarkBase class.
@@ -80,12 +83,14 @@ main() {
   TemplateBenchmark.main();
 }
 {% endprettify %}
+</li>
+</ol>
 
 #### Output
 
 The benchmark will output something like the following:
 
-    Template(RunTime): 0.1568472448997197 us.
+    Template(RunTime): 0.1568472448997197 µs.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -95,21 +100,21 @@ second.
 
 ### Run in production mode
 
-The Dart VM can run in two modes: checked and production mode. Checked mode is
-slower because the VM is checking types at runtime. Before benchmarking make
-sure that your code runs without issue in checked mode. If checked mode finds an
-issue, it will likely cause a performance problem in production mode. After making
-sure your program is correct, you should run your benchmark in production mode
+The Dart VM can run in two modes: checked and production mode.
+Checked mode is slower because the VM is checking types at runtime.
+Before benchmarking make sure that your code runs without issue in checked mode.
+If checked mode finds an issue,
+it will likely cause a performance problem in production mode.
+After making sure your program is correct,
+you should run your benchmark in production mode
 to get an accurate measurement of real world performance.
 
 When executing from the command line checked mode is off by default and can be
-turned on by passing the `--checked` command line flag. The editor has checked
-mode on by default but can be turned off by going to the ‘Manage Launches’
-window.
-
-<div style="display:block; margin-left:auto; margin-right:auto">
-  <img style="width:100%" src="checkedmode.png">
-</div>
+turned on by passing the 
+[`--checked`](/tools/dart-vm/#options) command line flag.
+WebStorm has checked mode on by default but can be turned off by
+going to **Preferences** > **Languages & Frameworks** > **Dart**
+and toggling the **Start Dartium in checked mode** checkbox.
 
 ## Summary
 
