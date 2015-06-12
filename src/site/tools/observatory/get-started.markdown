@@ -69,7 +69,7 @@ port the VM service is bound to. If the target machine is Linux or Mac
 running ssdh, you can forward the port over ssh like so:
 
 {% prettify sh %}
-ssh -L8181:localhost:8181 user@targetmachine
+ssh -L8181:127.0.0.1:8181 user@targetmachine
 {% endprettify %}
 
 You can also retroactively enable the VM service for a running
