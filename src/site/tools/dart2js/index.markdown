@@ -22,8 +22,7 @@ for information on how to specify dart2js flags in your pubspec file.
 The dart2js tool provides hints for improving your Dart code and removing
 unused code. You can get these hints for all kinds of code—even command-line
 apps. Also see [dartanalyzer](/tools/analyzer/),
-which performs a similar analysis but, as of 1.0,
-has a different implementation.
+which performs a similar analysis but has a different implementation.
 
 This page tells you how to use dart2js on the command line. It also give tips
 on debugging the JavaScript that dart2js generates.
@@ -115,23 +114,9 @@ The following options control the analysis that dart2js performs on Dart code:
   (see [W3C Content Security Policy](http://www.w3.org/TR/CSP/)).
   The default is false.
 
-<aside class="alert alert-info" markdown="1">
-**Version note:** Before Dart 1.8, the CSP version of JavaScript was generated
-automatically, and saved with the extension `.precompiled.js`.
-As of the 1.8 release, you must specify the CSP format using the `--csp` flag,
-and the resulting file is saved with the normal `.js` extension.
-</aside>
-
-`--categories=Server`
-: Use with `--analyze-only` to analyze a command-line app. The default
-  category is `Client`, which tells dart2js to expect a web app. This option is only for dart2dart.
-
 `--dump-info`
 : Generates an `out.info.json` file with information about the generated code.
   You can inspect the generated file with the [viewer](http://dart-lang.github.io/dump-info-visualizer/build/web/viewer.html). 
-
-`--output-type=dart`
-: Output Dart code instead of JavaScript. If you are looking for dart2dart, use this option.    
 
 ## Helping dart2js generate better code {#helping-dart2js-generate-efficient-code}
             

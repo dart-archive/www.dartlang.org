@@ -31,14 +31,6 @@ Some apps, for example, Chrome Apps and apps that run as Chrome extensions,
 must generate the CSP (content-security policy) version of JavaScript.
 You can do this by passing the `--csp` flag to dart2js with a value of `true`.
 
-<aside class="alert alert-info" markdown="1">
-**Version note:**
-Prior to Dart 1.8, the CSP version of JavaScript was generated
-automatically, and saved with the extension `.precompiled.js`.
-As of the 1.8 release, you must specify the CSP format using the `--csp`
-flag and the resulting file is saved with the normal `.js` extension.
-</aside>
-
 You can specify the `csp` flag in the pubspec file, as follows:
 
 {% prettify yaml %}
