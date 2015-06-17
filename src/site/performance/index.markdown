@@ -1,133 +1,70 @@
 ---
-title: Dart VM and dart2js Performance
+title: Performance
 layout: default
-description: Tracking Dart performance across the Dart VM and dart2js.
-js:
-- url: /js/performance-charts.js
-  defer: true
+description: Track the performance of your Dart code using benchmarks.
 ---
-
-<style>
-/* https://code.google.com/p/dart/issues/detail?id=10602 */
-
-#performance-charts > .tab-pane {
-  display: block !important;
-  height: 0;
-  overflow: hidden;
-}
-#performance-charts > .tab-pane.active {
-    height: 440px;
-}
-</style>
 
 # {{ page.title }}
 
-Tracking [Dart VM](/tools/dart-vm/) and
-[dart2js](/tools/dart2js/) performance. 
+Dart was founded on the belief that performance matters.
+From the start, we focused on delivering fast runtimes, compilers,
+and a programming model that helps developers stay on the fast path.
 
-<ul class="nav nav-tabs" id="performance-charts-nav-base">
-</ul>
+The Dart VM implements an optimizing compiler, which looks at many
+signals from the running program and generates optimized native code.
+It does this by, among other techniques, looking at the actual types
+of the objects flowing through the code.
+Type annotations are not used for generating optimized code.
 
-<div class="tab-content" id="performance-charts-base" style='height: 445px'>
-</div>
+The Dart to JavaScript compiler implements an SSA architecture,
+and can inline code and tree-shake (eliminate) unused code.
 
-*To navigate the chart, drag to pan and shift-drag to zoom.*
+The Dart language is designed to be fast. The static structure of
+Dart code helps make it easier for runtimes to generate optimized code.
 
-(See also: [Dart I/O Performance](/performance/io/))
+## FAQ
 
-<section id="performance-faq" markdown="1">
+The following are answers to commonly asked questions.
 
-Benchmark descriptions
-: We are currently showing charts for the
-  [Octane](https://developers.google.com/octane/)-inspired benchmarks
-  DeltaBlue, Richards, Tracer, and FluidMotion. These benchmarks
-  are tracked as part of the [ton80](https://github.com/dart-lang/ton80)
-  benchmarking suite, which contains both the Dart code and the JavaScript
-  code used in these tests.
+### How do I benchmark Dart?
 
-  * [DeltaBlue](https://github.com/dart-lang/ton80/tree/master/lib/src/DeltaBlue)
-  is a one-way constraint solver, originally written in Smalltalk by
-  John Maloney and Mario Wolczko. The main focus in DeltaBlue is on
-  polymorphism and object-oriented programming.
+Check out the article on
+[benchmarking best practices](/articles/benchmarking/).
 
-  * [FluidMotion](https://github.com/dart-lang/ton80/tree/master/lib/src/FluidMotion)
-  is a 2D Navier-Stokes equations solver, originally written in
-  JavaScript by Oliver Hunt.
-  The main focus is on accessing numeric arrays,
-  as well as doing floating-point arithmetic.
+### What benchmarks are the Dart team tracking?
 
-  * [Havlak](https://github.com/dart-lang/ton80/tree/master/lib/src/Havlak)
-  is a loop recognition algorithm benchmark originally published at the
-  [Scala Days 2011 Workshop at Stanford](
-  https://code.google.com/p/multi-language-bench/source/browse/trunk/doc/scaladays2011-paper/main.pdf).
-  The Havlak algorithm is an extension of Tarjan's interval-finding
-  algorithm that deals with irreducible graphs, and constructs a
-  loop-nesting forest for an arbitrary flow graph.
+Check out the [ton80 benchmark suite](https://github.com/dart-lang/ton80).
+It contains benchmarks that help
+measure real-world properties of object-oriented languages,
+runtimes, and compilers.
 
-  * [Richards](https://github.com/dart-lang/ton80/tree/master/lib/src/Richards)
-  is an OS kernel simulation benchmark, originally written
-  in BCPL by Martin Richards. The main focus in Richards is on property
-  access and calling functions and methods.
+### Do type annotations affect runtime performance?
 
-  * [Tracer](https://github.com/dart-lang/ton80/tree/master/lib/src/Tracer)
-  is a ray tracer benchmark,
-  originally written in JavaScript by Adam Burmister.
-  Both Adam’s and the Octane version in JavaScript use
-  the class emulation pattern from the prototype.js library.
-  Because Dart has a native class system,
-  it's unfair to do a direct performance comparison with the Octane version.
-  We therefore compare Dart performance with
-  an improved JavaScript version called Tracer.
-  The improved version uses only constructors and prototypes
-  without any abstraction layers in between;
-  it runs 50% faster than the original
-  Raytrace JavaScript benchmark in Octane.
+Dart is an optionally typed language, and the type annotations are
+ignored at runtime (modulo _checked mode_, a developer mode).
+Turns out, looking at the actual types of live objects as they flow through a
+running app, is more useful than static types in the code.
 
+### Are there public benchmarks for server-side Dart?
 
-Benchmark score meaning
-: The score is essentially runs/second: the number of times
-  you can run the benchmark in one second. For all scores,
-  bigger is better.
+Yes. Check out the
+[TechEmpower benchmarks](https://www.techempower.com/bencharks),
+which look at performance in a variety of server-side scenarios.
 
+### What happened to the charts that were previously on this page?
 
+The Dart VM and dart2js tools reached and exceeded
+their performance benchmarks. The Dart team continues to
+track performance across numerous benchmarks,
+but the charts served their original purpose.
 
-Benchmark harness
-: The Dart VM numbers are generated using the Dart
-  [benchmark harness](https://github.com/dart-lang/benchmark_harness) on the
-  Dart VM. Similarly, the dart2js numbers are generated by compiling the
-  benchmarks and harness to JavaScript
-  and then running the generated code in V8.
-  Finally, the V8 numbers are generated using the same benchmarks written in
-  JavaScript and with exactly the same harness rewritten in JavaScript.
+### I found a case where I think Dart is slower than expected. What do I do?
 
+Please read the [benchmark article](/articles/benchmarking),
+and then write a simple benchmark using the
+[benchmark](https://github.com/dart-lang/ton80) package.
+If you continue to see a performance delta from expectations,
+you can then file an issue with your benchmark.
+Please ensure all the necessary files are attached to the issue
+so that we can easily run the benchmark.
 
-
-System setup
-: The benchmarks are run on an Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz
-  processor running the Ubuntu 12.04 LTS x64 operating system.
-  While the code runs on a 64-bit operating system, we’re
-  running the 32-bit version of both the V8 and Dart VMs.
-
-
-
-Is it fair to use typed versions of the benchmarks for Dart? Shouldn't they be untyped to make the comparison with JavaScript fair? 
-: Yes, it is fair. Type annotations in Dart have &mdash; by design &mdash;
-  no impact on
-  runtime performance in the VM's default mode (production). For more details,
-  read more about Dart's
-  [optional static types](/articles/optional-types/) and
-  [why they are optional](/articles/why-dart-types/).
-  _Credit to [olliej on HN](http://news.ycombinator.com/item?id=4903435)._
-
-
-Where can I learn more about benchmarking Dart?
-: Read more about [benchmarking Dart](/articles/benchmarking/).
-
-
-Will there be more benchmarks?
-: Yes. Porting benchmarks correctly takes time. As more benchmarks become ready,
-  we will publish more charts.
-
-
-
-</section>
