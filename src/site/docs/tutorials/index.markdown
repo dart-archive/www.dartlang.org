@@ -81,13 +81,9 @@ from left to right...or choose just the ones you need.
                 Unzip it.
               </li>
               <li>
-                Open the dart-tutorials-samples directory in Dart Editor.
-              </li>
-              <li>
                 Go to the next tutorial,
                 <a href="/docs/tutorials/connect-dart-html">
-                  Connect Dart & HTML
-                </a>.
+                  Connect Dart & HTML</a>.
               </li>
             </ol>
             </a>
@@ -330,11 +326,10 @@ from left to right...or choose just the ones you need.
 <hr style="border:solid;border-color:Gainsboro">
 
 <aside class="alert alert-info" markdown="1">
-<strong>Do you like to learn by doing?</strong>
-
-Try our code lab:
+<strong>Do you like to learn by doing?</strong> Try our code labs:
 
 * [Avast, Ye Pirates: Write a Web App](/codelabs/darrrt/)
+* [More code labs](/codelabs/)
 
 </aside>
 
