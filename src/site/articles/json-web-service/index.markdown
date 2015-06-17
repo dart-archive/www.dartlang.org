@@ -217,8 +217,9 @@ cannot be validated before run-time.
 One of the benefits of using Dart is support for optional static types. Static
 types help you catch bugs early by allowing tools to detect type mismatches
 before you run your code, and to throw exceptions as soon as a runtime issue
-occurs.  An additional benefit of using static types is that Dart Editor also
-uses this type information to provide auto-complete information&mdash;helpful
+occurs.  An additional benefit of using static types is that code editors
+and IDEs (such as WebStorm, Sublime, vim)
+use this type information to provide auto-complete information&mdash;helpful
 when you are using a new library or data structure.
 
 Ideally, you want to access JSON data in a structured way, taking advantage of
@@ -384,7 +385,7 @@ an emerging technology known as
 that accompanies this article](https://github.com/chrisbu/dartlang_json_webservice_article_code), 
 you can find [simpleserver.dart](https://github.com/chrisbu/dartlang_json_webservice_article_code/blob/master/simpleserver/simpleserver.dart) that serves example JSON data for this article.
 This makes use of CORS headers to allow access from a different URL, such as 
-the automatically generated URL of apps launched from the Dart editor.
+the automatically generated URL of apps launched from WebStorm.
 
 The second, older way, that only works for GET requests is to use a workaround 
 called JSONP, which makes use of JavaScript callbacks.  
