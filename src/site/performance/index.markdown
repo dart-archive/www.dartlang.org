@@ -42,13 +42,13 @@ runtimes, and compilers.
 
 Dart is an optionally typed language, and the type annotations are
 ignored at runtime (modulo _checked mode_, a developer mode).
-Turns out, looking at the actual types of live objects as they flow through a
-running app, is more useful than static types in the code.
+It turns out that looking at the actual types of live objects as they
+flow through a running app is more useful than static types in the code.
 
 ### Are there public benchmarks for server-side Dart?
 
-Yes. Check out the
-[TechEmpower benchmarks](https://www.techempower.com/bencharks),
+Yes. Check out
+[TechEmpower benchmarks](https://www.techempower.com/benchmarks),
 which look at performance in a variety of server-side scenarios.
 
 ### What happened to the charts that were previously on this page?
