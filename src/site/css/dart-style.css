@@ -647,6 +647,13 @@ pre.prettyprint {
   color: #4D4D4D !important; /* color of .pln */
 }
 
+/* Prevent invisibility of popover-emphasized text */
+@media print {
+  .dart-popover .kwd, .dart-popover .pln, .dart-popover .str, .dart-popover .pun {
+    background: black !important;
+  }
+}
+
 .lang-dart a span, .lang-html a span {
   color:#fff !important;
 }

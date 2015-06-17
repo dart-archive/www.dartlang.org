@@ -13,10 +13,12 @@ prev-title: "Get started"
 
 {% capture whats_the_point %}
 
-* The DOM models a browser page in a tree/node structure.
+* DartPad lets you write a simple Dart web app without HTML boilerplate.
+* A Dart web app has Dart, HTML, and (usually) CSS code.
+* Compile a web app's Dart code to JavaScript to run the app in any modern browser.
 * An HTML file hosts your Dart code in a browser page.
+* The DOM models a browser page in a tree/node structure.
 * Use querySelector() with an ID to get an element from the DOM.
-* Compile to JavaScript to run in any modern browser.
 * CSS selectors are patterns used to select matching elements in the DOM.
 * Use CSS rules to style elements.
 
@@ -45,10 +47,9 @@ Don't have the source code?
 </div>
 
 To write a Dart web app,
-you need to have basic understanding of
+you need to understand
 several topics&mdash;the DOM tree, nodes, elements,
-HTML, Dart language and libraries,
-and Dart Editor.
+HTML, and the Dart language and libraries.
 
 The interdependencies are circular,
 but we have to begin somewhere,
@@ -59,26 +60,65 @@ you build a bare bones, stripped-down
 Dart application
 that contains just enough code to
 dynamically put text on the page from the Dart side.
+
 Though simple,
 this example shows you how to connect a Dart
 app to an HTML page and
 one way that a Dart app can interact with items on the page.
-These concepts
-provide the foundation
+These concepts provide the foundation
 for more interesting and useful web apps.
 
+* [About the Dart, HTML, and CSS triumvirate](#source-files)
 * [About the DOM](#dom-intro)
 * [Create a new Dart app](#create-dart-app)
-* [Edit the HTML file](#create-html)
+* [Edit the HTML source code](#create-html)
 * [About the HTML source code](#about-html-code)
-* [Edit Dart source code](#dart-editor-happiness)
+* [Edit the Dart source code](#dart-editor-happiness)
 * [About the Dart source code](#about-dart-code)
-* [Summary of HTML and Dart connections](#summary)
-* [Run the mini web app](#run-mini)
+* [HTML and Dart connections](#summary)
 * [Give the app some style with CSS](#add-css)
 * [About CSS selectors](#about-css-selectors)
 * [Other resources](#other-resources)
 * [What next?](#what-next)
+
+
+##About the Dart, HTML, and CSS triumvirate {#source-files}
+
+If you've used
+<a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>,
+you've already seen the DART, HTML, and CSS tabs
+that let you write the code for a web app.
+Each of these three languages
+is responsible for a different aspect of the web app.
+
+| Language | Purpose |
+|---|---|
+| Dart | Implements the interactivity and dynamic behavior of the web app |
+| HTML | Describes the content of the web app's page (the elements in the document and the structure) |
+| CSS | Governs the appearance of page elements |
+{: .table}
+
+A Dart program can
+respond to events such as mouse clicks,
+manipulate the elements on a web page dynamically,
+and save information.
+Before the web app is deployed,
+the Dart code must be compiled into JavaScript code.
+
+HTML is a language for describing web pages.
+Using tags, HTML sets up the initial page structure,
+puts elements on the page,
+and embeds any scripts for page interactivity.
+HTML sets up the initial document tree
+and specifies element types, classes, and IDs,
+which allow HTML, CSS, and Dart programs to refer to the same elements.
+
+CSS, which stands for _Cascading Style Sheets_, describes the appearance
+of the elements within a document.
+CSS controls many aspects of formatting:
+type face, font size, color, background color,
+borders, margins, and alignment, to name a few.
+
 
 ##About the DOM {#dom-intro}
 
@@ -139,74 +179,70 @@ The diagram shows a small Dart program that makes
 a modest change to the DOM by dynamically
 changing a paragraph's text.
 A program could add and delete nodes,
-or even insert an entire sub-tree of nodes.
+or even insert an entire subtree of nodes.
+
 
 ## Create a new Dart app {#create-dart-app}
 
-The application you write in this tutorial is a web application.
-Web applications use code from the `browser` package
-to run inside of a browser,
-so you need to start with the supporting files and packages
-even for the smallest web app.
+1. Go to <a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>.
+2. Click the **New Pad** button to undo any changes you might have made
+   the last time you visited DartPad.
 
-In Dart Editor, create a new web application
-like you did in the previous tutorial,
-[Get Started](/docs/tutorials/get-started/).
-Name the app `mini`.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+These instructions feature DartPad,
+which hides some of the HTML boilerplate code.
+If you want to use any other editor,
+then we recommend starting with a small Dart web app sample
+and modifying the non-script tags inside the \<body> section.
+[HTML and Dart connections](#connections) shows the full HTML code.
+</aside>
 
-1. Type `mini` in the application name field.
-2. Use the suggested parent directory or specify an alternate.
-3. Select **Uber Simple Web Application** from the project template list.
-4. Click **Finish**.
+##Edit the HTML source code {#create-html}
 
-##Edit the HTML file {#create-html}
+1. Click **HTML**, at the upper left of DartPad.
+   The view switches from Dart code to the (non-existent) HTML code.
 
-When Dart Editor created the application,
-it created boilerplate HTML code.
-Double click `index.html` to open it.
-Then replace the code with the following,
-simplied HTML.
+2. Add the following HTML code:
 
-{% prettify html %}
-<!DOCTYPE html>
+   {% prettify html %}
+   <p id="RipVanWinkle">
+     RipVanWinkle paragraph.
+   </p>
+   {% endprettify %}
 
-<html>
-  <head>
-    <title>A Minimalist App</title>
-  </head>
+3. Click **HTML OUTPUT** to see how a browser would render your HTML.
 
-  <body>
-    <p id="RipVanWinkle">
-      RipVanWinkle paragraph.
-    </p>
-    <script type="application/dart" src="main.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
-</html>
-{% endprettify %}
-
-Finish your edits and save the file with **File > Save**.
 
 ##About the HTML source code {#about-html-code}
 
-This HTML code is similar to the simple HTML code in the
-various diagrams earlier in this tutorial.
-Again, you can see the use of the \<head>, \<title>, \<body>,
-and \<p> tags.
-And there, in the paragraph tag,
-is an identifier "RipVanWinkle".
+This HTML code is similar to the HTML code in the
+various diagrams earlier in this tutorial,
+but it's even simpler.
+
+In DartPad you need only the tags you really care about—in
+this case, \<p>.
+You don't need surrounding tags such as
+\<html> and \<body>.
+Because DartPad knows where your Dart code is,
+you don't need a \<script> tag.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+[HTML and Dart connections](#connections) shows the full HTML code
+that you need to run your web app outside of DartPad.
+</aside>
+
+The paragraph tag has the identifier "RipVanWinkle".
 The Dart code you create in the next step uses this ID
 to get the paragraph element.
 
-<img class="scale-img-max" src="images/html-id.png"
-     alt="Using an ID in HTML">
+{% comment %}
+PENDING: cover this somewhere.
 
 Notice the use of the `script` tag.
 The source for a script is provided by a client-side file.
 The HTML code above has two scripts.
-
-<img class="scale-img-max" src="images/script-tags.png"
-     alt="Including Dart apps in HTML">
 
 The first script includes your mini app.
 The `type` attribute specifies that the script has
@@ -221,22 +257,32 @@ The Dart file should be in the same directory as its host HTML file.
 The second `script` tag is
 a bootstrap script that takes care of turning on the Dart VM,
 as well as compatibility with non-Dart browsers.
+{% endcomment %}
 
-##Edit Dart source code {#dart-editor-happiness}
 
-Open `main.dart` and modify the source code
-to look like this:
+##Edit the Dart source code {#dart-editor-happiness}
 
-{% prettify dart %}
-import 'dart:html';
-void main() {
-  querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';
-}
-{% endprettify %}
+1. Click **DART**, at the upper right of DartPad.
+   The view switches from HTML code to Dart code.
+
+2. Change the Dart code to the following:
+
+   {% prettify dart %}
+   import 'dart:html';
+
+   void main() {
+     querySelector('#RipVanWinkle').text = 'Wake up, sleepy head!';
+   }
+   {% endprettify %}
+
+3. Click **Run** to execute your code.
+
+The text in the HTML OUTPUT tab changes to "Wake up, sleepy head!"
+
 
 ##About the Dart source code {#about-dart-code}
 
-Let's step through the code.
+Let's step through the Dart code.
 
 ###Importing libraries
 
@@ -245,8 +291,9 @@ making all of the classes and functions
 in that library
 available to your program.
 
-<img class="scale-img-max" src="images/0-mini-code-walk-through.png"
-     alt="Import Dart HTML library">
+<pre class="prettyprint lang-dart allow-scroll">
+<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Imports Dart's HTML classes and functions">import 'dart:html';</a>
+</pre>
 
 This program imports Dart's HTML library,
 which contains key classes and functions for programming the DOM.
@@ -254,12 +301,12 @@ Key classes include:
 
 | Dart class | Description |
 |---|---|
-| <a href="https://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a> | Implements a Dart Node. |
-| <a href="https://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | A subclass of Node, implements a web page element. |
-| <a href="https://api.dartlang.org/dart_html/Document.html" target="_blank">Document</a> | Another subclass of Node. Implements the document object. |
+| <a href="https://api.dartlang.org/dart_html/Node.html" target="_blank">Node</a> | Implements a DOM node. |
+| <a href="https://api.dartlang.org/dart_html/Element.html" target="_blank">Element</a> | A subclass of Node; implements a web page element. |
+| <a href="https://api.dartlang.org/dart_html/Document.html" target="_blank">Document</a> | Another subclass of Node; implements the document object. |
 {: .table}
 
-The Dart core library contains another useful class,
+The Dart core library contains another useful class:
 <a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
 a parameterized class that can specify the type of its members.
 An instance of Element keeps its list of child Elements
@@ -275,20 +322,22 @@ Let's deconstruct it.
 querySelector() is a top-level function provided by the Dart HTML library
 that gets an Element object from the DOM.
 
-<img class="scale-img-max" src="images/3-mini-code-walk-through.png"
-     alt="An example of querying for a DOM object by its ID">
+<pre class="prettyprint lang-dart allow-scroll">
+<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Returns the matching Element">querySelector('#RipVanWinkle')</a>.text = 'Wake up, sleepy head!';
+</pre>
 
 The argument to querySelector(), a string,
 is a CSS selector that identifies the object.
 Most commonly CSS selectors specify classes, identifiers, or attributes.
-We'll look at these in a little more detail later,
+We'll look at these in more detail later,
 when we add a CSS file to the mini app.
-In this case RipVanWinkle is the unique ID for a paragraph element
-declared in the HTML file
+In this case, RipVanWinkle is the unique ID for a paragraph element
+declared in the HTML file,
 and #RipVanWinkle specifies that ID.
 
-<img class="scale-img-max" src="images/2-mini-code-walk-through.png"
-     alt="ID attribute from HTML file">
+<pre class="prettyprint lang-dart allow-scroll">
+querySelector(<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="ID from HTML file">'#RipVanWinkle'</a>).text = 'Wake up, sleepy head!';
+</pre>
 
 Another useful function for getting elements from the DOM
 is querySelectorAll(),
@@ -299,7 +348,7 @@ of which match the provided selector.
 ###Setting the text of an Element
 
 In the DOM, the text of a page element is contained
-in a child node, specifically, a Text node.
+in a child node, specifically, a text node.
 In the following diagram,
 the node containing the string
 "RipVanWinkle paragraph."
@@ -318,8 +367,9 @@ you can simply use the Element `text` property,
 which has a getter
 that walks the subtree of nodes for you and extracts their text.
 
-<img class="scale-img-max" src="images/4-mini-code-walk-through.png"
-     alt="Text node child of the paragraph">
+<pre class="prettyprint lang-dart allow-scroll">
+querySelector('#RipVanWinkle')<a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Convenience API to the Element's text">.text</a> = 'Wake up, sleepy head!';
+</pre>
 
 However, if the text node has styles (and thus a subtree),
 getting text and then setting it immediately is likely
@@ -331,36 +381,16 @@ The assignment operator (=) sets the text
 of the Element returned by the querySelector() function
 to the string "Wake up, sleepy head!".
 
-<img class="scale-img-max" src="images/5-mini-code-walk-through.png"
-     alt="Set the text node, thereby changing the text on the page">
+<pre class="prettyprint lang-dart allow-scroll">
+querySelector('#RipVanWinkle').text <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Dynamically changes the DOM">=</a> 'Wake up, sleepy head!';
+</pre>
 
 This causes the browser to immediately re-render
 the browser page containing this app, thus
 dynamically displaying the text on the browser page.
 
-##Summary of HTML and Dart connections {#summary}
 
-This diagram summarizes the connections
-between `main.dart` and `index.html`.
-
-<img class="scale-img-max" src="images/dart-html-connect.png"
-     alt="The connection between the HTML file and the Dart file">
-
-##Run the mini web app {#run-mini}
-
-In Dart Editor,
-select `index.html` and then click the Run button
-<img class="scale-img-max" src="images/run.png" width="16" height="16"
-     alt="Run button">.
-Dart Editor invokes Dartium
-and loads `index.html` in it.
-Below is mini app running in a frame.
-The app displays the text provided by Dart code,
-namely "Wake up, sleepy head!",
-not the text provided in the HTML file, as shown in the following screen shot.
-
-<img style="border:1px solid #000000" src="images/mini-app.png"
-     border="5" alt="output of the mini app">
+##HTML and Dart connections {#connections}
 
 The Dart web app changed
 the text in the browser window dynamically at runtime.
@@ -370,45 +400,87 @@ could be accomplished with straight HTML.
 This little app only shows you how to make a connection
 from a Dart app to a browser page.
 
+In DartPad, the only visible connection between
+the Dart code and the HTML code
+is the RipVanWinkle ID.
+
+<img class="scale-img-max" src="images/dart-html-connect.png"
+     alt="The RipVanWinkle ID is used by both Dart and HTML">
+
+To run your app outside of DartPad,
+you need to make another connection between the HTML and Dart code:
+you must add \<script> tags to the HTML
+to tell the browser where to find the Dart code.
+You must also add other HTML markup
+to provide additional page information and structure
+that the browser requires.
+
+{% comment %}
+PENDING: We should include or link to instructions
+on how to convert a DartPad app into one you can run in the browser.
+{% endcomment %}
+
+Here's the full HTML code for this app,
+assuming that the Dart code is in a file named `main.dart`:
+
+<pre class="prettyprint lang-dart allow-scroll">
+&lt;!DOCTYPE html>
+
+&lt;html>
+  &lt;head>
+    &lt;title>A Minimalist App&lt;/title>
+  &lt;/head>
+
+  &lt;body>
+    &lt;p id="RipVanWinkle">
+      RipVanWinkle paragraph.
+    &lt;/p>
+
+    <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Specifies the location of the Dart code">&lt;script type="application/dart" src="main.dart">&lt;/script></a>
+    <a href="#" class="dart-popover" data-toggle="popover" data-html="true" data-trigger="hover focus" data-content="Enables the browser to use the Dart code">&lt;script src="packages/browser/dart.js">&lt;/script></a>
+  &lt;/body>
+&lt;/html>
+</pre>
+
+The two \<script> tags are the only Dart-specific parts of this added HTML.
+They tie the Dart code into the page,
+telling the browser where to find the Dart code
+and what to do with it.
+
+The next diagram summarizes all the connections
+between the Dart and HTML code.
+
+<img class="scale-img-max" src="images/dart-html-connect-full.png"
+     alt="The connection between the HTML file and the Dart file">
+
+
 ##Give the app some style with CSS {#add-css}
 
 Most HTML uses cascading style sheets (CSS) to define _styles_
 that control the appearance of page elements.
 Let's customize the CSS for the mini app.
 
-In Dart Editor, edit the file named `styles/main.css`
-and replace the contents of the file with
-the following CSS code:
+1. Click **CSS**.
+   The view switches from Dart code to the (non-existent) CSS code.
 
-{% prettify dart %}
-#RipVanWinkle {
-  font-size: 20px;
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  margin-top: 20px;
-  background-color: SlateBlue;
-  color: Yellow;
-}
-{% endprettify %}
+2. Add the following CSS code:
 
-This defines a style
-for the page element
-with the ID RipVanWinkle.
-To use this style sheet,
-edit `index.html` and add the line shown in bold below:
+   {% prettify none %}
+   #RipVanWinkle {
+     font-size: 20px;
+     font-family: 'Open Sans', sans-serif;
+     text-align: center;
+     margin-top: 20px;
+     background-color: SlateBlue;
+     color: Yellow;
+   }
+   {% endprettify %}
 
-<img class="scale-img-max" src="images/html-with-css.png"
-     alt="HTML with CSS">
+The display under HTML OUTPUT immediately changes
+to reflect the new styles,
+which apply only to the page element
+that has the ID RipVanWinkle.
 
-Save your files and run the app again.
-
-The following screen shot shows
-the output of the revised mini app,
-which is slightly more colorful
-but still neither interactive nor interesting.
-
-<img style="border:1px solid #000000" src="images/mini-app-with-styling.png"
-     alt="output of the mini app with CSS styling">
 
 ##About CSS selectors {#about-css-selectors}
 
@@ -442,10 +514,10 @@ Here are some examples of CSS selectors:
 | Attribute | input[type="button"] | Matches all button input elements |
 {: .table}
 
-<aside class="alert">
-  <strong>Tip:</strong>
+<aside class="alert alert-info">
+<strong>Tip:</strong>
 As you saw,
-mini app used a CSS selector,
+the mini app used a CSS selector,
 the ID #RipVanWinkle,
 even when there was no CSS file.
 You do not need a CSS file for a Dart program.
@@ -455,14 +527,14 @@ and used by the Dart program
 to select matching elements.
 </aside>
 
-Let's look at the CSS code for mini app.
+Let's look at the CSS code for the mini app.
 The CSS file for the mini app has one CSS rule in it.
 A CSS rule has two main parts: a selector and a set of declarations.
 
 <img class="scale-img-max" src="images/css-rule-explained.png"
      alt="The parts of a CSS rule">
 
-In mini app, the selector #RipVanWinkle is an ID selector,
+In the mini app, the selector #RipVanWinkle is an ID selector,
 as signaled by the hash tag (#);
 it matches a single, unique element with the specified ID,
 our now tired RipVanWinkle paragraph element.
@@ -490,22 +562,14 @@ for example, it sets the text color to Yellow.
 
 ##Other resources
 
-<ul>
-  <li>
-    <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>
-    provides thorough coverage of the Dart language, libraries, and tools.
-    If a topic is not covered explicitly here,
-    you can find the information you need there.
-  </li>
-  <li>
-    <a href="/docs/dart-up-and-running/ch04.html#dart-editor">Dart Editor</a>,
-    an excerpt from <em>Dart: Up and Running</em>,
-    provides details about using Dart Editor.
-    The excerpt includes, for example,
-    how to use Dart Editor's power features such as autocompletion and refactoring,
-    how to set up different run-time environments, and so on.
-  </li>
-</ul>
+{% comment %}
+PENDING: Link to WebStorm docs? DartPad docs?
+{% endcomment %}
+
+* <a href="/docs/dart-up-and-running/">Dart: Up and Running</a>
+  provides thorough coverage of the Dart language and libraries.
+* <a href="/tools/">Dart Tools</a>
+  lists IDEs and editors that have Dart plugins.
 
 ##What next?
 
