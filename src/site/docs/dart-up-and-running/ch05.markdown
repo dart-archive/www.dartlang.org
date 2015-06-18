@@ -16,7 +16,7 @@ This chapter points out some of the useful and fun features of the Dart
 language and libraries that are used in Dartiverse Search, a
 client-server app.
 
-<aside class="alert alert-info" markdown="1">
+<aside class="alert alert-warning" markdown="1">
   **Note:**
   This chapter should be updated or deleted.
   It describes an
