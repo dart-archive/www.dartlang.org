@@ -66,10 +66,6 @@ Refer to [Use Future-Based APIs](/docs/tutorials/futures/)
 and
 [Use Streams for Data](/docs/tutorials/streams/)
 for information about using these classes.
-
-* Although you can use `dart` on the command line to run the samples,
-this tutorial uses Dart Editor,
-which you can [download](/downloads/) if you don't already have it.
 </aside>
 
 HTTP (Hyper-Text Transfer Protocol) is a communication protocol used
@@ -84,7 +80,7 @@ The server _binds_ to a host and port (it
 makes an exclusive connection to an IP address and
 a port number).
 Then the server listens for requests.
-Because of Dart's asynchronouse nature,
+Because of Dart's asynchronous nature,
 the server can handle many requests at a single time,
 as follows:
 
@@ -93,10 +89,9 @@ as follows:
 * Server accepts and receives request (and continues to listen)
 * Server can continue to accept other requests
 * Server writes response of request or several, possibly interleaved, requests
-* Server finally ends(closes) the response(s).
+* Server finally ends (closes) the response(s).
 
-In Dart,
-the
+In Dart, the
 <a href="https://api.dartlang.org/dart_io.html"
    target="_blank">dart:io</a>
 library contains
@@ -112,7 +107,7 @@ clients and servers.
 <strong>Important:</strong>
 _Browser-based programs **cannot** use the dart:io library._
 
-The API in the dart:io library
+The APIs in the dart:io library
 work _only_ with standalone, command-line programs.
 They do not work in the browser.
 To make HTTP requests from a browser-based client
@@ -126,7 +121,7 @@ it is to write Dart HTTP servers and clients.
 Beginning with the hello world of servers,
 you learn how to write the code for a server
 from binding and listening to responding to requests.
-You also learn about the client-side: making different
+You also learn about the client side: making different
 kinds of requests (GET and POST),
 writing browser-based and command-line clients.
 
@@ -153,17 +148,15 @@ writing browser-based and command-line clients.
   </li>
 
   <li markdown="1">
-In Dart Editor, open the `bin/httpserver` directory, which contains
+View the `httpserver` directory, which contains
 the sources you need for this tutorial.
   </li>
 </ul>
 
-**Note:** These examples are compatible with Dart 1.3.
-
 ##Run the hello world server {#run-hello-world}
 
 _Example file for this section:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/hello_world_server.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/hello_world_server.dart"
    target="_target">hello_world_server.dart</a>._
 
 Let's begin with a small server that responds to all requests
@@ -172,15 +165,18 @@ with the string `Hello, world!`
 <ul>
 
   <li markdown="1">
-In the `bin/httpserver` directory,
-right-click `hello_world_server.dart`
-and choose **Run** from the menu.
+At the command line, run the `hello_world_server.dart` script.
+You will see the following:
 
-![The hello world server is listening for requests.](images/hello_world_listening.png)
+{% prettify bash %}
+$ cd httpserver/bin
+$ dart hello_world_server.dart
+listening on localhost, port 4040
+{% endprettify %}
   </li>
 
   <li markdown="1">
-Then, in any browser, enter `localhost:4040`.
+Then, in any browser, enter [localhost:4040](http://localhost:4040/).
 The browser displays `Hello, world!`
 
 ![The response from the hello world server.](images/hello_world_response.png)
@@ -200,23 +196,27 @@ listens for HTTP requests, and writes a response.
 Note that the program imports
 the `dart:io` library, which contains the HTTP-related
 classes both for server-side programs and for
-client-side programs (but not for browser-based scripts).
+client-side programs (but not for web apps).
 
 {% prettify dart %}
 [[highlight]]import 'dart:io';[[/highlight]]
 
-main() {
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4040)
-      .then((HttpServer server) {
-    print('listening on localhost, port ${server.port}');
-    server.listen((HttpRequest request) {
+main() async {
+  var requestServer =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4040);
+  print('listening on localhost, port ${requestServer.port}');
+
+  try {
+    await for (HttpRequest request in requestServer) {
       request.response.write('Hello, world!');
       request.response.close();
-    });
-  }).catchError((e) => print(e.toString()));
+    }
+  } catch (e) {
+    print(e.toString());
+  }
 }
 {% endprettify %}
-<div class="prettify-filename">hello_world_server.dart</div>
+<div class="prettify-filename">hello_world_server.dart</div><br>
 
 The next few sections cover server-side binding,
 making a client-side GET request,
@@ -233,15 +233,15 @@ uses `HttpServer.bind()` to create an
 object and bind it to a host and port.
 
 {% prettify dart %}
-HttpServer.bind([[highlight]]InternetAddress.LOOPBACK_IP_V4[[/highlight]], [[highlight]]4040[[/highlight]])
-    .then(([[highlight]]HttpServer server[[/highlight]]) {
-  ...
+var [[highlight]]requestServer[[/highlight]] =
+    await HttpServer.bind([[highlight]]InternetAddress.LOOPBACK_IP_V4, 4040[[/highlight]]);
+...
 {% endprettify %}
-<div class="prettify-filename">hello_world_server.dart</div>
+<div class="prettify-filename">hello_world_server.dart</div><br>
 
-The `bind()` method uses a Future to run asynchronously.
-When the bind is successful, the callback of `then()`
-is called with the new HttpServer object as a parameter.
+The code uses `await` to call the `bind` method asynchronously.
+When the bind is successful, the new HttpServer object is assigned
+to `requestServer`.
 
 ### Hostname
 The first parameter of `bind()` specifies the hostname.
@@ -275,23 +275,21 @@ the connection for your server will be refused.
 
 ### Listening for requests
 
-The server begins listening for requests by calling the
-`listen()` method.
-For each received request, the callback of `listen()`,
-highlighted below, is called with an
+The server begins listening for HTTP requests using `await for`.
+For each request received, the highlighted code is executed for that
 <a href="https://api.dartlang.org/dart_io/HttpRequest.html"
    target="_blank">HttpRequest</a>
 object.
 
 {% prettify dart %}
 ...
-server.listen([[highlight]](HttpRequest request) {[[/highlight]]
+await for (HttpRequest request in requestServer) {
   [[highlight]]request.response.write('Hello, world!');[[/highlight]]
   [[highlight]]request.response.close();[[/highlight]]
-[[highlight]]}[[/highlight]]);
+}
 ...
 {% endprettify %}
-<div class="prettify-filename">hello_world_server.dart</div>
+<div class="prettify-filename">hello_world_server.dart</div><br>
 
 You'll learn more about what the HttpRequest object contains
 and how to write the response in the section
@@ -301,35 +299,45 @@ But first, let's look at one way a client generates a request.
 ##Using HTML forms to make GET requests {#using-forms-to-make-get-requests}
 
 _Example files for this section:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/number_thinker.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/number_thinker.dart"
    target="_blank">number_thinker.dart</a> and
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/make_a_guess.html"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/web/make_a_guess.html"
    target="_blank">make_a_guess.html</a>._
 
 This section features a command-line server that
 randomly chooses a number between 0 and 9.
 The client is a basic HTML web-page, `make_a_guess.html`,
-that you can use the to guess the number.
+that you can use to guess the number.
 
 <hr> 
 <strong>Try it!</strong>
 
-<ul>
+<ol>
   <li markdown="1">
   **Run the number thinker server**
 
-  In Dart Editor, right-click `number_thinker.dart`
-  and choose **Run** from the menu.
+  At the command line, run the `number_thinker.dart` server.
+  You should see something similar to the following:
 
-![The number thinker server is listening for requests.](images/number_thinker_thinking.png)
+{% prettify none %}
+$ cd httpserver/bin
+$ dart number_thinker.dart
+I'm thinking of a number: 6
+{% endprettify %}
 
+  </li>
+
+  <li markdown="1">
+  **Launch the web server**
+
+  Run `pub serve` from the top directory of the app.
   </li>
 
   <li markdown="1">
   **Open the HTML page**
 
-  In Dart Editor, right-click `make_a_guess.html`
-  and select **Run in Dartium**.
+  In a browser, go to 
+  [localhost:8080/make_a_guess.html](http://localhost:8080/make_a_guess.html).
 
   </li>
   <li markdown="1">
@@ -339,12 +347,8 @@ that you can use the to guess the number.
 
 ![The user makes a guess using a pull-down menu.](images/guessing.png)
 
-  Note the components of the URL on the results page.
-
-![The components of a URL.](images/url.png)
-
   </li>
-</ul>
+</ol>
 <hr>
 
 No Dart code is involved in the client.
@@ -375,7 +379,7 @@ Here's the HTML code for the form in make_a_guess.html:
 [[note]]4[[/note]]   <input [[highlight]]type="submit"[[/highlight]] value="Guess">
     </form>
 {% endprettify %}
-<div class="prettify-filename">make_a_guess.html</div>
+<div class="prettify-filename">make_a_guess.html</div><br>
 
 <span class="code-note">1</span>
 URL to send the request to.
@@ -416,10 +420,13 @@ number_thinker.dart and make_a_guess.html._
 Now that you've seen the browser-based client for this example,
 let's take a look at the Dart code for the number thinker server,
 starting with `main()`.
+
 Once again the server binds to a host and port.
-Here, the callback of `then()`
-is a top-level function
-named `listenForRequests()`.
+Here, the top-level `handleRequest()` method is called for each
+request received. Because HttpServer implements
+<a href="https://api.dartlang.org/dart_async/Stream.html"
+   target="_blank">Stream</a>,
+you can use `await for` to process the requests.
 
 {% prettify dart %}
 import 'dart:io';
@@ -427,50 +434,42 @@ import 'dart:math' show Random;
 
 int myNumber = new Random().nextInt(10);
 
-void main() {
-  print("I'm thinking of a number. $myNumber");
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041)
-            .then([[highlight]]listenForRequests[[/highlight]])
-            .catchError((e) => print (e.toString()));
+main() async {
+  print("I'm thinking of a number: $myNumber");
+  
+  try {
+    HttpServer requestServer =
+        await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041);
+    await for (var request in requestServer) {
+      [[highlight]]handleRequest[[/highlight]](request);
+    }
+  } catch (e) {
+    print('Exception in main: $e');
+  }
 }
 ...
 {% endprettify %}
-<div class="prettify-filename">number_thinker.dart</div>
+<div class="prettify-filename">number_thinker.dart</div><br>
 
-The code for `listenForRequests()` calls `listen()` so that
-the HttpServer starts to listen on the host and port for requests.
-When a request comes in, the server creates an HttpRequest object
-and passes it to the callback of `listen()`.
-Thus, as requests come in, the HttpServer object provides
-a stream of HttpRequest objects.
-Note that the HttpServer class implements
-<a href="https://api.dartlang.org/dart_async/Stream.html"
-   target="_blank">Stream</a>.
+When a `GET` request arrives, the `handleRequest()` method calls
+`handleGet()` to process the request.
 
 {% prettify dart %}
-    ...
-    listenForRequests(HttpServer _server) {
-[[note]]1[[/note]]   _server.listen([[highlight]](HttpRequest request) {[[/highlight]]
-       [[highlight]] ...[[/highlight]]
-     [[highlight]] }[[/highlight]],
-[[note]]2[[/note]]   [[highlight]]onDone[[/highlight]]: () => print('Done with requests.'),
-[[note]]3[[/note]]   [[highlight]]onError[[/highlight]]: (e) => print(e.toString() );
+void handleRequest(HttpRequest request) {
+  try {
+    if (request.method == 'GET') {
+      [[highlight]]handleGet[[/highlight]](request);
+    } else {
+      ...
     }
-    ...
+  } catch (e) {
+    print('Exception in handleRequest: $e');
+  } finally {
+    print('Request handled.');
+  }
+}
 {% endprettify %}
-<div class="prettify-filename">number_thinker.dart</div>
-
-The `listen()` method takes one required and two optional parameters:
-
-<span class="code-note">1</span>
-A callback function, which is called for each client request.
-
-<span class="code-note">2</span>
-`onDone` is called when the server is shut down.
-
-<span class="code-note">3</span>
-`onError` is called if an error occurs.
-
+<div class="prettify-filename">number_thinker.dart</div><br>
 
 An HttpRequest object has many properties that provide
 information about the request.
@@ -491,21 +490,16 @@ property to determine what kind of request has been received.
 This server handles only GET requests.
 
 {% prettify dart %}
-listenForRequests(_server) {
-  _server.listen((HttpRequest request) {
-    if ([[highlight]]request.method == 'GET'[[/highlight]]) {
-      handleGet(request);
-    } else {
-      request.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
-      request.response.write("Unsupported request: ${request.method}.");
-      request.response.close();
-    }
-  },
-  onDone: () => print('No more requests.'),
-  onError: (e) => print(e.toString()) );
+if (request.method == 'GET') {
+  [[highlight]]handleGet[[/highlight]](request);
+} else {
+  request.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
+  request.response
+      .write('Unsupported request: ${request.method}.');
+  request.response.close();
 }
 {% endprettify %}
-<div class="prettify-filename">number_thinker.dart</div>
+<div class="prettify-filename">number_thinker.dart</div><br>
 
 ### Using the uri property
 
@@ -520,7 +514,7 @@ void handleGet(HttpRequest request) {
   ...
 }
 {% endprettify %}
-<div class="prettify-filename">number_thinker.dart</div>
+<div class="prettify-filename">number_thinker.dart</div><br>
 
 Use the `uri` property from the HttpRequest object to get a
 <a href="https://api.dartlang.org/dart_core/Uri.html"
@@ -547,15 +541,13 @@ void handleGet(HttpRequest request) {
   ...
 }
 {% endprettify %}
-<div class="prettify-filename">number_thinker.dart</div>
+<div class="prettify-filename">number_thinker.dart</div><br>
 
 `HttpStatus.OK` and `HttpStatus.METHOD_NOT_ALLOWED` are
-one of many pre-defined status codes in the
+two of many predefined status codes in the
 <a href="https://api.dartlang.org/dart_io/HttpStatus.html"
    target="_blank">HttpStatus</a> class.
-Other useful pre-defined status codes are
-`HttpStatus.METHOD_NOT_ALLOWED`
-and
+Another useful predefined status code is
 `HttpStatus.NOT_FOUND` (your classic 404).
 
 In addition to `statusCode`,
@@ -580,7 +572,7 @@ to write the response data to the HttpResponse object.
 Or connect the HttpResponse object to a stream via `addStream`
 and write to the stream.
 Close the object when the response is complete.
-Closing the HttpResponse object,
+Closing the HttpResponse object
 sends the data back to the client.
 
 {% prettify dart %}
@@ -594,63 +586,67 @@ void handleGet(HttpRequest request) {
   }
 }
 {% endprettify %}
-<div class="prettify-filename">number_thinker.dart</div>
+<div class="prettify-filename">number_thinker.dart</div><br>
 
 ## Making a POST request from a standalone client {#making-post}
 
 _Example files for this section:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/basic_writer_server.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/basic_writer_server.dart"
    target="_blank">basic_writer_server.dart</a>
 and
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/basic_writer_client.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/basic_writer_client.dart"
    target="_blank">basic_writer_client.dart</a>._
 
-In the hello world and the number thinker examples,
+In the hello world and number thinker examples,
 the browser generated simple GET requests.
 For more complex GET requests and other kinds of requests, such
 as POST, PUT, or DELETE,
 you need to write a client program, of which there are two kinds:
 
-* A standalone client program, which uses
-the 
-<a href="https://api.dartlang.org/dart_io/HttpClient.html" target="_blank">HttpClient</a>
-class from `dart:io`.
+* A standalone client program, which uses the
+  <a href="https://api.dartlang.org/dart_io/HttpClient.html" target="_blank">HttpClient</a>
+  class from `dart:io`.
 
 * A browser-based client, which uses API from
-<a href="https://api.dartlang.org/dart_html.html"
-   target="_blank">dart:html</a>.
-This tutorial does not cover browser-based clients.
-To look at code for a browser-based client and
-related server, see note_client.dart, note_server.dart,
-and take_note.html.
-Also, check out the
-[Get Input from a Form](/docs/tutorials/forms/) tutorial.)
+  <a href="https://api.dartlang.org/dart_html.html"
+     target="_blank">dart:html</a>.
+  This tutorial does not cover browser-based clients.
+  To look at code for a browser-based client and
+  related server, see 
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/web/note_client.dart" target="_blank">note_client.dart</a>,
+  <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/note_server.dart" target="_blank">note_server.dart</a>,
+  and <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/web/note_taker.html" target="_blank">note_taker.html</a>.
+  Also, check out the
+  [Get Input from a Form](/docs/tutorials/forms/) tutorial.
 
-Let's look at a standalone client, `basic_writer_client.dart`,
-and its server `basic_writer_server.dart`.
-The client makes a POST request
-to save JSON data to a server-side file.
-The server accepts the request and saves the file.
+  Let's look at a standalone client, `basic_writer_client.dart`,
+  and its server `basic_writer_server.dart`.
+  The client makes a POST request
+  to save JSON data to a server-side file.
+  The server accepts the request and saves the file.
 
 <hr> 
 **Try it!**
 
 Run the server and client on the command line.
 
-<ul>
+<ol>
   <li markdown="1">
 First the server: 
 
 {% prettify bash %}
-$ dart bin/httpserver/basic_writer_server.dart
+$ cd httpserver/bin
+$ dart basic_writer_server.dart
 {% endprettify %}
   </li>
 
   <li markdown="1">
-Then the client:
+Then, run the client in a new window:
 
-{% prettify bash%}
-$ dart bin/httpserver/basic_writer_client.dart
+{% prettify bash %}
+$ cd httpserver/bin
+$ dart basic_writer_client.dart
+Wrote data for Han Solo.
 {% endprettify %}
   </li>
 
@@ -661,7 +657,7 @@ The server writes the data to `file.txt`:
 {"name":"Han Solo","job":"reluctant hero","BFF":"Chewbacca","ship":"Millennium Falcon","weakness":"smuggling debts"}
 {% endprettify %}
   </li>
-</ul>
+</ol>
 
 <hr>
 
@@ -670,18 +666,19 @@ The client creates an HttpClient object and uses the
 Making a request involves two Futures:
 
 * The `post()` method establishes a network
-connection to the server and returns the first Future,
+connection to the server and completes with the first Future,
 which returns an HttpClientRequest object.
 
 * The client composes the request object and closes it.
 The `close()` method sends the request to the server
-and returns the second Future.
+and returns the second Future, which completes with
+an HttpClientResponse object.
 
 {% prettify dart %}
    import 'dart:io';
    import 'dart:convert' show UTF8, JSON;
 
-   main() {
+   main() async {
      Map jsonData = {
        'name':     'Han Solo',
        'job':      'reluctant hero',
@@ -689,35 +686,32 @@ and returns the second Future.
        'ship':     'Millennium Falcon',
        'weakness': 'smuggling debts'
      };
-  
-[[note]]1[[/note]]  new HttpClient().[[highlight]]post(InternetAddress.LOOPBACK_IP_V4.host, 4049, '/file.txt')[[/highlight]]
-[[note]]2[[/note]]      .then(([[highlight]]HttpClientRequest[[/highlight]] request) {
-[[note]]3[[/note]]      [[highlight]]request.headers.contentType = ContentType.JSON;[[/highlight]]
-[[note]]4[[/note]]      [[highlight]]request.write(JSON.encode(jsonData))[[/highlight]];
-[[note]]5[[/note]]      [[highlight]]return request.close();[[/highlight]]
-       })
-[[note]]6[[/note]]    .then(([[highlight]]HttpClientResponse response[[/highlight]]) {
-[[note]]7[[/note]]      response.transform([[highlight]]UTF8.decoder[[/highlight]]).listen((contents) {
-           print(contents);
-         });
-       });
-   }
+
+[[note]]1[[/note]]  [[highlight]]HttpClientRequest request = await[[/highlight]] new HttpClient().post(
+[[note]]2[[/note]]      [[highlight]]InternetAddress.LOOPBACK_IP_V4.host, 4049, '/file.txt');[[/highlight]]
+[[note]]3[[/note]]  [[highlight]]request.headers.contentType = ContentType.JSON;[[/highlight]]
+[[note]]4[[/note]]  [[highlight]]request.write(JSON.encode(jsonData));[[/highlight]]
+[[note]]5[[/note]]  [[highlight]]HttpClientResponse response = await request.close()[[/highlight]];
+[[note]]6[[/note]]  await for (var contents in response.transform([[highlight]]UTF8.decoder[[/highlight]])) {
+       print(contents);
+    }
+  }
 {% endprettify %}
-<div class="prettify-filename">basic_writer_client.dart</div>
+<div class="prettify-filename">basic_writer_client.dart</div><br>
 
 <span class="code-note">1</span>
+When the `post()` connection succeeds (and execution resumes after
+the await expression), the returned
+<a href="https://api.dartlang.org/dart_io/HttpClientRequest.html"
+   target="_blank">HttpClientRequest</a>
+object is assigned to the `request` variable.
+
+<span class="code-note">2</span>
 The `post()` method requires the host, port, and the path to the requested
 resource.
 In addition to `post()`, the HttpClient class provides functions
 for making other kinds of
 requests, including `postUrl()`, `get()`, and `open()`.
-
-<span class="code-note">2</span>
-When the `post()` connection succeeds,
-the callback of the first Future receives an
-<a href="https://api.dartlang.org/dart_io/HttpClientRequest.html"
-   target="_blank">HttpClientRequest</a>
-object.
 
 <span class="code-note">3</span>
 An HttpClientRequest object has an HttpHeaders object,
@@ -734,18 +728,13 @@ The encoding, JSON in this example,
 matches the type specified in the ContentType header.
 
 <span class="code-note">5</span>
-The `close()` method sends the request to the server
-and returns a Future
+The `close()` method sends the request to the server and, when complete,
+returns an 
+<a href="https://api.dartlang.org/dart_io/HttpClientResponse.html"
+   target="_blank">HttpClientResponse</a> object
+that's assigned to the `reponse` variable.
 
 <span class="code-note">6</span>
-When the client receives the response,
-the second Future completes with an
-<a href="https://api.dartlang.org/dart_io/HttpClientResponse.html"
-   target="_blank">HttpClientResponse</a> object.
-In this example, the client program decodes
-and prints the text of the response.
-
-<span class="code-note">7</span>
 The response from the server is encoded in UTF-8.
 Use a transformer defined in the `dart:convert` library
 to convert the data into regular Dart string format.
@@ -766,7 +755,8 @@ for example, the URI has no query string
 <strong>Bonus code:</strong>
 If you would like to see some client code that
 makes GET requests,
-check out the code for `number_guesser.dart`.
+check out the code for
+<a href="https://github.com/dart-lang/dart-tutorials-samples/tree/async/httpserver/bin" target="_blank">number_guesser.dart</a>.
 It's a standalone client for the number thinker server
 that makes periodic guesses until it guesses correctly.
 
@@ -775,16 +765,16 @@ that makes periodic guesses until it guesses correctly.
 _Example files for this section:
 basic_writer_server.dart and basic_writer_client.dart._
 
-An HttpRequest object is a Stream of lists of bytes (`Stream<List<int>>`).
+An HttpRequest object is a stream of byte lists (`Stream<List<int>>`).
 To get the data sent from the client,
 listen for data on the HttpRequest object.
 
 If the request from the client contains a large amount of
 data, the data might arrive in multiple chunks.
-In our next example, basic_writer_server.dart,
-the server writes the chunks to a StringBuffer.
+In basic_writer_server.dart,
+the server writes the chunks to a BytesBuilder.
 After the server receives all the data,
-the callback of `onDone` is called.
+the `finally` clause executes and writes the data to a file.
 
 ![The flow of control in a server processing requests.](images/flowchart.png)
 
@@ -792,44 +782,43 @@ The `basic_writer_server.dart` file implements
 a server that follows this pattern.
 
 {% prettify dart %}
-   import 'dart:io';
-   import 'dart:convert';
+  import 'dart:io';
+  import 'dart:convert';
 
-   void main() {
-    
-     HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049).then((server) {
-       server.listen((req) {
-      
-         ContentType contentType = req.headers.contentType;
-         BytesBuilder builder = new BytesBuilder();
+  main() async {
+    var server =
+        await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4049);
+    await for (var req in server) {
+      ContentType contentType = req.headers.contentType;
+      BytesBuilder builder = new BytesBuilder();
 
-         if (req.method == 'POST' &&
-[[note]]1[[/note]]          [[highlight]]contentType != null &&[[/highlight]]
-             [[highlight]]contentType.mimeType == 'application/json'[[/highlight]]) {
-           req.listen((buffer) {
-[[note]]2[[/note]]          [[highlight]]builder.add(buffer);[[/highlight]]
-[[note]]3[[/note]]        }, [[highlight]]onDone:[[/highlight]] {
-             // write to a file, get the file name from the URI
-             String jsonString = UTF8.decode(builder.takeBytes());
-[[note]]4[[/note]]          String filename = [[highlight]]req.uri.pathSegments.last[[/highlight]];
-             new File(filename).writeAsString(jsonString,
-                 mode: FileMode.WRITE).then((_) {
-[[note]]5[[/note]]                Map jsonData = [[highlight]]JSON.decode(jsonString)[[/highlight]];
-                   req.response.statusCode = HttpStatus.OK;
-                   req.response.write('Wrote data for ${jsonData['name']}.');
-                   req.response.close();
-                 });
-           });
-         } else {
-           req.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
-           req.response.write("Unsupported request: ${req.method}.");
-           req.response.close();
-         }
-       });
-     });
-   }
+      if (req.method == 'POST' &&
+[[note]]1[[/note]]       [[highlight]]contentType != null &&[[/highlight]]
+          [[highlight]]contentType.mimeType == 'application/json'[[/highlight]]) {
+        try {
+          await for (var buffer in req) {
+[[note]]2[[/note]]         [[highlight]]builder.add(buffer);[[/highlight]]
+          }
+[[note]]3[[/note]]     } [[highlight]]finally[[/highlight]] {
+          // Write to a file, get the file name from the URI.
+          String jsonString = UTF8.decode(builder.takeBytes());
+[[note]]4[[/note]]       String filename = [[highlight]]req.uri.pathSegments.last;[[/highlight]]
+          await new File(filename).writeAsString(jsonString,
+              mode: FileMode.WRITE);
+[[note]]5[[/note]]       Map jsonData = [[highlight]]JSON.decode(jsonString);[[/highlight]]
+          req.response.statusCode = HttpStatus.OK;
+          req.response.write('Wrote data for ${jsonData['name']}.');
+          req.response.close();
+        }
+      } else {
+        req.response.statusCode = HttpStatus.METHOD_NOT_ALLOWED;
+        req.response.write("Unsupported request: ${req.method}.");
+        req.response.close();
+      }
+    }
+  }
 {% endprettify %}
-<div class="prettify-filename">basic_writer_server.dart</div>
+<div class="prettify-filename">basic_writer_server.dart</div><br>
 
 <span class="code-note">1</span>
 The request object has an HttpHeaders object.
@@ -844,11 +833,11 @@ multiple bytes.
 Therefore, the server uses a
 <a href="https://api.dartlang.org/dart_io/BytesBuilder.html" target="_blank">BytesBuilder</a>
 object to collect the data until all the data
-is delivered, then the callback of `onDone` is called.
+is delivered.
 
 <span class="code-note">3</span>
-The callback of `onDone` writes the data to the file
-specified by the client in the Uri.
+When all the data has been delivered, the `finally` clause executes
+and the data is written to the file specified by the client in the Uri.
 
 <span class="code-note">4</span>
 The URL for the request is `localhost:4049/file.txt`.
@@ -861,7 +850,7 @@ The server decodes it using the JSON codec available in the
 <a href="https://api.dartlang.org/dart_convert.html" target="_blank">dart:convert</a>
 library.
 
-####A note about CORS Headers
+####A note about CORS headers
 
 If you want to serve clients that are running on a different origin
 (a different host or port), you need to add CORS headers.
@@ -879,7 +868,7 @@ void addCorsHeaders(HttpResponse res) {
       'Origin, X-Requested-With, Content-Type, Accept');
 }
 {% endprettify %}
-<div class="prettify-filename">note_server.dart</div>
+<div class="prettify-filename">note_server.dart</div><br>
 
 For more information, refer to Wikipedia's article
 [Cross-origin resource sharing](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
@@ -887,9 +876,9 @@ For more information, refer to Wikipedia's article
 ##Using the http_server package {#using-http-server-package}
 
 _Example files for this section:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/mini_file_server.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/mini_file_server.dart"
    target="_blank">mini_file_server.dart</a> and
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/static_file_server.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/static_file_server.dart"
    target="_blank">static_file_server.dart</a>._
 
 For some higher-level building blocks,
@@ -911,78 +900,92 @@ It responds to all requests by returning the contents of the
 
 **Try it!**
 
-<ul>
+<ol>
   <li markdown="1">
 Run the server on the command line:
 
 {% prettify bash %}
-$ dart bin/httpserver/mini_file_server.dart
+$ cd httpserver/bin
+$ dart mini_file_server.dart
 {% endprettify %}
   </li>
 
   <li markdown="1">
-Type `localhost:4044` into the browser.
+Type [localhost:4044](http://localhost:4044/) into the browser.
 The server displays an HTML file:
 
 ![The index.html file served by mini_file_server.dart.](images/index_file.png)
 
   </li>
-</ul>
+</ol>
 
 Here's the code for mini file server:
 
 {% prettify dart %}
 import 'dart:io';
 
-main() {
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044).then((server) {
-    server.listen((HttpRequest req) {
-      File file = new File('index.html');
-      file.exists().then((bool found) {
-        if (found) {
-          file.openRead()
-              .pipe(req.response)  // HttpResponse type.
-              .catchError((e) => print(e.toString()));
-        } else {
-          req.response.statusCode = HttpStatus.NOT_FOUND;
-          req.response.close();
-        }
-      });
-    });
-  });
+main() async {
+  var server;
+
+  try {
+    server =
+        await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
+  } catch (e) {
+    print("Couldn't bind to port 4044: $e");
+    exit(-1);
+  }
+
+  await for (HttpRequest req in server) {
+    File file = new File('index.html');
+    if (await file.exists()) {
+      print("Serving index.html.");
+      req.response.headers.contentType = ContentType.HTML;
+      try {
+        await file.openRead().pipe(req.response); // HttpResponse type.
+      } catch(e) {
+        print("Couldn't read file: $e");
+        exit(-1);
+      }
+    } else {
+      print("Can't open index.html.");
+      req.response.statusCode = HttpStatus.NOT_FOUND;
+      req.response.close();
+    }
+  }
 }
 {% endprettify %}
-<div class="prettify-filename">mini_file_server.dart</div>
+<div class="prettify-filename">mini_file_server.dart</div><br>
 
-This code determines if the file exists,
+This code determines whether the file exists,
 and if it does, opens the file and pipes the contents
 to the HttpResponse object.
 
 The second server,
 whose code you can find in 
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/basic_file_server.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/basic_file_server.dart"
    target="_blank">basic_file_server.dart</a>,
 uses the `http_server` package.
 
 **Try it!**
 
-<ul>
+<ol>
   <li markdown="1">
 Run the server on the command line:
 
 {% prettify bash %}
-$ dart bin/httpserver/basic_file_server.dart
+$ cd httpserver/bin
+$ dart basic_file_server.dart
 {% endprettify %}
   </li>
 
   <li markdown="1">
-Type `localhost:4046` into the browser.
+Type [localhost:4046](http://localhost:4046/) into the browser.
 The server displays the same index.html file as the previous:
 
 ![The index.html file served by basic_file_server.dart.](images/index_file_4046.png)
 
   </li>
-</ul>
+</ol>
 
 In this server, the code for handling the request is much shorter,
 because the
@@ -994,54 +997,57 @@ class handles the details of serving the file.
 import 'dart:io';
 import 'package:http_server/http_server.dart';
 
-void main() {
-
+main() async {
   VirtualDirectory staticFiles = new VirtualDirectory('.');
-    
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4046).then((server) {
-    server.listen((req) {
-      [[highlight]]staticFiles.serveFile(new File('index.html'), req);[[/highlight]]
-    });
-  });
+
+  var serverRequests =
+      await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4046);
+  await for (var request in serverRequests) {
+    [[highlight]]staticFiles.serveFile(new File('index.html'), request);[[/highlight]]
+  }
 }
 {% endprettify %}
-<div class="prettify-filename">basic_file_server.dart</div>
+<div class="prettify-filename">basic_file_server.dart</div><br>
 
 Here, the requested resource, index.html, is served by
 the `serveFile()` method in the VirtualDirectory class.
-You don't need to write code to open a file, and pipe its contents
+You don't need to write code to open a file and pipe its contents
 to the request.
 
-Below is code for another file server that also uses the http_server
-package, `static_file_server.dart`.
+Another file server, `static_file_server.dart`,
+also uses the http_server package.
 This server serves any file from the server's directory
 or subdirectory.
 
-Run the file server, either on the command line or in Dart Editor,
-and test it with this URL `localhost:4048/file.txt`.
+Run `static_file_server.dart`,
+and test it with the URL 
+[localhost:4048/file.txt](http://localhost:4048/file.txt).
 Change `file.txt` to other filenames within the directory.
 
+Here is the code for `static_file_server.dart`.
+
 {% prettify dart %}
-    import 'dart:io';
-    import 'package:http_server/http_server.dart';
-    import 'package:path/path.dart';
+  import 'dart:io';
+  import 'package:http_server/http_server.dart';
+  import 'package:path/path.dart';
 
-    void main() {
-      var pathToBuild = join(dirname(Platform.script.toFilePath()));
+  main() async {
+    var pathToBuild = join(dirname(Platform.script.toFilePath()));
 
-      var staticFiles = new VirtualDirectory(pathToBuild);
+    var staticFiles = new VirtualDirectory(pathToBuild);
 [[note]]1[[/note]]   staticFiles.allowDirectoryListing = true;
 [[note]]2[[/note]]   staticFiles.directoryHandler = (dir, request) {
-        var indexUri = new Uri.file(dir.path).resolve('index.html');
+      var indexUri = new Uri.file(dir.path).resolve('index.html');
 [[note]]3[[/note]]     staticFiles.serveFile(new File(indexUri.toFilePath()), request);
-      };
+    };
 
-      HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4048).then((server) {
-[[note]]4[[/note]]     server.listen(staticFiles.serveRequest);
-      });
-    }
+    var server = await HttpServer
+        .bind(InternetAddress.LOOPBACK_IP_V4, 4048);
+[[note]]4[[/note]] server.listen(staticFiles.serveRequest);
+    print('Listening on port 4048');
+  }
 {% endprettify dart %}
-<div class="prettify-filename">static_file_server.dart</div>
+<div class="prettify-filename">static_file_server.dart</div><br>
 
 <span class="code-note">1</span>
 Allows clients to request files within the server's directory.
@@ -1062,9 +1068,8 @@ class handles requests that specify a file.
 ##Using https with bindSecure() {#using-https}
 
 _Example for this section:
-<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/bin/httpserver/hello_world_server_secure.dart"
+<a href="https://github.com/dart-lang/dart-tutorials-samples/blob/httpserver/httpserver/bin/hello_world_server_secure.dart"
    target="_blank">hello_world_server_secure.dart</a>._
-
 
 You might have noticed that the HttpServer class defines a
 method called `bindSecure()`, which provides a secure connection
@@ -1081,24 +1086,24 @@ a certificate created by the Dart team for testing.
 You **must** provide your own certificates for your servers.
 
 {% prettify dart %}
-    import 'dart:io';
+   import 'dart:io';
 
-    main() {
-[[note]]1[[/note]]  [[highlight]]var testPkcertDatabase = Platform.script.resolve('pkcert').toFilePath();[[/highlight]]
-[[note]]2[[/note]]  [[highlight]]SecureSocket.initialize(database: testPkcertDatabase,[[/highlight]]
-         [[highlight]]password: 'dartdart');[[/highlight]]
+   main() async {
+[[note]]1[[/note]]  [[highlight]]var testPkcertDatabase =[[/highlight]]
+         [[highlight]]Platform.script.resolve('pkcert').toFilePath();[[/highlight]]
+[[note]]2[[/note]]  [[highlight]]SecureSocket.initialize([[/highlight]]
+         [[highlight]]database: testPkcertDatabase, password: 'dartdart');[[/highlight]]
   
-[[note]]3[[/note]]  HttpServer.bindSecure('localhost', 4047,
-          [[highlight]]certificateName: 'localhost_cert'[[/highlight]]).then((server) {
-        print('listening');
-        server.listen((HttpRequest request) {
-          request.response.write('Hello, world!');
-          request.response.close();
-        });
-      });
-    }
+[[note]]3[[/note]]  var requests = await HttpServer.bindSecure('localhost', 4047,
+         [[highlight]]certificateName: 'localhost_cert'[[/highlight]]);
+     print('listening');
+     await for (HttpRequest request in requests) {
+       request.response.write('Hello, world!');
+       request.response.close();
+     }
+   }
 {% endprettify %}
-<div class="prettify-filename">hello_world_server_secure.dart</div>
+<div class="prettify-filename">hello_world_server_secure.dart</div><br>
 
 <span class="code-note">1</span>
 Get the path to the certificate database.
@@ -1133,16 +1138,16 @@ for further details about the classes and libraries discussed in this tutorial.
 
 ##What next? {#what-next}
 
-* [Dart for the Server](/server/)
-links to resources for writing standalone Dart applications,
-including servers.
+* If you haven't yet tried the server-side code lab,
+  try [writing a server app](/codelabs/server/).
+
+* [Dart on the Server](/server/)
+  links to resources for writing standalone Dart applications,
+  including servers.
 
 * [Get Input from a Form](/docs/tutorials/forms/) shows how to make a POST
-request from a browser-based client using an HTML form.
-It also discusses the related server.
-
-* Be sure to investigate the other packages on
-<a href="https://pub.dartlang.org/" target="_blank">pub.dartlang.org</a>.
+  request from a browser-based client using an HTML form.
+  It also discusses the related server.
 
 {% endcapture %}
 

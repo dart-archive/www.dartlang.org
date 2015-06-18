@@ -27,7 +27,7 @@ see [Dart Tools](/tools/).
 
 ## Getting Dartium
 
-If you use [Homebrew on the Mac](https://www.dartlang.org/downloads/mac.html),
+If you use [Homebrew on the Mac](/downloads/mac.html),
 you can include Dartium as part of the Dart SDK download.
 
 Otherwise, you can download Dartium directly:
