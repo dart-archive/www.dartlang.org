@@ -54,7 +54,7 @@ which look at performance in a variety of server-side scenarios.
 ### What happened to the charts that were previously on this page?
 
 The Dart VM and dart2js tools reached and exceeded
-their performance benchmarks. The Dart team continues to
+their original performance goals. The Dart team continues to
 track performance across numerous benchmarks,
 but the charts served their original purpose.
 
