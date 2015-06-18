@@ -16,7 +16,7 @@ Using Dartium means you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
 
 <aside class="alert alert-warning" markdown="1">
-**Warning:** This browser is a technical preview,
+**Warning:** This browser is intended for Dart development,
 and it might have security and stability issues.
 **Do not use Dartium as your primary browser,
 and do not distribute Dartium to users!**
@@ -27,8 +27,8 @@ see [Dart Tools](/tools/).
 
 ## Getting Dartium
 
-If you have an up-to-date version of [Dart Editor](/tools/editor/),
-you already have Dartium.
+If you use [Homebrew on the Mac](https://www.dartlang.org/downloads/mac.html),
+you can include Dartium as part of the Dart SDK download.
 
 Otherwise, you can download Dartium directly:
 
@@ -51,31 +51,28 @@ For other versions of Dartium, including dev channel releases, see the
 <aside class="alert alert-info" markdown="1">
 **Note:**
 The Dartium binary expires after 1 year. When that happens,
-you’ll need to download a new binary unless you're using the
-Dartium binary that comes with Dart Editor.
-(Dart Editor automatically updates its Dartium binary.)
+you’ll need to download a new binary.
 </aside>
 
 ## Installing Dartium
 
-You don’t usually need to do anything special to install Dartium:
-just unarchive the ZIP file.
-If you want Dart Editor to launch a particular copy of Dartium,
-then put that copy inside the `dart-sdk` directory
-of your Dart Editor installation directory,
-replacing its original copy of Chromium.
+You don’t usually need to do anything special to install Dartium.
+However, you may need to configure your IDE so that it can find Dartium.
+In WebStorm, for example, you can do this
+in **Preferences** > **Languages & Frameworks** > **Dart**.
+In the **Dartium path** field,
+type or browse to the location of the **Chromium** executable.
 
 <aside class="alert alert-info" markdown="1">
 **Note**: While this tool is _referred to_ as Dartium,
-the executable is named `Chromium`. In the Dart Editor bundle,
-it is located in the `chromium` directory.
+the executable is named `Chromium`.
 </aside>
 
 ## Launching Dartium
 
 To launch Dartium, navigate to its directory in your finder, and
 double-click the Chromium executable file. Or launch a web app
-in Dart Editor, or at the command line as described in
+from your IDE, or at the command line as described in
 [Using command-line flags](#using-command-line-flags).
 
 <aside class="alert alert-warning" markdown="1">
@@ -88,14 +85,14 @@ flag.](http://www.chromium.org/user-experience/user-data-directory)
 
 ## Linking to Dart source
 
-Use a script tag with a type `application/dart` to link to your Dart
+Use a script tag with a type `application/dart` to link to your main Dart
 source file. Example:
 
 {% prettify html %}
 <!DOCTYPE html>
 <html>
   <body>
-    <script type="application/dart" src="app.dart"></script>
+    <script type="application/dart" src="main.dart"></script>
 
     <!-- Support for non-Dart browsers. -->
     <script src="packages/browser/dart.js"></script>
@@ -105,8 +102,10 @@ source file. Example:
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-Dart Editor automatically adds both the `application/dart` script tag
-and the `dart.js` script tag into the project’s main HTML file.
+If your IDE or code editor uses the 
+[Stagehand](https://pub.dartlang.org/packages/stagehand)
+project generator to create sample content, these script tags
+are added for you in the generated code.
 </aside>
 
 For more information on linking to source code, see the article
