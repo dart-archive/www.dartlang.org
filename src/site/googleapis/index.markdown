@@ -20,7 +20,7 @@ is more convenient and less error-prone
 than using the raw REST protocol.
 
 To use any of these APIs, you need a Cloud Project.
-In addition, based on the API being used, you need either an API 
+In addition, based on the API being used, you need either an API
 key or a Client ID.
 And finally, depending on what kind of application is being
 used, you might need a Service Account.
@@ -46,15 +46,17 @@ you need to create a project, create the authentication credentials,
 and activate the API you want to use, all of which you do at
 <a href="https://console.developers.google.com">Google Developers Console</a>.
 
-The <a href="https://pub.dartlang.org/packages/googleapis">googleapis</a>
-package contains the APIs for many of Google's products.
-The googleapis package contains all the APIs that are available in a stable
-version.
-The <a href="https://pub.dartlang.org/packages/googleapis_beta">googleapis_beta</a>
+Support for Google APIs is in two packages—<a href="https://pub.dartlang.org/packages/googleapis">googleapis</a> and
+<a href="https://pub.dartlang.org/packages/googleapis_beta">googleapis_beta</a>.
+The googleapis package contains the APIs for all
+the APIs that are available in a stable version.
+The googleapis_beta
 package contains the APIs that are currently in
 beta and possibly only available through a Limited Preview program.
-The <a href="https://pub.dartlang.org/packages/googleapis_auth">googleapis_auth</a>
-package provides a way to obtain OAuth 2.0 credentials and an authenticated HTTP client
+
+A third package,
+<a href="https://pub.dartlang.org/packages/googleapis_auth">googleapis_auth</a>,
+provides a way to obtain OAuth 2.0 credentials and an authenticated HTTP client
 required to use these APIs.
 
 The rest of this document describes the following:
@@ -101,7 +103,7 @@ and eventual consistency for all other queries.
 <dt><img src="images/cloudstorage.png" width="36"> Google Cloud Storage</dt>
 <dd>
 Google Cloud Storage provides a fast, scalable, highly available object store that scales
-as your needs grow. 
+as your needs grow.
 You can access your data with an HTTP API, a web-based interface,
 or a commmand-line tool.
 </dd>
@@ -143,7 +145,7 @@ scenarios that Google supports.
 
 ## What do you need?
 
-To write a program that interactis with one of the Google Product,
+To write a program that interacts with a Google product,
 you need several tools and packages.
 
 <dl>
@@ -172,23 +174,21 @@ The googleapis_auth package
 provides different means for creating an HTTP client that can handle the
 authorization. This HTTP client is then passed to the API objects and takes care
 of augmenting the communication with the required authorization information.
-The Dart googleapis_auth client library is on
-<a href="https://pub.dartlang.org/packages/googleapis_auth">pub.dartlang.org</a>.
+The Dart googleapis_auth client library is available at
+<a href="https://pub.dartlang.org/packages/googleapis_auth">pub.dartlang.org/packages/googleapis_auth</a>.
 There you can find a detailed README file with code examples
 and explanatory text.
 </dd>
 
-<dt><strong>The googleapis package</strong></dt>
-<dd> The googleapis package is publicly available
-on <a href="https://pub.dartlang.org/packages/googleapis">pub.dartlang.org</a>.
+<dt><strong>The googleapis or googleapis_beta package</strong></dt>
+<dd> These packages are publicly available at
+<a href="https://pub.dartlang.org/packages/googleapis">pub.dartlang.org/packages/googleapis</a> and
+<a href="https://pub.dartlang.org/packages/googleapis_beta">pub.dartlang.org/packages/googleapis_beta</a>.
 Later, you'll see an example of how to use them in your Dart program.
 </dd>
 
 <dt><strong>Dart</strong></dt>
-<dd> The Dart Editor bundle contains everything you need to create,
-edit, test, and build your web-based or server-side application in Dart.
-You can get Dart Editor and other Dart downloads from
-<a href="/downloads/">the download page</a>.
+<dd> Get Dart from <a href="/downloads/">the download page</a>.
 </dd>
 
 </dl>
@@ -221,7 +221,7 @@ To run this example, you need to create a project, activate an API,
 and create a Client ID in Google Developers Console.
 This section provides instructions about how to do these for this
 particular example.
-For complete information and detailed explanations, refer to 
+For complete information and detailed explanations, refer to
 <a href="https://developers.google.com/console/help/new/">Google Developers Console Help</a>.
 
 #### Create project
@@ -252,9 +252,9 @@ then click <strong>Credentials</strong>.
 * In the popup window,
 click <strong>Web application</strong>, then fill in the form.
 Use http://localhost:8080 for
-<strong>Authorized JavaScript Origins</strong>.
+<strong>Authorized JavaScript origins</strong>.
 Because this example is a client-side-only application,
-don't put a value in <strong>Authorized Redirect URI</strong>.
+don't put a value in <strong>Authorized redirect URIs</strong>.
 This example runs on the local computer and uses port 8080.
 Ensure nothing else is using port 8080.
 If you later run this example from a different origin,
@@ -269,9 +269,10 @@ change <strong>&lt;please fill in&gt;</strong> to the client ID generated
 in the previous step.
 The client ID ends in apps.googeusercontent.com.
 
-* Run the program in Dart Editor.
+* In the top directory of the application, run `pub serve`.
 
-* Visit http://localhost:8080 in your browser window.
+* Visit http://localhost:8080 in a browser window.
+  After a little while, you'll see a built version of the app.
 
 * Click <strong>Authorize</strong>
 and accept the authorization on the page that appears.
@@ -505,7 +506,7 @@ only available through a Limited Preview program:
 
 * Read the reference documentation.
 These APIs are common to many languages including Python, Java, and others.
-You can refer to the general reference documentation at the 
+You can refer to the general reference documentation at the
 <a href="http://developers.google.com/products/">developers' products page</a>.
 Find the product you're interested in on that page and follow the link.
 Be sure to look the API reference docs for Dart as some of the Dart APIs have quirks.
