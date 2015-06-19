@@ -2,8 +2,6 @@
 layout: default
 title: Frequently Asked Questions (FAQ)
 description: You have questions about Dart, we have answers.
-rel:
-  author: eli-brandt
 has-permalinks: true
 ---
 
@@ -61,18 +59,18 @@ should have this kind of flexibility.
 
 ### Q. Is Dart under the control of a standards body?
 
-Yes. As of December 2013, [Ecma TC52][tc52] has been put in charge to own, 
-evolve, and publish the [standard specification][spec] of the Dart language. 
-In addition to TC52, we have also introduced a process for submitting 
-Dart enhancement proposals ([DEP][DEP]), because we wanted to make it easier 
+Yes. As of December 2013, [Ecma TC52][tc52] has been put in charge to own,
+evolve, and publish the [standard specification][spec] of the Dart language.
+In addition to TC52, we have also introduced a process for submitting
+Dart enhancement proposals ([DEP][DEP]), because we wanted to make it easier
 to contribute to and follow the evolvement of Dart.
 
 ### Q. How are you taking input on changes to the Dart repository?
 
-We listen to feedback and issues, and we review patches from contributors.  
+We listen to feedback and issues, and we review patches from contributors.
 A contributor with a good track record can become a committer to the repository.
-Google engineers will also be working in the public repository, making visible 
-changes. The project is lucky to have received many external patches and has 
+Google engineers will also be working in the public repository, making visible
+changes. The project is lucky to have received many external patches and has
 welcomed distributed committers.
 
 ### Q. Why didn't Google make Dart an open standard right from the start?
@@ -334,7 +332,7 @@ appreciation through careful design choices and fair communication about them.
 Type inferencing is not something specified by the language specification, but
 it is something that implementations are free to do. It's important to remember
 that Dart has a dynamic type system, so type inferencing doesn't play the same
-role as it does in languages such as Haskell. However, Dart Editor does do some
+role as it does in languages such as Haskell. However, IDEs might do some
 type inferencing, such as when you use var for local variables.
 
 ### Q. Why are type annotations optional?
@@ -426,14 +424,13 @@ to spend valuable resources on supporting browsers that are dying or dead.
 Also, dart2js can emit efficient code if it assumes a modern browser with
 ECMAScript5 or greater features.
 
-### Q. What browsers support the Dart VM now?
+### Q. Is Dart supported by my browser?
 
-As of December 2014, no production browsers can execute Dart code unless it's
-first compiled to JavaScript. However, [Dart Editor][editor]
-ships with a version of Chromium (called [Dartium]) that has the Dart
-VM integrated into it. Dartium not only executes Dart code natively, but it also
-has really good interoperability with Dart Editor so that you can debug your
-Dart applications directly from within Dart Editor.
+Although no production browsers can execute Dart code directly,
+all modern browsers can execute Dart code that's been compiled to JavaScript.
+For convenience while you're developing Dart code,
+you can use a version of Chromium (nicknamed [Dartium])
+has the Dart VM integrated into it.
 
 ### Q. Will the Dart VM get into Chrome?
 
@@ -555,7 +552,8 @@ only when necessary.
 ### Q. I have a large application written in GWT. How do I port it to Dart?
 
 Java and Dart are syntactically similar, so this might be easier than you think.
-You can rely on Dart Editor to flag any syntax problems. Alternatively, you may
+You can rely on the [Dart analyzer][dartanalyzer]
+to flag any syntax problems. Alternatively, you may
 consider porting one feature at a time to Dart and using the
 [JavaScript interoperability library][jsinterop] as the common middle
 ground. Be sure to watch our Google I/O 2012 talk <a
@@ -592,12 +590,16 @@ Both. Or either. It's really up to you. We envision a world where polymer
 lets you create and use custom elements. You should be able to use custom
 elements in any web app.
 
-### Q. Do I need to use Dart Editor to use Dart?
+### Q. Do I need to use a particular editor or IDE to write Dart code?
 
-Nope. You can write Dart code with your favorite editor. Dart Editor is
-designed to give new users a smooth onramp to Dart. We expect some developers
-to graduate to full-featured IDEs like Eclipse or WebStorm, both of which have
-Dart plugins. You can also try Dart plugins for Sublime, VIM, Emacs, and others.
+Nope.
+You can try out Dart code with [DartPad],
+and then use your favorite editor or IDE for real development.
+Some full-featured IDEs such as Eclipse, IntelliJ IDEA,
+and WebStorm have Dart plugins.
+Dart plugins also exist for Sublime, VIM, Emacs, and other editors.
+We used to provide a Dart-specific editor called Dart Editor,
+but as of 1.11 Dart Editor is no longer available.
 For more information, see [Dart Tools].
 
 ### Q. Can I build an Android app with Dart?
@@ -659,5 +661,7 @@ See [Who Uses Dart] for more.
 [Dart Tools]: /tools/
 [Dart and Google Cloud Platform]: /server/google-cloud-platform/
 [Who Uses Dart]: /community/who-uses-dart.html
-[spec]: http://www.ecma-international.org/publications/standards/Ecma-408.htm 
+[spec]: http://www.ecma-international.org/publications/standards/Ecma-408.htm
 [DEP]: https://github.com/dart-lang/dart_enhancement_proposals
+[dartanalyzer]: /tools/analyzer/
+[DartPad]: https://dartpad.dartlang.org
