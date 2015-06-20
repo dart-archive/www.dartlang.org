@@ -44,6 +44,17 @@ A custom element is an HTML element you can define yourself,
 encapsulating appearance or behavior (or both)
 within semantically meaningful HTML.
 
+<aside class="alert alert-warning" markdown="1">
+  **Note:**
+  This tutorial should be updated or deleted.
+  It relies on a version of Polymer.dart that will soon be obsolete.
+  A new version of Polymer.dart, based on the recently released
+  [Polymer 1.0](https://blog.polymer-project.org/announcements/2015/05/29/one-dot-oh/),
+  is in the works. This tutorial also depends on Dart Editor,
+  which is [retired as of 1.11](http://news.dartlang.org/2015/04/the-present-and-future-of-editors-and.html).
+  Pull requests [welcome!](https://github.com/dart-lang/www.dartlang.org/issues/1401)
+</aside>
+
 Custom elements are one feature of Polymer,
 a new type of library for the web based on Web Components.
 The Dart implementation of Polymer is called
