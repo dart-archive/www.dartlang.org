@@ -418,12 +418,11 @@ the WebSocket:
 {% prettify dart %}
 void handleWebSocket(WebSocket webSocket) {
   webSocket
-    .map((string) => JSON.decode(string))
-    .listen((json) {
+    .map((string) => JSON.decode(string)).listen((json) {
       var request = json['request'];
       switch (request) {
         case 'search':
-          // ...Kick off searches, and register handlers for results...
+          webSocket.addStream(_getResults(json).map((map) => JSON.encode(map)));
           break;
         // ...
       }
@@ -433,40 +432,39 @@ void handleWebSocket(WebSocket webSocket) {
 
 The call to `webSocket.map()` parses all the messages that the client
 sends over the WebSocket, converting each JSON-formatted message into an
-object. Then, after checking the message format, the handler initiates
-searches on GitHub and StackOverflow.
+object. Then, after checking the message format, the handler calls
+the helper function `_getResults()` which initiates
+searches on GitHub and StackOverflow, constructs a JSON-formatted
+message for each result, and uses `webSocket.addStream()` to forward
+the result to the client.
 
-Here's the code from the 'search' case that starts the searches and
-handles results as they come in:
+Here's the code from the `_getResults()` case that starts the searches and
+yields results as they come in:
 
 {% prettify dart %}
-for (var engine in searchEngines) {
-  engine.search(input)
-    .listen((result) {
-      var response = {
+for (var engine in _searchEngines) {
+  try {
+    await for (var result in engine.search(input)) {
+      var response = <String, Object>{
         'response': 'searchResult',
         'source': engine.name,
         'title': result.title,
         'link': result.link
       };
-      webSocket.add(JSON.encode(response));
-    }, onError: (error) {
-      // ...
-    }, onDone: () {
-      done++;
-      if (done == searchEngines.length) {
-        webSocket.add(JSON.encode({ 'response': 'searchDone' }));
-      }
-    });
+      yield response;
+    }
+  } catch (error, stack) {
+    // error handling
+  }
+}
+yield const <String, Object>{'response': 'searchDone'};
 {% endprettify %}
 <!-- TODO: check that code. add more }s? -->
 
 Each engine can return up to 3 results, but the WebSocket handler
-doesn't wait around for those results. Instead, a listener handles each
-result as it arrives, constructing a JSON-formatted message and using
-`webSocket.add()` to forward the result to the client. Once both engines
-have finished sending any results, the search server sends a
-'searchDone' message to the client.
+doesn't wait around for those results. Instead, each result is yieled to
+the caller of `_getResults` as soon as it is available. Once all search engines
+have finished sending results, a `searchDone` message is yielded.
 
 
 ### Using web APIs {#using-web-apis}
