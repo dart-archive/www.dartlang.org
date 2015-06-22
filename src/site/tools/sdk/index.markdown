@@ -17,13 +17,13 @@ see [Dart Tools](/tools/).
 
 ## Getting the SDK
 
-If you have an up-to-date version of [Dart Editor](/tools/editor/),
-you already have the SDK.
-It's in the `dart-sdk` subdirectory
-of the Dart installation directory.
+Although
+<a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>
+is a great way to learn how to write a simple app in the Dart
+language, once you are ready to start doing real-world development,
+you need the Dart SDK.
 
-Otherwise, you can 
-[download the SDK](/downloads/) directly.
+[Download the Dart SDK](/downloads/).
 
 ## What's in the SDK
 
@@ -60,14 +60,12 @@ For more information about the SDK, see its
 
 ## Installing the SDK
 
-Unzip the SDK download file. Dart is installed!
+{% include download-dart-configure-path.html %}
 
-<aside class="alert alert-info" markdown="1">
-**Note for Linux users:** If your system uses an older
-version of Ubuntu and you are compiling the SDK,
-you may need to update to GCC 4.6 or later.
-See the [Tools FAQ](../faq.html) for more information.
-</aside>
+If you are using an IDE, such as WebStorm, you
+must also set the location to the SDK. In WebStorm,
+you specify the path in
+**Preferences** > **Languages & Frameworks** > **Dart**.
 
 ## Filing bugs and feature requests
 
@@ -75,9 +73,9 @@ To see existing issues or create a new one,
 go to [dartbug.com](http://dartbug.com).
 Here are some handy searches:
 
-* [dart (VM) issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-VM)
-* [dart2js issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Dart2JS)
-* [dartanalyzer issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Analyzer)
-* [dartdocgen issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-DartDoc)
-* [pub issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Pub)
-* [issues for the SDK as a whole](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-SDK)
+* [dart (VM) issues](https://github.com/dart-lang/sdk/labels/Area-VM)
+* [dart2js issues](https://github.com/dart-lang/sdk/labels/Area-Dart2JS)
+* [dartanalyzer issues](https://github.com/dart-lang/sdk/labels/Area-Analyzer)
+* [dartdocgen issues](https://github.com/dart-lang/sdk/labels/Pkg-DocGen)
+* [pub issues](https://github.com/dart-lang/sdk/labels/Area-Pub)
+* [issues for the SDK as a whole](https://github.com/dart-lang/sdk/issues)

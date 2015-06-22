@@ -75,8 +75,8 @@ command is used to start up a development server.
 This server can be accessed via the browser on localhost and
 allows you to view your web-based app.
 
-Dart Editor also uses `pub serve` to serve all of the Dart scripts,
-and assets (HTML, images, CSS) to Dartium.
+IDEs such as WebStorm also use `pub serve` to serve all of the
+Dart scripts and assets (HTML, images, CSS) to Dartium.
 
 ### Command-line apps
 

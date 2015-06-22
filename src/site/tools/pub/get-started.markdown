@@ -22,8 +22,11 @@ a package.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-Dart Editor offers support for using pub, including creating,
-installing, updating, and publishing packages.
+IDEs such as WebStorm offer support for using pub,
+including creating, installing, updating, and publishing packages.
+To access the pub commands in WebStorm, double-click the
+`pubspec.yaml` file. The **Pub actions** are provided above the
+contents of the pubspec file.
 </aside>
 
 A package can live anywhere. For example, some packages are on GitHub. The Dart team publishes packages at [pub.dartlang.org](https://pub.dartlang.org), and we

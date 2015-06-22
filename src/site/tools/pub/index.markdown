@@ -11,9 +11,8 @@ short-title: "Pub"
 
 You can use the `pub` tool to manage Dart packages and assets.
 Pub also includes commands for creating, developing, and deploying Dart
-applications.
-When you [download](/downloads/) either Dart Editor or
-the Dart SDK, one of the tools that you get is `pub`.
+applications. When you [download](/downloads/) the Dart SDK,
+one of the tools that you get is `pub`.
 
 <aside class="alert alert-info" markdown="1">
 **Hey!**
@@ -22,8 +21,9 @@ You can do this using `pub global activate`. For more information, see
 [Running a script from your PATH](cmd/pub-global.html#running-a-script-from-your-path).
 </aside>
 
-You can access the `pub` commands either through Dart Editor or
-the command line, so use whatever approach is most convenient.
+You can access the `pub` commands either through an IDE,
+such as WebStorm, or at the command line.
+Use whatever approach is most convenient.
 
 <aside class="alert alert-info" markdown="1">
 **Problems?**

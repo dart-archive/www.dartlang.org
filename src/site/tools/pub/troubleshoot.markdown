@@ -83,7 +83,7 @@ On Windows:
 > set https_proxy=username:password@hostname:port
 {% endprettify %}
 
-If you are running pub from the Dart Editor or the Eclipse plug-in,
+If you are running pub from the Eclipse plug-in,
 the http proxy server environment variables are not used.
 In that case, set the `https.proxyHost` and `https.proxyPort`
 system properties:

@@ -8,10 +8,8 @@ title: "Installing and Configuring Pub"
 
 # {{ page.title }}
 
-[Pub](/tools/pub/) is in the [Dart SDK](/tools/sdk/),
-which you can download by itself or as part of
-[Dart Editor](/tools/editor/). You can use pub through
-[Dart Editor](/tools/editor/), or through the
+[Pub](/tools/pub/) is one of the tools in the [Dart SDK](/tools/sdk/).
+You can use pub through an IDE, such as WebStorm, or through the
 `pub` command-line app, which lives inside the `bin` directory of the Dart SDK.
 
 ## Get pub
