@@ -6,8 +6,6 @@ has-permalinks: false
 js:
 - url: /js/download-info.js
   defer: true
-- url: /js/download-chooser.js
-  defer: true
 ---
 
 # Getting Dart Is Easy!
@@ -26,56 +24,6 @@ js:
   </div>
 </div>
 
-## Choose your download
-
-<div class="row download-choices" markdown="1">
-  <div class="col-md-6" markdown="1">
-
-  <p align="center">
-  <button id="editor" class="btn download-choices" style="width:100%">
-  Editor + SDK
-  </button>
-  </p>
-
-  <p>
-  When you download
-  <a href="/tools/editor/">Dart Editor</a>, you also get the
-  <a href="/tools/sdk/">SDK</a>
-  and the ability to auto-update.
-  </p>
-
-  </div>
-
-  <div class="col-md-6" markdown="1">
-  <p align="center">
-  <button id="sdk" class="btn download-choices btn-primary" style="width:100%">
-  SDK only
-  </button>
-  </p>
-
-  <p>
-  If you already have a <a href="/tools/#plugins">favorite
-  editor</a>—WebStorm or Sublime,
-  for example—all you need is the
-  <a href="/tools/sdk/">SDK</a>.
-  </p>
-
-  </div>
-</div>
-
-<div class="editor" style="display:none" markdown="1">
-
-## Download Dart Editor
-
-{% for platform in site.custom.downloads.binaries %}
-<div class="{{platform.os}}" markdown="1">
-{% include downloads/_get_dart_editor.html %}
-</div>
-{% endfor %}
-
-</div>
-
-<div class="sdk" style="display:none" markdown="1">
 
 ## Download the SDK
 
@@ -85,7 +33,6 @@ js:
 </div>
 {% endfor %}
 
-</div>
 
 --------------------
 Need a specific version or another download?

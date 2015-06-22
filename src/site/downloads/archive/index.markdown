@@ -16,13 +16,14 @@ css:
 
 # {{page.title}}
 
-Use this index to download specific versions of the Dart SDK, Dartium,
-Dart Editor, and the Dart API documentation.
+Use this index to download specific versions of the
+[Dart SDK](/tools/sdk/),
+[Dartium](/tools/dartium/),
+[Dart Editor](/tools/editor/) (for 1.10 and earlier releases),
+and the [Dart API documentation](https://api.dartlang.org).
 
 <aside class="alert alert-warning" markdown="1">
-  With the exception of Dart Editor,
-  **these downloads don't auto-update.**
-
+  **These downloads don't auto-update.**
   If you're installing [on Mac](/downloads/mac.html) or
   [on Linux](/downloads/linux.html),
   you can use tools such as Homebrew and apt-get
