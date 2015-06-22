@@ -13,9 +13,10 @@ prev-title: "Home"
 
 {% capture whats_the_point %}
 
-* The Dart bundle has development tools, APIs, and samples.
+* The Dart SDK has development tools and libraries.
 * You can use Dart for web apps and command-line apps.
 * Run Dart web apps directly in Dartium.
+* Use an IDE or code editor (such as WebStorm) to create your app.
 * Compile Dart apps to JavaScript for other browsers.
 * All Dart apps have a main() function.
 * Dart supports top-level functions.
@@ -24,10 +25,9 @@ prev-title: "Home"
 
 {% capture sample_links %}
 
-This tutorial features two examples
-provided by Dart Editor:
+This tutorial features two examples:
 
-* helloworld
+* hello_world
 * simple
 
 {% endcapture %}
@@ -39,217 +39,156 @@ provided by Dart Editor:
 <h3>Get Dart. Run two apps.</h3>
 </div>
 
+If you haven't yet written any Dart code, go
+[build a pirate app in DartPad](/codelabs/darrrt/).
+That code lab features DartPad, which lets you
+write and run Dart apps in any browser
+without downloading anything.
+
 This tutorial gets you ready
-to begin writing web apps in Dart.
-Here you will download the Dart software,
-and use Dart Editor to
+to begin writing Dart apps in an editor or IDE.
+Here you will download the Dart software and
 create and run two small applications.
 
-* [Download the Dart software bundle](#download-dart)
+* [Download Dart and an IDE](#download-dart)
 * [What did you get?](#what-did-you-get)
-* [Start Dart Editor](#start-dart-editor)
 * [About Dart applications](#what-is-app)
 * [Create a command-line app](#create-cmd-line)
 * [Run a command-line app](#run-cmd-line)
 * [Create a web app](#create-web-app)
 * [Run a web app](#run-web-app)
-* [About the HTML, CSS, and Dart triumvirate](#source-files)
 * [About main() and other top-level functions](#top-level-functions)
 * [About file naming conventions](#file-names)
 * [Other resources](#other-resources)
 * [What next?](#what-next)
 
-##Download the Dart software bundle {#download-dart}
+##Download Dart and an IDE {#download-dart}
 
-Get Dart.
-The Dart download includes <a href="/tools/editor/">Dart Editor</a>,
-which you'll be using throughout this tutorial.
-(For more options, go to the [download page](/downloads/).)
+Once you are ready to move beyond DartPad and create Dart apps in
+a real world environment, you need to download some software.
 
-<div align="center">
-  {% include downloads/_dart-editor.html buttonclass="btn-primary" %}
-</div>
+At the very least, you need the Dart SDK, which contains all of
+the tools and libraries that you need for basic Dart development.
+We also recommend that you download Dartium, which is useful for
+web development. You may also want an IDE or code editor.
+This tutorial uses WebStorm.
 
-<p class="os-choices" >
-  The Dart tools
-  work in recent versions of
-  {% include os-choices.html %}
-</p>
+* [Get the Dart SDK](/downloads/)
+* Recommended: [Get Dartium](/downloads/)
+* Recommended: [Get WebStorm](/tools/webstorm/)
 
-
-<aside class="alert alert-info">
-  <b>Note:</b> The Dart tools <b>do not support Windows XP</b>.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+You can also use this tutorial even without an IDE.
+Get a set of basic Dart coding templates from the
+[Stagehand](https://pub.dartlang.org/packages/stagehand)
+project generator package.
+Use the [pub serve](/tools/pub/cmd/pub-serve.html)
+command when you need a web server.
 </aside>
-
 
 ##What did you get? {#what-did-you-get}
 
-Unzip the file.
-The resulting directory,
-your *Dart installation directory*,
-contains the following:
+When you download the SDK, you get a directory
+that contains tools (under `bin`) and libraries (under `lib`),
+along with supporting files.
+The location of the directory (we'll call it the _&lt;sdk-install-dir&gt;_)
+depends on your platform and how you downloaded the SDK.
 
-<div>
-  <hr>
-  <div class="row">
-    <div class="col-md-2">
-    <img class="scale-img-max" src="images/dart-editor-icon.png"
-         width="77" height="93" alt="Dart Editor"/>
-    </div>
-    <div class="col-md-7">
-    Dart Editor is a powerful,
-    lightweight, open source editor.
-    With it you can create and edit files,
-    manage the files and directories for your project,
-    look up APIs, debug your code,
-    and control runtime conditions using named launches.
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-2">
-    <img class="scale-img-max" src="images/chromium.png"
-         width="81" height="89" alt="Dartium, a special Chromium build"/>
-    </div>
-    <div class="col-md-7">
-    This is a special build of the Chromium web browser, 
-    called Dartium, that has the Dart VM (virtual machine) embedded.
-    You can run your apps directly in this browser,
-    or use Dart Editor to do it for you,
-    thereby streamlining the build-test cycle.
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-2">
-    <img class="scale-img-max" src="images/dart-sdk-directory.png"
-         width="86" height="94" alt="dart-sdk directory"/>
-    </div>
-    <div class="col-md-7">
-    The dart-sdk directory contains the Dart software development kit.
-    Here you will find Dart libraries, such as dart:core and dart:html,
-    that define APIs useful to all apps.
-    Within, the bin directory contains several useful command-line tools,
-    such as the Dart-to-JavaScript compiler,
-    and the command-line version of the Dart VM.
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-2">
-    <img class="scale-img-max" src="images/samples-directory.png"
-         width="81" height="91" alt="samples directory"/>
-    </div>
-    <div class="col-md-7">
-    The samples directory contains the complete source code
-    for several Dart web applications.
-    You can experiment with
-    these examples in Dart Editor or your favorite IDE.
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-2">
-    <img class="scale-img-max" src="images/and-the-rest.png"
-         width="81" height="71" alt="more directories"/>
-    </div>
-    <div class="col-md-7">
-    You might notice some other directories
-    in the Dart installation directory.
-    You can ignore them for now. 
-    </div>
-  </div>
-  <hr>
-</div>
+Under _&lt;sdk-install-dir&gt;_/lib are Dart libraries, such as dart:core,
+dart:html, and dart:io, that define APIs useful to most apps.
+The _&lt;sdk-install-dir&gt;_/bin directory contains several useful
+command-line tools, such as the **pub** package manager,
+the Dart-to-JavaScript compiler,
+and the command-line version of the Dart VM.
 
-## Start Dart Editor {#start-dart-editor}
+When you download Dartium, you get a special build of the
+Chromium web browser that has the Dart VM (virtual machine) embedded.
+(While the app is referred to as _Dartium_, the executable
+is actually named **Chromium**.)
+You can run your apps directly in this browser,
+or have your IDE or code editor do it for you,
+thereby streamlining the build-test cycle.
 
-Invoke Dart Editor by double-clicking its icon
-in your Dart installation directory
-<img class="scale-img-max" src="/imgs/Dart_Logo_21.png"
-     width="21" height="21" alt="Dart Editor icon">.
+### About WebStorm {#start-webstorm}
 
-<img class="scale-img-max" src="images/dart-editor-ui.png"
-     alt="Dart Editor startup screen with call outs.">
-
-Dart Editor displays its Welcome Page
-in a tab in the **Editor pane**.
-
-Dart Editor includes the following features:
-
-Send feedback button
-: Allows you to share bugs and requests
-directly with the Dart Editor team
-as well as the larger Dart team.
-
-Search field
-: Searches every file in your **Files view** for the entered text.
-Results for text searches are displayed in a **Search view**.
-Within that view,
-double-click a file to see it in the **Editor pane**.
-All occurrences of the search string in the **Editor pane** are highlighted.
-
-Run button
-: Runs the application associated with the file
-that is currently selected in the **Files view**.
-
-New project button
-: Creates a directory and, within it,
-the files for a new application.
-Alternatively, you can use the
-**File > New Project** menu item
-or the **Create an application** button
-on the Welcome page.
-
-Files view
-: Shows a hierarchical view of your Dart applications
-and their associated files.
-Double-click a file in the **Files view** to see its contents
-in the **Editor pane**.
-If you single-click a file in the **Files view**,
-the file is selected,
-but not necessarily displayed in the **Editor pane**.
-You must double-click the file.
-
-Editor pane
-: Provides the basic editing functionality you'd expect,
-plus features such as Dart code completion,
-API browsing, and support for refactoring.
-The first time you use Dart Editor,
-it shows the Welcome Page in the Editor pane,
-which provides quick access to Dart resources
-and some nifty samples.
-The Welcome Page is also available under the **Tools** menu.
-
-Problems pane
-: Displays warning and error messages.
-
-<aside class="alert alert-info">
-<b> Problems? </b>
-See <a href="/tools/editor/troubleshoot.html">Troubleshooting Dart Editor</a>.
-</aside>
+A [variety of IDEs and code editors](/tools/) are available,
+but we recommend [WebStorm](/tools/webstorm/), which you can
+[download from JetBrains](https://www.jetbrains.com/webstorm/download/).
+WebStorm is preconfigured for Dart development.
+If you use another IDE or code editor, you must configure it for Dart.
+See the [tools page](/tools/) for information on other products.
 
 ##About Dart applications {#what-is-app}
-
-At minimum, a Dart application has
-
-* one Dart source file&mdash;a
-  file with the .dart suffix that contains Dart code
-* one top-level main() function.
-  This is the entry point for your application.
 
 There are two kinds of Dart applications:
 command-line applications and web applications.
 A command-line application is a standalone program
-that you run in the Dart VM from the command-line in a terminal window.
+that you run in the Dart VM from the command line in a terminal window.
 Web applications are hosted on a web page and run in a browser
 (either directly in a browser that supports Dart
 or by compiling to JavaScript).
 
+A minimal Dart application has
+
+* one Dart source file&mdash;a
+  file with the .dart suffix that contains Dart code.
+* one top-level main() function.
+  This is the entry point for your application.
+* a pubspec.yaml file containing the name of the app and (optionally)
+  a description. For example:
+
+{% prettify yaml %}
+name: hello_world
+description: A sample command-line application.
+{% endprettify %}
+
+###Pub package manager
+
+The [`pub`](/tools/pub) tool allows you to manage Dart packages.
+Pub also includes commands for creating, developing, and deploying
+Dart applications. Behind the scenes, [`pub run`](/tools/pub/cmd/pub-run.html),
+for example, uses the Dart VM tool to run a command-line application, 
+and [`pub build`](/tools/pub/cmd/pub-build.html) uses
+the Dart-to-JavaScript compiler to convert a Dart web app to JavaScript.
+
+Pub uses the metadata in the `pubspec.yaml` file to determine
+your app's dependencies and any special setup that your app requires.
+Pub assumes that the files and directories in a Dart application are
+laid out in a particular way. The following diagram shows some of the
+conventions used by pub. Not all of these directories are required.
+
+<img class="scale-img-max" src="images/pub-directory-structure.png"
+alt="Pub's directory structure including bin, lib, web and build directories,
+and the pubspec file">
+
+`bin`
+: The main files for a command-line application. One of the
+  files must include a top-level main() function.
+
+`build`
+: Created by `pub build` to contain the generated, deployable version
+  of a Dart web app.
+
+`lib`
+: Additional code to be used by your command-line or web application.
+
+`pubspec.yaml`
+: The app's metadata, including information about which
+  packages the app depends on and which versions of those
+  packages are required.
+
+`web`
+: The main files for a web application, including HTML, Dart,
+  and CSS files. One of the Dart files must include a top-level
+  main() function.
+
+You can invoke pub commands from the command line or from the WebStorm UI.
+
 ###Command-line applications
 
 Dart command-line applications
-run standalone from the command-line,
+run standalone from the command line,
 independent of a web browser.
 Command-line apps are often used
 to provide server-side support to a web app,
@@ -260,14 +199,6 @@ The Dart VM runs Dart code directly without intermediate compilation.
 <img class="scale-img-max" src="images/dartvm-cmd-line.png"
      alt="Run a command-line application without compilation">
 
-Conveniently, you can run command-line apps
-directly in Dart Editor with the click of the Run button
-<img class="scale-img-max" src="images/run.png" width="16" height="16"
-     alt="Run button">.
-Alternatively,
-use the Dart VM tool
-in the `dart-sdk/bin` directory in your Dart installation directory.
-
 ###Web applications
 
 Dart web applications run inside of a browser page.
@@ -276,53 +207,42 @@ a web app requires an HTML file to host the app.
 Often, a web app provides the client-side
 user interface for a server.
 
-You can run your Dart web app from Dart Editor
-by clicking the Run button
-<img class="scale-img-max" src="images/run.png" width="16" height="16"
-     alt="Run button">.
-By default, Dart Editor invokes Dartium,
-which has the Dart VM embedded in it,
-and loads your HTML file,
-which in turn loads your app.
-
-<img class="scale-img-max" src="images/dartvm-web-app.png"
-     alt="Run a web application directly in a Dart-savvy browser">
-
-If you want to see your web app in a browser
-that does not support Dart,
-you can compile your Dart code to JavaScript
-using the Dart-to-JavaScript compiler,
-which is in the `dart-sdk/bin` directory in your Dart installation directory.
-You then load the resulting JavaScript file
-into your browser of choice.
-Dart Editor provides a convenient menu option for
-running web apps as JavaScript.
-
-<img class="scale-img-max" src="images/dartvm-js.png"
-     alt="Run a web application by compiling to JavaScript">
-
 The rest of this tutorial steps you through
 creating and running first a command-line application
 and then a web application.
 
 ##Create a command-line app {#create-cmd-line}
 
-In Dart Editor, choose **File > New Project** from the menu
-or click the New Project button
-<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New Project button"/>.
-A dialog appears asking you to fill out a simple form.
-
 <ol>
 <li markdown="1">
-Type `helloworld` in the **Application Name** text field.
-By convention, application names are lowercase.
-This name is used for the app's directory.
+Launch WebStorm. This brings up a "Welcome to Webstorm" dialog.
 </li>
 
 <li markdown="1">
-Type or browse to the directory where you want to save the files.
-By default, Dart Editor creates a new directory named `dart`
-in your home directory.
+If this is the first time you have run WebStorm, you will
+need to set the paths to Dartium and the SDK.
+You can find the instructions at
+[Configuring Dart support](/tools/webstorm/#configuring-dart-support).
+</li>
+
+<li markdown="1">
+Choose **Create New Project**.
+A dialog appears asking you to fill out a simple form.
+</li>
+
+<li markdown="1">
+Select **Dart** from the list on the left.
+</li>
+
+<li markdown="1">
+Replace the `untitled` portion of the string with `hello_world`.
+This name is used for the app's directory name and package name.
+By convention, these names are lowercase, with words
+separated by underscores (`_`).
+</li>
+
+<li markdown="1">
+Make sure that **Generate sample content** is checked.
 </li>
 
 <li markdown="1">
@@ -330,89 +250,128 @@ Select **Console Application** from the list.
 </li>
 
 <li markdown="1">
-Click **Finish**.
+Click **Create**.
 </li>
 </ol>
 
-Dart Editor creates a directory for the application
+WebStorm creates a `hello_world` directory for the application
 and boilerplate files for a small command-line app.
-The **Files view** displays
-the file hierarchy for the application.
+It also runs `pub get` to download the packages that your app depends on.
+Click `hello_world` in the left pane to expand the tree and show
+the directory structure.
 
-Some of the files and directories in the helloworld application
+Some of the files and directories in the hello_world application
 include the following:
 
-helloworld
-: Contains boilerplate files and directories
-  for a simple command-line app.
-
-pubspec.yaml
-: Declares which libraries
-  your application needs.
-  The `packages` directories contain those libraries.
-  The `pubspec.lock` file specifies the version numbers
-  of the libraries on which the application depends.
+.pub
+: Support files used by the pub tool. You can ignore this.
 
 bin
 : Contains the source files for the application.
-  The main source file for this example is `main.dart`.
+  Expand `bin` to see `main.dart`, which is the main
+  Dart file for this example.
 
-main.dart
-: Contains the Dart source code for this app.
+pubspec.yaml
+: Declares which packages your application needs.
 
-The **Editor pane** shows the contents of `main.dart`.
-The program prints
-'Hello, World!' to the standard output stream
-using the print() function,
-which is provided by the dart:core library.
-The functions and objects defined in the core library
+pubspec.lock
+: A generated file that specifies the version numbers
+  of the packages on which the application depends.
+
+lib
+: Contains library code. Expand `lib` to see
+  `hello_world.dart`, a library file with
+  a simple calculate() method.
+
+packages
+: Contains code for the packages that your app uses.
+  This code is fetched by the `pub get` command.
+
+Double-clicking any filename displays the contents of that file
+in the pane to the right.
+
+The messages pane at the bottom contains the results of calling
+`pub get`, which fetches the packages used by the app.
+
+When executed, the program prints
+"Hello, World!" to the standard output stream,
+using the print() function provided by the dart:core library.
+The functions and objects defined in the dart:core library
 are automatically available to all Dart applications.
 
 ##Run a command-line app {#run-cmd-line}
 
-To run the helloworld app from Dart Editor:
+In WebStorm, you can run the app in any of the following ways:
 
-* Select the main.dart file in the **Files view**.
 * Click the Run button
 <img class="scale-img-max" src="images/run.png" width="16" height="16"
-     alt="Run button">.
+     alt="Run button"> in the upper right corner.
+* Click the Run button to the left of the messages pane.
+* Right-click main.dart in the files pane and select **Run 'main.dart'**
+  from the pop-up menu.
 
-Dart Editor opens a new panel,
-called the **Output view**,
-and displays the output of the helloworld app.
+WebStorm shows the output at the bottom in a pane titled
+**Run main.dart**.
+
+Alternatively, you can run the app from the command line using
+`pub run`.
+
+{% prettify none %}
+$ cd <path-to-hello_world>/hello_world
+$ pub run bin/main.dart
+{% endprettify %}
 
 ##Create a web app {#create-web-app}
 
 Now let's create a web application.
-As you did when creating a command-line application,
-click the **New Project** button
-<img class="scale-img-max" src="images/newapp.png" width="17" height="16" alt="New Project button"/>.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+These instructions assume you're using WebStorm and Dartium.
+Instead, you can download a set of basic code templates from the
+[Stagehand](https://pub.dartlang.org/packages/stagehand)
+project generator package and run the web example from the
+command line using `pub serve`.
+</aside>
+
+Select **File** > **New Project** from the menu.
 
 <ol>
 <li markdown="1">
-Type `simple` in the application name text field.
+Select **Dart** from the list on the left.
 </li>
 
 <li markdown="1">
-Type or browse to the directory where you want to save the files.
+Replace `untitled` with `simple` in the **Location** field.
+</li>
+
+<li markdown="1">
+Make sure that **Generate sample content** is checked.
 </li>
 
 <li markdown="1">
 Select **Uber Simple Web Application** from the list.
+(It is at the bottom of the list&mdash;you may have to lengthen the dialog
+ window to see it.)
 </li>
 
 <li markdown="1">
-Click **Finish**.
+Click **Create**.
 </li>
 </ol>
 
-Dart Editor creates the directory and files needed for a basic
+WebStorm creates the directory and files needed for a basic
 web application that prints "Your Dart app is running"
 in the browser window.
 
-As before, the top-level directory is named after your application.
+The top-level directory is named `simple`.
+Expand `simple` in the left pane
+to see the files. This is a client app, so expand the
+`web` directory to see the client files.
 The Dart source file that contains the main() function is
-located in `web/main.dart`, and the `web/index.html` file hosts the app.
+`web/main.dart`, and the `web/index.html` file hosts the app.
+The `web/styles` directory contains the CSS styling for the app,
+but you can ignore that for now.
 
 The main() function in the simple app contains Dart code 
 that puts text on the browser page.
@@ -425,62 +384,38 @@ and the CSS source yourself.
 
 ##Run a web app {#run-web-app}
 
-To run the simple app from Dart Editor:
+In WebStorm, you can run the app in any of the following ways:
 
-* Select `index.html`.
 * Click the Run button
 <img class="scale-img-max" src="images/run.png" width="16" height="16"
-     alt="Run button">.
+     alt="Run button"> in the upper right corner.
+* Right-click index.html in the files pane and select **Run 'index.html'**
+  from the pop-up menu.
 
-Dart Editor invokes Dartium providing it with
-the URL for the simple app's HTML file.
-Dartium loads the simple app's HTML file
-and the embedded app, which prints "Your Dart app is running" in the browser.
+WebStorm invokes Dartium (or, if you don't have Dartium,
+your default browser) to display the simple app.
+Behind the scenes, WebStorm uses `pub serve`,
+which compiles the app to JavaScript
+so that non-Dartium browsers can run it.
+The browser loads the simple app's HTML file
+and the embedded app,
+which prints "Your Dart app is running" in the browser.
 
-###Run as JavaScript
+Alternatively, you can run the app from the command line using
+`pub serve`.
 
-You can run Dart web applications in other browsers
-by compiling to JavaScript.
-Dart Editor provides a convenient menu option for doing so.
-Right click on `index.html`
-and select **Run as JavaScript** from the menu.
+{% prettify none %}
+$ cd <path-to-simple>/simple
+$ pub serve 
+Serving simple web on http://localhost:8080
+Build completed successfully.
+{% endprettify %}
 
-Dart Editor compiles the app to JavaScript and
-invokes your default browser, which runs the app.
-
-##About the HTML, CSS and Dart triumvirate {#source-files}
-
-Typically three files&mdash;an HTML file, a Dart file,
-and a CSS file&mdash;together implement a Dart web application.
-Each is written in a different language
-and each is responsible for a different aspect of the program:
-
-| Language | Purpose |
-|---|---|
-| HTML | Describes the content of the document (the page elements in the document and the structure) |
-| CSS | Governs the appearance of page elements |
-| Dart | Implements the interactivity and dynamic behavior of the program |
-{: .table}
-
-HTML is a language for describing web pages.
-Using tags, HTML sets up the initial page structure,
-puts elements on the page,
-and embeds any scripts for page interactivity.
-HTML sets up the initial document tree
-and specifies element types, classes, and IDs,
-which allow HTML, CSS, and Dart programs to refer to the same elements.
-
-CSS, which stands for Cascading Style Sheets, describes the appearance
-of the elements within a document.
-CSS controls many aspects of formatting:
-type face, font size, color, background color,
-borders, margins, and alignment, to name a few.
-
-Dart code is embedded into an HTML file as a script.
-A Dart program can
-respond to events such as mouse clicks,
-manipulate the elements on a web page dynamically,
-and can save information.
+Navigate to [http://localhost:8080](http://localhost:8080)
+in any modern browser to see the output.
+The `pub serve` command starts an HTTP server and,
+whenever a Dart file is requested, compiles the file to JavaScript
+that any modern browser can execute.
 
 ##About main() and other top-level functions {#top-level-functions}
 
@@ -526,17 +461,22 @@ in which case the arguments are set apart by commas.
 
 ##About file naming conventions {#file-names}
 
-When creating an application with Dart Editor,
+When creating an application with WebStorm,
 you are asked to provide an application name.
 By convention, application names,
-and thus, the related files and directories, are lowercase.
+and thus, the related files and directories, are lowercase,
+with words separated by underscores (`_`).
 
 ##Other resources
 
 <ul>
   <li>
-    The <a href="/tools/editor">Dart Editor</a> page
+    The <a href="/tools/webstorm/">WebStorm</a> page
     provides more information about this tool.
+  </li>
+  <li>
+    The <a href="/tools/pub/">pub</a> pages contain more information
+    about Dart's package and asset manager.
   </li>
   <li>
     The <a href="/docs/">Programmer's Guide</a>
@@ -551,7 +491,7 @@ and thus, the related files and directories, are lowercase.
 * Get the code for all of the Dart tutorials samples.
   <a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
   Download the ZIP file</a>, unzip it,
-  and open `dart-tutorials-samples-master` in Dart Editor.
+  and open `dart-tutorials-samples-master` in WebStorm.
 
 * Go to the next tutorial,
   [Connect Dart & HTML](/docs/tutorials/connect-dart-html/),
