@@ -273,7 +273,6 @@ so for the app to work,
 you have to kill the other process and start slambookserver again.
 Alternatively,
 you can change the port number in both the client and the server code.
-(Avoid using 3030; Dart Editor listens there.)
 Then run both the client and the server locally on your machine.
 </aside>
 
@@ -953,9 +952,8 @@ Here each checkbox is bound to a separate boolean value within a map.
   </li>
   <li> The previous tutorial,
        <a href="/docs/tutorials/fetchdata/">Fetch Data Dynamically</a>,
-       contains a more basic client program that relies on the server
-       within Dart Editor (port 3030 on localhost),
-       to serve the contents of a JSON file.
+       contains a more basic client program that loads the contents of a
+       JSON file.
   </li>
 </ul>
 
