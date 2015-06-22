@@ -15,15 +15,9 @@ description: "A tool that makes your code follow the conventions in the
 Use _dartfmt_ to format your Dart code according to the conventions in the
 [Dart Style Guide](/articles/style-guide/).
 
-<aside class="alert alert-warning" markdown="1">
-Dartfmt has been re-written for the 1.9 release.
-Please file issues and requests on the
-[dart_style](https://github.com/dart-lang/dart_style/issues)
-repo on GitHub.
-</aside>
-
-To format your code in Dart Editor, right-click in
-the editor pane to bring up the menu, and select the **Format** option.
+To format your code in WebStorm,
+right-click anywhere in a Dart file's content pane,
+and select **Reformat with Dart Style** from the popup menu.
 
 The formatter fixes indentation and white space, and inserts line
 breaks where appropriate. Only white space is affected.
@@ -93,4 +87,8 @@ Common command-line options for dartfmt include:
 
 * [Dart Style Guide](/articles/style-guide/)
 
+## Filing bugs and feature requests
 
+  To see existing issues or create a new one, go to the
+  [dart_style](https://github.com/dart-lang/dart_style/issues)
+  repo on GitHub.

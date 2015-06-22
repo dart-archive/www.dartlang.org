@@ -10,6 +10,8 @@ has-permalinks: false
   
 # {{ page.title }}
 
+{% include dart-editor-obsolete.html %}
+
 If you are completely new to using Dart Editor,
 first read [Dart Editor](/tools/editor/).
 

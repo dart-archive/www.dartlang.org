@@ -10,8 +10,7 @@ short-title: "dart"
 # {{ page.title }}
 
 You can use the _dart_ tool (`bin/dart`) to run Dart command-line apps such as
-server-side scripts, programs, and servers. During development, you also
-have the option to run command-line apps using [Dart Editor](/tools/editor/).
+server-side scripts, programs, and servers.
 
 ### Basic usage {#basic-usage}
 

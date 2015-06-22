@@ -27,7 +27,9 @@ Can all Dart files be put into a source code repository?
 
 
 How do you debug an app once it has been compiled to JavaScript?
-: Dart web apps are easiest to debug with Dart Editor
-  and Dartium. However, the [Debugging code produced by dart2js](dart2js/#debugging)
-  page has some tips for specific browsers.
+: Dart web apps are easiest to debug with an IDE, like WebStorm,
+  and Dartium. However,
+  the [debugging](/tools/dart2js/#debugging)
+  section of the dart2js documentation
+  has some tips for specific browsers.
 

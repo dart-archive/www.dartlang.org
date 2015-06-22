@@ -11,6 +11,8 @@ has-permalinks: false
 
 # {{page.title}} 
 
+{% include dart-editor-obsolete.html %}
+
 Build.dart is a simple build script convention
 that lets you add behavior to the Dart Editor build system.
 If the root of a Dart Editor project has a script named `build.dart`,

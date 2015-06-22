@@ -11,8 +11,7 @@ has-permalinks: false
 # {{ page.title }}
 
 The Dart plugin for Eclipse
-provides much of the functionality of Dart Editor
-within your existing Eclipse installation.
+adds Dart support to your existing Eclipse installation.
 The Eclipse plugin is not supported on Windows.
 **Do not use the Eclipse plugin on Windows.**
 To learn about other tools you can use for Dart development,
@@ -79,7 +78,5 @@ That page also shows current version of the SDK that is installed.
 ## Filing bugs and feature requests
 
 To see existing issues or create a new one, go to the
-[plugin issue list](https://code.google.com/p/dart/issues/list?can=2&amp;q=Editor%3DPlugin).
-Because the plugin shares much of its code with
-[Dart Editor](/tools/editor/), you might also want to check
-[Dart Editor issues](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Editor).
+[eclipse issue list](https://github.com/dart-lang/eclipse3/issues)
+on GitHub.

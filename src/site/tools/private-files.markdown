@@ -13,7 +13,7 @@ When you put Dart source code in a repository,
 whether using the [pub](/tools/pub) tool, [GitHub](https://github.com/)
 or another source code management system,
 you shouldn't include most of the files
-that Dart Editor, the pub tool, and other tools generate.
+that your IDE or code editor, the pub tool, and other tools generate.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -33,7 +33,7 @@ are useful or essential when you deploy an app.
 ## The rules
 
 **Don't commit** the following files and directories
-created by pub, Dart Editor, and dart2js:
+created by pub and dart2js:
 
 {% prettify none %}
 build/

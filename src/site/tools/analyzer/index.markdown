@@ -14,7 +14,8 @@ has-permalinks: false
 You can use the *dartanalyzer* tool (`bin/dartanalyzer`) to statically
 analyze your code at the command line, checking for errors and warnings
 that are specified in the [Dart Language Specification](/docs/spec/).
-Dart Editor performs the same analysis that dartanalyzer does.
+DartPad, code editors, and IDEs such as WebStorm
+use the same analysis engine that dartanalyzer uses.
 
 ## Basic usage
 

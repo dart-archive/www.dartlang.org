@@ -10,21 +10,13 @@ has-permalinks: false
 
 # {{ page.title }}
 
+{% include dart-editor-obsolete.html %}
+
 For an overview, watch this short video on how to use Dart Editor.
 
 <iframe style="display:block;margin: 0 auto;" width="560" height="315"
     src="//www.youtube.com/embed/VQLdm8BY1Ao?vq=hd720" frameborder="0"
     allowfullscreen></iframe>
-
-<p></p>
-<aside class="alert alert-warning" markdown="1">
-**1.10 is the last release for Dart Editor.**
-We recommend using
-[DartPad](https://dartpad.dartlang.org) to play with Dart and
-[WebStorm](/tools/webstorm/) to develop with Dart.
-For more information, see the
-[announcement](http://news.dartlang.org/2015/04/the-present-and-future-of-editors-and.html).
-</aside>
 
 ## Installing Dart Editor
 
