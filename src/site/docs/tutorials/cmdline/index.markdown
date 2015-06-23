@@ -66,22 +66,15 @@ command-line arguments, files and directories, and more.
 ## Running an app with the standalone Dart VM {#run-the-first-app}
 
 To run a command-line app, you need the Dart VM (`dart`),
-which comes in the [Dart SDK download](/tools/sdk/).
-(If you downloaded Dart Editor, you already have the Dart VM.)
+which comes in the [Dart SDK download](/downloads/).
 
-If you installed the Dart download in a directory called `~/myDartDownload`,
-you can find `dart`
-in `~/myDartDownload/dart-sdk/bin`.
-
-<div markdown="1">
-
-![The path to the Dart VM](images/filestructure.png)
-
-</div>
-
+The location of the SDK installation directory
+(we'll call it _&lt;sdk-install-dir&gt;_) depends on your platform
+and how you downloaded the SDK.
+You can find `dart` in _&lt;sdk-install-dir&gt;_/bin.
 By putting this directory in your PATH
 you can refer to the `dart` command and other commands,
-such as the dart analyzer, by name.
+such as [dartanalyzer](/tools/analyzer/), by name.
 
 Let's run a small program.
 
@@ -425,12 +418,12 @@ return Future.forEach(paths, (path) {
 
   return stream
       ...
-      [[highlight]].listen((line) {
-        if (showLineNumbers) {
-          stdout.write('${lineNumber++} ');
-        }
-        stdout.writeln(line);
-      })[[/highlight]].asFuture()
+      [[highlight]].listen((line) {[[/highlight]]
+        [[highlight]]if (showLineNumbers) {[[/highlight]]
+          [[highlight]]stdout.write('${lineNumber++} ');[[/highlight]]
+        [[highlight]]}[[/highlight]]
+        [[highlight]]stdout.writeln(line);[[/highlight]]
+      [[highlight]]})[[/highlight]].asFuture()
           .catchError((_) => _handleError(path));
 });
 {% endprettify %}
@@ -447,8 +440,8 @@ return Future.forEach(paths, (path) {
   Stream<List<int>> stream = new File(path).openRead();
 
   return stream
-      [[highlight]].transform(UTF8.decoder)
-      .transform(const LineSplitter())[[/highlight]]
+      [[highlight]].transform(UTF8.decoder)[[/highlight]]
+      [[highlight]].transform(const LineSplitter())[[/highlight]]
       .listen((line) {
         if (showLineNumbers) {
           stdout.write('${lineNumber++} ');
