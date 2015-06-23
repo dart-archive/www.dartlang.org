@@ -7,7 +7,7 @@ tutorial:
   id: get-started
 next: connect-dart-html/
 next-title: "Connect Dart & HTML"
-prev: 
+prev:
 prev-title: "Home"
 ---
 
@@ -16,7 +16,7 @@ prev-title: "Home"
 * The Dart SDK has development tools and libraries.
 * You can use Dart for web apps and command-line apps.
 * Run Dart web apps directly in Dartium.
-* Use an IDE or code editor (such as WebStorm) to create your app.
+* Use an IDE (such as WebStorm) or code editor to create your app.
 * Compile Dart apps to JavaScript for other browsers.
 * All Dart apps have a main() function.
 * Dart supports top-level functions.
@@ -70,26 +70,17 @@ a real world environment, you need to download some software.
 At the very least, you need the Dart SDK, which contains all of
 the tools and libraries that you need for basic Dart development.
 We also recommend that you download Dartium, which is useful for
-web development. You may also want an IDE or code editor.
-This tutorial uses WebStorm.
+web development. You may also want an IDE or code editor;
+this tutorial uses WebStorm.
 
 * [Get the Dart SDK](/downloads/)
 * Recommended: [Get Dartium](/downloads/)
 * Recommended: [Get WebStorm](/tools/webstorm/)
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
-You can also use this tutorial even without an IDE.
-Get a set of basic Dart coding templates from the
-[Stagehand](https://pub.dartlang.org/packages/stagehand)
-project generator package.
-Use the [pub serve](/tools/pub/cmd/pub-serve.html)
-command when you need a web server.
-</aside>
 
 ##What did you get? {#what-did-you-get}
 
-When you download the SDK, you get a directory
+When you download the **Dart SDK**, you get a directory
 that contains tools (under `bin`) and libraries (under `lib`),
 along with supporting files.
 The location of the directory (we'll call it the _&lt;sdk-install-dir&gt;_)
@@ -102,7 +93,7 @@ command-line tools, such as the **pub** package manager,
 the Dart-to-JavaScript compiler,
 and the command-line version of the Dart VM.
 
-When you download Dartium, you get a special build of the
+When you download **Dartium**, you get a special build of the
 Chromium web browser that has the Dart VM (virtual machine) embedded.
 (While the app is referred to as _Dartium_, the executable
 is actually named **Chromium**.)
@@ -110,14 +101,14 @@ You can run your apps directly in this browser,
 or have your IDE or code editor do it for you,
 thereby streamlining the build-test cycle.
 
-### About WebStorm {#start-webstorm}
+**WebStorm** has a pre-installed Dart plugin,
+but it requires a bit of configuration,
+as we'll describe later.
+If you prefer to use another IDE or code editor,
+you might want to download and install a Dart plugin,
+if available.
+See the [tools page](/tools/) for a list of plugins.
 
-A [variety of IDEs and code editors](/tools/) are available,
-but we recommend [WebStorm](/tools/webstorm/), which you can
-[download from JetBrains](https://www.jetbrains.com/webstorm/download/).
-WebStorm is preconfigured for Dart development.
-If you use another IDE or code editor, you must configure it for Dart.
-See the [tools page](/tools/) for information on other products.
 
 ##About Dart applications {#what-is-app}
 
@@ -148,7 +139,7 @@ description: A sample command-line application.
 The [`pub`](/tools/pub) tool allows you to manage Dart packages.
 Pub also includes commands for creating, developing, and deploying
 Dart applications. Behind the scenes, [`pub run`](/tools/pub/cmd/pub-run.html),
-for example, uses the Dart VM tool to run a command-line application, 
+for example, uses the Dart VM tool to run a command-line application,
 and [`pub build`](/tools/pub/cmd/pub-build.html) uses
 the Dart-to-JavaScript compiler to convert a Dart web app to JavaScript.
 
@@ -256,9 +247,15 @@ Click **Create**.
 
 WebStorm creates a `hello_world` directory for the application
 and boilerplate files for a small command-line app.
-It also runs `pub get` to download the packages that your app depends on.
-Click `hello_world` in the left pane to expand the tree and show
-the directory structure.
+It then runs `pub get` to download the packages that the app depends on.
+
+<aside class="alert alert-info" markdown="1">
+**If you don't have WebStorm:**
+You can create the command-line app's files
+using the **console-full** generator from
+[Stagehand.](http://stagehand.pub/)
+Then run `pub get`.
+</aside>
 
 Some of the files and directories in the hello_world application
 include the following:
@@ -294,7 +291,7 @@ The messages pane at the bottom contains the results of calling
 `pub get`, which fetches the packages used by the app.
 
 When executed, the program prints
-"Hello, World!" to the standard output stream,
+"Hello world: 42!" to the standard output stream,
 using the print() function provided by the dart:core library.
 The functions and objects defined in the dart:core library
 are automatically available to all Dart applications.
@@ -313,30 +310,22 @@ In WebStorm, you can run the app in any of the following ways:
 WebStorm shows the output at the bottom in a pane titled
 **Run main.dart**.
 
-Alternatively, you can run the app from the command line using
-`pub run`.
+<aside class="alert alert-info" markdown="1">
+**If you don't have WebStorm:**
+You can run the app from the command line using
+`pub run bin/main.dart`.
+</aside>
 
-{% prettify none %}
-$ cd <path-to-hello_world>/hello_world
-$ pub run bin/main.dart
-{% endprettify %}
 
 ##Create a web app {#create-web-app}
 
 Now let's create a web application.
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
-These instructions assume you're using WebStorm and Dartium.
-Instead, you can download a set of basic code templates from the
-[Stagehand](https://pub.dartlang.org/packages/stagehand)
-project generator package and run the web example from the
-command line using `pub serve`.
-</aside>
-
-Select **File** > **New Project** from the menu.
-
 <ol>
+<li markdown="1">
+  Select **File** > **New Project** from the menu.
+</li>
+
 <li markdown="1">
 Select **Dart** from the list on the left.
 </li>
@@ -364,6 +353,13 @@ WebStorm creates the directory and files needed for a basic
 web application that prints "Your Dart app is running"
 in the browser window.
 
+<aside class="alert alert-info" markdown="1">
+**If you don't have WebStorm:**
+You can create the web app's files
+using the **web-simple** generator from
+[Stagehand.](http://stagehand.pub/)
+</aside>
+
 The top-level directory is named `simple`.
 Expand `simple` in the left pane
 to see the files. This is a client app, so expand the
@@ -373,7 +369,7 @@ The Dart source file that contains the main() function is
 The `web/styles` directory contains the CSS styling for the app,
 but you can ignore that for now.
 
-The main() function in the simple app contains Dart code 
+The main() function in the simple app contains Dart code
 that puts text on the browser page.
 This code uses API defined in the dart:html library.
 
@@ -401,21 +397,16 @@ The browser loads the simple app's HTML file
 and the embedded app,
 which prints "Your Dart app is running" in the browser.
 
-Alternatively, you can run the app from the command line using
+<aside class="alert alert-info" markdown="1">
+**If you don't have WebStorm:**
+Serve the app from the command line
+by going to the app's top directory and running
 `pub serve`.
+To see the output, navigate to
+[http://localhost:8080](http://localhost:8080)
+in Dartium or any modern browser.
+</aside>
 
-{% prettify none %}
-$ cd <path-to-simple>/simple
-$ pub serve 
-Serving simple web on http://localhost:8080
-Build completed successfully.
-{% endprettify %}
-
-Navigate to [http://localhost:8080](http://localhost:8080)
-in any modern browser to see the output.
-The `pub serve` command starts an HTTP server and,
-whenever a Dart file is requested, compiles the file to JavaScript
-that any modern browser can execute.
 
 ##About main() and other top-level functions {#top-level-functions}
 
@@ -463,8 +454,8 @@ in which case the arguments are set apart by commas.
 
 When creating an application with WebStorm,
 you are asked to provide an application name.
-By convention, application names,
-and thus, the related files and directories, are lowercase,
+By convention, application names
+(and thus, the related files and directories) are lowercase,
 with words separated by underscores (`_`).
 
 ##Other resources
