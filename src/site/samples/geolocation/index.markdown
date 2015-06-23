@@ -17,7 +17,9 @@ pass it a callback method whenever you request a location.
 The Trip Meter example displays the user's initial location, and it
 tracks the distance the user has travelled since the page was loaded.
 
-You can open the example in Dart Editor and run it by clicking `index.html`.
+You can run the example by running `pub serve` from the `dart-samples/html5` 
+directory, and then visiting
+[localhost:8080/geolocation/trip_meter/](http://localhost:8080/geolocation/trip_meter/).
 
 <iframe class="running-app-frame"
         style="height:300px;width:100%;"

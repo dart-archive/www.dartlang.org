@@ -18,7 +18,10 @@ applications. The API lets you use functionality found in modern game audio
 engines and mixing, processing, and filtering tasks found in modern desktop
 audio production applications.
 
-You can open the example in Dart Editor and run it by clicking `index.html`.
+You can run the example by running `pub serve` from the `dart-samples/html5`
+directory, and then visiting
+[localhost:8080/webaudio/intro/](http://localhost:8080/webaudio/intro/).
+
 Read the
 [source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/webaudio/intro).
 

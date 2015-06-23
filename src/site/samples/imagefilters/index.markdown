@@ -17,7 +17,9 @@ The article describes how to use image filters with an HTML5 Canvas element.
 It explains how to process pixels, run simple filters, and blur,
 sharpen and emboss an image using convolution filters.
 
-You can open the example in Dart Editor and run it by clicking `index.html`.
+You can run the example by running `pub serve` from the `dart-samples/html5`
+directory, and then visiting
+[localhost:8080/canvas/imagefilters/](http://localhost:8080/canvas/imagefilters/).
 
 Read the
 [source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/canvas/imagefilters).

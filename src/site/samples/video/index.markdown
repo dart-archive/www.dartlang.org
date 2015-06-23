@@ -15,7 +15,9 @@ article by Ernest Delgado, originally published on HTML5Rocks.
 
 The example shows how to use the `<video>` tag with different video formats.
 
-You can open the example in Dart Editor and run it by clicking `index.html`.
+You can run the example by running `pub serve` from the `dart-samples/html5`
+directory, and then visiting 
+[localhost:8080/video/basics/](http://localhost:8080/video/basics/).
 
 Read the
 [source](https://github.com/dart-lang/dart-samples/tree/master/html5/web/video/basics).
