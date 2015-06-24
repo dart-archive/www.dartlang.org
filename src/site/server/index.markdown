@@ -104,8 +104,18 @@ Start with our [tutorials](/docs/tutorials). Once you're coding, consult the
 
 * [Tutorial: Write Command-Line Apps](/docs/tutorials/cmdline/)
 * [Tutorial: Write HTTP Clients & Servers](/docs/tutorials/httpserver/)
+{% comment %}
+- Add this back if the example/text is updated.
 * [Walkthrough of a working sample server](/docs/dart-up-and-running/ch05.html)
   complete with HTTP server, WebSockets, logging, and routing
+{% endcomment %}
+
+You may want to learn about Dart's asynchrony support.
+Start with [Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony),
+a section in the [language tour](/docs/dart-up-and-running/ch02.html).
+If you want more, you can deep dive into
+[Dart Language Asynchrony Support: Phase 1](/articles/await-async/) and
+[Dart Language Asynchrony Support: Phase 2](/articles/beyond-async/).
 
 ### Get support
 
