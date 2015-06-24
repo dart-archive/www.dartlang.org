@@ -218,7 +218,7 @@ finished, and so on.
 Before async and await were added in Dart 1.9,
 you had to use the Future API.
 You might still see the Future API used in older code
-and in code that needs more functionality than async-await offer.
+and in code that needs more functionality than async-await offers.
 
 To write asynchronous code using the Future API,
 you use the `then()` method to register a callback.
