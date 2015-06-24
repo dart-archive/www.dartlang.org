@@ -87,7 +87,7 @@ and check out the JSON format for each data type.
         src="examples/its_all_about_you/web/index.html">
 </iframe>
 
-<aside class="alert">
+<aside class="alert alert-info" markdown="1">
 <strong>Version Note:</strong> The its_all_about_you app
 is compatible with
 <a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.15.1</a>.
@@ -125,8 +125,36 @@ Use the JSON.encode() function to serialize an object that supports JSON.
 Here's the function, `showJson`, from the its_all_about_you example that
 converts all of the data to JSON strings.
 
-<img class="scale-img-max" src="images/stringify.png"
-     alt="Use JSON.encode() to convert objects into JSON">
+{% prettify dart %}
+import 'dart:convert';
+...
+void showJson(Event e, var detail, Node target) {
+  // Typed data to convert to JSON
+  num favNum = int.parse(favoriteNumber);
+  num pi = double.parse(valueOfPi);
+  var anElement = $['lovechocolate'];
+  bool choco = (anElement as RadioButtonInputElement).checked;
+
+  List<String> favoriteThings = [favOne, favTwo, favThree];
+
+  Map formData = {
+    'favoriteNumber': favNum,
+    'valueOfPi': pi,
+    'chocolate': choco,
+    'horrorScope': horrorScope,
+    'favoriteThings': favoriteThings
+  };
+
+  [[highlight]]// Convert everything to JSON[[/highlight]]
+  [[highlight]]intAsJson = JSON.encode(favNum); // int[[/highlight]]
+  [[highlight]]doubleAsJson = JSON.encode(pi); // double[[/highlight]]
+  [[highlight]]boolAsJson = JSON.encode(choco); // boolean[[/highlight]]
+  [[highlight]]stringAsJson = JSON.encode(horrorScope); // string[[/highlight]]
+  [[highlight]]listAsJson = JSON.encode(favoriteThings); // list of strings[[/highlight]]
+  [[highlight]]mapAsJson = JSON.encode(formData); // map with string keys[[/highlight]]
+                                     [[highlight]]// and mixed values[[/highlight]]
+}
+{% endprettify %}
 
 Below is the JSON string that results from the code
 using the original values from the its_all_about_you app.
@@ -240,7 +268,7 @@ HTTP requests from web apps are useful only for
 retrieving information in files specific to
 and co-located with the app.
 
-<aside class="alert" markdown="1">
+<aside class="alert alert-info" markdown="1">
 <strong>A note about security:</strong>
 Browsers place tight security restrictions on HTTP requests
 made by embedded apps.
@@ -306,69 +334,13 @@ Until then, you can use the code above as an idiom
 and provide your own code for the body of the processString() function
 and your own code to handle the error.
 
-<aside class="alert-info" markdown="1">
+<aside class="alert alert-info" markdown="1">
 **Note:**
 The examples in this section use the `async` and `await` keywords.
 If you are not familiar with these keywords, see
 [Asynchrony support](/docs/dart-up-and-running/ch02.html#asynchrony)
 in the [language tour](/docs/dart-up-and-running/ch02.html).
 </aside>
-
-###Using a relative URI
-
-The URI used for the GET request specifies just the name of
-the portmanteaux_simple.json data file.
-Let's take a look at how that works.
-
-
-Open the application directory in Dart Editor,
-select the web/portmanteaux_simple.html file, and run the program.
-Before doing anything else,
-notice the URI for the program in Dartium.
-
-<img class="scale-img-max" src="images/uri-dart-program.png"
-     alt="URI for a Dart program running in Dartium">
-
-<ul>
-  <li markdown="1">
-The server designation 127.0.0.1 is the standard
-for referring to _this computer_&mdash;the computer
-on which the program is running.
-(`localhost` is a human-friendly synonym for 127.0.0.1.)
-  </li>
-
-  <li markdown="1">
-3030 is a port number.
-Because a computer can run multiple servers at once,
-to avoid conflicts each server _must_ listen on its own port.
-Port numbers from 0 to 1024 are called well-known ports
-and are reserved for use by system processes
-that provide widely used types of network services.
-Typically HTTP servers listen on port 80.
-On most systems,
-port numbers from 1024 to 49151
-are free to be used by any program.
-Dart Editor listens on port 3030.
-  </li>
-
-  <li markdown="1">
-The rest of the URI is the absolute pathname to the HTML file
-that hosts the app.
-  </li>
-</ul>
-
-The HttpRequest object resolves the file name to an absolute URI
-using the URI for the current web page as its basis.
-
-<img class="scale-img-max" src="images/relative-uri.png"
-     alt="A relative URI resolves to an absolute URI">
-
-The GET request in this
-example is successful because the app and the requested resource
-are from the same origin:
-
-<img class="scale-img-max" src="images/same-origin.png"
-     alt="The app and the data file have the same origin">
 
 ##Using an HttpRequest object to load a file {#making-a-get-request}
 
