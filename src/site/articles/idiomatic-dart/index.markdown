@@ -666,55 +666,6 @@ _cannot_ be an integer, which is what double expresses.
 Idiomatic Dart numbers are annotated with either `int` or `num`,
 rarely `double`.
 
-## Futures
-
-A Future is a promise for a value to be returned, well, in the future.
-
-Methods that work with a Future should always return the Future. This helps
-consumers of the method to properly handle errors that might occur. It also
-lets consumers know when the operation is complete.
-
-{% prettify dart %}
-Future doLengthyComputation() {
-  return lengthyComp().then((value) => print(value))
-                      .catchError((e) => print(e));
-}
-{% endprettify %}
-
-Always chain the `catchError()` call off of the call to
-`then()`, otherwise you will lose exceptions thrown from within `then()`.
-
-Here is an example of what **not to do**:
-
-{% prettify dart %}
-// WARNING: This code contains an anti-pattern.
-Future doLengthyComputation() {
-  Future future = lengthyComp();
-  future.then((value) => print(value));
-
-  // BAD! You'll only get errors from future, not from then().
-  // BAD! Your caller never sees any errors that occur.
-  future.catchError((e) => print(e));
-  return future;
-}
-{% endprettify %}
-
-If you want to run a function "in the future", it's tempting to use
-`Timer.run`. Unless you know what you're doing, **don't.**
-Unfortunately, exceptions thrown
-from within run's callback are more-or-less uncatchable.
-
-Luckily, Future has a constructor that can help. Use
-`Future.delayed` to run a function in a future event loop tick
-without losing exceptions that might be thrown.
-
-{% prettify dart %}
-Future doLengthyComputation() {
-  return new Future.delayed(const Duration(seconds: 0),
-      () => doTheThingThatMightFail());
-}
-{% endprettify %}
-
 ## Comments
 
 Dart supports structured comments that can be parsed by tools. However, Dart
@@ -770,10 +721,8 @@ understand a subset of markdown.
 ///
 /// Getting the _value_:
 ///
-///     Future<int> future = getFutureFromSomewhere();
-///     future.then((value) {
-///       print("I received the number $value");
-///     });
+///     value = await getFutureFromSomewhere();
+///     print("I received the number $value");
 /// ...
 {% endprettify %}
 
