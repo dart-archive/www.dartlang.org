@@ -4224,7 +4224,6 @@ y.push(J.C9(z[w]))}}return y},
 gl0:function(a){return this.gv(this)===0}},
 i7:{
 "^":"D9;Q",
-NZ:function(a){return this.Q.hasAttribute(a)},
 p:function(a,b){return this.Q.getAttribute(b)},
 q:function(a,b,c){this.Q.setAttribute(b,c)},
 Rz:function(a,b){var z,y
@@ -4698,35 +4697,44 @@ s.initEvent("change",!0,!0)
 u.dispatchEvent(s)
 return H.AZ(null,0,y,null)
 case 1:return H.AZ(w,1,y)}}return H.AZ(null,EK,y,null)},
-Ub:function(a,b){var z,y,x,w,v,u,t,s
-z=W.oK("","",null,!1)
-y=J.U6(b)
-z.textContent=y.p(b,"version")
-z.setAttribute("value",y.p(b,"version"))
-J.OG($.S().p(0,a)).h(0,z)
-C.xO.aN(0,new E.b9(a,b))
-x=J.vd($.RQ().p(0,a))
-x.toString
-x.setAttribute("data-version",y.p(b,"version"))
-x.setAttribute("data-os","api")
-w=document.createElement("span",null)
-w.textContent="  (rev "+H.d(y.p(b,"revision"))+")"
-J.pP(w).h(0,"muted")
-v=J.ae(x)
-v.textContent=y.p(b,"version")
-v.appendChild(w)
-x.insertCell(-1).textContent="---"
-x.insertCell(-1).textContent="---"
-u=x.insertCell(-1)
+Ub:function(a,b){var z,y,x,w,v,u,t,s,r,q
+z={}
+y=W.oK("","",null,!1)
+x=J.U6(b)
+y.textContent=x.p(b,"version")
+y.setAttribute("value",x.p(b,"version"))
+J.OG($.S().p(0,a)).h(0,y)
+w=H.BU(x.p(b,"revision"),null,new E.b9())
+z.Q=null
+v=w!=null
+if(v)z.Q=J.Lz(w)
+else z.Q=x.p(b,"version")
+z.a=null
+if(v)z.a="r"+H.d(w)
+else z.a="ref "+J.Nj(x.p(b,"revision"),0,7)
+C.xO.aN(0,new E.wA(z,a,b,w))
+u=J.vd($.RQ().p(0,a))
 u.toString
-W.TW(u,"archives")
-t="https://storage.googleapis.com/dart-archive/channels/"+a+"/release/"+H.d(y.p(b,"revision"))+"/api-docs/dart-api-docs.zip"
-y=W.J6(null)
-y.textContent="JSON-formatted API documentation"
-y.setAttribute("href",t)
-u.appendChild(y)
-s=new W.wz($.RQ().p(0,a).querySelectorAll(".template"))
-s.aN(s,new E.wA())},
+u.setAttribute("data-version",x.p(b,"version"))
+u.setAttribute("data-os","api")
+t=document.createElement("span",null)
+t.textContent="  ("+H.d(z.a)+")"
+J.pP(t).h(0,"muted")
+v=J.ae(u)
+v.textContent=x.p(b,"version")
+v.appendChild(t)
+u.insertCell(-1).textContent="---"
+u.insertCell(-1).textContent="---"
+s=u.insertCell(-1)
+s.toString
+W.TW(s,"archives")
+r="https://storage.googleapis.com/dart-archive/channels/"+a+"/release/"+H.d(z.Q)+"/api-docs/dart-api-docs.zip"
+z=W.J6(null)
+z.textContent="JSON-formatted API documentation"
+z.setAttribute("href",r)
+s.appendChild(z)
+q=new W.wz($.RQ().p(0,a).querySelectorAll(".template"))
+q.aN(q,new E.zv())},
 L:{
 "^":"r:2;",
 $1:function(a){E.EK("stable",a)}},
@@ -4761,58 +4769,58 @@ oy:{
 "^":"r:2;Q",
 $1:function(a){E.Ub(this.Q,a)}},
 b9:{
-"^":"r:24;Q,a",
-$2:function(a,b){J.kH(b,new E.Ne(this.Q,this.a,a))}},
-Ne:{
-"^":"r:25;Q,a,b",
-$2:function(a,b){var z,y,x,w,v,u,t,s
-z=this.Q
-y=J.vd($.RQ().p(0,z))
-y.toString
-x=this.a
-w=J.U6(x)
-y.setAttribute("data-version",w.p(x,"version"))
-v=this.b
-y.setAttribute("data-os",C.UK.p(0,v))
-u=J.ae(y)
-u.textContent=w.p(x,"version")
-if(x.NZ("revision")===!0){t=document.createElement("span",null)
-t.textContent="  (rev "+H.d(w.p(x,"revision"))+")"
-J.pP(t).h(0,"muted")
-u.appendChild(t)}y.insertCell(-1).textContent=v
-w=y.insertCell(-1)
-w.toString
-W.TW(w,"nowrap")
-w.textContent=a
-s=y.insertCell(-1)
-s.toString
-W.TW(s,"archives")
-C.Nm.aN(["Dart SDK","Dartium","Dart Editor"],new E.hf(z,x,v,a,b,s))}},
-hf:{
-"^":"r:5;Q,a,b,c,d,e",
-$1:function(a){var z,y,x,w,v,u
-if(J.kE(this.d,a)===!0){z=this.a
-y=H.BU(z.p(0,"revision"),null,new E.Hn())
-x=y==null
-if(x&&J.mG(a,"Dart Editor"))return
-w=z.NZ("revision")===!0&&!x?z.p(0,"revision"):z.p(0,"version")
-v="https://storage.googleapis.com/dart-archive/channels/"+this.Q+"/release/"+H.d(w)+"/"+H.d(C.dY.p(0,a))+"/"+H.d(C.UK.p(0,a))+"-"+H.d(C.UK.p(0,this.b))+"-"+H.d(C.UK.p(0,this.c))+H.d(C.lE.p(0,a))
-z=this.e
-u=W.J6(null)
-u.textContent=a
-u.setAttribute("href",v)
-z.appendChild(u)
-if(!J.mG(a,"Dart Editor"))x=x||J.vU(y,38976)
-else x=!1
-if(x){x=W.J6(null)
-x.textContent="(SHA-256)"
-x.setAttribute("href",v+".sha256sum")
-J.pP(x).h(0,"sha")
-z.appendChild(x)}z.appendChild(W.r3("br",null))}}},
-Hn:{
 "^":"r:2;",
 $1:function(a){return}},
 wA:{
+"^":"r:24;Q,a,b,c",
+$2:function(a,b){J.kH(b,new E.Ne(this.Q,this.a,this.b,this.c,a))}},
+Ne:{
+"^":"r:25;Q,a,b,c,d",
+$2:function(a,b){var z,y,x,w,v,u,t
+z=this.a
+y=J.vd($.RQ().p(0,z))
+y.toString
+x=this.b
+w=J.U6(x)
+y.setAttribute("data-version",w.p(x,"version"))
+v=this.d
+y.setAttribute("data-os",C.UK.p(0,v))
+u=J.ae(y)
+u.textContent=w.p(x,"version")
+x=document.createElement("span",null)
+w=this.Q
+x.textContent="  ("+H.d(w.a)+")"
+J.pP(x).h(0,"muted")
+u.appendChild(x)
+y.insertCell(-1).textContent=v
+x=y.insertCell(-1)
+x.toString
+W.TW(x,"nowrap")
+x.textContent=a
+t=y.insertCell(-1)
+t.toString
+W.TW(t,"archives")
+C.Nm.aN(["Dart SDK","Dartium","Dart Editor"],new E.hf(w,z,this.c,v,a,b,t))}},
+hf:{
+"^":"r:5;Q,a,b,c,d,e,f",
+$1:function(a){var z,y,x,w,v
+if(J.kE(this.e,a)===!0){z=this.b
+y=z==null
+if(y&&J.mG(a,"Dart Editor"))return
+x="https://storage.googleapis.com/dart-archive/channels/"+this.a+"/release/"+H.d(this.Q.Q)+"/"+H.d(C.dY.p(0,a))+"/"+H.d(C.UK.p(0,a))+"-"+H.d(C.UK.p(0,this.c))+"-"+H.d(C.UK.p(0,this.d))+H.d(C.lE.p(0,a))
+w=this.f
+v=W.J6(null)
+v.textContent=a
+v.setAttribute("href",x)
+w.appendChild(v)
+if(!J.mG(a,"Dart Editor"))z=y||J.vU(z,38976)
+else z=!1
+if(z){z=W.J6(null)
+z.textContent="(SHA-256)"
+z.setAttribute("href",x+".sha256sum")
+J.pP(z).h(0,"sha")
+w.appendChild(z)}w.appendChild(W.r3("br",null))}}},
+zv:{
 "^":"r:2;",
 $1:function(a){J.Mp(a)}}},1],["","",,P,{
 "^":"",
