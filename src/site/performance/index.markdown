@@ -68,3 +68,8 @@ you can then file an issue with your benchmark.
 Please ensure all the necessary files are attached to the issue
 so that we can easily run the benchmark.
 
+### How can I write Dart code that compiles to performant JavaScript?
+
+See [Helping dart2js generate better code](/tools/dart2js/#helping-dart2js-generate-efficient-code).
+Just be aware that this information might change as the implementation of
+dart2js changes.
