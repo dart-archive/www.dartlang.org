@@ -32,37 +32,33 @@ annotations whatsoever, and run them, much as you would in JavaScript.
 
 You may choose to add type annotations to your program:
 
-
 * Adding types will *not* prevent your program from
-  	compiling and running&mdash;even if
-  	your annotations are incomplete or plain wrong.
+  compiling and running&mdash;even if
+  your annotations are incomplete or plain wrong.
 * Your program will have exactly the same semantics
-    no matter what type annotations you add.
-
+  no matter what type annotations you add.
 
 You can nevertheless profit from adding type annotations to your code.
 Types provide the following benefits:
 
-
 * Documentation for humans.
-    It is much easier for people to read your code
-    if it has judiciously placed type annotations. 
+  It is much easier for people to read your code
+  if it has judiciously placed type annotations. 
 * Documentation for machines.
-    Tools can leverage type annotations in various ways.
-    In particular, they can help provide nice features such as
-    name completion and improved navigation in IDEs. 
+  Tools can leverage type annotations in various ways.
+  In particular, they can help provide nice features such as
+  name completion and improved navigation in IDEs. 
 * Early error detection.
-    Dart provides a static checker that can warn you about potential problems,
-    without getting in your way.
-    In addition, in developer mode,
-    Dart automatically converts type annotations to runtime assertion checks
-    as a debugging aid. 
+  Dart provides a static checker that can warn you about potential problems,
+  without getting in your way.
+  In addition, in developer mode,
+  Dart automatically converts type annotations to runtime assertion checks
+  as a debugging aid. 
 * Sometimes, types can help improve performance
-    when compiling to JavaScript.
-    We'll say more about this later. 
+  when compiling to JavaScript.
+  We'll say more about this later. 
 
 ## The static checker
-
 
 The static checker acts a lot like lint in C.
 It warns you about potential problems at compile-time.
@@ -70,16 +66,12 @@ Many of these warnings are related to types.
 The static checker does *not* produce errors&mdash;you
 can always compile and run your code, no matter what the checker says.
 
-
-
 The checker does not scream about every possible type violation.
 It is not a typechecker,
 because Dart doesn't use types the way a classic type system does.
 The checker complains about things that are very likely to be real problems,
 rather than forcing you to jump through hoops
 to satisfy a narrow-minded type system.
-
-
 
 For example, consider:
 
@@ -106,33 +98,28 @@ main() {
 }
 {% endprettify %}
 
+<a href="https://dartpad.dartlang.org/6c1c62154f5be5c9fab1" target="_blank">Open this code in DartPad</a>.
 
 This is clearly a problem.
-The static checker will issue a warning in this case.
+The static checker issues a warning as shown in the following screenshot:
 
-
-
-<img src="imgs/static-warning.png" width="744" height="435"
-     alt="Static warning in Dart Editor"
+<img src="images/static-warning.png" alt="Static warning in DartPad"
      style="border: 1px solid gray; box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.25);">
 
 
+In DartPad, click the **Run** button.
 Note that the code still runs,
 setting <code>n</code> to an instance of Point
 and printing <code>x: 10, y: 10</code>. 
 
-
-
-However, unlike a classic mandatory type system, code like this
-
+However, unlike a classic mandatory type system, the following code
+will not cause any complaints from the checker:
 
 {% prettify dart %}
 Object lookup(String key) { /* ... */ } // a lookup method in a heterogenous table
 String s = lookup('Frankenstein');
 {% endprettify %}
 
-
-will not cause any complaints from the checker.
 That's because there is a very good chance that the code is correct,
 despite the lack of type information.
 You, the programmer, often have semantic knowledge
@@ -140,9 +127,7 @@ that a typechecker does not.
 You know that the value stored in the table under 'Frankenstein' is a string,
 even though the lookup method is declared to return <code>Object</code>.
 
-
 ## Type dynamic
-
 
 How does Dart avoid complaints when no types are provided?
 The key to this is the type <code>dynamic</code>,
@@ -150,10 +135,7 @@ which is the default type given when no type
 is explicitly given by the programmer.
 Using type <code>dynamic</code> makes the checker shut up.
 
-
-
 Occasionally, you may want to use <code>dynamic</code> explicitly.
-
 
 {% prettify dart %}
 Map<String, dynamic> m = {
@@ -162,7 +144,6 @@ Map<String, dynamic> m = {
     /* ..., */
     'twelve': new Drummer()};
 {% endprettify %}
-
 
 We could have used the type
 <code>Map&lt;String, Object></code> for <code>m</code>,
@@ -174,19 +155,15 @@ other than <code>Object</code>,
 we may prefer to use <code>dynamic</code>.
 If we try to call methods on the map's values, for example,
 
-
 {% prettify dart %}
 pearTree = m['one'].container();
 {% endprettify %}
-
 
 we would get a warning if the contents were of type <code>Object</code>,
 because <code>Object</code> does not support container.
 If we use type <code>dynamic</code>, no warning is issued. 
 
-
 ## Generics
-
 
 Dart supports reified generics.
 That is, objects of generic type carry
@@ -195,37 +172,28 @@ Passing type arguments to a constructor of a generic type
 is a runtime operation.
 How does this square with the claim that types are optional?
 
-
-
 Well, if you don't want to ever think about types,
 generics won't force you to.
 You can create instances of generic classes without providing type parameters.
-For example:
-
+For example, the following code works just fine:
 
 {% prettify dart %}
 new List();
 {% endprettify %}
 
-
-works just fine. Of course, you can write
-
+Of course, you can write
 
 {% prettify dart %}
 new List<String>();
 {% endprettify %}
 
-
 if you want. 
-
 
 {% prettify dart %}
 new List();
 {% endprettify %}
 
-
 is just a shorthand for 
-
 
 {% prettify dart %}
 new List<dynamic>();
