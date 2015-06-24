@@ -1,3 +1,22 @@
+- title: Dart Essentials
+  authors:
+    - Martin Sikora
+  publisher: Packt
+  cover: dart-essentials-sikora.png
+  link: https://www.packtpub.com/web-development/dart-essentials
+  desc: 'Design and build full-featured web and CLI apps using the
+         powerful Dart language and its libraries and tools.
+         Build sophisticated, powerful apps using Dart 1.9;
+         learn about the newest libraries and asynchronous APIs.
+         Write encapsulated components and apps with Web Components,
+         polymer.dart, and AngularDart.
+         Explore Standalone Dart VM with CLI apps, unit testing,
+         and server-side scripting and discover Dart’s  full potential
+         with C/C++ native extensions.
+         Practical, tutorial-based guide with examples in the context
+         of modern web development for mobile and desktop with HTML5
+         features.'  
+
 - title: Web Programming with Dart
   authors:
     - Moises Belchin
@@ -66,7 +85,7 @@
   link: http://www.amazon.com/Dart-Programming-Language-Gilad-Bracha/dp/0321927702
   desc: 'Dart makes it easier for programmers to build structured modern
         web apps that scale from simple scripts to the largest systems.
-        The Dart Programming Language   is an authoritative and rigorous
+        The Dart Programming Language is an authoritative and rigorous
         description of the Dart language. Written by Dart spec lead Gilad
         Bracha, it is designed for computer scientists, advanced students,
         and experienced software professionals. It is intended to be a
