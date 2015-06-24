@@ -37,14 +37,16 @@ PENDING: Talk about advantages of polymer.dart development process
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The code samples on this page reflect **polymer.dart 0.16**.
-{% comment %}
-UPDATE version each release
-{% endcomment %}
+The code samples on this page reflect polymer.dart 0.16.
+**A new version of polymer.dart, based on the recently released
+[Polymer 1.0](https://blog.polymer-project.org/announcements/2015/05/29/one-dot-oh/),
+is in the works.**
 For information about polymer.dart versions, see the
 [Release Notes](/polymer/reference/release-notes/).
 </aside>
-
+{% comment %}
+UPDATE version each release
+{% endcomment %}
 
 <hr>
 ## Where to start {#start}
@@ -147,33 +149,7 @@ as described in
 
 
 <hr>
-## Tools
-
-Polymer.dart works well with Dart tools, such as Dart Editor and Pub.
-
-### Generating warnings
-
-Polymer.dart offers a linter that reports syntax or usage warnings.
-Using a special `build.dart` file,
-you can connect the linter to Dart Editor to display warnings directly
-at the source.
-
-Create a `build.dart` file at the root of your project,
-and put the following code in it:
-
-{% prettify dart %}
-export 'package:polymer/default_build.dart';
-{% endprettify %}
-
-Dart Editor runs `build.dart` after a file is saved, and
-displays warnings from the linter.
-
-Learn more about [Dart Editor](/tools/editor/).
-
-![Polymer warning in Dart Editor](images/lint-warning.png)
-
-
-### Building
+## Building your app
 
 Use `pub build` to compile your polymer.dart app into JavaScript so that
 it can run across the modern web. The build process also concatenates files

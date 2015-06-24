@@ -91,7 +91,7 @@ To tell pub to apply a transformer to your package's assets, specify the
 transformer, as well as the package that contains the transformer, in your
 package's `pubspec.yaml` file. In the following pubspec, the highlighted lines
 specify that this package requires the polymer transformer, which is in the
-polymer package (along with the rest of Polymer.dart):
+polymer package (along with the rest of polymer.dart):
 
 {% prettify yaml %}
 name: myapp

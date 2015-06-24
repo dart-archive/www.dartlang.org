@@ -66,7 +66,7 @@ any of the following command-line flags:
 `--deploy`
 : Creates a directory containing the files needed to deploy this
   application to a server.
-  Used only for the <a href="/polymer/">Polymer.dart</a>
+  Used only for the <a href="/polymer/">polymer.dart</a>
   linter and build tool.
   You can find more information in the polymer library file
   [builder.dart](https://github.com/dart-lang/polymer-dart/blob/master/lib/builder.dart).

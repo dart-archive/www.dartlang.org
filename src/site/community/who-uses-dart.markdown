@@ -112,7 +112,7 @@ Google internal sales tool
 : Automated documentation generation for Pub packages.
 
 Google internal customer support tool
-: Built with Polymer.dart.
+: Built with polymer.dart.
 
 [Quire](https://quire.io/)
 : A simple, collaborative, multi-level task management tool with both the client and server written in Dart.
@@ -160,7 +160,7 @@ Google internal tool for marketing
 : Dynamic Analysis and Visualization of Interconnected Data, a tool for interactive visual exploration of complex linked data. 
 
 [Tisíc knih](http://tisicknih.cz/)
-: Czech book recommendation engine based on library data. Built with Polymer.dart.
+: Czech book recommendation engine based on library data. Built with polymer.dart.
 
 [FxSimulator](http://fxsimulator.com/)
 : Forex trading simulator based on StageXL.
