@@ -596,7 +596,7 @@ verify that it's running.
 <div class="trydart-step-details" markdown="1">
 
 Use `dartanalyzer` to check the code for errors
-(unless you're using a tool, such as Dart Editor or WebStorm
+(unless you're using a tool, such as WebStorm,
 that automatically analyzes code).
 To run [dartanalyzer](/tools/analyzer/) from the command line,
 do the following from the `working-dir` directory:
@@ -1011,10 +1011,6 @@ You should see the following output:
 * This file allows you to connect your client app to the server, as you will
   see in [Step 6](#step-six).
 
-* If you are using Dart Editor, you can update the file listing
-  by right-clicking the package name and choosing
-  **Refresh** from the menu that pops up.
-
 </div> </div>
 
 ### <i class="fa fa-anchor"> </i> View the generated RESTful API.
@@ -1131,10 +1127,6 @@ The bolded files implement the client app, PirateBadge.
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* If you are using Dart Editor, you can update the file listing
-  by right-clicking the package name and choosing
-  **Refresh** from the menu that pops up.
 
 </div> <div class="col-md-5" markdown="1">
 

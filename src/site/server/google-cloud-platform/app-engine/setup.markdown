@@ -37,9 +37,9 @@ The instructions on this page show you how to install and configure
 the following required software:
 
 Dart
-: The Dart Editor bundle contains
-  everything you need to create, edit, test,
-  and build the web-based and server-side applications
+: The Dart SDK bundle contains the software
+  and libraries you need to create, edit,
+  and build server-side applications that
   you can deploy to App Engine Managed VMs.
 
 Virtual Box version 4.3.10 or later
