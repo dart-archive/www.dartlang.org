@@ -157,7 +157,7 @@ DivElement statusElement = querySelector('#status');
 DivElement resultsElement = querySelector('#results');
 {% endprettify %}
 
-The `querySelector()` method uses a selector string that identifies an
+The `querySelector()` function uses a selector string that identifies an
 element in the DOM. See
 [Finding elements](ch03.html#finding-elements) for more about selectors.
 
@@ -418,7 +418,7 @@ router.serve('/ws')
   .listen(handleWebSocket);
 {% endprettify %}
 
-Here's the custom `handleWebSocket()` method, which handles events on
+Here's the custom `handleWebSocket()` function, which handles events on
 the WebSocket:
 
 {% comment %}
