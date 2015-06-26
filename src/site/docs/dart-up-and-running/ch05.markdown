@@ -354,6 +354,9 @@ dart:io), and VirtualDirectory (from the http\_server package) to
 implement a basic web server. Here's the code that initializes the web
 server and serves static files:
 
+{% comment %}
+bin/server.dart
+{% endcomment %}
 {% prettify dart %}
 var buildPath = Platform.script.resolve('../build').toFilePath();
 // ...
@@ -406,6 +409,9 @@ upgrade HTTP requests for /ws and to handle them as WebSocket
 connections. The code uses dart:io's WebSocketTransformer class to
 perform the conversion:
 
+{% comment %}
+lib/dartiverse_search.dart
+{% endcomment %}
 {% prettify dart %}
 router.serve('/ws')
   .transform(new WebSocketTransformer())
@@ -415,6 +421,9 @@ router.serve('/ws')
 Here's the custom `handleWebSocket()` method, which handles events on
 the WebSocket:
 
+{% comment %}
+lib/dartiverse_search.dart
+{% endcomment %}
 {% prettify dart %}
 void handleWebSocket(WebSocket webSocket) {
   webSocket
@@ -433,14 +442,17 @@ void handleWebSocket(WebSocket webSocket) {
 The call to `webSocket.map()` parses all the messages that the client
 sends over the WebSocket, converting each JSON-formatted message into an
 object. Then, after checking the message format, the handler calls
-the helper function `_getResults()` which initiates
-searches on GitHub and StackOverflow, constructs a JSON-formatted
+the helper function `_getResults()`, which initiates
+searches on GitHub and StackOverflow and constructs a JSON-formatted
 message for each result, and uses `webSocket.addStream()` to forward
 the result to the client.
 
-Here's the code from the `_getResults()` case that starts the searches and
-yields results as they come in:
+Here's the code from `_getResults()` that starts the searches and
+handles results as they come in:
 
+{% comment %}
+lib/dartiverse_search.dart
+{% endcomment %}
 {% prettify dart %}
 for (var engine in _searchEngines) {
   try {
@@ -462,9 +474,9 @@ yield const <String, Object>{'response': 'searchDone'};
 <!-- TODO: check that code. add more }s? -->
 
 Each engine can return up to 3 results, but the WebSocket handler
-doesn't wait around for those results. Instead, each result is yieled to
+doesn't wait around for those results. Instead, each result is yielded to
 the caller of `_getResults` as soon as it is available. Once all search engines
-have finished sending results, a `searchDone` message is yielded.
+have finished sending results, the function sends a final `searchDone` message.
 
 
 ### Using web APIs {#using-web-apis}
@@ -474,6 +486,9 @@ The GitHub and StackOverflow searches are implemented in `search()`
 methods that take an input string and return a stream of SearchResult
 objects. Here's an example from the GitHub `search()` method:
 
+{% comment %}
+lib/src/github_search_engine.dart
+{% endcomment %}
 {% prettify dart %}
 import 'package:http/http.dart' as http_client;
 // ...
@@ -511,7 +526,7 @@ example, if the input string is 'polymer', then the URI is this:
 Next comes the search request, using the http package's `get()` function
 to send an HTTP GET request to the search URI. The `get()` function
 returns a Future\<Response\>. By using the keyword
-[await](https://www.dartlang.org/articles/await-async/),
+[await](/articles/await-async/),
 this call is made asynchronously, and execution returns to this method when the Future
 is completed, so `response` will have the value of a Response.
 
