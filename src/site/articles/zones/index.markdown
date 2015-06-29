@@ -344,16 +344,10 @@ runZoned(() {
 
 To read zone-local values, use the zone’s index operator and the value's key:
 <code>[<em>key</em>]</code>.
-Each key must be a
-[Symbol](https://api.dartlang.org/apidocs/channels/stable/#dart-core.Symbol).
+Any object can be used as a key, as long as it has compatible
+`operator ==` and `hashCode` implementations.
 Typically, a key is a symbol literal:
 <code>#<em>identifier</em></code>.
-
-<aside class="alert alert-info" markdown="1">
-  **API note:**
-  Once [revision 34248](https://code.google.com/p/dart/source/detail?r=34248)
-  is in a release, keys won't be limited to symbols.
-</aside>
 
 You can't change the object that a key maps to,
 but you can manipulate the object.
@@ -581,7 +575,7 @@ lets you specify the code that the zone executes.
   In the future, zones might provide a simpler alternative
   for the common case of sandwiching zone code:
   an onEnter/onLeave API.
-  See [issue 17532](https://code.google.com/p/dart/issues/detail?id=17532)
+  See [issue 17532](https://github.com/dart-lang/sdk/issues/17532)
   for details.
 </aside> 
 

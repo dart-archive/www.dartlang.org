@@ -150,9 +150,8 @@ For [hosted packages](dependencies.html#hosted-packages),
 this URL is linked from the package's page.
 While this is technically optional *please do* provide one. It
 helps users understand where your package is coming from. If nothing else, you
-can always use the URL where you host the source code:
-[GitHub](http://github.com), [code.google.com](http://code.google.com/),
-whatever.
+can always use the URL where you host the source code, such as
+[GitHub](https://github.com).
 
 ## Documentation
 

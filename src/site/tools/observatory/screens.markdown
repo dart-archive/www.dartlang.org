@@ -56,8 +56,6 @@ Most direct route:
 ### Code {#code-screen}
 
 Shows the disassembly code for a Dart function.
-(Note that this screen can be slow to load
-(issue [18912](https://code.google.com/p/dart/issues/detail?id=18912)).)
 Most developers never need to use this screen.
 
 Most direct route

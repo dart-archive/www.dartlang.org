@@ -180,7 +180,7 @@ Chromium-based browser by going to `chrome://version`.
 
 ## Filing bugs and feature requests
 
-To file a bug, use the
-[Dartium issue template](https://code.google.com/p/dart/issues/entry?template=Defect%20report%20for%20Dartium).
-To see existing issues, go to the
-[Dartium issue list](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Dartium).
+To see existing issues, view 
+[Dartium bugs in the SDK project](https://github.com/dart-lang/sdk/labels/Area-Dartium).
+You can file a bug on 
+[GitHub](https://github.com/dart-lang/sdk/issues).

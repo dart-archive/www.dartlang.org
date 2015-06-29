@@ -16,8 +16,8 @@ I am having trouble running the Linux distribution of Dart on my Linux platform.
   the GCC library.
   The following resources may be useful: 
 
-  * [Building Dart on CentOS, Red Hat, Fedora and Amazon Linux AMI](https://code.google.com/p/dart/wiki/BuildingOnCentOS)
-  * [Building Dart SDK on Ubuntu 10.04 Server](https://code.google.com/p/dart/wiki/BuildDartSDKOnUbuntu10_04)
+  * [Building Dart on CentOS, Red Hat, Fedora and Amazon Linux AMI](https://github.com/dart-lang/sdk/wiki/Building-Dart-on-CentOS,-Red-Hat,-Fedora-and-Amazon-Linux-AMI)
+  * [Building Dart SDK on Ubuntu 10.04 Server](https://github.com/dart-lang/sdk/wiki/Building-Dart-SDK-on-Ubuntu-10.04-Server)
 
 
 Can all Dart files be put into a source code repository?

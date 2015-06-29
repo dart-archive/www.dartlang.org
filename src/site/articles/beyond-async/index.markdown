@@ -29,7 +29,7 @@ programming and generators in Dart.
 **Note:**
 In 1.9, we shipped initial implementations of the entire async-await feature
 set, including synchronous and asynchronous generators.
-There might still be [bugs](https://code.google.com/p/dart/issues/list),
+There might still be [bugs](https://github.com/dart-lang/sdk/issues),
 but all the specified features are implemented.
 Bear in mind that the precise details of some of these features might
 change slightly.

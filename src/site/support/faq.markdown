@@ -639,7 +639,7 @@ See [Who Uses Dart] for more.
 [pnacl]: https://developers.google.com/native-client/overview#distributing-an-application
 [whynotbytecode]: /articles/why-not-bytecode/
 [typescript]: http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html
-[issues]: http://code.google.com/p/dart/issues/list
+[issues]: http://dartbug.com/
 [jsinterop]: /articles/js-dart-interop/
 [editor]: /tools/editor/
 [sourcemaps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/

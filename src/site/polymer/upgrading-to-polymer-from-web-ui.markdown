@@ -116,7 +116,7 @@ Thanks in advance!
 * Null is treated as false in `template if` expressions.
   Non-null and non-false values are treated as true.
   There are known issues with this, please track
-  [issue 13044](https://code.google.com/p/dart/issues/detail?id=13044).
+  [issue 13044](https://github.com/dart-lang/sdk/issues/13044).
 
 * The `iterate` attribute no longer exists on template, use `repeat` instead.
 

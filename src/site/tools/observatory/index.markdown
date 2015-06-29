@@ -67,8 +67,8 @@ with users.
 
 ## Filing bugs and feature requests
 
-To see existing issues or create a new one directly, go to the
-[Observatory issue list](https://code.google.com/p/dart/issues/list?can=2&q=Area%3DObservatory&colspec=ID+Type+Status+Priority+Area+Milestone+Owner+Summary+Modified&cells=tiles).
+To see existing issues or create a new one directly, see all
+[Observatory issues](https://github.com/dart-lang/sdk/labels/Area-Observatory).
 
 {% include observatory_footer.html %}
 
