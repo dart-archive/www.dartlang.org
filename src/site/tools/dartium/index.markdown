@@ -16,8 +16,11 @@ Using Dartium means you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
 
 <aside class="alert alert-warning" markdown="1">
-**Warning:** This browser is intended for Dart development,
-and it might have security and stability issues.
+**Warning:** This browser is intended for Dart development.
+As a reminder, the following message appears on launch:
+"You are using an unsupported command-line flag:
+--no-sandbox. Stability and security will suffer."
+
 **Do not use Dartium as your primary browser,
 and do not distribute Dartium to users!**
 </aside>
