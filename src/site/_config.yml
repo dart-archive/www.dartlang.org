@@ -7,6 +7,10 @@ permalink: /news/:year/:month/:day/:title.html
 highlighter: null
 url: https://www.dartlang.org
 custom:
+  dartpad:
+    embed-prefix: "http://dev.dart-pad.appspot.com/embed-dart.html"
+    embed-html-prefix: "http://dev.dart-pad.appspot.com/embed-html.html"
+    embed-inline-prefix: "http://dev.dart-pad.appspot.com/embed-inline.html"
   downloads:
     dartarchive-be-url-prefix: "https://storage.googleapis.com/dart-archive/channels/be/raw"
     dartarchive-dev-url-prefix: "https://storage.googleapis.com/dart-archive/channels/dev/release"
