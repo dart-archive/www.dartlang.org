@@ -80,7 +80,7 @@ new core and paper elements packages follow.
 
 We are also releasing a new Polymer example which demonstrates how to use core
 and paper elements to make a responsive single page app with very little css and
-no HTML imports. See the tutorial [here](https://www.dartlang.org/polymer/spa/),
+no HTML imports. See the tutorial [here](/polymer/spa/),
 live demo [here](http://dart-lang.github.io/polymer-spa-example/final/), and the
 code [here](https://github.com/dart-lang/polymer-spa-example).
 
@@ -601,7 +601,7 @@ Here is a summary of what changed since our last stable release (0.9.5+2).
   (which were silently hidden if you were not using loggers).
   We now throw errors asycnhronously,
   but are looking into making them throw synchronously
-  ([17789](https://code.google.com/p/dart/issues/detail?id=17789)).
+  ([17789](https://github.com/dart-lang/sdk/issues/17789)).
 
 
 ### Noticeable breaking changes
@@ -613,7 +613,7 @@ Here is a summary of what changed since our last stable release (0.9.5+2).
   (See the
   [todomvc example](https://github.com/dart-lang/sample-todomvc-polymer),
   or check out the
-  [tutorial](https://www.dartlang.org/docs/tutorials/polymer-intro/).)
+  [tutorial](/docs/tutorials/polymer-intro/).)
 
 * "noscript" polymer-elements are created by polymer.js,
   and therefore cannot be extended (subtyped) in Dart.

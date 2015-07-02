@@ -76,7 +76,7 @@ eval()</code>, floats, and long doubles require specialized opcodes to be fast.
 Eventually one ends up with something very close to the native CPU
 instructions.
 
-<a href='http://code.google.com/p/nativeclient/'>Native Client</a> is an
+<a href='https://developer.chrome.com/native-client'>Native Client</a> is an
 example of this most generalist approach. It is
 already supported in Chrome and is fully language neutral.
 If the Dart VM is not flexible enough as

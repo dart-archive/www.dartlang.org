@@ -128,7 +128,7 @@ from within Dart code,
 but we expect the web implementation to plug into
 the browser microtask queue.
 (For the latest status, see
-[dartbug.com/13433](https://code.google.com/p/dart/issues/detail?id=13433).)
+[dartbug.com/13433](https://github.com/dart-lang/sdk/issues/13433).)
 
 As the following figure shows,
 when main() exits,
@@ -344,8 +344,8 @@ scheduleMicrotask(() {
 });
 {% endprettify %}
 
-Due to bugs [9001](https://code.google.com/p/dart/issues/detail?id=9001)
-and [9002](https://code.google.com/p/dart/issues/detail?id=9002),
+Due to bugs [9001](https://github.com/dart-lang/sdk/issues/9001)
+and [9002](https://github.com/dart-lang/sdk/issues/9002),
 the first call to scheduleMicrotask() schedules a task on the event queue;
 this task creates the microtask queue and
 enqueues the function specified to scheduleMicrotask().

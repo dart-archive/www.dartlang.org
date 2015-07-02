@@ -402,8 +402,9 @@ but we can't.
 A result can be inconsistencies when two similar functions use
 positional and named parameters for the same things.
 To be notified if Dart adds support for using both
-positional and named optional parameters in the same function, star
-[issue 7056](https://code.google.com/p/dart/issues/detail?id=7056).
+positional and named optional parameters in the same function,
+subscribe to notifications on
+[issue 7056](https://github.com/dart-lang/sdk/issues/7056).
 </aside>
 
 

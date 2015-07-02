@@ -30,16 +30,14 @@
         {{ whats_the_point | markdownify }}
       </div> <!-- whats-the-point -->
 
+{% if sample_links %}
       <div id="code-links">
         <h4 id="examples">Examples</h4>
 
         {{ sample_links | markdownify }}
 
-        <a href="https://drone.io/github.com/dart-lang/dart-tutorials-samples/latest">
-           <img src="https://drone.io/github.com/dart-lang/dart-tutorials-samples/status.png"
-                alt="Build Status" style="margin-top:10px;max-width:100%;">
-        </a>
       </div> <!-- end code-links -->
+{% endif %}
 
       <div id="tutorial-toc">
         <a href="https://github.com/dart-lang/dartlang.org/issues"

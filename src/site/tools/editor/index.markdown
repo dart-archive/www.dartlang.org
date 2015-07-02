@@ -193,9 +193,6 @@ If you'd like to talk with the Dart Editor team about your bug,
 **include your email address**.
 </aside>
 
-To see existing issues or create a new one directly, go to the
-[Dart Editor issue list](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Editor).
-
 ## Troubleshooting
 
 [Troubleshooting Dart Editor](troubleshoot.html)

@@ -993,10 +993,7 @@ way the compiler does.
 
 Using spaces for formatting ensures the code looks the same in everyone's
 editor. It also makes sure it looks the same when posted to blogs, or on code
-sites like [Google Code][] or [GitHub][].
-
-[google code]: http://code.google.com/projecthosting/
-[github]: http://github.com
+sites like [GitHub](https://github.com/).
 
 Modern editors emulate the behavior of tabs while inserting spaces, giving you
 the easy editing of tabs and the consistency of spaces.

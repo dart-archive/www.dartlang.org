@@ -16,8 +16,11 @@ Using Dartium means you don't have to compile your code to JavaScript
 until you're ready to test on other browsers.
 
 <aside class="alert alert-warning" markdown="1">
-**Warning:** This browser is intended for Dart development,
-and it might have security and stability issues.
+**Warning:** This browser is intended for Dart development.
+As a reminder, the following message appears on launch:
+"You are using an unsupported command-line flag:
+--no-sandbox. Stability and security will suffer."
+
 **Do not use Dartium as your primary browser,
 and do not distribute Dartium to users!**
 </aside>
@@ -180,7 +183,7 @@ Chromium-based browser by going to `chrome://version`.
 
 ## Filing bugs and feature requests
 
-To file a bug, use the
-[Dartium issue template](https://code.google.com/p/dart/issues/entry?template=Defect%20report%20for%20Dartium).
-To see existing issues, go to the
-[Dartium issue list](https://code.google.com/p/dart/issues/list?can=2&amp;q=label%3AArea-Dartium).
+To see existing issues, view 
+[Dartium bugs in the SDK project](https://github.com/dart-lang/sdk/labels/Area-Dartium).
+You can file a bug on 
+[GitHub](https://github.com/dart-lang/sdk/issues).

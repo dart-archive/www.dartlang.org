@@ -80,7 +80,7 @@ is always nearby. Otherwise the imports won't work.
 We use the main [Dart bug tracker][]. Feel free to file a ticket. When you do,
 please include:
 
-[dart bug tracker]: https://code.google.com/p/dart/issues/list
+[Dart bug tracker]: http://dartbug.com
 
 * Your platform (Windows, Mac, Linux, etc.).
 * The version you are running. (Run `pub version`.)
@@ -94,7 +94,7 @@ want your package deleted, [file an issue][delete-request] and the Pub authors
 will take down your package. You'll need to use a different version when you
 re-upload it.
 
-[delete-request]: http://code.google.com/p/dart/issues/entry?summary=Request%20to%20delete%20package%20from%20pub&status=Triaged&labels=Type-Task,Priority-Medium,Area-Pub,Pub-DeleteRequest
+[delete-request]: https://github.com/dart-lang/sdk/labels/Pub-DeleteRequest
 
 ### I get a timeout when I run pub. What do I do?
 
@@ -111,7 +111,7 @@ look into it. Usually it resolves itself in a few hours.
 
 Probably because we haven't implemented it yet. Pub is still under active
 development. If you would like to see specific features, please
-[file a ticket][dart bug tracker] after searching to make sure it hasn't
+[file a ticket][Dart bug tracker] after searching to make sure it hasn't
 already been requested yet. If it has, star it so we know what things are
 important to users.
 
@@ -127,11 +127,6 @@ well-documented, and, we hope, easy to contribute to.
 We don't generally make public roadmaps for pub. The Dart project is very fluid
 and priorities and schedules change very frequently. If we make promises for
 the future, we are likely to end up disappointing users when plans change.
-
-You can usually get a picture for what we are working on now by seeing which
-[bugs we have started][started].
-
-[started]: https://code.google.com/p/dart/issues/list?can=2&q=Area%3DPub+status%3AStarted+&colspec=ID+Type+Status+Priority+Area+Milestone+Owner+Summary&cells=tiles
 
 ### I still have questions. What should I do?
 

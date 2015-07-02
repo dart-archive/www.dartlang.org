@@ -163,7 +163,7 @@ aList.add(15)
 
 While the variable values have changed, note that the variable
 summary does not refresh
-([issue 18856](https://code.google.com/p/dart/issues/detail?id=18856)).
+([issue 18856](https://github.com/dart-lang/sdk/issues/18856)).
 Click the variable name to see the updated value.
 
 ## Example 3: Defining a closure on the fly
