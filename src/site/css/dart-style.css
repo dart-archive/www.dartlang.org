@@ -409,7 +409,7 @@ i.sprite-icon-download-btn {
 }
 
 @media (max-width: 1000px) {
-  .navbar-search {
+  .navbar-right {
     display: none;
   }
 }
