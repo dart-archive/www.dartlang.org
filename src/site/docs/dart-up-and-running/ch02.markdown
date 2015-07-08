@@ -3235,7 +3235,7 @@ main() async {
 }
 {% endprettify %}
 
-### Using asynchronous for loops with Streams {#await}
+### Using asynchronous for loops with Streams {#await-for}
 {:.no_toc}
 
 An asynchronous for loop has the following form:
