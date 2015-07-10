@@ -120,14 +120,6 @@ the following exceptions:
   files whose names begin with `.`).
 * If you're using Git, any files ignored by your `.gitignore` file.
 
-<aside class="alert alert-info" markdown="1">
-**For users of Git:**
-Your package must have a `.git` folder at the root of your package
-if you want `.gitignore` files to trigger the ability to include dot
-files when uploading your package.
-</aside>
-
-
 Be sure to delete any files you don't want to include (or add them to
 `.gitignore`). `pub publish` lists all files that it's going to publish
 before uploading your package,
