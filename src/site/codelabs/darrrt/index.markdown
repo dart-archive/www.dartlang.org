@@ -1362,6 +1362,16 @@ but the real world version includes:
   and
   <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/piratebadge/web/index.html" target="_blank">real world HTML</a>.
 
+### <i class="fa fa-anchor"> </i> Build your app to run in any browser
+
+You can use **pub build** on the
+[real world version of Pirate Badge](https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/piratebadge)
+to compile the app to run in any modern browser.
+For more information, see
+[Getting Started](/docs/tutorials/get-started/) and
+[pub build](/tools/pub/cmd/pub-build.html), one of the
+[pub](/tools/pub/) commands.
+
 ### <i class="fa fa-anchor"> </i> Deploy a server and your app
 
 <div class="trydart-step-details" markdown="1">
