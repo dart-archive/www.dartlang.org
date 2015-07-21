@@ -1368,7 +1368,7 @@ Also see these articles and tutorials:
 
 -   [The Event Loop and Dart](/articles/event-loop/)
 
--   [Use Streams for Data](/docs/tutorials/streams/)
+-   [Using Dart Streams](/docs/tutorials/streams/)
 
 -   [Creating Streams in Dart](/articles/creating-streams/)
 
