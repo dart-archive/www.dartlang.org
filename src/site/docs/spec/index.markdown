@@ -24,7 +24,7 @@ You can find previous editions of the specification at
 The 3<sup>rd</sup> edition of the specification added information
 about the following new language features:
 
-* [Null-aware operators](https://github.com/gbracha/nullAwareOperators/blob/master/proposal.md)
+* Null-aware operators
 
 * [Generalized tear offs](https://github.com/gbracha/generalizedTearOffs/blob/master/proposal.md)
 

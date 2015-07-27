@@ -75,6 +75,13 @@ point back to the main one. Since you may have entrypoints under, for example,
 `web/admin/controllers/`, pub makes sure a `packages` directory
 is always nearby. Otherwise the imports won't work.
 
+### How can I make my client-server app work with **pub serve**?
+
+When you have an app with your own Dart server, you can use the
+[shelf_proxy](http://pub.dartlang.org/packages/shelf_proxy) package
+to set up a proxy to route requests
+to an external "pub serve" instance.
+
 ### I found a bug in pub. How do I report it?
 
 We use the main [Dart bug tracker][]. Feel free to file a ticket. When you do,

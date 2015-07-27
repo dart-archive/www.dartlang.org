@@ -26,52 +26,34 @@ Here’s an example of testing a Dart file.
 dartanalyzer bin/test.dart
 {% endprettify %}
 
-As the following table shows,
-the exit code of dartanalyzer tells you whether the code
-passed analysis.
-
-|-----------+----------------------------------------
-| Exit code | Description
-|-----------+----------------------------------------
-| 0         | No issues found
-| 1         | Hints found (but no warnings or errors)
-| 2         | Warnings found
-| 3         | Errors found
-{:.table .table-striped}
-
-
 ## Options
 
-You can use the following command-line options with dartanalyzer:
+The following are the most commonly used options for dartanalyzer:
 
-{% comment %}
-{NOTE:
-I'm still not documenting --perf. It's displayed by --help but seems of
-limited use to most developers. I'm also not documenting the following,
-which I got from sdk/bin/dartanalyzer or pkg/analyzer/lib/options.dart
-but aren't displayed by help: -batch|--batch|-b (though -b doesn't seem
-to be treated specially by the script), --ignore-unrecognized-flags
-(doesn't seem to change the output), --fatal-warnings, --warnings (only
-for SDK developers?), --show-sdk-warnings (deprecated)}
-{% endcomment %}
-
-`--dart-sdk=`
-: Specify the directory that contains the Dart SDK.
-
-`-p` *or* `--package-root=`
-: **Deprecated.** Specify the directory to search for any libraries that are
-  imported using `package:`.
+`--packages=`
+: Specify the path to the package resolution configuration file.
+  For more information, see
+  [Package Resolution Configuration File](https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md).
+  _This feature is coming in Dart 1.12, but is available now in
+  the Dev channel download._
+  This option cannot be used with `--package-root`.
 
 `--package-warnings`
 : Show warnings not only for code in the specified .dart file and
-  others in its library, but also for libraries imported with
-  `package:`.
+  others in its library, but also for libraries imported with `package:`.
 
-`--format=machine`
-: Produce output in a format suitable for parsing.
+`--options=`
+: Specify the path to an analysis options file.
+
+`--lints`
+: Show the results from the linter.
 
 `--no-hints`
 : Don't show hints for improving the code.
+
+`--ignore-unrecognized-flags`
+: Rather than printing the help message,
+  ignore any unrecognized command line flags.
 
 `--version`
 : Show the analyzer version.
@@ -79,3 +61,40 @@ for SDK developers?), --show-sdk-warnings (deprecated)}
 `-h` *or* `--help`
 : Show all the command-line options.
 
+The following are advanced options to use with dartanalyzer:
+
+`-b` *or* `--batch`
+: Run in batch mode.
+
+`--dart-sdk=`
+: Specify the directory that contains the Dart SDK.
+
+`--fatal-warnings`
+: Except for type warnings, treat warnings as fatal.
+
+`--format=machine`
+: Produce output in a format suitable for parsing.
+
+`--warnings`
+: Show warnings from the SDK imports.
+
+`--url-mapping=libraryUri,/path/to/library.dart`
+: Tells the analyzer to use the specified library as the source
+  for that particular import.
+
+
+The following options are deprecated:
+
+`-p` *or* `--package-root=`
+: **Deprecated.** Specify the directory to search for any libraries that are
+  imported using `package:`. _This option is replaced in Dart 1.12 with
+  `--packages`._
+
+`--machine`
+: **Deprecated.** Replaced by `--format`.
+
+`--show-package-warnings`
+: **Deprecated.** Replaced by `--package-warnings`.
+
+`--show-sdk-warnings`
+: **Deprecated.** Replaced by `--warnings`.

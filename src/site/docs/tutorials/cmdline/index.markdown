@@ -174,7 +174,7 @@ _handleError(String path) {
 ## Parsing command-line arguments {#cmd-line-args}
 
 The
-<a href="https://api.dartlang.org/args.html" target="_blank">args</a>
+<a href="https://pub.dartlang.org/packages/args" target="_blank">args</a>
 package, a software bundle that contains a library of Dart code, provides
 parser support for transforming raw command-line arguments
 into a set of options, flags, and additional values.

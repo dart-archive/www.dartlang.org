@@ -182,6 +182,20 @@ INFO: default: "GET /_ah/start HTTP/1.1" 200 2
 INFO: default: "GET /_ah/health?IsLastSuccessful=no HTTP/1.1" [[highlight]]200 2[[/highlight]]
 {% endprettify %}
 
+<aside class="alert alert-info" markdown="1">
+**Note:**
+If the `preview app run` command fails with the following error:
+
+<pre>
+The --custom_entrypoint flag must be set for custom runtimes
+ERROR: (gcloud.preview.app.run) DevAppSever failed with error code [1]
+</pre>
+
+See
+[Stack Overflow](http://stackoverflow.com/questions/31214555/setting-up-app-engine-for-dart-gcloud-preview-error)
+for a suggested workaround.
+</aside>
+
 The "200 2" status indicates a successful launch. The first few times that
 you build you may see some `50x` errors. Also, this step can take awhile
 the first time that you run it since `pub get` is run inside a container

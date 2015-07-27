@@ -1,3 +1,158 @@
+- title: "Sky: An Experiment Writing Dart for Mobile"
+  short: sky-dart-for-mobile
+  presenters:
+    - Eric Seidel
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=PnIWl33YMwA
+  event: Dart Developer Summit 2015
+
+- title: "Dart for Mobile"
+  short: dart-for-mobile
+  presenters:
+    - Kasper Lunch
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=t8xdEO8LyL8
+  event: Dart Developer Summit 2015
+
+- title: "Moving from Node.js to Dart"
+  short: moving-from-node-js-to-dart
+  presenters:
+    - Faisil Abid, League Inc
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=NHsmiY0rFS8
+  event: Dart Developer Summit 2015
+
+- title: "Dart for the Internet of Things"
+  short: dart-internet-things
+  presenters:
+    - Dennis Khvostionov, DGLogik
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=Azd2-5wCjUI
+  event: Dart Developer Summit 2015
+
+- title: "Google Fiber and Dart"
+  short: google-fiber-and-dart
+  presenters:
+    - Jason Daly
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=VIdxhjPb7wk
+  event: Dart Developer Summit 2015
+
+- title: "Panel with Dart Engineers"
+  short: dart-engineer-panel
+  presenters:
+    - Lars Bak
+    - Kasper Lund
+    - Dan Grove
+    - Dan Rubel
+    - Ivan Posva
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=hYt9lhMie-o
+  event: Dart Developer Summit 2015
+
+- title: "Building Production Dart Apps with an Open Source Workflow"
+  short: open-source-workflow
+  presenters:
+    - Devon Carew
+    - Luke Church
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=wAR1IDYAZcQ
+  event: Dart Developer Summit 2015
+
+- title: "How We Build Instill.io With Dart and Polymer"
+  short: how-we-built-instill-io
+  presenters:
+    - Mathieu Lorber, Instill.io
+    - François Saulnier, Instill.io
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=Hg3cEBgq9Ds
+  event: Dart Developer Summit 2015
+
+- title: "Keynote: Ads and Dart"
+  short: ads-and-dart
+  presenters:
+    - Ferhat Buyukkokten
+    - Ted Sander
+  date: 2015-04-29
+  video: https://www.youtube.com/watch?v=Bh8tugWZsP8
+  event: Dart Developer Summit 2015
+
+- title: "Migrating Trustwave's Large Customer Portal to Dart"
+  short: migrating-trustwave-to-dart
+  presenters:
+    - Eric Warner, Trustwave
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=5-32KP0JHaE
+  event: Dart Developer Summit 2015
+
+- title: "Switching to Dart: Faster Development for Workiva"
+  short: switching-to-dart-workiva
+  presenters:
+    - John Ryan
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=4O4jr0tr_ow
+  event: Dart Developer Summit 2015
+
+- title: "Getting the Most Out of Dart2js"
+  short: getting-most-from-dart2js
+  presenters:
+    - Stephen Adams
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=xneWkyKLuk0
+  event: Dart Developer Summit 2015
+
+- title: "Dart for the Web: State of the Union"
+  short: dart-for-web
+  presenters:
+    - Kevin Moore
+    - Dan Grove
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=2Ef3ALvbkhA
+  event: Dart Developer Summit 2015
+
+- title: "Debugging and Profiling Dart Programs with Observatory"
+  short: debugging-with-observatory
+  presenters:
+    - John McCutchan
+    - Todd Turnidge
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=y39pZCExsOs
+  event: Dart Developer Summit 2015
+
+- title: "Space Frugal Reflection"
+  short: space-frugal-reflection
+  presenters:
+    - Erik Ernst
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=kazpTc75-Bg
+  event: Dart Developer Summit 2015
+
+- title: "Dart at 60fps"
+  short: dart-at-60fps
+  presenters:
+    - Ross Smith, Willowbrite
+    - Arturs Vitols, Willowbrite
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=ttawCATgEM4
+  event: Dart Developer Summit 2015
+
+- title: "Async in Dart"
+  short: async-in-dart
+  presenters:
+    - Florian Loitsch
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=MUDOIAssBDs
+  event: Dart Developer Summit 2015
+
+- title: "Keynote: Dart Today & Tomorrow"
+  short: dart-today-tomorrow
+  presenters:
+    - Lars Bak
+    - Kasper Lund
+  date: 2015-04-28
+  video: https://www.youtube.com/watch?v=FiXiI2Atexc
+  event: Dart Developer Summit 2015
+
 - title: "Dart in Google Cloud"
   short: dart-in-google-cloud
   presenters:

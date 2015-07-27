@@ -64,7 +64,7 @@ and
 which are not explained in this tutorial.
 Refer to [Asynchronous Programming with Futures](/docs/tutorials/futures/)
 and
-[Use Streams for Data](/docs/tutorials/streams/)
+[Using Dart Streams](/docs/tutorials/streams/)
 for information about using these classes.
 </aside>
 

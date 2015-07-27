@@ -106,7 +106,7 @@ developer can add it as a dependency in their `pubspec.yaml`:
 
 {% prettify yaml %}
 dependencies:
-  transmogrify: ">= 1.0.0 < 2.0.0"
+  transmogrify: ^1.0.0
 {% endprettify %}
 
 ## What files are published?
@@ -116,9 +116,9 @@ the following exceptions:
 
 * Any `packages` directories.
 * Your package's [lockfile](/tools/pub/glossary.html#lockfile).
+* If you aren't using Git, all "hidden" files (that is,
+  files whose names begin with `.`).
 * If you're using Git, any files ignored by your `.gitignore` file.
-* If you aren't using Git, all "hidden" files (that is, files whose names begin
-  with `.`).
 
 Be sure to delete any files you don't want to include (or add them to
 `.gitignore`). `pub publish` lists all files that it's going to publish

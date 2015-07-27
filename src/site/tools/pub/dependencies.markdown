@@ -94,13 +94,13 @@ will be of this form, as shown in the following example:
 
 {% prettify yaml %}
 dependencies:
-  transmogrify: ^0.4.0
+  transmogrify: ^1.4.0
 {% endprettify %}
 
 This example, which uses [caret syntax](#caret-syntax),
 specifies that your package depends on a hosted package named
-"transmogrify" and will work with any version from 0.4.0 to 1.0.0
-(but not 1.0.0 itself). 
+"transmogrify" and will work with any version from 1.4.0 to 2.0.0
+(but not 2.0.0 itself). 
 
 If you want to use your own package server, you can use a description that
 specifies its URL:
@@ -111,7 +111,7 @@ dependencies:
     hosted:
       name: transmogrify
       url: http://your-package-server.com
-    version: ^0.4.0
+    version: ^1.4.0
 {% endprettify %}
 
 ### Git packages {#git-packages}

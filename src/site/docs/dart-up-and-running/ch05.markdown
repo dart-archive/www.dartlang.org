@@ -16,17 +16,6 @@ This chapter points out some of the useful and fun features of the Dart
 language and libraries that are used in Dartiverse Search, a
 client-server app.
 
-<aside class="alert alert-warning" markdown="1">
-  **Note:**
-  This chapter should be updated or deleted.
-  It describes an
-  [old version of Dartiverse Search](https://github.com/dart-lang/sample-dartiverse-search/tree/eff1219dad03e61bc6d0849995fe990fd75760e7)
-  that doesn't use Dart's new `async` and `await` keywords,
-  and it depends on Dart Editor,
-  which is [retired as of 1.11](http://news.dartlang.org/2015/04/the-present-and-future-of-editors-and.html).
-  Pull requests [welcome!](https://github.com/dart-lang/www.dartlang.org/issues/1286)
-</aside>
-
 As the screenshot shows, Dartiverse Search looks for a
 user-entered string in GitHub and StackOverflow. The app is
 asynchronous, adding results as they're found, so the UI is always
@@ -157,7 +146,7 @@ DivElement statusElement = querySelector('#status');
 DivElement resultsElement = querySelector('#results');
 {% endprettify %}
 
-The `querySelector()` method uses a selector string that identifies an
+The `querySelector()` function uses a selector string that identifies an
 element in the DOM. See
 [Finding elements](ch03.html#finding-elements) for more about selectors.
 
@@ -354,6 +343,9 @@ dart:io), and VirtualDirectory (from the http\_server package) to
 implement a basic web server. Here's the code that initializes the web
 server and serves static files:
 
+{% comment %}
+bin/server.dart
+{% endcomment %}
 {% prettify dart %}
 var buildPath = Platform.script.resolve('../build').toFilePath();
 // ...
@@ -406,24 +398,29 @@ upgrade HTTP requests for /ws and to handle them as WebSocket
 connections. The code uses dart:io's WebSocketTransformer class to
 perform the conversion:
 
+{% comment %}
+lib/dartiverse_search.dart
+{% endcomment %}
 {% prettify dart %}
 router.serve('/ws')
   .transform(new WebSocketTransformer())
   .listen(handleWebSocket);
 {% endprettify %}
 
-Here's the custom `handleWebSocket()` method, which handles events on
+Here's the custom `handleWebSocket()` function, which handles events on
 the WebSocket:
 
+{% comment %}
+lib/dartiverse_search.dart
+{% endcomment %}
 {% prettify dart %}
 void handleWebSocket(WebSocket webSocket) {
   webSocket
-    .map((string) => JSON.decode(string))
-    .listen((json) {
+    .map((string) => JSON.decode(string)).listen((json) {
       var request = json['request'];
       switch (request) {
         case 'search':
-          // ...Kick off searches, and register handlers for results...
+          webSocket.addStream(_getResults(json).map((map) => JSON.encode(map)));
           break;
         // ...
       }
@@ -433,40 +430,42 @@ void handleWebSocket(WebSocket webSocket) {
 
 The call to `webSocket.map()` parses all the messages that the client
 sends over the WebSocket, converting each JSON-formatted message into an
-object. Then, after checking the message format, the handler initiates
-searches on GitHub and StackOverflow.
+object. Then, after checking the message format, the handler calls
+the helper function `_getResults()`, which initiates
+searches on GitHub and StackOverflow and constructs a JSON-formatted
+message for each result, and uses `webSocket.addStream()` to forward
+the result to the client.
 
-Here's the code from the 'search' case that starts the searches and
+Here's the code from `_getResults()` that starts the searches and
 handles results as they come in:
 
+{% comment %}
+lib/dartiverse_search.dart
+{% endcomment %}
 {% prettify dart %}
-for (var engine in searchEngines) {
-  engine.search(input)
-    .listen((result) {
-      var response = {
+for (var engine in _searchEngines) {
+  try {
+    await for (var result in engine.search(input)) {
+      var response = <String, Object>{
         'response': 'searchResult',
         'source': engine.name,
         'title': result.title,
         'link': result.link
       };
-      webSocket.add(JSON.encode(response));
-    }, onError: (error) {
-      // ...
-    }, onDone: () {
-      done++;
-      if (done == searchEngines.length) {
-        webSocket.add(JSON.encode({ 'response': 'searchDone' }));
-      }
-    });
+      yield response;
+    }
+  } catch (error, stack) {
+    // error handling
+  }
+}
+yield const <String, Object>{'response': 'searchDone'};
 {% endprettify %}
 <!-- TODO: check that code. add more }s? -->
 
 Each engine can return up to 3 results, but the WebSocket handler
-doesn't wait around for those results. Instead, a listener handles each
-result as it arrives, constructing a JSON-formatted message and using
-`webSocket.add()` to forward the result to the client. Once both engines
-have finished sending any results, the search server sends a
-'searchDone' message to the client.
+doesn't wait around for those results. Instead, each result is yielded to
+the caller of `_getResults` as soon as it is available. Once all search engines
+have finished sending results, the function sends a final `searchDone` message.
 
 
 ### Using web APIs {#using-web-apis}
@@ -476,37 +475,33 @@ The GitHub and StackOverflow searches are implemented in `search()`
 methods that take an input string and return a stream of SearchResult
 objects. Here's an example from the GitHub `search()` method:
 
+{% comment %}
+lib/src/github_search_engine.dart
+{% endcomment %}
 {% prettify dart %}
 import 'package:http/http.dart' as http_client;
 // ...
-Stream<SearchResult> search(String input) {
-  var query = {
-    'q': 'language:dart $input'
-  };
-  var searchUri = new Uri.https(
-      'api.github.com',
-      '/search/repositories',
-      query);
-  var controller = new StreamController();
-  http_client.get(searchUri)
-    .then((http_client.Response response) {
-      if (response.statusCode != HttpStatus.OK) {
-        throw "Bad status code: ${response.statusCode}, "
-              "message: ${response.reasonPhrase}";
-      }
-      var json = JSON.decode(response.body);
-      json.putIfAbsent('items', () => []);
-      json['items']
-        .expand(/* Delete items with empty descriptions. */)
-        .take(3)
-        .forEach((item) {
-          controller.add(new SearchResult(
-              item['description'], item['html_url']));
-        });
-    })
-    .catchError(controller.addError)
-    .whenComplete(controller.close);
-  return controller.stream;
+Stream<SearchResult> search(String input) async* {
+  var query = { 'q': 'language:dart $input' };
+  var searchUri =
+      new Uri.https('api.github.com', '/search/repositories', query);
+  
+  var response = await http_client.get(searchUri);
+  if (response.statusCode != HttpStatus.OK) {
+      throw "Bad status code: ${response.statusCode}, "
+        "message: ${response.reasonPhrase}";
+  }
+  var json = JSON.decode(response.body);
+  json.putIfAbsent('items', () => []);
+
+  yield* new Stream.fromIterable(json['items'].expand((item) {
+    if (item['description'] == null || item['description'].isEmpty) {
+      // Skip results without a description.
+      return [];
+    }
+    return [item];
+  }).take(3).map(
+      (item) => new SearchResult(item['description'], item['html_url'])));
 }
 {% endprettify %}
 
@@ -517,22 +512,21 @@ example, if the input string is 'polymer', then the URI is this:
 
 `https://api.github.com/search/repositories?q=language%3Adart+polymer`
 
-Next, the method creates an instance of StreamController (a class from
-dart:async) to create and manage the stream of results.
-
 Next comes the search request, using the http package's `get()` function
 to send an HTTP GET request to the search URI. The `get()` function
-returns a Future\<Response\>. The `then()` method registers a handler
-for the response, `catchError()` registers an error handler, and
-`whenComplete()` registers a cleanup function. At this point, the
-`search()` method returns the stream created by StreamController.
+returns a Future\<Response\>. By using the keyword
+[await](/articles/await-async/),
+this call is made asynchronously, and execution returns to this method when the Future
+is completed, so `response` will have the value of a Response.
 
-Once the response arrives, the response handler decodes it and adds the
-first three reasonable results to the result stream. If an error occurs,
-then an error goes in the result stream, causing the search client's
-onError handler to execute. After either a successful completion or an
-error, the stream closes and the search client's onDone handler
-executes.
+If an error occurs, an error with the status code and an error message is thrown.
+
+The body of the response is first decoded, and we grab the value of `items` in the
+decoded response, which is a list of search results.
+
+Items which have empty descriptions are filtered out, and the first 3 results are
+each made a SearchResult. This Iterable of SearchResult is then made into a Stream
+using `Stream.fromIterable()` and yielded to the caller.
 
 
 ### Implementing a library {#implementing-a-library}
