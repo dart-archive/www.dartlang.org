@@ -54,10 +54,10 @@ js:
             https://dartpad.dartlang.org/bb3bc5e8d7f3c5aa11b5
             https://gist.github.com/bb3bc5e8d7f3c5aa11b5
             {% endcomment %}
-            <iframe src="{{site.custom.dartpad.embed-prefix}}?id=bb3bc5e8d7f3c5aa11b5&horizontalRatio=0.8&verticalRatio=0.8"
-                    width="100%" height="100%"
-                    class="dartpad-hp-iframe"
-                    id="dartpad-0"></iframe>
+            <!-- iframe src="{{site.custom.dartpad.embed-dart-prefix}}?id=bb3bc5e8d7f3c5aa11b5" -->
+            <iframe src="{{site.custom.dartpad.embed-dart-prefix}}"
+                    width="100%" height="440px"
+                    style="border: 1px solid #ccc;"></iframe>
           </div>
 
         </div> <!-- END slides -->
@@ -65,6 +65,20 @@ js:
     </div>
 
     <div class="container dart-container">
+
+      <section>
+        <p>
+          Click "Try Dart" above to see the wonderful DartPad nothingness that results.
+          Here's the same DartPad code outside of the carousel:
+        </p>
+        {% comment %}
+        https://dartpad.dartlang.org/bb3bc5e8d7f3c5aa11b5
+        https://gist.github.com/bb3bc5e8d7f3c5aa11b5
+        {% endcomment %}
+        <iframe src="{{site.custom.dartpad.embed-dart-prefix}}?id=bb3bc5e8d7f3c5aa11b5"
+                width="100%" height="440px"
+                style="border: 1px solid #ccc;"></iframe>
+      </section>
 
       <section class="dart-ctas">
         <div class="row">
@@ -451,6 +465,7 @@ main() {
               <a href="/tools/">Dart plugins</a> exist for WebStorm, Eclipse,
               Sublime Text, and more.
             </p>
+
             <a href="https://dartpad.dartlang.org"><img src="imgs/dartpad.png" alt="screenshot of DartPad"
                 style="margin-bottom:0px"></a>
           </div>
