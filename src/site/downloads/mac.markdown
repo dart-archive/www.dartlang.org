@@ -8,49 +8,42 @@ description: "Installing and updating Dart on your Mac."
 
 # {{ page.title }}
 
-We recommend using Homebrew
+The Dart SDK contains the VM, analyzer, formatter, dart2js compiler,
+documentation generator, package manager, and the core libraries.
+
+We recommend using [Homebrew](#homebrew)
 to manage your Dart installation.
 Another option is [downloading Dart manually](#zip).
 
 
-## Using Homebrew {#homebrew}
+## Installing and upgrading with Homebrew {#homebrew}
 
+Homebrew is a package manager for Mac OS.
 With [Homebrew](http://brew.sh/),
 installing and updating Dart is easy.
-You can use the default location or
-[specify a custom location for Dart](#homebrew-custom-location).
-
 
 ### Installing Dart {#homebrew-install-dart}
 
-The **dart** package contains the [Dart SDK](/tools/sdk/),
-which includes the Dart VM, libraries, and command-line Dart tools such as
-[dart](/tools/dart-vm/), [dart2js](/tools/dart2js/),
-[dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html),
-[pub](/tools/pub/), and [dartdocgen](/tools/dartdocgen/).
-Optionally, you can add two more tools:
+[Install homebrew](http://brew.sh/), and then run:
 
-* [Dartium](/tools/dartium/):
-  A special build of Chromium that includes a Dart VM.
-  Use it to interactively test and debug Dart web apps
-  without first compiling them to JavaScript.
-* The content shell:
-  Headless Dartium for automated testing.
+{% prettify huge %}
+$ brew tap dart-lang/dart
+$ brew install dart
+{% endprettify %}
 
-For client-side Dart work, you might want to download all the tools:
+If you use Dart for web development work, we recommend that you also
+install Dartium and Content Shell:
 
 {% prettify huge %}
 $ brew tap dart-lang/dart
 $ brew install dart --with-content-shell --with-dartium
 {% endprettify %}
 
-If you're working on server-side Dart,
-all you need is `dart`:
+### Installing dev-channel releases
 
-{% prettify huge %}
-$ brew tap dart-lang/dart
-$ brew install dart
-{% endprettify %}
+To get early access to new features and fixes,
+you can use the dev-channel. Head's up: dev-channel
+releases are not as heavily tested as the stable release.
 
 To choose the dev channel version of whatever Dart software you install,
 use `--devel`:
@@ -93,7 +86,7 @@ depending on what arguments you used before.
 {% endcomment %}
 
 
-### Specifying a custom location {#homebrew-custom-location}
+### Specifying a custom installation location {#homebrew-custom-location}
 
 By default, Homebrew downloads to `/usr/local`.
 If your Mac is set up so that installing to `/usr/local` requires
