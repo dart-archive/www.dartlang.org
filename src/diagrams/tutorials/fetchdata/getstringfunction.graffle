@@ -7,7 +7,7 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGraffle6</string>
-		<string>156.11.0.206384</string>
+		<string>161.8.0.237618</string>
 	</array>
 	<key>AutoAdjust</key>
 	<true/>
@@ -43,7 +43,7 @@
 	<key>DisplayScale</key>
 	<string>1 in = 1.00000 in</string>
 	<key>GraphDocumentVersion</key>
-	<integer>11</integer>
+	<integer>12</integer>
 	<key>GraphicsList</key>
 	<array>
 		<dict>
@@ -57,8 +57,6 @@
 			<string>Resize</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Font</key>
-				<string>HelveticaNeue</string>
 				<key>Size</key>
 				<real>13</real>
 			</dict>
@@ -68,8 +66,6 @@
 			<array>
 				<string>{-0.42972972972972956, 0}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -102,7 +98,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
 {\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Light;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -125,8 +121,6 @@
 			<string>Resize</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Font</key>
-				<string>HelveticaNeue</string>
 				<key>Size</key>
 				<real>13</real>
 			</dict>
@@ -136,8 +130,6 @@
 			<array>
 				<string>{-0.42499999999999982, 0}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -170,7 +162,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
 {\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Light;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -193,8 +185,6 @@
 			<string>Resize</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Font</key>
-				<string>HelveticaNeue</string>
 				<key>Size</key>
 				<real>13</real>
 			</dict>
@@ -204,8 +194,6 @@
 			<array>
 				<string>{-0.36274509803921617, -0.25}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -238,7 +226,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
 {\fonttbl\f0\fnil\fcharset0 HelveticaNeue-Light;}
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -251,15 +239,83 @@
 			<string>NO</string>
 		</dict>
 		<dict>
+			<key>Bounds</key>
+			<string>{{21, 67}, {523, 284}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>FitText</key>
+			<string>YES</string>
+			<key>Flow</key>
+			<string>Resize</string>
+			<key>FontInfo</key>
+			<dict>
+				<key>Size</key>
+				<real>13</real>
+			</dict>
+			<key>ID</key>
+			<integer>3</integer>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>CornerRadius</key>
+					<real>7</real>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Align</key>
+				<integer>0</integer>
+				<key>Pad</key>
+				<integer>2</integer>
+				<key>Text</key>
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red1\green1\blue1;}
+\deftab720
+\pard\pardeftab720
+
+\f0\fs24 \cf2 Future makeRequest(Event e) async \{\
+  var path = '{\field{\*\fldinst{HYPERLINK "https://www.dartlang.org/samples-files/portmanteaux.json"}}{\fldrslt https://www.dartlang.org/samples-files/portmanteaux.json}}';\
+  try \{\
+    processString(await HttpRequest.getString(path));\
+  \} catch (e) \{\
+    print('Couldn\\'t open $path');\
+    handleError(e);\
+  \}\
+\}\
+\
+processString(String jsonString) \{\
+  List&lt;String&gt; portmanteaux = JSON.decode(jsonString);\
+  for (int i = 0; i &lt; portmanteaux.length; i++) \{\
+    wordList.children.add(new LIElement()..text = portmanteaux[i]);\
+  \}\
+\}\
+\
+handleError(Error error) \{\
+  wordList.children.add(new LIElement()..text = 'Request failed.');\
+\}}</string>
+				<key>VerticalPad</key>
+				<integer>2</integer>
+			</dict>
+			<key>Wrap</key>
+			<string>NO</string>
+		</dict>
+		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -279,6 +335,11 @@
 			</array>
 			<key>Style</key>
 			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
@@ -300,11 +361,6 @@
 			<string>LineGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -325,6 +381,11 @@
 			</array>
 			<key>Style</key>
 			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
@@ -368,8 +429,6 @@
 			</dict>
 			<key>ID</key>
 			<integer>34169</integer>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -395,7 +454,7 @@
 				<key>Pad</key>
 				<integer>2</integer>
 				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+				<string>{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
 {\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
 {\colortbl;\red255\green255\blue255;\red128\green0\blue0;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
@@ -408,92 +467,10 @@
 			<string>NO</string>
 		</dict>
 		<dict>
-			<key>Bounds</key>
-			<string>{{21, 67}, {487, 284}}</string>
-			<key>Class</key>
-			<string>ShapedGraphic</string>
-			<key>FitText</key>
-			<string>YES</string>
-			<key>Flow</key>
-			<string>Resize</string>
-			<key>FontInfo</key>
-			<dict>
-				<key>Font</key>
-				<string>HelveticaNeue</string>
-				<key>Size</key>
-				<real>13</real>
-			</dict>
-			<key>ID</key>
-			<integer>3</integer>
-			<key>Shape</key>
-			<string>Rectangle</string>
-			<key>Style</key>
-			<dict>
-				<key>fill</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-				<key>shadow</key>
-				<dict>
-					<key>Draws</key>
-					<string>NO</string>
-				</dict>
-				<key>stroke</key>
-				<dict>
-					<key>CornerRadius</key>
-					<real>7</real>
-				</dict>
-			</dict>
-			<key>Text</key>
-			<dict>
-				<key>Align</key>
-				<integer>0</integer>
-				<key>Pad</key>
-				<integer>2</integer>
-				<key>Text</key>
-				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
-{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
-{\colortbl;\red255\green255\blue255;\red1\green1\blue1;}
-\deftab720
-\pard\pardeftab720
-
-\f0\fs24 \cf2 Future makeRequest(Event e) async \{\
-  var path = 'portmanteaux_simple.json';\
-  try \{\
-    processString(await HttpRequest.getString(path));\
-  \} catch (e) \{\
-    print('Couldn\\'t open $path');\
-    handleError(e);\
-  \}\
-\}\
-\
-processString(String jsonString) \{\
-  List&lt;String&gt; portmanteaux = JSON.decode(jsonString);\
-  for (int i = 0; i &lt; portmanteaux.length; i++) \{\
-    wordList.children.add(new LIElement()..text = portmanteaux[i]);\
-  \}\
-\}\
-\
-handleError(Error error) \{\
-  wordList.children.add(new LIElement()..text = 'Request failed.');\
-\}}</string>
-				<key>VerticalPad</key>
-				<integer>2</integer>
-			</dict>
-			<key>Wrap</key>
-			<string>NO</string>
-		</dict>
-		<dict>
 			<key>Class</key>
 			<string>LineGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -513,6 +490,11 @@ handleError(Error error) \{\
 			</array>
 			<key>Style</key>
 			<dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
 				<key>stroke</key>
 				<dict>
 					<key>HeadArrow</key>
@@ -536,11 +518,6 @@ handleError(Error error) \{\
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -552,8 +529,6 @@ handleError(Error error) \{\
 			<array>
 				<string>{0.5, 0}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -587,11 +562,6 @@ handleError(Error error) \{\
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -603,8 +573,6 @@ handleError(Error error) \{\
 			<array>
 				<string>{0.46446700507614214, 0}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -638,11 +606,6 @@ handleError(Error error) \{\
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -654,8 +617,6 @@ handleError(Error error) \{\
 			<array>
 				<string>{0.46446700507614214, 0.26923076923077005}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -689,11 +650,6 @@ handleError(Error error) \{\
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -705,8 +661,6 @@ handleError(Error error) \{\
 			<array>
 				<string>{-0.18627450980392152, 0.25}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -740,11 +694,6 @@ handleError(Error error) \{\
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
 			<dict>
-				<key>Color</key>
-				<dict>
-					<key>w</key>
-					<string>0</string>
-				</dict>
 				<key>Font</key>
 				<string>Helvetica</string>
 				<key>Size</key>
@@ -757,8 +706,6 @@ handleError(Error error) \{\
 				<string>{0.38387096774193563, -0.25}</string>
 				<string>{-0.39130434782608692, -0.25}</string>
 			</array>
-			<key>Shape</key>
-			<string>Rectangle</string>
 			<key>Style</key>
 			<dict>
 				<key>fill</key>
@@ -835,7 +782,7 @@ handleError(Error error) \{\
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-03-25 00:40:30 +0000</string>
+	<string>2015-07-29 17:30:17 +0000</string>
 	<key>Modifier</key>
 	<string>shaza</string>
 	<key>NotesVisible</key>
@@ -906,14 +853,12 @@ handleError(Error error) \{\
 	<integer>1</integer>
 	<key>WindowInfo</key>
 	<dict>
-		<key>BottomSlabHeight</key>
-		<real>454</real>
 		<key>CurrentSheet</key>
 		<integer>0</integer>
 		<key>Expanded_Canvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{37, 80}, {1403, 798}}</string>
+		<string>{{0, 79}, {1403, 798}}</string>
 		<key>ShowInfo</key>
 		<true/>
 		<key>ShowRuler</key>
@@ -922,8 +867,10 @@ handleError(Error error) \{\
 		<true/>
 		<key>SidebarWidth</key>
 		<integer>230</integer>
+		<key>TopSlabHeight</key>
+		<real>250</real>
 		<key>VisibleRegion</key>
-		<string>{{0, 0}, {856, 656}}</string>
+		<string>{{0, 0}, {859, 641}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
