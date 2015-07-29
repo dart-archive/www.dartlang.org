@@ -41,9 +41,6 @@ $ brew install dart --with-content-shell --with-dartium
 
 ### Installing dev channel releases
 
-To get early access to new features and fixes,
-releases are not as heavily tested as the stable release.
-
 To choose the dev channel version of whatever Dart software you install,
 use `--devel`:
 
@@ -56,18 +53,11 @@ You can use any combination of the
 `--with-dartium`, and
 `--with-content-shell` options.
 
-
-#### Installation locations
-
-Many tools, such as editors, ask you to specify the Dart SDK
-installation directory and the location of Dartium.
-Homebrew uses the following locations,
-where you replace `HOMEBREW_INSTALL` with the
-the homebrew installation directory
-(which you can get using `brew --prefix`):
-
-* SDK directory: `HOMEBREW_INSTALL/opt/dart/libexec`
-* Dartium: `HOMEBREW_INSTALL/opt/dart/Chromium.app`
+<aside class="alert alert-warning" markdown="1">
+**Warning:**
+To give you early access to new features and fixes,
+dev channel releases are not as heavily tested as the stable release.
+</aside>
 
 
 ### Updating Dart {#homebrew-update-dart}
@@ -85,7 +75,20 @@ depending on what arguments you used before.
 {% endcomment %}
 
 
-### Specifying a custom installation location {#homebrew-custom-location}
+### Installation locations
+
+Many tools, such as editors, ask you to specify the Dart SDK
+installation directory and the location of Dartium.
+Homebrew uses the following locations,
+where you replace `HOMEBREW_INSTALL` with the
+the homebrew installation directory
+(which you can get using `brew --prefix`):
+
+* SDK directory: `HOMEBREW_INSTALL/opt/dart/libexec`
+* Dartium: `HOMEBREW_INSTALL/opt/dart/Chromium.app`
+
+
+#### Specifying a custom installation location {#homebrew-custom-location}
 
 By default, Homebrew downloads to `/usr/local`.
 If your Mac is set up so that installing to `/usr/local` requires
