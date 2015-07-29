@@ -70,7 +70,7 @@ The server uses CORS headers to allow cross-origin requests.
   <strong>Note:</strong>
   This tutorial assumes that you have read
   [Define a Custom Element](/docs/tutorials/polymer-intro/),
-  [Use Future-Based APIs](/docs/tutorials/futures/),
+  [Asynchronous Programming: Futures](/docs/tutorials/futures/),
   and [Fetch Data Dynamically](/docs/tutorials/fetchdata/)
   and are familiar with Polymer, Futures, JSON, and HttpRequest.
 </aside>
@@ -109,11 +109,12 @@ In this example,
 called `search_form`,
 the default is to search
 [dartlang.org](http://www.dartlang.org)
-for "Cookbook",
-a useful resource for learning about Dart.
+for "async",
+to view documentation that references Dart's
+asynchronony support.
 
 <iframe class="running-app-frame"
-        style="height:100px;width:500px;"
+        style="height:100px;width:550px;"
         src="examples/search_form/web/search_form.html">
 </iframe>
 
@@ -140,7 +141,7 @@ a submit button, and a checkbox&mdash;into the form:
 
 {% prettify html %}
 <input   type="text"     name="q"
-                         value="Cookbook" size="31" maxlength="255">
+                         value="async" size="31" maxlength="255">
 <input   type="submit"   value="Google Search">
 <label>
   <input type="checkbox" name="sitesearch"
@@ -175,10 +176,10 @@ This HTML code provides some automatic behaviors.
   both part of a valid Google search URL.
   The name and its value are appended to the search URL
   when the user clicks the submit button.
-  For example,
+  For example:
 
 {% prettify %}
-http://www.google.com/search?q=Cookbook&sitesearch=dartlang.org
+http://www.google.com/search?q=async&sitesearch=dartlang.org
 {% endprettify %}
   </dd>
 
