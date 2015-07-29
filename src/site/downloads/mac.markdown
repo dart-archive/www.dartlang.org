@@ -39,10 +39,9 @@ $ brew tap dart-lang/dart
 $ brew install dart --with-content-shell --with-dartium
 {% endprettify %}
 
-### Installing dev-channel releases
+### Installing dev channel releases
 
 To get early access to new features and fixes,
-you can use the dev-channel. Head's up: dev-channel
 releases are not as heavily tested as the stable release.
 
 To choose the dev channel version of whatever Dart software you install,
