@@ -6,7 +6,7 @@ has-permalinks: true
 tutorial:
   id: polymer-intro
 next: futures/
-next-title: "Use Future-Based APIs"
+next-title: "Asynchronous Programming: Futures"
 prev: shared-pkgs/
 prev-title: "Install Shared Packages"
 ---

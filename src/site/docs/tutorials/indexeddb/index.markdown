@@ -204,7 +204,7 @@ This tutorial explains the Dart API for IndexedDB used by the count_down app.
 This tutorial does not cover Futures or Polymer.
 For information about Futures,
 see
-<a href="/docs/tutorials/futures/">Use Future-Based APIs</a>
+<a href="/docs/tutorials/futures/">Asynchronous Programming: Futures</a>
 and 
 <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
 For information about Polymer,
@@ -709,7 +709,7 @@ The _loadFromDB method returns a Future that returns the length of the stream.
 
 <ul>
   <li> For information about Futures, see
-  <a href="/docs/tutorials/futures/">Use Future-Based APIs</a>
+  <a href="/docs/tutorials/futures/">Asynchronous Programming: Futures</a>
   and 
   <a href="/articles/futures-and-error-handling/">Futures and Error Handling</a>.
   </li>

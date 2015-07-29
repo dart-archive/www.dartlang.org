@@ -1,12 +1,12 @@
 ---
 layout: tutorial
-title: "Asynchronous Programming with Futures"
+title: "Asynchronous Programming: Futures"
 description: "A first look at Futures and how to use them to make your asynchronous code better."
 has-permalinks: true
 tutorial:
   id: futures
 next: streams/
-next-title: "Use Streams for Data"
+next-title: "Asynchronous Programming: Streams"
 prev: polymer-intro/
 prev-title: "Define a Custom Element"
 ---

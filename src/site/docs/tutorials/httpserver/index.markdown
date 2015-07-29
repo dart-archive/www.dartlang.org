@@ -62,9 +62,9 @@ and
 <a href="https://api.dartlang.org/dart_async/Stream.html"
    target="_blank">Stream</a>s,
 which are not explained in this tutorial.
-Refer to [Asynchronous Programming with Futures](/docs/tutorials/futures/)
+Refer to [Asynchronous Programming: Futures](/docs/tutorials/futures/)
 and
-[Using Dart Streams](/docs/tutorials/streams/)
+[Asynchronous Programming: Streams](/docs/tutorials/streams/)
 for information about using these classes.
 </aside>
 

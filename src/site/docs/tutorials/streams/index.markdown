@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: "Using Dart Streams"
+title: "Asynchronous Programming: Streams"
 description: 
   Learn how to consume single-subscriber and broadcast streams.
 tutorial:
@@ -8,7 +8,7 @@ tutorial:
 next: fetchdata/
 next-title: "Fetch Data Dynamically"
 prev: futures/
-prev-title: "Use Future-Based APIs"
+prev-title: "Asynchronous Programming: Futures"
 ---
 
 {% capture whats_the_point %}
@@ -245,7 +245,7 @@ The Stream class contains a number of helper methods that can do
 common operations on a stream for you,
 similar to the methods on an Iterable.
 For example, the previous code could be written using
-`lastStream()` from the Stream API.
+`lastWhere()` from the Stream API.
 
 Try replacing the `lastPositive()` function with the following:
 

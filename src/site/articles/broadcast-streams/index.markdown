@@ -25,7 +25,7 @@ and provides recommendations on when to use which.
 
 If you aren't already familiar with Dart streams,
 you can learn the basics from the tutorial
-[Using Dart Streams](/docs/tutorials/streams/).
+[Asynchronous Programming: Streams](/docs/tutorials/streams/).
 
 ## Introduction
 

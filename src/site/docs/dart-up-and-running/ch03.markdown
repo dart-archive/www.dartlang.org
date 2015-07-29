@@ -1362,13 +1362,13 @@ For some examples of using Future and Stream in command-line apps, see the
 [dart:io section](#dartio---io-for-command-line-apps).
 Also see these articles and tutorials:
 
--   [Use Future-Based APIs](/docs/tutorials/futures/)
+-   [Asynchronous Programming: Futures](/docs/tutorials/futures/)
 
 -   [Futures and Error Handling](/articles/futures-and-error-handling/)
 
 -   [The Event Loop and Dart](/articles/event-loop/)
 
--   [Using Dart Streams](/docs/tutorials/streams/)
+-   [Asynchronous Programming: Streams](/docs/tutorials/streams/)
 
 -   [Creating Streams in Dart](/articles/creating-streams/)
 

@@ -52,7 +52,7 @@ For details on how stream transformers have changed, see the
 </aside>
 
 For help on using streams, see
-[Using Dart Streams](/docs/tutorials/streams/).
+[Asynchronous Programming: Streams](/docs/tutorials/streams/).
 
 ## Transforming an existing stream
 
