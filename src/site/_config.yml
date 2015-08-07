@@ -8,7 +8,7 @@ highlighter: null
 url: https://www.dartlang.org
 custom:
   dartpad:
-    embed-prefix: "https://dartpad.dartlang.org/embed-dart.html"
+    embed-dart-prefix: "https://dartpad.dartlang.org/embed-dart.html"
     embed-html-prefix: "https://dartpad.dartlang.org/embed-html.html"
     embed-inline-prefix: "https://dartpad.dartlang.org/embed-inline.html"
   downloads:

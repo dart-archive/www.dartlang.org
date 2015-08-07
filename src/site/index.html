@@ -1,30 +1,84 @@
 ---
 layout: homepage
+js:
+- url: /js/carousel-next.js
+  defer: true
 ---
 
   <div class="container-page">
     <div class="container-full hero-hldr">
-      <div class="hero container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <h1>Scalable, productive app development</h1>
-        	    <p>
-              Dart is an open-source, scalable programming language, with
-              robust libraries and runtimes, for building web, server, and
-              mobile apps.
-        	    </p>
-              {% include downloads/_dart.html buttonclass="btn-default" %}
-          </div>
-        </div>
-      </div>
-    </div>
+      <div id="top-carousel" class="carousel slide dart-carousel" data-interval="false">
 
-    <div class="container-full sub-hero-hldr">
-      <div id="feed-posts" class="sub-hero container">
-      </div>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#top-carousel" data-slide-to="0" class="active">Welcome to Dart!</li>
+          <li data-target="#top-carousel" data-slide-to="1">Try Dart</li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" height="500px">
+
+          <!-- SLIDE 1: original hero content -->
+          <div class="item active">
+            <div class="hero container">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <h1>Scalable, productive app development</h1>
+              	    <p>
+                    Dart is an open-source, scalable programming language, with
+                    robust libraries and runtimes, for building web, server, and
+                    mobile apps.
+              	    </p>
+
+                    <button class="btn btn-lg download-btn" id="carousel-next">
+                      Try Dart
+                      <i class="icon-circle-arrow-right"> </i>
+                    </button>
+
+                    <div class="editor-current-version version">
+                      Current stable version of Dart:
+                      <span class="editor-build-rev-stable">[calculating]</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-full sub-hero-hldr">
+              <div id="feed-posts" class="sub-hero container">
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: dartpad -->
+          <div class="item code-hldr" style="margin-top: 24px">
+            {% comment %}
+            https://dartpad.dartlang.org/bb3bc5e8d7f3c5aa11b5
+            https://gist.github.com/bb3bc5e8d7f3c5aa11b5
+            {% endcomment %}
+            <!-- iframe src="{{site.custom.dartpad.embed-dart-prefix}}?id=bb3bc5e8d7f3c5aa11b5" -->
+            <iframe src="{{site.custom.dartpad.embed-dart-prefix}}"
+                    width="100%" height="440px"
+                    style="border: 1px solid #ccc;"></iframe>
+          </div>
+
+        </div> <!-- END slides -->
+      </div> <!-- END carousel -->
     </div>
 
     <div class="container dart-container">
+
+      <section>
+        <p>
+          Click "Try Dart" above to see the wonderful DartPad nothingness that results.
+          Here's the same DartPad code outside of the carousel:
+        </p>
+        {% comment %}
+        https://dartpad.dartlang.org/bb3bc5e8d7f3c5aa11b5
+        https://gist.github.com/bb3bc5e8d7f3c5aa11b5
+        {% endcomment %}
+        <iframe src="{{site.custom.dartpad.embed-dart-prefix}}?id=bb3bc5e8d7f3c5aa11b5"
+                width="100%" height="440px"
+                style="border: 1px solid #ccc;"></iframe>
+      </section>
 
       <section class="dart-ctas">
         <div class="row">
@@ -411,6 +465,7 @@ main() {
               <a href="/tools/">Dart plugins</a> exist for WebStorm, Eclipse,
               Sublime Text, and more.
             </p>
+
             <a href="https://dartpad.dartlang.org"><img src="imgs/dartpad.png" alt="screenshot of DartPad"
                 style="margin-bottom:0px"></a>
           </div>
