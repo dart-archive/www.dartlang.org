@@ -43,14 +43,6 @@ are themselves Dart apps.)
 * [Summary and resources](#resources)
 </div>
 
-{% comment %}
-xxx: I have filed the following bugs:
-
-* [430: Pasted code into DartPad needs manual formatting](https://github.com/dart-lang/dart-pad/issues/430)
-* [431: Add a reset button](https://github.com/dart-lang/dart-pad/issues/431)
-* [432: Undo is broken](https://github.com/dart-lang/dart-pad/issues/432)
-{% endcomment %}
-
 <div class="row"> <div class="col-md-7" markdown="1">
 
 </div> <div class="col-md-5" markdown="1">
@@ -67,7 +59,7 @@ In this step, you run the skeleton version of the app in DartPad.
 
 ### <i class="fa fa-anchor"> </i> Run the app in DartPad.
 
-<a href="https://dartpad.dartlang.org/f4fdb4ac33f25fd81fee" target="_blank">Open the skeleton app in DartPad.</a>
+<a href="https://dartpad.dartlang.org/9642dce02da158457f12" target="_blank">Open the skeleton app in DartPad.</a>
 
 Click the **Run** button and make sure that the **HTML OUTPUT** tab
 is selected. You should see a red-and-white name badge, plus some text,
@@ -98,12 +90,13 @@ at the bottom of the screen.
 ### <i class="fa fa-anchor"> </i> Review the code.
 
 <div class="trydart-step-details" markdown="1">
-Get familiar with the Dart and HTML code for the skeleton version of
-the app.
+Get familiar with the Dart and HTML code (in `main.dart`
+and `index.html`, respectively) for the skeleton version of
+the app. 
 </div>
 
 <div class="trydart-step-details" markdown="1">
-#### **DART**
+#### **main.dart**
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -133,7 +126,7 @@ the app.
 </div> </div>
 
 <div class="trydart-step-details" markdown="1">
-#### **HTML**
+#### **index.html**
 </div>
 
 <div class="row"> <div class="col-md-7">
@@ -374,11 +367,17 @@ The name badge updates to display what you've typed.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/DART" target="_blank">Dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/HTML" target="_blank">HTML</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/web/main.dart" target="_blank">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/4935601e769397702f42" target="_blank">open the solution in DartPad</a>.
+<a href="https://dartpad.dartlang.org/e78a858a1b8cfce15bbf" target="_blank">open the solution in DartPad</a>.
+
+You may notice that the HTML displayed in DartPad is a bit different
+than what is shown on GitHub.
+DartPad requires only the portion of
+the HTML specific to the example&mdash;
+what appears between the `<body>` tags in the full HTML file.
 
 </div>
 
@@ -646,11 +645,11 @@ Click the button.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/DART" target="_blank">Dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/HTML" target="_blank">HTML</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/main.dart" target="_blank">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/f0503a24f56d01d480ca" target="_blank">open the solution in DartPad</a>.
+<a href="https://dartpad.dartlang.org/feac8311871e29bc50a7" target="_blank">open the solution in DartPad</a>.
 
 </div>
 
@@ -785,11 +784,11 @@ class PirateName {
   ...
 
   [[highlight]]static final List names = [[[/highlight]]
-      [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',[[/highlight]]
-      [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];[[/highlight]]
-    [[highlight]]static final List appellations = [[[/highlight]]
-      [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe',[[/highlight]]
-      [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
+    [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',[[/highlight]]
+    [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];[[/highlight]]
+  [[highlight]]static final List appellations = [[[/highlight]]
+    [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe',[[/highlight]]
+    [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -1001,11 +1000,11 @@ Click the button.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/DART" target="_blank">Dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/HTML" target="_blank">HTML</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/web/main.dart" target="_blank">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/60f243a7ed18a6558af3" target="_blank">open the solution in DartPad</a>.
+<a href="https://dartpad.dartlang.org/445dcc541fd4dedf1b4c" target="_blank">open the solution in DartPad</a>.
 
 </div>
 
@@ -1312,11 +1311,11 @@ Click the button.
 
 Check your code against the solution.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/DART" target="_blank">Dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/HTML" target="_blank">HTML</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/main.dart" target="_blank">main.dart</a>
+* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/60f243a7ed18a6558af3" target="_blank">open the solution in DartPad</a>.
+<a href="https://dartpad.dartlang.org/eb2a7982598793c8d984" target="_blank">open the solution in DartPad</a>.
 
 </div>
 
@@ -1345,32 +1344,35 @@ right corner.
 
 ### <i class="fa fa-anchor"> </i> Try programming with an editor or IDE
 
-Once you are ready to use a real editor or IDE, like
-[WebStorm](/tools/webstorm/), you need a version of the app that
-runs in a real world environment.
-Such a version of the pirate app is available on
-<a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/piratebadge" target="_blank">GitHub</a>.
-The Dart code for both is exactly the same,
-but the real world version includes:
+<div class="trydart-step-details" markdown="1">
+Once you are ready to use a real editor or IDE,
+like [WebStorm](/tools/webstorm/),
+read the [Get Started](/docs/tutorials/get-started/) tutorial
+for information on getting Dart, using the Dart tools,
+and the directory structure used by Dart apps.
 
-* The Dart directory structure. For this example, that means a
-  `web` directory containing the Dart, HTML, and CSS files.
-* A pubspec.yaml file.
-* A complete HTML file that includes &lt;DOCTYPE&gt;,
-  &lt;html&gt;, and &lt;script&gt; tags. For comparison, see
-  <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/HTML" target="_blank">DartPad HTML</a>
-  and
-  <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/piratebadge/web/index.html" target="_blank">real world HTML</a>.
+If you want to continue to play with the pirate app,
+[download the source](https://github.com/dart-lang/one-hour-codelab/).
+The code that corresponds to each step in this lab is
+under the `darrrt` directory.
+</div>
 
 ### <i class="fa fa-anchor"> </i> Build your app to run in any browser
 
-You can use **pub build** on the
-[real world version of Pirate Badge](https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/piratebadge)
-to compile the app to run in any modern browser.
+<div class="trydart-step-details" markdown="1">
+To compile the app into JavaScript that runs in any modern browser,
+use **pub build**. For example, to build the final version of the app:
+
+{% prettify sh %}
+cd darrrt/5-final
+pub build
+{% endprettify %}
+
 For more information, see
-[Getting Started](/docs/tutorials/get-started/) and
+[Get Started](/docs/tutorials/get-started/) and
 [pub build](/tools/pub/cmd/pub-build.html), one of the
 [pub](/tools/pub/) commands.
+</div>
 
 ### <i class="fa fa-anchor"> </i> Deploy a server and your app
 
