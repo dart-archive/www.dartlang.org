@@ -70,11 +70,15 @@ can be serialized and represented by strings.
 **Try it!**
 The following app, `its_all_about_you`,
 displays the JSON string for data of various types.
-Change the values of the input elements
+Click run ( <img src="/imgs/run.png" /> ) to start the app.
+Then change the values of the input elements,
 and check out the JSON format for each data type.
+You might prefer to 
+<a href="https://dartpad.dartlang.org/245c841595786300b3f4" target="_blank">open the app in DartPad</a> 
+to have more space for the app's code and UI.
 
 {% comment %}
-https://gist.github.com/Sfshaza/d5c9cff86230a55340e2
+https://gist.github.com/Sfshaza/245c841595786300b3f4
 
 main.dart:
 // Copyright (c) 2015, the Dart project authors.
@@ -194,141 +198,14 @@ void showJson(Event e) {
   listAsJson.text   = JSON.encode(favoriteThings);
   mapAsJson.text    = JSON.encode(formData);
 }
-
-index.html:
-<h1>It's All About You</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>Enter value</th>
-      <th>Data type</th>
-      <th>JSON string</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td align="right">Favorite number:</td>
-      <td><input type="text" id="favoriteNumber"></td>
-      <td>integer</td>
-      <td><textarea class="result" id="intAsJson" readonly></textarea></td>
-    </tr>
-
-    <tr>
-      <td align="right">Do you know pi?</td>
-      <td><input type="text" id="valueOfPi"></td>
-      <td>double</td>
-      <td><textarea class="result" id="doubleAsJson" readonly></textarea></td>
-    </tr>
-
-    <tr>
-      <td align="right">What's your sign?</td>
-      <td><input type="text" id="horoscope"></td>
-      <td>String</td>
-      <td><textarea class="result" id="stringAsJson" readonly></textarea></td>
-    </tr>
-
-    <tr>
-      <td align="right">A few of your favorite things?</td>
-      <td>
-        <input type="text" id="favOne">
-        <input type="text" id="favTwo">
-        <input type="text" id="favThree">
-      </td>
-      <td>List&lt;String&gt;</td>
-      <td><textarea class="result" id="listAsJson" readonly></textarea></td>
-    </tr>
-
-    <tr>
-      <td align="right">I love chocolate!</td>
-      <td>
-        <form>
-          <input type="radio" name="chocolate" id="loveChocolate" checked>True
-          <input type="radio" name="chocolate" id="noLoveForChocolate" checked>False
-        </form>
-      </td>
-      <td>bool</td>
-      <td><textarea class="result" id="boolAsJson" readonly> </textarea></td>
-    </tr>
-
-  </tbody>
-</table>
-
-<div>
-  <label>All data together as a map</label><br>
-  <textarea id="mapAsJson" readonly></textarea>
-</div>
-
-styles.css:
-body {
-  background-color: #F8F8F8;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.2em;
-  margin: 15px;
-}
-
-h1, p, td, th, label, table {
-  color: #333;
-}
-
-table {
-  text-align: left;
-  border-spacing: 5px 15px
-}
-
-label {
-  font-weight: bold;
-}
-
-textarea {
-  resize: none;
-}
-
-.result {
-  background-color: Ivory;
-  padding: 5px 5px 5px 5px;
-  border: 1px solid black;
-}
-
-#mapAsJson {
-  background-color: Ivory;
-  padding: 5px 5px 5px 5px;
-  margin-top: 15px;
-  border: 1px solid black;
-  width: 500px;
-  height: 50px;
-  font-size:14px;
-}
-
-table {
-  text-align: left;
-  border-spacing: 5px 15px
-}
-
-label {
-  font-weight: bold;
-}
-
-textarea {
-  resize: none;
-}
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=d5c9cff86230a55340e2&horizontalRatio=50&verticalRatio=90"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=245c841595786300b3f4&horizontalRatio=50&verticalRatio=90"
     width="100%"
     height="600px"
     style="border: 1px solid #ccc;">
 </iframe>
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-Click run ( <img src="/imgs/run.png" /> ) to see the app execute.
-</aside>
 
 The dart:convert library contains two convenient functions
 for working with JSON strings:
@@ -566,7 +443,7 @@ from everywhere.
 and then click the **Get portmanteaux** button.
 
 {% comment %}
-https://gist.github.com/Sfshaza/bbcac237ae9498347e2f
+https://gist.github.com/Sfshaza/8640071ecb67b1309938
 
 main.dart:
 // Copyright (c) 2012, the Dart project authors.  
@@ -608,8 +485,9 @@ handleError(Object error) {
 }
 {% endcomment %}
 
+
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=bbcac237ae9498347e2f&horizontalRatio=68&verticalRatio=80"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=8640071ecb67b1309938&horizontalRatio=68&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">
@@ -654,7 +532,7 @@ This section rewrites the portmanteaux code to explicitly construct
 an HttpRequest object.
 
 {% comment %}
-https://gist.github.com/Sfshaza/73cffcf054ca3e5f602b
+https://gist.github.com/Sfshaza/83f7779d18a8bbe8ccb1
 
 main.dart:
 // Copyright (c) 2012, the Dart project authors.  
@@ -696,7 +574,7 @@ requestComplete(HttpRequest request) {
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=73cffcf054ca3e5f602b&horizontalRatio=68&verticalRatio=80"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=83f7779d18a8bbe8ccb1&horizontalRatio=68&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">

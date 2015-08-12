@@ -89,7 +89,7 @@ The following example tests the previous code by
 generating a simple stream of integers using an `async*` function:
 
 {% comment %}
-https://gist.github.com/Sfshaza/a19f4576dac4826677ee
+https://gist.github.com/Sfshaza/15d5ef986238c97dbc14
 
 import 'dart:async';
 
@@ -115,7 +115,7 @@ main() async {
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-prefix}}?id=a19f4576dac4826677ee&horizontalRatio=70&verticalRatio=80"
+src="{{site.custom.dartpad.embed-prefix}}?id=15d5ef986238c97dbc14&horizontalRatio=70&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">
@@ -152,7 +152,7 @@ error using **try-catch**.  The following example throws an
 error when the loop iterator equals 4:
 
 {% comment %}
-https://gist.github.com/Sfshaza/98481b09a483c59a75d7
+https://gist.github.com/Sfshaza/38feef09be9b1e7b5136
 
 import 'dart:async';
  
@@ -186,7 +186,7 @@ main() async {
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-prefix}}?id=98481b09a483c59a75d7&horizontalRatio=70&verticalRatio=80"
+src="{{site.custom.dartpad.embed-prefix}}?id=38feef09be9b1e7b5136&horizontalRatio=70&verticalRatio=80"
     width="100%"
     height="450px"
     style="border: 1px solid #ccc;">
@@ -207,7 +207,7 @@ For example, finding the last positive integer in a stream can
 be done by testing the value in an **await for** loop:
 
 {% comment %}
-https://gist.github.com/Sfshaza/5e894590ee5accd864b1
+https://gist.github.com/Sfshaza/da80b1e7eed75db53ef3
 
 import 'dart:async';
 
@@ -229,7 +229,7 @@ main() async {
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-prefix}}?id=5e894590ee5accd864b1&horizontalRatio=70&verticalRatio=80"
+src="{{site.custom.dartpad.embed-prefix}}?id=da80b1e7eed75db53ef3&horizontalRatio=70&verticalRatio=80"
     width="100%"
     height="450px"
     style="border: 1px solid #ccc;">

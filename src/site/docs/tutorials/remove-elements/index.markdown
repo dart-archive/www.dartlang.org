@@ -55,7 +55,7 @@ that allows you to delete items.
 Stop procrastinating and remove items from your to do list.
 
 {% comment %}
-https://gist.github.com/Sfshaza/a69128a30ecb255476fd
+https://gist.github.com/Sfshaza/582b9a8d36786566ba08
 
 ------------------------------------------------------------------
 main.dart:
@@ -89,96 +89,11 @@ void addToDoItem(Event e) {
   toDoInput.value = '';
   toDoList.children.add(newToDo);
 }
-
-------------------------------------------------------------------
-index.html:
-------------------------------------------------------------------
-
-<!-- Copyright (c) 2012, the Dart project authors.  Please see the
-     AUTHORS file for details. All rights reserved. Use of this 
-     source code is governed by a BSD-style license that can be
-     found in the LICENSE file.
--->
- 
-<!DOCTYPE html>
- 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Todo</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h2>Todo</h2>
- 
-    <div>
-      <input id="to-do-input" type="text" placeholder="What needs to be done?">
-    </div>
- 
-    <div>
-      <ul id="to-do-list">
-      </ul>
-    </div>
- 
-    <button id="delete-all" type="button" style="float:right"> Delete All </button>
- 
-    <script type="application/dart" src="main.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
-</html>
-
-------------------------------------------------------------------
-styles.css
-------------------------------------------------------------------
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: WhiteSmoke;
-  margin: 15px;
-  color: black;
-}
- 
-#to-do-input {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  padding: 5px 0px 5px 5px;
-  width: 100%;
-  border: 1px solid Silver;
-  background-color: White;
-}
- 
-#to-do-list {
-  padding:0px;
-  margin:0px;
-  list-style-position:inside;
-}
- 
-#to-do-list li {
-  padding:5px 0px 5px 5px;
-  border-bottom: 1px dotted Silver;
-}
- 
-#to-do-list li:hover {
-  color: red;
-  font-size: 18px;
-  cursor:pointer;
-}
- 
-#delete-all {
-  background-color: #F8F8F8;
-  border: 1px dotted #ccc;
-  border-radius: 1em;
-  float: right;
-}
- 
-#delete-all:hover {
-  background-color: #ddd;
-}
 {% endcomment %}
 
 **Try it!**
-Type in the input field and press the return key;
+Click run ( <img src="/imgs/run.png" /> ) to start the web app.
+Then type in the app's input field, and press the return key;
 a new item appears in the list.
 Enter a few more items.
 Point the mouse cursor at one of the items in the list;
@@ -188,16 +103,11 @@ Use the **Delete All** button
 to remove all of the items in the list at once.
 
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=a69128a30ecb255476fd&horizontalRatio=60&verticalRatio=80"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=582b9a8d36786566ba08&horizontalRatio=60&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">
 </iframe>
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-Click run ( <img src="/imgs/run.png" /> ) to see the app execute.
-</aside>
 
 The remaining sections describe
 key aspects of the code

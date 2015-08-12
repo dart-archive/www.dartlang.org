@@ -78,12 +78,14 @@ This program dynamically changes the DOM,
 and therefore the web page,
 by adding elements to the DOM tree.
 
-**Try it!** Type in the text field and press return.
+**Try it!**
+Click run ( <img src="/imgs/run.png" /> ) to start the web app.
+Then type in the app's text field, and press return.
 The app adds an item to the list.
 Enter a few items into the input field.
 
 {% comment %}
-https://gist.github.com/Sfshaza/192bf3be4a7308db4664
+https://gist.github.com/Sfshaza/65c90ff6b078c332d4b6
 
 main.dart:
 // Copyright (c) 2012, the Dart project authors.
@@ -109,82 +111,14 @@ void addToDoItem(Event e) {
   toDoInput.value = '';
   toDoList.children.add(newToDo);
 }
-
---------------------------------------------------------------------
-index.html:
-<!-- Copyright (c) 2012, the Dart project authors.  Please see the
-     AUTHORS file for details. All rights reserved. Use of this
-     source code is governed by a BSD-style license that can be
-     found in the LICENSE file.
--->
- 
-<!DOCTYPE html>
- 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Todo</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h2>Procrastinator's Todo</h2>
- 
-    <div>
-      <input id="to-do-input" type="text" placeholder="What needs to be done?">
-    </div>
- 
-    <div>
-      <ul id="to-do-list">
-      </ul>
-    </div>
- 
-    <script type="application/dart" src="main.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
-</html>
-
---------------------------------------------------------------------
-styles.css:
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: WhiteSmoke;
-  margin: 15px;
-  color: black;
-}
- 
-#to-do-input {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  padding: 5px 0px 5px 5px;
-  width: 100%;
-  border: 1px solid Silver;
-  background-color: White;
-}
- 
-#to-do-list {
-  padding:0px;
-  margin:0px;
-  list-style-position:inside;
-}
- 
-#to-do-list li {
-  padding:5px 0px 5px 5px;
-  border-bottom: 1px dotted Silver;
-}
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=192bf3be4a7308db4664&horizontalRatio=60&verticalRatio=80"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=65c90ff6b078c332d4b6&horizontalRatio=60&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">
 </iframe>
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-Click run ( <img src="/imgs/run.png" /> ) to see the app execute.
-</aside>
 
 This is the beginning of an app to manage a list of things to do.
 Right now, this app is for procrastinators only
@@ -426,10 +360,16 @@ each item in the to do list.
 
 The Anagram app shows how to move an element within the DOM.
 
-**Try it!** Form a word by clicking the letter tiles.
+**Try it!**
+Click run ( <img src="/imgs/run.png" /> ) to start the web app.
+Then form a word by clicking the app's letter tiles.
+You might prefer to 
+<a href="https://dartpad.dartlang.org/0532bfcb70bf5e4a900c" target="_blank">open
+the app in DartPad</a> 
+to have more space for the app's code and UI.
 
 {% comment %}
-https://gist.github.com/Sfshaza/45d30c082352b191a95d
+https://gist.github.com/Sfshaza/0532bfcb70bf5e4a900c
 
 main.dart:
 // Copyright (c) 2012, the Dart project authors.  Please see the
@@ -506,76 +446,14 @@ generateNewLetters() {
     letterpile.children.add(buttons[i]);
   }
 }
-
---------------------------------------------------------------------
-index.html:
-<!-- Copyright (c) 2012, the Dart project authors.  Please see the AUTHORS file
-     for details. All rights reserved. Use of this source code is governed by a
-     BSD-style license that can be found in the LICENSE file.
--->
- 
-<!DOCTYPE html>
- 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Anagram</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h1>Anagram</h1>
- 
-    <h3>Pile:</h3>
-    <div id="letterpile">
-    </div>
- 
-    <h3>Word:</h3>
-    <div id="result">
-    </div>
- 
-    <h3>Scrabble Value:</h3>
-    <p id="value"></p>
- 
-    <button id="clearButton"> new letters </button>
-    <script type="application/dart" src="main.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
-</html>
-
---------------------------------------------------------------------
-styles.css:
-
-body {
-  background-color: #F8F8F8;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.2em;
-  margin: 15px;
-}
-
-.letter {
-  width: 48px;
-  height: 48px;
-  font-size: 32px;
-  background-color: Lavender;
-  color: purple;
-  border: 1px solid black;
-  margin: 2px 2px 2px 2px;
-}
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-html-prefix}}?id=45d30c082352b191a95d&horizontalRatio=70&verticalRatio=80"
+src="{{site.custom.dartpad.embed-html-prefix}}?id=0532bfcb70bf5e4a900c&horizontalRatio=70&verticalRatio=80"
     width="100%"
     height="600px">
     style="border: 1px solid #ccc;">
 </iframe>
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-Click run ( <img src="/imgs/run.png" /> ) to see the app execute.
-</aside>
 
 When the program starts,
 it creates one button element for each of seven
