@@ -50,18 +50,17 @@ Dartium is optional but helpful for developing web apps.
 ---
 
 <a name="ides"></a>
-<h2>IDEs</h2>
+<h2>Recommended IDEs</h2>
 
 If you don't already have a favorite IDE,
 we recommend WebStorm,
 which comes with Dart support.
-You can also use a plugin to add Dart support to other JetBrains IDEs
-and to Eclipse.
+You can also use a plugin to add Dart support to other JetBrains IDEs.
 
 <br>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="media">
         <img class="pull-left media-object"
              src="images/webstorm.png"
@@ -72,7 +71,7 @@ and to Eclipse.
     </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="media">
         <img class="pull-left media-object"
              src="images/IntellIJ-IDEA.png"
@@ -83,26 +82,15 @@ and to Eclipse.
       </div>
     </div>
   </div>
-
-  <div class="col-md-4">
-    <div class="media">
-        <img class="pull-left media-object"
-             src="images/eclipse.png"
-             alt="Eclipse logo">
-      <div class="media-body">
-        <a href="eclipse-plugin/"><b>Eclipse</b></a>
-      </div>
-    </div>
-  </div>
 </div>
+
 ---
 
 <a name="plugins"></a>
-<h2>Editors</h2>
+<h2>Other IDEs and editors</h2>
 
-If you prefer using a text editor,
-try one of these Dart plugins
-(which are unsupported and available as open source).
+The Dart plugins for these tools
+are unsupported and available as open source.
 
 <br>
 
@@ -141,6 +129,32 @@ try one of these Dart plugins
   </div>
 </div>
 
+&nbsp;
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="media">
+        <img class="pull-left media-object"
+             src="images/eclipse.png"
+             alt="Eclipse logo">
+      <div class="media-body">
+        <a href="eclipse-plugin/"><b>Eclipse</b></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="media">
+        <img class="pull-left media-object"
+             src="images/atom-logo.png"
+             alt="Atom logo">
+      <div class="media-body">
+        <a href="https://github.com/dart-atom/dartlang/"><b>Atom</b></a>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 ---
 
@@ -172,21 +186,21 @@ These tools are in the [Dart SDK](/tools/sdk).
   </div>
 </div>
 
----
-
-This is not an exhaustive list of tools available
-for Dart development and does not reflect many fine tools developed
-by the Dart community.
-
 Also see the <a href="/tools/faq.html">Tools FAQ</a>.
 
 ---
 
-<a name="dump-info-visualizer"></a>
-<h2>Curious about your generated JavaScript?</h2>
-<p>
-If you are compiling your Dart code to JavaScript with dart2js, the Dump-Info
-Visualizer can give you insight into what is going on behind the scenes.
+## Other tools {#other-tools}
+
+Many fine tools have been developed by the Dart community.
+This page highlights one of them. You can find other projects and tools on
+[GitHub](https://github.com/search?l=Dart&q=dart&type=Repositories).
+
+### Curious about your generated JavaScript? {#dump-info-visualizer}
+
+If you are compiling your Dart code to JavaScript with dart2js,
+the Dump-Info Visualizer can give you insight into what is going on
+behind the scenes.
 Use it to analyze the generated code and see why that code is included in
 your build.
 
