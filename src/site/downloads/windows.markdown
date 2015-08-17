@@ -30,21 +30,18 @@ Optionally, you can add one more tool:
   Use it to interactively test and debug Dart web apps
   without first compiling them to JavaScript.
 
-For client-side Dart work, you might want to download both tools:
+For client-side Dart work, you might want to download *both* tools. If you're working on server-side Dart, all you need is the `dart-sdk`:
 
 {% prettify sh %}
-choco install -y dart-sdk -version <version>
-choco install -y dartium  -version <version>
+choco install dart-sdk -version <version>
+choco install dartium  -version <version>
 {% endprettify %}
-
-If you're working on server-side Dart,
-all you need is the `dart-sdk`:
 
 For example, to download version 1.11.0:
 
 {% prettify sh %}
-choco install -y dart-sdk -version 1.11.0
-choco install -y dartium  -version 1.11.0
+choco install dart-sdk -version 1.11.0
+choco install dartium  -version 1.11.0
 {% endprettify %}
 
 {% comment %}
