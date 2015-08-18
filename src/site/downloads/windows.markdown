@@ -8,10 +8,11 @@ description: "Installing Dart on your Windows platform."
 
 # {{ page.title }}
 
-If you're using Windows, you have two options for downloading Dart.
+If you're using Windows, you have several options for downloading Dart.
 
 * [Installing using Chocolatey](#chocolatey)
 * [Downloading Dart manually](#manual)
+* [Using a third-party installer](#installer)
 
 ## Installing using Chocolatey {#chocolatey}
 
@@ -113,3 +114,11 @@ If you're writing a web app, we recommend getting
 The Dartium binary expires after 1 year.
 When that happens, you need to
 download a new copy to continue using Dartium.
+
+## Using a third-party installer {#installer} 
+
+A
+[Dart SDK installer for Windows](https://github.com/GeKorm/dart-windows/releases/latest/),
+is available (though unsupported) as open source on GitHub.
+You can use this wizard to install stable or dev versions of
+Dart SDK and Dartium.
