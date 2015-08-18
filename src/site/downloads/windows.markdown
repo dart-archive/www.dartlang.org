@@ -118,7 +118,8 @@ download a new copy to continue using Dartium.
 ## Using a third-party installer {#installer} 
 
 A
-[Dart SDK installer for Windows](https://github.com/GeKorm/dart-windows/releases/latest/),
-is available (though unsupported) as open source on GitHub.
+[Dart SDK installer for Windows](http://www.gekorm.com/dart-windows/),
+is available (though unsupported) as open source on
+[GitHub](https://github.com/GeKorm/dart-windows/releases/latest/).
 You can use this wizard to install stable or dev versions of
 Dart SDK and Dartium.
