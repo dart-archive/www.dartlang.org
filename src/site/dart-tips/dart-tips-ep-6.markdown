@@ -9,6 +9,9 @@ rel:
 
 # {{ page.title }}
 
+*Note:* This video mentions the `?` operator, which is deprecated. Ignore
+the parts about `?` , and enjoy the rest of the video.
+
 <iframe class="dart-tips-video" src="//www.youtube.com/embed/DWtvhdJkiRE" 
 frameborder="0" allowfullscreen></iframe>
 
@@ -225,25 +228,6 @@ even though it has a default value. The lesson here is that default values
 are only applied if the caller does not supply any value for the parameter.
 This means, to really cover your bases, you should check for null even
 when you use default values.
-
-This brings up a good question. In the case of an optional parameter
-without a default value, can you tell
-the difference between a user passing in null, and not passing in anything
-at all? The parameter will be null either way.
-
-It turns out that Dart does indeed have a way to ask if an optional parameter
-was provided when the method was called. Just use the question mark parameter
-syntax.
-
-Here is an example:
-
-{% prettify dart %}
-void alignDingleArm(num axis, [num rotations]) {
-  if (?rotations) {
-    // the parameter was really used
-  }
-}
-{% endprettify %}
 
 Like the optional named parameters, you can use default values
 with optional positional parameters. There is a syntax difference, though.
