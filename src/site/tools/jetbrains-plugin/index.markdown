@@ -27,7 +27,6 @@ For details on using WebStorm,
 read the [WebStorm page](/tools/webstorm/).
 </aside>
 
-
 ## Getting started
 
 Once your IDE has the Dart plugin,
@@ -40,7 +39,9 @@ you need to tell it where to find the Dart SDK and
 Download a JetBrains IDE if you don't already have one.
 
 * <a href="https://www.jetbrains.com/idea/download/"
-  target="_blank">Download IntelliJ IDEA</a>
+  target="_blank">Download IntelliJ IDEA</a> or,
+  to try out the latest Dart language features,
+  [download IntelliJ IDEA EAP](https://confluence.jetbrains.com/display/IDEADEV/EAP)
 * <a href="https://www.jetbrains.com/products.html"
   target="_blank">Find another JetBrains product</a>
 
