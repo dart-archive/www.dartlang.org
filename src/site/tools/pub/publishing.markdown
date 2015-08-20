@@ -13,6 +13,12 @@ It also allows you to share your packages with the world. If you have a useful
 project and you want others to be able to use it, use the `pub publish`
 command.
 
+<aside class="alert alert-info" markdown="1">
+**Note:**
+To publish to a location other than `pub.dartlang.org`,
+or to prevent publication anywhere, use the `publish_to` field,
+as defined in the [pubspec](pubspec.html).
+</aside>
 
 ## Preparing to publish
 

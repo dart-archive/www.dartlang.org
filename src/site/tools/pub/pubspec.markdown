@@ -50,6 +50,11 @@ At the top level are a series of fields. The currently supported ones are:
 `executables`
 : Optional. Used to put a package's executables on your PATH.
 
+`publish_to`
+: Optional. Specify where to publish a package. The default is
+  `pub.dartlang.org`. Specify `none` to prevent a package from
+  being published.
+
 `transformers`
 : Optional. Used to configure dart2js or other transformers.
 For more information, see
