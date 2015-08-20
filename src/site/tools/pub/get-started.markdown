@@ -29,8 +29,10 @@ To access the pub commands in WebStorm, double-click the
 contents of the pubspec file.
 </aside>
 
-A package can live anywhere. For example, some packages are on GitHub. The Dart team publishes packages at [pub.dartlang.org](https://pub.dartlang.org), and we
-hope you will, too.
+A package can live anywhere. For example, some packages are on GitHub.
+The Dart team publishes packages at
+[pub.dartlang.org](https://pub.dartlang.org),
+and we hope you will, too.
 
 To use a library that is in a Dart package, you need to do the
 following:
@@ -40,17 +42,17 @@ following:
 * Use pub to get your package's dependencies.
 * Import the library.
 
-## Creating a Pubspec
-To use a package, your application must define a pubspec. The simplest
-possible pubspec lists only the package name:
+## Creating a pubspec
+To use a package, your application must define a pubspec.
+The simplest possible pubspec lists only the package name:
 
 {% prettify yaml %}
 name: my_app
 {% endprettify %}
 
 A pubspec is where you list dependencies and their download locations.
-The pubspec is a file named <code class="literal">pubspec.yaml</code>, and it
-must be in the top directory of your application.
+The pubspec is a file named <code class="literal">pubspec.yaml</code>,
+and it must be in the top directory of your application.
 
 Here is an example of a pubspec that specifies the locations of
 two packages. First, it points to the js package that is hosted on
@@ -64,7 +66,8 @@ dependencies:
   intl: any
 {% endprettify %}
 
-For details, see the [pubspec documentation](pubspec.html) and the documentation for the packages you are interested in using.
+For details, see the [pubspec documentation](pubspec.html)
+and the documentation for the packages you are interested in using.
 
 ## Installing packages
 Once you have a pubspec, you can run <code class="literal">pub
@@ -75,21 +78,27 @@ cd <path to my_app>
 pub get
 {% endprettify %}
 
-This process is called "getting the dependencies".
+This process is called _getting the dependencies_.
 
-The `pub get`
-command determines which packages your app depends on, and
-puts them in a central cache. For git dependencies, pub clones the git
-repository. For hosted dependencies, pub downloads the package from
-pub.dartlang.org. Transitive dependencies are included, too. For
-example, if the js package depends on the test package, `pub`
+The `pub get` command determines which packages your app depends on,
+and puts them in a central [system cache](glossary.html#system-cache).
+For git dependencies, pub clones the git repository.
+For hosted dependencies, pub downloads the package from
+pub.dartlang.org. Transitive dependencies are included, too.
+For example, if the js package depends on the test package, `pub`
 grabs both the js package and the test package.
 
-Finally, pub creates a <code class="literal">packages</code>
-directory (under your app’s top directory) that has links to the
-packages that your app depends on.
+Next, pub creates one or more `packages` directories containing
+symlinks to the packages in the system cache.
 
-## Importing Libraries from Packages
+Finally, pub creates a
+<code class="literal">.packages</code> file (under your app’s top directory)
+that maps each package name
+that your app depends on to the corresponding package in the system cache.
+
+{% include coming-release.html %}
+
+## Importing libraries from packages
 To import libraries found in packages, use the
 <code class="literal">package:</code> prefix:
 
@@ -144,16 +153,20 @@ importing file is.
 
 ## Upgrading a dependency
 
-The first time you get a new dependency for your package, pub will download the
-latest version of it that's compatible with your other dependencies. It then
-locks your package to *always* use that version by creating a **lockfile**.
+The first time you get a new dependency for your package,
+pub downloads the latest version of it that's compatible with
+your other dependencies.
+It then locks your package to *always* use that version by
+creating a **lockfile**.
 This is a file named `pubspec.lock` that pub creates and stores next to your
 pubspec. It lists the specific versions of each dependency (immediate and
 transitive) that your package uses.
 
-If this is an application package, you will check this file into source control.
+If this is an application package,
+you should check this file into source control.
 That way, everyone working on your app ensures they are using the same versions
-of all of the packages. This also makes sure you use the same versions of
+of all of the packages.
+This also makes sure that you use the same versions of
 code when you deploy your app to production.
 
 When you are ready to upgrade your dependencies to the latest versions, do:
@@ -162,8 +175,9 @@ When you are ready to upgrade your dependencies to the latest versions, do:
 $ pub upgrade
 {% endprettify %}
 
-This tells pub to regenerate the lockfile using the newest available versions of
-your package's dependencies. If you only want to upgrade a specific dependency,
+This tells pub to regenerate the lockfile using the newest
+available versions of your package's dependencies.
+If you only want to upgrade a specific dependency,
 you can specify that too:
 
 {% prettify sh %}

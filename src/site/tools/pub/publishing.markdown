@@ -72,7 +72,7 @@ Pub will check to make sure that your package follows the
 [pubspec format](pubspec.html) and
 [package layout conventions](package-layout.html), and then upload your package
 to [pub.dartlang.org](https://pub.dartlang.org). Pub will also show you all of
-the files it intends to "publish". Here's an example of publishing a package
+the files it intends to publish. Here's an example of publishing a package
 named `transmogrify`:
 
 {% prettify none %}
@@ -116,7 +116,7 @@ the following exceptions:
 
 * Any `packages` directories.
 * Your package's [lockfile](/tools/pub/glossary.html#lockfile).
-* If you aren't using Git, all "hidden" files (that is,
+* If you aren't using Git, all _hidden_ files (that is,
   files whose names begin with `.`).
 * If you're using Git, any files ignored by your `.gitignore` file.
 

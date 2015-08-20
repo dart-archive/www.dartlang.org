@@ -29,14 +29,18 @@ hoping to address the root cause but it will take a while to get there.
 ### What are all the "packages" directories for?
 
 After you run pub, you'll notice that your package has little `packages`
-directories sprinkled all over it. These are needed to make "package:" imports
-work. When your code has an import with the "package" scheme, a Dart
+directories sprinkled all over it. These are needed to make `package:` imports
+work.
+
+{% include coming-release.html %}
+
+When your code has an import with the `package` scheme, a Dart
 implementation like the VM or dart2js translates that to a path or URL using a
 simple rewriting rule:
 
  1. Take the URI of your application's [entrypoint](glossary.html#entrypoint).
  2. Strip off the trailing file name.
- 3. Append "/packages/" followed by the rest of the import URL.
+ 3. Append `/packages/` followed by the rest of the import URL.
 
 For example, if you app's entrypoint is `/dev/myapp/web/main.dart` then:
 
@@ -80,7 +84,7 @@ is always nearby. Otherwise the imports won't work.
 When you have an app with your own Dart server, you can use the
 [shelf_proxy](http://pub.dartlang.org/packages/shelf_proxy) package
 to set up a proxy to route requests
-to an external "pub serve" instance.
+to an external `pub serve` instance.
 
 ### I found a bug in pub. How do I report it?
 

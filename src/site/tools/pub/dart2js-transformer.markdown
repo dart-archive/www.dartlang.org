@@ -94,6 +94,6 @@ dependencies:
 transformers:
 - polymer:
     entry_points: web/index.html
-[[highlight]]- $dart2js:
-    commandLineOptions: [--enable-foo][[/highlight]]
+[[highlight]]- $dart2js:[[/highlight]]
+    [[highlight]]commandLineOptions: [--enable-foo][[/highlight]]
 {% endprettify %}

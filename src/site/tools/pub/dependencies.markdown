@@ -11,9 +11,9 @@ description: Add other packages to your app. Specify package locations,
 # {{ page.title }}
 
 Dependencies are one of [pub](/tools/pub)'s core concepts.
-A dependency is another package
-that your package needs in order to work. Dependencies are specified in your
-[pubspec](pubspec.html). You only list
+A dependency is another package that your package needs in order to work.
+Dependencies are specified in your [pubspec](pubspec.html).
+You only list
 [immediate dependencies](glossary.html#immediate-dependency)&mdash;the
 software that your package uses directly. Pub handles
 [transitive dependencies](glossary.html#transitive-dependency) for you.
@@ -23,9 +23,10 @@ To see all the dependencies used by a package, use
 [`pub deps`](cmd/pub-deps.html).
 </aside>
 
-For each dependency, you specify the *name* of the package you depend on. For
-[library packages](glossary.html#library-package), you specify the *range of
-versions* of that package that you allow. You may also specify the
+For each dependency, you specify the *name* of the package you depend on.
+For [library packages](glossary.html#library-package),
+you specify the *range of versions* of that package that you allow.
+You may also specify the
 [*source*](glossary.html#source) which tells pub how the package can be located,
 and any additional *description* that the source needs to find the package.
 
@@ -43,13 +44,13 @@ dependency to a range of versions, you can provide a *version constraint*:
 
 {% prettify yaml %}
 dependencies:
-  transmogrify: '>=1.0.0 <2.0.0'
+  transmogrify: ^=1.0.0
 {% endprettify %}
 
 This creates a dependency on `transmogrify` using the default source and
 allowing any version from `1.0.0` to `2.0.0` (but not including `2.0.0`). See
-[Version constraints](#version-constraints) for details on the version
-constraint syntax.
+[Version constraints](#version-constraints) and [Caret syntax](#caret-syntax)
+for details on the version constraint syntax.
 
 If you want to specify a source, the syntax looks a bit different:
 
@@ -74,12 +75,13 @@ dependencies:
     hosted:
       name: transmogrify
       url: http://some-package-server.com
-    version: '>=1.0.0 <2.0.0'
+    version: ^=1.0.0
 {% endprettify %}
 
 This long form is used when you don't use the default source or when you have a
-complex description you need to specify. But in most cases, you'll just use the
-simple "name: version" form.
+complex description you need to specify.
+But in most cases, you'll just use the simple
+<code><em>packagename</em>: version</code> form.
 
 ## Dependency sources {#dependency-sources}
 
@@ -97,9 +99,8 @@ dependencies:
   transmogrify: ^1.4.0
 {% endprettify %}
 
-This example, which uses [caret syntax](#caret-syntax),
-specifies that your package depends on a hosted package named
-"transmogrify" and will work with any version from 1.4.0 to 2.0.0
+This example specifies that your package depends on a hosted package named
+`transmogrify` and will work with any version from 1.4.0 to 2.0.0
 (but not 2.0.0 itself). 
 
 If you want to use your own package server, you can use a description that
@@ -153,7 +154,7 @@ The ref can be anything that Git allows to [identify a commit][commit].
 
 Sometimes you find yourself working on multiple related packages at the same
 time. Maybe you are creating a framework while building an app that uses it.
-In those cases, during development you really want to depend on the "live"
+In those cases, during development you really want to depend on the _live_
 version of that package on your local file system. That way changes in one
 package are instantly picked up by the one that depends on it.
 
@@ -212,7 +213,7 @@ semantic versioning tells you that it should work (at least) up to `2.0.0`.
 A version constraint is a series of:
 
 `any`
-: The string "any" allows any version. This is equivalent to an empty
+: The string `any` allows any version. This is equivalent to an empty
   version constraint, but is more explicit. **While `any` is allowed,
   we do not recommend it for performance reasons.**
 

@@ -25,7 +25,7 @@ are useful or essential when you deploy an app.
 
 1. [The rules](#the-rules)
 1. [Details](#details)
-   1. [packages/](#packages)
+   1. [.packages and packages/](#packages)
    1. [pubspec.lock](#pubspeclock)
    1. [*.dart.js and *.js.map](#dartjs)
 {:.toc}
@@ -40,6 +40,7 @@ build/
 packages/
 pubspec.lock  // Except for application packages
 .buildlog
+.packages
 .project
 .pub/
 {% endprettify %}
@@ -82,13 +83,14 @@ the common practice is not to commit generated files, at all.
 See [Ignoring files](https://help.github.com/articles/ignoring-files)
 in the GitHub help for more information.
 
-### packages/
+### .packages and packages/ {#packages}
 
-The `packages/` directory
-contains symlinks specific to your machine.
-Users of your code should generate their own packages directory,
+The `.packages` file contains a list of dependencies used by your application.
+Directories named `packages/` contain symlinks specific to your machine.
+Users of your code should generate their own packages information
 using [pub get](/tools/pub/get-started.html#installing-packages).
 
+{% include coming-release.html %}
 
 ### pubspec.lock
 

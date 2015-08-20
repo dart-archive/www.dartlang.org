@@ -168,7 +168,7 @@ documentation is created automatically for you, and is linked to from
 [Dependencies](glossary.html#dependency) are the pubspec's *raison d'être*.
 In this section you list each package that your package needs in order to work.
 
-Dependencies fall into one of two types. "Regular dependencies" are listed
+Dependencies fall into one of two types. _Regular dependencies_ are listed
 under `dependencies:`&mdash;these are packages that anyone using your package
 will also need. Dependencies that are only needed in the development phase of
 the package itself are listed under `dev_dependencies`.
@@ -213,7 +213,7 @@ Since the Dart platform evolves over time, a package may only work with certain
 versions of it.
 
 A package can specify that using an *SDK constraint*. This goes inside a
-separate top-level "environment" field in the pubspec and uses the same
+separate top-level `environment` field in the pubspec and uses the same
 [version constraint](dependencies.html#version-constraints) syntax as
 dependencies. For example, the following constraint says that this package
 works with any Dart SDK from 0.3.4 or later:

@@ -13,8 +13,9 @@ same thing the same way, it makes it easier for us to learn our way around
 each other's work. It also makes it easier to write tools that can
 automatically do things for us.
 
-When you build a [pub](/tools/pub/) package, we have a set of conventions we encourage you to
-follow. They describe how you organize the files and directories within your
+When you build a [pub](/tools/pub/) package,
+we have a set of conventions we encourage you to follow.
+They describe how you organize the files and directories within your
 package, and how to name things. You don't have to have every single thing
 these guidelines specify. If your package doesn't have binaries, it doesn't
 need a directory for them. But if it does, you'll make everyone's life easier
@@ -26,22 +27,23 @@ would look like:
 
 {% prettify none %}
 enchilada/
+  .packages *
   pubspec.yaml
-  pubspec.lock *
+  pubspec.lock **
   README.md
   CHANGELOG.md
   LICENSE
   benchmark/
     make_lunch.dart
-    packages/ **
+    packages/ ***
   bin/
     enchilada
-    packages/ **
+    packages/ ***
   doc/
     getting_started.md
   example/
     lunch.dart
-    packages/ **
+    packages/ ***
   lib/
     enchilada.dart
     tortilla.dart
@@ -49,11 +51,11 @@ enchilada/
     src/
       beans.dart
       queso.dart
-  packages/ **
+  packages/ ***
   test/
     enchilada_test.dart
     tortilla_test.dart
-    packages/ **
+    packages/ ***
   tool/
     generate_docs.dart
   web/
@@ -62,11 +64,23 @@ enchilada/
     style.css
 {% endprettify %}
 
-\* The `pubspec.lock` file is only entered into source control if the package
-is an [application package](glossary.html#application-package).
+\* As of 1.12, the `.packages` file exists after you've run `pub get`.
+   Don't check it into source control.
 
-\** The `packages` directories exists locally after you've run
-`pub get`, but won't be checked into source control.
+\** The `pubspec.lock` file exists after you've run `pub get`.
+    Leave it out of source control unless your package is an
+    [application package](glossary.html#application-package).
+
+\*** The `packages` directories exist locally after you've run `pub get`.
+     Don't check these into source control.
+
+{% include coming-release.html %}
+
+{% comment %}
+Not ready for this...
+These symlinks are not generated if you specify `--no-package-symlinks` in
+Dart 1.2-dev or later.
+{% endcomment %}
 
 ## The basics
 
@@ -168,8 +182,8 @@ When you do, users can import these libraries using the name of the package and
 the library file, like so:
 
 {% prettify dart %}
-import "package:enchilada/enchilada.dart";
-import "package:enchilada/tortilla.dart";
+import 'package:enchilada/enchilada.dart';
+import 'package:enchilada/tortilla.dart';
 {% endprettify %}
 
 If you want to organize your public libraries, you can also create
@@ -187,7 +201,7 @@ enchilada/
 Users import `olives.dart` as follows:
 
 {% prettify dart %}
-import "package:enchilada/some/path/olives.dart";
+import 'package:enchilada/some/path/olives.dart';
 {% endprettify %}
 
 Note that only *libraries* should be in `lib`. *Entrypoints*&mdash;Dart scripts
@@ -292,7 +306,7 @@ enchilada/
       queso.dart
 {% endprettify %}
 
-The libraries inside "lib" are publicly visible: other packages are free to
+The libraries inside `lib` are publicly visible: other packages are free to
 import them. But much of a package's code is internal implementation libraries
 that should only be imported and used by the package itself. Those go inside a
 subdirectory of `lib` called `src`. You can create subdirectories in there if
@@ -305,11 +319,11 @@ Those files are not part of the package's public API, and they might change in
 ways that could break your code.
 
 When you use libraries from within your own package, even code in `src`, you
-can (and should) still use `"package:"` to import them. This is perfectly
+can (and should) still use `package:` to import them. This is perfectly
 legit:
 
 {% prettify dart %}
-import "package:enchilada/src/beans.dart";
+import 'package:enchilada/src/beans.dart';
 {% endprettify %}
 
 The name you use here (in this case `enchilada`) is the name you specify for
@@ -337,7 +351,7 @@ That ensures that a `packages` directory is created nearby so that `package:`
 imports can be resolved correctly.
 
 (You may be asking whether you should put your web-based example programs
-in `example` or `web`?" Put those in `example`.)
+in `example` or `web`? Put those in `example`.)
 
 ## Command-line apps
 
