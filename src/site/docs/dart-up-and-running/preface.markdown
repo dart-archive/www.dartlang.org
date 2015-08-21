@@ -106,6 +106,10 @@ recent printing.
 
 Added documentation for language features introduced after 1.0:
 
+- Null-aware operators:
+  - [??](ch02.html#conditional-expressions)
+  - [??=](ch02.html#assignment-operators)
+  - [?.](ch02.html#other-operators)
 - [Enumerated types](ch02.html#enums)
 - [Deferred loading](ch02.html#deferred-loading)
 - [Asynchrony support](ch02.html#asynchrony)

@@ -737,8 +737,8 @@ call to the top-level `print()` function.
 **Note:**
 Only an *expression*—not a *statement*—can appear between the arrow
 (=\>) and the semicolon (;). For example, you can’t put an [if
-statement](#if-and-else) there, but you can use a [conditional (`?:`)
-expression](#other-operators).
+statement](#if-and-else) there, but you can use a [conditional
+expression](#conditional-expressions).
 </aside>
 
 Here’s an example of calling a function:
@@ -1052,7 +1052,7 @@ You can override many of these operators, as described in
 |--------------------------+------------------------------------------------|
 |Description               | Operator                                       |
 |--------------------------|------------------------------------------------|
-| unary postfix            | <code><em>expr</em>++</code>    <code><em>expr</em>--</code>    `()`    `[]`    `.`             |
+| unary postfix            | <code><em>expr</em>++</code>    <code><em>expr</em>--</code>    `()`    `[]`    `.`    `?.` |
 | unary prefix             | <code>-<em>expr</em></code>    <code>!<em>expr</em></code>    <code>~<em>expr</em></code>    <code>++<em>expr</em></code>    <code>--<em>expr</em></code>   |
 | multiplicative           | `*`    `/`    `%`    `~/`                      |
 | additive                 | `+`    `-`                                     |
@@ -1060,13 +1060,14 @@ You can override many of these operators, as described in
 | bitwise AND              | `&`                                            |
 | bitwise XOR              | `^`                                            |
 | bitwise OR               | `|`                                            |
-| relational&nbsp;and&nbsp;type&nbsp;test | `>=`    `>`    `<=`    `<`    `as`    `is`    `is!`      |
+| relational&nbsp;and&nbsp;type&nbsp;test | `>=`    `>`    `<=`    `<`    `as`    `is`    `is!` |
 | equality                 | `==`    `!=`                                   |
 | logical AND              | `&&`                                           |
 | logical OR               | `||`                                           |
-| conditional              | <code><em>expr1</em> ? <em>expr2</em> : <em>expr3</em></code>        |
+| if null                  | `??`                                           |
+| conditional              | <code><em>expr1</em> ? <em>expr2</em> : <em>expr3</em></code> |
 | cascade                  | `..`                                           |
-| assignment               | `=`    `*=`    `/=`    `~/=`    `%=`    `+=`    `-=`    `<<=`    `>>=`    `&=`    `^=`    `|=`                 |
+| assignment               | `=`    `*=`    `/=`    `~/=`    `%=`    `+=`    `-=`    `<<=`    `>>=`    `&=`    `^=`    `|=`    `??=` |
 {:.table .table-striped}
 
 When you use operators, you create expressions. Here are some examples
@@ -1082,7 +1083,7 @@ a ? b: c
 a is T
 {% endprettify %}
 
-In the preceding operator table,
+In the [operator table](#operators),
 each operator has higher precedence than the operators in the rows
 that follow it. For example, the multiplicative operator `%` has higher
 precedence than (and thus executes before) the equality operator `==`,
@@ -1268,8 +1269,25 @@ an exception.
 ### Assignment operators {#assignment-operators}
 {:.no_toc}
 
-As you’ve already seen, you assign values using the `=` operator. You
-can also use compound assignment operators such as `+=`, which combine
+As you’ve already seen, you can assign values using the `=` operator.
+To assign only if the assigned-to variable is null,
+use the `??=` operator.
+
+{% prettify dart %}
+a = value;   // Assign value to a
+b ??= value; // If b is null, assign value to b;
+             // otherwise, b stays the same
+{% endprettify %}
+
+{% include null-aware-1-12.html %}
+
+{% comment %}
+<!-- embed a dartpad when we can hide code -->
+https://gist.github.com/9de887c4daf76d39e524
+https://dartpad.dartlang.org/9de887c4daf76d39e524
+{% endcomment %}
+
+Compound assignment operators such as `+=` combine
 an operation with an assignment.
 
 | `=`  | `–=` | `/=`  | `%=`  | `>>=` | `^=`
@@ -1285,7 +1303,7 @@ Here’s how compound assignment operators work:
 |**Example:**                     |`a += b`                       | `a = a + b`
 {:.table}
 
-The following example uses both assignment and compound assignment
+The following example uses assignment and compound assignment
 operators:
 
 <!-- ch02/op_assign.dart -->
@@ -1353,21 +1371,77 @@ assert((value >> 4)       == 0x02);  // Shift right
 {% endprettify %}
 
 
+### Conditional expressions {#conditional-expressions}
+{:.no_toc}
+
+Dart has two operators that let you concisely evaluate expressions
+that might otherwise require [if-else](#if-and-else) statements:
+
+<code><em>condition</em> ? <em>expr1</em> : <em>expr2</em>
+: If _condition_ is true, evaluates _expr1_ (and returns its value);
+  otherwise, evaluates and returns the value of _expr2_.
+
+<code><em>expr1</em> ?? <em>expr2</em></code>
+: If _expr1_ is non-null, returns its value;
+  otherwise, evaluates and returns the value of _expr2_.
+
+{% include null-aware-1-12.html %}
+
+When you need to assign a value
+based on a boolean expression,
+consider using `?:`.
+
+<!-- ch03/mirrors.dart -->
+{% prettify dart %}
+var finalStatus = m.isFinal ? 'final' : 'not final';
+{% endprettify %}
+
+If the boolean expression tests for null,
+consider using `??`.
+
+{% prettify dart %}
+String toString() => msg ?? super.toString();
+{% endprettify %}
+
+The previous example could have been written at least two other ways,
+but not as succinctly:
+
+{% comment %}
+https://dartpad.dartlang.org/f2c8d82ce5d0dd533fe2
+https://gist.github.com/f2c8d82ce5d0dd533fe2
+{% endcomment %}
+
+{% prettify dart %}
+// Slightly longer version uses ?: operator.
+String toString() => msg == null ? super.toString() : msg;
+
+// Very long version uses if-else statement.
+String toString() {
+  if (msg == null) {
+    return super.toString();
+  } else {
+    return msg;
+  }
+}
+{% endprettify %}
+
 ### Other operators {#other-operators}
 {:.no_toc}
 
-A few operators remain, most of which you’ve already seen in other
-examples.
+You've seen most of the remaining operators in other examples:
 
 |----------+-------------------------------------------|
-| Operator | Name              |              Meaning                                   |
-|-----------+-------------------------------------------|
+| Operator | Name                 |          Meaning   |
+|-----------+------------------------------------------|
 | `()`     | Function application | Represents a function call
 | `[]`     | List access          | Refers to the value at the specified index in the list
-| <code><em>expr1</em> ? <em>expr2</em> : <em>expr3</em> | Conditional | If _expr1_ is true, executes _expr2_; otherwise, executes _expr3_
 | `.`      | Member access        | Refers to a property of an expression; example: `foo.bar` selects property `bar` from expression `foo`
+| `?.`     | Conditional member access | Like `.`, but the leftmost operand can be null; example: `foo?.bar` selects property `bar` from expression `foo` unless `foo` is null (in which case the value of `foo?.bar` is null)
 | `..`     | Cascade              | Allows you to perform multiple operations on the members of a single object; described in [Classes](#classes)
 {:.table .table-striped}
+
+For more information about the `.`, `?.`, and `..` operators, see
+[Classes](#classes).
 
 
 ## Control flow statements {#control-flow-statements}
@@ -1394,8 +1468,7 @@ explained in [Exceptions](#exceptions).
 {:.no_toc}
 
 Dart supports `if` statements with optional `else` statements, as the
-next sample shows. Also see conditional expressions (?:), which are
-covered in [Other operators](#other-operators).
+next sample shows. Also see [conditional expressions](#conditional-expressions).
 
 <!-- ch02/flow_if_else.dart -->
 {% prettify dart %}
@@ -1804,7 +1877,7 @@ Objects have *members* consisting of functions and data (*methods* and
 it on an object: the method has access to that object’s functions and
 data.
 
-Use a dot (.) to refer to an instance variable or method:
+Use a dot (`.`) to refer to an instance variable or method:
 
 <!-- ch02/object_classes.dart -->
 {% prettify dart %}
@@ -1820,15 +1893,30 @@ assert(p.y == 3);
 num distance = p.distanceTo(new Point(4, 4));
 {% endprettify %}
 
+Use `?.` instead of `.` to avoid an exception
+when the leftmost operand is null:
+
+{% comment %}
+https://dartpad.dartlang.org/0cb25997742ed5382e4a
+https://gist.github.com/0cb25997742ed5382e4a
+{% endcomment %}
+
+{% prettify dart %}
+// If p is non-null, set its y value to 4.
+p?.y = 4;
+{% endprettify %}
+
+{% include null-aware-1-12.html %}
+
 Use the cascade operator (..) when you want to perform a series of
 operations on the members of a single object:
 
 <!-- ch02/cascade_operator/web/web_app.dart -->
 {% prettify dart %}
 querySelector('#button') // Get an object.
-    ..text = 'Confirm'   // Use its members.
-    ..classes.add('important')
-    ..onClick.listen((e) => window.alert('Confirmed!'));
+  ..text = 'Confirm'   // Use its members.
+  ..classes.add('important')
+  ..onClick.listen((e) => window.alert('Confirmed!'));
 {% endprettify %}
 
 Some classes provide constant constructors. To create a compile-time
