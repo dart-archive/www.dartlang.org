@@ -12,6 +12,9 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/www.dartlang.org/blob/master/src/site/community/who-uses-dart.markdown). Thanks!
 
+[Workiva](https://www.workiva.com/)
+: Next gen client app additions to our Wdesk productivity suite are built with Dart. Check out our [OSS contributions](https://pub.dartlang.org/search?q=workiva) as well.
+
 [Pick & School](https://www.picknschool.com)
 : An online catalog of studies in French higher education.
 
