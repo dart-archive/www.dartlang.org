@@ -639,7 +639,7 @@ they work for any type that has an equivalence relation defined. No more
 You can implement `==` for your own types if that makes sense for them. You don't
 have to implement `!=`: Dart will automatically infer that from your definition
 of `==`. If you do implement `==` be sure to also implement
-[hashCode](http://api.dartlang.org/dart_core/Object.html#hashCode).
+[hashCode](http://api.dartlang.org/dart_core/Object.html#id_hashCode).
 
 The `identical()` function is for testing whether two objects are the _exact
 same object in memory_. In practice, you will rarely need to use it. The Object
@@ -712,8 +712,8 @@ Llama buyLlama(int age, Money amount) {
 </div>
 
 Less is more with Dart doc comments. No need to repeat yourself over and over,
-just say what you need to say inline in the comments.  Also,
-no need to embed HTML tags in your doc comments; Dart's dartdocgen tool can
+just say what you need to say inline in the comments.  Also, no need to embed
+HTML tags in your doc comments; Dart's [dartdocgen tool](/tools/dartdocgen/) can
 understand a subset of markdown.
 
 {% prettify dart %}
