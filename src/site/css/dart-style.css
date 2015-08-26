@@ -219,6 +219,11 @@ i.sprite-icon-close-x {
   background-position: -150px -200px;
 }
 
+.btn-lg.try-btn {
+  padding: 10px 46px 10px 46px;
+  position: relative;
+}
+
 .btn-lg.download-btn {
   padding: 10px 46px 10px 66px;
   position: relative;
@@ -757,7 +762,7 @@ pre.prettyprint {
   text-decoration: underline;
 }
 
-.hero .download-btn {
+.hero .download-btn, .hero .try-btn {
   background: none;
   border: 1px solid #fff;
   margin-top: 30px;

@@ -1,0 +1,17 @@
+/* Copyright 2015 the Dart project authors. All rights reserved. */
+/* Use of this source code is governed by a BSD-style license */
+/* that can be found in the LICENSE file. */
+
+p {
+  color: #888;
+}
+a {
+  color: cyan;
+}
+.searchString {
+  font-style: italic;
+  transition: 1s ease-in;
+}
+.highlighted {
+  color:white;
+}

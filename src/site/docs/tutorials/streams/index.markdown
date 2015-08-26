@@ -115,7 +115,7 @@ main() async {
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-prefix}}?id=15d5ef986238c97dbc14&horizontalRatio=70&verticalRatio=80"
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=15d5ef986238c97dbc14&horizontalRatio=70&verticalRatio=80"
     width="100%"
     height="500px"
     style="border: 1px solid #ccc;">
@@ -186,7 +186,7 @@ main() async {
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-prefix}}?id=38feef09be9b1e7b5136&horizontalRatio=70&verticalRatio=80"
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=38feef09be9b1e7b5136&horizontalRatio=70&verticalRatio=80"
     width="100%"
     height="450px"
     style="border: 1px solid #ccc;">
@@ -229,7 +229,7 @@ main() async {
 {% endcomment %}
 
 <iframe
-src="{{site.custom.dartpad.embed-prefix}}?id=da80b1e7eed75db53ef3&horizontalRatio=70&verticalRatio=80"
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=da80b1e7eed75db53ef3&horizontalRatio=70&verticalRatio=80"
     width="100%"
     height="450px"
     style="border: 1px solid #ccc;">

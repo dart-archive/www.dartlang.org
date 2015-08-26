@@ -1,31 +1,68 @@
 ---
 layout: homepage
+js:
+- url: /js/carousel-next.js
+  defer: true
 ---
 
   <div class="container-page">
     <div class="container-full hero-hldr">
-      <div class="hero container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <h1>Scalable, productive app development</h1>
-        	    <p>
-              Dart is an open-source, scalable programming language, with
-              robust libraries and runtimes, for building web, server, and
-              mobile apps.
-        	    </p>
-              {% include downloads/_dart.html buttonclass="btn-default" %}
-          </div>
-        </div>
-      </div>
-    </div>
+      <div id="top-carousel" class="carousel slide dart-carousel" data-interval="false">
 
-    <div class="container-full sub-hero-hldr">
-      <div id="feed-posts" class="sub-hero container">
-      </div>
-    </div>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#top-carousel" data-slide-to="0" class="active">Welcome to Dart!</li>
+          <li data-target="#top-carousel" data-slide-to="1">Try Dart</li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" height="500px">
+
+          <!-- SLIDE 1: original hero content -->
+          <div class="item active">
+            <div class="hero container">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <h1>Scalable, productive app development</h1>
+              	    <p>
+                    Dart is an open-source, scalable programming language, with
+                    robust libraries and runtimes, for building web, server, and
+                    mobile apps.
+              	    </p>
+
+                    <button class="btn btn-lg try-btn" id="carousel-next">
+                      Try Dart
+                    </button>
+
+                    <div class="editor-current-version version">
+                      Current stable version of Dart:
+                      <span class="editor-build-rev-stable">[calculating]</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="container-full sub-hero-hldr">
+              <div id="feed-posts" class="sub-hero container">
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: dartpad -->
+          <div class="item code-hldr" style="padding-top: 24px; height: 460px">
+            {% comment %}
+            https://dartpad.dartlang.org/a6907e26b96678b75303
+            https://gist.github.com/a6907e26b96678b75303
+            verticalRatio set to a value that makes output have no scrollbar.
+            {% endcomment %}
+            <iframe src="{{site.custom.dartpad.embed-dart-prefix}}?id=a6907e26b96678b75303&verticalRatio=73"
+                    width="100%" height="100%"
+                    style="border: 1px solid #ccc;"></iframe>
+          </div>
+        </div> <!-- END slides -->
+      </div> <!-- END carousel -->
+    </div> <!-- END hero -->
 
     <div class="container dart-container">
-
       <section class="dart-ctas">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
@@ -411,6 +448,7 @@ main() {
               <a href="/tools/">Dart plugins</a> exist for WebStorm, Eclipse,
               Sublime Text, and more.
             </p>
+
             <a href="https://dartpad.dartlang.org"><img src="imgs/dartpad.png" alt="screenshot of DartPad"
                 style="margin-bottom:0px"></a>
           </div>
