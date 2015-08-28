@@ -8,7 +8,8 @@ main() async {
   lines?.forEach((line) => print(line));
 }
 
-// Reads a file, returning its lines.
+// Reads a file, returning all lines with the string
+// 'jabberwock'.
 getLines() async {
   var jabber = await HttpRequest.getString(
       'https://www.dartlang.org/samples-files/jabberwocky.txt');
