@@ -16,7 +16,8 @@ prev-title: "Define a Custom Element"
 * Dart is single-threaded.
 * Synchronous code can make your program freeze.
 * Use Futures to perform asynchronous operations.
-* Use `await` in an async function to pause execution until a Future completes.
+* Use `await` in an async function to pause execution until
+  a Future completes.
 * Or use Future's `then()` method.
 * Use try-catch expressions in async functions to catch errors.
 * Or use Future's `catchError()` method.
@@ -24,26 +25,9 @@ prev-title: "Define a Custom Element"
 
 {% endcapture %}
 
-{% capture sample_links %}
-
-
-<p markdown="1"> This tutorial features these examples
-in the `futures/bin` directory,
-all variations of the same example:</p>
-
-* futures1.dart
-* futures2.dart
-* futures3.dart
-* futures4.dart
-* futures5.dart
-
-<p>
-Don't have the source code?
-<a href="https://github.com/dart-lang/dart-tutorials-samples/archive/master.zip">
-  Download it.
-</a>
-
-{% endcapture %}
+{% comment %}
+The sample_links space is intentionally left blank.
+{% endcomment %}
 
 {% capture content %}
 
@@ -75,14 +59,12 @@ Let's look at some code that could possibly cause a program to freeze:
 
 {% prettify dart %}
 // Synchronous code
-import 'dart:io';
-
-void printDailyNewsDigest() {
-  File file = new File("dailyNewsDigest.txt");
-  print(file.readAsStringSync());
+printDailyNewsDigest() {
+  String news = gatherNewsReports(); // Can take a while.
+  print(news);
 }
 
-void main() {
+main() {
   printDailyNewsDigest();
   printWinningLotteryNumbers();
   printWeatherForecast();
@@ -90,18 +72,19 @@ void main() {
 }
 {% endprettify %}
 
-Our program reads the news of the day from a file, `dailyNewsDigest.txt`,
-prints it, and then prints a bunch of other items of interest to the user:
+Our program gathers the news of the day, prints it,
+and then prints a bunch of other items of interest to the user:
 
 {% prettify none %}
-<Contents of dailyNewsDigest.txt>
+<gathered news goes here>
 Winning lotto numbers: [23, 63, 87, 26, 2]
 Tomorrow's forecast: 70F, sunny.
 Baseball score: Red Sox 10, Yankees 0
 {% endprettify %}
 
-Our code is problematic: since `readAsStringSync()` blocks, the remaining code
-runs only when `readAsStringSync()` returns with the contents of the file, 
+Our code is problematic: since `gatherNewsReports()` blocks,
+the remaining code runs only when `gatherNewsReports()`
+returns with the contents of the file, 
 _however long that takes_.  And if reading the file takes a long time, the
 user waits passively, wondering if she won the lottery, what tomorrow's weather
 will be like, and who won today's game. Not good.
@@ -118,7 +101,7 @@ A Future represents a means for getting a value sometime in the future. When a
 function that returns a Future is invoked, two things happen:
 
 1. The function queues up work to be done and returns an uncompleted Future
-   object immediately.
+   object.
 1. Later, when a value is available, the Future object completes with that
    value (or with an error; we'll discuss that later).
 
@@ -134,41 +117,77 @@ The `async` and `await` keywords are part of the Dart language's
 They allow you to write asynchronous code that looks like synchronous
 code and doesn't use the Future API.
 
-Let's rewrite `printDailyNewsDigest()` to get the file contents
-asynchronously using `async` and `await`:
+The following app simulates reading the news by using async and await
+to read the contents of a file on www.dartlang.org.
+Click run ( <img src="/imgs/run.png" /> ) to start the app.
 
-<!-- BEGIN(futures2.dart) -->{% prettify dart %}
-import 'dart:io';
-import 'dart:async';
+{% comment %}
+https://gist.github.com/Sfshaza/c0e8f5c38489ddeccb5a
 
-[[highlight]]Future[[/highlight]] printDailyNewsDigest() [[highlight]]async[[/highlight]] {
-  File file = new File("dailyNewsDigest.txt");
-  var content = [[highlight]]await[[/highlight]] file.readAsString();
-  print(content);
+Future printDailyNewsDigest() async {
+  String news = await gatherNewsReports();
+  print(news);
 }
-{% endprettify %}<!-- END(futures2.dart) -->
 
-The `printDailyNewsDigest()` function now uses `readAsString()`, which is
-non-blocking. Calling `readAsString()` queues up the work to be done but
+Future gatherNewsReports() async {
+  String path =
+      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+  return (await HttpRequest.getString(path));
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=c0e8f5c38489ddeccb5a&horizontalRatio=99&verticalRatio=73"
+    width="100%"
+    height="500px"
+    style="border: 1px solid #ccc;">
+</iframe>
+
+Notice that `printDailyNewsDigest` is the first function called,
+but the news is the last thing to print, even though
+the file contains only a single line. This is because the code that reads
+and prints the file is running asynchronously.
+
+In this example,
+the `printDailyNewsDigest()` function calls `gatherNewsReports()`,
+which is non-blocking.
+Calling `gatherNewsReports()` queues up the work to be done but
 doesn't stop the rest of the code from executing. The program prints the
 lottery numbers, the forecast, and the baseball score; when
-`readAsString()` finishes reading the news file, the program prints its
-contents. If `readAsString()` takes a little while to complete its work, no
-great harm is done: the user gets to read other things before the daily news
-digest is printed.
+`gatherNewsReports()` finishes gathering news, the program prints.
+If `gatherNewsReports()` takes a little while to complete its work,
+no great harm is done: the user gets to read other things before the daily
+news digest is printed.
 
-This code executes as follows:
+The following diagram shows the flow of execution through the code.
+Each number corresponds to a step below.
 
-1. The `printDailyNewsDigest()`, marked with the `async` keyword,
-   immediately returns a Future.
-1. Later, it starts executing the function body.
-1. When it reaches the `await` expression, it pauses after calling
-   `readAsString()`.
-1. After `readAsString()`'s Future completes, the function starts
-   executing again, calling `print()`.
-1. When the function runs out of code, the Future that it returned
-   completes. Note that if an async function doesn't explicitly
-   return a value, it returns a Future wrapped around a null value.
+<img src="images/async-await.png" 
+     alt="diagram showing flow of control through the main() and printDailyNewsDigest functions" />
+
+1. The app begins executing.
+1. The main function calls `printDailyNewsDigest()`, 
+   which (because it's marked `async`),
+   immediately returns a Future, _before any code is executed_.
+1. The remaining print functions execute. Because they're synchronous,
+   each function executes fully before moving on to the next print
+   function. For example,
+   the winning lottery numbers are all printed before the weather forecast
+   is printed.
+1. The body of the `printDailyNewsDigest()` function starts executing.
+1. After reaching the await expression (`await gatherNewsReports()`) and
+   calling `gatherNewsReports()`, the program pauses,
+   waiting for the Future returned by `gatherNewsReports()` to complete.
+1. Once that Future completes, execution of `printDailyNewsDigest()`
+   continues, printing the news.
+1. When the `printDailyNewsDigest()` function body has completed executing,
+   the Future that it originally returned completes, and the app exits.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+If an async function doesn't explicitly return a value,
+it returns a Future wrapped around a null value.
+</aside>
 
 ### Handling errors {#handling-errors-async}
 
@@ -176,23 +195,38 @@ If a Future-returning function completes with an error,
 you probably want to capture that error.
 Async functions can use try-catch to capture the error.
 
-{% prettify dart %}
+{% comment %}
+https://gist.github.com/Sfshaza/847e8d9a356f025ad5d6
+
 // Handling errors with async and await.
 Future printDailyNewsDigest() async {
-  File file = new File("dailyNewsDigest.txt");
-  [[highlight]]try[[/highlight]] {
-    var content = await file.readAsString();
-    print(content);
-  } [[highlight]]catch[[/highlight]] (e) {
-    handleError(e);
+  try {
+    String news = await gatherNewsReports();
+    print(news);
+  } catch (e) {
+    // ... handle error ...
   }
 }
-{% endprettify %}
+
+Future gatherNewsReports() async {
+  String path =
+      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+    String content = await HttpRequest.getString(path);
+    return content;
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=847e8d9a356f025ad5d6&horizontalRatio=99&verticalRatio=73"
+    width="100%"
+    height="500px"
+    style="border: 1px solid #ccc;">
+</iframe>
 
 The try-catch code behaves in the same way with asynchronous code that
-it does for synchronous code: If the `readAsString()` method encounters
-an error, the code inside the `catch` clause
-is executed; in this example, `handleError()` is called.
+it does for synchronous code:
+If the code within the `try` block throws an exception,
+the code inside the `catch` clause executes.
 
 ### Sequential processing {#sequential-processing-async}
 
@@ -224,60 +258,134 @@ To write asynchronous code using the Future API,
 you use the `then()` method to register a callback.
 This callback fires when the Future completes.
 
-Let's rewrite `printDailyNewsDigest()` to get the file contents
-asynchronously using the Future API:
+The following app simulates reading the news by using the Future API
+to read the contents of a file on www.dartlang.org.
+Click run ( <img src="/imgs/run.png" /> ) to start the app.
+
+{% comment %}
+https://gist.github.com/Sfshaza/ba1b258f810e34231a62
+
+printDailyNewsDigest() {
+  var future = gatherNewsReports();
+  future.then((content) => print(content));
+}
+
+// Imagine that this function is more complex and slow. :)
+gatherNewsReports() {
+  String path =
+      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+  return HttpRequest.getString(path);
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=ba1b258f810e34231a62&horizontalRatio=99&verticalRatio=73"
+    width="100%"
+    height="500px"
+    style="border: 1px solid #ccc;">
+</iframe>
+
+Notice that `printDailyNewsDigest` is the first function called,
+but the news is the last thing to print, even though
+the file contains only a single line. This is because the code that reads
+the file is running asynchronously.
+
+This app executes as follows:
+
+1. The app begins executing.
+1. The main function calls the `printDailyNewsDigest()` function, 
+   which does not return immediately, but calls `gatherNewsReports()`.
+1. `gatherNewsReports()` starts gathering news and returns a Future.
+1. `printDailyNewsDigest()` uses `then()` to specify a response to
+   the Future. Calling `then()` returns a new Future that will complete
+   with the value returned by `then()`'s callback.
+1. The remaining print functions execute. Because they're synchronous,
+   each function executes fully before moving on to the next print
+   function. For example,
+   the winning lottery numbers are all printed before the weather forecast
+   is printed.
+1. When all of the news has arrived, the Future returned by 
+   `gatherNewsReports()` completes with a string containing
+   the gathered news.
+1. The code specified by `then()` in `printDailyNewsDigest()` runs,
+   printing the news.
+1. The app exits.
+
+In the `printDailyNewsDigest()` function,
+the code inside `then()` could be written in a couple different ways.
+
+<ul markdown="1">
+<li markdown="1">Using curly braces.
+    This is useful if you want to perform more than one operation.
+    **Try it!**
+    Replace the `printDailyNewsDigest()` method with the following:
+
 
 {% prettify dart %}
-import 'dart:io';
-import 'dart:async';
-
-void printDailyNewsDigest() {
-  File file = new File("dailyNewsDigest.txt");
-  Future future = file.readAsString();
-  future.[[highlight]]then[[/highlight]]((content) {
+printDailyNewsDigest() {
+  var future = gatherNewsReports();
+  future.then((content) {
     print(content);
+    // ... do something else ...
   });
 }
 {% endprettify %}
 
-This code executes as follows:
+</li>
+<li markdown="1">Passing the `print` function directly,
+    since it takes a single argument&mdash;the completed value
+    of the Future.
+    Try this version of `printDailyNewsDigest()`:
 
-1. The `printDailyNewsDigest()` function does not return immediately.
-1. The work scheduled by `readAsString()` is performed,
-   and the contents of the file are read into memory.
-   When the entire file is read, the Future completes with the file contents.
-1. The callback registered within `then()` fires and prints the
-   contents of the news file.  Calling `then()` returns a new Future,
-   which completes with the value returned by `then()`'s callback.
-   This means that calls to `then()` can be
-   chained (we'll see examples of this later). 
-   Note that no Future is returned unless you explicitly return one.
+{% prettify dart %}
+printDailyNewsDigest() {
+  var future = gatherNewsReports();
+  future.then(print);
+}
+{% endprettify %}
+
+</li>
+</ul>
 
 ### Handling errors {#handling-errors-future-api}
 
 With the Future API, you can capture an error using `catchError()`:
 
-{% prettify dart %}
-// Handling errors with the Future API.
-void printDailyNewsDigest() {
-  File file = new File("dailyNewsDigest.txt");
-  Future future = file.readAsString();
-  future.then((content) => doSomethingWith(content))
-        .[[highlight]]catchError[[/highlight]]((e) => handleError(e));
+{% comment %}
+https://gist.github.com/Sfshaza/a9d90ac89aded272d1ca
+
+printDailyNewsDigest() {
+  var future = gatherNewsReports();
+  future.then((content) => print(content))
+        .catchError((e) => handleError(e));
 }
-{% endprettify %}
+
+// Imagine that this function is more complex and slow. :)
+gatherNewsReports() {
+  String path =
+      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+  return HttpRequest.getString(path);
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=a9d90ac89aded272d1ca&horizontalRatio=99&verticalRatio=73"
+    width="100%"
+    height="500px"
+    style="border: 1px solid #ccc;">
+</iframe>
+
 
 If `dailyNewsDigest.txt` doesn't exist or isn't available for reading,
 the code above executes as follows:
 
-1. `readAsString()`'s Future completes with an error.
+1. `gatherNewsReports()`'s Future completes with an error.
 1. `then()`'s Future completes with an error.
 1.  `catchError()`'s callback handles the error, `catchError()`'s Future
 completes normally, and the error does not propagate.
 
 <aside class="alert alert-info" markdown="1">
-  Chaining catchError() to then() is a common pattern when using
-  the Future API.
+  Chaining catchError() to then() is a common pattern when using the Future API.
   <strong>
     Consider this pairing the Future API's equivalent of try-catch blocks.
   </strong>
