@@ -23,7 +23,8 @@ The **dart** package contains the [Dart SDK](/tools/sdk/),
 which includes the Dart VM, libraries, and command-line Dart tools such as
 [dart](/tools/dart-vm/), [dart2js](/tools/dart2js/),
 [dartanalyzer](/docs/dart-up-and-running/contents/ch04-tools-dart_analyzer.html),
-[pub](/tools/pub/), and [dartdocgen](/tools/dartdocgen/).
+[pub](/tools/pub/),
+and [dartdoc](https://github.com/dart-lang/dartdoc#dartdoc).
 Optionally, you can add one more tool:
 
 * [Dartium](/tools/dartium/):

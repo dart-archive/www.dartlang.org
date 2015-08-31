@@ -45,7 +45,7 @@ as of Dart 1.12, a `.packages` file.
 
 <aside class="alert alert-info" markdown="1">
   **Compatibility note:**
-  Starting with Dart 1.12,
+  As of Dart 1.12,
   `packages` directories are being phased out and
   replaced by the `.packages` file.
   If both are present, the `.packages` file is preferred by

@@ -3611,10 +3611,9 @@ class Llama {
 In the generated documentation, `[Food]` becomes a link to the API docs
 for the Food class.
 
-To parse Dart code and generate HTML documentation, you can use the
-SDK’s [documentation generation
-tool.](/tools/dartdocgen/) For an example of
-generated documentation, see the [Dart API
+To parse Dart code and generate HTML documentation, you can use the SDK’s
+[documentation generation tool.](https://github.com/dart-lang/dartdoc#dartdoc)
+For an example of generated documentation, see the [Dart API
 documentation.](http://api.dartlang.org) For advice on how to structure
 your comments, see [Guidelines for Dart Doc
 Comments.](/articles/doc-comment-guidelines/)

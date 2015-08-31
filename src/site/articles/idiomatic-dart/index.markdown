@@ -713,7 +713,8 @@ Llama buyLlama(int age, Money amount) {
 
 Less is more with Dart doc comments. No need to repeat yourself over and over,
 just say what you need to say inline in the comments.  Also, no need to embed
-HTML tags in your doc comments; Dart's [dartdocgen tool](/tools/dartdocgen/) can
+HTML tags in your doc comments; Dart's
+[dartdoc tool](https://github.com/dart-lang/dartdoc#dartdoc) can
 understand a subset of markdown.
 
 {% prettify dart %}

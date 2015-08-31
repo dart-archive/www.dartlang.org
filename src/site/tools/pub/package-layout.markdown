@@ -40,6 +40,7 @@ enchilada/
     enchilada
     packages/ ***
   doc/
+    api/ ****
     getting_started.md
   example/
     lunch.dart
@@ -74,12 +75,16 @@ enchilada/
 \*** The `packages` directories exist locally after you've run `pub get`.
      Don't check these into source control.
 
+\**** The `doc/api` directory exists locally after you've run
+      [dartdoc](https://github.com/dart-lang/dartdoc#dartdoc).
+      Don't check the `api` directory into source control.
+
 {% include coming-release.html %}
 
 {% comment %}
 Not ready for this...
 These symlinks are not generated if you specify `--no-package-symlinks` in
-Dart 1.2-dev or later.
+Dart 1.2 or later.
 {% endcomment %}
 
 ## The basics
@@ -401,19 +406,21 @@ other empirical metrics).
 {% prettify none %}
 enchilada/
   doc/
+    api/
     getting_started.md
 {% endprettify %}
 
 If you've got code and tests, the next piece you might want
-is good documentation. That goes inside a directory named `doc`. We don't
-currently have any guidelines about format or organization within that. Use
-whatever markup format that you prefer.
+is good documentation. That goes inside a directory named `doc`.
 
-This directory should *not* just contain docs generated automatically
-from your source code using [dartdocgen](/tools/dartdocgen/). Since that's
-pulled directly from the code already in the package, putting those docs in
-here would be redundant. Instead, this is for tutorials, guides, and other
-hand-authored documentation *in addition to* generated API references.
+When you run the [dartdoc](https://github.com/dart-lang/dartdoc#dartdoc)
+tool, it places the API documentation, by default, under `doc/api`.
+Since the API documentation is generated from the source code,
+you should not place it under source control.
+
+Other than the generated `api`, we don't
+have any guidelines about format or organization of the documentation
+that you author.  Use whatever markup format that you prefer.
 
 ## Examples
 

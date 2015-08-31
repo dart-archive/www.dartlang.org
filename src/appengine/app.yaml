@@ -69,10 +69,16 @@ handlers:
 - url: /tools/docgen
   script: scripts.redirector.application
 
-- url: /tools/editor/mobile.html
+- url: /tools/docgen/
   script: scripts.redirector.application
 
-- url: /tools/docgen/
+- url: /tools/dartdocgen
+  script: scripts.redirector.application
+
+- url: /tools/dartdocgen/
+  script: scripts.redirector.application
+
+- url: /tools/editor/mobile.html
   script: scripts.redirector.application
 
 - url: /docs/tutorials/web-ui/
@@ -139,6 +145,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /polymer-dart/
+  script: scripts.redirector.application
+
+- url: /tools/dartdoc
   script: scripts.redirector.application
 
 - url: /tools/dartdoc/
