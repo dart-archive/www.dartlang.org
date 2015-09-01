@@ -51,7 +51,7 @@ import 'dart:io';
 main() async {
   var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
   print("Serving at ${server.address}:${server.port}");
-  
+
   await for (var request in server) {
     request.response
       ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
@@ -134,10 +134,12 @@ And of course, we welcome [bug reports](http://dartbug.com/new).
 There are lots of options for building server-side and command-line
 apps with Dart. Here are just some of our favorites.
 
+Out of the box, [Dart supports TLS/SSL](tls-ssl.html).
+
 [dart:io][dart_io_libs] provides core functionality, such as files, directories,
 sockets, HTTP, and lots more. [Shelf][shelf] is a middleware system for
 web servers, with a robust plugin system. [Redstone][redstone] is a
-server-side microframework for Dart. [MySQL driver][mysql] helps you 
+server-side microframework for Dart. [MySQL driver][mysql] helps you
 connect to MySQL from Dart. [PostgreSQL driver][postgres] helps you
 connect to PostgreSQL from Dart. [Args][args] is a configurable parser of
 command-line args. [Http][http] helps you easily connect to HTTP resources.
