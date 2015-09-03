@@ -23,6 +23,11 @@ js:
     <button type="button" class="btn btn-default btn-lg" id="macos">Mac OS X</button>
   </div>
 </div>
+<div class="editor-current-version version">
+  <p style="text-align:center">Current stable version of Dart:
+  <span class="editor-build-rev-stable">[calculating]</span></p>
+</div>
+
 
 
 ## Download the SDK
@@ -32,7 +37,6 @@ js:
 {% capture partial %}downloads/_{{platform.os}}_section.html{% endcapture %}{% include {{partial}} %}
 </div>
 {% endfor %}
-
 
 --------------------
 Need a specific version or another download?

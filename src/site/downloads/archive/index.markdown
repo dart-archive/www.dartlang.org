@@ -34,6 +34,7 @@ Don't need a specific version of Dart?
 Go to the [main Dart download page](/downloads/).
 
 
+
 ## Stable channel
 
 You can download archives of stable channel versions of Dart tools
@@ -52,3 +53,21 @@ archive and then view the JSON files using
 [dartdoc-viewer](https://github.com/dart-lang/dartdoc-viewer).
 
 {% include downloads/_archives_table.html channel="dev" %}
+
+
+## Direct download URLs
+
+You can find the downloads at predictable URLs using the 
+following pattern:
+
+{% prettify none %}
+https://storage.googleapis.com/dart-archive/channels/<[[highlight]]stable/dev[[/highlight]]>/release/<[[highlight]]release[[/highlight]]>/sdk/dartsdk-<[[highlight]]platform[[/highlight]]>-<[[highlight]]architecture[[/highlight]]>-release.zip
+{% endprettify %}
+
+Examples:
+
+{% prettify none %}
+https://storage.googleapis.com/dart-archive/channels/stable/release/1.11.1/sdk/dartsdk-windows-ia32-release.zip
+https://storage.googleapis.com/dart-archive/channels/stable/release/1.12.0/sdk/dartsdk-macos-x64-release.zip
+https://storage.googleapis.com/dart-archive/channels/dev/release/1.13.0-dev.0.0/sdk/dartsdk-linux-ia32-release.zip
+{% endprettify %}
