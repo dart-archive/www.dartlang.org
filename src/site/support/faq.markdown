@@ -663,5 +663,5 @@ See [Who Uses Dart] for more.
 [Who Uses Dart]: /community/who-uses-dart.html
 [spec]: http://www.ecma-international.org/publications/standards/Ecma-408.htm
 [DEP]: https://github.com/dart-lang/dart_enhancement_proposals
-[dartanalyzer]: /tools/analyzer/
+[dartanalyzer]: https://github.com/dart-lang/analyzer_cli#dartanalyzer
 [DartPad]: https://dartpad.dartlang.org

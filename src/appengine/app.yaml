@@ -153,6 +153,12 @@ handlers:
 - url: /tools/dartdoc/
   script: scripts.redirector.application
 
+- url: /tools/analyzer
+  script: scripts.redirector.application
+
+- url: /tools/analyzer/
+  script: scripts.redirector.application
+
 - url: /editor.*
   script: scripts.redirector.application
 

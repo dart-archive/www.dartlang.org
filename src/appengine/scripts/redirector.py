@@ -222,6 +222,8 @@ application = WSGIApplication(
       defaults={'_uri': 'https://github.com/dart-lang/dartdoc#dartdoc'}),
     Route('/tools/dartdocgen/', RedirectHandler,
       defaults={'_uri': 'https://github.com/dart-lang/dartdoc#dartdoc'}),
+    Route('/tools/analyzer/', RedirectHandler,
+      defaults={'_uri': 'https://github.com/dart-lang/analyzer_cli#dartanalyzer'}),
     Route('/tools/editor/mobile.html', RedirectHandler,
       defaults={'_uri': '/mobile/'}),
     Route('/language-tour/', RedirectHandler,

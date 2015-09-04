@@ -20,7 +20,8 @@ for information on how to specify dart2js flags in your pubspec file.
 
 The dart2js tool provides hints for improving your Dart code and removing
 unused code. You can get these hints for all kinds of code—even command-line
-apps. Also see [dartanalyzer](/tools/analyzer/),
+apps.
+Also see [dartanalyzer](https://github.com/dart-lang/analyzer_cli#dartanalyzer),
 which performs a similar analysis but has a different implementation.
 
 This page tells you how to use dart2js on the command line. It also give tips

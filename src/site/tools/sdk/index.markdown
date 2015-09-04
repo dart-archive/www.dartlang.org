@@ -39,7 +39,7 @@ and a `bin` directory that has these command-line tools:
 [dart2js](/tools/dart2js/)
 : The Dart-to-JavaScript compiler
 
-[dartanalyzer](/tools/analyzer/)
+[dartanalyzer](https://github.com/dart-lang/analyzer_cli#dartanalyzer)
 : The static analyzer
 
 </div> <div class="col-md-6" markdown="1">
