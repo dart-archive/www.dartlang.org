@@ -665,7 +665,7 @@ import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 
 void main() {
-  var url = "https://www.dartlang.org/logos/dart-logo.png";
+  var url = "https://github.com/dart-lang/logos/blob/master/logos_and_wordmarks/dart-logo.png";
   http.get(url).then((response) {
     List<int> bytes = response.bodyBytes;
     // Do something with the bytes. For example, convert to base64.
