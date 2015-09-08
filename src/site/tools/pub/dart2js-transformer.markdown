@@ -87,9 +87,9 @@ configuration option:
 
 {% prettify yaml %}
 dependencies:
-  polymer: '>=0.14.0 <0.15.0'
-  core_elements: any
-  browser: any
+  polymer: ^=0.14.0
+  core_elements: ^0.7.1
+  browser: ^0.10.0
   range:
 transformers:
 - polymer:

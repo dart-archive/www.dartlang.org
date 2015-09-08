@@ -356,17 +356,17 @@ req.send(json);
 
 You can include JsonObject in your project by using the
 [pub](https://pub.dartlang.org) package manager.
-Simply specify the following dependency:
+Simply specify a dependency on `json_object`:
 
 {% prettify yaml %}
 dependencies:
-  json_object: any
+  json_object: ^1.0.19
 {% endprettify %}
 
 and import the package using the following import statement:
 
 {% prettify dart %}
-import "package:json_object/json_object.dart";
+import 'package:json_object/json_object.dart';
 {% endprettify %}
 
 ### A note on CORS and HttpRequest

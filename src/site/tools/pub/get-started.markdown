@@ -62,8 +62,8 @@ SDK:
 {% prettify yaml %}
 name: my_app
 dependencies:
-  js: any
-  intl: any
+  js: ^0.3.0
+  intl: ^0.12.4
 {% endprettify %}
 
 For details, see the [pubspec documentation](pubspec.html)
@@ -74,7 +74,7 @@ Once you have a pubspec, you can run <code class="literal">pub
 get</code> from the top directory of your application:
 
 {% prettify dart %}
-cd <path to my_app>
+cd <path-to-my_app>
 pub get
 {% endprettify %}
 
