@@ -27,3 +27,9 @@ https://dartpad.dartlang.org/
 
 Definitions for the DartPad constants used on dartlang:
 src/site/_config.yml
+
+Embedding Guide for DartPad:
+https://github.com/dart-lang/dart-pad/wiki/Embedding-Guide
+
+Defined constants for embedding DartPad:
+/src/site/_config.yml

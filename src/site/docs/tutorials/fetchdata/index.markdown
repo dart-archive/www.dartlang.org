@@ -464,7 +464,7 @@ void main() {
 }
 
 Future makeRequest(Event e) async {
-  var path = 'https://www.dartlang.org/samples-files/portmanteaux.json';
+  var path = 'https://www.dartlang.org/f/portmanteaux.json';
   try {
     processString(await HttpRequest.getString(path));
   } catch (e) {
@@ -552,7 +552,7 @@ void main() {
 }
 
 void makeRequest(Event e) {
-  var path = 'https://www.dartlang.org/samples-files/portmanteaux.json';
+  var path = 'https://www.dartlang.org/f/portmanteaux.json';
   var httpRequest = new HttpRequest();
   httpRequest
     ..open('GET', path)
@@ -590,7 +590,7 @@ Let's take a look at the Dart code:
 
 {% prettify dart %}
 void makeRequest(Event e) {
-  var path = 'https://www.dartlang.org/samples-files/portmanteaux.json';
+  var path = 'https://www.dartlang.org/f/portmanteaux.json';
   var httpRequest = new HttpRequest();
   httpRequest
     ..open('GET', path)

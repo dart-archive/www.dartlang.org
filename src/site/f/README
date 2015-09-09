@@ -9,7 +9,3 @@ The dartlang site is set up with CORS headers so that apps,
 such as DartPad, can read these files.
 Sample apps can only read these files--they can't
 write to, or modify, the files in any way.
-
-
-NOTE:  DELETE THIS DIRECTORY ONCE THE GIST FILES HAVE BEEN
-       REGENERATED TO USE THE FILES IN THE "f" DIRECTORY.
