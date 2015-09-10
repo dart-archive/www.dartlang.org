@@ -65,8 +65,16 @@ Common command-line options for dart2js include:
 
 Some other handy options include:
 
+`--packages=<path>`
+: Specify the path to the package resolution configuration file.
+  For more information, see
+  [Package Resolution Configuration File](https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md).
+  _This option cannot be used with `--package-root`._
+
 `-p <path>` or `--package-root=<path>`
 : Specify where to find "package:" imports.
+  _This option cannot be used with `--packages`._
+
 
 `-D<flag>=<value>`
 : Define an environment variable.

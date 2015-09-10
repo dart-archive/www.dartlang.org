@@ -34,8 +34,15 @@ Common command-line options for dart include:
 `-c` or `--checked`
 : Enables _both_ assertions and type checks (checked mode).
 
+`--packages=<path>`
+: Specifies the path to the package resolution configuration file.
+  For more information, see
+  [Package Resolution Configuration File](https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md).
+  _This option cannot be used with `--package-root`._
+
 `-p <path>` or `-package-root=<path>`
 : Specifies where to find imported libraries.
+  _This option cannot be used with `--packages`._
 
 `--old_gen_heap_size=<num>`
 : Sets the upper limit of
