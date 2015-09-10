@@ -120,14 +120,27 @@ Web applications are hosted on a web page and run in a browser
 (either directly in a browser that supports Dart
 or by compiling to JavaScript).
 
-A minimal Dart application has
+The most minimal Dart application has
 
 * one Dart source file&mdash;a
   file with the .dart suffix that contains Dart code.
 * one top-level main() function.
   This is the entry point for your application.
-* a pubspec.yaml file containing the name of the app and (optionally)
-  a description. For example:
+
+As long as this simple Dart app can be run from the
+command line (and does not rely on the browser),
+you can run it using `dart`, the Dart VM tool.
+For example:
+
+{% prettify sh %}
+dart main.dart
+{% endprettify %}
+
+**An app with any level of complexity should also
+include a pubspec file.** The pubspec.yaml file contains
+the name of the app and (optionally) a description.
+
+For example:
 
 {% prettify yaml %}
 name: hello_world
@@ -137,9 +150,9 @@ description: A sample command-line application.
 ###Pub package manager
 
 The [`pub`](/tools/pub) tool allows you to manage Dart packages.
-Pub also includes commands for creating, developing, and deploying
+Pub also includes commands for creating, developing, running, and deploying
 Dart applications. Behind the scenes, [`pub run`](/tools/pub/cmd/pub-run.html),
-for example, uses the Dart VM tool to run a command-line application,
+for example, uses the `dart` tool to run a command-line application,
 and [`pub build`](/tools/pub/cmd/pub-build.html) uses
 the Dart-to-JavaScript compiler to convert a Dart web app to JavaScript.
 
@@ -280,9 +293,10 @@ lib
   `hello_world.dart`, a library file with
   a simple calculate() method.
 
-packages
-: Contains code for the packages that your app uses.
-  This code is fetched by the `pub get` command.
+.packages, packages
+: Tells the Dart tools where to get the packages that your
+  app uses. These files are created by the `pub get` command.
+  You can ignore these.
 
 Double-clicking any filename displays the contents of that file
 in the pane to the right.
