@@ -1,28 +1,24 @@
 ---
 layout: default
-title: "Installing the Dart SDK on Mac"
-description: "Installing and updating Dart on your Mac."
+title: "Installing Dart on Mac"
+description: "Installing and updating the Dart SDK on your Mac with homebrew."
 ---
 
 {% include breadcrumbs.html %}
 
 # {{ page.title }}
 
-The Dart SDK contains the VM, analyzer, formatter, dart2js compiler,
-documentation generator, package manager, and the core libraries.
-
-We recommend using [Homebrew](#homebrew)
-to manage your Dart installation.
-Another option is [downloading Dart manually](#zip).
-
-
-## Installing and upgrading with Homebrew {#homebrew}
-
 Homebrew is a package manager for Mac OS.
 With [Homebrew](http://brew.sh/),
 installing and updating Dart is easy.
 
-### Installing Dart {#homebrew-install-dart}
+Don't want to use homebrew?
+Another option is [downloading Dart manually](/downloads/archive/).
+
+## Installing {#homebrew-install-dart}
+
+The Dart SDK contains the VM, analyzer, formatter, dart2js compiler,
+documentation generator, package manager, and the core libraries.
 
 [Install homebrew](http://brew.sh/), and then run:
 
@@ -60,7 +56,7 @@ dev channel releases are not as heavily tested as the stable release.
 </aside>
 
 
-### Updating Dart {#homebrew-update-dart}
+## Updating {#homebrew-update-dart}
 
 To update Dart once you've installed it using Homebrew, run:
 
@@ -75,7 +71,7 @@ depending on what arguments you used before.
 {% endcomment %}
 
 
-### Installation locations
+## Installation locations
 
 Many tools, such as editors, ask you to specify the Dart SDK
 installation directory and the location of Dartium.
@@ -88,7 +84,7 @@ the homebrew installation directory
 * Dartium: `HOMEBREW_INSTALL/opt/dart/Chromium.app`
 
 
-#### Specifying a custom installation location {#homebrew-custom-location}
+### Specifying a custom installation location {#homebrew-custom-location}
 
 By default, Homebrew downloads to `/usr/local`.
 If your Mac is set up so that installing to `/usr/local` requires
@@ -116,41 +112,3 @@ as your home directory.
 4. Follow the `brew` instructions in
 [Installing Dart](#homebrew-install-dart).
 Dart will be installed under `homebrew`.
-
-
-## Downloading the Dart SDK manually {#zip}
-
-Follow these steps to download Dart manually.
-You'll need to download it again
-whenever you need the latest APIs and bug fixes.
-
-1. <a
-    data-bits="32" data-os="macos" data-tool="sdk"
-    class="download-link"
-    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-ia32-release.zip">
-   Download the Dart SDK.</a>
-   Unzip the downloaded file to get the SDK.
-
-   <aside class="alert alert-info" markdown="1">
-   **Other downloads:**
-   If you need a bigger heap or access to much more memory,
-   download the <a
-    data-bits="64" data-os="macos" data-tool="sdk"
-    class="download-link"
-    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/sdk/dartsdk-macos-x64-release.zip">
-   64-bit Dart SDK</a>.
-   You can download other releases from the
-   [download index](/downloads/archive/).
-   </aside>
-
-2. Add `<sdk>/bin` to your `PATH`.
-
-3. If you're developing a web app, <a
-    data-bits="32" data-os="macos" data-tool="dartium"
-    class="download-link"
-    href="{{ site.custom.downloads.dartarchive-stable-url-prefix }}/latest/dartium/dartium-macos-ia32-release.zip">
-  download Dartium</a>.
-  Unzip it to get a special version of
-  [Chromium with the Dart VM](/tools/dartium/).
-  This binary expires after 1 year. When that happens,
-  you'll need to download a new copy to continue using Dartium.

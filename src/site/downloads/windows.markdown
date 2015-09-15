@@ -1,17 +1,20 @@
 ---
 layout: default
-title: "Installing the Dart SDK on Windows"
-description: "Installing Dart on your Windows platform."
+title: "Installing Dart on Windows"
+description: "Installing and updating the Dart SDK on Windows with Chocolatey or an installer."
+js:
+- url: /js/download-info.js
+  defer: true
 ---
 
 {% include breadcrumbs.html %}
 
 # {{ page.title }}
 
-If you're using Windows, you have several options for downloading Dart.
+Don't want to use Chocolatey or a Windows installer?
+Another option is [downloading Dart manually](/downloads/archive/).
 
 * [Installing using Chocolatey](#chocolatey)
-* [Downloading Dart manually](#manual)
 * [Using a third-party installer](#installer)
 
 ## Installing using Chocolatey {#chocolatey}
@@ -32,26 +35,23 @@ Optionally, you can add one more tool:
   Use it to interactively test and debug Dart web apps
   without first compiling them to JavaScript.
 
-For client-side Dart work, you might want to download *both* tools. If you're working on server-side Dart, all you need is the `dart-sdk`:
+For client-side Dart work, you might want to download *both* tools. If you're
+working on server-side Dart, all you need is the `dart-sdk`:
 
 {% prettify sh %}
 choco install dart-sdk -version <version>
 choco install dartium  -version <version>
 {% endprettify %}
 
-For example, to download version 1.11.0:
-
-{% prettify sh %}
-choco install dart-sdk -version 1.11.0
-choco install dartium  -version 1.11.0
-{% endprettify %}
+The current stable version is
+<span class="editor-build-rev-stable">[calculating]</span>.
 
 {% comment %}
 To choose the dev channel version,
 use `-dev<dev-version>`. For example:
 
 {% prettify sh %}
-choco install -y dart-sdk -version 1.12.0-dev.2.2 
+choco install -y dart-sdk -version 1.12.0-dev.2.2
 choco install -y dartium  -version 1.12.0-dev.2.2
 {% endprettify %}
 {% endcomment %}
@@ -65,62 +65,10 @@ For more information on Chocolatey support for Dart, see:
 * [Blog post](http://divingintodart.blogspot.co.uk/2015/05/chocolatey-dart-packages-for-windows-110.html)
   on [Diving Into Dart](http://divingintodart.blogspot.co.uk/)
 
-## Downloading Dart manually {#manual}
-
-You can manually download and extract the Dart SDK from a zip file.
-You can get the latest **stable channel** release:
-
-<div class="text-center">
-<div class="downloads download-buttons text-center">
-{% capture platform_name %}64-bit Windows, stable{% endcapture %}
-{% include downloads/_sdk-button.html name=platform_name buttonclass=btn-primary bits="64" os="windows" arch="x64" %}
-
-{% capture platform_name %}32-bit Windows, stable{% endcapture %}
-{% include downloads/_sdk-button.html name=platform_name buttonclass=btn-primary bits="32" os="windows" arch="ia32" %}
-</div>
-<div class="editor-current-version version">
-  Current stable version of Dart:
-  <span class="editor-build-rev-stable">[calculating]</span>
-</div>
-</div>
-
-Or, for the latest bits, get the most recent **dev channel** release:
-
-<div class="text-center">
-<div class="downloads download-buttons">
-{% capture platform_name %}64-bit Windows, dev{% endcapture %}
-{% include downloads/_sdk-button-dev.html name=platform_name buttonclass=btn-primary bits="64" os="windows" arch="x64" %}
-
-{% capture platform_name %}32-bit Windows, dev{% endcapture %}
-{% include downloads/_sdk-button-dev.html name=platform_name buttonclass=btn-primary bits="32" os="windows" arch="ia32" %}
-</div>
-<div class="editor-current-version version">
-  Current dev version of Dart:
-  <span class="editor-build-rev-dev">[calculating]</span>
-</div>
-</div>
-
-If you're writing a web app, we recommend getting
-[Dartium](/tools/dartium/), as well:
-
-<div class="text-center">
-<div class="downloads download-buttons">
-{% include downloads/_dartium.html name="Windows, stable" buttonclass=btn-primary bits="32" os="windows" arch="ia32" %}
-</div>
-<div class="downloads download-buttons">
-{% include downloads/_dartium-dev.html name="Windows, dev" buttonclass=btn-primary bits="32" os="windows" arch="ia32" %}
-</div>
-</div>
-
-The Dartium binary expires after 1 year.
-When that happens, you need to
-download a new copy to continue using Dartium.
-
-## Using a third-party installer {#installer} 
+## Using a third-party installer {#installer}
 
 A
-[Dart SDK installer for Windows](http://www.gekorm.com/dart-windows/),
-is available (though unsupported) as open source on
-[GitHub](https://github.com/GeKorm/dart-windows/releases/latest/).
-You can use this wizard to install stable or dev versions of
-Dart SDK and Dartium.
+[Dart SDK installer for Windows](http://www.gekorm.com/dart-windows/)
+is available (though unsupported).
+You can use the wizard to install stable or dev versions of
+the Dart SDK and Dartium.

@@ -1,4 +1,4 @@
 name: download_archive
-description: A sample web application
+description: Display a list of downloads for www.dartlang.org.
 dependencies:
   browser: any

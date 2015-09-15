@@ -112,34 +112,31 @@ const Map<String, String> archiveMap = const {
   '32-bit': 'ia32',
   '64-bit': 'x64',
   'Dart SDK': 'dartsdk',
-  'Dartium': 'dartium',
-  'Dart Editor': 'darteditor',
+  'Dartium': 'dartium'
 };
 
 const Map<String, String> directoryMap = const {
   'Dart SDK': 'sdk',
-  'Dartium': 'dartium',
-  'Dart Editor': 'editor',
+  'Dartium': 'dartium'
 };
 
 const Map<String, String> suffixMap = const {
   'Dart SDK': '-release.zip',
-  'Dartium': '-release.zip',
-  'Dart Editor': '.zip'
+  'Dartium': '-release.zip'
 };
 
 const Map<String, Object> platforms = const {
   'Mac': const {
-    '32-bit': const ['Dart SDK', 'Dartium', 'Dart Editor'],
-    '64-bit': const ['Dart SDK', 'Dart Editor']
+    '32-bit': const ['Dart SDK', 'Dartium'],
+    '64-bit': const ['Dart SDK']
   },
   'Linux': const {
-    '32-bit': const ['Dart SDK', 'Dartium', 'Dart Editor'],
-    '64-bit': const ['Dart SDK', 'Dartium', 'Dart Editor']
+    '32-bit': const ['Dart SDK', 'Dartium'],
+    '64-bit': const ['Dart SDK', 'Dartium']
   },
   'Windows': const {
-    '32-bit': const ['Dart SDK', 'Dartium', 'Dart Editor'],
-    '64-bit': const ['Dart SDK', 'Dart Editor']
+    '32-bit': const ['Dart SDK', 'Dartium'],
+    '64-bit': const ['Dart SDK']
   },
 };
 
@@ -186,7 +183,7 @@ void addVersion(String channel, Map<String, String> version) {
       row.addCell()
         ..classes.add('nowrap')
         ..text = width;
-      List<String> possibleArchives = ['Dart SDK', 'Dartium', 'Dart Editor'];
+      List<String> possibleArchives = ['Dart SDK', 'Dartium'];
       TableCellElement c = row.addCell()..classes.add('archives');
       possibleArchives.forEach((String pa) {
         if (archives.contains(pa)) {
@@ -229,9 +226,9 @@ void addVersion(String channel, Map<String, String> version) {
   row.addCell()..text = '---';
   TableCellElement c = row.addCell()..classes.add('archives');
   String uri = '$storageBase/channels/$channel/release/${versionString}/' +
-      'api-docs/dart-api-docs.zip';
+      'api-docs/dartdocs-gen-api.zip';
   c.append(new AnchorElement()
-    ..text = 'JSON-formatted API documentation'
+    ..text = 'API docs'
     ..attributes['href'] = uri);
 
   List<Element> templateRows = tables[channel].querySelectorAll('.template');

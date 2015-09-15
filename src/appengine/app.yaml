@@ -264,6 +264,9 @@ handlers:
 - url: /codelabs/deploy/
   script: scripts.redirector.application
 
+- url: /codelabs/polymer/
+  script: scripts.redirector.application
+
 - url: /eclipse/update.*
   script: scripts.redirector.application
 

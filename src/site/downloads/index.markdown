@@ -8,46 +8,32 @@ js:
   defer: true
 ---
 
-# Getting Dart Is Easy!
+# Download Dart
 
-## Choose your platform
+<p>Current stable version of Dart:
+<span class="editor-build-rev-stable">[calculating]</span></p>
 
-<div class="btn-group-responsive btn-group hero-hldr btn-group-justified os-choices" style="display: table;">
-  <div class="btn-group">
-    <button type="button" class="btn btn-default btn-lg" id="windows">Windows (Vista, 7, 8)</button>
-  </div>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default btn-lg" id="linux">Linux</button>
-  </div>
-  <div class="btn-group">
-    <button type="button" class="btn btn-default btn-lg" id="macos">Mac OS X</button>
-  </div>
-</div>
-<div class="editor-current-version version">
-  <p style="text-align:center">Current stable version of Dart:
-  <span class="editor-build-rev-stable">[calculating]</span></p>
-</div>
+Download the Dart SDK to get everything you need to write and run Dart code:
+VM, libraries, analyzer, dart2js, package manager, doc generator,
+formatter, debugger, and more.
 
+## Automated downloads and updates
 
+A package manager can help you easily install and update the Dart SDK.
 
-## Download the SDK
+* [Installing Dart on Windows](windows.html) with Chocolatey or a
+  Windows installer
+* [Installing Dart on Mac](mac.html) with homebrew
+* [Installing Dart on Linux](linux.html) with our Debian package
 
-{% for platform in site.custom.downloads.binaries %}
-<div class="{{platform.os}}" markdown="1">
-{% capture partial %}downloads/_{{platform.os}}_section.html{% endcapture %}{% include {{partial}} %}
-</div>
-{% endfor %}
+## Manual downloads
 
---------------------
-Need a specific version or another download?
-See the [Index of Downloads](archive/).
+Not using a package manager for your OS? No problem!
 
+[Download](/downloads/archive/)
+zip files of the Dart SDK, Dartium, and docs.
 
-{% comment %}
-TODO:
-* Change styling to be closer to platform buttons.
-  Larger font.
-  Selected state should use bold font and
-  maybe a green bg like Mac OS X.
-  Unselected state should perhaps have a lighter gray bg.
-{% endcomment %}
+## Looking for an older version?
+
+Check out our [download archive](/downloads/archive/) for
+previous versions of the Dart SDK.
