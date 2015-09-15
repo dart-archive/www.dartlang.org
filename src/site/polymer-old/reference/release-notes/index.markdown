@@ -80,7 +80,7 @@ new core and paper elements packages follow.
 
 We are also releasing a new Polymer example which demonstrates how to use core
 and paper elements to make a responsive single page app with very little css and
-no HTML imports. See the tutorial [here](/polymer/spa/),
+no HTML imports. See the tutorial [here](/polymer-old/spa/),
 live demo [here](http://dart-lang.github.io/polymer-spa-example/final/), and the
 code [here](https://github.com/dart-lang/polymer-spa-example).
 
@@ -169,7 +169,7 @@ This release updates polymer to match JavaScript's version 0.4.2.
 
 With this release, it is no longer necessary to write `dart_support.js` in
 entrypoint files. You can find more details
-[here](/polymer/reference/error-messages/#polymer_43).
+[here](/polymer-old/reference/error-messages/#polymer_43).
 
 ## Polymer 0.15.0
 

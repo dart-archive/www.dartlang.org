@@ -144,6 +144,9 @@ handlers:
 - url: /polymer-dart/reference/release-notes/
   script: scripts.redirector.application
 
+- url: /polymer/.*
+  script: scripts.redirector.application
+
 - url: /polymer-dart/
   script: scripts.redirector.application
 

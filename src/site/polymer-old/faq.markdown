@@ -24,17 +24,16 @@ much of this will move out into formal documentation.
 
 On www.dartlang.org:
 
-* [Polymer.dart Code Lab](/codelabs/polymer/)
 * [Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
-* [Polymer.dart](/polymer/)
-  * [Using Elements](/polymer/using-elements/)
-  * [Building Single Page Apps using Polymer.dart](/polymer/spa/)
-  * [Imports and Your App’s Directory Structure](/polymer/app-directories.html)
-  * [Creating Elements](/polymer/creating-elements/)
-  * [Upgrading to Polymer.dart from Web UI](/polymer/upgrading-to-polymer-from-web-ui.html)
-  * [Reference](/polymer/reference/)
-    * [Error Messages](/polymer/reference/error-messages/)
-    * [Release Notes](/polymer/reference/release-notes/)
+* [Polymer.dart](/polymer-old/)
+  * [Using Elements](/polymer-old/using-elements/)
+  * [Building Single Page Apps using Polymer.dart](/polymer-old/spa/)
+  * [Imports and Your App’s Directory Structure](/polymer-old/app-directories.html)
+  * [Creating Elements](/polymer-old/creating-elements/)
+  * [Upgrading to Polymer.dart from Web UI](/polymer-old/upgrading-to-polymer-from-web-ui.html)
+  * [Reference](/polymer-old/reference/)
+    * [Error Messages](/polymer-old/reference/error-messages/)
+    * [Release Notes](/polymer-old/reference/release-notes/)
 
 {% comment %}
 { TODO: autogenerate that list. Put it somewhere more visible.}

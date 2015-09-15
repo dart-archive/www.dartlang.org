@@ -43,12 +43,11 @@ It shows how to implement the same single-page app (SPA) example using Dart.
 
 The code samples used by this page reflect **polymer.dart 0.16**.
 For information about polymer.dart versions, see the
-[Release Notes](/polymer/reference/release-notes/).
+[Release Notes](/polymer-old/reference/release-notes/).
 
 This document assumes a working knowledge of Polymer.dart.
 For an introduction to Polymer.dart see the
-[Define a Custom Element](/docs/tutorials/polymer-intro) tutorial or the
-[Polymer.dart Code Lab](/codelabs/polymer/).
+[Define a Custom Element](/docs/tutorials/polymer-intro) tutorial.
 </aside>
 
 <p layout horizontal center-center>

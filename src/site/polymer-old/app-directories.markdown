@@ -289,7 +289,7 @@ appears in the importing package as
   **Note:**
   IDEs that don't use the polymer.dart linter
   are likely to complain about the extra `../` in the path.
-  See [Generating warnings](/polymer/#generating-warnings)
+  See [Generating warnings](/polymer-old/#generating-warnings)
   for details on using a `build.dart` file to set up the linter.
 </aside>
 

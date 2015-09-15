@@ -22,6 +22,14 @@ NEWS_POSTS = {
     '/2011/10/18/dart-language-spec-0.03-now-available.html' :   '/2011/10/dart-language-spec-v003-now-available.html'
 }
 
+class PolymerRedirectPage(RequestHandler):
+  def get(self):
+    filename = self.request.path.split('/polymer/')[1]
+    if filename == '' or filename == 'index.html':
+        self.redirect('https://github.com/dart-lang/polymer-dart/wiki', permanent=True)
+    else:
+        self.redirect('/polymer-old/' + filename, permanent=True)
+
 class ApiRedirectPage(RequestHandler):
   def get(self):
     filename = self.request.path.split('/docs/api/')[1]
@@ -163,6 +171,7 @@ def trailing_slash(handler, *args, **kwargs):
 
 application = WSGIApplication(
    [('/docs/api/.*', ApiRedirectPage),
+    ('/polymer/.*', PolymerRedirectPage),
     ('/news.*', NewsRedirectPage),
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
@@ -195,11 +204,11 @@ application = WSGIApplication(
     Route('/docs/spec/<:.*>', RedirectHandler,
       defaults={'_uri': '/docs/spec/'}),
     Route('/articles/dart-web-components/', RedirectHandler,
-      defaults={'_uri': '/polymer/upgrading-to-polymer-from-web-ui.html'}),
+      defaults={'_uri': '/polymer-old/upgrading-to-polymer-from-web-ui.html'}),
     Route('/articles/web-ui/', RedirectHandler,
-      defaults={'_uri': '/polymer/upgrading-to-polymer-from-web-ui.html'}),
+      defaults={'_uri': '/polymer-old/upgrading-to-polymer-from-web-ui.html'}),
     Route('/web-ui/observables/', RedirectHandler,
-      defaults={'_uri': '/polymer/upgrading-to-polymer-from-web-ui.html'}),
+      defaults={'_uri': '/polymer-old/upgrading-to-polymer-from-web-ui.html'}),
     Route('/docs/technical-overview/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch01.html'}),
     Route('/tools/download-editor.html', RedirectHandler,
@@ -247,9 +256,9 @@ application = WSGIApplication(
     Route('/editor<:/?>', RedirectHandler,
       defaults={'_uri': '/tools/editor/'}),
     Route('/polymer-dart/reference/release-notes/', RedirectHandler,
-      defaults={'_uri': '/polymer/reference/release-notes/'}),
+      defaults={'_uri': '/polymer-old/reference/release-notes/'}),
     Route('/polymer-dart/', RedirectHandler,
-      defaults={'_uri': '/polymer/'}),
+      defaults={'_uri': '/polymer-old/'}),
     Route('/dartium/', RedirectHandler,
       defaults={'_uri': '/tools/dartium/'}),
     Route('/community/', RedirectHandler,

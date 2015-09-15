@@ -15,5 +15,5 @@ The reference documentation includes the following:
 * [Error Messages](error-messages/)
 * [Release Notes](release-notes/)
 
-Also see the [FAQ](/polymer/faq.html), including the section
-[Differences between the JavaScript and Dart versions of Polymer](/polymer/faq.html#differences-between-the-javascript-and-dart-versions-of-polymer).
+Also see the [FAQ](/polymer-old/faq.html), including the section
+[Differences between the JavaScript and Dart versions of Polymer](/polymer-old/faq.html#differences-between-the-javascript-and-dart-versions-of-polymer).

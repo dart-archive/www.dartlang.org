@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Polymer.dart"
+title: "Polymer.dart [pre-1.0]"
 description: "Standards-based web components:
 custom elements, templates,
 and data binding for Dart web apps. A Dart port of Polymer."
@@ -11,9 +11,14 @@ has-permalinks: true
 
 <h1>
   {{page.title}}
-  <img src="images/polymer-logo.svg" alt="Polymer logo"
-       style="vertical-align:baseline" height="35">
 </h1>
+
+<aside class="alert alert-warning" markdown="1">
+**Note:**
+This site describes a pre-1.0 version of polymer.dart.
+For information about the latest version, go to the
+[Polymer Dart project](https://github.com/dart-lang/polymer-dart/wiki).
+</aside>
 
 Use polymer.dart—a Dart port of [Polymer](http://www.polymer-project.org)—to
 build structured, encapsulated, client-side web apps with Dart and
@@ -42,7 +47,7 @@ The code samples on this page reflect polymer.dart 0.16.
 [Polymer 1.0](https://blog.polymer-project.org/announcements/2015/05/29/one-dot-oh/),
 is in the works.**
 For information about polymer.dart versions, see the
-[Release Notes](/polymer/reference/release-notes/).
+[Release Notes](/polymer-old/reference/release-notes/).
 </aside>
 {% comment %}
 UPDATE version each release
@@ -51,12 +56,7 @@ UPDATE version each release
 <hr>
 ## Where to start {#start}
 
-You can get a quick start with any of the following:
-
-[Polymer Dart Code Lab](/codelabs/polymer/)
-: Follow this if you like to learn by coding.
-This code lab walks you through building a single-page admin console and
-the custom elements that it requires.
+You can get a quick start with either of the following:
 
 [Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
 : Read this if you like a more structured walkthrough.
@@ -202,11 +202,11 @@ Here are a few places to find polymer.dart sample code:
 [polymer-spa-example](https://github.com/dart-lang/polymer-spa-example)
 : A simple example of a full polymer app with multiple pages.
   Learn more about the example at [Building Single Page Apps using
-  Polymer.dart](/polymer/spa/).
+  Polymer.dart](/polymer-old/spa/).
 
 [polymer-and-dart-codelab](https://github.com/dart-lang/polymer-and-dart-codelab)
-: A larger sample, implementing the app featured in
-[Polymer Dart Code Lab](/codelabs/polymer/).
+: A larger sample, implementing the app featured in the retired
+Polymer Dart Code Lab.
 
 
 ### Polymer.dart

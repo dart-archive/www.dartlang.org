@@ -7,8 +7,15 @@ has-permalinks: true
 
 # {{ page.title }}
 
+<aside class="alert alert-warning" markdown="1">
+**Note:**
+This page describes upgrading to a pre-1.0 version of polymer.dart.
+For information about the latest version, go to the
+[Polymer Dart project](https://github.com/dart-lang/polymer-dart/wiki).
+</aside>
+
 Here is a non-exhaustive list of tips for developers upgrading from
-Web UI to [polymer.dart](/polymer/).
+Web UI to [polymer.dart](/polymer-old/).
 
 Do you have other tips for upgrading? Please send us a
 [pull request](https://github.com/dart-lang/dartlang.org)

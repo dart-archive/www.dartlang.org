@@ -61,7 +61,7 @@ the HTML file for the web page needs to:
 * **Import the HTML file that defines the custom element.**
   <br>
   For help with import paths, see
-  [Imports and Your App's Directory Structure](/polymer/app-directories.html).
+  [Imports and Your App's Directory Structure](/polymer-old/app-directories.html).
 * **Instantiate the element.**
 * **Initialize Polymer.**
 
