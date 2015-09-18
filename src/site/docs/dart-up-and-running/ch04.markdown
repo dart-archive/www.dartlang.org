@@ -5,8 +5,6 @@ subsite: "Dart Up and Running"
 description: "The remnants of Chapter 4, Tools (from Dart: Up and Running, published by O'Reilly)."
 prev-chapter: ch03.html
 prev-chapter-title: "Library Tour"
-next-chapter: ch05.html
-next-chapter-title: "Walkthrough"
 ---
 
 {% include book-nav.html %}

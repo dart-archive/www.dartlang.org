@@ -93,6 +93,9 @@ handlers:
 - url: /docs/dart-up-and-running/contents/.*
   script: scripts.redirector.application
 
+- url: /docs/dart-up-and-running/ch05.html
+  script: scripts.redirector.application
+
 - url: /mailing-list
   script: scripts.redirector.application
 

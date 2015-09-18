@@ -106,8 +106,6 @@ Start with our [tutorials](/docs/tutorials). Once you're coding, consult the
 * [Tutorial: Write HTTP Clients & Servers](/docs/tutorials/httpserver/)
 {% comment %}
 - Add this back if the example/text is updated.
-* [Walkthrough of a working sample server](/docs/dart-up-and-running/ch05.html)
-  complete with HTTP server, WebSockets, logging, and routing
 {% endcomment %}
 
 You may want to learn about Dart's asynchrony support.

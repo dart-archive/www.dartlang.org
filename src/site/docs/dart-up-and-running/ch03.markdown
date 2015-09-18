@@ -2359,12 +2359,6 @@ main() async {
 }
 {% endprettify %}
 
-For a more comprehensive HTTP server, see
-[Walkthrough: Dartiverse Search](ch05.html). It features a
-sample that implements a web server, using dart:io and packages
-such as [http\_server](https://pub.dartlang.org/packages/http_server)
-and [route](https://pub.dartlang.org/packages/route).
-
 #### HTTP client {#http-client}
 {:.no_toc}
 

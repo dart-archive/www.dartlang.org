@@ -313,6 +313,8 @@ application = WSGIApplication(
       defaults={'_uri': '/codelabs/'}),
     Route('/codelabs/polymer/', RedirectHandler,
       defaults={'_uri': '/polymer/'}),
+    Route('/docs/dart-up-and-running/ch05.html', RedirectHandler,
+      defaults={'_uri': '/docs/dart-up-and-running/'}),
     Route('/atom.xml', RedirectHandler,
       defaults={'_uri': 'http://news.dartlang.org/feeds/posts/default'}),
     Route('/+lexicalscope', RedirectHandler,
