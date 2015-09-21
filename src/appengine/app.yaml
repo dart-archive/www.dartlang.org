@@ -39,9 +39,6 @@ handlers:
 - url: /cloud/setup.*
   script: scripts.redirector.application
 
-- url: /cloud/client-server
-  script: scripts.redirector.application
-
 - url: /cloud/client-server/
   script: scripts.redirector.application
 
@@ -82,6 +79,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /docs/tutorials/web-ui/
+  script: scripts.redirector.application
+
+- url: /docs/tutorials/indexeddb/
   script: scripts.redirector.application
 
 - url: /docs/tutorials/templates/

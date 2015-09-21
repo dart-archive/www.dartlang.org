@@ -458,10 +458,6 @@ and asynchronous programming in Dart:
 [Fetch Data Dynamically](/docs/tutorials/fetchdata/),
 uses a Future when doing an HTTP request.
 
-* The example featured in
-[Use IndexedDB](/docs/tutorials/indexeddb/)
-uses many Futures when interacting with the database.
-
 {% endcapture %}
 
 {% include tutorial.html %}

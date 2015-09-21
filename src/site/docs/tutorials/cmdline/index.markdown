@@ -7,8 +7,8 @@ tutorial:
   id: dart-io
 next: httpserver
 next-title: "Write HTTP Clients & Servers"
-prev: indexeddb/
-prev-title: "Use IndexedDB"
+prev: forms/
+prev-title: "Get Input from a Form"
 ---
 
 {% capture whats_the_point %}

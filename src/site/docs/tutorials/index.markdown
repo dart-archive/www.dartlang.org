@@ -239,20 +239,6 @@ from left to right...or choose just the ones you need.
           </section>
         </div>
       </div> <!-- end row -->
-
-      <div class="row">
-        <!-- IndexedDB -->
-        <div class="col-md-6">
-          <section>
-          <h4 class="no-permalink"><a href="indexeddb/"><img src="images/target.png" height="20" width="20">&nbsp;Use IndexedDB</a></h4>
-          <p>Save data on the client with IndexedDB.</p>
-          <img style="border:1px solid black"
-               src="images/countdown-screenshot.png" width="300">
-          </section>
-        </div>
-        <div class="col-md-6">
-        </div>
-      </div> <!-- end row -->
     </div> <!-- end FORMS tab -->
 
     <!-- COMMAND-LINE APPS TAB -->
@@ -295,7 +281,7 @@ from left to right...or choose just the ones you need.
           <section>
           <h4 class="no-permalink"><a href="mobile/"><img src="images/target.png" height="20" width="20">&nbsp;Write for Mobile Devices</a></h4>
           <p>Mobile devices are taking over the world!</p>
-          <img src="images/countdown-screenshot.png" width="300">
+          <img src="images/xxx.png" width="300">
           </section>
         </div>
 

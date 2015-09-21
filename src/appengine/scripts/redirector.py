@@ -301,6 +301,8 @@ application = WSGIApplication(
       defaults={'_uri': '/codelabs/darrrt/'}),
     Route('/docs/tutorials/web-ui/', RedirectHandler,
       defaults={'_uri': '/docs/tutorials/polymer-intro/'}),
+    Route('/docs/tutorials/indexeddb/', RedirectHandler,
+      defaults={'_uri': '/docs/tutorials/'}),
     Route('/docs/tutorials/templates/', RedirectHandler,
       defaults={'_uri': '/docs/tutorials/polymer-intro/'}),
     Route('/docs/tutorials/custom-elements/', RedirectHandler,

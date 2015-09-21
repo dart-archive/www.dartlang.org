@@ -1051,6 +1051,7 @@ An async function can treat errors from Futures as exceptions.
 For example:
 
 <!-- dart-tutorials-samples/count_down/tute_countdown.dart -->
+<!-- This example has been removed, but I'll leave this code... -->
 {% prettify dart %}
 attached() async {
   super.attached();
