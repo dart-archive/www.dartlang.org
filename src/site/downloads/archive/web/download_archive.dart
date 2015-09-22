@@ -89,18 +89,28 @@ Future getListing(String channel, String respString) async {
   versions.removeWhere((e) => e.contains('latest'));
 
   // Format is lines of "channels/stable/release/\d+/".
-  Iterable<Future> versionRequests = versions.map(
-      (String path) => HttpRequest.getString("$storageBase/${path}VERSION"));
-
-  List versionStringsIter = await Future.wait(versionRequests.toList());
-  List<String> versionStrings = versionStringsIter.toList();
-  List<Map<String, String>> y =
-      versionStrings.map((e) => JSON.decode(e)).toList();
-  y.sort((a, b) =>
-      -(parseDateTime(a['date']).compareTo(parseDateTime(b['date']))));
-  y.forEach((v) {
-    addVersion(channel, v);
+  Iterable<Future> versionRequests = versions.map((String path) async {
+    try {
+      return await HttpRequest.getString("$storageBase/${path}VERSION");
+    } catch (error) {
+      // TODO(rnystrom): Figure out why this is happening.
+      // Some directories seem to not be valid. If that happens, just ignore
+      // them. (We'll filter out the null entries below).
+      return null;
+    }
   });
+
+  List<String> versionStrings = (await Future.wait(versionRequests))
+      .where((version) => version != null)
+      .map((e) => JSON.decode(e))
+      .toList();
+
+  versionStrings.sort(
+      (a, b) => parseDateTime(b['date']).compareTo(parseDateTime(a['date'])));
+  for (var version in versionStrings) {
+    addVersion(channel, version);
+  }
+
   versionSelectors[channel].options[1].selected = true;
   versionSelectors[channel].dispatchEvent(new Event("change"));
 }
