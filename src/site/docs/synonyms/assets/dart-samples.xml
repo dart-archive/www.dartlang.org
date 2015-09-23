@@ -119,13 +119,25 @@ printName() {
   <synonym id="syn-final-variables">
     <title>Final variables</title>
     <code language="dart"><![CDATA[
-final name = 'Bob';
+const name = 'Bob';
 
-// you can combine types and final
-final String name = 'Bob';
+// you can combine types and const
+const String name = 'Bob';
 
-// Trying to reassign a final variable raises an error
+// Trying to reassign a const variable raises an error
 name = 'Alice';
+// ERROR: cannot assign value to const variable
+
+// You can use final with attributes
+class Person {
+  final String name;
+  Person(this.name);
+}
+
+var bob = new Person('Bob');
+
+// Trying to reassign a final attribute raises an error
+bob.name = 'Alice';
 // ERROR: cannot assign value to final variable
 ]]></code>
   </synonym>

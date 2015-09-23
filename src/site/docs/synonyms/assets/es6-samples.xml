@@ -24,6 +24,13 @@ main();
 (function(){
   // Code to be run automatically on execution
 })();
+
+// note: this is typical done for scope protection
+// (to prevent leaking into the global scope),
+// but shouldn't be needed with ES6 modules.
+// In ES6 you can just write top-level (module-level) code,
+// and none of your local variables will be exported
+// unless you say "export".
 ]]></code>
   </synonym>
   <synonym id="syn-detect-language-unavailability">
@@ -62,11 +69,11 @@ export class Dog {
     <title>Use a library</title>
     <code language="javascript"><![CDATA[
 import {Dog} from 'animal';
-var fido = new Dog();
+let fido = new Dog();
 
 // prefixes are supported to avoid namespace collisions
 import * as pets from 'animal';
-var fido = new pets.Dog();
+let fido = new pets.Dog();
 ]]></code>
   </synonym>
 </theme>
@@ -75,13 +82,13 @@ var fido = new pets.Dog();
   <synonym id="syn-create--assign-value">
     <title>Create + assign value</title>
     <code language="javascript"><![CDATA[
-var myName = 'Aaron';
+let myName = 'Aaron';
 ]]></code>
   </synonym>
   <synonym id="syn-default-value">
     <title>Default value</title>
     <code language="javascript"><![CDATA[
-var myName;
+let myName;
 // == undefined
 
 let myName;
@@ -91,8 +98,14 @@ let myName;
   <synonym id="syn-hoisting">
     <title>Hoisting</title>
     <code language="javascript"><![CDATA[
-// EcmaScript6 "hoists" variables to the top of
-// their scope.  So the following function:
+// EcmaScript6 does not "hoists" variables
+// to the top of their scope if you use "let"
+function printName() {
+  console.log('Hello, ' + name);
+  let name = 'Bob';
+}
+
+// However if you use old "var" syntax
 function printName() {
   console.log('Hello, ' + name);
   var name = 'Bob';
@@ -112,7 +125,41 @@ printName();
   <synonym id="syn-final-variables">
     <title>Final variables</title>
     <code language="javascript"><![CDATA[
-// no support
+const name = 'Bob';
+
+// Trying to reassign a const variable raises an error
+name = 'Alice';
+// ERROR: cannot assign value to const variable
+
+// You can use defineProperty to create read-only fields
+class Person {
+  constructor(name) {
+    Object.defineProperty(this, 'name', { writable: false, value: name });
+  }
+}
+
+// or if the entire object is immutable
+class Person {
+  constructor(name) {
+    this.name = name;
+    Object.freeze(this);
+  }
+}
+
+// or if just want to protect it against outside mutation
+let _name = Symbol('_name');
+class Person {
+  constructor(name) {
+    this[_name] = name;
+  }
+  get name() { return _name; }
+}
+
+let bob = new Person('Bob');
+
+// Trying to reassign a final attribute raises an error
+bob.name = 'Alice';
+// ERROR: cannot assign value to final variable
 ]]></code>
   </synonym>
 </theme>
@@ -121,9 +168,9 @@ printName();
   <synonym id="syn-arrays--lists">
     <title>Arrays / Lists</title>
     <code language="javascript"><![CDATA[
-var a = new Array();
-var a = [];
-var a = ['apple', 'banana', 'cherry'];
+let a = new Array();
+let a = [];
+let a = ['apple', 'banana', 'cherry'];
 
 a.push('orange');
 
@@ -133,7 +180,7 @@ a.length == 4;
   <synonym id="syn-custom-sort">
     <title>Custom sort</title>
     <code language="javascript"><![CDATA[
-var numbers = [42, 2.1, 5, 0.1, 391];
+let numbers = [42, 2.1, 5, 0.1, 391];
 numbers.sort((a, b) => a - b);
 // == [0.1, 2.1, 5, 42, 391]
 ]]></code>
@@ -143,30 +190,30 @@ numbers.sort((a, b) => a - b);
     <code language="javascript"><![CDATA[
 // An empty key-value pair can be declared
 // in four different ways in EcmaScript6
-var periodic = new Object();
-var periodic = {};
-var periodic = new Map();
-var periodic = new WeakMap();
+let periodic = new Object();
+let periodic = {};
+let periodic = new Map();
+let periodic = new WeakMap();
 ]]></code>
   </synonym>
   <synonym id="syn-appropriate-keys">
     <title>Appropriate keys</title>
     <code language="javascript"><![CDATA[
-var periodic = {
+let periodic = {
   gold: 'AU',
   silver: 'AG'
 };
 
-var periodic = {
+let periodic = {
   'gold': 'AU',
   'silver': 'AG'
 };
 
-var periodicMap = new Map()
+let periodicMap = new Map()
   .set('gold', 'AU')
   .set('silver', 'AG');
 
-var periodicMap = new Map([
+let periodicMap = new Map([
   ['gold', 'AU'],
   ['silver','AG']
 ]);
@@ -188,7 +235,7 @@ periodicMap.set('gold', 'AU');
   <synonym id="syn-sets-collections-of-unique-items">
     <title>Sets (collections of unique items)</title>
     <code language="javascript"><![CDATA[
-var fruits = new Set();
+let fruits = new Set();
 fruits.add('oranges');
 fruits.add('apples');
 fruits.length // == 2
@@ -201,13 +248,13 @@ fruits.length // == 2
     <title>Queues (FIFO)</title>
     <code language="javascript"><![CDATA[
 // No dedicated queue, use an array.
-var queue = [];
+let queue = [];
 queue.push('event:32342');
 queue.push('event:49309');
 
 console.log(queue.length); // 2
 
-var eventId = queue.shift();
+let eventId = queue.shift();
 
 console.log(eventId === 'event:32342');
 console.log(queue.length); // 1
@@ -219,9 +266,9 @@ console.log(queue.length); // 1
   <synonym id="syn-raw-strings">
     <title>Raw strings</title>
     <code language="javascript"><![CDATA[
-var rawString = String.raw`The following is not expanded to a tab \t`;
+let rawString = String.raw`The following is not expanded to a tab \t`;
 
-var escapedString = 'The following is not expanded to a tab \\t';
+let escapedString = 'The following is not expanded to a tab \\t';
 
 rawString == escapedString // == true
 ]]></code>
@@ -229,10 +276,10 @@ rawString == escapedString // == true
   <synonym id="syn-interpolation">
     <title>Interpolation</title>
     <code language="javascript"><![CDATA[
-var name = 'Aaron';
-var greeting = `My name is $name`;
+let name = 'Aaron';
+let greeting = `My name is $name`;
 
-var greetingPolish = `My Polish name would be $name ski`;
+let greetingPolish = `My Polish name would be $name ski`;
 
 element.style.top = `${top + 20}px`;
 
@@ -241,11 +288,11 @@ element.style.top = `${top + 20}px`;
   <synonym id="syn-concatenation">
     <title>Concatenation</title>
     <code language="javascript"><![CDATA[
-var longMessage = 'This is a very long line. ' +
+let longMessage = 'This is a very long line. ' +
                   'It is concatenated into one string.';
-                  
-var name = 'Aaron';
-var greeting = 'My name is ' + name;  
+
+let name = 'Aaron';
+let greeting = 'My name is ' + name;
 ]]></code>
   </synonym>
   <synonym id="syn-substring">
@@ -270,7 +317,7 @@ var greeting = 'My name is ' + name;
   <synonym id="syn-multi-line-strings">
     <title>Multi-line strings</title>
     <code language="javascript"><![CDATA[
-var string =`
+let string =`
 This is a string that spans
 many lines.
 `;
@@ -279,8 +326,8 @@ many lines.
   <synonym id="syn-split-into-an-array">
     <title>Split into an array</title>
     <code language="javascript"><![CDATA[
-var animals = 'dogs, cats, gophers, zebras';
-var individualAnimals = animals.split(', ');
+let animals = 'dogs, cats, gophers, zebras';
+let individualAnimals = animals.split(', ');
 // == ['dogs', 'cats', 'gophers', 'zebras'];
 ]]></code>
   </synonym>
@@ -298,7 +345,7 @@ var individualAnimals = animals.split(', ');
   <synonym id="syn-if-statements">
     <title>If statements</title>
     <code language="javascript"><![CDATA[
-var bugNumbers = [3234,4542,944,124];
+let bugNumbers = [3234,4542,944,124];
 if (bugNumbers.length > 0) {
   console.log('Not ready for release');
 }
@@ -307,8 +354,8 @@ if (bugNumbers.length > 0) {
   <synonym id="syn-ternary-statements">
     <title>Ternary statements</title>
     <code language="javascript"><![CDATA[
-var bugNumbers = [3234,4542,944,124];
-var status = bugNumbers.length > 0 ? 'RED' : 'GREEN';
+let bugNumbers = [3234,4542,944,124];
+let status = bugNumbers.length > 0 ? 'RED' : 'GREEN';
 
 console.log('The build is ' + status);
 ]]></code>
@@ -316,7 +363,7 @@ console.log('The build is ' + status);
   <synonym id="syn-checking-for-empty-string">
     <title>Checking for empty string</title>
     <code language="javascript"><![CDATA[
-var emptyString = '';
+let emptyString = '';
 
 if (!emptyString) {
   console.log('empty strings are treated as false');
@@ -326,7 +373,7 @@ if (!emptyString) {
   <synonym id="syn-checking-for-zero">
     <title>Checking for zero</title>
     <code language="javascript"><![CDATA[
-var zero = 0;
+let zero = 0;
 
 if (!zero) {
   console.log('0 is treated as false');
@@ -336,7 +383,7 @@ if (!zero) {
   <synonym id="syn-checking-for-null">
     <title>Checking for null</title>
     <code language="javascript"><![CDATA[
-var myNull = null;
+let myNull = null;
 
 if (!myNull) {
   console.log('null is treated as false');
@@ -346,7 +393,7 @@ if (!myNull) {
   <synonym id="syn-checking-for-nan">
     <title>Checking for NaN</title>
     <code language="javascript"><![CDATA[
-var myNaN = NaN;
+let myNaN = NaN;
 
 if (!myNaN) {
   console.log('NaN is treated as false');
@@ -364,16 +411,16 @@ if (typeof isUndefined === 'undefined') {
   <synonym id="syn-value-and-identity-equality">
     <title>Value and identity equality</title>
     <code language="javascript"><![CDATA[
-var letterA = 'A';
-var charA = String.fromCharCode(65);
+let letterA = 'A';
+let charA = String.fromCharCode(65);
 
 // JavaScript converts both values to the same type
 // before checking their value with 'double equals'.
 letterA == charA // == true
 
 // Similarly...
-var number5 = 5;
-var char5 = '5';
+let number5 = 5;
+let char5 = '5';
 
 // This comparison triggers type conversion
 number5 == char5 // == true
@@ -412,7 +459,7 @@ fn(); // == 'Hello'
   <synonym id="syn-assign-a-function-to-a-variable">
     <title>Assign a function to a variable</title>
     <code language="javascript"><![CDATA[
-var loudify = (msg) => msg.toUpperCase();
+let loudify = (msg) => msg.toUpperCase();
 
 loudify('not gonna take it anymore');
 // NOT GONNA TAKE IT ANYMORE
@@ -453,12 +500,26 @@ send("I'm cheap", '4th class') // == "I'm cheap was sent via 4th class
   <synonym id="syn-named-parameters">
     <title>Named parameters</title>
     <code language="javascript"><![CDATA[
-// EcmaScript6 does not have native support for named parameters
+// the equivalent would be destructuring:
+// https://github.com/lukehoban/es6features#destructuring
+
+function send(msg, {rate: 'First Class'}) {
+  return `${msg} was sent via ${rate}`;
+}
+
+send("I'm cheap", { rate: '4th class' })
 ]]></code>
   </synonym>
   <synonym id="syn-variable-number-of-arguments">
     <title>Variable number of arguments</title>
     <code language="javascript"><![CDATA[
+function superHeros(...args) {
+  for (let arg of args) {
+    console.log("There's no stopping " + arg);
+  }
+}
+
+// use "arguments" is also possible but is discouraged in ES6
 function superHeros() {
   for (var i = 0; i < arguments.length; i++) {
     console.log("There's no stopping " + arguments[i]);
@@ -474,9 +535,9 @@ superHeros('UberMan', 'Exceptional Woman', 'The Hunk');
   <synonym id="syn-for-loops-for-lists">
     <title>For loops for lists</title>
     <code language="javascript"><![CDATA[
-var colors = ['red', 'orange', 'green'];
+let colors = ['red', 'orange', 'green'];
 
-for (var i = 0; i < colors.length; i++) {
+for (let i = 0; i < colors.length; i++) {
   console.log(colors[i]);
 }
 ]]></code>
@@ -484,44 +545,44 @@ for (var i = 0; i < colors.length; i++) {
   <synonym id="syn-for-in-loops">
     <title>For-in loops</title>
     <code language="javascript"><![CDATA[
-var fruits = ['orange', 'apple', 'banana'];
-
-// 'in' notation in JavaScript iterates through
-// the properties, not values, of an object. 
-// Thus it returns the indices of the array
-// and any items add to the Array prototype.
-
-for (var i in fruits) {
-  console.log(fruits[i]);
-}
+let fruits = ['orange', 'apple', 'banana'];
 
 // You should use 'of' notation to iterates over
 // the values
-for (var fruit of fruits) {
+for (let fruit of fruits) {
   console.log(fruit);
+}
+
+// 'in' notation in ECMAScript6 iterates through
+// the properties, not values, of an object.
+// Thus it returns the indices of the array
+// and any items add to the Array prototype.
+
+for (let i in fruits) {
+  console.log(fruits[i]);
 }
 ]]></code>
   </synonym>
   <synonym id="syn-for-loops-for-objectsmaps">
     <title>For loops for objects/maps</title>
     <code language="javascript"><![CDATA[
-var data = { … };
+let data = { … };
 
-for (var key in data) {
+for (let key in data) {
   console.log('key', key);
   console.log('value', data[key]);
 }
 
 // Alternatively, the forEach loop is a
-// method on a Map in EcmaEscript6.
-var mymap = new Map();
+// method on a Map in ECMAScript6.
+let mymap = new Map();
 
 mymap.set('a', 1);
 mymap.set('b', 2);
 
 mymap.forEach(function(v, k, m) { console.log(v)});
 
-for(var m of mymap) {
+for(let m of mymap) {
   console.log(m);
 }
 ]]></code>
@@ -529,27 +590,10 @@ for(var m of mymap) {
   <synonym id="syn-closures-and-counters-in-loops">
     <title>Closures and counters in loops</title>
     <code language="javascript"><![CDATA[
-var callbacks = [];
-
-// A closure must be used to preserve the return for
-// each function at each step of the loop.  Otherwise
-// every entry in callbacks will return 2;
-for (var i = 0; i < 2; i++) {
-  (function(_i) {
-    callbacks.push(function() {
-      return _i;
-    });
-  })(i);
-}
-
-// Without the internal closure, the result is 2
-callbacks[0]() // == 0
-
 // ECMAScript 6 can support this with the use of blocks
 let callbacks = [];
 for (let i = 0; i < 10; i++) {
-  let j = i;
-  callbacks.push(function() { console.log(j) });
+  callbacks.push(() => console.log(i));
 }
 
 callbacks[0]() // == 0
@@ -585,24 +629,24 @@ class Person {
   <synonym id="syn-instantiate">
     <title>Instantiate</title>
     <code language="javascript"><![CDATA[
-var person = new Person();
+let person = new Person();
 ]]></code>
   </synonym>
   <synonym id="syn-reflection">
     <title>Reflection</title>
     <code language="javascript"><![CDATA[
-var name = 'Bob';
+let name = 'Bob';
 typeof name // == 'String'
 ]]></code>
   </synonym>
   <synonym id="syn-check-the-type">
     <title>Check the type</title>
     <code language="javascript"><![CDATA[
-var name = 'Bob';
+let name = 'Bob';
 
 // Because of javascript's type system we
 // need to check both instanceof and typeof
-name instanceof String || typeof name === 'string'; 
+name instanceof String || typeof name === 'string';
 // == true
 
 (!(name instanceof Number || typeof name === 'number'));
@@ -621,7 +665,7 @@ class Person {
     return 'Hello, ' + this.name;
   }
 }
-    
+
 class Employee extends Person {
   constructor(name, salary) {
     super(name);
@@ -711,7 +755,7 @@ document.querySelectorAll('#main div:first-of-type .visible');
   <synonym id="syn-iterate-over-a-list-of-elements">
     <title>Iterate over a list of elements</title>
     <code language="javascript"><![CDATA[
-for (var i = 0, el; el = els[i]; i++) {
+for (let el of els) {
   doSomethingWithEl(el);
 }
 ]]></code>
@@ -734,13 +778,13 @@ elem.hasChildNodes();
   <synonym id="syn-create-an-element">
     <title>Create an element</title>
     <code language="javascript"><![CDATA[
-var element = document.createElement('div');
+let element = document.createElement('div');
 ]]></code>
   </synonym>
   <synonym id="syn-create-an-element-and-set-its-contents">
     <title>Create an element and set its contents</title>
     <code language="javascript"><![CDATA[
-var element = document.createElement('p');
+let element = document.createElement('p');
 
 element.innerHTML = 'A quick brown <em>fox</em>.';
 ]]></code>
@@ -762,14 +806,14 @@ element.parentNode.removeChild(element);
   <title>Regular expressions</title>
   <synonym>
     <code language="javascript"><![CDATA[
-var email = 'test@example.com';
+let email = 'test@example.com';
 email.match(/@/);
 // == ['@']
 ]]></code>
   </synonym>
   <synonym>
     <code language="javascript"><![CDATA[
-var invalidEmail = 'f@il@example.com';
+let invalidEmail = 'f@il@example.com';
 invalidEmail.match(/@/g)
 // == ['@', '@']
 ]]></code>
@@ -829,7 +873,7 @@ setTimeout(function() { … }, 500);
     <title>Measure the execution time of a function</title>
     <code language="javascript"><![CDATA[
 function measure(fn) {
-  var start = Date.now();
+  let start = Date.now();
   fn();
   return Date.now() - start;
 }
@@ -887,10 +931,10 @@ element.classList.remove('new-class');
   <synonym id="syn-request-data-via-xmlhttprequest">
     <title>Request data via XMLHttpRequest</title>
     <code language="javascript"><![CDATA[
-var client = new XMLHttpRequest;
-  
-client.onreadystatechange = function() {  
-  if (this.readyState == 4) {  
+let client = new XMLHttpRequest;
+
+client.onreadystatechange = function() {
+  if (this.readyState == 4) {
     processData(this);
   }
 }
@@ -916,13 +960,13 @@ $(document).ready(function(){
   <synonym id="syn-node-lookup">
     <title>Node lookup</title>
     <code language="javascript"><![CDATA[
-var els = jQuery('div');
+let els = jQuery('div');
 ]]></code>
   </synonym>
   <synonym id="syn-node-creation">
     <title>Node creation</title>
     <code language="javascript"><![CDATA[
-var pic = $('<img/>');
+let pic = $('<img/>');
 
 pic.addClass('avatar');
 pic.toggleClass('main');
@@ -943,17 +987,17 @@ $('a.person').click(function(e){
   <synonym id="syn-relative-nodes">
     <title>Relative nodes</title>
     <code language="javascript"><![CDATA[
-var myNode = $('div:first');
+let myNode = $('div:first');
 
-var parent = myNode.parent();
+let parent = myNode.parent();
 
-var next = myNode.next();
+let next = myNode.next();
 ]]></code>
   </synonym>
   <synonym id="syn-children">
     <title>Children</title>
     <code language="javascript"><![CDATA[
-var myNode = $('div:first');
+let myNode = $('div:first');
 
 // If there are children, remove them
 if (!myNode.is(':empty')) {
@@ -965,7 +1009,7 @@ if (!myNode.is(':empty')) {
   <synonym id="syn-clone">
     <title>Clone</title>
     <code language="javascript"><![CDATA[
-var clonedElement = $('#about').clone();
+let clonedElement = $('#about').clone();
 ]]></code>
   </synonym>
 </theme>
@@ -1029,7 +1073,7 @@ eval('alert("hello from eval")');
     <title>Adding a method to a class</title>
     <code language="javascript"><![CDATA[
 String.prototype.startsWith = function(beginning) {
-  var head = this.substr(0, beginning.length);
+  let head = this.substr(0, beginning.length);
   return head == beginning;
 }
 ]]></code>
