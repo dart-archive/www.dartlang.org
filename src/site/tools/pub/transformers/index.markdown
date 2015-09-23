@@ -84,7 +84,7 @@ on the barback package:
 
 {% prettify yaml %}
 dependencies:
-  barback: any
+  barback: ^0.15.2
 {% endprettify %}
 
 ### Extend `Transformer` {#extend-transformer}

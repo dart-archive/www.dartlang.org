@@ -171,7 +171,7 @@ These tools are in the [Dart SDK](/tools/sdk).
       <dd>Dart-to-JavaScript compiler </dd>
   </div>
   <div class="col-md-4">
-    <dt> <a href="/tools/analyzer">dartanalyzer</a> </dt>
+    <dt> <a href="https://github.com/dart-lang/analyzer_cli#dartanalyzer">dartanalyzer</a> </dt>
       <dd>Static analyzer </dd>
     <dt> <a href="https://github.com/dart-lang/dartdoc#dartdoc">dartdoc</a> </dt>
       <dd>API documentation generator </dd>

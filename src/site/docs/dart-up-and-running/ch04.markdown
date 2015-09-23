@@ -5,8 +5,6 @@ subsite: "Dart Up and Running"
 description: "The remnants of Chapter 4, Tools (from Dart: Up and Running, published by O'Reilly)."
 prev-chapter: ch03.html
 prev-chapter-title: "Library Tour"
-next-chapter: ch05.html
-next-chapter-title: "Walkthrough"
 ---
 
 {% include book-nav.html %}
@@ -36,7 +34,7 @@ command-line apps. These tools include:
 :   Run your command-line apps—server-side scripts, programs, servers,
     and any other apps that don’t run in a browser.
 
-[dartanalyzer: The static analyzer](/tools/analyzer/)
+[dartanalyzer: The static analyzer](https://github.com/dart-lang/analyzer_cli#dartanalyzer)
 
 :   Analyze your Dart source from the command line.
 

@@ -39,9 +39,6 @@ handlers:
 - url: /cloud/setup.*
   script: scripts.redirector.application
 
-- url: /cloud/client-server
-  script: scripts.redirector.application
-
 - url: /cloud/client-server/
   script: scripts.redirector.application
 
@@ -84,6 +81,9 @@ handlers:
 - url: /docs/tutorials/web-ui/
   script: scripts.redirector.application
 
+- url: /docs/tutorials/indexeddb/
+  script: scripts.redirector.application
+
 - url: /docs/tutorials/templates/
   script: scripts.redirector.application
 
@@ -91,6 +91,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /docs/dart-up-and-running/contents/.*
+  script: scripts.redirector.application
+
+- url: /docs/dart-up-and-running/ch05.html
   script: scripts.redirector.application
 
 - url: /mailing-list
@@ -144,6 +147,9 @@ handlers:
 - url: /polymer-dart/reference/release-notes/
   script: scripts.redirector.application
 
+- url: /polymer/.*
+  script: scripts.redirector.application
+
 - url: /polymer-dart/
   script: scripts.redirector.application
 
@@ -151,6 +157,12 @@ handlers:
   script: scripts.redirector.application
 
 - url: /tools/dartdoc/
+  script: scripts.redirector.application
+
+- url: /tools/analyzer
+  script: scripts.redirector.application
+
+- url: /tools/analyzer/
   script: scripts.redirector.application
 
 - url: /editor.*
@@ -256,6 +268,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /codelabs/deploy/
+  script: scripts.redirector.application
+
+- url: /codelabs/polymer/
   script: scripts.redirector.application
 
 - url: /eclipse/update.*

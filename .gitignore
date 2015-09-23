@@ -14,6 +14,7 @@ packages
 _asset_bundler_cache
 .pub
 .idea
+.packages
 *.iml
 
 !src/site/docs/spec/examples/lazyloader/packages/

@@ -12,7 +12,7 @@ main() async {
 // 'jabberwock'.
 getLines() async {
   var jabber = await HttpRequest.getString(
-      'https://www.dartlang.org/samples-files/jabberwocky.txt');
+      'https://www.dartlang.org/f/jabberwocky.txt');
   var lines = jabber.split('\n');
   lines.retainWhere((line) =>
       line.toLowerCase().contains('jabberwock'));

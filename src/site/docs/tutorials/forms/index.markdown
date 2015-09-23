@@ -5,8 +5,8 @@ description: "Using HTML forms and input elements to send data to a server"
 has-permalinks: true
 tutorial:
   id: forms
-next: indexeddb/
-next-title: "Use IndexedDB"
+next: cmdline/
+next-title: "Write Command-Line Apps"
 prev: fetchdata/
 prev-title: "Fetch Data Dynamically"
 ---
@@ -961,9 +961,8 @@ Here each checkbox is bound to a separate boolean value within a map.
 ###What next?
 
 The next tutorial,
-[Use IndexedDB](/docs/tutorials/indexeddb),
-describes how to save data on the client
-in the browser's Indexed Database.
+[Write Command-Line Apps](/docs/tutorials/cmdline),
+describes how to build command-line applications.
 
 {% endcapture %}
 

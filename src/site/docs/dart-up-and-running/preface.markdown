@@ -129,6 +129,10 @@ which are associated with new or proposed features:
 Moved the contents of [Chapter 4 (Tools)](ch04.html) out of the book,
 and into [Dart Tools](/tools/).
 
+Removed Chapter 5, "Walkthrough: Dartiverse Search".
+For information on writing a Dart server, see the
+[server code lab](/codelabs/server/).
+
 Fixed a few bugs:
 
 -   Stopped saying that local variables are lazily initialized.
@@ -284,9 +288,8 @@ In the library tour:
 Throughout the book, we updated links to related topics.
 
 Finally, we completely rewrote
-<a href="ch05.html">the final, walkthrough chapter</a>
+the final, walkthrough chapter
 to feature a new example (Dartiverse Search).
-
 
 ### Changes in the second printing: March 29, 2013
 

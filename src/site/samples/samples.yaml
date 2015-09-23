@@ -162,12 +162,6 @@ col1:
         source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/indexeddb
         description: A todo app which persists data using IndexedDB.
       -
-        title: Storing and retrieving data using IndexedDB
-        explanation_url: /docs/tutorials/indexeddb/
-        tryit_url: countdown/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/count_down
-        description: Create milestones and count down to them. Uses IndexedDB to store the milestones.
-      -
         title: Exploring the FileSystem APIs
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/file/filesystem#exploring-the-filesystem-apis
         tryit_url: filesystem/

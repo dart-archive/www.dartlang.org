@@ -131,7 +131,7 @@ Future printDailyNewsDigest() async {
 
 Future gatherNewsReports() async {
   String path =
-      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+      'https://www.dartlang.org/f/dailyNewsDigest.txt';
   return (await HttpRequest.getString(path));
 }
 {% endcomment %}
@@ -210,7 +210,7 @@ Future printDailyNewsDigest() async {
 
 Future gatherNewsReports() async {
   String path =
-      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+      'https://www.dartlang.org/f/dailyNewsDigest.txt';
     String content = await HttpRequest.getString(path);
     return content;
 }
@@ -273,7 +273,7 @@ printDailyNewsDigest() {
 // Imagine that this function is more complex and slow. :)
 gatherNewsReports() {
   String path =
-      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+      'https://www.dartlang.org/f/dailyNewsDigest.txt';
   return HttpRequest.getString(path);
 }
 {% endcomment %}
@@ -363,7 +363,7 @@ printDailyNewsDigest() {
 // Imagine that this function is more complex and slow. :)
 gatherNewsReports() {
   String path =
-      'https://www.dartlang.org/samples-files/dailyNewsDigest.txt';
+      'https://www.dartlang.org/f/dailyNewsDigest.txt';
   return HttpRequest.getString(path);
 }
 {% endcomment %}
@@ -457,10 +457,6 @@ and asynchronous programming in Dart:
 * The next tutorial,
 [Fetch Data Dynamically](/docs/tutorials/fetchdata/),
 uses a Future when doing an HTTP request.
-
-* The example featured in
-[Use IndexedDB](/docs/tutorials/indexeddb/)
-uses many Futures when interacting with the database.
 
 {% endcapture %}
 

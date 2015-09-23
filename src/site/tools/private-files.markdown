@@ -45,6 +45,12 @@ pubspec.lock  // Except for application packages
 .pub/
 {% endprettify %}
 
+**Don't commit** the API documentation directory created by dartdoc:
+
+{% prettify none %}
+doc/api/
+{% endprettify %}
+
 **Don't commit** files and directories
 dropped by other development environments.
 For example:

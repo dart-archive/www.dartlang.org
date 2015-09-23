@@ -20,7 +20,8 @@ for information on how to specify dart2js flags in your pubspec file.
 
 The dart2js tool provides hints for improving your Dart code and removing
 unused code. You can get these hints for all kinds of code—even command-line
-apps. Also see [dartanalyzer](/tools/analyzer/),
+apps.
+Also see [dartanalyzer](https://github.com/dart-lang/analyzer_cli#dartanalyzer),
 which performs a similar analysis but has a different implementation.
 
 This page tells you how to use dart2js on the command line. It also give tips
@@ -64,8 +65,16 @@ Common command-line options for dart2js include:
 
 Some other handy options include:
 
+`--packages=<path>`
+: Specify the path to the package resolution configuration file.
+  For more information, see
+  [Package Resolution Configuration File](https://github.com/lrhn/dep-pkgspec/blob/master/DEP-pkgspec.md).
+  _This option cannot be used with `--package-root`._
+
 `-p <path>` or `--package-root=<path>`
 : Specify where to find "package:" imports.
+  _This option cannot be used with `--packages`._
+
 
 `-D<flag>=<value>`
 : Define an environment variable.

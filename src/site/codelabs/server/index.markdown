@@ -598,7 +598,8 @@ verify that it's running.
 Use `dartanalyzer` to check the code for errors
 (unless you're using a tool, such as WebStorm,
 that automatically analyzes code).
-To run [dartanalyzer](/tools/analyzer/) from the command line,
+To run [dartanalyzer](https://github.com/dart-lang/analyzer_cli#dartanalyzer)
+from the command line,
 do the following from the `working-dir` directory:
 
 {% prettify lang-sh %}

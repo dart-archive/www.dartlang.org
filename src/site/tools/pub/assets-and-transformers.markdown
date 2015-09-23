@@ -23,7 +23,7 @@ and, if necessary, to configure the transformers. (See
 {% prettify yaml %}
 name: myapp
 dependencies:
-  [[highlight]]polymer: any
+  [[highlight]]polymer: ^0.16.3
 transformers:
 - polymer:[[/highlight]]
     [[highlight]]entry_points:[[/highlight]]
@@ -96,7 +96,7 @@ polymer package (along with the rest of polymer.dart):
 {% prettify yaml %}
 name: myapp
 dependencies:
-  [[highlight]]polymer: any[[/highlight]]
+  [[highlight]]polymer: ^0.16.3[[/highlight]]
 [[highlight]]transformers:
 - polymer:[[/highlight]]
     [[highlight]]entry_points: web/index.html[[/highlight]]

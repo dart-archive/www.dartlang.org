@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Installing the Dart SDK on Linux"
-description: "Installing and updating Dart on Linux."
+title: "Installing Dart on Linux"
+description: "Installing and updating the Dart SDK on Linux with apt-get, a Debian package, and compiling from source."
 js:
 - url: /js/download-info.js
   defer: true
@@ -23,7 +23,7 @@ when new versions are released.
 
 Other options are:
 
-* [Downloading Dart manually](#other)
+* [Downloading Dart manually](/downloads/archive/)
 * [Compiling Dart from source](#compiling)
 
 
@@ -100,39 +100,6 @@ Use one of the following buttons to download the stable or
 dev channel release in the `.deb` package format.
 
 {% include downloads/_debian.html buttonclass="download-btn btn btn-primary btn-lg" %}
-
-## Installing from a zip file {#other}
-
-You can manually download and extract the Dart SDK from a zip file:
-
-<div class="downloads download-buttons">
-{% capture platform_name %}64-bit Linux{% endcapture %}
-{% include downloads/_sdk-button.html name=platform_name buttonclass=btn-primary bits="64" os="linux" arch="x64" %}
-
-{% capture platform_name %}32-bit Linux{% endcapture %}
-{% include downloads/_sdk-button.html name=platform_name buttonclass=btn-primary bits="32" os="linux" arch="ia32" %}
-</div>
-
-<br >
-
-<aside class="alert alert-info" markdown="1">
- **Other versions:**
- You can download other releases from the
- [download index](/downloads/archive/).
-</aside>
-
-If you're creating Dart web apps, also download Dartium:
-
-<p>
-<div class="downloads download-buttons">
-{% include downloads/_dartium.html name="Linux" buttonclass=btn-primary bits="64" os="linux" arch="x64" %}
-</div>
-</p>
-
-The Dartium binary expires after 1 year.
-When that happens, you need to
-download a new copy to continue using Dartium.
-
 
 ## Compiling from source {#compiling}
 

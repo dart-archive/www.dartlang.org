@@ -7,8 +7,8 @@ tutorial:
   id: dart-io
 next: httpserver
 next-title: "Write HTTP Clients & Servers"
-prev: indexeddb/
-prev-title: "Use IndexedDB"
+prev: forms/
+prev-title: "Get Input from a Form"
 ---
 
 {% capture whats_the_point %}
@@ -73,8 +73,9 @@ The location of the SDK installation directory
 and how you downloaded the SDK.
 You can find `dart` in _&lt;sdk-install-dir&gt;_/bin.
 By putting this directory in your PATH
-you can refer to the `dart` command and other commands,
-such as [dartanalyzer](/tools/analyzer/), by name.
+you can refer to the `dart` command and other commands, such as
+[dartanalyzer](https://github.com/dart-lang/analyzer_cli#dartanalyzer),
+by name.
 
 Let's run a small program.
 
@@ -609,10 +610,6 @@ In addition, this tutorial covers two classes that help with command-line argume
 
 Check out the [Dart for Server](/server/)
 to find more resources related to writing command-line apps.
-
-See the
-[Dartiverse Search walkthrough](/docs/dart-up-and-running/ch05.html)
-for an example of another kind of command-line app: an HTTP server.
 
 Refer to the API docs for <a href="https://api.dartlang.org/dart_io.html" target="_blank">dart:io</a>,
 <a href="https://api.dartlang.org/dart_async.html" target="_blank">dart:async</a>,
