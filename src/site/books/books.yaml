@@ -1,3 +1,12 @@
+- title: Dart By Example
+  authors:
+    - Davy Mitchell
+  publisher: Packt
+  cover: dart-by-example.png
+  link: https://www.packtpub.com/web-development/dart-example
+  desc: "Design and develop modern web applications with Google's
+         bold and productive language through engaging example projects."
+
 - title: Dart Essentials
   authors:
     - Martin Sikora
