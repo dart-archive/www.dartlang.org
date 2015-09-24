@@ -1,5 +1,7 @@
 # Dart Website (dartlang.org)
 
+[![Join the chat at https://gitter.im/dart-lang/www.dartlang.org](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dart-lang/www.dartlang.org?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://drone.io/github.com/dart-lang/dartlang.org/status.png)](https://drone.io/github.com/dart-lang/dartlang.org/latest)
 
 The www.dartlang.org site. Built with
