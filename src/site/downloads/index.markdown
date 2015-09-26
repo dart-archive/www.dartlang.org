@@ -26,7 +26,7 @@ A package manager can help you easily install and update the Dart SDK.
 * [Installing Dart on Mac](mac.html) with homebrew
 * [Installing Dart on Linux](linux.html) with our Debian package
 
-## Manual downloads
+## Manual downloads and updates
 
 Not using a package manager for your OS? No problem!
 
