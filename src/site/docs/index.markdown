@@ -17,7 +17,7 @@ to help you as you create, test, and deploy Dart code.
 
 Read these,
 or just start playing in
-<a href="https://dartpad.dartlang.org"
+<a href="{{site.custom.dartpad.direct-link}}"
    target="_blank">DartPad</a>.
 
 [Avast, Ye Pirates: Write a Web App](/codelabs/darrrt/)

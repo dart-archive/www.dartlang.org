@@ -59,7 +59,7 @@ In this step, you run the skeleton version of the app in DartPad.
 
 ### <i class="fa fa-anchor"> </i> Run the app in DartPad.
 
-<a href="https://dartpad.dartlang.org/9642dce02da158457f12" target="_blank">Open the skeleton app in DartPad.</a>
+<a href="{{site.custom.dartpad.direct-link}}/9642dce02da158457f12" target="_blank">Open the skeleton app in DartPad.</a>
 
 Click the **Run** button and make sure that the **HTML OUTPUT** tab
 is selected. You should see a red-and-white name badge, plus some text,
@@ -371,7 +371,7 @@ Check your code against the solution.
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/2-inputnamebadge/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/e78a858a1b8cfce15bbf" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/e78a858a1b8cfce15bbf" target="_blank">open the solution in DartPad</a>.
 
 You may notice that the HTML displayed in DartPad is a bit different
 than what is shown on GitHub.
@@ -649,7 +649,7 @@ Check your code against the solution.
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/feac8311871e29bc50a7" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/feac8311871e29bc50a7" target="_blank">open the solution in DartPad</a>.
 
 </div>
 
@@ -1004,7 +1004,7 @@ Check your code against the solution.
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/4-classbadge/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/445dcc541fd4dedf1b4c" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/445dcc541fd4dedf1b4c" target="_blank">open the solution in DartPad</a>.
 
 </div>
 
@@ -1315,7 +1315,7 @@ Check your code against the solution.
 * <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/index.html" target="_blank">index.html</a>
 
 Or
-<a href="https://dartpad.dartlang.org/eb2a7982598793c8d984" target="_blank">open the solution in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/eb2a7982598793c8d984" target="_blank">open the solution in DartPad</a>.
 
 </div>
 

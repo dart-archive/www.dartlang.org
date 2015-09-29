@@ -364,7 +364,7 @@ The Anagram app shows how to move an element within the DOM.
 Click run ( <img src="/imgs/run.png" /> ) to start the web app.
 Then form a word by clicking the app's letter tiles.
 You might prefer to 
-<a href="https://dartpad.dartlang.org/0532bfcb70bf5e4a900c" target="_blank">open
+<a href="{{site.custom.dartpad.direct-link}}/0532bfcb70bf5e4a900c" target="_blank">open
 the app in DartPad</a> 
 to have more space for the app's code and UI.
 

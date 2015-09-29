@@ -85,7 +85,7 @@ for more interesting and useful web apps.
 ##About the Dart, HTML, and CSS triumvirate {#source-files}
 
 If you've used
-<a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>,
+<a href="{{site.custom.dartpad.direct-link}}" target="_blank">DartPad</a>,
 you've already seen the DART, HTML, and CSS tabs
 that let you write the code for a web app.
 Each of these three languages
@@ -184,7 +184,7 @@ or even insert an entire subtree of nodes.
 
 ## Create a new Dart app {#create-dart-app}
 
-1. Go to <a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>.
+1. Go to <a href="{{site.custom.dartpad.direct-link}}" target="_blank">DartPad</a>.
 2. Click the **New Pad** button to undo any changes you might have made
    the last time you visited DartPad.
 

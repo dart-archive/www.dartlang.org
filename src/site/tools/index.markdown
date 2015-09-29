@@ -10,7 +10,7 @@ has-permalinks: false
 
 A variety of tools are available for download,
 once you're ready to move beyond
-<a href="https://dartpad.dartlang.org"
+<a href="{{site.custom.dartpad.direct-link}}"
    target="_blank">DartPad</a>.
 
 ---

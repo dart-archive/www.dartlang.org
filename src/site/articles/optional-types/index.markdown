@@ -98,7 +98,7 @@ main() {
 }
 {% endprettify %}
 
-<a href="https://dartpad.dartlang.org/6c1c62154f5be5c9fab1" target="_blank">Open this code in DartPad</a>.
+<a href="{{site.custom.dartpad.direct-link}}/6c1c62154f5be5c9fab1" target="_blank">Open this code in DartPad</a>.
 
 This is clearly a problem.
 The static checker issues a warning as shown in the following screenshot:

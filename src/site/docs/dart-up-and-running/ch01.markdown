@@ -207,7 +207,7 @@ which runs in any modern browser.
 
 <ol markdown="1">
   <li markdown="1">
-  Go to <a href="https://dartpad.dartlang.org/" target="_blank">dartpad.dartlang.org/</a>.
+  Go to <a href="{{site.custom.dartpad.direct-link}}" target="_blank">dartpad.dartlang.org</a>.
 
   A sample appears on the left, with its output on the right.
   If you've played with DartPad before,

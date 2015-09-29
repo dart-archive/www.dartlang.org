@@ -21,7 +21,7 @@ that you already know how to program in another language.
 <aside class="alert alert-info" markdown="1">
 **Note:**
 You can play with most of these features using
-<a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>,
+<a href="{{site.custom.dartpad.direct-link}}" target="_blank">DartPad</a>,
 as described in
 [Up and running](ch01.html#up-and-running).
 </aside>

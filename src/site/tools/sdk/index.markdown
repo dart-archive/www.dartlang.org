@@ -18,7 +18,7 @@ see [Dart Tools](/tools/).
 ## Getting the SDK
 
 Although
-<a href="https://dartpad.dartlang.org" target="_blank">DartPad</a>
+<a href="{{site.custom.dartpad.direct-link}}" target="_blank">DartPad</a>
 is a great way to learn how to write a simple app in the Dart
 language, once you are ready to start doing real-world development,
 you need the Dart SDK.
