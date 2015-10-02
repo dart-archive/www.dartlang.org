@@ -1556,6 +1556,59 @@ followed by more alphanumeric text, the `{}` can and should be omitted.
 {% endprettify %}
 </div>
 
+## Collections
+
+#### PREFER literals over constructors.
+{:.no_toc}
+
+Dart has list and map literals.
+
+<div class="good">
+{% prettify dart %}
+var points = [];
+var addresses = {};
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+var points = new List();
+var addresses = new Map();
+{% endprettify %}
+</div>
+
+## Async
+
+#### PREFER async/await over explicit Future/then.
+
+Dart supports syntax to help write asynchronous code.
+
+<div class="good">
+{% prettify dart %}
+Future<bool> doAsyncComputation() async {
+  try {
+    var result = await longRunningCalculation();
+    return await verifyResult(result);
+  } catch(e) {
+    log.error(e);
+    return false;
+  }
+}
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+Future<bool> doAsyncComputation() {
+  return longRunningCalculation().then((result) {
+    return verifyResult(result);
+  }).catchError((e) {
+    log.error(e);
+    return new Future.value(false);
+  });
+}
+{% endprettify %}
+</div>
 
 ## Ordering
 
