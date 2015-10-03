@@ -23,9 +23,9 @@
 
 <aside class="alert alert-warning" markdown="1">
 **Note:**
-These instructions assume that v1.3.1 of Docker and boot2docker 
+These instructions assume that v1.7.1 of Docker and boot2docker 
 are installed on your machine.
-However, Docker 1.3.0 is required inside the boot2docker VM.
+However, Docker 1.7.0 is recommended inside the boot2docker VM.
 The configuration of boot2docker below handles this.
 </aside>
 
@@ -36,7 +36,7 @@ The configuration of boot2docker below handles this.
   <li markdown="1">Run the following commands to configure `boot2docker`.
 <pre>
 $ mkdir ~/.boot2docker
-$ echo 'ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.3.0/boot2docker.iso"' > ~/.boot2docker/profile
+$ echo 'ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.7.0/boot2docker.iso"' > ~/.boot2docker/profile
 $ boot2docker init
 </pre>
   </li>
@@ -110,9 +110,9 @@ $ docker run google/dart /usr/bin/dart --version
 
 <aside class="alert alert-warning" markdown="1">
 **Note:**
-These instructions assume that v1.3.1 of Docker and boot2docker 
+These instructions assume that v1.7.1 of Docker and boot2docker 
 are installed on your machine.
-However, Docker 1.3.0 is required inside the boot2docker VM.
+However, Docker 1.7.0 is recommended inside the boot2docker VM.
 The configuration of boot2docker below handles this.
 </aside>
 
@@ -132,7 +132,7 @@ a Windows docker command line tool.
   <li markdown="1">Run the following commands to configure `boot2docker`.
 <pre>
 > mkdir "%USERPROFILE%\.boot2docker"
-> echo ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.3.0/boot2docker.iso" > "%USERPROFILE%\.boot2docker\profile"
+> echo ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.7.0/boot2docker.iso" > "%USERPROFILE%\.boot2docker\profile"
 > "%ProgramFiles%\Boot2Docker for Windows\boot2docker" init
 </pre>
   </li>
@@ -279,14 +279,14 @@ Here are the instructions for installing Docker on Linux:
 
 <aside class="alert alert-warning" markdown="1">
 **Note:**
-These instructions assume that v1.3.1 of Docker and boot2docker 
+These instructions assume that v1.7.1 of Docker and boot2docker 
 are installed on your machine.
-However, Docker 1.3.0 is required inside the boot2docker VM.
+However, Docker 1.7.0 is recommended inside the boot2docker VM.
 The configuration of boot2docker below handles this.
 </aside>
 
 <pre>
-$ sudo wget https://github.com/boot2docker/boot2docker-cli/releases/download/v1.3.1/boot2docker-v1.3.1-linux-amd64 -O /usr/local/bin/boot2docker
+$ sudo wget https://github.com/boot2docker/boot2docker-cli/releases/download/v1.7.1/boot2docker-v1.7.1-linux-amd64 -O /usr/local/bin/boot2docker
 $ sudo chmod 755 /usr/local/bin/boot2docker
 $ sudo wget https://get.docker.io/builds/Linux/x86_64/docker-latest -O /usr/local/bin/docker
 $ sudo chmod 755 /usr/local/bin/docker
@@ -299,7 +299,7 @@ Run the following commands to configure boot2docker:
 
 <pre>
 $ mkdir ~/.boot2docker
-$ echo 'ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.3.0/boot2docker.iso"' > ~/.boot2docker/profile
+$ echo 'ISOURL = "https://github.com/boot2docker/boot2docker/releases/download/v1.7.0/boot2docker.iso"' > ~/.boot2docker/profile
 $ boot2docker init
 $ boot2docker up
 </pre>
