@@ -1,97 +1,5 @@
 col1:
   -
-    heading: polymer.dart
-    anchor: polymer_dart
-    screenshot: tracker.png
-    caption: "Tracker: A task management tool"
-    link: tracker/
-    examples:
-      -
-        title: Defining a custom element
-        explanation_url: /docs/tutorials/polymer-intro
-        tryit_url: stopwatch/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/stopwatch
-        description: Install Polymer, define and use a simple custom element.
-      -
-        title: Searchable List
-        explanation_url: https://github.com/dart-lang/sample-searchable-list/blob/master/README.md
-        tryit_url: searchable_list/
-        source_url: https://github.com/dart-lang/sample-searchable-list 
-        description: Use data binding to make any list searchable.
-      -
-        title: Get input from a form
-        explanation_url: /docs/tutorials/forms
-        tryit_url: slambook/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/slambook
-        description: Use data binding to work with form data in Polymer.
-      -
-        title: TodoMVC
-        explanation_url: https://github.com/dart-lang/sample-todomvc-polymer/blob/master/README.md
-        tryit_url: todomvc/
-        source_url: https://github.com/dart-lang/sample-todomvc-polymer/
-        description: A Polymer implementation of the the canonical todo app.
-      -
-        title: Polymer and internationalization
-        explanation_url: https://github.com/dart-lang/sample-polymer-intl/blob/master/README.md
-        tryit_url: polymer_intl/
-        source_url: https://github.com/dart-lang/sample-polymer-intl
-        description: Simple demonstration of internationalization and localization with Polymer.
-      -
-        title: A task management tool
-        explanation_url: https://github.com/dart-lang/sample-tracker/blob/master/README.md
-        tryit_url: tracker/
-        source_url: https://github.com/dart-lang/sample-tracker
-        description: A full Polymer app with multiple custom elements.
-  -
-    heading: Using JavaScript from Dart
-    anchor: using_javascript_from_dart
-    screenshot: google_maps.png
-    caption: "Using the JavaScript API with dart:js: Google Maps"
-    link: google_maps/
-    examples:
-      -
-        title: "Google Maps"
-        explanation_url: https://github.com/dart-lang/sample-google-maps/blob/master/README.md
-        tryit_url: google_maps/
-        source_url: https://github.com/dart-lang/sample-google-maps 
-        description: Using the Google Maps JavaScript API with the dart:js library.
-      -
-        title: Using the Google Charts Visualization API
-        explanation_url: https://github.com/dart-lang/sample-gauge/blob/master/README.md
-        tryit_url: gauge/
-        source_url: https://github.com/dart-lang/sample-gauge
-        description: Intermediate level app that shows the use of JavaScript and Dart interoperability.
-      -
-        title: Fetching data using JSONP
-        explanation_url: https://github.com/dart-lang/sample-jsonp/blob/master/README.md
-        tryit_url: jsonp/
-        source_url: https://github.com/dart-lang/sample-jsonp/
-        description: Use JSONP to see the GitHub repos for dart-lang.
-
-  -
-    heading: Working with the I/O library
-    anchor: io
-    screenshot: search.png
-    caption: "Dartiverse Search: A search app using HttpServer and WebSockets"
-    link: https://github.com/dart-lang/sample-dartiverse-search
-    examples:
-      -
-        title: Searching files for content
-        explanation_url: https://github.com/dart-lang/sample-dgrep/blob/master/README.md
-        source_url: https://github.com/dart-lang/sample-dgrep/
-        description: A short app that shows how to work with file and directories asynchronously.
-      -
-        title: Concatenating files
-        explanation_url: https://github.com/dart-lang/sample-dcat/blob/master/README.md
-        source_url: https://github.com/dart-lang/sample-dcat/
-        description: Use streams to read files and process I/O.
-      -
-        title: A search app using HttpServer and WebSockets
-        title: "Dartiverse Search: A search app using HttpServer and WebSockets"
-        explanation_url: https://github.com/dart-lang/sample-dartiverse-search/blob/master/README.md
-        source_url: https://github.com/dart-lang/sample-dartiverse-search/
-        description: A full app with a server and a client to search for Dart on  StackOverflow and GitHub.
-  -
     heading: Animation and graphics
     anchor: animation_and_graphics
     screenshot: stagexl.png
@@ -104,13 +12,6 @@ col1:
         tryit_url: raf/
         source_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/speed/animations
         description: A sample that demonstrates the correct way to use rAF.
-      -
-        title: 2D solar system animation
-        explanation_url: https://github.com/dart-lang/sample-solar/blob/master/README.md
-        tryit_url: solar/
-        source_url: https://github.com/dart-lang/sample-solar/
-        description: A solar system implementation using Canvas.
-
       -
         title: 3D solar system animation
         explanation_url: https://github.com/dart-lang/dart-samples/tree/master/html5/web/webgl/solar3d#3d-solar-system-simulation
@@ -221,49 +122,23 @@ col1:
         description: Select a file using a form input, or using drag and drop, and monitor progress while uploading a file.
 
   -
-    heading: Touch events
-    anchor: touch_events
-    screenshot: swipe.png
-    caption: "Swipe: Touch gestures and CSS 3D transforms"
-    link: swipe/
-    examples:
-      -
-        title: Touch gestures and CSS 3D transforms
-        explanation_url: https://github.com/dart-lang/sample-swipe/blob/master/README.md
-        tryit_url: swipe/
-        source_url: https://github.com/dart-lang/sample-swipe/
-        description: Sample that uses touch gestures and CSS 3D transforms to spin a palindrome on the page.
-      -
-        title: Multi touch
-        explanation_url: https://github.com/dart-lang/sample-multi-touch/blob/master/README.md
-        tryit_url: multi_touch/
-        source_url: https://github.com/dart-lang/sample-multi-touch
-        description: Fingerpainting with multiple touch points.
-
-  -
     heading: Web programming fundamentals
     anchor: web_programming_fundamentals
-    screenshot: anagrams.png
-    caption: "Anagrams: Moving elements within the DOM tree"
-    link: anagram/
+    screenshot: todo.png
+    caption: "Todo: Adding elements to the low-level DOM"
+    link: /docs/tutorials/add-elements/#try-app
     examples:
       -
         title: Adding elements to the DOM
         explanation_url: /docs/tutorials/add-elements/
-        tryit_url: todo/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/todo
+        tryit_url: /docs/tutorials/add-elements/#try-app
+        source_url: /docs/tutorials/add-elements/#try-app
         description: "A todo app using the dart:html library."
-      -
-        title: Moving elements within the DOM tree
-        explanation_url: /docs/tutorials/add-elements/#moving-elements
-        tryit_url: anagram/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/anagram
-        description: "Build anagrams: a DOM manipulation demo."
       -
         title: Removing elements from the DOM
         explanation_url: /docs/tutorials/remove-elements
-        tryit_url: todo_with_delete/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/todo_with_delete
+        tryit_url: /docs/tutorials/remove-elements/#try-app
+        source_url: /docs/tutorials/remove-elements/#try-app
         description: A todo app with a delete option.
       -
         title: Working with JSON
@@ -273,7 +148,32 @@ col1:
         description: A sample app that shows JSON data obtained from a form.
       -
         title: Fetching data dynamically
-        explanation_url: /docs/tutorials/fetchdata/#about-uris
-        source_url: /docs/tutorials/fetchdata/#about-uris
-        tryit_url: /docs/tutorials/fetchdata/#about-uris
+        explanation_url: /docs/tutorials/fetchdata/#using-getString-function
+        source_url: /docs/tutorials/fetchdata/#using-getString-function
+        tryit_url: /docs/tutorials/fetchdata/#using-getString-function
         description: Using HttpRequest to fetch data.
+  -
+    heading: Polymer Dart 0.16.0
+    anchor: polymer_dart
+    screenshot: todomvc.png
+    caption: "TodoMVC: Create a TODO list using Polymer Dart"
+    link: https://github.com/dart-lang/sample-todomvc-polymer/blob/master/README.md
+    examples:
+      -
+        title: Defining a custom element
+        explanation_url: /docs/tutorials/polymer-intro
+        tryit_url: stopwatch/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/stopwatch
+        description: Install Polymer, define and use a simple custom element.
+      -
+        title: Get input from a form
+        explanation_url: /docs/tutorials/forms
+        tryit_url: slambook/
+        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/slambook
+        description: Use data binding to work with form data in Polymer.
+      -
+        title: TodoMVC
+        explanation_url: https://github.com/dart-lang/sample-todomvc-polymer/blob/master/README.md
+        tryit_url: todomvc/
+        source_url: https://github.com/dart-lang/sample-todomvc-polymer/
+        description: A Polymer implementation of the the canonical todo app.

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Dart Code Samples"
-description: Sample Dart code for Polymer, HTML5, Angular, and more.
+description: Sample Dart code for Polymer, HTML5, and more.
 header:
   css: ["/samples/samples.css"]
 has_permalinks: true
