@@ -73,10 +73,13 @@ The checker complains about things that are very likely to be real problems,
 rather than forcing you to jump through hoops
 to satisfy a narrow-minded type system.
 
-For example, consider:
+For example, consider the following code, which generates a
+warning on the `p1 + p2` expression:
 
+{% comment %}
+gist: https://gist.github.com/Sfshaza/f046152d323ca12aadfa
+dartpad: https://dartpad.dartlang.org/f046152d323ca12aadfa
 
-{% prettify dart %}
 class Point {
   final num x, y;
   Point(this.x, this.y);
@@ -96,18 +99,18 @@ main() {
 
   print(n);
 }
-{% endprettify %}
+{% endcomment %}
 
-<a href="{{site.custom.dartpad.direct-link}}/6c1c62154f5be5c9fab1" target="_blank">Open this code in DartPad</a>.
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=f046152d323ca12aadfa&horizontalRatio=99&verticalRatio=73"
+    width="100%"
+    height="500px"
+    style="border: 1px solid #ccc;">
+</iframe>
 
 This is clearly a problem.
-The static checker issues a warning as shown in the following screenshot:
 
-<img src="images/static-warning.png" alt="Static warning in DartPad"
-     style="border: 1px solid gray; box-shadow: 5px 5px 5px rgba(50, 50, 50, 0.25);">
-
-
-In DartPad, click the **Run** button.
+Click the **Run** button.
 Note that the code still runs,
 setting <code>n</code> to an instance of Point
 and printing <code>x: 10, y: 10</code>. 
