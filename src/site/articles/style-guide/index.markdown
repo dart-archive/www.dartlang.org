@@ -1577,6 +1577,22 @@ var addresses = new Map();
 {% endprettify %}
 </div>
 
+Collection literals can take generic type arguments.
+
+<div class="good">
+{% prettify dart %}
+var points = <Point>[];
+var addresses = <String, Address>{};
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+var points = new List<Point>();
+var addresses = new Map<String, Address>();
+{% endprettify %}
+</div>
+
 ## Async
 
 #### PREFER async/await over explicit Future/then.
