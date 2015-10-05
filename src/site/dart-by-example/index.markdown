@@ -31,8 +31,8 @@ counterpart, `readAsStringSync()`.
 See the
 [source on Github](https://github.com/dart-lang/dart-samples/tree/master/dart_io_mini_samples).
 
-After looking at the following code examples, refer to our
-[Dart for Server homepage](/server/)
+After looking at the following code examples, refer to
+[Writing Command-line Apps: A Programmer's Guide](/docs/serverguide.html)
 for additional information about I/O, command-line apps, and servers.
 
 
@@ -46,19 +46,19 @@ symlink. This method is inherited by File, Directory, and Link.
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
+main() async {
+
   // Create a temporary directory.
-  Directory.systemTemp.createTemp('my_temp_dir')
-    .then((directory) {
-      // Confirm it exists.
-      directory.exists().then(print); // Prints 'true'.
-      // Delete the directory.
-      return directory.delete();
-    })
-    .then((directory) {
-      // Confirm it no longer exists.
-      directory.exists().then(print); // Prints 'false'
-    });
+  var dir = await Directory.systemTemp.createTemp('my_temp_dir');
+
+  // Confirm it exists.
+  print(await dir.exists());
+
+  // Delete the directory.
+  await dir.delete();
+
+  // Confirm it no longer exists.
+  print(await dir.exists());
 }
 {% endprettify %}
 
@@ -72,20 +72,21 @@ File, Directory, and Link.
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
+main() async {
   // Get the system temp directory.
   var systemTempDir = Directory.systemTemp;
 
   // Create a file.
-  new File('${systemTempDir.path}/foo.txt').create()
-    .then((file) {
-      print('The path is ${file.path}'); // Prints path ending with `foo.txt`.
-      // Rename the file.
-      return file.rename('${systemTempDir.path}/bar.txt');
-    })
-    .then((file) {
-      print('The path is ${file.path}'); // Prints path ending with `bar.txt`.
-    });
+  var file = await new File('${systemTempDir.path}/foo.txt').create();
+
+  // Prints path ending with `foo.txt`.
+  print('The path is ${file.path}');
+
+  // Rename the file.
+  await file.rename('${systemTempDir.path}/bar.txt');
+
+  // Prints path ending with `bar.txt`.
+  print('The path is ${file.path}');
 }
 {% endprettify %}
 
@@ -97,32 +98,34 @@ object. This method is inherited by File, Directory, and Link.
 
 {% prettify dart %}
 import 'dart:io';
+import 'dart:async'; // Import not needed but added here to explicitly assign type for clarity below.
 
-void main() {
+main() async {
   // List the contents of the system temp directory.
-  Directory.systemTemp.list(recursive: true, followLinks: false)
-    .listen((FileSystemEntity entity) {
-      // Get the type of the FileSystemEntity, apply the appropiate label, and
-      // print the entity path.
-      FileSystemEntity.type(entity.path)
-        .then((FileSystemEntityType type) {
-          String label;
-          switch (type) {
-            case FileSystemEntityType.DIRECTORY:
-              label = 'D';
-              break;
-            case FileSystemEntityType.FILE:
-              label = 'F';
-              break;
-            case FileSystemEntityType.LINK:
-              label = 'L';
-              break;
-            default:
-              label = 'UNKNOWN';
-          }
-          print('$label: ${entity.path}');
-      });
-    });
+  Stream<FileSystemEntity> entityList =
+      Directory.systemTemp.list(recursive: true, followLinks: false);
+
+  await for (FileSystemEntity entity in entityList) {
+    // Get the type of the FileSystemEntity, apply the appropiate label, and
+    // print the entity path.
+    FileSystemEntityType type = await FileSystemEntity.type(entity.path);
+
+    String label;
+    switch (type) {
+      case FileSystemEntityType.DIRECTORY:
+        label = 'D';
+        break;
+      case FileSystemEntityType.FILE:
+        label = 'F';
+        break;
+      case FileSystemEntityType.LINK:
+        label = 'L';
+        break;
+      default:
+        label = 'UNKNOWN';
+    }
+    print('$label: ${entity.path}');
+  }
 }
 {% endprettify %}
 
@@ -135,14 +138,14 @@ and Link.
 
 {% prettify dart %}
 import 'dart:io';
+import 'dart:async'; // Import not needed but added here to explicitly assign type for clarity below.
 
-void main() {
+main() async {
   // List the contents of the system temp directory.
-  Directory.systemTemp.list(recursive: true, followLinks: false)
-    .listen((FileSystemEntity entity) {
-      // Print the path of the parent of each file, directory, and symlink.
-      print(entity.parent.path);
-    });
+  Stream<FileSystemEntity> entityList =
+      Directory.systemTemp.list(recursive: true, followLinks: false);
+
+  await for (FileSystemEntity entity in entityList) print(entity.parent.path);
 }
 {% endprettify %}
 
@@ -156,18 +159,15 @@ To create intermediate directories, set the `recursive` argument to
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
+main() async {
 
   // Get the system temp directory.
   var systemTempDir = Directory.systemTemp;
-
   // Creates dir/, dir/subdir/, and dir/subdir/file.txt in the system
   // temp directory.
-  new File('${systemTempDir.path}/dir/subdir/file.txt').create(recursive: true)
-    // The created file is returned as a Future.
-    .then((file) {
-      print(file.path);
-  });
+  var file = await new File('${systemTempDir.path}/dir/subdir/file.txt').create(
+      recursive: true);
+  print(file.path);
 }
 {% endprettify %}
 
@@ -179,10 +179,9 @@ Use the File `readAsString()` method to read a file as a string.
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
-  new File('file.txt').readAsString().then((String contents) {
-    // Do something with the file contents.
-  });
+main() async {
+  var contents = await new File('file.txt').readAsString();
+  print(contents);
 }
 {% endprettify %}
 
@@ -194,10 +193,9 @@ Use the File `readAsLines()` method to read file contents as lines.
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
-  new File('file.txt').readAsLines().then((List<String> lines) {
-    // Do something with lines.
-  });
+main() async {
+  List<String> lines = await new File('file.txt').readAsLines();
+  lines.forEach((String line) => print(line));
 }
 {% endprettify %}
 
@@ -211,12 +209,11 @@ import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 
-void main() {
-  new File('file.txt').readAsBytes().then((bytes) {
-    // Do something with the bytes. For example, convert to base64.
-    String base64 = CryptoUtils.bytesToBase64(bytes);
-    // ...
-  });
+main() async {
+  var bytes = await new File('file.txt').readAsBytes();
+  // Do something with the bytes. For example, convert to base64.
+  String base64 = CryptoUtils.bytesToBase64(bytes);
+  print(base64);
 }
 {% endprettify %}
 
@@ -234,48 +231,42 @@ import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
 
-main() {
+main() async {
   final file = new File('file.txt');
   Stream<List<int>> inputStream = file.openRead();
 
-  inputStream
-    // Decode to UTF8.
-    .transform(UTF8.decoder)
-    // Convert stream to individual lines.
-    .transform(new LineSplitter())
-    // Process results.
-    .listen((String line) {
-        print('$line: ${line.length} bytes');
-      },
-      onDone: () { print('File is now closed.'); },
-      onError: (e) { print(e.toString()); });
+  Stream<String> lines = inputStream
+      // Decode to UTF8.
+      .transform(UTF8.decoder)
+      // Convert stream to individual lines.
+      .transform(new LineSplitter());
+
+  try {
+    await for (String line in lines) print('$line: ${line.length} bytes');
+  } catch (e) {
+    print(e.toString());
+  }
+
+  print('File is now closed.');
 }
 {% endprettify %}
 
 
 #### Handling errors when reading a file
 
-Use `then()` to read the file contents, and `catchError()` to catch
-errors. Register a callback with `catchError()` to handle the error.
 
 {% prettify dart %}
 import 'dart:io';
 
-void handleError(e) {
-  print('There was a ${e.runtimeType} error');
-  print(e.message);
-}
-
-main() {
+main() async {
   final filename = 'non_existent_file.txt';
-  new File(filename).readAsString()
-    // Read and print the file contents.
-    .then(print)
-    // Catch errors.
-    .catchError((e) {
-      print('There was a ${e.runtimeType} error');
-      print('Could not read $filename');
-    });
+  try {
+    var file = await new File(filename).readAsString();
+    print(file);
+  } catch (e) {
+    print('There was a ${e.runtimeType} error');
+    print('Could not read $filename');
+  }
 }
 {% endprettify %}
 
@@ -288,12 +279,10 @@ file. After writing the string, the method closes the file.
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
+main() async {
   final filename = 'file.txt';
-  new File(filename).writeAsString('some content')
-    .then((File file) {
-      // Do something with the file.
-    });
+  var file = await new File(filename).writeAsString('some content');
+  print("Content written to $file");
 }
 {% endprettify %}
 
@@ -306,18 +295,17 @@ Use the File `writeAsBytes()` method to write bytes to a file.
 import 'dart:io';
 import 'dart:convert';
 
-void main() {
+main() async {
   final string = 'Dart!';
+
   // Encode to UTF8.
   var encodedData = UTF8.encode(string);
+  var file = await new File('file.txt');
+  file.writeAsBytes(encodedData);
+  var data = await file.readAsBytes();
 
-  new File('file.txt')
-    .writeAsBytes(encodedData)
-    .then((file) => file.readAsBytes())
-    .then((data) {
-      // Decode to a string, and print.
-      print(UTF8.decode(data)); // Prints 'Dart!'.
-  });
+  // Decode to a string, and print.
+  print(UTF8.decode(data)); // Prints 'Dart!'.
 }
 {% endprettify %}
 
@@ -332,7 +320,7 @@ To append to the file, set the `mode` argument to `FileMode.APPEND`
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
+main() {
   var file = new File('file.txt');
   var sink = file.openWrite();
   sink.write('FILE ACCESSED ${new DateTime.now()}\n');
@@ -352,13 +340,10 @@ To create intermediate directories, set the `recursive` argument to `true`
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
+main() async {
   // Creates dir/ and dir/subdir/.
-  new Directory('dir/subdir').create(recursive: true)
-    // The created directory is returned as a Future.
-    .then((Directory directory) {
-      print(directory.path);
-  });
+  var directory = await new Directory('dir/subdir').create(recursive: true);
+  print(directory.path);
 }
 {% endprettify %}
 
@@ -372,12 +357,9 @@ produce a unique directory name.
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
-  // Create a temporary directory in the system temp directory.
-  Directory.systemTemp.createTemp('my_temp_dir')
-    .then((directory) {
-      print(directory.path);
-    });
+main() async {
+  var directory = await Directory.systemTemp.createTemp('my_temp_dir');
+  print(directory.path);
 }
 {% endprettify %}
 
@@ -391,17 +373,17 @@ into subdirectories if the `recursive` argument is `true` (default is
 
 {% prettify dart %}
 import 'dart:io';
+import 'dart:async'; // Import not needed but added here to explicitly assign type for clarity below.
 
-void main() {
+main() async {
   // Get the system temp directory.
   var systemTempDir = Directory.systemTemp;
 
   // List directory contents, recursing into sub-directories, but not following
   // symbolic links.
-  systemTempDir.list(recursive: true, followLinks: false)
-    .listen((FileSystemEntity entity) {
-      print(entity.path);
-    });
+  Stream<FileSystemEntity> entityList =
+      systemTempDir.list(recursive: true, followLinks: false);
+  await for (FileSystemEntity entity in entityList) print(entity.path);
 }
 {% endprettify %}
 
@@ -413,22 +395,17 @@ Use the Link `create()` method to create a symlink.
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
+main() async {
   // Get the system temp directory.
-  var systemTempDir = Directory.systemTemp;
+  var temp = await Directory.systemTemp.createTemp('my_temp_dir');
 
-  // Create a temporary directory with the system temp directory.
-  systemTempDir.createTemp('my_temp_dir').then((temp) {
+  // Generate a couple of paths.
+  var first = '${temp.path}${Platform.pathSeparator}first';
+  var second = '${temp.path}${Platform.pathSeparator}second';
 
-    // Generate a couple of paths.
-    var first = '${temp.path}${Platform.pathSeparator}first';
-    var second = '${temp.path}${Platform.pathSeparator}second';
-
-    // Create a symlink.
-    new Link(second).create(first).then((Link symLink) {
-      // Do something with the symlink.
-    });
-  });
+  // Create a symlink.
+  Link symLink = await new Link(second).create(first);
+  print(symLink);
 }
 {% endprettify %}
 
@@ -440,19 +417,20 @@ a symlink.
 
 {% prettify dart %}
 import 'dart:io';
+import 'dart:async'; // Import not needed but added here to explicitly assign type for clarity below.
 
-void main() {
+main() async {
   // Get the system temp directory.
   var systemTempDir = Directory.systemTemp;
 
   // List the contents of the system temp directory.
-  systemTempDir.list(recursive: true, followLinks: false)
-    .listen((FileSystemEntity entity) {
-      // Print the path only if it represents a symlink.
-      FileSystemEntity.isLink(entity.path).then((isLink) {
-        if (isLink) print(entity.path);
-      });
-    });
+  Stream<FileSystemEntity> entityList =
+      systemTempDir.list(recursive: true, followLinks: false);
+  await for (FileSystemEntity entity in entityList) {
+    // Print the path only if it represents a symlink.
+    var isLink = await FileSystemEntity.isLink(entity.path);
+    if (isLink) print(entity.path);
+  }
 }
 {% endprettify %}
 
@@ -467,26 +445,22 @@ import 'dart:io';
 
 // Creates temporary directory inside the system temp directory, creates a
 // couple of paths in the created directory, and creates a symlink.
-Future<Link> createSymlink() {
-  return Directory.systemTemp.createTemp('my_temp_dir').then((temp) {
-    var first = '${temp.path}${Platform.pathSeparator}first';
-    var second = '${temp.path}${Platform.pathSeparator}second';
-    return new Link(second).create(first);
-  });
+Future<Link> createSymLink() async {
+  var temp = await Directory.systemTemp.createTemp('my_temp_dir');
+  var first = '${temp.path}${Platform.pathSeparator}first';
+  var second = '${temp.path}${Platform.pathSeparator}second';
+  return new Link(second).create(first);
 }
 
-void main() {
-  createSymlink()
-    .then((Link link) {
-      print(link.path); // Prints path that ends with 'second'.
-      link.target().then((String targetPath) {
-        // Do something with the targetPath that ends with 'first'.
-      })
-      // Catch any error generated by link.target().
-      .catchError((e) {
-        print(e.message);
-      });
-    });
+main() async {
+  try {
+    var link = await createSymLink();
+    print(link.path);
+    var targetPath = await link.target();
+    print(targetPath);
+  } catch (e) {
+    print(e.message);
+  }
 }
 {% endprettify %}
 
@@ -500,12 +474,11 @@ Use the http package `get()` function to make a GET request.
 {% prettify dart %}
 import 'package:http/http.dart' as http;
 
-void main() {
+main() async {
   var url = 'http://httpbin.org/';
-  http.get(url).then((response) {
-    print("Response status: ${response.statusCode}");
-    print("Response body: ${response.body}");
-  });
+  var response = await http.get(url);
+  print("Response status: ${response.statusCode}");
+  print("Response body: ${response.body}");
 }
 {% endprettify %}
 
@@ -517,12 +490,11 @@ Use the http package `post()` function to make a POST request.
 {% prettify dart %}
 import 'package:http/http.dart' as http;
 
-void main() {
+main() async {
   var url = 'http://httpbin.org/post';
-  http.post(url, body: 'name=doodle&color=blue').then((response) {
-    print("Response status: ${response.statusCode}");
-    print("Response body: ${response.body}");
-  });
+  var response = await http.post(url, body: 'name=doodle&color=blue');
+  print("Response status: ${response.statusCode}");
+  print("Response body: ${response.body}");
 }
 {% endprettify %}
 
@@ -536,20 +508,20 @@ The example below adds a 'User-Agent' header to a `get` request.
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-void main() {
+main() async {
   var url = 'https://api.github.com/users/dart-lang/repos';
-  http.get(url, headers : {'User-Agent':'Dart/1.0 (My Dart client)'})
-    .then((response) {
-      List<String> repos = JSON.decode(response.body);
-      var heading = 'Repository | Star count  | Fork count';
-      print(heading);
-      print(new List.filled(heading.length, '=').join());
-      for (var repo in repos) {
-        print("${repo['name']} | "
-              "${repo['stargazers_count']} | "
-              "${repo['forks_count']}");
-    }
-  });
+  var response =
+      await http.get(url, headers: {'User-Agent': 'Dart/1.0 (My Dart client)'});
+
+  List<String> repos = JSON.decode(response.body);
+  var heading = 'Repository | Star count  | Fork count';
+  print(heading);
+  print(new List.filled(heading.length, '=').join());
+  for (var repo in repos) {
+    print("${repo['name']} | "
+        "${repo['stargazers_count']} | "
+        "${repo['forks_count']}");
+  }
 }
 {% endprettify %}
 
@@ -573,29 +545,25 @@ printResponseBody(response) {
   print('...\n');
 }
 
-void main() {
-   var url = 'http://www.google.com/';
-   var client = new http.Client();
-   client.get('${url}/search')
-       .then((response) {
-         printResponseBody(response);
-         return client.get('${url}/doodles');
-        })
-       .then(printResponseBody)
-
-       // Close the connection when done.
-       .whenComplete(client.close);
+main() async {
+  var url = 'http://www.google.com/';
+  var client = new http.Client();
+  try {
+    var response = await client.get('${url}/search');
+    printResponseBody(response);
+    response = await client.get('${url}/doodles');
+    printResponseBody(response);
+    client.close();
+  } catch (e) {
+    client.close();
+  }
 }
 {% endprettify %}
 
 
 #### Handling errors when making a request
 
-An HTTP request may return a response, or it may generate an error. Since
-both the response and the error are produced asychronously, you should
-register callbacks with chained `then()` and `catchError()` calls. The
-response is handled by the `then()` callback, and the error is handled by
-the `catchError()` callback.
+An HTTP request may return a response, or it may generate an error.
 
 {% prettify dart %}
 import 'package:http/http.dart' as http;
@@ -610,10 +578,13 @@ handleFailure(error) {
   print(error.message);
 }
 
-void main() {
-  http.get("http://some_bogus_website.org")
-    .then(handleSuccess)
-    .catchError(handleFailure);
+main() async {
+  try {
+    var response = await http.get("http://some_bogus_website.org");
+    handleSuccess(response);
+  } catch (e) {
+    handleFailure(e);
+  }
 }
 {% endprettify %}
 
@@ -626,17 +597,14 @@ use the Response `redirects` property to get a list of the redirects.
 {% prettify dart %}
 import "dart:io" show HttpClient, RedirectInfo;
 
-main() {
+main() async {
   var client = new HttpClient();
-  client.getUrl(Uri.parse('http://google.com'))
-    .then((request) => request.close())
-    .then((response) {
-      // Get a list of all redirects.
-      List<RedirectInfo> redirects = response.redirects;
-      redirects.forEach((redirect) {
-        print(redirect.location); // Prints 'http://www.google.com'.
-      });
-    });
+  var request = await client.getUrl(Uri.parse('http://google.com'));
+  var response = await request.close();
+  List<RedirectInfo> redirects = response.redirects;
+  redirects.forEach((redirect) {
+    print(redirect.location); // Prints 'http://www.google.com'.
+  });
 }
 {% endprettify %}
 
@@ -649,8 +617,8 @@ package.
 {% prettify dart %}
 import 'package:http/http.dart' as http;
 
-void main() {
-  http.read("http://www.google.com/").then(print);
+main() async {
+  print(await http.read("http://www.google.com/"));
 }
 {% endprettify %}
 
@@ -664,14 +632,13 @@ in bytes.
 import 'package:http/http.dart' as http;
 import 'package:crypto/crypto.dart';
 
-void main() {
-  var url = "https://github.com/dart-lang/logos/blob/master/logos_and_wordmarks/dart-logo.png";
-  http.get(url).then((response) {
-    List<int> bytes = response.bodyBytes;
-    // Do something with the bytes. For example, convert to base64.
-    String base64 = CryptoUtils.bytesToBase64(bytes);
-    // ...
-  });
+main() async {
+  var url = "https://www.dartlang.org/logos/dart-logo.png";
+  var response = await http.get(url);
+  List<int> bytes = response.bodyBytes;
+  // Do something with the bytes. For example, convert to base64.
+  String base64 = CryptoUtils.bytesToBase64(bytes);
+  print(base64);
 }
 {% endprettify %}
 
@@ -685,20 +652,20 @@ those fields.
 {% prettify dart %}
 import 'package:http/http.dart' as http;
 
-void main() {
+main() async {
   var url = 'http://httpbin.org/';
-  http.get(url).then((response) {
+  var response = await http.get(url);
 
-    // Get the headers map.
-    print(response.headers.keys);
+  // Get the headers map.
+  print(response.headers.keys);
 
-    // Get header values.
-    print("access-control-allow-origin' = ${response.headers['access-control-allow-origin']}");
-    print("content-type = ${response.headers['content-type']}");
-    print("date = ${response.headers['date']}");
-    print("content-length = ${response.headers['content-length']}");
-    print("connection = ${response.headers['connection']}");
-  });
+  // Get header values.
+  print(
+      "access-control-allow-origin' = ${response.headers['access-control-allow-origin']}");
+  print("content-type = ${response.headers['content-type']}");
+  print("date = ${response.headers['date']}");
+  print("content-length = ${response.headers['content-length']}");
+  print("connection = ${response.headers['connection']}");
 }
 {% endprettify %}
 
@@ -707,23 +674,22 @@ void main() {
 
 #### Implementing a 'Hello world' HTTP server
 
-Use `HttpServer.bind()` method to bind to a port and the HttpServer
-`listen()` method to listen for connections.  Respond to an `HttpRequest`
-using the `response` property.
+Use `HttpServer.bind()` method to bind to a port.
+The await for listens for connections.
+Respond to an `HttpRequest` using the `response` property.
 
 {% prettify dart %}
 import 'dart:io';
 
-void main() {
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
-    print("Serving at ${server.address}:${server.port}");
-    server.listen((HttpRequest request) {
-      request.response
-        ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
-        ..write('Hello, world')
-        ..close();
-    });
-  });
+main() async {
+  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
+  print("Serving at ${server.address}:${server.port}");
+  await for (HttpRequest request in server) {
+    request.response
+      ..headers.contentType = new ContentType("text", "plain", charset: "utf-8")
+      ..write('Hello, world')
+      ..close();
+  }
 }
 {% endprettify %}
 
@@ -741,16 +707,13 @@ library simple_http_server;
 import 'dart:io';
 import 'package:http_server/http_server.dart' show VirtualDirectory;
 
-void main() {
+main() async {
   final MY_HTTP_ROOT_PATH = Platform.script.resolve('web').toFilePath();
   final virDir = new VirtualDirectory(MY_HTTP_ROOT_PATH)
     ..allowDirectoryListing = true;
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
-    server.listen((request) {
-      virDir.serveRequest(request);
-    });
-  });
+  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
+  await for (var request in server) virDir.serveRequest(request);
 }
 {% endprettify %}
 
@@ -769,21 +732,18 @@ import 'package:http_server/http_server.dart' show VirtualDirectory;
 
 VirtualDirectory virDir;
 
-void directoryHandler(dir, request) {
+directoryHandler(dir, request) {
   var indexUri = new Uri.file(dir.path).resolve('index.html');
   virDir.serveFile(new File(indexUri.toFilePath()), request);
 }
 
-void main() {
+main() async {
   virDir = new VirtualDirectory(Platform.script.resolve('web').toFilePath())
     ..allowDirectoryListing = true
     ..directoryHandler = directoryHandler;
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
-    server.listen((request) {
-      virDir.serveRequest(request);
-    });
-  });
+  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
+  await for (var request in server) virDir.serveRequest(request);
 }
 {% endprettify %}
 
@@ -797,28 +757,23 @@ request. Register an error handler using the `errorHandler` property.
 import 'dart:io';
 import 'package:http_server/http_server.dart' as http_server;
 
-void errorPageHandler(HttpRequest request) {
+errorPageHandler(HttpRequest request) {
   request.response
-      ..statusCode = HttpStatus.NOT_FOUND
-      ..write('Not found')
-      ..close();
+    ..statusCode = HttpStatus.NOT_FOUND
+    ..write('Not found')
+    ..close();
 }
 
-void main() {
+main() async {
   var buildPath = Platform.script.resolve('web').toFilePath();
 
   var virDir = new http_server.VirtualDirectory(buildPath)
     ..allowDirectoryListing = true
     ..errorPageHandler = errorPageHandler;
 
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
-    server.listen((request) {
-      virDir.serveRequest(request);
-    });
-  });
+  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
+  await for (var request in server) virDir.serveRequest(request);
 }
-
-
 {% endprettify %}
 
 
@@ -836,7 +791,6 @@ final postsUrl = new UrlPattern(r'/posts\/?');
 
 // Pattern for a single post('/post/24', for example).
 final postUrl = new UrlPattern(r'/post/(\d+)\/?');
-
 
 // Callback for all posts (plural).
 servePosts(req) {
@@ -858,14 +812,13 @@ serveNotFound(req) {
   req.response.close();
 }
 
-void main() {
-  HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080).then((server) {
-    var router = new Router(server)
-      // Associate callbacks with URLs.
-      ..serve(postsUrl, method: 'GET').listen(servePosts)
-      ..serve(postUrl, method: 'GET').listen(servePost)
-      ..defaultStream.listen(serveNotFound);
-  });
+main() async {
+  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
+  var router = new Router(server)
+    // Associate callbacks with URLs.
+    ..serve(postsUrl, method: 'GET').listen(servePosts)
+    ..serve(postUrl, method: 'GET').listen(servePost)
+    ..defaultStream.listen(serveNotFound);
 }
 {% endprettify %}
 
@@ -881,14 +834,11 @@ from the ServerSocket and listen to it for the data.
 import 'dart:io';
 import 'dart:convert';
 
-main() {
-  ServerSocket.bind('127.0.0.1', 4041)
-    .then((serverSocket) {
-      print('connected');
-      serverSocket.listen((socket) {
-        socket.transform(UTF8.decoder).listen(print);
-      });
-    });
+main() async {
+  var serverSocket = await ServerSocket.bind('127.0.0.1', 4041);
+  print('connected');
+  await for (var socket
+      in serverSocket) socket.transform(UTF8.decoder).listen(print);
 }
 {% endprettify %}
 
@@ -901,11 +851,10 @@ socket using the Socket `write()` method.
 {% prettify dart %}
 import 'dart:io';
 
-main() {
-  Socket.connect('127.0.0.1', 4041).then((socket) {
-    print(socket.runtimeType);
-    socket.write('Hello, World!');
-  });
+main() async {
+  var socket = await Socket.connect('127.0.0.1', 4041);
+  print(socket.runtimeType);
+  socket.write('Hello, World!');
 }
 {% endprettify %}
 
@@ -919,26 +868,20 @@ Upgrade a regular HTTP request to a WebSocket request using
 
 {% prettify dart %}
 import 'dart:io';
-import 'dart:async';
 
 handleMsg(msg) {
   print('Message received: $msg');
 }
 
-main() {
-  runZoned(() {
-    HttpServer.bind('127.0.0.1', 4040).then((server) {
-      server.listen((HttpRequest req) {
-        if (req.uri.path == '/ws') {
-          // Upgrade a HttpRequest to a WebSocket connection.
-          WebSocketTransformer.upgrade(req).then((socket) {
-            socket.listen(handleMsg);
-          });
-        }
-      });
-    });
-  },
-  onError: (e) => print("An error occurred."));
+main() async {
+  var server = await HttpServer.bind('127.0.0.1', 4040);
+  await for (HttpRequest req in server) {
+    if (req.uri.path == '/ws') {
+      // Upgrade an HttpRequest to a WebSocket connection.
+      var socket = await WebSocketTransformer.upgrade(req);
+      socket.listen(handleMsg);
+    }
+  }
 }
 {% endprettify %}
 
@@ -951,10 +894,9 @@ over that connection using the WebSocket `add()` method.
 {% prettify dart %}
 import 'dart:io';
 
-main() {
-  WebSocket.connect('ws://127.0.0.1:4040/ws').then((socket) {
-    socket.add('Hello, World!');
-  });
+main() async {
+  var socket = await WebSocket.connect('ws://127.0.0.1:4040/ws');
+  socket.add('Hello, World!');
 }
 {% endprettify %}
 
@@ -968,7 +910,7 @@ Use `Platform.environment` to get the environment for the current process.
 {% prettify dart %}
 import 'dart:io' show Platform;
 
-void main() {
+main() {
   Map<String, String> envVars = Platform.environment;
   print(envVars['PATH']);
 }
@@ -984,7 +926,7 @@ getters defined in `Platform`.
 {% prettify dart %}
 import 'dart:io' show Platform, stdout;
 
-void main() {
+main() {
   // Get the operating system as a string.
   String os = Platform.operatingSystem;
 
@@ -1013,14 +955,15 @@ the current isolate.
 {% prettify dart %}
 import 'dart:io' show Platform;
 
-void main() {
+main() {
   // Get the URI of the script being run.
   var uri = Platform.script;
   print(uri); // Prints something like '/Users/shailentuli/workspace/...'.
 
   // Convert the URI to a path.
   var path = uri.toFilePath();
-  print(path); // Prints something like 'file:///Users/shailentuli/workspace/...'.
+  print(
+      path); // Prints something like 'file:///Users/shailentuli/workspace/...'.
 }
 {% endprettify %}
 
@@ -1035,11 +978,10 @@ returned asynchronously using a ProcessResult object.
 {% prettify dart %}
 import 'dart:io';
 
-main() {
+main() async {
   // List all files in the current directory in UNIX-like operating systems.
-  Process.run('ls', ['-l']).then((ProcessResult results) {
-    print(results.stdout);
-  });
+  var results = await Process.run('ls', ['-l']);
+  print(results.stdout);
 }
 {% endprettify %}
 
@@ -1054,13 +996,11 @@ executing the original process.
 {% prettify dart %}
 import 'dart:io';
 
-main() {
-  Process.start('ls', ['-l']).then((process) {
-    // Get the exit code from the new process.
-    process.exitCode.then((exitCode) {
-      print('exit code: $exitCode'); // Prints 'exit code: 0'.
-    });
-  });
+main() async {
+  var process = await Process.start('ls', ['-l']);
+  // Get the exit code from the new process.
+  var exitCode = await process.exitCode;
+  print('exit code: $exitCode');
 }
 {% endprettify %}
 
@@ -1076,7 +1016,7 @@ separator is used in the path.
 {% prettify dart %}
 import 'package:path/path.dart' as path;
 
-void main() {
+main() {
   var newPath = path.join('/Users/shailen', 'dart/projects');
   print(newPath); // Prints '/Users.shailen/dart/projects'.
 }
@@ -1091,11 +1031,12 @@ its components.
 {% prettify dart %}
 import 'package:path/path.dart' as path;
 
-void main() {
+main() {
   print(path.split('/Users/shailen')); // Prints ['/', 'Users', 'shailen'].
 
   // Windows example.
-  print(path.split(r'C:\tempdir\tmp.txt')); // Prints [r'C:\', 'tempdir', 'tmp.txt'])
+  print(path
+      .split(r'C:\tempdir\tmp.txt')); // Prints [r'C:\', 'tempdir', 'tmp.txt'])
 }
 {% endprettify %}
 
@@ -1111,7 +1052,7 @@ specify that path using the `from` argument.
 import 'dart:io' show Directory;
 import 'package:path/path.dart' as path;
 
-void main() {
+main() {
   // The path from the current directory to the system temp directory.
   print(path.relative(Directory.systemTemp.path));
 
@@ -1137,7 +1078,7 @@ converting between a URI and a path.
 {% prettify dart %}
 import 'package:path/path.dart' as path;
 
-void main() {
+main() {
   var uri = path.toUri('http://dartlang.org/samples');
   print(path.fromUri(uri)); // Prints 'http:/dartlang.org/samples'.
 }
@@ -1155,16 +1096,16 @@ import 'package:path/path.dart' as path;
 
 import 'dart:io';
 
-void main() {
+main() async {
   // Create dir/ and dir/file.txt in the system temp directory.
-  new File('${Directory.systemTemp.path}/dir/myFile.txt').create(recursive: true)
-    // The created file is returned as a Future.
-    .then((file) {
-      print(path.basename(file.path)); // Prints 'file.txt'.
-      print(path.dirname(file.path));  // Prints path ending with 'dir'.
-      print(path.basenameWithoutExtension(file.path)); // Prints 'myFile'.
-      print(path.extension(file.path)); // Prints '.txt'.
-  });
+  var file = await new File('${Directory.systemTemp.path}/dir/myFile.txt')
+      .create(recursive: true);
+
+  print(path.basename(file.path)); // Prints 'file.txt'.
+  print(path.dirname(file.path)); // Prints path ending with 'dir'.
+  print(path.basenameWithoutExtension(file.path)); // Prints 'myFile'.
+  print(path.extension(file.path)); // Prints '.txt'.
+
 }
 {% endprettify %}
 
@@ -1179,7 +1120,7 @@ in the `path` Pub package.
 import 'dart:io' show Platform;
 import 'package:path/path.dart' as path;
 
-void main() {
+main() {
   // Prints  '\' on Windows and '/' on other platforms.
   print(Platform.pathSeparator);
 
