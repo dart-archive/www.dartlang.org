@@ -163,3 +163,6 @@ Google internal tool for marketing
 
 [FxSimulator](http://fxsimulator.com/)
 : Forex trading simulator based on StageXL.
+
+[LiveNinja](https://liveninja.com/)
+: Customer service messaging platform using Dart on the server.
