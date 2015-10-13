@@ -287,7 +287,7 @@ its superclass chain is different. In our example above, _K_ needs to
 implement `twice()` to meet the requirements of _I_ and must also implement
 `thrice()` in order to satisfy the requirements imposed by _J_. _K_ meets these
 requirements because it defines `thrice()` directly, and inherits an
-implementation of twice from _S_.
+implementation of `twice()` from _S_.
 
 Now when we define _A_, we get the implementation of `thrice()` from
 _K_'s mixin. However, the mixin won't provide us with an implementation of
