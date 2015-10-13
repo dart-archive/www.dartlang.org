@@ -11,7 +11,7 @@ description: "Common gotchas you might run into when using Pub."
 #### Contents
 {:.no_toc}
 
-1. ToC
+* ToC
 {:toc}
 
 ### Getting a "403" error when publishing a package {#pub-publish-403}
@@ -51,7 +51,7 @@ suite to see how to temporarily
 disable this feature. For example, see
 [Disabling AVG temporarily](http://www.avg.com/ww-en/faq.num-3857).
 
-### `pub get` fails from behind a corporate firewall
+### Pub get fails from behind a corporate firewall
 
 From the command line, pub honors the `http_proxy` and `https_proxy`
 environment variables.
@@ -81,15 +81,5 @@ On Windows:
 
 {% prettify sh %}
 > set https_proxy=username:password@hostname:port
-{% endprettify %}
-
-If you are running pub from the Eclipse plug-in,
-the http proxy server environment variables are not used.
-In that case, set the `https.proxyHost` and `https.proxyPort`
-system properties:
-
-{% prettify none %}
--Dhttps.proxyHost=hostname
--Dhttps.proxyPort=port
 {% endprettify %}
 

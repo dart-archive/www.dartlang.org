@@ -56,7 +56,6 @@ dropped by other development environments.
 For example:
 
 {% prettify none %}
-.project      // Eclipse
 *.iml         // IntelliJ
 *.ipr         // IntelliJ
 *.iws         // IntelliJ

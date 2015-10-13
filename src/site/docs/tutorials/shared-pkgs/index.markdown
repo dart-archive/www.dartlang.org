@@ -78,7 +78,7 @@ is a package and can therefore use external packages.
 You can use the Stagehand tool to generate packages
 with valid pubspec.yaml files and directory structures.
 Stagehand works either at the command line or (behind the scenes) in an IDE,
-such as WebStorm or Eclipse with the Dart plugin.
+such as WebStorm.
 
 Install Stagehand using [pub global activate](/tools/pub/cmd/pub-global.html):
 

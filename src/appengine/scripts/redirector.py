@@ -110,7 +110,7 @@ class BookRedirect(RequestHandler):
     elif filename == 'ch04-tools-pub.html':
         self.redirect('/tools/pub/', permanent=True)
     elif filename == 'ch04-tools-editor.html':
-        self.redirect('/tools/editor', permanent=True)
+        self.redirect('/tools/', permanent=True)
     elif filename == 'ch04-tools-dartium.html':
         self.redirect('/tools/dartium/', permanent=True)
     elif filename == 'ch04-tools-dartdoc.html':
@@ -194,6 +194,10 @@ application = WSGIApplication(
       EclipseUpdateRedirectStableChannel),
     Route('/eclipse/update<path:.*>', EclipseUpdateRedirectDevChannel),
     Route('/docs/cookbook/', CookbookRedirect),
+    Route('/tools/editor/<:.*>', RedirectHandler,
+      defaults={'_uri': '/tools/'}),
+    Route('/tools/eclipse-plugin/<:.*>', RedirectHandler,
+      defaults={'_uri': '/tools/'}),
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                 '_code': 302}),
@@ -233,8 +237,6 @@ application = WSGIApplication(
       defaults={'_uri': 'https://github.com/dart-lang/dartdoc#dartdoc'}),
     Route('/tools/analyzer/', RedirectHandler,
       defaults={'_uri': 'https://github.com/dart-lang/analyzer_cli#dartanalyzer'}),
-    Route('/tools/editor/mobile.html', RedirectHandler,
-      defaults={'_uri': '/mobile/'}),
     Route('/language-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch02.html'}),
     Route('/docs/language-tour/', RedirectHandler,
@@ -242,19 +244,17 @@ application = WSGIApplication(
     Route('/docs/library-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch03.html'}),
     Route('/eclipse/', RedirectHandler,
-      defaults={'_uri': '/tools/eclipse-plugin/'}),
+      defaults={'_uri': '/tools/'}),
     Route('/dart2js-stripped-uri', RedirectHandler,
       defaults={'_uri': 'https://groups.google.com/a/dartlang.org/forum/#!topic/misc/xuL-MNlcJSY'}),
     Route('/dart2js-reflection', RedirectHandler,
       defaults={'_uri': 'https://code.google.com/p/dart/issues/detail?id=21654'}),
-    Route('/docs/editor/troubleshoot.html', RedirectHandler,
-      defaults={'_uri': '/tools/editor/troubleshoot.html'}),
     Route('/docs/editor<:/?>', RedirectHandler,
-      defaults={'_uri': '/tools/editor/'}),
+      defaults={'_uri': '/tools/'}),
+    Route('/editor<:/?>', RedirectHandler,
+      defaults={'_uri': '/tools/'}),
     Route('/docs/sdk<:/?>', RedirectHandler,
       defaults={'_uri': '/tools/sdk/'}),
-    Route('/editor<:/?>', RedirectHandler,
-      defaults={'_uri': '/tools/editor/'}),
     Route('/polymer-dart/reference/release-notes/', RedirectHandler,
       defaults={'_uri': '/polymer-old/reference/release-notes/'}),
     Route('/polymer-dart/', RedirectHandler,

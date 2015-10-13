@@ -95,7 +95,7 @@ are unsupported and available as open source.
 <br>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="media">
         <img class="pull-left media-object"
              src="images/sublime.png"
@@ -106,7 +106,7 @@ are unsupported and available as open source.
     </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="media">
         <img class="pull-left media-object"
              src="images/emacs.png"
@@ -116,8 +116,12 @@ are unsupported and available as open source.
       </div>
     </div>
   </div>
+</div>
 
-  <div class="col-md-4">
+&nbsp;
+
+<div class="row">
+  <div class="col-md-6">
     <div class="media">
         <img class="pull-left media-object"
              src="images/vim.png"
@@ -127,23 +131,8 @@ are unsupported and available as open source.
       </div>
     </div>
   </div>
-</div>
 
-&nbsp;
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="media">
-        <img class="pull-left media-object"
-             src="images/eclipse.png"
-             alt="Eclipse logo">
-      <div class="media-body">
-        <a href="eclipse-plugin/"><b>Eclipse</b></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="media">
         <img class="pull-left media-object"
              src="images/atom-logo.png"

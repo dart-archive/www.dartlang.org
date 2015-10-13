@@ -595,7 +595,7 @@ elements in any web app.
 Nope.
 You can try out Dart code with [DartPad],
 and then use your favorite editor or IDE for real development.
-Some full-featured IDEs such as Eclipse, IntelliJ IDEA,
+Some full-featured IDEs such as IntelliJ IDEA
 and WebStorm have Dart plugins.
 Dart plugins also exist for Sublime, VIM, Emacs, and other editors.
 We used to provide a Dart-specific editor called Dart Editor,
@@ -641,7 +641,6 @@ See [Who Uses Dart] for more.
 [typescript]: http://news.dartlang.org/2012/10/the-dart-team-welcomes-typescript.html
 [issues]: http://dartbug.com/
 [jsinterop]: /articles/js-dart-interop/
-[editor]: /tools/editor/
 [sourcemaps]: http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/
 [io]: /articles/io/
 [pub]: https://pub.dartlang.org
