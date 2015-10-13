@@ -7,7 +7,7 @@ rel:
 has-permalinks: true
 article:
   written_on: 2012-12-18
-  updated_on: 2013-11-01
+  updated_on: 2015-10-12
   collection: language-details
 ---
 
@@ -17,13 +17,17 @@ article:
 # {{ page.title }}
 
 _Written by Gilad Bracha <br>
-December 2012 (updated November 2013)_
+December 2012 (updated October 2015)_
 
-This document describes mixins in Dart.
-The semantics are deliberately restricted in several ways,
-so as to reduce disruption to our existing implementations,
-while allowing future evolution toward a full-fledged mixin implementation.
-This restricted version already provides considerable value.
+This document describes mixins in Dart. We recently relaxed
+some of the restrictions of early implementations; this document
+describes the current state of play.
+
+Dart 1.13 and greater supports mixins that can extend from classes
+other than Object, and can call super().
+
+Dart 1.12 or lower supports mixins that must extend Object,
+and must not call super().
 
 ## Basic concepts
 
@@ -39,7 +43,7 @@ a class implicitly defines a _mixin_.
 The mixin is usually implicit—it is defined by the class body,
 and constitutes the delta between the class and its superclass.
 The class is in fact a _mixin application_—the
-result of applying its implicitly defined mixin to its superclass. 
+result of applying its implicitly defined mixin to its superclass.
 
 The term _mixin application_ comes from
 a close analogy with _function application_.
@@ -58,7 +62,7 @@ written <em>M<sub>1</sub></em> * <em>M<sub>2</sub></em>, as:
 M<sub>1</sub> |> (M<sub>2</sub> |> S)</em>.
 
 Functions are useful because
-they can be applied to different arguments. 
+they can be applied to different arguments.
 Likewise mixins.
 The mixin implicitly defined by a class
 is usually applied only once,
@@ -73,24 +77,12 @@ That is what we propose to do below.
 
 ## Syntax and semantics
 
-Mixins are implicitly defined via ordinary class declarations.
-In principle, every class defines a mixin that can be extracted from it.
-However, in this proposal,
-a mixin may only be extracted from a class
-that obeys the following restrictions:
-
-1. The class has no declared constructors.
-2. The class' superclass is Object.
-3. The class contains no `super` calls.
-
-Restriction (1) avoids complications that arise
-due to the need to pass constructor parameters up the inheritance chain.
-Under those circumstances, 
-restriction (2) encourages mixins to be declared explicitly.
-Restriction (3) means that implementations can continue
-to statically bind `super` calls rather than either
-rebinding them upon mixin application,
-or binding them dynamically.
+Mixins are implicitly defined via ordinary class declarations. In
+principle, every class defines a mixin that can be extracted from
+it. However, in this proposal, a mixin may only be extracted from
+a class that has no declared constructors. This restriction avoids
+complications that arise due to the need to pass constructor
+parameters up the inheritance chain.
 
 Example 1:
 
@@ -123,8 +115,8 @@ They are defined by a special form of class declaration that gives them a name
 and declares them equal to an application of
 a mixin to a superclass, given via a `with` clause.
 The class is abstract
-because it does not implement the abstract method 
-newInstance() declared in Collection. 
+because it does not implement the abstract method
+newInstance() declared in Collection.
 
 In the above, DOMElementList is effectively
 <em>Collection mixin |> DOMList</em>,
@@ -132,12 +124,12 @@ while DOMElementSet is <em>Collection mixin |> DOMSet</em>.
 
 The benefit here is that the code in class Collection
 can be shared in multiple class hierarchies.
-We list two such hierarchies above—one rooted in DOMList 
+We list two such hierarchies above—one rooted in DOMList
 and one rooted in DOMSet.
 One need not repeat/copy the code in Collection,
 and every change made to Collection will propagate to both hierarchies,
 greatly easing maintenance of the code.
-This particular example is loosely based on a 
+This particular example is loosely based on a
 real and very acute case in the Dart libraries.
 
 The above examples illustrate one form of mixin application,
@@ -151,7 +143,7 @@ as a comma-separated list of identifiers.
 All the identifiers must denote classes.
 In this form, multiple mixins are composed and applied
 to the superclass named in the extends clause,
-producing an anonymous superclass. 
+producing an anonymous superclass.
 Taking the same examples again, we would have:
 
 {% prettify dart %}
@@ -164,7 +156,7 @@ class DOMElementSet<E> extends DOMSet with Collection<E> {
 }
 {% endprettify %}
 
-Here, DOMElementList is not the application _Collection mixin |> DOMList._ 
+Here, DOMElementList is not the application _Collection mixin |> DOMList._
 Instead, it is a new class whose superclass is such an application.
 The situation with respect to DOMElementSet is analogous.
 Note that in each case,
@@ -190,12 +182,12 @@ the call can always be placed at the start of the initialization list.
 The constructor would set the values for any fields
 and for the generic type parameters.
 
-This rule ensures that these examples run smoothly
-and also generalize cleanly once one lifts restriction (1).
+This rule ensures that these examples run smoothly and also generalize
+cleanly once one lifts the restriction on constructors.
 
 The second form is a convenient sugar
 that allows multiple mixins to be mixed into a class
-without the need to introduce multiple intermediate declarations. 
+without the need to introduce multiple intermediate declarations.
 For example:
 
 {% prettify dart %}
@@ -219,8 +211,8 @@ and so on until the actual superclass of Maestro,
 which is formed by a series of mixin applications.
 
 In reality in this example we'd expect that
-Demented, Aggressive, and Musical 
-actually have interesting properties that are likely to require state. 
+Demented, Aggressive, and Musical
+actually have interesting properties that are likely to require state.
 
 
 ## Details
@@ -240,7 +232,7 @@ This does not have any effect on
 who can access members of a mixin application instance.
 Access to members is determined based on
 the library where they were originally declared,
-exactly as with ordinary inheritance. 
+exactly as with ordinary inheritance.
 This follows from the semantics of mixin application,
 which are determined by the semantics of inheritance
 in the underlying language.
@@ -248,30 +240,75 @@ in the underlying language.
 ### Statics
 
 Can one use the statics of the original class
-via the mixin application or not?  
+via the mixin application or not?
+
 Again, the answer (No) follows from the semantics of inheritance.
-Statics are not inherited in Dart. 
+Statics are not inherited in Dart.
 
 ### Types
 
-What is the type of a mixin application instance?
-In general, it is a subtype of its superclass,
-and also supports the methods defined on the mixin.
-The mixin name itself, however,
-denotes the type of the original class,
-which has its own superclass
-and may not be compatible with a particular mixin application.
+What is the type of a mixin application instance? In general, it is a
+subtype of its superclass, and also a subtype of the type denoted by
+the mixin name itself, that is, the type of the original class.
 
-What about the interfaces a class supports?
-Does its mixin support them?
-In general, no, since interface support
-may rely on inherited functionality.
-This implies that a mixin application must declare
-what interfaces it implements explicitly.
+The original class has its own superclass. To ensure that a particular
+mixin application is compatible with the original class being mixed in,
+Dart places extra requirements on classes that use `with` clauses.
+
+If a class _A_ is defined using a `with` clause that applies a mixin _M_ where
+_M_ was derived from a class _K_, then _A_ must support the direct
+superinterfaces of _K_.
+
+{% prettify dart %}
+class S {
+  twice(int x) => 2 * x;
+}
+
+abstract class I {
+   twice(x);
+}
+
+abstract class J {
+   thrice(x);
+}
+class K extends S implements I, J {
+  int thrice(x) => 3* x;
+}
+
+class B {
+  twice(x) => x + x;
+}
+class A = B with K;
+{% endprettify %}
+
+In particular, _A_ must support the implicit interface of the superclass
+_S_ of _K_.  This ensures that _A_ is indeed a subtype of _M_, even though
+its superclass chain is different. In our example above, _K_ needs to
+implement `twice()` to meet the requirements of _I_ and must also implement
+`thrice()` in order to satisfy the requirements imposed by _J_. _K_ meets these
+requirements because it defines `thrice()` directly, and inherits an
+implementation of `twice()` from _S_.
+
+Now when we define _A_, we get the implementation of `thrice()` from
+_K_'s mixin. However, the mixin won't provide us with an implementation of
+`twice()`.  Fortunately, _B_ does have such an implementation, so overall _A_ does
+satisfy the requirements of  _I_, _J_ as well as _S_.
+
+In contrast, given class _D_:
+
+{% prettify dart %}
+class D {
+   double(x) => x+x;
+}
+
+class E = D with K;
+{% endprettify %}
+
+we will get a warning, because class _E_ does not have a twice method,
+and so does not conform to either _I_ or _S_ and so cannot be used where
+a _K_ is expected.
 
 ### Generics
 
 If a class has type parameters,
-its mixin necessarily has identical type parameters. 
-
-
+its mixin necessarily has identical type parameters.
