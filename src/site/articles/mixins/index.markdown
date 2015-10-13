@@ -23,6 +23,12 @@ This document describes mixins in Dart. We recently relaxed
 some of the restrictions of early implementations; this document
 describes the current state of play.
 
+Dart 1.13 and greater supports mixins that can extend from classes
+other than Object, and can call super().
+
+Dart 1.12 or lower supports mixins that must extend Object,
+and must not call super().
+
 ## Basic concepts
 
 If you are familiar with the academic literature on mixins
@@ -243,7 +249,7 @@ Statics are not inherited in Dart.
 
 What is the type of a mixin application instance? In general, it is a
 subtype of its superclass, and also a subtype of the type denoted by
-the mixin name itself, i.e., the type of the original class.
+the mixin name itself, that is, the type of the original class.
 
 The original class has its own superclass. To ensure that a particular
 mixin application is compatible with the original class being mixed in,
@@ -253,7 +259,7 @@ If a class _A_ is defined using a `with` clause that applies a mixin _M_ where
 _M_ was derived from a class _K_, then _A_ must support the direct
 superinterfaces of _K_.
 
-{% prettyify dart %}
+{% prettify dart %}
 class S {
   twice(int x) => 2 * x;
 }
@@ -277,15 +283,15 @@ class A = B with K;
 
 In particular, _A_ must support the implicit interface of the superclass
 _S_ of _K_.  This ensures that _A_ is indeed a subtype of _M_, even though
-it’s superclass chain is different. In our example above, _K_ needs to
-implement twice to meet the requirements of _I_ and must also implement
-thrice in order to satisfy the requirements imposed by _J_. _K_ meets these
-requirements because it defines thrice directly, and inherits an
+its superclass chain is different. In our example above, _K_ needs to
+implement `twice()` to meet the requirements of _I_ and must also implement
+`thrice()` in order to satisfy the requirements imposed by _J_. _K_ meets these
+requirements because it defines `thrice()` directly, and inherits an
 implementation of twice from _S_.
 
-Now when we define _A_, we get the implementation of thrice from
+Now when we define _A_, we get the implementation of `thrice()` from
 _K_'s mixin. However, the mixin won't provide us with an implementation of
-twice.  Fortunately, _B_ does have such an implementation, so overall _A_ does
+`twice()`.  Fortunately, _B_ does have such an implementation, so overall _A_ does
 satisfy the requirements of  _I_, _J_ as well as _S_.
 
 In contrast, given class _D_:
