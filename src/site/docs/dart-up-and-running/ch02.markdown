@@ -21,7 +21,7 @@ that you already know how to program in another language.
 <aside class="alert alert-info" markdown="1">
 **Note:**
 You can play with most of these features using
-<a href="{{site.custom.dartpad.direct-link}}" target="_blank">DartPad</a>,
+[DartPad]({{site.custom.dartpad.direct-link}}),
 as described in
 [Up and running](ch01.html#up-and-running).
 </aside>
@@ -1195,8 +1195,8 @@ The following table lists the meanings of equality and relational operators.
 To test whether two objects x and y represent the same thing, use the
 `==` operator. (In the rare case where you need to know whether two
 objects are the exact same object, use the
-[identical()](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-core#id_identical) function instead.) Here’s
-how the `==` operator works:
+[`identical()`](https://api.dartlang.org/stable/dart-core/identical.html)
+function instead.) Here’s how the `==` operator works:
 
 1.  If *x* or *y* is null, return true if both are null, and false if only
     one is null.
@@ -1514,8 +1514,8 @@ The output is `0` and then `1`, as expected. In contrast, the example
 would print `2` and then `2` in JavaScript.
 
 If the object that you are iterating over is an Iterable, you can use the
-<a href="https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-core.Iterable#id_forEach"><code>forEach()</code> method.</a>
-Using `forEach()` is a good option if you don’t need to
+[`forEach()`](https://api.dartlang.org/stable/dart-core/Iterable/forEach.html)
+method. Using `forEach()` is a good option if you don’t need to
 know the current iteration counter:
 
 <!-- ch02/flow_for_loops.dart -->

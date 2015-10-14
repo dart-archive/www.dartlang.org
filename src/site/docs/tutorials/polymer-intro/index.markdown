@@ -542,10 +542,6 @@ You can attach event handlers for other kinds of events.
 For example, you can use `on-input` to handle events
 for input text elements when the text changes.
 
-Refer to
-[Declarative event mapping](http://www.polymer-project.org/polymer.html#declarative-event-mapping)
-for further details.
-
 {% comment %}
 ##Querying the shadow root {#in-the-shadows}
 

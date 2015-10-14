@@ -2,8 +2,6 @@
 layout: default
 title: "Dart on Mobile"
 description: "Dart on Mobile is coming soon"
-header:
-  css: ["editor.css"]
 ---
 
 # {{ page.title }}
