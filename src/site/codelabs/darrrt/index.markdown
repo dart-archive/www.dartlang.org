@@ -874,7 +874,8 @@ class PirateName {
 
 * Getters are special methods that provide read access to an object’s properties.
 
-* The ternary operator `?:` is short-hand for an if-then-else statement.
+* The conditional operator `?:` is equivalent to an if-then-else
+  statement, but for expressions.
 
 * String interpolation
 (`'$_firstName the $_appellation'`)
