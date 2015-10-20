@@ -1,0 +1,26 @@
+<div class="row">
+<div class="row-fluid">
+
+<!-- PREV -->
+<div class="col-md-4">
+{% if page.prev-guide %}
+<a href="{{ page.prev-guide }}"><i class="glyphicon glyphicon-chevron-left"> </i> {{ page.prev-guide-title }}</a>
+{% endif %}
+</div>
+
+<!-- HOME -->
+<div class="col-md-4 text-center">
+{% if page.title != "Effective Dart" %}
+<a href="/effective-dart/">Effective Dart</a>
+{% endif %}
+</div>
+
+<!-- NEXT -->
+<div class="col-md-4">
+{% if page.next-guide %}
+<a href="{{ page.next-guide }}" class="pull-right">{{ page.next-guide-title }} <i class="glyphicon glyphicon-chevron-right"></i></a>
+{% endif %}
+</div>
+
+</div>
+</div>

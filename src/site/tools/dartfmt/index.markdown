@@ -9,11 +9,14 @@ description: "A tool that makes your code follow the conventions in the
 {% include toc.html %}
 {% include breadcrumbs.html %}
 
-# {{ page.title }} 
+# {{ page.title }}
 
 ---
 Use _dartfmt_ to format your Dart code according to the conventions in the
-[Dart Style Guide](/articles/style-guide/).
+[Effective Dart][]'s [style guide][].
+
+[effective dart]: /effective-dart/
+[style guide]: /effective-dart/style/
 
 To format your code in WebStorm,
 right-click anywhere in a Dart file's content pane,
@@ -82,7 +85,7 @@ Common command-line options for dartfmt include:
 `-w ` or `--overwrite`
 : Write the output back into the source file.
   By default, the output goes to standard output.
-            
+
 ## More information
 
 * [Dart Style Guide](/articles/style-guide/)

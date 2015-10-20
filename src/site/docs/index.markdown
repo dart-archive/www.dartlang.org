@@ -156,15 +156,12 @@ When you have a question or find a problem,
 try these resources.
 
 
-### Style
+### Best practices
 
 Whenever possible, follow the practices
-recommended in these documents:
+recommended in this guide:
 
-* [Idiomatic Dart](/articles/idiomatic-dart/)
-* [Dart Style Guide](/articles/style-guide/)
-* [API Naming Guide](/articles/api-naming-guide/)
-* [Guidelines for Doc Comments](/articles/doc-comment-guidelines/)
+* [Effective Dart](/effective-dart/)
 
 
 ### Programming questions

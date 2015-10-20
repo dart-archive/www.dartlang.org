@@ -51,16 +51,16 @@ handlers:
 - url: /cloud/client-server/client-code.html
   script: scripts.redirector.application
 
-- url: /cloud/
+- url: /cloud/?
   script: scripts.redirector.application
 
-- url: /cloud/client-server/
+- url: /cloud/client-server/?
   script: scripts.redirector.application
 
-- url: /tools/docgen/
+- url: /tools/docgen/?
   script: scripts.redirector.application
 
-- url: /tools/dartdocgen/
+- url: /tools/dartdocgen/?
   script: scripts.redirector.application
 
 - url: /docs/tutorials/web-ui/
@@ -138,16 +138,10 @@ handlers:
 - url: /polymer-dart/
   script: scripts.redirector.application
 
-- url: /tools/dartdoc
+- url: /tools/dartdoc/?
   script: scripts.redirector.application
 
-- url: /tools/dartdoc/
-  script: scripts.redirector.application
-
-- url: /tools/analyzer
-  script: scripts.redirector.application
-
-- url: /tools/analyzer/
+- url: /tools/analyzer/?
   script: scripts.redirector.application
 
 - url: /editor.*
@@ -199,6 +193,18 @@ handlers:
   script: scripts.redirector.application
 
 - url: /resources/
+  script: scripts.redirector.application
+
+- url: /articles/api-naming-guide/
+  script: scripts.redirector.application
+
+- url: /articles/doc-comment-guidelines/
+  script: scripts.redirector.application
+
+- url: /articles/idiomatic-dart/
+  script: scripts.redirector.application
+
+- url: /articles/style-guide/
   script: scripts.redirector.application
 
 - url: /articles/using-future-based-apis/
