@@ -166,3 +166,6 @@ Google internal tool for marketing
 
 [LiveNinja](https://liveninja.com/)
 : Customer service messaging platform using Dart on the server.
+
+[Symmetry Labs](http://app.symmetry-labs.com/)
+: A modular LED lighting fixture that can be configured by software written in Dart.
