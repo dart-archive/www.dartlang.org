@@ -365,8 +365,12 @@ expressing it.
 
 We think of ourselves as programmers, but most of the characters in a source
 file are intended primarily for humans to read. English is the language we code
-in to modify the brains of our coworkers. Like any programming language, it's
+in to modify the brains of our coworkers. As for any programming language, it's
 worth putting effort into improving your proficiency.
+
+This section lists a few guidelines for our docs. You can learn more about
+best practices for technical writing, in general, from articles such as
+[Technical writing style](https://en.wikiversity.org/wiki/Technical_writing_style).
 
 ### PREFER brevity.
 {:.no_toc}
@@ -392,7 +396,7 @@ class Box {
   /// The value this wraps.
   var _value;
 
-  /// Whether this box contains a value.
+  /// True if this box contains a value.
   bool get hasValue => _value != null;
 }
 {% endprettify %}

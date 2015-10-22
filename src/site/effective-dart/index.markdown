@@ -20,7 +20,7 @@ There are two over-arching themes to writing effective code:
 
  1. **Be consistent.** With things like formatting, and casing, arguments as to
     which is better tend to end up being mostly subjective and impossible to
-    resolve. What we do know is that being *consistent* is objectivly helpful.
+    resolve. What we do know is that being *consistent* is objectively helpful.
 
     If two pieces of code look different it should be because they *are*
     different in some meaningful way. When a bit of code stands out and catches
