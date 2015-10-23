@@ -327,18 +327,7 @@ abstract class Predicate {
 </div>
 
 
-## Members
-
-### PREFER making fields and top-level variables `final`.
-{:.no_toc}
-
-State that is not *mutable*&mdash;that does not change over time&mdash; is
-easier for programmers to reason about. Classes and libraries that minimize the
-amount of mutable state they work with tend to be easier to maintain.
-
-Of course, as an imperative language, it is often useful to have mutable data.
-But, if you don't need it, your default should be to make fields and top-level
-variables `final` when you can.
+## Constructors
 
 
 ### PREFER defining constructors instead of static methods to create instances.
@@ -389,6 +378,38 @@ class Point {
 }
 {% endprettify %}
 </div>
+
+
+### CONSIDER making your constructor `const` if the class supports it.
+{:.no_toc}
+
+If you have a class where all the fields are final, and the constructor does
+nothing but initialize them, you can make that constructor `const`. That lets
+users create instances of your class in places where constants are
+required&mdash;inside other larger constants, switch cases, default parameter
+values, etc.
+
+If you don't explicitly make it `const`, they aren't able to do that.
+
+Note, however, that a `const` constructor is a commitment in your public API. If
+you later change the constructor to non-`const`, it will break users that are
+calling it in constant expressions. If you don't want to commit to that, don't
+make it `const`. In practice, `const` constructors are most useful for simple,
+immutable data record sorts of classes.
+
+
+## Members
+
+### PREFER making fields and top-level variables `final`.
+{:.no_toc}
+
+State that is not *mutable*&mdash;that does not change over time&mdash;is
+easier for programmers to reason about. Classes and libraries that minimize the
+amount of mutable state they work with tend to be easier to maintain.
+
+Of course, it is often useful to have mutable data. But, if you don't need it,
+your default should be to make fields and top-level variables `final` when you
+can.
 
 
 ### DO use getters for operations that conceptually access properties.
@@ -729,3 +750,80 @@ This is consistent with core libraries that do the same thing.
 It's particularly important to be consistent here because these parameters are
 usually unnamed. If your API takes a length instead of an end point, the
 difference won't be visible at all at the callsite.
+
+
+## Equality
+
+Implementing custom equality behavior for a class can be tricky. Users have deep
+intuition about how equality works that your objects need to match, and
+collection types like hash tables have subtle contracts that they expect
+elements to follow.
+
+### DO override `hashCode` if you override `==`.
+{:.no_toc}
+
+The default hash code implementation provides an *identity* hash&mdash;two
+objects generally only have the same hash code if they are the exact same
+object. Likewise, the default behavior for `==` is identity.
+
+If you are overriding `==`, it implies you may have different objects that are
+considered "equal" by your class. **Any two objects that are equal must have the
+same hash code.** Otherwise, maps and other hash-based collections will fail to
+recognize that the two objects are equivalent.
+
+### DO make your `==` operator obey the mathematical rules of equality.
+{:.no_toc}
+
+An equivalence relation should be:
+
+* **Reflexive**: `a == a` should always return `true`.
+
+* **Symmetric**: `a == b` should return the same thing as `b == a`.
+
+* **Transitive**: If `a == b` and `b == c` both return `true`, then `a == c`
+  should too.
+
+Users and code that uses `==` expect all of these laws to be followed. If your
+class can't obey these rules, then `==` isn't the right name for the operation
+you're trying to express.
+
+### AVOID defining custom equality for mutable classes.
+{:.no_toc}
+
+When you define `==`, you also have to define `hashCode`. Both of those should
+take into account the object's fields. If those fields *change* then that
+implies the object's hash code can change.
+
+Most hash-based collections don't anticipate that&mdash;they assume an object's
+hash code will be the same forever and may behave unpredictably if that isn't
+true.
+
+### DON'T check for `null` in custom `==` operators.
+{:.no_toc}
+
+The language specifies that this check is done automatically and your `==`
+method is called only if the right-hand side is not `null`.
+
+<div class="good">
+{% prettify dart %}
+class Person {
+  final String name;
+
+  operator ==(other) =>
+      other is Person && name == other.name;
+}
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+class Person {
+  final String name;
+
+  operator ==(other) =>
+      other != null &&
+      other is Person &&
+      name == other.name;
+}
+{% endprettify %}
+</div>

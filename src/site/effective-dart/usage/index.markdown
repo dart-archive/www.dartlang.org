@@ -160,6 +160,58 @@ if (!words.isEmpty) return words.join(" ");
 {% endprettify %}
 </div>
 
+### PREFER using higher-order methods to transform a sequence.
+
+If you have a collection and want to produce a new modified collection from it,
+it's often shorter and more declarative to use `.map()`, `.where()`, and the
+other handy methods on `Iterable`.
+
+Using those instead of an imperative `for` loop makes it clear that your intent
+is to produce a new sequence and not any other side effects.
+
+<div class="good">
+{% prettify dart %}
+var aquaticNames = animals
+    .where((animal) => animal.isAquatic)
+    .map((animal) => animal.name);
+{% endprettify %}
+</div>
+
+At the same time, this can be taken too far. If you are chaining or nesting
+several higher-order methods, it may be clearer to just write a chunk of
+imperative code.
+
+### AVOID using `Iterable.forEach()` with a function literal.
+
+`forEach()` functions are widely used in JavaScript because the built in
+`for-in` loop doesn't do what you usually want. In Dart, if you want to iterate
+over a sequence, the idiomatic way to do that is using a loop.
+
+<div class="good">
+{% prettify dart %}
+for (var person in people) {
+  ...
+}
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+people.forEach((person) {
+  ...
+});
+{% endprettify %}
+</div>
+
+The exception is if all you want to do is invoke some already existing function
+on each element. In that case, `forEach()` is handy.
+
+<div class="good">
+{% prettify dart %}
+people.forEach(print);
+{% endprettify %}
+</div>
+
 ## Functions
 
 ### DO use a function declaration to bind a function to a name.
@@ -506,40 +558,6 @@ View(Style style, List children)
 </div>
 
 
-## Equality
-
-### DON'T check for `null` in custom `==` operators.
-{:.no_toc}
-
-If you override the equality operator, you do not have to check that the
-argument passed to it is `null`. The language specifies that this check is done
-automatically and your method is only called if the right-hand side is not
-`null`.
-
-<div class="good">
-{% prettify dart %}
-class Person {
-  final String name;
-
-  operator ==(other) =>
-      other is Person && name == other.name;
-}
-{% endprettify %}
-</div>
-
-<div class="bad">
-{% prettify dart %}
-class Person {
-  final String name;
-
-  operator ==(other) =>
-      other != null &&
-      other is Person &&
-      name == other.name;
-}
-{% endprettify %}
-</div>
-
 ## Async
 
 ### PREFER async/await over using raw futures.
@@ -574,6 +592,82 @@ Future<bool> doAsyncComputation() {
     log.error(e);
     return new Future.value(false);
   });
+}
+{% endprettify %}
+</div>
+
+### DON'T use `return await`.
+
+Awaiting a future and then returning from an async function, which then wraps
+that result back in a future, is redundant. Omit the `await`.
+
+<div class="good">
+{% prettify dart %}
+Future intersperse(Future before, String message, Future after) async {
+  await before;
+  print(message);
+  return after;
+}
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+Future intersperse(Future before, String message, Future after) async {
+  await before;
+  print(message);
+  return await after;
+}
+{% endprettify %}
+</div>
+
+### DON'T use `async` when it has no useful effect.
+
+It's easy to get in the habit of using `async` on any function that does
+anything related to asynchrony. But in some cases, it's extraneous. If you can
+omit the `async` without changing the behavior of the function, do so.
+
+<div class="good">
+{% prettify dart %}
+Future afterTwoThings(Future first, second) {
+  return Future.wait([first, second]);
+}
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+Future afterTwoThings(Future first, second) async {
+  return Future.wait([first, second]);
+}
+{% endprettify %}
+</div>
+
+Cases where `async` *is* useful include:
+
+* You are using `await`. (This is the obvious one.)
+
+* You are returning an error asynchronously. `async` and then `throw` is shorter
+  than `return new Future.error(...)`.
+
+* You are returning a value and you want it implicitly wrapped in a future.
+  `async` is shorter than `new Future.value(...)`.
+
+* You don't want any of the code to execute until after the event loop has taken
+  a turn.
+
+<div class="good">
+{% prettify dart %}
+Future usesAwait(Future later) async {
+  print(await later);
+}
+
+Future asyncError() async {
+  throw "Error!";
+}
+
+Future asyncValue() async {
+  return "value";
 }
 {% endprettify %}
 </div>
