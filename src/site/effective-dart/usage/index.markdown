@@ -161,6 +161,7 @@ if (!words.isEmpty) return words.join(" ");
 </div>
 
 ### PREFER using higher-order methods to transform a sequence.
+{:.no_toc}
 
 If you have a collection and want to produce a new modified collection from it,
 it's often shorter and more declarative to use `.map()`, `.where()`, and the
@@ -182,6 +183,7 @@ several higher-order methods, it may be clearer to just write a chunk of
 imperative code.
 
 ### AVOID using `Iterable.forEach()` with a function literal.
+{:.no_toc}
 
 `forEach()` functions are widely used in JavaScript because the built in
 `for-in` loop doesn't do what you usually want. In Dart, if you want to iterate
@@ -597,6 +599,7 @@ Future<bool> doAsyncComputation() {
 </div>
 
 ### DON'T use `return await`.
+{:.no_toc}
 
 Awaiting a future and then returning from an async function, which then wraps
 that result back in a future, is redundant. Omit the `await`.
@@ -622,6 +625,7 @@ Future intersperse(Future before, String message, Future after) async {
 </div>
 
 ### DON'T use `async` when it has no useful effect.
+{:.no_toc}
 
 It's easy to get in the habit of using `async` on any function that does
 anything related to asynchrony. But in some cases, it's extraneous. If you can
