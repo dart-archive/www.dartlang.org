@@ -301,6 +301,24 @@ subscription.asFuture()
 </div>
 
 
+## Libraries
+
+### PREFER making declarations private.
+{:.no_toc}
+
+A public declaration in a library&mdash;either top level or in a class&mdash;is
+a signal that other libraries can and should access that member. It is also a
+commitment on your library's part to support that and behave properly when it
+happens.
+
+If that's not what you intend, add the little `_` and be happy. Narrow public
+interfaces are easier for you to maintain and easier for users to learn.
+
+As a nice bonus, the analyzer will tell you about unused private declarations so
+you can delete dead code. It can't do that if the member is public because it
+doesn't know if any code outside of its view is using it.
+
+
 ## Types
 
 ### AVOID defining a one-member abstract class when a simple function will do.
@@ -399,6 +417,7 @@ immutable data record sorts of classes.
 
 
 ## Members
+
 
 ### PREFER making fields and top-level variables `final`.
 {:.no_toc}
