@@ -409,6 +409,21 @@ Modern editors emulate the behavior of tabs while inserting spaces, giving you
 the easy editing of tabs and the consistency of spaces.
 
 
+### DO place a newline after each statement or declaration.
+{:.no_toc}
+
+<div class="good">
+{% prettify dart %}
+main() {
+  first(statement);
+  second(statement);
+}
+
+anotherDeclaration() { ... }
+{% endprettify %}
+</div>
+
+
 ### DON'T place a space between the declared name of a method, operator, or setter and its parameter list.
 {:.no_toc}
 

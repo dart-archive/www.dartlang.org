@@ -194,7 +194,8 @@ consumeInput  // Sounds like it consumes it immediately.
 ### CONSIDER omitting the verb for named boolean parameters.
 {:.no_toc}
 
-This refines the previous rule. For named parameters that are boolean, the name is often just as clear without the verb and it reads better at the callsite.
+This refines the previous rule. For named parameters that are boolean, the name
+is often just as clear without the verb and it reads better at the callsite.
 
 <div class="good">
 {% prettify dart %}
@@ -208,9 +209,13 @@ new RegExp(pattern, caseSensitive: false)
 ### PREFER naming functions and methods using a verb phrase if side effects are its primary purpose.
 {:.no_toc}
 
-Callable members can return a result to the caller and perform other work or side effects. In an imperative language like Dart, members are often called mainly for their side effect: they may change an object's internal state, produce some output, or talk to the outside world.
+Callable members can return a result to the caller and perform other work or
+side effects. In an imperative language like Dart, members are often called
+mainly for their side effect: they may change an object's internal state,
+produce some output, or talk to the outside world.
 
-Those kinds of members should be named using a verb phrase that clarifies the work the member performs.
+Those kinds of members should be named using a verb phrase that clarifies the
+work the member performs.
 
 <div class="good">
 {% prettify dart %}
@@ -225,9 +230,15 @@ connection.downloadData()
 ### CONSIDER naming functions and methods using a noun phrase if the return value is its primary purpose.
 {:.no_toc}
 
-Other callable members have few side effects but return a useful result to the caller. If the member needs no parameters to do that, it should generally be a getter. But, sometimes a logical "property" needs some parameters. For example, `elementAt()` returns a piece of data from a colletion, but it needs a parameter to know *which* piece of data to return.
+Other callable members have few side effects but return a useful result to the
+caller. If the member needs no parameters to do that, it should generally be a
+getter. But, sometimes a logical "property" needs some parameters. For example,
+`elementAt()` returns a piece of data from a colletion, but it needs a parameter
+to know *which* piece of data to return.
 
-This means the member is *syntactically* a method, but *conceptually* it is a property, and should be named as such using a noun phrase describing *what* the member returns.
+This means the member is *syntactically* a method, but *conceptually* it is a
+property, and should be named as such using a noun phrase describing *what* the
+member returns.
 
 <div class="good">
 {% prettify dart %}
@@ -237,13 +248,16 @@ string.codeUnitAt(4)
 {% endprettify %}
 </div>
 
-This guideline is deliberately softer than the previous one. Sometimes a method has no side effects but is still clearer and simpler to name with a verb phrase like `list.take()` or `string.split()`.
+This guideline is deliberately softer than the previous one. Sometimes a method
+has no side effects but is still clearer and simpler to name with a verb phrase
+like `list.take()` or `string.split()`.
 
 
 ### AVOID describing the parameters in the function's or method's name.
 {:.no_toc}
 
-The user will see the argument at the callsite, so it usually doesn't help readability to also refer to it in the name itself.
+The user will see the argument at the callsite, so it usually doesn't help
+readability to also refer to it in the name itself.
 
 <div class="good">
 {% prettify dart %}
@@ -259,7 +273,8 @@ map.removeKey(key)
 {% endprettify %}
 </div>
 
-However, it can be useful to mention a parameter to disambiguate it from other similarly-named methods that take different types:
+However, it can be useful to mention a parameter to disambiguate it from other
+similarly-named methods that take different types:
 
 <div class="good">
 {% prettify dart %}
@@ -272,7 +287,10 @@ map.containsValue(value)
 ### PREFER naming a method `to___()` if it copies the object's state to a new object.
 {:.no_toc}
 
-A "conversion" method is one that returns a new object containing a copy of almost all of the state of the receiver but usually in some different form or representation. The core libraries have a convention that these methods are named starting with `to` followed by the kind of result.
+A "conversion" method is one that returns a new object containing a copy of
+almost all of the state of the receiver but usually in some different form or
+representation. The core libraries have a convention that these methods are
+named starting with `to` followed by the kind of result.
 
 If you define a conversion method, it's helpful to follow that convention.
 
@@ -288,7 +306,10 @@ dateTime.toLocal()
 ### PREFER naming a method `as___()` if it returns a different representation backed by the original object.
 {:.no_toc}
 
-Conversion methods are "snapshots". The resulting object has its own copy of the original object's state. There are other conversion-like methods that return *views*&mdash;they provide a new object, but that object refers back to the original. Later changes to the original object are reflected in the view.
+Conversion methods are "snapshots". The resulting object has its own copy of the
+original object's state. There are other conversion-like methods that return
+*views*&mdash;they provide a new object, but that object refers back to the
+original. Later changes to the original object are reflected in the view.
 
 The core library convention for you to follow is `as___()`.
 
@@ -361,12 +382,12 @@ constructors let you construct instances of subclasses or
 subinterfaces when appropriate.
 
 Still, some methods that technically create a new object don't feel
-"constructor-like". For example,
-[`Uri.parse()`](https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-core.Uri#id_parse)
-is a static method even though it creates a new URI from the given arguments.
-Likewise, classes implementing the
-[Builder pattern](http://en.wikipedia.org/wiki/Builder_pattern)
-may read better using static methods.
+"constructor-like". For example, [`Uri.parse()`](uri.parse) is a static method
+even though it creates a new URI from the given arguments. Likewise, classes
+implementing the [Builder pattern][] may read better using static methods.
+
+[uri.parse]: https://api.dartlang.org/apidocs/channels/stable/dartdoc-viewer/dart-core.Uri#id_parse
+[builder pattern]: http://en.wikipedia.org/wiki/Builder_pattern
 
 But, in most cases, you should use a constructor even though it's more verbose.
 When users want a new instance of your class, they expect a constructor to be
@@ -638,6 +659,35 @@ dynamic lookUpOrDefault(String name, Map map, dynamic defaultValue) {
 </div>
 
 
+### AVOID annotating with `Function`.
+{:.no_toc}
+
+The `Function` type is barely more precise than using no annotation at all. If
+you're bothering to annotate, it's better to use a precise function type that
+describes the signature and return type of the function.
+
+If you are annotating a field, this does mean you have to create a typedef, but
+that's usually worth doing.
+
+<div class="good">
+{% prettify dart %}
+bool isValidString(String value, bool predicate(String string)) { ... }
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+bool isValidString(String value, Function predicate) { ... }
+{% endprettify %}
+</div>
+
+One exception is if the variable can be one of several different function types.
+For example, it may allow a function that takes one mandatory parameter or a
+function that takes two. Since we don't have union types, there's no way to
+precisely type that and you'd normally have to use `dynamic`. `Function` is at
+least a *little* more precise than that.
+
+
 ### DO annotate with `Object` instead of `dynamic` to indicate any object is accepted.
 {:.no_toc}
 
@@ -726,15 +776,16 @@ new Duration({days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0})
 {% endprettify %}
 </div>
 
-### PREFER optional parameters over requiring the user to pass a special nonce value to omit a parameter.
+### AVOID mandatory parameters that permit nonce values.
 {:.no_toc}
 
 If the user is logically omitting a parameter, prefer letting them actually omit
-it instead of forcing them to pass `null`, an empty string or some other
-sentinel value that means "did not pass".
+it by making the parameter optional instead of forcing them to pass `null`, an
+empty string, or some other sentinel value that means "did not pass".
 
-It is terser and helps prevent bugs where a sentinel value like `null` is
-accidentally passed when the user thought they were providing a real value.
+Omitting the parameter is more terse and helps prevent bugs where a sentinel
+value like `null` is accidentally passed when the user thought they were
+providing a real value.
 
 <div class="good">
 {% prettify dart %}

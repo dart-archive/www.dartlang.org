@@ -160,7 +160,7 @@ if (!words.isEmpty) return words.join(" ");
 {% endprettify %}
 </div>
 
-### PREFER using higher-order methods to transform a sequence.
+### CONSIDER using higher-order methods to transform a sequence.
 {:.no_toc}
 
 If you have a collection and want to produce a new modified collection from it,
@@ -168,7 +168,7 @@ it's often shorter and more declarative to use `.map()`, `.where()`, and the
 other handy methods on `Iterable`.
 
 Using those instead of an imperative `for` loop makes it clear that your intent
-is to produce a new sequence and not any other side effects.
+is to produce a new sequence and not to produce side effects.
 
 <div class="good">
 {% prettify dart %}
@@ -179,8 +179,8 @@ var aquaticNames = animals
 </div>
 
 At the same time, this can be taken too far. If you are chaining or nesting
-several higher-order methods, it may be clearer to just write a chunk of
-imperative code.
+many higher-order methods, it may be clearer to write a chunk of imperative
+code.
 
 ### AVOID using `Iterable.forEach()` with a function literal.
 {:.no_toc}
@@ -675,3 +675,10 @@ Future asyncValue() async {
 }
 {% endprettify %}
 </div>
+
+### CONSIDER using higher-order methods to transform a stream.
+{:.no_toc}
+
+This parallels the above suggestion on iterables. Streams support many of the
+same methods and also handle things like transmitting errors, closing, etc.
+correctly.
