@@ -1070,13 +1070,15 @@ You **must** provide your own certificates for your servers.
    import 'dart:io';
 
    main() async {
-[[note]]1[[/note]]  [[highlight]]var testPkcertDatabase =[[/highlight]]
-         [[highlight]]Platform.script.resolve('pkcert').toFilePath();[[/highlight]]
-[[note]]2[[/note]]  [[highlight]]SecureSocket.initialize([[/highlight]]
-         [[highlight]]database: testPkcertDatabase, password: 'dartdart');[[/highlight]]
+     var certificateChain =
+         Platform.script.resolve('server_chain.pem').toFilePath();
+     var serverKey =
+         Platform.script.resolve('server_key.pem').toFilePath();
+[[note]]1[[/note]]  [[highlight]]var serverContext = new SecurityContext();[[/highlight]]
+[[note]]2[[/note]]  [[highlight]]serverContext.useCertificateChain(certificateChain);[[/highlight]]
+[[note]]3[[/note]]  [[highlight]]serverContext.usePrivateKey(serverKey, password: 'dartdart');[[/highlight]]
   
-[[note]]3[[/note]]  var requests = await HttpServer.bindSecure('localhost', 4047,
-         [[highlight]]certificateName: 'localhost_cert'[[/highlight]]);
+[[note]]4[[/note]]  var requests = await HttpServer.bindSecure('localhost', 4047, [[highlight]]serverContext[[/highlight]]);
      print('listening');
      await for (HttpRequest request in requests) {
        request.response..write('Hello, world!')
@@ -1087,15 +1089,17 @@ You **must** provide your own certificates for your servers.
 <div class="prettify-filename">hello_world_server_secure.dart</div><br>
 
 <span class="code-note">1</span>
-Get the path to the certificate database.
+Optional settings for a secure network connection are specified in a SecurityContext object.  There is a default object, SecurityContext.defaultContext, that includes trusted root certificates for well-known certificate authorities.
 
 <span class="code-note">2</span>
-Create and initialize a secure socket,
-providing the certificate to the socket.
+A file containing the chain of certificates from the server certificate up to the root of the signing authority, in [PEM format](http://how2ssl.com/articles/working_with_pem_files/).
 
 <span class="code-note">3</span>
-Use the `bindSecure()` method to bind to a host and port,
-providing the name of the certificate.
+A file containing the (encrypted) server certificate private key, in [PEM format](http://how2ssl.com/articles/working_with_pem_files/)
+
+<span class="code-note">4</span>
+The context argument is required on servers, optional for clients. If it is omitted, then the default context
+with built-in trusted roots is used.
 
 ##Other resources {#other-resources}
 
@@ -1112,7 +1116,8 @@ for further details about the classes and libraries discussed in this tutorial.
 | <a href="https://api.dartlang.org/dart_io/HttpClientResponse.html" target="_blank">HttpClientResponse</a> | A client-side response object |
 | <a href="https://api.dartlang.org/dart_io/HttpHeaders.html" target="_blank">HttpHeaders</a> | The headers for a request |
 | <a href="https://api.dartlang.org/dart_io/HttpStatus.html" target="_blank">HttpStatus</a> | The status of the response |
-| <a href="https://api.dartlang.org/dart_io/InternetAddres.html" target="_blank">InternetAddress</a> | An internet address |
+| <a href="https://api.dartlang.org/dart_io/InternetAddress.html" target="_blank">InternetAddress</a> | An internet address |
+| <a href="https://api.dartlang.org/dart_io/SecurityContext.html" target="_blank">SecurityContext</a> | Contains certificates, keys, and trust information for a secure connection |
 | <a href="https://pub.dartlang.org/packages/http_server" target="_blank">http_server</a> package | A package with higher-level HTTP classes |
 {: .table}
 
