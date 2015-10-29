@@ -187,7 +187,7 @@ changed because:
 *   `SCREAMING_CAPS` looks bad for many cases, particularly enum values for
     things like CSS colors.
 
-*   Constants often migrate to be being final non-const variables, which would
+*   Constants are often changed to final non-const variables, which would
     necessitate a name change.
 
 *   The `values` property automatically defined on an enum type is const and
@@ -232,7 +232,7 @@ Db
 
 ## Ordering
 
-To keep the preamble of your file tidy, we have a prescibed order that
+To keep the preamble of your file tidy, we have a prescribed order that
 directives should appear in. Each "section" should be separated by a blank line.
 
 

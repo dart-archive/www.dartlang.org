@@ -439,7 +439,7 @@ cleaner to just use a curly body with an explicit `return`.
 
 It's *not* a good idea to use this for `void` members. Readers expect `=>` to
 mean "returns a useful value", so even though it can be terse to use `=>` for
-member that doesn't return anything, it's clearer to use `{ ... }`.
+a member that doesn't return anything, it's clearer to use `{ ... }`.
 
 
 ## Constructors
@@ -473,8 +473,8 @@ class Point {
 </div>
 
 This `this.` syntax before a constructor parameter is called an "initializing
-formal". You can't always take advance of it. In particular, using it means the
-parameter is not visible in the initialization list. But, when you can, you
+formal". You can't always take advantage of it. In particular, using it means
+the parameter is not visible in the initialization list. But, when you can, you
 should.
 
 

@@ -14,16 +14,16 @@ next-guide-title: "Usage"
 
 # {{ page.title }}
 
-It's easy think your code is obvious today without realizing how much you
+It's easy to think your code is obvious today without realizing how much you
 rely on context already in your head. People new to your code, and
 even your forgetful future self won't have that context. A concise, accurate
 comment only takes a few seconds to write but can save one of those people
 hours of time.
 
 We all know code should be self-documenting and not all comments are helpful.
-But the reality is that most of don't write as many comments as we should. It's
-like exercise: you technically *can* do too much, but it's a lot more likely
-that you're doing too little. Try to step it up.
+But the reality is that most of us don't write as many comments as we should.
+It's like exercise: you technically *can* do too much, but it's a lot more
+likely that you're doing too little. Try to step it up.
 
 ## Comments
 

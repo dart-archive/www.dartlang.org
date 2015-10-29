@@ -233,8 +233,8 @@ connection.downloadData()
 Other callable members have few side effects but return a useful result to the
 caller. If the member needs no parameters to do that, it should generally be a
 getter. But, sometimes a logical "property" needs some parameters. For example,
-`elementAt()` returns a piece of data from a colletion, but it needs a parameter
-to know *which* piece of data to return.
+`elementAt()` returns a piece of data from a collection, but it needs a
+parameter to know *which* piece of data to return.
 
 This means the member is *syntactically* a method, but *conceptually* it is a
 property, and should be named as such using a noun phrase describing *what* the
