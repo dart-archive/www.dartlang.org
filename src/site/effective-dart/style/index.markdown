@@ -533,9 +533,8 @@ var numbers = <int>[1, 2, (3 + 4)];
 ### DO use a space before `{` in function and method bodies.
 {:.no_toc}
 
-This is an exception to the above rule. When a `{` is used after a parameter
-list in a function or method, there should be a space between it and the `)`
-ending the parameters.
+When a `{` is used after a parameter list in a function or method, there should
+be a space between it and the `)` ending the parameters.
 
 <div class="good">
 {% prettify dart %}

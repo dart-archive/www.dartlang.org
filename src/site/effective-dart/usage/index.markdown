@@ -576,7 +576,7 @@ asynchronous code.
 Future<bool> doAsyncComputation() async {
   try {
     var result = await longRunningCalculation();
-    return await verifyResult(result);
+    return verifyResult(result);
   } catch(e) {
     log.error(e);
     return false;
