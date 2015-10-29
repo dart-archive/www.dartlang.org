@@ -511,7 +511,7 @@ button.visible = false;
 </div>
 
 
-### DO not define a setter without a corresponding getter.
+### DON'T define a setter without a corresponding getter.
 {:.no_toc}
 
 Users think of getters and setters as visible properties of an object. A
