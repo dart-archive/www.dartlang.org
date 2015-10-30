@@ -264,6 +264,9 @@ handlers:
 - url: /web-ui/observables/
   script: scripts.redirector.application
 
+- url: /tools/observatory/
+  script: scripts.redirector.application
+
 - url: /codelabs/deploy/
   script: scripts.redirector.application
 

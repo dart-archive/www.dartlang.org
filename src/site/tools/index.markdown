@@ -164,7 +164,7 @@ These tools are in the [Dart SDK](/tools/sdk).
       <dd>Static analyzer </dd>
     <dt> <a href="https://github.com/dart-lang/dartdoc#dartdoc">dartdoc</a> </dt>
       <dd>API documentation generator </dd>
-    <dt> <a href="/tools/observatory/">Observatory</a> </dt>
+    <dt> <a href="http://dart-lang.github.io/observatory/">Observatory</a> </dt>
       <dd>Profiler for Dart apps</dd>
   </div>
   <div class="col-md-4">
