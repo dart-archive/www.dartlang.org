@@ -46,7 +46,7 @@ Common command-line options for dart include:
 
 `--old_gen_heap_size=<num>`
 : Sets the upper limit of
-  [old space](http://dart-lang.github.io/observatory/glossary.html#old-space) to `<num>` MB.
+  [old space](https://dart-lang.github.io/observatory/glossary.html#old-space) to `<num>` MB.
 
 `--version`
 : Displays VM version information.
@@ -76,12 +76,12 @@ instruct the VM to delay the start up, or the exit, of an isolate:
   If your standalone app executes quickly,
   it might exit before you can open Observatory. To avoid this situation,
   specify this flag on startup.  You must explicitly release all isolates
-  in the [Observatory debugger](http://dart-lang.github.io/observatory/debugger.html).
+  in the [Observatory debugger](https://dart-lang.github.io/observatory/debugger.html).
 
 `--pause-isolates-on-start`
 : Causes the VM to pause before starting any isolate.
   You must explicitly start each isolate in the
-  [Observatory debugger](http://dart-lang.github.io/observatory/debugger.html). 
+  [Observatory debugger](https://dart-lang.github.io/observatory/debugger.html). 
 
 `--observe`
 : A shortcut that combines `--enable-vm-service` and
@@ -89,7 +89,7 @@ instruct the VM to delay the start up, or the exit, of an isolate:
 
 `--profile`
 : On Windows, Observatory's
-  [CPU Profiler](http://dart-lang.github.io/observatory/cpu-profile.html) screen
+  [CPU Profiler](https://dart-lang.github.io/observatory/cpu-profile.html) screen
   is disabled by default. Use this option to enable it.
 
 The following is an example Observatory run:
@@ -98,7 +98,7 @@ The following is an example Observatory run:
 $ dart --observe <script>.dart
 {% endprettify %}
 
-For more information, see [Observatory](http://dart-lang.github.io/observatory/).
+For more information, see [Observatory](https://dart-lang.github.io/observatory/).
 
 #### Snapshot option {#snapshots}
 

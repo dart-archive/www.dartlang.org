@@ -24,7 +24,7 @@ You can access files, UDP and TCP sockets, HTTP, WebSockets, and more with the
 parse JSON, and more.
 
 Debugging and profiling your server app is easy with
-[Observatory](http://dart-lang.github.io/observatory/). Connect
+[Observatory](https://dart-lang.github.io/observatory/). Connect
 to your VM with your browser, and get real-time insight into your running
 app.
 
