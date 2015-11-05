@@ -149,9 +149,6 @@ Google internal tool for marketing
 [Issue Mover for GitHub](https://github-issue-mover.appspot.com/)
 : A tool that makes it easy to move issues between GitHub repos. Uses Dart on both the Client and Server side and is hosted on Google App Engine.
 
-[OSIRIS-REx](http://www.asteroidmission.org/)
-: Science Processing and Operations Center (SPOC). Web tools use Angular.dart and Redstone.dart.
-
 [CreeperHost](http://www.creeperhost.net/)
 : Web based tools for managing virtual servers and the services running on them. As well as some internal tools and processes.
 
