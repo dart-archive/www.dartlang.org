@@ -366,6 +366,53 @@ abstract class Predicate {
 </div>
 
 
+### AVOID extending a class that isn't intended to be subclassed.
+{:.no_toc}
+
+If a constructor is changed from a generative constructor to a factory
+constructor, any subclass constructor calling that constructor will break.
+Also, if a class changes which of its own methods it invokes on `this`, that
+may break subclasses that override those methods and expect them to be called
+at certain points.
+
+Both of these mean that a class needs to be deliberate about whether or not it
+wants to allow subclassing. This can be communicated in a doc comment, or by
+giving the class an obvious name like `IterableBase`. If the author of the class
+doesn't do that, it's best to assume you should *not* extend the class.
+Otherwise, later changes to it may break your code.
+
+
+### DO document whether your class supports being extended.
+{:.no_toc}
+
+This is the corollary to the above rule. If you want to allow subclasses of your
+class, state that. Suffix the class name with `Base`, or mention it in the
+class's doc comment.
+
+
+### AVOID mixing in a class that isn't intended to be a mixin.
+{:.no_toc}
+
+If a constructor is added to a class that previously did not define any, that
+breaks any other classes that are mixing it in. This is a seemingly innocuous
+change in the class and the restrictions around mixins aren't widely known. It's
+likely an author may add a constructor without realizing it will break your
+class that's mixing it in.
+
+Like with subclassing, this means a class needs to be deliberate about whether
+or not it wants to allow being used as a mixin. If the class doesn't have a doc
+comment or an obvious name like `IterableMixin`, you should assume you cannot
+mix in the class.
+
+
+### DO document whether your class supports being used as a mixin.
+{:.no_toc}
+
+Mention in the class's doc comment whether the class can or must be used as a
+mixin. If your class is designed for use only as a mixin, then consider adding
+`Mixin` to the end of the class name.
+
+
 ## Constructors
 
 
@@ -523,6 +570,21 @@ This guideline does *not* mean you should add a getter just to permit the setter
 you want to add. Object's shouldn't generally expose more state than they need
 to. If you have some piece of an object's state that can be modified but not
 exposed in the same way, use a method instead.
+
+
+### AVOID returning `null` from members whose return type is `bool`, `double`, `int`, or `num`.
+{:.no_toc}
+
+Even though all types are nullable in Dart, users assume those types almost
+never contain `null`, and the lowercase names encourage a "Java primitive"
+mindset.
+
+It can be occasionally useful to have a "nullable primitive" type in your API,
+for example to indicate the absence of a value for some key in a map, but these
+should be rare.
+
+If you do have a member of this type that may return `null`, document it very
+clearly, including the conditions under which `null` will be returned.
 
 
 ### AVOID returning `this` from methods just to enable a fluent interface.

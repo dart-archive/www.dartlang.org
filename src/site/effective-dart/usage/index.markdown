@@ -576,7 +576,7 @@ asynchronous code.
 Future<bool> doAsyncComputation() async {
   try {
     var result = await longRunningCalculation();
-    return verifyResult(result);
+    return verifyResult(result.summary);
   } catch(e) {
     log.error(e);
     return false;
@@ -589,37 +589,11 @@ Future<bool> doAsyncComputation() async {
 {% prettify dart %}
 Future<bool> doAsyncComputation() {
   return longRunningCalculation().then((result) {
-    return verifyResult(result);
+    return verifyResult(result.summary);
   }).catchError((e) {
     log.error(e);
     return new Future.value(false);
   });
-}
-{% endprettify %}
-</div>
-
-### DON'T use `return await`.
-{:.no_toc}
-
-Awaiting a future and then returning from an async function, which then wraps
-that result back in a future, is redundant. Omit the `await`.
-
-<div class="good">
-{% prettify dart %}
-Future intersperse(Future before, String message, Future after) async {
-  await before;
-  print(message);
-  return after;
-}
-{% endprettify %}
-</div>
-
-<div class="bad">
-{% prettify dart %}
-Future intersperse(Future before, String message, Future after) async {
-  await before;
-  print(message);
-  return await after;
 }
 {% endprettify %}
 </div>
