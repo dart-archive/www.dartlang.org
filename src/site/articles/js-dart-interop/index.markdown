@@ -23,6 +23,12 @@ you can use JavaScript code within Dart apps.
 The library works both in Dartium and
 in code that's compiled to JavaScript.
 
+<aside class="alert alert-warning" markdown="1">
+**Note:**
+We expect this package to be deprecated. The new way to use
+JavaScript APIs from Dart code will be to use the
+[js package](https://pub.dartlang.org/packages/js).
+</aside>
 
 ## Using the dart:js library
 
