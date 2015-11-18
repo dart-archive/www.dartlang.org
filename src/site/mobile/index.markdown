@@ -14,7 +14,8 @@ Flutter (née _Sky_)
 : An experimental, high-performance framework for mobile apps.
 
 Fletch
-: A Dart runtime that aims to support app deployment on Android and iOS.
+: An experimental project to enable highly productive development
+  for embedded devices.
 
 
 ## Flutter
@@ -33,10 +34,10 @@ See [flutter.io](http://flutter.io) for early developer documentation.
 
 ## Fletch
 
-Kaspar Lund discusses Fletch in this video from the
-[2015 Dart Developer Summit](/events/2015/summit/).
+Kasper Lund discusses Fletch in this video from the
+GOTO Copenhagen 2015 conference.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t8xdEO8LyL8?list=PLOU2XLYxmsIIQorIS8gagUiMau9S84vZV" frameborder="0" allowfullscreen></iframe><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hx2iGEAvZRk" frameborder="0" allowfullscreen></iframe><br>
 
 The [Fletch](https://github.com/dart-lang/fletch)
 project is open source and available on GitHub.
