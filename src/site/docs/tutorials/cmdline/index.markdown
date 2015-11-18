@@ -608,7 +608,7 @@ In addition, this tutorial covers two classes that help with command-line argume
 
 ## Other resources {#other-resources}
 
-Check out the [Dart for Server](/server/)
+Check out the [Dart for Server](https://dart-lang.github.io/server/)
 to find more resources related to writing command-line apps.
 
 Refer to the API docs for <a href="https://api.dartlang.org/dart_io.html" target="_blank">dart:io</a>,

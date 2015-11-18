@@ -131,7 +131,7 @@ and into [Dart Tools](/tools/).
 
 Removed Chapter 5, "Walkthrough: Dartiverse Search".
 For information on writing a Dart server, see the
-[server code lab](/codelabs/server/).
+[server code lab](https://dart-lang.github.io/server/codelab/).
 
 Fixed a few bugs:
 

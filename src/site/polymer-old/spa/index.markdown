@@ -22,8 +22,18 @@ paper-button.blue:hover {
 # {{ page.title }}
 
 <p layout vertical center style="float:right;margin: 0 0 0 10px;">
-  <a href="http://dart-lang.github.io/polymer-spa-example/final/" target="_blank"><img src="images/screenshot.png" style="width:300px;"></a>
+  <a href="https://dart-lang.github.io/polymer-spa-example/final/" target="_blank"><img src="images/screenshot.png" style="width:300px;"></a>
 </p>
+
+
+<aside class="alert alert-warning" markdown="1">
+**Note:**
+The links to the running demos in this article are broken.
+
+This article describes a pre-1.0 version of polymer.dart.
+For information about the latest version, go to the
+[Polymer Dart project](https://github.com/dart-lang/polymer-dart/wiki).
+</aside>
 
 This page shows you how to build a full-featured single page
 application that:
@@ -51,7 +61,7 @@ For an introduction to Polymer.dart see the
 </aside>
 
 <p layout horizontal center-center>
-<a href="http://dart-lang.github.io/polymer-spa-example/final/" target="_blank">
+<a href="https://dart-lang.github.io/polymer-spa-example/final/" target="_blank">
   <paper-button raised class="blue">
     <core-icon icon="arrow-forward"></core-icon>Launch the demo
   </paper-button>
@@ -225,7 +235,7 @@ select the first page. We'll [make that dynamic](#databinding) later.
 </aside>
 
 By now you should have
-<a href="http://dart-lang.github.io/polymer-spa-example/example-1-without-styles/" target="_blank">a
+<a href="https://dart-lang.github.io/polymer-spa-example/example-1-without-styles/" target="_blank">a
 basic app</a>, but did you notice **something subtle**? Thanks to Polymer's
 [layout attributes](https://www.polymer-project.org/docs/polymer/layout-attrs.html)
 and the
@@ -238,12 +248,12 @@ writing
 turns the app into something beautiful.
 
 <p layout horizontal center-center>
-<a href="http://dart-lang.github.io/polymer-spa-example/example-1-without-styles/" target="_blank">
+<a href="https://dart-lang.github.io/polymer-spa-example/example-1-without-styles/" target="_blank">
   <paper-button raised class="blue">
     <core-icon icon="arrow-forward"></core-icon>Demo: without CSS
   </paper-button>
 </a>
-<a href="http://dart-lang.github.io/polymer-spa-example/example-1-with-styles/" target="_blank">
+<a href="https://dart-lang.github.io/polymer-spa-example/example-1-with-styles/" target="_blank">
   <paper-button raised class="blue">
     <core-icon icon="arrow-forward"></core-icon>Demo: with CSS
   </paper-button>
@@ -440,7 +450,7 @@ attribute on each item as the selected value.
 {%endraw%}{% endprettify %}
 
 <p layout horizontal center-center>
-<a href="http://dart-lang.github.io/polymer-spa-example/example-2/" target="_blank">
+<a href="https://dart-lang.github.io/polymer-spa-example/example-2/" target="_blank">
   <paper-button raised class="blue">
     <core-icon icon="arrow-forward"></core-icon>Demo
   </paper-button>
@@ -661,7 +671,7 @@ And that's it! You can see the final source code or play with
 the example at the following links.
 
 <p layout horizontal center-center>
-<a href="http://dart-lang.github.io/polymer-spa-example/final/" target="_blank">
+<a href="https://dart-lang.github.io/polymer-spa-example/final/" target="_blank">
   <paper-button raised class="blue">
     <core-icon icon="arrow-forward"></core-icon>Launch the demo
   </paper-button>

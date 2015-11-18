@@ -656,9 +656,9 @@ See [Who Uses Dart] for more.
 [Dartium]: /tools/dartium/
 [JSON]: http://api.dartlang.org/docs/channels/stable/latest/dart_convert.html#JSON
 [tc52]: http://news.dartlang.org/2013/12/ecma-forms-tc52-for-dart-standardization.html
-[Dart on the Server]: /server/
+[Dart on the Server]: https://dart-lang.github.io/server/
 [Dart Tools]: /tools/
-[Dart and Google Cloud Platform]: /server/google-cloud-platform/
+[Dart and Google Cloud Platform]: https://dart-lang.github.io/server/google-cloud-platform/
 [Who Uses Dart]: /community/who-uses-dart.html
 [spec]: http://www.ecma-international.org/publications/standards/Ecma-408.htm
 [DEP]: https://github.com/dart-lang/dart_enhancement_proposals

@@ -97,6 +97,18 @@ class EclipseUpdateRedirectDevChannel(EclipseUpdateRedirectBase):
 class EclipseUpdateRedirectStableChannel(EclipseUpdateRedirectBase):
   prefix = 'storage.googleapis.com/dart-archive/channels/stable/release/latest/editor-eclipse-update'
 
+class ServerRedirect(RequestHandler):
+  def get(self):
+    filename = self.request.path.split('/server/')[1]
+    if filename == 'tls-ssl.html':
+        self.redirect('https://dart-lang.github.io/server/tls-ssl.html', permanent=True)
+    elif filename.find("app-engine") != -1:
+        self.redirect('https://dart-lang.github.io/server/google-cloud-platform/app-engine/', permanent=True)
+    elif filename.find("google-cloud-platform") != -1:
+        self.redirect('https://dart-lang.github.io/server/google-cloud-platform/', permanent=True)
+    else:
+        self.redirect('https://dart-lang.github.io/server/', permanent=True)
+
 class BookRedirect(RequestHandler):
   # logging.info('in BookRedirect')
   def get(self):
@@ -124,44 +136,6 @@ class BookRedirect(RequestHandler):
     else:
         self.redirect(book_home)
 
-
-class CloudRedirect(RequestHandler):
-  # logging.info('in CloudRedirect')
-  def get(self):
-    filename = self.request.path.split('/cloud')[1]
-    app_engine_home = '/server/google-cloud-platform/app-engine/'
-    if filename == '' or filename == '/':
-        self.redirect(app_engine_home, permanent=True)
-
-class CloudFilesRedirect(RequestHandler):
-  # logging.info('in CloudFilesRedirect')
-  def get(self):
-    filename = self.request.path.split('/cloud/')[1]
-    app_engine_home = '/server/google-cloud-platform/app-engine/'
-    filenames = ['api.html', 'deploy.html', 'index.html' 'run.html',
-                 'setup.html', 'client-server']
-    if filename in filenames:
-        self.redirect(app_engine_home + filename, permanent=True)
-
-class ClientServerRedirect(RequestHandler):
-  # logging.info('in ClientServerRedirect')
-  def get(self):
-    filename = self.request.path.split('/cloud/clientserver')[1]
-    client_server_home = '/server/google-cloud-platform/app-engine/client-server/'
-    if filename == '' or filename == '/':
-        self.redirect(client_server_home, permanent=True)
-
-class ClientServerFilesRedirect(RequestHandler):
-  # logging.info('in ClientServerFilesRedirect')
-  def get(self):
-    filename = self.request.path.split('/cloud/client-server/')[1]
-    client_server_home = '/server/google-cloud-platform/app-engine/client-server/'
-    filenames = ['client-code.html', 'server-code.html']
-    if filename == '' or filename == 'index.html':
-        self.redirect(client_server_home)
-    elif filename in filenames:
-        self.redirect(client_server_home + filename, permanent=True)
-
 class CookbookRedirect(RequestHandler):
   def get(self):
     self.redirect('/docs/dart-up-and-running/ch03.html', permanent=True)
@@ -176,9 +150,7 @@ application = WSGIApplication(
     ('/hangouts.*', HangoutsRedirectPage),
     ('/docs/pub-package-manager/.*', PubRedirectPage),
     ('/docs/dart-up-and-running/contents/.*', BookRedirect),
-    ('/cloud/client-server/.*', ClientServerFilesRedirect),
-    ('/cloud/', CloudRedirect),
-    ('/cloud/.*', CloudFilesRedirect),
+    ('/server/.*', ServerRedirect),
     Route('/editor/update/channels/be<path:.*>',
       EditorUpdateRedirectBeChannel),
     Route('/editor/update/channels/dev<path:.*>',
@@ -325,6 +297,8 @@ application = WSGIApplication(
       defaults={'_uri': '/codelabs/'}),
     Route('/codelabs/polymer/', RedirectHandler,
       defaults={'_uri': '/polymer/'}),
+    Route('/codelabs/server/', RedirectHandler,
+      defaults={'_uri': 'https://dart-lang.github.io/server/codelab/'}),
     Route('/docs/dart-up-and-running/ch05.html', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/'}),
     Route('/atom.xml', RedirectHandler,
@@ -337,8 +311,8 @@ application = WSGIApplication(
       defaults={'_uri': '/tools/dart2js/'}),
     Route('/+isolates', RedirectHandler,
       defaults={'_uri': 'https://dart-lang.github.io/observatory/isolate.html'}),
-    Route('/docs/serverguide.html', RedirectHandler,
-      defaults={'_uri': '/server/'}),
+    Route('/cloud/', RedirectHandler,
+      defaults={'_uri': 'https://dart-lang.github.io/server/'}),
     Route('/+', RedirectHandler,
       defaults={'_uri': 'https://google.com/+dartlang'}),
     Route('/mailing-list', RedirectHandler,

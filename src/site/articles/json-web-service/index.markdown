@@ -415,7 +415,7 @@ void main() {
 {% endprettify %}
 
 For more detailed information about JS Interop, see
-the [js package docs](http://dart-lang.github.com/js-interop/docs/js.html).
+the [js package docs](https://dart-lang.github.com/js-interop/docs/js.html).
 
 ## Summary
 
@@ -432,7 +432,7 @@ dart:convert library by letting you use dot notation to access data fields.
 * [HttpRequest](http://api.dartlang.org/html/HttpRequest.html)
 * [JsonObject](https://github.com/chrisbu/dartwatch-JsonObject)
 * [Using JSONP with Dart](http://blog.sethladd.com/2012/03/jsonp-with-dart.html)
-* [Dart JS Interop Library](http://dart-lang.github.com/js-interop/docs/js.html)
+* [Dart JS Interop Library](https://dart-lang.github.com/js-interop/docs/js.html)
 * [About access-control restrictions](https://developer.mozilla.org/en/http_access_control)
 
 ### About the author

@@ -21,40 +21,16 @@ pagespeed:
 #default_expiration: "1d"
 
 handlers:
+- url: /server/.*
+  script: scripts.redirector.application
+
 - url: /community/
   script: scripts.redirector.application
 
 - url: /\+
   script: scripts.redirector.application
 
-- url: /cloud/api.*
-  script: scripts.redirector.application
-
-- url: /cloud/deploy.*
-  script: scripts.redirector.application
-
-- url: /cloud/run.*
-  script: scripts.redirector.application
-
-- url: /cloud/setup.*
-  script: scripts.redirector.application
-
-- url: /cloud/client-server/
-  script: scripts.redirector.application
-
-- url: /cloud/client-server/index.html
-  script: scripts.redirector.application
-
-- url: /cloud/client-server/server-code.html
-  script: scripts.redirector.application
-
-- url: /cloud/client-server/client-code.html
-  script: scripts.redirector.application
-
 - url: /cloud/?
-  script: scripts.redirector.application
-
-- url: /cloud/client-server/?
   script: scripts.redirector.application
 
 - url: /tools/docgen/?
@@ -268,6 +244,9 @@ handlers:
   script: scripts.redirector.application
 
 - url: /codelabs/deploy/
+  script: scripts.redirector.application
+
+- url: /codelabs/server/
   script: scripts.redirector.application
 
 - url: /codelabs/polymer/

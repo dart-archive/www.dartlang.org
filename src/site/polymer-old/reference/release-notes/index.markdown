@@ -81,7 +81,7 @@ new core and paper elements packages follow.
 We are also releasing a new Polymer example which demonstrates how to use core
 and paper elements to make a responsive single page app with very little css and
 no HTML imports. See the tutorial [here](/polymer-old/spa/),
-live demo [here](http://dart-lang.github.io/polymer-spa-example/final/), and the
+live demo [here](https://dart-lang.github.io/polymer-spa-example/final/), and the
 code [here](https://github.com/dart-lang/polymer-spa-example).
 
 

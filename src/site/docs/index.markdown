@@ -25,7 +25,7 @@ or just start playing in
 This one-hour code lab assumes you have some programming experience
 but no previous experience with either Dart or web apps.
 
-[Beware the Nest o’ Pirates: Write a Server App](/codelabs/server/)
+[Beware the Nest o’ Pirates: Write a Server App](https://dart-lang.github.io/server/codelab/)
 : Walks you through creating a RESTful web server
 using the Dart SDK.
 This one-hour code lab assumes no previous experience with
@@ -105,12 +105,12 @@ you can use JavaScript libraries in your Dart app.
 
 You can use Dart for anything from scripts to web servers.
 
-[Dart on the Server](/server/)
+[Dart on the Server](https://dart-lang.github.io/server/)
 : Provides a set of samples, tutorials, and articles that
 explain the APIs, tools, and techniques for writing and
 deploying command-line apps such as servers and scripts.
 
-[Dart and Google Cloud Platform](/server/google-cloud-platform/)
+[Dart and Google Cloud Platform](https://dart-lang.github.io/server/google-cloud-platform/)
 : Has information on using Dart with Google's infrastructure,
 such as App Engine Managed VMs.
 

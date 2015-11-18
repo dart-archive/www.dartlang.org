@@ -356,10 +356,6 @@ void submitForm(Event e) {
 }
 {% endprettify %}
 
-{% comment %}
-[xx: mention here that you can intercept and forward, etc]
-{% endcomment %}
-
 ###Setting up and making the POST request
 
 Next, the code creates an
@@ -812,113 +808,6 @@ The HTML refers to the items in the map
 using their Dart names (identifiers).
 For example, the value of the color picker is bound to
 `theData['favoriteColor']`.
-
-{% comment %}
-####Special case: Using bind-value with a group of radio buttons
-
-The slambook form contains three radio buttons,
-which together make a group
-because they all have the same name, `catOrDog`.
-All of the radio buttons are bound to the same string.
-Because only one radio button in a group can be selected at a time
-and each radio button has a different value,
-the bound string reflects the value of the entire group.
-
-<img class="scale-img-max" src="images/radio-bindings.png"
-     alt="bind-value with a group of radio buttons">
-
-####Special case: Not using bind-value with a multiple select element
-
-By default a &lt;select&gt; element allows
-only one option to be selected at a time.
-For a single selection &lt;select&gt; element,
-use bind-selected-index (explained below)
-to get the index of the selected option.
-If you want to allow the user to select multiple options,
-use the `multiple` attribute.
-
-You can't bind the value of multiple &lt;select&gt; element to a string
-because it can have more than one value at a time.
-You can't bind the &lt;select&gt; element to a map.
-And you can't use bind-checked with the &lt;option&gt; elements.
-You *can*, however,
-use a change event handler on the &lt;select&gt; element
-and manage the change of selection in your Dart code.
-
-The slambook form doesn't have an example of a multi-select element.
-Instead, you can look at a different example,
-`multiselect`.
-
-**Try it!**
-
-* Click to select one option.
-* Shift-click to select options in series.
-* Command-click to make a discontiguous selection.
-
-<iframe class="running-app-frame"
-        style="height:400px;width:500px;"
-        src="http://dart-lang.github.io/dart-tutorials-samples/web/forms/multiselect/web/out/multiselect.html">
-</iframe>
-
-Key-value pairs in a map called `books` contain the data
-for the &lt;select&gt; element.
-The keys are strings and the values are boolean.
-
-{% prettify dart %}
-final Map<String, bool> books = toObservable(
-    { 'The Cat in the Hat': true, 'War and Peace': false,
-      'Pride and Prejudice': true, 'On the Road': true,
-      'The Hunger Games': true, 'The Java Tutorial':  false,
-      'The Joy of Cooking': false, 'Goodnight Moon': true }
-);
-{% endprettify %}
-
-Using `template repeat` from Polymer,
-the HTML code puts &lt;option&gt; elements in the
-&lt;select&gt; element based on the Dart map.
-Instead of binding the values of the &lt;option&gt; elements
-to the `books` map,
-the HTML code specifies a change event handler
-for the &lt;select&gt; element.
-
-{% prettify html %}
-<select multiple
-        on-change="changeselected($event)"
-        id="bookselector">
-    <option template repeat="key in books.keys" value="{{key}}">{{key}}</option>
-</select>
-{% endprettify %}
-
-The change handler for the select element
-updates the map whenever the user changes the selection.
-
-{% prettify dart %}
-void changeselected(Event e) {
-  // Get the selected elements.
-  List<OptionElement> options =
-      (querySelector('#bookselector') as SelectElement).selectedOptions;
-  // Set everything in books map to false temporarily.
-  books.forEach((k, v) => books[k] = false);
-  // Set true in books map for selected items.
-  options.forEach((e) => books[e.value] = true);
-}
-{% endprettify %}
-
-Using `template repeat`,
-the page displays the list of selected books in
-an unnumbered list element at the bottom of the window.
-This iterative template specifies
-a Dart getter, called `booksselected`,
-that dynamically creates a List object containing the keys
-to the selected books.
-
-<img class="scale-img-max" src="images/multiselect1.png"
-     alt="Display list of selected option elements">
-
-The `booksselected` getter has an implied dependency on
-the `books` map, because the getter uses the map.
-When `books` changes, the UI updates the unnumbered list of selected books.
-{% endcomment %}
 
 ###Using selectedIndex with a pull-down menu
 
