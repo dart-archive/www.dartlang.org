@@ -1,0 +1,66 @@
+<!--
+Copyright (c) 2015, the Dart project authors.  Please see the AUTHORS file
+for details. All rights reserved. Use of this source code is governed by a
+BSD-style license that can be found in the LICENSE file.
+-->
+<script>
+  (function() {
+
+    Polymer.PolymerInterop = Polymer.PolymerInterop || {};
+
+    Polymer.PolymerInterop.notifyPath = function (path, value, fromAbove) {
+      // For polymer dart elements, we need to actually set the value on the js
+      // side in order to support Map objects. Other elements are handled the
+      // normal way.
+      if (!this.__isPolymerDart__) this.notifyPath(path, value, fromAbove);
+
+      var parts = this._getPathParts(path);
+
+      // For top level read only properties of Polymer Dart elements we call
+      // the magic setter (created by Polymer JS) instead of going through
+      // `set`. This only matters for top level properties because those are
+      // the only ones that can be read only.
+      if (parts.length == 1) {
+        var prop = parts[0];
+        var propertyDescriptor = this.properties[prop];
+        if (propertyDescriptor && propertyDescriptor.readOnly) {
+          var setterPath =
+              '_set' + prop.charAt(0).toUpperCase() + prop.slice(1);
+          this[setterPath](value);
+          this.notifyPath(prop, value, fromAbove);
+          return;
+        }
+      }
+
+      var last = parts.splice(parts.length - 1)[0];
+      var obj = this.get(parts);
+
+      // Special handling when last part is a array item: need to replace
+      // item in collection associated with key for that item
+      if (Array.isArray(obj)) {
+        var coll = Polymer.Collection.get(obj);
+        var old;
+        if (last[0] == '#') {
+          // Part was key; lookup item in collection
+          old = coll.getItem(last);
+          // Update last part from key to index: O(n) lookup unavoidable
+          last = array.indexOf(old);
+          // Replace item associated with key in collection
+          coll.setItem(key, value);
+        } else if (parseInt(last, 10) == last) {
+          // Dereference index & lookup collection key
+          old = obj[last];
+          var key = coll.getKey(old);
+          // Replace item associated with key in collection
+          coll.setItem(key, value);
+        }
+      }
+
+      // Update the item with the modifed `last` property (with keys translated
+      // to indexes for arrays).
+      obj[last] = value;
+
+      this.notifyPath(path, value, fromAbove);
+    }
+  })()
+</script>
