@@ -18111,6 +18111,9 @@ if (Polymer.Bind) {
 
 <h2>Using Paper Elements</h2>
 
+<!-- Put the components into a template to work around a -->
+<!-- bug with paper-input. For more information, see -->
+<!-- https://github.com/dart-lang/polymer-dart/issues/647 -->
 <template is="dom-bind">
   <paper-checkbox>Notifications</paper-checkbox>
   <paper-dropdown-menu label="Favorite pizza">
