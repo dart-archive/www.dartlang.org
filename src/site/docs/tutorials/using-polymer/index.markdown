@@ -221,7 +221,7 @@ to view the messages as you interact with the widgets.
         src="examples/using_paper_elements/web/index.html">
 </iframe>
 
-[View the complete source](https://github.com/dart-lang/dart-tutorials-samples/archive/polymer/using_paper_elements).
+[View the complete source](https://github.com/dart-lang/dart-tutorials-samples/tree/master/polymer/using_paper_elements).
 
 ## Using data bindings
 
