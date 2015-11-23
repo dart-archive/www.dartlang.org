@@ -58,11 +58,6 @@ UPDATE version each release
 
 You can get a quick start with either of the following:
 
-[Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
-: Read this if you like a more structured walkthrough.
-This tutorial provides a detailed introduction to using polymer.dart
-to create custom elements.
-
 [Frequently Asked Questions (FAQ)](faq.html)
 : Get the answers to common questions about polymer.dart.
 This page has up-to-the-minute information that

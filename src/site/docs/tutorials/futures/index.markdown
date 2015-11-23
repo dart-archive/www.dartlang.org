@@ -7,8 +7,8 @@ tutorial:
   id: futures
 next: streams/
 next-title: "Asynchronous Programming: Streams"
-prev: polymer-intro/
-prev-title: "Define a Custom Element"
+prev: using-polymer/
+prev-title: "Use Polymer Elements"
 ---
 
 {% capture whats_the_point %}

@@ -160,12 +160,6 @@ col1:
     link: https://github.com/dart-lang/sample-todomvc-polymer/blob/master/README.md
     examples:
       -
-        title: Defining a custom element
-        explanation_url: /docs/tutorials/polymer-intro
-        tryit_url: stopwatch/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/stopwatch
-        description: Install Polymer, define and use a simple custom element.
-      -
         title: Get input from a form
         explanation_url: /docs/tutorials/forms
         tryit_url: slambook/

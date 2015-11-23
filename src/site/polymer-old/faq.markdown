@@ -24,7 +24,6 @@ much of this will move out into formal documentation.
 
 On www.dartlang.org:
 
-* [Tutorial: Define a Custom Element](/docs/tutorials/polymer-intro/)
 * [Polymer.dart](/polymer-old/)
   * [Using Elements](/polymer-old/using-elements/)
   * [Building Single Page Apps using Polymer.dart](/polymer-old/spa/)

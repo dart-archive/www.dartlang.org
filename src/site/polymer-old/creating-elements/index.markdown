@@ -18,11 +18,6 @@ you use three flavors of code:
 * Dart (optional), to define the element's behavior
 * CSS (optional), to define the element's appearance
 
-Along with the following code, check out the Dart tutorial
-[Define a Custom Element](/docs/tutorials/polymer-intro/).
-It shows you how to define, implement, and instantiate
-a custom element.
-
 ## A simple custom element
 
 You can write an HTML element with just a bit of HTML code.

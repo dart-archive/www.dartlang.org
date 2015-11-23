@@ -273,7 +273,7 @@ shows you how to use code written and shared by others.
 * One of those packages is polymer.dart,
 which makes manipulating the DOM even easier
 with data binding, templates, and declarative event handlers.
-Check out [Define a Custom Element](/docs/tutorials/polymer-intro)
+Check out [Use Polymer Elements](/docs/tutorials/using-polymer)
 for an introduction to polymer.dart.
 
 {% endcapture %}

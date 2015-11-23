@@ -611,9 +611,7 @@ Here is a summary of what changed since our last stable release (0.9.5+2).
       <link rel="import" href="packages/polymer/polymer.html">
 
   (See the
-  [todomvc example](https://github.com/dart-lang/sample-todomvc-polymer),
-  or check out the
-  [tutorial](/docs/tutorials/polymer-intro/).)
+  [todomvc example](https://github.com/dart-lang/sample-todomvc-polymer).
 
 * "noscript" polymer-elements are created by polymer.js,
   and therefore cannot be extended (subtyped) in Dart.

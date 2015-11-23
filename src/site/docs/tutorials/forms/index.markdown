@@ -67,9 +67,9 @@ including streams, Futures, HttpRequest, and so on.
 The server uses CORS headers to allow cross-origin requests.
 
 <aside class="alert alert-info" markdown="1">
-  <strong>Note:</strong>
+  **Note:**
   This tutorial assumes that you have read
-  [Define a Custom Element](/docs/tutorials/polymer-intro/),
+  [Use Polymer Elements](/docs/tutorials/using-polymer/),
   [Asynchronous Programming: Futures](/docs/tutorials/futures/),
   and [Fetch Data Dynamically](/docs/tutorials/fetchdata/)
   and are familiar with Polymer, Futures, JSON, and HttpRequest.
@@ -198,6 +198,13 @@ to a server programmatically using a POST request.
 
 ##About the slambook example, specifically {#about-the-slambook-example}
 
+<aside class="alert alert-warning" markdown="1">>
+**Version Note:** This section describes the slambook example,
+which was written under a pre-1.0 version of Polymer Dart.
+For information on the latest version go to the
+[Polymer Dart project](https://github.com/dart-lang/polymer-dart/wiki).
+</aside>
+
 The primary example in this tutorial consists of two programs.
 
 * First,
@@ -236,12 +243,6 @@ Enter some data and push the **Submit** button.
         style="height:500px;width:550px;"
         src="examples/slambook/web/slambook.html">
 </iframe>
-
-<aside class="alert">
-<strong>Version Note:</strong> The slambook app
-is compatible with
-<a href="https://pub.dartlang.org/packages/polymer#versions">polymer.dart 0.11</a>.
-</aside>
 
 The request gives you an innocent stare and displays "No server"
 because you are not running the server on your machine.
@@ -763,7 +764,7 @@ If the user changes the value in an input element,
 the bound variable in the Dart code automatically changes.
 Or if the Dart code changes the value of the bound variable,
 the UI automatically updates.
-[Define a Custom Element](/docs/tutorials/polymer-intro/)
+[Use Polymer Element](/docs/tutorials/using-polymer/)
 provides introductory details about Polymer and
 about data binding.
 

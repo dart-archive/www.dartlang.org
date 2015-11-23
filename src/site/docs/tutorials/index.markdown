@@ -163,7 +163,7 @@ from left to right...or choose just the ones you need.
 
         <div class="col-md-6">
           <section>
-          <h4 class="no-permalink"><a href="polymer-intro/"><img src="images/target.png" height="20" width="20">&nbsp;Define a Custom Element</a></h4>
+          <h4 class="no-permalink"><a href="using-polymer/"><img src="images/target.png" height="20" width="20">&nbsp;Use Polymer Elements</a></h4>
           <p>Create a custom HTML element using Polymer.</p>
           <img style="border:1px solid black"
                src="images/stopwatch-screenshot.png" width="200">
