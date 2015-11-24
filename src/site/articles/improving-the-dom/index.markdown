@@ -223,7 +223,7 @@ document.createElement('div');
 // New:
 new DivElement();
 new ButtonElement();
-new InputElement(); 
+new InputElement();
 new InputElement(type: 'checkbox');
 new TableElement();
 new StyleElement();
@@ -501,8 +501,8 @@ request.onerror = function(event) {
 request.onsuccess = function(event) {
   // Do something with request.result!
 };
-request.onupgradeneeded = function(event) { 
-   // Update object stores and indices .... 
+request.onupgradeneeded = function(event) {
+   // Update object stores and indices ....
 };
 
 // on success...
@@ -633,6 +633,6 @@ var button = new ButtonElement()
 Check out the
 [dart:html API docs](http://api.dartlang.org/docs/releases/latest/dart_html.html).
 
-Speaking of browser programming, you might be interested in our
-[Web UI](/articles/dart-web-components/)
-libraries that build on Web Components and provide live, two-way data binding.
+Speaking of browser programming, you might be interested in
+[Angular 2 for Dart](https://angular.io/docs/dart/latest/quickstart.html)
+or [Polymer Dart](/docs/tutorials/using-polymer/).
