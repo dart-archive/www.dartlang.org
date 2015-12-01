@@ -1,3 +1,17 @@
+- title: Learning Dart - Second Edition
+  authors:
+    - Ivo Balbaert
+    - Dzenan Ridjanovic 
+  publisher: Packt Publishing
+  cover: learning-dart.png
+  link: https://www.packtpub.com/web-development/learning-dart-second-edition
+  desc: "Develop apps for the modern web using Dart and HTML5.
+        Clarify and shorten your Dart code using enums and build a
+        complex UI for business applications with Dart's Polymer
+        framework, based on web components. If you want to become  
+        a developer for the modern web, or wish to add Dart to your
+        tool belt, then this book is for you."
+
 - title: Dart By Example
   authors:
     - Davy Mitchell
@@ -115,23 +129,6 @@
          The reader will not only gain an insight into Dart, but also the
          technologies behind the web. A firm foundation is laid for further
          programming studies.'
-
-- title: Learning Dart
-  authors:
-    - Dzenan Ridjanovic 
-    - Ivo Balbaert
-  publisher: Packt Publishing
-  cover: learning-dart.jpg
-  link: http://www.packtpub.com/learning-dart/book
-  desc: 'Learning Dart provides you with a thorough overview of this new
-        open source programming language. It will guide you step-by-step 
-        through building games and business applications for the Web, taking
-        advantage of the power behind a modern language combined with HTML5.
-        Learning Dart starts by exploring the Dart ecosystem. This is followed
-        by two chapters that will show you everything you need to know about
-        Dart syntax and development principles. Throughout the rest of the
-        book, you will apply this knowledge to advanced topics with the help
-        of an example-based approach.'    
 
 - title: Dart for Hipsters
   authors:
