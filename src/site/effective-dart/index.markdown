@@ -61,7 +61,7 @@ We split the guidelines into a few separate pages for easy digestion:
     consistent, usable APIs for libraries. If it's in a type signature or
     declaration, this goes over it.
 
-[dartfmt]: https://github.com/dart-lang/dart_style
+[dartfmt]: https://github.com/dart-lang/dart_style#readme
 [style guide]: /effective-dart/style
 [documentation guide]: /effective-dart/documentation
 [usage guide]: /effective-dart/usage

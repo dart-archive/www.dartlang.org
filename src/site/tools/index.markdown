@@ -168,7 +168,7 @@ These tools are in the [Dart SDK](/tools/sdk).
       <dd>Profiler for Dart apps</dd>
   </div>
   <div class="col-md-4">
-    <dt> <a href="/tools/dartfmt/">dartfmt</a> </dt>
+    <dt> <a href="https://github.com/dart-lang/dart_style#readme">dartfmt</a> </dt>
       <dd>Code formatter</dd>
     <dt> <a href="/tools/pub/">pub</a> </dt>
       <dd>Package and asset manager </dd>

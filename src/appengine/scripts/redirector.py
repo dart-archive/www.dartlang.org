@@ -203,6 +203,8 @@ application = WSGIApplication(
       defaults={'_uri': '/downloads/'}),
     Route('/tools/dartdoc/', RedirectHandler,
       defaults={'_uri': 'https://github.com/dart-lang/dartdoc#dartdoc'}),
+    Route('/tools/dartfmt/', RedirectHandler,
+      defaults={'_uri': 'https://github.com/dart-lang/dart_style#readme'}),
     Route('/tools/observatory/', RedirectHandler,
       defaults={'_uri': 'https://dart-lang.github.io/observatory/'}),
     Route('/tools/docgen/', RedirectHandler,

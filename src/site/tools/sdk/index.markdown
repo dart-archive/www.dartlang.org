@@ -50,7 +50,7 @@ and a `bin` directory that has these command-line tools:
 [pub](/tools/pub/)
 : The Dart package and asset manager
 
-[dartfmt](/tools/dartfmt/)
+[dartfmt](https://github.com/dart-lang/dart_style#readme)
 : The Dart code formatter
 
 </div> </div>
