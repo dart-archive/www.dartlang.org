@@ -30,6 +30,9 @@ handlers:
 - url: /\+
   script: scripts.redirector.application
 
+- url: /googleapis/?
+  script: scripts.redirector.application
+
 - url: /cloud/?
   script: scripts.redirector.application
 

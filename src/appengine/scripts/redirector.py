@@ -132,7 +132,7 @@ class BookRedirect(RequestHandler):
     elif filename == 'ch04-tools-dart-vm.html':
         self.redirect('/tools/dart-vm/', permanent=True)
     elif filename == 'ch04-tools-dart_analyzer.html':
-        self.redirect('/tools/analyzer/', permanent=True)
+        self.redirect('https://github.com/dart-lang/sdk/tree/master/pkg/analyzer#analyzer-for-dart', permanent=True)
     else:
         self.redirect(book_home)
 
@@ -201,6 +201,8 @@ application = WSGIApplication(
       defaults={'_uri': '/downloads/archive/'}),
     Route('/tools/download.html', RedirectHandler,
       defaults={'_uri': '/downloads/'}),
+    Route('/googleapis/', RedirectHandler,
+      defaults={'_uri': 'https://github.com/dart-lang/googleapis#google-apis-client-libraries-with-dart'}),
     Route('/tools/dartdoc/', RedirectHandler,
       defaults={'_uri': 'https://github.com/dart-lang/dartdoc#dartdoc'}),
     Route('/tools/dartfmt/', RedirectHandler,
@@ -212,7 +214,7 @@ application = WSGIApplication(
     Route('/tools/dartdocgen/', RedirectHandler,
       defaults={'_uri': 'https://github.com/dart-lang/dartdoc#dartdoc'}),
     Route('/tools/analyzer/', RedirectHandler,
-      defaults={'_uri': 'https://github.com/dart-lang/analyzer_cli#dartanalyzer'}),
+      defaults={'_uri': 'https://github.com/dart-lang/sdk/tree/master/pkg/analyzer#analyzer-for-dart'}),
     Route('/language-tour/', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch02.html'}),
     Route('/docs/language-tour/', RedirectHandler,
