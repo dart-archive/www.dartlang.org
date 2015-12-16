@@ -64,7 +64,7 @@ apps:
 
 `42`
 
-:   A number literal. Literals are a kind of compile-time constant.
+:   A number literal. Number literals are a kind of compile-time constant.
 
 `print()`
 
@@ -106,7 +106,7 @@ mind:
 -   Everything you can place in a variable is an *object*, and every
     object is an instance of a *class*. Even numbers, functions, and
     `null` are objects. All objects inherit from the
-    [Object](http://api.dartlang.org/dart_core/Object.html) class.
+    [Object](https://api.dartlang.org/stable/dart-core/Object-class.html) class.
 
 -   Specifying static types (such as `num` in the preceding example)
     clarifies your intent and enables static checking by tools, but it’s
@@ -263,10 +263,16 @@ of using `var`, rather than type annotations, for local variables.
 
 If you never intend to change a variable, use `final` or `const`, either
 instead of `var` or in addition to a type. A final variable can be set
-only once; a const variable is a compile-time constant.
+only once; a const variable is a compile-time constant. (Const variables
+are implicitly final.) A final top-level or class variable is initialized
+the first time it's used.
 
-A top-level or class variable that’s declared as `final` is initialized
-the first time it’s used:
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Instance variables can be `final` but not `const`.
+</aside>
+
+Here's an example of creating and setting a final variable:
 
 <!-- ch02/final_initialization.dart -->
 {% prettify dart %}
@@ -274,15 +280,10 @@ final name = 'Bob'; // Or: final String name = 'Bob';
 // name = 'Alice';  // Uncommenting this causes an error
 {% endprettify %}
 
-<aside class="alert alert-info" markdown="1">
-**Note:**
-Lazy initialization of final variables helps apps start up faster.
-</aside>
-
 Use `const` for variables that you want to be compile-time constants. If
 the const variable is at the class level, mark it `static const`.
-(Instance variables can’t be const.) Where you declare the variable, set
-the value to a compile-time constant such as a literal, a const
+Where you declare the variable, set the value to a compile-time constant
+such as a number or string literal, a const
 variable, or the result of an arithmetic operation on constant numbers:
 
 <!-- ch02/const.dart -->
@@ -290,6 +291,31 @@ variable, or the result of an arithmetic operation on constant numbers:
 const bar = 1000000;       // Unit of pressure (dynes/cm2)
 const atm = 1.01325 * bar; // Standard atmosphere
 {% endprettify %}
+
+The `const` keyword isn't just for declaring constant variables.
+You can also use it to create constant _values_,
+as well as to declare constructors that _create_ constant values.
+Any variable can have a constant value.
+
+<!-- ch02/const_vs_const.dart -->
+{% prettify dart %}
+// Note: [] creates an empty list.
+// const [] creates an empty, immutable list (EIA).
+var foo = const [];   // foo is currently an EIA.
+final bar = const []; // bar will always be an EIA.
+const baz = const []; // baz is a compile-time constant EIA.
+
+// You can change the value of a non-final, non-const variable,
+// even if it used to have a const value.
+foo = [];
+
+// You can't change the value of a final or const variable.
+// bar = []; // Unhandled exception.
+// baz = []; // Unhandled exception.
+{% endprettify %}
+
+For more information on using `const` to create constant values, see
+[Lists](#lists), [Maps](#maps), and [Classes](#classes).
 
 
 ## Built-in types {#built-in-types}
@@ -319,23 +345,23 @@ use the `Map()` constructor to create a map, using code such as
 
 Dart numbers come in two flavors:
 
-[`int`](http://api.dartlang.org/dart_core/int.html)
+[`int`](https://api.dartlang.org/stable/dart-core/int-class.html)
 
 :   Integer values, which generally should be in the range
     -2<sup>53</sup> to 2<sup>53</sup>
 
-[`double`](http://api.dartlang.org/dart_core/double.html)
+[`double`](https://api.dartlang.org/stable/dart-core/double-class.html)
 
 :   64-bit (double-precision) floating-point numbers, as specified by
     the IEEE 754 standard
 
 Both `int` and `double` are subtypes of
-[`num`.](http://api.dartlang.org/dart_core/num.html) The num type
+[`num`.](https://api.dartlang.org/stable/dart-core/num-class.html) The num type
 includes basic operators such as +, -, /, and \*, as well as bitwise
 operators such as \>\>. The num type is also where you’ll find
 `abs()`,` ceil()`, and `floor()`, among other methods. If num and its
 subtypes don’t have what you’re looking for, the
-[Math](http://api.dartlang.org/dart_math.html) library might.
+[dart:math](https://api.dartlang.org/stable/dart-math/dart-math-library.html) library might.
 
 <aside class="alert alert-warning" markdown="1">
 **Warning:**
@@ -395,6 +421,18 @@ The int type specifies the traditional bitwise shift (\<\<, \>\>), AND
 assert((3 << 1) == 6);  // 0011 << 1 == 0110
 assert((3 >> 1) == 1);  // 0011 >> 1 == 0001
 assert((3 | 4)  == 7);  // 0011 | 0100 == 0111
+{% endprettify %}
+
+Literal numbers are compile-time constants.
+Many arithmetic expressions are also compile-time constants,
+as long as their operands are
+compile-time constants that evaluate to numbers.
+
+<!-- ch02/number_literals.dart -->
+{% prettify dart %}
+const msPerSecond = 1000;
+const secondsUntilRetry = 5;
+const msUntilRetry = secondsUntilRetry * msPerSecond;
 {% endprettify %}
 
 
@@ -481,6 +519,27 @@ You can use Unicode escapes inside of strings:
 print('Unicode escapes work: \u2665');
 {% endprettify %}
 
+Literal strings are compile-time constants,
+as long as any interpolated expression is a compile-time constant
+that evaluates to null or a numeric, string, or boolean value.
+
+<!-- ch02/string_literals.dart -->
+{% prettify dart %}
+// These work in a const string.
+const aConstNum = 0;
+const aConstBool = true;
+const aConstString = 'a constant string';
+
+// These do NOT work in a const string.
+var aNum = 0;
+var aBool = true;
+var aString = 'a string';
+const aConstList = const [1, 2, 3];
+
+const validConstString = '$aConstNum $aConstBool $aConstString';
+// const invalidConstString = '$aNum $aBool $aString $aConstList';
+{% endprettify %}
+
 For more information on using strings, see
 [Strings and regular expressions](ch03.html#strings-and-regular-expressions).
 
@@ -489,7 +548,8 @@ For more information on using strings, see
 {:.no_toc}
 
 To represent boolean values, Dart has a type named `bool`. Only two
-objects have type bool: the boolean literals, `true` and `false`.
+objects have type bool: the boolean literals `true` and `false`,
+which are both compile-time constants.
 
 When Dart expects a boolean value, only the value `true` is treated as
 true. All other values are treated as false. Unlike in JavaScript,
@@ -567,7 +627,7 @@ assert(iMeantToDoThis.isNaN);
 
 Perhaps the most common collection in nearly every programming language
 is the *array*, or ordered group of objects. In Dart, arrays are
-[List](http://api.dartlang.org/dart_core/List.html) objects, so we
+[List](https://api.dartlang.org/stable/dart-core/List-class.html) objects, so we
 usually just call them *lists*.
 
 Dart list literals look like JavaScript array literals. Here’s a simple
@@ -588,6 +648,18 @@ JavaScript:
 var list = [1, 2, 3];
 assert(list.length == 3);
 assert(list[1] == 2);
+
+list[1] = 1;
+assert(list[1] == 1);
+{% endprettify %}
+
+To create a list that's a compile-time constant,
+add `const` before the list literal:
+
+<!-- ch02/list_literal.dart -->
+{% prettify dart %}
+var constantList = const [1, 2, 3];
+// constantList[1] = 1; // Uncommenting this causes an error.
 {% endprettify %}
 
 The List type has many handy methods for manipulating lists. For more
@@ -602,7 +674,7 @@ In general, a map is an object that associates keys and values. Both
 keys and values can be any type of object. Each *key* occurs only once,
 but you can use the same *value* multiple times. Dart support for maps
 is provided by map literals and the
-[Map](http://api.dartlang.org/dart_core/Map.html) type.
+[Map](https://api.dartlang.org/stable/dart-core/Map-class.html) type.
 
 Here are a couple of simple Dart maps, created using map literals:
 
@@ -672,6 +744,20 @@ gifts['fourth'] = 'calling birds';
 assert(gifts.length == 2);
 {% endprettify %}
 
+To create a map that's a compile-time constant,
+add `const` before the map literal:
+
+<!-- ch02/map_literal.dart -->
+{% prettify dart %}
+final constantMap = const {
+  2: 'helium',
+  10: 'neon',
+  18: 'argon',
+};
+
+// constantMap[2] = 'Helium'; // Uncommenting this causes an error.
+{% endprettify %}
+
 For more information about maps, see
 [Generics](#generics) and
 [Maps](ch03.html#maps).
@@ -680,7 +766,7 @@ For more information about maps, see
 ### Symbols {#symbols}
 {:.no_toc}
 
-A [Symbol](http://api.dartlang.org/dart_core/Symbol.html) object
+A [Symbol](http://api.dartlang.org/stable/dart-core/Symbol-class.html) object
 represents an operator or identifier declared in a Dart program. You
 might never need to use symbols, but they're invaluable for APIs that
 refer to identifiers by name, because minification changes identifier
@@ -695,6 +781,8 @@ To get the symbol for an identifier, use a symbol literal, which is just
 #bar
 {% endprettify %}
 
+Symbol literals are compile-time constants.
+
 For more information on symbols, see
 [dart:mirrors - reflection](ch03.html#dartmirrors---reflection).
 
@@ -705,18 +793,19 @@ Here’s an example of implementing a function:
 
 <!-- ch02/function_example.dart -->
 {% prettify dart %}
-void printNumber(num number) {
-  print('The number is $number.');
+bool isNoble(int atomicNumber) {
+  return _nobleGases[atomicNumber] != null;
 }
 {% endprettify %}
 
-Although the style guide recommends specifying the parameter and return
-types, you don’t have to:
+Although Effective Dart recommends
+[type annotations for public APIs](/effective-dart/design/#do-type-annotate-public-apis),
+the function still works if you omit the types:
 
 <!-- ch02/function_omitting_types.dart -->
 {% prettify dart %}
-printNumber(number) { // Omitting types is OK.
-  print('The number is $number.');
+isNoble(atomicNumber) {
+  return _nobleGases[atomicNumber] != null;
 }
 {% endprettify %}
 
@@ -725,13 +814,11 @@ syntax:
 
 <!-- ch02/function_shorthand.dart -->
 {% prettify dart %}
-void printNumber(num number) =>
-    print('The number is $number.');
+bool isNoble(int atomicNumber) => _nobleGases[atomicNumber] != null;
 {% endprettify %}
 
 The <code>=> <em>expr</em>;</code> syntax is a shorthand for
-<code>{ return <em>expr</em>;}</code>. In the `printNumber()` function, the expression is the
-call to the top-level `print()` function.
+<code>{ return <em>expr</em>;}</code>.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
@@ -740,13 +827,6 @@ Only an *expression*—not a *statement*—can appear between the arrow
 statement](#if-and-else) there, but you can use a [conditional
 expression](#conditional-expressions).
 </aside>
-
-Here’s an example of calling a function:
-
-<!-- ch02/function_calling.dart -->
-{% prettify dart %}
-printNumber(123);
-{% endprettify %}
 
 A function can have two types of parameters: required and optional. The
 required parameters are listed first, followed by any optional
@@ -759,7 +839,7 @@ parameters.
 Optional parameters can be either positional or named, but not both.
 
 Both kinds of optional parameter can have default values. The default
-values must be compile-time constants such as literals. If no default
+values must be compile-time constants. If no default
 value is provided, the value is `null`.
 
 #### Optional named parameters {#optional-named-parameters}
@@ -874,9 +954,10 @@ void main() {
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The `..` operator in the preceding code is a cascade operator, which
+The `..` operator in the preceding code is a
+[cascade](#cascade) operator, which
 allows you to perform multiple operations on the members of a single
-object. You'll find out more in [Classes](#classes).
+object.
 </aside>
 
 Here's an example of the `main()` function for a command-line app that
@@ -1003,7 +1084,7 @@ instance methods for equality:
 {% prettify dart %}
 foo() {}               // A top-level function
 
-class SomeClass {
+class A {
   static void bar() {} // A static method
   void baz() {}        // An instance method
 }
@@ -1425,6 +1506,20 @@ String toString() {
 }
 {% endprettify %}
 
+### Cascade operator (..) {#cascade}
+{:.no_toc}
+
+You've probably noticed the cascade operator (`..`) already.
+It allows you to perform multiple operations on the members of
+a single object.
+
+Consider the following code:
+
+<!-- ch02/cascade_operator/web/web_app.dart -->
+{% prettify dart %}
+{% endprettify %}
+
+
 ### Other operators {#other-operators}
 {:.no_toc}
 
@@ -1437,7 +1532,6 @@ You've seen most of the remaining operators in other examples:
 | `[]`     | List access          | Refers to the value at the specified index in the list
 | `.`      | Member access        | Refers to a property of an expression; example: `foo.bar` selects property `bar` from expression `foo`
 | `?.`     | Conditional member access | Like `.`, but the leftmost operand can be null; example: `foo?.bar` selects property `bar` from expression `foo` unless `foo` is null (in which case the value of `foo?.bar` is null)
-| `..`     | Cascade              | Allows you to perform multiple operations on the members of a single object; described in [Classes](#classes)
 {:.table .table-striped}
 
 For more information about the `.`, `?.`, and `..` operators, see
@@ -1583,9 +1677,9 @@ for (int i = 0; i < candidates.length; i++) {
 }
 {% endprettify %}
 
-You might write that example differently if you’re using a
-[Iterable](http://api.dartlang.org/dart_core/Iterable.html) such as a
-list or set:
+You might write that example differently if you’re using an
+[Iterable](https://api.dartlang.org/stable/dart-core/Iterable-class.html)
+such as a list or set:
 
 <!-- ch02/flow_break_continue.dart -->
 {% prettify dart %}
@@ -1724,7 +1818,7 @@ Inside the parentheses after `assert`, you can put any expression that
 resolves to a boolean value or to a function. If the expression’s value
 or function’s return value is true, the assertion succeeds and execution
 continues. If it's false, the assertion fails and an exception (an
-[AssertionError](http://api.dartlang.org/dart_core/AssertionError.html))
+[AssertionError](https://api.dartlang.org/stable/dart-core/AssertionError-class.html))
 is thrown.
 
 
@@ -1740,12 +1834,11 @@ Methods do not declare which exceptions they might throw, and you are
 not required to catch any exceptions.
 
 Dart provides
-[Exception](http://api.dartlang.org/dart_core/Exception.html) and
-[Error](http://api.dartlang.org/docs/continuous/dart_core/Error.html)
+[Exception](https://api.dartlang.org/stable/dart-core/Exception-class.html) and
+[Error](https://api.dartlang.org/stable/dart-core/Error-class.html)
 types, as well as numerous predefined subtypes. You can, of course,
 define your own exceptions. However, Dart programs can throw any
 non-null object—not just Exception and Error objects—as an exception.
-
 
 ### Throw {#throw}
 {:.no_toc}
@@ -1778,7 +1871,8 @@ distanceTo(Point other) =>
 {:.no_toc}
 
 Catching, or capturing, an exception stops the exception from
-propagating. Catching an exception gives you a chance to handle it:
+propagating (unless you rethrow the exception).
+Catching an exception gives you a chance to handle it:
 
 <!-- ch02/flow_exceptions.dart -->
 {% prettify dart %}
@@ -1813,6 +1907,48 @@ try {
 As the preceding code shows, you can use either `on` or `catch` or both.
 Use `on` when you need to specify the exception type. Use `catch` when
 your exception handler needs the exception object.
+
+You can specify one or two parameters to `catch()`.
+The first is the exception that was thrown,
+and the second is the stack trace
+(a [StackTrace](https://api.dartlang.org/stable/dart-core/StackTrace-class.html) object).
+
+<!-- ch02/flow_exceptions.dart -->
+{% prettify dart %}
+  ...
+} on Exception catch [[highlight]](e)[[/highlight]] {
+  print('Exception details:\n $e');
+} catch [[highlight]](e, s)[[/highlight]] {
+  print('Exception details:\n $e');
+  print('Stack trace:\n $s');
+}
+{% endprettify %}
+
+To partially handle an exception,
+while allowing it to propagate,
+use the `rethrow` keyword.
+
+<!-- ch02/rethrow.dart -->
+{% prettify dart %}
+final foo = '';
+
+void misbehave() {
+  try {
+    foo = "You can't change a final variable's value.";
+  } catch (e) {
+    print('misbehave() partially handled ${e.runtimeType}.');
+    [[highlight]]rethrow;[[/highlight]] // Allow callers to see the exception.
+  }
+}
+
+void main() {
+  try {
+    misbehave();
+  } catch (e) {
+    print('main() finished handling ${e.runtimeType}.');
+  }
+}
+{% endprettify %}
 
 
 ### Finally {#finally}
@@ -1852,7 +1988,7 @@ Learn more by reading the [Exceptions](ch03.html#exceptions) section.
 
 Dart is an object-oriented language with classes and mixin-based
 inheritance. Every object is an instance of a class, and all classes
-descend from [Object.](http://api.dartlang.org/dart_core/Object.html)
+descend from [Object.](https://api.dartlang.org/stable/dart-core/Object-class.html)
 *Mixin-based inheritance* means that although every class (except for
 Object) has exactly one superclass, a class body can be reused in
 multiple class hierarchies.
@@ -1908,7 +2044,8 @@ p?.y = 4;
 
 {% include null-aware-1-12.html %}
 
-Use the cascade operator (..) when you want to perform a series of
+Use the [cascade](#cascade) notation (`..`)
+when you want to perform a series of
 operations on the members of a single object:
 
 <!-- ch02/cascade_operator/web/web_app.dart -->
@@ -1936,6 +2073,16 @@ var a = const ImmutablePoint(1, 1);
 var b = const ImmutablePoint(1, 1);
 
 assert(identical(a, b)); // They are the same instance!
+{% endprettify %}
+
+To get an object's type at runtime,
+you can use Object's `runtimeType` property,
+which returns a
+[Type](https://api.dartlang.org/stable/dart-core/dart-core/Type-class.html) object.
+
+<!-- ch02/object_classes.dart -->
+{% prettify dart %}
+print('The type of a is ${a.runtimeType}');
 {% endprettify %}
 
 The following sections discuss how to implement classes.
@@ -2345,7 +2492,7 @@ class EffectiveDoer extends Doer {
 }
 {% endprettify %}
 
-Calling an abstract method results in a run-time error.
+Calling an abstract method results in a runtime error.
 
 Also see [Abstract classes](#abstract-classes).
 
@@ -2560,8 +2707,8 @@ class A {
 {% endprettify %}
 
 If you use `noSuchMethod()` to implement every possible getter, setter,
-and method for a class, then you can use the `@proxy` annotation to
-avoid warnings:
+and method for one or more types,
+then you can use the `@proxy` annotation to avoid warnings:
 
 <!-- ch02/ch02_meta/bin/ch02_proxy.dart -->
 {% prettify dart %}
@@ -2572,6 +2719,19 @@ class A {
   }
 }
 {% endprettify %}
+
+An alternative to `@proxy`, if you know the types at compile time,
+is to just declare that the class implements those types.
+
+<!-- ch02/ch02_meta/bin/ch02_proxy.dart -->
+{% prettify dart %}
+class A implements SomeClass, SomeOtherClass {
+  void noSuchMethod(Invocation mirror) {
+    // ...
+  }
+}
+{% endprettify %}
+
 
 For more information on annotations, see
 [Metadata](#metadata).
@@ -2781,7 +2941,8 @@ can pass a static method as a parameter to a constant constructor.
 ## Generics {#generics}
 
 If you look at the API documentation for the basic array type,
-[List,](http://api.dartlang.org/dart_core/List.html) you’ll see that the
+[List,](https://api.dartlang.org/stable/dart-core/List-class.html)
+you’ll see that the
 type is actually `List<E>`. The \<...\> notation marks List as a
 *generic* (or *parameterized*) type—a type that has formal type
 parameters. By convention, type variables have single-letter names, such
@@ -2924,6 +3085,35 @@ type parameters are removed at runtime. In Java, you can test whether
 an object is a List, but you can’t test whether it’s a `List<String>`.
 </aside>
 
+
+### Restricting the parameterized type
+{:.no_toc}
+
+When implementing a generic type,
+you might want to limit the types of its parameters.
+You can do this using `extends`.
+
+<!-- ch02/generics_base_class.dart -->
+{% prettify dart %}
+// T must be SomeBaseClass or one of its descendants.
+class Foo<T [[highlight]]extends SomeBaseClass[[/highlight]]> {...}
+
+class Extender extends SomeBaseClass {...}
+
+void main() {
+  // It's OK to use SomeBaseClass or any of its subclasses inside <>.
+  var someBaseClassFoo = new Foo<SomeBaseClass>();
+  var extenderFoo = new Foo<Extender>();
+
+  // It's also OK to use no <> at all.
+  var foo = new Foo();
+
+  // Specifying any non-SomeBaseClass type results in a warning and, in
+  // checked mode, a runtime error.
+  // var objectFoo = new Foo<Object>();
+}
+{% endprettify %}
+
 For more information about generics, see [Optional Types in
 Dart.](/articles/optional-types/)
 
@@ -2949,8 +3139,8 @@ Use `import` to specify how a namespace from one library is used in the
 scope of another library.
 
 For example, Dart web apps generally use the
-[dart:html](http://api.dartlang.org/html.html) library, which they can
-import like this:
+[dart:html](https://api.dartlang.org/stable/dart-html/dart-html-library.html)
+library, which they can import like this:
 
 <!-- ch02/libraries/using_libraries.dart -->
 {% prettify dart %}
