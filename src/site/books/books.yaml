@@ -1,3 +1,16 @@
+- title: The Dart Programming Language
+  authors:
+    - Gilad Bracha
+  publisher: Addison-Wesley Professional
+  cover: dart-programming-language.jpg
+  link: https://play.google.com/store/books/details/Gilad_Bracha_The_Dart_Programming_Language?id=UHAlCwAAQBAJ
+  desc: "Dart is a class-based, object-oriented language that simplifies
+        the development of structured modern apps, scales from small
+        scripts to large applications, and can be compiled to JavaScript
+        for use in any modern browser. In this rigorous but readable
+        introductory text, Dart specification lead Gilad Bracha fully
+        explains both the language and the ideas that have shaped it."
+
 - title: Learning Dart - Second Edition
   authors:
     - Ivo Balbaert
