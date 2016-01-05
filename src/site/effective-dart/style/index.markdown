@@ -19,7 +19,7 @@ ocular systems.  If we use a consistent style across the entire Dart ecosystem,
 it makes it easier for all of us to learn from and contribute to each others'
 code.
 
-## Names
+## Identifiers
 
 Identifiers come in three flavors in Dart.
 
@@ -386,6 +386,16 @@ on one line may omit the braces.
 <div class="good">
 {% prettify dart %}
 if (arg == null) return defaultValue;
+{% endprettify %}
+</div>
+
+These are typically used for "guard" code that returns or breaks if the
+condition is met. But they're also fine for expressions, as long as the entire
+`if` statement and the expression fit on one line.
+
+<div class="good">
+{% prettify dart %}
+if (parameter == null) parameter = defaultValue;
 {% endprettify %}
 </div>
 

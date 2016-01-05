@@ -316,6 +316,94 @@ class LazyId {
 </div>
 
 
+### AVOID storing what you can calculate.
+{:.no_toc}
+
+When designing a class, you often want to expose multiple views into the same
+underlying state. Often you see code that calculates all of those views in the
+constructor and then stores them:
+
+<div class="bad">
+{% prettify dart %}
+class Circle {
+  num radius;
+  num area;
+  num circumference;
+
+  Circle(num radius)
+      : radius = radius,
+        area = math.PI * radius * radius,
+        circumference = math.PI * 2.0 * radius;
+}
+{% endprettify %}
+</div>
+
+This code has two things wrong with it. First, it's likely wasting memory. The
+area and circumference, strictly speaking, are *caches*. They are stored
+calculations that we could recalculate from other data we already have. They are
+trading increased memory for reduced CPU usage. Do we know we have a performance
+problem that merits that trade-off?
+
+Worse, the code is *wrong*. The problem with caches is *invalidation*&mdash;how
+do you know when the cache is out of date and needs to be recalculated? Here, we
+never do, even though `radius` is mutable. You can assign a different value and
+the `area` and `circumference` will retain their previous, now incorrect values.
+
+To correctly handle cache invalidation, we need to do this:
+
+<div class="bad">
+{% prettify dart %}
+class Circle {
+  num _radius;
+  num get radius => _radius;
+  set radius(num value) {
+    _radius = value;
+    _recalculate();
+  }
+
+  num _area;
+  num get area => _area;
+
+  num _circumference;
+  num get circumference => _circumference;
+
+  Circle(this._radius) {
+    _recalculate();
+  }
+
+  void _recalculate() {
+    _area = math.PI * _radius * _radius,
+    _circumference = math.PI * 2.0 * _radius;
+  }
+}
+{% endprettify %}
+</div>
+
+That's an awful lot of code to write, maintain, debug, and read. Instead, your
+first implementation should be:
+
+<div class="good">
+{% prettify dart %}
+class Circle {
+  num radius;
+
+  num get area => math.PI * radius * radius;
+  num get circumference => math.PI * 2.0 * radius;
+
+  Circle(this.radius);
+}
+{% endprettify %}
+</div>
+
+This code is shorter, uses less memory, and is less error-prone. It stores the
+minimal amount of data needed to represent the circle. There are no fields to
+get out of sync because there is only a single source of truth.
+
+In some cases, you may need to cache the result of a slow calculation, but only
+do that after you know you have a performance problem, do it carefully, and
+leave a comment explaining the optimization.
+
+
 ### CONSIDER omitting the types for local variables.
 {:.no_toc}
 
@@ -442,6 +530,67 @@ mean "returns a useful value", so even though it can be terse to use `=>` for
 a member that doesn't return anything, it's clearer to use `{ ... }`.
 
 
+### DON'T use `this.` when not needed to avoid shadowing.
+{:.no_toc}
+
+JavaScript requires an explicit `this.` to refer to members on the object whose
+method is currently being executed, but Dart&mdash;like C++, Java, and
+C#&mdash;doesn't have that limitation.
+
+The only time you need to use `this.` is when a local variable with the same
+name shadows the member you want to access.
+
+<div class="bad">
+{% prettify dart %}
+class Box {
+  var value;
+
+  void clear() {
+    this.update(null);
+  }
+
+  void update(value) {
+    this.value = value;
+  }
+}
+{% endprettify %}
+</div>
+
+<div class="good">
+{% prettify dart %}
+class Box {
+  var value;
+
+  void clear() {
+    update(null);
+  }
+
+  void update(value) {
+    this.value = value;
+  }
+}
+{% endprettify %}
+</div>
+
+Note that constructor parameters never shadow fields in constructor
+initialization lists:
+
+<div class="good">
+{% prettify dart %}
+class Box extends BaseBox {
+  var value;
+
+  Box(value)
+      : value = value,
+        super(value)
+      {}
+}
+{% endprettify %}
+</div>
+
+This looks surprising, but works like you want. Fortunately, code like this is
+relatively rare thanks to initializing formals.
+
 ## Constructors
 
 ### DO use initializing formals when possible.
@@ -560,7 +709,93 @@ View(Style style, List children)
 </div>
 
 
-## Async
+## Error handling
+
+### AVOID catches without `on` clauses.
+{:.no_toc}
+
+A catch clause with no `on` qualifier catches *anything* thrown by the code in
+the try block. [Pokémon exception handling][pokemon] is very likely not what you
+want. Does your code correctly handle [StackOverflowError][] or
+[OutOfMemoryError][]? If you incorrectly pass the wrong argument to a method in
+that try block do you want to have your debugger point you to the mistake or
+would you rather that helpful [ArgumentError][] get swallowed? Do you want any
+`assert()` statements inside that code to effectively vanish since you're
+catching the thrown [AssertionError][]s?
+
+The answer is probably "no", in which case you should filter the types you
+catch. In most cases, you should have an `on` clause that limits you to the
+kinds of runtime failures you are aware of and are correctly handling.
+
+In rare cases, you may wish to catch any runtime error. This is usually in
+framework or low-level code that tries to insulate arbitrary application code
+from causing problems. Even here, it is usually better to catch [Exception][]
+than to catch all types. Exception is the base class for all *runtime* errors
+and excludes errors that indicate *programmatic* bugs in the code.
+
+[pokemon]: http://blog.codinghorror.com/new-programming-jargon/
+[StackOverflowError]: https://api.dartlang.org/stable/dart-core/StackOverflowError-class.html
+[OutOfMemoryError]: https://api.dartlang.org/stable/dart-core/OutOfMemoryError-class.html
+[ArgumentError]: https://api.dartlang.org/stable/dart-core/ArgumentError-class.html
+[AssertionError]: https://api.dartlang.org/stable/dart-core/AssertionError-class.html
+[Exception]: https://api.dartlang.org/stable/dart-core/Exception-class.html
+
+### DON'T discard errors from catches without `on` clauses.
+{:.no_toc}
+
+If you really do feel you need to catch *everything* that can be thrown from a
+region of code, *do something* with what you catch. Log it, display it to the
+user or rethrow it, but do not silently discard it.
+
+
+### DON'T explicitly catch `Error` or types that implement it.
+{:.no_toc}
+
+The [Error][] class is the base class for *programmatic* errors. When an object
+of that type or one of its subinterfaces like [ArgumentError][] is thrown, it
+means there is a *bug* in your code. The intent is for the error to propagate
+all the way up, halt the program, and print a stack trace so you can locate and
+fix the bug.
+
+[error]: https://api.dartlang.org/stable/dart-core/Error-class.html
+
+Catching errors of these types breaks that process and masks the bug. Instead of
+*adding* error-handling code to deal with this exception after the fact, go back
+and fix the code that is causing it to be thrown in the first place.
+
+
+## DO use `rethrow` to rethrow a caught exception.
+{:.no_toc}
+
+If you decide to rethrow an exception, prefer using the `rethrow` statement
+instead of throwing the same exception object using `throw`.
+`rethrow` preserves the original stack trace of the exception. `throw` on the
+other hand resets the stack trace to the last thrown position.
+
+<div class="bad">
+{% prettify dart %}
+try {
+  somethingRisky();
+} catch(e) {
+  if (!canHandle(e)) throw e;
+  handle(e);
+}
+{% endprettify %}
+</div>
+
+<div class="good">
+{% prettify dart %}
+try {
+  somethingRisky();
+} catch(e) {
+  if (!canHandle(e)) rethrow;
+  handle(e);
+}
+{% endprettify %}
+</div>
+
+
+## Asynchrony
 
 ### PREFER async/await over using raw futures.
 {:.no_toc}
@@ -656,3 +891,50 @@ Future asyncValue() async {
 This parallels the above suggestion on iterables. Streams support many of the
 same methods and also handle things like transmitting errors, closing, etc.
 correctly.
+
+### AVOID using Completer directly.
+{:.no_toc}
+
+Many people new to asynchronous programming want to write code that produces a
+future. The constructors in Future don't seem to fit their need so they
+eventually find the Completer class and use that.
+
+<div class="bad">
+{% prettify dart %}
+Future<bool> fileContainsBear(String path) {
+  var completer = new Completer<bool>();
+
+  new File(path).readAsString().then((contents) {
+    completer.complete(contents.contains("bear"));
+  });
+
+  return completer.future;
+}
+{% endprettify %}
+</div>
+
+Completer is needed for two kinds of low-level code: new asynchronous
+primitives, and interfacing with asynchronous code that doesn't use futures.
+Most other code should use async/await or [`Future.then()`][then], because
+they're clearer and make error handling easier.
+
+[then]: https://api.dartlang.org/stable/dart-async/Future/then.html
+
+<div class="good">
+{% prettify dart %}
+Future<bool> fileContainsBear(String path) {
+  return new File(path).readAsString().then((contents) {
+    return contents.contains("bear");
+  });
+}
+{% endprettify %}
+</div>
+
+<div class="good">
+{% prettify dart %}
+Future<bool> fileContainsBear(String path) async {
+  var contents = await new File(path).readAsString();
+  return contents.contains("bear");
+}
+{% endprettify %}
+</div>

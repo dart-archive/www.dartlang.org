@@ -143,7 +143,7 @@ monsters.producesANewSequenceWhereEach((monster) => monster.hasClaws);
 </div>
 
 
-### PREFER naming non-boolean properties and variables using a noun phrase.
+### PREFER a noun phrase for a non-boolean property or variable.
 {:.no_toc}
 
 The reader's focus is on *what* the property is. If the user cares more about
@@ -165,33 +165,64 @@ list.deleteItems
 </div>
 
 
-### PREFER starting boolean properties and variables with a verb.
+### PREFER a non-imperative verb phrase for a boolean property or variable.
 {:.no_toc}
 
-Boolean names are often used as conditions in control flow statements, and the
-verb helps the condition read like a sentence.
+Boolean names are often used as conditions in control flow, so you want a name
+that reads well there. Compare:
+
+{% prettify dart %}
+if (window.closeable) { ... }   // Adjective.
+if (window.canClose) { ... }    // Verb.
+{% endprettify %}
+
+Good names tend to start with one of a few kinds of verbs:
+
+*   a form of "to be": `isEnabled`, `wasShown`, `willFire`. These are, by far,
+    the most common.
+
+*   an [auxiliary verb][]: `hasElements`, `canClose`,
+    `shouldConsume`, `mustSave`.
+
+*   an active verb: `ignoresInput`, `wroteFile`. These are rare because they are
+    usually ambiguous. `loggedResult` is a bad name because it could mean
+    "whether or not a result was logged" or "the result that was logged".
+    Likewise, `closingConnection` could be "whether the connection is closing"
+    or "the connection that is closing". Active verbs are allowed when the name
+    can *only* be read as a predicate.
+
+[auxiliary verb]: https://en.wikipedia.org/wiki/Auxiliary_verb
+
+What separates all these verb phrases from method names is that they are not
+*imperative*. A boolean name should never sound like a command to tell the
+object to do something, because accessing a property doesn't change the object.
+(If the property *does* modify the object in a meaningful way, it should be a
+method.)
 
 <div class="good">
 {% prettify dart %}
 isEmpty
 hasElements
 canClose
-shouldConsumeInput
+closesWindow
+canShowPopup
+hasShownPopup
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-empty         // Hard to parse: adjective or verb?
+empty         // Adjective or verb?
 withElements  // Sounds like it might hold elements.
 closeable     // Sounds like an interface.
               // "canClose" reads better as a sentence.
-consumeInput  // Sounds like it consumes it immediately.
+closingWindow // Returns a bool or a window?
+showPopup     // Sounds like it shows the popup.
 {% endprettify %}
 </div>
 
 
-### CONSIDER omitting the verb for named boolean parameters.
+### CONSIDER omitting the verb for a named boolean *parameter*.
 {:.no_toc}
 
 This refines the previous rule. For named parameters that are boolean, the name
@@ -206,7 +237,7 @@ new RegExp(pattern, caseSensitive: false)
 </div>
 
 
-### PREFER naming functions and methods using a verb phrase if side effects are its primary purpose.
+### PREFER an imperative verb phrase for a function or method whose main purpose is a side effect.
 {:.no_toc}
 
 Callable members can return a result to the caller and perform other work or
@@ -214,8 +245,8 @@ side effects. In an imperative language like Dart, members are often called
 mainly for their side effect: they may change an object's internal state,
 produce some output, or talk to the outside world.
 
-Those kinds of members should be named using a verb phrase that clarifies the
-work the member performs.
+Those kinds of members should be named using an imperative verb phrase that
+clarifies the work the member performs.
 
 <div class="good">
 {% prettify dart %}
@@ -226,8 +257,9 @@ connection.downloadData()
 {% endprettify %}
 </div>
 
+This way, an invocation reads like a command to do that work.
 
-### CONSIDER naming functions and methods using a noun phrase if the return value is its primary purpose.
+### CONSIDER a noun phrase or non-imperative verb phrase for a function or method if returning a value is its primary purpose.
 {:.no_toc}
 
 Other callable members have few side effects but return a useful result to the
@@ -237,7 +269,7 @@ getter. But, sometimes a logical "property" needs some parameters. For example,
 parameter to know *which* piece of data to return.
 
 This means the member is *syntactically* a method, but *conceptually* it is a
-property, and should be named as such using a noun phrase describing *what* the
+property, and should be named as such using a phrase that describes *what* the
 member returns.
 
 <div class="good">
@@ -249,39 +281,8 @@ string.codeUnitAt(4)
 </div>
 
 This guideline is deliberately softer than the previous one. Sometimes a method
-has no side effects but is still clearer and simpler to name with a verb phrase
-like `list.take()` or `string.split()`.
-
-
-### AVOID describing the parameters in the function's or method's name.
-{:.no_toc}
-
-The user will see the argument at the callsite, so it usually doesn't help
-readability to also refer to it in the name itself.
-
-<div class="good">
-{% prettify dart %}
-list.add(element)
-map.remove(key)
-{% endprettify %}
-</div>
-
-<div class="bad">
-{% prettify dart %}
-list.addElement(element)
-map.removeKey(key)
-{% endprettify %}
-</div>
-
-However, it can be useful to mention a parameter to disambiguate it from other
-similarly-named methods that take different types:
-
-<div class="good">
-{% prettify dart %}
-map.containsKey(key)
-map.containsValue(value)
-{% endprettify %}
-</div>
+has no side effects but is still simpler to name with a verb phrase like
+`list.take()` or `string.split()`.
 
 
 ### PREFER naming a method `to___()` if it copies the object's state to a new object.
@@ -318,6 +319,37 @@ The core library convention for you to follow is `as___()`.
 list.asMap()
 bytes.asFloat32List()
 subscription.asFuture()
+{% endprettify %}
+</div>
+
+
+### AVOID describing the parameters in the function's or method's name.
+{:.no_toc}
+
+The user will see the argument at the callsite, so it usually doesn't help
+readability to also refer to it in the name itself.
+
+<div class="good">
+{% prettify dart %}
+list.add(element)
+map.remove(key)
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+list.addElement(element)
+map.removeKey(key)
+{% endprettify %}
+</div>
+
+However, it can be useful to mention a parameter to disambiguate it from other
+similarly-named methods that take different types:
+
+<div class="good">
+{% prettify dart %}
+map.containsKey(key)
+map.containsValue(value)
 {% endprettify %}
 </div>
 
@@ -571,6 +603,17 @@ you want to add. Object's shouldn't generally expose more state than they need
 to. If you have some piece of an object's state that can be modified but not
 exposed in the same way, use a method instead.
 
+<aside class="alert alert-info" markdown="1">
+
+  There is one exception to this rule. An [Angular][] component class may expose
+  setters that are invoked from a template to initialize the component. Often,
+  these setters are not intended to be invoked from Dart code and don't need a
+  corresponding getter. (If they are used from Dart code, they *should* have a
+  getter.)
+
+  [angular]: http://angular.io
+
+</aside>
 
 ### AVOID returning `null` from members whose return type is `bool`, `double`, `int`, or `num`.
 {:.no_toc}
