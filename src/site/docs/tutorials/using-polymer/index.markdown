@@ -98,23 +98,23 @@ add the following packages to the list of dependencies:
 name: 'using_paper_elements'
 description: A simple web app that uses paper elements.
 dependencies:
-  browser: ^0.10.0
-  [[highlight]]polymer_elements: ^1.0.0-rc.3[[/highlight]]
-  [[highlight]]polymer: ^1.0.0-rc.6[[/highlight]]
-  [[highlight]]web_components: ^0.12.0+3[[/highlight]]
+  [[highlight]]polymer_elements: ^1.0.0-rc.1[[/highlight]]
+  [[highlight]]polymer: ^1.0.0-rc.11[[/highlight]]
+  [[highlight]]web_components: ^0.12.0[[/highlight]]
   [[highlight]]reflectable: ^0.3.3[[/highlight]]
+  browser: ^0.10.0
 {% endprettify %}
 
   </li>
 
   <li markdown="1">
-Add the `web_components` transformer. This isn't absolutely
+Add the `polymer` transformer. This isn't absolutely
 required if you are only _using_ a paper element, but
 it will produce a more optimized version of the app.
 
 {% prettify yaml %}
 transformers:
-[[highlight]]- web_components:[[/highlight]]
+[[highlight]]- polymer:[[/highlight]]
     [[highlight]]entry_points: web/index.html[[/highlight]]
 {% endprettify %}
 
@@ -248,23 +248,8 @@ use "double mustache" syntax in the HTML code:
 {{expression}}
 {% endraw %}{% endprettify %}
 
-To make the binding two-way, additionally
-label the function that implements the element's behavior with
-the `@reflectable` annotation and include the `reflectable` transformer
-in the pubspec:
-
-{% prettify yaml %}
-transformers:
-- web_components:
-    entry_points:
-    - web/index.html
-[[highlight]]- reflectable:[[/highlight]]
-    [[highlight]]entry_points:[[/highlight]]
-    [[highlight]]- web/index.dart[[/highlight]]
-{% endprettify %}
-<div class="filename">pubspec.yaml</div>
-
-&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
+To learn how to make a two-way binding, see
+[Property change notification and two-way binding](https://github.com/dart-lang/polymer-dart/wiki/data-binding-syntax#property-change-notification-and-two-way-binding).
 
 To use bindings with a Polymer element, such as a paper element,
 you must wrap that element in a custom Polymer element.
