@@ -169,7 +169,8 @@ a Dart project generator, to create a basic web app.
 
 <div class="trydart-step-details" markdown="1">
 
-* Launch WebStorm and select **Create New Project**.
+* Launch WebStorm and select **Create New Project** from the
+  "Welcome to WebStorm" dialog.
 
 * Select **Dart** from the list on the left.
   This loads the available projects from Stagehand.
@@ -183,6 +184,7 @@ a Dart project generator, to create a basic web app.
 
 * Click **Create**.
 
+<img src="images/CreateNg2Project.jpg" alt="A screenshot of the Welcome to WebStorm window, with the specified selections">
 
 </div>
 
