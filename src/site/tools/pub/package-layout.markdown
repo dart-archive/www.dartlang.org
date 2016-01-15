@@ -147,11 +147,11 @@ enchilada/
   CHANGELOG.md
 {% endprettify %}
 
-To show users the latest changes to your package, you can include a changelog 
-file where you can write a short note about the changes in your latest 
+To show users the latest changes to your package, you can include a changelog
+file where you can write a short note about the changes in your latest
 release. When you upload your package to
-[pub.dartlang.org](https://pub.dartlang.org) 
-it detects that your package contains a changelog file and shows 
+[pub.dartlang.org](https://pub.dartlang.org)
+it detects that your package contains a changelog file and shows
 it in the changelog tab.
 
 If your CHANGELOG ends in `.md`, `.markdown`, or `.mdown`, it is parsed as
@@ -176,7 +176,7 @@ enchilada/
 
 Many packages are [*library packages*](glossary.html#library-package): they
 define Dart libraries that other packages can import and use. These public Dart
-library files go inside a directory called `lib`. 
+library files go inside a directory called `lib`.
 
 Most packages define a single library that users can import. In that case,
 its name should usually be the same as the name of the package, like
@@ -214,6 +214,9 @@ with a `main()` function&mdash;cannot go in `lib`. If you place a Dart script
 inside `lib`, you will discover that any `package:` imports it contains don't
 resolve. Instead, your entrypoints should go in the appropriate
 [entrypoint directory](glossary.html#entrypoint-directory).
+
+For more information on library packages, see
+[Creating Library Packages](create-library-packages.html).
 
 ### Public tools {#public-tools}
 
@@ -295,7 +298,7 @@ styles. In an HTML file in your package, you can add:
 {% endprettify %}
 
 When you run your application using [`pub serve`](cmd/pub-serve.html), or build
-it to something deployable using [`pub build`](cmd/pub-build.html), pub 
+it to something deployable using [`pub build`](cmd/pub-build.html), pub
 copies over any referenced assets that your package depends on.
 
 For more information about using assets, see

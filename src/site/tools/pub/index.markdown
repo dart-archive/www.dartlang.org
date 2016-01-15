@@ -16,7 +16,7 @@ one of the tools that you get is `pub`.
 
 <aside class="alert alert-info" markdown="1">
 **Hey!**
-Want to make your Dart script available from the command line? 
+Want to make your Dart script available from the command line?
 You can do this using `pub global activate`. For more information, see
 [Running a script from your PATH](cmd/pub-global.html#running-a-script-from-your-path).
 </aside>
@@ -39,6 +39,7 @@ application package.
 ### How to
 
 * [Getting Started with Pub](get-started.html)
+* [Creating Library Packages](create-library-packages.html)
 * [Installing and Configuring Pub](installing.html)
 * [Publishing a Package](publishing.html)
 
@@ -91,7 +92,7 @@ image, that is intended to be part of a deployed package.
 
 The following pages cover how to write a custom transformer:
 
-* [Writing a Pub Transformer](transformers/) 
+* [Writing a Pub Transformer](transformers/)
 * [Writing an Aggregate Transformer](transformers/aggregate.html)
 * [Writing a Lazy Transformer](transformers/lazy-transformer.html)
 * [Examples of Transformer Code](transformers/examples/)
