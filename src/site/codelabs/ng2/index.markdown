@@ -51,137 +51,140 @@ using Angular.
 
 ##Step 0: Set up {#set-up}
 
-In this step, you download Dart and get the sample code.
+In this step, you download any software that you need,
+and get the sample code.
 
 ### <i class="fa fa-anchor"> </i> Get Dart
 
-If you haven't already done so, get the
-[Dart SDK and Dartium](/downloads/), and any tools you like to use with Dart.
-If you don't have a favorite editor already, try
+<div class="trydart-step-details" markdown="1">
+
+If you haven't already done so, get the [Dart SDK](/downloads/).
+
+The Dart SDK download includes several Dart tools that you'll need,
+including `dart`, `pub`, and `dartanalyzer`. If you wish to run these
+tools from the command line, add
+`<path-to-the-SDK>/dart-sdk/bin` to your path.
+</div>
+
+### <i class="fa fa-anchor"> </i> Get Dartium and other tools
+
+<div class="trydart-step-details" markdown="1">
+
+You will need [Dartium](/downloads/) to test your app during development, as
+well as your preferred IDE.  If you don't have a favorite editor already, try
 [WebStorm](https://confluence.jetbrains.com/display/WI/Getting+started+with+Dart),
 which comes with a Dart plugin. You can also download
 [Dart plugins for other IDEs and editors](/tools/).
 
-<hr>
+If this is the first time you've used your IDE with Dart, you'll
+need to configure the plugin with the location of the Dart SDK and
+Dartium. See
+[Configuring Dart support](/tools/webstorm/#configuring-dart-support)
+for instructions on configuring WebStorm. The
+[Dart Tools](/tools/) page has links where you can find more information
+about other plugins.
 
-### <i class="fa fa-anchor"> </i> Review the code.
+<aside class="alert alert-info" markdown="1">
+**Note:**
+This code lab works with any IDE or editor, but the instructions
+assume that you're using WebStorm.
+</div>
+</aside>
+
+### <i class="fa fa-anchor"> </i> Get the sample code
 
 <div class="trydart-step-details" markdown="1">
-Get familiar with the Dart and HTML code (in `main.dart`
-and `index.html`, respectively) for the skeleton version of
-the app.
-</div>
 
-<div class="trydart-step-details" markdown="1">
-#### **main.dart**
-</div>
+Download the sample code from the ng2 branch of the
+[one-hour-codelab GitHub repo](https://github.com/dart-lang/one-hour-codelab/tree/ng2)
+using one of the following options:
 
-<div class="row"> <div class="col-md-7" markdown="1">
+<ul markdown="1">
+<li markdown="1">Download the ZIP file,
+  [one-hour-codelab-master.zip](https://github.com/dart-lang/one-hour-codelab/archive/ng2.zip).
+  Unzip the ZIP file, which creates a directory called
+  `one-hour-codelab-ng2`.
+</li>
 
-<div class="trydart-step-details" markdown="1">
+<li markdown="1">Clone the repo. From the command line:
 
-{% prettify dart %}
-[[highlight]]void main() {[[/highlight]]
-  [[highlight]]// Your app starts here.[[/highlight]]
-  [[highlight]]// In Step 2, you'll add code to listen for updates for the pirate badge.[[/highlight]]
-[[highlight]]}[[/highlight]]
-{% endprettify %}
-</div>
-
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* The `main()` function is the single entry point for the app.
-
-* `main()` is a top-level function.
-
-* A top-level variable or function is one that is declared outside
-  a class definition.
-
-&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
-</div> </div>
-
-<div class="trydart-step-details" markdown="1">
-#### **index.html**
-</div>
-
-<div class="row"> <div class="col-md-7">
-<div class="trydart-step-details" markdown="1">
-
-{% prettify html %}
-<h1>Pirate badge</h1>
-
-[[highlight]]<div class="widgets">[[/highlight]]
-  [[highlight]]TO DO: Put the UI widgets here.[[/highlight]]
-[[highlight]]</div>[[/highlight]]
-<div class="badge">
-  <div class="greeting">
-    Arrr! Me name is
-  </div>
-  <div class="name">
-    [[highlight]]<span id="badgeName"> </span>[[/highlight]]
-  </div>
-</div>
+{% prettify sh %}
+git clone https://github.com/dart-lang/one-hour-codelab.git
 {% endprettify %}
 
+This creates a directory named `one-hour-codelab`. From the
+`one-hour-codelab` directory, change to the `ng2` branch:
+
+{% prettify sh %}
+git checkout ng2
+{% endprettify %}
+</li>
+</ul>
+
+xxx: This section needs updating after the ng2 code is pushed to from ng2 to
+master.
+
 </div>
 
-</div> <div class="col-md-5" markdown="1">
+### <i class="fa fa-anchor"> </i> Look at the one-hour-codelab sample.
 
-* All of the changes you make to the HTML in this code lab
-  are within the &lt;div&gt; element identified with the class `widgets`.
+<div class="trydart-step-details" markdown="1">
+The `ng2` directory contains the following directories:
 
-* In later steps,
-  the &lt;span&gt; element with the ID `badgeName`
-  is programmatically updated by the Dart code
-  based on user input.
+`1-blankbadge`
+: Displays a name badge.
 
-</div> </div>
+`2-inputnamebadge`
+: Enter text into the input field and see it on the name badge.
 
-<div class="row"> <div class="col-md-7" markdown="1">
+`3-buttonbadge`
+: When the input field is empty, click the button to see "Anne Bonney"
+  on the name badge.
 
-</div> <div class="col-md-5" markdown="1">
+`4-readjsonfile`
+: When the input field is empty, click the button to see a randomly
+  chosen name (read from a JSON file) on the name badge.
 
-&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
+`5-final`
+: The randomly chosen name is provided via Dependency Injection.
 
-</div> </div>
+<div class="trydart-note" markdown="1">
+<strong>Note:</strong>
+As you work through this code lab,
+you can use the files in the numbered directories to compare to your code
+or to recover if you get off track.
+</div>
 
-<hr>
-
-##Step 1: Run the skeleton app {#step-one}
-
-In this step, you run the skeleton version of the app in DartPad.
-
-### <i class="fa fa-anchor"> </i> Run the app in DartPad.
-
-<a href="{{site.custom.dartpad.direct-link}}/9642dce02da158457f12" target="_blank">Open the skeleton app in DartPad.</a>
-
-Click the **Run** button and make sure that the **HTML OUTPUT** tab
-is selected. You should see a red-and-white name badge, plus some text,
-as shown in the following screenshot:
-
-<img src="images/InitialDartPad.png" alt="A screenshot of the output created in the skeleton app">
-
-DartPad is an interactive web app that lets you immediately play with
-Dart in your browser without having to download or install any software,
-or do any special setup. It just works!
-
-The following screenshot shows DartPad's UI. This example
-contains an intentional error to show you how DartPad handles problems
-that it detects.
-
-<img src="images/AnnotatedDartPad.png" alt="A screenshot of DartPad running the skeleton version of the client code">
-
-The code appears on the left under the **DART**,
-**HTML**, or **CSS** tab.
-Output appears on the right under the
-**HTML OUTPUT** or **CONSOLE** tab.
-You can always restart the app using the **Run** button.
-If the analyzer detects problems, errors and warnings appear
-at the bottom of the screen.
+</div>
 
 <hr>
+
+##Step 1: Create the skeleton app {#step-one}
+
+In this step, you create a web app that displays a name badge.
+WebStorm uses [stagehand](https://github.com/google/stagehand),
+a Dart project generator, to create a basic web app.
+
+### <i class="fa fa-anchor"> </i> Launch WebStorm.
+
+<div class="trydart-step-details" markdown="1">
+
+* Launch WebStorm and select **Create New Project**.
+
+* Select **Dart** from the list on the left.
+  This loads the available projects from Stagehand.
+
+* In the **Location** input field, replace "untitled" with
+  "PirateBadge".
+
+* Make sure that **Generate sample content** is checked.
+
+* Select **Angular 2 Web Application** from the list.
+
+* Click **Create**.
+
+
+</div>
 
 ### <i class="fa fa-anchor"> </i> Review the code.
 
