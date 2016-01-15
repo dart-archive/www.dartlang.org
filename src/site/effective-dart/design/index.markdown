@@ -398,6 +398,68 @@ abstract class Predicate {
 </div>
 
 
+### AVOID defining a class that contains only static members.
+{:.no_toc}
+
+In Java and C#, every definition *must* be inside a class, so it's common to see
+"classes" that exist only as a place to stuff static members. Other classes are
+used as namespaces&mdash;a way to give a shared prefix to a bunch of members to
+relate them to each other or avoid a name collision.
+
+Dart has top-level functions, variables, and constants, so you don't *need* a
+class just to define something. If what you want is a namespace, a library is a
+better fit. Libraries support import prefixes and show/hide combinators. Those
+are powerful tools that let the consumer of your code handle name collisions in
+the way that works best for *them*.
+
+If a function or variable isn't logically tied to a class, put it at the top
+level. If you're worried about name collisions, give it a more precise name or
+move it to a separate library that can be imported with a prefix.
+
+<div class="good">
+{% prettify dart %}
+DateTime mostRecent(List<DateTime> dates) {
+  return dates.reduce((a, b) => a.isAfter(b) ? a : b);
+}
+
+const _favoriteMammal = "weasel";
+{% endprettify %}
+</div>
+
+<div class="bad">
+{% prettify dart %}
+class DateUtils {
+  static DateTime mostRecent(List<DateTime> dates) {
+    return dates.reduce((a, b) => a.isAfter(b) ? a : b);
+  }
+}
+
+class _Favorites {
+  static const mammal = "weasel";
+}
+{% endprettify %}
+</div>
+
+In idiomatic Dart, classes define *kinds of objects*. A type that is never
+instantiated is a code smell.
+
+However, this isn't a hard rule. With constants and enum-like types, it may be
+natural to group them in a class. Even then, it's also reasonable to use a
+library instead.
+
+<div class="good">
+{% prettify dart %}
+class Color {
+  const red = "#f00";
+  const green = "#0f0";
+  const blue = "#00f";
+  const black = "#000";
+  const white = "#fff";
+}
+{% endprettify %}
+</div>
+
+
 ### AVOID extending a class that isn't intended to be subclassed.
 {:.no_toc}
 
