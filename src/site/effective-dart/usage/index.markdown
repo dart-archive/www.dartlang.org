@@ -591,6 +591,42 @@ class Box extends BaseBox {
 This looks surprising, but works like you want. Fortunately, code like this is
 relatively rare thanks to initializing formals.
 
+
+### DO initialize fields at their declaration when possible.
+{:.no_toc}
+
+If a field doesn't depend on any constructor parameters, it can and should be
+initialized at its declaration. It takes less code and makes sure you won't
+forget to initialize it if the class has multiple constructors.
+
+<div class="bad">
+{% prettify dart %}
+class Folder {
+  final String name;
+  final List<Document> contents;
+
+  Folder(this.name) : contents = [];
+  Folder.temp() : name = "temporary"; // Oops! Forgot contents.
+}
+{% endprettify %}
+</div>
+
+<div class="good">
+{% prettify dart %}
+class Folder {
+  final String name;
+  final List<Document> contents = [];
+
+  Folder(this.name);
+  Folder.temp() : name = "temporary";
+}
+{% endprettify %}
+</div>
+
+Of course, if a field depends on constructor parameters, or is initialized
+differently by different constructors, then this guideline does not apply.
+
+
 ## Constructors
 
 ### DO use initializing formals when possible.
@@ -740,6 +776,7 @@ and excludes errors that indicate *programmatic* bugs in the code.
 [AssertionError]: https://api.dartlang.org/stable/dart-core/AssertionError-class.html
 [Exception]: https://api.dartlang.org/stable/dart-core/Exception-class.html
 
+
 ### DON'T discard errors from catches without `on` clauses.
 {:.no_toc}
 
@@ -748,14 +785,25 @@ region of code, *do something* with what you catch. Log it, display it to the
 user or rethrow it, but do not silently discard it.
 
 
-### DON'T explicitly catch `Error` or types that implement it.
+### DO throw objects that implement `Error` only for programmatic errors.
 {:.no_toc}
 
 The [Error][] class is the base class for *programmatic* errors. When an object
 of that type or one of its subinterfaces like [ArgumentError][] is thrown, it
-means there is a *bug* in your code. The intent is for the error to propagate
-all the way up, halt the program, and print a stack trace so you can locate and
-fix the bug.
+means there is a *bug* in your code. When your API wants to report to a caller
+that it is being used incorrectly throwing an Error sends that signal clearly.
+
+Conversely, if the exception is some kind of runtime failure that doesn't
+indicate a bug in the code, then throwing an Error is misleading. Instead, throw
+one of the core Exception classes or some other type.
+
+
+### DON'T explicitly catch `Error` or types that implement it.
+{:.no_toc}
+
+This follows from the above. Since an Error indicates a bug in your code, it
+should unwind the entire callstack, halt the program, and print a stack trace so
+you can locate and fix the bug.
 
 [error]: https://api.dartlang.org/stable/dart-core/Error-class.html
 
@@ -764,7 +812,7 @@ Catching errors of these types breaks that process and masks the bug. Instead of
 and fix the code that is causing it to be thrown in the first place.
 
 
-## DO use `rethrow` to rethrow a caught exception.
+### DO use `rethrow` to rethrow a caught exception.
 {:.no_toc}
 
 If you decide to rethrow an exception, prefer using the `rethrow` statement

@@ -105,6 +105,9 @@ import 'file-system.dart'
 {% endprettify %}
 </div>
 
+Note that this guideline specifies *how* to name a library *if you choose to
+name it*. It is fine to omit the library directive in a file if you want.
+
 
 ### DO name import prefixes using `lowercase_with_underscores`.
 {:.no_toc}
