@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Dart on Devices"
-description: "Dart on Devices is coming soon"
+description: "Dart on devices is coming soon"
 ---
 
 # {{ page.title }}
