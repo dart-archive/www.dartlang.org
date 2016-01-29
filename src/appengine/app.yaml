@@ -36,6 +36,9 @@ handlers:
 - url: /cloud/?
   script: scripts.redirector.application
 
+- url: /mobile/?
+  script: scripts.redirector.application
+
 - url: /tools/docgen/?
   script: scripts.redirector.application
 
