@@ -1963,4 +1963,7 @@ Please provide feedback on this code lab to the
 {% comment %}
 Original pirate code lab on the wayback machine:
 https://web.archive.org/web/20150102192113/https://www.dartlang.org/codelabs/darrrt/
+
+Server-side code lab:
+https://dart-lang.github.io/server/codelab/
 {% endcomment %}
