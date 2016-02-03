@@ -12,15 +12,6 @@ header:
 
 # {{ page.title }}
 
-{% comment %}
-TODO:
-* change 6-* to use ngOnInit - it's a "lifecycle" method
-* remove step 7 from the repo -- for now
-* should I then work on a continuation that shows dependency injection
-  and some of the testing concepts that Sanford talked about?
-* Or... What is the next doc I should work on?
-{% endcomment %}
-
 This code lab introduces you to the Dart language and libraries
 by walking you through the process of building a simple web app
 using Angular 2.
@@ -70,9 +61,8 @@ and get the sample code.
 
 If you haven't already done so, get the [Dart SDK](/downloads/).
 
-The Dart SDK download includes several Dart tools that you'll need,
-including `dart`, `pub`, and `dartanalyzer`. If you wish to run these
-tools from the command line, add
+The Dart SDK download includes several Dart tools that you'll need.
+If you wish to run the Dart tools from the command line, add
 `<path-to-the-SDK>/dart-sdk/bin` to your path.
 </div>
 
@@ -144,30 +134,24 @@ The `ng2` directory contains several examples. Each example
 corresponds to a completed step in this code lab:
 
 `1-skeleton`
-: A basic angular2 app.
+: Basic angular2 app
 
 `2-blankbadge`
-: Displays the name badge.
+: Displays a pirate name badge
 
 `3-inputnamebadge`
-: Enter text into the input field. As you type, it is displayed
-  on the name badge.
+: As you type into the input field,
+  the text displays on the name badge
 
 `4-buttonbadge`
-: When the input field is empty, the button is enabled.
-  Click the button to see "Anne Bonney" on the name badge.
+: An empty input field enables the button;
+  clicking the button displays "Anne Bonney" on the name badge.
 
 `5-piratenameservice`
-: Click the button to see a pirate name, chosen at random from
-  a list, appear on the name badge.
+: Clicking the button displays a pirate name chosen at random from a list
 
 `6-readjsonfile`
-: The list of pirate names are loaded from a JSON file on dartlang.
-
-`7-final`
-: The pirate name is provided by _dependency injection_.
-
-xxx: Make the previous list parallel.
+: The pirate names are loaded from a JSON file on dartlang
 
 <div class="trydart-note" markdown="1">
 <strong>Note:</strong>
@@ -221,7 +205,7 @@ with "pirate_badge".
 
 The form should look similar to the following:
 
-<img style="border:1px solid black" src="images/create-ng2-project.jpg" alt="A screenshot of the Welcome to WebStorm window, with the specified selections">
+<img style="border:1px solid black" src="images/create-ng2-project.png" alt="A screenshot of the Welcome to WebStorm window, with the specified selections">
 </li>
 
 <li markdown="1">Click **Create**.
@@ -236,19 +220,39 @@ that the app depends on.
 
 Get familiar with the structure of a basic Angular app.
 
-<div class="trydart-step-details" markdown="1">
+<div class="row"> <div class="col-md-7">
 
+<div class="trydart-step-details" markdown="1">
 Expand the `pirate_badge` folder.
 Then expand the `lib` and `web` folders to see the following:
 
 <img style="border:1px solid black" src="images/project-files.jpg" alt="The list of autocreated files.">
+</div>
 
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* Angular 2 is an application framework for web apps.
+
+* In Angular, you display data by defining components, a type of class.
+
+* A component manages a _view_, an HTML template that defines
+  the component's UI.
+
+* A component encapsulates the appearance and behavior of the view.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
 For now, you can ignore some of these auto-created files.
-The following diagram shows the most relevant files and directories:
+The following diagram shows the files and directories referenced in
+this code lab:
 
 <img src="images/basic-web-app-directory-structure.png" alt="The important lib, web, and pubspec files created using the Stagehand templates.">
 
-The `lib` directory contains library files. In an Angular app,
+As you might expect,
+the `lib` directory contains library files. In an Angular app,
 component classes are generally created as library files.
 The `web` directory contains the "main" files for a web app.
 
@@ -294,14 +298,17 @@ main() {
   import `bootstrap.dart`.
 
 * The second import, `app_component.dart`,
-  pulls in the root component, `AppComponent`.
+  pulls in the app component, `AppComponent`.
+  By convention,
   Dart filenames use lower case, separating words with underscores,
   while Dart classes use camel case.
   So, the `app_component.dart` file defines the `AppComponent` class.
 
-* Calling `bootstrap()` with the root component launches Angular.
+* Calling `bootstrap()` with the app component launches Angular.
 
 </div> </div>
+
+<hr>
 
 <div class="trydart-step-details" markdown="1">
 #### **index.html**
@@ -341,10 +348,9 @@ main() {
   component associated with that selector. In this example,
   that's the `AppComponent` class.
 
-* This file isn't touched throughout this code lab. Most of the work
-  happens in the Angular components and in a service class.
-
 </div></div>
+
+<hr>
 
 <div class="trydart-step-details" markdown="1">
 #### **app_component.dart**
@@ -363,15 +369,6 @@ class AppComponent {}
 
 </div> <div class="col-md-5" markdown="1">
 
-* Angular is an application framework for web apps.
-
-* In Angular, you display data by defining components, a type of class.
-
-* A component manages a _view_, an HTML template that defines
-  the component's UI.
-
-* A component encapsulates the appearance and behavior of the view.
-
 * The `@Component` annotation defines `AppComponent` as an Angular 2
   component.
 
@@ -388,6 +385,8 @@ class AppComponent {}
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
+
+<hr>
 
 <div class="trydart-step-details" markdown="1">
 #### **app_component.html**
@@ -409,6 +408,8 @@ class AppComponent {}
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
+<hr>
+
 <div class="trydart-step-details" markdown="1">
 #### **pubspec.yaml**
 </div>
@@ -420,11 +421,17 @@ class AppComponent {}
 name: pirate_badge
 description: Write a Dart web app code lab
 version: 0.0.1
+environment:
+  sdk: '>=1.13.0 <2.0.0'
 dependencies:
-  angular2: 2.0.0-beta.0
+  angular2: 2.0.0-beta.2
   browser: ^0.10.0
 transformers:
 - angular2:
+    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
     entry_points: web/main.dart
 {% endprettify %}
 
@@ -432,18 +439,35 @@ transformers:
 
 </div> <div class="col-md-5" markdown="1">
 
-* Every Dart application is a package.
-
 * The `pubspec.yaml` file (often referred to as the _pubspec_)
   contains metadata about that package, such as its name.
+
+* _Every_ Dart application is a package.
 
 * The pubspec also lists the libraries on which the
   app depends. The `browser` and `angular` libraries needed by
   this app are hosted on [pub.dartlang.org](https://pub.dartlang.org/)
   along with many others.
 
-* You specify one or more entry points to the `angular2` transformer
-  in the pubspec.
+* pub uses an
+  [Angular 2 transformer](https://github.com/angular/angular/wiki/Angular-2-Dart-Transformer)
+  when building or serving an Angular application.
+  Transformers are listed and configured in the pubspec under the
+  `transformers:` field.
+
+* The `platform_directives` definition makes some common
+  [Angular directives](https://angular.io/docs/js/latest/api/core/PLATFORM_DIRECTIVES-let.html)
+  available to every component.
+
+* Directives allow you to attach behavior to elements in the DOM&mdash;a
+  directive doesn't manage a view.
+
+* The `platform_pipes` definition makes some common
+  [Angular pipes](https://angular.io/docs/js/latest/api/core/PLATFORM_PIPES-let.html)
+  available to every component.
+
+* The `entry_points` section tells the Angular transformer which file contains
+  the starting point for the app. Some apps have multiple entrypoints.
 
 * When creating or modifying the pubspec, running `pub get` installs
   the packages that your app depends on.
@@ -467,7 +491,8 @@ From the list of files,
 right-click `index.html` and select **Run index.html** from the menu
 that pops up.
 
-Dartium launches and loads the app. You should see the following:
+Dartium launches and loads the app.
+You should see something like the following:
 
 <img style="border:1px solid black" src="images/first-ng2-app.png" alt="The skeleton app.">
 
@@ -476,6 +501,15 @@ In future, you can launch the app using the enabled "run" button
 (<img src="images/run.png">) in the upper right.
 
 </div>
+
+#### Problems?
+
+Check your code against the files in `1-skeleton`.
+
+* [main.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/1-skeleton/web/main.dart)
+* [index.html](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/1-skeleton/web/index.html)
+* [app_component.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/1-skeleton/lib/app_component.dart)
+* [app_component.html](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/1-skeleton/lib/app_component.html)
 
 <hr>
 
@@ -488,7 +522,7 @@ the behavior and appearance of the pirate badge.
 As part of this work,
 the lib directory is slightly restructured: some
 files are moved and renamed, and a new file is added.
-Finally, styling is added for the name badge.
+Finally, styling is added for displaying the name badge.
 
 ### <i class="fa fa-anchor"> </i> Move the app_component.* files.
 
@@ -512,11 +546,12 @@ Finally, styling is added for the name badge.
   reflect the change in directory structure:
 
 {% prettify dart %}
-import 'components/app_component.dart';
+import 'package:angular2/bootstrap.dart';
+[[highlight]]import 'package:pirate_badge/components/app_component.dart'[[/highlight]];
 {% endprettify %}
 </li>
 <li markdown="1">Test it!
-   Click the **Run** button to ensure that the app still works.
+   Click the **Run** button to ensure that the app works as before.
 </li>
 </ol>
 
@@ -537,7 +572,7 @@ import 'components/app_component.dart';
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
-### <i class="fa fa-anchor"> </i> Rename app_component.* to pirate_badge_component.*.
+### <i class="fa fa-anchor"> </i> Rename app_component.* to pirate_badge.*.
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
@@ -547,18 +582,19 @@ import 'components/app_component.dart';
 <li markdown="1">Select `app_component.dart` and choose
   **Refactor > Rename...** from the menu.
 </li>
-<li markdown="1">Change the name to `pirate_badge_component.dart`.
+<li markdown="1">Change the name to `pirate_badge.dart`.
 </li>
-<li markdown="1">Repeat this step for `app_component.html`.
-  In the message window,
-  WebStorm asks if you are sure that you want to proceed.
+<li markdown="1">Repeat this step for `app_component.html`, changing
+  it to `pirate_badge.html`.
+  In the message window, WebStorm points out that there is a dynamic
+  reference and asks if you want to proceed.
   Click **Do Refactor**.
 </li>
 <li markdown="1">Open `main.dart`.
   Confirm that the import reflects the new name.
 </li>
 <li markdown="1">Test it!
-  Click the **Run** button to ensure that the app still works.
+  Click the **Run** button to ensure that the app works as before.
 </li>
 </ol>
 </div>
@@ -570,19 +606,19 @@ import 'components/app_component.dart';
 * Angular apps are modular and typically consist of a high level root
   component, referred to as the _app component_,
   that lives directly under the `lib` directory.
-  The app component controls the other components.
+  The app component manages the other components.
 
 * The high level component is passed to `bootstrap()` in
   `main.dart`.
 
-* This step renamed the `app_component` files to `pirate_badge_component`,
-  so our next task is to add a new root component that
-  uses the `pirate_badge_component`.
+* This step renamed the `app_component` files to `pirate_badge`,
+  so our next task is to add a new app component that
+  controls a pirate badge component.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
-### <i class="fa fa-anchor"> </i> Add a root-level app component, App.
+### <i class="fa fa-anchor"> </i> Add a root-level app component.
 
 <div class="trydart-step-details" markdown="1">
 Create a new file under `lib`.
@@ -614,6 +650,8 @@ Create a new file under `lib`.
 
 </div> </div>
 
+<hr>
+
 <div class="trydart-step-details" markdown="1">
 Add imports to the file that you just created.
 </div>
@@ -622,14 +660,14 @@ Add imports to the file that you just created.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/angular2.dart';
-import 'components/pirate_badge_component.dart';
+[[highlight]]import 'package:angular2/angular2.dart';[[/highlight]]
+[[highlight]]import 'components/pirate_badge.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
-* The root component manages all of the components in the app,
+* The root-level app component manages the other components in the app,
   so it imports the pirate badge component.
 
 * When importing a library within `lib`,
@@ -641,6 +679,8 @@ import 'components/pirate_badge_component.dart';
 
 </div> </div>
 
+<hr>
+
 <div class="trydart-step-details" markdown="1">
 Add an empty `App` class marked with an `@Component` annotation.
 </div>
@@ -649,48 +689,54 @@ Add an empty `App` class marked with an `@Component` annotation.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-@Component(
-    selector: 'my-app',
-    template: '''
-    <h1>Pirate badge</h1>
-    <pirate-badge></pirate-badge>
-    ''',
-    directives: const [PirateBadge])
-class App {}
+[[highlight]]@Component([[/highlight]]
+    [[highlight]]selector: 'my-app',[[/highlight]]
+    [[highlight]]template: '''[[/highlight]]
+    [[highlight]]<h1>Pirate badge</h1>[[/highlight]]
+    [[highlight]]<pirate-badge></pirate-badge>[[/highlight]]
+    [[highlight]]''',[[/highlight]]
+    [[highlight]]directives: const [PirateBadge])[[/highlight]]
+[[highlight]]class App {}[[/highlight]]
 {% endprettify %}
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
-* xxx - say something about the @Component annotation...
+* This `@Component` constructor has two named parameters: `selector`
+  and `template`.
 
-* xxx - say something about directives, selectors, inline CSS
+* The `selector` for the root-level app component is `my-app`.
+  Angular creates and displays an instance of App when it
+  encounters a `my-app` element in the HTML.
 
-* The HTML view is defined in app.dart, so you don't need an `app.html` file.
+* The `template` parameter specifies the HTML view within
+  the component constructor. If you have more complex HTML, place it
+  in a separate file and use the `templateUrl` version of the
+  constructor to point to it.
+
+* This template view consists of a level-one header and a
+  `<pirate-badge>` instance.
+
+* List all components that this component interacts with in the
+  `directives:` field.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
 </div> </div>
 
-### <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.dart.
 
 <div class="trydart-step-details" markdown="1">
-xxx ...
-Ends up with the following:
+Change the CSS selector for this component.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/angular2.dart';
-
 @Component(
-    selector: 'pirate-badge',
-    templateUrl: 'pirate_badge_component.html')
-class PirateBadge {
-  String badgeName = "";
-}
+    [[highlight]]selector: 'pirate-badge',[[/highlight]]
+    templateUrl: 'pirate_badge.html')
 {% endprettify %}
 </div>
 
@@ -698,14 +744,43 @@ class PirateBadge {
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* xxx blah blah
+* When Angular detects the `<pirate-badge>` selector, it loads the
+  PirateBadge class.
 
 </div></div>
 
-### <i class="fa fa-anchor"> </i> Edit pirate_badge_component.html.
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Change the name of the class and add an empty string to hold
+name badge.
+</div>
+
+<div class="row"> <div class="col-md-7">
+
+<div class="trydart-step-details">
+{% prettify dart %}
+[[highlight]]class PirateBadge {[[/highlight]]
+  [[highlight]]String badgeName = "";[[/highlight]]
+[[highlight]]}[[/highlight]]
+{% endprettify %}
+</div>
+
+{% comment %}
+</div> <div class="col-md-5" markdown="1">
+
+* x
+{% endcomment %}
+
+</div></div>
+
+<hr>
+
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.html.
 
 <div class="trydart-step-details" markdown="1">
-Replace the title with HTML for the name badge:
+Delete the `<h1>` title. Add a `<div>` for the name badge.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -719,18 +794,42 @@ Replace the title with HTML for the name badge:
 {% endraw %}{% endprettify %}
 </div>
 
+{% comment %}
+
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* xxx - blah
+* x
+{% endcomment %}
 
 </div></div>
 
-### <i class="fa fa-anchor"> </i> Edit web/index.html.
+<hr>
+
+### <i class="fa fa-anchor"> </i> Create a styles.css file.
 
 <div class="trydart-step-details" markdown="1">
-Make the following changes:
+Define the appearance of the pirate badge.
+</div>
+
+<div class="trydart-step-details" markdown="1">
+Select `web` and choose **File > New...**. Enter "styles.css"
+as the name and click **OK**.
+</div>
+
+<div class="trydart-step-details" markdown="1">
+Paste the contents from
+[styles.css](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/2-blankbadge/web/styles.css)
+into the newly created file.
+</div>
+
+<hr>
+
+### <i class="fa fa-anchor"> </i> Edit index.html.
+
+<div class="trydart-step-details" markdown="1">
+Change the header info.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -741,16 +840,11 @@ Make the following changes:
 
 <html>
   <head>
-    [[highlight]]<meta charset="utf-8">[[/highlight]]
-    [[highlight]]<meta http-equiv="X-UA-Compatible" content="IE=edge">[[/highlight]]
-    [[highlight]]<meta name="description" content="">[[/highlight]]
-    [[highlight]]<meta name="viewport" content="width=device-width, initial-scale=1">[[/highlight]]
-
     [[highlight]]<title>Avast, Ye Pirates</title>[[/highlight]]
 
     [[highlight]]<link rel="stylesheet" href="styles.css">[[/highlight]]
 
-    <script defer type="application/dart" src="main.dart"></script>
+    <script defer src="main.dart" type="application/dart"></script>
     <script defer src="packages/browser/dart.js"></script>
   </head>
   <body>
@@ -764,14 +858,16 @@ Make the following changes:
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* xxx - blah
+* Change the title to "Avast, Ye Pirates".
+
+* Link to the style sheet that defines the look of the pirate badge.
 
 </div></div>
 
 ### <i class="fa fa-anchor"> </i> Edit main.dart.
 
 <div class="trydart-step-details" markdown="1">
-Make the following changes:
+Import the new app component and pass it to the `bootstrap()` function:
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -787,24 +883,15 @@ main() {
 {% endprettify %}
 </div>
 
+{% comment %}
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* xxx
+* x
+{% endcomment %}
 
 </div></div>
-
-### <i class="fa fa-anchor"> </i> Create a styles.css file.
-
-<div class="trydart-step-details" markdown="1">
-Select `web` and choose **File > New...**. Enter "styles.css"
-as the name and click **OK**.
-</div>
-
-<div class="trydart-step-details" markdown="1">
-Paste the contents from [styles.css](xxx) into the newly created file.
-</div>
 
 ### <i class="fa fa-anchor"> </i> Test it!
 
@@ -814,12 +901,18 @@ Run the app. You should see a blank name badge:
 <img style="border:1px solid black" src="images/basic-pirate-name-badge.png" alt="A screenshot of the basic pirate name badge">
 </div>
 
-Next we will add some interactivity.
+Next you will add some interactivity.
 
-xxx: GLOBALLY-Add a note:
-"Problems?<br>
-If you are off track, here are the files you can start up with..."<br>
-Link to the 2-blankbadge files on GitHub.
+#### Problems?
+
+Check your code against the files in `2-blankbadge`.
+
+* [main.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/2-blankbadge/web/main.dart)
+* [index.html](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/2-blankbadge/web/index.html)
+* [app.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/2-blankbadge/lib/app.dart)
+* [pirate_badge.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/2-blankbadge/lib/components/pirate_badge.dart)
+* [pirate_badge.html](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/2-blankbadge/lib/components/pirate_badge.html)
+* [styles.css](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/2-blankbadge/web/styles.css)
 
 ##Step 3: Add an input field {#step-three}
 
@@ -827,7 +920,7 @@ In this step, you add an input field.
 As the user types into the input field,
 the badge updates.
 
-### <i class="fa fa-anchor"> </i> Edit pirate_badge_component.html.
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.html.
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
@@ -836,10 +929,10 @@ the badge updates.
 Add an input field to the top of the file:
 
 {% prettify html %}
-<div class="widgets">
-  <input (input)="updateBadge($event.target.value)"
-         type="text" maxlength="15">
-</div>
+[[highlight]]<div class="widgets">[[/highlight]]
+  [[highlight]]<input (input)="updateBadge($event.target.value)"[[/highlight]]
+         [[highlight]]type="text" maxlength="15">[[/highlight]]
+[[highlight]]</div>[[/highlight]]
 {% endprettify %}
 
 </div>
@@ -848,34 +941,52 @@ Add an input field to the top of the file:
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* PENDING: xxx: Explain how this works, once I understand it.
-  For example, where is "(input)" described? Does it come from
-  ng2 or from HTML5? What's really going on here?
+* `<input...>` defines an HTML5 input element.
+
+* The `(input)="updateBadge(...)"` attribute binds input events
+  to the `updateBadge()` function in the component class.
+  When an input event occurs on this element,
+  Angular calls `updateBadge()` with the value entered by the user.
+
+* The `(input)="updateBadge(...)"` text is referred to as
+  _event binding_ syntax.
+  A _template statement_ is the expression to the right of the equals sign.
+
+* The template statement may reference functions or variables
+  from the Dart component code.
+
+* By convention, a template statement is short&mdash;more
+  complex logic should be placed in a function and called
+  from the template statement.
+
+* User input on this field is limited to 15 characters.
 
 </div> </div>
 
-### <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.dart.
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 
-Add an event hander called `updateBadge()` to the PirateBadge class.
+Add an event handler, `updateBadge()`, to the PirateBadge class.
 
 {% prettify dart %}
-  void updateBadge(String inputName) {
-    badgeName = inputName.toString();
-  }
+  [[highlight]]void updateBadge(String inputName) {[[/highlight]]
+    [[highlight]]badgeName = inputName.toString();[[/highlight]]
+  [[highlight]]}[[/highlight]]
 {% endprettify %}
 
 </div>
+
+{% comment %}
 
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* Angular calls the `updateBadge()` event handler when
-  when the input field receives a change event.
+* x
+{% endcomment %}
 
 </div> </div>
 
@@ -883,23 +994,117 @@ Add an event hander called `updateBadge()` to the PirateBadge class.
 
 <div class="trydart-step-details" markdown="1">
 
-Run the app. Type into the text field and see the badge update.
+Run the app. Type into the input field.
+The name badge updates to display what you've typed.
 The UI should look similar to the following screenshot.
 
 <img style="border:1px solid black" src="images/pirate-badge-input-field.png" alt="A screenshot of the app with input field filled in">
 
 </div>
 
+#### Problems?
+
+Check your code against the files in `3-inputbadgename`.
+
+* [pirate_badge.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/3-inputbadgename/lib/components/pirate_badge.dart)
+* [pirate_badge.html](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/3-inputbadgename/lib/components/pirate_badge.html)
+
 <hr>
 
 ##Step 4: Add a button {#step-four}
 
 In this step, you add a button.
-The button is enabled when the text field contains no text.
+The button is enabled when the input field is empty.
 When the user clicks the button,
 the app displays "Anne Bonney" on the badge.
 
-### <i class="fa fa-anchor"> </i> Edit pirate_badge_component.html.
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.dart.
+
+<div class="trydart-step-details" markdown="1">
+Add some variables to the PirateBadge class.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+
+{% prettify dart %}
+class PirateBadge {
+  String badgeName = "";
+  [[highlight]]String buttonText = "Aye! Gimme a name!";[[/highlight]]
+  [[highlight]]bool enableButton = true;[[/highlight]]
+  [[highlight]]bool enableInput = true;[[/highlight]]
+{% endprettify %}
+
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* These variables will be referenced in the template statements for
+  the button and the input element.
+
+&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
+
+</div> </div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Add a `generateBadge()` function.
+</div>
+
+<div class="row"> <div class="col-md-7">
+
+<div class="trydart-step-details">
+{% prettify dart %}
+  [[highlight]]void generateBadge() {[[/highlight]]
+    [[highlight]]badgeName = 'Anne Bonney';[[/highlight]]
+  [[highlight]]}[[/highlight]]
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+* Clicking the button displays "Anne Bonney" on the pirate badge.
+  In Step 5, you replace this with more interesting logic.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Add an `updateBadge()` function.
+</div>
+
+<div class="row"> <div class="col-md-7">
+
+<div class="trydart-step-details">
+{% prettify dart %}
+  [[highlight]]void updateBadge(String inputName) {[[/highlight]]
+    [[highlight]]badgeName = inputName.toString();[[/highlight]]
+    [[highlight]]if (inputName.trim().isEmpty) {[[/highlight]]
+      [[highlight]]buttonText = 'Aye! Gimme a name!';[[/highlight]]
+      [[highlight]]enableButton = true;[[/highlight]]
+    [[highlight]]} else {[[/highlight]]
+      [[highlight]]buttonText = 'Arrr! Write yer name!';[[/highlight]]
+      [[highlight]]enableButton = false;[[/highlight]]
+    [[highlight]]}[[/highlight]]
+  [[highlight]]}[[/highlight]]
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+* Enable the button if the input field is empty,
+  otherwise disable it.
+
+</div></div>
+
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.html.
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
@@ -908,13 +1113,14 @@ the app displays "Anne Bonney" on the badge.
 Replace the `widgets` div at the top of the file with the following:
 
 {% prettify html %}{% raw %}
-<div class="widgets">
-  <input [disabled]="!enableInput" (input)="updateBadge($event.target.value)"
-         type="text" maxlength="15">
-  <button [disabled]="!enableButton" (click)="generateBadge()">
-    {{ buttonText }}
-  </button>
-</div>
+[[highlight]]<div class="widgets">[[/highlight]]
+  [[highlight]]<input [disabled]="!enableInput"[[/highlight]]
+         [[highlight]](input)="updateBadge($event.target.value)"[[/highlight]]
+         [[highlight]]type="text" maxlength="15">[[/highlight]]
+  [[highlight]]<button [disabled]="!enableButton" (click)="generateBadge()">[[/highlight]]
+    [[highlight]]{{ buttonText }}[[/highlight]]
+  [[highlight]]</button>[[/highlight]]
+[[highlight]]</div>[[/highlight]]
 {% endraw %}{% endprettify %}
 
 </div>
@@ -923,53 +1129,17 @@ Replace the `widgets` div at the top of the file with the following:
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* blah blah blah - xxx
+* Add a button.
 
-&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
+* Square brackets `[]` specify a property on the element. This example
+  references the `disabled` property.
 
-</div> </div>
+* The `[disabled] != "!enableInput"` text enables, or disables,
+  the input element based on the value of the corresponding Dart variable.
+  The button is enabled in a similar manner.
 
-### <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
-
-xxx: TODO: Break this up into smaller steps - BUILD it.
-
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-
-Replace the PirateBadge class with the following
-
-{% prettify dart %}
-class PirateBadge {
-  String badgeName = "";
-  String buttonText = "Aye! Gimme a name!";
-  bool enableButton = true;
-  bool enableInput = true;
-
-  void generateBadge() {
-    badgeName = 'Anne Bonney';
-  }
-
-  void updateBadge(String inputName) {
-    badgeName = inputName.toString();
-    if (inputName.trim().isEmpty) {
-      buttonText = 'Aye! Gimme a name!';
-      enableButton = true;
-    } else {
-      buttonText = 'Arrr! Write yer name!';
-      enableButton = false;
-    }
-  }
-}
-{% endprettify %}
-
-</div>
-
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* blah blah blah - xxx
+* The `(click)="generateBadge()"` text sets up an event handler&mdash;Angular
+  calls the `generateBadge()` when receiving a click event.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
@@ -979,22 +1149,18 @@ class PirateBadge {
 
 <div class="trydart-step-details" markdown="1">
 
-Click the **Run** button.
+Run the app.
 
-Type in the input field.
-Remove the text from the input field.
-Click the button.
-
-The UI should look like the following:
-
-<img style="border:1px solid black" src="images/button-badge.png" alt="The app now has an input field, a button, and a name badge.">
+Type in the input field. The name badge updates to display what you've typed,
+and the button is disabled.  Remove the text from the input field and the
+button is enabled. Click the button. The name badge displays "Anne Bonney".
 
 #### Problems?
 
-Check your code against the solution.
+Check your code against the files in `4-buttonbadge`.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/main.dart" target="_blank">main.dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/3-buttonbadge/web/index.html" target="_blank">index.html</a>
+* [pirate_badge.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/4-buttonbadge/lib/components/pirate_badge.dart)
+* [pirate_badge.html](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/4-buttonbadge/lib/components/pirate_badge.html)
 
 </div>
 
@@ -1006,7 +1172,7 @@ A proper pirate name consists of a name and an appellation,
 such as "Margy the Fierce" or "Renée the Fighter".
 In this step, you add a service that returns a pirate name.
 
-### <i class="fa fa-anchor"> </i> Create the class for the pirate name service.
+### <i class="fa fa-anchor"> </i> Create a class for the pirate name service.
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
@@ -1035,8 +1201,6 @@ In this step, you add a service that returns a pirate name.
 </div> </div>
 
 ### <i class="fa fa-anchor"> </i> Edit the pirate name service.
-
-Edit the file that you just created.
 
 <div class="trydart-step-details" markdown="1">
 Add an import to the file.
@@ -1072,14 +1236,16 @@ Add a class declaration below the import.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-[[highlight]]class PirateNameService[[/highlight]] {
+[[highlight]]class PirateName[[/highlight]] {
 [[highlight]]}[[/highlight]]
 {% endprettify %}
 </div>
 
+{% comment %}
 </div> <div class="col-md-5" markdown="1">
 
-* The class declaration provides the class name.
+* x
+{% endcomment %}
 
 </div></div>
 
@@ -1094,7 +1260,7 @@ Create a class-level Random object.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateNameService {
+class PirateName{
   [[highlight]]static final Random indexGen = new Random();[[/highlight]]
 }
 {% endprettify %}
@@ -1122,7 +1288,7 @@ one for the first name and one for the appellation.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName {
+class PirateName{
   static final Random indexGen = new Random();
 
   [[highlight]]final String _firstName;[[/highlight]]
@@ -1152,13 +1318,13 @@ collection of names and appellations to choose from.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateNameService {
+class PirateName{
   ...
 
-  [[highlight]]static final List names = [[[/highlight]]
+  [[highlight]]static final List _names = [[[/highlight]]
     [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',[[/highlight]]
     [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];[[/highlight]]
-  [[highlight]]static final List appellations = [[[/highlight]]
+  [[highlight]]static final List _appellations = [[[/highlight]]
     [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe',[[/highlight]]
     [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
 {% endprettify %}
@@ -1183,9 +1349,9 @@ Provide a constructor for the class.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName {
+class PirateName{
   ...
-  [[highlight]]PirateNameService({String firstName, String appellation})[[/highlight]]
+  [[highlight]]PirateName({String firstName, String appellation})[[/highlight]]
       [[highlight]]: _firstName =[[/highlight]]
             [[highlight]]firstName ?? _names[indexGen.nextInt(_names.length)],[[/highlight]]
         [[highlight]]_appellation = appellation ??[[/highlight]]
@@ -1224,7 +1390,7 @@ Provide a getter for the pirate name.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName {
+class PirateName{
   ...
   [[highlight]]String get pirateName =>[[/highlight]]
       [[highlight]]_firstName.isEmpty ? '' : '$_firstName the $_appellation';[[/highlight]]
@@ -1258,7 +1424,7 @@ Override the toString() method.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName {
+class PirateName{
   ...
   [[highlight]]String toString() => pirateName;[[/highlight]]
 }
@@ -1277,14 +1443,9 @@ class PirateName {
 
 </div></div>
 
-### <i class="fa fa-anchor"> </i> Edit the pirate badge component.
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.dart.
 
-In this step, you hook up the pirate name service to the pirate badge
-component.
-
-<div class="trydart-step-details" markdown="1">
-Open `lib/components/pirate_badge_component.dart`.
-</div>
+Hook up the pirate name service to the pirate badge component.
 
 <div class="trydart-step-details" markdown="1">
 Import the pirate name service.
@@ -1295,15 +1456,17 @@ Import the pirate name service.
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
 import 'package:angular2/angular2.dart';
-[[highlight]]import '../services/pirate_name.dart' show PirateNameService;[[/highlight]]
+[[highlight]]import '../services/pirate_name.dart' show PirateName;[[/highlight]]
 {% endprettify %}
 </div>
 
+{% comment %}
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* xxx
+* x
+{% endcomment %}
 
 </div></div>
 
@@ -1320,7 +1483,7 @@ Add a `setBadgeName()` method.
 {% prettify dart %}
 class PirateBadge {
   ...
-  [[highlight]]void setBadgeName(PirateNameService newName) {[[/highlight]]
+  [[highlight]]void setBadgeName(PirateNamenewName) {[[/highlight]]
     [[highlight]]if (newName == null) return;[[/highlight]]
     [[highlight]]badgeName = newName.pirateName;[[/highlight]]
   [[highlight]]}[[/highlight]]
@@ -1347,13 +1510,15 @@ Update `generateBadge()` to call `setBadgeName()` for a new pirate name.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-  [[highlight]]void generateBadge() => setBadgeName(new PirateNameService());[[/highlight]]
+  [[highlight]]void generateBadge() => setBadgeName(new PirateName());[[/highlight]]
 {% endprettify %}
 </div>
 
+{% comment %}
 </div> <div class="col-md-5" markdown="1">
 
-* xxx
+* x
+{% endcomment %}
 
 </div></div>
 
@@ -1372,7 +1537,7 @@ class PirateBadge() {
   ...
 
   void updateBadge(String inputName) {
-    [[highlight]]setBadgeName(new PirateNameService(firstName: inputName));[[/highlight]]
+    [[highlight]]setBadgeName(new PirateName(firstName: inputName));[[/highlight]]
     if (inputName.trim().isEmpty) {
       buttonText = 'Aye! Gimme a name!';
       enableButton = true;
@@ -1385,9 +1550,11 @@ class PirateBadge() {
 {% endprettify %}
 </div>
 
+{% comment %}
 </div> <div class="col-md-5" markdown="1">
 
-* xxx
+* x
+{% endcomment %}
 
 </div></div>
 
@@ -1395,17 +1562,17 @@ class PirateBadge() {
 
 <div class="trydart-step-details" markdown="1">
 
-Click the **Run** button.
+Run the app.
 
-Click the button.
-Each click should display a new pirate name.
+Click the button&mdash;each click displays a new pirate name composed
+of a name and an appellation.
 
 #### Problems?
 
-Check your code against the solution.
+Check your code against the files in `5-piratenameservice`.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/main.dart" target="_blank">main.dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/index.html" target="_blank">index.html</a>
+* [pirate_badge.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/5-piratenameservice/lib/components/pirate_badge.dart)
+* [pirate_name.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/5-piratenameservice/lib/services/pirate_name.dart)
 
 </div>
 
@@ -1413,12 +1580,10 @@ Check your code against the solution.
 
 ##Step 6: Read a JSON file {#step-six}
 
-In this step, you change the PirateName service to fetch
+In this step, you change the pirate name service to fetch
 the names and appellations from a JSON file on dartlang.
 
-### <i class="fa fa-anchor"> </i> Edit the pirate name service.
-
-Open `lib/services/pirate_name.dart`.
+### <i class="fa fa-anchor"> </i> Edit pirate_name.dart.
 
 <div class="trydart-step-details" markdown="1">
 Add imports to the top.
@@ -1442,13 +1607,10 @@ import 'dart:math' show Random;
 * The `dart:html` library contains the classes for all DOM element
   types, in addition to functions for accessing the DOM.
 
-* `JSON` provides convenient access to the most commonly used JSON
-  conversion utilities.
-
 * The `dart_async` library provides for asynchronous programming.
 
-* A `Future` provides a way to get a value in the future.
-  (For JavaScript developers: Futures are similar to Promises.)
+* The `dart:convert` library provides convenient access to the most
+  commonly used JSON conversion utilities.
 
 </div></div>
 
@@ -1456,15 +1618,14 @@ import 'dart:math' show Random;
 
 <hr>
 
-Replace the `names` and `appellations` lists with these static,
-empty lists.
+Replace the `_names` and `_appellations` lists with static, empty lists.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName {
+class PirateName{
   static final Random indexGen = new Random();
 
   [[highlight]]static final List<String> _names = [];[[/highlight]]
@@ -1495,7 +1656,7 @@ to read the names and appellations from the JSON file.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateNameService {
+class PirateName{
   ...
 
   [[highlight]]static Future readyThePirates() async {[[/highlight]]
@@ -1506,8 +1667,8 @@ class PirateNameService {
         [[highlight]]'piratenames.json';[[/highlight]]
     [[highlight]]final jsonString = await HttpRequest.getString(path);[[/highlight]]
     [[highlight]]final pirateNames = JSON.decode(jsonString);[[/highlight]]
-    [[highlight]]PirateNameService._names.addAll(pirateNames['names']);[[/highlight]]
-    [[highlight]]PirateNameService._appellations[[/highlight]]
+    [[highlight]]PirateName._names.addAll(pirateNames['names']);[[/highlight]]
+    [[highlight]]PirateName._appellations[[/highlight]]
         [[highlight]].addAll(pirateNames['appellations']);[[/highlight]]
   [[highlight]]}[[/highlight]]
 |
@@ -1520,6 +1681,9 @@ class PirateNameService {
   An async function returns a Future immediately, so the caller
   has the opportunity to do something else while waiting for
   the function to complete its work.
+
+* A `Future` provides a way to get a value in the future.
+  (For JavaScript developers: Futures are similar to Promises.)
 
 * `HttpRequest` is a utility for retrieving data from a URL.
 
@@ -1539,9 +1703,10 @@ class PirateNameService {
 
 </div></div>
 
-### <i class="fa fa-anchor"> </i> Edit the pirate badge component.
+### <i class="fa fa-anchor"> </i> Edit pirate_badge.dart.
 
-xxxx - loads the JSON file...
+Instruct the name service to load the pirate names
+from the JSON file on startup.
 
 <div class="trydart-step-details" markdown="1">
 
@@ -1565,7 +1730,7 @@ class PirateBadge {
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* These inputs are enabled when the file is loaded.
+* These inputs are enabled once the file is loaded.
 
 </div></div>
 
@@ -1584,9 +1749,9 @@ handling both success and failure.
 class PirateBadge {
   ...
 
-  [[highlight]]loadFile() async {[[/highlight]]
+  [[highlight]]ngOnInit() async {[[/highlight]]
     [[highlight]]try {[[/highlight]]
-      [[highlight]]await PirateNameService.readyThePirates();[[/highlight]]
+      [[highlight]]await PirateName.readyThePirates();[[/highlight]]
       [[highlight]]//on success[[/highlight]]
       [[highlight]]enableButton = true;[[/highlight]]
       [[highlight]]enableInput = true;[[/highlight]]
@@ -1600,6 +1765,11 @@ class PirateBadge {
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+* `ngOnInit()` is one of the
+  [lifecycle hooks](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html)
+  available in Angular 2. Angular calls ngOnInit after the component
+  is initialized.
 
 * Mark the function body with `async`, so this function can use
   the `await` keyword.
@@ -1621,47 +1791,42 @@ class PirateBadge {
 
 <hr>
 
-Add a PirateBadge constructor.
+List `OnInit` as one of the interfaces that PirateBadge supports.
 </div>
 
-<div class="row"> <div class="col-md-7" markdown="1">
+<div class="row"> <div class="col-md-7">
 
-<div class="trydart-step-details" markdown="1">
+<div class="trydart-step-details">
 {% prettify dart %}
-class PirateBadge {
-  [[highlight]]PirateBadge() {[[/highlight]]
-    [[highlight]]loadFile();[[/highlight]]
-  [[highlight]]}[[/highlight]]
+class PirateBadge [[highlight]]implements OnInit[[/highlight]] {
+  ...
 }
 {% endprettify %}
 </div>
 
+{% comment %}
 </div> <div class="col-md-5" markdown="1">
 
-* Constructors cannot be asynchronous. The
-  asynchronous code is placed in a separate function
-  that is called by the constructor.
+* x
+{% endcomment %}
 
 </div></div>
-
-----------
 
 ### <i class="fa fa-anchor"> </i> Test it!
 
 <div class="trydart-step-details" markdown="1">
 
-Click the **Run** button.
+Run the app.
 
-Type in the input field.
-Remove the text from the input field.
-Click the button.
+The app should work as before, but this time the pirate name is
+constructed from the JSON file.
 
 #### Problems?
 
-Check your code against the solution.
+Check your code against the files in `6-readjsonfile`.
 
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/main.dart" target="_blank">main.dart</a>
-* <a href="https://github.com/dart-lang/one-hour-codelab/tree/master/darrrt/5-final/web/index.html" target="_blank">index.html</a>
+* [pirate_badge.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/5-piratenameservice/lib/components/pirate_badge.dart)
+* [pirate_name.dart](https://github.com/dart-lang/one-hour-codelab/blob/ng2/ng2/5-piratenameservice/lib/services/pirate_name.dart)
 
 </div>
 
@@ -1672,21 +1837,40 @@ Check your code against the solution.
 Now that you've written your app, what do you do next?
 Here are some suggestions.
 
+### <i class="fa fa-anchor"> </i> Work through the guides on angular.io
+
+<div class="trydart-step-details" markdown="1">
+Work through the [QuickStart](https://angular.io/docs/dart/latest/quickstart.html)
+and [Developer](https://angular.io/docs/dart/latest/guide/) Guides
+on the [angular.io](https://angular.io/docs/dart/latest/) site.
+</div>
+
 ### <i class="fa fa-anchor"> </i> Build your app to run in any browser
 
 <div class="trydart-step-details" markdown="1">
-To compile the app into JavaScript that runs in any modern browser,
-use **pub build**. For example, to build the final version of the app:
+You can _test_ your app in other browsers by right-clicking
+index.html and choosing **Open in browser &gt;*** from the pop up menu.
 
-{% prettify sh %}
-cd darrrt/5-final
-pub build
-{% endprettify %}
+To _compile_ the app into JavaScript that runs in any modern browser,
+use **pub build**.  Build the app in WebStorm, as follows:
+</div>
 
-For more information, see
-[Get Started](/docs/tutorials/get-started/) and
-[pub build](/tools/pub/cmd/pub-build.html), one of the
-[pub](/tools/pub/) commands.
+<ol markdown="1">
+<li markdown="1">Open the pubspec and click **Build...**.
+</li>
+
+<li markdown="1">From the dialog,
+choose **Release** or **Debug**, as desired.
+The third option allows you to
+[specify a mode](/tools/pub/cmd/pub-build.html#options)
+to `pub build`.
+</li>
+</ol>
+
+<div class="trydart-step-details" markdown="1">
+When deploying your application, use the
+[dart_to_js_script_rewriter](https://pub.dartlang.org/packages/dart_to_js_script_rewriter)
+transformer to create a more performant version.
 </div>
 
 ### <i class="fa fa-anchor"> </i> Deploy a server and your app
@@ -1712,43 +1896,16 @@ the [Dart tutorials](/docs/tutorials/).
 
 ##Summary and resources {#resources}
 
-### <i class="fa fa-anchor"> </i> Think about what you've done!
-
-<div class="trydart-step-details" markdown="1">
-
-This code lab provided a tour of most Dart language features
-and many library features.
-Here's where to go to learn more.
-
-#### The Dart language
-
-<a href="/docs/dart-up-and-running/ch02.html">
-A Tour of the Dart Language</a>
-shows you how to use each major Dart feature,
-from variables and operators to classes and libraries.
-This code lab introduced the following Dart language features,
-all of which are covered in more detail in the language tour.
-
-* string interpolation (`'$_firstName the $_appellation'`)
-* the cascade operator (`..`)
-* the fat arrow (`=>`) function syntax
-* the ternary operator (`?:`)
-* named constructors (`PirateName.fromJSON(...)`)
-* optional parameters
-* a class
-* getters
-* instance methods and fields
-* class level methods and fields
-* top-level variables and functions
-* typecasting with `as` (`(e.target as InputElement)`)
-* import, and import with `show` (`import 'dart:math' show Random;`)
-* generics
-* asynchrony support (`async` and `await`)
-</div>
-
 ### <i class="fa fa-anchor"> </i> Online documentation
 
 <div class="trydart-step-details" markdown="1">
+
+#### The Dart language
+
+* <a href="/docs/dart-up-and-running/ch02.html">
+  A Tour of the Dart Language</a> shows you how to use
+  each major Dart feature, from variables and operators to
+  classes and libraries.
 
 #### The Dart libraries
 
@@ -1756,17 +1913,30 @@ all of which are covered in more detail in the language tour.
 A Tour of the Dart Libraries</a>
 shows you how to use the major features in Dart’s libraries.
 
+#### Angular 2 documentation
+
+* The <a href="https://angular.io/docs/dart/latest/"
+  target="_blank">Angular 2 for Dart</a> site has a quick start guide,
+  a developer guide, and API documentation.
+  You might want to bookmark the
+  <a href="https://angular.io/docs/dart/latest/guide/cheatsheet.html">Angular
+  Cheat Sheet</a>.
+{% comment %}
+  Until the Angular 2 for Dart docs are complete,
+  also refer to the JavaScript
+  <a href="https://angular.io/docs/js/latest/api/" target="_blank">API 2.0</a>
+  documentation.
+{% endcomment %}
+
 #### API documentation for classes
 
 * <a href="https://api.dartlang.org/dart_core/String.html" target="_blank">String</a>,
 <a href="https://api.dartlang.org/dart_core/List.html" target="_blank">List</a>,
 <a href="https://api.dartlang.org/dart_core/Map.html" target="_blank">Map</a>,
 <a href="https://api.dartlang.org/dart_math/Random.html" target="_blank">Random</a>,
-<a href="https://api.dartlang.org/dart_html/InputElement.html" target="_blank">InputElement</a>,
-<a href="https://api.dartlang.org/dart_html/ButtonElement.html" target="_blank">ButtonElement</a>,
 <a href="https://api.dartlang.org/dart_html/Event.html" target="_blank">Event</a>,
 <a href="https://api.dartlang.org/dart_async/Future.html" target="_blank">Future</a>, and
-<a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Stream</a>
+<a href="https://api.dartlang.org/dart_async/Stream.html" target="_blank">Stream</a>.
 
 #### API documentation for libraries
 
@@ -1785,13 +1955,10 @@ shows you how to use the major features in Dart’s libraries.
 
 <div class="trydart-step-details" markdown="1">
 
-Please provide feedback to the appropriate repo:
-
-[www.dartlang.org repo](https://github.com/dart-lang/www.dartlang.org/issues)
-: For feedback about this code lab.
+Please provide feedback on this code lab to the
+[www.dartlang.org repo](https://github.com/dart-lang/www.dartlang.org/issues).
 
 </div>
-
 
 {% comment %}
 Original pirate code lab on the wayback machine:

@@ -9,18 +9,6 @@
       {
         "1": "package:pirate_badge/app.dart",
         "5": false
-      },
-      {
-        "1": "package:angular2/angular2.dart",
-        "5": false
-      },
-      {
-        "1": "dart:math",
-        "5": false
-      },
-      {
-        "1": "package:pirate_badge/services/pirate_name_service.dart",
-        "5": false
       }
     ],
     "6": "main.dart",
@@ -32,14 +20,6 @@
       {
         "1": "package:pirate_badge/app.ng_deps.dart",
         "4": "i1"
-      },
-      {
-        "1": "package:angular2/angular2.ng_deps.dart",
-        "4": "i2"
-      },
-      {
-        "1": "package:pirate_badge/services/pirate_name_service.ng_deps.dart",
-        "4": "i3"
       }
     ]
   }

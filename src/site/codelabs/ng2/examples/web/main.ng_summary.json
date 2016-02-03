@@ -9,18 +9,6 @@
       {
         "1": "package:pirate_badge/app.dart",
         "5": false
-      },
-      {
-        "1": "package:angular2/angular2.dart",
-        "5": false
-      },
-      {
-        "1": "dart:math",
-        "5": false
-      },
-      {
-        "1": "package:pirate_badge/services/pirate_name_service.dart",
-        "5": false
       }
     ],
     "6": "main.dart"
