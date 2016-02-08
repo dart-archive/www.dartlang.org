@@ -173,6 +173,8 @@ application = WSGIApplication(
     Route('/dartisans/podcast-feed', RedirectHandler,
       defaults={'_uri': 'http://feeds.feedburner.com/DartisansDartProgrammingLanguagePodcast',
                 '_code': 302}),
+    Route('/mobile/', RedirectHandler,
+      defaults={'_uri': '/devices/'}),
     Route('/docs/spec/deferred-loading.html', RedirectHandler,
       defaults={'_uri': '/docs/dart-up-and-running/ch02.html#deferred-loading'}),
     Route('/docs/spec/proposedDartLangSpec.pdf', RedirectHandler,
