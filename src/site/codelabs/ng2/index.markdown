@@ -86,8 +86,10 @@ about other plugins.
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-This code lab works with any IDE or editor, but the instructions
-assume that you're using WebStorm.
+While you can use any IDE or editor for Dart development,
+these instructions assume that you're using WebStorm.
+Alternate instructions are provided for some of the steps,
+though these are not as detailed.
 </aside>
 
 </div>
@@ -113,10 +115,11 @@ using one of the following options:
 git clone https://github.com/dart-lang/one-hour-codelab.git
 {% endprettify %}
 
-This creates a directory named `one-hour-codelab`. From the
-`one-hour-codelab` directory, change to the `ng2` branch:
+This creates a directory named `one-hour-codelab`.
+From the `one-hour-codelab` directory, change to the `ng2` branch:
 
 {% prettify sh %}
+cd one-hour-codelab
 git checkout ng2
 {% endprettify %}
 </li>
@@ -139,7 +142,7 @@ corresponds to a completed step in this code lab:
 `2-blankbadge`
 : Displays a pirate name badge
 
-`3-inputnamebadge`
+`3-inputbadgename`
 : As you type into the input field,
   the text displays on the name badge
 
@@ -176,6 +179,10 @@ for creating a variety of Dart apps.
 When you create a new app,
 you can start with one of the application templates,
 or you can start from scratch.
+
+<div class="row"> <div class="col-md-7">
+
+<div class="trydart-step-details" markdown="1">
 
 <ol>
 <li markdown="1">Launch WebStorm. This brings up a "Welcome to WebStorm" dialog.
@@ -216,6 +223,29 @@ WebStorm creates a `pirate_badge` directory and boilerplate files for
 a basic Angular 2 app. It then runs `pub get` to download the packages
 that the app depends on.
 
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Not using WebStorm? </strong>
+
+{% comment %}
+xxx: If we keep these alternate instructions,
+     we'll need a different (non-key) icon.
+{% endcomment %}
+
+<ol markdown="1">
+<li markdown="1">Create a directory on your computer for the project.
+</li>
+<li markdown="1">Copy the contents of the `one-hour-code-lab/ng2/1-skeleton`
+    directory into your new project's directory.
+</li>
+<li markdown="1">Run `pub get` within your project's directory.
+</li>
+</ol>
+
+</div></div>
+
 ### <i class="fa fa-anchor"> </i> What did you get?
 
 Get familiar with the structure of a basic Angular app.
@@ -235,7 +265,7 @@ Then expand the `lib` and `web` folders to see the following:
 
 * Angular 2 is an application framework for web apps.
 
-* In Angular, you display data by defining components, a type of class.
+* In Angular, you display data by defining _components_, a type of class.
 
 * A component manages a _view_, an HTML template that defines
   the component's UI.
@@ -244,19 +274,42 @@ Then expand the `lib` and `web` folders to see the following:
 
 </div></div>
 
+<div class="row"> <div class="col-md-7" markdown="1">
 <div class="trydart-step-details" markdown="1">
 For now, you can ignore some of these auto-created files.
-The following diagram shows the files and directories referenced in
+The following shows the files and directories referenced in
 this code lab:
+</div>
 
+{% comment %}
 <img src="images/basic-web-app-directory-structure.png" alt="The important lib, web, and pubspec files created using the Stagehand templates.">
+{% endcomment %}
+
+<div class="trydart-step-details" markdown="1">
+
+{% prettify none %}
+pirate_badge/
+  lib/
+    app_component.dart
+    app_component.html
+  pubspec.yaml
+  web/
+    index.html
+    main.dart
+{% endprettify %}
 
 As you might expect,
 the `lib` directory contains library files. In an Angular app,
 component classes are generally created as library files.
 The `web` directory contains the "main" files for a web app.
-
 </div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+{% endcomment %}
+
+</div></div>
 
 ### <i class="fa fa-anchor"> </i> Review the code. {#review-the-code}
 
@@ -292,10 +345,6 @@ main() {
 * `main()` is a top-level function.
   A top-level variable or function is one that is declared outside a
   class definition.
-
-* The top lines import two libraries. All Dart files that use Angular
-  APIs import `angular2.dart`. Only files that call `bootstrap()`
-  import `bootstrap.dart`.
 
 * The second import, `app_component.dart`,
   pulls in the app component, `AppComponent`.
@@ -369,6 +418,10 @@ class AppComponent {}
 
 </div> <div class="col-md-5" markdown="1">
 
+* The top lines import two libraries. All Dart files that use Angular
+  APIs import `angular2.dart`. Only files that call `bootstrap()`
+  import `bootstrap.dart`.
+
 * The `@Component` annotation defines `AppComponent` as an Angular 2
   component.
 
@@ -380,7 +433,7 @@ class AppComponent {}
   encounters a `my-app` element in the HTML.
 
 * The `templateUrl` parameter specifies the file that contains the view.
-  To define the HTML _within_ the Dart file,
+  To define the HTML _within_ the Dart file as a Dart string,
   use the `template` parameter instead.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
@@ -445,7 +498,7 @@ transformers:
 * _Every_ Dart application is a package.
 
 * The pubspec also lists the libraries on which the
-  app depends. The `browser` and `angular` libraries needed by
+  app depends. The `browser` and `angular2` libraries needed by
   this app are hosted on [pub.dartlang.org](https://pub.dartlang.org/)
   along with many others.
 
