@@ -1130,7 +1130,7 @@ Add a `generateBadge()` function.
 
 <hr>
 
-Add an `updateBadge()` function.
+Replace the `updateBadge()` function.
 </div>
 
 <div class="row"> <div class="col-md-7">
@@ -1184,12 +1184,11 @@ Replace the `widgets` div at the top of the file with the following:
 
 * Add a button.
 
-* Square brackets `[]` specify a property on the element. This example
+* Square brackets `[]` specify a _property_ on the element. This example
   references the `disabled` property.
 
 * The `[disabled] != "!enableInput"` text enables, or disables,
   the input element based on the value of the corresponding Dart variable.
-  The button is enabled in a similar manner.
 
 * The `(click)="generateBadge()"` text sets up an event handler&mdash;Angular
   calls the `generateBadge()` when receiving a click event.
@@ -1313,8 +1312,8 @@ Create a class-level Random object.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
-  [[highlight]]static final Random indexGen = new Random();[[/highlight]]
+class PirateName {
+  [[highlight]]static final Random rng = new Random();[[/highlight]]
 }
 {% endprettify %}
 </div>
@@ -1341,8 +1340,8 @@ one for the first name and one for the appellation.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
-  static final Random indexGen = new Random();
+class PirateName {
+  static final Random rng = new Random();
 
   [[highlight]]final String _firstName;[[/highlight]]
   [[highlight]]final String _appellation;[[/highlight]]
@@ -1371,7 +1370,7 @@ collection of names and appellations to choose from.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
+class PirateName {
   ...
 
   [[highlight]]static final List _names = [[[/highlight]]
@@ -1395,6 +1394,42 @@ class PirateName{
 <div class="trydart-step-details" markdown="1">
 <hr>
 
+Provide helper methods that retrieve a randomly chosen first name
+and appellation.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+class PirateName {
+  ...
+  [[highlight]]static String randomFirstName() {[[/highlight]]
+    [[highlight]]return(_names[rng.nextInt(_names.length)]);[[/highlight]]
+  [[highlight]]}[[/highlight]]
+
+  [[highlight]]static String randomAppellation() {[[/highlight]]
+    [[highlight]]return(_appellations[rng.nextInt(_appellations.length)]);[[/highlight]]
+  [[highlight]]}[[/highlight]]
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+* The code uses a random number as an index into the list.
+
+* The `nextInt()` function gets a new random integer
+from the random number generator.
+
+* Use square brackets (`[` and `]`) to index into a list.
+
+* The `length` property returns the number of items in a list.
+
+</div> </div>
+
+<div class="trydart-step-details" markdown="1">
+<hr>
+
 Provide a constructor for the class.
 </div>
 
@@ -1402,14 +1437,11 @@ Provide a constructor for the class.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
+class PirateName {
   ...
   [[highlight]]PirateName({String firstName, String appellation})[[/highlight]]
-      [[highlight]]: _firstName =[[/highlight]]
-            [[highlight]]firstName ?? _names[indexGen.nextInt(_names.length)],[[/highlight]]
-        [[highlight]]_appellation = appellation ??[[/highlight]]
-            [[highlight]]_appellations[indexGen.nextInt(_appellations.length)];[[/highlight]]
-}
+      [[highlight]]: _firstName   = firstName   ?? randomFirstName(),[[/highlight]]
+        [[highlight]]_appellation = appellation ?? randomAppellation();[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -1419,16 +1451,10 @@ class PirateName{
   <em><code>ClassName</code></em>.<em><code>identifier</code></em>.
 
 * The parameters enclosed in curly brackets (`{` and `}`)
-are optional, named parameters.
+  are optional, named parameters.
 
-* The `nextInt()` function gets a new random integer
-from the random number generator.
-
-* Use square brackets (`[` and `]`) to index into a list.
-
-* The `length` property returns the number of items in a list.
-
-* The code uses a random number as an index into the list.
+* These parameters are initialized using an initializer list
+  which appears after the colon (`:`).
 
 </div> </div>
 
@@ -1443,7 +1469,7 @@ Provide a getter for the pirate name.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
+class PirateName {
   ...
   [[highlight]]String get pirateName =>[[/highlight]]
       [[highlight]]_firstName.isEmpty ? '' : '$_firstName the $_appellation';[[/highlight]]
@@ -1477,7 +1503,7 @@ Override the toString() method.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
+class PirateName {
   ...
   [[highlight]]String toString() => pirateName;[[/highlight]]
 }
@@ -1536,7 +1562,7 @@ Add a `setBadgeName()` method.
 {% prettify dart %}
 class PirateBadge {
   ...
-  [[highlight]]void setBadgeName(PirateNamenewName) {[[/highlight]]
+  [[highlight]]void setBadgeName(PirateName newName) {[[/highlight]]
     [[highlight]]if (newName == null) return;[[/highlight]]
     [[highlight]]badgeName = newName.pirateName;[[/highlight]]
   [[highlight]]}[[/highlight]]
@@ -1678,8 +1704,8 @@ Replace the `_names` and `_appellations` lists with static, empty lists.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
-  static final Random indexGen = new Random();
+class PirateName {
+  static final Random rng = new Random();
 
   [[highlight]]static final List<String> _names = [];[[/highlight]]
   [[highlight]]static final List<String> _appellations = [];[[/highlight]]
@@ -1709,7 +1735,7 @@ to read the names and appellations from the JSON file.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateName{
+class PirateName {
   ...
 
   [[highlight]]static Future readyThePirates() async {[[/highlight]]
