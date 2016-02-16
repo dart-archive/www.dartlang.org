@@ -166,3 +166,6 @@ Google internal tool for marketing
 
 [Symmetry Labs](http://app.symmetry-labs.com/)
 : A modular LED lighting fixture that can be configured by software written in Dart.
+
+[Jaxsta](http://jaxsta.com/)
+: The world's largest database of music. Industry sourced database of liner notes credits and contributions. We use Dart internally for our data-mapping UI tools.
