@@ -166,3 +166,6 @@ Google internal tool for marketing
 
 [Symmetry Labs](http://app.symmetry-labs.com/)
 : A modular LED lighting fixture that can be configured by software written in Dart.
+
+[Ven Chat](https://www.ven.chat)
+: A chat app for Android powered by a Dart backend.
