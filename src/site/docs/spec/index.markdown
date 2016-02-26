@@ -26,6 +26,7 @@ The restrictions on Mixins up until this edition were:
 * Mixins must inherit directly from Object
 * Mixins cannot contain super calls
 * Mixins cannot define constructors
+
 Only the last one, Mixins cannot define constructors, remains.
 
 {% comment %}
