@@ -152,22 +152,3 @@ col1:
         source_url: /docs/tutorials/fetchdata/#using-getString-function
         tryit_url: /docs/tutorials/fetchdata/#using-getString-function
         description: Using HttpRequest to fetch data.
-  -
-    heading: Polymer Dart 0.16.0
-    anchor: polymer_dart
-    screenshot: todomvc.png
-    caption: "TodoMVC: Create a TODO list using Polymer Dart"
-    link: https://github.com/dart-lang/sample-todomvc-polymer/blob/master/README.md
-    examples:
-      -
-        title: Get input from a form
-        explanation_url: /docs/tutorials/forms
-        tryit_url: slambook/
-        source_url: https://github.com/dart-lang/dart-tutorials-samples/tree/master/slambook
-        description: Use data binding to work with form data in Polymer.
-      -
-        title: TodoMVC
-        explanation_url: https://github.com/dart-lang/sample-todomvc-polymer/blob/master/README.md
-        tryit_url: todomvc/
-        source_url: https://github.com/dart-lang/sample-todomvc-polymer/
-        description: A Polymer implementation of the the canonical todo app.
