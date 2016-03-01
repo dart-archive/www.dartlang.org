@@ -41,3 +41,7 @@ body {
 .indent {
 	text-indent: 20px;
 }
+
+.codelab-title {
+        font-size: 150%;
+}

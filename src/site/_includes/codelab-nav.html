@@ -1,0 +1,28 @@
+<div class="row">
+<div class="row-fluid">
+
+<!-- PREV -->
+<div class="col-md-4">
+{% if page.prev %}
+<a href="{{ page.prev }}"><i class="glyphicon glyphicon-chevron-left"> </i> {{ page.prev-title }}</a>
+{% endif %}
+</div>
+
+<!-- HOME -->
+<div class="col-md-4">
+{% if page.layout == "codelab" %}
+<span class="codelab-title">
+<a href="index.html">{{ page.codelab-name }}</a>
+</span>
+{% endif %}
+</div>
+
+<!-- NEXT -->
+<div class="col-md-4">
+{% if page.next %}
+<a href="{{ page.next }}" class="pull-right">{{ page.next-title }} <i class="glyphicon glyphicon-chevron-right"></i></a>
+{% endif %}
+</div>
+
+</div> 
+</div> 
