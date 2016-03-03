@@ -71,11 +71,12 @@ Add a div containing an input field to the top of the file:
 
 <div class="trydart-step-details" markdown="1">
 
-Add an event handler, `updateBadge()`, to the PirateBadgeComponent class.
+Delete the hardcoded badge name and add an event handler,
+`updateBadge()`, to the PirateBadgeComponent class.
 
 {% prettify dart %}
 class PirateBadgeComponent {
-  String badgeName = '';
+  String badgeName = [[highlight]]''[[/highlight]];
   [[highlight]]void updateBadge(String inputName) {[[/highlight]]
     [[highlight]]badgeName = inputName;[[/highlight]]
   [[highlight]]}[[/highlight]]
@@ -97,19 +98,15 @@ class PirateBadgeComponent {
 
 <div class="trydart-step-details" markdown="1">
 
-Click the green arrow to run the app.
+Click <img src="images/run.png" alt="the green arrow"> to run the app.
 Type into the input field.
 The name badge updates to display what you've typed.
-The UI should look similar to the following screenshot.
-
-<img style="border:1px solid black" src="images/pirate-badge-input-field.png" alt="A screenshot of the app with input field filled in">
-
 </div>
 
 ## Problems?
 
 Look in WebStorm's window for possible errors, then look
-in the JavaScript console. In Chrome, you can find the console under
+in Dartium's JavaScript console. You can find the console under
 **View > Developer > JavaScript Console**.
 
 Finally, check your code against the files in

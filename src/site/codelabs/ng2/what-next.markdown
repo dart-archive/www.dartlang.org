@@ -5,9 +5,9 @@ codelab-name: "Avast, Ye Pirates: Write a Web App"
 description: "Take your first step to learning Dart fast."
 snippet_img: images/piratemap.jpg
 prev: 6-readjsonfile.html
-prev-title: "Read a JSON File"
-next: summary.html
-next-title: "Summary and Resources"
+prev-title: "Step 6: Read a JSON File"
+next: resources.html
+next-title: "Resources"
 header:
   css: ["/codelabs/ng2/darrrt.css"]
 ---

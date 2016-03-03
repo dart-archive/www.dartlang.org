@@ -92,6 +92,8 @@ Add a class declaration below the import.
 {% comment %}
 </div> <div class="col-md-5" markdown="1">
 
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
 * x
 {% endcomment %}
 
@@ -115,6 +117,8 @@ class PirateNameService {
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * `static` defines a class-level field. That is,
   the random number generator is shared with all
@@ -147,8 +151,11 @@ class PirateNameService {
 
 </div> <div class="col-md-5" markdown="1">
 
-* Private variables start with underscore (`_`).
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* Private variables start with underscore (`_`);
   Dart has no `private` keyword.
+  The language tools enforce a variable's privacy.
 
 * `final` variables cannot change.
 
@@ -183,6 +190,8 @@ class PirateNameService {
 
 </div> <div class="col-md-5" markdown="1">
 
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
 * Lists are built into the language. These lists are created
   using list literals.
 
@@ -203,6 +212,13 @@ and appellation.
 {% prettify dart %}
 class PirateNameService {
   ...
+  static final List _names = [
+    'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
+    'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
+  static final List _appellations = [
+    'Jackal', 'King', 'Red', 'Stalwart', 'Axe',
+    'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];
+
   [[highlight]]static String randomFirstName() {[[/highlight]]
     [[highlight]]return _names[_indexGen.nextInt(_names.length)];[[/highlight]]
   [[highlight]]}[[/highlight]]
@@ -215,6 +231,8 @@ class PirateNameService {
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * The code uses a random number as an index into the list.
 
@@ -252,6 +270,8 @@ class PirateNameService {
 
 </div> <div class="col-md-5" markdown="1">
 
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
 * Constructor names can be either <em><code>ClassName</code></em> or
   <em><code>ClassName</code></em>.<em><code>identifier</code></em>.
 
@@ -260,6 +280,11 @@ class PirateNameService {
 
 * These parameters are initialized using an initializer list
   which appears after the colon (`:`).
+
+* The double questionmark syntax `??` specifies a _null-aware_ operation.
+  If `firstName` is non-null, assign that value to `_firstName`.
+  Otherwise, if `firstName` is null, assign the value returned
+  by `randomFirstName()` to `_firstName`.
 
 * Note that this constructor has no body because it sets the values in
   an initalizer list.
@@ -292,7 +317,21 @@ class PirateNameService {
 
 </div><div class="col-md-5" markdown="1">
 
-* Getters are special methods that provide read access to an object’s properties.
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* Getters are special methods that provide read access to an object’s
+  properties.
+
+* All instance variables have an implicit getter, but you can
+  create additional properties by implementing getters
+  using the `get` keyword.
+
+* `pirateName` is a property, the same as any explicitly declared
+  instance variable.
+
+* This example doesn't include an explicit setter for `pirateName`,
+  so it's a read-only property,
+  but you can create one using the `set` keyword.
 
 * The conditional operator `?:` is equivalent to an if-then-else
   statement, but for expressions.
@@ -331,6 +370,8 @@ class PirateNameService {
 
 </div><div class="col-md-5" markdown="1">
 
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
 * Because the Object implementation of `toString()` doesn't give much
   information, many classes override `toString()`.
 
@@ -358,8 +399,9 @@ import 'package:angular2/angular2.dart';
 {% endprettify %}
 </div>
 
-{% comment %}
 </div> <div class="col-md-5" markdown="1">
+
+{% comment %}
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
@@ -394,11 +436,13 @@ class PirateBadgeComponent {
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+{% comment %}
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* Get a new pirate name from the name service.
+* x
 
+{% endcomment %}
 </div></div>
 
 <div class="trydart-step-details" markdown="1">
@@ -470,7 +514,7 @@ class PirateBadgeComponent() {
 
 <div class="trydart-step-details" markdown="1">
 
-Click the green arrow to run the app.
+Click <img src="images/run.png" alt="the green arrow"> to run the app.
 
 Click the button&mdash;each click displays a new pirate name composed
 of a name and an appellation.
@@ -478,7 +522,7 @@ of a name and an appellation.
 ## Problems?
 
 Look in WebStorm's window for possible errors, then look
-in the JavaScript console. In Chrome, you can find the console under
+in Dartium's JavaScript console. You can find the console under
 **View > Developer > JavaScript Console**.
 
 Finally, check your code against the files in

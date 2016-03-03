@@ -24,7 +24,7 @@ You also need:
 * A Windows, Mac, or Linux computer
 * A web connection, so you can download software, libraries, and sample code
 
-<strong>Build this app!</strong>
+<strong>Build this app! Go ahead, enter a name:</strong>
 
 <iframe class="running-app-frame"
         style="height:220px;width:550px;"
@@ -45,7 +45,7 @@ You also need:
 * [Step 5: Create a Name Service](5-piratenameservice.html)
 * [Step 6: Read a JSON File](6-readjsonfile.html)
 * [What next?](what-next.html)
-* [Summary and resources](summary.html)
+* [Resources](resources.html)
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">

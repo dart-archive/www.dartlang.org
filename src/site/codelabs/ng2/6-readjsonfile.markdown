@@ -75,6 +75,8 @@ class PirateNameService {
 
 </div> <div class="col-md-5" markdown="1">
 
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
 * `[]` is equivalent to `new List()`.
 
 * A list is a _generic_ type&mdash;a List can contain any kind of object.
@@ -120,6 +122,8 @@ class PirateNameService {
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * `readyThePirates` is marked with the `async` keyword.
   An async function returns a Future immediately, so the caller
@@ -219,6 +223,8 @@ class PirateBadgeComponent [[highlight]]implements OnInit[[/highlight]] {
 
 </div> <div class="col-md-5" markdown="1">
 
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
 * `ngOnInit()` is one of the
   [lifecycle hooks](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html)
   available in Angular. Angular calls ngOnInit after the component
@@ -244,7 +250,7 @@ class PirateBadgeComponent [[highlight]]implements OnInit[[/highlight]] {
 
 <div class="trydart-step-details" markdown="1">
 
-Click the green arrow to run the app.
+Click <img src="images/run.png" alt="the green arrow"> to run the app.
 
 The app should work as before, but this time the pirate name is
 constructed from the JSON file.
@@ -253,7 +259,7 @@ constructed from the JSON file.
 ## Problems?
 
 Look in WebStorm's window for possible errors, then look
-in the JavaScript console. In Chrome, you can find the console under
+in Dartium's JavaScript console. You can find the console under
 **View > Developer > JavaScript Console**.
 
 Finally, check your code against the files in

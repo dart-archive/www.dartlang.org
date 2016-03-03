@@ -91,7 +91,6 @@ You can change it to the 2-character indentation used in Dart code files:
 </aside>
 </div>
 
-
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
@@ -102,7 +101,7 @@ You can change it to the 2-character indentation used in Dart code files:
 * The `<div class =...>` code specifies the styling of the component.
   Later in this step, you add a style sheet that defines how the
   badge should be displayed. This lab doesn't cover how to write CSS.
-  The [resources](#resources) section has information on where you
+  The [resources](resources.html) page has information on where you
   can learn more about CSS styling.
 
 * You will add `badgeName` to the Dart code as an instance variable
@@ -115,11 +114,11 @@ You can change it to the 2-character indentation used in Dart code files:
   is referred to as a "double mustache". This notation creates a
   one-way binding between the HTML template and the Dart code.
 
-* The expression inside the curly brackets, often a component property,
-  is evaluated using _interpolation_.
+* The expression inside the curly brackets
+  is evaluated using _interpolation_, a process where
   Angular evaluates the expression and converts it to a string.
 
-* Angular's interpolation process is different than Dart's string
+* Angular's expression interpolation is different than Dart's string
   interpolation.
 
 * In a double-mustache binding, data is copied from an expression into the UI.
@@ -225,7 +224,7 @@ import 'package:angular2/angular2.dart';
 
 * When you have multiple Dart files under `lib`, they can import
   each other using a relative path, such as
-  `import 'pirate_badge_component.dart';`.
+  `import 'pirate_badge_component.dart'`.
   However, any file that's not under `lib` (`web/main.dart`, for example)
   must use a `package:` URL to import libraries defined under `lib`.
 
@@ -291,6 +290,8 @@ class AppComponent {}
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * Well formatted code is (usually) more readable code.
 
@@ -367,7 +368,7 @@ into the newly created file.
 * In this example,
   the style sheet defines the appearance of the pirate badge.
 
-* We've provided a style sheet for you. The [resources](#resources)
+* We've provided a style sheet for you. The [resources](resources.html)
   section has information on where you can learn more about CSS
   styling.
 
@@ -440,7 +441,7 @@ Add a reference to the style sheet.
 ## <i class="fa fa-anchor"> </i> Test it!
 
 <div class="trydart-step-details" markdown="1">
-Click the green arrow to run the app.
+Click <img src="images/run.png" alt="the green arrow"> to run the app.
 You should see a name badge with your name,
 or "Shams" if you did not change the name:
 
@@ -452,7 +453,7 @@ Next you will add some interactivity.
 ## Problems?
 
 Look in WebStorm's window for possible errors, then look
-in the JavaScript console. In Chrome, you can find the console under
+in Dartium's JavaScript console. You can find the console under
 **View > Developer > JavaScript Console**.
 
 Finally, check your code against the files in

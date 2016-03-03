@@ -1,6 +1,6 @@
 ---
 layout: codelab
-title: "Summary and Resources"
+title: "Resources"
 codelab-name: "Avast, Ye Pirates: Write a Web App"
 description: "Take your first step to learning Dart fast."
 snippet_img: images/piratemap.jpg

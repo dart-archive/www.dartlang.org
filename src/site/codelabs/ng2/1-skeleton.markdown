@@ -19,6 +19,19 @@ header:
 In this step, you create an Angular app, look at its code,
 and run the app in Dartium.
 
+<div class="trydart-step-details" markdown="1">
+<aside class="alert alert-success" markdown="1">
+<i class="fa fa-lightbulb-o"> </i> **Tip** <br>
+This code lab uses a 2-column format.
+The left column contains instructions that assume you are using WebStorm.
+The right column contains "Key information"&mdash;
+concepts and background information.
+Also in the right column,
+the "Not using WebStorm" sections include alternate instructions
+for working from the command line.
+</aside>
+</div>
+
 ## <i class="fa fa-anchor"> </i> Create a basic web app.
 
 WebStorm privdes a set of templates
@@ -33,6 +46,7 @@ or you can start from scratch.
 
 <ol>
 <li markdown="1">Launch WebStorm. <img src="images/WebStorm.png">
+  <br><br>
   If this is the first time you are running WebStorm, or if
   you have no open projects from a previous session,
   a "Welcome to WebStorm" screen appears.
@@ -117,16 +131,16 @@ Dart's static analyzer over the code to look for errors and warnings.
 * The **Messages** view at the bottom of the screen reports the output from
   the pub commands.
 
-* The **editor** view, on the right, opens the `web/index.html` file.
+* The **editor** view, on the right, opens with the contents of the
+  `web/index.html` file.
 
 * If the currently opened file passes analysis, a green checkmark
   <img src="images/WebStorm-checkmark.png">
   displays in the upper right corner of the editor view.
   If the code fails analysis, a yellow box
   <img src="images/WebStorm-warning.png"> displays.
-  Hover over the yellow (for warnings) or red (for errors)
-  tic marks along the right edge of the
-  editor view for more information.
+  Hover over the tic marks (yellow for warnings or red for errors)
+  along the right edge of the editor view for more information.
 
 * **NOTE: The index.html file currently claims that `my-app` is an
   unknown tag. WebStorm is not yet current with the latest release
@@ -185,10 +199,10 @@ pirate_badge/
   lib/
     app_component.dart
     app_component.html
-  pubspec.yaml
   web/
     index.html
     main.dart
+  pubspec.yaml
 {% endprettify %}
 
 As you might expect,
@@ -290,6 +304,8 @@ main() {
 
 </div> <div class="col-md-5" markdown="1">
 
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
 * The first `<script>` tag identifies the main file that implements
   the app. Here, it's the `main.dart` file. The Dart VM launches
   the app using this file.
@@ -322,6 +338,8 @@ class AppComponent {}
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * All Dart files that use Angular APIs import `angular2.dart`.
 
@@ -358,6 +376,8 @@ class AppComponent {}
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * This simple component displays a title.
 
@@ -400,6 +420,8 @@ transformers:
 </div>
 
 </div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * The `pubspec.yaml` file (often referred to as the _pubspec_)
   contains metadata about that package, such as its name.
@@ -467,17 +489,51 @@ You should see something like the following:
 
 After you've run the app using the menu, WebStorm remembers.
 In future, you can launch the app using the enabled **Run** button
-<img src="images/run.png"> in the upper right.
+<img src="images/run.png"> in the **upper right**.
+(The run button in the Messages view runs the last pub command again.)
 
+</div>
+
+<div class="trydart-step-details" markdown="1">
+<aside class="alert alert-success" markdown="1">
+<i class="fa fa-lightbulb-o"> </i> **Tip** <br>
+If this is the first time launching Dartium on OS X,
+you might see a dialog from OS X's Gatekeeper stating
+that **"Chromium.app" can't be opened
+because it is from an unidentified developer.**
+You can grant an exemption on a per-app basis.
+For more information, see
+[how to open an app from an unidentified developer](https://support.apple.com/en-us/HT202491)
+on Apple's support website.
+
+<br>
+<i class="fa fa-lightbulb-o"> </i> **Tip** <br>
+You might also see a dialog asking, **Do you want the application
+"Chromium.app" to accept incoming network connections?**
+This dialog, from the computer's firewall, is asking if you want
+to be able to connect to the Dart server from a different computer.
+Since you are using localhost, you can "Deny" the request and
+it will still work.
+</aside>
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
-<i class="fa fa-lightbulb-o"> </i> <strong> Not using WebStorm? </strong>
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-You can manually launch a local HTTP server and
-then view the app in Dartium.
-The following instructions use the simple Python server:
+* The app is referred to as Dartium, but the executable is named Chromium.
+  On some Windows installations, the executable is named `Chrome.exe`.
+
+* Dartium opens and displays two warnings highlighted in yellow:
+  "You are using an unsupported command-line flag..."
+  and "Google API keys are missing..."
+  You can ignore these.
+
+<i class="fa fa-lightbulb-o key-header"> </i> <strong> Not using WebStorm? </strong>
+
+* You can manually launch a local HTTP server and
+  then view the app in Dartium.
+  The following instructions use the simple Python server:
 
 <ol markdown="1">
 
@@ -504,7 +560,7 @@ python -m SimpleHTTPServer <port-number>
 </li>
 
 <li markdown="1">
-A dialog appears asking if you want to allow "Python.app"
+A dialog appears asking if you want to allow Python.app
 to accept incoming network connections.
 For this example, it doesn't matter, so you can select **Deny**.
 </li>
@@ -516,11 +572,6 @@ to the executable. On a Mac, it would look something like the following:
 {% prettify none %}
 <path-to-dartium>/Chromium.app/Contents/MacOS/Chromium
 {% endprettify %}
-
-Dartium opens and displays two warnings highlighted in yellow:
-"You are using an unsupported command-line flag..."
-and "Google API keys are missing..."
-You can ignore these.
 </li>
 
 <li markdown="1">
@@ -536,16 +587,14 @@ use that instead of 8000.
 
 </ol>
 
-Your app's UI should load. If the app fails to load,
-the JavaScript console (**View > Developer > JavaScript Console**)
-might tell you why.
+* Your app's UI should load.
 
 </div></div>
 
 ## Problems?
 
 Look in WebStorm's window for possible errors then look
-in the JavaScript console. In Chrome, you can find the console under
+in Dartium's JavaScript console. You can find the console under
 **View > Developer > JavaScript Console**.
 
 Finally, check your code against the files in
