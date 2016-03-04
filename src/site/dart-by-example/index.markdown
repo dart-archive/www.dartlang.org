@@ -47,7 +47,6 @@ symlink. This method is inherited by File, Directory, and Link.
 import 'dart:io';
 
 main() async {
-
   // Create a temporary directory.
   var dir = await Directory.systemTemp.createTemp('my_temp_dir');
 
@@ -160,13 +159,12 @@ To create intermediate directories, set the `recursive` argument to
 import 'dart:io';
 
 main() async {
-
   // Get the system temp directory.
   var systemTempDir = Directory.systemTemp;
   // Creates dir/, dir/subdir/, and dir/subdir/file.txt in the system
   // temp directory.
-  var file = await new File('${systemTempDir.path}/dir/subdir/file.txt').create(
-      recursive: true);
+  var file = await new File('${systemTempDir.path}/dir/subdir/file.txt')
+      .create(recursive: true);
   print(file.path);
 }
 {% endprettify %}
@@ -553,8 +551,7 @@ main() async {
     printResponseBody(response);
     response = await client.get('${url}/doodles');
     printResponseBody(response);
-    client.close();
-  } catch (e) {
+  } finally {
     client.close();
   }
 }
@@ -694,89 +691,6 @@ main() async {
 {% endprettify %}
 
 
-#### Listing directory contents
-
-Use the http Pub package, and create a VirtualDirectory to serve the
-request. Set the VirtualDirectory `allowDirectoryListing` field to
-true. Requests to the default directory ('/') display the contents of that
-directory.
-
-{% prettify dart %}
-library simple_http_server;
-
-import 'dart:io';
-import 'package:http_server/http_server.dart' show VirtualDirectory;
-
-main() async {
-  final MY_HTTP_ROOT_PATH = Platform.script.resolve('web').toFilePath();
-  final virDir = new VirtualDirectory(MY_HTTP_ROOT_PATH)
-    ..allowDirectoryListing = true;
-
-  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
-  await for (var request in server) virDir.serveRequest(request);
-}
-{% endprettify %}
-
-
-#### Serving index.html
-
-Use the http Pub package, and create a VirtualDirectory to serve the
-request. Register a callback for handling errors using the `errorHandler`
-property.
-
-{% prettify dart %}
-library simple_http_server;
-
-import 'dart:io';
-import 'package:http_server/http_server.dart' show VirtualDirectory;
-
-VirtualDirectory virDir;
-
-directoryHandler(dir, request) {
-  var indexUri = new Uri.file(dir.path).resolve('index.html');
-  virDir.serveFile(new File(indexUri.toFilePath()), request);
-}
-
-main() async {
-  virDir = new VirtualDirectory(Platform.script.resolve('web').toFilePath())
-    ..allowDirectoryListing = true
-    ..directoryHandler = directoryHandler;
-
-  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
-  await for (var request in server) virDir.serveRequest(request);
-}
-{% endprettify %}
-
-
-#### Serving a 404
-
-Use the http Pub package, and create a VirtualDirectory to serve the
-request. Register an error handler using the `errorHandler` property.
-
-{% prettify dart %}
-import 'dart:io';
-import 'package:http_server/http_server.dart' as http_server;
-
-errorPageHandler(HttpRequest request) {
-  request.response
-    ..statusCode = HttpStatus.NOT_FOUND
-    ..write('Not found')
-    ..close();
-}
-
-main() async {
-  var buildPath = Platform.script.resolve('web').toFilePath();
-
-  var virDir = new http_server.VirtualDirectory(buildPath)
-    ..allowDirectoryListing = true
-    ..errorPageHandler = errorPageHandler;
-
-  var server = await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 8080);
-  await for (var request in server) virDir.serveRequest(request);
-}
-{% endprettify %}
-
-
 #### Routing requests based on URL patterns
 
 Use the `route` Pub package, and associate callbacks with URL patterns.
@@ -874,13 +788,17 @@ handleMsg(msg) {
 }
 
 main() async {
-  var server = await HttpServer.bind('127.0.0.1', 4040);
-  await for (HttpRequest req in server) {
-    if (req.uri.path == '/ws') {
-      // Upgrade an HttpRequest to a WebSocket connection.
-      var socket = await WebSocketTransformer.upgrade(req);
-      socket.listen(handleMsg);
+  try {
+    var server = await HttpServer.bind('127.0.0.1', 4040);
+    await for (HttpRequest req in server) {
+      if (req.uri.path == '/ws') {
+        // Upgrade an HttpRequest to a WebSocket connection.
+        var socket = await WebSocketTransformer.upgrade(req);
+        socket.listen(handleMsg);
+      }
     }
+  } catch (e) {
+    print(e);
   }
 }
 {% endprettify %}
@@ -1105,7 +1023,6 @@ main() async {
   print(path.dirname(file.path)); // Prints path ending with 'dir'.
   print(path.basenameWithoutExtension(file.path)); // Prints 'myFile'.
   print(path.extension(file.path)); // Prints '.txt'.
-
 }
 {% endprettify %}
 
