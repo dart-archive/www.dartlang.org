@@ -33,6 +33,8 @@ Add imports to the top.
 [[highlight]]import 'dart:async';[[/highlight]]
 [[highlight]]import 'dart:convert';[[/highlight]]
 import 'dart:math' show Random;
+
+[[highlight]]import 'package:angular2/core.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -48,13 +50,84 @@ import 'dart:math' show Random;
 * The `dart:convert` library provides convenient access to the most
   commonly used JSON conversion utilities.
 
+* The `angular2/core.dart` library defines the injectable annotation
+  that you are adding in the next step.
+
 </div></div>
 
 <div class="trydart-step-details" markdown="1">
 
 <hr>
 
-Replace the `_names` and `_appellations` lists with static, empty lists.
+Add a constant defining the location of the JSON file.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+import 'package:angular2/core.dart';
+
+[[highlight]]const _namesPath =[[/highlight]]
+    [[highlight]]'https://www.dartlang.org/codelabs/darrrt/files/piratenames.json';[[/highlight]]
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* x
+{% endcomment %}
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Annotate the PirateNameService class with `@Injectable()`.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+[[highlight]]@Injectable()[[/highlight]]
+class PirateNameService {
+  final Random _indexGen = new Random();
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* _Dependency injection_ is a design pattern that allows moving
+  the definition of a dependency to the constructor of
+  the class that uses the dependency.
+
+* Dependency injection, also referred to as _DI_, allows you to write
+  more robust code that is easier to test.
+
+* When Angular detects the `@Injectable` annotation,
+  it generates necessary metadata so that the annotated object is injectable.
+
+* Later, when you edit lib/pirate_name_service.dart,
+  you'll add a constructor to PirateBadgeComponent
+  that will inject an instance of PirateNameService.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Delete the `_firstName` and `_appellation` variables,
+and replace `_names` and `_appellations` with empty lists.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -64,11 +137,13 @@ Replace the `_names` and `_appellations` lists with static, empty lists.
 class PirateNameService {
   static final Random _indexGen = new Random();
 
-  final String _firstName;
-  final String _appellation;
+  [[highlight]]final _names = <String>[];[[/highlight]]
+  [[highlight]]final _appellations = <String>[];[[/highlight]]
 
-  [[highlight]]static final List<String> _names = [];[[/highlight]]
-  [[highlight]]static final List<String> _appellations = [];[[/highlight]]
+  static String randomFirstName() {
+    return (_names[_indexGen.nextInt(_names.length)]);
+  }
+  ...
 }
 {% endprettify %}
 </div>
@@ -77,11 +152,10 @@ class PirateNameService {
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* `[]` is equivalent to `new List()`.
+* `<String>[]` is equivalent to `new List<String>()`.
 
-* A list is a _generic_ type&mdash;a List can contain any kind of object.
-  If you intend for a list to contain only strings,
-  you can declare it as `List<String>`.
+* A generic list can contain any kind of object, but this list is
+  typed so that it can only contain strings.
 
 </div></div>
 
@@ -89,7 +163,47 @@ class PirateNameService {
 
 <hr>
 
-Add a static function, `readyThePirates()`,
+Remove `static` from the `_randomFirstName` and `_randomAppellation`
+helper methods.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+class PirateNameService {
+  final Random _indexGen = new Random();
+
+  final _names = <String>[];
+  final _appellations = <String>[];
+
+   [[highlight]]String randomFirstName()[[/highlight]] {
+    return (_names[_indexGen.nextInt(_names.length)]);
+  }
+
+   [[highlight]]String randomAppellation()[[/highlight]] {
+    return (_appellations[_indexGen.nextInt(_appellations.length)]);
+  }
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* x
+{% endcomment %}
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Add a function, `readyThePirates()`,
 to read the names and appellations from the JSON file.
 </div>
 
@@ -99,24 +213,19 @@ to read the names and appellations from the JSON file.
 {% prettify dart %}
 class PirateNameService {
   ...
-
-  static String randomAppellation() {
-    return _appellations[_indexGen.nextInt(_appellations.length)];
+  String randomAppellation() {
+    return (_appellations[_indexGen.nextInt(_appellations.length)]);
   }
 
-  [[highlight]]static Future readyThePirates() async {[[/highlight]]
-    [[highlight]]if (_names.isNotEmpty && _appellations.isNotEmpty)[[/highlight]]
-      [[highlight]]return;[[/highlight]]
-
-    [[highlight]]final path =[[/highlight]]
-        [[highlight]]'https://www.dartlang.org/codelabs/darrrt/files/piratenames.json';[[/highlight]]
-
-    [[highlight]]final jsonString = await HttpRequest.getString(path);[[/highlight]]
-    [[highlight]]final pirateNames = JSON.decode(jsonString);[[/highlight]]
-    [[highlight]]PirateNameService._names.addAll(pirateNames['names']);[[/highlight]]
-    [[highlight]]PirateNameService._appellations[[/highlight]]
-        [[highlight]].addAll(pirateNames['appellations']);[[/highlight]]
+  [[highlight]]Future readyThePirates() async {[[/highlight]]
+    [[highlight]]if (_names.isNotEmpty && _appellations.isNotEmpty) return;[[/highlight]]
+[[/highlight]]
+    [[highlight]]var jsonString = await HttpRequest.getString(_namesPath);[[/highlight]]
+    [[highlight]]var pirateNames = JSON.decode(jsonString);[[/highlight]]
+    [[highlight]]_names.addAll(pirateNames['names']);[[/highlight]]
+    [[highlight]]_appellations.addAll(pirateNames['appellations']);[[/highlight]]
   [[highlight]]}[[/highlight]]
+  ...
 }
 {% endprettify %}
 </div>
@@ -126,9 +235,9 @@ class PirateNameService {
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * `readyThePirates` is marked with the `async` keyword.
-  An async function returns a Future immediately, so the caller
-  has the opportunity to do something else while waiting for
-  the function to complete its work.
+  An asynchronous function returns a Future immediately,
+  so the caller has the opportunity to do something else while
+  waiting for the function to complete its work.
 
 * A `Future` provides a way to get a value in the future.
   (For JavaScript developers: Futures are similar to Promises.)
@@ -151,12 +260,183 @@ class PirateNameService {
 
 </div></div>
 
-## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
+<div class="trydart-step-details" markdown="1">
 
-Instruct the name service to load the pirate names
-from the JSON file on startup.
+<hr>
+
+Add a `getPirateName` method.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+class PirateNameService {
+  ...
+  Future readyThePirates() async {
+    if (_names.isNotEmpty && _appellations.isNotEmpty) return;
+
+    var jsonString = await HttpRequest.getString(_namesPath);
+    var pirateNames = JSON.decode(jsonString);
+    _names.addAll(pirateNames['names']);
+    _appellations.addAll(pirateNames['appellations']);
+  }
+
+  [[highlight]]String getPirateName(String firstName) {[[/highlight]]
+    [[highlight]]if (firstName == null || firstName.trim().isEmpty) {[[/highlight]]
+      [[highlight]]firstName = randomFirstName();[[/highlight]]
+    [[highlight]]}[[/highlight]]
+
+    [[highlight]]var appellation = randomAppellation();[[/highlight]]
+
+    [[highlight]]return '$firstName the $appellation';[[/highlight]]
+  [[highlight]]}[[/highlight]]
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* If the first name is passed to the method,
+  append a randomly chosen appellation.
+  Otherwise, generate a randomly chosen pirate name from the list
+  of possible names and appellations.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Delete the constructor, the setter, and the implementation of `toString()`.
+The body of the class should now look like the following.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+@Injectable()
+class PirateNameService {
+  final Random _indexGen = new Random();
+
+  final _names = <String>[];
+  final _appellations = <String>[];
+
+  String randomFirstName() {
+    return (_names[_indexGen.nextInt(_names.length)]);
+  }
+
+  String randomAppellation() {
+    return (_appellations[_indexGen.nextInt(_appellations.length)]);
+  }
+
+  Future readyThePirates() async {
+    if (_names.isNotEmpty && _appellations.isNotEmpty) return;
+
+    var jsonString = await HttpRequest.getString(_namesPath);
+    var pirateNames = JSON.decode(jsonString);
+    _names.addAll(pirateNames['names']);
+    _appellations.addAll(pirateNames['appellations']);
+  }
+
+  String getPirateName(String firstName) {
+    if (firstName == null || firstName.trim().isEmpty) {
+      firstName = randomFirstName();
+    }
+    var appellation = randomAppellation();
+
+    return '$firstName the $appellation';
+  }
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* x
+{% endcomment %}
+
+</div></div>
+
+## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
+
+Modify PirateBadgeComponent to get a pirate name via dependency injection.
+
+<div class="trydart-step-details" markdown="1">
+Add `PirateNameService` as a provider by adding the text
+ `, providers: const [PirateNameService]`
+to the `@Component` annotation. After formatting,
+it should look as follows:
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+@Component(
+    selector: 'pirate-badge',
+    templateUrl: 'pirate_badge_component.html'[[highlight]],[[/highlight]]
+    [[highlight]]providers: const [PirateNameService][[/highlight]])
+class PirateBadgeComponent {
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* The `providers` part of `@Component` tells Angular what objects are
+  available for injection in this component.
+
+* You can reformat your code by right-clicking in the editor view
+  and selecting **Reformat with Dart Style**. For more information,
+  see [step 2](blankbadge.html).
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Add a `_nameService` instance variable.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+@Component(
+    selector: 'pirate-badge',
+    templateUrl: 'pirate_badge_component.html',
+    providers: const [PirateNameService])
+class PirateBadgeComponent {
+  [[highlight]]final PirateNameService _nameService;[[/highlight]]
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* x
+{% endcomment %}
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
 
 At startup, disable the button and input field.
 </div>
@@ -166,6 +446,7 @@ At startup, disable the button and input field.
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
 class PirateBadgeComponent {
+  final PirateNameService _nameService;
   String badgeName = '';
   String buttonText = 'Aye! Gimme a name!';
   bool enableButton = [[highlight]]false[[/highlight]];
@@ -187,6 +468,43 @@ class PirateBadgeComponent {
 
 <hr>
 
+Add a constructor that references `_nameService`.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+class PirateBadgeComponent {
+  final PirateNameService _nameService;
+  String badgeName = '';
+  String buttonText = 'Aye! Gimme a name!';
+  bool enableButton = false;
+  bool enableInput = false;
+
+  [[highlight]]PirateBadgeComponent(this._nameService);[[/highlight]]
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* When Angular creates a component, it looks at its constructors
+  and then goes looking for the types of arguments with the
+  `@Injectable` annotation.
+
+* When Angular locates the class, it creates an instance and
+  injects it into the component via the constructor.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
 Add a function to get the names from the JSON file,
 handling both success and failure.
 </div>
@@ -197,13 +515,14 @@ handling both success and failure.
 {% prettify dart %}
 class PirateBadgeComponent [[highlight]]implements OnInit[[/highlight]] {
   ...
-
   bool enableButton = false;
   bool enableInput = false;
 
+  PirateBadgeComponent(this._nameService);
+
   [[highlight]]ngOnInit() async {[[/highlight]]
     [[highlight]]try {[[/highlight]]
-      [[highlight]]await PirateNameService.readyThePirates();[[/highlight]]
+      [[highlight]]await _nameService.readyThePirates();[[/highlight]]
       [[highlight]]//on success[[/highlight]]
       [[highlight]]enableButton = true;[[/highlight]]
       [[highlight]]enableInput = true;[[/highlight]]
@@ -212,10 +531,6 @@ class PirateBadgeComponent [[highlight]]implements OnInit[[/highlight]] {
       [[highlight]]print('Error initializing pirate names: $arrr');[[/highlight]]
     [[highlight]]}[[/highlight]]
   [[highlight]]}[[/highlight]]
-
-  void generateBadge() {
-    setBadgeName(new PirateNameService());
-  }
   ...
 }
 {% endprettify %}
@@ -243,6 +558,53 @@ class PirateBadgeComponent [[highlight]]implements OnInit[[/highlight]] {
   set up the UI.
 
 * Use `try` and `catch` to detect and handle errors.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Modify the `generateBadge()`, `setBadgeName()`,
+and `updateBadge()`  methods.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+class PirateBadgeComponent implements OnInit {
+  ...
+  void generateBadge() {
+    [[highlight]]setBadgeName();[[/highlight]]
+  }
+
+  void setBadgeName([[highlight]][String newName = ''][[/highlight]]) {
+    if (newName == null) return;
+    [[highlight]]badgeName = _nameService.getPirateName(newName);[[/highlight]]
+  }
+
+  void updateBadge(String inputName) {
+    [[highlight]]setBadgeName(inputName);[[/highlight]]
+    if (inputName.trim().isEmpty) {
+      buttonText = 'Aye! Gimme a name!';
+      enableButton = true;
+    } else {
+      buttonText = 'Arrr! Write yer name!';
+      enableButton = false;
+    }
+  }
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* x
+{% endcomment %}
 
 </div></div>
 

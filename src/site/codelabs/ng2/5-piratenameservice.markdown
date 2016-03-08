@@ -48,7 +48,7 @@ In this step, you add a service that returns a pirate name.
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
-## <i class="fa fa-anchor"> </i> Edit the pirate name service.
+## <i class="fa fa-anchor"> </i> Edit pirate_name_service.dart.
 
 <div class="trydart-step-details" markdown="1">
 Add an import to the file.
@@ -529,7 +529,7 @@ Finally, check your code against the files in
 [5-piratenameservice](https://github.com/dart-lang/one-hour-codelab/tree/ng2/ng2/5-piratenameservice).
 
 * [lib/pirate_badge_component.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/ng2/ng2/5-piratenameservice/lib/pirate_badge_component.dart)
-* [lib/pirate_name_service.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/ng2/ng2/5-piratenameservice/lib/pirate_badge_component.html)
+* [lib/pirate_name_service.dart](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/ng2/ng2/5-piratenameservice/lib/pirate_name_service.dart)
 
 <hr>
 
