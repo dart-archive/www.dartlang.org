@@ -18,6 +18,7 @@ header:
 
 In this final step, you change the pirate name service to fetch
 the names and appellations from a JSON file on dartlang.
+This step introduces you to Angular's support for dependency injection.
 
 ## <i class="fa fa-anchor"> </i> Edit pirate_name_service.dart.
 
@@ -398,7 +399,7 @@ class PirateBadgeComponent {
 
 * You can reformat your code by right-clicking in the editor view
   and selecting **Reformat with Dart Style**. For more information,
-  see [step 2](blankbadge.html).
+  see [step 2](2-blankbadge.html).
 
 </div></div>
 

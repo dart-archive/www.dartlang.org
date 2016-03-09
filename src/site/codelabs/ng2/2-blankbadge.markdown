@@ -234,9 +234,9 @@ import 'package:angular2/angular2.dart';
 
 </div> </div>
 
-<div class="trydart-step-details" markdown="1">
-
 <hr>
+
+<div class="trydart-step-details" markdown="1">
 
 Add a directive to the `@Component` annotation.
 </div>
@@ -265,11 +265,11 @@ Add a directive to the `@Component` annotation.
 
 </div></div>
 
+<hr>
+
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
-
-<hr>
 
 Format the file.
 
