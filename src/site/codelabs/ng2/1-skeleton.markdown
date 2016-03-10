@@ -508,12 +508,13 @@ on Apple's support website.
 
 <br>
 <i class="fa fa-lightbulb-o"> </i> **Tip** <br>
-You might also see a dialog asking, **Do you want the application
-"Chromium.app" to accept incoming network connections?**
-This dialog, from the computer's firewall, is asking if you want
-to be able to connect to the Dart server from a different computer.
-Since you are using localhost, you can "Deny" the request and
-it will still work.
+You might also see a dialog asking, **Chromium wants to use your
+confidential information stored in "Chromium Safe Storage" in
+your keychain.**
+This dialog can occur on the Mac if you've ever saved passwords in Safari.
+You can "Deny" the request and your app will still work. This
+[blog post](http://www.idownloadblog.com/2013/03/04/google-chrome-wants-to-use-your-confidential-information-store-in-the-keychain/)
+has information on how to perminently get rid of these warnings.
 </aside>
 </div>
 
