@@ -327,6 +327,7 @@ The Dart language has special support for the following types:
 - booleans
 - lists (also known as *arrays*)
 - maps
+- runes (for expressing Unicode characters in a string)
 - symbols
 
 You can initialize an object of any of these special types using a
@@ -511,13 +512,8 @@ You can create a “raw” string by prefixing it with `r`:
 var s = r"In a raw string, even \n isn't special.";
 {% endprettify %}
 
-You can use Unicode escapes inside of strings:
-
-<!-- ch02/quoting.dart -->
-{% prettify dart %}
-// Unicode escapes work: [heart]
-print('Unicode escapes work: \u2665');
-{% endprettify %}
+See [Runes](#runes) for details on how to express Unicode
+characters in a string.
 
 Literal strings are compile-time constants,
 as long as any interpolated expression is a compile-time constant
@@ -762,6 +758,67 @@ For more information about maps, see
 [Generics](#generics) and
 [Maps](ch03.html#maps).
 
+### Runes {#runes}
+{:.no_toc}
+
+In Dart, runes are the UTF-32 code points of a string.
+
+Unicode defines a unique numeric value for each letter, digit,
+and symbol used in all of the world's writing systems.
+Because a Dart string is a sequence of UTF-16 code units,
+expressing 32-bit Unicode values within a string requires
+special syntax.
+
+The usual way to express a Unicode code point is
+`\uXXXX`, where XXXX is a 4-digit hexidecimal value.
+For example, the heart character (♥) is `\u2665`.
+To specify more or less than 4 hex digits,
+place the value in curly brackets.
+For example, the laughing emoji (😆) is `\u{1f600}`.
+
+The [String](https://api.dartlang.org/latest/dart-core/String-class.html)
+class has several properties you can use to extract rune information.
+The `codeUnitAt` and `codeUnit` properties return 16-bit code
+units. Use the `runes` property to get the runes of a string.
+
+The following example illustrates the relationship between runes,
+16-bit code units, and 32-bit code points.
+Click the run button ( <img src="/imgs/run.png" /> )
+to see runes in action.
+
+<!-- ch02/runes.dart -->
+{% comment %}
+https://gist.github.com/589bc5c95318696cefe5
+https://dartpad.dartlang.org/589bc5c95318696cefe5
+Unicode emoji: http://unicode.org/emoji/charts/full-emoji-list.html
+
+main() {
+  var clapping = '\u{1f44f}';
+  print(clapping);
+  print(clapping.codeUnits);
+  print(clapping.runes.toList());
+
+  Runes input = new Runes(
+      '\u2665  \u{1f605}  \u{1f60e}  \u{1f47b}  \u{1f596}  \u{1f44d}');
+  print(new String.fromCharCodes(input));
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=589bc5c95318696cefe5&horizontalRatio=99&verticalRatio=65"
+    width="100%"
+    height="310px"
+    style="border: 1px solid #ccc;">
+</iframe>
+
+<aside class="alert alert-warning" markdown="1">
+**Note:**
+Be careful when manipulating runes using list operations.
+This approach can easily break down,
+depending on the particular language, character set, and operation.
+For more information, see
+[How do I reverse a String in Dart?](http://stackoverflow.com/questions/21521729/how-do-i-reverse-a-string-in-dart) on Stack Overflow.
+</aside>
 
 ### Symbols {#symbols}
 {:.no_toc}
@@ -788,6 +845,13 @@ For more information on symbols, see
 
 
 ## Functions {#functions}
+
+Dart is a true object-oriented language, so even functions are objects
+and have a type,
+[`Function`](https://api.dartlang.org/1.12.0/dart-core/Function-class.html).
+This means that functions can be assigned to variables or passed as arguments
+to other functions. You can also call an instance of a Dart class as if
+it were a function. For details, see [Callable classes](#callable-classes).
 
 Here’s an example of implementing a function:
 
@@ -838,10 +902,6 @@ parameters.
 
 Optional parameters can be either positional or named, but not both.
 
-Both kinds of optional parameter can have default values. The default
-values must be compile-time constants. If no default
-value is provided, the value is `null`.
-
 #### Optional named parameters {#optional-named-parameters}
 {:.no_toc}
 
@@ -864,20 +924,6 @@ to specify named parameters:
 enableFlags({bool bold, bool hidden}) {
   // ...
 }
-{% endprettify %}
-
-Use a colon (`:`) to specify default values:
-
-<!-- ch02/specify_default_values.dart -->
-{% prettify dart %}
-/// Sets the [bold] and [hidden] flags to the values you
-/// specify, defaulting to false.
-enableFlags({bool bold: false, bool hidden: false}) {
-  // ...
-}
-
-// bold will be true; hidden will be false.
-enableFlags(bold: true);
 {% endprettify %}
 
 #### Optional positional parameters {#optional-positional-parameters}
@@ -913,7 +959,28 @@ assert(say('Bob', 'Howdy', 'smoke signal') ==
     'Bob says Howdy with a smoke signal');
 {% endprettify %}
 
-Use `=` to specify default values:
+#### Default parameter values {#default-parameters}
+{:.no_toc}
+
+Your function can define default values for both named and positional
+parameters. The default values must be compile-time constants.
+If no default value is provided, the value is `null`.
+
+Use a colon (`:`) to specify default values for named parameters:
+
+<!-- ch02/specify_default_values.dart -->
+{% prettify dart %}
+/// Sets the [bold] and [hidden] flags to the values you
+/// specify, defaulting to false.
+enableFlags({bool bold: false, bool hidden: false}) {
+  // ...
+}
+
+// bold will be true; hidden will be false.
+enableFlags(bold: true);
+{% endprettify %}
+
+Use `=` to specify default values for positional parameters:
 
 <!-- ch02/optional_positional_parameter_default.dart -->
 {% prettify dart %}
@@ -932,6 +999,47 @@ String say(String from, String msg,
 assert(say('Bob', 'Howdy') ==
     'Bob says Howdy with a carrier pigeon');
 {% endprettify %}
+
+You can also pass lists or maps as default values.
+The following example defines a function, `doStuff()`,
+that specifies a default list for the `list`
+parameter and a default map for the `gifts` parameter.
+The function is called three times with different values.
+Click the run button ( <img src="/imgs/run.png" /> )
+to see list and map default values in action.
+
+<!-- ch02/list_map_default_function_parameters.dart -->
+{% comment %}
+https://gist.github.com/d988cfce0a54c6853799
+https://dartpad.dartlang.org/d988cfce0a54c6853799
+
+doStuff({List<int> list: const[1, 2, 3],
+         Map<String, String> gifts: const{'first':  'paper',
+                                          'second': 'cotton',
+                                          'third':  'leather'}})
+{
+  print('list:  $list');
+  print('gifts: $gifts');
+}
+
+main() {
+  // Use the default values for both parameters.
+  doStuff();
+
+  // Use the default values for the "gifts" parameter.
+  doStuff(list:[4,5,6]);
+
+  // Don't use the default values for either parameter.
+  doStuff(list: null, gifts: null);
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=d988cfce0a54c6853799&horizontalRatio=99&verticalRatio=70"
+    width="100%"
+    height="450px"
+    style="border: 1px solid #ccc;">
+</iframe>
 
 
 ### The main() function {#the-main-function}
@@ -954,10 +1062,9 @@ void main() {
 
 <aside class="alert alert-info" markdown="1">
 **Note:**
-The `..` operator in the preceding code is a
-[cascade](#cascade) operator, which
-allows you to perform multiple operations on the members of a single
-object.
+The `..` syntax in the preceding code is called a [cascade](#cascade).
+With cascades,
+you can perform multiple operations on the members of a single object.
 </aside>
 
 Here's an example of the `main()` function for a command-line app that
@@ -977,7 +1084,6 @@ void main(List<String> arguments) {
 
 You can use the [args library](https://pub.dartlang.org/packages/args) to
 define and parse command-line arguments.
-
 
 ### Functions as first-class objects {#functions-as-first-class-objects}
 {:.no_toc}
@@ -1360,8 +1466,6 @@ b ??= value; // If b is null, assign value to b;
              // otherwise, b stays the same
 {% endprettify %}
 
-{% include null-aware-1-12.html %}
-
 {% comment %}
 <!-- embed a dartpad when we can hide code -->
 https://gist.github.com/9de887c4daf76d39e524
@@ -1466,8 +1570,6 @@ that might otherwise require [if-else](#if-and-else) statements:
 : If _expr1_ is non-null, returns its value;
   otherwise, evaluates and returns the value of _expr2_.
 
-{% include null-aware-1-12.html %}
-
 When you need to assign a value
 based on a boolean expression,
 consider using `?:`.
@@ -1506,19 +1608,70 @@ String toString() {
 }
 {% endprettify %}
 
-### Cascade operator (..) {#cascade}
+### Cascade notation (..) {#cascade}
 {:.no_toc}
 
-You've probably noticed the cascade operator (`..`) already.
-It allows you to perform multiple operations on the members of
-a single object.
+Cascades (`..`) allow you to make a sequence of operations
+on the same object. In addition to function calls,
+you can also access fields on that same object.
+This often saves you the step of creating a temporary variable and
+allows you to write more fluid code.
 
 Consider the following code:
 
 <!-- ch02/cascade_operator/web/web_app.dart -->
 {% prettify dart %}
+querySelector('#button') // Get an object.
+  ..text = 'Confirm'   // Use its members.
+  ..classes.add('important')
+  ..onClick.listen((e) => window.alert('Confirmed!'));
 {% endprettify %}
 
+The first method call, `querySelector()`, returns a selector object.
+The code that follows the cascade notation operates
+on this selector object, ignoring any subsequent values that
+might be returned.
+
+The previous example is equivalent to:
+
+{% prettify dart %}
+var button = querySelector('#button');
+button.text = 'Confirm';
+button.classes.add('important');
+button.onClick.listen((3) => window.alert('Confirmed!'));
+{% endprettify %}
+
+You can also nest your cascades. For example:
+
+{% prettify dart %}
+final addressBook = (new AddressBookBuilder()
+      ..name = 'jenny'
+      ..email = 'jenny@example.com'
+      ..phone = (new PhoneNumberBuilder()
+            ..number = '415-555-0100'
+            ..label = 'home')
+          .build())
+    .build();
+{% endprettify %}
+
+Be careful to construct your cascade on a function that returns
+an actual object. For example, the following code fails:
+
+{% prettify dart %}
+// Does not work
+var sb = new StringBuffer();
+sb.write('foo')..write('bar');
+{% endprettify %}
+
+The `sb.write()` call returns void,
+and you can't construct a cascade on `void`.
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+Strictly speaking,
+the "double dot" notation for cascades is not an operator.
+It's just part of the Dart syntax.
+</aside>
 
 ### Other operators {#other-operators}
 {:.no_toc}
@@ -2042,20 +2195,6 @@ https://gist.github.com/0cb25997742ed5382e4a
 p?.y = 4;
 {% endprettify %}
 
-{% include null-aware-1-12.html %}
-
-Use the [cascade](#cascade) notation (`..`)
-when you want to perform a series of
-operations on the members of a single object:
-
-<!-- ch02/cascade_operator/web/web_app.dart -->
-{% prettify dart %}
-querySelector('#button') // Get an object.
-  ..text = 'Confirm'   // Use its members.
-  ..classes.add('important')
-  ..onClick.listen((e) => window.alert('Confirmed!'));
-{% endprettify %}
-
 Some classes provide constant constructors. To create a compile-time
 constant using a constant constructor, use `const` instead of `new`:
 
@@ -2220,13 +2359,32 @@ superclass, you must implement that constructor in the subclass.
 {:.no_toc}
 
 By default, a constructor in a subclass calls the superclass’s unnamed,
-no-argument constructor. If the superclass doesn’t have such a
-constructor, then you must manually call one of the constructors in the
+no-argument constructor.
+The superclass's constructor is called at the beginning of the
+constructor body. If an [initializer list](#initializer-list)
+is also being used, it executes before the superclass is called.
+In summary, the order of execution is as follows:
+
+1. initializer list
+1. superclass's no-arg constructor
+1. main class's no-arg constructor
+
+<!-- Proof of concept: ch02/constructor_initializer_list_excecution_order.dart -->
+
+If the superclass doesn’t have an unnamed, no-argument constructor,
+then you must manually call one of the constructors in the
 superclass. Specify the superclass constructor after a colon (`:`), just
 before the constructor body (if any).
 
+In the following example, the constructor for the Employee class
+calls the named constructor for its superclass, Person.
+Click the run button ( <img src="/imgs/run.png" /> ) to execute the code.
+
 <!-- ch02/op_as.dart -->
-{% prettify dart %}
+{% comment %}
+https://gist.github.com/Sfshaza/e57aa06401e6618d4eb8
+https://dartpad.dartlang.org/e57aa06401e6618d4eb8
+
 class Person {
   Person.fromJson(Map data) {
     print('in Person');
@@ -2243,12 +2401,15 @@ class Employee extends Person {
 
 main() {
   var emp = new Employee.fromJson({});
-
-  // Prints:
-  // in Person
-  // in Employee
 }
-{% endprettify %}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=e57aa06401e6618d4eb8&horizontalRatio=99&verticalRatio=80"
+    width="100%"
+    height="500px"
+    style="border: 1px solid #ccc;">
+</iframe>
 
 Because the arguments to the superclass constructor are evaluated before
 invoking the constructor, an argument can be an expression such as a
@@ -2262,13 +2423,18 @@ class Employee extends Person {
 }
 {% endprettify %}
 
+<aside class="alert alert-info" markdown="1">
+**Note:**
+When using `super()` in a constructor's initialization list, put it last.
+For more information, see the
+[Dart usage guide](/effective-dart/usage/#do-place-the-super-call-last-in-a-constructor-initialization-list).
+</aside>
+
 <aside class="alert alert-warning" markdown="1">
 **Warning:**
 Arguments to the superclass constructor do not have access to `this`.
-For example, arguments can call static methods but not instance
-methods.
+For example, arguments can call static methods but not instance methods.
 </aside>
-
 
 #### Initializer list {#initializer-list}
 {:.no_toc}
@@ -2300,6 +2466,40 @@ class Point {
 The right-hand side of an initializer does not have access to `this`.
 </aside>
 
+Initializer lists are handy when setting up final fields.
+The following example initializes three final fields in an initializer list.
+Click the run button ( <img src="/imgs/run.png" /> ) to execute the code.
+
+<!-- ch02/initializer_list_final.dart -->
+{% comment %}
+https://gist.github.com/Sfshaza/7a9764702c0608711e08
+https://dartpad.dartlang.org/7a9764702c0608711e08
+
+import 'dart:math';
+
+class Point {
+  final num x;
+  final num y;
+  final num distanceFromOrigin;
+
+  Point(x, y)
+      : x = x,
+        y = y,
+        distanceFromOrigin = sqrt(x * x + y * y);
+}
+
+main() {
+  var p = new Point(2, 3);
+  print(p.distanceFromOrigin);
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=7a9764702c0608711e08&horizontalRatio=99&verticalRatio=85"
+    width="100%"
+    height="420px"
+    style="border: 1px solid #ccc;">
+</iframe>
 
 #### Redirecting constructors {#redirecting-constructors}
 {:.no_toc}
@@ -2838,8 +3038,8 @@ class Maestro extends Person
 }
 {% endprettify %}
 
-To implement a mixin, create a class that extends Object, declares no
-constructors, and has no calls to `super`. For example:
+To implement a mixin, create a class that extends Object,
+declares no constructors, and has no calls to `super`. For example:
 
 <!-- ch02/mixins.dart -->
 {% prettify dart %}
@@ -2859,6 +3059,19 @@ abstract class Musical {
   }
 }
 {% endprettify %}
+
+<aside class="alert alert-info" markdown="1">
+**Note:**
+As of 1.13, two restrictions on mixins have been lifted
+from the Dart VM:
+
+* Mixins allow extending from a class other than Object.
+* Mixins can call `super()`.
+
+These "super mixins" are
+[not yet supported in dart2js](https://github.com/dart-lang/sdk/issues/23773)
+and require the `--supermixin` flag in dartanalyzer.
+</aside>
 
 For more information, see the article [Mixins in
 Dart.](/articles/mixins/)
@@ -3120,7 +3333,7 @@ Dart.](/articles/optional-types/)
 
 ## Libraries and visibility {#libraries-and-visibility}
 
-The `import`, `part`, and `library` directives can help you create a
+The `import` and `library` directives can help you create a
 modular and shareable code base. Libraries not only provide APIs, but
 are a unit of privacy: identifiers that start with an underscore (\_)
 are visible only inside the library. *Every Dart app is a library*, even
@@ -3214,15 +3427,6 @@ Here are some cases when you might use deferred loading:
   alternative implementations of an algorithm, for example.
 * To load rarely used functionality, such as optional screens and dialogs.
 
-<aside class="alert alert-warning" markdown="1">
-**Warning:**
-Deferred loading is a new feature
-first implemented in 1.6.
-If you use it,
-[let us know](http://dartbug.com)
-about any implementation issues you discover.
-</aside>
-
 To lazily load a library, you must first
 import it using `deferred as`.
 
@@ -3264,115 +3468,13 @@ Keep in mind the following when you use deferred loading:
 ### Implementing libraries {#implementing-libraries}
 {:.no_toc}
 
-Use `library` to name a library, and `part` to specify additional files
-in the library.
-
-<aside class="alert alert-info" markdown="1">
-**Note:**
-You don’t have to use `library` in an app (a file that has a top-level
-main() function), but doing so lets you implement the app in multiple
-files.
-</aside>
-
-#### Declaring a library {#declaring-a-library}
-{:.no_toc}
-
-Use <code>library <em>identifier</em></code>
-to specify the name of the current library:
-
-<!-- ch02/ballgame.dart -->
-{% prettify dart %}
-// Declare that this is a library named ballgame.
-library ballgame;
-
-// This app uses the HTML library.
-import 'dart:html';
-
-// ...Code goes here...
-{% endprettify %}
-
-#### Associating a file with a library {#associating-a-file-with-a-library}
-{:.no_toc}
-
-To add an implementation file, put
-<code>part <em>fileUri</em></code>
-in the file that has the `library` statement, where *fileUri*
-is the path to the implementation file. Then in the implementation file, put
-<code>part of <em>identifier</em></code>,
-where *identifier* is the name of the library. The following
-example uses `part` and `part of` to implement a library in three files.
-
-The first file, `ballgame.dart`, declares the ballgame library, imports
-other libraries it needs, and specifies that `ball.dart` and `util.dart`
-are parts of this library:
-
-<!-- ch02/ballgame.dart -->
-{% prettify dart %}
-library ballgame;
-
-import 'dart:html';
-// ...Other imports go here...
-
-part 'ball.dart';
-part 'util.dart';
-
-// ...Code might go here...
-{% endprettify %}
-
-The second file, `ball.dart`, implements part of the ballgame library:
-
-<!-- ch02/ball.dart -->
-{% prettify dart %}
-part of ballgame;
-
-// ...Code goes here...
-{% endprettify %}
-
-The third file, `util.dart`, implements the rest of the ballgame
-library:
-
-<!-- ch02/util.dart -->
-{% prettify dart %}
-part of ballgame;
-
-// ...Code goes here...
-{% endprettify %}
-
-#### Re-exporting libraries {#re-exporting-libraries}
-{:.no_toc}
-
-You can combine or repackage libraries by re-exporting part or all of
-them. For example, you might have a huge library that you implement as a
-set of smaller libraries. Or you might create a library that provides a
-subset of methods from another library.
-
-<!-- ch02/french.dart, togo.dart, french_togo.dart -->
-{% prettify dart %}
-// In french.dart:
-library french;
-
-hello() => print('Bonjour!');
-goodbye() => print('Au Revoir!');
-
-// In togo.dart:
-library togo;
-
-import 'french.dart';
-export 'french.dart' show hello;
-
-// In another .dart file:
-import 'togo.dart';
-
-void main() {
-  hello();   //print bonjour
-  goodbye(); //FAIL
-}
-{% endprettify %}
-
+See
+[Creating Library Packages](/tools/pub/create-library-packages.html)
+for advice on how to implement a library package.
 
 ## Asynchrony support {#asynchrony}
 
-Dart has added new language features
+Dart has several language features
 to support asynchronous programming.
 The most commonly used of these features are
 `async` functions and `await` expressions.
@@ -3561,6 +3663,41 @@ Also see the articles
 [Dart Language Asynchrony Support: Phase 2](/articles/beyond-async/),
 and the [Dart language specification](/docs/spec/).
 
+## Callable classes {#callable-classes}
+
+To allow your Dart class to be called like a function,
+implement the `call()` method.
+
+In the following example, the `WannabeFunction` class defines
+a call() function that takes three strings and concatenates them,
+separating each with a space, and appending an exclamation.
+Click the run button ( <img src="/imgs/run.png" /> ) to execute the code.
+
+<!-- ch02/callable_function.dart -->
+{% comment %}
+https://gist.github.com/405379bacf30335f3aed
+https://dartpad.dartlang.org/405379bacf30335f3aed
+
+class WannabeFunction {
+  call(String a, String b, String c) => a + ' ' + b + ' ' + c + '!';
+}
+
+main() {
+  var wf = new WannabeFunction();
+  var out = wf("Hi","there,","gang");
+  print('$out');
+}
+{% endcomment %}
+
+<iframe
+src="{{site.custom.dartpad.embed-dart-prefix}}?id=405379bacf30335f3aed&horizontalRatio=99&verticalRatio=73"
+    width="100%"
+    height="240px"
+    style="border: 1px solid #ccc;">
+</iframe>
+
+For more information on treating classes like functions, see
+[Emulating Functions in Dart](/articles/emulating-functions/).
 
 ## Isolates {#isolates}
 
