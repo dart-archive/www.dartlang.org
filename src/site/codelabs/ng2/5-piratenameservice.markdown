@@ -18,7 +18,8 @@ header:
 
 A proper pirate name consists of a name and an appellation,
 such as "Margy the Fierce" or "Renée the Fighter".
-In this step, you add a service that returns a pirate name.
+In this step, you learn about Angular's support for dependency
+injection as you add a service that returns a pirate name.
 
 ## <i class="fa fa-anchor"> </i> Create a class for the pirate name service.
 
@@ -51,7 +52,7 @@ In this step, you add a service that returns a pirate name.
 ## <i class="fa fa-anchor"> </i> Edit pirate_name_service.dart.
 
 <div class="trydart-step-details" markdown="1">
-Add an import to the file.
+Add imports to the file.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -59,6 +60,8 @@ Add an import to the file.
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
 [[highlight]]import 'dart:math' show Random;[[/highlight]]
+
+[[highlight]]import 'package:angular2/core.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -71,31 +74,46 @@ Add an import to the file.
 
 * `Random` provides a random number generator.
 
+* The `angular2/core.dart` library defines the injectable annotation
+  that you are adding in the next step.
+
 </div></div>
 
 <div class="trydart-step-details" markdown="1">
 
 <hr>
 
-Add a class declaration below the import.
+Add a class declaration below the import and annotate it with
+`@Injectable()`.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
+[[highlight]]@Injectable()[[/highlight]]
 [[highlight]]class PirateNameService[[/highlight]] {
 [[highlight]]}[[/highlight]]
 {% endprettify %}
 </div>
 
-{% comment %}
 </div> <div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* x
-{% endcomment %}
+* _Dependency injection_ is a design pattern that allows moving
+  the definition of a dependency to the constructor of
+  the class that uses the dependency.
+
+* Dependency injection, also referred to as _DI_, allows you to write
+  more robust code that is easier to test.
+
+* When Angular detects the `@Injectable()` annotation,
+  it generates necessary metadata so that the annotated object is injectable.
+
+* Later, when you edit lib/pirate_name_service.dart,
+  you'll add a constructor to PirateBadgeComponent
+  that will inject an instance of PirateNameService.
 
 </div></div>
 
@@ -132,8 +150,8 @@ class PirateNameService {
 
 <hr>
 
-Add two instance variables to the class,
-one for the first name and one for the appellation.
+Create two static lists within the class that provide a small
+collection of names and appellations to choose from.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -143,9 +161,12 @@ one for the first name and one for the appellation.
 class PirateNameService {
   static final Random _indexGen = new Random();
 
-  [[highlight]]final String _firstName;[[/highlight]]
-  [[highlight]]final String _appellation;[[/highlight]]
-}
+  [[highlight]]final List _names = [[[/highlight]]
+    [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',[[/highlight]]
+    [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];[[/highlight]]
+  [[highlight]]final List _appellations = [[[/highlight]]
+    [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe',[[/highlight]]
+    [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -158,39 +179,6 @@ class PirateNameService {
   The language tools enforce a variable's privacy.
 
 * `final` variables cannot change.
-
-</div></div>
-
-<div class="trydart-step-details" markdown="1">
-
-<hr>
-
-Create two static lists within the class that provide a small
-collection of names and appellations to choose from.
-</div>
-
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-{% prettify dart %}
-class PirateNameService {
-  static final Random _indexGen = new Random();
-
-  final String _firstName;
-  final String _appellation;
-
-  [[highlight]]static final List _names = [[[/highlight]]
-    [[highlight]]'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',[[/highlight]]
-    [[highlight]]'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];[[/highlight]]
-  [[highlight]]static final List _appellations = [[[/highlight]]
-    [[highlight]]'Jackal', 'King', 'Red', 'Stalwart', 'Axe',[[/highlight]]
-    [[highlight]]'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];[[/highlight]]
-{% endprettify %}
-</div>
-
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * Lists are built into the language. These lists are created
   using list literals.
@@ -212,18 +200,15 @@ and appellation.
 {% prettify dart %}
 class PirateNameService {
   ...
-  static final List _names = [
-    'Anne', 'Mary', 'Jack', 'Morgan', 'Roger',
-    'Bill', 'Ragnar', 'Ed', 'John', 'Jane' ];
-  static final List _appellations = [
+  final List _appellations = [
     'Jackal', 'King', 'Red', 'Stalwart', 'Axe',
     'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];
 
-  [[highlight]]static String randomFirstName() {[[/highlight]]
+  [[highlight]]String randomFirstName() {[[/highlight]]
     [[highlight]]return _names[_indexGen.nextInt(_names.length)];[[/highlight]]
   [[highlight]]}[[/highlight]]
 
-  [[highlight]]static String randomAppellation() {[[/highlight]]
+  [[highlight]]String randomAppellation() {[[/highlight]]
     [[highlight]]return _appellations[_indexGen.nextInt(_appellations.length)];[[/highlight]]
   [[highlight]]}[[/highlight]]
 }
@@ -246,9 +231,10 @@ from the random number generator.
 </div> </div>
 
 <div class="trydart-step-details" markdown="1">
+
 <hr>
 
-Provide a constructor for the class.
+Provide a method that gets a pirate name.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -257,60 +243,18 @@ Provide a constructor for the class.
 {% prettify dart %}
 class PirateNameService {
   ...
-
-  static String randomAppellation() {
+  String randomAppellation() {
     return (_appellations[_indexGen.nextInt(_appellations.length)]);
   }
 
-  [[highlight]]PirateNameService({String firstName, String appellation})[[/highlight]]
-      [[highlight]]: _firstName = firstName ?? randomFirstName(),[[/highlight]]
-        [[highlight]]_appellation = appellation ?? randomAppellation();[[/highlight]]
-{% endprettify %}
-</div>
+  [[highlight]]String getPirateName(String firstName) {[[/highlight]]
+    [[highlight]]if (firstName == null || firstName.trim().isEmpty) {[[/highlight]]
+      [[highlight]]firstName = randomFirstName();[[/highlight]]
+    [[highlight]]}[[/highlight]]
+    [[highlight]]var appellation = randomAppellation();[[/highlight]]
 
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* Constructor names can be either <em><code>ClassName</code></em> or
-  <em><code>ClassName</code></em>.<em><code>identifier</code></em>.
-
-* The parameters enclosed in curly brackets (`{` and `}`)
-  are optional, named parameters.
-
-* These parameters are initialized using an initializer list
-  which appears after the colon (`:`).
-
-* The double questionmark syntax `??` specifies a _null-aware_ operation.
-  If `firstName` is non-null, assign that value to `_firstName`.
-  Otherwise, if `firstName` is null, assign the value returned
-  by `randomFirstName()` to `_firstName`.
-
-* Note that this constructor has no body because it sets the values in
-  an initalizer list.
-
-</div> </div>
-
-<div class="trydart-step-details" markdown="1">
-
-<hr>
-
-Provide a getter for the pirate name.
-</div>
-
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-{% prettify dart %}
-class PirateNameService {
-  ...
-
-  PirateNameService({String firstName, String appellation})
-      : _firstName = firstName ?? randomFirstName(),
-        _appellation = appellation ?? randomAppellation();
-
-  [[highlight]]String get pirateName =>[[/highlight]]
-      [[highlight]]_firstName.isEmpty ? '' : '$_firstName the $_appellation';[[/highlight]]
+    [[highlight]]return '$firstName the $appellation';[[/highlight]]
+  }
 }
 {% endprettify %}
 </div>
@@ -318,67 +262,12 @@ class PirateNameService {
 </div><div class="col-md-5" markdown="1">
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* Getters are special methods that provide read access to an object’s
-  properties.
-
-* All instance variables have an implicit getter, but you can
-  create additional properties by implementing getters
-  using the `get` keyword.
-
-* `pirateName` is a property, the same as any explicitly declared
-  instance variable.
-
-* This example doesn't include an explicit setter for `pirateName`,
-  so it's a read-only property,
-  but you can create one using the `set` keyword.
-
-* The conditional operator `?:` is equivalent to an if-then-else
-  statement, but for expressions.
 
 * String interpolation
   (`'$_firstName the $_appellation'`)
   lets you easily build strings from other objects.
 
 * String interpolation is different than Angular's expression interpolation.
-
-* The fat arrow (` => expr; `) syntax is a shorthand for `{ return expr; }`.
-
-</div></div>
-
-<div class="trydart-step-details" markdown="1">
-
-<hr>
-
-Override the toString() method.
-</div>
-
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-{% prettify dart %}
-class PirateNameService {
-  ...
-
-  String get pirateName =>
-      _firstName.isEmpty ? '' : '$_firstName the $_appellation';
-
-  [[highlight]]String toString() => pirateName;[[/highlight]]
-}
-{% endprettify %}
-</div>
-
-</div><div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* Because the Object implementation of `toString()` doesn't give much
-  information, many classes override `toString()`.
-
-* When you call `print(anObject)` for any non-String, it prints the value
-  returned by `anObject.toString()`.
-
-* Overriding `toString()` can be especially helpful for debugging or logging.
 
 </div></div>
 
@@ -414,6 +303,114 @@ import 'package:angular2/angular2.dart';
 
 <hr>
 
+Add `PirateNameService` as a provider by adding the text
+ `, providers: const [PirateNameService]`
+to the `@Component` annotation. After formatting,
+it should look as follows:
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+@Component(
+    selector: 'pirate-badge',
+    templateUrl: 'pirate_badge_component.html'[[highlight]],[[/highlight]]
+    [[highlight]]providers: const [PirateNameService][[/highlight]])
+class PirateBadgeComponent {
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* The `providers` part of `@Component` tells Angular what objects are
+  available for injection in this component.
+
+* You can reformat your code by right-clicking in the editor view
+  and selecting **Reformat with Dart Style**. For more information,
+  see [step 2](2-blankbadge.html).
+
+</div></div>
+
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Add a `_nameService` instance variable.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+@Component(
+    selector: 'pirate-badge',
+    templateUrl: 'pirate_badge_component.html',
+    providers: const [PirateNameService])
+class PirateBadgeComponent {
+  [[highlight]]final PirateNameService _nameService;[[/highlight]]
+  String badgeName = '';
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* x
+{% endcomment %}
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
+Add a constructor that references `_nameService`.
+</div>
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+<div class="trydart-step-details" markdown="1">
+{% prettify dart %}
+class PirateBadgeComponent {
+  final PirateNameService _nameService;
+  String badgeName = '';
+  String buttonText = 'Aye! Gimme a name!';
+  bool enableButton = false;
+  bool enableInput = false;
+
+  [[highlight]]PirateBadgeComponent(this._nameService);[[/highlight]]
+  ...
+}
+{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* When Angular creates a component, it looks at its constructors
+  and then goes looking for the types of arguments with the
+  `@Injectable` annotation.
+
+* When Angular locates the class, it creates an instance and
+  injects it into the component via the constructor.
+
+</div></div>
+
+<div class="trydart-step-details" markdown="1">
+
+<hr>
+
 Add a `setBadgeName()` method.
 </div>
 
@@ -427,69 +424,42 @@ class PirateBadgeComponent {
     setBadgeName(new PirateNameService());
   }
 
-  [[highlight]]void setBadgeName(PirateNameService newName) {[[/highlight]]
+  [[highlight]]void setBadgeName([String newName = '']) {[[/highlight]]
     [[highlight]]if (newName == null) return;[[/highlight]]
-    [[highlight]]badgeName = newName.pirateName;[[/highlight]]
+    [[highlight]]badgeName = _nameService.getPirateName(newName);[[/highlight]]
   [[highlight]]}[[/highlight]]
 }
 {% endprettify %}
 </div>
 
 </div> <div class="col-md-5" markdown="1">
-{% comment %}
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* x
+* `[String newName = '']` is an optional positional parameter with a default
+  value of the empty string.
 
-{% endcomment %}
 </div></div>
 
 <div class="trydart-step-details" markdown="1">
 
 <hr>
 
-Update `generateBadge()` to call `setBadgeName()` for a new pirate name.
+Modify the `generateBadge()` and `updateBadge()`  methods.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-class PirateBadgeComponent {
+class PirateBadgeComponent implements OnInit {
   ...
   void generateBadge() {
-    [[highlight]]setBadgeName(new PirateNameService());[[/highlight]]
+    [[highlight]]setBadgeName();[[/highlight]]
   }
-  ...
-}
-{% endprettify %}
-</div>
-
-{% comment %}
-</div> <div class="col-md-5" markdown="1">
-
-* x
-{% endcomment %}
-
-</div></div>
-
-<div class="trydart-step-details" markdown="1">
-
-<hr>
-
-Modify the `updateBadge()` function to use the name service.
-</div>
-
-<div class="row"> <div class="col-md-7" markdown="1">
-
-<div class="trydart-step-details" markdown="1">
-{% prettify dart %}
-class PirateBadgeComponent() {
-  ...
 
   void updateBadge(String inputName) {
-    [[highlight]]setBadgeName(new PirateNameService(firstName: inputName));[[/highlight]]
+    [[highlight]]setBadgeName(inputName);[[/highlight]]
     if (inputName.trim().isEmpty) {
       buttonText = 'Aye! Gimme a name!';
       enableButton = true;
@@ -502,8 +472,10 @@ class PirateBadgeComponent() {
 {% endprettify %}
 </div>
 
-{% comment %}
 </div> <div class="col-md-5" markdown="1">
+
+{% comment %}
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * x
 {% endcomment %}
