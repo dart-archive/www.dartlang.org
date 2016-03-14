@@ -204,11 +204,11 @@ class PirateNameService {
     'Jackal', 'King', 'Red', 'Stalwart', 'Axe',
     'Young', 'Brave', 'Eager', 'Wily', 'Zesty'];
 
-  [[highlight]]String randomFirstName() {[[/highlight]]
+  [[highlight]]String _randomFirstName() {[[/highlight]]
     [[highlight]]return _names[_indexGen.nextInt(_names.length)];[[/highlight]]
   [[highlight]]}[[/highlight]]
 
-  [[highlight]]String randomAppellation() {[[/highlight]]
+  [[highlight]]String _randomAppellation() {[[/highlight]]
     [[highlight]]return _appellations[_indexGen.nextInt(_appellations.length)];[[/highlight]]
   [[highlight]]}[[/highlight]]
 }
@@ -243,15 +243,15 @@ Provide a method that gets a pirate name.
 {% prettify dart %}
 class PirateNameService {
   ...
-  String randomAppellation() {
+  String _randomAppellation() {
     return (_appellations[_indexGen.nextInt(_appellations.length)]);
   }
 
   [[highlight]]String getPirateName(String firstName) {[[/highlight]]
     [[highlight]]if (firstName == null || firstName.trim().isEmpty) {[[/highlight]]
-      [[highlight]]firstName = randomFirstName();[[/highlight]]
+      [[highlight]]firstName = _randomFirstName();[[/highlight]]
     [[highlight]]}[[/highlight]]
-    [[highlight]]var appellation = randomAppellation();[[/highlight]]
+    [[highlight]]var appellation = _randomAppellation();[[/highlight]]
 
     [[highlight]]return '$firstName the $appellation';[[/highlight]]
   }
@@ -385,8 +385,7 @@ class PirateBadgeComponent {
   final PirateNameService _nameService;
   String badgeName = '';
   String buttonText = 'Aye! Gimme a name!';
-  bool enableButton = false;
-  bool enableInput = false;
+  bool enableButton = true;
 
   [[highlight]]PirateBadgeComponent(this._nameService);[[/highlight]]
   ...

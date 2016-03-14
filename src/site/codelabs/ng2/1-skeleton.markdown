@@ -461,10 +461,10 @@ transformers:
 
 * Running `pub get` installs the packages that your app depends on,
   as defined by your app's pubspec.
-  WebStorm typically detects these changes and automatically installs
-  the necessary packages, but you can also get the
-  packages manually using buttons that appear in WebStorm, above the
-  editor view, when you open the pubspec file.
+  WebStorm typically detects that the pubspec has changed
+  and asks you to get the dependencies again.
+  If the buttons don't appear at the top of the editor view,
+  you can find them by opening the pubspec.
 
 * The `pubspec.lock` file lists every package that your app directly
   or indirectly depends on, along with the version number for each package.

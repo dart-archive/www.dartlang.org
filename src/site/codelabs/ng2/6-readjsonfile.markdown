@@ -17,7 +17,7 @@ header:
 # {{ page.title }}
 
 In this final step, you learn about Dart's support for
-asynchronous file I/O as you change the pirate name service
+asynchronous file I/O as you modify the pirate name service
 to fetch the names and appellations from a JSON file on dartlang.
 
 ## <i class="fa fa-anchor"> </i> Edit pirate_name_service.dart.
@@ -30,9 +30,9 @@ Add imports to the top.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-[[highlight]]import 'dart:html';[[/highlight]]
 [[highlight]]import 'dart:async';[[/highlight]]
 [[highlight]]import 'dart:convert';[[/highlight]]
+[[highlight]]import 'dart:html';[[/highlight]]
 import 'dart:math' show Random;
 
 import 'package:angular2/core.dart';
@@ -43,13 +43,13 @@ import 'package:angular2/core.dart';
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* The `dart:html` library contains the classes for all DOM element
-  types, in addition to functions for accessing the DOM.
-
 * The `dart_async` library provides for asynchronous programming.
 
 * The `dart:convert` library provides convenient access to the most
   commonly used JSON conversion utilities.
+
+* The `dart:html` library contains the classes for all DOM element
+  types, in addition to functions for accessing the DOM.
 
 </div></div>
 
@@ -98,7 +98,7 @@ class PirateNameService {
   final _names = [[highlight]]<String>[];[[/highlight]]
   final _appellations = [[highlight]]<String>[];[[/highlight]]
 
-  static String randomFirstName() {
+  static String _randomFirstName() {
     return (_names[_indexGen.nextInt(_names.length)]);
   }
   ...
@@ -131,7 +131,7 @@ to read the names and appellations from the JSON file.
 {% prettify dart %}
 class PirateNameService {
   ...
-  String randomAppellation() {
+  String _randomAppellation() {
     return (_appellations[_indexGen.nextInt(_appellations.length)]);
   }
 
@@ -178,14 +178,41 @@ class PirateNameService {
 
 </div></div>
 
-## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
-
-xxx: Modify PirateBadgeComponent to get a pirate name via dependency injection.
+## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.html.
 
 <div class="trydart-step-details" markdown="1">
+Enable the input field depending on the value of a
+`enableInput` property.
+</div>
 
-<hr>
+<div class="row"> <div class="col-md-7" markdown="1">
 
+<div class="trydart-step-details" markdown="1">
+{% prettify html %}{% raw %}
+<div class="widgets">
+  <input [[highlight]][disabled]="!enableInput"[[/highlight]] (input)="updateBadge($event.target.value)"
+         type="text" maxlength="15">
+  <button [disabled]="!enableButton" (click)="generateBadge()">
+    {{buttonText}}
+  </button>
+{% endraw %}{% endprettify %}
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* In the next step, the user inputs are disabled until the JSON file
+  is successfully loaded.
+
+</div></div>
+
+## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
+
+Load the pirate names and appellations from a JSON file.
+When successfully loaded, enable the UI.
+
+<div class="trydart-step-details" markdown="1">
 At startup, disable the button and input field.
 </div>
 
@@ -198,7 +225,7 @@ class PirateBadgeComponent {
   String badgeName = '';
   String buttonText = 'Aye! Gimme a name!';
   bool enableButton = [[highlight]]false[[/highlight]];
-  bool enableInput = [[highlight]]false[[/highlight]];
+  [[highlight]]bool enableInput = false[[/highlight]];
 }
 {% endprettify %}
 </div>

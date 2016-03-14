@@ -23,45 +23,7 @@ the app displays "Anne Bonney" on the badge.
 
 ## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.html.
 
-<div class="row"> <div class="col-md-7" markdown="1">
-
 <div class="trydart-step-details" markdown="1">
-Modify the input field to enable or disable input based on the
-value of the `enableInput` boolean.
-</div>
-
-<div class="trydart-step-details" markdown="1">
-{% prettify html %}{% raw %}
-<div class="widgets">
-  <input [[highlight]][disabled]="!enableInput"[[/highlight]] (input)="updateBadge($event.target.value)"
-         type="text" maxlength="15">
-</div>
-<div class="badge">
-  <div class="greeting">Arrr! Me name is</div>
-  <div class="name">{{badgeName}}</div>
-</div>
-{% endraw %}{% endprettify %}
-</div>
-
-</div> <div class="col-md-5" markdown="1">
-
-<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
-
-* Square brackets `[]` specify a _property_ on the element.
-  This example references the `disabled` property.
-
-* The `[disabled] != "!enableInput"` text enables or disables
-  the input element, based on the value of the corresponding Dart variable.
-
-* You will add `enableInput` to the Dart code in the next section.
-
-&nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
-</div> </div>
-
-<div class="trydart-step-details" markdown="1">
-
-<hr>
-
 Add a button to the `widgets` div.
 </div>
 
@@ -70,7 +32,7 @@ Add a button to the `widgets` div.
 <div class="trydart-step-details" markdown="1">
 {% prettify html %}{% raw %}
 <div class="widgets">
-  <input [disabled]="!enableInput" (input)="updateBadge($event.target.value)"
+  <input (input)="updateBadge($event.target.value)"
          type="text" maxlength="15">
   [[highlight]]<button [disabled]="!enableButton" (click)="generateBadge()">[[/highlight]]
     [[highlight]]{{buttonText}}[[/highlight]]
@@ -87,8 +49,13 @@ Add a button to the `widgets` div.
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* Enable the  button depending on the value of `enableButton`.
-  You will add `enableButton` to the Dart code in the next section.
+* Square brackets `[]` specify a _property_ on the element.
+  This example references the `disabled` property.
+
+* The `[disabled] != "!enableButton"` text enables or disables
+  the button element, based on the value of the corresponding Dart variable.
+
+* You will add `enableButton` to the Dart code in the next section.
 
 * The `(click)="generateBadge()"` text sets up an event handler for button
   clicks.  You'll add the `generateBadge()` event handler to the Dart
@@ -101,7 +68,7 @@ Add a button to the `widgets` div.
 ## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
 
 <div class="trydart-step-details" markdown="1">
-Add several variables to the PirateBadgeComponent class.
+Add two variables to the PirateBadgeComponent class.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -113,7 +80,6 @@ class PirateBadgeComponent {
   String badgeName = '';
   [[highlight]]String buttonText = 'Aye! Gimme a name!';[[/highlight]]
   [[highlight]]bool enableButton = true;[[/highlight]]
-  [[highlight]]bool enableInput = true;[[/highlight]]
   ...
 }
 {% endprettify %}
@@ -127,8 +93,8 @@ class PirateBadgeComponent {
 * All instance variables defined in an Angular component are visible
   to the template for that component.
 
-* As you've seen, the HTML template uses `enableButton` and
-  `enableInput` when displaying the button and input field, respectively.
+* As you've seen, the HTML template uses `enableButton`
+  when displaying the button.
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 
