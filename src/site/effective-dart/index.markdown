@@ -126,3 +126,7 @@ Please [file an issue][issue] or add to an [existing one][].
 [existing one]: https://github.com/dart-lang/www.dartlang.org/issues?q=is%3Aopen+is%3Aissue+label%3AEffectiveDart
 
 </aside>
+
+<hr>
+
+{% include effective-dart-nav.html %}

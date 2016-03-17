@@ -275,7 +275,6 @@ member returns.
 <div class="good">
 {% prettify dart %}
 list.elementAt(3)
-string.endsWith("suffix")
 string.codeUnitAt(4)
 {% endprettify %}
 </div>
@@ -1064,3 +1063,7 @@ class Person {
 }
 {% endprettify %}
 </div>
+
+<hr>
+
+{% include effective-dart-nav.html %}

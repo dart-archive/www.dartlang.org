@@ -986,3 +986,7 @@ Future<bool> fileContainsBear(String path) async {
 }
 {% endprettify %}
 </div>
+
+<hr>
+
+{% include effective-dart-nav.html %}
