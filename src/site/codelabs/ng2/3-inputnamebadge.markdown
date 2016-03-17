@@ -52,7 +52,11 @@ Add a div containing an input field to the top of the file:
   _event binding_ syntax.
   The expression to the right of the equals sign is a _template statement_.
 
-* This template statement executes whenever an input event occurs on this element.
+* The template statement refers to Angular's event object, `$event`,
+  and conveys information about the raised event.
+
+* This template statement executes whenever an input event occurs on this
+  element.
 
 * A template statement may reference functions or variables
   from the Dart component code.

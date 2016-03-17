@@ -35,7 +35,7 @@ Add imports to the top.
 [[highlight]]import 'dart:html';[[/highlight]]
 import 'dart:math' show Random;
 
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 {% endprettify %}
 </div>
 
@@ -64,7 +64,7 @@ Add a constant defining the location of the JSON file.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/core.dart';
+import 'package:angular2/angular2.dart';
 
 [[highlight]]const _namesPath =[[/highlight]]
     [[highlight]]'https://www.dartlang.org/codelabs/darrrt/files/piratenames.json';[[/highlight]]

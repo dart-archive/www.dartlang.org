@@ -52,7 +52,7 @@ Add a button to the `widgets` div.
 * Square brackets `[]` specify a _property_ on the element.
   This example references the `disabled` property.
 
-* The `[disabled] != "!enableButton"` text enables or disables
+* The `[disabled] = "!enableButton"` text enables or disables
   the button element, based on the value of the corresponding Dart variable.
 
 * You will add `enableButton` to the Dart code in the next section.

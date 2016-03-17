@@ -61,7 +61,7 @@ Add imports to the file.
 {% prettify dart %}
 [[highlight]]import 'dart:math' show Random;[[/highlight]]
 
-[[highlight]]import 'package:angular2/core.dart';[[/highlight]]
+[[highlight]]import 'package:angular2/angular2.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -74,7 +74,7 @@ Add imports to the file.
 
 * `Random` provides a random number generator.
 
-* The `angular2/core.dart` library defines the injectable annotation
+* The `angular2/angular2.dart` library defines the injectable annotation
   that you are adding in the next step.
 
 </div></div>

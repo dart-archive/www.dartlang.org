@@ -404,7 +404,7 @@ version: 0.0.1
 environment:
   sdk: '>=1.13.0 <2.0.0'
 dependencies:
-  angular2: 2.0.0-beta.6
+  angular2: 2.0.0-beta.9
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^0.1.0
 transformers:
@@ -514,7 +514,7 @@ your keychain.**
 This dialog can occur on the Mac if you've ever saved passwords in Safari.
 You can "Deny" the request and your app will still work. This
 [blog post](http://www.idownloadblog.com/2013/03/04/google-chrome-wants-to-use-your-confidential-information-store-in-the-keychain/)
-has information on how to perminently get rid of these warnings.
+has information on how to permanently eliminate these warnings.
 </aside>
 </div>
 
@@ -532,63 +532,50 @@ has information on how to perminently get rid of these warnings.
 
 <i class="fa fa-lightbulb-o key-header"> </i> <strong> Not using WebStorm? </strong>
 
-* You can manually launch a local HTTP server and
-  then view the app in Dartium.
-  The following instructions use the simple Python server:
+<ul markdown="1">
+<li markdown="1">You can run your app in a browser using one of
+the pub commands.
 
 <ol markdown="1">
 
-<li markdown="1">
-From the project's `web` directory,
-launch the Python server as follows:
+<li markdown="1">From the directory that contains the pubspec file,
+  enter `pub serve`.  The output should include the following:
 
 {% prettify none %}
-cd pirate_badge/web
-python -m SimpleHTTPServer
+$ pub serve
+Loading source assets...
+Loading angular2 and dart_to_js_script_rewriter transformers... (2.6s)
+[[highlight]]Serving pirate_badge web on http://localhost:8080[[/highlight]]
+Build completed successfully
+...
 {% endprettify %}
 
-You should see the following:
-
-{% prettify none %}
-Serving HTTP on 0.0.0.0 port 8000 ...
-{% endprettify %}
-
-You can specify an alternate port if 8000 is not available.
-
-{% prettify none %}
-python -m SimpleHTTPServer <port-number>
-{% endprettify %}
+You can specify an alternate port if 8080 is not available.
+For more information, see [pub serve](/tools/pub/cmd/pub-serve.html).
 </li>
 
 <li markdown="1">
-A dialog appears asking if you want to allow Python.app
-to accept incoming network connections.
-For this example, it doesn't matter, so you can select **Deny**.
-</li>
-
-<li markdown="1">
-Launch Dartium. If Dartium is not in your path, specify the full path
-to the executable. On a Mac, it would look something like the following:
+In a browser, navigate to:
 
 {% prettify none %}
-<path-to-dartium>/Chromium.app/Contents/MacOS/Chromium
-{% endprettify %}
-</li>
-
-<li markdown="1">
-In the address bar, navigate to index.html as follows:
-
-{% prettify none %}
-localhost:8000/index.html
+http://localhost:8080
 {% endprettify %}
 
 If you specified a different port when you started the server,
-use that instead of 8000.
+use that instead of 8080.
 </li>
 
 </ol>
 
-* Your app's UI should load.
+</li>
+
+<li markdown="1">Your app's UI should load. Pub serve compiles
+  your app to JavaScript, so you can run it in any modern browser.
+  There may be a slight delay during the compilation process.
+
+</li>
+
+</ul>
 
 </div></div>
 
