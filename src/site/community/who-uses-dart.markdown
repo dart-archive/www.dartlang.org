@@ -12,6 +12,10 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/www.dartlang.org/blob/master/src/site/community/who-uses-dart.markdown). Thanks!
 
+
+[Doodau](https://www.doodau.com/)
+: Team collaboration for the 21 century.
+
 [Workiva](https://www.workiva.com/)
 : Next generation client applications for our Wdesk productivity suite are built with Dart. Check out our [OSS contributions](https://pub.dartlang.org/search?q=workiva) as well.
 
