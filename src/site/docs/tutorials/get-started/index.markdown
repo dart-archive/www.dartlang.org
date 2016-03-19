@@ -95,8 +95,9 @@ and the command-line version of the Dart VM.
 
 When you download **Dartium**, you get a special build of the
 Chromium web browser that has the Dart VM (virtual machine) embedded.
-(While the app is referred to as _Dartium_, the executable
-is actually named **Chromium**.)
+(While the app is referred to as _Dartium_, the executable's name
+might be **dartium**, **chromium**, or **chrome**,
+depending on your platform and installation tool.)
 You can run your apps directly in this browser,
 or have your IDE or code editor do it for you,
 thereby streamlining the build-test cycle.
