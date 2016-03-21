@@ -12,6 +12,10 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/www.dartlang.org/blob/master/src/site/community/who-uses-dart.markdown). Thanks!
 
+[Material Design Lite 4 Dart](http://www.material-design-lite.pub/)
+: Material Design Lite for Dart (MDL/Dart) is a library of components for web developers based on Google's Material Design philosophy.
+In Dart - for Dart, for you!
+
 [Workiva](https://www.workiva.com/)
 : Next generation client applications for our Wdesk productivity suite are built with Dart. Check out our [OSS contributions](https://pub.dartlang.org/search?q=workiva) as well.
 
