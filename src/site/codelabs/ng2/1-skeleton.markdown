@@ -34,7 +34,7 @@ for working from the command line.
 
 ## <i class="fa fa-anchor"> </i> Create a basic web app.
 
-WebStorm privdes a set of templates
+WebStorm provides a set of templates
 for creating a variety of Dart apps.
 When you create a new app,
 you can start with one of the application templates,
@@ -104,7 +104,8 @@ The form should look similar to the following:
 <ol markdown="1">
 <li markdown="1">Create a directory on your computer for the project.
 </li>
-<li markdown="1">Copy the contents of the `one-hour-code-lab/ng2/1-skeleton`
+<li markdown="1">Copy the contents of the
+    [one-hour-code-lab/ng2/1-skeleton](https://github.com/dart-lang/one-hour-codelab/archive/ng2.zip)
     directory into your new project's directory. Or, if you prefer,
     you can get the `web-angular` project from the
     [Stagehand](https://github.com/google/stagehand) repo.
@@ -572,6 +573,7 @@ use that instead of 8080.
 <li markdown="1">Your app's UI should load. Pub serve compiles
   your app to JavaScript, so you can run it in any modern browser.
   There may be a slight delay during the compilation process.
+  You can also run it in Dartium.
 
 </li>
 

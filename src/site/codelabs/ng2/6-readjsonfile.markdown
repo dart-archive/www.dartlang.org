@@ -165,7 +165,7 @@ class PirateNameService {
 * `getString()` is a convenience method for doing a simple GET
   request that returns a string.
 
-* `getString()` is asynchronous. It setups up the GET request
+* `getString()` is asynchronous. It sets up the GET request
   and returns a Future that _completes_ when the GET request
   is finished.
 

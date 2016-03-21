@@ -264,7 +264,7 @@ class PirateNameService {
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
 * String interpolation
-  (`'$_firstName the $_appellation'`)
+  (`'$firstName the $appellation'`)
   lets you easily build strings from other objects.
 
 * String interpolation is different than Angular's expression interpolation.

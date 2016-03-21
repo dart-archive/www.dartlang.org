@@ -52,6 +52,10 @@ Add a div containing an input field to the top of the file:
   _event binding_ syntax.
   The expression to the right of the equals sign is a _template statement_.
 
+* `(input)` is a shortcut to subscribe to the "input" events triggered
+  when the user modifies the content of the input. Every event results
+  in a call to the template statement.
+
 * The template statement refers to Angular's event object, `$event`,
   and conveys information about the raised event.
 
