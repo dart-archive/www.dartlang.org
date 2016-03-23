@@ -404,6 +404,16 @@ class PirateBadgeComponent {
 * When Angular locates the class, it creates an instance and
   injects it into the component via the constructor.
 
+* Note that the PirateBadgeComponent constructor has no body.
+  The `this._nameService` text in the argument list is _syntactic sugar_,
+  or shorthand&mdash;it assigns the passed-in parameter to the
+  `_nameService` variable. Since the assignment happens in
+  the argument list, and the constructor doesn't
+  need to do anything else, the body isn't needed.
+
+* If you've used Java, you've seen `this` before.
+  You can access local instance variables using `this`.
+
 </div></div>
 
 <div class="trydart-step-details" markdown="1">
