@@ -232,7 +232,7 @@ version of the app.
 <div class="trydart-step-details" markdown="1">
 
 {% prettify dart %}
-import 'package:angular2/bootstrap.dart';
+import 'package:angular2/platform/browser.dart';
 import 'package:pirate_badge/app_component.dart';
 
 main() {
@@ -258,7 +258,7 @@ main() {
 
 * This app depends on the `angular2` package, which is loaded from
   [pub.dartlang.org](https://pub.dartlang.org/).
-  Files that call `bootstrap()` import `bootstrap.dart` from the
+  Files that call `bootstrap()` import `platform/browser.dart` from the
   angular package.
 
 * The second import, `app_component.dart`,
@@ -331,7 +331,7 @@ main() {
 <div class="trydart-step-details" markdown="1">
 
 {% prettify dart %}
-import 'package:angular2/angular2.dart';
+import 'package:angular2/core.dart';
 
 @Component(selector: 'my-app', templateUrl: 'app_component.html')
 class AppComponent {}
@@ -342,7 +342,8 @@ class AppComponent {}
 
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* All Dart files that use Angular APIs import `angular2.dart`.
+* All Dart files that use Angular APIs import `core.dart` from
+  the Angular package.
 
 * The `@Component` annotation defines `AppComponent` as an Angular
   component.

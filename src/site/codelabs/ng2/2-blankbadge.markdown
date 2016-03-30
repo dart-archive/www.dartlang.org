@@ -127,6 +127,54 @@ You can change it to the 2-character indentation used in Dart code files:
 
 </div></div>
 
+## <i class="fa fa-anchor"> </i> Create a style sheet for the pirate badge component.
+
+<div class="row"> <div class="col-md-7" markdown="1">
+
+Shiver me timbers!
+
+The style sheet is too long to include here,
+but we've provided one for you to copy and paste into your project.
+
+<div class="trydart-step-details" markdown="1">
+<ol markdown="1">
+<li markdown="1">In WebStorm's Project view,
+    right click the `lib` directory,
+    and select **New -> Stylesheet** from the menu that pops up.
+</li>
+<li markdown="1">Enter `pirate_badge_component` as the filename
+    and click **OK**.
+</li>
+<li markdown="1">Paste the contents from
+    [pirate_badge_component.css](xxx)
+    into the newly created file.
+</li>
+</ol>
+</div>
+
+</div> <div class="col-md-5" markdown="1">
+
+<i class="fa fa-key key-header"> </i> <strong> Key information </strong>
+
+* WebStorm creates an empty `pirate_badge_component.css` file under `lib`.
+  Note that the CSS extension is provided for you.
+
+* Cascading Style Sheets (CSS) is a language used for describing
+  the appearance of a document written in HTML, XHTML, or other
+  markup languages.
+
+* Each component should have a style sheet that describes the
+  appearance for that component.
+
+* We've provided a style sheet for you. The [resources](resources.html)
+  section has information on where you can learn more about CSS
+  styling.
+
+* You'll connect the style sheet to the component in the Dart
+  code in the next step.
+
+</div></div>
+
 ## <i class="fa fa-anchor"> </i> Add pirate_badge_component.dart.
 
 <div class="row"> <div class="col-md-7" markdown="1">
@@ -141,15 +189,19 @@ You can change it to the 2-character indentation used in Dart code files:
 <li markdown="1">Enter `pirate_badge_component` as the filename
    and click **OK**.
 </li>
+
 </ol>
+
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
+{% comment %}
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* WebStorm creates an empty `pirate_badge_component.dart` file under `lib`.
-  Note that the Dart extension is provided for you.
+* x
+
+{% endcomment %}
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
@@ -157,14 +209,14 @@ You can change it to the 2-character indentation used in Dart code files:
 ## <i class="fa fa-anchor"> </i> Edit pirate_badge_component.dart.
 
 <div class="trydart-step-details" markdown="1">
-Import the Angular 2 library.
+Import Angular's core library.
 </div>
 
 <div class="row"> <div class="col-md-7" markdown="1">
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-[[highlight]]import 'package:angular2/angular2.dart';[[/highlight]]
+[[highlight]]import 'package:angular2/core.dart';[[/highlight]]
 {% endprettify %}
 </div>
 
@@ -178,9 +230,12 @@ instance variable&mdash;replace "Shams" with your name.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/angular2.dart';
+import 'package:angular2/core.dart';
 
-[[highlight]]@Component(selector: 'pirate-badge', templateUrl: 'pirate_badge_component.html')[[/highlight]]
+[[highlight]]@Component([[/highlight]]
+    [[highlight]]selector: 'pirate-badge',[[/highlight]]
+    [[highlight]]templateUrl: 'pirate_badge_component.html',[[/highlight]]
+    [[highlight]]styleUrls: const ['pirate_badge_component.css'])[[/highlight]]
 [[highlight]]class PirateBadgeComponent {[[/highlight]]
   [[highlight]]String badgeName = 'Shams';[[/highlight]]
 [[highlight]]}[[/highlight]]
@@ -196,6 +251,20 @@ import 'package:angular2/angular2.dart';
   the pirate badge component will also provide an input field for
   entering a name, and a button for generating a pirate name.
 
+* The `styleUrls` parameter to the `@Component` constructor
+  specifies the file that contains the CSS styling for this component.
+
+* The `[<value>]` text converts the value, in this case the string
+  containing the file name, to a collection.
+
+* The `const` modifier on the collection,
+  `const ['pirate_badge_component.css']`, converts the collection
+  to a compile time constant.
+  The constructor requires defining this value at compile time.
+
+* Naming the CSS file with the same prefix used for the
+  component is an Angular convention.
+
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
 
@@ -209,7 +278,7 @@ Import the pirate badge component.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-import 'package:angular2/angular2.dart';
+import 'package:angular2/core.dart';
 [[highlight]]import 'pirate_badge_component.dart';[[/highlight]]
 {% endprettify %}
 </div>
@@ -245,8 +314,7 @@ Add a directive to the `@Component` annotation.
 
 <div class="trydart-step-details" markdown="1">
 {% prettify dart %}
-@Component(selector: 'my-app', templateUrl: 'app_component.html'[[highlight]],
-    directives: const [PirateBadgeComponent][[/highlight]])
+@Component(selector: 'my-app', templateUrl: 'app_component.html' [[highlight]], directives: const [PirateBadgeComponent][[/highlight]])
 {% endprettify %}
 </div>
 
@@ -332,14 +400,9 @@ Replace the contents of the HTML template:
 
 <hr>
 
-## <i class="fa fa-anchor"> </i> Create a style sheet.
+## <i class="fa fa-anchor"> </i> Create a style sheet for the app
 
 <div class="row"> <div class="col-md-7" markdown="1">
-
-Shiver me timbers!
-
-The style sheet is too long to include here,
-but we've provided one for you to copy and paste into your project.
 
 <div class="trydart-step-details" markdown="1">
 <ol markdown="1">
@@ -350,27 +413,30 @@ but we've provided one for you to copy and paste into your project.
 <li markdown="1">Enter `styles` in the dialog that opens and click **OK**.
   An empty `styles.css` file is created under `web`.
 </li>
-<li markdown="1">Paste the contents from
-[styles.css](https://raw.githubusercontent.com/dart-lang/one-hour-codelab/ng2/ng2/2-blankbadge/web/styles.css)
-into the newly created file.
+<li markdown="1">Add the following CSS to the style sheet:
+
+{% prettify css %}
+body {
+    background-color: #F8F8F8;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2em;
+    margin: 15px;
+}
+{% endprettify %}
+
 </li>
 </ol>
 </div>
 
 </div> <div class="col-md-5" markdown="1">
 
+{% comment %}
 <i class="fa fa-key key-header"> </i> <strong> Key information </strong>
 
-* Cascading Style Sheets (CSS) is a language used for describing
-  the appearance of a document written in HTML, XHTML, or other
-  markup languages.
-
-* In this example,
-  the style sheet defines the appearance of the pirate badge.
-
-* We've provided a style sheet for you. The [resources](resources.html)
-  section has information on where you can learn more about CSS
-  styling.
+* x
+{% endcomment %}
 
 &nbsp; {% comment %} non-breaking space required for bootstrap/markdown bogosity {% endcomment %}
 </div> </div>
@@ -443,7 +509,9 @@ Add a reference to the style sheet.
 <div class="trydart-step-details" markdown="1">
 Click <img src="images/run.png" alt="the green arrow"> to run the app.
 You should see a name badge with your name,
-or "Shams" if you did not change the name:
+or "Shams" if you did not change the name.
+Assuming your machine has the fonts specified in the CSS file,
+the badge should look similar to the following:
 
 <img style="border:1px solid black" src="images/basic-pirate-name-badge.png" alt="A screenshot of the basic pirate name badge">
 </div>
