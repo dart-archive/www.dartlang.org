@@ -72,15 +72,15 @@ alphanumeric text, the `{}` should be omitted.
 
 <div class="good">
 {% prettify dart %}
-'Hi, $name!'
+"Hi, $name!"
 "Wear your wildest $decade's outfit."
-'Wear your wildest ${decade}s outfit.'
+"Wear your wildest ${decade}s outfit."
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-'Hi, ${name}!'
+"Hi, ${name}!"
 "Wear your wildest ${decade}'s outfit."
 {% endprettify %}
 </div>
