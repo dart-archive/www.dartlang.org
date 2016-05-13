@@ -177,3 +177,6 @@ Google internal tool for marketing
 
 [Ven Chat](https://www.ven.chat)
 : A chat app for Android powered by a Dart backend.
+
+[Top Tactic](https://www.top-tactic.com/en)
+: A game in which you train neural networks to play soccer against other players' teams. Built with polymer.dart and StageXL.
