@@ -3,7 +3,7 @@ from the dart-samples repo on GitHub. (Specifically, from the
 https://github.com/dart-lang/dart-samples/tree/master/dart_io_mini_samples
 directory.)
 
-To regenereate index.markdown:
+To regenerate index.markdown:
 
 Clone the repo:
 
