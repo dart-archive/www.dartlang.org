@@ -82,7 +82,7 @@ writing a program that uses several chunks of code from this book does
 not require permission. Selling or distributing a CD-ROM of examples
 from O’Reilly books does require permission. Answering a question by
 citing this book and quoting example code does not require permission.
-Incorporating a significiant amount of example code from this book into
+Incorporating a significant amount of example code from this book into
 your product’s documentation does require permission.
 
 We appreciate, but do not require, attribution. An attribution usually
