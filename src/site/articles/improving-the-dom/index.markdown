@@ -635,4 +635,4 @@ Check out the
 
 Speaking of browser programming, you might be interested in
 [Angular 2 for Dart](https://angular.io/docs/dart/latest/quickstart.html)
-or [Polymer Dart](/docs/tutorials/using-polymer/).
+or [Polymer Dart](https://github.com/dart-lang/polymer-dart/wiki).

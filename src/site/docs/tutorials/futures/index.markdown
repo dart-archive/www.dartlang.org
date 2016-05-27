@@ -7,8 +7,8 @@ tutorial:
   id: futures
 next: streams/
 next-title: "Asynchronous Programming: Streams"
-prev: using-polymer/
-prev-title: "Use Polymer Elements"
+prev: shared-pkgs/
+prev-title: "Install Shared Packages"
 ---
 
 {% capture whats_the_point %}
@@ -84,7 +84,7 @@ Baseball score: Red Sox 10, Yankees 0
 
 Our code is problematic: since `gatherNewsReports()` blocks,
 the remaining code runs only when `gatherNewsReports()`
-returns with the contents of the file, 
+returns with the contents of the file,
 _however long that takes_.  And if reading the file takes a long time, the
 user waits passively, wondering if she won the lottery, what tomorrow's weather
 will be like, and who won today's game. Not good.
@@ -107,7 +107,7 @@ function that returns a Future is invoked, two things happen:
 
 To get the value that the Future represents, you have two options:
 
-* Use `async` and `await` 
+* Use `async` and `await`
 * Use the Future API
 
 ## Async and await {#async-await}
@@ -162,11 +162,11 @@ news digest is printed.
 The following diagram shows the flow of execution through the code.
 Each number corresponds to a step below.
 
-<img src="images/async-await.png" 
+<img src="images/async-await.png"
      alt="diagram showing flow of control through the main() and printDailyNewsDigest functions" />
 
 1. The app begins executing.
-1. The main function calls `printDailyNewsDigest()`, 
+1. The main function calls `printDailyNewsDigest()`,
    which (because it's marked `async`),
    immediately returns a Future, _before any code is executed_.
 1. The remaining print functions execute. Because they're synchronous,
@@ -239,7 +239,7 @@ main() async {
   await expensiveA();
   await expensiveB();
   doSomethingWith(await expensiveC());
-}   
+}
 {% endprettify %}
 
 The `expensiveB()` function will not execute until `expensiveA()` has
@@ -293,7 +293,7 @@ the file is running asynchronously.
 This app executes as follows:
 
 1. The app begins executing.
-1. The main function calls the `printDailyNewsDigest()` function, 
+1. The main function calls the `printDailyNewsDigest()` function,
    which does not return immediately, but calls `gatherNewsReports()`.
 1. `gatherNewsReports()` starts gathering news and returns a Future.
 1. `printDailyNewsDigest()` uses `then()` to specify a response to
@@ -304,7 +304,7 @@ This app executes as follows:
    function. For example,
    the winning lottery numbers are all printed before the weather forecast
    is printed.
-1. When all of the news has arrived, the Future returned by 
+1. When all of the news has arrived, the Future returned by
    `gatherNewsReports()` completes with a string containing
    the gathered news.
 1. The code specified by `then()` in `printDailyNewsDigest()` runs,
@@ -420,7 +420,7 @@ Nested callbacks also work, but they're harder to read and not as Dart-y.
 
 #### Waiting on multiple Futures to complete using Future.wait()
 
-If the order of execution of the functions is not important, 
+If the order of execution of the functions is not important,
 you can use `Future.wait()`.
 
 The functions get triggered in quick succession; when all of them

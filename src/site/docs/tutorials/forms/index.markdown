@@ -69,8 +69,7 @@ The server uses CORS headers to allow cross-origin requests.
 <aside class="alert alert-info" markdown="1">
   **Note:**
   This tutorial assumes that you have read
-  [Use Polymer Elements](/docs/tutorials/using-polymer/),
-  [Asynchronous Programming: Futures](/docs/tutorials/futures/),
+  [Asynchronous Programming: Futures](/docs/tutorials/futures/)
   and [Fetch Data Dynamically](/docs/tutorials/fetchdata/)
   and are familiar with Polymer, Futures, JSON, and HttpRequest.
 </aside>
@@ -764,9 +763,6 @@ If the user changes the value in an input element,
 the bound variable in the Dart code automatically changes.
 Or if the Dart code changes the value of the bound variable,
 the UI automatically updates.
-[Use Polymer Element](/docs/tutorials/using-polymer/)
-provides introductory details about Polymer and
-about data binding.
 
 The example also uses declarative event handler mapping to hook
 event handler functions to input elements.

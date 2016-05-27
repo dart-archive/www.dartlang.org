@@ -38,7 +38,6 @@ from left to right...or choose just the ones you need.
     <li class="active"><a href="#basics" data-toggle="tab">Get started</a></li>
     <li><a href="#dom" data-toggle="tab">Browser</a></li>
     <li><a href="#packages" data-toggle="tab">Packages</a></li>
-    <li><a href="#polymer" data-toggle="tab">Polymer</a></li>
     <li><a href="#futures" data-toggle="tab">Async</a></li>
     <li><a href="#forms" data-toggle="tab">Forms & data</a></li>
     <li><a href="#commandline" data-toggle="tab">Servers</a></li>
@@ -150,31 +149,6 @@ from left to right...or choose just the ones you need.
         </div>
       </div>
     </div> <!-- end Packages tab -->
-
-  <!-- POLYMER TAB -->
-    <div class="tab-pane" id="polymer">
-
-      <div class="intro-para">
-        Polymer helps you build structured, encapsulated,
-        client-side web apps with web components.
-      </div>
-
-      <div class="row">
-
-        <div class="col-md-6">
-          <section>
-          <h4 class="no-permalink"><a href="using-polymer/"><img src="images/target.png" height="20" width="20">&nbsp;Use Polymer Elements</a></h4>
-          <p>Create a custom HTML element using Polymer.</p>
-          <img style="border:1px solid black"
-               src="images/stopwatch-screenshot.png" width="200">
-          </section>
-        </div>
-
-        <div class="col-md-6">
-        </div>
-
-      </div>
-    </div>
 
   <!-- FUTURES & STREAMS TAB -->
     <div class="tab-pane" id="futures">

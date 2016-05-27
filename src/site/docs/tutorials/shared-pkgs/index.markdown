@@ -5,8 +5,8 @@ description: "Packages are bundles of source code, tools, and resources that hel
 has-permalinks: true
 tutorial:
   id: packages
-next: using-polymer/
-next-title: "Use Polymer Elements"
+next: futures/
+next-title: "Asynchronous Programming: Futures"
 prev: remove-elements/
 prev-title: "Remove DOM Elements"
 ---
@@ -364,13 +364,9 @@ when you import a library.
 
 ##What next? {#what-next}
 
-One package at pub.dartlang.org is polymer.dart,
-which makes writing web applications easier
-with data binding, templates, and declarative event handlers.
-Check out the next tutorial,
-[Use Polymer Elements](/docs/tutorials/using-polymer),
-for an introduction to polymer.dart.
-
+The next tutorial, [Asynchronous Programming: Futures](futures/),
+shows you how to write non-blocking code using Dart's
+async/await mechanism, or using the Future API.
 
 {% endcapture %}
 
