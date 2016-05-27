@@ -5,8 +5,8 @@ description: "Communicate over the internet"
 has-permalinks: true
 tutorial:
   id: httpserver
-next: 
-next-title: "Home" 
+next:
+next-title: "Home"
 prev: cmdline/
 prev-title: "Write Command-Line Apps"
 header:
@@ -305,7 +305,7 @@ randomly chooses a number between 0 and 9.
 The client is a basic HTML web-page, `make_a_guess.html`,
 that you can use to guess the number.
 
-<hr> 
+<hr>
 <strong>Try it!</strong>
 
 <ol>
@@ -332,7 +332,7 @@ I'm thinking of a number: 6
   <li markdown="1">
   **Open the HTML page**
 
-  In a browser, go to 
+  In a browser, go to
   [localhost:8080/make_a_guess.html](http://localhost:8080/make_a_guess.html).
 
   </li>
@@ -356,8 +356,6 @@ The form contains the pull-down list and the button.
 The form also specifies the URL, which includes the port number,
 and the kind of request (the _request method_).
 It might also include elements that build a query string.
-(To learn more about forms, see
-[Get Input from a Form](/docs/tutorials/forms/).)
 
 Here's the HTML code for the form in make_a_guess.html:
 
@@ -432,7 +430,7 @@ int myNumber = new Random().nextInt(10);
 
 main() async {
   print("I'm thinking of a number: $myNumber");
-  
+
   HttpServer requestServer =
       await HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4041);
   await for (var request in requestServer) {
@@ -602,12 +600,10 @@ you need to write a client program, of which there are two kinds:
      target="_blank">dart:html</a>.
   This tutorial does not cover browser-based clients.
   To look at code for a browser-based client and
-  related server, see 
+  related server, see
   <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/web/note_client.dart" target="_blank">note_client.dart</a>,
   <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/bin/note_server.dart" target="_blank">note_server.dart</a>,
   and <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/web/note_taker.html" target="_blank">note_taker.html</a>.
-  Also, check out the
-  [Get Input from a Form](/docs/tutorials/forms/) tutorial.
 
   Let's look at a standalone client, `basic_writer_client.dart`,
   and its server `basic_writer_server.dart`.
@@ -615,14 +611,14 @@ you need to write a client program, of which there are two kinds:
   to save JSON data to a server-side file.
   The server accepts the request and saves the file.
 
-<hr> 
+<hr>
 **Try it!**
 
 Run the server and client on the command line.
 
 <ol>
   <li markdown="1">
-First the server: 
+First the server:
 
 {% prettify bash %}
 $ cd httpserver/bin
@@ -719,7 +715,7 @@ matches the type specified in the ContentType header.
 
 <span class="code-note">5</span>
 The `close()` method sends the request to the server and, when complete,
-returns an 
+returns an
 <a href="https://api.dartlang.org/dart_io/HttpClientResponse.html"
    target="_blank">HttpClientResponse</a> object
 that's assigned to the `reponse` variable.
@@ -863,7 +859,7 @@ _Example files for this section:
    target="_blank">static_file_server.dart</a>._
 
 For some higher-level building blocks,
-we recommend that you try the 
+we recommend that you try the
 [http_server](https://pub.dartlang.org/packages/http_server)
 pub package,
 which contains a set of classes that,
@@ -942,7 +938,7 @@ and if it does, opens the file and pipes the contents
 to the HttpResponse object.
 
 The second server,
-whose code you can find in 
+whose code you can find in
 <a href="https://github.com/dart-lang/dart-tutorials-samples/blob/master/httpserver/bin/basic_file_server.dart"
    target="_blank">basic_file_server.dart</a>,
 uses the `http_server` package.
@@ -1001,7 +997,7 @@ This server serves any file from the server's directory
 or subdirectory.
 
 Run `static_file_server.dart`,
-and test it with the URL 
+and test it with the URL
 [localhost:4048/file.txt](http://localhost:4048/file.txt).
 Change `file.txt` to other filenames within the directory.
 
@@ -1077,7 +1073,7 @@ You **must** provide your own certificates for your servers.
 [[note]]1[[/note]]  [[highlight]]var serverContext = new SecurityContext();[[/highlight]]
 [[note]]2[[/note]]  [[highlight]]serverContext.useCertificateChain(certificateChain);[[/highlight]]
 [[note]]3[[/note]]  [[highlight]]serverContext.usePrivateKey(serverKey, password: 'dartdart');[[/highlight]]
-  
+
 [[note]]4[[/note]]  var requests = await HttpServer.bindSecure('localhost', 4047, [[highlight]]serverContext[[/highlight]]);
      print('listening');
      await for (HttpRequest request in requests) {
@@ -1130,10 +1126,9 @@ for further details about the classes and libraries discussed in this tutorial.
   links to resources for writing standalone Dart applications,
   including servers.
 
-* [Get Input from a Form](/docs/tutorials/forms/) shows how to make a POST
-  request from a browser-based client using an HTML form.
-  It also discusses the related server.
-
+* See the Angular documentation for discussions and example code for
+  [implementing forms](https://angular.io/docs/dart/latest/guide/forms.html) and
+  [talking to a remote server](https://angular.io/docs/dart/latest/guide/server-communication.html).
 {% endcapture %}
 
 {% include tutorial.html %}

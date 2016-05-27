@@ -289,6 +289,8 @@ application = WSGIApplication(
       defaults={'_uri': '/codelabs/darrrt/'}),
     Route('/docs/tutorials/using-polymer/', RedirectHandler,
       defaults={'_uri': 'https://github.com/dart-lang/polymer-dart/wiki'}),
+    Route('/docs/tutorials/forms/', RedirectHandler,
+      defaults={'_uri': 'https://angular.io/docs/dart/latest/guide/forms.html'}),
     Route('/docs/tutorials/indexeddb/', RedirectHandler,
       defaults={'_uri': '/docs/tutorials/'}),
     Route('/codelabs/web-ui-writer/codelab.pdf', RedirectHandler,

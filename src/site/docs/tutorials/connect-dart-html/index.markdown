@@ -8,7 +8,7 @@ tutorial:
 next: add-elements/
 next-title: "Add Elements to the DOM"
 prev: get-started/
-prev-title: "Get started"
+prev-title: "Get Started"
 ---
 
 {% capture whats_the_point %}
