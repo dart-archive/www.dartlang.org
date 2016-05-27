@@ -7,8 +7,8 @@ tutorial:
   id: dart-io
 next: httpserver
 next-title: "Write HTTP Clients & Servers"
-prev: forms/
-prev-title: "Get Input from a Form"
+prev: fetchdata/
+prev-title: "Fetch Data Dynamically"
 ---
 
 {% capture whats_the_point %}
@@ -246,7 +246,7 @@ void main(<a href="#" class="dart-popover" data-toggle="popover" title="Command-
 ...
 </pre>
 
-The 
+The
 <a href="https://api.dartlang.org/args.html" target="_blank">API docs</a>
 for the args library
 provide detailed information
@@ -368,7 +368,7 @@ The quick brown fox jumped over the lazy dog.
 
 ## Getting info about a file {#filesystementity}
 
-The 
+The
 <a href="https://api.dartlang.org/dart_io/FileSystemEntity.html" target="_blank">FileSystemEntity</a>
 class in the dart:io library provides
 properties and static methods that help you inspect and manipulate the file system.
@@ -464,7 +464,7 @@ import 'dart:convert';
 ## Writing a file {#writing-a-file}
 
 The easiest way to write text to a file is to
-create a 
+create a
 <a href="https://api.dartlang.org/dart_io/File.html" target="_blank">File</a>
 object and use the `writeAsString()` method:
 
@@ -508,7 +508,7 @@ Note: Use the Platform class from the dart:io library,
 not from the dart:html library.
 
 `Platform.environment` provides a copy of the environment
-variables in an immutable map. If you need a mutable map (modifiable copy) you 
+variables in an immutable map. If you need a mutable map (modifiable copy) you
 can use `Map.from(Platform.environment)`.
 
 {% prettify dart %}
@@ -623,12 +623,6 @@ package for more classes, functions, and properties.
 * If you are interested in server-side programming,
 check out the next tutorial,
 [Write HTTP Clients & Servers](/docs/tutorials/httpserver/).
-
-* The [Get Input from a Form](/docs/tutorials/forms/) tutorial
-features a client-server.
-The code for the server, which uses CORS headers and handles
-POST requests, is explained in detail.
-
 {% endcapture %}
 
 {% include tutorial.html %}

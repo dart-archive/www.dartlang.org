@@ -41,6 +41,9 @@ handlers:
 - url: /docs/tutorials/using-polymer/
   script: scripts.redirector.application
 
+- url: /docs/tutorials/forms/
+  script: scripts.redirector.application
+
 - url: /docs/tutorials/indexeddb/
   script: scripts.redirector.application
 

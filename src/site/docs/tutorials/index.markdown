@@ -39,7 +39,7 @@ from left to right...or choose just the ones you need.
     <li><a href="#dom" data-toggle="tab">Browser</a></li>
     <li><a href="#packages" data-toggle="tab">Packages</a></li>
     <li><a href="#futures" data-toggle="tab">Async</a></li>
-    <li><a href="#forms" data-toggle="tab">Forms & data</a></li>
+    <li><a href="#forms" data-toggle="tab">Data</a></li>
     <li><a href="#commandline" data-toggle="tab">Servers</a></li>
     <!--<li><a href="#mobile" data-toggle="tab">Mobile</a></li>-->
   </ul>
@@ -186,9 +186,7 @@ from left to right...or choose just the ones you need.
       <div class="intro-para">
         Various classes in the Dart libraries help you get, send, receive,
         and save user data.
-        You can use input elements within forms to get data from users.
         You can use JSON to format data and HttpRequest to send requests and receive responses.
-        And, finally, you can save data on the client with IndexedDB.
       </div>
 
       <div class="row">
@@ -205,12 +203,6 @@ from left to right...or choose just the ones you need.
 
         <!-- Forms -->
         <div class="col-md-6">
-          <section>
-          <h4 class="no-permalink"><a href="forms/"><img src="images/target.png" height="20" width="20">&nbsp;Get Input from a Form</a></h4>
-          <p>Use forms and input elements to get data.</p>
-          <img style="border:1px solid black"
-               src="images/slambook-screenshot.png" width="300">
-          </section>
         </div>
       </div> <!-- end row -->
     </div> <!-- end FORMS tab -->

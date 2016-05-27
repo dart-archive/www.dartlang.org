@@ -5,8 +5,8 @@ description: "Use HttpRequest to fetch data from a file or a server."
 has-permalinks: true
 tutorial:
   id: fetchdata
-next: forms/
-next-title: "Get Input from a Form"
+next: cmdline/
+next-title: "Write Command-Line Apps"
 prev: streams/
 prev-title: "Asynchronous Programming: Streams"
 ---
@@ -688,13 +688,10 @@ client and server programs.
 we highly recommend that you go back and learn about Futures
 before going any further.
 
-* The next tutorial,
-[Get Input from a Form](/docs/tutorials/forms/),
-contains a client/server example that
-shows you how to use a form to get data from the user,
-and using JSON, send that form to a server,
-and handle the server's response.
-
+* See the Angular documentation for discussions and example code for
+[implementing forms](https://angular.io/docs/dart/latest/guide/forms.html)
+and
+[talking to a remote server](https://angular.io/docs/dart/latest/guide/server-communication.html).
 {% endcapture %}
 
 {% include tutorial.html %}
