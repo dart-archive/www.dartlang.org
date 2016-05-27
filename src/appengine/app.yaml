@@ -8,16 +8,6 @@ runtime: python27
 api_version: 1
 threadsafe: true
 
-pagespeed:
-  enabled_rewriters:
-    - InlineImages
-    - CollapseWhitespace
-    - RemoveComments
-    - InlineJs
-  url_blacklist:
-    - http://www.dartlang.org/*/code/out/*
-    - https://www.dartlang.org/*/code/out/*
-
 #default_expiration: "1d"
 
 handlers:

@@ -66,22 +66,22 @@ main.dart:
 // All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be
 // found in the LICENSE file.
- 
+
 import 'dart:html';
- 
+
 InputElement toDoInput;
 UListElement toDoList;
 ButtonElement deleteAll;
- 
+
 void main() {
   toDoInput = querySelector('#to-do-input');
   toDoList = querySelector('#to-do-list');
   toDoInput.onChange.listen(addToDoItem);
   deleteAll = querySelector('#delete-all');
-  deleteAll.onClick.listen((e) => 
+  deleteAll.onClick.listen((e) =>
       toDoList.children.clear());
 }
- 
+
 void addToDoItem(Event e) {
   var newToDo = new LIElement();
   newToDo.text = toDoInput.value;
@@ -273,8 +273,8 @@ shows you how to use code written and shared by others.
 * One of those packages is polymer.dart,
 which makes manipulating the DOM even easier
 with data binding, templates, and declarative event handlers.
-Check out [Use Polymer Elements](/docs/tutorials/using-polymer)
-for an introduction to polymer.dart.
+Check out [Polymer Dart](https://github.com/dart-lang/polymer-dart/wiki)
+for more information.
 
 {% endcapture %}
 
