@@ -110,7 +110,7 @@ implement the complete `Iterable` API.
 
 You can separate the **sync** from the \*;
 they are distinct tokens. If you have existing code that used
-sync as an identifier, you can continue to do do.
+sync as an identifier, you can continue to do so.
 The word **sync** is not a true reserved word.
 Similar comments apply to **async**,
 **await**, and **yield**.
