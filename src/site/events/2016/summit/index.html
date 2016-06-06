@@ -6,39 +6,251 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-        <title>2016 Dart Developer Summit</title>
-        <meta name="robots" content="NOODP, NOYDIR">
-        <meta name="title" content="2016 Dart Developer Summit">
+        <title>Dart Developer Summit 2016</title>
+        <meta name="title" content="Dart Developer Summit 2016">
         <meta name="description" content="Two days of sharing insight and experience building and deploying apps with Dart. Learn about the platform from Dart' s founders and engineers, and connect with your fellow Dartisans.">
-        <meta property="og:title" content="2016 Dart Developer Summit">
+        <meta property="og:title" content="Dart Developer Summit 2016">
         <meta property="og:description" content="Two days of sharing insight and experience building and deploying apps with Dart. Learn about the platform from Dart' s founders and engineers, and connect with your fellow Dartisans.">
         <meta property="og:site_name" content="www.dartlang.org/events/2016/summit">
-        <meta property="og:image" content="https://www.dartlang.org/events/2016/summit/images/ogimage.jpg">
-
+        <meta property="og:image" content="https://www.dartlang.org/events/2016/summit/images/ogimage.png">
     </head>
     <body>
+        <!-- SVG element used for the speakers -->
+        <svg class="speaker-clipping-path" height="0" width="0">
+            <defs>
+                <clipPath id="speakerClippingPath" clipPathUnits="objectBoundingBox">
+                    <path fill="#00D2B8" d="M0.212307692308,0.680916030534l0.000769230769231,0.0221374045802c0.000384615384615,0.00916030534351,0.00192307692308,0.0202290076336,0.005,0.031679389313l0.520384615385,0.182061068702l0.124230769231-0.0545801526718L0.211923076923,0.21641221374L0.212307692308,0.680916030534z"/>
+                    <path fill="#55DDCA" d="M0.738461538462,0.924809160305l-0.00153846153846-0.000381679389313L0.220769230769,0.743511450382c0.0111538461538,0.0370229007634,0.0315384615385,0.074427480916,0.0530769230769,0.0954198473282l0.169615384615,0.167557251908l0.375384615385,0.000381679389313l0.0442307692308-0.136641221374L0.738461538462,0.924809160305z"/>
+                    <path fill="#0081C6" d="M0.0261538461538,0.591221374046l0.116923076923,0.11679389313l0.0661538461538,0.0229007633588c-0.00230769230769-0.00992366412214-0.00346153846154-0.019465648855-0.00384615384615-0.0282442748092l-0.000769230769231-0.0221374045802L0.204230769231,0.219847328244L0.00769230769231,0.514122137405C-0.00769230769231,0.530534351145,0.000769230769231,0.565648854962,0.0261538461538,0.591221374046z"/>
+                    <path fill="#0081C6" d="M0.923461538462,0.732824427481L0.739615384615,0.216030534351c-0.0115384615385-0.00267175572519-0.0223076923077-0.00458015267176-0.0319230769231-0.00458015267176l-0.0234615384615-0.000763358778626l-0.466538461538,0l0.650384615385,0.645419847328L0.923461538462,0.732824427481z"/>
+                    <path fill="#00A4E4" d="M1.00769230769,0.43320610687l-0.162692307692-0.162213740458c-0.0211538461538-0.0213740458015-0.0592307692308-0.0419847328244-0.0957692307692-0.0526717557252L0.931923076923,0.732824427481L0.876923076923,0.856488549618l0.130769230769-0.0412213740458L1.00769230769,0.43320610687z"/>
+                    <path fill="#00D2B8" d="M0.595384615385,0.0259541984733C0.57,0.000763358778626,0.534615384615-0.00763358778626,0.518461538462,0.00763358778626L0.221538461538,0.202671755725l0.463076923077,0l0.0238461538462,0.000763358778626c0.00846153846154,0.000381679389313,0.0180769230769,0.00152671755725,0.0284615384615,0.00381679389313l-0.0230769230769-0.0652671755725L0.595384615385,0.0259541984733z"/>
+                </clipPath>
+            </defs>
+        </svg>
 
-        <section class="splash">
-            <figure class="splash__bird">
-                <img src="images/geometry-bird.svg">
-            </figure>
-            <div class="splash__inner">
-                <div class="logo">
-                    <figure class="logo__element">
-                        <img src="images/dart-logo.svg">
-                    </figure>
-                    <div class="logo__text">
-                        <span class="logo__year">2016</span>
+        <header class="site-header">
+            <a href="https://www.dartlang.org/events/2016/summit/" class="logo">
+                <figure class="logo__element">
+                    <img src="images/dart-logo.png">
+                </figure>
+            </a>
+            <nav class="site-navigation">
+                <ul class="site-navigation__list">
+                    <li class="site-navigation__item">
+                        <a href="#speakers" class="site-navigation__link">Speakers</a>
+                    </li>
+                    <li class="site-navigation__item">
+                        <a href="#location" class="site-navigation__link">Location</a>
+                    </li>
+                    <li class="site-navigation__item">
+                        <a href="#tickets" class="site-navigation__link">Get tickets</a>
+                    </li>
+                    <li class="site-navigation__item">
+                        <a href="#info" class="site-navigation__link">Info</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="intro" class="intro">
+            <div id="js-intro__media" class="intro__media">
+                <img class="intro__image" src="images/intro-bg-image.jpg">
+                <img class="intro__image" src="images/intro-bg.png">
+                <div class="intro-content">
+                    <div class="intro-content__inner">
+                        <h1 class="intro-content__title">Dart Dev Summit</h1>
+                        <span class="intro-content__subline">2 days. 15 talks.</span>
+                        <span class="intro-content__date">October 26&mdash;27</span>
+                        <span class="intro-content__location">Munich, Germany</span>
+                        <a href="#speakers" class="intro-content__button">
+                            <svg class="icon icon--arrow-down">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="icons/icons.svg#icon--arrow"></use>
+                            </svg>
+                        </a>
                     </div>
-                    <span class="logo__type">Developer Summit</span>
                 </div>
-                <p class="splash__title">Save the date</p>
-                <p class="splash__information"><strong>October 26-27, 2016</strong><br>Munich, Germany</p>
-                <a class="splash__link" href="https://docs.google.com/forms/d/1tbz3kjgYa1GM7HR_f1wBd5gJ0BCgEB0rK2C_kpaqmuI/viewform">Sign up for updates</a>
             </div>
         </section>
 
-        <link rel="stylesheet" type="text/css" href="css/master.min.css">
+        <section id="speakers" class="speakers">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Speakers</h2>
+                </div>
+                <div class="row">
+                    <div class="col--xs-10 col--xs-offset-1 col--ms-offset-0 col--ms-6 col--sm-4 col--md-3">
+                        <div class="speaker">
+                            <div class="speaker-media">
+                                <figure class="speaker-media__figure">
+                                    <img src="images/speakers/0.jpg" alt="To be announced" class="speaker-media__image">
+                                </figure>
+                            </div>
+                            <div class="speaker-content">
+                                <h3 class="speaker-content__title">To be announced</h3>
+                                <span class="speaker-content__author"></span>
+                                <span class="speaker-content__position"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col--xs-10 col--xs-offset-1 col--ms-offset-0 col--ms-6 col--sm-4 col--md-3">
+                        <div class="speaker">
+                            <div class="speaker-media">
+                                <figure class="speaker-media__figure">
+                                    <img src="images/speakers/0.jpg" alt="To be announced" class="speaker-media__image">
+                                </figure>
+                            </div>
+                            <div class="speaker-content">
+                                <h3 class="speaker-content__title">To be announced</h3>
+                                <span class="speaker-content__author"></span>
+                                <span class="speaker-content__position"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col--xs-10 col--xs-offset-1 col--ms-offset-0 col--ms-6 col--sm-4 col--md-3">
+                        <div class="speaker">
+                            <div class="speaker-media">
+                                <figure class="speaker-media__figure">
+                                    <img src="images/speakers/1.jpg" alt="You?" class="speaker-media__image">
+                                </figure>
+                            </div>
+                            <div class="speaker-content">
+                                <h3 class="speaker-content__title">You?</h3>
+                                <span class="speaker-content__author"></span>
+                                <span class="speaker-content__position"><a href="https://docs.google.com/forms/d/1kwxN9wiOFkBhMPxc71RzVjxxRcLpnX2hqsGsRFrXeaY/viewform" target="_blank">Interested in speaking at the summit?</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col--xs-10 col--xs-offset-1 col--ms-offset-0 col--ms-6 col--sm-4 col--md-3">
+                        <div class="speaker">
+                            <div class="speaker-media">
+                                <figure class="speaker-media__figure">
+                                    <img src="images/speakers/0.jpg" alt="To be announced" class="speaker-media__image">
+                                </figure>
+                            </div>
+                            <div class="speaker-content">
+                                <h3 class="speaker-content__title">To be announced</h3>
+                                <span class="speaker-content__author"></span>
+                                <span class="speaker-content__position"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="location" class="location">
+            <div class="section-header">
+                <h2 class="section-header__title">Location</h2>
+            </div>
+            <div class="location-content">
+                <div class="location-content__inner">
+                    <figure class="location-content__logo">
+                        <img src="images/google-logo.svg">
+                    </figure>
+                    <span class="location-content__address">
+                        Google Germany GmbH<br>
+                        Erika-Mann-Straße 33</span>
+                    <span class="location-content__city">80636 München, Germany</span>
+                    <a target="_blank" href="https://www.google.com/maps/dir//Google,+Erika-Mann-Straße+33,+80636+München,+Tyskland/@48.143112,11.538989,16.86z/data=!4m15!1m6!3m5!1s0x0000000000000000:0xdd1b393a488b0ebf!2sGoogle!8m2!3d48.1429095!4d11.5409473!4m7!1m0!1m5!1m1!1s0x479e758b6989ce1b:0xdd1b393a488b0ebf!2m2!1d11.5409473!2d48.1429092" class="location-content__link button button--secondary">Find your way</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tickets" class="tickets">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-header__title">Registration</h2>
+                    <p class="section-header__lead">Seats are limited, so don’t wait too long!</p>
+                </header>
+                <div class="tickets-content">
+                    <a href="https://events.withgoogle.com/dart-dev-summit-2016/registrations/new/" target="_blank" class="tickets__button button button--large">Register here</a>
+                    <p class="tickets__help">Registration is handled through Google Events. Click the button above to register for the summit.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="info">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-header__title">Practical information</h2>
+                </header>
+                <div class="row">
+                    <div class="col--xs-12 col--md-10 col--md-offset-1 col--lg-8 col--lg-offset-2">
+                        <div class="info-description">
+                            <span class="info-description__question">What is the Dart Developer Summit?</span>
+                            <span class="info-description__answer">The Dart Developer Summit is an event that connects Dart developers to each other and to the engineers on the Dart team. In two days, you'll learn the latest about Dart's future and about the practicalities of using Dart to build apps.
+The Summit is single tracked with short presentations to ensure everyone is part of an engaging conversation.</span>
+                        </div>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-item__question">Venue</span>
+                                <span class="info-item__answer">
+                                    Google Germany GmbH<br>
+                                    Erika-Mann-Straße 33<br>
+                                    80636 München
+                                </span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-item__question">Dates</span>
+                                <span class="info-item__answer">
+                                    October 26, 2016, 10.00 - 18.00 CET, followed by networking events<br>
+                                    October 27, 2016, 10.00 - 17.00 CET
+                                </span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-item__question">Price</span>
+                                <span class="info-item__answer">The Dart Dev Summit is a free event.</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-item__question">Interested in speaking at the summit?</span>
+                                <span class="info-item__answer"><a href="https://docs.google.com/forms/d/1kwxN9wiOFkBhMPxc71RzVjxxRcLpnX2hqsGsRFrXeaY/viewform" target="_blank">Submit this form</a></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-item__question">I can’t join in person ;(</span>
+                                <span class="info-item__answer">Don’t worry! All talks will be live streamed, recorded, and uploaded to the Developer Channel on YouTube.</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-item__question">Codelab</span>
+                                <span class="info-item__answer">We are hosting a codelab the evening of Oct 25. More details to follow!</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-item__question">Contact</span>
+                                <span class="info-item__answer"><a href="mailto:dart-summit-questions@googlegroups.com">dart-summit-questions@googlegroups.com</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-content">
+                    <span class="site-footer-content__title">Dart Developer Summit 2016</span>
+                    <span class="site-footer-content__location">Google Germany GmbH, Erika-Mann-Straße 33, 80636 München, Germany</span>
+                    <div class="site-footer-contacts">
+                        <div class="site-footer-contact">
+                            <span class="site-footer-contact__label">Phone:</span>
+                            <a href="#" class="site-footer-contact__value">+48 12 34 56 78</a>
+                        </div>
+                        <div class="site-footer-contact">
+                            <span class="site-footer-contact__label">Mail:</span>
+                            <a href="mailto:dart-summit-questions@googlegroups.com" class="site-footer-contact__value">dart-summit-questions@googlegroups.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <link rel="stylesheet" type="text/css" href="css/master.min.css">
+        <!--
+          Why don't we use Dart here?
+
+          This is a one-shot marketing-y microsite. The only scripting you'll
+          see here is the simple distortion effect on top of the page, and
+          'smoothScroll'. That's not a job for Dart. It's a job for jQuery,
+          at most.
+        -->
+        <script src="scripts/master.min.js"></script>
     </body>
 </html>
