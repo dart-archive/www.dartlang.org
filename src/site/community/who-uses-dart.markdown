@@ -12,6 +12,9 @@ If you build production software with Dart, and want
 to be included in this list, please open a
 [pull request](https://github.com/dart-lang/dartlang.org). Thanks!
 
+[Schweitzer Engineering Laboratories](https://selinc.com/products/5035/)
+: RTAC HMI browser-based SCADA system
+
 Google internal sales tool
 : Built with AngularDart.
 
