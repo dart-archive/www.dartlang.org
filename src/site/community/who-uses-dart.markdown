@@ -38,6 +38,9 @@ In Dart - for Dart, for you!
 [Sourcevoid](https://www.sourcevoid.com/)
 : Application hosting platform built and optimized for Dart. Cloud portal and homepage built with Dart, the homepage is server side rendered and the portal app is a single page Dart app backed by a Dart API. 
 
+[Schweitzer Engineering Laboratories](https://selinc.com/products/5035/)
+: RTAC HMI browser-based SCADA system
+
 Google internal sales tool
 : Built with AngularDart.
 
