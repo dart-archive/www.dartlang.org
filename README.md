@@ -1,22 +1,16 @@
-# Dart Website (dartlang.org)
+# The OLD Dart Website (OBSOLETE)
 
-[![Join the chat at https://gitter.im/dart-lang/www.dartlang.org](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dart-lang/www.dartlang.org?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+The contents of the old dartlang.org website are now in 3 places:
 
-[![Build Status](https://drone.io/github.com/dart-lang/dartlang.org/status.png)](https://drone.io/github.com/dart-lang/dartlang.org/latest)
+* www.dartlang.org (github.com/dart-lang/site-www)
+* [webdev.dartlang.org](http://webdev.dartlang.org) (github.com/dart-lang/site-webdev)
+* [events.dartlang.org](http://events.dartlang.org) (github.com/dart-lang/site-events)
 
-The www.dartlang.org site. Built with
+-----------------
+
+This repo has the code for the former www.dartlang.org site. Built with
 [Jekyll](https://github.com/mojombo/jekyll)
 and hosted on App Engine.
-
-To give us feedback, please
-[file issues on GitHub](https://github.com/dart-lang/dartlang.org/issues).
-
-Contributions welcome!
-(Just sign our [CLA](https://developers.google.com/open-source/cla/individual).)
-Details on processes, formatting, and style are in
-[Writing for dartlang.org](https://github.com/dart-lang/dartlang.org/wiki/Writing-for-dartlang.org).
-You can fork and submit patches at https://github.com/dart-lang/dartlang.org.
-
 
 ## Orientation
 
