@@ -2,9 +2,9 @@
 
 The contents of the old dartlang.org website are now in 3 places:
 
-* www.dartlang.org (github.com/dart-lang/site-www)
-* [webdev.dartlang.org](http://webdev.dartlang.org) (github.com/dart-lang/site-webdev)
-* [events.dartlang.org](http://events.dartlang.org) (github.com/dart-lang/site-events)
+* www.dartlang.org (http://github.com/dart-lang/site-www)
+* [webdev.dartlang.org](http://webdev.dartlang.org) (http://github.com/dart-lang/site-webdev)
+* [events.dartlang.org](http://events.dartlang.org) (http://github.com/dart-lang/site-events)
 
 -----------------
 
