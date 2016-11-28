@@ -91,8 +91,8 @@ symbolic imports.
 {% prettify dart %}
 library peg_parser.source_scanner;
 
-import 'slider_menu.dart'
-import 'file_system.dart'
+import "slider_menu.dart"
+import "file_system.dart"
 {% endprettify %}
 </div>
 
@@ -100,8 +100,8 @@ import 'file_system.dart'
 {% prettify dart %}
 library pegparser.SourceScanner;
 
-import 'SliderMenu.dart'
-import 'file-system.dart'
+import "SliderMenu.dart"
+import "file-system.dart"
 {% endprettify %}
 </div>
 
@@ -114,19 +114,19 @@ name it*. It is fine to omit the library directive in a file if you want.
 
 <div class="good">
 {% prettify dart %}
-import 'dart:math' as math;
-import 'dart:json' as json;
-import 'package:js/js.dart' as js;
-import 'package:javascript_utils/javascript_utils.dart' as js_utils;
+import "dart:math" as math;
+import "dart:json" as json;
+import "package:js/js.dart" as js;
+import "package:javascript_utils/javascript_utils.dart" as js_utils;
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-import 'dart:math' as Math;
-import 'dart:json' as JSON;
-import 'package:js/js.dart' as JS;
-import 'package:javascript_utils/javascript_utils.dart' as jsUtils;
+import "dart:math" as Math;
+import "dart:json" as JSON;
+import "package:js/js.dart" as JS;
+import "package:javascript_utils/javascript_utils.dart" as jsUtils;
 {% endprettify %}
 </div>
 
@@ -162,7 +162,7 @@ stay consistent.
 {% prettify dart %}
 const pi = 3.14;
 const defaultTimeout = 1000;
-final urlScheme = new RegExp('^([a-z]+):');
+final urlScheme = new RegExp("^([a-z]+):");
 
 class Dice {
   static final numberGenerator = new Random();
@@ -174,7 +174,7 @@ class Dice {
 {% prettify dart %}
 const PI = 3.14;
 const kDefaultTimeout = 1000;
-final URL_SCHEME = new RegExp('^([a-z]+):');
+final URL_SCHEME = new RegExp("^([a-z]+):");
 
 class Dice {
   static final NUMBER_GENERATOR = new Random();
@@ -244,11 +244,11 @@ directives should appear in. Each "section" should be separated by a blank line.
 
 <div class="good">
 {% prettify dart %}
-import 'dart:async';
-import 'dart:html';
+import "dart:async";
+import "dart:html";
 
-import 'package:bar/bar.dart'
-import 'package:foo/foo.dart'
+import "package:bar/bar.dart";
+import "package:foo/foo.dart";
 {% endprettify %}
 </div>
 
@@ -258,10 +258,10 @@ import 'package:foo/foo.dart'
 
 <div class="good">
 {% prettify dart %}
-import 'package:bar/bar.dart'
-import 'package:foo/foo.dart'
+import "package:bar/bar.dart";
+import "package:foo/foo.dart";
 
-import 'a.dart';
+import "a.dart";
 {% endprettify %}
 </div>
 
@@ -274,11 +274,11 @@ third-party packages, place yours in a separate section after the external ones.
 
 <div class="good">
 {% prettify dart %}
-import 'package:bar/bar.dart'
-import 'package:foo/foo.dart'
+import "package:bar/bar.dart";
+import "package:foo/foo.dart";
 
-import 'package:myapp/io.dart';
-import 'package:myapp/util.dart';
+import "package:myapp/io.dart";
+import "package:myapp/util.dart";
 {% endprettify %}
 </div>
 
@@ -288,18 +288,18 @@ import 'package:myapp/util.dart';
 
 <div class="good">
 {% prettify dart %}
-import 'src/error.dart';
-import 'src/string_source.dart';
+import "src/error.dart";
+import "src/string_source.dart";
 
-export 'src/error.dart';
+export "src/error.dart";
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-import 'src/error.dart';
-export 'src/error.dart';
-import 'src/string_source.dart';
+import "src/error.dart";
+export "src/error.dart";
+import "src/string_source.dart";
 {% endprettify %}
 </div>
 
@@ -311,21 +311,21 @@ Most tools for editing Dart code can do this automatically for you.
 
 <div class="good">
 {% prettify dart %}
-import 'package:bar/bar.dart'
-import 'package:foo/bar.dart'
+import "package:bar/bar.dart";
+import "package:foo/bar.dart";
 
-import 'a.dart';
-import 'a/b.dart';
+import "a.dart";
+import "a/b.dart";
 {% endprettify %}
 </div>
 
 <div class="bad">
 {% prettify dart %}
-import 'package:foo/bar.dart'
-import 'package:bar/bar.dart'
+import "package:foo/bar.dart";
+import "package:bar/bar.dart";
 
-import 'a/b.dart';
-import 'a.dart';
+import "a/b.dart";
+import "a.dart";
 {% endprettify %}
 </div>
 
@@ -376,9 +376,9 @@ Doing so avoids the [dangling else][] problem.
 <div class="good">
 {% prettify dart %}
 if (true) {
-  print('sanity');
+  print("sanity");
 } else {
-  print('opposite day!');
+  print("opposite day!");
 }
 {% endprettify %}
 </div>
@@ -471,7 +471,7 @@ binary operators. However, the `.` used to access members is not and should
 {% prettify dart %}
 average = (a + b) / 2;
 largest = a > b ? a : b;
-if (obj is! SomeType) print('not SomeType');
+if (obj is! SomeType) print("not SomeType");
 optional([parameter = defaultValue]) { ... }
 {% endprettify %}
 </div>
@@ -648,12 +648,12 @@ for each element.
 {% prettify dart %}
 mapInsideList([
   {
-    'a': 'b',
-    'c': 'd'
+    "a": "b",
+    "c": "d"
   },
   {
-    'a': 'b',
-    'c': 'd'
+    "a": "b",
+    "c": "d"
   },
 ]);
 {% endprettify %}
@@ -666,7 +666,7 @@ mapInsideList([
 <div class="good">
 {% prettify dart %}
 if (condition) {
-  print('hi');
+  print("hi");
 
   [
     long,
@@ -684,12 +684,12 @@ if (condition) {
 <div class="good">
 {% prettify dart %}
 switch (fruit) {
-  case 'apple':
-    print('delish');
+  case "apple":
+    print("delish");
     break;
 
-  case 'durian':
-    print('stinky');
+  case "durian":
+    print("stinky");
     break;
 }
 {% endprettify %}
@@ -734,7 +734,7 @@ collection literals.
 <div class="good">
 {% prettify dart %}
 new Future.delayed(const Duration(seconds: 1), () {
-  print('I am a callback');
+  print("I am a callback");
 });
 
 args.addAll([
@@ -751,3 +751,4 @@ not wanting to indent large swathes of code unecessarily.
 <hr>
 
 {% include effective-dart-nav.html %}
+

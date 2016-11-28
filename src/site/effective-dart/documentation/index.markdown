@@ -48,7 +48,7 @@ inline stuff, even TODOs. Even if it's a sentence fragment.
 {% prettify dart %}
 greet(name) {
   // Assume we have a valid name.
-  print('Hi, $name!');
+  print("Hi, $name!");
 }
 {% endprettify %}
 </div>
@@ -57,7 +57,7 @@ greet(name) {
 {% prettify dart %}
 greet(name) {
   /* Assume we have a valid name. */
-  print('Hi, $name!');
+  print("Hi, $name!");
 }
 {% endprettify %}
 </div>
