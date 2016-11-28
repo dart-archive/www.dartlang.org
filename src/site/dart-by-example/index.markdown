@@ -936,7 +936,7 @@ import 'package:path/path.dart' as path;
 
 main() {
   var newPath = path.join('/Users/shailen', 'dart/projects');
-  print(newPath); // Prints '/Users.shailen/dart/projects'.
+  print(newPath); // Prints '/Users/shailen/dart/projects'.
 }
 {% endprettify %}
 
